@@ -9,7 +9,12 @@ export type OverrideToken = {
 export type GlobalToken = AliasToken & ComponentTokenMap;
 
 export { PresetColors } from './presetColors';
-export type { PresetColorType, ColorPalettes } from './presetColors';
+export type {
+  PresetColorType,
+  ColorPalettes,
+  LegacyColorPalettes,
+  PresetColorKey,
+} from './presetColors';
 export type { SeedToken } from './seeds';
 export type {
   MapToken,
@@ -18,7 +23,7 @@ export type {
   CommonMapToken,
   HeightMapToken,
   SizeMapToken,
-  FontSizeMapToken,
+  FontMapToken,
   StyleMapToken,
 } from './maps';
 export type { AliasToken } from './alias';

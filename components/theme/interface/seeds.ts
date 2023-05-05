@@ -41,6 +41,7 @@ export interface SeedToken extends PresetColorType {
 
   /**
    * @nameZH 信息色
+   * @nameEN Info Color
    * @desc 用于表示操作信息的 Token 序列，如 Alert 、Tag、 Progress 等组件都有用到该组梯度变量。
    * @descEN Used to represent the operation information of the Token sequence, such as Alert, Tag, Progress, and other components use these map tokens.
    */
@@ -49,7 +50,7 @@ export interface SeedToken extends PresetColorType {
   /**
    * @nameZH 基础文本色
    * @nameEN Seed Text Color
-   * @desc 用于派生文本色梯度的基础变量，v5 中我们添加了一层文本色的派生算法可以产出梯度明确的文本色的梯度变量。但**请不要在代码中直接使用该 Seed Token**！
+   * @desc 用于派生文本色梯度的基础变量，v5 中我们添加了一层文本色的派生算法可以产出梯度明确的文本色的梯度变量。但请不要在代码中直接使用该 Seed Token ！
    * @descEN Used to derive the base variable of the text color gradient. In v5, we added a layer of text color derivation algorithm to produce gradient variables of text color gradient. But please do not use this Seed Token directly in the code!
    */
   colorTextBase: string;
@@ -57,7 +58,7 @@ export interface SeedToken extends PresetColorType {
   /**
    * @nameZH 基础背景色
    * @nameEN Seed Background Color
-   * @desc 用于派生背景色梯度的基础变量，v5 中我们添加了一层背景色的派生算法可以产出梯度明确的背景色的梯度变量。但 **请不要在代码中直接使用该 Seed Token** ！
+   * @desc 用于派生背景色梯度的基础变量，v5 中我们添加了一层背景色的派生算法可以产出梯度明确的背景色的梯度变量。但请不要在代码中直接使用该 Seed Token ！
    * @descEN Used to derive the base variable of the background color gradient. In v5, we added a layer of background color derivation algorithm to produce map token of background color. But PLEASE DO NOT USE this Seed Token directly in the code!
    */
   colorBgBase: string;
@@ -66,14 +67,25 @@ export interface SeedToken extends PresetColorType {
 
   /**
    * @nameZH 字体
-   * @nameEN FontFamily
+   * @nameEN Font family for default text
    * @desc Ant Design 的字体家族中优先使用系统默认的界面字体，同时提供了一套利于屏显的备用字体库，来维护在不同平台以及浏览器的显示下，字体始终保持良好的易读性和可读性，体现了友好、稳定和专业的特性。
+   * @descEN The font family of Ant Design prioritizes the default interface font of the system, and provides a set of alternative font libraries that are suitable for screen display to maintain the readability and readability of the font under different platforms and browsers, reflecting the friendly, stable and professional characteristics.
    */
   fontFamily: string;
 
   /**
+   * @nameZH 代码字体
+   * @nameEN Font family for code text
+   * @desc 代码字体，用于 Typography 内的 code、pre 和 kbd 类型的元素
+   * @descEN Code font, used for code, pre and kbd elements in Typography
+   */
+  fontFamilyCode: string;
+
+  /**
    * @nameZH 默认字号
+   * @nameEN Default Font Size
    * @desc 设计系统中使用最广泛的字体大小，文本梯度也将基于该字号进行派生。
+   * @descEN The most widely used font size in the design system, from which the text gradient will be derived.
    * @default 14
    */
   fontSize: number;
@@ -128,7 +140,8 @@ export interface SeedToken extends PresetColorType {
 
   /**
    * @nameZH 组件箭头尺寸
-   * @internal
+   * @desc 组件箭头的尺寸
+   * @descEN The size of the component arrow
    */
   sizePopupArrow: number;
 
@@ -167,7 +180,6 @@ export interface SeedToken extends PresetColorType {
   /**
    * @nameZH 图片不透明度
    * @nameEN Define default Image opacity. Useful when in dark-like theme
-   * @internal
    */
   opacityImage: number;
 
@@ -184,57 +196,76 @@ export interface SeedToken extends PresetColorType {
   motionUnit: number;
 
   /**
-   * @nameZH 动画基础时长
-   * @internal
+   * @nameZH 动画基础时长。
+   * @nameEN Animation Base Duration.
    */
   motionBase: number;
 
   /**
-   * @internal
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
    */
   motionEaseOutCirc: string;
 
   /**
-   * @internal
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
    */
   motionEaseInOutCirc: string;
 
   /**
-   * @internal
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
    */
   motionEaseInOut: string;
 
   /**
-   * @internal
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
    */
   motionEaseOutBack: string;
 
   /**
-   * @internal
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
    */
   motionEaseInBack: string;
 
   /**
-   * @internal
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
    */
   motionEaseInQuint: string;
 
   /**
-   * @internal
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
    */
   motionEaseOutQuint: string;
 
   /**
-   * @internal
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
    */
   motionEaseOut: string;
 
   //  ----------   Style   ---------- //
 
   /**
-   * @nameZH 线框化
+   * @nameZH 线框风格
+   * @nameEN Wireframe Style
    * @desc 用于将组件的视觉效果变为线框化，如果需要使用 V4 的效果，需要开启配置项
+   * @descEN Used to change the visual effect of the component to wireframe, if you need to use the V4 effect, you need to enable the configuration item
    * @default false
    */
   wireframe: boolean;
+
+  /**
+   * @nameZH 动画风格
+   * @nameEN Motion Style
+   * @desc 用于配置动画效果，为 `false` 时则关闭动画
+   * @descEN Used to configure the motion effect, when it is `false`, the motion is turned off
+   * @default false
+   */
+  motion: boolean;
 }

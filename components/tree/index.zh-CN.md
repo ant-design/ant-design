@@ -4,6 +4,7 @@ group: 数据展示
 title: Tree
 subtitle: 树形控件
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Ag9_Q6ArswEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1GeUQJPTGUYAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -29,6 +30,7 @@ demo:
 <code src="./demo/virtual-scroll.tsx">虚拟滚动</code>
 <code src="./demo/drag-debug.tsx" debug>Drag Debug</code>
 <code src="./demo/big-data.tsx" debug>大数据</code>
+<code src="./demo/block-node.tsx">占据整行</code>
 
 ## API
 
@@ -36,7 +38,7 @@ demo:
 
 <!-- prettier-ignore -->
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | allowDrop | 是否允许拖拽时放置在该节点 | ({ dropNode, dropPosition }) => boolean | - |  |
 | autoExpandParent | 是否自动展开父节点 | boolean | false |  |
 | blockNode | 是否节点占据一行 | boolean | false |  |
@@ -122,6 +124,10 @@ demo:
 | 名称 | 说明 |
 | --- | --- |
 | scrollTo({ key: string \| number; align?: 'top' \| 'bottom' \| 'auto'; offset?: number }) | 虚拟滚动下，滚动到指定 key 条目 |
+
+## Design Token
+
+<ComponentTokenTable component="Transfer"></ComponentTokenTable>
 
 ## FAQ
 

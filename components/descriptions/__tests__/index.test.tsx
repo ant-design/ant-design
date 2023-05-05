@@ -80,7 +80,7 @@ describe('Descriptions', () => {
     wrapper.unmount();
   });
 
-  it('warning if ecceed the row span', () => {
+  it('warning if exceed the row span', () => {
     resetWarned();
 
     render(
@@ -255,5 +255,16 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
     expect(wrapper.container.firstChild).toMatchSnapshot();
+  });
+
+  it('should pass data-* and accessibility attributes', () => {
+    const { getByTestId } = render(
+      <Descriptions data-testid="test-id" data-id="12345" aria-describedby="some-label">
+        <Descriptions.Item label="banana">banana</Descriptions.Item>
+      </Descriptions>,
+    );
+    const container = getByTestId('test-id');
+    expect(container).toHaveAttribute('data-id', '12345');
+    expect(container).toHaveAttribute('aria-describedby', 'some-label');
   });
 });

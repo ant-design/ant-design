@@ -197,4 +197,17 @@ describe('Space', () => {
     );
     spy.mockRestore();
   });
+
+  it('should render the hidden empty item wrapper', () => {
+    const Null = () => null;
+    const { container } = render(
+      <Space>
+        <Null />
+      </Space>,
+    );
+    const item = container.querySelector('div.ant-space-item') as HTMLElement;
+
+    expect(item).toBeEmptyDOMElement();
+    expect(getComputedStyle(item).display).toBe('none');
+  });
 });

@@ -45,3 +45,53 @@ exports[`Tooltip should hide when mouse leave antd disabled component Switch 1`]
   </button>
 </span>
 `;
+
+exports[`Tooltip support arrow props by default 1`] = `
+<div>
+  <div
+    class="target ant-tooltip-open"
+  >
+    target
+  </div>
+  <div
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
+    <div
+      class="ant-tooltip-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    />
+    <div
+      class="ant-tooltip-content"
+    >
+      <div
+        class="ant-tooltip-inner"
+        role="tooltip"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tooltip support arrow props pass false to hide arrow 1`] = `
+<div>
+  <div
+    class="target ant-tooltip-open"
+  >
+    target
+  </div>
+  <div
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
+    <div
+      class="ant-tooltip-content"
+    >
+      <div
+        class="ant-tooltip-inner"
+        role="tooltip"
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -1,40 +1,24 @@
-import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { useLocation } from 'dumi';
-import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
-import classNames from 'classnames';
-import { Col, Modal, Popover, Row, Select, Typography } from 'antd';
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
-import type { DirectionType } from 'antd/es/config-provider';
 import { ClassNames, css } from '@emotion/react';
+import { Col, Modal, Popover, Row, Select } from 'antd';
+import classNames from 'classnames';
+import { useLocation, useSiteData } from 'dumi';
+import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
+import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import useLocale from '../../../hooks/useLocale';
+import useSiteToken from '../../../hooks/useSiteToken';
 import * as utils from '../../utils';
 import { getThemeConfig, ping } from '../../utils';
-import packageJson from '../../../../package.json';
+import type { SiteContextProps } from '../SiteContext';
+import SiteContext from '../SiteContext';
+import type { SharedProps } from './interface';
 import Logo from './Logo';
 import More from './More';
 import Navigation from './Navigation';
-import type { SiteContextProps } from '../SiteContext';
-import SiteContext from '../SiteContext';
-import useSiteToken from '../../../hooks/useSiteToken';
-import useLocale from '../../../hooks/useLocale';
 import SwitchBtn from './SwitchBtn';
 
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
-
-const { Option } = Select;
-
-const antdVersion: string = packageJson.version;
-
-const locales = {
-  cn: {
-    title: '🎉🎉🎉 Ant Design 5.0 发布！ 🎉🎉🎉',
-    ok: '知道了',
-  },
-  en: {
-    title: '🎉🎉🎉 Ant Design 5.0 is released! 🎉🎉🎉',
-    ok: 'Got it',
-  },
-};
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -46,7 +30,7 @@ const useStyle = () => {
       z-index: 10;
       max-width: 100%;
       background: ${token.colorBgContainer};
-      box-shadow: ${token.boxShadow};
+      box-shadow: ${token.boxShadowTertiary};
 
       @media only screen and (max-width: ${token.mobileMaxWidth}px) {
         text-align: center;
@@ -103,19 +87,11 @@ const useStyle = () => {
 
       > * {
         flex: none;
-        margin: 0 12px 0 0;
+        margin: 0;
+        margin-inline-end: 12px;
 
         &:last-child {
-          margin-right: 40px;
-        }
-      }
-
-      ${token.antCls}-row-rtl & {
-        > * {
-          &:last-child {
-            margin-right: 12px;
-            margin-left: 40px;
-          }
+          margin-inline-end: 40px;
         }
       }
     `,
@@ -129,11 +105,6 @@ const useStyle = () => {
   };
 };
 
-export interface HeaderProps {
-  changeDirection: (direction: DirectionType) => void;
-}
-
-const V5_NOTIFICATION = 'antd@4.0.0-notification-sent';
 const SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
 
 function disableAntdMirrorModal() {
@@ -151,36 +122,11 @@ interface HeaderState {
 }
 
 // ================================= Header =================================
-const Header: React.FC<HeaderProps> = (props) => {
-  const { changeDirection } = props;
+const Header: React.FC = () => {
   const [isClient, setIsClient] = React.useState(false);
-  const [locale, lang] = useLocale(locales);
-  const { token } = useSiteToken();
-  const [notify, setNotify] = React.useState<null | boolean>(null);
+  const [, lang] = useLocale();
 
-  // ========================= 发布通知 开始 =========================
-  React.useEffect(() => {
-    if (utils.isLocalStorageNameSupported()) {
-      // 大版本发布后全局弹窗提示
-      //   1. 点击『知道了』之后不再提示
-      //   2. 超过截止日期后不再提示
-      if (
-        localStorage.getItem(V5_NOTIFICATION) !== 'true' &&
-        Date.now() < new Date('2022/12/31').getTime()
-      ) {
-        setNotify(true);
-        return;
-      }
-    }
-
-    setNotify(false);
-  }, []);
-
-  function onClose() {
-    setNotify(false);
-    localStorage.setItem(V5_NOTIFICATION, 'true');
-  }
-  // ========================= 发布通知 结束 =========================
+  const { pkg } = useSiteData();
 
   const themeConfig = getThemeConfig();
   const [headerState, setHeaderState] = useState<HeaderState>({
@@ -188,7 +134,7 @@ const Header: React.FC<HeaderProps> = (props) => {
     windowWidth: 1400,
     searching: false,
   });
-  const { direction, isMobile } = useContext<SiteContextProps>(SiteContext);
+  const { direction, isMobile, updateSiteConfig } = useContext<SiteContextProps>(SiteContext);
   const pingTimer = useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
   const { pathname, search } = location;
@@ -208,7 +154,7 @@ const Header: React.FC<HeaderProps> = (props) => {
     setHeaderState((prev) => ({ ...prev, menuVisible: visible }));
   }, []);
   const onDirectionChange = () => {
-    changeDirection?.(direction !== 'rtl' ? 'rtl' : 'ltr');
+    updateSiteConfig({ direction: direction !== 'rtl' ? 'rtl' : 'ltr' });
   };
 
   useEffect(() => {
@@ -263,7 +209,11 @@ const Header: React.FC<HeaderProps> = (props) => {
         .replace(/\/$/, '');
       return;
     }
-    window.location.href = currentUrl.replace(window.location.origin, url);
+
+    // Mirror url must have `/`, we add this for compatible
+    const urlObj = new URL(currentUrl.replace(window.location.origin, url));
+    urlObj.pathname = `${urlObj.pathname.replace(/\/$/, '')}/`;
+    window.location.href = urlObj.href;
   }, []);
 
   const onLangChange = useCallback(() => {
@@ -293,17 +243,15 @@ const Header: React.FC<HeaderProps> = (props) => {
 
   const { menuVisible, windowWidth, searching } = headerState;
   const docVersions: Record<string, string> = {
-    [antdVersion]: antdVersion,
+    [pkg.version]: pkg.version,
     ...themeConfig?.docVersions,
   };
-  const versionOptions = Object.keys(docVersions).map((version) => (
-    <Option value={docVersions[version]} key={version}>
-      {version}
-    </Option>
-  ));
+  const versionOptions = Object.keys(docVersions).map((version) => ({
+    value: docVersions[version],
+    label: version,
+  }));
 
   const isHome = ['', 'index', 'index-cn'].includes(pathname);
-
   const isZhCN = lang === 'cn';
   const isRTL = direction === 'rtl';
   let responsive: null | 'narrow' | 'crowded' = null;
@@ -318,7 +266,7 @@ const Header: React.FC<HeaderProps> = (props) => {
     'home-header': isHome,
   });
 
-  const sharedProps = {
+  const sharedProps: SharedProps = {
     isZhCN,
     isRTL,
     isClient,
@@ -336,60 +284,19 @@ const Header: React.FC<HeaderProps> = (props) => {
     />
   );
 
-  let menu: (React.ReactElement | null)[] = [
+  let menu = [
     navigationNode,
-    <Popover
+    <Select
       key="version"
-      open={!!notify}
-      title={locale?.title}
-      content={
-        <Typography style={{ marginTop: token.marginXS }}>
-          {lang === 'cn' ? (
-            <>
-              <div>
-                如果你发现任何新官网的问题，欢迎到{' '}
-                <Typography.Link
-                  target="_blank"
-                  href="https://github.com/ant-design/ant-design/issues/38463"
-                >
-                  GitHub Issue
-                </Typography.Link>{' '}
-                反馈。
-              </div>
-              <div>如果你需要查看 v4 文档，请点击上侧切换。</div>
-            </>
-          ) : (
-            <>
-              <div>
-                If you find any official site problem. Please feel free to report on{' '}
-                <Typography.Link
-                  target="_blank"
-                  href="https://github.com/ant-design/ant-design/issues/38463"
-                >
-                  GitHub Issue
-                </Typography.Link>
-                .
-              </div>
-              <p>Click above Select to switch to v4 docs.</p>
-            </>
-          )}
-        </Typography>
-      }
-    >
-      <Select
-        key="version"
-        className="version"
-        size="small"
-        defaultValue={antdVersion}
-        onChange={handleVersionChange}
-        dropdownStyle={getDropdownStyle}
-        dropdownMatchSelectWidth={false}
-        getPopupContainer={(trigger) => trigger.parentNode}
-        onClick={onClose}
-      >
-        {versionOptions}
-      </Select>
-    </Popover>,
+      className="version"
+      size="small"
+      defaultValue={pkg.version}
+      onChange={handleVersionChange}
+      dropdownStyle={getDropdownStyle}
+      dropdownMatchSelectWidth={false}
+      getPopupContainer={(trigger) => trigger.parentNode}
+      options={versionOptions}
+    />,
     <More key="more" {...sharedProps} />,
     <SwitchBtn
       key="lang"
@@ -454,7 +361,7 @@ const Header: React.FC<HeaderProps> = (props) => {
               content={menu}
               trigger="click"
               open={menuVisible}
-              arrowPointAtCenter
+              arrow={{ arrowPointAtCenter: true }}
               onOpenChange={onMenuVisibleChange}
             >
               <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />

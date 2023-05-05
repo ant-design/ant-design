@@ -1,4 +1,5 @@
-import React from 'react';
+import { ConfigProvider } from 'antd';
+import React, { useRef } from 'react';
 import type { TableProps } from '..';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -108,8 +109,6 @@ describe('Table', () => {
       { key: '2', age: 42 },
     ];
 
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
     const columnsPageRange = jest.fn();
     const columnsPageSize = jest.fn();
     const props = { columnsPageRange, columnsPageSize };
@@ -119,7 +118,7 @@ describe('Table', () => {
       </Table>,
     );
 
-    expect(errorSpy).not.toHaveBeenCalledWith(
+    expect(warnSpy).not.toHaveBeenCalledWith(
       '`columnsPageRange` and `columnsPageSize` are removed, please use fixed columns instead, see: https://u.ant.design/fixed-columns.',
     );
 
@@ -352,5 +351,54 @@ describe('Table', () => {
     );
 
     expect(container.querySelector('thead th')).toMatchSnapshot();
+  });
+
+  // https://github.com/react-component/table/pull/855
+  it('support aria-* and data-*', async () => {
+    const { container } = render(<Table aria-label="label" data-number="123" />);
+    expect(container.querySelector('table')?.getAttribute('aria-label')).toBe('label');
+    expect(container.querySelector('.ant-table')?.getAttribute('data-number')).toBe('123');
+  });
+
+  it('support wireframe', () => {
+    const columns = [{ title: 'Name', key: 'name', dataIndex: 'name' }];
+    const { container } = render(
+      <ConfigProvider theme={{ token: { wireframe: true } }}>
+        <Table columns={columns} />
+      </ConfigProvider>,
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('support getPopupContainer inject by ConfigProvider', async () => {
+    const columns = [
+      {
+        title: 'title',
+        key: 'title',
+        dataIndex: 'title',
+        filters: [
+          {
+            text: 'filter',
+            value: 'filter',
+          },
+        ],
+      },
+    ];
+    const Demo = () => {
+      const wrapRef = useRef(null);
+      return (
+        <ConfigProvider getPopupContainer={wrapRef.current!}>
+          <div ref={wrapRef}>
+            <Table columns={columns} />
+          </div>
+        </ConfigProvider>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-dropdown')).toBeTruthy();
   });
 });

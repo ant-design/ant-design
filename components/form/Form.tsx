@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import FieldForm, { List, useWatch } from 'rc-field-form';
 import type { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
-import type { ValidateErrorEntity } from 'rc-field-form/lib/interface';
+import type { InternalNamePath, ValidateErrorEntity } from 'rc-field-form/lib/interface';
 import * as React from 'react';
 import { useMemo } from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
@@ -36,6 +36,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   requiredMark?: RequiredMark;
   /** @deprecated Will warning in future branch. Pls use `requiredMark` instead. */
   hideRequiredMark?: boolean;
+  rootClassName?: string;
 }
 
 const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (props, ref) => {
@@ -45,7 +46,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
 
   const {
     prefixCls: customizePrefixCls,
-    className = '',
+    className,
+    rootClassName,
     size = contextSize,
     disabled = contextDisabled,
     form,
@@ -96,6 +98,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     },
     hashId,
     className,
+    rootClassName,
   );
 
   const [wrapForm] = useForm(form);
@@ -120,16 +123,28 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
 
   React.useImperativeHandle(ref, () => wrapForm);
 
+  const scrollToField = (options: boolean | Options, fieldName: InternalNamePath) => {
+    if (options) {
+      let defaultScrollToFirstError: Options = { block: 'nearest' };
+      if (typeof options === 'object') {
+        defaultScrollToFirstError = options;
+      }
+      wrapForm.scrollToField(fieldName, defaultScrollToFirstError);
+    }
+  };
+
   const onInternalFinishFailed = (errorInfo: ValidateErrorEntity) => {
     onFinishFailed?.(errorInfo);
-
-    let defaultScrollToFirstError: Options = { block: 'nearest' };
-
-    if (scrollToFirstError && errorInfo.errorFields.length) {
-      if (typeof scrollToFirstError === 'object') {
-        defaultScrollToFirstError = scrollToFirstError;
+    if (errorInfo.errorFields.length) {
+      const fieldName = errorInfo.errorFields[0].name;
+      if (scrollToFirstError !== undefined) {
+        scrollToField(scrollToFirstError, fieldName);
+        return;
       }
-      wrapForm.scrollToField(errorInfo.errorFields[0].name, defaultScrollToFirstError);
+
+      if (contextForm && contextForm.scrollToFirstError !== undefined) {
+        scrollToField(contextForm.scrollToFirstError, fieldName);
+      }
     }
   };
 

@@ -84,7 +84,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
 // ==============================================================================
 export function useInternalNotification(
   notificationConfig?: HolderProps,
-): [NotificationInstance, React.ReactElement] {
+): readonly [NotificationInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
 
   // ================================ API ================================
@@ -105,18 +105,10 @@ export function useInternalNotification(
       const { open: originOpen, prefixCls, hashId } = holderRef.current;
       const noticePrefixCls = `${prefixCls}-notice`;
 
-      const {
-        message,
-        description,
-        icon,
-        type,
-        placement = 'topRight',
-        btn,
-        className,
-        ...restConfig
-      } = config;
+      const { message, description, icon, type, btn, className, ...restConfig } = config;
 
       return originOpen({
+        placement: 'topRight',
         ...restConfig,
         content: (
           <PureContent
@@ -128,7 +120,6 @@ export function useInternalNotification(
             btn={btn}
           />
         ),
-        placement,
         className: classNames(type && `${noticePrefixCls}-${type}`, hashId, className),
       });
     };
@@ -160,7 +151,10 @@ export function useInternalNotification(
   }, []);
 
   // ============================== Return ===============================
-  return [wrapAPI, <Holder key="holder" {...notificationConfig} ref={holderRef} />];
+  return [
+    wrapAPI,
+    <Holder key="notification-holder" {...notificationConfig} ref={holderRef} />,
+  ] as const;
 }
 
 export default function useNotification(notificationConfig?: NotificationConfig) {

@@ -4,6 +4,7 @@ group: Feedback
 noinstant: true
 title: Message
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JjZBT6N1MusAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7qMTRoq3ZGkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -107,6 +108,10 @@ message.config({
 | rtl | Whether to enable RTL mode | boolean | false |  |
 | top | Distance from top | number | 8 |  |
 
+## Design Token
+
+<ComponentTokenTable component="Message"></ComponentTokenTable>
+
 ## FAQ
 
 ### Why I can not access context, redux, ConfigProvider `locale/prefixCls/theme` in message?
@@ -131,6 +136,8 @@ return (
 
 **Note:** You must insert `contextHolder` into your children with hooks. You can use origin method if you do not need context connection.
 
+> [App Package Component](/components/app) can be used to simplify the problem of `useMessage` and other methods that need to manually implant contextHolder.
+
 ### How to set static methods prefixCls ？
 
-You can config with [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>)
+You can config with [`ConfigProvider.config`](/components/config-provider#configproviderconfig-4130)

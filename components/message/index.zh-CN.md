@@ -5,6 +5,7 @@ group: 反馈
 noinstant: true
 title: Message
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JjZBT6N1MusAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7qMTRoq3ZGkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -108,6 +109,10 @@ message.config({
 | rtl | 是否开启 RTL 模式 | boolean | false |  |
 | top | 消息距离顶部的位置 | number | 8 |  |
 
+## Design Token
+
+<ComponentTokenTable component="Message"></ComponentTokenTable>
+
 ## FAQ
 
 ### 为什么 message 不能获取 context、redux 的内容和 ConfigProvider 的 `locale/prefixCls/theme` 等配置？
@@ -132,6 +137,8 @@ return (
 
 **异同**：通过 hooks 创建的 `contextHolder` 必须插入到子元素节点中才会生效，当你不需要上下文信息时请直接调用。
 
+> 可通过 [App 包裹组件](/components/app-cn) 简化 `useMessage` 等方法需要手动植入 contextHolder 的问题。
+
 ### 静态方法如何设置 prefixCls ？
 
-你可以通过 [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>) 进行设置。
+你可以通过 [`ConfigProvider.config`](/components/config-provider-cn#configproviderconfig-4130) 进行设置。

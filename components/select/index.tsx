@@ -1,29 +1,28 @@
 // TODO: 4.0 - codemod should help to change `filterOption` to support node props.
-
 import classNames from 'classnames';
-import type { SelectProps as RcSelectProps } from 'rc-select';
-import RcSelect, { type BaseSelectRef, OptGroup, Option } from 'rc-select';
+import type { BaseSelectRef, SelectProps as RcSelectProps } from 'rc-select';
+import RcSelect, { OptGroup, Option } from 'rc-select';
 import type { OptionProps } from 'rc-select/lib/Option';
 import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-import { useContext } from 'react';
-import { ConfigContext } from '../config-provider';
-import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
-import DisabledContext from '../config-provider/DisabledContext';
-import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
-import { FormItemInputContext } from '../form/context';
+import genPurePanel from '../_util/PurePanel';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionDirection, getTransitionName } from '../_util/motion';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import getIcons from './utils/iconUtil';
-
-import useStyle from './style';
-import genPurePanel from '../_util/PurePanel';
 import warning from '../_util/warning';
+import { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
+import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import { FormItemInputContext } from '../form/context';
 import { useCompactItemContext } from '../space/Compact';
+import useStyle from './style';
+import useBuiltinPlacements from './useBuiltinPlacements';
+import useShowArrow from './useShowArrow';
+import getIcons from './utils/iconUtil';
 
 type RawValue = string | number;
 
@@ -61,6 +60,10 @@ export interface SelectProps<
   popupClassName?: string;
   /** @deprecated Please use `popupClassName` instead */
   dropdownClassName?: string;
+  rootClassName?: string;
+  /** @deprecated Please use `popupMatchSelectWidth` instead */
+  dropdownMatchSelectWidth?: boolean | number;
+  popupMatchSelectWidth?: boolean | number;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -70,6 +73,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     prefixCls: customizePrefixCls,
     bordered = true,
     className,
+    rootClassName,
     getPopupContainer,
     popupClassName,
     dropdownClassName,
@@ -81,6 +85,9 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     notFoundContent,
     status: customStatus,
     showArrow,
+    builtinPlacements,
+    dropdownMatchSelectWidth,
+    popupMatchSelectWidth,
     ...props
   }: SelectProps<OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -91,7 +98,9 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     renderEmpty,
     direction,
     virtual,
-    dropdownMatchSelectWidth,
+    popupMatchSelectWidth: contextPopupMatchSelectWidth,
+    popupOverflow,
+    select,
   } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
@@ -116,8 +125,10 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   }, [props.mode]);
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
-  const mergedShowArrow =
-    showArrow !== undefined ? showArrow : props.loading || !(isMultiple || mode === 'combobox');
+  const mergedShowArrow = useShowArrow(showArrow);
+
+  const mergedPopupMatchSelectWidth =
+    popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
 
   // ===================== Form Status =====================
   const {
@@ -125,7 +136,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     hasFeedback,
     isFormItemInput,
     feedbackIcon,
-  } = useContext(FormItemInputContext);
+  } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Empty =====================
@@ -135,7 +146,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   } else if (mode === 'combobox') {
     mergedNotFound = null;
   } else {
-    mergedNotFound = (renderEmpty || defaultRenderEmpty)('Select');
+    mergedNotFound = renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />;
   }
 
   // ===================== Icons =====================
@@ -155,6 +166,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     {
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
     },
+    rootClassName,
     hashId,
   );
 
@@ -175,18 +187,19 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     compactItemClassnames,
     className,
+    rootClassName,
     hashId,
   );
 
   // ===================== Placement =====================
-  const getPlacement = () => {
+  const memoPlacement = React.useMemo<SelectCommonPlacement>(() => {
     if (placement !== undefined) {
       return placement;
     }
-    return direction === 'rtl'
-      ? ('bottomRight' as SelectCommonPlacement)
-      : ('bottomLeft' as SelectCommonPlacement);
-  };
+    return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
+  }, [placement, direction]);
+
+  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements, popupOverflow);
 
   // ====================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
@@ -195,15 +208,23 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       'Select',
       '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
     );
+
+    warning(
+      dropdownMatchSelectWidth === undefined,
+      'Select',
+      '`dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
+    );
   }
 
   // ====================== Render =======================
   return wrapSSR(
     <RcSelect<any, any>
-      ref={ref as any}
+      ref={ref}
       virtual={virtual}
-      dropdownMatchSelectWidth={dropdownMatchSelectWidth}
+      showSearch={select?.showSearch}
       {...selectProps}
+      dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
+      builtinPlacements={mergedBuiltinPlacements}
       transitionName={getTransitionName(
         rootPrefixCls,
         getTransitionDirection(placement),
@@ -211,9 +232,9 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       )}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
-      mode={mode as any}
+      mode={mode}
       prefixCls={prefixCls}
-      placement={getPlacement()}
+      placement={memoPlacement}
       direction={direction}
       inputIcon={suffixIcon}
       menuItemSelectedIcon={itemIcon}
@@ -223,11 +244,15 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={rcSelectRtlDropdownClassName}
-      showArrow={hasFeedback || showArrow}
+      showArrow={hasFeedback || mergedShowArrow}
       disabled={mergedDisabled}
     />,
   );
 };
+
+if (process.env.NODE_ENV !== 'production') {
+  InternalSelect.displayName = 'Select';
+}
 
 const Select = React.forwardRef(InternalSelect) as unknown as (<
   ValueType = any,

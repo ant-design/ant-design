@@ -7,17 +7,16 @@
 There are 12 `placement` options available. Use `arrowPointAtCenter` if you want the arrow to point at the center of target.
 
 <style>
-#components-popconfirm-demo-placement .demo {
-  overflow: auto;
-}
-#components-popconfirm-demo-placement .ant-popover-wrap > a {
-  margin-right: 8px;
-}
 #components-popconfirm-demo-placement .ant-btn {
+  margin-left: 0;
   margin-right: 8px;
   margin-bottom: 8px;
   width: 70px;
   text-align: center;
   padding: 0;
+}
+#components-popconfirm-demo-placement .ant-btn-rtl {
+  margin-left: 8px;
+  margin-right: 0;
 }
 </style>

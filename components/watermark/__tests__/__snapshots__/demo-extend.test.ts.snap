@@ -1,0 +1,1278 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/watermark/demo/basic.tsx extend context correctly 1`] = `
+<div
+  class=""
+  style="position: relative;"
+>
+  <div
+    style="height: 500px;"
+  />
+  <div
+    style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 220px;"
+  />
+</div>
+`;
+
+exports[`renders components/watermark/demo/custom.tsx extend context correctly 1`] = `
+<div
+  style="display: flex;"
+>
+  <div
+    class=""
+    style="position: relative;"
+  >
+    <article
+      class="ant-typography"
+    >
+      <div
+        class="ant-typography"
+      >
+        The light-speed iteration of the digital world makes products more complex. However, human consciousness and attention resources are limited. Facing this design contradiction, the pursuit of natural interaction will be the consistent direction of Ant Design.
+      </div>
+      <div
+        class="ant-typography"
+      >
+        Natural user cognition: According to cognitive psychology, about 80% of external information is obtained through visual channels. The most important visual elements in the interface design, including layout, colors, illustrations, icons, etc., should fully absorb the laws of nature, thereby reducing the user's cognitive cost and bringing authentic and smooth feelings. In some scenarios, opportunely adding other sensory channels such as hearing, touch can create a richer and more natural product experience.
+      </div>
+      <div
+        class="ant-typography"
+      >
+        Natural user behavior: In the interaction with the system, the designer should fully understand the relationship between users, system roles, and task objectives, and also contextually organize system functions and services. At the same time, a series of methods such as behavior analysis, artificial intelligence and sensors could be applied to assist users to make effective decisions and reduce extra operations of users, to save users' mental and physical resources and make human-computer interaction more natural.
+      </div>
+    </article>
+    <img
+      alt="示例图片"
+      src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zx7LTI_ECSAAAAAAAAAAAABkARQnAQ"
+      style="z-index: 10; width: 100%; max-width: 800px; position: relative;"
+    />
+    <div
+      style="z-index: 11; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 220px;"
+    />
+  </div>
+  <form
+    class="ant-form ant-form-vertical"
+    style="width: 280px; flex-shrink: 0; border-left: 1px solid #eee; padding-left: 20px; margin-left: 20px;"
+  >
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="content"
+            title="Content"
+          >
+            Content
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                class="ant-input"
+                id="content"
+                placeholder="请输入"
+                type="text"
+                value="Ant Design"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="color"
+            title="Color"
+          >
+            Color
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                style="padding: 4px; background: rgb(255, 255, 255); border-radius: 2px; border: 1px solid #dedede; display: inline-block; cursor: pointer;"
+              >
+                <div
+                  style="width: 36px; height: 14px; border-radius: 2px; background: rgba(0, 0, 0, 0.15);"
+                />
+              </div>
+              <div
+                class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottomLeft"
+                style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              >
+                <div
+                  class="ant-popover-arrow"
+                  style="position: absolute;"
+                />
+                <div
+                  class="ant-popover-content"
+                >
+                  <div
+                    class="ant-popover-inner"
+                    role="tooltip"
+                    style="padding: 0px;"
+                  >
+                    <div
+                      class="ant-popover-inner-content"
+                    >
+                      <div
+                        class="sketch-picker "
+                        style="width: 200px; padding: 10px 10px 0px; box-sizing: initial; background: rgb(255, 255, 255); border-radius: 4px; box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15);"
+                      >
+                        <div
+                          style="width: 100%; padding-bottom: 75%; position: relative; overflow: hidden;"
+                        >
+                          <div
+                            style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background: rgb(255, 0, 0);"
+                          >
+                            <style>
+          .saturation-white {
+            background: -webkit-linear-gradient(to right, #fff, rgba(255,255,255,0));
+            background: linear-gradient(to right, #fff, rgba(255,255,255,0));
+          }
+          .saturation-black {
+            background: -webkit-linear-gradient(to top, #000, rgba(0,0,0,0));
+            background: linear-gradient(to top, #000, rgba(0,0,0,0));
+          }
+                            </style>
+                            <div
+                              class="saturation-white"
+                              style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px;"
+                            >
+                              <div
+                                class="saturation-black"
+                                style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px;"
+                              />
+                              <div
+                                style="position: absolute; top: 100%; left: 0%; cursor: default;"
+                              >
+                                <div
+                                  style="width: 4px; height: 4px; box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
+            0 0 1px 2px rgba(0,0,0,.4); border-radius: 50%; cursor: hand; transform: translate(-2px, -2px);"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="flexbox-fix"
+                          style="display: flex;"
+                        >
+                          <div
+                            style="padding: 4px 0px; flex: 1;"
+                          >
+                            <div
+                              style="position: relative; height: 10px; overflow: hidden;"
+                            >
+                              <div
+                                style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px;"
+                              >
+                                <div
+                                  class="hue-horizontal"
+                                  style="padding: 0px 2px; position: relative; height: 100%;"
+                                >
+                                  <style>
+            .hue-horizontal {
+              background: linear-gradient(to right, #f00 0%, #ff0 17%, #0f0
+                33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+              background: -webkit-linear-gradient(to right, #f00 0%, #ff0
+                17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+            }
+            .hue-vertical {
+              background: linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%,
+                #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+              background: -webkit-linear-gradient(to top, #f00 0%, #ff0 17%,
+                #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+            }
+                                  </style>
+                                  <div
+                                    style="position: absolute; left: 0%;"
+                                  >
+                                    <div
+                                      style="margin-top: 1px; width: 4px; border-radius: 1px; height: 8px; box-shadow: 0 0 2px rgba(0, 0, 0, .6); background: rgb(255, 255, 255); transform: translateX(-2px);"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              style="position: relative; height: 10px; margin-top: 4px; overflow: hidden;"
+                            >
+                              <div
+                                style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px;"
+                              >
+                                <div
+                                  style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; overflow: hidden;"
+                                >
+                                  <div
+                                    style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background: url(data:image/png;base64,00) left;"
+                                  />
+                                </div>
+                                <div
+                                  style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px;"
+                                />
+                                <div
+                                  style="position: relative; height: 100%; margin: 0px 3px;"
+                                >
+                                  <div
+                                    style="position: absolute; left: 15%;"
+                                  >
+                                    <div
+                                      style="width: 4px; border-radius: 1px; height: 8px; box-shadow: 0 0 2px rgba(0, 0, 0, .6); background: rgb(255, 255, 255); margin-top: 1px; transform: translateX(-2px);"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            style="width: 24px; height: 24px; position: relative; margin-top: 4px; margin-left: 4px; border-radius: 3px;"
+                          >
+                            <div
+                              style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background: url(data:image/png;base64,00) left;"
+                            />
+                            <div
+                              style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; border-radius: 2px; background: rgba(0, 0, 0, 0.15); box-shadow: inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="flexbox-fix"
+                          style="display: flex; padding-top: 4px;"
+                        >
+                          <div
+                            style="flex: 2;"
+                          >
+                            <div
+                              style="position: relative;"
+                            >
+                              <input
+                                id="rc-editable-input-2"
+                                spellcheck="false"
+                                style="width: 80%; padding: 4px 10% 3px; box-shadow: inset 0 0 0 1px #ccc; font-size: 11px;"
+                                value="000000"
+                              />
+                              <label
+                                for="rc-editable-input-2"
+                                style="display: block; text-align: center; font-size: 11px; color: rgb(34, 34, 34); padding-top: 3px; padding-bottom: 4px; text-transform: capitalize;"
+                              >
+                                hex
+                              </label>
+                            </div>
+                          </div>
+                          <div
+                            style="flex: 1; padding-left: 6px;"
+                          >
+                            <div
+                              style="position: relative;"
+                            >
+                              <input
+                                id="rc-editable-input-4"
+                                spellcheck="false"
+                                style="width: 80%; padding: 4px 10% 3px; box-shadow: inset 0 0 0 1px #ccc; font-size: 11px;"
+                                value="0"
+                              />
+                              <label
+                                for="rc-editable-input-4"
+                                style="display: block; text-align: center; font-size: 11px; color: rgb(34, 34, 34); padding-top: 3px; padding-bottom: 4px; text-transform: capitalize; cursor: ew-resize;"
+                              >
+                                r
+                              </label>
+                            </div>
+                          </div>
+                          <div
+                            style="flex: 1; padding-left: 6px;"
+                          >
+                            <div
+                              style="position: relative;"
+                            >
+                              <input
+                                id="rc-editable-input-6"
+                                spellcheck="false"
+                                style="width: 80%; padding: 4px 10% 3px; box-shadow: inset 0 0 0 1px #ccc; font-size: 11px;"
+                                value="0"
+                              />
+                              <label
+                                for="rc-editable-input-6"
+                                style="display: block; text-align: center; font-size: 11px; color: rgb(34, 34, 34); padding-top: 3px; padding-bottom: 4px; text-transform: capitalize; cursor: ew-resize;"
+                              >
+                                g
+                              </label>
+                            </div>
+                          </div>
+                          <div
+                            style="flex: 1; padding-left: 6px;"
+                          >
+                            <div
+                              style="position: relative;"
+                            >
+                              <input
+                                id="rc-editable-input-8"
+                                spellcheck="false"
+                                style="width: 80%; padding: 4px 10% 3px; box-shadow: inset 0 0 0 1px #ccc; font-size: 11px;"
+                                value="0"
+                              />
+                              <label
+                                for="rc-editable-input-8"
+                                style="display: block; text-align: center; font-size: 11px; color: rgb(34, 34, 34); padding-top: 3px; padding-bottom: 4px; text-transform: capitalize; cursor: ew-resize;"
+                              >
+                                b
+                              </label>
+                            </div>
+                          </div>
+                          <div
+                            style="flex: 1; padding-left: 6px;"
+                          >
+                            <div
+                              style="position: relative;"
+                            >
+                              <input
+                                id="rc-editable-input-10"
+                                spellcheck="false"
+                                style="width: 80%; padding: 4px 10% 3px; box-shadow: inset 0 0 0 1px #ccc; font-size: 11px;"
+                                value="15"
+                              />
+                              <label
+                                for="rc-editable-input-10"
+                                style="display: block; text-align: center; font-size: 11px; color: rgb(34, 34, 34); padding-top: 3px; padding-bottom: 4px; text-transform: capitalize; cursor: ew-resize;"
+                              >
+                                a
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="flexbox-fix"
+                          style="margin: 0px -10px; padding: 10px 0px 0px 10px; border-top: 1px solid #eee; display: flex; flex-wrap: wrap; position: relative;"
+                        >
+                          <div
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
+                          >
+                            <span>
+                              <div
+                                style="background: rgb(208, 2, 27); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
+                                tabindex="0"
+                                title="#D0021B"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
+                          >
+                            <span>
+                              <div
+                                style="background: rgb(245, 166, 35); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
+                                tabindex="0"
+                                title="#F5A623"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
+                          >
+                            <span>
+                              <div
+                                style="background: rgb(248, 231, 28); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
+                                tabindex="0"
+                                title="#F8E71C"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
+                          >
+                            <span>
+                              <div
+                                style="background: rgb(139, 87, 42); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
+                                tabindex="0"
+                                title="#8B572A"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
+                          >
+                            <span>
+                              <div
+                                style="background: rgb(126, 211, 33); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
+                                tabindex="0"
+                                title="#7ED321"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
+                          >
+                            <span>
+                              <div
+                                style="background: rgb(65, 117, 5); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
+                                tabindex="0"
+                                title="#417505"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
+                          >
+                            <span>
+                              <div
+                                style="background: rgb(189, 16, 224); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
+                                tabindex="0"
+                                title="#BD10E0"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
+                          >
+                            <span>
+                              <div
+                                style="background: rgb(144, 19, 254); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
+                                tabindex="0"
+                                title="#9013FE"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
+                          >
+                            <span>
+                              <div
+                                style="background: rgb(74, 144, 226); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
+                                tabindex="0"
+                                title="#4A90E2"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
+                          >
+                            <span>
+                              <div
+                                style="background: rgb(80, 227, 194); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
+                                tabindex="0"
+                                title="#50E3C2"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
+                          >
+                            <span>
+                              <div
+                                style="background: rgb(184, 233, 134); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
+                                tabindex="0"
+                                title="#B8E986"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
+                          >
+                            <span>
+                              <div
+                                style="background: rgb(0, 0, 0); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
+                                tabindex="0"
+                                title="#000000"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
+                          >
+                            <span>
+                              <div
+                                style="background: rgb(74, 74, 74); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
+                                tabindex="0"
+                                title="#4A4A4A"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
+                          >
+                            <span>
+                              <div
+                                style="background: rgb(155, 155, 155); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
+                                tabindex="0"
+                                title="#9B9B9B"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
+                          >
+                            <span>
+                              <div
+                                style="background: rgb(255, 255, 255); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
+                                tabindex="0"
+                                title="#FFFFFF"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="fontSize"
+            title="FontSize"
+          >
+            FontSize
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-slider ant-slider-horizontal"
+              >
+                <div
+                  class="ant-slider-rail"
+                />
+                <div
+                  class="ant-slider-track"
+                  style="left: 0%; width: 16%;"
+                />
+                <div
+                  class="ant-slider-step"
+                />
+                <div
+                  aria-disabled="false"
+                  aria-valuemax="100"
+                  aria-valuemin="0"
+                  aria-valuenow="16"
+                  class="ant-slider-handle"
+                  role="slider"
+                  style="left: 16%; transform: translateX(-50%);"
+                  tabindex="0"
+                />
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+                  style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; bottom: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    >
+                      16
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="zIndex"
+            title="zIndex"
+          >
+            zIndex
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-slider ant-slider-horizontal"
+              >
+                <div
+                  class="ant-slider-rail"
+                />
+                <div
+                  class="ant-slider-track"
+                  style="left: 0%; width: 11%;"
+                />
+                <div
+                  class="ant-slider-step"
+                />
+                <div
+                  aria-disabled="false"
+                  aria-valuemax="100"
+                  aria-valuemin="0"
+                  aria-valuenow="11"
+                  class="ant-slider-handle"
+                  role="slider"
+                  style="left: 11%; transform: translateX(-50%);"
+                  tabindex="0"
+                />
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+                  style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; bottom: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    >
+                      11
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="rotate"
+            title="Rotate"
+          >
+            Rotate
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-slider ant-slider-horizontal"
+              >
+                <div
+                  class="ant-slider-rail"
+                />
+                <div
+                  class="ant-slider-track"
+                  style="left: 0%; width: 43.888888888888886%;"
+                />
+                <div
+                  class="ant-slider-step"
+                />
+                <div
+                  aria-disabled="false"
+                  aria-valuemax="180"
+                  aria-valuemin="-180"
+                  aria-valuenow="-22"
+                  class="ant-slider-handle"
+                  role="slider"
+                  style="left: 43.888888888888886%; transform: translateX(-50%);"
+                  tabindex="0"
+                />
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+                  style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; bottom: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    >
+                      -22
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item"
+      style="margin-bottom: 0px;"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            title="Gap"
+          >
+            Gap
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-space ant-space-horizontal ant-space-align-baseline"
+                style="display: flex;"
+              >
+                <div
+                  class="ant-space-item"
+                  style="margin-right: 8px;"
+                >
+                  <div
+                    class="ant-form-item"
+                  >
+                    <div
+                      class="ant-row ant-form-item-row"
+                    >
+                      <div
+                        class="ant-col ant-form-item-control"
+                      >
+                        <div
+                          class="ant-form-item-control-input"
+                        >
+                          <div
+                            class="ant-form-item-control-input-content"
+                          >
+                            <div
+                              class="ant-input-number ant-input-number-in-form-item"
+                              style="width: 100%;"
+                            >
+                              <div
+                                class="ant-input-number-handler-wrap"
+                              >
+                                <span
+                                  aria-disabled="false"
+                                  aria-label="Increase Value"
+                                  class="ant-input-number-handler ant-input-number-handler-up"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="up"
+                                    class="anticon anticon-up ant-input-number-handler-up-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="up"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                                <span
+                                  aria-disabled="false"
+                                  aria-label="Decrease Value"
+                                  class="ant-input-number-handler ant-input-number-handler-down"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="down"
+                                    class="anticon anticon-down ant-input-number-handler-down-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="down"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                              </div>
+                              <div
+                                class="ant-input-number-input-wrap"
+                              >
+                                <input
+                                  aria-valuenow="100"
+                                  autocomplete="off"
+                                  class="ant-input-number-input"
+                                  id="gap_0"
+                                  placeholder="gapX"
+                                  role="spinbutton"
+                                  step="1"
+                                  value="100"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-space-item"
+                >
+                  <div
+                    class="ant-form-item"
+                  >
+                    <div
+                      class="ant-row ant-form-item-row"
+                    >
+                      <div
+                        class="ant-col ant-form-item-control"
+                      >
+                        <div
+                          class="ant-form-item-control-input"
+                        >
+                          <div
+                            class="ant-form-item-control-input-content"
+                          >
+                            <div
+                              class="ant-input-number ant-input-number-in-form-item"
+                              style="width: 100%;"
+                            >
+                              <div
+                                class="ant-input-number-handler-wrap"
+                              >
+                                <span
+                                  aria-disabled="false"
+                                  aria-label="Increase Value"
+                                  class="ant-input-number-handler ant-input-number-handler-up"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="up"
+                                    class="anticon anticon-up ant-input-number-handler-up-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="up"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                                <span
+                                  aria-disabled="false"
+                                  aria-label="Decrease Value"
+                                  class="ant-input-number-handler ant-input-number-handler-down"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="down"
+                                    class="anticon anticon-down ant-input-number-handler-down-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="down"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                              </div>
+                              <div
+                                class="ant-input-number-input-wrap"
+                              >
+                                <input
+                                  aria-valuenow="100"
+                                  autocomplete="off"
+                                  class="ant-input-number-input"
+                                  id="gap_1"
+                                  placeholder="gapY"
+                                  role="spinbutton"
+                                  step="1"
+                                  value="100"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item"
+      style="margin-bottom: 0px;"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            title="Offset"
+          >
+            Offset
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-space ant-space-horizontal ant-space-align-baseline"
+                style="display: flex;"
+              >
+                <div
+                  class="ant-space-item"
+                  style="margin-right: 8px;"
+                >
+                  <div
+                    class="ant-form-item"
+                  >
+                    <div
+                      class="ant-row ant-form-item-row"
+                    >
+                      <div
+                        class="ant-col ant-form-item-control"
+                      >
+                        <div
+                          class="ant-form-item-control-input"
+                        >
+                          <div
+                            class="ant-form-item-control-input-content"
+                          >
+                            <div
+                              class="ant-input-number ant-input-number-in-form-item"
+                              style="width: 100%;"
+                            >
+                              <div
+                                class="ant-input-number-handler-wrap"
+                              >
+                                <span
+                                  aria-disabled="false"
+                                  aria-label="Increase Value"
+                                  class="ant-input-number-handler ant-input-number-handler-up"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="up"
+                                    class="anticon anticon-up ant-input-number-handler-up-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="up"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                                <span
+                                  aria-disabled="false"
+                                  aria-label="Decrease Value"
+                                  class="ant-input-number-handler ant-input-number-handler-down"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="down"
+                                    class="anticon anticon-down ant-input-number-handler-down-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="down"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                              </div>
+                              <div
+                                class="ant-input-number-input-wrap"
+                              >
+                                <input
+                                  autocomplete="off"
+                                  class="ant-input-number-input"
+                                  id="offset_0"
+                                  placeholder="offsetLeft"
+                                  role="spinbutton"
+                                  step="1"
+                                  value=""
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-space-item"
+                >
+                  <div
+                    class="ant-form-item"
+                  >
+                    <div
+                      class="ant-row ant-form-item-row"
+                    >
+                      <div
+                        class="ant-col ant-form-item-control"
+                      >
+                        <div
+                          class="ant-form-item-control-input"
+                        >
+                          <div
+                            class="ant-form-item-control-input-content"
+                          >
+                            <div
+                              class="ant-input-number ant-input-number-in-form-item"
+                              style="width: 100%;"
+                            >
+                              <div
+                                class="ant-input-number-handler-wrap"
+                              >
+                                <span
+                                  aria-disabled="false"
+                                  aria-label="Increase Value"
+                                  class="ant-input-number-handler ant-input-number-handler-up"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="up"
+                                    class="anticon anticon-up ant-input-number-handler-up-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="up"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                                <span
+                                  aria-disabled="false"
+                                  aria-label="Decrease Value"
+                                  class="ant-input-number-handler ant-input-number-handler-down"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="down"
+                                    class="anticon anticon-down ant-input-number-handler-down-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="down"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                              </div>
+                              <div
+                                class="ant-input-number-input-wrap"
+                              >
+                                <input
+                                  autocomplete="off"
+                                  class="ant-input-number-input"
+                                  id="offset_1"
+                                  placeholder="offsetTop"
+                                  role="spinbutton"
+                                  step="1"
+                                  value=""
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`renders components/watermark/demo/image.tsx extend context correctly 1`] = `
+<div
+  class=""
+  style="position: relative;"
+>
+  <div
+    style="height: 500px;"
+  />
+</div>
+`;
+
+exports[`renders components/watermark/demo/multi-line.tsx extend context correctly 1`] = `
+<div
+  class=""
+  style="position: relative;"
+>
+  <div
+    style="height: 500px;"
+  />
+  <div
+    style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 226px;"
+  />
+</div>
+`;

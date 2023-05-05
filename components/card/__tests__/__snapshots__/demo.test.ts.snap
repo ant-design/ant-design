@@ -1,129 +1,136 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/card/demo/basic.tsx correctly 1`] = `
-Array [
-  <div
-    class="ant-card ant-card-bordered"
-    style="width:300px"
-  >
-    <div
-      class="ant-card-head"
-    >
-      <div
-        class="ant-card-head-wrapper"
-      >
-        <div
-          class="ant-card-head-title"
-        >
-          Default size card
-        </div>
-        <div
-          class="ant-card-extra"
-        >
-          <a
-            href="#"
-          >
-            More
-          </a>
-        </div>
-      </div>
-    </div>
-    <div
-      class="ant-card-body"
-    >
-      <p>
-        Card content
-      </p>
-      <p>
-        Card content
-      </p>
-      <p>
-        Card content
-      </p>
-    </div>
-  </div>,
-  <div
-    class="ant-card ant-card-bordered ant-card-small"
-    style="width:300px"
-  >
-    <div
-      class="ant-card-head"
-    >
-      <div
-        class="ant-card-head-wrapper"
-      >
-        <div
-          class="ant-card-head-title"
-        >
-          Small size card
-        </div>
-        <div
-          class="ant-card-extra"
-        >
-          <a
-            href="#"
-          >
-            More
-          </a>
-        </div>
-      </div>
-    </div>
-    <div
-      class="ant-card-body"
-    >
-      <p>
-        Card content
-      </p>
-      <p>
-        Card content
-      </p>
-      <p>
-        Card content
-      </p>
-    </div>
-  </div>,
-]
-`;
-
-exports[`renders ./components/card/demo/border-less.tsx correctly 1`] = `
+exports[`renders components/card/demo/basic.tsx correctly 1`] = `
 <div
-  class="site-card-border-less-wrapper"
+  class="ant-space ant-space-vertical"
 >
   <div
-    class="ant-card"
-    style="width:300px"
+    class="ant-space-item"
+    style="margin-bottom:16px"
   >
     <div
-      class="ant-card-head"
+      class="ant-card ant-card-bordered"
+      style="width:300px"
     >
       <div
-        class="ant-card-head-wrapper"
+        class="ant-card-head"
       >
         <div
-          class="ant-card-head-title"
+          class="ant-card-head-wrapper"
         >
-          Card title
+          <div
+            class="ant-card-head-title"
+          >
+            Default size card
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <a
+              href="#"
+            >
+              More
+            </a>
+          </div>
         </div>
       </div>
+      <div
+        class="ant-card-body"
+      >
+        <p>
+          Card content
+        </p>
+        <p>
+          Card content
+        </p>
+        <p>
+          Card content
+        </p>
+      </div>
     </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
     <div
-      class="ant-card-body"
+      class="ant-card ant-card-bordered ant-card-small"
+      style="width:300px"
     >
-      <p>
-        Card content
-      </p>
-      <p>
-        Card content
-      </p>
-      <p>
-        Card content
-      </p>
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Small size card
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <a
+              href="#"
+            >
+              More
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        <p>
+          Card content
+        </p>
+        <p>
+          Card content
+        </p>
+        <p>
+          Card content
+        </p>
+      </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`renders ./components/card/demo/flexible-content.tsx correctly 1`] = `
+exports[`renders components/card/demo/border-less.tsx correctly 1`] = `
+<div
+  class="ant-card"
+  style="width:300px"
+>
+  <div
+    class="ant-card-head"
+  >
+    <div
+      class="ant-card-head-wrapper"
+    >
+      <div
+        class="ant-card-head-title"
+      >
+        Card title
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-card-body"
+  >
+    <p>
+      Card content
+    </p>
+    <p>
+      Card content
+    </p>
+    <p>
+      Card content
+    </p>
+  </div>
+</div>
+`;
+
+exports[`renders components/card/demo/flexible-content.tsx correctly 1`] = `
 <div
   class="ant-card ant-card-bordered ant-card-hoverable"
   style="width:240px"
@@ -161,7 +168,7 @@ exports[`renders ./components/card/demo/flexible-content.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/card/demo/grid-card.tsx correctly 1`] = `
+exports[`renders components/card/demo/grid-card.tsx correctly 1`] = `
 <div
   class="ant-card ant-card-bordered ant-card-contain-grid"
 >
@@ -227,100 +234,96 @@ exports[`renders ./components/card/demo/grid-card.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/card/demo/in-column.tsx correctly 1`] = `
+exports[`renders components/card/demo/in-column.tsx correctly 1`] = `
 <div
-  class="site-card-wrapper"
+  class="ant-row"
+  style="margin-left:-8px;margin-right:-8px"
 >
   <div
-    class="ant-row"
-    style="margin-left:-8px;margin-right:-8px"
+    class="ant-col ant-col-8"
+    style="padding-left:8px;padding-right:8px"
   >
     <div
-      class="ant-col ant-col-8"
-      style="padding-left:8px;padding-right:8px"
+      class="ant-card"
     >
       <div
-        class="ant-card"
+        class="ant-card-head"
       >
         <div
-          class="ant-card-head"
+          class="ant-card-head-wrapper"
         >
           <div
-            class="ant-card-head-wrapper"
+            class="ant-card-head-title"
           >
-            <div
-              class="ant-card-head-title"
-            >
-              Card title
-            </div>
+            Card title
           </div>
-        </div>
-        <div
-          class="ant-card-body"
-        >
-          Card content
         </div>
       </div>
-    </div>
-    <div
-      class="ant-col ant-col-8"
-      style="padding-left:8px;padding-right:8px"
-    >
       <div
-        class="ant-card"
+        class="ant-card-body"
       >
-        <div
-          class="ant-card-head"
-        >
-          <div
-            class="ant-card-head-wrapper"
-          >
-            <div
-              class="ant-card-head-title"
-            >
-              Card title
-            </div>
-          </div>
-        </div>
-        <div
-          class="ant-card-body"
-        >
-          Card content
-        </div>
+        Card content
       </div>
     </div>
+  </div>
+  <div
+    class="ant-col ant-col-8"
+    style="padding-left:8px;padding-right:8px"
+  >
     <div
-      class="ant-col ant-col-8"
-      style="padding-left:8px;padding-right:8px"
+      class="ant-card"
     >
       <div
-        class="ant-card"
+        class="ant-card-head"
       >
         <div
-          class="ant-card-head"
+          class="ant-card-head-wrapper"
         >
           <div
-            class="ant-card-head-wrapper"
+            class="ant-card-head-title"
           >
-            <div
-              class="ant-card-head-title"
-            >
-              Card title
-            </div>
+            Card title
           </div>
         </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        Card content
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-col ant-col-8"
+    style="padding-left:8px;padding-right:8px"
+  >
+    <div
+      class="ant-card"
+    >
+      <div
+        class="ant-card-head"
+      >
         <div
-          class="ant-card-body"
+          class="ant-card-head-wrapper"
         >
-          Card content
+          <div
+            class="ant-card-head-title"
+          >
+            Card title
+          </div>
         </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        Card content
       </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`renders ./components/card/demo/inner.tsx correctly 1`] = `
+exports[`renders components/card/demo/inner.tsx correctly 1`] = `
 <div
   class="ant-card ant-card-bordered"
 >
@@ -407,7 +410,7 @@ exports[`renders ./components/card/demo/inner.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/card/demo/loading.tsx correctly 1`] = `
+exports[`renders components/card/demo/loading.tsx correctly 1`] = `
 Array [
   <button
     aria-checked="false"
@@ -572,7 +575,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/card/demo/meta.tsx correctly 1`] = `
+exports[`renders components/card/demo/meta.tsx correctly 1`] = `
 <div
   class="ant-card ant-card-bordered"
   style="width:300px"
@@ -598,7 +601,7 @@ exports[`renders ./components/card/demo/meta.tsx correctly 1`] = `
           class="ant-avatar ant-avatar-circle ant-avatar-image"
         >
           <img
-            src="https://joeschmoe.io/api/v1/random"
+            src="https://xsgames.co/randomusers/avatar.php?g=pixel"
           />
         </span>
       </div>
@@ -700,7 +703,7 @@ exports[`renders ./components/card/demo/meta.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/card/demo/simple.tsx correctly 1`] = `
+exports[`renders components/card/demo/simple.tsx correctly 1`] = `
 <div
   class="ant-card ant-card-bordered"
   style="width:300px"
@@ -721,7 +724,7 @@ exports[`renders ./components/card/demo/simple.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/card/demo/tabs.tsx correctly 1`] = `
+exports[`renders components/card/demo/tabs.tsx correctly 1`] = `
 Array [
   <div
     class="ant-card ant-card-bordered ant-card-contain-tabs"
@@ -764,6 +767,7 @@ Array [
             >
               <div
                 class="ant-tabs-tab ant-tabs-tab-active"
+                data-node-key="tab1"
               >
                 <div
                   aria-disabled="false"
@@ -777,6 +781,7 @@ Array [
               </div>
               <div
                 class="ant-tabs-tab"
+                data-node-key="tab2"
               >
                 <div
                   aria-disabled="false"
@@ -881,6 +886,7 @@ Array [
             >
               <div
                 class="ant-tabs-tab"
+                data-node-key="article"
               >
                 <div
                   aria-disabled="false"
@@ -894,6 +900,7 @@ Array [
               </div>
               <div
                 class="ant-tabs-tab ant-tabs-tab-active"
+                data-node-key="app"
               >
                 <div
                   aria-disabled="false"
@@ -907,6 +914,7 @@ Array [
               </div>
               <div
                 class="ant-tabs-tab"
+                data-node-key="project"
               >
                 <div
                   aria-disabled="false"

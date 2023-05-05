@@ -3,6 +3,7 @@ category: Components
 group: Data Entry
 title: Cascader
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tokLTp73TsQAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5-ArSLl5UBsAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -63,12 +64,13 @@ Cascade selection box.
 | loadData | To load option lazily, and it cannot work with `showSearch` | (selectedOptions) => void | - |  |
 | maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| `responsive` | - | 4.17.0 |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode \| function(omittedValues) | - | 4.17.0 |
+| maxTagTextLength | Max tag text length to show | number | - | 4.17.0 |
 | notFoundContent | Specify content to show when no result matches | string | `Not Found` |  |
 | open | Set visible of cascader popup | boolean | - | 4.17.0 |
-| options | The data options of cascade | [Option](#Option)\[] | - |  |
+| options | The data options of cascade | [Option](#option)\[] | - |  |
 | placeholder | The input placeholder | string | `Please select` |  |
 | placement | Use preset popup align config from builtinPlacements | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |
-| showSearch | Whether show search input in single mode | boolean \| [Object](#showSearch) | false |  |
+| showSearch | Whether show search input in single mode | boolean \| [Object](#showsearch) | false |  |
 | size | The input size | `large` \| `middle` \| `small` | - |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | style | The additional style | CSSProperties | - |  |
@@ -115,3 +117,7 @@ interface Option {
 | ------- | ------------ | ------- |
 | blur()  | Remove focus |         |
 | focus() | Get focus    |         |
+
+## Design Token
+
+<ComponentTokenTable component="Cascader"></ComponentTokenTable>

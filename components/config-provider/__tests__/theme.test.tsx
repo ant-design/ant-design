@@ -10,7 +10,8 @@ import { resetWarned } from '../../_util/warning';
 
 const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 
-let mockCanUseDom = true;
+// eslint-disable-next-line no-var
+var mockCanUseDom = true;
 
 jest.mock('rc-util/lib/Dom/canUseDom', () => () => mockCanUseDom);
 
@@ -177,7 +178,7 @@ describe('ConfigProvider.Theme', () => {
     expect(tokens.a).toMatchObject(tokens.b);
   });
 
-  it('theme seperated should work', () => {
+  it('theme separated should work', () => {
     let tokenRef: any;
     const Demo = () => {
       const [, token] = useToken();

@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { ProgressProps } from '..';
 import Progress from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render } from '../../../tests/utils';
 import { handleGradient, sortGradient } from '../Line';
+import { ProgressTypes } from '../progress';
 import ProgressSteps from '../Steps';
-import { render } from '../../../tests/utils';
 
 describe('Progress', () => {
   mountTest(Progress);
@@ -139,7 +140,7 @@ describe('Progress', () => {
     expect(handleGradient({ from: 'test', to: 'test' }).backgroundImage).toBe(
       'linear-gradient(to right, test, test)',
     );
-    expect(handleGradient({}).backgroundImage).toBe('linear-gradient(to right, #1890FF, #1890FF)');
+    expect(handleGradient({}).backgroundImage).toBe('linear-gradient(to right, #1677FF, #1677FF)');
     expect(handleGradient({ from: 'test', to: 'test', '0%': 'test' }).backgroundImage).toBe(
       'linear-gradient(to right, test 0%)',
     );
@@ -180,14 +181,14 @@ describe('Progress', () => {
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
-  it('steps should be changable', () => {
+  it('steps should be changeable', () => {
     const { container: wrapper, rerender } = render(<Progress steps={5} percent={60} />);
     expect(wrapper.querySelectorAll('.ant-progress-steps-item-active').length).toBe(3);
     rerender(<Progress steps={5} percent={40} />);
     expect(wrapper.querySelectorAll('.ant-progress-steps-item-active').length).toBe(2);
   });
 
-  it('steps should be changable when has strokeColor', () => {
+  it('steps should be changeable when has strokeColor', () => {
     const { container: wrapper, rerender } = render(
       <Progress steps={5} percent={60} strokeColor="#1890ff" />,
     );
@@ -224,15 +225,30 @@ describe('Progress', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('should warnning if use `progress` in success', () => {
+  it('should warning if use `progress` in success', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress percent={60} success={{ progress: 30 }} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
     );
   });
+  it('should warnning if use `width` prop', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Progress percent={60} width={100} />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] `width` is deprecated. Please use `size` instead.',
+    );
+  });
 
-  it('should warnning if use `progress` in success in type Circle', () => {
+  it('should warnning if use `strokeWidth` prop in type Line', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Progress percent={60} strokeWidth={10} />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] `strokeWidth` is deprecated. Please use `size` instead.',
+    );
+  });
+
+  it('should warning if use `progress` in success in type Circle', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress percent={60} success={{ progress: 30 }} type="circle" />);
     expect(errorSpy).toHaveBeenCalledWith(
@@ -240,15 +256,108 @@ describe('Progress', () => {
     );
   });
 
-  // https://github.com/ant-design/ant-design/issues/30685
+  it('should warnning if pass number[] into `size` in type Circle', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Progress size={[60, 20]} type="circle" />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] Type "circle" and "dashbord" do not accept array as `size`, please use number or preset size instead.',
+    );
+  });
+
+  it('should warnning if pass number[] into `size` in type dashboard', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Progress size={[60, 20]} type="dashboard" />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] Type "circle" and "dashbord" do not accept array as `size`, please use number or preset size instead.',
+    );
+  });
+
+  it('should update the percentage based on the value of percent', () => {
+    const Content: React.FC = () => {
+      const [percent, setPercent] = useState(0);
+
+      return (
+        <>
+          {ProgressTypes.map((type) => (
+            <Progress key={type} type={type} percent={percent} success={{ percent: 30 }} />
+          ))}
+          <button type="button" onClick={() => setPercent(10)}>
+            Change Percent
+          </button>
+        </>
+      );
+    };
+
+    const { container } = render(<Content />);
+    expect(container.querySelectorAll('[title="0%"]')).toHaveLength(ProgressTypes.length);
+    // Change Percent
+    fireEvent.click(container.querySelectorAll('button')[0]);
+    expect(container.querySelectorAll('[title="10%"]')).toHaveLength(ProgressTypes.length);
+  });
+
   describe('github issues', () => {
-    it('"Rendered more hooks than during the previous render"', () => {
+    // https://github.com/ant-design/ant-design/issues/30685
+    it('Rendered more hooks than during the previous render', () => {
       expect(() => {
         const { rerender } = render(
           <Progress percent={60} success={{ percent: 0 }} type="circle" />,
         );
         rerender(<Progress percent={60} success={{ percent: 10 }} type="circle" />);
       }).not.toThrow();
+    });
+
+    // https://github.com/ant-design/ant-design/issues/40377
+    it('should not throw error when percent is null', () => {
+      expect(() => {
+        render(<Progress percent={null as unknown as number} />);
+      }).not.toThrow();
+    });
+  });
+
+  describe('progress size', () => {
+    const App = (props: { size: ProgressProps['size'] }) => (
+      <>
+        <Progress size={props.size} />
+        <Progress size={props.size} steps={3} />
+        <Progress type="circle" size={props.size} />
+        <Progress type="dashboard" size={props.size} />
+      </>
+    );
+
+    const { container, rerender } = render(<App size={30} />);
+    expect(container.querySelector('.ant-progress-line .ant-progress-outer')).toHaveStyle({
+      width: '30px',
+    });
+    expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
+      width: '30px',
+      height: '30px',
+    });
+    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[0]).toHaveStyle({
+      width: '30px',
+      height: '30px',
+    });
+    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[1]).toHaveStyle({
+      width: '30px',
+      height: '30px',
+    });
+
+    rerender(<App size={[60, 20]} />);
+
+    expect(container.querySelector('.ant-progress-line .ant-progress-outer')).toHaveStyle({
+      width: '60px',
+      height: '20px',
+    });
+    expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
+      width: '60px',
+      height: '20px',
+    });
+    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[0]).toHaveStyle({
+      width: '60px',
+      height: '60px',
+    });
+    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[1]).toHaveStyle({
+      width: '60px',
+      height: '60px',
     });
   });
 });

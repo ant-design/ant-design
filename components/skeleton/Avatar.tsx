@@ -14,6 +14,7 @@ const SkeletonAvatar: React.FC<AvatarProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     active,
     shape = 'circle',
     size = 'default',
@@ -30,6 +31,7 @@ const SkeletonAvatar: React.FC<AvatarProps> = (props) => {
       [`${prefixCls}-active`]: active,
     },
     className,
+    rootClassName,
     hashId,
   );
 

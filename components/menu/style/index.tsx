@@ -164,7 +164,7 @@ const genSubMenuArrowStyle = (token: MenuToken): CSSObject => {
         width: menuArrowSize,
         color: 'currentcolor',
         transform: 'translateY(-50%)',
-        transition: `transform ${motionDurationSlow} ${motionEaseInOut}`,
+        transition: `transform ${motionDurationSlow} ${motionEaseInOut}, opacity ${motionDurationSlow}`,
       },
 
       '&-arrow': {
@@ -247,11 +247,8 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
         lineHeight: 0, // Fix display inline-block gap
         listStyle: 'none',
         outline: 'none',
-        transition: [
-          `background ${motionDurationSlow}`,
-          // Magic cubic here but smooth transition
-          `width ${motionDurationSlow} cubic-bezier(0.2, 0, 0, 1) 0s`,
-        ].join(','),
+        // Magic cubic here but smooth transition
+        transition: `width ${motionDurationSlow} cubic-bezier(0.2, 0, 0, 1) 0s`,
 
         [`ul, ol`]: {
           margin: 0,
@@ -298,7 +295,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           transition: [
             `background ${motionDurationSlow} ${motionEaseInOut}`,
             `padding ${motionDurationSlow} ${motionEaseInOut}`,
-          ],
+          ].join(','),
         },
 
         [`${componentCls}-title-content`]: {
@@ -323,6 +320,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           lineHeight: 0,
           borderColor: colorSplit,
           borderStyle: lineType,
+          borderWidth: 0,
           borderTopWidth: lineWidth,
           marginBlock: lineWidth,
           padding: 0,
@@ -447,10 +445,9 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         colorError,
         colorErrorHover,
         colorTextLightSolid,
-        colorTextSecondary,
+        controlHeightLG,
+        fontSize,
       } = token;
-
-      const { controlHeightLG, fontSize } = token;
 
       const menuArrowSize = (fontSize / 7) * 5;
 
@@ -465,12 +462,14 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         menuSubMenuBg: colorBgElevated,
       });
 
+      const colorTextDark = new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString();
+
       const menuDarkToken = mergeToken<MenuToken>(
         menuToken,
         {
-          colorItemText: new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString(),
+          colorItemText: colorTextDark,
           colorItemTextHover: colorTextLightSolid,
-          colorGroupTitle: colorTextSecondary,
+          colorGroupTitle: colorTextDark,
           colorItemTextSelected: colorTextLightSolid,
           colorItemBg: '#001529',
           colorSubItemBg: '#000c17',
@@ -491,6 +490,10 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
           colorDangerItemBgSelected: colorError,
 
           menuSubMenuBg: '#001529',
+
+          // Horizontal
+          colorItemTextSelectedHorizontal: colorTextLightSolid,
+          colorItemBgSelectedHorizontal: colorPrimary,
         },
         {
           ...overrideComponentToken,
@@ -535,7 +538,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         colorFillContent,
         lineWidth,
         lineWidthBold,
-        controlItemBgActiveHover,
+        controlItemBgActive,
         colorBgTextHover,
       } = token;
 
@@ -548,13 +551,13 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         colorItemTextHover: colorText,
         colorItemTextHoverHorizontal: colorPrimary,
         colorGroupTitle: colorTextDescription,
-        colorItemTextSelected: colorText,
+        colorItemTextSelected: colorPrimary,
         colorItemTextSelectedHorizontal: colorPrimary,
         colorItemBg: colorBgContainer,
         colorItemBgHover: colorBgTextHover,
         colorItemBgActive: colorFillContent,
         colorSubItemBg: colorFillAlter,
-        colorItemBgSelected: controlItemBgActiveHover,
+        colorItemBgSelected: controlItemBgActive,
         colorItemBgSelectedHorizontal: 'transparent',
         colorActiveBarWidth: 0,
         colorActiveBarHeight: lineWidthBold,

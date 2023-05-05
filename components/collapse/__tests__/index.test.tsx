@@ -39,6 +39,14 @@ describe('Collapse', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('should be able to config size', () => {
+    const { container: small } = render(<Collapse size="small" />);
+    const { container: large } = render(<Collapse size="large" />);
+
+    expect(small.querySelector('.ant-collapse')).toHaveClass('ant-collapse-small');
+    expect(large.querySelector('.ant-collapse')).toHaveClass('ant-collapse-large');
+  });
+
   it('should keep the className of the expandIcon', () => {
     const { container } = render(
       <Collapse
@@ -122,9 +130,9 @@ describe('Collapse', () => {
       .spyOn(window, 'requestAnimationFrame')
       .mockImplementation((cb) => setTimeout(cb, 16.66));
 
-    let setActiveKeyOuter: React.Dispatch<React.SetStateAction<React.Key | undefined>>;
-    const Test = () => {
-      const [activeKey, setActiveKey] = React.useState();
+    let setActiveKeyOuter: React.Dispatch<React.SetStateAction<React.Key>>;
+    const Test: React.FC = () => {
+      const [activeKey, setActiveKey] = React.useState<React.Key>();
       setActiveKeyOuter = setActiveKey;
       return (
         <div hidden>
@@ -150,6 +158,30 @@ describe('Collapse', () => {
 
     spiedRAF.mockRestore();
     jest.useRealTimers();
+  });
+
+  it('ref should work', () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const panelRef1 = React.createRef<HTMLDivElement>();
+    const panelRef2 = React.createRef<HTMLDivElement>();
+
+    const { container } = render(
+      <Collapse ref={ref}>
+        <Collapse.Panel ref={panelRef1} header="panel header 1" key="1">
+          1
+        </Collapse.Panel>
+        <Collapse.Panel ref={panelRef2} header="panel header 2" key="2">
+          2
+        </Collapse.Panel>
+        <Collapse.Panel header="panel header 3" key="3">
+          2
+        </Collapse.Panel>
+      </Collapse>,
+    );
+
+    expect(ref.current).toBe(container.firstChild);
+    expect(panelRef1.current).toBe(document.querySelectorAll('.ant-collapse-item')[0]);
+    expect(panelRef2.current).toBe(document.querySelectorAll('.ant-collapse-item')[1]);
   });
 
   describe('expandIconPosition', () => {

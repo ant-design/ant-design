@@ -1,11 +1,10 @@
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
+import type { ValueType } from '@rc-component/mini-decimal';
 import classNames from 'classnames';
 import type { InputNumberProps as RcInputNumberProps } from 'rc-input-number';
 import RcInputNumber from 'rc-input-number';
-import type { ValueType } from '@rc-component/mini-decimal';
 import * as React from 'react';
-import { useContext } from 'react';
 import ConfigProvider, { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -20,6 +19,7 @@ import useStyle from './style';
 export interface InputNumberProps<T extends ValueType = ValueType>
   extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls'> {
   prefixCls?: string;
+  rootClassName?: string;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
   prefix?: React.ReactNode;
@@ -40,6 +40,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
 
   const {
     className,
+    rootClassName,
     size: customizeSize,
     disabled: customDisabled,
     prefixCls: customizePrefixCls,
@@ -83,10 +84,14 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     status: contextStatus,
     isFormItemInput,
     feedbackIcon,
-  } = useContext(FormItemInputContext);
+  } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   const mergeSize = compactSize || customizeSize || size;
+
+  const hasPrefix = prefix != null || hasFeedback;
+  const hasAddon = !!(addonBefore || addonAfter);
+
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
@@ -103,6 +108,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     compactItemClassnames,
     hashId,
     className,
+    !hasPrefix && !hasAddon && rootClassName,
   );
 
   let element = (
@@ -119,7 +125,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     />
   );
 
-  if (prefix != null || hasFeedback) {
+  if (hasPrefix) {
     const affixWrapperCls = classNames(
       `${prefixCls}-affix-wrapper`,
       getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
@@ -131,9 +137,11 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
         [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
         [`${prefixCls}-affix-wrapper-readonly`]: readOnly,
         [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
-        // className will go to addon wrapper
-        [`${className}`]: !(addonBefore || addonAfter) && className,
       },
+
+      // className will go to addon wrapper
+      !hasAddon && className,
+      !hasAddon && rootClassName,
       hashId,
     );
 
@@ -161,7 +169,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     );
   }
 
-  if (addonBefore != null || addonAfter != null) {
+  if (hasAddon) {
     const wrapperClassName = `${prefixCls}-group`;
     const addonClassName = `${wrapperClassName}-addon`;
     const addonBeforeNode = addonBefore ? (
@@ -183,6 +191,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
       hashId,
       className,
+      rootClassName,
     );
     element = (
       <div className={mergedGroupClassName} style={props.style}>
@@ -232,6 +241,10 @@ const PureInputNumber = (props: InputNumberProps<any>) => (
     <InputNumber {...props} />
   </ConfigProvider>
 );
+
+if (process.env.NODE_ENV !== 'production') {
+  TypedInputNumber.displayName = 'InputNumber';
+}
 
 TypedInputNumber._InternalPanelDoNotUseOrYouWillBeFired = PureInputNumber;
 

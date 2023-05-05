@@ -38,6 +38,7 @@ export interface ResultProps {
   extra?: React.ReactNode;
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
 }
@@ -108,6 +109,7 @@ export interface ResultType extends React.FC<ResultProps> {
 const Result: ResultType = ({
   prefixCls: customizePrefixCls,
   className: customizeClassName,
+  rootClassName,
   subTitle,
   title,
   style,
@@ -127,6 +129,7 @@ const Result: ResultType = ({
     prefixCls,
     `${prefixCls}-${status}`,
     customizeClassName,
+    rootClassName,
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
     hashId,
   );
@@ -145,5 +148,9 @@ const Result: ResultType = ({
 Result.PRESENTED_IMAGE_403 = ExceptionMap['403'];
 Result.PRESENTED_IMAGE_404 = ExceptionMap['404'];
 Result.PRESENTED_IMAGE_500 = ExceptionMap['500'];
+
+if (process.env.NODE_ENV !== 'production') {
+  Result.displayName = 'Result';
+}
 
 export default Result;

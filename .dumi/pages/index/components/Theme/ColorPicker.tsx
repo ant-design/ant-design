@@ -18,6 +18,17 @@ const useStyle = () => {
       border-radius: 100%;
       cursor: pointer;
       transition: all ${token.motionDurationFast};
+      display: inline-block;
+
+      & > input[type="radio"] {
+        width: 0;
+        height: 0;
+        opacity: 0;
+      }
+
+      &:focus-within {
+        // need ？
+      }
     `,
 
     colorActive: css`
@@ -91,7 +102,8 @@ export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
       <Space size="middle">
         {matchColors.map(({ color, active, picker }) => {
           let colorNode = (
-            <div
+            // eslint-disable-next-line jsx-a11y/label-has-associated-control
+            <label
               key={color}
               css={[style.color, active && style.colorActive]}
               style={{
@@ -102,7 +114,14 @@ export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
                   onChange?.(color);
                 }
               }}
-            />
+            >
+              <input
+                type="radio"
+                name={picker ? 'picker' : 'color'}
+                tabIndex={picker ? -1 : 0}
+                onClick={(e) => e.stopPropagation()}
+              />
+            </label>
           );
 
           if (picker) {
@@ -114,7 +133,7 @@ export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
                   <DebouncedColorPanel color={value || ''} onChange={(c) => onChange?.(c)} />
                 }
                 trigger="click"
-                showArrow={false}
+                arrow={false}
               >
                 {colorNode}
               </Popover>

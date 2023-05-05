@@ -13,17 +13,15 @@ import useStyle from './style';
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
   content?: React.ReactNode | RenderFunction;
-  /** @internal Used For Popconfirm. Safe to remove. */
-  _overlay?: React.ReactNode;
 }
 
-interface OverlayPorps {
+interface OverlayProps {
   prefixCls?: string;
   title?: PopoverProps['title'];
   content?: PopoverProps['content'];
 }
 
-const Overlay: React.FC<OverlayPorps> = ({ title, content, prefixCls }) => {
+const Overlay: React.FC<OverlayProps> = ({ title, content, prefixCls }) => {
   if (!title && !content) {
     return null;
   }
@@ -41,7 +39,6 @@ const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
     title,
     content,
     overlayClassName,
-    _overlay,
     placement = 'top',
     trigger = 'hover',
     mouseEnterDelay = 0.1,
@@ -68,7 +65,7 @@ const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
       prefixCls={prefixCls}
       overlayClassName={overlayCls}
       ref={ref}
-      overlay={_overlay || <Overlay prefixCls={prefixCls} title={title} content={content} />}
+      overlay={<Overlay prefixCls={prefixCls} title={title} content={content} />}
       transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
       data-popover-inject
     />,

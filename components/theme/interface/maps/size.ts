@@ -46,22 +46,29 @@ export interface SizeMapToken {
 
 export interface HeightMapToken {
   // Control
-  /** @internal Only Used for control inside component like Multiple Select inner selection item */
-  controlHeightXS: number;
-  /** @internal */
-  controlHeightSM: number;
-  /** @internal */
-  controlHeightLG: number;
-}
+  /** Only Used for control inside component like Multiple Select inner selection item */
 
-// Font
-export interface FontSizeMapToken {
   /**
-   * @internal
+   * @nameZH 更小的组件高度
+   * @nameEN XS component height
+   * @desc 更小的组件高度
+   * @descEN XS component height
    */
-  fontSizes: number[];
+  controlHeightXS: number;
+
   /**
-   * @internal
+   * @nameZH 较小的组件高度
+   * @nameEN SM component height
+   * @desc 较小的组件高度
+   * @descEN SM component height
    */
-  lineHeights: number[];
+  controlHeightSM: number;
+
+  /**
+   * @nameZH 较高的组件高度
+   * @nameEN LG component height
+   * @desc 较高的组件高度
+   * @descEN LG component height
+   */
+  controlHeightLG: number;
 }

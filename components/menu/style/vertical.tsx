@@ -128,7 +128,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
               `border-color ${motionDurationSlow}`,
               `background ${motionDurationSlow}`,
               `padding ${motionDurationMid} ${motionEaseOut}`,
-            ],
+            ].join(','),
 
             [`> ${componentCls}-title-content`]: {
               flex: 'auto',
@@ -184,7 +184,10 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
           paddingInline: `calc(50% - ${fontSizeSM}px)`,
           textOverflow: 'clip',
 
-          [`${componentCls}-submenu-arrow`]: {
+          [`
+            ${componentCls}-submenu-arrow,
+            ${componentCls}-submenu-expand-icon
+          `]: {
             opacity: 0,
           },
 

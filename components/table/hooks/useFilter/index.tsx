@@ -71,9 +71,9 @@ function injectFilter<RecordType>(
   dropdownPrefixCls: string,
   columns: ColumnsType<RecordType>,
   filterStates: FilterState<RecordType>[],
-  triggerFilter: (filterState: FilterState<RecordType>) => void,
-  getPopupContainer: GetPopupContainer | undefined,
   locale: TableLocale,
+  triggerFilter: (filterState: FilterState<RecordType>) => void,
+  getPopupContainer?: GetPopupContainer,
   pos?: string,
 ): ColumnsType<RecordType> {
   return columns.map((column, index) => {
@@ -117,9 +117,9 @@ function injectFilter<RecordType>(
           dropdownPrefixCls,
           newColumn.children,
           filterStates,
+          locale,
           triggerFilter,
           getPopupContainer,
-          locale,
           columnPos,
         ),
       };
@@ -193,10 +193,20 @@ interface FilterConfig<RecordType> {
   getPopupContainer?: GetPopupContainer;
 }
 
+const getMergedColumns = <RecordType extends unknown>(
+  rawMergedColumns: ColumnsType<RecordType>,
+): ColumnsType<RecordType> =>
+  rawMergedColumns.flatMap((column) => {
+    if ('children' in column) {
+      return [column, ...getMergedColumns(column.children || [])];
+    }
+    return [column];
+  });
+
 function useFilter<RecordType>({
   prefixCls,
   dropdownPrefixCls,
-  mergedColumns,
+  mergedColumns: rawMergedColumns,
   onFilterChange,
   getPopupContainer,
   locale: tableLocale,
@@ -205,6 +215,11 @@ function useFilter<RecordType>({
   FilterState<RecordType>[],
   Record<string, FilterValue | null>,
 ] {
+  const mergedColumns = React.useMemo(
+    () => getMergedColumns(rawMergedColumns || []),
+    [rawMergedColumns],
+  );
+
   const [filterStates, setFilterStates] = React.useState<FilterState<RecordType>[]>(() =>
     collectFilterStates(mergedColumns, true),
   );
@@ -230,7 +245,19 @@ function useFilter<RecordType>({
       const keyList = (mergedColumns || []).map((column, index) =>
         getColumnKey(column, getColumnPos(index)),
       );
-      return filterStates.filter(({ key }) => keyList.includes(key));
+      return filterStates
+        .filter(({ key }) => keyList.includes(key))
+        .map((item) => {
+          const col = mergedColumns[keyList.findIndex((key) => key === item.key)];
+          return {
+            ...item,
+            column: {
+              ...item.column,
+              ...col,
+            },
+            forceFiltered: col.filtered,
+          };
+        });
     }
 
     warning(
@@ -257,9 +284,9 @@ function useFilter<RecordType>({
       dropdownPrefixCls,
       innerColumns,
       mergedFilterStates,
+      tableLocale,
       triggerFilter,
       getPopupContainer,
-      tableLocale,
     );
 
   return [transformColumns, mergedFilterStates, filters];

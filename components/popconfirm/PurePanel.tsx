@@ -1,15 +1,15 @@
-import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import classNames from 'classnames';
+import * as React from 'react';
 import type { PopconfirmProps } from '.';
 import Button from '../button';
 import { convertLegacyProps } from '../button/button';
-import ActionButton from '../_util/ActionButton';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale/en_US';
-import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { ConfigContext } from '../config-provider';
+import defaultLocale from '../locale/en_US';
+import { useLocale } from '../locale';
 import PopoverPurePanel from '../popover/PurePanel';
+import ActionButton from '../_util/ActionButton';
+import { getRenderPropValue } from '../_util/getRenderPropValue';
 
 import useStyle from './style';
 
@@ -29,11 +29,12 @@ export interface OverlayProps
     | 'okType'
     | 'showCancel'
     | 'title'
+    | 'description'
   > {
   prefixCls: string;
   close?: Function;
-  onConfirm?: React.MouseEventHandler<HTMLButtonElement>;
-  onCancel?: React.MouseEventHandler<HTMLButtonElement>;
+  onConfirm?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+  onCancel?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
 }
 
 export const Overlay: React.FC<OverlayProps> = (props) => {
@@ -42,6 +43,7 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
     okButtonProps,
     cancelButtonProps,
     title,
+    description,
     cancelText,
     okText,
     okType = 'primary',
@@ -54,34 +56,41 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
 
   const { getPrefixCls } = React.useContext(ConfigContext);
 
+  const [contextLocale] = useLocale('Popconfirm', defaultLocale.Popconfirm);
+
   return (
-    <LocaleReceiver componentName="Popconfirm" defaultLocale={defaultLocale.Popconfirm}>
-      {(contextLocale) => (
-        <div className={`${prefixCls}-inner-content`}>
-          <div className={`${prefixCls}-message`}>
-            {icon && <span className={`${prefixCls}-message-icon`}>{icon}</span>}
-            <div className={`${prefixCls}-message-title`}>{getRenderPropValue(title)}</div>
-          </div>
-          <div className={`${prefixCls}-buttons`}>
-            {showCancel && (
-              <Button onClick={onCancel} size="small" {...cancelButtonProps}>
-                {cancelText ?? contextLocale.cancelText}
-              </Button>
-            )}
-            <ActionButton
-              buttonProps={{ size: 'small', ...convertLegacyProps(okType), ...okButtonProps }}
-              actionFn={onConfirm}
-              close={close}
-              prefixCls={getPrefixCls('btn')}
-              quitOnNullishReturnValue
-              emitEvent
-            >
-              {okText ?? contextLocale.okText}
-            </ActionButton>
-          </div>
+    <div className={`${prefixCls}-inner-content`}>
+      <div className={`${prefixCls}-message`}>
+        {icon && <span className={`${prefixCls}-message-icon`}>{icon}</span>}
+        <div
+          className={classNames(`${prefixCls}-message-title`, {
+            [`${prefixCls}-message-title-only`]: !!description,
+          })}
+        >
+          {getRenderPropValue(title)}
         </div>
+      </div>
+      {description && (
+        <div className={`${prefixCls}-description`}>{getRenderPropValue(description)}</div>
       )}
-    </LocaleReceiver>
+      <div className={`${prefixCls}-buttons`}>
+        {showCancel && (
+          <Button onClick={onCancel} size="small" {...cancelButtonProps}>
+            {cancelText ?? contextLocale?.cancelText}
+          </Button>
+        )}
+        <ActionButton
+          buttonProps={{ size: 'small', ...convertLegacyProps(okType), ...okButtonProps }}
+          actionFn={onConfirm}
+          close={close}
+          prefixCls={getPrefixCls('btn')}
+          quitOnNullishReturnValue
+          emitEvent
+        >
+          {okText ?? contextLocale?.okText}
+        </ActionButton>
+      </div>
+    </div>
   );
 };
 
@@ -105,8 +114,7 @@ export default function PurePanel(props: PurePanelProps) {
       placement={placement}
       className={classNames(prefixCls, className)}
       style={style}
-    >
-      <Overlay {...restProps} prefixCls={prefixCls} />
-    </PopoverPurePanel>,
+      content={<Overlay prefixCls={prefixCls} {...restProps} />}
+    />,
   );
 }

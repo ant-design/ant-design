@@ -1,15 +1,13 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import type { KeyWiseTransferItem } from '.';
-import Pagination from '../pagination';
-import type { ElementOf } from '../_util/type';
-import { tuple } from '../_util/type';
 import type { PaginationType } from './interface';
 import type { RenderedItem, TransferListProps } from './list';
+import Pagination from '../pagination';
 import ListItem from './ListItem';
 
-export const OmitProps = tuple('handleFilter', 'handleClear', 'checkedKeys');
-export type OmitProp = ElementOf<typeof OmitProps>;
+export const OmitProps = ['handleFilter', 'handleClear', 'checkedKeys'] as const;
+export type OmitProp = typeof OmitProps[number];
 type PartialTransferListProps<RecordType> = Omit<TransferListProps<RecordType>, OmitProp>;
 
 export interface TransferListBodyProps<RecordType> extends PartialTransferListProps<RecordType> {
@@ -18,12 +16,12 @@ export interface TransferListBodyProps<RecordType> extends PartialTransferListPr
   selectedKeys: string[];
 }
 
-function parsePagination(pagination?: PaginationType) {
+const parsePagination = (pagination?: PaginationType) => {
   if (!pagination) {
     return null;
   }
 
-  const defaultPagination = {
+  const defaultPagination: PaginationType = {
     pageSize: 10,
     simple: true,
     showSizeChanger: false,
@@ -31,142 +29,119 @@ function parsePagination(pagination?: PaginationType) {
   };
 
   if (typeof pagination === 'object') {
-    return {
-      ...defaultPagination,
-      ...pagination,
-    };
+    return { ...defaultPagination, ...pagination };
   }
 
   return defaultPagination;
+};
+
+export interface ListBodyRef<RecordType extends KeyWiseTransferItem> {
+  items?: RenderedItem<RecordType>[];
 }
 
-interface TransferListBodyState {
-  current: number;
-}
+const TransferListBody: React.ForwardRefRenderFunction<
+  ListBodyRef<KeyWiseTransferItem>,
+  TransferListBodyProps<KeyWiseTransferItem>
+> = <RecordType extends KeyWiseTransferItem>(
+  props: TransferListBodyProps<RecordType>,
+  ref: React.ForwardedRef<ListBodyRef<RecordType>>,
+) => {
+  const {
+    prefixCls,
+    filteredRenderItems,
+    selectedKeys,
+    disabled: globalDisabled,
+    showRemove,
+    pagination,
+    onScroll,
+    onItemSelect,
+    onItemRemove,
+  } = props;
 
-class ListBody<RecordType extends KeyWiseTransferItem> extends React.Component<
-  TransferListBodyProps<RecordType>,
-  TransferListBodyState
-> {
-  state = {
-    current: 1,
-  };
+  const [current, setCurrent] = React.useState<number>(1);
 
-  static getDerivedStateFromProps<T>(
-    { filteredRenderItems, pagination }: TransferListBodyProps<T>,
-    { current }: TransferListBodyState,
-  ) {
+  React.useEffect(() => {
     const mergedPagination = parsePagination(pagination);
     if (mergedPagination) {
-      // Calculate the page number
-      const maxPageCount = Math.ceil(filteredRenderItems.length / mergedPagination.pageSize);
-
-      if (current > maxPageCount) {
-        return { current: maxPageCount };
-      }
+      const maxPageCount = Math.ceil(filteredRenderItems.length / mergedPagination.pageSize!);
+      setCurrent(Math.min(current, maxPageCount));
     }
+  }, [filteredRenderItems, pagination]);
 
-    return null;
-  }
-
-  onItemSelect = (item: RecordType) => {
-    const { onItemSelect, selectedKeys } = this.props;
-    const checked = selectedKeys.includes(item.key);
-    onItemSelect(item.key, !checked);
+  const onClick = (item: RecordType) => {
+    onItemSelect?.(item.key, !selectedKeys.includes(item.key));
   };
 
-  onItemRemove = (item: RecordType) => {
-    const { onItemRemove } = this.props;
+  const onRemove = (item: RecordType) => {
     onItemRemove?.([item.key]);
   };
 
-  onPageChange = (current: number) => {
-    this.setState({ current });
+  const onPageChange = (cur: number) => {
+    setCurrent(cur);
   };
 
-  getItems = () => {
-    const { current } = this.state;
-    const { pagination, filteredRenderItems } = this.props;
-
+  const memoizedItems = React.useMemo<RenderedItem<RecordType>[]>(() => {
     const mergedPagination = parsePagination(pagination);
-
-    let displayItems = filteredRenderItems;
-
-    if (mergedPagination) {
-      displayItems = filteredRenderItems.slice(
-        (current - 1) * mergedPagination.pageSize,
-        current * mergedPagination.pageSize,
-      );
-    }
-
+    const displayItems = mergedPagination
+      ? filteredRenderItems.slice(
+          (current - 1) * mergedPagination.pageSize!,
+          current * mergedPagination.pageSize!,
+        )
+      : filteredRenderItems;
     return displayItems;
-  };
+  }, [current, filteredRenderItems, pagination]);
 
-  render() {
-    const { current } = this.state;
-    const {
-      prefixCls,
-      onScroll,
-      filteredRenderItems,
-      selectedKeys,
-      disabled: globalDisabled,
-      showRemove,
-      pagination,
-    } = this.props;
+  React.useImperativeHandle(ref, () => ({ items: memoizedItems }));
 
-    const mergedPagination = parsePagination(pagination);
-    let paginationNode: React.ReactNode = null;
+  const mergedPagination = parsePagination(pagination);
 
-    if (mergedPagination) {
-      paginationNode = (
-        <Pagination
-          simple={mergedPagination.simple}
-          showSizeChanger={mergedPagination.showSizeChanger}
-          showLessItems={mergedPagination.showLessItems}
-          size="small"
-          disabled={globalDisabled}
-          className={`${prefixCls}-pagination`}
-          total={filteredRenderItems.length}
-          pageSize={mergedPagination.pageSize}
-          current={current}
-          onChange={this.onPageChange}
-        />
-      );
-    }
+  const paginationNode: React.ReactNode = mergedPagination ? (
+    <Pagination
+      size="small"
+      disabled={globalDisabled}
+      simple={mergedPagination.simple}
+      pageSize={mergedPagination.pageSize}
+      showLessItems={mergedPagination.showLessItems}
+      showSizeChanger={mergedPagination.showSizeChanger}
+      className={`${prefixCls}-pagination`}
+      total={filteredRenderItems.length}
+      current={current}
+      onChange={onPageChange}
+    />
+  ) : null;
 
-    return (
-      <>
-        <ul
-          className={classNames(`${prefixCls}-content`, {
-            [`${prefixCls}-content-show-remove`]: showRemove,
-          })}
-          onScroll={onScroll}
-        >
-          {this.getItems().map(({ renderedEl, renderedText, item }: RenderedItem<RecordType>) => {
-            const { disabled } = item;
-            const checked = selectedKeys.includes(item.key);
+  const cls = classNames(`${prefixCls}-content`, {
+    [`${prefixCls}-content-show-remove`]: showRemove,
+  });
 
-            return (
-              <ListItem
-                disabled={globalDisabled || disabled}
-                key={item.key}
-                item={item}
-                renderedText={renderedText}
-                renderedEl={renderedEl}
-                checked={checked}
-                prefixCls={prefixCls}
-                onClick={this.onItemSelect}
-                onRemove={this.onItemRemove}
-                showRemove={showRemove}
-              />
-            );
-          })}
-        </ul>
+  return (
+    <>
+      <ul className={cls} onScroll={onScroll}>
+        {(memoizedItems || []).map(({ renderedEl, renderedText, item }) => (
+          <ListItem
+            key={item.key}
+            item={item}
+            renderedText={renderedText}
+            renderedEl={renderedEl}
+            prefixCls={prefixCls}
+            showRemove={showRemove}
+            onClick={onClick}
+            onRemove={onRemove}
+            checked={selectedKeys.includes(item.key)}
+            disabled={globalDisabled || item.disabled}
+          />
+        ))}
+      </ul>
+      {paginationNode}
+    </>
+  );
+};
 
-        {paginationNode}
-      </>
-    );
-  }
+if (process.env.NODE_ENV !== 'production') {
+  TransferListBody.displayName = 'TransferListBody';
 }
 
-export default ListBody;
+export default React.forwardRef<
+  ListBodyRef<KeyWiseTransferItem>,
+  TransferListBodyProps<KeyWiseTransferItem>
+>(TransferListBody);
