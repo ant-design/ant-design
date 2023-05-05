@@ -111,6 +111,30 @@ exports[`renders components/skeleton/demo/complex.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/skeleton/demo/componentToken.tsx correctly 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-active"
+>
+  <div
+    class="ant-skeleton-content"
+  >
+    <h3
+      class="ant-skeleton-title"
+      style="width:38%"
+    />
+    <ul
+      class="ant-skeleton-paragraph"
+    >
+      <li />
+      <li />
+      <li
+        style="width:61%"
+      />
+    </ul>
+  </div>
+</div>
+`;
+
 exports[`renders components/skeleton/demo/element.tsx correctly 1`] = `
 Array [
   <div

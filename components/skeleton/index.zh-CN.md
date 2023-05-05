@@ -25,6 +25,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 <code src="./demo/element.tsx">按钮/头像/输入框/图像/自定义节点</code>
 <code src="./demo/children.tsx">包含子组件</code>
 <code src="./demo/list.tsx">列表</code>
+<code src="./demo/componentToken.tsx" debug>自定义组件 Token</code>
 
 ## API
 
