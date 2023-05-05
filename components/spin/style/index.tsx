@@ -25,10 +25,11 @@ const antRotate = new Keyframes('antRotate', {
 
 const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => ({
   [`${token.componentCls}`]: {
-    ...resetComponent({ ...token, fontSize: 0 }),
+    ...resetComponent(token),
     position: 'absolute',
     display: 'none',
     color: token.colorPrimary,
+    fontSize: 0,
     textAlign: 'center',
     verticalAlign: 'middle',
     opacity: 0,
