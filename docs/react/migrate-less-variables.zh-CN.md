@@ -140,11 +140,6 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@skeleton-avatar-prefix-cls` | `skeletonAvatarCls` | - |
-| `@skeleton-paragraph-prefix-cls` | `skeletonParagraphCls` | - |
-| `@skeleton-button-prefix-cls` | `skeletonButtonCls` | - |
-| `@skeleton-input-prefix-cls` | `skeletonInputCls` | - |
-| `@skeleton-image-prefix-cls` | `skeletonImageCls` | - |
 | `@skeleton-block-radius` | `skeletonBlockRadius` | - |
 | `@skeleton-title-height` | `skeletonTitleHeight` | - |
 | `@skeleton-color` | `color` | - |
