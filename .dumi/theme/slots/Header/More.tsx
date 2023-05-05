@@ -23,8 +23,7 @@ const Community: React.FC = () => {
   const { smallStyle } = useStyle();
   return (
     <span css={smallStyle}>
-      (
-      <FormattedMessage id="app.implementation.community" />)
+      (<FormattedMessage id="app.implementation.community" />)
     </span>
   );
 };
