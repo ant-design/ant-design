@@ -9,7 +9,7 @@ This document contains the correspondence between all the less variables related
 
 <!-- ## 全局变量 -->
 
-## 组件变量
+## Component Token
 
 <!-- ### Alert -->
 
@@ -21,7 +21,12 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### BreadCrumb -->
 
-<!-- ### Button -->
+### Button
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@button-font-weight` | `fontWeight` | - |
 
 <!-- ### Calendar -->
 
@@ -39,8 +44,7 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Divider -->
 
-
-## Drawer
+### Drawer
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -50,9 +54,8 @@ This document contains the correspondence between all the less variables related
 | `@drawer-title-font-size` | `fontSizeLG` | - |
 | `@drawer-title-line-height` | `lineHeightLG` | - |
 | `@drawer-body-padding` | `paddingLG` | - |
-| `@drawer-footer-padding-vertical` | `drawerFooterPaddingVertical` | `drawerFooterPaddingVertical`  is a number without units, `@drawer-footer-padding-vertical` with units |
-| `@drawer-footer-padding-horizontal` | `drawerFooterPaddingHorizontal` | `drawerFooterPaddingHorizontal`  is a number without units, `@drawer-footer-padding-horizontal` with units |
-
+| `@drawer-footer-padding-vertical` | `footerPaddingBlock` | `footerPaddingBlock`  is a number without units, `@drawer-footer-padding-vertical` with units |
+| `@drawer-footer-padding-horizontal` | `footerPaddingInline` | `footerPaddingInline`  is a number without units, `@drawer-footer-padding-horizontal` with units |
 
 <!-- ### Dropdown -->
 
@@ -72,7 +75,7 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Menu -->
 
-## Message
+### Message
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -81,7 +84,7 @@ This document contains the correspondence between all the less variables related
 | `@message-notice-content-padding` | `messageNoticeContentPadding` | - |
 | `@message-notice-content-bg` | `messageNoticeContentBg` | - |
 
-## Modal
+### Modal
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -111,7 +114,7 @@ This document contains the correspondence between all the less variables related
 | `@modal-confirm-title-font-size` | `modalHeaderTitleFontSize` | - |
 | `@modal-border-radius` | `borderRadiusLG` | - |
 
-## Notification
+### Notification
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -134,8 +137,7 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Rate -->
 
-
-## Result
+### Result
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -145,7 +147,6 @@ This document contains the correspondence between all the less variables related
 | `@result-subtitle-font-size` | `resultSubtitleFontSize` | - |
 | `@result-extra-margin` | `resultExtraMargin` | - |
 
-
 <!-- ### Segment -->
 
 <!-- ### Select -->
@@ -154,8 +155,7 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Slider -->
 
-
-## Statistic
+### Statistic
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -164,8 +164,7 @@ This document contains the correspondence between all the less variables related
 | `@statistic-content-font-size` | `statisticContentFontSize` | - |
 | `@statistic-font-family` | `statisticFontFamily` | - |
 
-
-## Step
+### Step
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
