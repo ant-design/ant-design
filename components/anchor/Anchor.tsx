@@ -245,8 +245,6 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
   const handleScrollTo = React.useCallback<(link: string) => void>(
     (link) => {
       setCurrentActiveLink(link);
-      const container = getCurrentContainer();
-      const scrollTop = getScroll(container, true);
       const sharpLinkMatch = sharpMatcherRegex.exec(link);
       if (!sharpLinkMatch) {
         return;
@@ -256,6 +254,8 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
         return;
       }
 
+      const container = getCurrentContainer();
+      const scrollTop = getScroll(container, true);
       const eleOffsetTop = getOffsetTop(targetElement, container);
       let y = scrollTop + eleOffsetTop;
       y -= targetOffset !== undefined ? targetOffset : offsetTop || 0;

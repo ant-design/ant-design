@@ -48,6 +48,7 @@ import type { ComponentToken as UploadComponentToken } from '../../upload/style'
 import type { ComponentToken as TourComponentToken } from '../../tour/style';
 import type { ComponentToken as QRCodeComponentToken } from '../../qrcode/style';
 import type { ComponentToken as AppComponentToken } from '../../app/style';
+import type { ComponentToken as StatisticComponentToken } from '../../statistic/style';
 import type { ComponentToken as WaveToken } from '../../_util/wave/style';
 
 export interface ComponentTokenMap {
@@ -91,7 +92,7 @@ export interface ComponentTokenMap {
   Skeleton?: SkeletonComponentToken;
   Slider?: SliderComponentToken;
   Spin?: SpinComponentToken;
-  Statistic?: {};
+  Statistic?: StatisticComponentToken;
   Switch?: {};
   Tag?: TagComponentToken;
   Tree?: {};

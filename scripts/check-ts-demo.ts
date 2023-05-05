@@ -1,10 +1,9 @@
 /* eslint-disable no-await-in-loop, no-console */
-
-const path = require('path');
-const { globSync } = require('glob');
-const fs = require('fs-extra');
-const chalk = require('chalk');
-const { spawn } = require('child_process');
+import chalk from 'chalk';
+import { spawn } from 'child_process';
+import fs from 'fs-extra';
+import { globSync } from 'glob';
+import path from 'path';
 
 (async () => {
   console.time('Execution...');
@@ -15,11 +14,11 @@ const { spawn } = require('child_process');
   await fs.remove(tmpFolder);
   await fs.ensureDir(tmpFolder);
 
-  function getTypescriptDemo(content, demoPath) {
+  function getTypescriptDemo(content: string, demoPath: string) {
     const lines = content.split(/[\n\r]/);
 
     const tsxStartLine = lines.findIndex((line) =>
-      line.replace(/\s/g).toLowerCase().includes('```tsx'),
+      line.replace(/\s/g, '').toLowerCase().includes('```tsx'),
     );
 
     if (tsxStartLine < 0) {
@@ -72,7 +71,7 @@ const { spawn } = require('child_process');
   child.stdout.pipe(process.stdout);
   child.stderr.pipe(process.stderr);
 
-  child.on('exit', async (code) => {
+  child.on('exit', async (code: number) => {
     console.timeEnd('Execution...');
 
     if (code) {
