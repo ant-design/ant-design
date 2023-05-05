@@ -39,6 +39,7 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Divider 分割线 -->
 
+
 ## Drawer 抽屉
 
 <!-- prettier-ignore -->
@@ -51,6 +52,7 @@ title: Less 变量迁移 Design Token
 | `@drawer-body-padding` | `paddingLG` | - |
 | `@drawer-footer-padding-vertical` | `drawerFooterPaddingVertical` | `drawerFooterPaddingVertical` 为数字，不带单位，`@drawer-footer-padding-vertical` 带单位 |
 | `@drawer-footer-padding-horizontal` | `drawerFooterPaddingHorizontal` | `drawerFooterPaddingHorizontal` 为数字，不带单位，`@drawer-footer-padding-horizontal` 带单位 |
+
 
 <!-- ### Dropdown 下拉菜单 -->
 
@@ -132,6 +134,7 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Rate 评分 -->
 
+
 ## Result 结果
 
 <!-- prettier-ignore -->
@@ -142,6 +145,7 @@ title: Less 变量迁移 Design Token
 | `@result-subtitle-font-size` | `resultSubtitleFontSize` | - |
 | `@result-extra-margin` | `resultExtraMargin` | - |
 
+
 <!-- ### Segment 分段器 -->
 
 <!-- ### Select 选择器 -->
@@ -149,6 +153,7 @@ title: Less 变量迁移 Design Token
 <!-- ### Skeleton 骨架屏 -->
 
 <!-- ### Slider 滑动输入条 -->
+
 
 ## Statistic 统计数值
 
@@ -158,6 +163,7 @@ title: Less 变量迁移 Design Token
 | `@statistic-title-font-size` | `statisticTitleFontSize` | - |
 | `@statistic-content-font-size` | `statisticContentFontSize` | - |
 | `@statistic-font-family` | `statisticFontFamily` | - |
+
 
 ### Step 步骤条
 

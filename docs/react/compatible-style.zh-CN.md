@@ -10,8 +10,8 @@ Ant Design 支持最近 2 个版本的现代浏览器。如果你需要兼容旧
 Ant Design 的 CSS-in-JS 默认通过 `:where` 选择器降低 CSS Selector 优先级，以减少用户升级时额外调整自定义样式成本。在某些场景下你如果需要支持的旧版浏览器（或者如 TailwindCSS 优先级冲突），你可以使用 `@ant-design/cssinjs` 取消默认的降权操作（请注意版本保持与 antd 一致）：
 
 ```tsx
-import { StyleProvider } from '@ant-design/cssinjs';
 import React from 'react';
+import { StyleProvider } from '@ant-design/cssinjs';
 
 // `hashPriority` 默认为 `low`，配置为 `high` 后，
 // 会移除 `:where` 选择器封装
@@ -38,8 +38,8 @@ export default () => (
 为了统一 LTR 和 RTL 样式，Ant Design 使用了 CSS 逻辑属性。例如原 `margin-left` 使用 `margin-inline-start` 代替，使其在 LTR 和 RTL 下都为起始位置间距。如果你需要兼容旧版浏览器（如 360 浏览器、QQ 浏览器 等等），可以通过 `@ant-design/cssinjs` 的 `StyleProvider` 配置 `transformers` 将其转换：
 
 ```tsx
-import { legacyLogicalPropertiesTransformer, StyleProvider } from '@ant-design/cssinjs';
 import React from 'react';
+import { StyleProvider, legacyLogicalPropertiesTransformer } from '@ant-design/cssinjs';
 
 // `transformers` 提供预处理功能将样式进行转换
 export default () => (
