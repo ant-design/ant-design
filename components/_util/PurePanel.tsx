@@ -1,5 +1,5 @@
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import * as React from 'react';
+import React from 'react';
 import ConfigProvider, { ConfigContext } from '../config-provider';
 
 export interface BaseProps {

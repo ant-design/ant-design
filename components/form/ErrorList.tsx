@@ -1,10 +1,9 @@
 import classNames from 'classnames';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
-import * as React from 'react';
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import initCollapseMotion from '../_util/motion';
-import { FormItemPrefixContext } from './context';
 import type { ValidateStatus } from './FormItem';
+import { FormItemPrefixContext } from './context';
 import useDebounce from './hooks/useDebounce';
 
 import useStyle from './style';

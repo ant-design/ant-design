@@ -1,9 +1,8 @@
-import * as React from 'react';
-import { useState } from 'react';
 import { css } from '@emotion/react';
-import { Typography, Carousel } from 'antd';
-import { useCarouselStyle } from '../util';
+import { Carousel, Typography } from 'antd';
+import React, { useState } from 'react';
 import useSiteToken from '../../../../hooks/useSiteToken';
+import { useCarouselStyle } from '../util';
 
 const useStyle = () => {
   const { carousel } = useCarouselStyle();

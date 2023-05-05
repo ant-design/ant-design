@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import warning from '../../../_util/warning';
 import type {
   ColumnFilterItem,

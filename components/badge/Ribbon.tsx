@@ -1,10 +1,10 @@
 import classNames from 'classnames';
-import * as React from 'react';
-import { ConfigContext } from '../config-provider';
+import React from 'react';
 import type { PresetColorType } from '../_util/colors';
-import type { LiteralUnion } from '../_util/type';
-import useStyle from './style';
 import { isPresetColor } from '../_util/colors';
+import type { LiteralUnion } from '../_util/type';
+import { ConfigContext } from '../config-provider';
+import useStyle from './style';
 
 type RibbonPlacement = 'start' | 'end';
 

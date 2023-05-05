@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import { composeRef } from 'rc-util/lib/ref';
-import * as React from 'react';
+import React from 'react';
 import { ConfigContext } from '../config-provider';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import type { Breakpoint } from '../_util/responsiveObserver';

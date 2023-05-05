@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import Dialog from 'rc-dialog';
-import * as React from 'react';
+import React from 'react';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';

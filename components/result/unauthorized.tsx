@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 const Unauthorized: React.FC = () => (
   <svg width="251" height="294">

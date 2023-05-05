@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import type { MenuProps } from './menu';
 
 // Used for Dropdown only
