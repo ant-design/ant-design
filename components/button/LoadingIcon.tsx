@@ -1,7 +1,7 @@
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import React, { forwardRef } from 'react';
+import classNames from 'classnames';
 import IconWrapper from './IconWrapper';
 
 type InnerLoadingIconProps = {
@@ -70,10 +70,10 @@ const LoadingIcon: React.FC<LoadingIconProps> = ({
       onLeaveActive={getCollapsedWidth}
     >
       {(
-        {
-          className: motionCls,
-          style: motionStyle,
-        }: { className?: string; style?: React.CSSProperties },
+        { className: motionCls, style: motionStyle }: {
+          className?: string;
+          style?: React.CSSProperties;
+        },
         ref: any,
       ) => (
         <InnerLoadingIcon
