@@ -4,12 +4,11 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import type { GlobalToken } from '../../theme/interface';
 
-export interface ComponentToken {
-  checkboxSize: number;
-}
+export interface ComponentToken {}
 
 interface CheckboxToken extends FullToken<'Checkbox'> {
   checkboxCls: string;
+  checkboxSize: number;
 }
 
 // ============================== Motion ==============================

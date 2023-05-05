@@ -1,7 +1,4 @@
-import {
-  getStyle as getCheckboxStyle,
-  initComponentToken as initCheckboxComponentToken,
-} from '../../checkbox/style';
+import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook } from '../../theme/internal';
 import { textEllipsis } from '../../style';
@@ -13,7 +10,7 @@ export interface ComponentToken {
   dropdownHeight: number;
 }
 
-type CascaderToken = FullToken<'Cascader', 'Checkbox'>;
+type CascaderToken = FullToken<'Cascader'>;
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
@@ -161,16 +158,8 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
-  'Cascader',
-  (token) => [genBaseStyle(token)],
-  (token) => ({
-    controlWidth: 184,
-    controlItemWidth: 111,
-    dropdownHeight: 180,
-    ...initCheckboxComponentToken(token),
-  }),
-  {
-    depComponent: 'Checkbox',
-  },
-);
+export default genComponentStyleHook('Cascader', (token) => [genBaseStyle(token)], {
+  controlWidth: 184,
+  controlItemWidth: 111,
+  dropdownHeight: 180,
+});

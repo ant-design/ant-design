@@ -1,10 +1,7 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
 import { genCollapseMotion } from '../../style/motion';
-import {
-  getStyle as getCheckboxStyle,
-  initComponentToken as initCheckboxComponentToken,
-} from '../../checkbox/style';
+import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import type { DerivativeToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import { genFocusOutline, resetComponent } from '../../style';
@@ -485,17 +482,10 @@ export const genTreeStyle = (prefixCls: string, token: DerivativeToken): CSSInte
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
-  'Tree',
-  (token, { prefixCls }) => [
-    {
-      [token.componentCls]: getCheckboxStyle(`${prefixCls}-checkbox`, token),
-    },
-    genTreeStyle(prefixCls, token),
-    genCollapseMotion(token),
-  ],
-  initCheckboxComponentToken,
+export default genComponentStyleHook('Tree', (token, { prefixCls }) => [
   {
-    depComponent: 'Checkbox',
+    [token.componentCls]: getCheckboxStyle(`${prefixCls}-checkbox`, token),
   },
-);
+  genTreeStyle(prefixCls, token),
+  genCollapseMotion(token),
+]);
