@@ -1,9 +1,12 @@
-import { getStyle as getCheckboxStyle } from '../../checkbox/style';
+import {
+  getStyle as getCheckboxStyle,
+  initComponentToken as initCheckboxToken,
+} from '../../checkbox/style';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import { genTreeStyle } from '../../tree/style';
 
-interface TreeSelectToken extends FullToken<'TreeSelect'> {
+interface TreeSelectToken extends FullToken<'TreeSelect', 'Checkbox'> {
   treePrefixCls: string;
 }
 
@@ -64,8 +67,15 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = (token) => {
 
 // ============================== Export ==============================
 export default function useTreeSelectStyle(prefixCls: string, treePrefixCls: string) {
-  return genComponentStyleHook('TreeSelect', (token) => {
-    const treeSelectToken = mergeToken<TreeSelectToken>(token, { treePrefixCls });
-    return [genBaseStyle(treeSelectToken)];
-  })(prefixCls);
+  return genComponentStyleHook(
+    'TreeSelect',
+    (token) => {
+      const treeSelectToken = mergeToken<TreeSelectToken>(token, { treePrefixCls });
+      return [genBaseStyle(treeSelectToken)];
+    },
+    initCheckboxToken,
+    {
+      depComponent: 'Checkbox',
+    },
+  )(prefixCls);
 }

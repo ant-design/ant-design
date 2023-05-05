@@ -2,6 +2,7 @@ import { Keyframes } from '@ant-design/cssinjs';
 import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { GlobalToken } from '../../theme/interface';
 
 export interface ComponentToken {
   checkboxSize: number;
@@ -295,10 +296,12 @@ export function getStyle(prefixCls: string, token: FullToken<'Checkbox'>) {
   return [genCheckboxStyle(checkboxToken)];
 }
 
+export const initComponentToken = (token: GlobalToken): ComponentToken => ({
+  checkboxSize: token.controlInteractiveSize,
+});
+
 export default genComponentStyleHook(
   'Checkbox',
   (token, { prefixCls }) => [getStyle(prefixCls, token)],
-  (token) => ({
-    checkboxSize: token.controlInteractiveSize,
-  }),
+  initComponentToken,
 );
