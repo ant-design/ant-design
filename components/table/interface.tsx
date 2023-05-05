@@ -2,7 +2,6 @@ import type {
   ColumnType as RcColumnType,
   FixedType,
   GetComponentProps,
-  FixedType,
   RenderedCell as RcRenderedCell,
 } from 'rc-table/lib/interface';
 import { ExpandableConfig, GetRowKey } from 'rc-table/lib/interface';
