@@ -135,25 +135,10 @@ const InternalButton: React.ForwardRefRenderFunction<
   const [innerLoading, setLoading] = useState<Loading>(loadingOrDelay.loading);
 
   const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
-  
+
   const internalRef = createRef<HTMLButtonElement | HTMLAnchorElement>();
 
   const buttonRef = composeRef(ref, internalRef);
-
-  const fixTwoCNChar = React.useCallback(() => {
-    // FIXME: for HOC usage like <FormatMessage />
-    if (!buttonRef || !buttonRef.current || autoInsertSpaceInButton === false) {
-      return;
-    }
-    const buttonText = buttonRef.current.textContent;
-    if (isNeedInserted() && isTwoCNChar(buttonText)) {
-      if (!hasTwoCNChar) {
-        setHasTwoCNChar(true);
-      }
-    } else if (hasTwoCNChar) {
-      setHasTwoCNChar(false);
-    }
-  }, [buttonRef, autoInsertSpaceInButton, isNeedInserted, isTwoCNChar, hasTwoCNChar]);
 
   const needInserted = Children.count(children) === 1 && !icon && !isUnBorderedButtonType(type);
 
