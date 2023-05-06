@@ -18,7 +18,7 @@ GitHub Actions 是一个自动化软件开发工作流程的平台，从想法�
 - **Job(作业)**：一个 Workflow 包含一个或多个 **Job**，默认情况下并行运行，我们可以设置让其按顺序执行，每个 **Job** 可以包含多个 **Step**。
 - **Step(步骤)**：定义每一个部分的工作内容，每一个 **Step** 都是一个单独的进程运行。该部分下每个项目都是一个单独操作或者 shell 脚本。
 
-引用官方文档的 Workflow 图，我们可以直观的看懂 **Event**、**Job**和 **Step** 之间的关系：
+引用官方文档的 Workflow 图，我们可以直观的看懂 **Event**、**Job** 和 **Step** 之间的关系：
 
 ![overview-actions-simple](https://docs.github.com/assets/cb-25535/mw-1000/images/help/actions/overview-actions-simple.webp)
 

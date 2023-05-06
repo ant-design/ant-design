@@ -12,13 +12,13 @@ Ant Design is hosted on GitHub as an open-source project, making it easy to comm
 
 ## What is GitHub Actions
 
-GitHub Actions is a platform for automating software development workflows, from idea to production. Developers can easily customize and configure their own workflows by adding YAML format files to the .github/workflows directory to define the workflow and implement CI (continuous integration). By [Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions), we can grasp some concepts within workflows.
+GitHub Actions is a platform for automating software development workflows, from idea to production. Developers can easily customize and configure their own workflows by adding YAML format files to the `.github/workflows` directory to define the workflow and implement CI (continuous integration). By [Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions), we can grasp some concepts within workflows.
 
 - **Event**: Triggers a workflow run, such as when someone creates an issue, a pull request, or pushes code to a branch.
 - **Job**: A workflow consists of one or more jobs that run in parallel by default, but can be set to run sequentially. Each job can contain multiple steps.
 - **Step**: Defines the work to be done for a particular section. Each step runs as a separate process. Each item under this section is a separate operation or shell script.
 
-Here's a visual representation from the official documentation that shows the relationship between Event, Job, and Step:
+Here's a visual representation from the official documentation that shows the relationship between Event, Job and Step:
 
 ![overview-actions-simple](https://docs.github.com/assets/cb-25535/mw-1000/images/help/actions/overview-actions-simple.webp)
 
@@ -52,7 +52,7 @@ However, even with the use of the issue assistant, team members may sometimes be
 
 ### Common Issue FAQ
 
-For some common issues, the team provides detailed answers to help developers solve problems more quickly. For example, when the title of an issue contains keywords such as `official website`, `website`, `down`, `IE`, etc., the [issue-open-check.yml#L43-L94](https://github.com/ant-design/ant-design/blob/da83561f9cb57b0eb03d18543d96393689f799be/.github/workflows/issue-open-check.yml#L43-L94) job records the standard reply format in detail and will automatically close the issue.
+For some common issues, the team provides detailed answers to help developers solve problems more quickly. For example, when the title of an issue contains keywords such as `can not open`, `website`, `down`, `IE`, etc., the [issue-open-check.yml#L43-L94](https://github.com/ant-design/ant-design/blob/da83561f9cb57b0eb03d18543d96393689f799be/.github/workflows/issue-open-check.yml#L43-L94) job records the standard reply format in detail and will automatically close the issue.
 
 ![issue-auto-comment-preview](https://user-images.githubusercontent.com/32004925/231660324-b763d7ac-95d8-431a-a31d-69b2eff72dfd.png)
 
