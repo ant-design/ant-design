@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { SpaceContext } from '.';
 
 export interface ItemProps {

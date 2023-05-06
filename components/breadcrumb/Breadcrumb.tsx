@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import pickAttrs from 'rc-util/lib/pickAttrs';
-import * as React from 'react';
+import React from 'react';
 import { cloneElement } from '../_util/reactNode';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';

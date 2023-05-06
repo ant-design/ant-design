@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
 demoTest('form', { skip: ['complex-form-control.tsx', 'dep-debug.tsx'] });

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import type { BaseOptionType } from '..';
 import Cascader from '..';
 import { render } from '../../../tests/utils';

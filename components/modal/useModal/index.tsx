@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import usePatchElement from '../../_util/hooks/usePatchElement';
 import type { ModalStaticFunctions } from '../confirm';
 import { withConfirm, withError, withInfo, withSuccess, withWarn } from '../confirm';

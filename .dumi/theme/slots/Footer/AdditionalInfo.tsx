@@ -1,5 +1,5 @@
 import { removeCSS, updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
-import * as React from 'react';
+import React from 'react';
 import useLocale from '../../../hooks/useLocale';
 
 const whereCls = 'ant-where-checker';

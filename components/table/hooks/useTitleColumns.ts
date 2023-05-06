@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import type { ColumnsType, ColumnTitleProps, TransformColumns } from '../interface';
 import { renderColumnTitle } from '../util';
 

@@ -3,7 +3,7 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import WarningFilled from '@ant-design/icons/WarningFilled';
 import classNames from 'classnames';
-import * as React from 'react';
+import React from 'react';
 
 import { ConfigContext } from '../config-provider';
 import warning from '../_util/warning';
