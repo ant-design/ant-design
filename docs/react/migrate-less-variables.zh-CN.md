@@ -169,27 +169,27 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@process-tail-color` | `processTailColor` | - |
-| `@steps-nav-arrow-color` | `stepsNavArrowColor` | - |
-| `@steps-background` | - | 由于样式变化已废弃 |
-| `@steps-icon-size` | `stepsIconSize` | - |
-| `@steps-icon-custom-size` | `stepsIconCustomSize` | - |
-| `@steps-icon-custom-top` | `stepsIconCustomTop` | - |
-| `@steps-icon-custom-font-size` | `stepsIconCustomFontSize` | - |
-| `@steps-icon-top` | `stepsIconTop` | - |
-| `@steps-icon-font-size` | `stepsIconFontSize` | - |
-| `@steps-icon-margin` | - | 由于样式变化已废弃 |
-| `@steps-title-line-height` | `stepsTitleLineHeight` | - |
-| `@steps-small-icon-size` | `stepsSmallIconSize` | - |
-| `@steps-small-icon-margin` | - | 由于样式变化已废弃 |
-| `@steps-dot-size` | `stepsDotSize` | - |
-| `@steps-dot-top` | - | 由于样式变化已废弃 |
-| `@steps-current-dot-size` | `stepsCurrentDotSize` | - |
-| `@steps-description-max-width` | `stepsNavContentMaxWidth` | - |
-| `@steps-nav-content-max-width` | - | 由于样式变化已废弃 |
-| `@steps-vertical-icon-width` | - | 由于样式变化已废弃 |
-| `@steps-vertical-tail-width` | - | 由于样式变化已废弃 |
-| `@steps-vertical-tail-width-sm` | - | 由于样式变化已废弃 |
+| `@process-tail-color` | `colorSplit` | - |
+| `@steps-nav-arrow-color` | `navArrowColor` | - |
+| `@steps-background` | `colorBgContainer` | - |
+| `@steps-icon-size` | `iconSize` | - |
+| `@steps-icon-custom-size` | `customIconSize` | - |
+| `@steps-icon-custom-top` | `customIconTop` | - |
+| `@steps-icon-custom-font-size` | `customIconFontSize` | - |
+| `@steps-icon-top` | `iconTop` | - |
+| `@steps-icon-font-size` | `iconFontSize` | - |
+| `@steps-icon-margin` | - | 已废弃 |
+| `@steps-title-line-height` | `titleLineHeight` | - |
+| `@steps-small-icon-size` | `iconSizeSM` | - |
+| `@steps-small-icon-margin` | - | 已废弃 |
+| `@steps-dot-size` | `dotSize` | - |
+| `@steps-dot-top` | - | 已废弃 |
+| `@steps-current-dot-size` | `dotCurrentSize` | - |
+| `@steps-description-max-width` | `descriptionMaxWidth` | - |
+| `@steps-nav-content-max-width` | `stepsNavContentMaxWidth` | - |
+| `@steps-vertical-icon-width` | `iconSize` | - |
+| `@steps-vertical-tail-width` | - | 已废弃 |
+| `@steps-vertical-tail-width-sm` | - | 已废弃 |
 
 <!-- ### Switch 开关 -->
 
