@@ -120,12 +120,12 @@ title: Less 变量迁移 Design Token
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
 | `@notification-width` | `width` | - |
-| `@notification-padding` | `notificationPadding` | - |
-| `@notification-padding-vertical` | `notificationPaddingVertical` | - |
-| `@notification-padding-horizontal` | `notificationPaddingHorizontal` | - |
-| `@notification-margin-bottom` | `notificationMarginBottom` | - |
-| `@notification-margin-edge` | `notificationMarginEdge` | - |
-| `@notification-bg` | `notificationBg` | - |
+| `@notification-padding` | `paddingInlineStart` `paddingInlineEnd` `paddingBlockStart` `paddingBlockEnd` | - |
+| `@notification-padding-vertical` | `paddingBlockStart` `paddingBlockEnd` | - |
+| `@notification-padding-horizontal` | `paddingInlineStart` `paddingInlineEnd` | - |
+| `@notification-margin-bottom` | `marginBottom` | - |
+| `@notification-margin-edge` | `marginInlineEnd` | - |
+| `@notification-bg` | `background` | - |
 
 <!-- ### Pagination 分页 -->
 
@@ -142,10 +142,10 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@result-icon-font-size` | `resultIconFontSize` | - |
-| `@result-title-font-size` | `resultTitleFontSize` | - |
-| `@result-subtitle-font-size` | `resultSubtitleFontSize` | - |
-| `@result-extra-margin` | `resultExtraMargin` | - |
+| `@result-icon-font-size` | `iconFontSize` | - |
+| `@result-title-font-size` | `titleFontSize` | - |
+| `@result-subtitle-font-size` | `subtitleFontSize` | - |
+| `@result-extra-margin` | `extraMargin` | - |
 
 <!-- ### Segment 分段器 -->
 

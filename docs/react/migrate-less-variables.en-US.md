@@ -120,12 +120,12 @@ This document contains the correspondence between all the less variables related
 | Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@notification-width` | `width` | - |
-| `@notification-padding` | `notificationPadding` | - |
-| `@notification-padding-vertical` | `notificationPaddingVertical` | - |
-| `@notification-padding-horizontal` | `notificationPaddingHorizontal` | - |
-| `@notification-margin-bottom` | `notificationMarginBottom` | - |
-| `@notification-margin-edge` | `notificationMarginEdge` | - |
-| `@notification-bg` | `notificationBg` | - |
+| `@notification-padding` | `paddingInlineStart` `paddingInlineEnd` `paddingBlockStart` `paddingBlockEnd` | - |
+| `@notification-padding-vertical` | `paddingBlockStart` `paddingBlockEnd` | - |
+| `@notification-padding-horizontal` | `paddingInlineStart` `paddingInlineEnd` | - |
+| `@notification-margin-bottom` | `marginBottom` | - |
+| `@notification-margin-edge` | `marginInlineEnd` | - |
+| `@notification-bg` | `background` | - |
 
 <!-- ### Pagination -->
 
@@ -142,10 +142,10 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@result-icon-font-size` | `resultIconFontSize` | - |
-| `@result-title-font-size` | `resultTitleFontSize` | - |
-| `@result-subtitle-font-size` | `resultSubtitleFontSize` | - |
-| `@result-extra-margin` | `resultExtraMargin` | - |
+| `@result-icon-font-size` | `iconFontSize` | - |
+| `@result-title-font-size` | `titleFontSize` | - |
+| `@result-subtitle-font-size` | `subtitleFontSize` | - |
+| `@result-extra-margin` | `extraMargin` | - |
 
 <!-- ### Segment -->
 

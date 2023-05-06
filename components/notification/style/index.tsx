@@ -1,5 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
+import type { CSSProperties } from 'react';
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -9,18 +10,19 @@ import genNotificationPlacementStyle from './placement';
 export interface ComponentToken {
   zIndexPopup: number;
   width: number;
-  notificationBg: string;
-  notificationPadding: string;
-  notificationPaddingVertical: number;
-  notificationPaddingHorizontal: number;
-  notificationIconSize: number;
-  notificationCloseButtonSize: number;
-  notificationMarginBottom: number;
-  notificationMarginEdge: number;
+  background: string;
+  paddingBlockStart: CSSProperties['paddingBlockStart'];
+  paddingBlockEnd: CSSProperties['paddingBlockEnd'];
+  paddingInlineStart: CSSProperties['paddingInlineStart'];
+  paddingInlineEnd: CSSProperties['paddingInlineEnd'];
+  marginBottom: number;
+  marginInlineEnd: number;
 }
 
 export interface NotificationToken extends FullToken<'Notification'> {
   animationMaxHeight: number;
+  notificationIconSize: number;
+  notificationCloseBtnSize: number;
 }
 
 const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
@@ -29,22 +31,25 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
     componentCls, // .ant-notification
     boxShadow,
     fontSizeLG,
-    notificationMarginBottom,
+    marginBottom,
     borderRadiusLG,
     colorSuccess,
     colorInfo,
     colorWarning,
     colorError,
     colorTextHeading,
-    notificationBg,
-    notificationPadding,
-    notificationMarginEdge,
+    background,
+    marginInlineEnd,
     motionDurationMid,
     motionEaseInOut,
     fontSize,
     lineHeight,
     width,
     notificationIconSize,
+    paddingInlineStart,
+    paddingInlineEnd,
+    paddingBlockStart,
+    paddingBlockEnd,
   } = token;
 
   const noticeCls = `${componentCls}-notice`;
@@ -70,7 +75,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
   const notificationFadeOut = new Keyframes('antNotificationFadeOut', {
     '0%': {
       maxHeight: token.animationMaxHeight,
-      marginBottom: notificationMarginBottom,
+      marginBottom,
       opacity: 1,
     },
 
@@ -86,14 +91,17 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
   const noticeStyle: CSSObject = {
     position: 'relative',
     width,
-    maxWidth: `calc(100vw - ${notificationMarginEdge * 2}px)`,
-    marginBottom: notificationMarginBottom,
+    maxWidth: `calc(100vw - ${marginInlineEnd * 2}px)`,
+    marginBottom,
     marginInlineStart: 'auto',
-    padding: notificationPadding,
+    paddingInlineStart,
+    paddingInlineEnd,
+    paddingBlockStart,
+    paddingBlockEnd,
     overflow: 'hidden',
     lineHeight,
     wordWrap: 'break-word',
-    background: notificationBg,
+    background,
     borderRadius: borderRadiusLG,
     boxShadow,
 
@@ -153,12 +161,12 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 
     [`${noticeCls}-close`]: {
       position: 'absolute',
-      top: token.notificationPaddingVertical,
-      insetInlineEnd: token.notificationPaddingHorizontal,
+      top: paddingBlockStart,
+      insetInlineEnd: paddingInlineEnd,
       color: token.colorIcon,
       outline: 'none',
-      width: token.notificationCloseButtonSize,
-      height: token.notificationCloseButtonSize,
+      width: token.notificationCloseBtnSize,
+      height: token.notificationCloseBtnSize,
       borderRadius: token.borderRadiusSM,
       transition: `background-color ${token.motionDurationMid}, color ${token.motionDurationMid}`,
       display: 'flex',
@@ -185,7 +193,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 
         position: 'fixed',
         zIndex: token.zIndexPopup,
-        marginInlineEnd: notificationMarginEdge,
+        marginInlineEnd,
 
         [`${componentCls}-hook-holder`]: {
           position: 'relative',
@@ -272,24 +280,25 @@ export default genComponentStyleHook(
     const notificationToken = mergeToken<NotificationToken>(token, {
       // index.less variables
       animationMaxHeight: 150,
+      notificationIconSize: token.fontSizeLG * token.lineHeightLG,
+      notificationCloseBtnSize: token.controlHeightLG * 0.55,
     });
 
     return [genNotificationStyle(notificationToken)];
   },
   (token) => {
-    const notificationPaddingVertical = token.paddingMD;
-    const notificationPaddingHorizontal = token.paddingLG;
+    const paddingBlock = token.paddingMD;
+    const paddingInline = token.paddingContentHorizontalLG;
     return {
       zIndexPopup: token.zIndexPopupBase + 50,
       width: 384,
-      notificationBg: token.colorBgElevated,
-      notificationPaddingVertical,
-      notificationPaddingHorizontal,
-      notificationIconSize: token.fontSizeLG * token.lineHeightLG,
-      notificationCloseButtonSize: token.controlHeightLG * 0.55,
-      notificationMarginBottom: token.margin,
-      notificationPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
-      notificationMarginEdge: token.marginLG,
+      background: token.colorBgElevated,
+      paddingInlineStart: paddingInline,
+      paddingInlineEnd: paddingInline,
+      paddingBlockStart: paddingBlock,
+      paddingBlockEnd: paddingBlock,
+      marginBottom: token.margin,
+      marginInlineEnd: token.marginLG,
     };
   },
 );
