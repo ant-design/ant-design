@@ -51,9 +51,9 @@ const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) 
 
   useEffect(() => resetVirtualGrid, [tableWidth]);
 
-  const renderVirtualList = (rawData: object[], { scrollbarSize, ref, onScroll }: any) => {
+  const renderVirtualList = (data: readonly object[], { scrollbarSize, ref, onScroll }: any) => {
     ref.current = connectObject;
-    const totalHeight = rawData.length * 54;
+    const totalHeight = data.length * 54;
 
     return (
       <Grid
@@ -67,7 +67,7 @@ const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) 
             : (width as number);
         }}
         height={scroll!.y as number}
-        rowCount={rawData.length}
+        rowCount={data.length}
         rowHeight={() => 54}
         width={tableWidth}
         onScroll={({ scrollLeft }: { scrollLeft: number }) => {
@@ -95,7 +95,7 @@ const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) 
               background: token.colorBgContainer,
             }}
           >
-            {(rawData[rowIndex] as any)[(mergedColumns as any)[columnIndex].dataIndex]}
+            {(data[rowIndex] as any)[(mergedColumns as any)[columnIndex].dataIndex]}
           </div>
         )}
       </Grid>
