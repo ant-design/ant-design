@@ -13,10 +13,9 @@ import type { CheckboxProps } from '../../checkbox';
 import Checkbox from '../../checkbox';
 import Dropdown from '../../dropdown';
 import Radio from '../../radio';
-import type { AnyObject } from '../Table';
 import type {
-  ColumnType,
   ColumnsType,
+  ColumnType,
   ExpandType,
   GetPopupContainer,
   GetRowKey,
@@ -27,6 +26,7 @@ import type {
   TableRowSelection,
   TransformColumns,
 } from '../interface';
+import type { AnyObject } from '../Table';
 
 // TODO: warning if use ajax!!!
 
@@ -691,12 +691,15 @@ const useSelection = <RecordType extends AnyObject = any>(
       });
 
       // Replace with real selection column
-      const selectionColumn = {
+      const selectionColumn: ColumnsType<RecordType>[0] & {
+        RC_TABLE_INTERNAL_COL_DEFINE: Record<string, any>;
+      } = {
         fixed: mergedFixed,
         width: selectionColWidth,
         className: `${prefixCls}-selection-column`,
         title: rowSelection.columnTitle || title,
         render: renderSelectionCell,
+        onCell: rowSelection.onCell,
         [INTERNAL_COL_DEFINE]: { className: columnCls },
       };
 
