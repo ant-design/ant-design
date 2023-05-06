@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Result from '..';
 
 describe('Result.typescript', () => {

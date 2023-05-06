@@ -1,6 +1,6 @@
 import toArray from 'rc-util/lib/Children/toArray';
 import useIsomorphicLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
-import React from 'react';
+import * as React from 'react';
 
 export interface EllipsisProps {
   enabledMeasure?: boolean;

@@ -1,6 +1,7 @@
 import type { GenerateConfig } from 'rc-picker/lib/generate';
 import type { Locale } from 'rc-picker/lib/interface';
-import React, { useContext, useMemo } from 'react';
+import * as React from 'react';
+import { useContext, useMemo } from 'react';
 import { FormItemInputContext } from '../form/context';
 import { Button, Group } from '../radio';
 import Select from '../select';

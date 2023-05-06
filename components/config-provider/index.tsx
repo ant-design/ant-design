@@ -5,7 +5,7 @@ import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import { setValues } from 'rc-field-form/lib/utils/valueUtil';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import type { ReactElement } from 'react';
-import React from 'react';
+import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
 import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale';
