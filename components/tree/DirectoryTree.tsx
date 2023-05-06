@@ -7,7 +7,7 @@ import type { BasicDataNode } from 'rc-tree';
 import type { DataNode, EventDataNode, Key } from 'rc-tree/lib/interface';
 import { conductExpandParent } from 'rc-tree/lib/util';
 import { convertDataToEntities, convertTreeToData } from 'rc-tree/lib/utils/treeUtil';
-import React from 'react';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 
 import type { AntdTreeNodeAttribute, TreeProps } from './Tree';

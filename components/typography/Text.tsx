@@ -1,5 +1,5 @@
 import omit from 'rc-util/lib/omit';
-import React from 'react';
+import * as React from 'react';
 import warning from '../_util/warning';
 import type { BlockProps, EllipsisConfig } from './Base';
 import Base from './Base';

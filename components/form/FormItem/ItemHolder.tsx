@@ -7,7 +7,7 @@ import type { Meta } from 'rc-field-form/lib/interface';
 import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import isVisible from 'rc-util/lib/Dom/isVisible';
 import omit from 'rc-util/lib/omit';
-import React from 'react';
+import * as React from 'react';
 import type { FormItemProps, ValidateStatus } from '.';
 import { Row } from '../../grid';
 import FormItemInput from '../FormItemInput';

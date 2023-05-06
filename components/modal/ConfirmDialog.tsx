@@ -3,7 +3,7 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import ConfigProvider from '../config-provider';
 import { useLocale } from '../locale';
 import ActionButton from '../_util/ActionButton';

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import ConfigProvider from '..';
 import Button from '../../button';

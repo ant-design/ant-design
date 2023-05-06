@@ -1,5 +1,5 @@
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
-import React from 'react';
+import * as React from 'react';
 
 import Input from '../input';
 

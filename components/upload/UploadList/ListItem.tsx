@@ -3,7 +3,7 @@ import DownloadOutlined from '@ant-design/icons/DownloadOutlined';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
-import React from 'react';
+import * as React from 'react';
 import { ConfigContext } from '../../config-provider';
 import Progress from '../../progress';
 import Tooltip from '../../tooltip';

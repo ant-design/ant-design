@@ -5,7 +5,7 @@ import PictureTwoTone from '@ant-design/icons/PictureTwoTone';
 import classNames from 'classnames';
 import type { CSSMotionListProps } from 'rc-motion';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
-import React from 'react';
+import * as React from 'react';
 import type { ButtonProps } from '../../button';
 import Button from '../../button';
 import { ConfigContext } from '../../config-provider';

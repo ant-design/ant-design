@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
-import React from 'react';
+import * as React from 'react';
 import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import warning from '../_util/warning';
