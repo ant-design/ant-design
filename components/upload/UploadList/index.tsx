@@ -5,8 +5,7 @@ import PictureTwoTone from '@ant-design/icons/PictureTwoTone';
 import classNames from 'classnames';
 import type { CSSMotionListProps } from 'rc-motion';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
-import * as React from 'react';
-import { useMemo } from 'react';
+import React from 'react';
 import type { ButtonProps } from '../../button';
 import Button from '../../button';
 import { ConfigContext } from '../../config-provider';
@@ -42,6 +41,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     appendAction,
     appendActionVisible = true,
     itemRender,
+    disabled,
   } = props;
   const forceUpdate = useForceUpdate();
   const [motionAppear, setMotionAppear] = React.useState(false);
@@ -130,6 +130,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
         }
       },
       className: `${prefixCls}-list-item-action`,
+      disabled,
     };
     if (isValidElement(customIcon)) {
       const btnIcon = cloneElement(customIcon, {
@@ -183,7 +184,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     motionAppear,
   };
 
-  const listItemMotion: Partial<CSSMotionListProps> = useMemo(() => {
+  const listItemMotion: Partial<CSSMotionListProps> = React.useMemo(() => {
     const motion = {
       ...initCollapseMotion(rootPrefixCls),
     };

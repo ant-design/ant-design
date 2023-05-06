@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import * as React from 'react';
+import React from 'react';
 import type { ProgressProps } from './progress';
 import { getSize } from './utils';
 

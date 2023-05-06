@@ -1,22 +1,21 @@
+import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+import classNames from 'classnames';
 import type { MenuProps as RcMenuProps, MenuRef as RcMenuRef } from 'rc-menu';
 import RcMenu from 'rc-menu';
-import * as React from 'react';
-import { forwardRef } from 'react';
-import omit from 'rc-util/lib/omit';
 import useEvent from 'rc-util/lib/hooks/useEvent';
-import classNames from 'classnames';
-import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
-import warning from '../_util/warning';
+import omit from 'rc-util/lib/omit';
+import React, { forwardRef } from 'react';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
-import type { SiderContextProps } from '../layout/Sider';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import useStyle from './style';
-import OverrideContext from './OverrideContext';
-import useItems from './hooks/useItems';
-import type { ItemType } from './hooks/useItems';
+import type { SiderContextProps } from '../layout/Sider';
+import type { MenuContextProps, MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';
-import type { MenuTheme, MenuContextProps } from './MenuContext';
+import OverrideContext from './OverrideContext';
+import type { ItemType } from './hooks/useItems';
+import useItems from './hooks/useItems';
+import useStyle from './style';
 
 export interface MenuProps extends Omit<RcMenuProps, 'items'> {
   theme?: MenuTheme;

@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import * as React from 'react';
+import React from 'react';
 import dayjs from 'dayjs';
 import { FormattedMessage, useIntl } from 'dumi';
 import { Tabs, Skeleton, Avatar, Divider, Empty } from 'antd';

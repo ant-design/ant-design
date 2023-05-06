@@ -7,7 +7,7 @@ import type {
   StepIconRender,
   StepsProps as RcStepsProps,
 } from 'rc-steps/lib/Steps';
-import * as React from 'react';
+import React from 'react';
 import Tooltip from '../tooltip';
 import { ConfigContext } from '../config-provider';
 import useBreakpoint from '../grid/hooks/useBreakpoint';

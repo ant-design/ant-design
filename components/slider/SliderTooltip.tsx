@@ -1,7 +1,6 @@
 import raf from 'rc-util/lib/raf';
 import { composeRef } from 'rc-util/lib/ref';
-import * as React from 'react';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import type { TooltipProps } from '../tooltip';
 import Tooltip from '../tooltip';
 
