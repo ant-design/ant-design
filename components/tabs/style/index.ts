@@ -6,16 +6,34 @@ import genMotionStyle from './motion';
 
 export interface ComponentToken {
   zIndexPopup: number;
-  tabsCardHeadBackground: string;
-  tabsCardHeight: number;
-}
-
-export interface TabsToken extends FullToken<'Tabs'> {
-  tabsCardHorizontalPadding: string;
+  tabsCardActiveColor: string;
+  tabsCardHorizontalPaddingSm: string;
+  tabsCardHorizontalPaddingLg: string;
+  tabsTitleFontSize: number;
+  tabsTitleFontSizeLg: number;
+  tabsTitleFontSizeSm: number;
+  tabsInkBarColor: string;
+  tabsBarMargin: string;
+  tabsHorizontalMargin: string;
+  tabsHorizontalMarginRtl: string;
+  tabsHorizontalPadding: string;
+  tabsHorizontalPaddingLg: string;
+  tabsHorizontalPaddingSm: string;
+  tabsVerticalPadding: string;
+  tabsVerticalMargin: string;
+  tabsScrollingSize: 32; // Fixed Value
+  tabsHighlightColor: string;
+  tabsCardTabActiveBorderTop: string;
   tabsCardGutter: number;
   tabsHoverColor: string;
   tabsActiveColor: string;
   tabsHorizontalGutter: number;
+  tabsCardHeight: number;
+  tabsCardHeadBackground: string;
+}
+
+export interface TabsToken extends FullToken<'Tabs'> {
+  tabsCardHorizontalPadding: string;
   dropdownEdgeChildVerticalPadding: number;
   tabsNavWrapPseudoWidth: number;
   tabsActiveTextShadow: string;
@@ -869,16 +887,10 @@ export default genComponentStyleHook(
   'Tabs',
   (token) => {
     const tabsToken = mergeToken<TabsToken>(token, {
-      tabsHoverColor: token.colorPrimaryHover,
-      tabsActiveColor: token.colorPrimaryActive,
-
       tabsCardHorizontalPadding: `${
         (token.controlHeightLG - Math.round(token.fontSize * token.lineHeight)) / 2 -
         token.lineWidth
       }px ${token.padding}px`,
-      tabsCardGutter: token.marginXXS / 2,
-      tabsHorizontalGutter: 32, // Fixed Value
-
       dropdownEdgeChildVerticalPadding: token.paddingXXS,
       tabsActiveTextShadow: '0 0 0.25px currentcolor',
       tabsDropdownHeight: 200,
@@ -899,27 +911,27 @@ export default genComponentStyleHook(
     zIndexPopup: token.zIndexPopupBase + 50,
     tabsCardHeadBackground: token.colorFillAlter,
     tabsCardHeight: token.controlHeightLG,
-    // tabsCardActiveColor: @primaryColor;
-    // tabsCardHorizontalPaddingSm: 6px @paddingMd;
-    // tabsCardHorizontalPaddingLg: 7px @paddingMd 6px;
-    // tabsTitleFontSize: @fontSizeBase;
-    // tabsTitleFontSizeLg: @fontSizeLg;
-    // tabsTitleFontSizeSm: @fontSizeBase;
-    // tabsInkBarColor: @primaryColor;
-    // tabsBarMargin: 0 0 @marginMd 0;
-    // tabsHorizontalGutter: 32px;
-    // tabsHorizontalMargin: 0 0 0 @tabs-horizontalGutter;
-    // tabsHorizontalMarginRtl: 0 0 0 32px;
-    // tabsHorizontalPadding: @paddingSm 0;
-    // tabsHorizontalPaddingLg: @paddingMd 0;
-    // tabsHorizontalPaddingSm: @padding-xs 0;
-    // tabsVerticalPadding: @padding-xs @paddingLg;
-    // tabsVerticalMargin: @marginMd 0 0 0;
-    // tabsScrollingSize: 32px;
-    // tabsHighlightColor: @primaryColor;
-    // tabsHoverColor: @primary-5;
-    // tabsActiveColor: @primary-7;
-    // tabsCardGutter: 2px;
-    // tabsCardTabActiveBorderTop: 2px solid transparent;
+    tabsCardActiveColor: token.colorPrimary,
+    tabsCardHorizontalPaddingSm: `6px ${token.paddingMD}`, // Fixed Value
+    tabsCardHorizontalPaddingLg: `7px ${token.paddingMD} 6px`, // Fixed Value
+    tabsTitleFontSize: token.fontSize,
+    tabsTitleFontSizeLg: token.fontSizeLG,
+    tabsTitleFontSizeSm: token.fontSizeSM,
+    tabsInkBarColor: token.colorPrimary,
+    tabsBarMargin: `0 0 ${token.marginMD} 0`,
+    tabsHorizontalGutter: 32, // Fixed Value
+    tabsHorizontalMargin: '0 0 0 32px', // Fixed Value
+    tabsHorizontalMarginRtl: '0 0 0 32px', // Fixed Value
+    tabsHorizontalPadding: `${token.paddingSM} 0`,
+    tabsHorizontalPaddingLg: `${token.paddingMD} 0`,
+    tabsHorizontalPaddingSm: `${token.paddingXS} 0`,
+    tabsVerticalPadding: `${token.paddingMD}, ${token.paddingLG}`,
+    tabsVerticalMargin: `${token.marginMD} 0 0 0`,
+    tabsScrollingSize: 32, // Fixed Value
+    tabsHighlightColor: token.colorPrimary,
+    tabsHoverColor: token.colorPrimaryHover,
+    tabsActiveColor: token.colorPrimaryActive,
+    tabsCardGutter: token.marginXXS / 2,
+    tabsCardTabActiveBorderTop: '2px solid transparent',
   }),
 );
