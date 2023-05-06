@@ -450,7 +450,24 @@ Mentions 提及
 | `@steps-vertical-tail-width` | - | 已废弃 |
 | `@steps-vertical-tail-width-sm` | - | 已废弃 |
 
-<!-- ### Switch 开关 -->
+### Switch 开关
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@switch-height` | `height` | - |
+| `@switch-sm-height` | `heightSM` | - |
+| `@switch-min-width` | `minWidth` | - |
+| `@switch-sm-min-width` | `minWidthSM` | - |
+| `@switch-disabled-opacity` | `opacityLoading` | 全局 Token |
+| `@switch-color` | `colorPrimary` | 全局 Token |
+| `@switch-bg` | - | 由于样式变化已废弃 |
+| `@switch-shadow-color` | - | 由于样式变化已废弃 |
+| `@switch-padding` | `padding` | - |
+| `@switch-inner-margin-min` | `innerMarginMin` | - |
+| `@switch-inner-margin-max` | `innerMarginMax` | - |
+| `@switch-sm-inner-margin-min` | `innerMarginMinSM` | - |
+| `@switch-sm-inner-margin-max` | `innerMarginMaxSM` | - |
 
 <!-- ### Table 表格 -->
 

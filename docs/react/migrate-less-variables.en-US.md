@@ -455,6 +455,23 @@ export default App;
 
 <!-- ### Switch -->
 
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@switch-height` | `height` | - |
+| `@switch-sm-height` | `heightSM` | - |
+| `@switch-min-width` | `minWidth` | - |
+| `@switch-sm-min-width` | `minWidthSM` | - |
+| `@switch-disabled-opacity` | `opacityLoading` | Global Token |
+| `@switch-color` | `colorPrimary` | Global Token |
+| `@switch-bg` | - | Deprecated |
+| `@switch-shadow-color` | - | Deprecated |
+| `@switch-padding` | `padding` | - |
+| `@switch-inner-margin-min` | `innerMarginMin` | - |
+| `@switch-inner-margin-max` | `innerMarginMax` | - |
+| `@switch-sm-inner-margin-min` | `innerMarginMinSM` | - |
+| `@switch-sm-inner-margin-max` | `innerMarginMaxSM` | - |
+
 <!-- ### Table -->
 
 ### Tabs 标签页
