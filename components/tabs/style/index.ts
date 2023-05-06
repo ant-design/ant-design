@@ -1,21 +1,21 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { genFocusStyle, resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { genFocusStyle, resetComponent, textEllipsis } from '../../style';
 import genMotionStyle from './motion';
 
 export interface ComponentToken {
   zIndexPopup: number;
+  tabsCardHeadBackground: string;
+  tabsCardHeight: number;
 }
 
 export interface TabsToken extends FullToken<'Tabs'> {
   tabsCardHorizontalPadding: string;
-  tabsCardHeight: number;
   tabsCardGutter: number;
   tabsHoverColor: string;
   tabsActiveColor: string;
   tabsHorizontalGutter: number;
-  tabsCardHeadBackground: string;
   dropdownEdgeChildVerticalPadding: number;
   tabsNavWrapPseudoWidth: number;
   tabsActiveTextShadow: string;
@@ -868,19 +868,17 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
 export default genComponentStyleHook(
   'Tabs',
   (token) => {
-    const tabsCardHeight = token.controlHeightLG;
-
     const tabsToken = mergeToken<TabsToken>(token, {
       tabsHoverColor: token.colorPrimaryHover,
       tabsActiveColor: token.colorPrimaryActive,
 
       tabsCardHorizontalPadding: `${
-        (tabsCardHeight - Math.round(token.fontSize * token.lineHeight)) / 2 - token.lineWidth
+        (token.controlHeightLG - Math.round(token.fontSize * token.lineHeight)) / 2 -
+        token.lineWidth
       }px ${token.padding}px`,
-      tabsCardHeight,
       tabsCardGutter: token.marginXXS / 2,
       tabsHorizontalGutter: 32, // Fixed Value
-      tabsCardHeadBackground: token.colorFillAlter,
+
       dropdownEdgeChildVerticalPadding: token.paddingXXS,
       tabsActiveTextShadow: '0 0 0.25px currentcolor',
       tabsDropdownHeight: 200,
@@ -899,5 +897,29 @@ export default genComponentStyleHook(
   },
   (token) => ({
     zIndexPopup: token.zIndexPopupBase + 50,
+    tabsCardHeadBackground: token.colorFillAlter,
+    tabsCardHeight: token.controlHeightLG,
+    // tabsCardActiveColor: @primaryColor;
+    // tabsCardHorizontalPaddingSm: 6px @paddingMd;
+    // tabsCardHorizontalPaddingLg: 7px @paddingMd 6px;
+    // tabsTitleFontSize: @fontSizeBase;
+    // tabsTitleFontSizeLg: @fontSizeLg;
+    // tabsTitleFontSizeSm: @fontSizeBase;
+    // tabsInkBarColor: @primaryColor;
+    // tabsBarMargin: 0 0 @marginMd 0;
+    // tabsHorizontalGutter: 32px;
+    // tabsHorizontalMargin: 0 0 0 @tabs-horizontalGutter;
+    // tabsHorizontalMarginRtl: 0 0 0 32px;
+    // tabsHorizontalPadding: @paddingSm 0;
+    // tabsHorizontalPaddingLg: @paddingMd 0;
+    // tabsHorizontalPaddingSm: @padding-xs 0;
+    // tabsVerticalPadding: @padding-xs @paddingLg;
+    // tabsVerticalMargin: @marginMd 0 0 0;
+    // tabsScrollingSize: 32px;
+    // tabsHighlightColor: @primaryColor;
+    // tabsHoverColor: @primary-5;
+    // tabsActiveColor: @primary-7;
+    // tabsCardGutter: 2px;
+    // tabsCardTabActiveBorderTop: 2px solid transparent;
   }),
 );
