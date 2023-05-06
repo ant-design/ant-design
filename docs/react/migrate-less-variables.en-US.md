@@ -174,7 +174,9 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Radio -->
 
-## Rate
+<!-- ### Rate -->
+
+## Result
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -184,27 +186,7 @@ This document contains the correspondence between all the less variables related
 | `@rate-star-size` | `starSize` | - |
 | `@rate-star-hover-scale` | `starHoverScale` | - |
 
-### Result
-
-<!-- prettier-ignore -->
-| Less variables | Component Token | Note |
-| --- | --- | --- |
-| `@result-icon-font-size` | `iconFontSize` | - |
-| `@result-title-font-size` | `titleFontSize` | - |
-| `@result-subtitle-font-size` | `subtitleFontSize` | - |
-| `@result-extra-margin` | `extraMargin` | - |
-
-### Segment
-
-<!-- prettier-ignore -->
-| Less variables | Component Token | Note |
-| --- | --- | --- |
-| `@segmented-container-padding` | `padding` | - |
-| `@segmented-label-color` | `itemColor` | - |
-| `@segmented-hover-bg` | `itemHoverBg` | - |
-| `@segmented-bg` | - | Could be customized with `className` or `style` |
-| `@segmented-label-hover-color` | `itemHoverColor` | - |
-| `@segmented-selected-bg` | `itemSelectedBg` | - |
+<!-- ### Segment -->
 
 <!-- ### Select -->
 
@@ -223,7 +205,7 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Slider -->
 
-### Statistic
+## Statistic
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -232,7 +214,7 @@ This document contains the correspondence between all the less variables related
 | `@statistic-content-font-size` | `contentFontSize` | - |
 | `@statistic-font-family` | `fontFamily` | GlobalToken |
 
-### Step
+## Step
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -267,7 +249,17 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Tag -->
 
-<!-- ### Timeline -->
+### Timeline
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@timeline-width` | - | Deprecated for style change |
+| `@timeline-color` | `color` | - |
+| `@timeline-dot-border-width` | `headBorderWidth` | - |
+| `@timeline-dot-color` | - | Deprecated for style change |
+| `@timeline-dot-bg` | `headBg` | - |
+| `@timeline-item-padding-bottom` | `itemPaddingBottom` | - |
 
 <!-- ### TimePicker -->
 

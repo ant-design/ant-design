@@ -1,17 +1,20 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent } from '../../style';
 
-export interface ComponentToken {}
+export interface ComponentToken {
+  color: string;
+  headBorderWidth: number;
+  headBg: string;
+  itemPaddingBottom: number;
+}
 
 interface TimelineToken extends FullToken<'Timeline'> {
-  timeLineItemPaddingBottom: number;
   timeLineItemHeadSize: number;
   timeLineItemCustomHeadPaddingVertical: number;
   timeLineItemTailWidth: number;
   timeLinePaddingInlineEnd: number;
-  timeLineHeadBorderWidth: number;
 }
 
 const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
@@ -27,7 +30,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
       [`${componentCls}-item`]: {
         position: 'relative',
         margin: 0,
-        paddingBottom: token.timeLineItemPaddingBottom,
+        paddingBottom: token.itemPaddingBottom,
         fontSize: token.fontSize,
         listStyle: 'none',
 
@@ -54,8 +57,8 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           position: 'absolute',
           width: token.timeLineItemHeadSize,
           height: token.timeLineItemHeadSize,
-          backgroundColor: token.colorBgContainer,
-          border: `${token.timeLineHeadBorderWidth}px ${token.lineType} transparent`,
+          backgroundColor: token.headBg,
+          border: `${token.headBorderWidth}px ${token.lineType} transparent`,
           borderRadius: '50%',
 
           '&-blue': {
@@ -223,15 +226,22 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Timeline', (token) => {
-  const timeLineToken = mergeToken<TimelineToken>(token, {
-    timeLineItemPaddingBottom: token.padding * 1.25,
-    timeLineItemHeadSize: 10,
-    timeLineItemCustomHeadPaddingVertical: token.paddingXXS,
-    timeLinePaddingInlineEnd: 2,
-    timeLineItemTailWidth: token.lineWidthBold,
-    timeLineHeadBorderWidth: token.wireframe ? token.lineWidthBold : token.lineWidth * 3,
-  });
+export default genComponentStyleHook(
+  'Timeline',
+  (token) => {
+    const timeLineToken = mergeToken<TimelineToken>(token, {
+      timeLineItemHeadSize: 10,
+      timeLineItemCustomHeadPaddingVertical: token.paddingXXS,
+      timeLinePaddingInlineEnd: 2,
+      timeLineItemTailWidth: token.lineWidthBold,
+    });
 
-  return [genTimelineStyle(timeLineToken)];
-});
+    return [genTimelineStyle(timeLineToken)];
+  },
+  (token) => ({
+    color: token.colorSplit,
+    headBorderWidth: token.wireframe ? token.lineWidthBold : token.lineWidth * 3,
+    headBg: token.colorBgContainer,
+    itemPaddingBottom: token.padding * 1.25,
+  }),
+);

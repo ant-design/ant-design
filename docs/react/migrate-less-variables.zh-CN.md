@@ -54,7 +54,15 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Cascader 级联选择 -->
 
-## Checkbox 多选框
+<!-- ### Checkbox 多选框 -->
+
+<!-- ### Collapse 折叠面板 -->
+
+<!-- ### Descriptions 描述列表 -->
+
+<!-- ### Divider 分割线 -->
+
+## Drawer 抽屉
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
@@ -66,39 +74,6 @@ title: Less 变量迁移 Design Token
 | `@checkbox-border-width` | `lineWidth` | - |
 | `@checkbox-border-radius` | `borderRadiusSM` | - |
 | `@checkbox-group-item-margin-right` | - | 由于样式变化已废弃 |
-
-<!-- ### Collapse 折叠面板 -->
-
-### Descriptions 描述列表
-
-<!-- prettier-ignore -->
-| less 变量 | Component Token | 备注 |
-| --- | --- | --- |
-| `@descriptions-bg` | `labelBg` | - |
-| `@descriptions-title-margin-bottom` | `titleMarginBottom` | - |
-| `@descriptions-default-padding` | `padding`、`paddingLG` | 全局 Token，对应值为 `${token.padding}px ${token.paddingLG}px` |
-| `@descriptions-middle-padding` | `paddingSM`、`paddingLG` | 全局 Token，对应值为 `${token.paddingSM}px ${token.paddingLG}px` |
-| `@descriptions-small-padding` | `paddingXS`、`padding` | 全局 Token，对应值为 `${token.paddingXS}px ${token.padding}px` |
-| `@descriptions-item-padding-bottom` | `itemPaddingBottom` | - |
-| `@descriptions-item-trailing-colon` | - | 由于样式变化已废弃 |
-| `@descriptions-item-label-colon-margin-right` | `colonMarginRight` | - |
-| `@descriptions-item-label-colon-margin-left` | `colonMarginLeft` | - |
-| `@descriptions-extra-color` | `extraColor` | - |
-
-<!-- ### Divider 分割线 -->
-
-### Drawer 抽屉
-
-<!-- prettier-ignore -->
-| Less 变量 | Component Token | 备注 |
-| --- | --- | --- |
-| `@drawer-bg` | `colorBgElevated` | 全局 Token |
-| `@drawer-header-padding` | `padding`、`paddingLG` | 全局 Token，对应值为 `${padding}px ${paddingLG}px` |
-| `@drawer-title-font-size` | `fontSizeLG` | 全局 Token |
-| `@drawer-title-line-height` | `lineHeightLG` | 全局 Token |
-| `@drawer-body-padding` | `paddingLG` | 全局 Token |
-| `@drawer-footer-padding-vertical` | `footerPaddingBlock` | `footerPaddingBlock` 为数字，不带单位，`@drawer-footer-padding-vertical` 带单位 |
-| `@drawer-footer-padding-horizontal` | `footerPaddingInline` | `footerPaddingInline` 为数字，不带单位，`@drawer-footer-padding-horizontal` 带单位 |
 
 <!-- ### Dropdown 下拉菜单 -->
 
@@ -174,15 +149,7 @@ title: Less 变量迁移 Design Token
 
 ## Rate 评分
 
-<!-- prettier-ignore -->
-| less 变量 | Component Token | 备注 |
-| --- | --- | --- |
-| `@rate-star-color` | `starColor` | - |
-| `@rate-star-bg` | `starBg` | - |
-| `@rate-star-size` | `starSize` | - |
-| `@rate-star-hover-scale` | `starHoverScale` | - |
-
-### Result 结果
+## Result 结果
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
@@ -192,21 +159,15 @@ title: Less 变量迁移 Design Token
 | `@result-subtitle-font-size` | `subtitleFontSize` | - |
 | `@result-extra-margin` | `extraMargin` | - |
 
-### Segment
-
-<!-- prettier-ignore -->
-| Less 变量 | Component Token | 备注 |
-| --- | --- | --- |
-| `@segmented-container-padding` | `padding` | - |
-| `@segmented-label-color` | `itemColor` | - |
-| `@segmented-bg` | - | 可以用 `className` 或 `style` 自定义 |
-| `@segmented-hover-bg` | `itemHoverBg` | - |
-| `@segmented-label-hover-color` | `itemHoverColor` | - |
-| `@segmented-selected-bg` | `itemSelectedBg` | - |
+<!-- ### Segment 分段器 -->
 
 <!-- ### Select 选择器 -->
 
-### Skeleton 骨架屏
+<!-- ### Skeleton 骨架屏 -->
+
+<!-- ### Slider 滑动输入条 -->
+
+## Statistic 统计数值
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
@@ -218,17 +179,6 @@ title: Less 变量迁移 Design Token
 | `@skeleton-paragraph-margin-top` | `paragraphMarginTop` | - |
 | `@skeleton-paragraph-li-height` | `paragraphLiHeight` | - |
 | `@skeleton-paragraph-li-margin-top` | - | 由于样式变化已废弃 |
-
-<!-- ### Slider 滑动输入条 -->
-
-### Statistic 统计数值
-
-<!-- prettier-ignore -->
-| Less 变量 | Component Token | 备注 |
-| --- | --- | --- |
-| `@statistic-title-font-size` | `titleFontSize` | - |
-| `@statistic-content-font-size` | `contentFontSize` | - |
-| `@statistic-font-family` | `fontFamily` | 全局 Token |
 
 ### Step 步骤条
 
@@ -265,7 +215,17 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Tag 标签 -->
 
-<!-- ### Timeline 时间轴 -->
+### Timeline 时间轴
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@timeline-width` | - | 由于样式变化已废弃 |
+| `@timeline-color` | `color` | - |
+| `@timeline-dot-border-width` | `headBorderWidth` | - |
+| `@timeline-dot-color` | - | 由于样式变化已废弃 |
+| `@timeline-dot-bg` | `headBg` | - |
+| `@timeline-item-padding-bottom` | `itemPaddingBottom` | - |
 
 <!-- ### TimePicker 时间选择 -->
 
