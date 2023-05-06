@@ -1,7 +1,7 @@
 import classNames from 'classnames';
-import * as React from 'react';
-import { ConfigContext } from '../config-provider';
+import React from 'react';
 import { cloneElement } from '../_util/reactNode';
+import { ConfigContext } from '../config-provider';
 import SingleNumber from './SingleNumber';
 
 export interface ScrollNumberProps {

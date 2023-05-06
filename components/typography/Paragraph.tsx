@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import type { BlockProps } from './Base';
 import Base from './Base';
 

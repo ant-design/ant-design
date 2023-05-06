@@ -6,7 +6,7 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import type { ReactElement } from 'react';
-import * as React from 'react';
+import React from 'react';
 import { ConfigContext } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 import { replaceElement } from '../_util/reactNode';

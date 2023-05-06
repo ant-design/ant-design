@@ -7,13 +7,12 @@ import { arrAdd, arrDel } from 'rc-tree/lib/util';
 import { conductCheck } from 'rc-tree/lib/utils/conductUtil';
 import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import * as React from 'react';
-import { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
+import warning from '../../_util/warning';
 import type { CheckboxProps } from '../../checkbox';
 import Checkbox from '../../checkbox';
 import Dropdown from '../../dropdown';
 import Radio from '../../radio';
-import warning from '../../_util/warning';
 import type {
   ColumnsType,
   ColumnType,

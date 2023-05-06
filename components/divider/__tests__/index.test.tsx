@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { render } from '../../../tests/utils';
 import Divider from '..';
 import mountTest from '../../../tests/shared/mountTest';

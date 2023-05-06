@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Modal from '..';
 import { render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';

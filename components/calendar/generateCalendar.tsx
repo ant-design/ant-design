@@ -8,7 +8,7 @@ import type {
   PickerPanelTimeProps as RCPickerPanelTimeProps,
 } from 'rc-picker/lib/PickerPanel';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import * as React from 'react';
+import React from 'react';
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import CalendarHeader from './Header';
