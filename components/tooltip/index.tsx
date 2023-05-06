@@ -331,12 +331,11 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     return overlay || title || '';
   }, [overlay, title]);
 
-  const memoOverlayWrapper =
-    typeof memoOverlay === 'function' ? (
-      () => <NoCompactStyle>{memoOverlay()}</NoCompactStyle>
-    ) : (
-      <NoCompactStyle>{memoOverlay}</NoCompactStyle>
-    );
+  const memoOverlayWrapper = (
+    <NoCompactStyle>
+      {typeof memoOverlay === 'function' ? memoOverlay() : memoOverlay}
+    </NoCompactStyle>
+  );
 
   const {
     getPopupContainer,
