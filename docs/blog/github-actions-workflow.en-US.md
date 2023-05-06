@@ -1,5 +1,5 @@
 ---
-title: Ant Design GitHub Actions Use Cases and Best Practices
+title: Ant Design GitHub Actions Use Cases and Practices
 date: 2023-05-01
 author: Wxh16144
 ---
