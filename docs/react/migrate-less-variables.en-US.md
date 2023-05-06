@@ -39,7 +39,6 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Divider -->
 
-
 ## Drawer
 
 <!-- prettier-ignore -->
@@ -52,7 +51,6 @@ This document contains the correspondence between all the less variables related
 | `@drawer-body-padding` | `paddingLG` | - |
 | `@drawer-footer-padding-vertical` | `drawerFooterPaddingVertical` | `drawerFooterPaddingVertical`  is a number without units, `@drawer-footer-padding-vertical` with units |
 | `@drawer-footer-padding-horizontal` | `drawerFooterPaddingHorizontal` | `drawerFooterPaddingHorizontal`  is a number without units, `@drawer-footer-padding-horizontal` with units |
-
 
 <!-- ### Dropdown -->
 
@@ -134,7 +132,6 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Rate -->
 
-
 ## Result
 
 <!-- prettier-ignore -->
@@ -145,7 +142,6 @@ This document contains the correspondence between all the less variables related
 | `@result-subtitle-font-size` | `resultSubtitleFontSize` | - |
 | `@result-extra-margin` | `resultExtraMargin` | - |
 
-
 <!-- ### Segment -->
 
 <!-- ### Select -->
@@ -153,7 +149,6 @@ This document contains the correspondence between all the less variables related
 <!-- ### Skeleton -->
 
 <!-- ### Slider -->
-
 
 ## Statistic
 
@@ -163,7 +158,6 @@ This document contains the correspondence between all the less variables related
 | `@statistic-title-font-size` | `statisticTitleFontSize` | - |
 | `@statistic-content-font-size` | `statisticContentFontSize` | - |
 | `@statistic-font-family` | `statisticFontFamily` | - |
-
 
 ## Step
 
@@ -200,7 +194,17 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Tag -->
 
-<!-- ### Timeline -->
+### Timeline
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@timeline-width` | - | Deprecated for style change |
+| `@timeline-color` | `color` | - |
+| `@timeline-dot-border-width` | `headBorderWidth` | - |
+| `@timeline-dot-color` | - | Deprecated for style change |
+| `@timeline-dot-bg` | `headBg` | - |
+| `@timeline-item-padding-bottom` | `itemPaddingBottom` | - |
 
 <!-- ### TimePicker -->
 
