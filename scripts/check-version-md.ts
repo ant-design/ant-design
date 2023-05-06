@@ -1,13 +1,19 @@
-/* eslint no-console: 0 */
-const chalk = require('chalk');
-const fs = require('fs');
-const { join } = require('path');
-const dayjs = require('dayjs');
+/* eslint-disable no-console */
+import chalk from 'chalk';
+import dayjs from 'dayjs';
+import isBetween from 'dayjs/plugin/isBetween';
+import fs from 'fs';
+import { join } from 'path';
+import localPackage from '../package.json';
 
-const getChangelogByVersion = (content, version) => {
+const { version } = localPackage;
+
+dayjs.extend(isBetween);
+
+const getChangelogByVersion = (content: string, vers: string) => {
   const lines = content.split('\n');
-  const changeLog = [];
-  const startPattern = new RegExp(`^## ${version}`);
+  const changeLog: string[] = [];
+  const startPattern = new RegExp(`^## ${vers}`);
   const stopPattern = /^## /; // 前一个版本
   let begin = false;
   for (let i = 0; i < lines.length; i += 1) {
@@ -22,14 +28,8 @@ const getChangelogByVersion = (content, version) => {
       begin = startPattern.test(line);
     }
   }
-
   return changeLog.join('\n');
 };
-
-// eslint-disable-next-line import/no-dynamic-require
-const packageJson = require(join(__dirname, '..', 'package.json'));
-
-const { version } = packageJson;
 
 if (!/^\d+\.\d+\.\d+$/.test(version)) {
   console.log('\n');

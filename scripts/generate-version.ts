@@ -1,7 +1,8 @@
-const fs = require('fs-extra');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import localPackage from '../package.json';
 
-const { version } = require('../package.json');
+const { version } = localPackage;
 
 fs.writeFileSync(
   path.join(__dirname, '..', 'components', 'version', 'version.ts'),
