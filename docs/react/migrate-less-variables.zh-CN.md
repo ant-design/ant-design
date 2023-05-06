@@ -298,7 +298,36 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Table 表格 -->
 
-<!-- ### Tabs 标签页 -->
+### Tabs 标签页
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@tabs-card-head-background` | `tabsCardHeadBackground` | 由于样式变化已废弃 |
+| `@tabs-card-heigh` | - | 由于样式变化已废弃 |
+| `@tabs-card-active-color` | - | 由于样式变化已废弃 |
+| `@tabs-card-horizontal-padding` | - | 由于样式变化已废弃 |
+| `@tabs-card-horizontal-padding-sm` | - | 由于样式变化已废弃 |
+| `@tabs-card-horizontal-padding-lg` | - | 由于样式变化已废弃 |
+| `@tabs-title-font-size` | - | 由于样式变化已废弃 |
+| `@tabs-title-font-size-lg` | - | 由于样式变化已废弃 |
+| `@tabs-title-font-size-sm` | - | 由于样式变化已废弃 |
+| `@tabs-ink-bar-color` | - | 由于样式变化已废弃 |
+| `@tabs-bar-margin` | - | 由于样式变化已废弃 |
+| `@tabs-horizontal-gutter` | - | 由于样式变化已废弃 |
+| `@tabs-horizontal-margin` | - | 由于样式变化已废弃 |
+| `@tabs-horizontal-margin-rtl` | - | 由于样式变化已废弃 |
+| `@tabs-horizontal-padding` | - | 由于样式变化已废弃 |
+| `@tabs-horizontal-padding-lg` | - | 由于样式变化已废弃 |
+| `@tabs-horizontal-padding-sm` | - | 由于样式变化已废弃 |
+| `@tabs-vertical-padding` | - | 由于样式变化已废弃 |
+| `@tabs-vertical-margin` | - | 由于样式变化已废弃 |
+| `@tabs-scrolling-size` | - | 由于样式变化已废弃 |
+| `@tabs-highlight-color` | - | 由于样式变化已废弃 |
+| `@tabs-hover-color` | - | 由于样式变化已废弃 |
+| `@tabs-active-color` | - | 由于样式变化已废弃 |
+| `@tabs-card-gutter` | - | 由于样式变化已废弃 |
+| `@tabs-card-tab-active-border-top` | - | 由于样式变化已废弃 |
 
 ## Tag 标签
 
