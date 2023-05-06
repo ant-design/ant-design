@@ -35,7 +35,7 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Collapse -->
 
-<!-- ### Descriptions -->
+### Descriptions
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
