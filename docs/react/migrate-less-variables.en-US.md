@@ -24,9 +24,7 @@ This document contains the correspondence between all the less variables related
 | `@anchor-link-left` | `linkPaddingInlineStart` | - |
 | `@anchor-link-padding` | - | `${linkPaddingBlock}px ${linkPaddingInlineStart}px` |
 
-<!-- ### Avatar -->
-
-## Avatar
+### Avatar
 
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
@@ -41,8 +39,8 @@ This document contains the correspondence between all the less variables related
 | `@avatar-color` | `avatarColor` | - |
 | `@avatar-border-radius` | - | Deprecated for style change |
 | `@avatar-group-overlapping` | - | Deprecated for style change |
-| `@avatar-group-space` | - | Deprecated for style change |
-| `@avatar-group-border-color` | - | Deprecated for style change |
+| `@avatar-group-space` | `avatarGroupSpace` | - |
+| `@avatar-group-border-color` | `avatarGroupBorderColor` | - |
 
 <!-- ### Badge -->
 

@@ -24,9 +24,7 @@ title: Less 变量迁移 Design Token
 | `@anchor-link-left` | `linkPaddingInlineStart` | - |
 | `@anchor-link-padding` | - | `${linkPaddingBlock}px ${linkPaddingInlineStart}px` |
 
-<!-- ### Avatar 头像 -->
-
-## Avatar 头像
+### Avatar 头像
 
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
@@ -41,8 +39,8 @@ title: Less 变量迁移 Design Token
 | `@avatar-color` | `avatarColor` | - |
 | `@avatar-border-radius` | - | 由于样式变化已废弃 |
 | `@avatar-group-overlapping` | - | 由于样式变化已废弃 |
-| `@avatar-group-space` | - | 由于样式变化已废弃 |
-| `@avatar-group-border-color` | - | 由于样式变化已废弃 |
+| `@avatar-group-space` | `avatarGroupSpace` | - |
+| `@avatar-group-border-color` | `avatarGroupBorderColor` | - |
 
 <!-- ### Badge 徽标数 -->
 

@@ -14,9 +14,13 @@ export interface ComponentToken {
   avatarFontSizeSM: number;
   avatarGroupSpace: number;
   avatarGroupBorderColor: string;
+  avatarBorderRadius: number;
 }
 
-type AvatarToken = FullToken<'Avatar'> & {};
+type AvatarToken = FullToken<'Avatar'> & {
+  avatarGroupOverlapping: number;
+  avatarBgColor: string;
+};
 
 const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
   const {
@@ -157,6 +161,7 @@ export default genComponentStyleHook(
       avatarFontSizeLG: fontSizeHeading3,
       avatarFontSizeSM: fontSize,
 
+      avatarBorderRadius: token.borderRadius,
       avatarBg: colorTextPlaceholder,
       avatarColor: colorTextLightSolid,
       avatarGroupSpace: -marginXS,
