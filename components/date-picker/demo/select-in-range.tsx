@@ -35,7 +35,7 @@ const App: React.FC = () => {
         setDates(val);
       }}
       onChange={(val) => {
-        return setValue(val);
+        setValue(val);
       }}
       onOpenChange={onOpenChange}
       changeOnBlur
