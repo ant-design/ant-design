@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import { Button, Space, Typography } from 'antd';
 import { Link, useLocation } from 'dumi';
-import React from 'react';
+import * as React from 'react';
 import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
 import SiteContext from '../../../theme/slots/SiteContext';

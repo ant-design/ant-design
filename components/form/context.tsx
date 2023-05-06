@@ -3,7 +3,8 @@ import type { FormProviderProps as RcFormProviderProps } from 'rc-field-form/lib
 import type { Meta } from 'rc-field-form/lib/interface';
 import omit from 'rc-util/lib/omit';
 import type { FC, PropsWithChildren, ReactNode } from 'react';
-import React, { useContext, useMemo } from 'react';
+import * as React from 'react';
+import { useContext, useMemo } from 'react';
 import type { ColProps } from '../grid/col';
 import type { FormInstance, RequiredMark } from './Form';
 import type { ValidateStatus } from './FormItem';

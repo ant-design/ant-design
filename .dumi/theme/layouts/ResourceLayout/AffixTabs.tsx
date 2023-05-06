@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import { Tabs } from 'antd';
 import throttle from 'lodash/throttle';
-import React from 'react';
+import * as React from 'react';
 import scrollTo from '../../../../components/_util/scrollTo';
 import useSiteToken from '../../../hooks/useSiteToken';
 

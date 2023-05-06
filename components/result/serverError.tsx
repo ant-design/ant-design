@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const ServerError: React.FC = () => (
   <svg width="254" height="294">

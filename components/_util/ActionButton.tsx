@@ -1,5 +1,5 @@
 import useState from 'rc-util/lib/hooks/useState';
-import React from 'react';
+import * as React from 'react';
 import Button from '../button';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import { convertLegacyProps } from '../button/button';

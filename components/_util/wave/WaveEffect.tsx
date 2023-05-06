@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import { render, unmount } from 'rc-util/lib/React/render';
 import raf from 'rc-util/lib/raf';
-import React from 'react';
+import * as React from 'react';
 import { getTargetWaveColor } from './util';
 
 function validateNum(value: number) {

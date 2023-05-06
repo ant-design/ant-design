@@ -1,6 +1,6 @@
 import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
 import classNames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
 import defaultLocale from '../locale/en_US';
