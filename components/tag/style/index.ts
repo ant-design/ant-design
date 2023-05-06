@@ -10,7 +10,6 @@ export interface ComponentToken {
   tagLineHeight: React.CSSProperties['lineHeight'];
   tagDefaultBg: string;
   tagDefaultColor: string;
-  tagBorderRadius: number;
 }
 
 interface TagToken extends FullToken<'Tag'> {
@@ -179,7 +178,6 @@ export default genComponentStyleHook(
       tagDefaultBg: token.colorFillQuaternary,
       tagDefaultColor: token.colorText,
       tagLineHeight,
-      tagBorderRadius: token.borderRadiusSM,
     };
   },
 );

@@ -162,7 +162,18 @@ title: Less 变量迁移 Design Token
 | `@modal-confirm-title-font-size` | `titleFontSize` | - |
 | `@modal-border-radius` | `borderRadiusLG` | 全局 Token |
 
-<!-- ### Notification 通知提醒框 -->
+## Notification 通知提醒框
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@notification-width` | `width` | - |
+| `@notification-padding` | `notificationPadding` | - |
+| `@notification-padding-vertical` | `notificationPaddingVertical` | - |
+| `@notification-padding-horizontal` | `notificationPaddingHorizontal` | - |
+| `@notification-margin-bottom` | `notificationMarginBottom` | - |
+| `@notification-margin-edge` | `notificationMarginEdge` | - |
+| `@notification-bg` | `notificationBg` | - |
 
 <!-- ### Pagination 分页 -->
 
@@ -263,14 +274,12 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Tabs 标签页 -->
 
-<!-- ### Tag 标签 -->
-
 ## Tag 标签
 
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@tag-border-radius` | `tagBorderlessBg` | - |
+| `@tag-border-radius` | `borderRadiusSM` | - |
 | `@tag-default-bg` | `tagDefaultBg` | - |
 | `@tag-default-color` | `tagDefaultColor` | - |
 | `@tag-font-size` | `tagFontSize` | - |
