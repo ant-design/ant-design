@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import * as React from 'react';
+import React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { LiteralUnion } from '../_util/type';
 

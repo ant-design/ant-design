@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
-import * as React from 'react';
+import React from 'react';
 
 import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';

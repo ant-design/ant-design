@@ -2,14 +2,14 @@ import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import React from 'react';
 import getScroll from '../_util/getScroll';
 import { cloneElement } from '../_util/reactNode';
 import scrollTo from '../_util/scrollTo';
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import warning from '../_util/warning';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 
 export interface BackTopProps {

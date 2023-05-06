@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import * as React from 'react';
+import React from 'react';
 import { ConfigContext } from '../config-provider';
 import warning from '../_util/warning';
 import type { AntAnchor } from './Anchor';

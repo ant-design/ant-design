@@ -7,7 +7,7 @@ import type {
 } from 'rc-mentions/lib/Mentions';
 import { composeRef } from 'rc-util/lib/ref';
 // eslint-disable-next-line import/no-named-as-default
-import * as React from 'react';
+import React from 'react';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';

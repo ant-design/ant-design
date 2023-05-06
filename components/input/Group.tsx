@@ -1,10 +1,9 @@
 import classNames from 'classnames';
-import * as React from 'react';
-import { useContext, useMemo } from 'react';
+import React, { useContext, useMemo } from 'react';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
-import warning from '../_util/warning';
 import useStyle from './style';
 
 export interface GroupProps {

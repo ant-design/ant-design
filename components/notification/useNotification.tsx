@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { useNotification as useRcNotification } from 'rc-notification';
 import type { NotificationAPI } from 'rc-notification/lib';
 import classNames from 'classnames';

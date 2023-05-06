@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import type { DirectionType } from 'antd/es/config-provider';
 import type { ThemeName } from '../common/ThemeSwitch';
 

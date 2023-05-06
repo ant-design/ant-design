@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import type { DerivativeFunc } from '@ant-design/cssinjs';
 import type { Options } from 'scroll-into-view-if-needed';
 import type { RequiredMark } from '../form/Form';

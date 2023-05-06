@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import RcDrawer from 'rc-drawer';
 import type { DrawerProps as RcDrawerProps } from 'rc-drawer';
 import type { CSSMotionProps } from 'rc-motion';
-import * as React from 'react';
+import React from 'react';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
 import { getTransitionName } from '../_util/motion';

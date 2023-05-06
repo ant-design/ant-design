@@ -8,7 +8,7 @@ import ZoomInOutlined from '@ant-design/icons/ZoomInOutlined';
 import ZoomOutOutlined from '@ant-design/icons/ZoomOutOutlined';
 import RcImage from 'rc-image';
 import type { GroupConsumerProps } from 'rc-image/lib/PreviewGroup';
-import * as React from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import { getTransitionName } from '../_util/motion';
