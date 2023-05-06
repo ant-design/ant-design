@@ -160,4 +160,8 @@ export interface UploadListProps<T = any> {
   appendAction?: React.ReactNode;
   appendActionVisible?: boolean;
   itemRender?: ItemRender<T>;
+  /**
+   * @internal Only the internal remove button is provided for use
+   */
+  disabled?: boolean;
 }

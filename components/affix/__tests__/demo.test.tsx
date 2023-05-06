@@ -1,5 +1,5 @@
 import { spyElementPrototype } from 'rc-util/lib/test/domHook';
-import * as React from 'react';
+import React from 'react';
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
 demoTest('affix', {

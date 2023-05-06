@@ -1,12 +1,11 @@
-import * as React from 'react';
-import { css } from '@emotion/react';
-import { TinyColor } from '@ctrl/tinycolor';
 import {
   BellOutlined,
   FolderOutlined,
   HomeOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
+import { TinyColor } from '@ctrl/tinycolor';
+import { css } from '@emotion/react';
 import type { MenuProps } from 'antd';
 import {
   Breadcrumb,
@@ -18,21 +17,22 @@ import {
   Menu,
   Radio,
   Space,
-  theme,
   Typography,
+  theme,
 } from 'antd';
+import React from 'react';
 import useLocale from '../../../../hooks/useLocale';
 import useSiteToken from '../../../../hooks/useSiteToken';
+import SiteContext from '../../../../theme/slots/SiteContext';
+import Group from '../Group';
+import { useCarouselStyle } from '../util';
+import BackgroundImage from './BackgroundImage';
+import ColorPicker from './ColorPicker';
+import MobileCarousel from './MobileCarousel';
+import RadiusPicker from './RadiusPicker';
 import type { THEME } from './ThemePicker';
 import ThemePicker from './ThemePicker';
-import ColorPicker from './ColorPicker';
-import RadiusPicker from './RadiusPicker';
-import Group from '../Group';
-import BackgroundImage from './BackgroundImage';
-import { DEFAULT_COLOR, getAvatarURL, getClosetColor, PINK_COLOR } from './colorUtil';
-import SiteContext from '../../../../theme/slots/SiteContext';
-import { useCarouselStyle } from '../util';
-import MobileCarousel from './MobileCarousel';
+import { DEFAULT_COLOR, PINK_COLOR, getAvatarURL, getClosetColor } from './colorUtil';
 
 const { Header, Content, Sider } = Layout;
 

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
-import * as React from 'react';
+import React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';

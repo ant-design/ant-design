@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import KeyCode from 'rc-util/lib/KeyCode';
 
 export interface FilterDropdownMenuWrapperProps {

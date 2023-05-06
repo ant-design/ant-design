@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { ConfigContext } from '../config-provider';
 
 type CompoundedComponent = React.FC<{ children?: React.ReactNode }> & {

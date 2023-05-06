@@ -2,7 +2,7 @@ import FilterFilled from '@ant-design/icons/FilterFilled';
 import classNames from 'classnames';
 import isEqual from 'rc-util/lib/isEqual';
 import type { FieldDataNode } from 'rc-tree';
-import * as React from 'react';
+import React from 'react';
 import type { MenuProps } from '../../../menu';
 import type { FilterState } from '.';
 import { flattenKeys } from '.';

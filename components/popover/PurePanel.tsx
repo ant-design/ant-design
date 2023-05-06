@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { Popup } from 'rc-tooltip';
-import * as React from 'react';
+import React from 'react';
 import type { PopoverProps } from '.';
 import { ConfigContext } from '../config-provider';
 
