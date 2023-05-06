@@ -4,12 +4,11 @@ import genMotionStyle from './motion';
 
 export interface ComponentToken {
   zIndexPopup: number;
-}
-
-export interface DrawerToken extends FullToken<'Drawer'> {
   drawerFooterPaddingVertical: number;
   drawerFooterPaddingHorizontal: number;
 }
+
+export interface DrawerToken extends FullToken<'Drawer'> {}
 
 // =============================== Base ===============================
 const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
@@ -217,14 +216,13 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
 export default genComponentStyleHook(
   'Drawer',
   (token) => {
-    const drawerToken = mergeToken<DrawerToken>(token, {
-      drawerFooterPaddingVertical: token.paddingXS,
-      drawerFooterPaddingHorizontal: token.padding,
-    });
+    const drawerToken = mergeToken<DrawerToken>(token, {});
 
     return [genDrawerStyle(drawerToken), genMotionStyle(drawerToken)];
   },
   (token) => ({
     zIndexPopup: token.zIndexPopupBase,
+    drawerFooterPaddingVertical: token.paddingXS,
+    drawerFooterPaddingHorizontal: token.padding,
   }),
 );

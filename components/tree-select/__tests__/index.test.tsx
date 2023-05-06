@@ -77,4 +77,16 @@ describe('TreeSelect', () => {
 
     errSpy.mockRestore();
   });
+
+  it('support aria-*', async () => {
+    const { container } = render(
+      <TreeSelect
+        open
+        treeData={[{ value: 'parent 1', title: 'parnet 1', 'aria-label': 'label' }]}
+      />,
+    );
+    expect(
+      container.querySelector('.ant-select-tree-treenode-leaf-last')?.getAttribute('aria-label'),
+    ).toBe('label');
+  });
 });

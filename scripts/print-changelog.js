@@ -36,6 +36,8 @@ const MAINTAINERS = [
   'madccc',
   'MadCcc',
   'li-jia-nan',
+  'kiner-tang',
+  'Wxh16144',
 ].map((author) => author.toLowerCase());
 
 const cwd = process.cwd();
