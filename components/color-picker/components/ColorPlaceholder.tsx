@@ -11,7 +11,8 @@ interface ColorPlaceholderProps extends ColorPickerBaseProps {
 }
 
 const ColorPlaceholder: FC<ColorPlaceholderProps> = (props) => {
-  const { color, prefixCls, popupOpen, clearColor, disabled, className, ...resetProps } = props;
+  const { color, prefixCls, popupOpen, clearColor, disabled, className, direction, ...resetProps } =
+    props;
   const ColorPlaceholderPrefixCls = `${prefixCls}-placeholder`;
 
   const containerRender = useMemo(
@@ -29,7 +30,7 @@ const ColorPlaceholder: FC<ColorPlaceholderProps> = (props) => {
           />
         </div>
       ),
-    [color, clearColor],
+    [color, clearColor, direction],
   );
 
   return (

@@ -1,6 +1,4 @@
 import { resetComponent } from '../../style';
-import { initSlideMotion } from '../../style/motion';
-import getArrowStyle from '../../style/placementArrow';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
@@ -72,6 +70,11 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
         '&-hidden': {
           display: 'none',
         },
+        [`${componentCls}-content`]: {
+          [`${componentCls}-inner`]: {
+            padding: 0,
+          },
+        },
         [`${componentCls}-panel`]: {
           display: 'flex',
           flexDirection: 'column',
@@ -81,7 +84,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           borderRadius: borderRadiusLG,
           boxShadow: boxShadowSecondary,
         },
-        [`${componentCls}-expanel`]: {
+        [`${componentCls}-inner-panel`]: {
           '&-clear': {
             display: 'flex',
             justifyContent: 'flex-end',
@@ -189,9 +192,9 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
             height: controlHeightSM,
           },
           [`${componentCls}-steppers`]: {
+            fontSize: fontSizeSM,
+            lineHeight: lineHeightSM,
             [`${antCls}-input-number`]: {
-              fontSize: fontSizeSM,
-              lineHeight: lineHeightSM,
               '&-affix-wrapper': {
                 width: 56,
                 paddingInlineStart: paddingXXS,
@@ -210,11 +213,6 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
               '&-handler-wrap': {
                 width: sizeMS,
               },
-            },
-            '&-prefix': {
-              position: 'relative',
-              borderRadius: 2,
-              overflow: 'hidden',
             },
           },
 
@@ -269,9 +267,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
             },
             [`${componentCls}-steppers`]: {
               flex: 1,
-              [`${antCls}-input-number`]: {
-                width: 'auto',
-              },
+              width: 'auto',
             },
             [`${componentCls}-alpha-input`]: {
               flex: 'unset',
@@ -317,6 +313,9 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
             transformOrigin: 'right',
             transform: 'rotate(-45deg)',
             backgroundColor: red6,
+          },
+          '&-rtl::after': {
+            direction: 'ltr',
           },
         },
         [`${componentCls}-presets`]: {
@@ -379,6 +378,9 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
                     '&:after': {
                       borderColor: colorWhite,
                     },
+                  },
+                  '&-rtl::after': {
+                    direction: 'ltr',
                   },
                 },
               },
@@ -487,15 +489,13 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
               transform: 'rotate(-45deg)',
               backgroundColor: red6,
             },
+            '&-rtl::after': {
+              direction: 'ltr',
+            },
           },
         },
       },
     },
-    // Arrow Style
-    getArrowStyle<ColorPickerToken>(mergeToken<ColorPickerToken>(token), {
-      colorBg: token.colorBgElevated,
-      limitVerticalRadius: true,
-    }),
   ];
 };
 
@@ -504,5 +504,5 @@ export default genComponentStyleHook<'ColorPicker'>('ColorPicker', (token) => {
     colorPickerWidth: 258,
   });
 
-  return [genColorPickerStyle(ColorPickerToken), initSlideMotion(token, 'slide-up')];
+  return [genColorPickerStyle(ColorPickerToken)];
 });

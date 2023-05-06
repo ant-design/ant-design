@@ -1,9 +1,13 @@
 /* eslint-disable class-methods-use-this */
 import type { ColorGenInput } from '@rc-component/color-picker';
 import { Color as RcColor } from '@rc-component/color-picker';
+import { getHex } from './util';
 
 export interface Color
-  extends Pick<RcColor, 'toHsb' | 'toHsbString' | 'toHexString' | 'toRgb' | 'toRgbString'> {}
+  extends Pick<
+    RcColor,
+    'toHsb' | 'toHsbString' | 'toHex' | 'toHexString' | 'toRgb' | 'toRgbString'
+  > {}
 
 export class ColorFactory {
   /** Original Color object */
@@ -19,6 +23,10 @@ export class ColorFactory {
 
   toHsbString() {
     return this.metaColor.toHsbString();
+  }
+
+  toHex() {
+    return getHex(this.toHexString());
   }
 
   toHexString() {

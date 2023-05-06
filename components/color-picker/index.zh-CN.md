@@ -23,7 +23,7 @@ group:
 <code src="./demo/base.tsx">基本使用</code>
 <code src="./demo/disabled.tsx">禁用</code>
 <code src="./demo/allowClear.tsx">清除颜色</code>
-<code src="./demo/trigger.tsx">触发器</code>
+<code src="./demo/trigger.tsx">自定义触发器</code>
 <code src="./demo/format.tsx">颜色编码</code>
 <code src="./demo/presets.tsx">预设颜色</code>
 
@@ -48,6 +48,18 @@ group:
 | disabled | 禁用颜色选择器 | boolean | - |
 | placement | 弹出窗口的位置 | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` |
 | arrow | 配置弹出的箭头 | boolean | `{ pointAtCenter: boolean }` | - |
+
+### Color
+
+<!-- prettier-ignore -->
+| 参数 | 说明 | 类型 | 默认值 |
+| :-- | :-- | :-- | :-- |
+| toHex | 转换成 `hex` 格式字符 | `() => string` | - |
+| toHexString | 转换成 `hex` 格式颜色字符串 | `() => string` | - |
+| toHsb | 转换成 `hsb` 对象  | `() => ({ h: number, s: number, b: number, a number })` | - |
+| toHsbString | 转换成 `hsb` 格式颜色字符串 | `() => string` | - |
+| toRgb | 转换成 `rgb` 对象  | `() => ({ r: number, g: number, b: number, a number })` | - |
+| toRgbString | 转换成 `rgb` 格式颜色字符串 | `() => string` | - |
 
 ## FAQ
 

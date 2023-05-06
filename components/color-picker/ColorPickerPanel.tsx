@@ -6,11 +6,11 @@ import ColorInput from './components/ColorInput';
 import ColorPresets from './components/ColorPresets';
 import type { ColorPickerBaseProps } from './interface';
 
-interface ExPanelProps extends ColorPickerBaseProps {
+interface ColorPickerPanelProps extends ColorPickerBaseProps {
   children?: React.ReactElement;
 }
 
-const ExPanel: FC<ExPanelProps> = (props) => {
+const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
   const {
     prefixCls,
     children,
@@ -21,12 +21,12 @@ const ExPanel: FC<ExPanelProps> = (props) => {
     color,
     ...injectProps
   } = props;
-  const ExPanelPrefixCls = `${prefixCls}-expanel`;
+  const ColorPickerPanelPrefixCls = `${prefixCls}-inner-panel`;
 
   return (
-    <div className={ExPanelPrefixCls}>
+    <div className={ColorPickerPanelPrefixCls}>
       {allowClear && (
-        <div className={`${ExPanelPrefixCls}-clear`}>
+        <div className={`${ColorPickerPanelPrefixCls}-clear`}>
           <ColorClear
             prefixCls={prefixCls}
             value={color}
@@ -48,8 +48,8 @@ const ExPanel: FC<ExPanelProps> = (props) => {
 
       {Array.isArray(presets) && (
         <>
-          <Divider className={`${ExPanelPrefixCls}-divider`} />
-          <div className={`${ExPanelPrefixCls}-presets`}>
+          <Divider className={`${ColorPickerPanelPrefixCls}-divider`} />
+          <div className={`${ColorPickerPanelPrefixCls}-presets`}>
             <ColorPresets
               value={color}
               presets={presets}
@@ -63,4 +63,4 @@ const ExPanel: FC<ExPanelProps> = (props) => {
     </div>
   );
 };
-export default ExPanel;
+export default ColorPickerPanel;

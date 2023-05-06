@@ -22,7 +22,7 @@ Used when the user needs to customize the color selection
 <code src="./demo/base.tsx">Basic Usage</code>
 <code src="./demo/disabled.tsx">Disable</code>
 <code src="./demo/allowClear.tsx">Clear Color</code>
-<code src="./demo/trigger.tsx">Trigger</code>
+<code src="./demo/trigger.tsx">Custom Trigger</code>
 <code src="./demo/format.tsx">Color Format</code>
 <code src="./demo/presets.tsx">Preset Colors</code>
 
@@ -47,6 +47,18 @@ Used when the user needs to customize the color selection
 | disabled | Disable ColorPicker | boolean | - |
 | placement | Placement of popup | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` |
 | arrow | Configuration for popup arrow | boolean | `{ pointAtCenter: boolean }` | - |
+
+### Color
+
+<!-- prettier-ignore -->
+| Property | Description | Type | Default |
+| :-- | :-- | :-- | :-- |
+| toHex | Convert to `hex` format characters | `() => string` | - |
+| toHexString | Convert to `hex` format color string | `() => string` | - |
+| toHsb | Convert to `hsb` object  | `() => ({ h: number, s: number, b: number, a number })` | - |
+| toHsbString | Convert to `hsb` format color string | `() => string` | - |
+| toRgb | Convert to `rgb` object  | `() => ({ r: number, g: number, b: number, a number })` | - |
+| toRgbString | Convert to `rgb` format color string | `() => string` | - |
 
 ## FAQ
 

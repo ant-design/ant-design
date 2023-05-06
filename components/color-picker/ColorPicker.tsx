@@ -1,15 +1,14 @@
 import type { ColorPickerProps as RcColorPickerProps } from '@rc-component/color-picker';
-import RcColorPicker from '@rc-component/color-picker';
+import { ColorPickerPanel as RcColorPickerPanel } from '@rc-component/color-picker';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties } from 'react';
-import React, { useContext, useMemo, useState } from 'react';
-import { getTransitionName } from '../_util/motion';
-import getPlacements from '../_util/placements';
+import React, { useContext, useState } from 'react';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
+import Popover from '../popover';
 import theme from '../theme';
-import ExPanel from './ExPanel';
+import ColorPickerPanel from './ColorPickerPanel';
 import type { Color } from './color';
 import ColorPlaceholder from './components/ColorPlaceholder';
 import useColorState from './hooks/useColorState';
@@ -74,26 +73,9 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
   const [clearColor, setClearColor] = useState(false);
 
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
-  const rootPrefixCls = getPrefixCls();
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const mergeCls = classNames(rootClassName, className, hashId);
-  const mergePopupCls = classNames(rootClassName, hashId);
-
-  const builtinPlacements = getPlacements({
-    arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
-    offset: token.marginXXS,
-    arrowWidth: arrow ? token.sizePopupArrow : 0,
-    borderRadius: token.borderRadius,
-  });
-
-  const currentPlacement = useMemo(() => {
-    if (!placement) {
-      return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
-    }
-
-    return placement;
-  }, [placement, direction]);
 
   const handleChange = (data: Color) => {
     const color: Color = generateColor(data);
@@ -116,11 +98,12 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
 
   const extraProps = {
     prefixCls,
-    builtinPlacements,
-    open,
+    open: popupOpen,
     trigger,
     disabled,
     styles,
+    placement,
+    arrow,
   };
 
   const colorBaseProps: ColorPickerBaseProps = {
@@ -131,26 +114,25 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
     disabled,
     presets,
     format,
+    direction,
     onFormatChange,
     updateColor,
     updateClearColor,
   };
 
   return wrapSSR(
-    <RcColorPicker
-      value={colorValue.toHsb()}
-      classNames={{
-        popup: mergePopupCls,
-      }}
-      placement={currentPlacement}
-      arrow={!!arrow}
-      motion={{
-        motionName: getTransitionName(rootPrefixCls, 'slide-up'),
-        motionDeadline: 1000,
-      }}
-      onChange={handleChange}
+    <Popover
+      overlayClassName={rootClassName}
+      style={styles?.popup}
       onOpenChange={setPopupOpen}
-      panelRender={(panel) => <ExPanel {...colorBaseProps}>{panel}</ExPanel>}
+      content={
+        <RcColorPickerPanel
+          prefixCls={prefixCls}
+          value={colorValue.toHsb()}
+          onChange={handleChange}
+          panelRender={(panel) => <ColorPickerPanel {...colorBaseProps}>{panel}</ColorPickerPanel>}
+        />
+      }
       {...extraProps}
     >
       {children || (
@@ -161,7 +143,7 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
           {...colorBaseProps}
         />
       )}
-    </RcColorPicker>,
+    </Popover>,
   );
 };
 

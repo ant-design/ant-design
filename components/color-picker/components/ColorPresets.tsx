@@ -10,7 +10,8 @@ import { generateColor } from '../util';
 
 const { Panel } = Collapse;
 
-interface ColorPresetsProps extends Pick<ColorPickerBaseProps, 'presets' | 'prefixCls'> {
+interface ColorPresetsProps
+  extends Pick<ColorPickerBaseProps, 'presets' | 'prefixCls' | 'direction'> {
   value?: Color;
   onChange?: (value: Color) => void;
 }
@@ -34,6 +35,7 @@ const ColorPresets: FC<ColorPresetsProps> = ({
   presets = [],
   value: color,
   onChange,
+  direction,
 }) => {
   const [locale] = useLocale('ColorPicker');
   const [presetsValue] = useMergedState(genPresetColor(presets), {
@@ -72,6 +74,7 @@ const ColorPresets: FC<ColorPresetsProps> = ({
                   >
                     <div
                       className={classNames(`${ColorPresetsPrefixCls}-color-box`, {
+                        [`${ColorPresetsPrefixCls}-color-box-rtl`]: direction === 'rtl',
                         [`${ColorPresetsPrefixCls}-color-bright`]: isBright(presetColor),
                         [`${ColorPresetsPrefixCls}-color-dark`]: !isBright(presetColor),
                       })}

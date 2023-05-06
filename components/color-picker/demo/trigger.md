@@ -1,7 +1,7 @@
 ## zh-CN
 
-颜色面板的触发器。
+自定义颜色面板的触发器。
 
 ## en-US
 
-Triggers for color panels.
+Triggers for customizing color panels.

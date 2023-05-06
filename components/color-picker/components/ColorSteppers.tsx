@@ -37,22 +37,20 @@ const ColorSteppers: FC<ColorSteppersProps> = ({
   }, [value]);
 
   return (
-    <div className={classNames(ColorSteppersPrefixCls, className)}>
-      <InputNumber
-        className={`${ColorSteppersPrefixCls}-input`}
-        min={min}
-        max={max}
-        value={stepValue}
-        formatter={formatter}
-        onChange={(step) => {
-          if (isNumber(value)) {
-            onChange?.(step);
-          } else {
-            setStepValue(step || 0);
-          }
-        }}
-      />
-    </div>
+    <InputNumber
+      className={classNames(ColorSteppersPrefixCls, className)}
+      min={min}
+      max={max}
+      value={stepValue}
+      formatter={formatter}
+      onChange={(step) => {
+        if (isNumber(value)) {
+          onChange?.(step);
+        } else {
+          setStepValue(step || 0);
+        }
+      }}
+    />
   );
 };
 
