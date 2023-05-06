@@ -1,5 +1,5 @@
 import DownOutlined from '@ant-design/icons/DownOutlined';
-import React from 'react';
+import * as React from 'react';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { DropdownProps } from '../dropdown/dropdown';

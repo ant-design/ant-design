@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { Divider } from 'rc-menu';
-import React from 'react';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 
 export interface MenuDividerProps extends React.HTMLAttributes<HTMLLIElement> {

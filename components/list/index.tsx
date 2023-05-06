@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 // eslint-disable-next-line import/no-named-as-default
-import React from 'react';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { Row } from '../grid';

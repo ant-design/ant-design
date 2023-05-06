@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import type { Locale } from '.';
 import type { LocaleContextProps } from './context';
 import LocaleContext from './context';

@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import type { PaginationLocale, PaginationProps as RcPaginationProps } from 'rc-pagination';
 import RcPagination from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
-import React from 'react';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { useLocale } from '../locale';

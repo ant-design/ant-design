@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { TimelineItemProps } from './TimelineItem';
 import TimelineItemList from './TimelineItemList';

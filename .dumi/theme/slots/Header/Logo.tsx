@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { Link, useLocation } from 'dumi';
-import React from 'react';
+import * as React from 'react';
 import useSiteToken from '../../../hooks/useSiteToken';
 import * as utils from '../../utils';
 

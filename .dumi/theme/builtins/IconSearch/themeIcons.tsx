@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import type { CustomIconComponentProps } from '@ant-design/icons/es/components/Icon';
 
 type CustomIconComponent = React.ComponentType<

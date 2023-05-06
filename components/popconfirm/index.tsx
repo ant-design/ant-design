@@ -2,7 +2,7 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import KeyCode from 'rc-util/lib/KeyCode';
-import React from 'react';
+import * as React from 'react';
 import omit from 'rc-util/lib/omit';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import { ConfigContext } from '../config-provider';

@@ -1,6 +1,6 @@
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import classNames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import type { PopconfirmProps } from '.';
 import Button from '../button';
 import { convertLegacyProps } from '../button/button';
