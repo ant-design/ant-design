@@ -1,16 +1,16 @@
 ---
-title: Improving Ant Design R&D efficiency with GitHub Actions
+title: Ant Design GitHub Actions Use Cases and Best Practices
 date: 2023-05-01
 author: Wxh16144
 ---
 
 Hi, I'm [Wxh16144](https://github.com/Wxh16144). Through learning Ant Design's component library and participating in community contributions, I have discovered some tools that can improve development efficiency and code quality. I would like to take this opportunity to share my experience with everyone, to help better understand Ant Design, and to apply these techniques to your own projects.
 
-## Preface
+# Preface
 
 Ant Design is hosted on GitHub as an open-source project, making it easy to communicate and collaborate with developers around the world, as well as allowing developers to submit issues and pull requests. Additionally, by utilizing GitHub Actions and its CI/CD capabilities, we are able to better manage the code repository and automate workflows such as testing and deployment. This article will focus on the capabilities provided by GitHub Actions.
 
-### What is GitHub Actions
+## What is GitHub Actions
 
 GitHub Actions is a platform for automating software development workflows, from idea to production. Developers can easily customize and configure their own workflows by adding YAML format files to the .github/workflows directory to define the workflow and implement CI (continuous integration). By [Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions), we can grasp some concepts within workflows.
 
@@ -22,7 +22,7 @@ Here's a visual representation from the official documentation that shows the re
 
 ![overview-actions-simple](https://docs.github.com/assets/cb-25535/mw-1000/images/help/actions/overview-actions-simple.webp)
 
-## How to use
+# How to use
 
 With the knowledge we have gained, we know that all of Ant Design's workflows are managed in the [`.github/workflows`](https://github.com/ant-design/ant-design/tree/master/.github/workflows) directory.
 
@@ -34,11 +34,11 @@ Ant Design's CI covers the following aspects:
 - **Build**: Build ES5 and ES6 module specifications to ensure the library can be used in different environments.
 - **Deployment**: Use [dumi](https://d.umijs.org/) to automatically generate documentation and publish it to GitHub Pages.
 
-### Issue
+## Issue
 
 As a feature on the GitHub platform, issues serve as a centralized information hub for collecting community feedback and problems. Collaborators can add labels, milestones, and assignees to better organize tasks and projects.
 
-#### Ensuring the Quality of Issues
+### Ensuring the Quality of Issues
 
 To ensure that issues contain sufficient information to help the Ant Design team analyze and prioritize them, we provide an [issue assistant](http://new-issue.ant.design) to standardize the process of creating issues. Additionally, we use GitHub Actions to check the issues that are created. Issues that do not pass the assistant's checks will be closed, labeled as [Invalid](https://github.com/ant-design/ant-design/issues?q=label%3AInvalid), and a comment will be posted to remind the creator how to ask a question properly. Here's an example:
 
@@ -50,13 +50,13 @@ However, even with the use of the issue assistant, team members may sometimes be
 
 ![help-wanted-auto-comment-preview](https://user-images.githubusercontent.com/32004925/231673404-60b248cd-823f-4d31-8fff-d95b02b35fee.png)
 
-#### Common Issue FAQ
+### Common Issue FAQ
 
 For some common issues, the team provides detailed answers to help developers solve problems more quickly. For example, when the title of an issue contains keywords such as `official website`, `website`, `down`, `IE`, etc., the [issue-open-check.yml#L43-L94](https://github.com/ant-design/ant-design/blob/da83561f9cb57b0eb03d18543d96393689f799be/.github/workflows/issue-open-check.yml#L43-L94) job records the standard reply format in detail and will automatically close the issue.
 
 ![issue-auto-comment-preview](https://user-images.githubusercontent.com/32004925/231660324-b763d7ac-95d8-431a-a31d-69b2eff72dfd.png)
 
-#### Regular Issue Cleanup
+### Regular Issue Cleanup
 
 Using GitHub Actions scheduled tasks to help manage and close issues, these automated operations can effectively avoid excessive accumulation of unprocessed issues.
 
@@ -65,11 +65,11 @@ Using GitHub Actions scheduled tasks to help manage and close issues, these auto
 
 ![inactive-issue-preview](https://user-images.githubusercontent.com/32004925/234459079-db813907-503d-4405-801d-38e133c85996.png)
 
-### Pull Request
+## Pull Request
 
 The Ant Design team strongly encourages community involvement in Pull Request (PR), and provides the [Contributor development maintenance guide](./contributor-development-maintenance-guide) document for reference. It's important to follow certain standards when submitting a PR to ensure quality and effective communication. Additionally, the team uses GitHub Actions to require and review certain aspects of PRs to maintain code quality and ensure long-term project maintenance.
 
-#### PR Pre-test
+### PR Pre-test
 
 When you initiate a pull request (PR), the description content, including the changelog section, will be generated automatically through the PR template and needs to be filled in by the developer. The [pr-open-check.yml](https://github.com/ant-design/ant-design/blob/3d627eb475e32daf3a47731140685124d568a495/.github/workflows/pr-open-check.yml) Job will check it, and if it is not filled in, the CI will remind you with a comment. Just like this:
 
@@ -79,13 +79,13 @@ If the issue referenced in the PR description has the `🎱 Collaborate PR only`
 
 The [verify-files-modify.yml](https://github.com/ant-design/ant-design/blob/3d627eb475/.github/workflows/verify-files-modify.yml) job will check the changes made in a PR. If the changes include specific directories (such as `./github/` and `scripts/`) or specific files (such as `CHANGELOG.md`), community contributions will be rejected. The PR will be automatically closed and assigned to core members.
 
-#### Code Style Checking
+### Code Style Checking
 
 In the [lint](https://github.com/ant-design/ant-design/blob/dedbdfddafc0134219e391473c109c14766f413d/.github/workflows/test.yml#L52-L75) job, the process always follows the procedure of performing a lint check on the code submitted by each developer.
 
 ![eslint-ci-preview](https://user-images.githubusercontent.com/32004925/234477805-5cf3cf89-6654-4329-882d-47b35964f6fc.png)
 
-#### PR deploy preview
+### PR deploy preview
 
 For every pull request created, GitHub Actions is used to automatically attempt to build and deploy it. This ensures that the documentation is correct and that the pull request does not affect the documentation or component demos. PR deployment is divided into multiple jobs, and the specific process is as follows:
 
@@ -96,20 +96,20 @@ For every pull request created, GitHub Actions is used to automatically attempt 
 - At the same time, the [preview-build.yml](https://github.com/ant-design/ant-design/blob/b7d1d7cdbd888a1d73b3a3bf87bf4977e9b9bf91/.github/workflows/preview-build.yml#L52-L77) job performs the build operation on the site.
 - Finally, the [preview-deploy.yml](https://github.com/ant-design/ant-design/blob/c6a7dbc09e709a8905aaa6c073593a1fed6bea14/.github/workflows/preview-deploy.yml) job waits for `preview-build.yml` to complete before performing the corresponding operations. If the build is successful, it will be deployed using [Surge](https://surge.sh/), and the deployment address follows the rule: `https://preview-{PR-id}-ant-design.surge.sh`. The placeholder image in the comment is updated with a success icon (clicking on the image will take you to the specific address), otherwise it is marked with a failure icon.
 
-#### Other Reviews
+### Other Reviews
 
 - The [size-limit.yml](https://github.com/ant-design/ant-design/blob/5dfce5443744271f778313c23eb8ec3a5af481f8/.github/workflows/size-limit.ym) job checks the size of the product resulting from the PR.
 - Recently, the team has added chatGPT to GitHub Actions to perform AI-based code review. The specific job can be found in the [chatgpt-cr.yml](https://github.com/ant-design/ant-design/blob/f7fd474cf8792ea01d03461d407c0edc11828a1c/.github/workflows/chatgpt-cr.yml) file.
 
-### Unit Testing
+## Unit Testing
 
 Unit testing is one of the most important components of component library quality assurance. Whenever any code is pushed, this CI is triggered to perform automated testing, including PRs initiated by developers or updates to the main branch.
 
-#### Build Testing
+### Build Testing
 
 We want to ensure that the code can be built and packaged correctly after each update. Ant Design has added the [Dist Job](https://github.com/ant-design/ant-design/blob/master/.github/workflows/test.yml#L104-L138) and [Compile Job](https://github.com/ant-design/ant-design/blob/40fb753349c4f2be314c91dbb7e6f1a960097c19/.github/workflows/test.yml#L254-L288) in the test.yml file to ensure that the repository can be built and packaged correctly.
 
-#### Function Testing
+### Function Testing
 
 If you have paid attention to Ant Design's GitHub Actions, you will notice that there are as many as 30 jobs related to testing only each time.
 
@@ -117,27 +117,31 @@ The team is very cautious about unit testing and needs to consider the running s
 
 All of these functions benefit from the [Job matrix strategy](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs) of GitHub Actions, which allows us to configure multiple jobs to perform testing tasks at one time. [Normal test](https://github.com/ant-design/ant-design/blob/40fb753349c4f2be314c91dbb7e6f1a960097c19/.github/workflows/test.yml#L141-L223) and [Module test](https://github.com/ant-design/ant-design/blob/40fb753349c4f2be314c91dbb7e6f1a960097c19/.github/workflows/test.yml#L294-L357) are the jobs that Ant Design uses the matrix strategy to test.
 
-### Website Deploy
+## Website Deploy
 
 The deployment and build process here is consistent with the PR preview deployment and build behavior mentioned earlier, except that the deployment target of the built artifacts is different.
 
-#### Official Website Deploy
+### Official Website Deploy
 
 The [https://ant.design](https://ant.design) official website uses the free [GitHub Pages](https://pages.github.com/) function provided by GitHub. It uses the Actions [Deploy to GitHub Pages](https://github.com/ant-design/ant-design/blob/dedbdfddafc0134219e391473c109c14766f413d/.github/workflows/site-deploy.yml#L73-L78) job to push the built documentation artifacts directly to the [gh-pages](https://github.com/ant-design/ant-design/tree/gh-pages) branch.
 
-#### Standalone Versions
+### Standalone Versions
 
 As we all know, the [https://ant.design](https://ant.design) official website always maintains the latest version. However, sometimes it is still necessary to refer to the documentation of a specific version. The [Deploy to Surge](https://github.com/ant-design/ant-design/blob/5aad29d937baeba43ca8acde7f86450e9aec99f1/.github/workflows/site-deploy.yml#L80-L90) job is responsible for deploying the website to Surge after each new version is released, with the URL format `https://ant-design-{major}-{minor}-{patch}.surge.sh`, and posting the URL as a comment on each release commit.
 
 ![everyone-version-preview](https://user-images.githubusercontent.com/32004925/234485713-4e93154c-d5a4-4cad-87b0-e76667ff237f.png)
 
-### Other
+## Other
 
 The previous section has covered most of the core content on how Ant Design utilizes CI/CD. However, there are still some Jobs that haven't been specifically introduced. Here are some additional details to supplement that.
 
-Sync to Gitee: As Ant Design mainly uses GitHub for development and communication, some Chinese developers may experience network connectivity issues with GitHub. To address this, the team implemented the [sync-gitee.yml](https://github.com/ant-design/ant-design/blob/b09153c4fcffe00aac8aaaae8417d5588c444342/.github/workflows/sync-gitee.yml) job, which mirrors the code to the [Gitee ant-design](https://gitee.com/ant-design/ant-design) repository.
+### Sync to Gitee
 
-IM notification integration: To ensure that developers and community members are informed of relevant information as soon as possible, IM integration is implemented using the events provided by Action:
+Ant Design mainly utilizes GitHub for development and communication, but some developers in mainland China may prefer to use Gitee for code management. To accommodate this, the team implemented code mirroring to the [Gitee ant-design](https://gitee.com/ant-design/ant-design) repository in the [sync-gitee.yml](https://github.com/ant-design/ant-design/blob/b09153c4fcffe00aac8aaaae8417d5588c444342/.github/workflows/sync-gitee.yml) job.
+
+### IM notification
+
+To ensure that developers and community members are informed of relevant information as soon as possible, IM integration is implemented using the events provided by Action:
 
 - [issue-notice](https://github.com/ant-design/ant-design/blob/master/.github/workflows/issue-open-check.yml#L96-L105) and [discussion-notice](https://github.com/ant-design/ant-design/blob/dedbdfddafc0134219e391473c109c14766f413d/.github/workflows/disscustion-open-check.yml#L16-L25) jobs send notifications to the DingTalk community group whenever an issue or discussion is created.
 
@@ -145,15 +149,15 @@ IM notification integration: To ensure that developers and community members are
 
 - Other jobs not mentioned here are waiting for you to explore and discover...
 
-## Apply to your own projects
+# Apply to your own projects
 
 In the previous sections, we introduced many scenarios in which Ant Design uses GitHub Action. Why not try to apply it to your own project and improve production efficiency? Let's demonstrate this with a simple demo.
 
-### Creating a Project
+## Creating a Project
 
 Create a Vite + React project by running the command `pnpm create vite@latest my-react-app --template react-ts` in the command line.
 
-### Configuring CI Workflow
+## Configuring CI Workflow
 
 Create a new file named `ci.yml` in the `.github/workflows` folder located in the project's root directory with the following code:
 
@@ -219,7 +223,7 @@ The above workflow includes a CI job that will run `lint`, `build`, and `deploy`
 
 ![test-CI-preview](https://user-images.githubusercontent.com/32004925/234609284-ec7b40f5-a221-4c8b-9093-ce68a1a545bb.png)
 
-### Adding Caching
+## Adding Caching
 
 To further optimize dependency installation speed, we can add pnpm caching. After that, we can initiate a pull request to verify the previous steps.
 
@@ -255,6 +259,6 @@ Regarding the `Setup pnpm cache` step above, any cached items that have not been
 
 ![cache-pnpm-store](https://user-images.githubusercontent.com/32004925/234618808-46137b0d-27a0-4b01-b1a6-6e4931f6d388.png)
 
-## End
+# End
 
 That concludes this article. I hope it has helped you gain a deeper understanding of Ant Design. You are also welcome to participate in discussions and contribute to the project at the [Ant Design Discussion](https://github.com/ant-design/ant-design/discussions).
