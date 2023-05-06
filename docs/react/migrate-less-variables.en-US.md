@@ -160,9 +160,9 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@statistic-title-font-size` | `statisticTitleFontSize` | - |
-| `@statistic-content-font-size` | `statisticContentFontSize` | - |
-| `@statistic-font-family` | `statisticFontFamily` | - |
+| `@statistic-title-font-size` | `titleFontSize` | - |
+| `@statistic-content-font-size` | `contentFontSize` | - |
+| `@statistic-font-family` | `fontFamily` | - |
 
 ### Step
 

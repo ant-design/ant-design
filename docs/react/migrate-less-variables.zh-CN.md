@@ -160,9 +160,9 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@statistic-title-font-size` | `statisticTitleFontSize` | - |
-| `@statistic-content-font-size` | `statisticContentFontSize` | - |
-| `@statistic-font-family` | `statisticFontFamily` | - |
+| `@statistic-title-font-size` | `titleFontSize` | - |
+| `@statistic-content-font-size` | `contentFontSize` | - |
+| `@statistic-font-family` | `fontFamily` | - |
 
 ### Step 步骤条
 
