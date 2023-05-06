@@ -91,7 +91,7 @@ title: Less 变量迁移 Design Token
 | `@card-padding-base-sm` | `cardPaddingBaseSm` | - |
 | `@card-actions-background` | `cardActionsBackground` | - |
 | `@card-actions-li-margin` | `cardActionsLiMargin` | - |
-| `@card-skeleton-bg` | `cardSkeletonBg` | - |
+| `@card-skeleton-bg` | - | 由于样式变化已废弃 |
 | `@card-background` | `cardBackground` | - |
 | `@card-shadow` | `cardShadow` | - |
 | `@card-radius` | `cardRadius` | - |

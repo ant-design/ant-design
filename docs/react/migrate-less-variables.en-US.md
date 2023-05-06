@@ -91,7 +91,7 @@ This document contains the correspondence between all the less variables related
 | `@card-padding-base-sm` | `cardPaddingBaseSm` | - |
 | `@card-actions-background` | `cardActionsBackground` | - |
 | `@card-actions-li-margin` | `cardActionsLiMargin` | - |
-| `@card-skeleton-bg` | `cardSkeletonBg` | - |
+| `@card-skeleton-bg` | - | Deprecated for style change |
 | `@card-background` | `cardBackground` | - |
 | `@card-shadow` | `cardShadow` | - |
 | `@card-radius` | `cardRadius` | - |

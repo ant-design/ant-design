@@ -24,7 +24,6 @@ export interface ComponentToken {
   cardRadius: number;
   cardHeadExtraColor: string;
   cardInnerHeadPadding: number;
-  cardSkeletonBg: string;
 }
 
 interface CardToken extends FullToken<'Card'> {}
@@ -113,7 +112,8 @@ const genCardGridStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
 // ============================== Actions ==============================
 const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { componentCls, iconCls, cardActionsLiMargin, fontSize, colorBorderSecondary } = token;
+  const { componentCls, iconCls, cardActionsLiMargin, cardActionsIconSize, colorBorderSecondary } =
+    token;
   return {
     margin: 0,
     padding: 0,
@@ -155,8 +155,8 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
         },
 
         [`> ${iconCls}`]: {
-          fontSize,
-          lineHeight: `${fontSize * token.lineHeight}px`,
+          fontSize: cardActionsIconSize,
+          lineHeight: `${cardActionsIconSize * token.lineHeight}px`,
         },
       },
 
@@ -409,6 +409,5 @@ export default genComponentStyleHook(
     cardBackground: token.colorBgContainer,
     cardRadius: token.borderRadius,
     cardHeadExtraColor: token.colorText,
-    cardSkeletonBg: '#cfd8dc', // todo Fixed
   }),
 );
