@@ -8,7 +8,7 @@ import genGroupStyle from './group';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
-  fontWeight: number;
+  componentFontWeight: number;
 }
 
 export interface ButtonToken extends FullToken<'Button'> {
@@ -19,14 +19,14 @@ export interface ButtonToken extends FullToken<'Button'> {
 
 // ============================== Shared ==============================
 const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSSObject => {
-  const { componentCls, iconCls, fontWeight } = token;
+  const { componentCls, iconCls, componentFontWeight } = token;
 
   return {
     [componentCls]: {
       outline: 'none',
       position: 'relative',
       display: 'inline-block',
-      fontWeight,
+      fontWeight: componentFontWeight,
       whiteSpace: 'nowrap',
       textAlign: 'center',
       backgroundImage: 'none',
@@ -539,6 +539,6 @@ export default genComponentStyleHook(
     ];
   },
   {
-    fontWeight: 400,
+    componentFontWeight: 400,
   },
 );

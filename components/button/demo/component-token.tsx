@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, ConfigProvider, Space } from 'antd';
 
 const App: React.FC = () => (
-  <ConfigProvider theme={{ components: { Button: { fontWeight: 800 } } }}>
+  <ConfigProvider theme={{ components: { Button: { componentFontWeight: 800 } } }}>
     <Space wrap>
       <Button type="primary">Primary Button</Button>
       <Button>Default Button</Button>

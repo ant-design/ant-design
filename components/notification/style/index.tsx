@@ -9,14 +9,14 @@ import genNotificationPlacementStyle from './placement';
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   zIndexPopup: number;
-  width: number;
-  background: string;
-  paddingBlockStart: CSSProperties['paddingBlockStart'];
-  paddingBlockEnd: CSSProperties['paddingBlockEnd'];
-  paddingInlineStart: CSSProperties['paddingInlineStart'];
-  paddingInlineEnd: CSSProperties['paddingInlineEnd'];
-  marginBottom: number;
-  marginInlineEnd: number;
+  componentWidth: number;
+  componentBg: string;
+  componentPaddingBlockStart: CSSProperties['paddingBlockStart'];
+  componentPaddingBlockEnd: CSSProperties['paddingBlockEnd'];
+  componentPaddingInlineStart: CSSProperties['paddingInlineStart'];
+  componentPaddingInlineEnd: CSSProperties['paddingInlineEnd'];
+  componentMarginBottom: number;
+  componentMarginInlineEnd: number;
 }
 
 export interface NotificationToken extends FullToken<'Notification'> {
@@ -31,25 +31,25 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
     componentCls, // .ant-notification
     boxShadow,
     fontSizeLG,
-    marginBottom,
+    componentMarginBottom,
     borderRadiusLG,
     colorSuccess,
     colorInfo,
     colorWarning,
     colorError,
     colorTextHeading,
-    background,
-    marginInlineEnd,
+    componentBg,
+    componentMarginInlineEnd,
     motionDurationMid,
     motionEaseInOut,
     fontSize,
     lineHeight,
-    width,
+    componentWidth,
     notificationIconSize,
-    paddingInlineStart,
-    paddingInlineEnd,
-    paddingBlockStart,
-    paddingBlockEnd,
+    componentPaddingInlineStart,
+    componentPaddingInlineEnd,
+    componentPaddingBlockStart,
+    componentPaddingBlockEnd,
   } = token;
 
   const noticeCls = `${componentCls}-notice`;
@@ -58,7 +58,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
     '0%': {
       left: {
         _skip_check_: true,
-        value: width,
+        value: componentWidth,
       },
       opacity: 0,
     },
@@ -75,7 +75,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
   const notificationFadeOut = new Keyframes('antNotificationFadeOut', {
     '0%': {
       maxHeight: token.animationMaxHeight,
-      marginBottom,
+      marginBottom: componentMarginBottom,
       opacity: 1,
     },
 
@@ -90,18 +90,18 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 
   const noticeStyle: CSSObject = {
     position: 'relative',
-    width,
-    maxWidth: `calc(100vw - ${marginInlineEnd * 2}px)`,
-    marginBottom,
+    width: componentWidth,
+    maxWidth: `calc(100vw - ${componentMarginInlineEnd * 2}px)`,
+    marginBottom: componentMarginBottom,
     marginInlineStart: 'auto',
-    paddingInlineStart,
-    paddingInlineEnd,
-    paddingBlockStart,
-    paddingBlockEnd,
+    paddingInlineStart: componentPaddingInlineStart,
+    paddingInlineEnd: componentPaddingInlineEnd,
+    paddingBlockStart: componentPaddingBlockStart,
+    paddingBlockEnd: componentPaddingBlockEnd,
     overflow: 'hidden',
     lineHeight,
     wordWrap: 'break-word',
-    background,
+    background: componentBg,
     borderRadius: borderRadiusLG,
     boxShadow,
 
@@ -161,8 +161,8 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 
     [`${noticeCls}-close`]: {
       position: 'absolute',
-      top: paddingBlockStart,
-      insetInlineEnd: paddingInlineEnd,
+      top: componentPaddingBlockStart,
+      insetInlineEnd: componentPaddingInlineEnd,
       color: token.colorIcon,
       outline: 'none',
       width: token.notificationCloseBtnSize,
@@ -193,7 +193,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 
         position: 'fixed',
         zIndex: token.zIndexPopup,
-        marginInlineEnd,
+        marginInlineEnd: componentMarginInlineEnd,
 
         [`${componentCls}-hook-holder`]: {
           position: 'relative',
@@ -291,14 +291,14 @@ export default genComponentStyleHook(
     const paddingInline = token.paddingContentHorizontalLG;
     return {
       zIndexPopup: token.zIndexPopupBase + 50,
-      width: 384,
-      background: token.colorBgElevated,
-      paddingInlineStart: paddingInline,
-      paddingInlineEnd: paddingInline,
-      paddingBlockStart: paddingBlock,
-      paddingBlockEnd: paddingBlock,
-      marginBottom: token.margin,
-      marginInlineEnd: token.marginLG,
+      componentWidth: 384,
+      componentBg: token.colorBgElevated,
+      componentPaddingInlineStart: paddingInline,
+      componentPaddingInlineEnd: paddingInline,
+      componentPaddingBlockStart: paddingBlock,
+      componentPaddingBlockEnd: paddingBlock,
+      componentMarginBottom: token.margin,
+      componentMarginInlineEnd: token.marginLG,
     };
   },
 );

@@ -26,7 +26,7 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@button-font-weight` | `fontWeight` | - |
+| `@button-font-weight` | `componentFontWeight` | - |
 
 <!-- ### Calendar -->
 
@@ -49,11 +49,11 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@drawer-bg` | `colorBgElevated` | - |
-| `@drawer-header-padding` | `padding`、`paddingLG` | `${padding}px ${paddingLG}px` |
-| `@drawer-title-font-size` | `fontSizeLG` | - |
-| `@drawer-title-line-height` | `lineHeightLG` | - |
-| `@drawer-body-padding` | `paddingLG` | - |
+| `@drawer-bg` | `colorBgElevated` | GlobalToken |
+| `@drawer-header-padding` | `padding`、`paddingLG` | GlobalToken, used as `${padding}px ${paddingLG}px` |
+| `@drawer-title-font-size` | `fontSizeLG` | GlobalToken |
+| `@drawer-title-line-height` | `lineHeightLG` | GlobalToken |
+| `@drawer-body-padding` | `paddingLG` | GlobalToken |
 | `@drawer-footer-padding-vertical` | `footerPaddingBlock` | `footerPaddingBlock`  is a number without units, `@drawer-footer-padding-vertical` with units |
 | `@drawer-footer-padding-horizontal` | `footerPaddingInline` | `footerPaddingInline`  is a number without units, `@drawer-footer-padding-horizontal` with units |
 
@@ -102,30 +102,30 @@ This document contains the correspondence between all the less variables related
 | `@modal-header-close-size` | - | Deprecated for style change |
 | `@modal-content-bg` | `contentBg` | - |
 | `@modal-heading-color` | `titleColor` | - |
-| `@modal-close-color` | `colorIcon` | - |
+| `@modal-close-color` | `colorIcon` | GlobalToken |
 | `@modal-footer-bg` | `footerBg` | - |
 | `@modal-footer-border-color-split` | - | Deprecated for style change |
 | `@modal-footer-border-style` | - | Deprecated for style change |
 | `@modal-footer-padding-vertical` | - | Deprecated for style change |
 | `@modal-footer-padding-horizontal` | - | Deprecated for style change |
 | `@modal-footer-border-width` | - | Deprecated for style change |
-| `@modal-mask-bg` | `colorBgMask` | - |
+| `@modal-mask-bg` | `colorBgMask` | GlobalToken |
 | `@modal-confirm-body-padding` | - | Deprecated for style change |
 | `@modal-confirm-title-font-size` | `titleFontSize` | - |
-| `@modal-border-radius` | `borderRadiusLG` | - |
+| `@modal-border-radius` | `borderRadiusLG` | GlobalToken |
 
 ### Notification
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@notification-width` | `width` | - |
-| `@notification-padding` | `paddingInlineStart` `paddingInlineEnd` `paddingBlockStart` `paddingBlockEnd` | - |
-| `@notification-padding-vertical` | `paddingBlockStart` `paddingBlockEnd` | - |
-| `@notification-padding-horizontal` | `paddingInlineStart` `paddingInlineEnd` | - |
-| `@notification-margin-bottom` | `marginBottom` | - |
-| `@notification-margin-edge` | `marginInlineEnd` | - |
-| `@notification-bg` | `background` | - |
+| `@notification-width` | `componentWidth` | - |
+| `@notification-padding` | `componentPaddingInlineStart` `componentPaddingInlineEnd` `componentPaddingBlockStart` `componentPaddingBlockEnd` | - |
+| `@notification-padding-vertical` | `componentPaddingBlockStart` `componentPaddingBlockEnd` | - |
+| `@notification-padding-horizontal` | `componentPaddingInlineStart` `componentPaddingInlineEnd` | - |
+| `@notification-margin-bottom` | `componentMarginBottom` | - |
+| `@notification-margin-edge` | `componentMarginInlineEnd` | - |
+| `@notification-bg` | `componentBg` | - |
 
 <!-- ### Pagination -->
 
@@ -162,14 +162,14 @@ This document contains the correspondence between all the less variables related
 | --- | --- | --- |
 | `@statistic-title-font-size` | `titleFontSize` | - |
 | `@statistic-content-font-size` | `contentFontSize` | - |
-| `@statistic-font-family` | `fontFamily` | - |
+| `@statistic-font-family` | `fontFamily` | GlobalToken |
 
 ### Step
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@process-tail-color` | `colorSplit` | - |
+| `@process-tail-color` | `colorSplit` | GlobalToken |
 | `@steps-nav-arrow-color` | `navArrowColor` | - |
 | `@steps-background` | `colorBgContainer` | - |
 | `@steps-icon-size` | `iconSize` | - |

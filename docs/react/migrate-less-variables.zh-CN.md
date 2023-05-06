@@ -26,7 +26,7 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@button-font-weight` | `fontWeight` | - |
+| `@button-font-weight` | `componentFontWeight` | - |
 
 <!-- ### Calendar 日历 -->
 
@@ -49,11 +49,11 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@drawer-bg` | `colorBgElevated` | - |
-| `@drawer-header-padding` | `padding`、`paddingLG` | `${padding}px ${paddingLG}px` |
-| `@drawer-title-font-size` | `fontSizeLG` | - |
-| `@drawer-title-line-height` | `lineHeightLG` | - |
-| `@drawer-body-padding` | `paddingLG` | - |
+| `@drawer-bg` | `colorBgElevated` | 全局 Token |
+| `@drawer-header-padding` | `padding`、`paddingLG` | 全局 Token，对应值为 `${padding}px ${paddingLG}px` |
+| `@drawer-title-font-size` | `fontSizeLG` | 全局 Token |
+| `@drawer-title-line-height` | `lineHeightLG` | 全局 Token |
+| `@drawer-body-padding` | `paddingLG` | 全局 Token |
 | `@drawer-footer-padding-vertical` | `footerPaddingBlock` | `footerPaddingBlock` 为数字，不带单位，`@drawer-footer-padding-vertical` 带单位 |
 | `@drawer-footer-padding-horizontal` | `footerPaddingInline` | `footerPaddingInline` 为数字，不带单位，`@drawer-footer-padding-horizontal` 带单位 |
 
@@ -102,30 +102,30 @@ title: Less 变量迁移 Design Token
 | `@modal-header-close-size` | - | 由于样式变化已废弃 |
 | `@modal-content-bg` | `contentBg` | - |
 | `@modal-heading-color` | `titleColor` | - |
-| `@modal-close-color` | `colorIcon` | - |
+| `@modal-close-color` | `colorIcon` | 全局 Token |
 | `@modal-footer-bg` | `footerBg` | - |
 | `@modal-footer-border-color-split` | - | 由于样式变化已废弃 |
 | `@modal-footer-border-style` | - | 由于样式变化已废弃 |
 | `@modal-footer-padding-vertical` | - | 由于样式变化已废弃 |
 | `@modal-footer-padding-horizontal` | - | 由于样式变化已废弃 |
 | `@modal-footer-border-width` | - | 由于样式变化已废弃 |
-| `@modal-mask-bg` | `colorBgMask` | - |
+| `@modal-mask-bg` | `colorBgMask` | 全局 Token |
 | `@modal-confirm-body-padding` | - | 由于样式变化已废弃 |
 | `@modal-confirm-title-font-size` | `titleFontSize` | - |
-| `@modal-border-radius` | `borderRadiusLG` | - |
+| `@modal-border-radius` | `borderRadiusLG` | 全局 Token |
 
 ### Notification 通知提醒框
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@notification-width` | `width` | - |
-| `@notification-padding` | `paddingInlineStart` `paddingInlineEnd` `paddingBlockStart` `paddingBlockEnd` | - |
-| `@notification-padding-vertical` | `paddingBlockStart` `paddingBlockEnd` | - |
-| `@notification-padding-horizontal` | `paddingInlineStart` `paddingInlineEnd` | - |
-| `@notification-margin-bottom` | `marginBottom` | - |
-| `@notification-margin-edge` | `marginInlineEnd` | - |
-| `@notification-bg` | `background` | - |
+| `@notification-width` | `componentWidth` | - |
+| `@notification-padding` | `componentPaddingInlineStart` `componentPaddingInlineEnd` `componentPaddingBlockStart` `componentPaddingBlockEnd` | - |
+| `@notification-padding-vertical` | `componentPaddingBlockStart` `componentPaddingBlockEnd` | - |
+| `@notification-padding-horizontal` | `componentPaddingInlineStart` `componentPaddingInlineEnd` | - |
+| `@notification-margin-bottom` | `componentMarginBottom` | - |
+| `@notification-margin-edge` | `componentMarginInlineEnd` | - |
+| `@notification-bg` | `componentBg` | - |
 
 <!-- ### Pagination 分页 -->
 
@@ -162,14 +162,14 @@ title: Less 变量迁移 Design Token
 | --- | --- | --- |
 | `@statistic-title-font-size` | `titleFontSize` | - |
 | `@statistic-content-font-size` | `contentFontSize` | - |
-| `@statistic-font-family` | `fontFamily` | - |
+| `@statistic-font-family` | `fontFamily` | 全局 Token |
 
 ### Step 步骤条
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@process-tail-color` | `colorSplit` | - |
+| `@process-tail-color` | `colorSplit` | 全局 Token |
 | `@steps-nav-arrow-color` | `navArrowColor` | - |
 | `@steps-background` | `colorBgContainer` | - |
 | `@steps-icon-size` | `iconSize` | - |

@@ -9,14 +9,14 @@ export default () => (
     theme={{
       components: {
         Notification: {
-          width: 200,
-          background: '#F0F0F0',
-          paddingInlineStart: 10,
-          paddingInlineEnd: 20,
-          paddingBlockStart: 30,
-          paddingBlockEnd: 40,
-          marginBottom: 100,
-          marginInlineEnd: 80,
+          componentWidth: 200,
+          componentBg: '#F0F0F0',
+          componentPaddingInlineStart: 10,
+          componentPaddingInlineEnd: 20,
+          componentPaddingBlockStart: 30,
+          componentPaddingBlockEnd: 40,
+          componentMarginBottom: 100,
+          componentMarginInlineEnd: 80,
         },
       },
     }}
