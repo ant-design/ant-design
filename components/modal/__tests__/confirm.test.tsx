@@ -3,7 +3,7 @@ import CSSMotion from 'rc-motion';
 import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
-import React from 'react';
+import * as React from 'react';
 import TestUtils from 'react-dom/test-utils';
 import type { ModalFuncProps } from '..';
 import Modal from '..';

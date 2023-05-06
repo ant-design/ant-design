@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import React from 'react';
+import * as React from 'react';
 /* eslint import/no-unresolved: 0 */
 import { css } from '@emotion/react';
 import type { TableProps } from 'antd';

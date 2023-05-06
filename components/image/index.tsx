@@ -1,7 +1,7 @@
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import classNames from 'classnames';
 import RcImage, { type ImageProps } from 'rc-image';
-import React from 'react';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import defaultLocale from '../locale/en_US';
 import { getTransitionName } from '../_util/motion';

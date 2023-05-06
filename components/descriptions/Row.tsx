@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import type { DescriptionsContextProps } from '.';
 import { DescriptionsContext } from '.';
 import Cell from './Cell';

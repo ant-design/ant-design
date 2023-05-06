@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';

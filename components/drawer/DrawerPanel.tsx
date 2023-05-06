@@ -1,7 +1,7 @@
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
-import React from 'react';
+import * as React from 'react';
 
 export interface DrawerPanelProps {
   prefixCls: string;

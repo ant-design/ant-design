@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import type { FormatConfig, valueType } from './utils';
 
 interface NumberProps extends FormatConfig {
