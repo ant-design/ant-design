@@ -81,8 +81,8 @@ This document contains the correspondence between all the less variables related
 | Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@zindex-message` | `zIndexPopup` | - |
-| `@message-notice-content-padding` | `messageNoticeContentPadding` | - |
-| `@message-notice-content-bg` | `messageNoticeContentBg` | - |
+| `@message-notice-content-padding` | `contentPadding` | - |
+| `@message-notice-content-bg` | `contentBg` | - |
 
 ### Modal
 
@@ -92,18 +92,18 @@ This document contains the correspondence between all the less variables related
 | `@modal-header-padding-vertical` | - | Deprecated for style change |
 | `@modal-header-padding-horizontal` | - | Deprecated for style change |
 | `@modal-body-padding` | - | Deprecated for style change |
-| `@modal-header-bg` | `modalHeaderBg` | - |
+| `@modal-header-bg` | `headerBg` | - |
 | `@modal-header-padding` | - | Deprecated for style change |
 | `@modal-header-border-width` | - | Deprecated for style change |
 | `@modal-header-border-style` | - | Deprecated for style change |
-| `@modal-header-title-line-height` | `modalHeaderTitleLineHeight` | - |
-| `@modal-header-title-font-size` | `modalHeaderTitleFontSize` | - |
+| `@modal-header-title-line-height` | `titleLineHeight` | - |
+| `@modal-header-title-font-size` | `titleFontSize` | - |
 | `@modal-header-border-color-split` | - | Deprecated for style change |
 | `@modal-header-close-size` | - | Deprecated for style change |
-| `@modal-content-bg` | `modalContentBg` | - |
-| `@modal-heading-color` | `modalHeadingColor` | - |
-| `@modal-close-color` | `modalCloseIconColor` | - |
-| `@modal-footer-bg` | `modalFooterBg` | - |
+| `@modal-content-bg` | `contentBg` | - |
+| `@modal-heading-color` | `titleColor` | - |
+| `@modal-close-color` | `colorIcon` | - |
+| `@modal-footer-bg` | `footerBg` | - |
 | `@modal-footer-border-color-split` | - | Deprecated for style change |
 | `@modal-footer-border-style` | - | Deprecated for style change |
 | `@modal-footer-padding-vertical` | - | Deprecated for style change |
@@ -111,7 +111,7 @@ This document contains the correspondence between all the less variables related
 | `@modal-footer-border-width` | - | Deprecated for style change |
 | `@modal-mask-bg` | `colorBgMask` | - |
 | `@modal-confirm-body-padding` | - | Deprecated for style change |
-| `@modal-confirm-title-font-size` | `modalHeaderTitleFontSize` | - |
+| `@modal-confirm-title-font-size` | `titleFontSize` | - |
 | `@modal-border-radius` | `borderRadiusLG` | - |
 
 ### Notification

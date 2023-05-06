@@ -81,8 +81,8 @@ title: Less 变量迁移 Design Token
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
 | `@zindex-message` | `zIndexPopup` | - |
-| `@message-notice-content-padding` | `messageNoticeContentPadding` | - |
-| `@message-notice-content-bg` | `messageNoticeContentBg` | - |
+| `@message-notice-content-padding` | `contentPadding` | - |
+| `@message-notice-content-bg` | `contentBg` | - |
 
 ### Modal 对话框
 
@@ -92,18 +92,18 @@ title: Less 变量迁移 Design Token
 | `@modal-header-padding-vertical` | - | 由于样式变化已废弃 |
 | `@modal-header-padding-horizontal` | - | 由于样式变化已废弃 |
 | `@modal-body-padding` | - | 由于样式变化已废弃 |
-| `@modal-header-bg` | `modalHeaderBg` | - |
+| `@modal-header-bg` | `headerBg` | - |
 | `@modal-header-padding` | - | 由于样式变化已废弃 |
 | `@modal-header-border-width` | - | 由于样式变化已废弃 |
 | `@modal-header-border-style` | - | 由于样式变化已废弃 |
-| `@modal-header-title-line-height` | `modalHeaderTitleLineHeight` | - |
-| `@modal-header-title-font-size` | `modalHeaderTitleFontSize` | - |
+| `@modal-header-title-line-height` | `titleLineHeight` | - |
+| `@modal-header-title-font-size` | `titleFontSize` | - |
 | `@modal-header-border-color-split` | - | 由于样式变化已废弃 |
 | `@modal-header-close-size` | - | 由于样式变化已废弃 |
-| `@modal-content-bg` | `modalContentBg` | - |
-| `@modal-heading-color` | `modalHeadingColor` | - |
-| `@modal-close-color` | `modalCloseIconColor` | - |
-| `@modal-footer-bg` | `modalFooterBg` | - |
+| `@modal-content-bg` | `contentBg` | - |
+| `@modal-heading-color` | `titleColor` | - |
+| `@modal-close-color` | `colorIcon` | - |
+| `@modal-footer-bg` | `footerBg` | - |
 | `@modal-footer-border-color-split` | - | 由于样式变化已废弃 |
 | `@modal-footer-border-style` | - | 由于样式变化已废弃 |
 | `@modal-footer-padding-vertical` | - | 由于样式变化已废弃 |
@@ -111,7 +111,7 @@ title: Less 变量迁移 Design Token
 | `@modal-footer-border-width` | - | 由于样式变化已废弃 |
 | `@modal-mask-bg` | `colorBgMask` | - |
 | `@modal-confirm-body-padding` | - | 由于样式变化已废弃 |
-| `@modal-confirm-title-font-size` | `modalHeaderTitleFontSize` | - |
+| `@modal-confirm-title-font-size` | `titleFontSize` | - |
 | `@modal-border-radius` | `borderRadiusLG` | - |
 
 ### Notification 通知提醒框
