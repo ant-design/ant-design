@@ -14,6 +14,7 @@ import { operationUnit } from '../../style';
 export interface ComponentToken {
   sizeMarginHeadingVerticalStart: number | string;
   sizeMarginHeadingVerticalEnd: number | string;
+  titleFontWeight: number;
 }
 
 export type TypographyToken = FullToken<'Typography'>;
@@ -122,7 +123,12 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Typography', (token) => [genTypographyStyle(token)], {
-  sizeMarginHeadingVerticalStart: '1.2em',
-  sizeMarginHeadingVerticalEnd: '0.5em',
-});
+export default genComponentStyleHook(
+  'Typography',
+  (token) => [genTypographyStyle(token)],
+  (token) => ({
+    sizeMarginHeadingVerticalStart: '1.2em',
+    sizeMarginHeadingVerticalEnd: '0.5em',
+    titleFontWeight: token.fontWeightStrong,
+  }),
+);

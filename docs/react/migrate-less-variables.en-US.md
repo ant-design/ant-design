@@ -209,7 +209,7 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@typography-title-font-weight` | - | Deprecated for style change |
+| `@typography-title-font-weight` | `titleFontWeight` | - |
 | `@typography-title-margin-top` | `sizeMarginHeadingVerticalStart` | - |
 | `@typography-title-margin-bottom` | `sizeMarginHeadingVerticalEnd` | - |
 

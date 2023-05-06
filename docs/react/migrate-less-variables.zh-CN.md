@@ -209,7 +209,7 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@typography-title-font-weight` | - | 由于样式变化已废弃 |
+| `@typography-title-font-weight` | `titleFontWeight` | - |
 | `@typography-title-margin-top` | `sizeMarginHeadingVerticalStart` | - |
 | `@typography-title-margin-bottom` | `sizeMarginHeadingVerticalEnd` | - |
 
