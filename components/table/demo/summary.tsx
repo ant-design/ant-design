@@ -99,7 +99,12 @@ const App: React.FC = () => (
 
         return (
           <>
-            <Table.Summary.Row>
+            <Table.Summary.Row
+              onClick={(e) => {
+                e.stopPropagation();
+                console.log('pageData', pageData);
+              }}
+            >
               <Table.Summary.Cell index={0}>Total</Table.Summary.Cell>
               <Table.Summary.Cell index={1}>
                 <Text type="danger">{totalBorrow}</Text>
