@@ -404,6 +404,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                       }
                     : undefined
                 }
+                // Equal to the value of tableFilterDropdownHeight
                 height={264}
                 virtual
               />
