@@ -2,7 +2,6 @@
 const fetch = require('isomorphic-fetch');
 const semver = require('semver');
 const dayjs = require('dayjs');
-const chalk = require('chalk');
 const { spawnSync } = require('child_process');
 const relativeTime = require('dayjs/plugin/relativeTime');
 
@@ -56,6 +55,7 @@ const SAFE_DAYS_START = 1000 * 60 * 60 * 24 * 15; // 15 days
 const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be stable
 
 (async function process() {
+  const { default: chalk } = await import('chalk');
   console.log(chalk.cyan('🤖 Post Publish Scripting...\n'));
 
   // if (packageJson.version.startsWith('5.0')) {

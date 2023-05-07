@@ -1,5 +1,4 @@
 const $ = require('dekko');
-const chalk = require('chalk');
 
 $('dist')
   .isDirectory()
@@ -9,5 +8,8 @@ $('dist')
   .hasFile('antd.min.js')
   .hasFile('reset.css');
 
-// eslint-disable-next-line no-console
-console.log(chalk.green('✨ `dist` directory is valid.'));
+(async function printLog() {
+  const { default: chalk } = await import('chalk');
+  // eslint-disable-next-line no-console
+  console.log(chalk.green('✨ `dist` directory is valid.'));
+})();

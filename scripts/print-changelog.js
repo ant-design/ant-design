@@ -1,5 +1,4 @@
 /* eslint-disable no-await-in-loop, no-console */
-const chalk = require('chalk');
 const { spawn } = require('child_process');
 const jsdom = require('jsdom');
 const jQuery = require('jquery');
@@ -56,6 +55,7 @@ function getDescription(entity) {
 async function printLog() {
   const tags = await git.tags();
   const { default: inquirer } = await import('inquirer');
+  const { default: chalk } = await import('chalk');
   const { fromVersion } = await inquirer.prompt([
     {
       type: 'list',
