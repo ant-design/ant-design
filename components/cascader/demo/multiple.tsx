@@ -12,7 +12,6 @@ const options: Option[] = [
   {
     label: 'Light',
     value: 'light',
-    disableCheckbox: true,
     children: new Array(20)
       .fill(null)
       .map((_, index) => ({ label: `Number ${index}`, value: index })),

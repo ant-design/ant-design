@@ -1,6 +1,6 @@
 ## zh-CN
 
-一次性选择多个选项。通过添加 `disableCheckbox` 属性,选择具体某一项禁用 `checkbox`。可以通过类名修改禁用的样式。
+一次性选择多个选项。通过添加 `disableCheckbox` 属性,选择具体某一个`checkbox`禁用 。可以通过类名修改禁用的样式。
 
 ## en-US
 
