@@ -39,8 +39,8 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         flexWrap: 'wrap',
         columnGap: '8px',
 
-        //Group > Grid
-        ['.ant-row']: {
+        // Group > Grid
+        '.ant-row': {
           width: '100%',
         },
       },
