@@ -1,4 +1,4 @@
-import type { AlignType, BuildInPlacements } from '@rc-component/trigger';
+import type { BuildInPlacements } from '@rc-component/trigger';
 import classNames from 'classnames';
 import RcTooltip from 'rc-tooltip';
 import type {
@@ -295,35 +295,6 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     );
   }, [arrowPointAtCenter, arrow, builtinPlacements, token]);
 
-  // 动态设置动画点
-  const onPopupAlign = (domNode: HTMLElement, align: AlignType) => {
-    // 当前返回的位置
-    const placement = Object.keys(tooltipPlacements).find(
-      (key) =>
-        tooltipPlacements[key].points![0] === align.points?.[0] &&
-        tooltipPlacements[key].points![1] === align.points?.[1],
-    );
-
-    if (placement) {
-      // 根据当前坐标设置动画点
-      const rect = domNode.getBoundingClientRect();
-
-      const transformOrigin: React.CSSProperties = { top: '50%', left: '50%' };
-
-      if (/top|Bottom/.test(placement)) {
-        transformOrigin.top = `${rect.height - (align.offset![1] as number)}px`;
-      } else if (/Top|bottom/.test(placement)) {
-        transformOrigin.top = `${-align.offset![1]}px`;
-      }
-      if (/left|Right/.test(placement)) {
-        transformOrigin.left = `${rect.width - (align.offset![0] as number)}px`;
-      } else if (/right|Left/.test(placement)) {
-        transformOrigin.left = `${-align.offset![0]}px`;
-      }
-      domNode.style.transformOrigin = `${transformOrigin.left} ${transformOrigin.top}`;
-    }
-  };
-
   const memoOverlay = React.useMemo<TooltipProps['overlay']>(() => {
     if (title === 0) {
       return title;
@@ -406,7 +377,6 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       visible={tempOpen}
       onVisibleChange={onOpenChange}
       afterVisibleChange={afterOpenChange ?? afterVisibleChange}
-      onPopupAlign={onPopupAlign}
       overlayInnerStyle={formattedOverlayInnerStyle}
       arrowContent={<span className={`${prefixCls}-arrow-content`} />}
       motion={{
