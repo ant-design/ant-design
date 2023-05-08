@@ -41,6 +41,7 @@ return (
 <code src="./demo/right.tsx">Right alternate</code>
 <code src="./demo/label.tsx">Label</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
+<code src="./demo/componentToken-debug.tsx" debug>Custom component token</code>
 
 ## API
 
