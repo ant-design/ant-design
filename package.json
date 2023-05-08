@@ -209,7 +209,6 @@
     "antd-token-previewer": "^1.1.0-21",
     "chalk": "^4.0.0",
     "cheerio": "1.0.0-rc.12",
-    "countup.js": "2.6.0",
     "cross-env": "^7.0.0",
     "dekko": "^0.2.1",
     "dumi": "^2.1.17",
