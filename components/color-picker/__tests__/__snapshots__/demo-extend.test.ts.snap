@@ -4,7 +4,6 @@ exports[`renders components/color-picker/demo/allowClear.tsx extend context corr
 Array [
   <div
     class="ant-color-picker-placeholder"
-    format="hex"
   >
     <div
       class="ant-color-picker-placeholder-container"
@@ -416,7 +415,6 @@ exports[`renders components/color-picker/demo/base.tsx extend context correctly 
 Array [
   <div
     class="ant-color-picker-placeholder"
-    format="hex"
   >
     <div
       class="ant-color-picker-placeholder-container"
@@ -821,7 +819,6 @@ exports[`renders components/color-picker/demo/disabled.tsx extend context correc
 Array [
   <div
     class="ant-color-picker-placeholder ant-color-picker-placeholder-disabled"
-    format="hex"
   >
     <div
       class="ant-color-picker-placeholder-container"
@@ -2963,7 +2960,6 @@ exports[`renders components/color-picker/demo/presets.tsx extend context correct
 Array [
   <div
     class="ant-color-picker-placeholder"
-    format="hex"
     presets="[object Object],[object Object]"
   >
     <div
@@ -3426,7 +3422,7 @@ Array [
                               class="ant-color-picker-presets-color"
                             >
                               <div
-                                class="ant-color-picker-presets-color-box ant-color-picker-presets-color-dark"
+                                class="ant-color-picker-presets-color-box"
                               >
                                 <div
                                   class="ant-color-picker-presets-color-block"
@@ -3441,7 +3437,7 @@ Array [
                               class="ant-color-picker-presets-color"
                             >
                               <div
-                                class="ant-color-picker-presets-color-box ant-color-picker-presets-color-dark"
+                                class="ant-color-picker-presets-color-box"
                               >
                                 <div
                                   class="ant-color-picker-presets-color-block"
@@ -3456,7 +3452,7 @@ Array [
                               class="ant-color-picker-presets-color"
                             >
                               <div
-                                class="ant-color-picker-presets-color-box ant-color-picker-presets-color-dark"
+                                class="ant-color-picker-presets-color-box"
                               >
                                 <div
                                   class="ant-color-picker-presets-color-block"
@@ -3576,7 +3572,7 @@ Array [
                               class="ant-color-picker-presets-color"
                             >
                               <div
-                                class="ant-color-picker-presets-color-box ant-color-picker-presets-color-dark"
+                                class="ant-color-picker-presets-color-box"
                               >
                                 <div
                                   class="ant-color-picker-presets-color-block"
@@ -3591,7 +3587,7 @@ Array [
                               class="ant-color-picker-presets-color"
                             >
                               <div
-                                class="ant-color-picker-presets-color-box ant-color-picker-presets-color-dark"
+                                class="ant-color-picker-presets-color-box"
                               >
                                 <div
                                   class="ant-color-picker-presets-color-block"
@@ -3621,7 +3617,7 @@ Array [
                               class="ant-color-picker-presets-color"
                             >
                               <div
-                                class="ant-color-picker-presets-color-box ant-color-picker-presets-color-dark"
+                                class="ant-color-picker-presets-color-box"
                               >
                                 <div
                                   class="ant-color-picker-presets-color-block"
@@ -3636,7 +3632,7 @@ Array [
                               class="ant-color-picker-presets-color"
                             >
                               <div
-                                class="ant-color-picker-presets-color-box ant-color-picker-presets-color-dark"
+                                class="ant-color-picker-presets-color-box"
                               >
                                 <div
                                   class="ant-color-picker-presets-color-block"
@@ -3651,7 +3647,7 @@ Array [
                               class="ant-color-picker-presets-color"
                             >
                               <div
-                                class="ant-color-picker-presets-color-box ant-color-picker-presets-color-dark"
+                                class="ant-color-picker-presets-color-box"
                               >
                                 <div
                                   class="ant-color-picker-presets-color-block"
@@ -3666,7 +3662,7 @@ Array [
                               class="ant-color-picker-presets-color ant-color-picker-presets-color-checked"
                             >
                               <div
-                                class="ant-color-picker-presets-color-box ant-color-picker-presets-color-dark"
+                                class="ant-color-picker-presets-color-box"
                               >
                                 <div
                                   class="ant-color-picker-presets-color-block"
@@ -3681,7 +3677,7 @@ Array [
                               class="ant-color-picker-presets-color"
                             >
                               <div
-                                class="ant-color-picker-presets-color-box ant-color-picker-presets-color-dark"
+                                class="ant-color-picker-presets-color-box"
                               >
                                 <div
                                   class="ant-color-picker-presets-color-block"
@@ -3696,7 +3692,7 @@ Array [
                               class="ant-color-picker-presets-color"
                             >
                               <div
-                                class="ant-color-picker-presets-color-box ant-color-picker-presets-color-dark"
+                                class="ant-color-picker-presets-color-box"
                               >
                                 <div
                                   class="ant-color-picker-presets-color-block"
@@ -3711,7 +3707,7 @@ Array [
                               class="ant-color-picker-presets-color"
                             >
                               <div
-                                class="ant-color-picker-presets-color-box ant-color-picker-presets-color-dark"
+                                class="ant-color-picker-presets-color-box"
                               >
                                 <div
                                   class="ant-color-picker-presets-color-block"

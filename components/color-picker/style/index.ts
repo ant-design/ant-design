@@ -366,17 +366,13 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
                 [`${componentCls}-presets-color-box`]: {
                   '&:after': {
                     opacity: 1,
+                    borderColor: colorWhite,
                     transform: 'rotate(45deg) scale(1) translate(-50%,-50%)',
                     transition: `all ${token.motionDurationMid} ${token.motionEaseOutBack} ${token.motionDurationFast}`,
                   },
                   [`&${componentCls}-presets-color-bright`]: {
                     '&:after': {
                       borderColor: colorTextTertiary,
-                    },
-                  },
-                  [`&${componentCls}-presets-color-dark`]: {
-                    '&:after': {
-                      borderColor: colorWhite,
                     },
                   },
                   '&-rtl::after': {

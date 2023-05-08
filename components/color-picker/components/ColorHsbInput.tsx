@@ -13,7 +13,7 @@ interface ColorHsbInputProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
 }
 
 const ColorHsbInput: FC<ColorHsbInputProps> = ({ prefixCls, value, onChange }) => {
-  const ColorHsbInputPrefixCls = `${prefixCls}-hsb-input`;
+  const colorHsbInputPrefixCls = `${prefixCls}-hsb-input`;
   const [hsbValue, setHsbValue] = useState(generateColor(value || '#000'));
 
   // Update step value
@@ -34,13 +34,13 @@ const ColorHsbInput: FC<ColorHsbInputProps> = ({ prefixCls, value, onChange }) =
   };
 
   return (
-    <div className={ColorHsbInputPrefixCls}>
+    <div className={colorHsbInputPrefixCls}>
       <ColorSteppers
         max={360}
         min={0}
         value={Number(hsbValue.toHsb().h)}
         prefixCls={prefixCls}
-        className={ColorHsbInputPrefixCls}
+        className={colorHsbInputPrefixCls}
         formatter={(step) => getRoundNumber(step || 0).toString()}
         onChange={(step) => handleHsbChange(Number(step), 'h')}
       />
@@ -49,7 +49,7 @@ const ColorHsbInput: FC<ColorHsbInputProps> = ({ prefixCls, value, onChange }) =
         min={0}
         value={Number(hsbValue.toHsb().s) * 100}
         prefixCls={prefixCls}
-        className={ColorHsbInputPrefixCls}
+        className={colorHsbInputPrefixCls}
         formatter={(step) => `${getRoundNumber(step || 0)}%`}
         onChange={(step) => handleHsbChange(Number(step), 's')}
       />
@@ -58,7 +58,7 @@ const ColorHsbInput: FC<ColorHsbInputProps> = ({ prefixCls, value, onChange }) =
         min={0}
         value={Number(hsbValue.toHsb().b) * 100}
         prefixCls={prefixCls}
-        className={ColorHsbInputPrefixCls}
+        className={colorHsbInputPrefixCls}
         formatter={(step) => `${getRoundNumber(step || 0)}%`}
         onChange={(step) => handleHsbChange(Number(step), 'b')}
       />

@@ -1,59 +1,53 @@
+import { ColorPickerPanel as RcColorPickerPanel } from '@rc-component/color-picker';
 import type { FC } from 'react';
 import React from 'react';
 import Divider from '../divider';
+import type { Color } from './color';
 import ColorClear from './components/ColorClear';
 import ColorInput from './components/ColorInput';
 import ColorPresets from './components/ColorPresets';
 import type { ColorPickerBaseProps } from './interface';
 
 interface ColorPickerPanelProps extends ColorPickerBaseProps {
-  children?: React.ReactElement;
+  onChange?: (value?: Color) => void;
+  onClear?: (clear?: boolean) => void;
 }
 
 const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
-  const {
-    prefixCls,
-    children,
-    allowClear,
-    presets,
-    updateColor,
-    updateClearColor,
-    color,
-    ...injectProps
-  } = props;
-  const ColorPickerPanelPrefixCls = `${prefixCls}-inner-panel`;
+  const { prefixCls, allowClear, presets, onChange, onClear, color, ...injectProps } = props;
+  const colorPickerPanelPrefixCls = `${prefixCls}-inner-panel`;
 
-  return (
-    <div className={ColorPickerPanelPrefixCls}>
+  const extraPanelRender = (panel: React.ReactElement) => (
+    <div className={colorPickerPanelPrefixCls}>
       {allowClear && (
-        <div className={`${ColorPickerPanelPrefixCls}-clear`}>
+        <div className={`${colorPickerPanelPrefixCls}-clear`}>
           <ColorClear
             prefixCls={prefixCls}
             value={color}
             onChange={(clearColor) => {
-              updateColor?.(clearColor);
-              updateClearColor?.(true);
+              onChange?.(clearColor);
+              onClear?.(true);
             }}
             {...injectProps}
           />
         </div>
       )}
-      {children}
+      {panel}
       <ColorInput
         value={color}
-        onChange={(value) => updateColor?.(value)}
+        onChange={(value) => onChange?.(value)}
         prefixCls={prefixCls}
         {...injectProps}
       />
 
       {Array.isArray(presets) && (
         <>
-          <Divider className={`${ColorPickerPanelPrefixCls}-divider`} />
-          <div className={`${ColorPickerPanelPrefixCls}-presets`}>
+          <Divider className={`${colorPickerPanelPrefixCls}-divider`} />
+          <div className={`${colorPickerPanelPrefixCls}-presets`}>
             <ColorPresets
               value={color}
               presets={presets}
-              onChange={(value) => updateColor?.(value)}
+              onChange={(value) => onChange?.(value)}
               prefixCls={prefixCls}
               {...injectProps}
             />
@@ -61,6 +55,14 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
         </>
       )}
     </div>
+  );
+  return (
+    <RcColorPickerPanel
+      prefixCls={prefixCls}
+      value={color?.toHsb()}
+      onChange={onChange}
+      panelRender={extraPanelRender}
+    />
   );
 };
 export default ColorPickerPanel;

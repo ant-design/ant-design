@@ -42,7 +42,7 @@ const ColorPresets: FC<ColorPresetsProps> = ({
     value: genPresetColor(presets),
     postState: (item) => genPresetColor(item),
   });
-  const ColorPresetsPrefixCls = `${prefixCls}-presets`;
+  const colorPresetsPrefixCls = `${prefixCls}-presets`;
 
   const activeKey = useMemo(
     () => presetsValue.map((preset) => `panel-${preset.label}`),
@@ -54,34 +54,33 @@ const ColorPresets: FC<ColorPresetsProps> = ({
   };
 
   return (
-    <div className={ColorPresetsPrefixCls}>
+    <div className={colorPresetsPrefixCls}>
       <Collapse defaultActiveKey={activeKey} ghost>
         {presetsValue.map((preset) => (
           <Panel
-            header={<div className={`${ColorPresetsPrefixCls}-label`}>{preset?.label}</div>}
+            header={<div className={`${colorPresetsPrefixCls}-label`}>{preset?.label}</div>}
             key={`panel-${preset?.label}`}
           >
-            <div className={`${ColorPresetsPrefixCls}-items`}>
+            <div className={`${colorPresetsPrefixCls}-items`}>
               {Array.isArray(preset?.colors) && preset?.colors.length > 0 ? (
                 preset.colors.map((presetColor: Color) => (
                   <div
                     key={`preset-${presetColor.toHexString()}`}
-                    className={classNames(`${ColorPresetsPrefixCls}-color`, {
-                      [`${ColorPresetsPrefixCls}-color-checked`]:
+                    className={classNames(`${colorPresetsPrefixCls}-color`, {
+                      [`${colorPresetsPrefixCls}-color-checked`]:
                         presetColor.toHexString() === color?.toHexString(),
                     })}
                     onClick={() => handleClick(presetColor)}
                   >
                     <div
-                      className={classNames(`${ColorPresetsPrefixCls}-color-box`, {
-                        [`${ColorPresetsPrefixCls}-color-box-rtl`]: direction === 'rtl',
-                        [`${ColorPresetsPrefixCls}-color-bright`]: isBright(presetColor),
-                        [`${ColorPresetsPrefixCls}-color-dark`]: !isBright(presetColor),
+                      className={classNames(`${colorPresetsPrefixCls}-color-box`, {
+                        [`${colorPresetsPrefixCls}-color-box-rtl`]: direction === 'rtl',
+                        [`${colorPresetsPrefixCls}-color-bright`]: isBright(presetColor),
                       })}
                     >
-                      <div className={`${ColorPresetsPrefixCls}-color-block`} />
+                      <div className={`${colorPresetsPrefixCls}-color-block`} />
                       <div
-                        className={`${ColorPresetsPrefixCls}-color-layer`}
+                        className={`${colorPresetsPrefixCls}-color-layer`}
                         style={{
                           background: generateColor(presetColor).toRgbString(),
                         }}
@@ -90,7 +89,7 @@ const ColorPresets: FC<ColorPresetsProps> = ({
                   </div>
                 ))
               ) : (
-                <span className={`${ColorPresetsPrefixCls}-empty`}>{locale.presetEmpty}</span>
+                <span className={`${colorPresetsPrefixCls}-empty`}>{locale.presetEmpty}</span>
               )}
             </div>
           </Panel>

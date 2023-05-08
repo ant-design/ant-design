@@ -26,7 +26,7 @@ const ColorSteppers: FC<ColorSteppersProps> = ({
   className,
   formatter,
 }) => {
-  const ColorSteppersPrefixCls = `${prefixCls}-steppers`;
+  const colorSteppersPrefixCls = `${prefixCls}-steppers`;
   const [stepValue, setStepValue] = useState(value);
 
   // Update step value
@@ -38,7 +38,7 @@ const ColorSteppers: FC<ColorSteppersProps> = ({
 
   return (
     <InputNumber
-      className={classNames(ColorSteppersPrefixCls, className)}
+      className={classNames(colorSteppersPrefixCls, className)}
       min={min}
       max={max}
       value={stepValue}

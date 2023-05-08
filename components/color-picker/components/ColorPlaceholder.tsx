@@ -13,17 +13,17 @@ interface ColorPlaceholderProps extends ColorPickerBaseProps {
 const ColorPlaceholder: FC<ColorPlaceholderProps> = (props) => {
   const { color, prefixCls, popupOpen, clearColor, disabled, className, direction, ...resetProps } =
     props;
-  const ColorPlaceholderPrefixCls = `${prefixCls}-placeholder`;
+  const colorInputPrefixCls = `${prefixCls}-placeholder`;
 
   const containerRender = useMemo(
     () =>
       clearColor ? (
         <ColorClear {...props} />
       ) : (
-        <div className={`${ColorPlaceholderPrefixCls}-container`}>
-          <div className={`${ColorPlaceholderPrefixCls}-display`} />
+        <div className={`${colorInputPrefixCls}-container`}>
+          <div className={`${colorInputPrefixCls}-display`} />
           <div
-            className={`${ColorPlaceholderPrefixCls}-layer`}
+            className={`${colorInputPrefixCls}-layer`}
             style={{
               backgroundColor: color?.toRgbString(),
             }}
@@ -35,9 +35,9 @@ const ColorPlaceholder: FC<ColorPlaceholderProps> = (props) => {
 
   return (
     <div
-      className={classNames(ColorPlaceholderPrefixCls, className, {
-        [`${ColorPlaceholderPrefixCls}-active`]: popupOpen,
-        [`${ColorPlaceholderPrefixCls}-disabled`]: disabled,
+      className={classNames(colorInputPrefixCls, className, {
+        [`${colorInputPrefixCls}-active`]: popupOpen,
+        [`${colorInputPrefixCls}-disabled`]: disabled,
       })}
       {...resetProps}
     >

@@ -160,7 +160,7 @@ describe('ColorPicker', () => {
     ).toBeTruthy();
 
     fireEvent.click(presetsColors[0]);
-    expect(presetsColors[0].querySelector('.ant-color-picker-presets-color-dark')).toBeTruthy();
+    expect(presetsColors[0].querySelector('.ant-color-picker-presets-color-bright')).toBeFalsy();
     expect(
       container.querySelector('.ant-color-picker-hex-input input')?.getAttribute('value'),
     ).toEqual('000000');

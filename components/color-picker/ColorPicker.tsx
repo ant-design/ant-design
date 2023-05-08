@@ -1,5 +1,5 @@
 import type { ColorPickerProps as RcColorPickerProps } from '@rc-component/color-picker';
-import { ColorPickerPanel as RcColorPickerPanel } from '@rc-component/color-picker';
+
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties } from 'react';
@@ -24,7 +24,7 @@ export interface ColorPickerProps
   value?: Color | string;
   defaultValue?: Color | string;
   children?: React.ReactElement;
-  format?: ColorFormat;
+  format?: keyof typeof ColorFormat;
   onFormatChange?: (format: ColorFormat) => void;
   onChange?: (value: Color, hex: string) => void;
   allowClear?: boolean;
@@ -40,7 +40,7 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
   const {
     value,
     defaultValue,
-    format = 'hex',
+    format,
     onFormatChange,
     onChange,
     allowClear = false,
@@ -88,11 +88,7 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
     onChange?.(color, color.toHexString());
   };
 
-  const updateColor = (colorData: Color) => {
-    handleChange(colorData);
-  };
-
-  const updateClearColor = (clear: boolean) => {
+  const handleClear = (clear: boolean) => {
     setClearColor(clear);
   };
 
@@ -101,9 +97,9 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
     open: popupOpen,
     trigger,
     disabled,
-    styles,
     placement,
     arrow,
+    rootClassName,
   };
 
   const colorBaseProps: ColorPickerBaseProps = {
@@ -116,22 +112,14 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
     format,
     direction,
     onFormatChange,
-    updateColor,
-    updateClearColor,
   };
 
   return wrapSSR(
     <Popover
-      overlayClassName={rootClassName}
       style={styles?.popup}
       onOpenChange={setPopupOpen}
       content={
-        <RcColorPickerPanel
-          prefixCls={prefixCls}
-          value={colorValue.toHsb()}
-          onChange={handleChange}
-          panelRender={(panel) => <ColorPickerPanel {...colorBaseProps}>{panel}</ColorPickerPanel>}
-        />
+        <ColorPickerPanel {...colorBaseProps} onChange={handleChange} onClear={handleClear} />
       }
       {...extraProps}
     >

@@ -13,7 +13,7 @@ interface ColorHexInputProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
 const hexReg = /(^#[\da-f]{6}$)|(^#[\da-f]{8}$)/i;
 
 const ColorHexInput: FC<ColorHexInputProps> = ({ prefixCls, value, onChange }) => {
-  const ColorHexInputPrefixCls = `${prefixCls}-hex-input`;
+  const colorHexInputPrefixCls = `${prefixCls}-hex-input`;
   const [hexValue, setHexValue] = useState(value?.toHex());
 
   // Update step value
@@ -34,9 +34,9 @@ const ColorHexInput: FC<ColorHexInputProps> = ({ prefixCls, value, onChange }) =
   };
 
   return (
-    <div className={ColorHexInputPrefixCls}>
+    <div className={colorHexInputPrefixCls}>
       <Input
-        className={`${ColorHexInputPrefixCls}-input`}
+        className={`${colorHexInputPrefixCls}-input`}
         value={hexValue?.toUpperCase()}
         prefix="#"
         onChange={handleHexChange}

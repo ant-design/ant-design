@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import React, { useState } from 'react';
 import Select from '../../select';
 import type { ColorPickerBaseProps } from '../interface';
-import { ColorFormatEnum } from '../interface';
+import { ColorFormat } from '../interface';
 
 import type { Color } from '../color';
 import ColorAlphaInput from './ColorAlphaInput';
@@ -17,11 +17,11 @@ interface ColorInputProps extends ColorPickerBaseProps {
 
 const ColorInput: FC<ColorInputProps> = (props) => {
   const { prefixCls, format = 'hex', onFormatChange } = props;
-  const [colorFormat, setColorFormat] = useState(ColorFormatEnum[format]);
+  const [colorFormat, setColorFormat] = useState(ColorFormat[format]);
 
-  const ColorInputPrefixCls = `${prefixCls}-color-input`;
+  const colorInputPrefixCls = `${prefixCls}-color-input`;
 
-  const handleFormatChange = (value: ColorFormatEnum) => {
+  const handleFormatChange = (value: ColorFormat) => {
     setColorFormat(value);
     onFormatChange?.(value);
   };
@@ -29,19 +29,19 @@ const ColorInput: FC<ColorInputProps> = (props) => {
   const steppersRender = () => {
     /* eslint-disable default-case */
     switch (colorFormat) {
-      case ColorFormatEnum.hex:
+      case ColorFormat.hex:
         return <ColorHexInput {...props} />;
-      case ColorFormatEnum.hsb:
+      case ColorFormat.hsb:
         return <ColorHsbInput {...props} />;
-      case ColorFormatEnum.rgb:
+      case ColorFormat.rgb:
         return <ColorRgbInput {...props} />;
     }
   };
 
   return (
-    <div className={ColorInputPrefixCls}>
-      <div className={`${ColorInputPrefixCls}-container`}>
-        <div className={`${ColorInputPrefixCls}-select`}>
+    <div className={colorInputPrefixCls}>
+      <div className={`${colorInputPrefixCls}-container`}>
+        <div className={`${colorInputPrefixCls}-select`}>
           <Select
             value={colorFormat}
             bordered={false}
@@ -51,21 +51,21 @@ const ColorInput: FC<ColorInputProps> = (props) => {
             onChange={handleFormatChange}
             options={[
               {
-                label: ColorFormatEnum.hex.toLocaleUpperCase(),
-                value: ColorFormatEnum.hex,
+                label: ColorFormat.hex.toLocaleUpperCase(),
+                value: ColorFormat.hex,
               },
               {
-                label: ColorFormatEnum.hsb.toLocaleUpperCase(),
-                value: ColorFormatEnum.hsb,
+                label: ColorFormat.hsb.toLocaleUpperCase(),
+                value: ColorFormat.hsb,
               },
               {
-                label: ColorFormatEnum.rgb.toLocaleUpperCase(),
-                value: ColorFormatEnum.rgb,
+                label: ColorFormat.rgb.toLocaleUpperCase(),
+                value: ColorFormat.rgb,
               },
             ]}
           />
         </div>
-        <div className={`${ColorInputPrefixCls}-picker`}>
+        <div className={`${colorInputPrefixCls}-picker`}>
           {steppersRender()}
           <ColorAlphaInput {...props} />
         </div>

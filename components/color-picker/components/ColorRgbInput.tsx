@@ -12,7 +12,7 @@ interface ColorRgbInputProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
 }
 
 const ColorRgbInput: FC<ColorRgbInputProps> = ({ prefixCls, value, onChange }) => {
-  const ColorRgbInputPrefixCls = `${prefixCls}-rgb-input`;
+  const colorRgbInputPrefixCls = `${prefixCls}-rgb-input`;
   const [rgbValue, setRgbValue] = useState(generateColor(value || '#000'));
 
   // Update step value
@@ -33,13 +33,13 @@ const ColorRgbInput: FC<ColorRgbInputProps> = ({ prefixCls, value, onChange }) =
   };
 
   return (
-    <div className={ColorRgbInputPrefixCls}>
+    <div className={colorRgbInputPrefixCls}>
       <ColorSteppers
         max={255}
         min={0}
         value={Number(rgbValue.toRgb().r)}
         prefixCls={prefixCls}
-        className={ColorRgbInputPrefixCls}
+        className={colorRgbInputPrefixCls}
         onChange={(step) => handleRgbChange(Number(step), 'r')}
       />
       <ColorSteppers
@@ -47,7 +47,7 @@ const ColorRgbInput: FC<ColorRgbInputProps> = ({ prefixCls, value, onChange }) =
         min={0}
         value={Number(rgbValue.toRgb().g)}
         prefixCls={prefixCls}
-        className={ColorRgbInputPrefixCls}
+        className={colorRgbInputPrefixCls}
         onChange={(step) => handleRgbChange(Number(step), 'g')}
       />
       <ColorSteppers
@@ -55,7 +55,7 @@ const ColorRgbInput: FC<ColorRgbInputProps> = ({ prefixCls, value, onChange }) =
         min={0}
         value={Number(rgbValue.toRgb().b)}
         prefixCls={prefixCls}
-        className={ColorRgbInputPrefixCls}
+        className={colorRgbInputPrefixCls}
         onChange={(step) => handleRgbChange(Number(step), 'b')}
       />
     </div>

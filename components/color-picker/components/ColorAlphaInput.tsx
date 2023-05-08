@@ -11,7 +11,7 @@ interface ColorAlphaInputProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
 }
 
 const ColorAlphaInput: FC<ColorAlphaInputProps> = ({ prefixCls, value, onChange }) => {
-  const ColorAlphaInputPrefixCls = `${prefixCls}-alpha-input`;
+  const colorAlphaInputPrefixCls = `${prefixCls}-alpha-input`;
   const [alphaValue, setAlphaValue] = useState(generateColor(value || '#000'));
 
   // Update step value
@@ -36,7 +36,7 @@ const ColorAlphaInput: FC<ColorAlphaInputProps> = ({ prefixCls, value, onChange 
       value={getAlphaColor(alphaValue)}
       prefixCls={prefixCls}
       formatter={(step) => `${step}%`}
-      className={ColorAlphaInputPrefixCls}
+      className={colorAlphaInputPrefixCls}
       onChange={handleAlphaChange}
     />
   );

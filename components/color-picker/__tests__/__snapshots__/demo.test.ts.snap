@@ -3,7 +3,6 @@
 exports[`renders components/color-picker/demo/allowClear.tsx correctly 1`] = `
 <div
   class="ant-color-picker-placeholder"
-  format="hex"
 >
   <div
     class="ant-color-picker-placeholder-container"
@@ -22,7 +21,6 @@ exports[`renders components/color-picker/demo/allowClear.tsx correctly 1`] = `
 exports[`renders components/color-picker/demo/base.tsx correctly 1`] = `
 <div
   class="ant-color-picker-placeholder"
-  format="hex"
 >
   <div
     class="ant-color-picker-placeholder-container"
@@ -41,7 +39,6 @@ exports[`renders components/color-picker/demo/base.tsx correctly 1`] = `
 exports[`renders components/color-picker/demo/disabled.tsx correctly 1`] = `
 <div
   class="ant-color-picker-placeholder ant-color-picker-placeholder-disabled"
-  format="hex"
 >
   <div
     class="ant-color-picker-placeholder-container"
@@ -217,7 +214,6 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
 exports[`renders components/color-picker/demo/presets.tsx correctly 1`] = `
 <div
   class="ant-color-picker-placeholder"
-  format="hex"
   presets="[object Object],[object Object]"
 >
   <div

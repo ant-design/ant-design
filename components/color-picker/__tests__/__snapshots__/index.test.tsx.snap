@@ -4,7 +4,6 @@ exports[`ColorPicker Should disabled work 1`] = `
 <div>
   <div
     class="ant-color-picker-placeholder ant-color-picker-placeholder-disabled"
-    format="hex"
   >
     <div
       class="ant-color-picker-placeholder-container"
@@ -32,7 +31,6 @@ exports[`ColorPicker Should render trigger work 1`] = `
 exports[`ColorPicker rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-color-picker-placeholder"
-  format="hex"
 >
   <div
     class="ant-color-picker-placeholder-container"
