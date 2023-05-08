@@ -87,7 +87,7 @@ exports[`renders components/qrcode/demo/customColor.tsx extend context correctly
   >
     <div
       class="ant-qrcode"
-      style="margin-bottom: 16px; background-color: rgb(245, 245, 245); width: 160px; height: 160px;"
+      style="margin-bottom: 16px; width: 160px; height: 160px;"
     >
       <canvas
         height="134"
@@ -101,7 +101,7 @@ exports[`renders components/qrcode/demo/customColor.tsx extend context correctly
   >
     <div
       class="ant-qrcode"
-      style="margin-bottom: 16px; background-color: rgb(245, 245, 245); width: 160px; height: 160px;"
+      style="margin-bottom: 16px; width: 160px; height: 160px;"
     >
       <canvas
         height="134"
