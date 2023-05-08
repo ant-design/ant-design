@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 /** Similar with `useEffect` but only trigger after mounted */
 const useUpdatedEffect = (callback: () => void, conditions?: React.DependencyList) => {

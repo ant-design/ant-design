@@ -1,6 +1,7 @@
 import type { MenuRef as RcMenuRef } from 'rc-menu';
 import { ItemGroup } from 'rc-menu';
-import React, { forwardRef, useImperativeHandle, useRef } from 'react';
+import * as React from 'react';
+import { forwardRef, useImperativeHandle, useRef } from 'react';
 import type { MenuProps } from './menu';
 import InternalMenu from './menu';
 import { SiderContext } from '../layout/Sider';

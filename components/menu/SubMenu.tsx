@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { SubMenu as RcSubMenu, useFullPath } from 'rc-menu';
 import omit from 'rc-util/lib/omit';
-import React from 'react';
+import * as React from 'react';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import type { MenuContextProps, MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';

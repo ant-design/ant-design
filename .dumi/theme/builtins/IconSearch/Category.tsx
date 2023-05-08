@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { message } from 'antd';
 import { useIntl } from 'dumi';
 import CopyableIcon from './CopyableIcon';

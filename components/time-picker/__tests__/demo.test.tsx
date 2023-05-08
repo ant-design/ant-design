@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import React from 'react';
+import * as React from 'react';
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
 demoTest('time-picker', {

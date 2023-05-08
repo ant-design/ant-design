@@ -5,7 +5,7 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import type { ReactNode } from 'react';
-import React from 'react';
+import * as React from 'react';
 
 type RenderNode = React.ReactNode | ((props: any) => React.ReactNode);
 

@@ -1,5 +1,5 @@
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
-import React from 'react';
+import * as React from 'react';
 import warning from '../_util/warning';
 import type { PickerLocale as DatePickerLocale } from '../date-picker/generatePicker';
 import type { TransferLocale as TransferLocaleForEmpty } from '../empty';

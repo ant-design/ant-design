@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import React from 'react';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import Skeleton from '../skeleton';
@@ -116,10 +116,12 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
   };
 
   let head: React.ReactNode;
+  const mergedSize = customizeSize || size;
+  const tabSize = !mergedSize || mergedSize === 'default' ? 'large' : mergedSize;
   const tabs =
     tabList && tabList.length ? (
       <Tabs
-        size="large"
+        size={tabSize}
         {...extraProps}
         className={`${prefixCls}-head-tabs`}
         onChange={onTabChange}
@@ -152,7 +154,6 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
       <ul className={`${prefixCls}-actions`}>{getAction(actions)}</ul>
     ) : null;
   const divProps = omit(others, ['onTabChange']);
-  const mergedSize = customizeSize || size;
   const classString = classNames(
     prefixCls,
     {

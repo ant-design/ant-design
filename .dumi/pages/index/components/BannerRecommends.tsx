@@ -1,10 +1,10 @@
+import * as React from 'react';
+import { Typography, Skeleton, Carousel } from 'antd';
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import { Carousel, Skeleton, Typography } from 'antd';
-import React from 'react';
+import type { Extra, Icon } from './util';
 import useSiteToken from '../../../hooks/useSiteToken';
 import SiteContext from '../../../theme/slots/SiteContext';
-import type { Extra, Icon } from './util';
 import { useCarouselStyle } from './util';
 
 const useStyle = () => {

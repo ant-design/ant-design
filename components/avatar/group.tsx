@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
-import React from 'react';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import Popover from '../popover';
 import { cloneElement } from '../_util/reactNode';

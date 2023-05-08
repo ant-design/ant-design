@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import type { UploadProps } from './interface';
 import Upload from './Upload';
 
