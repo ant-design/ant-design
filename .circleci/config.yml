@@ -14,9 +14,6 @@ jobs:
           name: Install node_modules
           command: npm i
       - run:
-          name: Install argos cli
-          command: npm i fast-glob lodash @argos-ci/core
-      - run:
           name: Build dist file
           command: npm run dist
       - run:
