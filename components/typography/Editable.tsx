@@ -2,7 +2,7 @@ import EnterOutlined from '@ant-design/icons/EnterOutlined';
 import classNames from 'classnames';
 import type { AutoSizeType } from 'rc-textarea';
 import KeyCode from 'rc-util/lib/KeyCode';
-import React from 'react';
+import * as React from 'react';
 import type { DirectionType } from '../config-provider';
 import TextArea from '../input/TextArea';
 import type { TextAreaRef } from '../input/TextArea';

@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import type { KeyWiseTransferItem } from '.';
 import type { PaginationType } from './interface';
 import type { RenderedItem, TransferListProps } from './list';

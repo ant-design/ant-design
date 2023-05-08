@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { extendTest } from '../../../tests/shared/demoTest';
 
 jest.mock('rc-drawer', () => {

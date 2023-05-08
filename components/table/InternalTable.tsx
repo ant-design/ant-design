@@ -1,9 +1,8 @@
 import classNames from 'classnames';
-import type { TableProps as RcTableProps } from 'rc-table/lib/Table';
-import { INTERNAL_HOOKS } from 'rc-table/lib/Table';
+import { type TableProps as RcTableProps, INTERNAL_HOOKS } from 'rc-table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import omit from 'rc-util/lib/omit';
-import React from 'react';
+import * as React from 'react';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import warning from '../_util/warning';

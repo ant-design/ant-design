@@ -5,7 +5,7 @@ import type {
   SegmentedRawOption,
 } from 'rc-segmented';
 import RcSegmented from 'rc-segmented';
-import React from 'react';
+import * as React from 'react';
 
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import type { ScreenSizeMap } from '../_util/responsiveObserver';
 
 export type AvatarSize = 'large' | 'small' | 'default' | number | ScreenSizeMap;

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import useEvent from 'rc-util/lib/hooks/useEvent';
-import React from 'react';
+import * as React from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import Affix from '../affix';
