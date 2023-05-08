@@ -23922,7 +23922,7 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
   </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popconfirm config-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-popover-arrow"
@@ -24008,7 +24008,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentDisabled 1
   </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popconfirm config-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-popover-arrow"
@@ -24096,7 +24096,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
   </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popconfirm config-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-popover-arrow"
@@ -24182,7 +24182,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
   </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popconfirm config-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-popover-arrow"
@@ -24268,7 +24268,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize small
   </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popconfirm config-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-popover-arrow"
@@ -24354,7 +24354,7 @@ exports[`ConfigProvider components Popconfirm configProvider virtual and dropdow
   </span>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
@@ -24440,7 +24440,7 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
   </span>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
@@ -24526,7 +24526,7 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
   </span>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big prefix-Popconfirm ant-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
@@ -24612,7 +24612,7 @@ exports[`ConfigProvider components Popover configProvider 1`] = `
   </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-popover-arrow"
@@ -24639,7 +24639,7 @@ exports[`ConfigProvider components Popover configProvider componentDisabled 1`] 
   </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-popover-arrow"
@@ -24666,7 +24666,7 @@ exports[`ConfigProvider components Popover configProvider componentSize large 1`
   </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-popover-arrow"
@@ -24693,7 +24693,7 @@ exports[`ConfigProvider components Popover configProvider componentSize middle 1
   </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-popover-arrow"
@@ -24720,7 +24720,7 @@ exports[`ConfigProvider components Popover configProvider componentSize small 1`
   </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-popover-arrow"
@@ -24747,7 +24747,7 @@ exports[`ConfigProvider components Popover configProvider virtual and dropdownMa
   </span>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
@@ -24774,7 +24774,7 @@ exports[`ConfigProvider components Popover normal 1`] = `
   </span>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
@@ -24801,7 +24801,7 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
   </span>
   <div
     class="prefix-Popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big prefix-Popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="prefix-Popover-arrow"
@@ -27871,7 +27871,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
   >
     <div>
       <div
@@ -28060,7 +28060,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
   >
     <div>
       <div
@@ -28187,7 +28187,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
   >
     <div>
       <div
@@ -28314,7 +28314,7 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
   >
     <div>
       <div
@@ -28441,7 +28441,7 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0;"
   >
     <div>
       <div
@@ -28553,7 +28553,7 @@ exports[`ConfigProvider components Select normal 1`] = `
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
   >
     <div>
       <div
@@ -28680,7 +28680,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
   </div>
   <div
     class="prefix-Select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up prefix-Select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
   >
     <div>
       <div
@@ -29023,7 +29023,7 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
   />
   <div
     class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-slider-tooltip config-tooltip-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-tooltip-arrow"
@@ -29069,7 +29069,7 @@ exports[`ConfigProvider components Slider configProvider componentDisabled 1`] =
   />
   <div
     class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-slider-tooltip config-tooltip-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-tooltip-arrow"
@@ -29115,7 +29115,7 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
   />
   <div
     class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-slider-tooltip config-tooltip-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-tooltip-arrow"
@@ -29161,7 +29161,7 @@ exports[`ConfigProvider components Slider configProvider componentSize middle 1`
   />
   <div
     class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-slider-tooltip config-tooltip-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-tooltip-arrow"
@@ -29207,7 +29207,7 @@ exports[`ConfigProvider components Slider configProvider componentSize small 1`]
   />
   <div
     class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-slider-tooltip config-tooltip-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-tooltip-arrow"
@@ -29253,7 +29253,7 @@ exports[`ConfigProvider components Slider configProvider virtual and dropdownMat
   />
   <div
     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-tooltip-arrow"
@@ -29299,7 +29299,7 @@ exports[`ConfigProvider components Slider normal 1`] = `
   />
   <div
     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-tooltip-arrow"
@@ -29345,7 +29345,7 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
   />
   <div
     class="prefix-Slider-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast prefix-Slider-tooltip prefix-Slider-tooltip-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="prefix-Slider-tooltip-arrow"
@@ -33574,7 +33574,7 @@ Array [
   </div>,
   <div
     class="config-picker-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-picker-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-picker-panel-container"
@@ -35035,7 +35035,7 @@ Array [
   </div>,
   <div
     class="config-picker-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-picker-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-picker-panel-container"
@@ -36448,7 +36448,7 @@ Array [
   </div>,
   <div
     class="config-picker-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-picker-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-picker-panel-container"
@@ -37861,7 +37861,7 @@ Array [
   </div>,
   <div
     class="config-picker-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-picker-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-picker-panel-container"
@@ -39274,7 +39274,7 @@ Array [
   </div>,
   <div
     class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-picker-panel-container"
@@ -40687,7 +40687,7 @@ Array [
   </div>,
   <div
     class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-picker-panel-container"
@@ -42100,7 +42100,7 @@ Array [
   </div>,
   <div
     class="prefix-TimePicker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up prefix-TimePicker-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="prefix-TimePicker-panel-container"
@@ -43652,7 +43652,7 @@ Array [
   </span>,
   <div
     class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-tooltip-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-tooltip-arrow"
@@ -43681,7 +43681,7 @@ Array [
   </span>,
   <div
     class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-tooltip-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-tooltip-arrow"
@@ -43710,7 +43710,7 @@ Array [
   </span>,
   <div
     class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-tooltip-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-tooltip-arrow"
@@ -43739,7 +43739,7 @@ Array [
   </span>,
   <div
     class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-tooltip-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-tooltip-arrow"
@@ -43768,7 +43768,7 @@ Array [
   </span>,
   <div
     class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-tooltip-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="config-tooltip-arrow"
@@ -43797,7 +43797,7 @@ Array [
   </span>,
   <div
     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-tooltip-arrow"
@@ -43826,7 +43826,7 @@ Array [
   </span>,
   <div
     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-tooltip-arrow"
@@ -43855,7 +43855,7 @@ Array [
   </span>,
   <div
     class="prefix-Tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast prefix-Tooltip-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="prefix-Tooltip-arrow"
@@ -47340,7 +47340,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-tree-select-dropdown config-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
   >
     <div>
       <div>
@@ -47536,7 +47536,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-tree-select-dropdown config-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
   >
     <div>
       <div>
@@ -47671,7 +47671,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-tree-select-dropdown config-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
   >
     <div>
       <div>
@@ -47806,7 +47806,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-tree-select-dropdown config-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
   >
     <div>
       <div>
@@ -47941,7 +47941,7 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0;"
   >
     <div>
       <div>
@@ -48076,7 +48076,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
   >
     <div>
       <div>
@@ -48211,7 +48211,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
   </div>
   <div
     class="prefix-TreeSelect-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up prefix-TreeSelect-dropdown prefix-TreeSelect-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
   >
     <div>
       <div>
