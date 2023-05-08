@@ -27,11 +27,10 @@ const ColorHsbInput: FC<ColorHsbInputProps> = ({ prefixCls, value, onChange }) =
     const hsb = hsbValue.toHsb();
     hsb[type] = type === 'h' ? step : (step || 0) / 100;
     const genColor = generateColor(hsb);
-    if (value) {
-      onChange?.(genColor);
-    } else {
+    if (!value) {
       setHsbValue(genColor);
     }
+    onChange?.(genColor);
   };
 
   return (

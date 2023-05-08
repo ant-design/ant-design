@@ -42,12 +42,4 @@ export class ColorFactory {
   toRgbString() {
     return this.metaColor.toRgbString();
   }
-
-  setAlpha(alpha?: string | number | undefined) {
-    return this.metaColor.setAlpha(alpha);
-  }
-
-  getAlpha() {
-    return this.metaColor.getAlpha();
-  }
 }

@@ -25,11 +25,10 @@ const ColorAlphaInput: FC<ColorAlphaInputProps> = ({ prefixCls, value, onChange 
     const hsba = alphaValue.toHsb();
     hsba.a = (step || 0) / 100;
     const genColor = generateColor(hsba);
-    if (value) {
-      onChange?.(genColor);
-    } else {
+    if (!value) {
       setAlphaValue(genColor);
     }
+    onChange?.(genColor);
   };
 
   return (

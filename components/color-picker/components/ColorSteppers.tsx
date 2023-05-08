@@ -44,11 +44,10 @@ const ColorSteppers: FC<ColorSteppersProps> = ({
       value={stepValue}
       formatter={formatter}
       onChange={(step) => {
-        if (isNumber(value)) {
-          onChange?.(step);
-        } else {
+        if (!isNumber(value)) {
           setStepValue(step || 0);
         }
+        onChange?.(step);
       }}
     />
   );

@@ -40,7 +40,7 @@ const ColorPresets: FC<ColorPresetsProps> = ({
   const [locale] = useLocale('ColorPicker');
   const [presetsValue] = useMergedState(genPresetColor(presets), {
     value: genPresetColor(presets),
-    onChange: (item) => genPresetColor(item),
+    postState: (item) => genPresetColor(item),
   });
   const ColorPresetsPrefixCls = `${prefixCls}-presets`;
 

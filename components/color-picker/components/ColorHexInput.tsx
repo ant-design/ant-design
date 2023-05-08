@@ -29,9 +29,7 @@ const ColorHexInput: FC<ColorHexInputProps> = ({ prefixCls, value, onChange }) =
     const hexString = `#${hex}`;
     setHexValue(hex);
     if (hexReg.test(hexString)) {
-      if (value) {
-        onChange?.(generateColor(hex));
-      }
+      onChange?.(generateColor(hex));
     }
   };
 

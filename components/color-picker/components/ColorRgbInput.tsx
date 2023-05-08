@@ -26,11 +26,10 @@ const ColorRgbInput: FC<ColorRgbInputProps> = ({ prefixCls, value, onChange }) =
     const rgb = rgbValue.toRgb();
     rgb[type] = step || 0;
     const genColor = generateColor(rgb);
-    if (value) {
-      onChange?.(genColor);
-    } else {
+    if (!value) {
       setRgbValue(genColor);
     }
+    onChange?.(genColor);
   };
 
   return (

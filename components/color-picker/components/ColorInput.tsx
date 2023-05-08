@@ -27,6 +27,7 @@ const ColorInput: FC<ColorInputProps> = (props) => {
   };
 
   const steppersRender = () => {
+    /* eslint-disable default-case */
     switch (colorFormat) {
       case ColorFormatEnum.hex:
         return <ColorHexInput {...props} />;
@@ -34,8 +35,6 @@ const ColorInput: FC<ColorInputProps> = (props) => {
         return <ColorHsbInput {...props} />;
       case ColorFormatEnum.rgb:
         return <ColorRgbInput {...props} />;
-      default:
-        return <ColorHsbInput {...props} />;
     }
   };
 

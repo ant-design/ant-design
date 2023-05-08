@@ -1,9 +1,10 @@
 import { fireEvent, render } from '@testing-library/react';
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { waitFakeTimer } from '../../../tests/utils';
 import ColorPicker from '../ColorPicker';
+import type { Color } from '../color';
 
 describe('ColorPicker', () => {
   mountTest(ColorPicker);
@@ -19,6 +20,44 @@ describe('ColorPicker', () => {
   it('Should component render correct', () => {
     const { container } = render(<ColorPicker />);
     expect(container.querySelector('.ant-color-picker-placeholder')).toBeTruthy();
+  });
+
+  it('Should component defaultValue work', () => {
+    const { container } = render(<ColorPicker defaultValue="#000000" />);
+    expect(
+      container.querySelector('.ant-color-picker-placeholder-layer')?.getAttribute('style'),
+    ).toEqual('background-color: rgb(0, 0, 0);');
+  });
+
+  it('Should component custom trigger work', async () => {
+    const App = () => {
+      const [color, setColor] = useState<Color | string>('hsb(215, 91%, 100%)');
+      const colorString = useMemo(
+        () => (typeof color === 'string' ? color : color.toHsbString()),
+        [color],
+      );
+      return (
+        <ColorPicker value={color} onChange={setColor} format="hsb">
+          <span className="custom-trigger">{colorString}</span>
+        </ColorPicker>
+      );
+    };
+    const { container } = render(<App />);
+    expect(container.querySelector('.custom-trigger')).toBeTruthy();
+    fireEvent.click(container.querySelector('.custom-trigger')!);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker')).toBeTruthy();
+    const hsbInputEls = container.querySelectorAll('.ant-color-picker-hsb-input input');
+    fireEvent.change(hsbInputEls[0], {
+      target: { value: 0 },
+    });
+    fireEvent.change(hsbInputEls[1], {
+      target: { value: 78 },
+    });
+    fireEvent.change(hsbInputEls[2], {
+      target: { value: 39 },
+    });
+    expect(container.querySelector('.custom-trigger')?.innerHTML).toEqual('hsb(0, 78%, 39%)');
   });
 
   it('Should popup open work', async () => {
@@ -155,5 +194,49 @@ describe('ColorPicker', () => {
     fireEvent.click(container.querySelector('.ant-select-item[title="RGB"]')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-color-picker-rgb-input')).toBeTruthy();
+  });
+
+  it('Should hex input work', async () => {
+    const { container } = render(<ColorPicker open format="hex" />);
+    fireEvent.change(container.querySelector('.ant-color-picker-hex-input input')!, {
+      target: { value: 631515 },
+    });
+    expect(
+      container.querySelector('.ant-color-picker-placeholder-layer')?.getAttribute('style'),
+    ).toEqual('background-color: rgb(99, 21, 21);');
+  });
+
+  it('Should rgb input work', async () => {
+    const { container } = render(<ColorPicker open format="rgb" />);
+    const rgbInputEls = container.querySelectorAll('.ant-color-picker-rgb-input input');
+    fireEvent.change(rgbInputEls[0], {
+      target: { value: 99 },
+    });
+    fireEvent.change(rgbInputEls[1], {
+      target: { value: 21 },
+    });
+    fireEvent.change(rgbInputEls[2], {
+      target: { value: 21 },
+    });
+    expect(
+      container.querySelector('.ant-color-picker-placeholder-layer')?.getAttribute('style'),
+    ).toEqual('background-color: rgb(99, 21, 21);');
+  });
+
+  it('Should hsb input work', async () => {
+    const { container } = render(<ColorPicker open format="hsb" />);
+    const hsbInputEls = container.querySelectorAll('.ant-color-picker-hsb-input input');
+    fireEvent.change(hsbInputEls[0], {
+      target: { value: 0 },
+    });
+    fireEvent.change(hsbInputEls[1], {
+      target: { value: 78 },
+    });
+    fireEvent.change(hsbInputEls[2], {
+      target: { value: 39 },
+    });
+    expect(
+      container.querySelector('.ant-color-picker-placeholder-layer')?.getAttribute('style'),
+    ).toEqual('background-color: rgb(99, 22, 22);');
   });
 });
