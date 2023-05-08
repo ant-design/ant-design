@@ -105,6 +105,15 @@ describe('ConfigProvider', () => {
           expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
         });
 
+        it('configProvider componentSize small', () => {
+          const { container } = render(
+            <ConfigProvider componentSize="small" prefixCls="config">
+              {renderComponent({})}
+            </ConfigProvider>,
+          );
+          expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
+        });
+
         it('configProvider componentDisabled', () => {
           const { container } = render(
             <ConfigProvider componentDisabled prefixCls="config">
