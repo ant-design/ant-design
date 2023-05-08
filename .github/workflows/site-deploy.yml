@@ -13,7 +13,7 @@ permissions:
 jobs:
   setup:
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/') && (contains(github.ref_name, '-') == false)
+    if: (startsWith(github.ref, 'refs/tags/') && (contains(github.ref_name, '-') == false)) || github.event_name == 'workflow_dispatch'
     steps:
       - name: checkout
         uses: actions/checkout@v3

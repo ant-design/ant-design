@@ -1,8 +1,9 @@
-const TypeDoc = require('typedoc');
-const fs = require('fs-extra');
+import fs from 'fs-extra';
+import type { DeclarationReflection } from 'typedoc';
+import { Application, TSConfigReader, TypeDocReader } from 'typedoc';
 
-const getTokenList = (list, source) =>
-  list
+function getTokenList(list?: DeclarationReflection[], source?: string) {
+  return (list || [])
     .filter(
       (item) =>
         !item.comment?.blockTags.some((tag) => tag.tag === '@internal' || tag.tag === '@private'),
@@ -10,7 +11,7 @@ const getTokenList = (list, source) =>
     .map((item) => ({
       source,
       token: item.name,
-      type: item.type.toString(),
+      type: item?.type?.toString(),
       desc:
         item.comment?.blockTags
           ?.find((tag) => tag.tag === '@desc')
@@ -28,13 +29,14 @@ const getTokenList = (list, source) =>
           ?.find((tag) => tag.tag === '@nameEN')
           ?.content.reduce((result, str) => result.concat(str.text), '') || '',
     }));
+}
 
-function main() {
-  const app = new TypeDoc.Application();
+const main = () => {
+  const app = new Application();
 
   // If you want TypeDoc to load tsconfig.json / typedoc.json files
-  app.options.addReader(new TypeDoc.TSConfigReader());
-  app.options.addReader(new TypeDoc.TypeDocReader());
+  app.options.addReader(new TSConfigReader());
+  app.options.addReader(new TypeDocReader());
 
   app.bootstrap({
     // typedoc options here
@@ -46,9 +48,9 @@ function main() {
   if (project) {
     // Project may not have converted correctly
     const output = 'components/version/token-meta.json';
-    const tokenMeta = {};
-    let presetColors = [];
-    project.children.forEach((type) => {
+    const tokenMeta: Record<PropertyKey, ReturnType<typeof getTokenList>> = {};
+    let presetColors: string[] = [];
+    project.children?.forEach((type) => {
       if (type.name === 'SeedToken') {
         tokenMeta.seed = getTokenList(type.children, 'seed');
       } else if (type.name === 'MapToken') {
@@ -56,7 +58,7 @@ function main() {
       } else if (type.name === 'AliasToken') {
         tokenMeta.alias = getTokenList(type.children, 'alias');
       } else if (type.name === 'PresetColors') {
-        presetColors = type.type.target.elements.map((item) => item.value);
+        presetColors = (type?.type as any)?.target?.elements?.map((item: any) => item.value);
       }
     });
 
@@ -90,12 +92,12 @@ function main() {
         };
       });
       return acc;
-    }, {});
+    }, {} as any);
 
     fs.writeJsonSync(output, finalMeta, 'utf8');
     // eslint-disable-next-line no-console
     console.log(`✅  Token Meta has been written to ${output}`);
   }
-}
+};
 
 main();
