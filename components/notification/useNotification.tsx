@@ -86,7 +86,10 @@ export function useInternalNotification(
   notificationConfig?: HolderProps,
 ): readonly [NotificationInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
-
+  const [positionConfig, setPositionConfig] = React.useState<Pick<
+    HolderProps,
+    'top' | 'bottom' | 'getContainer'
+  > | null>(null);
   // ================================ API ================================
   const wrapAPI = React.useMemo<NotificationInstance>(() => {
     // Wrap with notification content
@@ -105,7 +108,24 @@ export function useInternalNotification(
       const { open: originOpen, prefixCls, hashId } = holderRef.current;
       const noticePrefixCls = `${prefixCls}-notice`;
 
-      const { message, description, icon, type, btn, className, ...restConfig } = config;
+      const {
+        message,
+        description,
+        icon,
+        type,
+        btn,
+        className,
+        top,
+        bottom,
+        getContainer,
+        ...restConfig
+      } = config;
+
+      setPositionConfig({
+        top: top ?? notificationConfig?.top,
+        bottom: bottom ?? notificationConfig?.bottom,
+        getContainer: getContainer ?? notificationConfig?.getContainer,
+      });
 
       return originOpen({
         placement: 'topRight',
@@ -153,7 +173,12 @@ export function useInternalNotification(
   // ============================== Return ===============================
   return [
     wrapAPI,
-    <Holder key="notification-holder" {...notificationConfig} ref={holderRef} />,
+    <Holder
+      key="notification-holder"
+      {...notificationConfig}
+      {...positionConfig}
+      ref={holderRef}
+    />,
   ] as const;
 }
 

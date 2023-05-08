@@ -301,4 +301,37 @@ describe('notification', () => {
 
     expect(document.querySelectorAll("[data-testid='test-notification']").length).toBe(1);
   });
+
+  it('support top', async () => {
+    notification.config({
+      top: 300,
+    });
+
+    notification.open({
+      message: 'Notification Title',
+      top: 100,
+    });
+    await awaitPromise();
+
+    expect((document.querySelector('.ant-notification') as HTMLElement)?.style?.top).toEqual(
+      '100px',
+    );
+  });
+
+  it('support bottom', async () => {
+    notification.config({
+      bottom: 300,
+      placement:'bottomRight',
+    });
+
+    notification.open({
+      message: 'Notification Title',
+      bottom: 100,
+    });
+    await awaitPromise();
+
+    expect((document.querySelector('.ant-notification') as HTMLElement)?.style?.bottom).toEqual(
+      '100px',
+    );
+  });
 });

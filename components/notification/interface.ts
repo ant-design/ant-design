@@ -15,6 +15,9 @@ export type NotificationPlacement =
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
 export interface ArgsProps {
+  top?: number;
+  bottom?: number;
+  getContainer?: () => HTMLElement;
   message: React.ReactNode;
   description?: React.ReactNode;
   btn?: React.ReactNode;
