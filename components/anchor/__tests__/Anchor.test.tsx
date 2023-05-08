@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
 import { resetWarned } from 'rc-util/lib/warning';
+import React, { useState } from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import Anchor from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import Button from '../../button';
 import type { AnchorDirection } from '../Anchor';
 
 const { Link } = Anchor;
@@ -371,6 +372,53 @@ describe('Anchor Render', () => {
     fireEvent.click(container.querySelector(`a[href="#${hash2}"]`)!);
     expect(onChange).toHaveBeenCalledTimes(2);
     expect(onChange).toHaveBeenLastCalledWith(`#${hash2}`);
+  });
+
+  it('should be used the latest onChange method', () => {
+    const hash1 = getHashUrl();
+    const hash2 = getHashUrl();
+
+    const beforeFn = jest.fn();
+    const afterFn = jest.fn();
+
+    const Demo: React.FC = () => {
+      const [trigger, setTrigger] = useState(false);
+      const onChange = trigger ? afterFn : beforeFn;
+
+      return (
+        <>
+          <Button className="test-button" onClick={() => setTrigger(true)} />
+          <Anchor
+            onChange={onChange}
+            items={[
+              {
+                key: hash1,
+                href: `#${hash1}`,
+                title: hash1,
+              },
+              {
+                key: hash2,
+                href: `#${hash2}`,
+                title: hash2,
+              },
+            ]}
+          />
+        </>
+      );
+    };
+
+    const { container } = render(<Demo />);
+    expect(beforeFn).toHaveBeenCalled();
+    expect(afterFn).not.toHaveBeenCalled();
+
+    beforeFn.mockClear();
+    afterFn.mockClear();
+
+    fireEvent.click(container.querySelector('.test-button')!);
+    fireEvent.click(container.querySelector(`a[href="#${hash2}"]`)!);
+
+    expect(beforeFn).not.toHaveBeenCalled();
+    expect(afterFn).toHaveBeenCalled();
   });
 
   it('handles invalid hash correctly', () => {

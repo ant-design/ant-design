@@ -34,13 +34,13 @@ export function merge<T extends object>(...objs: Partial<T>[]): T {
   return ret;
 }
 
-/** @private Internal Usage. Not use in your production. */
+/** @internal Internal Usage. Not use in your production. */
 export const statistic: Record<
   string,
   { global: string[]; component: Record<string, string | number> }
 > = {};
 
-/** @private Internal Usage. Not use in your production. */
+/** @internal Internal Usage. Not use in your production. */
 // eslint-disable-next-line camelcase
 export const _statistic_build_: typeof statistic = {};
 

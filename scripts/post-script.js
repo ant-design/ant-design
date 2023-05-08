@@ -5,9 +5,9 @@ const dayjs = require('dayjs');
 const chalk = require('chalk');
 const { spawnSync } = require('child_process');
 const relativeTime = require('dayjs/plugin/relativeTime');
-// const packageJson = require('../package.json');
 
 dayjs.extend(relativeTime);
+
 const CONCH_TAG = 'conch-v5';
 
 const DEPRECIATED_VERSION = {
@@ -33,6 +33,10 @@ const DEPRECIATED_VERSION = {
     'https://github.com/ant-design/ant-design/pull/40719#issuecomment-1453418135',
   ],
   '5.4.1': ['https://github.com/ant-design/ant-design/issues/41751'],
+  '>= 5.4.3 <= 5.4.5': [
+    'https://github.com/ant-design/cssinjs/pull/108',
+    'https://github.com/ant-design/ant-design/pull/41993',
+  ],
 };
 
 function matchDeprecated(version) {
