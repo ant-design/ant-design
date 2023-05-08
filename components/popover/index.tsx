@@ -22,9 +22,6 @@ interface OverlayProps {
 }
 
 const Overlay: React.FC<OverlayProps> = ({ title, content, prefixCls }) => {
-  if (!title && !content) {
-    return null;
-  }
   return (
     <>
       {title && <div className={`${prefixCls}-title`}>{getRenderPropValue(title)}</div>}
@@ -65,7 +62,9 @@ const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
       prefixCls={prefixCls}
       overlayClassName={overlayCls}
       ref={ref}
-      overlay={<Overlay prefixCls={prefixCls} title={title} content={content} />}
+      overlay={
+        (title || content) && <Overlay prefixCls={prefixCls} title={title} content={content} />
+      }
       transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
       data-popover-inject
     />,
