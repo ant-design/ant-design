@@ -4,11 +4,11 @@ import React from 'react';
 
 type StyleFn = (prefix?: string) => void;
 
-type GenCssinjs = (options: {
+interface GenCssinjsOptions {
   key: string;
   render: (component: React.FC) => void;
   beforeRender?: (componentName: string) => void;
-}) => Promise<void>;
+}
 
 export const styleFiles = globSync(
   path.join(
@@ -17,8 +17,8 @@ export const styleFiles = globSync(
   ),
 );
 
-export const generateCssinjs: GenCssinjs = async ({ key, beforeRender, render }) => {
-  await Promise.all(
+export const generateCssinjs = ({ key, beforeRender, render }: GenCssinjsOptions) =>
+  Promise.all(
     styleFiles.map(async (file) => {
       const pathArr = file.split('/');
       const styleIndex = pathArr.lastIndexOf('style');
@@ -41,4 +41,3 @@ export const generateCssinjs: GenCssinjs = async ({ key, beforeRender, render })
       render?.(Demo);
     }),
   );
-};
