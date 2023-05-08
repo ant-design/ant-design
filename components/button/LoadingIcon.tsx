@@ -1,11 +1,34 @@
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import CSSMotion from 'rc-motion';
-import React from 'react';
+import React, { forwardRef } from 'react';
+import classNames from 'classnames';
+import IconWrapper from './IconWrapper';
+
+type InnerLoadingIconProps = {
+  prefixCls: string;
+  className?: string;
+  style?: React.CSSProperties;
+  iconClassName?: string;
+};
+
+const InnerLoadingIcon = forwardRef<HTMLSpanElement, InnerLoadingIconProps>(
+  ({ prefixCls, className, style, iconClassName }, ref) => {
+    const mergedIconCls = classNames(`${prefixCls}-loading-icon`, className);
+
+    return (
+      <IconWrapper prefixCls={prefixCls} className={mergedIconCls} style={style} ref={ref}>
+        <LoadingOutlined className={iconClassName} />
+      </IconWrapper>
+    );
+  },
+);
 
 export interface LoadingIconProps {
   prefixCls: string;
   existIcon: boolean;
   loading?: boolean | object;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 const getCollapsedWidth = (): React.CSSProperties => ({
@@ -20,15 +43,17 @@ const getRealWidth = (node: HTMLElement): React.CSSProperties => ({
   transform: 'scale(1)',
 });
 
-const LoadingIcon: React.FC<LoadingIconProps> = ({ prefixCls, loading, existIcon }) => {
+const LoadingIcon: React.FC<LoadingIconProps> = ({
+  prefixCls,
+  loading,
+  existIcon,
+  className,
+  style,
+}) => {
   const visible = !!loading;
 
   if (existIcon) {
-    return (
-      <span className={`${prefixCls}-loading-icon`}>
-        <LoadingOutlined />
-      </span>
-    );
+    return <InnerLoadingIcon prefixCls={prefixCls} className={className} style={style} />;
   }
 
   return (
@@ -44,10 +69,20 @@ const LoadingIcon: React.FC<LoadingIconProps> = ({ prefixCls, loading, existIcon
       onLeaveStart={getRealWidth}
       onLeaveActive={getCollapsedWidth}
     >
-      {({ className, style }: { className?: string; style?: React.CSSProperties }, ref: any) => (
-        <span className={`${prefixCls}-loading-icon`} style={style} ref={ref}>
-          <LoadingOutlined className={className} />
-        </span>
+      {(
+        {
+          className: motionCls,
+          style: motionStyle,
+        }: { className?: string; style?: React.CSSProperties },
+        ref: any,
+      ) => (
+        <InnerLoadingIcon
+          prefixCls={prefixCls}
+          className={className}
+          style={{ ...style, ...motionStyle }}
+          ref={ref}
+          iconClassName={motionCls}
+        />
       )}
     </CSSMotion>
   );

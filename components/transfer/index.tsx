@@ -10,8 +10,8 @@ import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
-import defaultLocale from '../locale/en_US';
 import { useLocale } from '../locale';
+import defaultLocale from '../locale/en_US';
 import type { PaginationType } from './interface';
 import type { TransferListProps } from './list';
 import List from './list';
@@ -173,9 +173,11 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const setStateKeys = useCallback(
     (direction: TransferDirection, keys: string[] | ((prevKeys: string[]) => string[])) => {
       if (direction === 'left') {
-        setSourceSelectedKeys((prev) => (typeof keys === 'function' ? keys(prev || []) : keys));
+        const nextKeys = typeof keys === 'function' ? keys(sourceSelectedKeys || []) : keys;
+        setSourceSelectedKeys(nextKeys);
       } else {
-        setTargetSelectedKeys((prev) => (typeof keys === 'function' ? keys(prev || []) : keys));
+        const nextKeys = typeof keys === 'function' ? keys(targetSelectedKeys || []) : keys;
+        setTargetSelectedKeys(nextKeys);
       }
     },
     [sourceSelectedKeys, targetSelectedKeys],
@@ -230,10 +232,16 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     moveTo('right');
   };
 
-  const onItemSelectAll = (direction: TransferDirection, keys: string[], checkAll: boolean) => {
+  const onItemSelectAll = (
+    direction: TransferDirection,
+    keys: string[],
+    checkAll: boolean | 'replace',
+  ) => {
     setStateKeys(direction, (prevKeys) => {
       let mergedCheckedKeys: string[] = [];
-      if (checkAll) {
+      if (checkAll === 'replace') {
+        mergedCheckedKeys = keys;
+      } else if (checkAll) {
         // Merge current keys with origin key
         mergedCheckedKeys = Array.from(new Set<string>([...prevKeys, ...keys]));
       } else {

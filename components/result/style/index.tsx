@@ -5,9 +5,7 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 export interface ComponentToken {
   imageWidth: number;
   imageHeight: number;
-}
 
-interface ResultToken extends FullToken<'Result'> {
   resultTitleFontSize: number;
   resultSubtitleFontSize: number;
   resultIconFontSize: number;
@@ -19,6 +17,8 @@ interface ResultToken extends FullToken<'Result'> {
   resultWarningIconColor: string;
   resultErrorIconColor: string;
 }
+
+interface ResultToken extends FullToken<'Result'> {}
 
 // ============================== Styles ==============================
 const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
@@ -127,6 +127,11 @@ const getStyle: GenerateStyle<ResultToken> = (token) => genResultStyle(token);
 export default genComponentStyleHook(
   'Result',
   (token) => {
+    const resultToken = mergeToken<ResultToken>(token, {});
+
+    return [getStyle(resultToken)];
+  },
+  (token) => {
     const { paddingLG, fontSizeHeading3 } = token;
 
     const resultSubtitleFontSize = token.fontSize;
@@ -136,8 +141,10 @@ export default genComponentStyleHook(
     const resultErrorIconColor = token.colorError;
     const resultSuccessIconColor = token.colorSuccess;
     const resultWarningIconColor = token.colorWarning;
+    return {
+      imageWidth: 250,
+      imageHeight: 295,
 
-    const resultToken = mergeToken<ResultToken>(token, {
       resultTitleFontSize: fontSizeHeading3,
       resultSubtitleFontSize,
       resultIconFontSize: fontSizeHeading3 * 3,
@@ -146,12 +153,6 @@ export default genComponentStyleHook(
       resultErrorIconColor,
       resultSuccessIconColor,
       resultWarningIconColor,
-    });
-
-    return [getStyle(resultToken)];
-  },
-  {
-    imageWidth: 250,
-    imageHeight: 295,
+    };
   },
 );

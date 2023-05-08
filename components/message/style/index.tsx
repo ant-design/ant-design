@@ -10,11 +10,12 @@ export interface ComponentToken {
   // Component token here
   height: number;
   zIndexPopup: number;
+  messageNoticeContentBg: string;
+  messageNoticeContentPadding: string;
 }
 
 interface MessageToken extends FullToken<'Message'> {
   // Custom token here
-  messageNoticeContentPadding: string;
 }
 
 const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
@@ -175,15 +176,15 @@ export default genComponentStyleHook(
   'Message',
   (token) => {
     // Gen-style functions here
-    const combinedToken = mergeToken<MessageToken>(token, {
-      messageNoticeContentPadding: `${
-        (token.controlHeightLG - token.fontSize * token.lineHeight) / 2
-      }px ${token.paddingSM}px`,
-    });
+    const combinedToken = mergeToken<MessageToken>(token, {});
     return [genMessageStyle(combinedToken)];
   },
   (token) => ({
     height: 150,
     zIndexPopup: token.zIndexPopupBase + 10,
+    messageNoticeContentBg: token.colorBgElevated,
+    messageNoticeContentPadding: `${
+      (token.controlHeightLG - token.fontSize * token.lineHeight) / 2
+    }px ${token.paddingSM}px`,
   }),
 );

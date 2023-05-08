@@ -16,6 +16,12 @@ export type RangePickerProps = BaseRangePickerProps<Dayjs>;
 
 const DatePicker = generatePicker<Dayjs>(dayjsGenerateConfig);
 
+export type DatePickerType = typeof DatePicker & {
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+  _InternalRangePanelDoNotUseOrYouWillBeFired: typeof PureRangePanel;
+  generatePicker: typeof generatePicker;
+};
+
 function postPureProps(props: DatePickerProps) {
   const dropdownAlign = transPlacement2DropdownAlign(props.direction, props.placement);
 
@@ -31,11 +37,9 @@ function postPureProps(props: DatePickerProps) {
 // We don't care debug panel
 /* istanbul ignore next */
 const PurePanel = genPurePanel(DatePicker, 'picker', null, postPureProps);
-(DatePicker as any)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+(DatePicker as DatePickerType)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 const PureRangePanel = genPurePanel(DatePicker.RangePicker, 'picker', null, postPureProps);
-(DatePicker as any)._InternalRangePanelDoNotUseOrYouWillBeFired = PureRangePanel;
+(DatePicker as DatePickerType)._InternalRangePanelDoNotUseOrYouWillBeFired = PureRangePanel;
+(DatePicker as DatePickerType).generatePicker = generatePicker;
 
-export default DatePicker as typeof DatePicker & {
-  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
-  _InternalRangePanelDoNotUseOrYouWillBeFired: typeof PureRangePanel;
-};
+export default DatePicker as DatePickerType;

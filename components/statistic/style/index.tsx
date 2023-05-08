@@ -1,13 +1,15 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent } from '../../style';
 
-interface StatisticToken extends FullToken<'Statistic'> {
+export interface ComponentToken {
   statisticTitleFontSize: number;
   statisticContentFontSize: number;
   statisticFontFamily: string;
 }
+
+interface StatisticToken extends FullToken<'Statistic'> {}
 
 const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken): CSSObject => {
   const {
@@ -57,13 +59,18 @@ const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken)
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Statistic', (token) => {
-  const { fontSizeHeading3, fontSize, fontFamily } = token;
-
-  const statisticToken = mergeToken<StatisticToken>(token, {
-    statisticTitleFontSize: fontSize,
-    statisticContentFontSize: fontSizeHeading3,
-    statisticFontFamily: fontFamily,
-  });
-  return [genStatisticStyle(statisticToken)];
-});
+export default genComponentStyleHook(
+  'Statistic',
+  (token) => {
+    const statisticToken = mergeToken<StatisticToken>(token, {});
+    return [genStatisticStyle(statisticToken)];
+  },
+  (token) => {
+    const { fontSizeHeading3, fontSize, fontFamily } = token;
+    return {
+      statisticTitleFontSize: fontSize,
+      statisticContentFontSize: fontSizeHeading3,
+      statisticFontFamily: fontFamily,
+    };
+  },
+);
