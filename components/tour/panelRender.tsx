@@ -4,8 +4,8 @@ import type { ReactNode } from 'react';
 import React from 'react';
 import type { ButtonProps } from '../button';
 import Button from '../button';
-import defaultLocale from '../locale/en_US';
 import { useLocale } from '../locale';
+import defaultLocale from '../locale/en_US';
 import type { TourStepProps } from './interface';
 
 function isValidNode(node: ReactNode): boolean {
@@ -36,7 +36,7 @@ const TourPanel: React.FC<TourPanelProps> = ({ stepProps, current, type, indicat
     className,
   } = stepProps;
 
-  const mergedType = typeof stepType !== 'undefined' ? stepType : type;
+  const mergedType = stepType ?? type;
 
   const isLastStep = current === total - 1;
 
@@ -94,13 +94,7 @@ const TourPanel: React.FC<TourPanelProps> = ({ stepProps, current, type, indicat
   const [contextLocale] = useLocale('Tour', defaultLocale.Tour);
 
   return (
-    <div
-      className={classNames(
-        mergedType === 'primary' ? `${prefixCls}-primary` : '',
-        className,
-        `${prefixCls}-content`,
-      )}
-    >
+    <div className={classNames(className, `${prefixCls}-content`)}>
       <div className={`${prefixCls}-inner`}>
         <CloseOutlined className={`${prefixCls}-close`} onClick={onClose} />
         {coverNode}

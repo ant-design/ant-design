@@ -194,10 +194,18 @@ You can modify the default verification information of Form.Item through `messag
 
 ```jsx
 <Form>
-  <Form.Item messageVariables={{ another: 'good' }} label="user">
+  <Form.Item
+    messageVariables={{ another: 'good' }}
+    label="user"
+    rules={[{ required: true, message: '${another} is required' }]}
+  >
     <Input />
   </Form.Item>
-  <Form.Item messageVariables={{ label: 'good' }} label={<span>user</span>}>
+  <Form.Item
+    messageVariables={{ label: 'good' }}
+    label={<span>user</span>}
+    rules={[{ required: true, message: '${label} is required' }]}
+  >
     <Input />
   </Form.Item>
 </Form>

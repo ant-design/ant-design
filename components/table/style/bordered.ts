@@ -39,6 +39,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         // ============================ Content ============================
         [`> ${componentCls}-container`]: {
           borderInlineStart: tableBorder,
+          borderTop: tableBorder,
 
           [`
             > ${componentCls}-content,
@@ -50,6 +51,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
               // ============================= Cell =============================
               [`
                 > thead > tr > th,
+                > thead > tr > td,
                 > tbody > tr > th,
                 > tbody > tr > td,
                 > tfoot > tr > th,
@@ -102,15 +104,6 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
               },
             },
           },
-
-          [`
-            > ${componentCls}-content,
-            > ${componentCls}-header
-          `]: {
-            '> table': {
-              borderTop: tableBorder,
-            },
-          },
         },
 
         // ============================ Scroll ============================
@@ -158,6 +151,10 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         '&-scrollbar:not([rowspan])': {
           boxShadow: `0 ${token.lineWidth}px 0 ${token.lineWidth}px ${token.tableHeaderBg}`,
         },
+      },
+
+      [`${componentCls}-bordered ${componentCls}-cell-scrollbar`]: {
+        borderInlineEnd: tableBorder,
       },
     },
   };

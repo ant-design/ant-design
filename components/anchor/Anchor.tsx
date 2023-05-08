@@ -212,7 +212,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     return '';
   };
 
-  const setCurrentActiveLink = (link: string) => {
+  const setCurrentActiveLink = useEvent((link: string) => {
     if (activeLinkRef.current === link) {
       return;
     }
@@ -225,7 +225,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     // onChange should respect the original link (which may caused by
     // window scroll or user click), not the new link
     onChange?.(link);
-  };
+  });
 
   const handleScroll = React.useCallback(() => {
     if (animating.current) {
@@ -245,8 +245,6 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
   const handleScrollTo = React.useCallback<(link: string) => void>(
     (link) => {
       setCurrentActiveLink(link);
-      const container = getCurrentContainer();
-      const scrollTop = getScroll(container, true);
       const sharpLinkMatch = sharpMatcherRegex.exec(link);
       if (!sharpLinkMatch) {
         return;
@@ -256,6 +254,8 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
         return;
       }
 
+      const container = getCurrentContainer();
+      const scrollTop = getScroll(container, true);
       const eleOffsetTop = getOffsetTop(targetElement, container);
       let y = scrollTop + eleOffsetTop;
       y -= targetOffset !== undefined ? targetOffset : offsetTop || 0;

@@ -65,7 +65,8 @@ return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
 | --- | --- | --- | --- | --- |
 | className | 自定义类名 | string | - |  |
 | dropdownProps | 弹出下拉菜单的自定义配置 | [Dropdown](/components/dropdown-cn) | - |  |
-| href | 链接的目的地 | string | - |  |
+| href | 链接的目的地，不能和 `path` 共用 | string | - |  |
+| path | 拼接路径，每一层都会拼接前一个 `path` 信息。不能和 `href` 共用 | string | - |  |
 | menu | 菜单配置项 | [MenuProps](/components/menu-cn/#api) | - | 4.24.0 |
 | onClick | 单击事件 | (e:MouseEvent) => void | - |  |
 | title | 名称 | ReactNode | - | 5.3.0 |

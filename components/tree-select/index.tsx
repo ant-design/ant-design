@@ -64,6 +64,7 @@ export interface TreeSelectProps<
   status?: InputStatus;
   switcherIcon?: SwitcherIcon | RcTreeSelectProps<ValueType, OptionType>['switcherIcon'];
   rootClassName?: string;
+  [key: `aria-${string}`]: React.AriaAttributes[keyof React.AriaAttributes];
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;

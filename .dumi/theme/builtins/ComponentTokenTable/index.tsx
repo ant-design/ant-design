@@ -91,6 +91,7 @@ function SubTokenTable({ defaultOpen, tokens, title }: SubTokenTableProps) {
           dataSource={data}
           style={{ marginBottom: token.margin }}
           pagination={false}
+          rowKey={(record) => record.name}
         />
       </ConfigProvider>
     </details>

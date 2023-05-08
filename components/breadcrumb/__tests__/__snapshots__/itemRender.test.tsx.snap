@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumb.ItemRender render as expect 1`] = `
+<div>
+  <nav
+    class="ant-breadcrumb"
+  >
+    <ol>
+      <li>
+        <a
+          class="my-link"
+          data-path="/"
+        >
+          Home
+        </a>
+      </li>
+      <li
+        aria-hidden="true"
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </li>
+      <li>
+        <a
+          class="my-link"
+          data-path="/bamboo"
+        >
+          Bamboo
+        </a>
+      </li>
+    </ol>
+  </nav>
+</div>
+`;
