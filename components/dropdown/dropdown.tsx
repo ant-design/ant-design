@@ -288,7 +288,8 @@ const Dropdown: CompoundedComponent = (props) => {
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
       visible={mergedOpen}
-      builtinPlacements={builtinPlacements}
+      // TODO: remove `as any` when `rc-dropdown` upgrade to use `@rc-component/trigger`
+      builtinPlacements={builtinPlacements as any}
       arrow={!!arrow}
       overlayClassName={overlayClassNameCustomized}
       prefixCls={prefixCls}
