@@ -19,7 +19,7 @@ export const styleFiles = globSync(
 
 export const generateCssinjs: GenCssinjs = async ({ key, beforeRender, render }) => {
   await Promise.all(
-    styleFiles.map<ReturnType<GenCssinjs>>(async (file) => {
+    styleFiles.map(async (file) => {
       const pathArr = file.split('/');
       const styleIndex = pathArr.lastIndexOf('style');
       const componentName = pathArr[styleIndex - 1];
