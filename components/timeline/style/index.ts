@@ -39,7 +39,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           insetBlockStart: token.itemHeadSize,
           insetInlineStart: (token.itemHeadSize - token.lineItemTailWidth) / 2,
           height: `calc(100% - ${token.itemHeadSize}px)`,
-          borderInlineStart: `${token.lineItemTailWidth}px ${token.lineType} ${token.colorSplit}`,
+          borderInlineStart: `${token.lineItemTailWidth}px ${token.lineType} ${token.color}`,
         },
 
         '&-pending': {
@@ -173,7 +173,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
         ${componentCls}-item-tail`]: {
         display: 'block',
         height: `calc(100% - ${token.margin}px)`,
-        borderInlineStart: `${token.lineItemTailWidth}px dotted ${token.colorSplit}`,
+        borderInlineStart: `${token.lineItemTailWidth}px dotted ${token.color}`,
       },
 
       [`&${componentCls}-reverse
@@ -187,7 +187,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           insetBlockStart: token.margin,
           display: 'block',
           height: `calc(100% - ${token.margin}px)`,
-          borderInlineStart: `${token.lineItemTailWidth}px dotted ${token.colorSplit}`,
+          borderInlineStart: `${token.lineItemTailWidth}px dotted ${token.color}`,
         },
 
         [`${componentCls}-item-content`]: {
