@@ -26,6 +26,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAA
 <code src="./demo/responsive.tsx">响应式的栅格列表</code>
 <code src="./demo/infinite-load.tsx">滚动加载</code>
 <code src="./demo/virtual-list.tsx">滚动加载无限长列表</code>
+<code src="./demo/component-token.tsx" debug>自定义组件 token</code>
 
 ## API
 
