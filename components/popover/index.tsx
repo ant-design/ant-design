@@ -21,14 +21,12 @@ interface OverlayProps {
   content?: PopoverProps['content'];
 }
 
-const Overlay: React.FC<OverlayProps> = ({ title, content, prefixCls }) => {
-  return (
-    <>
-      {title && <div className={`${prefixCls}-title`}>{getRenderPropValue(title)}</div>}
-      <div className={`${prefixCls}-inner-content`}>{getRenderPropValue(content)}</div>
-    </>
-  );
-};
+const Overlay: React.FC<OverlayProps> = ({ title, content, prefixCls }) => (
+  <>
+    {title && <div className={`${prefixCls}-title`}>{getRenderPropValue(title)}</div>}
+    <div className={`${prefixCls}-inner-content`}>{getRenderPropValue(content)}</div>
+  </>
+);
 
 const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
   const {
