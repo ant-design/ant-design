@@ -7,12 +7,12 @@ import genNotificationPlacementStyle from './placement';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
-  animationMaxHeight: number;
   zIndexPopup: number;
   width: number;
 }
 
 export interface NotificationToken extends FullToken<'Notification'> {
+  animationMaxHeight: number;
   notificationBg: string;
   notificationPadding: string;
   notificationPaddingVertical: number;
@@ -281,12 +281,12 @@ export default genComponentStyleHook(
       notificationMarginBottom: token.margin,
       notificationPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
       notificationMarginEdge: token.marginLG,
+      animationMaxHeight: 150,
     });
 
     return [genNotificationStyle(notificationToken)];
   },
   (token) => ({
-    animationMaxHeight: 150,
     zIndexPopup: token.zIndexPopupBase + 50,
     width: 384,
   }),
