@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 5.4.7
+
+`2023-05-06`
+
+- 🐞 Fix Menu different margin between Menu.Item and Menu.Submenu in vertical and inline mode. [#42160](https://github.com/ant-design/ant-design/pull/42160)
+- 🐞 Fix Breadcrumb using `itemRender` with `path` render additional a element. [#42049](https://github.com/ant-design/ant-design/pull/42049)
+- 🐞 Fix Transfer in control mode throw React nest state update warning. [#42033](https://github.com/ant-design/ant-design/pull/42033)
+- 🐞 Fix Upload logic of disable state. [#42102](https://github.com/ant-design/ant-design/pull/42102) [@Wxh16144](https://github.com/Wxh16144)
+- 💄 Fix Spin height is inconsistent with its icon children. [#42162](https://github.com/ant-design/ant-design/pull/42162) [@cheapCoder](https://github.com/cheapCoder)
+- ⚡️ Improve Affix logic when it does not need to update. [#42015](https://github.com/ant-design/ant-design/pull/42015) [@Simon-He95](https://github.com/Simon-He95)
+- ⚡️ Improve Anchor logic when it does not need to scroll. [#42018](https://github.com/ant-design/ant-design/pull/42018) [@Simon-He95](https://github.com/Simon-He95)
+
 ## 5.4.6
 
 `2023-04-26`
