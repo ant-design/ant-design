@@ -1,11 +1,13 @@
 import classNames from 'classnames';
 import type { CSSProperties, MouseEventHandler } from 'react';
 import React, { forwardRef, useMemo } from 'react';
+import { ColorBlock } from '@rc-component/color-picker';
 import type { ColorPickerBaseProps } from '../interface';
 import ColorClear from './ColorClear';
 
 interface colorTriggerProps
-  extends Pick<ColorPickerBaseProps, 'color' | 'prefixCls' | 'clearColor' | 'disabled'> {
+  extends Pick<ColorPickerBaseProps, 'prefixCls' | 'clearColor' | 'disabled'> {
+  color: Exclude<ColorPickerBaseProps['color'], undefined>;
   open?: boolean;
   className?: string;
   style?: CSSProperties;
@@ -23,14 +25,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, colorTriggerProps>((props, ref) 
       clearColor ? (
         <ColorClear prefixCls={prefixCls} />
       ) : (
-        <div className={`${colorTriggerPrefixCls}-container`}>
-          <div
-            className={`${colorTriggerPrefixCls}-layer`}
-            style={{
-              backgroundColor: color?.toRgbString(),
-            }}
-          />
-        </div>
+        <ColorBlock color={color.toRgbString()} prefixCls={prefixCls} />
       ),
     [color, clearColor],
   );

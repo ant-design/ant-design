@@ -1,6 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle } from '../../theme/internal';
 import type { ColorPickerToken } from './index';
+import genColorBlockStyle from './color-block';
 
 const genPickerStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
   const {
@@ -15,7 +16,6 @@ const genPickerStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
     colorPickerHandlerSize,
     colorPickerHandlerSizeSM,
     colorPickerSliderHeight,
-    lineWidth,
     colorPickerPreviewSize,
   } = token;
 
@@ -67,29 +67,13 @@ const genPickerStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
 
     [`${componentCls}-slider-container`]: {
       display: 'flex',
-      flexDirection: 'row-reverse',
+      gap: marginSM,
       [`${componentCls}-slider-group`]: {
         flex: 1,
       },
     },
 
-    [`${componentCls}-display-container`]: {
-      marginInlineStart: marginSM,
-      position: 'relative',
-      overflow: 'hidden',
-      borderRadius: borderRadiusSM,
-      width: colorPickerPreviewSize,
-      height: colorPickerPreviewSize,
-      boxShadow: colorPickerInsetShadow,
-      backgroundSize: colorPickerPreviewSize,
-      backgroundImage:
-        'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAFpJREFUWAntljEKADAIA23p6v//qQ+wfUEcCu1yriEgp0FHRJSJcnehmmWm1Dv/lO4HIg1AAAKjTqm03ea88zMCCEDgO4HV5bS757f+7wRoAAIQ4B9gByAAgQ3pfiDmXmAeEwAAAABJRU5ErkJggg==")',
-      [`${componentCls}-display-layer`]: {
-        width: '100%',
-        height: '100%',
-        border: `${lineWidth}px solid ${colorFillSecondary}`,
-      },
-    },
+    ...genColorBlockStyle(token, colorPickerPreviewSize),
   };
 };
 

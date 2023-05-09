@@ -4,6 +4,7 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genPickerStyle from './picker';
 import genInputStyle from './input';
 import genPresetsStyle from './presets';
+import genColorBlockStyle from './color-block';
 
 export interface ComponentToken {}
 
@@ -63,12 +64,10 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
     colorTextDisabled,
     colorBgContainerDisabled,
     borderRadius,
-    borderRadiusSM,
     marginXS,
     marginSM,
     controlHeight,
     controlHeightSM,
-    colorPickerInsetShadow,
     colorBgTextActive,
     colorPickerPresetColorSize,
     lineWidth,
@@ -125,23 +124,8 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
               borderColor: colorBgTextActive,
             },
           },
-          [`${componentCls}-trigger-container`]: {
-            position: 'relative',
-            borderRadius: borderRadiusSM,
-            overflow: 'hidden',
-            width: controlHeightSM,
-            height: controlHeightSM,
-            backgroundSize: controlHeightSM,
-            backgroundImage:
-              'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAFpJREFUWAntljEKADAIA23p6v//qQ+wfUEcCu1yriEgp0FHRJSJcnehmmWm1Dv/lO4HIg1AAAKjTqm03ea88zMCCEDgO4HV5bS757f+7wRoAAIQ4B9gByAAgQ3pfiDmXmAeEwAAAABJRU5ErkJggg==")',
-
-            [`${componentCls}-trigger-layer`]: {
-              boxShadow: colorPickerInsetShadow,
-              width: '100%',
-              height: '100%',
-            },
-          },
           ...genClearStyle(token, controlHeightSM),
+          ...genColorBlockStyle(token, controlHeightSM),
         },
       },
     },

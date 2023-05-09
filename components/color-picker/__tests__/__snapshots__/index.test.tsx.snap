@@ -6,11 +6,11 @@ exports[`ColorPicker Should disabled work 1`] = `
     class="ant-color-picker-trigger ant-color-picker-trigger-disabled"
   >
     <div
-      class="ant-color-picker-trigger-container"
+      class="ant-color-picker-color-block"
     >
       <div
-        class="ant-color-picker-trigger-layer"
-        style="background-color: rgb(22, 119, 255);"
+        class="ant-color-picker-color-block-inner"
+        style="background: rgb(22, 119, 255);"
       />
     </div>
   </div>
@@ -30,11 +30,11 @@ exports[`ColorPicker rtl render component should be rendered correctly in RTL di
   class="ant-color-picker-trigger ant-color-picker-rtl"
 >
   <div
-    class="ant-color-picker-trigger-container"
+    class="ant-color-picker-color-block"
   >
     <div
-      class="ant-color-picker-trigger-layer"
-      style="background-color: rgb(22, 119, 255);"
+      class="ant-color-picker-color-block-inner"
+      style="background: rgb(22, 119, 255);"
     />
   </div>
 </div>

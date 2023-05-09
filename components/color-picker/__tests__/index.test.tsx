@@ -25,8 +25,8 @@ describe('ColorPicker', () => {
   it('Should component defaultValue work', () => {
     const { container } = render(<ColorPicker defaultValue="#000000" />);
     expect(
-      container.querySelector('.ant-color-picker-trigger-layer')?.getAttribute('style'),
-    ).toEqual('background-color: rgb(0, 0, 0);');
+      container.querySelector('.ant-color-picker-color-block-inner')?.getAttribute('style'),
+    ).toEqual('background: rgb(0, 0, 0);');
   });
 
   it('Should component custom trigger work', async () => {
@@ -206,8 +206,8 @@ describe('ColorPicker', () => {
       target: { value: 631515 },
     });
     expect(
-      container.querySelector('.ant-color-picker-trigger-layer')?.getAttribute('style'),
-    ).toEqual('background-color: rgb(99, 21, 21);');
+      container.querySelector('.ant-color-picker-color-block-inner')?.getAttribute('style'),
+    ).toEqual('background: rgb(99, 21, 21);');
   });
 
   it('Should rgb input work', async () => {
@@ -223,8 +223,8 @@ describe('ColorPicker', () => {
       target: { value: 21 },
     });
     expect(
-      container.querySelector('.ant-color-picker-trigger-layer')?.getAttribute('style'),
-    ).toEqual('background-color: rgb(99, 21, 21);');
+      container.querySelector('.ant-color-picker-color-block-inner')?.getAttribute('style'),
+    ).toEqual('background: rgb(99, 21, 21);');
   });
 
   it('Should hsb input work', async () => {
@@ -240,7 +240,7 @@ describe('ColorPicker', () => {
       target: { value: 39 },
     });
     expect(
-      container.querySelector('.ant-color-picker-trigger-layer')?.getAttribute('style'),
-    ).toEqual('background-color: rgb(99, 22, 22);');
+      container.querySelector('.ant-color-picker-color-block-inner')?.getAttribute('style'),
+    ).toEqual('background: rgb(99, 22, 22);');
   });
 });

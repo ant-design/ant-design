@@ -6,11 +6,11 @@ Array [
     class="ant-color-picker-trigger"
   >
     <div
-      class="ant-color-picker-trigger-container"
+      class="ant-color-picker-color-block"
     >
       <div
-        class="ant-color-picker-trigger-layer"
-        style="background-color: rgb(22, 119, 255);"
+        class="ant-color-picker-color-block-inner"
+        style="background: rgb(22, 119, 255);"
       />
     </div>
   </div>,
@@ -66,21 +66,6 @@ Array [
                 class="ant-color-picker-slider-container"
               >
                 <div
-                  class="ant-color-picker-display"
-                >
-                  <div
-                    class="ant-color-picker-display-container"
-                  >
-                    <div
-                      class="ant-color-picker-display-block"
-                    />
-                    <div
-                      class="ant-color-picker-display-layer"
-                      style="background: rgb(22, 119, 255);"
-                    />
-                  </div>
-                </div>
-                <div
                   class="ant-color-picker-slider-group"
                 >
                   <div
@@ -125,6 +110,14 @@ Array [
                       />
                     </div>
                   </div>
+                </div>
+                <div
+                  class="ant-color-picker-color-block"
+                >
+                  <div
+                    class="ant-color-picker-color-block-inner"
+                    style="background: rgb(22, 119, 255);"
+                  />
                 </div>
               </div>
               <div
@@ -398,11 +391,11 @@ Array [
     class="ant-color-picker-trigger"
   >
     <div
-      class="ant-color-picker-trigger-container"
+      class="ant-color-picker-color-block"
     >
       <div
-        class="ant-color-picker-trigger-layer"
-        style="background-color: rgb(22, 119, 255);"
+        class="ant-color-picker-color-block-inner"
+        style="background: rgb(22, 119, 255);"
       />
     </div>
   </div>,
@@ -455,21 +448,6 @@ Array [
                 class="ant-color-picker-slider-container"
               >
                 <div
-                  class="ant-color-picker-display"
-                >
-                  <div
-                    class="ant-color-picker-display-container"
-                  >
-                    <div
-                      class="ant-color-picker-display-block"
-                    />
-                    <div
-                      class="ant-color-picker-display-layer"
-                      style="background: rgb(22, 119, 255);"
-                    />
-                  </div>
-                </div>
-                <div
                   class="ant-color-picker-slider-group"
                 >
                   <div
@@ -514,6 +492,14 @@ Array [
                       />
                     </div>
                   </div>
+                </div>
+                <div
+                  class="ant-color-picker-color-block"
+                >
+                  <div
+                    class="ant-color-picker-color-block-inner"
+                    style="background: rgb(22, 119, 255);"
+                  />
                 </div>
               </div>
               <div
@@ -787,11 +773,11 @@ Array [
     class="ant-color-picker-trigger ant-color-picker-trigger-disabled"
   >
     <div
-      class="ant-color-picker-trigger-container"
+      class="ant-color-picker-color-block"
     >
       <div
-        class="ant-color-picker-trigger-layer"
-        style="background-color: rgb(22, 119, 255);"
+        class="ant-color-picker-color-block-inner"
+        style="background: rgb(22, 119, 255);"
       />
     </div>
   </div>,
@@ -844,21 +830,6 @@ Array [
                 class="ant-color-picker-slider-container"
               >
                 <div
-                  class="ant-color-picker-display"
-                >
-                  <div
-                    class="ant-color-picker-display-container"
-                  >
-                    <div
-                      class="ant-color-picker-display-block"
-                    />
-                    <div
-                      class="ant-color-picker-display-layer"
-                      style="background: rgb(22, 119, 255);"
-                    />
-                  </div>
-                </div>
-                <div
                   class="ant-color-picker-slider-group"
                 >
                   <div
@@ -903,6 +874,14 @@ Array [
                       />
                     </div>
                   </div>
+                </div>
+                <div
+                  class="ant-color-picker-color-block"
+                >
+                  <div
+                    class="ant-color-picker-color-block-inner"
+                    style="background: rgb(22, 119, 255);"
+                  />
                 </div>
               </div>
               <div
@@ -1196,11 +1175,11 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
               class="ant-color-picker-trigger"
             >
               <div
-                class="ant-color-picker-trigger-container"
+                class="ant-color-picker-color-block"
               >
                 <div
-                  class="ant-color-picker-trigger-layer"
-                  style="background-color: rgb(22, 119, 255);"
+                  class="ant-color-picker-color-block-inner"
+                  style="background: rgb(22, 119, 255);"
                 />
               </div>
             </div>
@@ -1253,21 +1232,6 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           class="ant-color-picker-slider-container"
                         >
                           <div
-                            class="ant-color-picker-display"
-                          >
-                            <div
-                              class="ant-color-picker-display-container"
-                            >
-                              <div
-                                class="ant-color-picker-display-block"
-                              />
-                              <div
-                                class="ant-color-picker-display-layer"
-                                style="background: rgb(22, 119, 255);"
-                              />
-                            </div>
-                          </div>
-                          <div
                             class="ant-color-picker-slider-group"
                           >
                             <div
@@ -1312,6 +1276,14 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                 />
                               </div>
                             </div>
+                          </div>
+                          <div
+                            class="ant-color-picker-color-block"
+                          >
+                            <div
+                              class="ant-color-picker-color-block-inner"
+                              style="background: rgb(22, 119, 255);"
+                            />
                           </div>
                         </div>
                         <div
@@ -1614,11 +1586,11 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
               class="ant-color-picker-trigger"
             >
               <div
-                class="ant-color-picker-trigger-container"
+                class="ant-color-picker-color-block"
               >
                 <div
-                  class="ant-color-picker-trigger-layer"
-                  style="background-color: rgb(23, 120, 255);"
+                  class="ant-color-picker-color-block-inner"
+                  style="background: rgb(23, 120, 255);"
                 />
               </div>
             </div>
@@ -1671,21 +1643,6 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           class="ant-color-picker-slider-container"
                         >
                           <div
-                            class="ant-color-picker-display"
-                          >
-                            <div
-                              class="ant-color-picker-display-container"
-                            >
-                              <div
-                                class="ant-color-picker-display-block"
-                              />
-                              <div
-                                class="ant-color-picker-display-layer"
-                                style="background: rgb(23, 120, 255);"
-                              />
-                            </div>
-                          </div>
-                          <div
                             class="ant-color-picker-slider-group"
                           >
                             <div
@@ -1730,6 +1687,14 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                 />
                               </div>
                             </div>
+                          </div>
+                          <div
+                            class="ant-color-picker-color-block"
+                          >
+                            <div
+                              class="ant-color-picker-color-block-inner"
+                              style="background: rgb(23, 120, 255);"
+                            />
                           </div>
                         </div>
                         <div
@@ -2249,11 +2214,11 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
               class="ant-color-picker-trigger"
             >
               <div
-                class="ant-color-picker-trigger-container"
+                class="ant-color-picker-color-block"
               >
                 <div
-                  class="ant-color-picker-trigger-layer"
-                  style="background-color: rgb(22, 119, 255);"
+                  class="ant-color-picker-color-block-inner"
+                  style="background: rgb(22, 119, 255);"
                 />
               </div>
             </div>
@@ -2306,21 +2271,6 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           class="ant-color-picker-slider-container"
                         >
                           <div
-                            class="ant-color-picker-display"
-                          >
-                            <div
-                              class="ant-color-picker-display-container"
-                            >
-                              <div
-                                class="ant-color-picker-display-block"
-                              />
-                              <div
-                                class="ant-color-picker-display-layer"
-                                style="background: rgb(22, 119, 255);"
-                              />
-                            </div>
-                          </div>
-                          <div
                             class="ant-color-picker-slider-group"
                           >
                             <div
@@ -2365,6 +2315,14 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                 />
                               </div>
                             </div>
+                          </div>
+                          <div
+                            class="ant-color-picker-color-block"
+                          >
+                            <div
+                              class="ant-color-picker-color-block-inner"
+                              style="background: rgb(22, 119, 255);"
+                            />
                           </div>
                         </div>
                         <div
@@ -2873,11 +2831,11 @@ Array [
     class="ant-color-picker-trigger"
   >
     <div
-      class="ant-color-picker-trigger-container"
+      class="ant-color-picker-color-block"
     >
       <div
-        class="ant-color-picker-trigger-layer"
-        style="background-color: rgb(22, 119, 255);"
+        class="ant-color-picker-color-block-inner"
+        style="background: rgb(22, 119, 255);"
       />
     </div>
   </div>,
@@ -2930,21 +2888,6 @@ Array [
                 class="ant-color-picker-slider-container"
               >
                 <div
-                  class="ant-color-picker-display"
-                >
-                  <div
-                    class="ant-color-picker-display-container"
-                  >
-                    <div
-                      class="ant-color-picker-display-block"
-                    />
-                    <div
-                      class="ant-color-picker-display-layer"
-                      style="background: rgb(22, 119, 255);"
-                    />
-                  </div>
-                </div>
-                <div
                   class="ant-color-picker-slider-group"
                 >
                   <div
@@ -2989,6 +2932,14 @@ Array [
                       />
                     </div>
                   </div>
+                </div>
+                <div
+                  class="ant-color-picker-color-block"
+                >
+                  <div
+                    class="ant-color-picker-color-block-inner"
+                    style="background: rgb(22, 119, 255);"
+                  />
                 </div>
               </div>
               <div
@@ -3311,242 +3262,242 @@ Array [
                           class="ant-color-picker-presets-items"
                         >
                           <div
-                            class="ant-color-picker-presets-color"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgb(0, 0, 0);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgba(0, 0, 0, 0.88);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgba(0, 0, 0, 0.65);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgba(0, 0, 0, 0.45);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgba(0, 0, 0, 0.25);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgba(0, 0, 0, 0.15);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgba(0, 0, 0, 0.1);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgba(0, 0, 0, 0.07);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgba(0, 0, 0, 0.04);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgba(0, 0, 0, 0.02);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgb(245, 34, 45);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgb(250, 140, 22);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgb(250, 219, 20);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgb(139, 187, 17);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgb(82, 196, 26);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgb(19, 168, 168);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color ant-color-picker-presets-color-checked"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-checked"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgb(22, 119, 255);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgb(47, 84, 235);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgb(114, 46, 209);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgb(235, 47, 150);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgba(245, 34, 45, 0.3);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgba(250, 140, 22, 0.3);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgba(250, 219, 20, 0.3);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgba(139, 187, 17, 0.3);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgba(82, 196, 26, 0.3);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgba(19, 168, 168, 0.3);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgba(22, 119, 255, 0.3);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgba(47, 84, 235, 0.3);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgba(114, 46, 209, 0.3);"
                             />
                           </div>
                           <div
-                            class="ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                            class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
                           >
                             <div
-                              class="ant-color-picker-presets-color-layer"
+                              class="ant-color-picker-color-block-inner"
                               style="background: rgba(235, 47, 150, 0.3);"
                             />
                           </div>
@@ -3699,21 +3650,6 @@ Array [
                 class="ant-color-picker-slider-container"
               >
                 <div
-                  class="ant-color-picker-display"
-                >
-                  <div
-                    class="ant-color-picker-display-container"
-                  >
-                    <div
-                      class="ant-color-picker-display-block"
-                    />
-                    <div
-                      class="ant-color-picker-display-layer"
-                      style="background: rgb(22, 119, 255);"
-                    />
-                  </div>
-                </div>
-                <div
                   class="ant-color-picker-slider-group"
                 >
                   <div
@@ -3758,6 +3694,14 @@ Array [
                       />
                     </div>
                   </div>
+                </div>
+                <div
+                  class="ant-color-picker-color-block"
+                >
+                  <div
+                    class="ant-color-picker-color-block-inner"
+                    style="background: rgb(22, 119, 255);"
+                  />
                 </div>
               </div>
               <div

@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { FC } from 'react';
 import React, { useMemo } from 'react';
+import { ColorBlock } from '@rc-component/color-picker';
 import Collapse from '../../collapse';
 import { useLocale } from '../../locale';
 import type { Color } from '../color';
@@ -10,7 +11,8 @@ import { generateColor } from '../util';
 
 const { Panel } = Collapse;
 
-interface ColorPresetsProps extends Pick<ColorPickerBaseProps, 'presets' | 'prefixCls'> {
+interface ColorPresetsProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
+  presets: PresetsItem[];
   value?: Color;
   onChange?: (value: Color) => void;
 }
@@ -29,12 +31,7 @@ const isBright = (value: Color) => {
   return r * 0.299 + g * 0.587 + b * 0.114 > 192;
 };
 
-const ColorPresets: FC<ColorPresetsProps> = ({
-  prefixCls,
-  presets = [],
-  value: color,
-  onChange,
-}) => {
+const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color, onChange }) => {
   const [locale] = useLocale('ColorPicker');
   const [presetsValue] = useMergedState(genPresetColor(presets), {
     value: genPresetColor(presets),
@@ -62,22 +59,17 @@ const ColorPresets: FC<ColorPresetsProps> = ({
             <div className={`${colorPresetsPrefixCls}-items`}>
               {Array.isArray(preset?.colors) && preset?.colors.length > 0 ? (
                 preset.colors.map((presetColor: Color) => (
-                  <div
+                  <ColorBlock
                     key={`preset-${presetColor.toHexString()}`}
+                    color={generateColor(presetColor).toRgbString()}
+                    prefixCls={prefixCls}
                     className={classNames(`${colorPresetsPrefixCls}-color`, {
                       [`${colorPresetsPrefixCls}-color-checked`]:
                         presetColor.toHexString() === color?.toHexString(),
                       [`${colorPresetsPrefixCls}-color-bright`]: isBright(presetColor),
                     })}
                     onClick={() => handleClick(presetColor)}
-                  >
-                    <div
-                      className={`${colorPresetsPrefixCls}-color-layer`}
-                      style={{
-                        background: generateColor(presetColor).toRgbString(),
-                      }}
-                    />
-                  </div>
+                  />
                 ))
               ) : (
                 <span className={`${colorPresetsPrefixCls}-empty`}>{locale.presetEmpty}</span>

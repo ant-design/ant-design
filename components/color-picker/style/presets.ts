@@ -17,8 +17,6 @@ const genPresetsStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
     colorFill,
     colorWhite,
     colorTextTertiary,
-    borderRadiusSM,
-    colorPickerInsetShadow,
     marginXXS,
     paddingXS,
   } = token;
@@ -53,7 +51,6 @@ const genPresetsStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
         [`${componentCls}-presets-color`]: {
           position: 'relative',
           cursor: 'pointer',
-          borderRadius: borderRadiusSM,
           width: colorPickerPresetColorSize,
           height: colorPickerPresetColorSize,
 
@@ -79,8 +76,8 @@ const genPresetsStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
             top: '50%',
             insetInlineStart: '21.5%',
             display: 'table',
-            width: (colorPickerPresetColorSize / 14) * 5,
-            height: (colorPickerPresetColorSize / 14) * 8,
+            width: (colorPickerPresetColorSize / 13) * 5,
+            height: (colorPickerPresetColorSize / 13) * 8,
             border: `${token.lineWidthBold}px solid ${token.colorWhite}`,
             borderTop: 0,
             borderInlineStart: 0,
@@ -90,19 +87,12 @@ const genPresetsStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
             transition: `all ${token.motionDurationFast} ${token.motionEaseInBack}, opacity ${token.motionDurationFast}`,
           },
 
-          [`${componentCls}-presets-color-layer`]: {
-            width: '100%',
-            height: '100%',
-            boxShadow: colorPickerInsetShadow,
-            borderRadius: borderRadiusSM,
-          },
-
           [`&${componentCls}-presets-color-checked`]: {
             '&::after': {
               opacity: 1,
               borderColor: colorWhite,
               transform: 'rotate(45deg) scale(1) translate(-50%,-50%)',
-              transition: `all ${token.motionDurationMid} ${token.motionEaseOutBack} ${token.motionDurationFast}`,
+              transition: `transform ${token.motionDurationMid} ${token.motionEaseOutBack} ${token.motionDurationFast}`,
             },
             [`&${componentCls}-presets-color-bright`]: {
               '&::after': {

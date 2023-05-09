@@ -5,11 +5,11 @@ exports[`renders components/color-picker/demo/allowClear.tsx correctly 1`] = `
   class="ant-color-picker-trigger"
 >
   <div
-    class="ant-color-picker-trigger-container"
+    class="ant-color-picker-color-block"
   >
     <div
-      class="ant-color-picker-trigger-layer"
-      style="background-color:rgb(22, 119, 255)"
+      class="ant-color-picker-color-block-inner"
+      style="background:rgb(22, 119, 255)"
     />
   </div>
 </div>
@@ -20,11 +20,11 @@ exports[`renders components/color-picker/demo/base.tsx correctly 1`] = `
   class="ant-color-picker-trigger"
 >
   <div
-    class="ant-color-picker-trigger-container"
+    class="ant-color-picker-color-block"
   >
     <div
-      class="ant-color-picker-trigger-layer"
-      style="background-color:rgb(22, 119, 255)"
+      class="ant-color-picker-color-block-inner"
+      style="background:rgb(22, 119, 255)"
     />
   </div>
 </div>
@@ -35,11 +35,11 @@ exports[`renders components/color-picker/demo/disabled.tsx correctly 1`] = `
   class="ant-color-picker-trigger ant-color-picker-trigger-disabled"
 >
   <div
-    class="ant-color-picker-trigger-container"
+    class="ant-color-picker-color-block"
   >
     <div
-      class="ant-color-picker-trigger-layer"
-      style="background-color:rgb(22, 119, 255)"
+      class="ant-color-picker-color-block-inner"
+      style="background:rgb(22, 119, 255)"
     />
   </div>
 </div>
@@ -71,11 +71,11 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
               class="ant-color-picker-trigger"
             >
               <div
-                class="ant-color-picker-trigger-container"
+                class="ant-color-picker-color-block"
               >
                 <div
-                  class="ant-color-picker-trigger-layer"
-                  style="background-color:rgb(22, 119, 255)"
+                  class="ant-color-picker-color-block-inner"
+                  style="background:rgb(22, 119, 255)"
                 />
               </div>
             </div>
@@ -117,11 +117,11 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
               class="ant-color-picker-trigger"
             >
               <div
-                class="ant-color-picker-trigger-container"
+                class="ant-color-picker-color-block"
               >
                 <div
-                  class="ant-color-picker-trigger-layer"
-                  style="background-color:rgb(23, 120, 255)"
+                  class="ant-color-picker-color-block-inner"
+                  style="background:rgb(23, 120, 255)"
                 />
               </div>
             </div>
@@ -162,11 +162,11 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
               class="ant-color-picker-trigger"
             >
               <div
-                class="ant-color-picker-trigger-container"
+                class="ant-color-picker-color-block"
               >
                 <div
-                  class="ant-color-picker-trigger-layer"
-                  style="background-color:rgb(22, 119, 255)"
+                  class="ant-color-picker-color-block-inner"
+                  style="background:rgb(22, 119, 255)"
                 />
               </div>
             </div>
@@ -195,11 +195,11 @@ exports[`renders components/color-picker/demo/presets.tsx correctly 1`] = `
   class="ant-color-picker-trigger"
 >
   <div
-    class="ant-color-picker-trigger-container"
+    class="ant-color-picker-color-block"
   >
     <div
-      class="ant-color-picker-trigger-layer"
-      style="background-color:rgb(22, 119, 255)"
+      class="ant-color-picker-color-block-inner"
+      style="background:rgb(22, 119, 255)"
     />
   </div>
 </div>
