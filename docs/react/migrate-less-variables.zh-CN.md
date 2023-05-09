@@ -21,12 +21,7 @@ title: Less 变量迁移 Design Token
 
 <!-- ### BreadCrumb 面包屑 -->
 
-### Button 按钮
-
-<!-- prettier-ignore -->
-| Less 变量 | Component Token | 备注 |
-| --- | --- | --- |
-| `@button-font-weight` | `componentFontWeight` | - |
+<!-- ### Button 按钮 -->
 
 <!-- ### Calendar 日历 -->
 
@@ -114,18 +109,7 @@ title: Less 变量迁移 Design Token
 | `@modal-confirm-title-font-size` | `titleFontSize` | - |
 | `@modal-border-radius` | `borderRadiusLG` | 全局 Token |
 
-### Notification 通知提醒框
-
-<!-- prettier-ignore -->
-| Less 变量 | Component Token | 备注 |
-| --- | --- | --- |
-| `@notification-width` | `componentWidth` | - |
-| `@notification-padding` | `componentPaddingInlineStart` `componentPaddingInlineEnd` `componentPaddingBlockStart` `componentPaddingBlockEnd` | - |
-| `@notification-padding-vertical` | `componentPaddingBlockStart` `componentPaddingBlockEnd` | - |
-| `@notification-padding-horizontal` | `componentPaddingInlineStart` `componentPaddingInlineEnd` | - |
-| `@notification-margin-bottom` | `componentMarginBottom` | - |
-| `@notification-margin-edge` | `componentMarginInlineEnd` | - |
-| `@notification-bg` | `componentBg` | - |
+<!-- ### Notification 通知提醒框 -->
 
 <!-- ### Pagination 分页 -->
 

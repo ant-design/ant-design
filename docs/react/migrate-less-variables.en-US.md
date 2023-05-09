@@ -21,12 +21,7 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### BreadCrumb -->
 
-### Button
-
-<!-- prettier-ignore -->
-| Less variables | Component Token | Note |
-| --- | --- | --- |
-| `@button-font-weight` | `componentFontWeight` | - |
+<!-- ### Button -->
 
 <!-- ### Calendar -->
 
@@ -114,18 +109,7 @@ This document contains the correspondence between all the less variables related
 | `@modal-confirm-title-font-size` | `titleFontSize` | - |
 | `@modal-border-radius` | `borderRadiusLG` | GlobalToken |
 
-### Notification
-
-<!-- prettier-ignore -->
-| Less variables | Component Token | Note |
-| --- | --- | --- |
-| `@notification-width` | `componentWidth` | - |
-| `@notification-padding` | `componentPaddingInlineStart` `componentPaddingInlineEnd` `componentPaddingBlockStart` `componentPaddingBlockEnd` | - |
-| `@notification-padding-vertical` | `componentPaddingBlockStart` `componentPaddingBlockEnd` | - |
-| `@notification-padding-horizontal` | `componentPaddingInlineStart` `componentPaddingInlineEnd` | - |
-| `@notification-margin-bottom` | `componentMarginBottom` | - |
-| `@notification-margin-edge` | `componentMarginInlineEnd` | - |
-| `@notification-bg` | `componentBg` | - |
+<!-- ### Notification -->
 
 <!-- ### Pagination -->
 
