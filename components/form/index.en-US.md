@@ -593,6 +593,10 @@ See similar issues: [#28370](https://github.com/ant-design/ant-design/issues/283
 
 `scrollToFirstError` and `scrollToField` deps on `id` attribute passed to form control, please make sure that it hasn't been ignored in your custom form control. Check [codesandbox](https://codesandbox.io/s/antd-reproduction-template-forked-25nul?file=/index.js) for solution.
 
+### Continue, why not use `ref` to bind element?
+
+Form can not get real DOM node when customize component not support `ref`. It will get warning in React Strict Mode if wrap with Class Component and call `findDOMNode`. So we use `id` to locate element.
+
 ### `setFieldsValue` do not trigger `onFieldsChange` or `onValuesChange`?
 
 It's by design. Only user interactive can trigger the change event. This design is aim to avoid call `setFieldsValue` in change event which may makes loop calling.
