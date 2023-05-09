@@ -41,6 +41,7 @@ const ColorSteppers: FC<ColorSteppersProps> = ({
       max={max}
       value={stepValue}
       formatter={formatter}
+      size="small"
       onChange={(step) => {
         if (!value) {
           setStepValue(step || 0);

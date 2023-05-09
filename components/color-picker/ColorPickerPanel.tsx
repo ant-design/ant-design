@@ -43,15 +43,12 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
       {Array.isArray(presets) && (
         <>
           <Divider className={`${colorPickerPanelPrefixCls}-divider`} />
-          <div className={`${colorPickerPanelPrefixCls}-presets`}>
-            <ColorPresets
-              value={color}
-              presets={presets}
-              onChange={(value) => onChange?.(value)}
-              prefixCls={prefixCls}
-              {...injectProps}
-            />
-          </div>
+          <ColorPresets
+            value={color}
+            presets={presets}
+            onChange={(value) => onChange?.(value)}
+            prefixCls={prefixCls}
+          />
         </>
       )}
     </div>

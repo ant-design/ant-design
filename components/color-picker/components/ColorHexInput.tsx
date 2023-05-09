@@ -34,14 +34,13 @@ const ColorHexInput: FC<ColorHexInputProps> = ({ prefixCls, value, onChange }) =
   };
 
   return (
-    <div className={colorHexInputPrefixCls}>
-      <Input
-        className={`${colorHexInputPrefixCls}-input`}
-        value={hexValue?.toUpperCase()}
-        prefix="#"
-        onChange={handleHexChange}
-      />
-    </div>
+    <Input
+      className={colorHexInputPrefixCls}
+      value={hexValue?.toUpperCase()}
+      prefix="#"
+      onChange={handleHexChange}
+      size="small"
+    />
   );
 };
 

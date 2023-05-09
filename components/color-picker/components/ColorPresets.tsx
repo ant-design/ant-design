@@ -67,22 +67,16 @@ const ColorPresets: FC<ColorPresetsProps> = ({
                     className={classNames(`${colorPresetsPrefixCls}-color`, {
                       [`${colorPresetsPrefixCls}-color-checked`]:
                         presetColor.toHexString() === color?.toHexString(),
+                      [`${colorPresetsPrefixCls}-color-bright`]: isBright(presetColor),
                     })}
                     onClick={() => handleClick(presetColor)}
                   >
                     <div
-                      className={classNames(`${colorPresetsPrefixCls}-color-box`, {
-                        [`${colorPresetsPrefixCls}-color-bright`]: isBright(presetColor),
-                      })}
-                    >
-                      <div className={`${colorPresetsPrefixCls}-color-block`} />
-                      <div
-                        className={`${colorPresetsPrefixCls}-color-layer`}
-                        style={{
-                          background: generateColor(presetColor).toRgbString(),
-                        }}
-                      />
-                    </div>
+                      className={`${colorPresetsPrefixCls}-color-layer`}
+                      style={{
+                        background: generateColor(presetColor).toRgbString(),
+                      }}
+                    />
                   </div>
                 ))
               ) : (

@@ -11,7 +11,7 @@ export interface Color
 
 export class ColorFactory {
   /** Original Color object */
-  metaColor: RcColor;
+  private metaColor: RcColor;
 
   constructor(color: ColorGenInput<Color>) {
     this.metaColor = new RcColor(color as ColorGenInput);

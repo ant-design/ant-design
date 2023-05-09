@@ -9,11 +9,12 @@ import type { CSSProperties } from 'react';
 import React, { useContext, useState } from 'react';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
+import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import theme from '../theme';
 import ColorPickerPanel from './ColorPickerPanel';
 import type { Color } from './color';
-import ColorPlaceholder from './components/ColorPlaceholder';
+import ColorTrigger from './components/ColorTrigger';
 import useColorState from './hooks/useColorState';
 import type { ColorFormat, ColorPickerBaseProps, PresetsItem } from './interface';
 import useStyle from './style/index';
@@ -104,11 +105,9 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
     setClearColor(clear);
   };
 
-  const extraProps = {
-    prefixCls,
+  const popoverProps: PopoverProps = {
     open: popupOpen,
     trigger,
-    disabled,
     placement,
     arrow,
     rootClassName,
@@ -132,14 +131,18 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
       content={
         <ColorPickerPanel {...colorBaseProps} onChange={handleChange} onClear={handleClear} />
       }
-      {...extraProps}
+      overlayClassName={prefixCls}
+      {...popoverProps}
     >
       {children || (
-        <ColorPlaceholder
-          popupOpen={popupOpen}
+        <ColorTrigger
+          open={popupOpen}
           className={mergeCls}
           style={style}
-          {...colorBaseProps}
+          color={colorValue}
+          prefixCls={prefixCls}
+          clearColor={clearColor}
+          disabled={disabled}
         />
       )}
     </Popover>,
