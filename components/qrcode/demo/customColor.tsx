@@ -17,7 +17,7 @@ const App: React.FC = () => {
         value="https://ant.design/"
         color={token.colorInfoText}
         style={{ marginBottom: 16 }}
-        bgColor="skyblue"
+        bgColor={token.colorBgLayout}
       />
     </Space>
   );

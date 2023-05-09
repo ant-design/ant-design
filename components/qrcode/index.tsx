@@ -76,7 +76,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   });
 
   return wrapSSR(
-    <div style={{ ...style, width: size, height: size }} className={cls}>
+    <div style={{ ...style, width: size, height: size, backgroundColor: bgColor }} className={cls}>
       {status !== 'active' && (
         <div className={`${prefixCls}-mask`}>
           {status === 'loading' && <Spin />}
