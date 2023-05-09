@@ -5,10 +5,10 @@ import type { GenerateStyle } from '../../theme/internal';
 const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const {
     componentCls,
-    descriptionWidth,
+    descriptionMaxWidth,
     lineHeight,
-    stepsCurrentDotSize,
-    stepsDotSize,
+    dotCurrentSize,
+    dotSize,
     motionDurationSlow,
   } = token;
 
@@ -20,11 +20,11 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) =
         },
 
         '&-tail': {
-          top: Math.floor((token.stepsDotSize - token.lineWidth * 3) / 2),
+          top: Math.floor((token.dotSize - token.lineWidth * 3) / 2),
           width: '100%',
           marginTop: 0,
           marginBottom: 0,
-          marginInline: `${descriptionWidth / 2}px 0`,
+          marginInline: `${descriptionMaxWidth / 2}px 0`,
           padding: 0,
 
           '&::after': {
@@ -34,11 +34,11 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) =
           },
         },
         '&-icon': {
-          width: stepsDotSize,
-          height: stepsDotSize,
-          marginInlineStart: (token.descriptionWidth - stepsDotSize) / 2,
+          width: dotSize,
+          height: dotSize,
+          marginInlineStart: (token.descriptionMaxWidth - dotSize) / 2,
           paddingInlineEnd: 0,
-          lineHeight: `${stepsDotSize}px`,
+          lineHeight: `${dotSize}px`,
           background: 'transparent',
           border: 0,
 
@@ -54,7 +54,7 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) =
             '&::after': {
               position: 'absolute',
               top: -token.marginSM,
-              insetInlineStart: (stepsDotSize - token.controlHeightLG * 1.5) / 2,
+              insetInlineStart: (dotSize - token.controlHeightLG * 1.5) / 2,
               width: token.controlHeightLG * 1.5,
               height: token.controlHeight,
               background: 'transparent',
@@ -64,16 +64,16 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) =
         },
 
         '&-content': {
-          width: descriptionWidth,
+          width: descriptionMaxWidth,
         },
         [`&-process ${componentCls}-item-icon`]: {
           position: 'relative',
-          top: (stepsDotSize - stepsCurrentDotSize) / 2,
-          width: stepsCurrentDotSize,
-          height: stepsCurrentDotSize,
-          lineHeight: `${stepsCurrentDotSize}px`,
+          top: (dotSize - dotCurrentSize) / 2,
+          width: dotCurrentSize,
+          height: dotCurrentSize,
+          lineHeight: `${dotCurrentSize}px`,
           background: 'none',
-          marginInlineStart: (token.descriptionWidth - stepsCurrentDotSize) / 2,
+          marginInlineStart: (token.descriptionMaxWidth - dotCurrentSize) / 2,
         },
         [`&-process ${componentCls}-icon`]: {
           [`&:first-child ${componentCls}-icon-dot`]: {
@@ -84,39 +84,39 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) =
     },
     [`&${componentCls}-vertical${componentCls}-dot`]: {
       [`${componentCls}-item-icon`]: {
-        marginTop: (token.controlHeight - stepsDotSize) / 2,
+        marginTop: (token.controlHeight - dotSize) / 2,
         marginInlineStart: 0,
         background: 'none',
       },
       [`${componentCls}-item-process ${componentCls}-item-icon`]: {
-        marginTop: (token.controlHeight - stepsCurrentDotSize) / 2,
+        marginTop: (token.controlHeight - dotCurrentSize) / 2,
         top: 0,
-        insetInlineStart: (stepsDotSize - stepsCurrentDotSize) / 2,
+        insetInlineStart: (dotSize - dotCurrentSize) / 2,
         marginInlineStart: 0,
       },
 
       // https://github.com/ant-design/ant-design/issues/18354
       [`${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]: {
-        top: (token.controlHeight - stepsDotSize) / 2,
+        top: (token.controlHeight - dotSize) / 2,
         insetInlineStart: 0,
         margin: 0,
-        padding: `${stepsDotSize + token.paddingXS}px 0 ${token.paddingXS}px`,
+        padding: `${dotSize + token.paddingXS}px 0 ${token.paddingXS}px`,
 
         '&::after': {
-          marginInlineStart: (stepsDotSize - token.lineWidth) / 2,
+          marginInlineStart: (dotSize - token.lineWidth) / 2,
         },
       },
 
       [`&${componentCls}-small`]: {
         [`${componentCls}-item-icon`]: {
-          marginTop: (token.controlHeightSM - stepsDotSize) / 2,
+          marginTop: (token.controlHeightSM - dotSize) / 2,
         },
         [`${componentCls}-item-process ${componentCls}-item-icon`]: {
-          marginTop: (token.controlHeightSM - stepsCurrentDotSize) / 2,
+          marginTop: (token.controlHeightSM - dotCurrentSize) / 2,
         },
 
         [`${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]: {
-          top: (token.controlHeightSM - stepsDotSize) / 2,
+          top: (token.controlHeightSM - dotSize) / 2,
         },
       },
 

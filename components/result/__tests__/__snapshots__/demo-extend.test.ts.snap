@@ -1022,6 +1022,66 @@ exports[`renders components/result/demo/500.tsx extend context correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/result/demo/component-token.tsx extend context correctly 1`] = `
+<div
+  class="ant-result ant-result-success"
+>
+  <div
+    class="ant-result-icon"
+  >
+    <span
+      aria-label="check-circle"
+      class="anticon anticon-check-circle"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="check-circle"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="ant-result-title"
+  >
+    Successfully Purchased Cloud Server ECS!
+  </div>
+  <div
+    class="ant-result-subtitle"
+  >
+    Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait.
+  </div>
+  <div
+    class="ant-result-extra"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Go Console
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Buy Again
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`renders components/result/demo/customIcon.tsx extend context correctly 1`] = `
 <div
   class="ant-result ant-result-info"
