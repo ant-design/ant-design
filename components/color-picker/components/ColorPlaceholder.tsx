@@ -8,11 +8,24 @@ interface ColorPlaceholderProps extends ColorPickerBaseProps {
   popupOpen?: boolean;
   className?: string;
   style?: CSSProperties;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
+  onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
+  onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 const ColorPlaceholder: FC<ColorPlaceholderProps> = (props) => {
-  const { color, prefixCls, popupOpen, clearColor, disabled, className, direction, ...resetProps } =
-    props;
+  const {
+    color,
+    prefixCls,
+    popupOpen,
+    clearColor,
+    disabled,
+    className,
+    onClick,
+    onMouseEnter,
+    onMouseLeave,
+  } = props;
+  const eventProps = { onClick, onMouseEnter, onMouseLeave };
   const colorInputPrefixCls = `${prefixCls}-placeholder`;
 
   const containerRender = useMemo(
@@ -30,7 +43,7 @@ const ColorPlaceholder: FC<ColorPlaceholderProps> = (props) => {
           />
         </div>
       ),
-    [color, clearColor, direction],
+    [color, clearColor],
   );
 
   return (
@@ -39,7 +52,7 @@ const ColorPlaceholder: FC<ColorPlaceholderProps> = (props) => {
         [`${colorInputPrefixCls}-active`]: popupOpen,
         [`${colorInputPrefixCls}-disabled`]: disabled,
       })}
-      {...resetProps}
+      {...eventProps}
     >
       {containerRender}
     </div>

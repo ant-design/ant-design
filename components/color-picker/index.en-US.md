@@ -7,7 +7,6 @@ demo:
   cols: 2
 group:
   title: Data Entry
-  order: 5
 ---
 
 Components providing color selection

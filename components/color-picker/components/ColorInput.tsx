@@ -16,7 +16,7 @@ interface ColorInputProps extends ColorPickerBaseProps {
 }
 
 const ColorInput: FC<ColorInputProps> = (props) => {
-  const { prefixCls, format = 'hex', onFormatChange } = props;
+  const { value, prefixCls, format = 'hex', onFormatChange, onChange } = props;
   const [colorFormat, setColorFormat] = useState(ColorFormat[format]);
 
   const colorInputPrefixCls = `${prefixCls}-color-input`;
@@ -30,11 +30,11 @@ const ColorInput: FC<ColorInputProps> = (props) => {
     /* eslint-disable default-case */
     switch (colorFormat) {
       case ColorFormat.hex:
-        return <ColorHexInput {...props} />;
+        return <ColorHexInput value={value} onChange={onChange} prefixCls={prefixCls} />;
       case ColorFormat.hsb:
-        return <ColorHsbInput {...props} />;
+        return <ColorHsbInput value={value} onChange={onChange} prefixCls={prefixCls} />;
       case ColorFormat.rgb:
-        return <ColorRgbInput {...props} />;
+        return <ColorRgbInput value={value} onChange={onChange} prefixCls={prefixCls} />;
     }
   };
 
@@ -67,7 +67,7 @@ const ColorInput: FC<ColorInputProps> = (props) => {
         </div>
         <div className={`${colorInputPrefixCls}-picker`}>
           {steppersRender()}
-          <ColorAlphaInput {...props} />
+          <ColorAlphaInput value={value} onChange={onChange} prefixCls={prefixCls} />
         </div>
       </div>
     </div>

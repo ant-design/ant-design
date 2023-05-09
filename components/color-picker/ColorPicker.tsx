@@ -1,5 +1,8 @@
-import type { ColorPickerProps as RcColorPickerProps } from '@rc-component/color-picker';
-
+import type {
+  ColorPickerPanelProps as RcColorPickerPanelProps,
+  TriggerPlacement,
+  TriggerType,
+} from '@rc-component/color-picker';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties } from 'react';
@@ -18,22 +21,28 @@ import { customizePrefixCls, generateColor } from './util';
 
 export interface ColorPickerProps
   extends Omit<
-    RcColorPickerProps,
+    RcColorPickerPanelProps,
     'onChange' | 'arrow' | 'value' | 'defaultValue' | 'children' | 'panelRender'
   > {
   value?: Color | string;
   defaultValue?: Color | string;
   children?: React.ReactElement;
+  open?: boolean;
+  disabled?: boolean;
+  placement?: TriggerPlacement;
+  trigger?: TriggerType;
   format?: keyof typeof ColorFormat;
-  onFormatChange?: (format: ColorFormat) => void;
-  onChange?: (value: Color, hex: string) => void;
   allowClear?: boolean;
   presets?: PresetsItem[];
   arrow?: boolean | { pointAtCenter: boolean };
   prefixCls?: string;
   className?: string;
   style?: CSSProperties;
+  styles?: { popup?: CSSProperties };
   rootClassName?: string;
+  onOpenChange?: (open: boolean) => void;
+  onFormatChange?: (format: ColorFormat) => void;
+  onChange?: (value: Color, hex: string) => void;
 }
 
 const ColorPicker: React.FC<ColorPickerProps> = (props) => {
@@ -41,14 +50,11 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
     value,
     defaultValue,
     format,
-    onFormatChange,
-    onChange,
     allowClear = false,
     presets,
     children,
     trigger = 'click',
     open,
-    onOpenChange,
     disabled,
     placement = 'bottomLeft',
     arrow = true,
@@ -56,6 +62,9 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
     className,
     rootClassName,
     styles,
+    onFormatChange,
+    onChange,
+    onOpenChange,
   } = props;
 
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -75,7 +84,10 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
-  const mergeCls = classNames(rootClassName, className, hashId);
+  const mergeRootCls = classNames(rootClassName, {
+    [`${prefixCls}-rtl`]: direction,
+  });
+  const mergeCls = classNames(mergeRootCls, className, hashId);
 
   const handleChange = (data: Color) => {
     const color: Color = generateColor(data);
@@ -110,7 +122,6 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
     disabled,
     presets,
     format,
-    direction,
     onFormatChange,
   };
 

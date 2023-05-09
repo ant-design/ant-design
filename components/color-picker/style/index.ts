@@ -70,6 +70,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
         '&-hidden': {
           display: 'none',
         },
+
         [`${componentCls}-content`]: {
           [`${componentCls}-inner`]: {
             padding: 0,
@@ -314,9 +315,6 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
             transform: 'rotate(-45deg)',
             backgroundColor: red6,
           },
-          '&-rtl::after': {
-            direction: 'ltr',
-          },
         },
         [`${componentCls}-presets`]: {
           [`${antCls}-collapse-item > ${antCls}-collapse-header`]: {
@@ -374,9 +372,6 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
                     '&:after': {
                       borderColor: colorTextTertiary,
                     },
-                  },
-                  '&-rtl::after': {
-                    direction: 'ltr',
                   },
                 },
               },
@@ -488,6 +483,11 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
             '&-rtl::after': {
               direction: 'ltr',
             },
+          },
+        },
+        '&-rtl': {
+          [`${componentCls}-clear,${componentCls}-presets-color-box`]: {
+            direction: 'ltr',
           },
         },
       },

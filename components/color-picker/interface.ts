@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react';
-import type { DirectionType } from '../config-provider';
 import type { ColorPickerProps } from './ColorPicker';
 import type { Color } from './color';
 
@@ -18,7 +17,6 @@ export interface ColorPickerBaseProps {
   allowClear?: boolean;
   clearColor?: boolean;
   disabled?: boolean;
-  direction?: DirectionType;
   presets?: PresetsItem[];
   onFormatChange?: ColorPickerProps['onFormatChange'];
 }

@@ -8,7 +8,6 @@ demo:
   cols: 2
 group:
   title: 数据录入
-  order: 5
 ---
 
 提供颜色选取的组件

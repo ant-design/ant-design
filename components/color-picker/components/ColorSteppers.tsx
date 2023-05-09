@@ -15,8 +15,6 @@ interface ColorSteppersProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
   formatter?: InputNumberProps<number>['formatter'];
 }
 
-const isNumber = (value: number | undefined) => typeof value === 'number' && !isNaN(value);
-
 const ColorSteppers: FC<ColorSteppersProps> = ({
   prefixCls,
   min = 0,
@@ -31,7 +29,7 @@ const ColorSteppers: FC<ColorSteppersProps> = ({
 
   // Update step value
   useEffect(() => {
-    if (isNumber(value)) {
+    if (value) {
       setStepValue(value);
     }
   }, [value]);
@@ -44,7 +42,7 @@ const ColorSteppers: FC<ColorSteppersProps> = ({
       value={stepValue}
       formatter={formatter}
       onChange={(step) => {
-        if (!isNumber(value)) {
+        if (!value) {
           setStepValue(step || 0);
         }
         onChange?.(step);
