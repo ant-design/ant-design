@@ -5,6 +5,7 @@ import * as React from 'react';
 import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
 
 import useStyle from './style';
 
@@ -64,9 +65,10 @@ const CompactItem: React.FC<React.PropsWithChildren<SpaceCompactItemContextType>
 
 const Compact: React.FC<SpaceCompactProps> = (props) => {
   const { getPrefixCls, direction: directionConfig } = React.useContext(ConfigContext);
+  const sizeInContext = React.useContext(SizeContext);
 
   const {
-    size = 'middle',
+    size = sizeInContext || 'middle',
     direction,
     block,
     prefixCls: customizePrefixCls,

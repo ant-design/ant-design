@@ -14748,7 +14748,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize large 1
   class="config-space-compact config-space-compact-block config-dropdown-button"
 >
   <button
-    class="config-btn config-btn-default config-btn-compact-item config-btn-compact-first-item"
+    class="config-btn config-btn-default config-btn-lg config-btn-compact-item config-btn-compact-first-item"
     type="button"
   >
     <span>
@@ -14756,7 +14756,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize large 1
     </span>
   </button>
   <button
-    class="config-btn config-btn-default config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-dropdown-trigger"
+    class="config-btn config-btn-default config-btn-lg config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-dropdown-trigger"
     type="button"
   >
     <span
@@ -14834,7 +14834,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize small 1
   class="config-space-compact config-space-compact-block config-dropdown-button"
 >
   <button
-    class="config-btn config-btn-default config-btn-compact-item config-btn-compact-first-item"
+    class="config-btn config-btn-default config-btn-sm config-btn-compact-item config-btn-compact-first-item"
     type="button"
   >
     <span>
@@ -14842,7 +14842,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize small 1
     </span>
   </button>
   <button
-    class="config-btn config-btn-default config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-dropdown-trigger"
+    class="config-btn config-btn-default config-btn-sm config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-dropdown-trigger"
     type="button"
   >
     <span
