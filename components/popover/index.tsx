@@ -44,6 +44,16 @@ const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
+  const mergedOverlay = React.useMemo<React.ReactNode>(() => {
+    if (_overlay) {
+      return _overlay;
+    }
+    if (!title && !content) {
+      return null;
+    }
+    return <Overlay prefixCls={prefixCls} title={title} content={content} />;
+  }, [_overlay, title, content, prefixCls]);
+
   return (
     <Tooltip
       placement={placement}
@@ -54,12 +64,7 @@ const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
       {...otherProps}
       prefixCls={prefixCls}
       ref={ref}
-      overlay={
-        _overlay ||
-        (title || content ? (
-          <Overlay prefixCls={prefixCls} title={title} content={content} />
-        ) : null)
-      }
+      overlay={mergedOverlay}
       transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
     />
   );
