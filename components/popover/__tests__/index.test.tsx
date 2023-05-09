@@ -15,7 +15,7 @@ describe('Popover', () => {
     );
     expect(document.querySelector('.ant-popover')).toBe(null);
     fireEvent.click(popover.container.querySelector('span')!);
-    const popup = document.querySelector('.ant-popover');
+    const popup = document.querySelector('.ant-popover')!;
     expect(popup.querySelector('.ant-popover-inner-content')).toBeTruthy();
   });
 
