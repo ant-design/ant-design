@@ -52,7 +52,7 @@ issue 作为 GitHub 平台上的一个功能，它像一个信息汇总中心一
 
 ### 常见 issue 答疑
 
-对于一些常见的 issue，团队提供了详细的解答，以帮助开发者更快地解决问题。例如 issue 的 title 中包含有 `官网`、`网站`、`挂了`、`IE` 等类似关键词时，在 [issue-open-check.yml#L43-L94](https://github.com/ant-design/ant-design/blob/da83561f9cb57b0eb03d18543d96393689f799be/.github/workflows/issue-open-check.yml#L43-L94) Job 中详细记录了标准回复格式，并且将自动关闭 issue
+对于一些常见的 issue，团队提供了详细的解答，以帮助开发者更快地解决问题。例如 issue 的 title 中包含有 `官网`、`网站`、`挂了`、`IE` 等类似关键词时，在 [issue-open-check.yml#L43-L94](https://github.com/ant-design/ant-design/blob/da83561f9cb57b0eb03d18543d96393689f799be/.github/workflows/issue-open-check.yml#L43-L94) Job 中详细记录了标准回复格式，并且将自动关闭 issue。
 
 ![issue-auto-comment-preview](https://user-images.githubusercontent.com/32004925/231660324-b763d7ac-95d8-431a-a31d-69b2eff72dfd.png)
 
