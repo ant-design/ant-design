@@ -20,17 +20,15 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
   const extraPanelRender = (panel: React.ReactElement) => (
     <div className={colorPickerPanelPrefixCls}>
       {allowClear && (
-        <div className={`${colorPickerPanelPrefixCls}-clear`}>
-          <ColorClear
-            prefixCls={prefixCls}
-            value={color}
-            onChange={(clearColor) => {
-              onChange?.(clearColor);
-              onClear?.(true);
-            }}
-            {...injectProps}
-          />
-        </div>
+        <ColorClear
+          prefixCls={prefixCls}
+          value={color}
+          onChange={(clearColor) => {
+            onChange?.(clearColor);
+            onClear?.(true);
+          }}
+          {...injectProps}
+        />
       )}
       {panel}
       <ColorInput

@@ -70,7 +70,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
     controlHeightSM,
     colorPickerInsetShadow,
     colorBgTextActive,
-    colorPickerPreviewSize,
+    colorPickerPresetColorSize,
     lineWidth,
     colorBorder,
   } = token;
@@ -84,9 +84,8 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           width: colorPickerWidth,
 
           [`${componentCls}-inner-panel`]: {
-            '&-clear': {
-              display: 'flex',
-              justifyContent: 'flex-end',
+            [`${componentCls}-clear`]: {
+              marginInlineStart: 'auto',
               marginBottom: marginXS,
             },
             '&-divider': {
@@ -97,7 +96,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           ...genPickerStyle(token),
           ...genInputStyle(token),
           ...genPresetsStyle(token),
-          ...genClearStyle(token, colorPickerPreviewSize),
+          ...genClearStyle(token, colorPickerPresetColorSize),
         },
 
         '&-trigger': {
@@ -141,11 +140,6 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
               width: '100%',
               height: '100%',
             },
-          },
-        },
-        '&-rtl': {
-          [`${componentCls}-clear,${componentCls}-presets-color-box`]: {
-            direction: 'ltr',
           },
           ...genClearStyle(token, controlHeightSM),
         },

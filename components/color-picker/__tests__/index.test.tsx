@@ -19,13 +19,13 @@ describe('ColorPicker', () => {
 
   it('Should component render correct', () => {
     const { container } = render(<ColorPicker />);
-    expect(container.querySelector('.ant-color-picker-placeholder')).toBeTruthy();
+    expect(container.querySelector('.ant-color-picker-trigger')).toBeTruthy();
   });
 
   it('Should component defaultValue work', () => {
     const { container } = render(<ColorPicker defaultValue="#000000" />);
     expect(
-      container.querySelector('.ant-color-picker-placeholder-layer')?.getAttribute('style'),
+      container.querySelector('.ant-color-picker-trigger-layer')?.getAttribute('style'),
     ).toEqual('background-color: rgb(0, 0, 0);');
   });
 
@@ -62,26 +62,26 @@ describe('ColorPicker', () => {
 
   it('Should popup open work', async () => {
     const { container } = render(<ColorPicker />);
-    fireEvent.click(container.querySelector('.ant-color-picker-placeholder')!);
+    fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-color-picker')).toBeTruthy();
-    fireEvent.click(container.querySelector('.ant-color-picker-placeholder')!);
+    fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
-    expect(container.querySelector('.ant-color-picker-hidden')).toBeTruthy();
+    expect(container.querySelector('.ant-popover-hidden')).toBeTruthy();
   });
 
   it('Should disabled work', async () => {
     const { container } = render(<ColorPicker disabled />);
-    expect(container.querySelector('.ant-color-picker-placeholder-disabled')).toBeTruthy();
+    expect(container.querySelector('.ant-color-picker-trigger-disabled')).toBeTruthy();
     expect(container).toMatchSnapshot();
-    fireEvent.click(container.querySelector('.ant-color-picker-placeholder')!);
+    fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-color-picker')).toBeFalsy();
   });
 
   it('Should allowClear work', async () => {
     const { container } = render(<ColorPicker allowClear />);
-    fireEvent.click(container.querySelector('.ant-color-picker-placeholder')!);
+    fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-color-picker-clear')).toBeTruthy();
     fireEvent.click(container.querySelector('.ant-color-picker-clear')!);
@@ -89,13 +89,13 @@ describe('ColorPicker', () => {
       container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
     ).toEqual('0%');
     expect(
-      container.querySelector('.ant-color-picker-placeholder .ant-color-picker-clear'),
+      container.querySelector('.ant-color-picker-trigger .ant-color-picker-clear'),
     ).toBeTruthy();
     fireEvent.change(container.querySelector('.ant-color-picker-alpha-input input')!, {
       target: { value: 1 },
     });
     expect(
-      container.querySelector('.ant-color-picker-placeholder .ant-color-picker-clear'),
+      container.querySelector('.ant-color-picker-trigger .ant-color-picker-clear'),
     ).toBeFalsy();
   });
 
@@ -112,7 +112,7 @@ describe('ColorPicker', () => {
     expect(container.querySelector('.ant-color-picker')).toBeTruthy();
     fireEvent.click(container.querySelector('.trigger')!);
     await waitFakeTimer();
-    expect(container.querySelector('.ant-color-picker-hidden')).toBeTruthy();
+    expect(container.querySelector('.ant-popover-hidden')).toBeTruthy();
   });
 
   it('Should preset color work', async () => {
@@ -145,11 +145,11 @@ describe('ColorPicker', () => {
       />,
     );
 
-    fireEvent.click(container.querySelector('.ant-color-picker-placeholder')!);
+    fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
     const presetsColors = container
-      .querySelectorAll('.ant-collapse-content')[0]
-      .querySelectorAll('.ant-color-picker-presets-color');
+      .querySelector('.ant-collapse-content')
+      ?.querySelectorAll('.ant-color-picker-presets-color')!;
 
     expect(container.querySelector('.ant-color-picker-presets')).toBeTruthy();
     expect(presetsColors.length).toBe(10);
@@ -160,13 +160,17 @@ describe('ColorPicker', () => {
     ).toBeTruthy();
 
     fireEvent.click(presetsColors[0]);
-    expect(presetsColors[0].querySelector('.ant-color-picker-presets-color-bright')).toBeFalsy();
+    expect(
+      presetsColors[0].classList.contains('ant-color-picker-presets-color-bright'),
+    ).toBeFalsy();
     expect(
       container.querySelector('.ant-color-picker-hex-input input')?.getAttribute('value'),
     ).toEqual('000000');
 
     fireEvent.click(presetsColors[9]);
-    expect(presetsColors[9].querySelector('.ant-color-picker-presets-color-bright')).toBeTruthy();
+    expect(
+      presetsColors[9].classList.contains('ant-color-picker-presets-color-bright'),
+    ).toBeTruthy();
     expect(
       container.querySelector('.ant-color-picker-hex-input input')?.getAttribute('value'),
     ).toEqual('00000005');
@@ -176,11 +180,11 @@ describe('ColorPicker', () => {
 
   it('Should format change work', async () => {
     const { container } = render(<ColorPicker />);
-    fireEvent.click(container.querySelector('.ant-color-picker-placeholder')!);
+    fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-color-picker-hex-input')).toBeTruthy();
     fireEvent.mouseDown(
-      container.querySelector('.ant-color-picker-color-input-select .ant-select-selector')!,
+      container.querySelector('.ant-color-picker-format-select .ant-select-selector')!,
     );
     await waitFakeTimer();
     fireEvent.click(container.querySelector('.ant-select-item[title="HSB"]')!);
@@ -188,7 +192,7 @@ describe('ColorPicker', () => {
     expect(container.querySelector('.ant-color-picker-hsb-input')).toBeTruthy();
 
     fireEvent.mouseDown(
-      container.querySelector('.ant-color-picker-color-input-select .ant-select-selector')!,
+      container.querySelector('.ant-color-picker-format-select .ant-select-selector')!,
     );
     await waitFakeTimer();
     fireEvent.click(container.querySelector('.ant-select-item[title="RGB"]')!);
@@ -202,7 +206,7 @@ describe('ColorPicker', () => {
       target: { value: 631515 },
     });
     expect(
-      container.querySelector('.ant-color-picker-placeholder-layer')?.getAttribute('style'),
+      container.querySelector('.ant-color-picker-trigger-layer')?.getAttribute('style'),
     ).toEqual('background-color: rgb(99, 21, 21);');
   });
 
@@ -219,7 +223,7 @@ describe('ColorPicker', () => {
       target: { value: 21 },
     });
     expect(
-      container.querySelector('.ant-color-picker-placeholder-layer')?.getAttribute('style'),
+      container.querySelector('.ant-color-picker-trigger-layer')?.getAttribute('style'),
     ).toEqual('background-color: rgb(99, 21, 21);');
   });
 
@@ -236,7 +240,7 @@ describe('ColorPicker', () => {
       target: { value: 39 },
     });
     expect(
-      container.querySelector('.ant-color-picker-placeholder-layer')?.getAttribute('style'),
+      container.querySelector('.ant-color-picker-trigger-layer')?.getAttribute('style'),
     ).toEqual('background-color: rgb(99, 22, 22);');
   });
 });

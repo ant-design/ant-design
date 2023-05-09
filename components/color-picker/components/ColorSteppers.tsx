@@ -29,7 +29,7 @@ const ColorSteppers: FC<ColorSteppersProps> = ({
 
   // Update step value
   useEffect(() => {
-    if (value) {
+    if (!Number.isNaN(value)) {
       setStepValue(value);
     }
   }, [value]);

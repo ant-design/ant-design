@@ -21,7 +21,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, colorTriggerProps>((props, ref) 
   const containerRender = useMemo(
     () =>
       clearColor ? (
-        <ColorClear {...props} />
+        <ColorClear prefixCls={prefixCls} />
       ) : (
         <div className={`${colorTriggerPrefixCls}-container`}>
           <div
