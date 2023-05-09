@@ -33,9 +33,9 @@ describe('Popover', () => {
 
     const popup = document.querySelector('.ant-popover');
     expect(popup).not.toBe(null);
-    expect(popup.innerHTML).toContain('some-title');
-    expect(popup.innerHTML).toContain('some-content');
-    expect(popup.innerHTML).toMatchSnapshot();
+    expect(popup?.innerHTML).toContain('some-title');
+    expect(popup?.innerHTML).toContain('some-content');
+    expect(popup?.innerHTML).toMatchSnapshot();
   });
 
   it('handles empty title/content props safely', () => {
