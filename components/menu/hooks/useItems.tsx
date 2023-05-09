@@ -32,7 +32,12 @@ export interface MenuDividerType extends RcMenuDividerType {
   key?: React.Key;
 }
 
-export type ItemType = MenuItemType | SubMenuType | MenuItemGroupType | MenuDividerType | null;
+export type ItemType<T extends MenuItemType = MenuItemType> =
+  | T
+  | SubMenuType
+  | MenuItemGroupType
+  | MenuDividerType
+  | null;
 
 function convertItemsToNodes(list: ItemType[]) {
   return (list || [])
