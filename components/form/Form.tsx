@@ -15,6 +15,7 @@ import { FormContext } from './context';
 import useForm, { type FormInstance } from './hooks/useForm';
 import type { FormLabelAlign } from './interface';
 
+import useFormWarning from './hooks/useFormWarning';
 import useStyle from './style';
 
 export type RequiredMark = boolean | 'optional';
@@ -64,6 +65,11 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     name,
     ...restFormProps
   } = props;
+
+  if (process.env.NODE_ENV !== 'production') {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useFormWarning(props);
+  }
 
   const mergedRequiredMark = useMemo(() => {
     if (requiredMark !== undefined) {
