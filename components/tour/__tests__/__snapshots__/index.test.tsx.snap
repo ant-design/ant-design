@@ -11,7 +11,7 @@ exports[`Tour Primary 1`] = `
     </button>
     <div
       class="ant-tour ant-tour-primary ant-tour-placement-bottom"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
     >
       <div
         class="ant-tour-arrow"
@@ -215,7 +215,7 @@ exports[`Tour controlled current 1`] = `
     </div>
     <div
       class="ant-tour ant-tour-primary ant-tour-placement-bottom"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
     >
       <div
         class="ant-tour-content"
@@ -339,7 +339,7 @@ exports[`Tour controlled current 1`] = `
 exports[`Tour custom step pre btn & next btn className & style 1`] = `
 <div
   class="ant-tour ant-tour-placement-bottom"
-  style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
 >
   <div
     class="ant-tour-content"
@@ -426,7 +426,7 @@ exports[`Tour single 1`] = `
     </button>
     <div
       class="ant-tour ant-tour-placement-bottom"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
     >
       <div
         class="ant-tour-arrow"
@@ -585,7 +585,7 @@ exports[`Tour step support Primary 1`] = `
     </button>
     <div
       class="ant-tour ant-tour-primary ant-tour-placement-bottom"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
     >
       <div
         class="ant-tour-arrow"
