@@ -2,9 +2,9 @@ import type { MenuRef as RcMenuRef } from 'rc-menu';
 import { ItemGroup } from 'rc-menu';
 import * as React from 'react';
 import { forwardRef, useImperativeHandle, useRef } from 'react';
+import { SiderContext } from '../layout/Sider';
 import type { MenuProps } from './menu';
 import InternalMenu from './menu';
-import { SiderContext } from '../layout/Sider';
 import type { MenuTheme } from './MenuContext';
 import MenuDivider from './MenuDivider';
 import Item, { type MenuItemProps } from './MenuItem';
@@ -19,8 +19,8 @@ export type MenuRef = {
   focus: (options?: FocusOptions) => void;
 };
 
-type CompoundedComponent = React.ForwardRefExoticComponent<
-  MenuProps & React.RefAttributes<MenuRef>
+type CompoundedComponent<T = {}> = React.ForwardRefExoticComponent<
+  MenuProps<T> & React.RefAttributes<MenuRef>
 > & {
   Item: typeof Item;
   SubMenu: typeof SubMenu;
@@ -28,7 +28,7 @@ type CompoundedComponent = React.ForwardRefExoticComponent<
   ItemGroup: typeof ItemGroup;
 };
 
-const Menu = forwardRef<MenuRef, MenuProps>((props, ref) => {
+const MenuWithRef = forwardRef<MenuRef, MenuProps>((props, ref) => {
   const menuRef = useRef<RcMenuRef>(null);
   const context = React.useContext(SiderContext);
 
@@ -40,6 +40,10 @@ const Menu = forwardRef<MenuRef, MenuProps>((props, ref) => {
   }));
   return <InternalMenu ref={menuRef} {...props} {...context} />;
 }) as CompoundedComponent;
+
+const Menu = <T = {},>(props: MenuProps<T> & { ref?: React.Ref<MenuRef> }) => (
+  <MenuWithRef {...props} ref={props.ref} />
+);
 
 Menu.Item = Item;
 Menu.SubMenu = SubMenu;
