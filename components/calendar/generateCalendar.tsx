@@ -204,10 +204,8 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     const onInternalSelect = (date: DateType, selectType?: CalendarSelectable) => {
       triggerChange(date);
 
-      if (selectable && selectable.length > 0 && selectType) {
-        if (!selectable.includes(selectType)) {
-          return;
-        }
+      if (selectType && !(selectable || []).includes(selectType)) {
+        return;
       }
       onSelect?.(date);
     };
