@@ -2,16 +2,15 @@
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
+import useSize from '../_util/hooks/useSize';
 import { cloneElement } from '../_util/reactNode';
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
 import useResponsiveObserver, { responsiveArray } from '../_util/responsiveObserver';
 import warning from '../_util/warning';
+import { ConfigContext } from '../config-provider';
 import DescriptionsItem from './Item';
 import Row from './Row';
-
 import useStyle from './style';
-import SizeContext from '../config-provider/SizeContext';
 
 export interface DescriptionsContextProps {
   labelStyle?: React.CSSProperties;
@@ -138,8 +137,7 @@ function Descriptions({
   const [screens, setScreens] = React.useState<ScreenMap>({});
   const mergedColumn = getColumn(column, screens);
 
-  const size = React.useContext(SizeContext);
-  const mergedSize = customizeSize ?? size;
+  const mergedSize = useSize(customizeSize);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const responsiveObserver = useResponsiveObserver();
