@@ -42,6 +42,7 @@ demo:
 <code src="./demo/drag-sorting.tsx">上传列表拖拽排序</code>
 <code src="./demo/crop-image.tsx">上传前裁切图片</code>
 <code src="./demo/customize-progress-bar.tsx">自定义进度条样式</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
