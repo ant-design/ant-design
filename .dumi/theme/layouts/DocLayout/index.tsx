@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import { Helmet, useOutlet, useSiteData } from 'dumi';
-import React, { useContext, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
+import React, { useContext, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
 import GlobalStyles from '../../common/GlobalStyles';
@@ -14,6 +14,8 @@ import SiteContext from '../../slots/SiteContext';
 import '../../static/style';
 import ResourceLayout from '../ResourceLayout';
 import SidebarLayout from '../SidebarLayout';
+import NProgress from '../../common/NProgress';
+import { ProgressContext } from '../../../hooks/useProgress';
 
 const locales = {
   cn: {
@@ -35,6 +37,7 @@ const DocLayout: React.FC = () => {
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const { direction } = useContext(SiteContext);
   const { loading } = useSiteData();
+  const [progressing, setProgressing] = useState<boolean>(false);
 
   useLayoutEffect(() => {
     if (lang === 'cn') {
@@ -57,7 +60,7 @@ const DocLayout: React.FC = () => {
   useEffect(() => {
     const id = hash.replace('#', '');
 
-    if (id) document.getElementById(decodeURIComponent(id))?.scrollIntoView();
+    if (id && !loading) document.getElementById(decodeURIComponent(id))?.scrollIntoView();
   }, [loading, hash]);
 
   React.useEffect(() => {
@@ -112,9 +115,12 @@ const DocLayout: React.FC = () => {
         />
       </Helmet>
       <ConfigProvider direction={direction} locale={lang === 'cn' ? zhCN : undefined}>
-        <GlobalStyles />
-        <Header />
-        {content}
+        <ProgressContext.Provider value={setProgressing}>
+          <GlobalStyles />
+          <Header />
+          <NProgress isAnimating={loading || progressing} />
+          {content}
+        </ProgressContext.Provider>
       </ConfigProvider>
     </>
   );
