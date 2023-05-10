@@ -305,6 +305,107 @@ exports[`renders components/statistic/demo/card.tsx extend context correctly 1`]
 </div>
 `;
 
+exports[`renders components/statistic/demo/component-token.tsx extend context correctly 1`] = `
+<div
+  class="ant-row"
+  style="margin-left: -8px; margin-right: -8px;"
+>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left: 8px; padding-right: 8px;"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Active Users
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          <span
+            class="ant-statistic-content-value-int"
+          >
+            112,893
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left: 8px; padding-right: 8px;"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Account Balance (CNY)
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          <span
+            class="ant-statistic-content-value-int"
+          >
+            112,893
+          </span>
+          <span
+            class="ant-statistic-content-value-decimal"
+          >
+            .00
+          </span>
+        </span>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-primary"
+      style="margin-top: 16px;"
+      type="button"
+    >
+      <span>
+        Recharge
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left: 8px; padding-right: 8px;"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Active Users
+      </div>
+      <div
+        class="ant-skeleton ant-statistic-skeleton"
+      >
+        <div
+          class="ant-skeleton-content"
+        >
+          <h3
+            class="ant-skeleton-title"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/statistic/demo/countdown.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
