@@ -374,7 +374,7 @@ describe('Progress', () => {
       </Tooltip>,
     );
     expect(errSpy).not.toHaveBeenCalledWith(
-      'Warning: findDOMNode is deprecated in StrictMode. findDOMNode was passed an instance of DomWrapper which is inside StrictMode. Instead, add a ref directly to the element you want to reference. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-find-node',
+      expect.stringContaining('findDOMNode is deprecated in StrictMode'),
     );
     errSpy.mockRestore();
   });
