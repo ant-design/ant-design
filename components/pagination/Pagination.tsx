@@ -8,6 +8,7 @@ import RcPagination from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import SizeContext from '../config-provider/SizeContext';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { useLocale } from '../locale';
 import { MiddleSelect, MiniSelect } from './Select';
@@ -38,7 +39,7 @@ const Pagination: React.FC<PaginationProps> = ({
   selectPrefixCls: customizeSelectPrefixCls,
   className,
   rootClassName,
-  size,
+  size: customizeSize,
   locale: customLocale,
   selectComponentClass,
   responsive,
@@ -98,7 +99,9 @@ const Pagination: React.FC<PaginationProps> = ({
 
   const locale = { ...contextLocale, ...customLocale };
 
-  const isSmall = size === 'small' || !!(xs && !size && responsive);
+  const size = React.useContext(SizeContext);
+  const mergedSize = customizeSize ?? size;
+  const isSmall = mergedSize === 'small' || !!(xs && !mergedSize && responsive);
 
   const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
   const extendedClassName = classNames(

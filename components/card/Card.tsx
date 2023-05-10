@@ -116,10 +116,12 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
   };
 
   let head: React.ReactNode;
+  const mergedSize = customizeSize || size;
+  const tabSize = !mergedSize || mergedSize === 'default' ? 'large' : mergedSize;
   const tabs =
     tabList && tabList.length ? (
       <Tabs
-        size="large"
+        size={tabSize}
         {...extraProps}
         className={`${prefixCls}-head-tabs`}
         onChange={onTabChange}
@@ -152,7 +154,6 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
       <ul className={`${prefixCls}-actions`}>{getAction(actions)}</ul>
     ) : null;
   const divProps = omit(others, ['onTabChange']);
-  const mergedSize = customizeSize || size;
   const classString = classNames(
     prefixCls,
     {
