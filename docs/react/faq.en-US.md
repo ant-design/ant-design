@@ -7,13 +7,9 @@ Here are the frequently asked questions about Ant Design and antd that you shoul
 
 ---
 
-## Will you provide Sass/Stylus(etc.) style files in addition to the Less style files currently included?
-
-There is currently no plan to add support for Sass/Stylus(etc.) style files, but using tools on Google you can easily convert the provided Less files to your desired style format.
-
 ## Is there a difference between `undefined` and `null` in the controlled components of `antd`?
 
-**Yes. antd will treats `undefined` as uncontrolled but `null` as controlled components which means empty value of it.**
+**Yes. antd will treat `undefined` as uncontrolled but `null` as controlled component which means empty value of it.**
 
 As input element, React treats both `undefined` and `null` as uncontrolled. When the `value` is converted from a valid value to `undefined` or `null`, the component is no longer controlled, which causes some unexpected cases.
 
@@ -23,7 +19,11 @@ Note: For `options` in `Select-like` components, it is **strongly recommended no
 
 ## Can I use internal API which is not documented on the site?
 
-NOT RECOMMEND. Internal API is not guaranteed to be compatible with future versions. It may be removed or changed in some versions. If you really need to use it, you should to make sure these API is still valid when upgrading to a new version or just lock version for usage.
+NOT RECOMMENDED. Internal API is not guaranteed to be compatible with future versions. It may be removed or changed in some versions. If you really need to use it, you should make sure these APIs are still valid when upgrading to a new version or just lock version for usage.
+
+## Why API request should be strict discussion?
+
+We are cautious when adding APIs because some APIs may not be abstract enough to become historical debt. For example, when there is a need to change the way of interaction, these poor abstractions may cause breaking changes. To avoid such problems, we recommend that new features be implemented through HOCs first.
 
 ## `Select Dropdown DatePicker TimePicker Popover Popconfirm` disappears when I click another popup component inside it. How do I resolve this?
 
@@ -35,7 +35,7 @@ Related issue: [#3487](https://github.com/ant-design/ant-design/issues/3487) [#3
 
 ## How do I prevent `Select Dropdown DatePicker TimePicker Popover Popconfirm` scrolling with the page?
 
-Use `<Select getPopupContainer={trigger => trigger.parentElement}>` ([API reference](/components/select/#Select-props)) to render a component inside the scroll area. If you need to config this globally in your application, try `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>` ([API reference](/components/config-provider/#API))
+Use `<Select getPopupContainer={trigger => trigger.parentElement}>` ([API reference](/components/select/#select-props)) to render a component inside the scroll area. If you need to config this globally in your application, try `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>` ([API reference](/components/config-provider/#api))
 
 And make sure that parentElement is `position: relative` or `position: absolute`.
 
@@ -61,9 +61,9 @@ And which you should avoid to do:
 - Bug as feature. It will break in any other case (e.g. Use div as Tabs children)
 - Use magic code to realize requirement but which can be realized with normal API
 
-## How do I replace Moment.js with Day.js to reduce bundle size？
+## How to use other data-time lib like Moment.js?
 
-Please refer to [Replace Moment.js](/docs/react/replace-moment).
+Please refer to [Use custom date library](/docs/react/use-custom-date-library).
 
 ## It doesn't work when I change `defaultValue` dynamically.
 
@@ -85,7 +85,7 @@ Try [Space](https://ant.design/components/space/) component to make them aligned
 
 Yes, antd is designed to help you develop a complete background application. To do so, we override some global styles for styling convenience, and currently these cannot be removed or changed. More info at https://github.com/ant-design/ant-design/issues/4331 .
 
-Alternatively, follow the instructions in [How to avoid modifying global styles?](/docs/react/customize-theme#How-to-avoid-modifying-global-styles)
+Alternatively, follow the instructions in [How to avoid modifying global styles?](/docs/react/customize-theme#how-to-avoid-modifying-global-styles)
 
 ## I cannot install `antd` and `antd`'s dependencies in mainland China.
 
@@ -105,7 +105,7 @@ Please check [Ant Design Mobile](http://mobile.ant.design) as a possible solutio
 
 ## Does `antd` supply standalone files like 'React'?
 
-Yes, you can [import `antd` with script tag](https://ant.design/docs/react/introduce#Import-in-Browser), but we recommend using `npm` to import `antd`, as it is simple and easy to maintain.
+Yes, you can [import `antd` with script tag](https://ant.design/docs/react/introduce#import-in-browser), but we recommend using `npm` to import `antd`, as it is simple and easy to maintain.
 
 ## How do I extend antd's components?
 
@@ -126,24 +126,25 @@ type DataSource = TableProps['dataSource'];
 
 ## Date-related components locale is not working?
 
-Please check whether import moment locale correctly.
+Please check whether you have imported dayjs locale correctly.
 
 ```jsx
-import 'moment/locale/zh-cn';
-moment.locale('zh-cn');
+import 'dayjs/locale/zh-cn';
+
+dayjs.locale('zh-cn');
 ```
 
-Please check whether there is two version of moment installed.
+Please check whether there are two versions of dayjs installed.
 
 ```jsx
-npm ls moment
+npm ls dayjs
 ```
 
-If you are using a mismatched version of moment with [antd's moment](https://github.com/ant-design/ant-design/blob/7dfc80504a36cf8952cd732a1d0c137a16d56fd4/package.json#L125) in your project. That would be a problem cause locale not working.
+If you are using a mismatched version of dayjs with [antd's dayjs](https://github.com/ant-design/ant-design/blob/7dfc80504a36cf8952cd732a1d0c137a16d56fd4/package.json#L125) in your project. That would be a problem cause locale not working.
 
 ## How do I fix dynamic styles while using a Content Security Policy (CSP)?
 
-You can configure `nonce` by [ConfigProvider](/components/config-provider/#Content-Security-Policy).
+You can configure `nonce` by [ConfigProvider](/components/config-provider/#content-security-policy).
 
 ## When I set `mode` to `DatePicker`/`RangePicker`, why can I not select a year or month anymore?
 
@@ -152,7 +153,7 @@ In a real world development, you may need a `YearPicker`, `MonthRangePicker` or 
 - Reproduction link: https://codesandbox.io/s/dank-brook-v1csy
 - Same issues：[#15572](https://github.com/ant-design/ant-design/issues/15572), [#16436](https://github.com/ant-design/ant-design/issues/16436), [#11938](https://github.com/ant-design/ant-design/issues/11938), [#11735](https://github.com/ant-design/ant-design/issues/11735), [#11586](https://github.com/ant-design/ant-design/issues/11586), [#10425](https://github.com/ant-design/ant-design/issues/10425), [#11053](https://github.com/ant-design/ant-design/issues/11053)
 
-Like [the explaination](https://github.com/ant-design/ant-design/issues/11586#issuecomment-429189877) explains, this is because `<DatePicker mode="year" />` does not equal the `YearPicker`, nor is `<RangePicker mode="month" />` equal to `MonthRangePicker`. The `mode` property was added to support [showing time picker panel in DatePicker](https://github.com/ant-design/ant-design/issues/5190) in antd 3.0, which simply controls the displayed panel, and won't change the original date picking behavior of `DatePicker`/`RangePicker` (for instance you will still need to click date cell to finish selection in a `DatePicker`, whatever the `mode` is).
+Like [the explanation](https://github.com/ant-design/ant-design/issues/11586#issuecomment-429189877) explains, this is because `<DatePicker mode="year" />` does not equal the `YearPicker`, nor is `<RangePicker mode="month" />` equal to `MonthRangePicker`. The `mode` property was added to support [showing time picker panel in DatePicker](https://github.com/ant-design/ant-design/issues/5190) in antd 3.0, which simply controls the displayed panel, and won't change the original date picking behavior of `DatePicker`/`RangePicker` (for instance you will still need to click date cell to finish selection in a `DatePicker`, whatever the `mode` is).
 
 Likewise，`disabledDate` [cannot work on year/month panels](https://github.com/ant-design/ant-design/issues/9008#issuecomment-358554118) of `<DatePicker mode="year/month" />`, but only on cells of date panel.
 
@@ -166,7 +167,7 @@ Or you can simply upgrade to [antd@4.0](https://github.com/ant-design/ant-design
 
 Static methods like message/notification/Modal.confirm are not using the same render tree as `<Button />`, but rendered to independent DOM node created by `ReactDOM.render`, which cannot access React context from ConfigProvider. Consider two solutions here:
 
-1. Replace original usages with [message.useMessage](/components/message/#components-message-demo-hooks), [notification.useNotification](/components/notification/#Why-I-can-not-access-context,-redux,-ConfigProvider-locale/prefixCls-in-notification) and [Modal.useModal](/components/modal/#Why-I-can-not-access-context,-redux,-ConfigProvider-locale/prefixCls-in-Modal.xxx).
+1. Replace original usages with [message.useMessage](/components/message/#components-message-demo-hooks), [notification.useNotification](/components/notification/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-notification) and [Modal.useModal](/components/modal/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-modalxxx).
 
 2. Use `ConfigProvider.config` to config `prefixCls` globally.
 
@@ -185,6 +186,22 @@ You should only access the API by official doc with ref. Directly access interna
 ## Why we need align pop component with `open` prop?
 
 For historical reasons, the display names of the pop components are not uniform, and both `open` and `visible` are used. This makes the memory cost that non-tsx users encounter when developing. It also leads to ambiguity about what name to choose when adding a feature. So we want to unify the attribute name, you can still use the original `visible` and it will still be backward compatible, but we will remove this attribute from the documentation as of v5.
+
+## Dynamic style using `:where` selector which not support old browser.
+
+Please ref dynamic theme document [Compatible Adjustment](/docs/react/customize-theme#compatible-adjustment) part.
+
+## CSS-in-JS css priority conflict with tailwindcss?
+
+Same as above. You can adjust antd css priority to override. Related issue: [#38794](https://github.com/ant-design/ant-design/issues/38794)
+
+## How to let CSS-in-JS work with shadow DOM?
+
+Please ref document [Shadow Dom Usage](/docs/react/customize-theme#shadow-dom-usage).
+
+## How to support SSR？
+
+Please ref dynamic theme document [SSR](/docs/react/customize-theme#server-side-render-ssr) part.
 
 ## How to spell Ant Design correctly?
 

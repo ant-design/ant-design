@@ -21,8 +21,7 @@ export interface CollapsePanelProps {
   collapsible?: CollapsibleType;
   children?: React.ReactNode;
 }
-
-const CollapsePanel: React.FC<CollapsePanelProps> = props => {
+const CollapsePanel = React.forwardRef<HTMLDivElement, CollapsePanelProps>((props, ref) => {
   warning(
     !('disabled' in props),
     'Collapse.Panel',
@@ -38,7 +37,14 @@ const CollapsePanel: React.FC<CollapsePanelProps> = props => {
     },
     className,
   );
-  return <RcCollapse.Panel {...props} prefixCls={prefixCls} className={collapsePanelClassName} />;
-};
+  return (
+    <RcCollapse.Panel
+      ref={ref}
+      {...props}
+      prefixCls={prefixCls}
+      className={collapsePanelClassName}
+    />
+  );
+});
 
 export default CollapsePanel;

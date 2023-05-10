@@ -1,5 +1,5 @@
 ---
-category: 设计模式 - 探索
+group: 设计模式 - 探索
 type: 全局规则
 order: 1
 title: 导航
@@ -72,7 +72,9 @@ title: 导航
 
 ## 类型
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*MU2BQpS51mMAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*MU2BQpS51mMAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 正确理解和使用导航组件对产品全局体验至关重要。
 
@@ -98,7 +100,9 @@ title: 导航
 
 #### 侧边导航
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*fNW0Rak8sL8AAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*fNW0Rak8sL8AAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 - 很多菜单时使用，建议菜单多于 6 项时使用；
 
@@ -108,7 +112,9 @@ title: 导航
 
 #### 顶部导航
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*MmmnTKl0hO8AAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*MmmnTKl0hO8AAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 - 各菜单权重常常与排列顺序呈正相关，即排列顺序影响用户使用频次；
 
@@ -118,9 +124,10 @@ title: 导航
 
 #### 弹出式导航
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*8lgCQb8copwAAAAAAAAAAABkARQnAQ" alt="正确示范">
-
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*_k8wR4PoOSsAAAAAAAAAAABkARQnAQ" alt="错误示范">
+<ImagePreview>
+<img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*8lgCQb8copwAAAAAAAAAAABkARQnAQ" alt="正确示范">
+<img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*_k8wR4PoOSsAAAAAAAAAAABkARQnAQ" alt="错误示范">
+</ImagePreview>
 
 用于拓展导航承载层级，适用于大型网站。
 
@@ -134,7 +141,9 @@ title: 导航
 
 #### 实用工具
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*UXcoSYBXgOMAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*UXcoSYBXgOMAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 通常放在网站的右上角，是一种习惯用法，用户习惯在这个位置找到这些内容。
 
@@ -154,7 +163,9 @@ title: 导航
 
 • 语言切换
 
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DgCoRI0aFLcAAAAAAAAAAABkARQnAQ" alt="错误示范">
+<ImagePreview>
+<img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DgCoRI0aFLcAAAAAAAAAAABkARQnAQ" alt="错误示范">
+</ImagePreview>
 
 **不要将页面内的操作放到实用工具中。**
 
@@ -166,17 +177,23 @@ title: 导航
 
 > 此处的数据库是一种信息架构形式，各页面内容独立，但都遵循一致的形式/格式。
 
+<ImagePreview>
 <img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*jYG0T7S-SjsAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 #### 沉浸式导航
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*vABzS5JNgocAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*vABzS5JNgocAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 用于处理较为复杂或需要较大工作空间的任务。
 
 #### 多级站点导航
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mXw5TIVLL-sAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mXw5TIVLL-sAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 - 菜单数量较多的子站点使用；
 
@@ -188,31 +205,41 @@ title: 导航
 
 #### 页头
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Ah4HQ6gPheQAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Ah4HQ6gPheQAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 页头位于页内容上方，主要作用是申明页面主题、页内信息导航、页面级内容操作。
 
 #### Tree 树型控件
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PJ2fTKBEZIoAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PJ2fTKBEZIoAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 页面内多层次的结构展示。
 
 #### 锚点
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*d6eDQZy-6gkAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*d6eDQZy-6gkAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 在各个页面分区之间跳转，当平铺呈现的内容过长时使用。
 
 #### 回到顶部
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*-QkOT5KrcDwAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*-QkOT5KrcDwAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 快速回到页面顶部。
 
 #### 走马灯
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*gVZZQIz6yw4AAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*gVZZQIz6yw4AAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 循环播放一系列内容。
 
@@ -224,13 +251,17 @@ title: 导航
 
 #### 面包屑
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QcmiTLXUH1oAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QcmiTLXUH1oAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 反映当前页面在网站结构中的位置，在少于三个层级时无需展示，此时的全局导航能直接呈现位置。用户可通过面包屑返回上级页面。
 
 #### 返回按钮
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*z1XdRrwsqgQAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*z1XdRrwsqgQAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 **一般标题会和面包屑一起出现，有面包屑时标题默认不推荐使用返回按钮。**
 
@@ -240,7 +271,9 @@ title: 导航
 
 #### 步骤条
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*jhNXQL5oRaMAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*jhNXQL5oRaMAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 按照预先定义的顺序引导用户一步一步前后移动。
 
@@ -254,7 +287,9 @@ title: 导航
 
 #### 上一篇下一篇
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*5Es3S4HJvrEAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*5Es3S4HJvrEAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 协助我们移动到其他关系紧密的网页。
 

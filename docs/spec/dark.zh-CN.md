@@ -1,5 +1,5 @@
 ---
-category: 全局样式
+group: 全局样式
 order: 6
 title: 暗黑模式
 ---
@@ -28,18 +28,10 @@ title: 暗黑模式
 
 ### 基础色板
 
-```__react
-import ColorPalettes from '../../site/theme/template/Color/ColorPalettes';
-
-ReactDOM.render(<ColorPalettes dark />, mountNode);
-```
+<ColorPalettes dark={true}></ColorPalettes>
 
 ### 色板生成工具
 
 同样，我们也提供了一套暗色下的色板生成工具，需要选择你的主色以及页面的背景色，我们会为你生成一套暗色下的色板
 
-```__react
-import ColorPaletteToolDark from '../../site/theme/template/Color/ColorPaletteToolDark';
-
-ReactDOM.render(<ColorPaletteToolDark />, mountNode);
-```
+<ColorPaletteToolDark></ColorPaletteToolDark>

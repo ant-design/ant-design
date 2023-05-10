@@ -1,15 +1,16 @@
 import EnterOutlined from '@ant-design/icons/EnterOutlined';
 import classNames from 'classnames';
-import type { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
+import type { AutoSizeType } from 'rc-textarea';
 import KeyCode from 'rc-util/lib/KeyCode';
 import * as React from 'react';
 import type { DirectionType } from '../config-provider';
 import TextArea from '../input/TextArea';
 import type { TextAreaRef } from '../input/TextArea';
 import { cloneElement } from '../_util/reactNode';
+import useStyle from './style';
 
 interface EditableProps {
-  prefixCls?: string;
+  prefixCls: string;
   value: string;
   ['aria-label']?: string;
   onSave: (value: string) => void;
@@ -113,6 +114,8 @@ const Editable: React.FC<EditableProps> = ({
 
   const textClassName = component ? `${prefixCls}-${component}` : '';
 
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const textAreaClassName = classNames(
     prefixCls,
     `${prefixCls}-edit-content`,
@@ -121,9 +124,10 @@ const Editable: React.FC<EditableProps> = ({
     },
     className,
     textClassName,
+    hashId,
   );
 
-  return (
+  return wrapSSR(
     <div className={textAreaClassName} style={style}>
       <TextArea
         ref={ref}
@@ -142,7 +146,7 @@ const Editable: React.FC<EditableProps> = ({
       {enterIcon !== null
         ? cloneElement(enterIcon, { className: `${prefixCls}-edit-content-confirm` })
         : null}
-    </div>
+    </div>,
   );
 };
 

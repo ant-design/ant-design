@@ -3,7 +3,7 @@ import type { DrawerProps } from '..';
 import Drawer from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
 
-const DrawerTest: React.FC<DrawerProps> = props => (
+const DrawerTest: React.FC<DrawerProps> = (props) => (
   <Drawer open getContainer={false} {...props}>
     Here is content of Drawer
   </Drawer>
@@ -106,12 +106,27 @@ describe('Drawer', () => {
     expect(container.querySelector('.ant-drawer-content-wrapper-hidden')).toBeTruthy();
   });
 
-  it('test afterVisibleChange', async () => {
+  it('test afterOpenChange', async () => {
+    const afterOpenChange = jest.fn();
+    const { container, rerender } = render(<DrawerTest open afterOpenChange={afterOpenChange} />);
+    rerender(<DrawerTest open={false} afterOpenChange={afterOpenChange} />);
+
+    act(() => {
+      jest.runAllTimers();
+    });
+    fireEvent.animationEnd(container.querySelector('.ant-drawer-content-wrapper')!);
+
+    expect(afterOpenChange).toHaveBeenCalledTimes(1);
+  });
+
+  it('test legacy afterVisibleChange', async () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
     const afterVisibleChange = jest.fn();
     const { container, rerender } = render(
       <DrawerTest open afterVisibleChange={afterVisibleChange} />,
     );
-    rerender(<DrawerTest open={false} afterVisibleChange={afterVisibleChange} />);
+    rerender(<DrawerTest visible={false} afterVisibleChange={afterVisibleChange} />);
 
     act(() => {
       jest.runAllTimers();
@@ -119,6 +134,14 @@ describe('Drawer', () => {
     fireEvent.animationEnd(container.querySelector('.ant-drawer-content-wrapper')!);
 
     expect(afterVisibleChange).toHaveBeenCalledTimes(1);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Drawer] `visible` is deprecated, please use `open` instead.',
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Drawer] `afterVisibleChange` is deprecated, please use `afterOpenChange` instead.',
+    );
+
+    errorSpy.mockRestore();
   });
 
   it('should support children ref', () => {

@@ -132,7 +132,6 @@ function injectSorter<RecordType>(
           className={classNames(`${prefixCls}-column-sorter-up`, {
             active: sorterOrder === ASCEND,
           })}
-          role="presentation"
         />
       );
       const downNode: React.ReactNode = sortDirections.includes(DESCEND) && (
@@ -140,7 +139,6 @@ function injectSorter<RecordType>(
           className={classNames(`${prefixCls}-column-sorter-down`, {
             active: sorterOrder === DESCEND,
           })}
-          role="presentation"
         />
       );
       const { cancelSort, triggerAsc, triggerDesc } = tableLocale || {};
@@ -166,7 +164,7 @@ function injectSorter<RecordType>(
                   [`${prefixCls}-column-sorter-full`]: !!(upNode && downNode),
                 })}
               >
-                <span className={`${prefixCls}-column-sorter-inner`}>
+                <span className={`${prefixCls}-column-sorter-inner`} aria-hidden="true">
                   {upNode}
                   {downNode}
                 </span>
@@ -179,7 +177,7 @@ function injectSorter<RecordType>(
             renderSortTitle
           );
         },
-        onHeaderCell: col => {
+        onHeaderCell: (col) => {
           const cell: React.HTMLAttributes<HTMLElement> =
             (column.onHeaderCell && column.onHeaderCell(col)) || {};
           const originOnClick = cell.onClick;
@@ -212,9 +210,7 @@ function injectSorter<RecordType>(
           if (sorterOrder) {
             cell['aria-sort'] = sorterOrder === 'ascend' ? 'ascending' : 'descending';
           } else {
-            cell['aria-label'] = `${
-              displayTitle ? `this column's title is ${displayTitle},` : ''
-            }this column is sortable`;
+            cell['aria-label'] = displayTitle || '';
           }
           cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
           cell.tabIndex = 0;
@@ -314,7 +310,7 @@ export function getSortData<RecordType>(
 
       return 0;
     })
-    .map<RecordType>(record => {
+    .map<RecordType>((record) => {
       const subRecords = (record as any)[childrenColumnName];
       if (subRecords) {
         return {
@@ -378,7 +374,7 @@ export default function useFilterSorter<RecordType>({
     }
 
     let multipleMode: boolean | null = null;
-    collectedStates.forEach(state => {
+    collectedStates.forEach((state) => {
       if (multipleMode === null) {
         patchStates(state);
 

@@ -1,9 +1,9 @@
-import React from 'react';
 import userEvent from '@testing-library/user-event';
+import React from 'react';
 import Alert from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, act, screen } from '../../../tests/utils';
+import { act, render, screen } from '../../../tests/utils';
 import Button from '../../button';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
@@ -76,9 +76,8 @@ describe('Alert', () => {
   });
 
   it('should show error as ErrorBoundary when children have error', () => {
-    jest.spyOn(console, 'error').mockImplementation(() => undefined);
-    // eslint-disable-next-line no-console
-    expect(console.error).toHaveBeenCalledTimes(0);
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    expect(warnSpy).toHaveBeenCalledTimes(0);
     // @ts-expect-error
     // eslint-disable-next-line react/jsx-no-undef
     const ThrowError = () => <NotExisted />;
@@ -91,8 +90,7 @@ describe('Alert', () => {
     expect(screen.getByRole('alert')).toHaveTextContent(
       'ReferenceError: NotExisted is not defined',
     );
-    // eslint-disable-next-line no-console
-    (console.error as any).mockRestore();
+    warnSpy.mockRestore();
   });
 
   it('could be used with Tooltip', async () => {
@@ -107,6 +105,10 @@ describe('Alert', () => {
 
     await userEvent.hover(screen.getByRole('alert'));
 
+    act(() => {
+      jest.runAllTimers();
+    });
+
     expect(screen.getByRole('tooltip')).toBeInTheDocument();
   });
 
@@ -120,6 +122,10 @@ describe('Alert', () => {
       </Popconfirm>,
     );
     await userEvent.click(screen.getByRole('alert'));
+
+    act(() => {
+      jest.runAllTimers();
+    });
 
     expect(screen.getByRole('tooltip')).toBeInTheDocument();
   });

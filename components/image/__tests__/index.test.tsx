@@ -47,6 +47,7 @@ describe('Image', () => {
 
     expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('ant-fade');
     expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('ant-zoom');
+    expect(baseElement).toMatchSnapshot();
   });
   it('Customize preview props', () => {
     const { container, baseElement } = render(
@@ -103,5 +104,16 @@ describe('Image', () => {
     baseElement.querySelector('.ant-image-preview-img')?.addEventListener('load', onLoadCb);
     fireEvent.load(baseElement.querySelector('.ant-image-preview-img')!);
     expect(onLoadCb).toHaveBeenCalled();
+  });
+  it('Preview should support rootClassName', () => {
+    const { container, baseElement } = render(
+      <Image.PreviewGroup preview={{ visible: true, rootClassName: 'test-root-class' }}>
+        <Image src={src} />
+      </Image.PreviewGroup>,
+    );
+
+    fireEvent.click(container.querySelector('.ant-image')!);
+
+    expect(baseElement.querySelector('.test-root-class')).toBeTruthy();
   });
 });

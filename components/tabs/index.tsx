@@ -6,21 +6,23 @@ import type { TabsProps as RcTabsProps } from 'rc-tabs';
 import RcTabs from 'rc-tabs';
 import type { EditableConfig } from 'rc-tabs/lib/interface';
 import * as React from 'react';
-
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import warning from '../_util/warning';
 import useAnimateConfig from './hooks/useAnimateConfig';
 import useLegacyItems from './hooks/useLegacyItems';
-import TabPane, { TabPaneProps } from './TabPane';
+import TabPane, { type TabPaneProps } from './TabPane';
+
+import useStyle from './style';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
 
-export { TabPaneProps };
+export type { TabPaneProps };
 
 export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
+  rootClassName?: string;
   type?: TabsType;
   size?: SizeType;
   hideAdd?: boolean;
@@ -33,19 +35,22 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
 function Tabs({
   type,
   className,
+  rootClassName,
   size: propSize,
   onEdit,
   hideAdd,
   centered,
   addIcon,
+  popupClassName,
   children,
   items,
   animated,
   ...props
 }: TabsProps) {
   const { prefixCls: customizePrefixCls, moreIcon = <EllipsisOutlined /> } = props;
-  const { getPrefixCls, direction, getPopupContainer } = React.useContext(ConfigContext);
+  const { direction, getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   let editable: EditableConfig | undefined;
   if (type === 'editable-card') {
@@ -70,37 +75,41 @@ function Tabs({
 
   const mergedAnimated = useAnimateConfig(prefixCls, animated);
 
-  return (
-    <SizeContext.Consumer>
-      {contextSize => {
-        const size = propSize !== undefined ? propSize : contextSize;
-        return (
-          <RcTabs
-            direction={direction}
-            getPopupContainer={getPopupContainer}
-            moreTransitionName={`${rootPrefixCls}-slide-up`}
-            {...props}
-            items={mergedItems}
-            className={classNames(
-              {
-                [`${prefixCls}-${size}`]: size,
-                [`${prefixCls}-card`]: ['card', 'editable-card'].includes(type as string),
-                [`${prefixCls}-editable-card`]: type === 'editable-card',
-                [`${prefixCls}-centered`]: centered,
-              },
-              className,
-            )}
-            editable={editable}
-            moreIcon={moreIcon}
-            prefixCls={prefixCls}
-            animated={mergedAnimated}
-          />
-        );
-      }}
-    </SizeContext.Consumer>
+  const contextSize = React.useContext<SizeType>(SizeContext);
+
+  const size = propSize !== undefined ? propSize : contextSize;
+
+  return wrapSSR(
+    <RcTabs
+      direction={direction}
+      getPopupContainer={getPopupContainer}
+      moreTransitionName={`${rootPrefixCls}-slide-up`}
+      {...props}
+      items={mergedItems}
+      className={classNames(
+        {
+          [`${prefixCls}-${size}`]: size,
+          [`${prefixCls}-card`]: ['card', 'editable-card'].includes(type as string),
+          [`${prefixCls}-editable-card`]: type === 'editable-card',
+          [`${prefixCls}-centered`]: centered,
+        },
+        className,
+        rootClassName,
+        hashId,
+      )}
+      popupClassName={classNames(popupClassName, hashId)}
+      editable={editable}
+      moreIcon={moreIcon}
+      prefixCls={prefixCls}
+      animated={mergedAnimated}
+    />,
   );
 }
 
 Tabs.TabPane = TabPane;
+
+if (process.env.NODE_ENV !== 'production') {
+  Tabs.displayName = 'Tabs';
+}
 
 export default Tabs;

@@ -8,6 +8,19 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, render, fireEvent } from '../../../tests/utils';
 
+(global as any).isVisible = true;
+
+jest.mock('rc-util/lib/Dom/isVisible', () => {
+  const mockFn = () => (global as any).isVisible;
+  return mockFn;
+});
+
+function waitRaf() {
+  act(() => {
+    jest.advanceTimersByTime(100);
+  });
+}
+
 describe('Tag', () => {
   mountTest(Tag);
   mountTest(Tag.CheckableTag);
@@ -99,43 +112,48 @@ describe('Tag', () => {
     resetWarned();
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    render(<Tag visible />);
+    const { container } = render(<Tag visible={false} />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tag] `visible` will be removed in next major version, please use `visible && <Tag />` instead.',
+      'Warning: [antd: Tag] `visible` is deprecated, please use `visible && <Tag />` instead.',
     );
+    expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
 
     errSpy.mockRestore();
   });
 
   describe('visibility', () => {
     it('can be controlled by visible with visible as initial value', () => {
-      const { asFragment, rerender } = render(<Tag visible />);
-      expect(asFragment().firstChild).toMatchSnapshot();
+      const { container, rerender } = render(<Tag visible />);
+      expect(container.querySelector('.ant-tag-hidden')).toBeFalsy();
+
       rerender(<Tag visible={false} />);
       act(() => {
         jest.runAllTimers();
       });
-      expect(asFragment().firstChild).toMatchSnapshot();
+      expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
+
       rerender(<Tag visible />);
       act(() => {
         jest.runAllTimers();
       });
-      expect(asFragment().firstChild).toMatchSnapshot();
+      expect(container.querySelector('.ant-tag-hidden')).toBeFalsy();
     });
 
     it('can be controlled by visible with hidden as initial value', () => {
-      const { asFragment, rerender } = render(<Tag visible={false} />);
-      expect(asFragment().firstChild).toMatchSnapshot();
+      const { container, rerender } = render(<Tag visible={false} />);
+      expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
+
       rerender(<Tag visible />);
       act(() => {
         jest.runAllTimers();
       });
-      expect(asFragment().firstChild).toMatchSnapshot();
+      expect(container.querySelector('.ant-tag-hidden')).toBeFalsy();
+
       rerender(<Tag visible={false} />);
       act(() => {
         jest.runAllTimers();
       });
-      expect(asFragment().firstChild).toMatchSnapshot();
+      expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
     });
   });
 
@@ -146,5 +164,11 @@ describe('Tag', () => {
       fireEvent.click(container.querySelectorAll('.ant-tag')[0]);
       expect(onChange).toHaveBeenCalledWith(true);
     });
+  });
+  it('should onClick is undefined', async () => {
+    const { container } = render(<Tag onClick={undefined} />);
+    fireEvent.click(container.querySelectorAll('.ant-tag')[0]);
+    waitRaf();
+    expect(document.querySelector('.ant-wave')).toBeFalsy();
   });
 });

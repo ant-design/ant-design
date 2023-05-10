@@ -1,10 +1,13 @@
 ---
 category: Components
 subtitle: 全局提示
-type: 反馈
+group: 反馈
 noinstant: true
 title: Message
-cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JjZBT6N1MusAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7qMTRoq3ZGkAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 全局展示操作反馈信息。
@@ -14,6 +17,19 @@ cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg
 - 可提供成功、警告和错误等反馈信息。
 - 顶部居中显示并自动消失，是一种不打断用户操作的轻量级提示方式。
 
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/hooks.tsx">Hooks 调用（推荐）</code>
+<code src="./demo/other.tsx">其他提示类型</code>
+<code src="./demo/duration.tsx">修改延时</code>
+<code src="./demo/loading.tsx">加载中</code>
+<code src="./demo/thenable.tsx">Promise 接口</code>
+<code src="./demo/custom-style.tsx">自定义样式</code>
+<code src="./demo/update.tsx">更新消息内容</code>
+<code src="./demo/info.tsx">普通提示</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+
 ## API
 
 组件提供了一些静态方法，使用方式和参数如下：
@@ -22,14 +38,13 @@ cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg
 - `message.error(content, [duration], onClose)`
 - `message.info(content, [duration], onClose)`
 - `message.warning(content, [duration], onClose)`
-- `message.warn(content, [duration], onClose)` // alias of warning
 - `message.loading(content, [duration], onClose)`
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| content | 提示内容 | ReactNode \| config | - |
-| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭 | number | 3 |
-| onClose | 关闭时触发的回调函数 | function | - |
+| 参数     | 说明                                        | 类型                | 默认值 |
+| -------- | ------------------------------------------- | ------------------- | ------ |
+| content  | 提示内容                                    | ReactNode \| config | -      |
+| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭 | number              | 3      |
+| onClose  | 关闭时触发的回调函数                        | function            | -      |
 
 组件同时提供 promise 接口。
 
@@ -45,7 +60,6 @@ cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg
 - `message.error(config)`
 - `message.info(config)`
 - `message.warning(config)`
-- `message.warn(config)` // alias of warning
 - `message.loading(config)`
 
 `config` 对象属性如下：
@@ -95,9 +109,13 @@ message.config({
 | rtl | 是否开启 RTL 模式 | boolean | false |  |
 | top | 消息距离顶部的位置 | number | 8 |  |
 
+## Design Token
+
+<ComponentTokenTable component="Message"></ComponentTokenTable>
+
 ## FAQ
 
-### 为什么 message 不能获取 context、redux 的内容和 ConfigProvider 的 `locale/prefixCls` 配置？
+### 为什么 message 不能获取 context、redux 的内容和 ConfigProvider 的 `locale/prefixCls/theme` 等配置？
 
 直接调用 message 方法，antd 会通过 `ReactDOM.render` 动态创建新的 React 实体。其 context 与当前代码所在 context 并不相同，因而无法获取 context 信息。
 
@@ -117,8 +135,10 @@ return (
 );
 ```
 
-**异同：**通过 hooks 创建的 `contextHolder` 必须插入到子元素节点中才会生效，当你不需要上下文信息时请直接调用。
+**异同**：通过 hooks 创建的 `contextHolder` 必须插入到子元素节点中才会生效，当你不需要上下文信息时请直接调用。
+
+> 可通过 [App 包裹组件](/components/app-cn) 简化 `useMessage` 等方法需要手动植入 contextHolder 的问题。
 
 ### 静态方法如何设置 prefixCls ？
 
-你可以通过 [`ConfigProvider.config`](/components/config-provider/#ConfigProvider.config()-4.13.0+) 进行设置。
+你可以通过 [`ConfigProvider.config`](/components/config-provider-cn#configproviderconfig-4130) 进行设置。

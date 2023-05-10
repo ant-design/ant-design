@@ -2,7 +2,7 @@ describe('Test warning', () => {
   let spy: jest.SpyInstance;
 
   beforeAll(() => {
-    spy = jest.spyOn(console, 'error');
+    spy = jest.spyOn(console, 'error').mockImplementation(() => {});
   });
 
   afterAll(() => {

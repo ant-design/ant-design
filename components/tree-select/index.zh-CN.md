@@ -1,9 +1,12 @@
 ---
 category: Components
 subtitle: 树选择
-type: 数据录入
+group: 数据录入
 title: TreeSelect
-cover: https://gw.alipayobjects.com/zos/alicdn/Ax4DA0njr/TreeSelect.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DfTMRYSDngEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Y5pcQLplFu4AAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 树型选择控件。
@@ -11,6 +14,20 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Ax4DA0njr/TreeSelect.svg
 ## 何时使用
 
 类似 Select 的选择控件，可选择的数据结构是一个树形结构时，可以使用 TreeSelect，例如公司层级、学科系统、分类目录等等。
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/multiple.tsx">多选</code>
+<code src="./demo/treeData.tsx">从数据直接生成</code>
+<code src="./demo/checkable.tsx">可勾选</code>
+<code src="./demo/async.tsx">异步加载</code>
+<code src="./demo/treeLine.tsx">线性样式</code>
+<code src="./demo/placement.tsx">弹出位置</code>
+<code src="./demo/status.tsx">自定义状态</code>
+<code src="./demo/suffix.tsx" debug>后缀图标</code>
+<code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 
@@ -35,12 +52,13 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Ax4DA0njr/TreeSelect.svg
 | loadData | 异步加载数据 | function(node) | - |  |
 | maxTagCount | 最多显示多少个 tag，响应式模式会对性能产生损耗 | number \| `responsive` | - | responsive: 4.10 |
 | maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode \| function(omittedValues) | - |  |
+| maxTagTextLength | 最大显示的 tag 文本长度 | number | - |  |
 | multiple | 支持多选（当设置 treeCheckable 时自动变为 true） | boolean | false |  |
 | notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `Not Found` |  |
 | placeholder | 选择框默认文字 | string | - |  |
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | searchValue | 搜索框的值，可以通过 `onSearch` 获取用户输入 | string | - |  |
-| showArrow | 是否显示 `suffixIcon`，单选模式下默认 `true` | boolean | - |  |
+| showArrow | 是否显示 `suffixIcon` | boolean | `true` |  |
 | showCheckedStrategy | 配置 `treeCheckable` 时，定义选中项回填的方式。`TreeSelect.SHOW_ALL`: 显示所有选中节点(包括父节点)。`TreeSelect.SHOW_PARENT`: 只显示父节点(当父节点下所有子节点都选中时)。 默认只显示子节点 | `TreeSelect.SHOW_ALL` \| `TreeSelect.SHOW_PARENT` \| `TreeSelect.SHOW_CHILD` | `TreeSelect.SHOW_CHILD` |  |
 | showSearch | 是否支持搜索框 | boolean | 单选：false \| 多选：true |  |
 | size | 选择框大小 | `large` \| `middle` \| `small` | - |  |
@@ -57,7 +75,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Ax4DA0njr/TreeSelect.svg
 | treeExpandAction | 点击节点 title 时的展开逻辑，可选：false \| `click` \| `doubleClick` | string \| boolean | false | 4.21.0 |
 | treeExpandedKeys | 设置展开的树节点 | string\[] | - |  |
 | treeIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式 | boolean | false |  |
-| treeLine | 是否展示线条样式，请参考 [Tree - showLine](/components/tree/#components-tree-demo-line) | boolean \| object | false | 4.17.0 |
+| treeLine | 是否展示线条样式，请参考 [Tree - showLine](/components/tree-cn#components-tree-demo-line) | boolean \| object | false | 4.17.0 |
 | treeLoadedKeys | （受控）已经加载的节点，需要配合 `loadData` 使用 | string[] | [] |  |
 | treeNodeFilterProp | 输入项过滤对应的 treeNode 属性 | string | `value` |  |
 | treeNodeLabelProp | 作为显示的 prop 设置 | string | `title` |  |
@@ -65,7 +83,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Ax4DA0njr/TreeSelect.svg
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onChange | 选中树节点时调用此函数 | function(value, label, extra) | - |  |
 | onDropdownVisibleChange | 展开下拉菜单的回调 | function(open) | - |  |
-| onSearch | 文本框值变化时回调 | function(value: string) | - |  |
+| onSearch | 文本框值变化时的回调 | function(value: string) | - |  |
 | onSelect | 被选中时调用 | function(value, node, extra) | - |  |
 | onTreeExpand | 展示节点时调用 | function(expandedKeys) | - |  |
 
@@ -91,12 +109,16 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Ax4DA0njr/TreeSelect.svg
 | title           | 树节点显示的内容                                   | ReactNode | `---`  |      |
 | value           | 默认根据此属性值进行筛选（其值在整个树范围内唯一） | string    | -      |      |
 
+## Design Token
+
+<ComponentTokenTable component="TreeSelect"></ComponentTokenTable>
+
 ## FAQ
 
 ### onChange 时如何获得父节点信息？
 
-从性能角度考虑，我们默认不透出父节点信息。你可以这样获得：<https://codesandbox.io/s/wk080nn81k>
+从性能角度考虑，我们默认不透出父节点信息。你可以这样获得：<https://codesandbox.io/s/get-parent-node-in-onchange-eb1608>
 
 ### 自定义 Option 样式导致滚动异常怎么办？
 
-请参考 Select 的 [FAQ](/components/select)。
+请参考 Select 的 [FAQ](/components/select-cn)。

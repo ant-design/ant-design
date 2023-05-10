@@ -13,14 +13,17 @@ import Paragraph from './Paragraph';
 import type { SkeletonTitleProps } from './Title';
 import Title from './Title';
 
+import useStyle from './style';
+
 /* This only for skeleton internal. */
-interface SkeletonAvatarProps extends Omit<AvatarProps, 'active'> {}
+type SkeletonAvatarProps = Omit<AvatarProps, 'active'>;
 
 export interface SkeletonProps {
   active?: boolean;
   loading?: boolean;
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
   avatar?: SkeletonAvatarProps | boolean;
@@ -29,7 +32,7 @@ export interface SkeletonProps {
   round?: boolean;
 }
 
-function getComponentProps<T>(prop: T | boolean | undefined): T | {} {
+function getComponentProps<T>(prop?: T | boolean): T | {} {
   if (prop && typeof prop === 'object') {
     return prop;
   }
@@ -75,19 +78,20 @@ function getParagraphBasicProps(hasAvatar: boolean, hasTitle: boolean): Skeleton
   return basicProps;
 }
 
-interface CompoundedComponent {
+type CompoundedComponent = {
   Button: typeof SkeletonButton;
   Avatar: typeof SkeletonAvatar;
   Input: typeof SkeletonInput;
   Image: typeof SkeletonImage;
   Node: typeof SkeletonNode;
-}
+};
 
-const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = props => {
+const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
   const {
     prefixCls: customizePrefixCls,
     loading,
     className,
+    rootClassName,
     style,
     children,
     avatar = false,
@@ -99,6 +103,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = props => {
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   if (loading || !('loading' in props)) {
     const hasAvatar = !!avatar;
@@ -164,13 +169,15 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = props => {
         [`${prefixCls}-round`]: round,
       },
       className,
+      rootClassName,
+      hashId,
     );
 
-    return (
+    return wrapSSR(
       <div className={cls} style={style}>
         {avatarNode}
         {contentNode}
-      </div>
+      </div>,
     );
   }
   return typeof children !== 'undefined' ? (children as React.ReactElement) : null;
@@ -181,5 +188,9 @@ Skeleton.Avatar = SkeletonAvatar;
 Skeleton.Input = SkeletonInput;
 Skeleton.Image = SkeletonImage;
 Skeleton.Node = SkeletonNode;
+
+if (process.env.NODE_ENV !== 'production') {
+  Skeleton.displayName = 'Skeleton';
+}
 
 export default Skeleton;

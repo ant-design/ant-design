@@ -36,7 +36,7 @@ describe('Transfer.Customize', () => {
     it('should not exist in render props', () => {
       render(
         <Transfer {...commonProps}>
-          {props => {
+          {(props) => {
             expect('handleFilter' in props).toBeFalsy();
             expect('handleSelect' in props).toBeFalsy();
             expect('handleSelectAll' in props).toBeFalsy();

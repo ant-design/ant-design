@@ -1,5 +1,5 @@
 import type { DrawerPopupProps } from 'rc-drawer/lib/DrawerPopup';
-import React from 'react';
+import React, { useState } from 'react';
 import Drawer from '..';
 import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
@@ -9,111 +9,94 @@ interface DrawerPropsType {
   placement?: DrawerPopupProps['placement'];
 }
 
-interface DrawerStateType {
-  open: boolean;
-  hasChildren: boolean;
-  childrenDrawer: boolean;
-}
+const MultiDrawer: React.FC<DrawerPropsType> = (props) => {
+  const { placement, push } = props;
 
-class MultiDrawer extends React.Component<DrawerPropsType, DrawerStateType> {
-  state = { open: false, childrenDrawer: false, hasChildren: true };
+  const [open, setOpen] = useState<boolean>(false);
+  const [hasChildren, setHasChildren] = useState<boolean>(true);
+  const [childrenDrawer, setChildrenDrawer] = useState<boolean>(false);
 
-  showDrawer = () => {
-    this.setState({
-      open: true,
-      hasChildren: true,
-    });
+  const showDrawer = () => {
+    setOpen(true);
+    setHasChildren(true);
   };
 
-  onClose = () => {
-    this.setState({
-      open: false,
-    });
+  const onClose = () => {
+    setOpen(false);
   };
 
-  showChildrenDrawer = () => {
-    this.setState({
-      childrenDrawer: true,
-      hasChildren: true,
-    });
+  const showChildrenDrawer = () => {
+    setChildrenDrawer(true);
+    setHasChildren(true);
   };
 
-  onChildrenDrawerClose = () => {
-    this.setState({
-      childrenDrawer: false,
-    });
+  const onChildrenDrawerClose = () => {
+    setChildrenDrawer(false);
   };
 
-  onRemoveChildDrawer = () => {
-    this.setState({
-      hasChildren: false,
-    });
+  const onRemoveChildDrawer = () => {
+    setHasChildren(false);
   };
 
-  render() {
-    const { childrenDrawer, open, hasChildren } = this.state;
-    const { placement, push } = this.props;
-    return (
-      <div>
-        <Button type="primary" id="open_drawer" onClick={this.showDrawer}>
-          Open drawer
+  return (
+    <div>
+      <Button type="primary" id="open_drawer" onClick={showDrawer}>
+        Open drawer
+      </Button>
+      <Button type="primary" id="remove_drawer" onClick={onRemoveChildDrawer}>
+        rm child drawer
+      </Button>
+      <Drawer
+        title="Multi-level drawer"
+        className="test_drawer"
+        width={520}
+        onClose={onClose}
+        getContainer={false}
+        placement={placement}
+        open={open}
+        push={push}
+      >
+        <Button type="primary" id="open_two_drawer" onClick={showChildrenDrawer}>
+          Two-level drawer
         </Button>
-        <Button type="primary" id="remove_drawer" onClick={this.onRemoveChildDrawer}>
-          rm child drawer
-        </Button>
-        <Drawer
-          title="Multi-level drawer"
-          className="test_drawer"
-          width={520}
-          onClose={this.onClose}
-          getContainer={false}
-          placement={placement}
-          open={open}
-          push={push}
-        >
-          <Button type="primary" id="open_two_drawer" onClick={this.showChildrenDrawer}>
-            Two-level drawer
-          </Button>
-          {hasChildren && (
-            <Drawer
-              title="Two-level Drawer"
-              width={320}
-              className="Two-level"
-              getContainer={false}
-              placement={placement}
-              onClose={this.onChildrenDrawerClose}
-              open={childrenDrawer}
-            >
-              <div id="two_drawer_text">This is two-level drawer</div>
-            </Drawer>
-          )}
-          <div
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              width: '100%',
-              borderTop: '1px solid #e8e8e8',
-              padding: '10px 16px',
-              textAlign: 'right',
-              left: 0,
-              backgroundColor: '#fff',
-              borderRadius: '0 0 4px 4px',
-            }}
+        {hasChildren && (
+          <Drawer
+            title="Two-level Drawer"
+            width={320}
+            className="Two-level"
+            getContainer={false}
+            placement={placement}
+            onClose={onChildrenDrawerClose}
+            open={childrenDrawer}
           >
-            <Button style={{ marginRight: 8 }} onClick={this.onClose}>
-              Cancel
-            </Button>
-            <Button onClick={this.onClose} type="primary">
-              Submit
-            </Button>
-          </div>
-        </Drawer>
-
-        <div className="childrenDrawer">{String(childrenDrawer)}</div>
-      </div>
-    );
-  }
-}
+            <div id="two_drawer_text">This is two-level drawer</div>
+          </Drawer>
+        )}
+        <div
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            width: '100%',
+            borderTop: '1px solid #e8e8e8',
+            padding: '10px 16px',
+            textAlign: 'right',
+            left: 0,
+            backgroundColor: '#fff',
+            borderRadius: '0 0 4px 4px',
+          }}
+        >
+          <Button style={{ marginRight: 8 }} onClick={onClose}>
+            Cancel
+          </Button>
+          <Button onClick={onClose} type="primary">
+            Submit
+          </Button>
+        </div>
+      </Drawer>
+      <div className="childrenDrawer">{String(childrenDrawer)}</div>
+    </div>
+  );
+};
 
 describe('Drawer', () => {
   it('render right MultiDrawer', () => {
@@ -151,19 +134,23 @@ describe('Drawer', () => {
   });
 
   it('render MultiDrawer is child in unmount', () => {
-    const mask = { mask: false };
-    const { container } = render(<MultiDrawer placement="top" {...mask} />);
-    fireEvent.click(container.querySelector('button#open_drawer')!);
-    fireEvent.click(container.querySelector('button#open_two_drawer')!);
-    fireEvent.click(container.querySelector('button#remove_drawer')!);
+    const { container: wrapper } = render(<MultiDrawer placement="top" />);
+    fireEvent.click(wrapper.querySelector('button#open_drawer')!);
+    fireEvent.click(wrapper.querySelector('button#open_two_drawer')!);
+    fireEvent.click(wrapper.querySelector('button#remove_drawer')!);
 
-    expect(container.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({ transform: '' });
+    // Strange, testing-lib get wrong style in next branch.
+    expect((wrapper.querySelector('.ant-drawer-content-wrapper') as any).style).toEqual(
+      expect.objectContaining({
+        transform: '',
+      }),
+    );
 
-    fireEvent.click(container.querySelector('button#open_two_drawer')!);
-    expect(container.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
+    fireEvent.click(wrapper.querySelector('button#open_two_drawer')!);
+    expect(wrapper.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
       transform: 'translateY(180px)',
     });
-    expect(container.querySelectorAll('#two_drawer_text').length).toBe(1);
+    expect(wrapper.querySelectorAll('#two_drawer_text').length).toBe(1);
   });
 
   it('custom MultiDrawer push distance', () => {
@@ -185,9 +172,13 @@ describe('Drawer', () => {
   });
 
   it('custom MultiDrawer push with false', () => {
-    const { container } = render(<MultiDrawer push={false} />);
-    fireEvent.click(container.querySelector('button#open_drawer')!);
-    fireEvent.click(container.querySelector('button#open_two_drawer')!);
-    expect(container.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({ transform: '' });
+    const { container: wrapper } = render(<MultiDrawer push={false} />);
+    fireEvent.click(wrapper.querySelector('button#open_drawer')!);
+    fireEvent.click(wrapper.querySelector('button#open_two_drawer')!);
+    expect((wrapper.querySelector('.ant-drawer-content-wrapper') as any).style).toEqual(
+      expect.objectContaining({
+        transform: '',
+      }),
+    );
   });
 });

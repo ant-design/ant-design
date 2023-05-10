@@ -1,15 +1,10 @@
 /* eslint-disable class-methods-use-this */
 import KeyCode from 'rc-util/lib/KeyCode';
-import raf from 'rc-util/lib/raf';
 import React from 'react';
 import { waitFakeTimer, render, fireEvent } from '../../../tests/utils';
 import getDataOrAriaProps from '../getDataOrAriaProps';
-import delayRaf from '../raf';
 import { isStyleSupport } from '../styleChecker';
-import {
-  throttleByAnimationFrame,
-  throttleByAnimationFrameDecorator,
-} from '../throttleByAnimationFrame';
+import throttleByAnimationFrame from '../throttleByAnimationFrame';
 import TransButton from '../transButton';
 
 describe('Test utils function', () => {
@@ -48,22 +43,6 @@ describe('Test utils function', () => {
       await waitFakeTimer();
 
       expect(callback).not.toHaveBeenCalled();
-    });
-
-    it('throttleByAnimationFrameDecorator should works', async () => {
-      const callbackFn = jest.fn();
-      class Test {
-        @throttleByAnimationFrameDecorator()
-        callback() {
-          callbackFn();
-        }
-      }
-      const test = new Test();
-      test.callback();
-      test.callback();
-      test.callback();
-      await waitFakeTimer();
-      expect(callbackFn).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -118,41 +97,9 @@ describe('Test utils function', () => {
     });
   });
 
-  it('delayRaf', done => {
-    jest.useRealTimers();
-
-    let bamboo = false;
-    delayRaf(() => {
-      bamboo = true;
-    }, 3);
-
-    // Do nothing, but insert in the frame
-    // https://github.com/ant-design/ant-design/issues/16290
-    delayRaf(() => {}, 3);
-
-    // Variable bamboo should be false in frame 2 but true in frame 4
-    raf(() => {
-      expect(bamboo).toBe(false);
-
-      // Frame 2
-      raf(() => {
-        expect(bamboo).toBe(false);
-
-        // Frame 3
-        raf(() => {
-          // Frame 4
-          raf(() => {
-            expect(bamboo).toBe(true);
-            done();
-          });
-        });
-      });
-    });
-  });
-
   describe('TransButton', () => {
     it('can be focus/blur', () => {
-      const ref = React.createRef<any>();
+      const ref = React.createRef<HTMLDivElement>();
       render(<TransButton ref={ref}>TransButton</TransButton>);
       expect(typeof ref.current?.focus).toBe('function');
       expect(typeof ref.current?.blur).toBe('function');

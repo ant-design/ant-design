@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
+import { useToken } from '../theme/internal';
 import warning from '../_util/warning';
 
 export interface ButtonGroupProps {
@@ -14,15 +15,16 @@ export interface ButtonGroupProps {
 
 export const GroupSizeContext = React.createContext<SizeType | undefined>(undefined);
 
-const ButtonGroup: React.FC<ButtonGroupProps> = props => {
+const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   const { prefixCls: customizePrefixCls, size, className, ...others } = props;
   const prefixCls = getPrefixCls('btn-group', customizePrefixCls);
 
-  // large => lg
-  // small => sm
+  const [, , hashId] = useToken();
+
   let sizeCls = '';
+
   switch (size) {
     case 'large':
       sizeCls = 'lg';
@@ -44,6 +46,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = props => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
 
   return (

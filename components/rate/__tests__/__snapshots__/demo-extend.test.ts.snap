@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/rate/demo/basic.md extend context correctly 1`] = `
+exports[`renders components/rate/demo/basic.tsx extend context correctly 1`] = `
 <ul
   class="ant-rate"
   role="radiogroup"
@@ -299,7 +299,7 @@ exports[`renders ./components/rate/demo/basic.md extend context correctly 1`] = 
 </ul>
 `;
 
-exports[`renders ./components/rate/demo/character.md extend context correctly 1`] = `
+exports[`renders components/rate/demo/character.tsx extend context correctly 1`] = `
 Array [
   <ul
     class="ant-rate"
@@ -601,7 +601,7 @@ Array [
   <ul
     class="ant-rate"
     role="radiogroup"
-    style="font-size:36px"
+    style="font-size: 36px;"
     tabindex="0"
   >
     <li
@@ -835,7 +835,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/rate/demo/character-function.md extend context correctly 1`] = `
+exports[`renders components/rate/demo/character-function.tsx extend context correctly 1`] = `
 Array [
   <ul
     class="ant-rate"
@@ -1253,7 +1253,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/rate/demo/clear.md extend context correctly 1`] = `
+exports[`renders components/rate/demo/clear.tsx extend context correctly 1`] = `
 Array [
   <ul
     class="ant-rate"
@@ -1861,7 +1861,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/rate/demo/disabled.md extend context correctly 1`] = `
+exports[`renders components/rate/demo/disabled.tsx extend context correctly 1`] = `
 <ul
   class="ant-rate ant-rate-disabled"
   role="radiogroup"
@@ -2160,7 +2160,7 @@ exports[`renders ./components/rate/demo/disabled.md extend context correctly 1`]
 </ul>
 `;
 
-exports[`renders ./components/rate/demo/half.md extend context correctly 1`] = `
+exports[`renders components/rate/demo/half.tsx extend context correctly 1`] = `
 <ul
   class="ant-rate"
   role="radiogroup"
@@ -2459,7 +2459,7 @@ exports[`renders ./components/rate/demo/half.md extend context correctly 1`] = `
 </ul>
 `;
 
-exports[`renders ./components/rate/demo/text.md extend context correctly 1`] = `
+exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
 <span>
   <ul
     class="ant-rate"
@@ -2524,27 +2524,22 @@ exports[`renders ./components/rate/demo/text.md extend context correctly 1`] = `
         </div>
       </div>
     </li>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            terrible
-          </div>
+          terrible
         </div>
       </div>
     </div>
@@ -2606,27 +2601,22 @@ exports[`renders ./components/rate/demo/text.md extend context correctly 1`] = `
         </div>
       </div>
     </li>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            bad
-          </div>
+          bad
         </div>
       </div>
     </div>
@@ -2688,27 +2678,22 @@ exports[`renders ./components/rate/demo/text.md extend context correctly 1`] = `
         </div>
       </div>
     </li>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            normal
-          </div>
+          normal
         </div>
       </div>
     </div>
@@ -2770,27 +2755,22 @@ exports[`renders ./components/rate/demo/text.md extend context correctly 1`] = `
         </div>
       </div>
     </li>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            good
-          </div>
+          good
         </div>
       </div>
     </div>
@@ -2852,27 +2832,22 @@ exports[`renders ./components/rate/demo/text.md extend context correctly 1`] = `
         </div>
       </div>
     </li>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            wonderful
-          </div>
+          wonderful
         </div>
       </div>
     </div>

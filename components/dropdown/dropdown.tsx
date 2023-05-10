@@ -3,18 +3,23 @@ import classNames from 'classnames';
 import RcDropdown from 'rc-dropdown';
 import useEvent from 'rc-util/lib/hooks/useEvent';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-import Menu from '../menu';
-import type { MenuProps } from '../menu';
-import { ConfigContext } from '../config-provider';
-import { OverrideProvider } from '../menu/OverrideContext';
+import genPurePanel from '../_util/PurePanel';
+import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import { cloneElement } from '../_util/reactNode';
-import { tuple } from '../_util/type';
 import warning from '../_util/warning';
+import { ConfigContext } from '../config-provider';
+import type { MenuProps } from '../menu';
+import Menu from '../menu';
+import { OverrideProvider } from '../menu/OverrideContext';
+import { NoCompactStyle } from '../space/Compact';
+import theme from '../theme';
 import DropdownButton from './dropdown-button';
+import useStyle from './style';
 
-const Placements = tuple(
+const Placements = [
   'topLeft',
   'topCenter',
   'topRight',
@@ -23,7 +28,7 @@ const Placements = tuple(
   'bottomRight',
   'top',
   'bottom',
-);
+] as const;
 
 type Placement = typeof Placements[number];
 
@@ -60,6 +65,7 @@ export interface DropdownProps {
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   transitionName?: string;
   placement?: Placement;
   overlayClassName?: string;
@@ -69,6 +75,7 @@ export interface DropdownProps {
   mouseLeaveDelay?: number;
   openClassName?: string;
   children?: React.ReactNode;
+  autoAdjustOverflow?: boolean | AdjustOverflow;
 
   // Deprecated
   /** @deprecated Please use `menu` instead */
@@ -79,11 +86,35 @@ export interface DropdownProps {
   onVisibleChange?: (open: boolean) => void;
 }
 
-interface DropdownInterface extends React.FC<DropdownProps> {
+type CompoundedComponent = React.FC<DropdownProps> & {
   Button: typeof DropdownButton;
-}
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof WrapPurePanel;
+};
 
-const Dropdown: DropdownInterface = props => {
+const Dropdown: CompoundedComponent = (props) => {
+  const {
+    menu,
+    arrow,
+    prefixCls: customizePrefixCls,
+    children,
+    trigger,
+    disabled,
+    dropdownRender,
+    getPopupContainer,
+    overlayClassName,
+    rootClassName,
+    open,
+    onOpenChange,
+    // Deprecated
+    visible,
+    onVisibleChange,
+    mouseEnterDelay = 0.15,
+    mouseLeaveDelay = 0.1,
+    autoAdjustOverflow = true,
+    placement = '',
+    overlay,
+    transitionName,
+  } = props;
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -110,9 +141,9 @@ const Dropdown: DropdownInterface = props => {
     );
   }
 
-  const getTransitionName = () => {
+  const memoTransitionName = React.useMemo<string>(() => {
     const rootPrefixCls = getPrefixCls();
-    const { placement = '', transitionName } = props;
+
     if (transitionName !== undefined) {
       return transitionName;
     }
@@ -120,10 +151,9 @@ const Dropdown: DropdownInterface = props => {
       return `${rootPrefixCls}-slide-down`;
     }
     return `${rootPrefixCls}-slide-up`;
-  };
+  }, [getPrefixCls, placement, transitionName]);
 
-  const getPlacement = () => {
-    const { placement } = props;
+  const memoPlacement = React.useMemo<string>(() => {
     if (!placement) {
       return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
     }
@@ -139,27 +169,26 @@ const Dropdown: DropdownInterface = props => {
     }
 
     return placement;
-  };
+  }, [placement, direction]);
 
-  const {
-    menu,
-    arrow,
-    prefixCls: customizePrefixCls,
-    children,
-    trigger,
-    disabled,
-    dropdownRender,
-    getPopupContainer,
-    overlayClassName,
-    visible,
-    open,
-    onVisibleChange,
-    onOpenChange,
-    mouseEnterDelay = 0.15,
-    mouseLeaveDelay = 0.1,
-  } = props;
+  if (process.env.NODE_ENV !== 'production') {
+    [
+      ['visible', 'open'],
+      ['onVisibleChange', 'onOpenChange'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning(
+        !(deprecatedName in props),
+        'Dropdown',
+        `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
+      );
+    });
+  }
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const { token } = theme.useToken();
+
   const child = React.Children.only(children) as React.ReactElement<any>;
 
   const dropdownTrigger = cloneElement(child, {
@@ -179,25 +208,28 @@ const Dropdown: DropdownInterface = props => {
     alignPoint = true;
   }
 
-  // =========================== Visible ============================
+  // =========================== Open ============================
   const [mergedOpen, setOpen] = useMergedState(false, {
-    value: open !== undefined ? open : visible,
+    value: open ?? visible,
   });
 
   const onInnerOpenChange = useEvent((nextOpen: boolean) => {
-    onVisibleChange?.(nextOpen);
     onOpenChange?.(nextOpen);
+    onVisibleChange?.(nextOpen);
     setOpen(nextOpen);
   });
 
   // =========================== Overlay ============================
-  const overlayClassNameCustomized = classNames(overlayClassName, {
+  const overlayClassNameCustomized = classNames(overlayClassName, rootClassName, hashId, {
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
-    autoAdjustOverflow: true,
+    autoAdjustOverflow,
+    offset: token.marginXXS,
+    arrowWidth: arrow ? token.sizePopupArrow : 0,
+    borderRadius: token.borderRadius,
   });
 
   const onMenuClick = React.useCallback(() => {
@@ -207,13 +239,12 @@ const Dropdown: DropdownInterface = props => {
   const renderOverlay = () => {
     // rc-dropdown already can process the function of overlay, but we have check logic here.
     // So we need render the element to check and pass back to rc-dropdown.
-    const { overlay } = props;
 
     let overlayNode: React.ReactNode;
     if (menu?.items) {
       overlayNode = <Menu {...menu} />;
     } else if (typeof overlay === 'function') {
-      overlayNode = (overlay as OverlayFunc)();
+      overlayNode = overlay();
     } else {
       overlayNode = overlay;
     }
@@ -244,35 +275,52 @@ const Dropdown: DropdownInterface = props => {
           );
         }}
       >
-        {overlayNode}
+        <NoCompactStyle>{overlayNode}</NoCompactStyle>
       </OverrideProvider>
     );
   };
 
   // ============================ Render ============================
-  return (
+  return wrapSSR(
     <RcDropdown
       alignPoint={alignPoint!}
-      {...props}
+      {...omit(props, ['rootClassName'])}
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
       visible={mergedOpen}
-      builtinPlacements={builtinPlacements}
+      // TODO: remove `as any` when `rc-dropdown` upgrade to use `@rc-component/trigger`
+      builtinPlacements={builtinPlacements as any}
       arrow={!!arrow}
       overlayClassName={overlayClassNameCustomized}
       prefixCls={prefixCls}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
-      transitionName={getTransitionName()}
+      transitionName={memoTransitionName}
       trigger={triggerActions}
       overlay={renderOverlay}
-      placement={getPlacement()}
+      placement={memoPlacement}
       onVisibleChange={onInnerOpenChange}
     >
       {dropdownTrigger}
-    </RcDropdown>
+    </RcDropdown>,
   );
 };
 
 Dropdown.Button = DropdownButton;
+
+// We don't care debug panel
+const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls);
+
+/* istanbul ignore next */
+const WrapPurePanel = (props: DropdownProps) => (
+  <PurePanel {...props}>
+    <span />
+  </PurePanel>
+);
+
+Dropdown._InternalPanelDoNotUseOrYouWillBeFired = WrapPurePanel;
+
+if (process.env.NODE_ENV !== 'production') {
+  Dropdown.displayName = 'Dropdown';
+}
 
 export default Dropdown;

@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Upload rtl render component should be rendered correctly in RTL direction 1`] = `
-<span>
+<span
+  class="ant-upload-wrapper ant-upload-rtl"
+>
   <div
-    class="ant-upload ant-upload-select ant-upload-select-text ant-upload-rtl"
+    class="ant-upload ant-upload-select"
     style="display: none;"
   >
     <span
@@ -19,7 +21,7 @@ exports[`Upload rtl render component should be rendered correctly in RTL directi
     </span>
   </div>
   <div
-    class="ant-upload-list ant-upload-list-text ant-upload-list-rtl"
+    class="ant-upload-list ant-upload-list-text"
   />
 </span>
 `;

@@ -3,7 +3,7 @@ import React from 'react';
 import Popconfirm from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, fireEvent, act, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 
 describe('Popconfirm', () => {
@@ -57,7 +57,7 @@ describe('Popconfirm', () => {
 
   it('should show overlay when trigger is clicked', async () => {
     const popconfirm = render(
-      <Popconfirm title="code">
+      <Popconfirm title="code" autoAdjustOverflow={false}>
         <span>show me your code</span>
       </Popconfirm>,
     );
@@ -94,7 +94,7 @@ describe('Popconfirm', () => {
 
     expect(popconfirm.container.querySelector('.ant-popover')).not.toBe(null);
     expect(popconfirm.container.querySelector('.ant-popover')?.innerHTML).toContain('some-title');
-    expect(popconfirm.container.querySelector('.ant-popover')?.innerHTML).toMatchSnapshot();
+    expect(popconfirm.container.querySelector('.ant-popover')).toMatchSnapshot();
   });
 
   it('should be controlled by open', () => {
@@ -158,7 +158,7 @@ describe('Popconfirm', () => {
 
   it('should support onConfirm to return Promise', async () => {
     const confirm = () =>
-      new Promise(res => {
+      new Promise((res) => {
         setTimeout(res, 300);
       });
     const onOpenChange = jest.fn((_, e) => {
@@ -256,7 +256,7 @@ describe('Popconfirm', () => {
           <Popconfirm
             title="will unmount"
             onConfirm={() =>
-              new Promise(resolve => {
+              new Promise((resolve) => {
                 setTimeout(() => {
                   setShow(false);
                   resolve(true);

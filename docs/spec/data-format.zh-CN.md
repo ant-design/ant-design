@@ -1,5 +1,5 @@
 ---
-category: 设计模式
+group: 设计模式
 type: 全局规则
 order: 5
 title: 数据格式
@@ -24,16 +24,19 @@ title: 数据格式
 
 <br />
 
-<img class="preview-img good" align="right" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*vjAcTqS6VKoAAAAAAAAAAABkARQnAQ">
-
-<img class="preview-img bad" align="right" alt="不推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3CXaSK6NcrwAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img good" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*vjAcTqS6VKoAAAAAAAAAAABkARQnAQ">
+<img class="preview-img bad" alt="不推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3CXaSK6NcrwAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 **位置排列**：便于用户直观而又准确地读取数据，要做到一眼观定、简洁明了。在表格中，诸如金额、数量等数值分布排列时，通常采用“右对齐”方式，既方便用户快捷读取数据，还可以使用户进行纵向数据对比。
 
 <br />
 
-<img class="preview-img good" align="right" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*5ymtS5WU83EAAAAAAAAAAABkARQnAQ">
-<img class="preview-img bad" align="right" alt="不推荐示例" description="单位统一放在表头上，表格里不带单位，金额默认右对齐" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*qjzFQL3CqiQAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img good" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*5ymtS5WU83EAAAAAAAAAAABkARQnAQ">
+<img class="preview-img bad" alt="不推荐示例" description="单位统一放在表头上，表格里不带单位，金额默认右对齐" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*qjzFQL3CqiQAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 **计量单位**：在表格中，计量单位默认放在表头，并默认右对齐。
 
@@ -48,16 +51,20 @@ title: 数据格式
 
 <br />
 
-<img class="preview-img good" align="right" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*FGtoQIKHySkAAAAAAAAAAABkARQnAQ">
-<img class="preview-img bad" align="right" alt="不推荐示例" description="金额数字到「元」为止的，在「元」之后，应写「整」字，在「角」之后可以不写「整」字。金额数字有「分」的，「分」后面不写「整」字。" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*adz2QIF8umQAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img good" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*FGtoQIKHySkAAAAAAAAAAABkARQnAQ">
+<img class="preview-img bad" alt="不推荐示例" description="金额数字到「元」为止的，在「元」之后，应写「整」字，在「角」之后可以不写「整」字。金额数字有「分」的，「分」后面不写「整」字。" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*adz2QIF8umQAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 **大写金额：**一般用于银行、公司或个人的重要结算凭证和各种交易票据，需要使用大写数字以确保数据无法涂改，规范格式为「货币名称+金额数字」。
 
 <br />
 
-<img class="preview-img good" align="right" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dHYhQ4iqnJkAAAAAAAAAAABkARQnAQ">
-<img class="preview-img good" align="right" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T6hbQJdz5usAAAAAAAAAAABkARQnAQ">
-<img class="preview-img bad" align="right" alt="不推荐示例" description="“千”不能以单位的形式展示。" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*iuEARoq_-o0AAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img good" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dHYhQ4iqnJkAAAAAAAAAAABkARQnAQ">
+<img class="preview-img good" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T6hbQJdz5usAAAAAAAAAAABkARQnAQ">
+<img class="preview-img bad" alt="不推荐示例" description="“千”不能以单位的形式展示。" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*iuEARoq_-o0AAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 **大额计量：**如果一个金额很大，那么数值中的“万”“亿”单位可采用汉字。如果一个数值很大，那么数值中的“万”“亿”单位可采用汉字。
 
@@ -102,8 +109,10 @@ title: 数据格式
 
 #### 全部脱敏
 
-<img class="preview-img good" align="right" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NJs8QYejQyEAAAAAAAAAAABkARQnAQ">
-<img class="preview-img bad" align="right" alt="不推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*JvI4T5SXvIYAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img good" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NJs8QYejQyEAAAAAAAAAAABkARQnAQ">
+<img class="preview-img bad" alt="不推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*JvI4T5SXvIYAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 一般用于金额、时间等特别重要敏感的信息，需要对所有数字进行脱敏。数据用一个 `***` 代替。
 
@@ -125,14 +134,16 @@ title: 数据格式
 
 #### 无数据
 
-<img class="preview-img good" align="right" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*o0duS6P8WUEAAAAAAAAAAABkARQnAQ">
-<img class="preview-img bad" align="right" alt="不推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ssPWRaVkIy8AAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img good" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*o0duS6P8WUEAAAAAAAAAAABkARQnAQ">
+<img class="preview-img bad" alt="不推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ssPWRaVkIy8AAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 无数据用 `--` 表述。
 
 #### 数据加载
 
-<img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*E6pGTJYEh-gAAAAAAAAAAABkARQnAQ">
+<img class="preview-img" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*E6pGTJYEh-gAAAAAAAAAAABkARQnAQ">
 
 数据加载用「骨架屏」表示。
 

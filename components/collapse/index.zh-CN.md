@@ -1,10 +1,10 @@
 ---
 category: Components
-type: 数据展示
+group: 数据展示
 title: Collapse
 subtitle: 折叠面板
-cols: 1
-cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*B7HKR5OBe8gAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 可以折叠/展开的内容区域。
@@ -13,6 +13,20 @@ cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
 
 - 对复杂区域进行分组和隐藏，保持页面的整洁。
 - `手风琴` 是一种特殊的折叠面板，只允许单个内容区域展开。
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">折叠面板</code>
+<code src="./demo/size.tsx">面板尺寸</code>
+<code src="./demo/accordion.tsx">手风琴</code>
+<code src="./demo/mix.tsx">面板嵌套</code>
+<code src="./demo/borderless.tsx">简洁风格</code>
+<code src="./demo/custom.tsx">自定义面板</code>
+<code src="./demo/noarrow.tsx">隐藏箭头</code>
+<code src="./demo/extra.tsx">额外节点</code>
+<code src="./demo/ghost.tsx">幽灵折叠面板</code>
+<code src="./demo/collapsible.tsx">可折叠触发区域</code>
 
 ## API
 
@@ -29,6 +43,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
 | expandIcon | 自定义切换图标 | (panelProps) => ReactNode | - |  |
 | expandIconPosition | 设置图标位置 | `start` \| `end` | - | 4.21.0 |
 | ghost | 使折叠面板透明且无边框 | boolean | false | 4.4.0 |
+| size | 设置折叠面板大小 | `large` \| `middle` \| `small` | `middle` | 5.2.0 |
 | onChange | 切换面板的回调 | function | - |  |
 
 ### Collapse.Panel
@@ -41,3 +56,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
 | header | 面板头内容 | ReactNode | - |  |
 | key | 对应 activeKey | string \| number | - |  |
 | showArrow | 是否展示当前面板上的箭头（为 false 时，collapsible 不能置为 icon） | boolean | true |  |
+
+## Design Token
+
+<ComponentTokenTable component="Collapse"></ComponentTokenTable>

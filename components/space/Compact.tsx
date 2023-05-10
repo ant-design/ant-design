@@ -5,6 +5,9 @@ import * as React from 'react';
 import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
+
+import useStyle from './style';
 
 export interface SpaceCompactItemContextType {
   compactSize?: SizeType;
@@ -50,6 +53,7 @@ export interface SpaceCompactProps extends React.HTMLAttributes<HTMLDivElement> 
   size?: SizeType;
   direction?: 'horizontal' | 'vertical';
   block?: boolean;
+  rootClassName?: string;
 }
 
 const CompactItem: React.FC<React.PropsWithChildren<SpaceCompactItemContextType>> = ({
@@ -59,28 +63,33 @@ const CompactItem: React.FC<React.PropsWithChildren<SpaceCompactItemContextType>
   <SpaceCompactItemContext.Provider value={otherProps}>{children}</SpaceCompactItemContext.Provider>
 );
 
-const Compact: React.FC<SpaceCompactProps> = props => {
+const Compact: React.FC<SpaceCompactProps> = (props) => {
   const { getPrefixCls, direction: directionConfig } = React.useContext(ConfigContext);
+  const sizeInContext = React.useContext(SizeContext);
 
   const {
-    size = 'middle',
+    size = sizeInContext || 'middle',
     direction,
     block,
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     children,
     ...restProps
   } = props;
 
   const prefixCls = getPrefixCls('space-compact', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
   const clx = classNames(
     prefixCls,
+    hashId,
     {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-vertical`]: direction === 'vertical',
     },
     className,
+    rootClassName,
   );
 
   const compactItemContext = React.useContext(SpaceCompactItemContext);
@@ -113,10 +122,10 @@ const Compact: React.FC<SpaceCompactProps> = props => {
     return null;
   }
 
-  return (
+  return wrapSSR(
     <div className={clx} {...restProps}>
       {nodes}
-    </div>
+    </div>,
   );
 };
 

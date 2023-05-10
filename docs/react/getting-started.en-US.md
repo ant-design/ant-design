@@ -7,7 +7,7 @@ Ant Design React is dedicated to providing a **good development experience** for
 
 The official guide also assumes that you have intermediate knowledge about HTML, CSS, and JavaScript, and React. If you are just starting to learn front-end or React, it may not be the best idea to use the UI framework as your first step.
 
-Finally, if you are working in a local development environment, please refer to [Install and Initialization](/docs/react/use-with-create-react-app#Install-and-Initialization) section of "Use in create-react-app".
+Finally, if you are working in a local development environment, please refer to [Install and Initialization](/docs/react/use-with-create-react-app#install-and-initialization) section of "Use in create-react-app".
 
 ---
 
@@ -16,7 +16,7 @@ Finally, if you are working in a local development environment, please refer to 
 Here is a simple online codesandbox demo of an Ant Design component to show the usage of Ant Design React.
 
 <iframe
-  src="https://codesandbox.io/embed/antd-reproduction-template-y9vgcf?autoresize=1&fontsize=14&hidenavigation=1&theme=light"
+  src="https://codesandbox.io/embed/antd-reproduction-template-forked-jyh2k9?autoresize=1&fontsize=14&hidenavigation=1&theme=light"
   style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
   title="antd reproduction template"
   allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
@@ -33,18 +33,18 @@ Visit http://u.ant.design/codesandbox-repro to create a codesandbox -- don't for
 
 Replace the contents of `index.js` with the following code. As you can see, there is no difference between antd's components and typical React components.
 
-If you have already set things up by following the [Install and Initialization](/docs/react/use-with-create-react-app#Install-and-Initialization) section of "Use in create-react-app", replace the content of `/src/index.js` as follows:
+If you have already set things up by following the [Install and Initialization](/docs/react/use-with-create-react-app#install-and-initialization) section of "Use in create-react-app", replace the content of `/src/index.js` as follows:
 
 ```jsx
 import React, { useState } from 'react';
 import { render } from 'react-dom';
 import { DatePicker, message } from 'antd';
-import 'antd/dist/antd.css';
+import 'antd/dist/reset.css';
 import './index.css';
 
 const App = () => {
   const [date, setDate] = useState(null);
-  const handleChange = value => {
+  const handleChange = (value) => {
     message.info(`Selected Date: ${value ? value.format('YYYY-MM-DD') : 'None'}`);
     setDate(value);
   };
@@ -95,11 +95,12 @@ During actual real-world project development, you will most likely need a develo
 - [Ant Design Pro](http://pro.ant.design/)
 - [antd-admin](https://github.com/zuiidea/antd-admin)
 - [d2-admin](https://github.com/d2-projects/d2-admin)
+- [Use in Next](https://github.com/ant-design/create-next-app-antd)
 - More scaffolds at [Scaffold Market](http://scaffold.ant.design/)
 
 ## Test with Jest
 
-If you use `create-react-app` follow the instructions [here](/docs/react/use-with-create-react-app#Test-with-Jest) instead.
+If you use `create-react-app` follow the instructions [here](/docs/react/use-with-create-react-app#test-with-jest) instead.
 
 Jest does not support `esm` modules, and Ant Design uses them. In order to test your Ant Design application with Jest you have to add the following to your Jest config :
 
@@ -110,14 +111,6 @@ Jest does not support `esm` modules, and Ant Design uses them. In order to test 
 ## Import on Demand
 
 `antd` supports tree shaking of ES modules, so using `import { Button } from 'antd';` would drop js code you didn't use.
-
-If you see logs like in the screenshot below, you might still be using `webpack@1.x` or have a wrong webpack config which can't support tree shaking.
-
-```
-You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size. Please upgrade webpack or check the config.
-```
-
-> ![console warning](https://zos.alipayobjects.com/rmsportal/GHIRszVcmjccgZRakJDQ.png)
 
 ## Customize your Workflow
 

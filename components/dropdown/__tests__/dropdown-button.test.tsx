@@ -1,9 +1,9 @@
 import React from 'react';
-import DropdownButton from '../dropdown-button';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import type { DropdownProps } from '../dropdown';
 import { render } from '../../../tests/utils';
+import type { DropdownProps } from '../dropdown';
+import DropdownButton from '../dropdown-button';
 
 let dropdownProps: DropdownProps;
 
@@ -14,8 +14,13 @@ jest.mock('../dropdown', () => {
 
   const MockedDropdown: React.FC<DropdownProps> & {
     Button: typeof ActualDropdownComponent.Button;
-  } = props => {
-    dropdownProps = props;
+  } = (props) => {
+    const clone: Record<string, any> = {};
+    Object.keys(props).forEach((key: keyof typeof props) => {
+      clone[key] = props[key];
+    });
+
+    dropdownProps = clone;
     const { children, ...restProps } = props;
     return h.createElement(ActualDropdownComponent, { ...restProps }, children);
   };
@@ -57,7 +62,7 @@ describe('DropdownButton', () => {
       expect(dropdownProps[key]).toBe(props[key]);
     });
 
-    rerender(<DropdownButton menu={{ items }} visible />);
+    rerender(<DropdownButton menu={{ items }} open />);
     expect(dropdownProps.open).toBe(true);
   });
 
@@ -131,7 +136,7 @@ describe('DropdownButton', () => {
       'ant-btn',
     );
   });
-  it('should console Error then `overlay` in props', () => {
+  it('should console Error when `overlay` in props', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<DropdownButton overlay={<div>test</div>} />);
     expect(errSpy).toHaveBeenCalledWith(
@@ -139,10 +144,16 @@ describe('DropdownButton', () => {
     );
     errSpy.mockRestore();
   });
-  it('should not console Error then `overlay` not in props', () => {
+  it('should not console Error when `overlay` not in props', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<DropdownButton />);
     expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();
+  });
+
+  it('should support dropdownRender', () => {
+    const dropdownRender = jest.fn((menu) => <div>Custom Menu {menu}</div>);
+    render(<DropdownButton open dropdownRender={dropdownRender} />);
+    expect(dropdownRender).toHaveBeenCalled();
   });
 });

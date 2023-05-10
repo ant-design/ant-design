@@ -25,21 +25,41 @@ We can determine if an animation is effective or not from the following two aspe
 
 Different from animations usage in typical front-office applications, animations in enterprise level applications spend a great amount of efforts on reinforcing user interactions and the effectiveness of those interactions. Therefore, we derived three animation design principles from Ant Design's core design language:
 
-```__react
+```jsx | demo
+/**
+ * inline: true
+ */
 
 import { Col, Row } from 'antd';
 
 const text = [
-  { title: 'Natural', img: 'https://gw.alipayobjects.com/zos/rmsportal/LyTPSGknLUlxiVdwMWyu.gif', content: 'The animation should based on law of nature. This assures the animation is smooth by its nature and intuitive to its users.' },
-  { title: 'Performant', img: 'https://gw.alipayobjects.com/zos/rmsportal/SQOZVQVIossbXpzDmihu.gif', content: 'The animation should have a transition time as minimal as possible so that it serves its purpose in the most effective way.' },
-  { title: 'Concise', img: 'https://gw.alipayobjects.com/zos/rmsportal/OkIXkscKxywYLSrilPIf.gif', content: 'The animation should be meaningful and justified. An over fancy animation will frustrate its users, and therefore should always be avoided.' },
+  {
+    title: 'Natural',
+    img: 'https://gw.alipayobjects.com/zos/rmsportal/LyTPSGknLUlxiVdwMWyu.gif',
+    content:
+      'The animation should based on law of nature. This assures the animation is smooth by its nature and intuitive to its users.',
+  },
+  {
+    title: 'Performant',
+    img: 'https://gw.alipayobjects.com/zos/rmsportal/SQOZVQVIossbXpzDmihu.gif',
+    content:
+      'The animation should have a transition time as minimal as possible so that it serves its purpose in the most effective way.',
+  },
+  {
+    title: 'Concise',
+    img: 'https://gw.alipayobjects.com/zos/rmsportal/OkIXkscKxywYLSrilPIf.gif',
+    content:
+      'The animation should be meaningful and justified. An over fancy animation will frustrate its users, and therefore should always be avoided.',
+  },
 ];
 
 function Principle() {
-  const childrenToRender = text.map(item => (
-    <Col key={item.title} sm={24} md={8} >
+  const childrenToRender = text.map((item) => (
+    <Col key={item.title} sm={24} md={8}>
       <div className="principle">
-        <div><img src={item.img} width="80%" /></div>
+        <div>
+          <img src={item.img} width="80%" />
+        </div>
         <h4>{item.title}</h4>
         <p>{item.content}</p>
       </div>
@@ -54,14 +74,14 @@ function Principle() {
   );
 }
 
-ReactDOM.render(<Principle />, mountNode);
+export default Principle;
 ```
 
 ### Natural
 
 Intuitive animations usually are backed by law of nature. This requires the animations to be smooth so that their users can feel the animations' motion being justified. A natural animation triggers its users with positive user experiences.
 
-<video class="motion-video-min" src="https://gw.alipayobjects.com/os/rmsportal/NTMlQdLIkPjOACXsdRrq.mp4" loop="true" />
+<video class="motion-video-min" src="https://gw.alipayobjects.com/os/rmsportal/NTMlQdLIkPjOACXsdRrq.mp4" loop="true"></video>
 
 Take button animation as an example, designers image the button as foliage on water - when you press it and release, the leave will slightly go into the water, and then pop back up, creating ripples around itself.
 
@@ -69,7 +89,7 @@ Take button animation as an example, designers image the button as foliage on wa
 
 Enterprise level applications require highly effective user interactions. So is their animation design - with a transition time as minimal as possible.
 
-<video class="motion-video-min" src="https://gw.alipayobjects.com/os/rmsportal/wMKeLGnpDxhwfCsBqKNN.mp4" loop="true" />
+<video class="motion-video-min" src="https://gw.alipayobjects.com/os/rmsportal/wMKeLGnpDxhwfCsBqKNN.mp4" loop="true"></video>
 
 For example, compared to appearing animations, disappearing animations should not attract too much attention from their users. They just need to be concise and clear. Therefore, disappearing animations are configured to swing out with faster velocity and no disappearing delay between each list items - they disappear all at the same time as one unit.
 
@@ -77,7 +97,7 @@ For example, compared to appearing animations, disappearing animations should no
 
 Avoid dramatic and complicated animations. A good animation will get the job done instead of frustrating its users.
 
-<video src="https://gw.alipayobjects.com/os/rmsportal/FeUCANmoDRwCSmIcnPNF.mp4" loop="true" class="motion-video-min" />
+<video src="https://gw.alipayobjects.com/os/rmsportal/FeUCANmoDRwCSmIcnPNF.mp4" loop="true" class="motion-video-min"></video>
 
 For example, when a user expands a menu, his main focus is on the menu content, not the direction change of the arrow icon on the right. Therefore, the animation doesn't need to be very complicated and distracting; it changes just enough to indicate the transition.
 

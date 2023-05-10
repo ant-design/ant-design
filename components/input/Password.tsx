@@ -6,7 +6,7 @@ import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
 import { useRef, useState } from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigConsumer } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
@@ -57,7 +57,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     if (visible) {
       removePasswordTimeout();
     }
-    setVisible(prevState => {
+    setVisible((prevState) => {
       const newState = !prevState;
       if (typeof visibilityToggle === 'object') {
         visibilityToggle.onVisibleChange?.(newState);
@@ -88,39 +88,37 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     return React.cloneElement(React.isValidElement(icon) ? icon : <span>{icon}</span>, iconProps);
   };
 
-  const renderPassword = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const {
-      className,
-      prefixCls: customizePrefixCls,
-      inputPrefixCls: customizeInputPrefixCls,
-      size,
-      ...restProps
-    } = props;
+  const {
+    className,
+    prefixCls: customizePrefixCls,
+    inputPrefixCls: customizeInputPrefixCls,
+    size,
+    ...restProps
+  } = props;
 
-    const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
-    const prefixCls = getPrefixCls('input-password', customizePrefixCls);
+  const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
+  const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
+  const prefixCls = getPrefixCls('input-password', customizePrefixCls);
 
-    const suffixIcon = visibilityToggle && getIcon(prefixCls);
-    const inputClassName = classNames(prefixCls, className, {
-      [`${prefixCls}-${size}`]: !!size,
-    });
+  const suffixIcon = visibilityToggle && getIcon(prefixCls);
 
-    const omittedProps: InputProps = {
-      ...omit(restProps, ['suffix', 'iconRender', 'visibilityToggle']),
-      type: visible ? 'text' : 'password',
-      className: inputClassName,
-      prefixCls: inputPrefixCls,
-      suffix: suffixIcon,
-    };
+  const inputClassName = classNames(prefixCls, className, {
+    [`${prefixCls}-${size}`]: !!size,
+  });
 
-    if (size) {
-      omittedProps.size = size;
-    }
-
-    return <Input ref={composeRef(ref, inputRef)} {...omittedProps} />;
+  const omittedProps: InputProps = {
+    ...omit(restProps, ['suffix', 'iconRender', 'visibilityToggle']),
+    type: visible ? 'text' : 'password',
+    className: inputClassName,
+    prefixCls: inputPrefixCls,
+    suffix: suffixIcon,
   };
 
-  return <ConfigConsumer>{renderPassword}</ConfigConsumer>;
+  if (size) {
+    omittedProps.size = size;
+  }
+
+  return <Input ref={composeRef(ref, inputRef)} {...omittedProps} />;
 });
 
 if (process.env.NODE_ENV !== 'production') {

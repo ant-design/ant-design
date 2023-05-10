@@ -1,10 +1,10 @@
 ---
 category: Components
-type: 数据展示
+group: 数据展示
 title: Card
 subtitle: 卡片
-cols: 1
-cover: https://gw.alipayobjects.com/zos/antfincdn/NqXt8DJhky/Card.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VXtCTp93KPAAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a-8zR6rrupgAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 通用卡片容器。
@@ -12,6 +12,20 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/NqXt8DJhky/Card.svg
 ## 何时使用
 
 最基础的卡片容器，可承载文字、列表、图片、段落，常用于后台概览页面。
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">典型卡片</code>
+<code src="./demo/border-less.tsx" background="grey">无边框</code>
+<code src="./demo/simple.tsx">简洁卡片</code>
+<code src="./demo/flexible-content.tsx">更灵活的内容展示</code>
+<code src="./demo/in-column.tsx" background="grey">栅格卡片</code>
+<code src="./demo/loading.tsx">预加载的卡片</code>
+<code src="./demo/grid-card.tsx">网格型内嵌卡片</code>
+<code src="./demo/inner.tsx">内部卡片</code>
+<code src="./demo/tabs.tsx">带页签的卡片</code>
+<code src="./demo/meta.tsx">支持更多内容配置</code>
 
 ## API
 
@@ -36,25 +50,29 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/NqXt8DJhky/Card.svg
 | size | card 的尺寸 | `default` \| `small` | `default` |  |
 | tabBarExtraContent | tab bar 上额外的元素 | ReactNode | - |  |
 | tabList | 页签标题列表 | Array&lt;{key: string, tab: ReactNode}> | - |  |
-| tabProps | [Tabs](/components/tabs/#Tabs) | - | - |  |
+| tabProps | [Tabs](/components/tabs-cn#tabs) | - | - |  |
 | title | 卡片标题 | ReactNode | - |  |
 | type | 卡片类型，可设置为 `inner` 或 不设置 | string | - |  |
 | onTabChange | 页签切换的回调 | (key) => void | - |  |
 
 ### Card.Grid
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| className | 网格容器类名 | string | - |  |
-| hoverable | 鼠标移过时可浮起 | boolean | true |  |
-| style | 定义网格容器类名的样式 | CSSProperties | - |  |
+| 参数      | 说明                   | 类型          | 默认值 | 版本 |
+| --------- | ---------------------- | ------------- | ------ | ---- |
+| className | 网格容器类名           | string        | -      |      |
+| hoverable | 鼠标移过时可浮起       | boolean       | true   |      |
+| style     | 定义网格容器类名的样式 | CSSProperties | -      |      |
 
 ### Card.Meta
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| avatar | 头像/图标 | ReactNode | - |  |
-| className | 容器类名 | string | - |  |
-| description | 描述内容 | ReactNode | - |  |
-| style | 定义容器类名的样式 | CSSProperties | - |  |
-| title | 标题内容 | ReactNode | - |  |
+| 参数        | 说明               | 类型          | 默认值 | 版本 |
+| ----------- | ------------------ | ------------- | ------ | ---- |
+| avatar      | 头像/图标          | ReactNode     | -      |      |
+| className   | 容器类名           | string        | -      |      |
+| description | 描述内容           | ReactNode     | -      |      |
+| style       | 定义容器类名的样式 | CSSProperties | -      |      |
+| title       | 标题内容           | ReactNode     | -      |      |
+
+## Design Token
+
+<ComponentTokenTable component="Card"></ComponentTokenTable>

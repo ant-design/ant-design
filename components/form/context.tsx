@@ -39,7 +39,7 @@ export interface FormProviderProps extends Omit<RcFormProviderProps, 'validateMe
   prefixCls?: string;
 }
 
-export const FormProvider: React.FC<FormProviderProps> = props => {
+export const FormProvider: React.FC<FormProviderProps> = (props) => {
   const providerProps = omit(props, ['prefixCls']);
   return <RcFormProvider {...providerProps} />;
 };
@@ -57,6 +57,8 @@ export const FormItemPrefixContext = React.createContext<FormItemPrefixContextPr
 export interface FormItemStatusContextProps {
   isFormItemInput?: boolean;
   status?: ValidateStatus;
+  errors?: React.ReactNode[];
+  warnings?: React.ReactNode[];
   hasFeedback?: boolean;
   feedbackIcon?: ReactNode;
 }
