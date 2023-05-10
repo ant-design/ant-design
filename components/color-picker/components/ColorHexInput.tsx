@@ -1,4 +1,4 @@
-import type { FC } from 'React';
+import type { FC } from 'react';
 import React, { useEffect, useState } from 'react';
 import Input from '../../input';
 import type { Color } from '../color';
