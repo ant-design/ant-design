@@ -82,6 +82,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | bordered | Whether has border style | boolean | true |  |
 | className | The picker className | string | - |  |
 | dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |
+| changeOnBlur | Trigger `change` when blur. e.g. datetime picker no need click confirm button | boolean | false | 5.5.0 |
 | cellRender | Custom rendering function for picker cells | function(current: dayjs, today: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | disabled | Determine whether the DatePicker is disabled | boolean | false |  |
 | disabledDate | Specify the date that cannot be selected | (currentDate: dayjs) => boolean | - |  |

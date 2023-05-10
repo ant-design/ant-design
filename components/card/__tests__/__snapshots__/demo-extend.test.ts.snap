@@ -838,7 +838,7 @@ Array [
             </button>
             <div
               class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
-              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
                 aria-label="expanded dropdown"
@@ -996,7 +996,7 @@ Array [
             </button>
             <div
               class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
-              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
                 aria-label="expanded dropdown"
