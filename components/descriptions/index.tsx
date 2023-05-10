@@ -11,6 +11,7 @@ import DescriptionsItem from './Item';
 import Row from './Row';
 
 import useStyle from './style';
+import SizeContext from '../config-provider/SizeContext';
 
 export interface DescriptionsContextProps {
   labelStyle?: React.CSSProperties;
@@ -127,7 +128,7 @@ function Descriptions({
   className,
   rootClassName,
   style,
-  size,
+  size: customizeSize,
   labelStyle,
   contentStyle,
   ...restProps
@@ -136,6 +137,9 @@ function Descriptions({
   const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
   const [screens, setScreens] = React.useState<ScreenMap>({});
   const mergedColumn = getColumn(column, screens);
+
+  const size = React.useContext(SizeContext);
+  const mergedSize = customizeSize ?? size;
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const responsiveObserver = useResponsiveObserver();
@@ -167,7 +171,7 @@ function Descriptions({
         className={classNames(
           prefixCls,
           {
-            [`${prefixCls}-${size}`]: size && size !== 'default',
+            [`${prefixCls}-${mergedSize}`]: mergedSize && mergedSize !== 'default',
             [`${prefixCls}-bordered`]: !!bordered,
             [`${prefixCls}-rtl`]: direction === 'rtl',
           },
