@@ -24,6 +24,7 @@ Used when the user needs to customize the color selection
 <code src="./demo/trigger.tsx">Custom Trigger</code>
 <code src="./demo/format.tsx">Color Format</code>
 <code src="./demo/presets.tsx">Preset Colors</code>
+<code src="./demo/pure-panel.tsx" debug>Pure Render</code>
 
 ## API
 

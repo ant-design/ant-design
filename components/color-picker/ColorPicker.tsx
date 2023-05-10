@@ -19,6 +19,7 @@ import useColorState from './hooks/useColorState';
 import type { ColorFormat, ColorPickerBaseProps, PresetsItem } from './interface';
 import useStyle from './style/index';
 import { customizePrefixCls, generateColor } from './util';
+import genPurePanel from '../_util/PurePanel';
 
 export interface ColorPickerProps
   extends Omit<
@@ -44,9 +45,14 @@ export interface ColorPickerProps
   onOpenChange?: (open: boolean) => void;
   onFormatChange?: (format: ColorFormat) => void;
   onChange?: (value: Color, hex: string) => void;
+  getPopupContainer?: PopoverProps['getPopupContainer'];
 }
 
-const ColorPicker: React.FC<ColorPickerProps> = (props) => {
+type CompoundedComponent = React.FC<ColorPickerProps> & {
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+};
+
+const ColorPicker: CompoundedComponent = (props) => {
   const {
     value,
     defaultValue,
@@ -66,6 +72,7 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
     onFormatChange,
     onChange,
     onOpenChange,
+    getPopupContainer,
   } = props;
 
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -111,6 +118,7 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
     placement,
     arrow,
     rootClassName,
+    getPopupContainer,
   };
 
   const colorBaseProps: ColorPickerBaseProps = {
@@ -152,5 +160,9 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
 if (process.env.NODE_ENV !== 'production') {
   ColorPicker.displayName = 'ColorPicker';
 }
+
+const PurePanel = genPurePanel(ColorPicker, 'color-picker', (prefixCls) => prefixCls);
+
+ColorPicker._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default ColorPicker;
