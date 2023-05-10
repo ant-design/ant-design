@@ -1,3 +1,4 @@
+import { Tooltip } from 'antd';
 import React, { useState } from 'react';
 import type { ProgressProps } from '..';
 import Progress from '..';
@@ -5,13 +6,12 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import { handleGradient, sortGradient } from '../Line';
-import { ProgressTypes } from '../progress';
 import ProgressSteps from '../Steps';
+import { ProgressTypes } from '../progress';
 
 describe('Progress', () => {
   mountTest(Progress);
   rtlTest(Progress);
-
   it('successPercent should decide the progress status when it exists', () => {
     const { container: wrapper, rerender } = render(
       <Progress percent={100} success={{ percent: 50 }} />,
@@ -359,5 +359,23 @@ describe('Progress', () => {
       width: '60px',
       height: '60px',
     });
+  });
+
+  it('no strict warning', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { rerender } = render(
+      <Tooltip title="当前已使用60%">
+        <Progress percent={60} type="circle" />
+      </Tooltip>,
+    );
+    rerender(
+      <Tooltip title="当前已使用60%">
+        <Progress percent={60} type="circle" />
+      </Tooltip>,
+    );
+    expect(errSpy).not.toHaveBeenCalledWith(
+      expect.stringContaining('findDOMNode is deprecated in StrictMode'),
+    );
+    errSpy.mockRestore();
   });
 });
