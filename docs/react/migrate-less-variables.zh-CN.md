@@ -200,4 +200,4 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@upload-actions-color` | `uploadActionsColor` | - |
+| `@upload-actions-color` | `actionsColor` | - |

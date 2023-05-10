@@ -200,4 +200,4 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@upload-actions-color` | `uploadActionsColor` | - |
+| `@upload-actions-color` | `actionsColor` | - |

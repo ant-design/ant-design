@@ -39,7 +39,7 @@ const App: React.FC = () => (
     theme={{
       components: {
         Upload: {
-          uploadActionsColor: 'yellow',
+          actionsColor: 'yellow',
         },
       },
     }}

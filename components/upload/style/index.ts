@@ -9,7 +9,7 @@ import { resetComponent } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
 
 export interface ComponentToken {
-  uploadActionsColor: string;
+  actionsColor: string;
 }
 
 export interface UploadToken extends FullToken<'Upload'> {
@@ -69,6 +69,6 @@ export default genComponentStyleHook(
     ];
   },
   (token) => ({
-    uploadActionsColor: token.colorTextDescription,
+    actionsColor: token.colorTextDescription,
   }),
 );
