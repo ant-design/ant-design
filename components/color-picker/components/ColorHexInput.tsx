@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import type { FC } from 'React';
 import React, { useEffect, useState } from 'react';
 import Input from '../../input';
 import type { Color } from '../color';
@@ -11,6 +11,7 @@ interface ColorHexInputProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
 }
 
 const hexReg = /(^#[\da-f]{6}$)|(^#[\da-f]{8}$)/i;
+const isHexString = (hex?: string) => hexReg.test(`#${hex}`);
 
 const ColorHexInput: FC<ColorHexInputProps> = ({ prefixCls, value, onChange }) => {
   const colorHexInputPrefixCls = `${prefixCls}-hex-input`;
@@ -19,17 +20,16 @@ const ColorHexInput: FC<ColorHexInputProps> = ({ prefixCls, value, onChange }) =
   // Update step value
   useEffect(() => {
     const hex = value?.toHex();
-    if (hexReg.test(`#${hex}`) && value) {
-      setHexValue(hex);
+    if (isHexString(hex) && value) {
+      setHexValue(toHexFormat(hex));
     }
   }, [value]);
 
   const handleHexChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const hex = toHexFormat(e.target.value);
-    const hexString = `#${hex}`;
-    setHexValue(hex);
-    if (hexReg.test(hexString)) {
-      onChange?.(generateColor(hex));
+    const originValue = e.target.value;
+    setHexValue(toHexFormat(originValue));
+    if (isHexString(toHexFormat(originValue, true))) {
+      onChange?.(generateColor(originValue));
     }
   };
 

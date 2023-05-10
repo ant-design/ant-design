@@ -26,7 +26,7 @@ export class ColorFactory {
   }
 
   toHex() {
-    return getHex(this.toHexString());
+    return getHex(this.toHexString(), this.metaColor.getAlpha() < 1);
   }
 
   toHexString() {

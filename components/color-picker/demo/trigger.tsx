@@ -6,7 +6,7 @@ export default () => {
   const { token } = theme.useToken();
   const [color, setColor] = useState<Color | string>(token.colorPrimary);
   const genColor = useMemo(
-    () => (typeof color === 'string' ? color : (color as Color).toHexString()),
+    () => (typeof color === 'string' ? color : color.toHexString()),
     [color],
   );
 

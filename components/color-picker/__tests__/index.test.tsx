@@ -173,7 +173,10 @@ describe('ColorPicker', () => {
     ).toBeTruthy();
     expect(
       container.querySelector('.ant-color-picker-hex-input input')?.getAttribute('value'),
-    ).toEqual('00000005');
+    ).toEqual('000000');
+    expect(
+      container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
+    ).toEqual('2%');
 
     expect(handleColorChange).toHaveBeenCalledTimes(2);
   });
