@@ -8,38 +8,34 @@ describe('Popover', () => {
   mountTest(Popover);
 
   it('should show overlay when trigger is clicked', () => {
-    const ref = React.createRef<any>();
-
     const popover = render(
-      <Popover ref={ref} content="console.log('hello world')" title="code" trigger="click">
+      <Popover content="console.log('hello world')" title="code" trigger="click">
         <span>show me your code</span>
       </Popover>,
     );
-
-    expect(ref.current.getPopupDomNode()).toBe(null);
-    expect(popover.container.querySelector('.ant-popover-inner-content')).toBeFalsy();
+    expect(document.querySelector('.ant-popover')).toBe(null);
     fireEvent.click(popover.container.querySelector('span')!);
-    expect(popover.container.querySelector('.ant-popover-inner-content')).toBeTruthy();
+    const popup = document.querySelector('.ant-popover');
+    expect(popup?.querySelector?.('.ant-popover-inner-content')).toBeTruthy();
   });
 
   it('shows content for render functions', () => {
     const renderTitle = () => 'some-title';
     const renderContent = () => 'some-content';
-    const ref = React.createRef<any>();
 
     const popover = render(
-      <Popover ref={ref} content={renderContent} title={renderTitle} trigger="click">
+      <Popover content={renderContent} title={renderTitle} trigger="click">
         <span>show me your code </span>
       </Popover>,
     );
 
     fireEvent.click(popover.container.querySelector('span')!);
 
-    const popup = ref.current.getPopupDomNode();
+    const popup = document.querySelector('.ant-popover');
     expect(popup).not.toBe(null);
-    expect(popup.innerHTML).toContain('some-title');
-    expect(popup.innerHTML).toContain('some-content');
-    expect(popup.innerHTML).toMatchSnapshot();
+    expect(popup?.innerHTML).toContain('some-title');
+    expect(popup?.innerHTML).toContain('some-content');
+    expect(popup?.innerHTML).toMatchSnapshot();
   });
 
   it('handles empty title/content props safely', () => {
@@ -50,8 +46,8 @@ describe('Popover', () => {
     );
     fireEvent.click(container.querySelector('span')!);
 
-    expect(container.querySelector('.ant-popover-title')?.textContent).toBeFalsy();
-    expect(container.querySelector('.ant-popover-inner-content')?.textContent).toBeFalsy();
+    const popup = document.querySelector('.ant-popover');
+    expect(popup).toBe(null);
   });
 
   it('should not render popover when the title & content props is empty', () => {
@@ -62,8 +58,8 @@ describe('Popover', () => {
     );
     fireEvent.click(container.querySelector('span')!);
 
-    expect(container.querySelector('.ant-popover-title')?.textContent).toBeFalsy();
-    expect(container.querySelector('.ant-popover-inner-content')?.textContent).toBeFalsy();
+    const popup = document.querySelector('.ant-popover');
+    expect(popup).toBe(null);
   });
 
   it('props#overlay do not warn anymore', () => {
