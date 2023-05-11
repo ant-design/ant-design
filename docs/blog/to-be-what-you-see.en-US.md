@@ -1,79 +1,107 @@
 ---
-title: Tree's check conduction
-date: 2022-12-14
+title: To be what you see
+date: 2023-05-10
 author: zombieJ
 ---
 
-In the Tree or similar components (such as TreeSelect, Cascader), needs check function. It's unambiguous most of the time, but when a `disabled` node appears somewhere in the middle, it's worth talking about. This article will introduce the logic of check conduction in antd. It should be noted that in different scenarios, there will be various requirements, and antd has chosen the most commonly used check conduction logic. If you need a different custom style, you can implement it yourself through `checkStrictly`.
+With daily development, have you thought about a problem. When the range limit is different from the actual value, how should we deal with it? Suppose we have a display component that simply displays your value:
 
-## Some conduction strategies
+```tsx
+interface StrProps {
+  value: string;
+}
 
-Before we start, let's establish a consensus. That is, when a node is `disabled`, it cannot be clicked `checked`. Then we take the following Tree structure as an example:
+function MyStr({ value }: StrProps) {
+  return <div>{value}</div>;
+}
+<MyStr value="Hello World" />;
+```
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*eMq8S7Pq0lQAAAAAAAAAAAAADrJ8AQ/original)
+Without a doubt, `Hello World` should be displayed on the page. Next, we add a scope limit:
 
-Next, we check the root node `parent 1`, and analyze the similarities and differences of different check transmission strategies.
+```tsx
+interface StrProps {
+  value: string;
+  maxLen?: number;
+}
+```
 
-### All nodes will be checked
+What should be displayed if we use a value out of range at this time?
 
-This is the most intuitive strategy, all nodes will be checked:
+```tsx
+<MyStr value="Hello World" maxLen={5}>
+```
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*QQp-R4EMteAAAAAAAAAAAAAADrJ8AQ/original)
+"Obviously", since you have `maxLen`, you should display `Hello` instead of `Hello World`.
 
-You can immediately see the problem with this strategy, we mentioned earlier that `disabled` nodes are not allowed to be `checked`. But when the parent node is not `disabled`, its child nodes will be forcibly checked. This will cause the `disabled` node to "can" be checked, which is obviously unreasonable.
+But this intuitive approach is not correct in all cases. If you use native input, you will find that the behavior is not like this:
 
-### All checkable nodes are checked
+```tsx
+<input value="Hello World" maxLength={5} />
+```
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*BzrZRbT1gCEAAAAAAAAAAAAADrJ8AQ/original)
+<img height="50" alt="input limit" src="https://github.com/ant-design/ant-design/assets/5378891/31352b9b-6d68-4a42-832d-5a639fed80cc">
 
-From the checkbox interaction, it looks good, but it's not intuitive. After `parent 1` is checked, `leaf 2` is checked by conduction. But the middle node `parent 1-0` is not checked. At some deep enough level, this strategy can cause the user to be unaware that a check has been propagated:
+As described by the standard, `maxLength` only limits user input. Is this standard wrong?
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3mHLQZvTgWsAAAAAAAAAAAAADrJ8AQ/original)
+> A form control maxlength attribute, controlled by the dirty value flag, declares a limit on the number of characters a user can input.
 
-When there is no scrolling, the user can't realize that the upper `disabled` is not checked, but the top is checked:
+### "Unnecessary over design"
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xTqPQbdX6B0AAAAAAAAAAAAADrJ8AQ/original)
+With the above questions in mind, we imagine an input scenario. Now you have an e-commerce system, set prices for products:
 
-### Check only reachable checkable nodes
+```tsx
+<Form>
+  <Form.Item label="Name" name="name">
+    <Input />
+  </Form.Item>
 
-This is also the current strategy of antd, when a node is checked, it will propagate upwards and downwards from the node until `disabled` stops. When there are multiple `disabled` in the node, they will each check the status management:
+  <Form.Item label="Price" name="price">
+    <InputNumber />
+  </Form.Item>
+</Form>
+```
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EIK0Rbq92CMAAAAAAAAAAAAADrJ8AQ/original)
+<img height="160" alt="Form" src="https://github.com/ant-design/ant-design/assets/5378891/f9ad7f13-d2bf-4537-9265-48789e2c4d0e">
 
-Conversely check `leaf 2`, it will not conduct:
+One day your manager said that the price of our product cannot exceed $99 according to regulations, and you have to set the limit directly on the form. This change is not difficult:
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Ytr9SrJUvD4AAAAAAAAAAAAADrJ8AQ/original)
+```diff
+--  <InputNumber />
+++  <InputNumber max={99} />
+```
 
-The advantage of this strategy is that users can clearly see the selection process. Compared with the previous strategy, users only need a small area to understand the check logic in the scrolling scene.
+But for existing products, we obviously cannot restrict them directly on the form. Otherwise, when the user edits the product, he will find that the price of his product has been changed. This is obviously unreasonable.
 
-## Some implementation details
+<img height="162" alt="Form modify" src="https://github.com/ant-design/ant-design/assets/5378891/08d07ec2-7be8-45fa-b30b-51395252bcd0">
 
-Note: We only introduce simple conduction logic here. Please refer to [actual code](https://github.com/react-component/tree/blob/62e0bf0b91d86b6e42fee69870ada9a4640b6c6f/src/utils/conductUtil.ts) for real world apply. Some performance optimizations will also be done, such as skipping nodes that have been traversed through the cache mechanism.
+(Users will never be able to understand why the data in the background does not match what they see)
 
-### Check conduction
+In fact, in many scenarios, components should not directly modify the actual value. Especially for input components, changing the display value without authorization will have very serious consequences.
 
-When a node is checked, we will add `key` to `checkedKeys`. We iterate over each `key` in the new `checkedKeys` for conduction checks. The first step will be conduction from top to bottom (in the example below we check `0-0`):
+### To be what you see
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*30UnR60SSD8AAAAAAAAAAAAADrJ8AQ/original)
+At the component library level, we cannot "guess" the user's usage scenarios, so we need to implement the processing of boundary scenarios in the most conservative way. But at the same time, we can actually do some optimization methods. For example, set the restriction to the `rules` of Form.Item, and use the form validation ability to make restrictions:
 
-We record the current node `0-0` and the transmitted `0-0-0` and `0-0-1`:
+<img height="160" alt="Form rules" src="https://github.com/ant-design/ant-design/assets/5378891/52b35fb3-a800-447f-85b3-684d9a65c8d1">
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*jo7wQZVX9S0AAAAAAAAAAAAADrJ8AQ/original)
+For some components themselves, it is also possible to add explicit style reminders:
 
-In the second step, we will conduct upwards from this node:
+<img height="40" alt="InputNumber" src="https://github.com/ant-design/ant-design/assets/5378891/e14ab877-4778-49c7-af75-91e36e60ce0f">
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*k5hoSKM1OMYAAAAAAAAAAAAADrJ8AQ/original)
+For non-input custom components, you can also consider reminding users through design. For example, we can add a Tooltip to the display component:
 
-Similarly, record the node `0` that was passed on:
+```tsx
+// Same demo we've seen before
+<MyStr value="Hello World" maxLen={5}>
+```
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*yqBETbq8ugQAAAAAAAAAAAAADrJ8AQ/original)
+<img height="90" alt="Customize" src="https://github.com/ant-design/ant-design/assets/5378891/18b095c4-eee9-45df-aa05-b4f5c20c81f8">
 
-When the parent node is checked, the parent node of the parent node may also be checked, so we need to continue to conduct upward until the root node or `disabled` node.
+Or use some other display way:
 
-### Uncheck conduction
+<img height="40" alt="Ellipsis" src="https://github.com/ant-design/ant-design/assets/5378891/24162b19-985c-4fc4-908a-cdddfc507fc9">
 
-Same as above, we will perform conduction traversal up and down, and then remove the conduction node from `checkedKeys`. Therefore no further repetition.
+### Finally
 
-## Finally
-
-Before the early days of v3, we encountered that the `disabled` check of Tree has different appeals in different scenarios (and each of them is "reasonable" when viewing fragmented appeals), and when it is extracted for inspection, We found that these fragmented demands can conflict with each other. Therefore, we sorted out its transmission logic and chose the most intuitive strategy. Of course, if the current implementation does not meet the requirements, you can implement it yourself through `checkStrictly`.
+Boundary scenarios need to be carefully handled when developing components. In complex system, upstream users may not know how your internal logic is handled. Therefore, as the complexity and usage scenarios increase, we recommend always choosing a conservative approach to the default behavior. For situations that do not meet the requirements, it can be implemented in the form of HOC or some additional Props configuration, so as to prevent developers from having too many agreements when using it without knowing it.

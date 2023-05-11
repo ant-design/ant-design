@@ -81,6 +81,27 @@ interface StrProps {
 
 ### 所见即所得
 
-而在组件库层面，我们其实可以做一些优化手段。比如说将限制设置到 Form.Item 的 `rules` 上，利用表单校验能力来做限制：
+在组件库层面，我们不能“推测”用户的使用场景，因而需要以最保守的方式实现边界场景的处理。但是同时我们其实可以做一些优化手段。比如说将限制设置到 Form.Item 的 `rules` 上，利用表单校验能力来做限制：
 
 <img height="160" alt="Form rules" src="https://github.com/ant-design/ant-design/assets/5378891/52b35fb3-a800-447f-85b3-684d9a65c8d1">
+
+对于一些组件本身，也可以添加显式的样式提醒：
+
+<img height="40" alt="InputNumber" src="https://github.com/ant-design/ant-design/assets/5378891/e14ab877-4778-49c7-af75-91e36e60ce0f">
+
+对于非输入型自定义组件，也可以考虑通过设计来提醒用户。比如说我们可以在展示组件上添加一个 Tooltip：
+
+```tsx
+// Same demo we've seen before
+<MyStr value="Hello World" maxLen={5}>
+```
+
+<img height="90" alt="Customize" src="https://github.com/ant-design/ant-design/assets/5378891/18b095c4-eee9-45df-aa05-b4f5c20c81f8">
+
+或者使用一些其他的展示方式：
+
+<img height="40" alt="Ellipsis" src="https://github.com/ant-design/ant-design/assets/5378891/24162b19-985c-4fc4-908a-cdddfc507fc9">
+
+### 总结
+
+在进行组件研发时，需要慎重处理边界场景。在大型项目中，上游使用者可能并不知道你的内部逻辑是如何处理的。因而随着复杂度以及使用场景的增加，我们更加推荐对于默认行为总是选择保守的处理方式。而对于不满足需求的情况，可以通过 HOC 的形式或者是一些额外的 Props 配置来实现，以防止开发者在使用时有过多的约定而不知。
