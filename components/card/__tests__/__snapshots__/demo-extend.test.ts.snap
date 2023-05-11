@@ -130,6 +130,135 @@ exports[`renders components/card/demo/border-less.tsx extend context correctly 1
 </div>
 `;
 
+exports[`renders components/card/demo/component-token.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-card ant-card-bordered"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Card title
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      <div
+        class="ant-card ant-card-bordered ant-card-type-inner"
+      >
+        <div
+          class="ant-card-head"
+        >
+          <div
+            class="ant-card-head-wrapper"
+          >
+            <div
+              class="ant-card-head-title"
+            >
+              Inner Card title
+            </div>
+            <div
+              class="ant-card-extra"
+            >
+              <a
+                href="#"
+              >
+                More
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-card-body"
+        >
+          Inner Card content
+        </div>
+      </div>
+      <div
+        class="ant-card ant-card-bordered ant-card-type-inner"
+        style="margin-top: 16px;"
+      >
+        <div
+          class="ant-card-head"
+        >
+          <div
+            class="ant-card-head-wrapper"
+          >
+            <div
+              class="ant-card-head-title"
+            >
+              Inner Card title
+            </div>
+            <div
+              class="ant-card-extra"
+            >
+              <a
+                href="#"
+              >
+                More
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-card-body"
+        >
+          Inner Card content
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-card ant-card-bordered ant-card-small"
+    style="width: 300px;"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Small size card
+        </div>
+        <div
+          class="ant-card-extra"
+        >
+          <a
+            href="#"
+          >
+            More
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+    </div>
+  </div>,
+]
+`;
+
 exports[`renders components/card/demo/flexible-content.tsx extend context correctly 1`] = `
 <div
   class="ant-card ant-card-bordered ant-card-hoverable"
