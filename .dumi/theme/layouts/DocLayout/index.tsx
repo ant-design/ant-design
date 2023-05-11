@@ -105,10 +105,11 @@ const DocLayout: React.FC = () => {
         />
         <meta name="description" content={locale.description} />
         <meta property="og:title" content={locale?.title} />
+        <meta property="og:description" content={locale.description} />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
+          content="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zx7LTI_ECSAAAAAAAAAAAABkARQnAQ"
         />
       </Helmet>
       <ConfigProvider direction={direction} locale={lang === 'cn' ? zhCN : undefined}>
