@@ -1,17 +1,12 @@
 <!--
 First of all, thank you for your contribution! 😄
-
 For requesting to pull a new feature or bugfix, please send it from a feature/bugfix branch based on the `master` branch.
-
 Before submitting your pull request, please make sure the checklist below is confirmed.
-
 Your pull requests will be merged after one of the collaborators approve.
-
 Thank you!
-
 -->
 
-[[中文版模板 / Chinese template](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE/pr_cn.md)]
+[[中文版模板 / Chinese template](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE/pr_cn.md?plain=1)]
 
 ### 🤔 This is a ...
 
@@ -29,12 +24,14 @@ Thank you!
 - [ ] Code style optimization
 - [ ] Test Case
 - [ ] Branch merge
+- [ ] Workflow
 - [ ] Other (about what?)
 
 ### 🔗 Related issue link
 
 <!--
 1. Put the related issue or discussion links here.
+2. close #xxxx or fix #xxxx for instance.
 -->
 
 ### 💡 Background and solution
@@ -64,3 +61,18 @@ Describe changes from the user side, and list all potential break changes or oth
 - [ ] Demo is updated/provided or not needed
 - [ ] TypeScript definition is updated/provided or not needed
 - [ ] Changelog is provided or not needed
+
+---
+
+<!--
+Below are template for copilot to generate CR message.
+Please DO NOT modify it.
+-->
+
+### 🚀 Summary
+
+copilot:summary
+
+### 🔍 Walkthrough
+
+copilot:walkthrough

@@ -1,10 +1,6 @@
-import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
-import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
-import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
-import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
 import * as React from 'react';
-import { globalConfig } from '../config-provider';
+import { globalConfig, warnContext } from '../config-provider';
 import warning from '../_util/warning';
 import ConfirmDialog from './ConfirmDialog';
 import destroyFns from './destroyFns';
@@ -27,13 +23,18 @@ export type ModalFunc = (props: ModalFuncProps) => {
 export type ModalStaticFunctions = Record<NonNullable<ModalFuncProps['type']>, ModalFunc>;
 
 export default function confirm(config: ModalFuncProps) {
+  // Warning if exist theme
+  if (process.env.NODE_ENV !== 'production') {
+    warnContext('Modal');
+  }
+
   const container = document.createDocumentFragment();
   // eslint-disable-next-line @typescript-eslint/no-use-before-define
   let currentConfig = { ...config, close, open: true } as any;
   let timeoutId: NodeJS.Timeout;
 
   function destroy(...args: any[]) {
-    const triggerCancel = args.some(param => param && param.triggerCancel);
+    const triggerCancel = args.some((param) => param && param.triggerCancel);
     if (config.onCancel && triggerCancel) {
       config.onCancel(() => {}, ...args.slice(1));
     }
@@ -71,7 +72,8 @@ export default function confirm(config: ModalFuncProps) {
           prefixCls={prefixCls}
           rootPrefixCls={rootPrefixCls}
           iconPrefixCls={iconPrefixCls}
-          okText={okText || (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText)}
+          okText={okText}
+          locale={runtimeLocale}
           cancelText={cancelText || runtimeLocale.cancelText}
         />,
         container,
@@ -124,8 +126,6 @@ export default function confirm(config: ModalFuncProps) {
 
 export function withWarn(props: ModalFuncProps): ModalFuncProps {
   return {
-    icon: <ExclamationCircleOutlined />,
-    okCancel: false,
     ...props,
     type: 'warning',
   };
@@ -133,8 +133,6 @@ export function withWarn(props: ModalFuncProps): ModalFuncProps {
 
 export function withInfo(props: ModalFuncProps): ModalFuncProps {
   return {
-    icon: <InfoCircleOutlined />,
-    okCancel: false,
     ...props,
     type: 'info',
   };
@@ -142,8 +140,6 @@ export function withInfo(props: ModalFuncProps): ModalFuncProps {
 
 export function withSuccess(props: ModalFuncProps): ModalFuncProps {
   return {
-    icon: <CheckCircleOutlined />,
-    okCancel: false,
     ...props,
     type: 'success',
   };
@@ -151,8 +147,6 @@ export function withSuccess(props: ModalFuncProps): ModalFuncProps {
 
 export function withError(props: ModalFuncProps): ModalFuncProps {
   return {
-    icon: <CloseCircleOutlined />,
-    okCancel: false,
     ...props,
     type: 'error',
   };
@@ -160,8 +154,6 @@ export function withError(props: ModalFuncProps): ModalFuncProps {
 
 export function withConfirm(props: ModalFuncProps): ModalFuncProps {
   return {
-    icon: <ExclamationCircleOutlined />,
-    okCancel: true,
     ...props,
     type: 'confirm',
   };

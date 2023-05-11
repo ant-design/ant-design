@@ -68,7 +68,7 @@ describe('Radio Group', () => {
 
     const RadioGroup: React.FC<
       RadioGroupProps & { onChangeRadioGroup: RadioGroupProps['onChange'] }
-    > = props => (
+    > = (props) => (
       <Radio.Group onChange={props.onChangeRadioGroup}>
         <Radio value="A" onChange={props.onChange}>
           A
@@ -97,7 +97,7 @@ describe('Radio Group', () => {
   it('Trigger onChange when both of radioButton and radioGroup exists', () => {
     const onChange = jest.fn();
 
-    const RadioGroup: React.FC<RadioGroupProps> = props => (
+    const RadioGroup: React.FC<RadioGroupProps> = (props) => (
       <Radio.Group {...props}>
         <Radio.Button value="A">A</Radio.Button>
         <Radio.Button value="B">B</Radio.Button>
@@ -155,7 +155,7 @@ describe('Radio Group', () => {
     const GROUP_NAME = 'GROUP_NAME';
     const { container } = render(createRadioGroup({ name: GROUP_NAME }));
 
-    container.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach(el => {
+    container.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach((el) => {
       expect(el.name).toEqual(GROUP_NAME);
     });
   });
@@ -230,7 +230,7 @@ describe('Radio Group', () => {
       expect(container.querySelectorAll('.ant-radio-wrapper-checked').length).toBe(1);
     });
 
-    [undefined, null].forEach(newValue => {
+    [undefined, null].forEach((newValue) => {
       it(`should set value back when value change back to ${newValue}`, () => {
         const options = [{ label: 'Bamboo', value: 'bamboo' }];
         const { container, rerender } = render(<Radio.Group value="bamboo" options={options} />);

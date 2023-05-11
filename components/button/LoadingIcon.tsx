@@ -7,8 +7,14 @@ export interface LoadingIconProps {
   existIcon: boolean;
   loading?: boolean | object;
 }
-const getCollapsedWidth = () => ({ width: 0, opacity: 0, transform: 'scale(0)' });
-const getRealWidth = (node: HTMLElement) => ({
+
+const getCollapsedWidth = (): React.CSSProperties => ({
+  width: 0,
+  opacity: 0,
+  transform: 'scale(0)',
+});
+
+const getRealWidth = (node: HTMLElement): React.CSSProperties => ({
   width: node.scrollWidth,
   opacity: 1,
   transform: 'scale(1)',

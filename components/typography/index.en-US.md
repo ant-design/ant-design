@@ -1,9 +1,9 @@
 ---
 category: Components
-type: General
+group: General
 title: Typography
-cols: 1
-cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*MLt3R6m9huoAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Basic text writing, including headings, body text, lists, and more.
@@ -12,6 +12,19 @@ Basic text writing, including headings, body text, lists, and more.
 
 - When need to display a title or paragraph contents in Articles/Blogs/Notes.
 - When you need copyable/editable/ellipsis texts.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/title.tsx">Title Component</code>
+<code src="./demo/paragraph-debug.tsx" debug>Title and Paragraph</code>
+<code src="./demo/text.tsx">Text and Link Component</code>
+<code src="./demo/interactive.tsx">Interactive</code>
+<code src="./demo/ellipsis.tsx">Ellipsis</code>
+<code src="./demo/ellipsis-middle.tsx">Ellipsis from middle</code>
+<code src="./demo/ellipsis-debug.tsx" debug>Ellipsis Debug</code>
+<code src="./demo/suffix.tsx">suffix</code>
 
 ## API
 
@@ -135,9 +148,13 @@ Basic text writing, including headings, body text, lists, and more.
 | rows | Max rows of content | number | - |  |
 | suffix | Suffix of ellipsis content | string | - |  |
 | symbol | Custom description of ellipsis | ReactNode | `Expand` |  |
-| tooltip | Show tooltip when ellipsis | boolean \| ReactNode \| [TooltipProps](/components/tooltip/#API) | - | 4.11.0 |
+| tooltip | Show tooltip when ellipsis | boolean \| ReactNode \| [TooltipProps](/components/tooltip/#api) | - | 4.11.0 |
 | onEllipsis | Called when enter or leave ellipsis state | function(ellipsis) | - | 4.2.0 |
 | onExpand | Called when expand content | function(event) | - |  |
+
+## Design Token
+
+<ComponentTokenTable component="Typography"></ComponentTokenTable>
 
 ## FAQ
 

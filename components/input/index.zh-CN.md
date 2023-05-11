@@ -1,9 +1,12 @@
 ---
 category: Components
 subtitle: 输入框
-type: 数据录入
+group: 数据录入
 title: Input
-cover: https://gw.alipayobjects.com/zos/alicdn/xS9YEJhfe/Input.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Y3R0RowXHlAAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sBqqTatJ-AkAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 通过鼠标或键盘输入内容，是最基础的表单域的包装。
@@ -12,6 +15,32 @@ cover: https://gw.alipayobjects.com/zos/alicdn/xS9YEJhfe/Input.svg
 
 - 需要用户输入表单域内容时。
 - 提供组合型输入框，带搜索的输入框，还可以进行大小选择。
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本使用</code>
+<code src="./demo/size.tsx">三种大小</code>
+<code src="./demo/addon.tsx">前置/后置标签</code>
+<code src="./demo/compact-style.tsx">紧凑模式</code>
+<code src="./demo/group.tsx" debug>输入框组合</code>
+<code src="./demo/search-input.tsx">搜索框</code>
+<code src="./demo/search-input-loading.tsx">搜索框 loading</code>
+<code src="./demo/textarea.tsx">文本域</code>
+<code src="./demo/autosize-textarea.tsx">适应文本高度的文本域</code>
+<code src="./demo/tooltip.tsx">输入时格式化展示</code>
+<code src="./demo/presuffix.tsx">前缀和后缀</code>
+<code src="./demo/password-input.tsx">密码框</code>
+<code src="./demo/allowClear.tsx">带移除图标</code>
+<code src="./demo/show-count.tsx">带字数提示</code>
+<code src="./demo/textarea-show-count.tsx">带字数提示的文本域</code>
+<code src="./demo/status.tsx">自定义状态</code>
+<code src="./demo/borderless.tsx">无边框</code>
+<code src="./demo/focus.tsx">聚焦</code>
+<code src="./demo/borderless-debug.tsx" debug>Style Debug</code>
+<code src="./demo/align.tsx" debug>文本对齐</code>
+<code src="./demo/textarea-resize.tsx" debug>文本域</code>
+<code src="./demo/debug-addon.tsx" debug>debug 前置/后置标签</code>
 
 ## API
 
@@ -23,12 +52,14 @@ cover: https://gw.alipayobjects.com/zos/alicdn/xS9YEJhfe/Input.svg
 | addonBefore | 带标签的 input，设置前置标签 | ReactNode | - |  |
 | allowClear | 可以点击清除图标删除内容 | boolean \| { clearIcon: ReactNode } | - |  |
 | bordered | 是否有边框 | boolean | true | 4.5.0 |
+| classNames | 语义化结构 class | Record<[SemanticDOM](#input-1), string> | - | 5.4.0 |
 | defaultValue | 输入框默认内容 | string | - |  |
 | disabled | 是否禁用状态，默认为 false | boolean | false |  |
 | id | 输入框的 id | string | - |  |
 | maxLength | 最大长度 | number | - |  |
 | showCount | 是否展示字数 | boolean \| { formatter: (info: { value: string, count: number, maxLength?: number }) => ReactNode } | false | 4.18.0 info.value: 4.23.0 |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
+| styles | 语义化结构 style | Record<[SemanticDOM](#input-1), CSSProperties> | - | 5.4.0 |
 | prefix | 带有前缀图标的 input | ReactNode | - |  |
 | size | 控件大小。注：标准表单内的输入框大小限制为 `middle` | `large` \| `middle` \| `small` | - |  |
 | suffix | 带有后缀图标的 input | ReactNode | - |  |
@@ -48,9 +79,11 @@ Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-el
 | allowClear | 可以点击清除图标删除内容 | boolean | false |  |
 | autoSize | 自适应内容高度，可设置为 true \| false 或对象：{ minRows: 2, maxRows: 6 } | boolean \| object | false |  |
 | bordered | 是否有边框 | boolean | true | 4.5.0 |
+| classNames | 语义化结构 class | Record<[SemanticDOM](#inputtextarea-1), string> | - | 5.4.0 |
 | defaultValue | 输入框默认内容 | string | - |  |
 | maxLength | 内容最大长度 | number | - | 4.7.0 |
 | showCount | 是否展示字数 | boolean \| { formatter: (info: { value: string, count: number, maxLength?: number }) => string } | false | 4.7.0 formatter: 4.10.0 info.value: 4.23.0 |
+| styles | 语义化结构 style | Record<[SemanticDOM](#inputtextarea-1), CSSProperties> | - | 5.4.0 |
 | value | 输入框内容 | string | - |  |
 | onPressEnter | 按下回车的回调 | function(e) | - |  |
 | onResize | resize 回调 | function({ width, height }) | - |  |
@@ -67,26 +100,12 @@ Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-el
 
 其余属性和 Input 一致。
 
-#### Input.Group
-
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| compact | 是否用紧凑模式 | boolean | false |
-| size | `Input.Group` 中所有的 `Input` 的大小，可选 `large` `default` `small` | string | `default` |
-
-```jsx
-<Input.Group>
-  <input />
-  <input />
-</Input.Group>
-```
-
 #### Input.Password
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | iconRender | 自定义切换按钮 | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 |
-| visibilityToggle | 是否显示切换按钮或者控制密码显隐 | boolean \| [VisibilityToggle](#VisibilityToggle) | true |  |
+| visibilityToggle | 是否显示切换按钮或者控制密码显隐 | boolean \| [VisibilityToggle](#visibilitytoggle) | true |  |
 
 #### VisibilityToggle
 
@@ -101,6 +120,28 @@ Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-el
 | --- | --- | --- | --- |
 | blur | 取消焦点 | - |  |
 | focus | 获取焦点 | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | option - 4.10.0 |
+
+### Semantic DOM
+
+#### Input
+
+| 名称   | 说明               | 版本  |
+| ------ | ------------------ | ----- |
+| input  | `input` 元素       | 5.4.0 |
+| prefix | 所有前缀的包裹元素 | 5.4.0 |
+| suffix | 所有后缀的包裹元素 | 5.4.0 |
+| count  | 文字计数元素       | 5.4.0 |
+
+#### Input.TextArea
+
+| 名称     | 说明            | 版本  |
+| -------- | --------------- | ----- |
+| textarea | `textarea` 元素 | 5.4.0 |
+| count    | 文字计数元素    | 5.4.0 |
+
+## Design Token
+
+<ComponentTokenTable component="Input"></ComponentTokenTable>
 
 ## FAQ
 

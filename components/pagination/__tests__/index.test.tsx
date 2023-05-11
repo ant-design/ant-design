@@ -4,9 +4,9 @@ import type { PaginationProps } from '..';
 import Pagination from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Select from '../../select';
-import { fireEvent, render } from '../../../tests/utils';
 
 describe('Pagination', () => {
   mountTest(Pagination);
@@ -28,7 +28,7 @@ describe('Pagination', () => {
     expect(container.querySelector('button')?.disabled).toBe(true);
   });
 
-  it('should autometically be small when size is not specified', async () => {
+  it('should automatically be small when size is not specified', async () => {
     const { container } = render(<Pagination responsive />);
     expect(container.querySelector('ul')?.className.includes('ant-pagination-mini')).toBe(true);
   });

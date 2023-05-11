@@ -1,11 +1,11 @@
+import { UserOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
-import { UserOutlined } from '@ant-design/icons';
 import Layout from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import Menu from '../../menu';
 import { fireEvent, render } from '../../../tests/utils';
+import Menu from '../../menu';
 
 const { Sider, Content, Footer, Header } = Layout;
 
@@ -317,12 +317,13 @@ describe('Sider', () => {
     ).toBeTruthy();
   });
 
-  ['Layout', 'Header', 'Footer', 'Sider'].forEach(tag => {
+  (['Layout', 'Header', 'Footer', 'Sider'] as const).forEach((tag) => {
     const ComponentMap = { Layout, Header, Footer, Sider };
+
     it(`should get ${tag} element from ref`, () => {
-      const ref = React.createRef<any>();
+      const ref = React.createRef<HTMLDivElement>();
       const onSelect = jest.fn();
-      const Component = ComponentMap[tag as keyof typeof ComponentMap];
+      const Component = ComponentMap[tag];
       render(
         <Component onSelect={onSelect} ref={ref}>
           {tag}

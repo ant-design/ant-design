@@ -1,6 +1,8 @@
-import moment from 'moment';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+import React, { useState } from 'react';
 import type { RangeValue } from 'rc-picker/lib/interface';
-import React from 'react';
+import { resetWarned } from '../../_util/warning';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import { render, resetMockDate, setMockDate } from '../../../tests/utils';
@@ -8,10 +10,12 @@ import enUS from '../locale/en_US';
 
 import { closePicker, openPicker, selectCell } from './utils';
 
+dayjs.extend(customParseFormat);
+
 const { RangePicker } = DatePicker;
 
 describe('RangePicker', () => {
-  focusTest(RangePicker, { refFocus: true });
+  focusTest(RangePicker, { refFocus: true, blurDelay: 110 });
 
   beforeEach(() => {
     setMockDate();
@@ -23,7 +27,7 @@ describe('RangePicker', () => {
 
   // issue: https://github.com/ant-design/ant-design/issues/5872
   it('should not throw error when value is reset to `[]`', () => {
-    const birthday = moment('2000-01-01', 'YYYY-MM-DD');
+    const birthday = dayjs('2000-01-01', 'YYYY-MM-DD');
     const wrapper1 = render(<RangePicker value={[birthday, birthday]} open />);
     const wrapper2 = render(<RangePicker value={[] as unknown as null} open />);
 
@@ -54,23 +58,21 @@ describe('RangePicker', () => {
   // https://github.com/ant-design/ant-design/issues/13302
   describe('in "month" mode, when the left and right panels select the same month', () => {
     it('the cell status is correct', () => {
-      let rangePickerValue = [] as unknown as RangeValue<any>;
-      class Test extends React.Component {
-        state = { value: null };
+      let rangePickerValue: dayjs.Dayjs[] = [];
+      const Test: React.FC = () => {
+        const [value, setValue] = useState<RangeValue<dayjs.Dayjs>>(null);
+        return (
+          <RangePicker
+            value={value}
+            mode={['month', 'month']}
+            onPanelChange={(v) => {
+              setValue(v);
+              rangePickerValue = v as dayjs.Dayjs[];
+            }}
+          />
+        );
+      };
 
-        render() {
-          return (
-            <RangePicker
-              value={this.state.value}
-              mode={['month', 'month']}
-              onPanelChange={value => {
-                this.setState({ value });
-                rangePickerValue = value;
-              }}
-            />
-          );
-        }
-      }
       const wrapper = render(<Test />);
 
       openPicker(wrapper);
@@ -79,20 +81,20 @@ describe('RangePicker', () => {
       selectCell(wrapper, 'Feb');
       closePicker(wrapper, 1);
 
-      const [start, end] = rangePickerValue as [moment.Moment, moment.Moment];
+      const [start, end] = rangePickerValue;
 
       expect(start.isSame(end, 'date')).toBeTruthy();
     });
   });
 
   describe('ranges', () => {
-    it('RangePicker support presetted ranges with Tags', () => {
+    it('RangePicker support preset ranges with Tags', () => {
       const { container } = render(
         <RangePicker
           open
           ranges={{
-            Today: [moment(), moment()],
-            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            Today: [dayjs(), dayjs()],
+            'This Month': [dayjs().startOf('month'), dayjs().endOf('month')],
           }}
         />,
       );
@@ -111,5 +113,18 @@ describe('RangePicker', () => {
     const { container } = render(<RangePicker picker="quarter" locale={enUS} />);
     expect(container.querySelectorAll('input')[0]?.placeholder).toEqual('Start quarter');
     expect(container.querySelectorAll('input')[1]?.placeholder).toEqual('End quarter');
+  });
+
+  it('legacy dropdownClassName', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<DatePicker.RangePicker dropdownClassName="legacy" open />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: DatePicker.RangePicker] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+    );
+    expect(container.querySelector('.legacy')).toBeTruthy();
+
+    errSpy.mockRestore();
   });
 });

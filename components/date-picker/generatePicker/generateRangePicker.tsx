@@ -13,13 +13,15 @@ import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
 import SizeContext from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
+import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
-import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
+import warning from '../../_util/warning';
 import enUS from '../locale/en_US';
 import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
 import type { CommonPickerMethods, PickerComponentClass } from './interface';
-import warning from '../../_util/warning';
+
+import useStyle from '../style';
 
 export default function generateRangePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type InternalRangePickerProps = RangePickerProps<DateType> & {};
@@ -58,6 +60,8 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
     const { format, showTime, picker } = props as any;
     const rootPrefixCls = getPrefixCls();
 
+    const [wrapSSR, hashId] = useStyle(prefixCls);
+
     let additionalOverrideProps: any = {};
     additionalOverrideProps = {
       ...additionalOverrideProps,
@@ -65,11 +69,14 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
       ...(picker === 'time' ? getTimeProps({ format, ...props, picker }) : {}),
     };
 
-    warning(
-      !dropdownClassName,
-      'RangePicker',
-      '`dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
-    );
+    // =================== Warning =====================
+    if (process.env.NODE_ENV !== 'production') {
+      warning(
+        !dropdownClassName,
+        'DatePicker.RangePicker',
+        '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+      );
+    }
 
     // ===================== Size =====================
     const size = React.useContext(SizeContext);
@@ -95,56 +102,53 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
       blur: () => innerRef.current?.blur(),
     }));
 
-    return (
-      <LocaleReceiver componentName="DatePicker" defaultLocale={enUS}>
-        {contextLocale => {
-          const locale = { ...contextLocale, ...props.locale };
+    const [contextLocale] = useLocale('Calendar', enUS);
 
-          return (
-            <RCRangePicker<DateType>
-              separator={
-                <span aria-label="to" className={`${prefixCls}-separator`}>
-                  <SwapRightOutlined />
-                </span>
-              }
-              disabled={mergedDisabled}
-              ref={innerRef}
-              dropdownClassName={popupClassName || dropdownClassName}
-              dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
-              placeholder={getRangePlaceholder(picker, locale, placeholder)}
-              suffixIcon={suffixNode}
-              clearIcon={<CloseCircleFilled />}
-              prevIcon={<span className={`${prefixCls}-prev-icon`} />}
-              nextIcon={<span className={`${prefixCls}-next-icon`} />}
-              superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
-              superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-              allowClear
-              transitionName={`${rootPrefixCls}-slide-up`}
-              {...restProps}
-              {...additionalOverrideProps}
-              className={classNames(
-                {
-                  [`${prefixCls}-${mergedSize}`]: mergedSize,
-                  [`${prefixCls}-borderless`]: !bordered,
-                },
-                getStatusClassNames(
-                  prefixCls as string,
-                  getMergedStatus(contextStatus, customStatus),
-                  hasFeedback,
-                ),
-                compactItemClassnames,
-                className,
-              )}
-              locale={locale!.lang}
-              prefixCls={prefixCls}
-              getPopupContainer={customGetPopupContainer || getPopupContainer}
-              generateConfig={generateConfig}
-              components={Components}
-              direction={direction}
-            />
-          );
-        }}
-      </LocaleReceiver>
+    const locale = { ...contextLocale, ...props.locale! };
+
+    return wrapSSR(
+      <RCRangePicker<DateType>
+        separator={
+          <span aria-label="to" className={`${prefixCls}-separator`}>
+            <SwapRightOutlined />
+          </span>
+        }
+        disabled={mergedDisabled}
+        ref={innerRef}
+        dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
+        placeholder={getRangePlaceholder(locale, picker, placeholder)}
+        suffixIcon={suffixNode}
+        clearIcon={<CloseCircleFilled />}
+        prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+        nextIcon={<span className={`${prefixCls}-next-icon`} />}
+        superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+        superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
+        allowClear
+        transitionName={`${rootPrefixCls}-slide-up`}
+        {...restProps}
+        {...additionalOverrideProps}
+        className={classNames(
+          {
+            [`${prefixCls}-${mergedSize}`]: mergedSize,
+            [`${prefixCls}-borderless`]: !bordered,
+          },
+          getStatusClassNames(
+            prefixCls as string,
+            getMergedStatus(contextStatus, customStatus),
+            hasFeedback,
+          ),
+          hashId,
+          compactItemClassnames,
+          className,
+        )}
+        locale={locale.lang}
+        prefixCls={prefixCls}
+        getPopupContainer={customGetPopupContainer || getPopupContainer}
+        generateConfig={generateConfig}
+        components={Components}
+        direction={direction}
+        dropdownClassName={classNames(hashId, popupClassName || dropdownClassName)}
+      />,
     );
   });
 

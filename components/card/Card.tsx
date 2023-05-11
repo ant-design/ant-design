@@ -8,6 +8,8 @@ import type { TabsProps } from '../tabs';
 import Tabs from '../tabs';
 import Grid from './Grid';
 
+import useStyle from './style';
+
 export type CardType = 'inner';
 export type CardSize = 'default' | 'small';
 
@@ -30,6 +32,7 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   children?: React.ReactNode;
   id?: string;
   className?: string;
+  rootClassName?: string;
   size?: CardSize;
   type?: CardType;
   cover?: React.ReactNode;
@@ -73,6 +76,7 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
   const {
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     extra,
     headStyle = {},
     bodyStyle = {},
@@ -94,6 +98,7 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
   } = props;
 
   const prefixCls = getPrefixCls('card', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const loadingBlock = (
     <Skeleton loading active paragraph={{ rows: 4 }} title={false}>
@@ -111,14 +116,16 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
   };
 
   let head: React.ReactNode;
+  const mergedSize = customizeSize || size;
+  const tabSize = !mergedSize || mergedSize === 'default' ? 'large' : mergedSize;
   const tabs =
     tabList && tabList.length ? (
       <Tabs
-        size="large"
+        size={tabSize}
         {...extraProps}
         className={`${prefixCls}-head-tabs`}
         onChange={onTabChange}
-        items={tabList.map(item => ({
+        items={tabList.map((item) => ({
           label: item.tab,
           key: item.key,
           disabled: item.disabled ?? false,
@@ -147,7 +154,6 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
       <ul className={`${prefixCls}-actions`}>{getAction(actions)}</ul>
     ) : null;
   const divProps = omit(others, ['onTabChange']);
-  const mergedSize = customizeSize || size;
   const classString = classNames(
     prefixCls,
     {
@@ -161,15 +167,17 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
+    hashId,
   );
 
-  return (
+  return wrapSSR(
     <div ref={ref} {...divProps} className={classString}>
       {head}
       {coverDom}
       {body}
       {actionDom}
-    </div>
+    </div>,
   );
 });
 

@@ -7,7 +7,7 @@ import { resetWarned } from '../../_util/warning';
 import type { TableRowSelection } from '../interface';
 
 describe('Table.rowSelection', () => {
-  window.requestAnimationFrame = callback => window.setTimeout(callback, 16);
+  window.requestAnimationFrame = (callback) => window.setTimeout(callback, 16);
   window.cancelAnimationFrame = window.clearTimeout;
 
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -43,7 +43,7 @@ describe('Table.rowSelection', () => {
     container
       ?.querySelector('.ant-table-tbody')
       ?.querySelectorAll('tr')
-      ?.forEach(tr => {
+      ?.forEach((tr) => {
         namesList.push(tr?.querySelectorAll('td')?.[1]?.textContent);
       });
     return namesList;
@@ -51,7 +51,7 @@ describe('Table.rowSelection', () => {
 
   function getSelections(container: ReturnType<typeof render>['container']) {
     const keys: React.Key[] = [];
-    container.querySelectorAll('.ant-table-tbody tr').forEach(row => {
+    container.querySelectorAll('.ant-table-tbody tr').forEach((row) => {
       const key = row.getAttribute('data-row-key');
       if (row.querySelector('input')?.checked) {
         if (isNaN(Number(key))) {
@@ -67,7 +67,7 @@ describe('Table.rowSelection', () => {
 
   function getIndeterminateSelection(container: ReturnType<typeof render>['container']) {
     const keys: React.Key[] = [];
-    container.querySelectorAll('.ant-table-tbody tr').forEach(row => {
+    container.querySelectorAll('.ant-table-tbody tr').forEach((row) => {
       const key = row.getAttribute('data-row-key');
       if (row.querySelector('.ant-checkbox-indeterminate')) {
         if (isNaN(Number(key))) {
@@ -144,7 +144,7 @@ describe('Table.rowSelection', () => {
 
   it("make getCheckboxProps's `indeterminate` override selectedRowKeys' effect", () => {
     const rowSelection: TableProps<any>['rowSelection'] = {
-      getCheckboxProps: record => ({
+      getCheckboxProps: (record) => ({
         disabled: record.name === 'Lucy',
         indeterminate: record.name === 'Tom',
         name: record.name,
@@ -183,7 +183,7 @@ describe('Table.rowSelection', () => {
   it('handles defaultChecked', () => {
     resetWarned();
     const rowSelection = {
-      getCheckboxProps: record => ({
+      getCheckboxProps: (record) => ({
         defaultChecked: record.key === 0,
       }),
     } as TableRowSelection<any>;
@@ -226,7 +226,7 @@ describe('Table.rowSelection', () => {
     });
     expect(handleSelect.mock.calls.length).toBe(1);
     expect(handleSelect.mock.calls[0][0]).toEqual({ key: 3, name: 'Jerry' });
-    expect(handleSelect.mock.calls[0][1]).toEqual(true);
+    expect(handleSelect.mock.calls[0][1]).toBe(true);
     expect(handleSelect.mock.calls[0][2]).toEqual([{ key: 3, name: 'Jerry' }]);
     expect(handleSelect.mock.calls[0][3].type).toBe('click');
     expect(order).toEqual(['onSelect', 'onChange']);
@@ -302,7 +302,7 @@ describe('Table.rowSelection', () => {
         checkbox: true,
         rowSelection: {
           selections: [Table.SELECTION_NONE],
-          onChange: keys => onChange(keys),
+          onChange: (keys) => onChange(keys),
         },
       } as TableProps<any>),
     );
@@ -659,7 +659,7 @@ describe('Table.rowSelection', () => {
   // https://github.com/ant-design/ant-design/issues/4245
   it('handles disabled checkbox correctly when dataSource changes', () => {
     const rowSelection: TableProps<any>['rowSelection'] = {
-      getCheckboxProps: record => ({ disabled: record.disabled }),
+      getCheckboxProps: (record) => ({ disabled: record.disabled }),
     };
     const { container, rerender } = render(createTable({ rowSelection }));
     const newData = [
@@ -668,7 +668,7 @@ describe('Table.rowSelection', () => {
     ];
 
     rerender(createTable({ rowSelection, dataSource: newData }));
-    container.querySelectorAll('input').forEach(checkbox => {
+    container.querySelectorAll('input').forEach((checkbox) => {
       expect(checkbox.disabled).toBe(true);
     });
   });
@@ -680,7 +680,7 @@ describe('Table.rowSelection', () => {
         columns={columns}
         dataSource={data}
         rowSelection={{
-          getCheckboxProps: record => ({ disabled: record.name === 'Jack' }),
+          getCheckboxProps: (record) => ({ disabled: record.name === 'Jack' }),
         }}
       />,
     );
@@ -694,7 +694,7 @@ describe('Table.rowSelection', () => {
         columns={columns}
         dataSource={data}
         rowSelection={{
-          getCheckboxProps: record => ({ disabled: record.name === 'Lucy' }),
+          getCheckboxProps: (record) => ({ disabled: record.name === 'Lucy' }),
         }}
       />,
     );
@@ -817,9 +817,9 @@ describe('Table.rowSelection', () => {
         dataSource={data}
       />,
     );
-    const checkboxs = container.querySelectorAll('.ant-checkbox');
-    expect(checkboxs.length).toBe(5);
-    checkboxs.forEach(checkbox => {
+    const checkboxes = container.querySelectorAll('.ant-checkbox');
+    expect(checkboxes.length).toBe(5);
+    checkboxes.forEach((checkbox) => {
       expect(checkbox.querySelector('input')?.checked).toBe(true);
       expect(checkbox.className.includes('ant-checkbox-indeterminate')).toBe(false);
     });
@@ -835,7 +835,7 @@ describe('Table.rowSelection', () => {
     );
 
     expect(container.querySelectorAll('.ant-checkbox').length).toBe(4);
-    container.querySelectorAll('.ant-checkbox').forEach(checkbox => {
+    container.querySelectorAll('.ant-checkbox').forEach((checkbox) => {
       expect(checkbox.querySelector('input')?.checked).toBe(true);
       expect(checkbox.className.includes('ant-checkbox-indeterminate')).toBe(false);
     });
@@ -891,7 +891,7 @@ describe('Table.rowSelection', () => {
     );
 
     function clickFilter(indexList: number[]) {
-      indexList.forEach(index => {
+      indexList.forEach((index) => {
         // wrapper.find('.ant-dropdown-menu-item .ant-checkbox-wrapper').at(index).simulate('click');
         fireEvent.click(
           container.querySelectorAll('.ant-dropdown-menu-item .ant-checkbox-wrapper')[index],
@@ -929,7 +929,7 @@ describe('Table.rowSelection', () => {
   });
 
   it('render correctly when set childrenColumnName', () => {
-    const newDatas = [
+    const newData = [
       {
         key: 1,
         name: 'Jack',
@@ -952,7 +952,7 @@ describe('Table.rowSelection', () => {
       },
     ];
     const { container } = render(
-      <Table columns={columns} dataSource={newDatas} childrenColumnName="test" rowSelection={{}} />,
+      <Table columns={columns} dataSource={newData} childrenColumnName="test" rowSelection={{}} />,
     );
     const checkboxes = container.querySelectorAll('input');
     const objectContaining: { checked?: boolean; indeterminate?: boolean } = {};
@@ -970,7 +970,7 @@ describe('Table.rowSelection', () => {
   // https://github.com/ant-design/ant-design/issues/16614
   it('should get selectedRows correctly when set childrenColumnName', () => {
     const onChange = jest.fn();
-    const newDatas = [
+    const newData = [
       {
         key: 1,
         name: 'Jack',
@@ -985,7 +985,7 @@ describe('Table.rowSelection', () => {
     const { container } = render(
       <Table
         columns={columns}
-        dataSource={newDatas}
+        dataSource={newData}
         childrenColumnName="list"
         rowSelection={{ onChange }}
         expandedRowKeys={[1]}
@@ -995,12 +995,12 @@ describe('Table.rowSelection', () => {
 
     fireEvent.click(checkboxes[2]);
 
-    expect(onChange).toHaveBeenLastCalledWith([11], [newDatas[0].list[0]], { type: 'single' });
+    expect(onChange).toHaveBeenLastCalledWith([11], [newData[0].list[0]], { type: 'single' });
     onChange.mockReset();
 
     fireEvent.click(checkboxes[1]);
-    const item0 = newDatas[0];
-    expect(onChange).toHaveBeenLastCalledWith([11, 1], [newDatas[0].list[0], item0], {
+    const item0 = newData[0];
+    expect(onChange).toHaveBeenLastCalledWith([11, 1], [newData[0].list[0], item0], {
       type: 'single',
     });
   });
@@ -1082,7 +1082,7 @@ describe('Table.rowSelection', () => {
     ).toBeTruthy();
   });
 
-  it('should make select all indeterminated when each item is disabled and some item is checked', () => {
+  it('should make select all indeterminate when each item is disabled and some item is checked', () => {
     const { container } = render(
       createTable({
         rowSelection: {
@@ -1110,7 +1110,7 @@ describe('Table.rowSelection', () => {
       createTable({
         rowSelection: {
           selectedRowKeys: [0, 1, 2, 3],
-          getCheckboxProps: record => ({
+          getCheckboxProps: (record) => ({
             disabled: record.key === 0,
           }),
         },
@@ -1130,7 +1130,7 @@ describe('Table.rowSelection', () => {
       createTable({
         rowSelection: {
           selectedRowKeys: [1],
-          getCheckboxProps: record => ({
+          getCheckboxProps: (record) => ({
             disabled: record.key === 0,
           }),
         },
@@ -1166,7 +1166,7 @@ describe('Table.rowSelection', () => {
     const rowSelection = {
       selections: true,
     };
-    const getPopupContainer = jest.fn(node => node);
+    const getPopupContainer = jest.fn((node) => node);
     const { container } = render(
       createTable({
         rowSelection,
@@ -1187,7 +1187,7 @@ describe('Table.rowSelection', () => {
       selections: true,
     };
     const { container } = render(
-      <ConfigProvider getPopupContainer={node => node?.parentNode as HTMLElement}>
+      <ConfigProvider getPopupContainer={(node) => node?.parentNode as HTMLElement}>
         {createTable({
           rowSelection,
         })}
@@ -1212,8 +1212,8 @@ describe('Table.rowSelection', () => {
       />,
     );
 
-    const checkboxs = container.querySelectorAll('input');
-    fireEvent.click(checkboxs[checkboxs.length - 1]);
+    const checkboxes = container.querySelectorAll('input');
+    fireEvent.click(checkboxes[checkboxes.length - 1]);
 
     expect(onChange.mock.calls[0][1]).toEqual([expect.objectContaining({ name: 'bamboo' })]);
   });
@@ -1292,7 +1292,7 @@ describe('Table.rowSelection', () => {
             checkStrictly: false,
             onChange,
           },
-          rowKey: entity => entity.name,
+          rowKey: (entity) => entity.name,
         });
         const { container } = render(table);
         const checkboxes = container.querySelectorAll('input');
@@ -1424,7 +1424,7 @@ describe('Table.rowSelection', () => {
               };
             },
           },
-          rowKey: entity => entity.name,
+          rowKey: (entity) => entity.name,
         });
         const { container } = render(table);
         const checkboxes = container.querySelectorAll('input');
@@ -1593,7 +1593,7 @@ describe('Table.rowSelection', () => {
       );
     });
 
-    it('works with receive selectedRowKeys fron [] to undefined', () => {
+    it('works with receive selectedRowKeys from [] to undefined', () => {
       const onChange = jest.fn();
       const dataSource = [{ name: 'Jack' }];
       const { container, rerender } = render(

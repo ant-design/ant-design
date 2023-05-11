@@ -1,8 +1,11 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: TreeSelect
-cover: https://gw.alipayobjects.com/zos/alicdn/Ax4DA0njr/TreeSelect.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DfTMRYSDngEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Y5pcQLplFu4AAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 Tree selection control.
@@ -10,6 +13,20 @@ Tree selection control.
 ## When To Use
 
 `TreeSelect` is similar to `Select`, but the values are provided in a tree like structure. Any data whose entries are defined in a hierarchical manner is fit to use this control. Examples of such case may include a corporate hierarchy, a directory structure, and so on.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/multiple.tsx">Multiple Selection</code>
+<code src="./demo/treeData.tsx">Generate from tree data</code>
+<code src="./demo/checkable.tsx">Checkable</code>
+<code src="./demo/async.tsx">Asynchronous loading</code>
+<code src="./demo/treeLine.tsx">Show Tree Line</code>
+<code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/status.tsx">Status</code>
+<code src="./demo/suffix.tsx" debug>Suffix</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 
@@ -34,12 +51,13 @@ Tree selection control.
 | loadData | Load data asynchronously | function(node) | - |  |
 | maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| `responsive` | - | responsive: 4.10 |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode \| function(omittedValues) | - |  |
+| maxTagTextLength | Max tag text length to show | number | - |  |
 | multiple | Support multiple or not, will be `true` when enable `treeCheckable` | boolean | false |  |
 | notFoundContent | Specify content to show when no result matches | ReactNode | `Not Found` |  |
 | placeholder | Placeholder of the select input | string | - |  |
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | searchValue | Work with `onSearch` to make search value controlled | string | - |  |
-| showArrow | Whether to show the `suffixIcon`，when single selection mode, default `true` | boolean | - |  |
+| showArrow | Whether to show the `suffixIcon` | boolean | `true` |  |
 | showCheckedStrategy | The way show selected item in box when `treeCheckable` set. **Default:** just show child nodes. **`TreeSelect.SHOW_ALL`:** show all checked treeNodes (include parent treeNode). **`TreeSelect.SHOW_PARENT`:** show checked treeNodes (just show parent treeNode) | `TreeSelect.SHOW_ALL` \| `TreeSelect.SHOW_PARENT` \| `TreeSelect.SHOW_CHILD` | `TreeSelect.SHOW_CHILD` |  |
 | showSearch | Support search or not | boolean | single: false \| multiple: true |  |
 | size | To set the size of the select input | `large` \| `middle` \| `small` | - |  |
@@ -90,11 +108,15 @@ Tree selection control.
 | title | Content showed on the treeNodes | ReactNode | `---` |  |
 | value | Will be treated as `treeNodeFilterProp` by default, should be unique in the tree | string | - |  |
 
+## Design Token
+
+<ComponentTokenTable component="TreeSelect"></ComponentTokenTable>
+
 ## FAQ
 
 ### How to get parent node in onChange?
 
-We don't provide this since performance consideration. You can get by this way: <https://codesandbox.io/s/wk080nn81k>
+We don't provide this since performance consideration. You can get by this way: <https://codesandbox.io/s/get-parent-node-in-onchange-eb1608>
 
 ### Why sometime customize Option cause scroll break?
 

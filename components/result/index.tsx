@@ -12,6 +12,8 @@ import noFound from './noFound';
 import serverError from './serverError';
 import unauthorized from './unauthorized';
 
+import useStyle from './style';
+
 export const IconMap = {
   success: CheckCircleFilled,
   error: CloseCircleFilled,
@@ -36,6 +38,7 @@ export interface ResultProps {
   extra?: React.ReactNode;
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
 }
@@ -73,9 +76,14 @@ const Icon: React.FC<IconProps> = ({ prefixCls, icon, status }) => {
       </div>
     );
   }
+
   const iconNode = React.createElement(
     IconMap[status as Exclude<ResultStatusType, ExceptionStatusType>],
   );
+
+  if (icon === null || icon === false) {
+    return null;
+  }
 
   return <div className={className}>{icon || iconNode}</div>;
 };
@@ -101,6 +109,7 @@ export interface ResultType extends React.FC<ResultProps> {
 const Result: ResultType = ({
   prefixCls: customizePrefixCls,
   className: customizeClassName,
+  rootClassName,
   subTitle,
   title,
   style,
@@ -112,22 +121,36 @@ const Result: ResultType = ({
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('result', customizePrefixCls);
-  const className = classNames(prefixCls, `${prefixCls}-${status}`, customizeClassName, {
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-  });
-  return (
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const className = classNames(
+    prefixCls,
+    `${prefixCls}-${status}`,
+    customizeClassName,
+    rootClassName,
+    { [`${prefixCls}-rtl`]: direction === 'rtl' },
+    hashId,
+  );
+
+  return wrapSSR(
     <div className={className} style={style}>
       <Icon prefixCls={prefixCls} status={status} icon={icon} />
       <div className={`${prefixCls}-title`}>{title}</div>
       {subTitle && <div className={`${prefixCls}-subtitle`}>{subTitle}</div>}
       <Extra prefixCls={prefixCls} extra={extra} />
       {children && <div className={`${prefixCls}-content`}>{children}</div>}
-    </div>
+    </div>,
   );
 };
 
 Result.PRESENTED_IMAGE_403 = ExceptionMap['403'];
 Result.PRESENTED_IMAGE_404 = ExceptionMap['404'];
 Result.PRESENTED_IMAGE_500 = ExceptionMap['500'];
+
+if (process.env.NODE_ENV !== 'production') {
+  Result.displayName = 'Result';
+}
 
 export default Result;

@@ -1,10 +1,10 @@
 ---
 category: Components
 subtitle: 排版
-type: 通用
+group: 通用
 title: Typography
-cols: 1
-cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*MLt3R6m9huoAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 文本的基本格式。
@@ -13,6 +13,19 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 
 - 当需要展示标题、段落、列表内容时使用，如文章/博客/日志的文本样式。
 - 当需要一列基于文本的基础操作时，如拷贝/省略/可编辑。
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/title.tsx">标题组件</code>
+<code src="./demo/paragraph-debug.tsx" debug>标题与段落</code>
+<code src="./demo/text.tsx">文本与超链接组件</code>
+<code src="./demo/interactive.tsx">可交互</code>
+<code src="./demo/ellipsis.tsx">省略号</code>
+<code src="./demo/ellipsis-middle.tsx">省略中间</code>
+<code src="./demo/ellipsis-debug.tsx" debug>省略号 Debug</code>
+<code src="./demo/suffix.tsx">后缀</code>
 
 ## API
 
@@ -136,9 +149,13 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | rows | 最多显示的行数 | number | - |  |
 | suffix | 自定义省略内容后缀 | string | - |  |
 | symbol | 自定义展开描述文案 | ReactNode | `展开` |  |
-| tooltip | 省略时，展示提示信息 | boolean \| ReactNode \| [TooltipProps](/components/tooltip/#API) | - | 4.11.0 |
+| tooltip | 省略时，展示提示信息 | boolean \| ReactNode \| [TooltipProps](/components/tooltip-cn/#api) | - | 4.11.0 |
 | onEllipsis | 触发省略时的回调 | function(ellipsis) | - | 4.2.0 |
 | onExpand | 点击展开时的回调 | function(event) | - |  |
+
+## Design Token
+
+<ComponentTokenTable component="Typography"></ComponentTokenTable>
 
 ## FAQ
 

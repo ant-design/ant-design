@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { ScreenSizeMap } from '../_util/responsiveObserve';
+import type { ScreenSizeMap } from '../_util/responsiveObserver';
 
 export type AvatarSize = 'large' | 'small' | 'default' | number | ScreenSizeMap;
 
@@ -10,12 +10,9 @@ export interface SizeContextProps {
   children?: React.ReactNode;
 }
 
-export const SizeContextProvider: React.FC<SizeContextProps> = ({ children, size }) => (
-  <SizeContext.Consumer>
-    {originSize => (
-      <SizeContext.Provider value={size || originSize}>{children}</SizeContext.Provider>
-    )}
-  </SizeContext.Consumer>
-);
+export const SizeContextProvider: React.FC<SizeContextProps> = ({ children, size }) => {
+  const originSize = React.useContext<AvatarSize>(SizeContext);
+  return <SizeContext.Provider value={size || originSize}>{children}</SizeContext.Provider>;
+};
 
 export default SizeContext;

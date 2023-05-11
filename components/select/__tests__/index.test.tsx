@@ -6,6 +6,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, act } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 
 const { Option } = Select;
 
@@ -66,7 +67,7 @@ describe('Select', () => {
     const onDropdownVisibleChange = jest.fn();
     const TestComponent: React.FC = () => {
       const [open, setOpen] = React.useState(false);
-      const handleChange: SelectProps['onDropdownVisibleChange'] = value => {
+      const handleChange: SelectProps['onDropdownVisibleChange'] = (value) => {
         onDropdownVisibleChange(value);
         setOpen(value);
       };
@@ -95,15 +96,6 @@ describe('Select', () => {
     toggleOpen(container);
     expect(container.querySelectorAll('.anticon-down').length).toBe(0);
     expect(container.querySelectorAll('.anticon-search').length).toBe(1);
-  });
-
-  it('should show warning when use dropdownClassName', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Select dropdownClassName="myCustomClassName" />);
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Select] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
-    );
-    errorSpy.mockRestore();
   });
 
   describe('Select Custom Icons', () => {
@@ -141,6 +133,19 @@ describe('Select', () => {
         </Select>,
       );
       expect(asFragment().firstChild).toMatchSnapshot();
+    });
+
+    it('dropdownClassName', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Select dropdownClassName="legacy" open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+      );
+      expect(container.querySelector('.legacy')).toBeTruthy();
+
+      errSpy.mockRestore();
     });
   });
 });

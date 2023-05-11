@@ -1,8 +1,11 @@
 ---
 category: Components
-type: Data Display
 title: Badge
-cover: https://gw.alipayobjects.com/zos/antfincdn/6%26GF9WHwvY/Badge.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e0qITYqF394AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*v8EQT7KoGbcAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
+group: Data Display
 ---
 
 Small numerical value or status descriptor for UI elements.
@@ -10,6 +13,25 @@ Small numerical value or status descriptor for UI elements.
 ## When To Use
 
 Badge normally appears in proximity to notifications or user avatars with eye-catching appeal, typically displaying unread messages count.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/no-wrapper.tsx">Standalone</code>
+<code src="./demo/overflow.tsx">Overflow Count</code>
+<code src="./demo/dot.tsx">Red badge</code>
+<code src="./demo/change.tsx">Dynamic</code>
+<code src="./demo/link.tsx">Clickable</code>
+<code src="./demo/offset.tsx">Offset</code>
+<code src="./demo/size.tsx">Size</code>
+<code src="./demo/status.tsx">Status</code>
+<code src="./demo/colorful.tsx">Colorful Badge</code>
+<code src="./demo/ribbon.tsx">Ribbon</code>
+<code src="./demo/ribbon-debug.tsx" debug>Ribbon Debug</code>
+<code src="./demo/mix.tsx" debug>Mixed usage</code>
+<code src="./demo/title.tsx" debug>Title</code>
+<code src="./demo/colorful-with-count-debug.tsx" debug>Colorful Badge support count Debug</code>
 
 ## API
 
@@ -35,3 +57,7 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 | color | Customize Ribbon color | string | - |  |
 | placement | The placement of the Ribbon, `start` and `end` follow text direction (RTL or LTR) | `start` \| `end` | `end` |  |
 | text | Content inside the Ribbon | ReactNode | - |  |
+
+## Design Token
+
+<ComponentTokenTable component="Badge"></ComponentTokenTable>

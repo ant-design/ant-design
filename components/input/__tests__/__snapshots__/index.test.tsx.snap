@@ -328,6 +328,108 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
 </span>
 `;
 
+exports[`Input allowClear should support classNames and styles 1`] = `
+<div>
+  <span
+    class="rc-input-affix-wrapper custom-class"
+    style="background-color: red;"
+  >
+    <span
+      class="rc-input-prefix custom-prefix"
+      style="color: blue;"
+    >
+      prefix
+    </span>
+    <input
+      class="rc-input custom-input"
+      style="color: red;"
+      type="text"
+      value="123"
+    />
+    <span
+      class="rc-input-suffix custom-suffix"
+      style="color: yellow;"
+    >
+      <span
+        class="rc-input-show-count-suffix rc-input-show-count-has-suffix custom-count"
+        style="color: green;"
+      >
+        3
+      </span>
+      suffix
+    </span>
+  </span>
+  <span
+    class="rc-input-group-wrapper custom-class"
+    style="background-color: red;"
+  >
+    <span
+      class="rc-input-wrapper rc-input-group"
+    >
+      <span
+        class="rc-input-affix-wrapper"
+      >
+        <span
+          class="rc-input-prefix custom-prefix"
+          style="color: blue;"
+        >
+          prefix
+        </span>
+        <input
+          class="rc-input custom-input"
+          style="color: red;"
+          type="text"
+          value="123"
+        />
+        <span
+          class="rc-input-suffix custom-suffix"
+          style="color: yellow;"
+        >
+          <span
+            class="rc-input-show-count-suffix rc-input-show-count-has-suffix custom-count"
+            style="color: green;"
+          >
+            3
+          </span>
+          suffix
+        </span>
+      </span>
+      <span
+        class="rc-input-group-addon"
+      >
+        addon
+      </span>
+    </span>
+  </span>
+  <input
+    class="rc-input custom-input custom-class"
+    style="color: red; background-color: red;"
+    type="text"
+    value="123"
+  />
+  <span
+    class="rc-input-group-wrapper custom-class"
+    style="background-color: red;"
+  >
+    <span
+      class="rc-input-wrapper rc-input-group"
+    >
+      <input
+        class="rc-input custom-input"
+        style="color: red;"
+        type="text"
+        value="123"
+      />
+      <span
+        class="rc-input-group-addon"
+      >
+        addon
+      </span>
+    </span>
+  </span>
+</div>
+`;
+
 exports[`Input rtl render component should be rendered correctly in RTL direction 1`] = `
 <input
   class="ant-input ant-input-rtl"

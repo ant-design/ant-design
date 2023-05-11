@@ -36,17 +36,17 @@ Following the Ant Design specification, we developed a React UI library `antd` t
 
 ## Environment Support
 
-- Modern browsers and Internet Explorer 11 (with [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
+- Modern browsers
 - Server-side Rendering
 - [Electron](https://www.electronjs.org/)
 
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Electron |
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Electron |
 | --- | --- | --- | --- | --- | --- |
-| IE11, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
+| Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
 Polyfills are needed for IE browsers. We recommend [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) for it. You can set `targets` config if you are using [umi](http://umijs.org/).
 
-> We drop support of IE8 after `antd@2.0`, We drop support of React 15 and IE9/10 after `antd@4.0`,
+> Dropped support of IE8 after `antd@2.0`. Dropped support of React 15 and IE9/10 after `antd@4.0`. Dropped support of IE after `antd@5.0`.
 
 ## Version
 
@@ -74,29 +74,28 @@ If you are in a bad network environment, you can try other registries and tools 
 
 Add `script` and `link` tags in your browser and use the global variable `antd`.
 
-We provide `antd.js` `antd.css` and `antd.min.js` `antd.min.css` under `antd/dist` in antd's npm package. You can also download these files directly from [![CDNJS](https://img.shields.io/cdnjs/v/antd.svg?style=flat-square)](https://cdnjs.com/libraries/antd), [![](https://data.jsdelivr.com/v1/package/npm/antd/badge)](https://www.jsdelivr.com/package/npm/antd) or [unpkg](https://unpkg.com/antd/dist).
+We provide `antd.js` and `antd.min.js` `reset.css` under [dist](https://unpkg.com/browse/antd@5.0.0/dist/) folder in antd's npm package. You can also download these files directly from [![CDNJS](https://img.shields.io/cdnjs/v/antd.svg?style=flat-square)](https://cdnjs.com/libraries/antd), [![](https://data.jsdelivr.com/v1/package/npm/antd/badge)](https://www.jsdelivr.com/package/npm/antd) or [unpkg](https://unpkg.com/antd/dist).
 
 > **We strongly discourage loading the entire files** this will add bloat to your application and make it more difficult to receive bugfixes and updates. Antd is intended to be used in conjunction with a build tool, such as [webpack](https://webpack.github.io/), which will make it easy to import only the parts of antd that you are using.
 
-> Note: you should import react/react-dom/moment before using antd.js.
+> Note: You should import `react`、`react-dom`、`dayjs` before using `antd.js`.
 
 ## Usage
 
 ```jsx
+import React from 'react';
 import { DatePicker } from 'antd';
 
-ReactDOM.render(<DatePicker />, mountNode);
-```
+const App = () => {
+  return <DatePicker />;
+};
 
-And import stylesheets manually:
-
-```jsx
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+export default App;
 ```
 
 ### Use modularized antd
 
-`antd` supports ES modules tree shaking by default for JS part.
+`antd` supports ES modules tree shaking by default.
 
 ### TypeScript
 
@@ -105,20 +104,20 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 ## Links
 
 - [Home page](/)
+- [China Mirrors](https://github.com/ant-design/ant-design/issues/25661)
 - [Components](/components/overview)
 - [Ant Design Pro](https://pro.ant.design/)
+- [Ant Design Pro Components](https://procomponents.ant.design/)
 - [Ant Design Charts](https://charts.ant.design)
 - [Change Log](/changelog)
-- [rc-components](http://react-component.github.io/)
-- [Mobile UI](http://mobile.ant.design)
+- [rc-components](https://react-component.github.io/)
+- [Mobile Components](https://mobile.ant.design)
+- [Mini Program Components](https://mini.ant.design)
 - [Ant Design Icons](https://github.com/ant-design/ant-design-icons)
 - [Ant Design Colors](https://github.com/ant-design/ant-design-colors)
-- [Ant Design Pro Layout](https://github.com/ant-design/ant-design-pro-layout)
-- [Ant Design Pro Blocks](https://github.com/ant-design/pro-blocks)
-- [Dark Theme](https://github.com/ant-design/ant-design-dark-theme)
 - [Landing Pages](https://landing.ant.design)
 - [Motion](https://motion.ant.design)
-- [Scaffold Market](http://scaffold.ant.design)
+- [Scaffold Market](https://scaffold.ant.design)
 - [Developer Instruction](https://github.com/ant-design/ant-design/wiki/Development)
 - [Versioning Release Note](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [FAQ](/docs/react/faq)
@@ -129,13 +128,13 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 ## Companies using antd
 
-- [Ant Financial](http://www.antfin.com/index.htm?locale=en_US)
-- [Alibaba](http://www.alibaba.com/)
-- [Tencent](http://www.tencent.com)
-- [Baidu](http://www.baidu.com)
-- [Koubei](http://www.koubei.com/)
-- [Meituan](http://www.meituan.com)
-- [Didi](http://www.xiaojukeji.com/)
+- [Ant Group](https://www.antgroup.com/index.htm?locale=en_US)
+- [Alibaba](https://www.alibaba.com/)
+- [Tencent](https://www.tencent.com)
+- [Baidu](https://www.baidu.com)
+- [Koubei](https://www.koubei.com/)
+- [Meituan](https://www.meituan.com)
+- [Didi](https://www.xiaojukeji.com/)
 - [Eleme](https://www.ele.me/)
 
 > If your company or product uses Ant Design, let us know [here](https://github.com/ant-design/ant-design/issues/477)!

@@ -57,7 +57,7 @@ describe('Typography', () => {
 
   // Mock getComputedStyle
   const originGetComputedStyle = window.getComputedStyle;
-  window.getComputedStyle = ele => {
+  window.getComputedStyle = (ele) => {
     const style = originGetComputedStyle(ele);
     style.lineHeight = '16px';
     return style;
@@ -173,7 +173,8 @@ describe('Typography', () => {
           } else if (tooltips[0] === '' && tooltips[1]) {
             expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[1]);
           } else if (tooltips[1] === '' && tooltips[0]) {
-            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('');
+            // Tooltip will be hidden in this case, with content memoized
+            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[0]);
           } else {
             expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[1]);
           }
@@ -242,7 +243,7 @@ describe('Typography', () => {
       function testStep(
         { name = '', icon, tooltip, triggerType, enterIcon }: EditableConfig,
         submitFunc?: (container: ReturnType<typeof render>['container']) => void,
-        expectFunc?: (callbake: jest.Mock) => void,
+        expectFunc?: (callback: jest.Mock) => void,
       ) {
         it(name, async () => {
           jest.useFakeTimers();
@@ -347,7 +348,7 @@ describe('Typography', () => {
         });
       }
 
-      testStep({ name: 'by key up' }, wrapper => {
+      testStep({ name: 'by key up' }, (wrapper) => {
         // Not trigger when inComposition
         fireEvent.compositionStart(wrapper.querySelector('textarea')!);
         fireEvent.keyDown(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ENTER });
@@ -361,17 +362,17 @@ describe('Typography', () => {
 
       testStep(
         { name: 'by esc key' },
-        wrapper => {
+        (wrapper) => {
           fireEvent.keyDown(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
           fireEvent.keyUp(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
         },
-        onChange => {
+        (onChange) => {
           // eslint-disable-next-line jest/no-standalone-expect
           expect(onChange).not.toHaveBeenCalled();
         },
       );
 
-      testStep({ name: 'by blur' }, wrapper => {
+      testStep({ name: 'by blur' }, (wrapper) => {
         fireEvent.blur(wrapper.querySelector('textarea')!);
       });
 

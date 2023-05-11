@@ -5,15 +5,14 @@ import {
   PieChartOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import type { MenuMode } from 'rc-menu/lib/interface';
-import React, { useState, useMemo } from 'react';
-import type { MenuProps } from '..';
+import React, { useMemo, useState } from 'react';
+import type { MenuProps, MenuRef } from '..';
 import Menu from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, act } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 import Layout from '../../layout';
-import collapseMotion from '../../_util/motion';
+import initCollapseMotion from '../../_util/motion';
 import { noop } from '../../_util/warning';
 
 Object.defineProperty(globalThis, 'IS_REACT_ACT_ENVIRONMENT', {
@@ -54,7 +53,7 @@ describe('Menu', () => {
       enter();
     });
 
-    // React concurrent may delay creat this
+    // React concurrent may delay creating this
     triggerAllTimer();
 
     function getSubMenu() {
@@ -72,7 +71,7 @@ describe('Menu', () => {
       leave();
     });
 
-    // React concurrent may delay creat this
+    // React concurrent may delay creating this
     triggerAllTimer();
 
     if (getSubMenu()) {
@@ -134,7 +133,7 @@ describe('Menu', () => {
     </Menu>
   );
 
-  rtlTest(RtlDemo, { componentName: 'menu' });
+  rtlTest(RtlDemo);
 
   let div: HTMLDivElement;
 
@@ -284,7 +283,7 @@ describe('Menu', () => {
   it('test submenu in mode horizontal', async () => {
     const defaultTestProps: MenuProps = { mode: 'horizontal' };
 
-    const Demo: React.FC<MenuProps> = props => (
+    const Demo: React.FC<MenuProps> = (props) => (
       <Menu {...defaultTestProps} {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -308,7 +307,7 @@ describe('Menu', () => {
 
   it('test submenu in mode inline', () => {
     const defaultTestProps: MenuProps = { mode: 'inline' };
-    const Demo: React.FC<MenuProps> = props => (
+    const Demo: React.FC<MenuProps> = (props) => (
       <Menu {...defaultTestProps} {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -328,7 +327,7 @@ describe('Menu', () => {
 
   it('test submenu in mode vertical', () => {
     const defaultTestProps: MenuProps = { mode: 'vertical' };
-    const Demo: React.FC<MenuProps> = props => (
+    const Demo: React.FC<MenuProps> = (props) => (
       <Menu {...defaultTestProps} {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -348,8 +347,8 @@ describe('Menu', () => {
   });
 
   describe('allows the overriding of theme at the popup submenu level', () => {
-    const menuModesWithPopupSubMenu: MenuMode[] = ['horizontal', 'vertical'];
-    menuModesWithPopupSubMenu.forEach(menuMode => {
+    const menuModesWithPopupSubMenu: MenuProps['mode'][] = ['horizontal', 'vertical'];
+    menuModesWithPopupSubMenu.forEach((menuMode) => {
       it(`when menu is mode ${menuMode}`, () => {
         const { container } = render(
           <Menu mode={menuMode} openKeys={['1']} theme="dark">
@@ -391,7 +390,7 @@ describe('Menu', () => {
   });
 
   it('should always follow openKeys when mode is switched', () => {
-    const Demo: React.FC<MenuProps> = props => (
+    const Demo: React.FC<MenuProps> = (props) => (
       <Menu openKeys={['1']} mode="inline" {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -412,7 +411,7 @@ describe('Menu', () => {
   });
 
   it('should always follow openKeys when inlineCollapsed is switched', () => {
-    const Demo: React.FC<MenuProps> = props => (
+    const Demo: React.FC<MenuProps> = (props) => (
       <Menu defaultOpenKeys={['1']} mode="inline" {...props}>
         <Menu.Item key="menu1" icon={<InboxOutlined />}>
           Option
@@ -452,7 +451,7 @@ describe('Menu', () => {
   });
 
   it('inlineCollapsed should works well when specify a not existed default openKeys', () => {
-    const Demo: React.FC<MenuProps> = props => (
+    const Demo: React.FC<MenuProps> = (props) => (
       <Menu defaultOpenKeys={['not-existed']} mode="inline" {...props}>
         <Menu.Item key="menu1" icon={<InboxOutlined />}>
           Option
@@ -493,7 +492,7 @@ describe('Menu', () => {
         defaultOpenKeys={['not-existed']}
         mode="inline"
         inlineCollapsed
-        getPopupContainer={node => node.parentNode as HTMLElement}
+        getPopupContainer={(node) => node.parentNode as HTMLElement}
       >
         <Menu.Item key="menu1">item</Menu.Item>
         <Menu.Item key="menu2" title="title">
@@ -540,7 +539,7 @@ describe('Menu', () => {
 
     it('inline', () => {
       const defaultTestProps: MenuProps = { mode: 'inline' };
-      const Demo: React.FC<MenuProps> = props => (
+      const Demo: React.FC<MenuProps> = (props) => (
         <Menu {...defaultTestProps} {...props}>
           <SubMenu key="1" title="submenu1">
             <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -562,7 +561,7 @@ describe('Menu', () => {
 
     it('inline menu collapseMotion should be triggered', async () => {
       const cloneMotion = {
-        ...collapseMotion,
+        ...initCollapseMotion(),
         motionDeadline: 1,
       };
 
@@ -825,7 +824,7 @@ describe('Menu', () => {
     const onOpen = jest.fn();
     const onClose = jest.fn();
     const Demo: React.FC = () => {
-      const menuProps = useMemo<MenuProps>(() => ({ onOpen, onClose } as MenuProps), []);
+      const menuProps = useMemo<MenuProps>(() => ({ onOpen, onClose }) as MenuProps, []);
       return (
         <Menu
           {...menuProps}
@@ -859,8 +858,8 @@ describe('Menu', () => {
   // https://github.com/ant-design/ant-design/issues/8587
   it('should keep selectedKeys in state when collapsed to 0px', () => {
     jest.useFakeTimers();
-    const Demo: React.FC<MenuProps> = props => {
-      const menuProps = useMemo<MenuProps>(() => ({ collapsedWidth: 0 } as MenuProps), []);
+    const Demo: React.FC<MenuProps> = (props) => {
+      const menuProps = useMemo<MenuProps>(() => ({ collapsedWidth: 0 }) as MenuProps, []);
       return (
         <Menu
           mode="inline"
@@ -978,7 +977,7 @@ describe('Menu', () => {
   });
 
   it('should support ref', async () => {
-    const ref = React.createRef<Menu>();
+    const ref = React.createRef<MenuRef>();
     const { container } = render(
       <Menu ref={ref}>
         <Menu.Item key="1">Option 1</Menu.Item>
@@ -1041,11 +1040,63 @@ describe('Menu', () => {
   });
 
   it('should not warning deprecated message when items={undefined}', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Menu items={undefined} />);
     expect(errorSpy).not.toHaveBeenCalledWith(
       expect.stringContaining('`children` will be removed in next major version'),
     );
     errorSpy.mockRestore();
+  });
+
+  it('expandIconClassName', () => {
+    const { container } = render(
+      <Menu
+        expandIcon={<span className="custom-expand-icon" />}
+        inlineCollapsed
+        items={[
+          {
+            label: 'Option 1',
+            key: '1',
+            icon: '112',
+            children: [
+              {
+                label: 'Option 1-1',
+                key: '1-1',
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    expect(container.querySelector('.custom-expand-icon')).toBeTruthy();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/40041
+  it('should not show icon when inlineCollapsed', () => {
+    const { container } = render(
+      <Menu
+        expandIcon={<span className="bamboo">I</span>}
+        inlineCollapsed
+        items={[
+          {
+            label: 'Option 1',
+            key: '1',
+            icon: '112',
+            children: [
+              {
+                label: 'Option 1-1',
+                key: '1-1',
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+
+    expect(container.querySelector('.bamboo')).toBeTruthy();
+    expect(getComputedStyle(container.querySelector('.bamboo') as HTMLElement)).toHaveProperty(
+      'opacity',
+      '0',
+    );
   });
 });

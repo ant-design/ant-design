@@ -7,6 +7,7 @@ import Input from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Form from '../../form';
+import { resetWarned } from '../../_util/warning';
 import { triggerFocus } from '../Input';
 
 describe('Input', () => {
@@ -116,6 +117,15 @@ describe('Input', () => {
     ref.current?.setSelectionRange(valLength, valLength);
     expect(container.querySelector('input')?.selectionStart).toEqual(5);
     expect(container.querySelector('input')?.selectionEnd).toEqual(5);
+  });
+
+  it('warning for Input.Group', () => {
+    resetWarned();
+    render(<Input.Group />);
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      "Warning: [antd: Input.Group] 'Input.Group' is deprecated. Please use 'Space.Compact' instead.",
+    );
   });
 });
 
@@ -296,7 +306,7 @@ describe('Input allowClear', () => {
 
   it('should not show icon if value is undefined, null or empty string', () => {
     // @ts-ignore
-    const wrappers = [null, undefined, ''].map(val => render(<Input allowClear value={val} />));
+    const wrappers = [null, undefined, ''].map((val) => render(<Input allowClear value={val} />));
     wrappers.forEach(({ asFragment, container }) => {
       expect(container.querySelector('input')?.value).toEqual('');
       expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
@@ -305,7 +315,7 @@ describe('Input allowClear', () => {
   });
 
   it('should not show icon if defaultValue is undefined, null or empty string', () => {
-    const wrappers = [null, undefined, ''].map(val =>
+    const wrappers = [null, undefined, ''].map((val) =>
       // @ts-ignore
       render(<Input allowClear defaultValue={val} />),
     );
@@ -319,7 +329,7 @@ describe('Input allowClear', () => {
   it('should trigger event correctly', () => {
     let argumentEventObjectType;
     let argumentEventObjectValue;
-    const onChange: InputProps['onChange'] = e => {
+    const onChange: InputProps['onChange'] = (e) => {
       argumentEventObjectType = e.type;
       argumentEventObjectValue = e.target.value;
     };
@@ -333,7 +343,7 @@ describe('Input allowClear', () => {
   it('should trigger event correctly on controlled mode', () => {
     let argumentEventObjectType;
     let argumentEventObjectValue;
-    const onChange: InputProps['onChange'] = e => {
+    const onChange: InputProps['onChange'] = (e) => {
       argumentEventObjectType = e.type;
       argumentEventObjectValue = e.target.value;
     };
@@ -353,7 +363,7 @@ describe('Input allowClear', () => {
     unmount();
   });
 
-  ['disabled', 'readOnly'].forEach(prop => {
+  ['disabled', 'readOnly'].forEach((prop) => {
     it(`should not support allowClear when it is ${prop}`, () => {
       const { container } = render(<Input allowClear defaultValue="111" {...{ [prop]: true }} />);
       expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
@@ -394,7 +404,7 @@ describe('Input allowClear', () => {
         <Input
           allowClear
           value={query}
-          onChange={e => {
+          onChange={(e) => {
             setQuery(() => e.target.value);
           }}
         />
@@ -430,6 +440,82 @@ describe('Input allowClear', () => {
   it('should support custom clearIcon', () => {
     const { container } = render(<Input allowClear={{ clearIcon: 'clear' }} />);
     expect(container.querySelector('.ant-input-clear-icon')?.textContent).toBe('clear');
+  });
+
+  it('should support classNames and styles', () => {
+    const { container } = render(
+      <>
+        <Input
+          value="123"
+          showCount
+          prefixCls="rc-input"
+          prefix="prefix"
+          suffix="suffix"
+          className="custom-class"
+          style={{ backgroundColor: 'red' }}
+          classNames={{
+            input: 'custom-input',
+            prefix: 'custom-prefix',
+            suffix: 'custom-suffix',
+            count: 'custom-count',
+          }}
+          styles={{
+            input: { color: 'red' },
+            prefix: { color: 'blue' },
+            suffix: { color: 'yellow' },
+            count: { color: 'green' },
+          }}
+        />
+        <Input
+          value="123"
+          addonAfter="addon"
+          showCount
+          prefixCls="rc-input"
+          prefix="prefix"
+          suffix="suffix"
+          className="custom-class"
+          style={{ backgroundColor: 'red' }}
+          classNames={{
+            input: 'custom-input',
+            prefix: 'custom-prefix',
+            suffix: 'custom-suffix',
+            count: 'custom-count',
+          }}
+          styles={{
+            input: { color: 'red' },
+            prefix: { color: 'blue' },
+            suffix: { color: 'yellow' },
+            count: { color: 'green' },
+          }}
+        />
+        <Input
+          value="123"
+          prefixCls="rc-input"
+          className="custom-class"
+          style={{ backgroundColor: 'red' }}
+          classNames={{
+            input: 'custom-input',
+          }}
+          styles={{
+            input: { color: 'red' },
+          }}
+        />
+        <Input
+          value="123"
+          prefixCls="rc-input"
+          className="custom-class"
+          addonAfter="addon"
+          style={{ backgroundColor: 'red' }}
+          classNames={{
+            input: 'custom-input',
+          }}
+          styles={{
+            input: { color: 'red' },
+          }}
+        />
+      </>,
+    );
+    expect(container).toMatchSnapshot();
   });
 });
 
