@@ -18556,7 +18556,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
 
 exports[`ConfigProvider components Input configProvider componentSize small 1`] = `
 <div>
-  <span
+  <div
     class="config-input-group"
   >
     <input
@@ -18605,7 +18605,7 @@ exports[`ConfigProvider components Input configProvider componentSize small 1`] 
         </span>
       </span>
     </span>
-  </span>
+  </div>
   <span
     class="config-input-affix-wrapper config-input-password config-input-affix-wrapper-sm"
   >
