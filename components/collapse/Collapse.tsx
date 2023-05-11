@@ -2,10 +2,10 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
 import RcCollapse from 'rc-collapse';
 import type { CSSMotionProps } from 'rc-motion';
-import * as React from 'react';
-
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
+import * as React from 'react';
+import useSize from '../_util/hooks/useSize';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import warning from '../_util/warning';
@@ -13,8 +13,6 @@ import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { CollapsibleType } from './CollapsePanel';
 import CollapsePanel from './CollapsePanel';
-
-import useSize from '../_util/hooks/useSize';
 import useStyle from './style';
 
 /** @deprecated Please use `start` | `end` instead */
