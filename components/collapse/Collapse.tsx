@@ -63,13 +63,13 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     rootClassName,
     bordered = true,
     ghost,
-    size: customizeSize = 'middle',
+    size: customizeSize,
     expandIconPosition = 'start',
     children,
     expandIcon,
   } = props;
 
-  const mergedSize = useSize(customizeSize);
+  const mergedSize = useSize((ctx) => customizeSize ?? ctx ?? 'middle');
   const prefixCls = getPrefixCls('collapse', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
   const [wrapSSR, hashId] = useStyle(prefixCls);
