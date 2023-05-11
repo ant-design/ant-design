@@ -1,6 +1,6 @@
 import { useNProgress } from '@tanem/react-nprogress';
 import React from 'react';
-import theme from 'antd';
+import { theme } from 'antd';
 
 const Container: React.FC<{
   animationDuration: number;
