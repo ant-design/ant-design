@@ -40,16 +40,16 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@descriptions-bg` | `descriptionsBg` | - |
-| `@descriptions-title-margin-bottom` | `descriptionsTitleMarginBottom` | - |
-| `@descriptions-default-padding` | `descriptionsDefaultPadding` | - |
-| `@descriptions-middle-padding` | `descriptionsMiddlePadding` | - |
-| `@descriptions-small-padding` | `descriptionsSmallPadding` | - |
-| `@descriptions-item-padding-bottom` | `descriptionItemPaddingBottom` | - |
+| `@descriptions-bg` | `labelBg` | - |
+| `@descriptions-title-margin-bottom` | `titleMarginBottom` | - |
+| `@descriptions-default-padding` | `padding`、`paddingLG` | 全局 Token，对应值为 `${token.padding}px ${token.paddingLG}px` |
+| `@descriptions-middle-padding` | `paddingSM`、`paddingLG` | 全局 Token，对应值为 `${token.paddingSM}px ${token.paddingLG}px` |
+| `@descriptions-small-padding` | `paddingXS`、`padding` | 全局 Token，对应值为 `${token.paddingXS}px ${token.padding}px` |
+| `@descriptions-item-padding-bottom` | `itemPaddingBottom` | - |
 | `@descriptions-item-trailing-colon` | - | 由于样式变化已废弃 |
-| `@descriptions-item-label-colon-margin-right` | `descriptionsItemLabelColonMarginRight` | - |
-| `@descriptions-item-label-colon-margin-left` | `descriptionsItemLabelColonMarginLeft` | - |
-| `@descriptions-extra-color` | `descriptionsExtraColor` | - |
+| `@descriptions-item-label-colon-margin-right` | `colonMarginRight` | - |
+| `@descriptions-item-label-colon-margin-left` | `colonMarginLeft` | - |
+| `@descriptions-extra-color` | `extraColor` | - |
 
 <!-- ### Divider 分割线 -->
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { RadioChangeEvent } from 'antd';
-import { Button, ConfigProvider, Descriptions, Radio, theme } from 'antd';
+import { Button, ConfigProvider, Descriptions, Radio } from 'antd';
 
 const App: React.FC = () => {
   const [size, setSize] = useState<'default' | 'middle' | 'small'>('default');
@@ -15,14 +15,12 @@ const App: React.FC = () => {
       theme={{
         components: {
           Descriptions: {
-            descriptionsBg: 'red',
-            descriptionsTitleMarginBottom: 2,
-            descriptionsDefaultPadding: '32px',
-            descriptionsMiddlePadding: '24px',
-            descriptionsSmallPadding: '16px',
-            descriptionsItemLabelColonMarginRight: 10,
-            descriptionsItemLabelColonMarginLeft: 20,
-            descriptionsExtraColor: 'blue',
+            labelBg: 'red',
+            titleMarginBottom: 2,
+            itemPaddingBottom: 8,
+            colonMarginRight: 10,
+            colonMarginLeft: 20,
+            extraColor: 'blue',
           },
         },
       }}
