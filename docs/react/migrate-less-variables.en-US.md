@@ -164,18 +164,7 @@ This document contains the correspondence between all the less variables related
 | `@modal-confirm-title-font-size` | `titleFontSize` | - |
 | `@modal-border-radius` | `borderRadiusLG` | GlobalToken |
 
-## Notification
-
-<!-- prettier-ignore -->
-| Less variables | Component Token | Note |
-| --- | --- | --- |
-| `@notification-width` | `width` | - |
-| `@notification-padding` | `notificationPadding` | - |
-| `@notification-padding-vertical` | `notificationPaddingVertical` | - |
-| `@notification-padding-horizontal` | `notificationPaddingHorizontal` | - |
-| `@notification-margin-bottom` | `notificationMarginBottom` | - |
-| `@notification-margin-edge` | `notificationMarginEdge` | - |
-| `@notification-bg` | `notificationBg` | - |
+<!-- ### Notification -->
 
 <!-- ### Pagination -->
 
@@ -234,7 +223,7 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Slider -->
 
-## Statistic
+### Statistic
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |

@@ -8,8 +8,8 @@ import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/i
 export interface ComponentToken {
   tagFontSize: number;
   tagLineHeight: React.CSSProperties['lineHeight'];
-  tagDefaultBg: string;
-  tagDefaultColor: string;
+  defaultBg: string;
+  defaultColor: string;
 }
 
 interface TagToken extends FullToken<'Tag'> {
@@ -71,7 +71,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       fontSize: token.tagFontSize,
       lineHeight: `${token.tagLineHeight}px`,
       whiteSpace: 'nowrap',
-      background: token.tagDefaultBg,
+      background: token.defaultBg,
       border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
       borderRadius: token.borderRadiusSM,
       opacity: 1,
@@ -84,7 +84,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       },
 
       '&, a, a:hover': {
-        color: token.tagDefaultColor,
+        color: token.defaultColor,
       },
 
       [`${componentCls}-close-icon`]: {
@@ -175,8 +175,8 @@ export default genComponentStyleHook(
 
     return {
       tagFontSize: token.fontSizeSM,
-      tagDefaultBg: token.colorFillQuaternary,
-      tagDefaultColor: token.colorText,
+      defaultBg: token.colorFillQuaternary,
+      defaultColor: token.colorText,
       tagLineHeight,
     };
   },
