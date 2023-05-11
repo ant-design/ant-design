@@ -2,6 +2,7 @@ import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
+import useSize from 'antd/es/_util/hooks/useSize';
 import classNames from 'classnames';
 import { RangePicker as RCRangePicker } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
@@ -9,14 +10,13 @@ import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
 import type { RangePickerProps } from '.';
 import { Components, getTimeProps } from '.';
+import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
+import warning from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
-import SizeContext from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
 import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
-import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
-import warning from '../../_util/warning';
 import enUS from '../locale/en_US';
 import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
 import type { CommonPickerMethods, PickerComponentClass } from './interface';
@@ -79,8 +79,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
     }
 
     // ===================== Size =====================
-    const size = React.useContext(SizeContext);
-    const mergedSize = compactSize || customizeSize || size;
+    const mergedSize = useSize((ctx) => compactSize ?? customizeSize ?? ctx);
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);

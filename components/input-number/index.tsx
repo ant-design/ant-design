@@ -5,15 +5,15 @@ import classNames from 'classnames';
 import type { InputNumberProps as RcInputNumberProps } from 'rc-input-number';
 import RcInputNumber from 'rc-input-number';
 import * as React from 'react';
-import ConfigProvider, { ConfigContext } from '../config-provider';
-import DisabledContext from '../config-provider/DisabledContext';
-import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
-import { FormItemInputContext, NoFormStyle } from '../form/context';
-import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
+import useSize from '../_util/hooks/useSize';
 import { cloneElement } from '../_util/reactNode';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import ConfigProvider, { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import { FormItemInputContext, NoFormStyle } from '../form/context';
+import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 
 export interface InputNumberProps<T extends ValueType = ValueType>
@@ -32,7 +32,7 @@ export interface InputNumberProps<T extends ValueType = ValueType>
 
 const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const size = React.useContext(SizeContext);
+
   const [focused, setFocus] = React.useState(false);
   const inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -87,7 +87,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
-  const mergeSize = compactSize || customizeSize || size;
+  const mergeSize = useSize((ctx) => compactSize ?? customizeSize ?? ctx);
 
   const hasPrefix = prefix != null || hasFeedback;
   const hasAddon = !!(addonBefore || addonAfter);

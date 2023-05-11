@@ -7,6 +7,7 @@ import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import genPurePanel from '../_util/PurePanel';
+import useSize from '../_util/hooks/useSize';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionDirection, getTransitionName } from '../_util/motion';
 import type { InputStatus } from '../_util/statusUtils';
@@ -15,7 +16,6 @@ import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { FormItemInputContext } from '../form/context';
 import { useCompactItemContext } from '../space/Compact';
@@ -96,7 +96,6 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     dropdownMatchSelectWidth,
     select,
   } = React.useContext(ConfigContext);
-  const size = React.useContext(SizeContext);
 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
@@ -161,7 +160,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     hashId,
   );
 
-  const mergedSize = compactSize || customizeSize || size;
+  const mergedSize = useSize((ctx) => compactSize ?? customizeSize ?? ctx);
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);

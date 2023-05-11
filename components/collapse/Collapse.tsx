@@ -11,10 +11,10 @@ import { cloneElement } from '../_util/reactNode';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
 import type { CollapsibleType } from './CollapsePanel';
 import CollapsePanel from './CollapsePanel';
 
+import useSize from '../_util/hooks/useSize';
 import useStyle from './style';
 
 /** @deprecated Please use `start` | `end` instead */
@@ -56,7 +56,6 @@ interface PanelProps {
 
 const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const size = React.useContext(SizeContext);
 
   const {
     prefixCls: customizePrefixCls,
@@ -64,13 +63,13 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     rootClassName,
     bordered = true,
     ghost,
-    size: customizeSize,
+    size: customizeSize = 'middle',
     expandIconPosition = 'start',
     children,
     expandIcon,
   } = props;
 
-  const mergedSize = customizeSize || size || 'middle';
+  const mergedSize = useSize(customizeSize);
   const prefixCls = getPrefixCls('collapse', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
   const [wrapSSR, hashId] = useStyle(prefixCls);

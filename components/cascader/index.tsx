@@ -17,7 +17,6 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { useCompactItemContext } from '../space/Compact';
 
@@ -30,6 +29,7 @@ import { FormItemInputContext } from '../form/context';
 import getIcons from '../select/utils/iconUtil';
 
 import genPurePanel from '../_util/PurePanel';
+import useSize from '../_util/hooks/useSize';
 import useSelectStyle from '../select/style';
 import useBuiltinPlacements from '../select/useBuiltinPlacements';
 import useShowArrow from '../select/useShowArrow';
@@ -232,8 +232,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   }, [showSearch]);
 
   // ===================== Size ======================
-  const size = React.useContext(SizeContext);
-  const mergedSize = compactSize || customizeSize || size;
+  const mergedSize = useSize((ctx) => compactSize ?? customizeSize ?? ctx);
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);

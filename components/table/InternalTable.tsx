@@ -4,11 +4,11 @@ import { INTERNAL_HOOKS } from 'rc-table/lib/Table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
+import useSize from '../_util/hooks/useSize';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import warning from '../_util/warning';
 import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
@@ -173,8 +173,6 @@ const InternalTable = <RecordType extends AnyObject = any>(
 
   const tableProps: TableProps<RecordType> = omit(props, ['className', 'style', 'columns']);
 
-  const size = React.useContext<SizeType>(SizeContext);
-
   const {
     locale: contextLocale = defaultLocale,
     direction,
@@ -183,7 +181,7 @@ const InternalTable = <RecordType extends AnyObject = any>(
     getPopupContainer: getContextPopupContainer,
   } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
-  const mergedSize = customizeSize || size;
+  const mergedSize = useSize(customizeSize);
   const tableLocale: TableLocale = { ...contextLocale.Table, ...locale };
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
 
