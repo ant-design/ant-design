@@ -5,25 +5,25 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
-  cardHeadPadding: number;
+  headPadding: number;
   cardPaddingSM: number;
-  cardHeadHeight: number;
-  cardHeadHeightSM: number;
+  headHeight: number;
+  headHeightSM: number;
   cardPaddingBase: number;
   cardPaddingBaseSm: number;
   cardShadow: string;
-  cardActionsLiMargin: string;
-  cardHeadTabsMarginBottom: number;
-  cardActionsIconSize: number;
-  cardHeadColor: string;
-  cardHeadBackground: string;
-  cardHeadFontSize: number;
-  cardHeadFontSizeSm: number;
-  cardActionsBackground: string;
+  actionsLiMargin: string;
+  tabsMarginBottom: number;
+  actionsIconSize: number;
+  headColor: string;
+  headBackground: string;
+  headFontSize: number;
+  headFontSizeSm: number;
+  actionsBackground: string;
   cardBackground: string;
   cardRadius: number;
-  cardHeadExtraColor: string;
-  cardInnerHeadPadding: number;
+  headExtraColor: string;
+  innerHeadPadding: number;
 }
 
 interface CardToken extends FullToken<'Card'> {}
@@ -32,13 +32,13 @@ interface CardToken extends FullToken<'Card'> {}
 
 // ============================== Head ==============================
 const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { antCls, componentCls, cardHeadHeight, cardPaddingBase, cardHeadTabsMarginBottom } = token;
+  const { antCls, componentCls, headHeight, cardPaddingBase, tabsMarginBottom } = token;
 
   return {
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
-    minHeight: cardHeadHeight,
+    minHeight: headHeight,
     marginBottom: -1, // Fix card grid overflow bug: https://gw.alipayobjects.com/zos/rmsportal/XonYxBikwpgbqIQBeuhk.png
     padding: `0 ${cardPaddingBase}px`,
     color: token.colorTextHeading,
@@ -73,7 +73,7 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
     [`${antCls}-tabs-top`]: {
       clear: 'both',
-      marginBottom: cardHeadTabsMarginBottom,
+      marginBottom: tabsMarginBottom,
       color: token.colorText,
       fontWeight: 'normal',
       fontSize: token.fontSize,
@@ -112,8 +112,7 @@ const genCardGridStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
 // ============================== Actions ==============================
 const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { componentCls, iconCls, cardActionsLiMargin, cardActionsIconSize, colorBorderSecondary } =
-    token;
+  const { componentCls, iconCls, actionsLiMargin, actionsIconSize, colorBorderSecondary } = token;
   return {
     margin: 0,
     padding: 0,
@@ -125,14 +124,14 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     ...clearFix(),
 
     '& > li': {
-      margin: cardActionsLiMargin,
+      margin: actionsLiMargin,
       color: token.colorTextDescription,
       textAlign: 'center',
 
       '> span': {
         position: 'relative',
         display: 'block',
-        minWidth: token.cardActionsIconSize * 2,
+        minWidth: token.actionsIconSize * 2,
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
         cursor: 'pointer',
@@ -155,8 +154,8 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
         },
 
         [`> ${iconCls}`]: {
-          fontSize: cardActionsIconSize,
-          lineHeight: `${cardActionsIconSize * token.lineHeight}px`,
+          fontSize: actionsIconSize,
+          lineHeight: `${actionsIconSize * token.lineHeight}px`,
         },
       },
 
@@ -237,7 +236,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     antCls,
     componentCls,
     cardShadow,
-    cardHeadPadding,
+    headPadding,
     colorBorderSecondary,
     boxShadowTertiary,
     cardPaddingBase,
@@ -325,7 +324,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     [`${componentCls}-contain-tabs`]: {
       [`> ${componentCls}-head`]: {
         [`${componentCls}-head-title, ${componentCls}-extra`]: {
-          paddingTop: cardHeadPadding,
+          paddingTop: headPadding,
         },
       },
     },
@@ -342,12 +341,12 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
 // ============================== Size ==============================
 const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { componentCls, cardPaddingSM, cardHeadHeightSM } = token;
+  const { componentCls, cardPaddingSM, headHeightSM } = token;
 
   return {
     [`${componentCls}-small`]: {
       [`> ${componentCls}-head`]: {
-        minHeight: cardHeadHeightSM,
+        minHeight: headHeightSM,
         padding: `0 ${cardPaddingSM}px`,
         fontSize: token.fontSize,
 
@@ -365,7 +364,7 @@ const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     [`${componentCls}-small${componentCls}-contain-tabs`]: {
       [`> ${componentCls}-head`]: {
         [`${componentCls}-head-title, ${componentCls}-extra`]: {
-          minHeight: cardHeadHeightSM,
+          minHeight: headHeightSM,
           paddingTop: 0,
           display: 'flex',
           alignItems: 'center',
@@ -380,7 +379,7 @@ export default genComponentStyleHook(
   'Card',
   (token) => {
     const cardToken = mergeToken<CardToken>(token);
-
+    console.log('tokenboxShadowCard', token.boxShadowCard);
     return [
       // Style
       genCardStyle(cardToken),
@@ -390,24 +389,24 @@ export default genComponentStyleHook(
     ];
   },
   (token) => ({
-    cardHeadPadding: token.padding,
-    cardInnerHeadPadding: 12, // Fixed padding.
+    headPadding: token.padding,
+    innerHeadPadding: 12, // Fixed padding.
     cardPaddingSM: 12, // Fixed padding.
-    cardHeadHeight: token.fontSizeLG * token.lineHeightLG + token.padding * 2,
-    cardHeadHeightSM: token.fontSize * token.lineHeight + token.paddingXS * 2,
+    headHeight: token.fontSizeLG * token.lineHeightLG + token.padding * 2,
+    headHeightSM: token.fontSize * token.lineHeight + token.paddingXS * 2,
     cardPaddingBase: token.paddingLG,
     cardPaddingBaseSm: token.paddingLG / 2,
     cardShadow: token.boxShadowCard,
-    cardActionsLiMargin: `${token.paddingSM}px 0`,
-    cardHeadTabsMarginBottom: -token.padding - token.lineWidth,
-    cardActionsIconSize: token.fontSize,
-    cardHeadColor: token.colorText,
-    cardHeadBackground: 'transparent',
-    cardHeadFontSize: token.fontSizeLG,
-    cardHeadFontSizeSm: token.fontSize,
-    cardActionsBackground: token.colorBgContainer,
+    actionsLiMargin: `${token.paddingSM}px 0`,
+    tabsMarginBottom: -token.padding - token.lineWidth,
+    actionsIconSize: token.fontSize,
+    headColor: token.colorText,
+    headBackground: 'transparent',
+    headFontSize: token.fontSizeLG,
+    headFontSizeSm: token.fontSize,
+    actionsBackground: token.colorBgContainer,
     cardBackground: token.colorBgContainer,
     cardRadius: token.borderRadius,
-    cardHeadExtraColor: token.colorText,
+    headExtraColor: token.colorText,
   }),
 );
