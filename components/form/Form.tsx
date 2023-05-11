@@ -9,14 +9,13 @@ import { ConfigContext } from '../config-provider';
 import DisabledContext, { DisabledContextProvider } from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import { SizeContextProvider } from '../config-provider/SizeContext';
+import useSize from '../config-provider/hooks/useSize';
 import type { ColProps } from '../grid/col';
 import type { FormContextProps } from './context';
 import { FormContext } from './context';
 import useForm, { type FormInstance } from './hooks/useForm';
-import type { FormLabelAlign } from './interface';
-
-import useSize from '../_util/hooks/useSize';
 import useFormWarning from './hooks/useFormWarning';
+import type { FormLabelAlign } from './interface';
 import useStyle from './style';
 
 export type RequiredMark = boolean | 'optional';
@@ -66,7 +65,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     ...restFormProps
   } = props;
 
-  const mergeSize = useSize(size);
+  const mergedSize = useSize(size);
 
   if (process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -102,7 +101,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
       [`${prefixCls}-${layout}`]: true,
       [`${prefixCls}-hide-required-mark`]: mergedRequiredMark === false,
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-${mergeSize}`]: mergeSize,
+      [`${prefixCls}-${mergedSize}`]: mergedSize,
     },
     hashId,
     className,
@@ -158,7 +157,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
 
   return wrapSSR(
     <DisabledContextProvider disabled={disabled}>
-      <SizeContextProvider size={mergeSize}>
+      <SizeContextProvider size={mergedSize}>
         <FormContext.Provider value={formContextValue}>
           <FieldForm
             id={name}

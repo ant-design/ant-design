@@ -6,7 +6,7 @@ import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 
-import useSize from '../_util/hooks/useSize';
+import useSize from '../config-provider/hooks/useSize';
 import useStyle from './style';
 
 export interface SpaceCompactItemContextType {
@@ -78,7 +78,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
     ...restProps
   } = props;
 
-  const mergeSize = useSize((ctx) => size ?? ctx ?? 'middle');
+  const mergedSize = useSize((ctx) => size ?? ctx ?? 'middle');
 
   const prefixCls = getPrefixCls('space-compact', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
@@ -101,11 +101,10 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
     () =>
       childNodes.map((child, i) => {
         const key = (child && child.key) || `${prefixCls}-item-${i}`;
-
         return (
           <CompactItem
             key={key}
-            compactSize={mergeSize}
+            compactSize={mergedSize}
             compactDirection={direction}
             isFirstItem={i === 0 && (!compactItemContext || compactItemContext?.isFirstItem)}
             isLastItem={

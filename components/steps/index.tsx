@@ -4,17 +4,17 @@ import classNames from 'classnames';
 import RcSteps from 'rc-steps';
 import type {
   ProgressDotRender,
-  StepIconRender,
   StepsProps as RcStepsProps,
+  StepIconRender,
 } from 'rc-steps/lib/Steps';
 import * as React from 'react';
-import Tooltip from '../tooltip';
 import { ConfigContext } from '../config-provider';
+import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import Progress from '../progress';
-import useLegacyItems from './useLegacyItems';
+import Tooltip from '../tooltip';
 import useStyle from './style';
-import useSize from '../_util/hooks/useSize';
+import useLegacyItems from './useLegacyItems';
 
 export interface StepProps {
   className?: string;

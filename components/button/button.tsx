@@ -11,12 +11,12 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import useSize from '../_util/hooks/useSize';
 import warning from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
+import useSize from '../config-provider/hooks/useSize';
 import { useCompactItemContext } from '../space/Compact';
 import LoadingIcon from './LoadingIcon';
 import Group, { GroupSizeContext } from './button-group';

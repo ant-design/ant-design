@@ -6,11 +6,9 @@ import type {
 } from 'rc-segmented';
 import RcSegmented from 'rc-segmented';
 import * as React from 'react';
-
 import { ConfigContext } from '../config-provider';
+import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
-
-import useSize from '../_util/hooks/useSize';
 import useStyle from './style';
 
 export type { SegmentedValue } from 'rc-segmented';

@@ -1,10 +1,10 @@
 import React from 'react';
-import type { SizeType } from '../../config-provider/SizeContext';
-import SizeContext from '../../config-provider/SizeContext';
+import type { SizeType } from '../SizeContext';
+import SizeContext from '../SizeContext';
 
 const useSize = <T>(customSize?: T | ((ctxSize: SizeType) => T)): T => {
   const size = React.useContext<SizeType>(SizeContext);
-  const mergeSize = React.useMemo<T>(() => {
+  const mergedSize = React.useMemo<T>(() => {
     if (!customSize) {
       return size as T;
     }
@@ -16,7 +16,7 @@ const useSize = <T>(customSize?: T | ((ctxSize: SizeType) => T)): T => {
     }
     return size as T;
   }, [customSize, size]);
-  return mergeSize;
+  return mergedSize;
 };
 
 export default useSize;
