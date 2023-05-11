@@ -5,16 +5,16 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   contentWidth: number;
-  listItemPaddingLG: string;
-  listItemPaddingSM: string;
-  listItemPadding: string;
-  listHeaderBackground: string;
-  listFooterBackground: string;
-  listEmptyTextPadding: number;
-  listItemMetaMarginBottom: number;
-  listItemMetaAvatarMarginRight: number;
-  listItemMetaTitleMarginBottom: number;
-  listItemMetaDescriptionFontSize: number;
+  itemPaddingLG: string;
+  itemPaddingSM: string;
+  itemPadding: string;
+  headerBackground: string;
+  footerBackground: string;
+  emptyTextPadding: number;
+  metaMarginBottom: number;
+  avatarMarginRight: number;
+  titleMarginBottom: number;
+  descriptionFontSize: number;
 }
 
 interface ListToken extends FullToken<'List'> {
@@ -29,7 +29,7 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
     paddingLG,
     margin,
     padding,
-    listItemPaddingSM,
+    itemPaddingSM,
     marginLG,
     borderRadiusLG,
   } = token;
@@ -47,7 +47,7 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
     },
     [`${listBorderedCls}${componentCls}-sm`]: {
       [`${componentCls}-item,${componentCls}-header,${componentCls}-footer`]: {
-        padding: listItemPaddingSM,
+        padding: itemPaddingSM,
       },
     },
 
@@ -117,23 +117,23 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
     paddingSM,
     marginLG,
     padding,
-    listItemPadding,
+    itemPadding,
     colorPrimary,
-    listItemPaddingSM,
-    listItemPaddingLG,
+    itemPaddingSM,
+    itemPaddingLG,
     paddingXS,
     margin,
     colorText,
     colorTextDescription,
     motionDurationSlow,
     lineWidth,
-    listHeaderBackground,
-    listFooterBackground,
-    listEmptyTextPadding,
-    listItemMetaMarginBottom,
-    listItemMetaAvatarMarginRight,
-    listItemMetaTitleMarginBottom,
-    listItemMetaDescriptionFontSize,
+    headerBackground,
+    footerBackground,
+    emptyTextPadding,
+    metaMarginBottom,
+    avatarMarginRight,
+    titleMarginBottom,
+    descriptionFontSize,
   } = token;
 
   const alignCls: any = {};
@@ -151,10 +151,10 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
         outline: 'none',
       },
       [`${componentCls}-header`]: {
-        background: listHeaderBackground,
+        background: headerBackground,
       },
       [`${componentCls}-footer`]: {
-        background: listFooterBackground,
+        background: footerBackground,
       },
       [`${componentCls}-header, ${componentCls}-footer`]: {
         paddingBlock: paddingSM,
@@ -186,7 +186,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: listItemPadding,
+        padding: itemPadding,
         color: colorText,
 
         [`${componentCls}-item-meta`]: {
@@ -196,7 +196,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
           maxWidth: '100%',
 
           [`${componentCls}-item-meta-avatar`]: {
-            marginInlineEnd: listItemMetaAvatarMarginRight,
+            marginInlineEnd: avatarMarginRight,
           },
 
           [`${componentCls}-item-meta-content`]: {
@@ -223,7 +223,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
 
           [`${componentCls}-item-meta-description`]: {
             color: colorTextDescription,
-            fontSize: listItemMetaDescriptionFontSize,
+            fontSize: descriptionFontSize,
             lineHeight: token.lineHeight,
           },
         },
@@ -269,7 +269,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
       },
 
       [`${componentCls}-empty-text`]: {
-        padding: listEmptyTextPadding,
+        padding: emptyTextPadding,
         color: token.colorTextDisabled,
         fontSize: token.fontSize,
         textAlign: 'center',
@@ -300,11 +300,11 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
       },
 
       [`${componentCls}-item-meta`]: {
-        marginBlockEnd: listItemMetaMarginBottom,
+        marginBlockEnd: metaMarginBottom,
 
         [`${componentCls}-item-meta-title`]: {
           marginBlockStart: 0,
-          marginBlockEnd: listItemMetaTitleMarginBottom,
+          marginBlockEnd: titleMarginBottom,
           color: colorText,
           fontSize: token.fontSizeLG,
           lineHeight: token.lineHeightLG,
@@ -347,10 +347,10 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
         borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       },
     [`${componentCls}-lg ${componentCls}-item`]: {
-      padding: listItemPaddingLG,
+      padding: itemPaddingLG,
     },
     [`${componentCls}-sm ${componentCls}-item`]: {
-      padding: listItemPaddingSM,
+      padding: itemPaddingSM,
     },
     // Horizontal
     [`${componentCls}:not(${componentCls}-vertical)`]: {
@@ -376,15 +376,15 @@ export default genComponentStyleHook(
   },
   (token) => ({
     contentWidth: 220,
-    listItemPadding: `${token.paddingContentVertical}px 0`,
-    listItemPaddingSM: `${token.paddingContentVerticalSM}px ${token.paddingContentHorizontal}px`,
-    listItemPaddingLG: `${token.paddingContentVerticalLG}px ${token.paddingContentHorizontalLG}px`,
-    listHeaderBackground: 'transparent',
-    listFooterBackground: 'transparent',
-    listEmptyTextPadding: token.padding,
-    listItemMetaMarginBottom: token.padding,
-    listItemMetaAvatarMarginRight: token.padding,
-    listItemMetaTitleMarginBottom: token.paddingSM,
-    listItemMetaDescriptionFontSize: token.fontSize,
+    itemPadding: `${token.paddingContentVertical}px 0`,
+    itemPaddingSM: `${token.paddingContentVerticalSM}px ${token.paddingContentHorizontal}px`,
+    itemPaddingLG: `${token.paddingContentVerticalLG}px ${token.paddingContentHorizontalLG}px`,
+    headerBackground: 'transparent',
+    footerBackground: 'transparent',
+    emptyTextPadding: token.padding,
+    metaMarginBottom: token.padding,
+    avatarMarginRight: token.padding,
+    titleMarginBottom: token.paddingSM,
+    descriptionFontSize: token.fontSize,
   }),
 );

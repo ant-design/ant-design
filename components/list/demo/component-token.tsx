@@ -29,16 +29,16 @@ const App: React.FC = () => (
     theme={{
       components: {
         List: {
-          listHeaderBackground: 'pink',
-          listFooterBackground: 'pink',
-          listEmptyTextPadding: 32,
-          listItemPadding: 26,
-          listItemPaddingSM: 16,
-          listItemPaddingLG: 36,
-          listItemMetaMarginBottom: 20,
-          listItemMetaAvatarMarginRight: 20,
-          listItemMetaTitleMarginBottom: 10,
-          listItemMetaDescriptionFontSize: 20,
+          headerBackground: 'pink',
+          footerBackground: 'pink',
+          emptyTextPadding: 32,
+          itemPadding: '26px',
+          itemPaddingSM: '16px',
+          itemPaddingLG: '36px',
+          metaMarginBottom: 20,
+          avatarMarginRight: 20,
+          titleMarginBottom: 10,
+          descriptionFontSize: 20,
         },
       },
     }}
