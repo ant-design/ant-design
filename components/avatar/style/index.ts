@@ -12,8 +12,8 @@ export interface ComponentToken {
   avatarFontSizeBase: number;
   avatarFontSizeLG: number;
   avatarFontSizeSM: number;
-  avatarGroupSpace: number;
-  avatarGroupBorderColor: string;
+  groupSpace: number;
+  groupBorderColor: string;
   avatarBorderRadius: number;
 }
 
@@ -112,18 +112,18 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
 };
 
 const genGroupStyle: GenerateStyle<AvatarToken> = (token) => {
-  const { componentCls, avatarGroupBorderColor, avatarGroupSpace } = token;
+  const { componentCls, groupBorderColor, groupSpace } = token;
 
   return {
     [`${componentCls}-group`]: {
       display: 'inline-flex',
 
       [`${componentCls}`]: {
-        borderColor: avatarGroupBorderColor,
+        borderColor: groupBorderColor,
       },
 
       [`> *:not(:first-child)`]: {
-        marginInlineStart: avatarGroupSpace,
+        marginInlineStart: groupSpace,
       },
     },
   };
@@ -164,8 +164,8 @@ export default genComponentStyleHook(
       avatarBorderRadius: token.borderRadius,
       avatarBg: colorTextPlaceholder,
       avatarColor: colorTextLightSolid,
-      avatarGroupSpace: -marginXS,
-      avatarGroupBorderColor: colorBorderBg,
+      groupSpace: -marginXS,
+      groupBorderColor: colorBorderBg,
     };
   },
 );

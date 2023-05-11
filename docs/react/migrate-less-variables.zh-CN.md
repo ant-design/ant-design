@@ -39,8 +39,8 @@ title: Less 变量迁移 Design Token
 | `@avatar-color` | `avatarColor` | - |
 | `@avatar-border-radius` | - | 由于样式变化已废弃 |
 | `@avatar-group-overlapping` | - | 由于样式变化已废弃 |
-| `@avatar-group-space` | `avatarGroupSpace` | - |
-| `@avatar-group-border-color` | `avatarGroupBorderColor` | - |
+| `@avatar-group-space` | `groupSpace` | - |
+| `@avatar-group-border-color` | `groupBorderColor` | - |
 
 <!-- ### Badge 徽标数 -->
 

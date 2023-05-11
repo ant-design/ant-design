@@ -39,8 +39,8 @@ This document contains the correspondence between all the less variables related
 | `@avatar-color` | `avatarColor` | - |
 | `@avatar-border-radius` | - | Deprecated for style change |
 | `@avatar-group-overlapping` | - | Deprecated for style change |
-| `@avatar-group-space` | `avatarGroupSpace` | - |
-| `@avatar-group-border-color` | `avatarGroupBorderColor` | - |
+| `@avatar-group-space` | `groupSpace` | - |
+| `@avatar-group-border-color` | `groupBorderColor` | - |
 
 <!-- ### Badge -->
 
