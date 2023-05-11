@@ -12,19 +12,17 @@ export default () => {
 
   return (
     <ColorPicker value={color} onChange={setColor}>
-      <span>
-        <Space>
-          <div
-            style={{
-              width: 20,
-              height: 20,
-              borderRadius: 4,
-              background: genColor,
-            }}
-          />
-          <span>{genColor}</span>
-        </Space>
-      </span>
+      <Space>
+        <div
+          style={{
+            width: 20,
+            height: 20,
+            borderRadius: 4,
+            background: genColor,
+          }}
+        />
+        <span>{genColor}</span>
+      </Space>
     </ColorPicker>
   );
 };

@@ -3965,27 +3965,25 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
 
 exports[`renders components/color-picker/demo/trigger.tsx extend context correctly 1`] = `
 Array [
-  <span>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
+  >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
+      class="ant-space-item"
+      style="margin-right: 8px;"
     >
       <div
-        class="ant-space-item"
-        style="margin-right: 8px;"
-      >
-        <div
-          style="width: 20px; height: 20px; border-radius: 4px; background: rgb(22, 119, 255);"
-        />
-      </div>
-      <div
-        class="ant-space-item"
-      >
-        <span>
-          #1677ff
-        </span>
-      </div>
+        style="width: 20px; height: 20px; border-radius: 4px; background: rgb(22, 119, 255);"
+      />
     </div>
-  </span>,
+    <div
+      class="ant-space-item"
+    >
+      <span>
+        #1677ff
+      </span>
+    </div>
+  </div>,
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
