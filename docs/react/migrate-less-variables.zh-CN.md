@@ -269,8 +269,8 @@ title: Less 变量迁移 Design Token
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
 | `@tag-border-radius` | `borderRadiusSM` | - |
-| `@tag-default-bg` | `tagDefaultBg` | - |
-| `@tag-default-color` | `tagDefaultColor` | - |
+| `@tag-default-bg` | `defaultBg` | - |
+| `@tag-default-color` | `defaultColor` | - |
 | `@tag-font-size` | `tagFontSize` | - |
 | `@tag-line-height` | `tagLineHeight` | - |
 
