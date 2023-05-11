@@ -24,6 +24,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-0kxQrbHx2kAAA
 <code src="./demo/500.tsx">500</code>
 <code src="./demo/error.tsx">Error</code>
 <code src="./demo/customIcon.tsx">自定义 icon</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
