@@ -131,11 +131,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
             [`${prefixCls}-${mergedSize}`]: mergedSize,
             [`${prefixCls}-borderless`]: !bordered,
           },
-          getStatusClassNames(
-            prefixCls as string,
-            getMergedStatus(contextStatus, customStatus),
-            hasFeedback,
-          ),
+          getStatusClassNames(prefixCls, getMergedStatus(contextStatus, customStatus), hasFeedback),
           hashId,
           compactItemClassnames,
           className,

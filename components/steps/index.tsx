@@ -14,6 +14,7 @@ import useBreakpoint from '../grid/hooks/useBreakpoint';
 import Progress from '../progress';
 import useLegacyItems from './useLegacyItems';
 import useStyle from './style';
+import useSize from '../_util/hooks/useSize';
 
 export interface StepProps {
   className?: string;
@@ -55,7 +56,7 @@ type CompoundedComponent = React.FC<StepsProps> & {
 const Steps: CompoundedComponent = (props) => {
   const {
     percent,
-    size,
+    size: customizeSize,
     className,
     rootClassName,
     direction,
@@ -72,6 +73,8 @@ const Steps: CompoundedComponent = (props) => {
     () => (responsive && xs ? 'vertical' : direction),
     [xs, direction],
   );
+
+  const size = useSize(customizeSize);
 
   const prefixCls = getPrefixCls('steps', props.prefixCls);
 
