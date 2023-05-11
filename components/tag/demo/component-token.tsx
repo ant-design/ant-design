@@ -1,5 +1,6 @@
 import { ConfigProvider, Space, Tag } from 'antd';
 import React from 'react';
+
 export default () => (
   <ConfigProvider
     theme={{
