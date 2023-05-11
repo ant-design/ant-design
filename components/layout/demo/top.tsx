@@ -10,8 +10,8 @@ const App: React.FC = () => {
 
   return (
     <Layout className="layout">
-      <Header>
-        <div className="logo" />
+      <Header style={{ display: 'flex', alignItems: 'center' }}>
+        <div className="demo-logo" />
         <Menu
           theme="dark"
           mode="horizontal"
