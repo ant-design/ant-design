@@ -2,13 +2,13 @@ import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
-import useSize from '../_util/hooks/useSize';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import type { AvatarSize } from './SizeContext';
+import SizeContext from './SizeContext';
 import useStyle from './style';
 
 export interface AvatarProps {
@@ -44,6 +44,8 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   props,
   ref,
 ) => {
+  const groupSize = React.useContext(SizeContext);
+
   const [scale, setScale] = React.useState(1);
   const [mounted, setMounted] = React.useState(false);
   const [isImgExist, setIsImgExist] = React.useState(true);
@@ -106,7 +108,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     ...others
   } = props;
 
-  const size = useSize((ctx) => (customSize === 'default' ? ctx : customSize));
+  const size = customSize === 'default' ? groupSize : customSize;
 
   const needResponsive = Object.keys(typeof size === 'object' ? size || {} : {}).some((key) =>
     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),
