@@ -114,7 +114,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),
   );
   const screens = useBreakpoint(needResponsive);
-  const responsiveSizeStyle: React.CSSProperties = React.useMemo(() => {
+  const responsiveSizeStyle = React.useMemo<React.CSSProperties>(() => {
     if (typeof size !== 'object') {
       return {};
     }

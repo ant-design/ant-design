@@ -1,6 +1,5 @@
 import classNames from 'classnames';
-import type { TableProps as RcTableProps } from 'rc-table/lib/Table';
-import { INTERNAL_HOOKS } from 'rc-table/lib/Table';
+import { type TableProps as RcTableProps, INTERNAL_HOOKS } from 'rc-table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';

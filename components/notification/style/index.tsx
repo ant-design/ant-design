@@ -12,15 +12,15 @@ export interface ComponentToken {
 }
 
 export interface NotificationToken extends FullToken<'Notification'> {
+  animationMaxHeight: number;
   notificationBg: string;
+  notificationPadding: string;
   notificationPaddingVertical: number;
   notificationPaddingHorizontal: number;
-  notificationPadding: string;
-  notificationMarginBottom: number;
-  notificationMarginEdge: number;
-  animationMaxHeight: number;
   notificationIconSize: number;
   notificationCloseButtonSize: number;
+  notificationMarginBottom: number;
+  notificationMarginEdge: number;
 }
 
 const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
@@ -271,19 +271,17 @@ export default genComponentStyleHook(
   (token) => {
     const notificationPaddingVertical = token.paddingMD;
     const notificationPaddingHorizontal = token.paddingLG;
-
     const notificationToken = mergeToken<NotificationToken>(token, {
-      // default.less variables
+      // index.less variables
       notificationBg: token.colorBgElevated,
       notificationPaddingVertical,
       notificationPaddingHorizontal,
-      // index.less variables
-      notificationPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
-      notificationMarginBottom: token.margin,
-      notificationMarginEdge: token.marginLG,
-      animationMaxHeight: 150,
       notificationIconSize: token.fontSizeLG * token.lineHeightLG,
       notificationCloseButtonSize: token.controlHeightLG * 0.55,
+      notificationMarginBottom: token.margin,
+      notificationPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
+      notificationMarginEdge: token.marginLG,
+      animationMaxHeight: 150,
     });
 
     return [genNotificationStyle(notificationToken)];

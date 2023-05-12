@@ -61,6 +61,9 @@ export interface SelectProps<
   /** @deprecated Please use `popupClassName` instead */
   dropdownClassName?: string;
   rootClassName?: string;
+  /** @deprecated Please use `popupMatchSelectWidth` instead */
+  dropdownMatchSelectWidth?: boolean | number;
+  popupMatchSelectWidth?: boolean | number;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -83,6 +86,8 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     status: customStatus,
     showArrow,
     builtinPlacements,
+    dropdownMatchSelectWidth,
+    popupMatchSelectWidth,
     ...props
   }: SelectProps<OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -93,7 +98,8 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     renderEmpty,
     direction,
     virtual,
-    dropdownMatchSelectWidth,
+    popupMatchSelectWidth: contextPopupMatchSelectWidth,
+    popupOverflow,
     select,
   } = React.useContext(ConfigContext);
 
@@ -119,6 +125,9 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
   const mergedShowArrow = useShowArrow(showArrow);
+
+  const mergedPopupMatchSelectWidth =
+    popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
 
   // ===================== Form Status =====================
   const {
@@ -189,7 +198,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
   }, [placement, direction]);
 
-  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements);
+  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements, popupOverflow);
 
   // ====================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
@@ -198,6 +207,12 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       'Select',
       '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
     );
+
+    warning(
+      dropdownMatchSelectWidth === undefined,
+      'Select',
+      '`dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
+    );
   }
 
   // ====================== Render =======================
@@ -205,9 +220,9 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     <RcSelect<any, any>
       ref={ref}
       virtual={virtual}
-      dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       showSearch={select?.showSearch}
       {...selectProps}
+      dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
       builtinPlacements={mergedBuiltinPlacements}
       transitionName={getTransitionName(
         rootPrefixCls,

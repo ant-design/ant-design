@@ -3260,29 +3260,33 @@ exports[`renders components/form/demo/dynamic-form-item.tsx correctly 1`] = `
               type="button"
             >
               <span
-                aria-label="plus"
-                class="anticon anticon-plus"
-                role="img"
+                class="ant-btn-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="plus"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="plus"
+                  class="anticon anticon-plus"
+                  role="img"
                 >
-                  <defs>
-                    <style />
-                  </defs>
-                  <path
-                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                  />
-                  <path
-                    d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="plus"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <defs>
+                      <style />
+                    </defs>
+                    <path
+                      d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                    />
+                    <path
+                      d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                    />
+                  </svg>
+                </span>
               </span>
               <span>
                 Add field
@@ -3294,29 +3298,33 @@ exports[`renders components/form/demo/dynamic-form-item.tsx correctly 1`] = `
               type="button"
             >
               <span
-                aria-label="plus"
-                class="anticon anticon-plus"
-                role="img"
+                class="ant-btn-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="plus"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="plus"
+                  class="anticon anticon-plus"
+                  role="img"
                 >
-                  <defs>
-                    <style />
-                  </defs>
-                  <path
-                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                  />
-                  <path
-                    d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="plus"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <defs>
+                      <style />
+                    </defs>
+                    <path
+                      d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                    />
+                    <path
+                      d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                    />
+                  </svg>
+                </span>
               </span>
               <span>
                 Add field at head
@@ -3385,29 +3393,33 @@ exports[`renders components/form/demo/dynamic-form-items.tsx correctly 1`] = `
               type="button"
             >
               <span
-                aria-label="plus"
-                class="anticon anticon-plus"
-                role="img"
+                class="ant-btn-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="plus"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="plus"
+                  class="anticon anticon-plus"
+                  role="img"
                 >
-                  <defs>
-                    <style />
-                  </defs>
-                  <path
-                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                  />
-                  <path
-                    d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="plus"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <defs>
+                      <style />
+                    </defs>
+                    <path
+                      d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                    />
+                    <path
+                      d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                    />
+                  </svg>
+                </span>
               </span>
               <span>
                 Add field
@@ -3567,29 +3579,33 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx correctly 1
               type="button"
             >
               <span
-                aria-label="plus"
-                class="anticon anticon-plus"
-                role="img"
+                class="ant-btn-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="plus"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="plus"
+                  class="anticon anticon-plus"
+                  role="img"
                 >
-                  <defs>
-                    <style />
-                  </defs>
-                  <path
-                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                  />
-                  <path
-                    d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="plus"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <defs>
+                      <style />
+                    </defs>
+                    <path
+                      d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                    />
+                    <path
+                      d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                    />
+                  </svg>
+                </span>
               </span>
               <span>
                 Add sights
@@ -3683,29 +3699,33 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx correctly 
                         type="button"
                       >
                         <span
-                          aria-label="plus"
-                          class="anticon anticon-plus"
-                          role="img"
+                          class="ant-btn-icon"
                         >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="plus"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
+                          <span
+                            aria-label="plus"
+                            class="anticon anticon-plus"
+                            role="img"
                           >
-                            <defs>
-                              <style />
-                            </defs>
-                            <path
-                              d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                            />
-                            <path
-                              d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                            />
-                          </svg>
+                            <svg
+                              aria-hidden="true"
+                              data-icon="plus"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <defs>
+                                <style />
+                              </defs>
+                              <path
+                                d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                              />
+                              <path
+                                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                              />
+                            </svg>
+                          </span>
                         </span>
                         <span>
                           Add field
@@ -8084,6 +8104,141 @@ Array [
 ]
 `;
 
+exports[`renders components/form/demo/validate-only.tsx correctly 1`] = `
+<form
+  autocomplete="off"
+  class="ant-form ant-form-vertical"
+  id="validateOnly"
+>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="validateOnly_name"
+          title="Name"
+        >
+          Name
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              aria-required="true"
+              class="ant-input"
+              id="validateOnly_name"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="validateOnly_age"
+          title="Age"
+        >
+          Age
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              aria-required="true"
+              class="ant-input"
+              id="validateOnly_age"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center"
+            >
+              <div
+                class="ant-space-item"
+                style="margin-right:8px"
+              >
+                <button
+                  class="ant-btn ant-btn-primary"
+                  disabled=""
+                  type="submit"
+                >
+                  <span>
+                    Submit
+                  </span>
+                </button>
+              </div>
+              <div
+                class="ant-space-item"
+              >
+                <button
+                  class="ant-btn ant-btn-default"
+                  type="reset"
+                >
+                  <span>
+                    Reset
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -9361,23 +9516,27 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     type="button"
                   >
                     <span
-                      aria-label="upload"
-                      class="anticon anticon-upload"
-                      role="img"
+                      class="ant-btn-icon"
                     >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="upload"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
+                      <span
+                        aria-label="upload"
+                        class="anticon anticon-upload"
+                        role="img"
                       >
-                        <path
-                          d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                        />
-                      </svg>
+                        <svg
+                          aria-hidden="true"
+                          data-icon="upload"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+                          />
+                        </svg>
+                      </span>
                     </span>
                     <span>
                       Click to upload

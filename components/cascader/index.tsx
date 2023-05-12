@@ -159,8 +159,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     getPrefixCls,
     renderEmpty,
     direction: rootDirection,
-    // virtual,
-    // dropdownMatchSelectWidth,
+    popupOverflow,
   } = React.useContext(ConfigContext);
 
   const mergedDirection = direction || rootDirection;
@@ -273,7 +272,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     return isRtl ? 'bottomRight' : 'bottomLeft';
   }, [placement, isRtl]);
 
-  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements);
+  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements, popupOverflow);
 
   // ==================== Render =====================
   const renderNode = (

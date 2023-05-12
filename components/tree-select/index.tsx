@@ -65,6 +65,9 @@ export interface TreeSelectProps<
   switcherIcon?: SwitcherIcon | RcTreeSelectProps<ValueType, OptionType>['switcherIcon'];
   rootClassName?: string;
   [key: `aria-${string}`]: React.AriaAttributes[keyof React.AriaAttributes];
+  /** @deprecated Please use `popupMatchSelectWidth` instead */
+  dropdownMatchSelectWidth?: boolean | number;
+  popupMatchSelectWidth?: boolean | number;
 }
 
 const InternalTreeSelect = <
@@ -96,6 +99,8 @@ const InternalTreeSelect = <
     showArrow,
     treeExpandAction,
     builtinPlacements,
+    dropdownMatchSelectWidth,
+    popupMatchSelectWidth,
     ...props
   }: TreeSelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -106,7 +111,8 @@ const InternalTreeSelect = <
     renderEmpty,
     direction,
     virtual,
-    dropdownMatchSelectWidth,
+    popupMatchSelectWidth: contextPopupMatchSelectWidth,
+    popupOverflow,
   } = React.useContext(ConfigContext);
 
   if (process.env.NODE_ENV !== 'production') {
@@ -120,6 +126,12 @@ const InternalTreeSelect = <
       !dropdownClassName,
       'TreeSelect',
       '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+    );
+
+    warning(
+      dropdownMatchSelectWidth === undefined,
+      'Select',
+      '`dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
     );
   }
 
@@ -144,6 +156,9 @@ const InternalTreeSelect = <
 
   const isMultiple = !!(treeCheckable || multiple);
   const mergedShowArrow = useShowArrow(showArrow);
+
+  const mergedPopupMatchSelectWidth =
+    popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
 
   // ===================== Form =====================
   const {
@@ -189,7 +204,7 @@ const InternalTreeSelect = <
     return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
   }, [placement, direction]);
 
-  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements);
+  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements, popupOverflow);
 
   const mergedSize = useSize((ctx) => compactSize ?? customizeSize ?? ctx);
 
@@ -225,9 +240,9 @@ const InternalTreeSelect = <
   const returnNode = (
     <RcTreeSelect
       virtual={virtual}
-      dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       disabled={mergedDisabled}
       {...selectProps}
+      dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
       builtinPlacements={mergedBuiltinPlacements}
       ref={ref}
       prefixCls={prefixCls}
@@ -239,7 +254,7 @@ const InternalTreeSelect = <
       }
       treeLine={!!treeLine}
       inputIcon={suffixIcon}
-      multiple={multiple}
+      multiple={isMultiple}
       placement={memoizedPlacement}
       removeIcon={removeIcon}
       clearIcon={clearIcon}

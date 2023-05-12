@@ -3,7 +3,7 @@ import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, stepsSmallIconSize, stepsIconSize } = token;
+  const { componentCls, iconSizeSM, iconSize } = token;
 
   return {
     [`&${componentCls}-vertical`]: {
@@ -26,7 +26,7 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           overflow: 'hidden',
         },
         [`${componentCls}-item-title`]: {
-          lineHeight: `${stepsIconSize}px`,
+          lineHeight: `${iconSize}px`,
         },
         [`${componentCls}-item-description`]: {
           paddingBottom: token.paddingSM,
@@ -35,10 +35,10 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       [`> ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]: {
         position: 'absolute',
         top: 0,
-        insetInlineStart: token.stepsIconSize / 2 - token.lineWidth,
+        insetInlineStart: iconSize / 2 - token.lineWidth,
         width: token.lineWidth,
         height: '100%',
-        padding: `${stepsIconSize + token.marginXXS * 1.5}px 0 ${token.marginXXS * 1.5}px`,
+        padding: `${iconSize + token.marginXXS * 1.5}px 0 ${token.marginXXS * 1.5}px`,
 
         '&::after': {
           width: token.lineWidth,
@@ -59,11 +59,11 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         [`${componentCls}-item-tail`]: {
           position: 'absolute',
           top: 0,
-          insetInlineStart: token.stepsSmallIconSize / 2 - token.lineWidth,
-          padding: `${stepsSmallIconSize + token.marginXXS * 1.5}px 0 ${token.marginXXS * 1.5}px`,
+          insetInlineStart: iconSizeSM / 2 - token.lineWidth,
+          padding: `${iconSizeSM + token.marginXXS * 1.5}px 0 ${token.marginXXS * 1.5}px`,
         },
         [`${componentCls}-item-title`]: {
-          lineHeight: `${stepsSmallIconSize}px`,
+          lineHeight: `${iconSizeSM}px`,
         },
       },
     },
