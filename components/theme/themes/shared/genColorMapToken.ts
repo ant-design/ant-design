@@ -17,11 +17,13 @@ export default function genColorMapToken(
     colorError: colorErrorBase,
     colorInfo: colorInfoBase,
     colorPrimary: colorPrimaryBase,
+    colorScendary: colorScendaryBase,
     colorBgBase,
     colorTextBase,
   } = seed;
 
   const primaryColors = generateColorPalettes(colorPrimaryBase);
+  const scendaryColors = generateColorPalettes(colorScendaryBase);
   const successColors = generateColorPalettes(colorSuccessBase);
   const warningColors = generateColorPalettes(colorWarningBase);
   const errorColors = generateColorPalettes(colorErrorBase);
@@ -41,6 +43,17 @@ export default function genColorMapToken(
     colorPrimaryTextHover: primaryColors[8],
     colorPrimaryText: primaryColors[9],
     colorPrimaryTextActive: primaryColors[10],
+
+    colorScendaryBg: scendaryColors[1],
+    colorScendaryBgHover: scendaryColors[2],
+    colorScendaryBorder: scendaryColors[3],
+    colorScendaryBorderHover: scendaryColors[4],
+    colorScendaryHover: scendaryColors[5],
+    colorScendary: scendaryColors[6],
+    colorScendaryActive: scendaryColors[7],
+    colorScendaryTextHover: scendaryColors[8],
+    colorScendaryText: scendaryColors[9],
+    colorScendaryTextActive: scendaryColors[10],
 
     colorSuccessBg: successColors[1],
     colorSuccessBgHover: successColors[2],

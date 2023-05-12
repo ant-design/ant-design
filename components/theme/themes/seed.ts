@@ -22,6 +22,7 @@ const seedToken: SeedToken = {
 
   // Color
   colorPrimary: '#1677ff',
+  colorScendary: '#ff8c49',
   colorSuccess: '#52c41a',
   colorWarning: '#faad14',
   colorError: '#ff4d4f',

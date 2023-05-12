@@ -1,10 +1,10 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import genGroupStyle from './group';
 import { genFocusStyle } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import { genCompactItemVerticalStyle } from '../../style/compact-item-vertical';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import genGroupStyle from './group';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {}
@@ -302,6 +302,73 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     ...genSolidDisabledButtonStyle(token),
   },
 });
+// Type: Scendary
+const genScendaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
+  ...genSolidButtonStyle(token),
+
+  color: token.colorTextLightSolid,
+  backgroundColor: token.colorScendary,
+
+  boxShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlOutline}`,
+
+  ...genHoverActiveButtonStyle(
+    {
+      color: token.colorTextLightSolid,
+      backgroundColor: token.colorScendaryHover,
+    },
+    {
+      color: token.colorTextLightSolid,
+      backgroundColor: token.colorScendaryActive,
+    },
+  ),
+
+  ...genGhostButtonStyle(
+    token.componentCls,
+    token.colorScendary,
+    token.colorScendary,
+    token.colorTextDisabled,
+    token.colorBorder,
+    {
+      color: token.colorScendaryHover,
+      borderColor: token.colorScendaryHover,
+    },
+    {
+      color: token.colorScendaryActive,
+      borderColor: token.colorScendaryActive,
+    },
+  ),
+
+  [`&${token.componentCls}-dangerous`]: {
+    backgroundColor: token.colorError,
+    boxShadow: `0 ${token.controlOutlineWidth}px 0 ${token.colorErrorOutline}`,
+
+    ...genHoverActiveButtonStyle(
+      {
+        backgroundColor: token.colorErrorHover,
+      },
+      {
+        backgroundColor: token.colorErrorActive,
+      },
+    ),
+
+    ...genGhostButtonStyle(
+      token.componentCls,
+      token.colorError,
+      token.colorError,
+      token.colorTextDisabled,
+      token.colorBorder,
+      {
+        color: token.colorErrorHover,
+        borderColor: token.colorErrorHover,
+      },
+      {
+        color: token.colorErrorActive,
+        borderColor: token.colorErrorActive,
+      },
+    ),
+    ...genSolidDisabledButtonStyle(token),
+  },
+});
 
 // Type: Dashed
 const genDashedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
@@ -387,6 +454,7 @@ const genTypeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     [`${componentCls}-default`]: genDefaultButtonStyle(token),
     [`${componentCls}-primary`]: genPrimaryButtonStyle(token),
     [`${componentCls}-dashed`]: genDashedButtonStyle(token),
+    [`${componentCls}-scendary`]: genScendaryButtonStyle(token),
     [`${componentCls}-link`]: genLinkButtonStyle(token),
     [`${componentCls}-text`]: genTextButtonStyle(token),
     [`${componentCls}-disabled`]: genDisabledButtonStyle(token),

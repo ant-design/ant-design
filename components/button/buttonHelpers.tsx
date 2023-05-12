@@ -64,11 +64,11 @@ export function spaceChildren(children: React.ReactNode, needInserted: boolean) 
   );
 }
 
-const ButtonTypes = ['default', 'primary', 'ghost', 'dashed', 'link', 'text'] as const;
-export type ButtonType = typeof ButtonTypes[number];
+const ButtonTypes = ['default', 'primary', 'ghost', 'dashed', 'link', 'text', 'scendary'] as const;
+export type ButtonType = (typeof ButtonTypes)[number];
 
 const ButtonShapes = ['default', 'circle', 'round'] as const;
-export type ButtonShape = typeof ButtonShapes[number];
+export type ButtonShape = (typeof ButtonShapes)[number];
 
 const ButtonHTMLTypes = ['submit', 'button', 'reset'] as const;
-export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
+export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];

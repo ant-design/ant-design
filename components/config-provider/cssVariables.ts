@@ -60,6 +60,35 @@ export function getStyle(globalPrefixCls: string, theme: Theme) {
     );
   }
 
+  // ================ Scendary Color ================
+  if (theme.scendaryColor) {
+    fillColor(theme.scendaryColor, 'scendary');
+
+    const scendaryColor = new TinyColor(theme.primaryColor);
+    const scendaryColors = generate(scendaryColor.toRgbString());
+
+    // Legacy - We should use semantic naming standard
+    scendaryColors.forEach((color, index) => {
+      variables[`scendary-${index + 1}`] = color;
+    });
+    // Deprecated
+    variables['scendary-color-deprecated-l-35'] = formatColor(scendaryColor, (c) => c.lighten(35));
+    variables['scendary-color-deprecated-l-20'] = formatColor(scendaryColor, (c) => c.lighten(20));
+    variables['scendary-color-deprecated-t-20'] = formatColor(scendaryColor, (c) => c.tint(20));
+    variables['scendary-color-deprecated-t-50'] = formatColor(scendaryColor, (c) => c.tint(50));
+    variables['scendary-color-deprecated-f-12'] = formatColor(scendaryColor, (c) =>
+      c.setAlpha(c.getAlpha() * 0.12),
+    );
+
+    const scendaryActiveColor = new TinyColor(scendaryColors[0]);
+    variables['scendary-color-active-deprecated-f-30'] = formatColor(scendaryActiveColor, (c) =>
+      c.setAlpha(c.getAlpha() * 0.3),
+    );
+    variables['scendary-color-active-deprecated-d-02'] = formatColor(scendaryActiveColor, (c) =>
+      c.darken(2),
+    );
+  }
+
   // ================ Success Color ================
   if (theme.successColor) {
     fillColor(theme.successColor, 'success');

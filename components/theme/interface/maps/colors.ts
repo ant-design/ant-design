@@ -203,6 +203,31 @@ interface ColorPrimaryMapToken {
   colorPrimaryTextActive: string; // 10
 }
 
+/**
+ * 副色梯度变量
+ */
+interface ColorScendaryMapToken {
+  colorScendary: string; // 1
+
+  colorScendaryBg: string; // 2
+
+  colorScendaryBgHover: string; // 3
+
+  colorScendaryBorder: string; // 4
+
+  colorScendaryBorderHover: string; // 5
+
+  colorScendaryHover: string; // 6
+
+  colorScendaryActive: string; // 7
+
+  colorScendaryTextHover: string; // 8
+
+  colorScendaryText: string; // 9
+
+  colorScendaryTextActive: string; // 10
+}
+
 interface ColorSuccessMapToken {
   /**
    * @nameZH 成功色的浅色背景颜色
@@ -534,6 +559,7 @@ interface ColorErrorMapToken {
 export interface ColorMapToken
   extends ColorNeutralMapToken,
     ColorPrimaryMapToken,
+    ColorScendaryMapToken,
     ColorSuccessMapToken,
     ColorWarningMapToken,
     ColorErrorMapToken,

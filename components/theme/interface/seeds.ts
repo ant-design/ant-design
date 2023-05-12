@@ -16,6 +16,14 @@ export interface SeedToken extends PresetColorType {
   colorPrimary: string;
 
   /**
+   * @nameZH 副色
+   * @nameEN Scendary Color
+   * @desc 副色
+   * @descEN
+   */
+  colorScendary: string;
+
+  /**
    * @nameZH 成功色
    * @nameEN Success Color
    * @desc 用于表示操作成功的 Token 序列，如 Result、Progress 等组件会使用该组梯度变量。
