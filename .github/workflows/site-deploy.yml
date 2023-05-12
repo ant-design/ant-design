@@ -63,8 +63,13 @@ jobs:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
-      - name: build
+      - name: build site
         run: npm run predeploy
+
+      - name: build dist and bundle analyzer report
+        run: npm run dist
+        with:
+          CI: false
 
       - name: Get version
         id: publish-version
@@ -80,10 +85,13 @@ jobs:
       - name: Deploy to Surge (with TAG)
         run: |
           export DEPLOY_DOMAIN=ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh
+          cp report.html ./_site
           npx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: Create Commit Comment
         uses: peter-evans/commit-comment@v2
         with:
           body: |
-            Doc site for this release: https://ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh
+            - Documentation site for this release: https://ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh
+            - Webpack bundle analyzer report page: https://ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh/report.html
+
