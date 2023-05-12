@@ -4,9 +4,9 @@ import React from 'react';
 import ConfigProvider from '..';
 import { InputNumber } from '../..';
 import { render } from '../../../tests/utils';
-import { useToken } from '../../theme/internal';
-import theme from '../../theme';
 import { resetWarned } from '../../_util/warning';
+import theme from '../../theme';
+import { useToken } from '../../theme/internal';
 
 const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 
@@ -20,7 +20,14 @@ describe('ConfigProvider.Theme', () => {
     mockCanUseDom = true;
   });
 
-  const colorList = ['primaryColor', 'successColor', 'warningColor', 'errorColor', 'infoColor'];
+  const colorList = [
+    'primaryColor',
+    'secondaryColor',
+    'successColor',
+    'warningColor',
+    'errorColor',
+    'infoColor',
+  ];
 
   colorList.forEach((colorName) => {
     it(colorName, () => {

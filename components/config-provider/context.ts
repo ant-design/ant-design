@@ -10,9 +10,8 @@ import type { RenderEmptyHandler } from './defaultRenderEmpty';
 export const defaultIconPrefixCls = 'anticon';
 
 export interface Theme {
-  scendaryColor: any;
   primaryColor?: string;
-  scendary?: string;
+  scendaryColor?: string;
   infoColor?: string;
   successColor?: string;
   processingColor?: string;
