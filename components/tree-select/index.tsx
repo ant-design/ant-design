@@ -15,8 +15,8 @@ import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import useSize from '../config-provider/hooks/useSize';
 import { FormItemInputContext } from '../form/context';
 import useSelectStyle from '../select/style';
 import useBuiltinPlacements from '../select/useBuiltinPlacements';
@@ -108,7 +108,6 @@ const InternalTreeSelect = <
     virtual,
     dropdownMatchSelectWidth,
   } = React.useContext(ConfigContext);
-  const size = React.useContext(SizeContext);
 
   if (process.env.NODE_ENV !== 'production') {
     warning(
@@ -192,7 +191,8 @@ const InternalTreeSelect = <
 
   const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements);
 
-  const mergedSize = compactSize || customizeSize || size;
+  const mergedSize = useSize((ctx) => compactSize ?? customizeSize ?? ctx);
+
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;

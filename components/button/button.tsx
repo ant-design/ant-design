@@ -16,7 +16,7 @@ import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
+import useSize from '../config-provider/hooks/useSize';
 import { useCompactItemContext } from '../space/Compact';
 import LoadingIcon from './LoadingIcon';
 import Group, { GroupSizeContext } from './button-group';
@@ -124,7 +124,6 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const size = useContext(SizeContext);
   const disabled = useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
@@ -204,7 +203,9 @@ const InternalButton: React.ForwardRefRenderFunction<
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
-  const sizeFullname = compactSize || groupSize || customizeSize || size;
+
+  const sizeFullname = useSize((ctxSize) => compactSize ?? groupSize ?? customizeSize ?? ctxSize);
+
   const sizeCls = sizeFullname ? sizeClassNameMap[sizeFullname] || '' : '';
 
   const iconType = innerLoading ? 'loading' : icon;
