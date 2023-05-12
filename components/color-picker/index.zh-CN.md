@@ -4,7 +4,7 @@ subtitle: 颜色选择器
 title: ColorPicker
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PpY4RYNM8UcAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EHL-QYJofZsAAAAAAAAAAAAADrJ8AQ/original
-tag: 新
+tag: New
 demo:
   cols: 2
 group:
