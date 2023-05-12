@@ -56,36 +56,10 @@ demo:
 | defaultValue | 默认的选中项 | string\[] \| number\[] | \[] |  |
 | disabled | 禁用 | boolean | false |  |
 | displayRender | 选择后展示的渲染函数 | (label, selectedOptions) => ReactNode | label => label.join(`/`) | `multiple`: 4.18.0 |
-| tagRender | 自定义 tag 内容 render，仅在多选时生效 | ({ label: string, onClose: function, value: string }) => ReactNode | - |  |
-| popupClassName | 自定义浮层类名 | string | - | 4.23.0 |
-| dropdownRender | 自定义下拉框内容 | (menus: ReactNode) => ReactNode | - | 4.4.0 |
-| expandIcon | 自定义次级菜单展开图标 | ReactNode | - | 4.4.0 |
-| expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | `click` |  |
-| fieldNames | 自定义 options 中 label value children 的字段 | object | { label: `label`, value: `value`, children: `children` } |  |
-| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () => document.body |  |
-| loadData | 用于动态加载选项，无法与 `showSearch` 一起使用 | (selectedOptions) => void | - |  |
-| maxTagCount | 最多显示多少个 tag，响应式模式会对性能产生损耗 | number \| `responsive` | - | 4.17.0 |
-| maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode \| function(omittedValues) | - | 4.17.0 |
-| maxTagTextLength | 最大显示的 tag 文本长度 | number | - | 4.17.0 |
-| notFoundContent | 当下拉列表为空时显示的内容 | string | `Not Found` |  |
-| open | 控制浮层显隐 | boolean | - | 4.17.0 |
-| options | 可选项数据源 | [Option](#option)\[] | - |  |
-| placeholder | 输入框占位文本 | string | `请选择` |  |
-| placement | 浮层预设位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |
-| showSearch | 在选择框中显示搜索框 | boolean \| [Object](#showsearch) | false |  |
-| size | 输入框大小 | `large` \| `middle` \| `small` | - |  |
-| status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
-| style | 自定义样式 | CSSProperties | - |  |
-| suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
-| value | 指定选中项 | string\[] \| number\[] | - |  |
-| onChange | 选择完成后的回调 | (value, selectedOptions) => void | - |  |
-| onDropdownVisibleChange | 显示/隐藏浮层的回调 | (value) => void | - | 4.17.0 |
-| multiple | 支持多选节点 | boolean | - | 4.17.0 |
-| showCheckedStrategy | 定义选中项回填的方式。`Cascader.SHOW_CHILD`: 只显示选中的子节点。`Cascader.SHOW_PARENT`: 只显示父节点（当父节点下所有子节点都选中时）。 | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | 4.20.0 |
-| removeIcon | 自定义的多选框清除图标 | ReactNode | - |  |
-| searchValue | 设置搜索的值，需要与 `showSearch` 配合使用 | string | - | 4.17.0 |
-| onSearch | 监听搜索，返回输入的值 | (search: string) => void | - | 4.17.0 |
-| dropdownMenuColumnStyle | 下拉菜单列的样式 | CSSProperties | - |  |
+
+<<<<<<< HEAD | tagRender | 自定义 tag 内容 render，仅在多选时生效 | ({ label: string, onClose: function, value: string }) => ReactNode | - | | ======= | tagRender | 自定义 tag 内容 render，仅在多选时生效 | ({ label: string, onClose: function, value: string }) => ReactNode | - | |
+
+> > > > > > > master | popupClassName | 自定义浮层类名 | string | - | 4.23.0 | | dropdownRender | 自定义下拉框内容 | (menus: ReactNode) => ReactNode | - | 4.4.0 | | expandIcon | 自定义次级菜单展开图标 | ReactNode | - | 4.4.0 | | expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | `click` | | | fieldNames | 自定义 options 中 label value children 的字段 | object | { label: `label`, value: `value`, children: `children` } | | | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () => document.body | | | loadData | 用于动态加载选项，无法与 `showSearch` 一起使用 | (selectedOptions) => void | - | | | maxTagCount | 最多显示多少个 tag，响应式模式会对性能产生损耗 | number \| `responsive` | - | 4.17.0 | | maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode \| function(omittedValues) | - | 4.17.0 | | maxTagTextLength | 最大显示的 tag 文本长度 | number | - | 4.17.0 | | notFoundContent | 当下拉列表为空时显示的内容 | string | `Not Found` | | | open | 控制浮层显隐 | boolean | - | 4.17.0 | | options | 可选项数据源 | [Option](#option)\[] | - | | | placeholder | 输入框占位文本 | string | `请选择` | | | placement | 浮层预设位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 | | showSearch | 在选择框中显示搜索框 | boolean \| [Object](#showsearch) | false | | | size | 输入框大小 | `large` \| `middle` \| `small` | - | | | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 | | style | 自定义样式 | CSSProperties | - | | | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - | | | value | 指定选中项 | string\[] \| number\[] | - | | | onChange | 选择完成后的回调 | (value, selectedOptions) => void | - | | | onDropdownVisibleChange | 显示/隐藏浮层的回调 | (value) => void | - | 4.17.0 | | multiple | 支持多选节点 | boolean | - | 4.17.0 | | showCheckedStrategy | 定义选中项回填的方式。`Cascader.SHOW_CHILD`: 只显示选中的子节点。`Cascader.SHOW_PARENT`: 只显示父节点（当父节点下所有子节点都选中时）。 | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | 4.20.0 | | removeIcon | 自定义的多选框清除图标 | ReactNode | - | | | searchValue | 设置搜索的值，需要与 `showSearch` 配合使用 | string | - | 4.17.0 | | onSearch | 监听搜索，返回输入的值 | (search: string) => void | - | 4.17.0 | | dropdownMenuColumnStyle | 下拉菜单列的样式 | CSSProperties | - | |
 
 ### showSearch
 

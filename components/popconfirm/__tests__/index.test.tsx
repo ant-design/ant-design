@@ -286,4 +286,19 @@ describe('Popconfirm', () => {
     // expect(container.textContent).toEqual('Unmounted');
     expect(error).not.toHaveBeenCalled();
   });
+
+  it('should trigger onPopupClick', async () => {
+    const onPopupClick = jest.fn();
+
+    const popconfirm = render(
+      <Popconfirm title="pop test" onPopupClick={onPopupClick}>
+        <span>show me your code</span>
+      </Popconfirm>,
+    );
+    const triggerNode = popconfirm.container.querySelector('span')!;
+    fireEvent.click(triggerNode);
+    await waitFakeTimer();
+    fireEvent.click(popconfirm.container.querySelector('.ant-popover-inner-content')!);
+    expect(onPopupClick).toHaveBeenCalled();
+  });
 });
