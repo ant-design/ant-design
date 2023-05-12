@@ -140,8 +140,8 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@skeleton-block-radius` | `skeletonBlockRadius` | - |
-| `@skeleton-title-height` | `skeletonTitleHeight` | - |
+| `@skeleton-block-radius` | `blockRadius` | - |
+| `@skeleton-title-height` | `titleHeight` | - |
 | `@skeleton-color` | `color` | - |
 | `@skeleton-to-color` | `colorGradientEnd` | - |
 

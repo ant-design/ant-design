@@ -6,8 +6,8 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 export type ComponentToken = {
   color: string;
   colorGradientEnd: string;
-  skeletonTitleHeight: number;
-  skeletonBlockRadius: number;
+  titleHeight: number;
+  blockRadius: number;
 };
 
 const skeletonClsLoading = new Keyframes(`ant-skeleton-loading`, {
@@ -215,8 +215,8 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
     padding,
     marginSM,
     borderRadius,
-    skeletonTitleHeight,
-    skeletonBlockRadius,
+    titleHeight,
+    blockRadius,
     skeletonParagraphLineHeight,
     controlHeightXS,
     skeletonParagraphMarginTop,
@@ -257,9 +257,9 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
         // Title
         [`${skeletonTitleCls}`]: {
           width: '100%',
-          height: skeletonTitleHeight,
+          height: titleHeight,
           background: color,
-          borderRadius: skeletonBlockRadius,
+          borderRadius: blockRadius,
           [`+ ${skeletonParagraphCls}`]: {
             marginBlockStart: controlHeightSM,
           },
@@ -273,7 +273,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
             height: skeletonParagraphLineHeight,
             listStyle: 'none',
             background: color,
-            borderRadius: skeletonBlockRadius,
+            borderRadius: blockRadius,
             '+ li': {
               marginBlockStart: controlHeightXS,
             },
@@ -367,8 +367,8 @@ export default genComponentStyleHook(
     return {
       color: colorFillContent,
       colorGradientEnd: colorFill,
-      skeletonTitleHeight: token.controlHeight / 2,
-      skeletonBlockRadius: token.borderRadiusSM,
+      titleHeight: token.controlHeight / 2,
+      blockRadius: token.borderRadiusSM,
     };
   },
 );
