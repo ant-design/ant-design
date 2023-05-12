@@ -6,8 +6,8 @@ const App: React.FC = () => (
     theme={{
       components: {
         Skeleton: {
-          skeletonBlockRadius: 30,
-          skeletonTitleHeight: 30,
+          blockRadius: 30,
+          titleHeight: 30,
           color: '#222',
           colorGradientEnd: '#444',
         },
