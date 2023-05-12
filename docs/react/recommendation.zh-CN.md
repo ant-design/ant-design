@@ -7,7 +7,7 @@ title: 社区精选组件
 
 | 类型 | 推荐组件 |
 | --- | --- |
-| 可视化图表 | [Ant Design Charts](https://charts.ant.design/zh) [AntV 数据可视化解决方案](https://antv.vision/zh) |
+| 可视化图表 | [Ant Design Charts](https://charts.ant.design/zh) [AntV 数据可视化解决方案](https://antv.vision/zh) [reactflow](https://reactflow.dev/) |
 | React Hooks 库 | [ahooks](https://github.com/alibaba/hooks) |
 | 表单 | [ProForm](https://procomponents.ant.design/components/form) [Formily](https://github.com/alibaba/formily) [react-hook-form](https://github.com/react-hook-form/react-hook-form) [formik](https://github.com/formium/formik) |
 | 路由 | [react-router](https://github.com/ReactTraining/react-router) |
