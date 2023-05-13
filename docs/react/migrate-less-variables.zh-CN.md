@@ -201,7 +201,22 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Notification 通知提醒框 -->
 
-<!-- ### Pagination 分页 -->
+### Pagination 分页
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@pagination-item-bg` | `itemBg` | - |
+| `@pagination-item-size` | `itemSize` | - |
+| `@pagination-item-size-sm` | `itemSizeSM` | - |
+| `@pagination-font-family` | `fontFamily` | - |
+| `@pagination-font-weight-active` | `fontWeightActive` | - |
+| `@pagination-item-bg-active` | `itemBgActive` | - |
+| `@pagination-item-link-bg` | `itemLinkBg` | - |
+| `@pagination-item-disabled-color-active` | `itemDisabledColorActive` | - |
+| `@pagination-item-disabled-bg-active` | `itemDisabledBgActive` | - |
+| `@pagination-item-input-bg` | `itemInputBg` | - |
+| `@pagination-mini-options-size-changer-top` | `miniOptionsSizeChangerTop` | - |
 
 ### Popover 气泡卡片
 

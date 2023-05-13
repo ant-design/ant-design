@@ -203,7 +203,22 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Notification -->
 
-<!-- ### Pagination -->
+### Pagination
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@pagination-item-bg` | `itemBg` | - |
+| `@pagination-item-size` | `itemSize` | - |
+| `@pagination-item-size-sm` | `itemSizeSM` | - |
+| `@pagination-font-family` | `fontFamily` | - |
+| `@pagination-font-weight-active` | `fontWeightActive` | - |
+| `@pagination-item-bg-active` | `itemBgActive` | - |
+| `@pagination-item-link-bg` | `itemLinkBg` | - |
+| `@pagination-item-disabled-color-active` | `itemDisabledColorActive` | - |
+| `@pagination-item-disabled-bg-active` | `itemDisabledBgActive` | - |
+| `@pagination-item-input-bg` | `itemInputBg` | - |
+| `@pagination-mini-options-size-changer-top` | `miniOptionsSizeChangerTop` | - |
 
 ### Popover>
 
