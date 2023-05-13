@@ -42,7 +42,6 @@ const ColorInput: FC<ColorInputProps> = (props) => {
       case ColorFormat.rgb:
         return <ColorRgbInput {...inputProps} />;
       case ColorFormat.hex:
-        return <ColorHexInput {...inputProps} />;
       default:
         return <ColorHexInput {...inputProps} />;
     }
