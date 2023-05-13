@@ -13,23 +13,27 @@ exports[`DropdownButton rtl render component should be rendered correctly in RTL
     type="button"
   >
     <span
-      aria-label="ellipsis"
-      class="anticon anticon-ellipsis"
-      role="img"
+      class="ant-btn-icon"
     >
-      <svg
-        aria-hidden="true"
-        data-icon="ellipsis"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
+      <span
+        aria-label="ellipsis"
+        class="anticon anticon-ellipsis"
+        role="img"
       >
-        <path
-          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-        />
-      </svg>
+        <svg
+          aria-hidden="true"
+          data-icon="ellipsis"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+          />
+        </svg>
+      </span>
     </span>
   </button>
 </div>
@@ -48,23 +52,27 @@ exports[`DropdownButton should support href like Button 1`] = `
     type="button"
   >
     <span
-      aria-label="ellipsis"
-      class="anticon anticon-ellipsis"
-      role="img"
+      class="ant-btn-icon"
     >
-      <svg
-        aria-hidden="true"
-        data-icon="ellipsis"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
+      <span
+        aria-label="ellipsis"
+        class="anticon anticon-ellipsis"
+        role="img"
       >
-        <path
-          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-        />
-      </svg>
+        <svg
+          aria-hidden="true"
+          data-icon="ellipsis"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+          />
+        </svg>
+      </span>
     </span>
   </button>
 </div>

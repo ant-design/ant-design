@@ -105,6 +105,7 @@ const DocLayout: React.FC = () => {
         />
         <meta name="description" content={locale.description} />
         <meta property="og:title" content={locale?.title} />
+        <meta property="og:description" content={locale.description} />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"

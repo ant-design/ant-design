@@ -1,19 +1,19 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import type { SelectToken } from '.';
-import { mergeToken } from '../../theme/internal';
 import { resetIcon } from '../../style';
+import { mergeToken } from '../../theme/internal';
 
 const FIXED_ITEM_MARGIN = 2;
 
-function getSelectItemStyle({
+const getSelectItemStyle = ({
   controlHeightSM,
   controlHeight,
   lineWidth: borderWidth,
-}: SelectToken) {
+}: SelectToken): readonly [number, number] => {
   const selectItemDist = (controlHeight - controlHeightSM) / 2 - borderWidth;
   const selectItemMargin = Math.ceil(selectItemDist / 2);
-  return [selectItemDist, selectItemMargin];
-}
+  return [selectItemDist, selectItemMargin] as const;
+};
 
 function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
   const { componentCls, iconCls } = token;
@@ -95,7 +95,6 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         marginBottom: FIXED_ITEM_MARGIN,
         lineHeight: `${selectItemHeight - token.lineWidth * 2}px`,
         background: token.colorFillSecondary,
-        border: `${token.lineWidth}px solid ${token.colorSplit}`,
         borderRadius: token.borderRadiusSM,
         cursor: 'default',
         transition: `font-size ${token.motionDurationSlow}, line-height ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,
@@ -106,7 +105,6 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
         [`${componentCls}-disabled&`]: {
           color: token.colorTextDisabled,
-          borderColor: token.colorBorder,
           cursor: 'not-allowed',
         },
 
@@ -191,7 +189,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
   };
 }
 
-export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
+const genMultipleStyle = (token: SelectToken): CSSInterpolation => {
   const { componentCls } = token;
 
   const smallToken = mergeToken<SelectToken>(token, {
@@ -200,12 +198,20 @@ export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
     borderRadius: token.borderRadiusSM,
     borderRadiusSM: token.borderRadiusXS,
   });
+
+  const largeToken = mergeToken<SelectToken>(token, {
+    fontSize: token.fontSizeLG,
+    controlHeight: token.controlHeightLG,
+    controlHeightSM: token.controlHeight,
+    borderRadius: token.borderRadiusLG,
+    borderRadiusSM: token.borderRadius,
+  });
+
   const [, smSelectItemMargin] = getSelectItemStyle(token);
 
   return [
     genSizeStyle(token),
     // ======================== Small ========================
-    // Shared
     genSizeStyle(smallToken, 'sm'),
 
     // Padding
@@ -223,16 +229,8 @@ export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
     },
 
     // ======================== Large ========================
-    // Shared
-    genSizeStyle(
-      mergeToken<any>(token, {
-        fontSize: token.fontSizeLG,
-        controlHeight: token.controlHeightLG,
-        controlHeightSM: token.controlHeight,
-        borderRadius: token.borderRadiusLG,
-        borderRadiusSM: token.borderRadius,
-      }),
-      'lg',
-    ),
+    genSizeStyle(largeToken, 'lg'),
   ];
-}
+};
+
+export default genMultipleStyle;

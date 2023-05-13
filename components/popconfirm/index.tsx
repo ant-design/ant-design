@@ -1,15 +1,15 @@
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import KeyCode from 'rc-util/lib/KeyCode';
-import * as React from 'react';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
+import * as React from 'react';
+import type { RenderFunction } from '../_util/getRenderPropValue';
+import { cloneElement } from '../_util/reactNode';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import { ConfigContext } from '../config-provider';
 import Popover from '../popover';
 import type { AbstractTooltipProps } from '../tooltip';
-import type { RenderFunction } from '../_util/getRenderPropValue';
-import { cloneElement } from '../_util/reactNode';
 import PurePanel, { Overlay } from './PurePanel';
 import usePopconfirmStyle from './style';
 
@@ -30,6 +30,7 @@ export interface PopconfirmProps extends AbstractTooltipProps {
     open: boolean,
     e?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLDivElement>,
   ) => void;
+  onPopupClick?: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 export interface PopconfirmState {

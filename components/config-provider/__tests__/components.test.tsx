@@ -122,15 +122,6 @@ describe('ConfigProvider', () => {
           );
           expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
         });
-
-        it('configProvider virtual and dropdownMatchSelectWidth', () => {
-          const { container } = render(
-            <ConfigProvider virtual={false} dropdownMatchSelectWidth={false}>
-              {renderComponent({})}
-            </ConfigProvider>,
-          );
-          expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
-        });
       });
     }
 

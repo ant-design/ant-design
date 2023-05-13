@@ -664,7 +664,7 @@ exports[`renders components/time-picker/demo/range-picker.tsx correctly 1`] = `
 
 exports[`renders components/time-picker/demo/render-panel.tsx correctly 1`] = `
 <div
-  style="padding-bottom:0;position:relative;width:fit-content;min-width:0"
+  style="padding-bottom:0;position:relative;min-width:0"
 >
   <div
     class="ant-picker"

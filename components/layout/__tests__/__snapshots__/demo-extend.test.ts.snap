@@ -169,7 +169,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
       class="ant-layout-sider-children"
     >
       <div
-        class="logo"
+        class="demo-logo-vertical"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
@@ -396,23 +396,27 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
         type="button"
       >
         <span
-          aria-label="menu-fold"
-          class="anticon anticon-menu-fold"
-          role="img"
+          class="ant-btn-icon"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="menu-fold"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="menu-fold"
+            class="anticon anticon-menu-fold"
+            role="img"
           >
-            <path
-              d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="menu-fold"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+              />
+            </svg>
+          </span>
         </span>
       </button>
     </header>
@@ -432,10 +436,10 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
 >
   <header
     class="ant-layout-header"
-    style="position: sticky; top: 0px; z-index: 1; width: 100%;"
+    style="position: sticky; top: 0px; z-index: 1; width: 100%; display: flex; align-items: center;"
   >
     <div
-      style="float: left; width: 120px; height: 31px; margin: 16px 24px 16px 0px; background: rgba(255, 255, 255, 0.2);"
+      class="demo-logo"
     />
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
@@ -571,7 +575,7 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
         </div>
         <div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
             style="opacity: 0;"
           >
             <ul
@@ -712,7 +716,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
       class="ant-layout-sider-children"
     >
       <div
-        style="height: 32px; margin: 16px; background: rgba(255, 255, 255, 0.2);"
+        class="demo-logo-vertical"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
@@ -1498,7 +1502,7 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
       class="ant-layout-sider-children"
     >
       <div
-        class="logo"
+        class="demo-logo-vertical"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed"
@@ -1857,7 +1861,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
       class="ant-layout-sider-children"
     >
       <div
-        style="height: 32px; margin: 16px; background: rgba(255, 255, 255, 0.2);"
+        class="demo-logo-vertical"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
@@ -2445,7 +2449,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
     </div>
   </aside>
   <section
-    class="ant-layout site-layout"
+    class="ant-layout"
   >
     <header
       class="ant-layout-header"
@@ -2504,9 +2508,10 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
 >
   <header
     class="ant-layout-header"
+    style="display: flex; align-items: center;"
   >
     <div
-      class="logo"
+      class="demo-logo"
     />
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
@@ -2990,7 +2995,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         </div>
         <div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
             style="opacity: 0;"
           >
             <ul
@@ -3329,10 +3334,11 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
   class="ant-layout"
 >
   <header
-    class="ant-layout-header header"
+    class="ant-layout-header"
+    style="display: flex; align-items: center;"
   >
     <div
-      class="logo"
+      class="demo-logo"
     />
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
@@ -3468,7 +3474,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
         </div>
         <div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
             style="opacity: 0;"
           >
             <ul
@@ -4492,10 +4498,11 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
   class="ant-layout"
 >
   <header
-    class="ant-layout-header header"
+    class="ant-layout-header"
+    style="display: flex; align-items: center;"
   >
     <div
-      class="logo"
+      class="demo-logo"
     />
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
@@ -4631,7 +4638,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
         </div>
         <div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
             style="opacity: 0;"
           >
             <ul
