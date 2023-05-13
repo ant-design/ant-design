@@ -23,8 +23,7 @@ const useColorState = (
     } else {
       mergeState = defaultStateValue;
     }
-    const genColor = generateColor(mergeState || '');
-    return genColor;
+    return generateColor(mergeState || '');
   });
 
   useEffect(() => {

@@ -19,7 +19,7 @@ interface ColorPresetsProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
 
 const genPresetColor = (list: PresetsItem[]) =>
   list.map((value) => {
-    value.colors = value.colors.map((color) => generateColor(color));
+    value.colors = value.colors.map(generateColor);
     return value;
   });
 
@@ -35,7 +35,7 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
   const [locale] = useLocale('ColorPicker');
   const [presetsValue] = useMergedState(genPresetColor(presets), {
     value: genPresetColor(presets),
-    postState: (item) => genPresetColor(item),
+    postState: genPresetColor,
   });
   const colorPresetsPrefixCls = `${prefixCls}-presets`;
 
@@ -57,7 +57,7 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
             key={`panel-${preset?.label}`}
           >
             <div className={`${colorPresetsPrefixCls}-items`}>
-              {Array.isArray(preset?.colors) && preset?.colors.length > 0 ? (
+              {Array.isArray(preset?.colors) && preset?.colors.length ? (
                 preset.colors.map((presetColor: Color) => (
                   <ColorBlock
                     key={`preset-${presetColor.toHexString()}`}
