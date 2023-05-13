@@ -1878,4 +1878,19 @@ describe('Form', () => {
     expect(container.querySelectorAll('input')[1].value).toEqual('14');
     expect(errorSpy).not.toHaveBeenCalled();
   });
+
+  it('duplicated form name', () => {
+    resetWarned();
+
+    render(
+      <>
+        <Form name="same" />
+        <Form name="same" />
+      </>,
+    );
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form] There exist multiple Form with same `name`.',
+    );
+  });
 });

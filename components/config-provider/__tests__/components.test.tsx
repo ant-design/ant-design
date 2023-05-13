@@ -105,18 +105,18 @@ describe('ConfigProvider', () => {
           expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
         });
 
-        it('configProvider componentDisabled', () => {
+        it('configProvider componentSize small', () => {
           const { container } = render(
-            <ConfigProvider componentDisabled prefixCls="config">
+            <ConfigProvider componentSize="small" prefixCls="config">
               {renderComponent({})}
             </ConfigProvider>,
           );
           expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
         });
 
-        it('configProvider virtual and dropdownMatchSelectWidth', () => {
+        it('configProvider componentDisabled', () => {
           const { container } = render(
-            <ConfigProvider virtual={false} dropdownMatchSelectWidth={false}>
+            <ConfigProvider componentDisabled prefixCls="config">
               {renderComponent({})}
             </ConfigProvider>,
           );

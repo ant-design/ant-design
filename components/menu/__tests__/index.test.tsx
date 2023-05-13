@@ -703,7 +703,7 @@ describe('Menu', () => {
             collapsed={collapsed}
             onCollapse={() => setCollapsed(!collapsed)}
           >
-            <div className="logo" />
+            <div className="demo-logo" />
             <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
               <SubMenu key="sub1" icon={<UserOutlined />} title="User">
                 <Menu.Item key="3">Tom</Menu.Item>

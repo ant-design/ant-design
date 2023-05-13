@@ -18,7 +18,7 @@ const App: React.FC = () => {
           justifyContent: 'center',
         }}
       >
-        <Tooltip title="Thanks for using antd. Have a nice day!" open>
+        <Tooltip title="Thanks for using antd. Have a nice day!" trigger="click" defaultOpen>
           <Button>Scroll The Window</Button>
         </Tooltip>
       </div>
