@@ -8,15 +8,12 @@ import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook'
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   // Component token here
-  modalHeaderBg: string;
-  modalHeaderTitleLineHeight: number;
-  modalHeaderTitleFontSize: number;
-  modalHeadingColor: string;
-  modalCloseIconColor: string;
-  modalContentBg: string;
-  modalFooterBg: string;
-  modalCloseBtnSize: number;
-  modalConfirmIconSize: number;
+  headerBg: string;
+  titleLineHeight: number;
+  titleFontSize: number;
+  titleColor: string;
+  contentBg: string;
+  footerBg: string;
 }
 
 export interface ModalToken extends FullToken<'Modal'> {
@@ -33,6 +30,9 @@ export interface ModalToken extends FullToken<'Modal'> {
   modalFooterPaddingHorizontal: number;
   modalFooterBorderWidth: number;
   modalIconHoverColor: string;
+  modalCloseIconColor: string;
+  modalCloseBtnSize: number;
+  modalConfirmIconSize: number;
 }
 
 function box(position: React.CSSProperties['position']): React.CSSProperties {
@@ -155,16 +155,16 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
 
         [`${componentCls}-title`]: {
           margin: 0,
-          color: token.modalHeadingColor,
+          color: token.titleColor,
           fontWeight: token.fontWeightStrong,
-          fontSize: token.modalHeaderTitleFontSize,
-          lineHeight: token.modalHeaderTitleLineHeight,
+          fontSize: token.titleFontSize,
+          lineHeight: token.titleLineHeight,
           wordWrap: 'break-word',
         },
 
         [`${componentCls}-content`]: {
           position: 'relative',
-          backgroundColor: token.modalContentBg,
+          backgroundColor: token.contentBg,
           backgroundClip: 'padding-box',
           border: 0,
           borderRadius: token.borderRadiusLG,
@@ -185,19 +185,19 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
           textDecoration: 'none',
           background: 'transparent',
           borderRadius: token.borderRadiusSM,
-          width: token.modalConfirmIconSize,
-          height: token.modalConfirmIconSize,
+          width: token.modalCloseBtnSize,
+          height: token.modalCloseBtnSize,
           border: 0,
           outline: 0,
           cursor: 'pointer',
           transition: `color ${token.motionDurationMid}, background-color ${token.motionDurationMid}`,
 
           '&-x': {
-            display: 'block',
+            display: 'flex',
             fontSize: token.fontSizeLG,
             fontStyle: 'normal',
             lineHeight: `${token.modalCloseBtnSize}px`,
-            textAlign: 'center',
+            justifyContent: 'center',
             textTransform: 'none',
             textRendering: 'auto',
           },
@@ -217,7 +217,7 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
 
         [`${componentCls}-header`]: {
           color: token.colorText,
-          background: token.modalHeaderBg,
+          background: token.headerBg,
           borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
           marginBottom: token.marginXS,
         },
@@ -230,7 +230,7 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
 
         [`${componentCls}-footer`]: {
           textAlign: 'end',
-          background: token.modalFooterBg,
+          background: token.footerBg,
           marginTop: token.marginSM,
 
           [`${token.antCls}-btn + ${token.antCls}-btn:not(${token.antCls}-dropdown-trigger)`]: {
@@ -297,8 +297,8 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
           overflow: 'hidden',
           color: token.colorTextHeading,
           fontWeight: token.fontWeightStrong,
-          fontSize: token.modalHeaderTitleFontSize,
-          lineHeight: token.modalHeaderTitleLineHeight,
+          fontSize: token.titleFontSize,
+          lineHeight: token.titleLineHeight,
 
           [`+ ${confirmComponentCls}-content`]: {
             marginBlockStart: token.marginXS,
@@ -442,6 +442,9 @@ export default genComponentStyleHook(
       modalFooterPaddingHorizontal: token.padding,
       modalFooterBorderWidth: token.lineWidth,
       modalIconHoverColor: token.colorIconHover,
+      modalCloseIconColor: token.colorIcon,
+      modalCloseBtnSize: token.fontSize * token.lineHeight,
+      modalConfirmIconSize: token.fontSize * token.lineHeight,
     });
     return [
       genModalStyle(modalToken),
@@ -453,14 +456,11 @@ export default genComponentStyleHook(
     ];
   },
   (token) => ({
-    modalFooterBg: 'transparent',
-    modalHeaderBg: token.colorBgElevated,
-    modalHeaderTitleLineHeight: token.lineHeightHeading5,
-    modalHeaderTitleFontSize: token.fontSizeHeading5,
-    modalContentBg: token.colorBgElevated,
-    modalHeadingColor: token.colorTextHeading,
-    modalCloseIconColor: token.colorTextDescription,
-    modalConfirmIconSize: token.fontSize * token.lineHeight,
-    modalCloseBtnSize: token.fontSize * token.lineHeight,
+    footerBg: 'transparent',
+    headerBg: token.colorBgElevated,
+    titleLineHeight: token.lineHeightHeading5,
+    titleFontSize: token.fontSizeHeading5,
+    contentBg: token.colorBgElevated,
+    titleColor: token.colorTextHeading,
   }),
 );
