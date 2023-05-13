@@ -51,30 +51,34 @@ Array [
         type="button"
       >
         <span
-          aria-label="ellipsis"
-          class="anticon anticon-ellipsis"
-          role="img"
+          class="ant-btn-icon"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="ellipsis"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
           >
-            <path
-              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </span>
       </button>
     </div>
   </div>,
   <div
     class="ant-tour ant-tour-placement-bottom"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
   >
     <div
       class="ant-tour-arrow"
@@ -214,30 +218,34 @@ Array [
         type="button"
       >
         <span
-          aria-label="ellipsis"
-          class="anticon anticon-ellipsis"
-          role="img"
+          class="ant-btn-icon"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="ellipsis"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
           >
-            <path
-              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </span>
       </button>
     </div>
   </div>,
   <div
     class="ant-tour ant-tour-placement-bottom"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
   >
     <div
       class="ant-tour-arrow"
@@ -363,30 +371,34 @@ Array [
         type="button"
       >
         <span
-          aria-label="ellipsis"
-          class="anticon anticon-ellipsis"
-          role="img"
+          class="ant-btn-icon"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="ellipsis"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
           >
-            <path
-              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </span>
       </button>
     </div>
   </div>,
   <div
     class="ant-tour ant-tour-placement-bottom"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
   >
     <div
       class="ant-tour-arrow"
@@ -526,37 +538,41 @@ Array [
         type="button"
       >
         <span
-          aria-label="ellipsis"
-          class="anticon anticon-ellipsis"
-          role="img"
+          class="ant-btn-icon"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="ellipsis"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
           >
-            <path
-              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </span>
       </button>
     </div>
   </div>,
   <div
-    class="ant-tour ant-tour-placement-bottom"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+    class="ant-tour ant-tour-primary ant-tour-placement-bottom"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
   >
     <div
       class="ant-tour-arrow"
       style="position: absolute; top: 0px; left: 0px;"
     />
     <div
-      class="ant-tour-primary ant-tour-content"
+      class="ant-tour-content"
     >
       <div
         class="ant-tour-inner"
@@ -650,7 +666,7 @@ Array [
   </button>,
   <div
     class="ant-tour ant-tour-placement-bottom"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
   >
     <div
       class="ant-tour-content"
@@ -954,7 +970,7 @@ exports[`renders components/tour/demo/render-panel.tsx extend context correctly 
         role="tooltip"
       >
         <div
-          class="ant-tour-primary ant-tour-content"
+          class="ant-tour-content"
         >
           <div
             class="ant-tour-inner"

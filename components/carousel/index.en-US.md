@@ -31,6 +31,7 @@ A carousel component. Scales with its container.
 | autoplay | Whether to scroll automatically | boolean | false |  |
 | dotPosition | The position of the dots, which can be one of `top` `bottom` `left` `right` | string | `bottom` |  |
 | dots | Whether to show the dots at the bottom of the gallery, `object` for `dotsClass` and any others | boolean \| { className?: string } | true |  |
+| waitForAnimate | Whether to wait for the animation when switching | boolean | false |  |
 | easing | Transition interpolation function name | string | `linear` |  |
 | effect | Transition effect | `scrollx` \| `fade` | `scrollx` |  |
 | afterChange | Callback function called after the current index changes | (current: number) => void | - |  |

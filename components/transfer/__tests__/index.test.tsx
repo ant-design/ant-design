@@ -579,6 +579,39 @@ describe('Transfer', () => {
     fireEvent.click(container.querySelectorAll('.ant-transfer-list-content-item-remove')[0]);
     expect(onChange).toHaveBeenCalledWith([], 'left', ['b']);
   });
+
+  it('control mode select all should not throw warning', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const App = () => {
+      const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
+
+      const onSelectChange = (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => {
+        setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys]);
+      };
+
+      return (
+        <Transfer
+          dataSource={[
+            {
+              key: 'a',
+              title: 'a',
+            },
+          ]}
+          selectedKeys={selectedKeys}
+          onSelectChange={onSelectChange}
+        />
+      );
+    };
+
+    const { container } = render(<App />);
+
+    fireEvent.click(container.querySelector('.ant-transfer-list-header input[type="checkbox"]')!);
+
+    expect(errSpy).not.toHaveBeenCalled();
+
+    errSpy.mockRestore();
+  });
 });
 
 describe('immutable data', () => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import { InboxOutlined, UploadOutlined } from '@ant-design/icons';
 import {
   Button,
@@ -11,9 +10,11 @@ import {
   Row,
   Select,
   Slider,
+  Space,
   Switch,
   Upload,
 } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 
@@ -181,9 +182,12 @@ const App: React.FC = () => (
     </Form.Item>
 
     <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
-      <Button type="primary" htmlType="submit">
-        Submit
-      </Button>
+      <Space>
+        <Button type="primary" htmlType="submit">
+          Submit
+        </Button>
+        <Button htmlType="reset">reset</Button>
+      </Space>
     </Form.Item>
   </Form>
 );

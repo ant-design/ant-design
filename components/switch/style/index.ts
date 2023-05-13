@@ -1,8 +1,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
+import { genFocusStyle, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { genFocusStyle, resetComponent } from '../../style';
 
 interface SwitchToken extends FullToken<'Switch'> {
   switchMinWidth: number;
@@ -130,7 +130,7 @@ const genSwitchLoadingStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => 
 };
 
 const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, motion } = token;
   const switchHandleCls = `${componentCls}-handle`;
 
   return {
@@ -161,17 +161,20 @@ const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
         insetInlineStart: `calc(100% - ${token.switchPinSize + token.switchPadding}px)`,
       },
 
-      [`&:not(${componentCls}-disabled):active`]: {
-        [`${switchHandleCls}::before`]: {
-          insetInlineEnd: token.switchHandleActiveInset,
-          insetInlineStart: 0,
-        },
+      [`&:not(${componentCls}-disabled):active`]: motion
+        ? {
+            [`${switchHandleCls}::before`]: {
+              insetInlineEnd: token.switchHandleActiveInset,
+              insetInlineStart: 0,
+            },
 
-        [`&${componentCls}-checked ${switchHandleCls}::before`]: {
-          insetInlineEnd: 0,
-          insetInlineStart: token.switchHandleActiveInset,
-        },
-      },
+            [`&${componentCls}-checked ${switchHandleCls}::before`]: {
+              insetInlineEnd: 0,
+              insetInlineStart: token.switchHandleActiveInset,
+            },
+          }
+        : /* istanbul ignore next */
+          {},
     },
   };
 };

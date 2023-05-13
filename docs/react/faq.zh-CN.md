@@ -43,7 +43,7 @@ title: FAQ
 
 ## 如何修改 Ant Design 的默认主题？
 
-可以参考[定制主题](/docs/react/customize-theme)。
+可以参考[定制主题](/docs/react/customize-theme-cn)。
 
 ## 如何修改 Ant Design 组件的默认样式？
 
@@ -63,7 +63,7 @@ antd 在 minor 和 patch 版本迭代中会避免引入破坏性变更，遵从�
 
 ## 如何使用其他时间日期库如 Moment.js？
 
-可以参考[使用自定义日期库](/docs/react/use-custom-date-library)。
+可以参考[使用自定义日期库](/docs/react/use-custom-date-library-cn)。
 
 ## 当我动态改变 `defaultValue` 的时候它并没有生效。
 
@@ -83,7 +83,7 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 ## antd 覆盖了我的全局样式！
 
-是的，antd 在设计的时候就是用来开发一个完整的应用的，为了方便，我们覆盖了一些全局样式，现在还不能移除，想要了解更多请追踪 [这个 issue](https://github.com/ant-design/ant-design/issues/4331)，或者参考这个教程 [How to avoid modifying global styles?](/docs/react/customize-theme#how-to-avoid-modifying-global-styles)
+是的，antd 在设计的时候就是用来开发一个完整的应用的，为了方便，我们覆盖了一些全局样式，现在还不能移除，想要了解更多请追踪 [这个 issue](https://github.com/ant-design/ant-design/issues/4331)，或者参考这个教程 [How to avoid modifying global styles?](/docs/react/customize-theme-cn#how-to-avoid-modifying-global-styles)
 
 ## 我没法安装 `antd` 和 `antd` 的依赖，顺便提一句，我在中国大陆。
 
@@ -211,6 +211,18 @@ ConfigProvider.config({
 ## 动态样式有 `:where` 导致旧版浏览器不支持怎么办？
 
 请参考动态主题文档 [兼容性调整](/docs/react/customize-theme-cn#兼容性调整) 部分内容。
+
+## 如何关闭组件动画
+
+通过 SeedToken 可以很方便的实现：
+
+```jsx
+import { ConfigProvider } from 'antd';
+
+<ConfigProvider theme={{ token: { motion: false } }}>
+  <App />
+</ConfigProvider>;
+```
 
 ## CSS-in-JS 与 tailwindcss 优先级冲突？
 
