@@ -15,7 +15,7 @@ const useColorState = (
 ): [Color, React.Dispatch<React.SetStateAction<Color>>] => {
   const { defaultValue, value } = option;
   const [colorValue, setColorValue] = useState(() => {
-    let mergeState;
+    let mergeState: string | Color | undefined;
     if (hasValue(value)) {
       mergeState = value;
     } else if (hasValue(defaultValue)) {
