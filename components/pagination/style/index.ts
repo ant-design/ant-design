@@ -9,18 +9,21 @@ import { genFocusOutline, genFocusStyle, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
-interface PaginationToken extends InputToken<FullToken<'Pagination'>> {
+export interface ComponentToken {
+  itemBg: string;
   itemSize: number;
   fontFamily: string;
-  itemBg: string;
   itemBgActive: string;
   fontWeightActive: number;
   itemSizeSM: number;
-  itemInputBg: string;
-  miniOptionsSizeChangerTop: number;
+  itemLinkBg: string;
   itemDisabledBgActive: string;
   itemDisabledColorActive: string;
-  itemLinkBg: string;
+  itemInputBg: string;
+  miniOptionsSizeChangerTop: number;
+}
+
+interface PaginationToken extends InputToken<FullToken<'Pagination'>> {
   inputOutlineOffset: number;
   miniOptionsMarginInlineStart: number;
   miniQuickJumperInputWidth: number;
