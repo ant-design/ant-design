@@ -57,7 +57,7 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
             key={`panel-${preset?.label}`}
           >
             <div className={`${colorPresetsPrefixCls}-items`}>
-              {Array.isArray(preset?.colors) && preset?.colors.length ? (
+              {Array.isArray(preset?.colors) && preset.colors?.length > 0 ? (
                 preset.colors.map((presetColor: Color) => (
                   <ColorBlock
                     key={`preset-${presetColor.toHexString()}`}
