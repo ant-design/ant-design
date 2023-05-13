@@ -140,8 +140,8 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@skeleton-block-radius` | `skeletonBlockRadius` | - |
-| `@skeleton-title-height` | `skeletonTitleHeight` | - |
+| `@skeleton-block-radius` | `blockRadius` | - |
+| `@skeleton-title-height` | `titleHeight` | - |
 | `@skeleton-color` | `color` | - |
 | `@skeleton-to-color` | `colorGradientEnd` | - |
 
