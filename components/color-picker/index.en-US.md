@@ -10,11 +10,11 @@ group:
   title: Data Entry
 ---
 
-Components providing color selection
+Components providing color selection, Available since `5.5.0`.
 
 ## When To Use
 
-Used when the user needs to customize the color selection
+Used when the user needs to customize the color selection.
 
 ## Examples
 
@@ -29,7 +29,7 @@ Used when the user needs to customize the color selection
 
 ## API
 
-> This component is available since antd@5.5.0
+> This component is available since `antd@5.5.0`.
 
 <!-- prettier-ignore -->
 | Property | Description | Type | Default |
