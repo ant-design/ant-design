@@ -24,6 +24,7 @@ export const roundedArrow = (
   const fy = ay;
 
   const shadowWidth = unitWidth * Math.sqrt(2) + outerRadius * (Math.sqrt(2) - 2);
+  const polygonOffset = outerRadius * (Math.sqrt(2) - 1);
 
   return {
     pointerEvents: 'none',
@@ -38,7 +39,15 @@ export const roundedArrow = (
       width,
       height: width / 2,
       background: bgColor,
-      clipPath: `path('M ${ax} ${ay} A ${outerRadius} ${outerRadius} 0 0 0 ${bx} ${by} L ${cx} ${cy} A ${innerRadius} ${innerRadius} 0 0 1 ${dx} ${dy} L ${ex} ${ey} A ${outerRadius} ${outerRadius} 0 0 0 ${fx} ${fy} Z')`,
+      clipPath: {
+        _multi_value_: true,
+        value: [
+          `polygon(${polygonOffset}px 100%, 50% ${polygonOffset}px, ${
+            2 * unitWidth - polygonOffset
+          }px 100%, ${polygonOffset}px 100%)`,
+          `path('M ${ax} ${ay} A ${outerRadius} ${outerRadius} 0 0 0 ${bx} ${by} L ${cx} ${cy} A ${innerRadius} ${innerRadius} 0 0 1 ${dx} ${dy} L ${ex} ${ey} A ${outerRadius} ${outerRadius} 0 0 0 ${fx} ${fy} Z')`,
+        ],
+      },
       content: '""',
     },
 

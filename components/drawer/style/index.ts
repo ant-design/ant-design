@@ -4,12 +4,11 @@ import genMotionStyle from './motion';
 
 export interface ComponentToken {
   zIndexPopup: number;
+  footerPaddingBlock: number;
+  footerPaddingInline: number;
 }
 
-export interface DrawerToken extends FullToken<'Drawer'> {
-  drawerFooterPaddingVertical: number;
-  drawerFooterPaddingHorizontal: number;
-}
+export interface DrawerToken extends FullToken<'Drawer'> {}
 
 // =============================== Base ===============================
 const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
@@ -32,8 +31,8 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
     colorIconHover,
     colorText,
     fontWeightStrong,
-    drawerFooterPaddingVertical,
-    drawerFooterPaddingHorizontal,
+    footerPaddingBlock,
+    footerPaddingInline,
   } = token;
 
   const wrapperCls = `${componentCls}-content-wrapper`;
@@ -201,7 +200,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
       // Footer
       [`${componentCls}-footer`]: {
         flexShrink: 0,
-        padding: `${drawerFooterPaddingVertical}px ${drawerFooterPaddingHorizontal}px`,
+        padding: `${footerPaddingBlock}px ${footerPaddingInline}px`,
         borderTop: `${lineWidth}px ${lineType} ${colorSplit}`,
       },
 
@@ -217,14 +216,13 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
 export default genComponentStyleHook(
   'Drawer',
   (token) => {
-    const drawerToken = mergeToken<DrawerToken>(token, {
-      drawerFooterPaddingVertical: token.paddingXS,
-      drawerFooterPaddingHorizontal: token.padding,
-    });
+    const drawerToken = mergeToken<DrawerToken>(token, {});
 
     return [genDrawerStyle(drawerToken), genMotionStyle(drawerToken)];
   },
   (token) => ({
     zIndexPopup: token.zIndexPopupBase,
+    footerPaddingBlock: token.paddingXS,
+    footerPaddingInline: token.padding,
   }),
 );

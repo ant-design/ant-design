@@ -3,7 +3,7 @@ import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genStepsLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, stepsIconSize, lineHeight, stepsSmallIconSize } = token;
+  const { componentCls, iconSize, lineHeight, iconSizeSM } = token;
 
   return {
     [`&${componentCls}-label-vertical`]: {
@@ -11,13 +11,13 @@ const genStepsLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token
         overflow: 'visible',
 
         '&-tail': {
-          marginInlineStart: stepsIconSize / 2 + token.controlHeightLG,
+          marginInlineStart: iconSize / 2 + token.controlHeightLG,
           padding: `${token.paddingXXS}px ${token.paddingLG}px`,
         },
 
         '&-content': {
           display: 'block',
-          width: (stepsIconSize / 2 + token.controlHeightLG) * 2,
+          width: (iconSize / 2 + token.controlHeightLG) * 2,
           marginTop: token.marginSM,
           textAlign: 'center',
         },
@@ -46,7 +46,7 @@ const genStepsLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token
       [`&${componentCls}-small:not(${componentCls}-dot)`]: {
         [`${componentCls}-item`]: {
           '&-icon': {
-            marginInlineStart: token.controlHeightLG + (stepsIconSize - stepsSmallIconSize) / 2,
+            marginInlineStart: token.controlHeightLG + (iconSize - iconSizeSM) / 2,
           },
         },
       },
