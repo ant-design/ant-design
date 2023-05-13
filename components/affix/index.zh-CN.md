@@ -3,6 +3,7 @@ category: Components
 title: Affix
 subtitle: 固钉
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YSm4RI3iOJ8AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*03dxS64LxeQAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group:
@@ -28,7 +29,7 @@ group:
 
 ## API
 
-| 成员 | 说明 | 类型 | 默认值 |
+| 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | offsetBottom | 距离窗口底部达到指定偏移量后触发 | number | - |
 | offsetTop | 距离窗口顶部达到指定偏移量后触发 | number | 0 |

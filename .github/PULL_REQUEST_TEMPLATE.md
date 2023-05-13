@@ -6,7 +6,7 @@ Your pull requests will be merged after one of the collaborators approve.
 Thank you!
 -->
 
-[[中文版模板 / Chinese template](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE/pr_cn.md)]
+[[中文版模板 / Chinese template](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE/pr_cn.md?plain=1)]
 
 ### 🤔 This is a ...
 
@@ -61,3 +61,18 @@ Describe changes from the user side, and list all potential break changes or oth
 - [ ] Demo is updated/provided or not needed
 - [ ] TypeScript definition is updated/provided or not needed
 - [ ] Changelog is provided or not needed
+
+---
+
+<!--
+Below are template for copilot to generate CR message.
+Please DO NOT modify it.
+-->
+
+### 🚀 Summary
+
+copilot:summary
+
+### 🔍 Walkthrough
+
+copilot:walkthrough

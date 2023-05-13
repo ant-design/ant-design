@@ -6,14 +6,13 @@ import type { TabsProps as RcTabsProps } from 'rc-tabs';
 import RcTabs from 'rc-tabs';
 import type { EditableConfig } from 'rc-tabs/lib/interface';
 import * as React from 'react';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
-import warning from '../_util/warning';
+import useSize from '../config-provider/hooks/useSize';
+import TabPane, { type TabPaneProps } from './TabPane';
 import useAnimateConfig from './hooks/useAnimateConfig';
 import useLegacyItems from './hooks/useLegacyItems';
-import TabPane, { type TabPaneProps } from './TabPane';
-
 import useStyle from './style';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
@@ -22,6 +21,7 @@ export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
 export type { TabPaneProps };
 
 export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
+  rootClassName?: string;
   type?: TabsType;
   size?: SizeType;
   hideAdd?: boolean;
@@ -34,7 +34,8 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
 function Tabs({
   type,
   className,
-  size: propSize,
+  rootClassName,
+  size: customSize,
   onEdit,
   hideAdd,
   centered,
@@ -73,9 +74,7 @@ function Tabs({
 
   const mergedAnimated = useAnimateConfig(prefixCls, animated);
 
-  const contextSize = React.useContext<SizeType>(SizeContext);
-
-  const size = propSize !== undefined ? propSize : contextSize;
+  const size = useSize(customSize);
 
   return wrapSSR(
     <RcTabs
@@ -92,6 +91,7 @@ function Tabs({
           [`${prefixCls}-centered`]: centered,
         },
         className,
+        rootClassName,
         hashId,
       )}
       popupClassName={classNames(popupClassName, hashId)}

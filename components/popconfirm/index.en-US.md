@@ -3,6 +3,7 @@ category: Components
 group: Feedback
 title: Popconfirm
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sAGpRoBtTXcAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HrFtQ6jJJFQAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -44,8 +45,13 @@ The difference with the `confirm` modal dialog is that it's more lightweight tha
 | description | The description of the confirmation box title | ReactNode \| () => ReactNode | - | 5.1.0 |
 | onCancel | A callback of cancel | function(e) | - |  |
 | onConfirm | A callback of confirmation | function(e) | - |  |
+| onPopupClick | A callback of popup click | function(e) | - | 5.5.0 |
 
 Consult [Tooltip's documentation](/components/tooltip/#api) to find more APIs.
+
+## Design Token
+
+<ComponentTokenTable component="Popconfirm"></ComponentTokenTable>
 
 ## Note
 

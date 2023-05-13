@@ -4,6 +4,7 @@ group: Data Display
 title: Image
 cols: 2
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FbOCS6aFMeUAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Previewable image.
@@ -42,18 +43,24 @@ Previewable image.
 
 ### previewType
 
-```js
+```typescript
 {
   visible?: boolean;
-  onVisibleChange?: (visible, prevVisible) => void;
+  onVisibleChange?: (visible, prevVisible, current: number) => void; // `current` only support after v5.3.0
   getContainer?: string | HTMLElement | (() => HTMLElement); // v4.8.0
   src?: string; // v4.10.0
   mask?: ReactNode; // v4.9.0
   maskClassName?: string; // v4.11.0
+  rootClassName?: string; // only support after v5.4.0
   current?: number; // v4.12.0 Only support PreviewGroup
   countRender?: (current: number, total: number) => string  // v4.20.0 Only support PreviewGroup
   scaleStep?: number;
+  onChange?: (current: number, prevCurrent: number) => void; // only support after v5.3.0
 }
 ```
 
 Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
+
+## Design Token
+
+<ComponentTokenTable component="Image"></ComponentTokenTable>

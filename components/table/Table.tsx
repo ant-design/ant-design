@@ -1,33 +1,34 @@
+import { EXPAND_COLUMN, Summary } from 'rc-table';
 import * as React from 'react';
-import { Summary, EXPAND_COLUMN } from 'rc-table';
 import Column from './Column';
 import ColumnGroup from './ColumnGroup';
-import InternalTable from './InternalTable';
 import type { TableProps } from './InternalTable';
-import type { RefTable } from './interface';
+import InternalTable from './InternalTable';
 import {
   SELECTION_ALL,
   SELECTION_COLUMN,
   SELECTION_INVERT,
   SELECTION_NONE,
 } from './hooks/useSelection';
+import type { RefTable } from './interface';
 
-function Table<RecordType extends object = any>(
+export type AnyObject = Record<PropertyKey, any>;
+
+const Table = <RecordType extends AnyObject = any>(
   props: TableProps<RecordType>,
   ref: React.Ref<HTMLDivElement>,
-) {
+) => {
   const renderTimesRef = React.useRef(0);
   renderTimesRef.current += 1;
-
   return <InternalTable<RecordType> {...props} ref={ref} _renderTimes={renderTimesRef.current} />;
-}
+};
 
-const ForwardTable = React.forwardRef(Table) as any as RefTable & {
+const ForwardTable = React.forwardRef(Table) as unknown as RefTable & {
   SELECTION_COLUMN: typeof SELECTION_COLUMN;
   EXPAND_COLUMN: typeof EXPAND_COLUMN;
-  SELECTION_ALL: 'SELECT_ALL';
-  SELECTION_INVERT: 'SELECT_INVERT';
-  SELECTION_NONE: 'SELECT_NONE';
+  SELECTION_ALL: typeof SELECTION_ALL;
+  SELECTION_INVERT: typeof SELECTION_INVERT;
+  SELECTION_NONE: typeof SELECTION_NONE;
   Column: typeof Column;
   ColumnGroup: typeof ColumnGroup;
   Summary: typeof Summary;

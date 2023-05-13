@@ -34,9 +34,14 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
         },
 
         svg: {
+          maxWidth: '100%',
           height: '100%',
           margin: 'auto',
         },
+      },
+
+      [`${componentCls}-description`]: {
+        color: token.colorText,
       },
 
       // 原来 &-footer 没有父子结构，现在为了外层承担我们的hashId，改成父子结果
@@ -47,6 +52,10 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
       '&-normal': {
         marginBlock: marginXL,
         color: token.colorTextDisabled,
+
+        [`${componentCls}-description`]: {
+          color: token.colorTextDisabled,
+        },
 
         [`${componentCls}-image`]: {
           height: token.emptyImgHeightMD,

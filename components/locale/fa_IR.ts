@@ -21,17 +21,24 @@ const localeValues: Locale = {
     filterConfirm: 'تایید',
     filterReset: 'پاک کردن',
     filterEmptyText: 'بدون فیلتر',
+    filterCheckall: 'انتخاب همه‌ی موارد',
+    filterSearchPlaceholder: 'جستجو در فیلترها',
     emptyText: 'بدون داده',
     selectAll: 'انتخاب صفحه‌ی کنونی',
     selectInvert: 'معکوس کردن انتخاب‌ها در صفحه ی کنونی',
     selectNone: 'انتخاب هیچکدام',
-    selectionAll: 'انتخاب همه داده‌ها',
+    selectionAll: 'انتخاب همه‌ی داده‌ها',
     sortTitle: 'مرتب سازی',
     expand: 'باز شدن ردیف',
     collapse: 'بستن ردیف',
     triggerDesc: 'ترتیب نزولی',
     triggerAsc: 'ترتیب صعودی',
     cancelSort: 'لغوِ ترتیبِ داده شده',
+  },
+  Tour: {
+    Next: 'بعدی',
+    Previous: 'قبلی',
+    Finish: 'پایان',
   },
   Modal: {
     okText: 'تایید',
@@ -127,7 +134,11 @@ const localeValues: Locale = {
     },
   },
   Image: {
-    preview: 'نمایش',
+    preview: 'پیش‌نمایش',
+  },
+  QRCode: {
+    expired: 'QR Code منقضی شذد',
+    refresh: 'به‌روزرسانی',
   },
 };
 

@@ -3,6 +3,7 @@ import FloatButton from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import getOffset from '../util';
 
 describe('FloatButton', () => {
   mountTest(FloatButton);
@@ -11,11 +12,11 @@ describe('FloatButton', () => {
     const { container } = render(<FloatButton />);
     expect(container.firstChild).toMatchSnapshot();
   });
-  it('should render <button> when harf not exist', () => {
+  it('should render <button> when href not exist', () => {
     const { container } = render(<FloatButton href={undefined} />);
     expect(container.querySelector('button')).toBeTruthy();
   });
-  it('should render <a> when harf exist', () => {
+  it('should render <a> when href exist', () => {
     const url = 'https://ant.design/index-cn';
     const target = '_blank';
     const { container } = render(<FloatButton href={url} target={target} />);
@@ -61,5 +62,24 @@ describe('FloatButton', () => {
     expect(element?.textContent).toBe('0');
     jest.clearAllTimers();
     jest.useRealTimers();
+  });
+
+  it('getOffset should return 0 when radius is 0', () => {
+    const result1 = getOffset(0);
+    expect(result1).toBe(0);
+    const result2 = getOffset(1);
+    expect(result2).not.toBe(0);
+  });
+
+  it('support badge number', () => {
+    const { container } = render(<FloatButton badge={{ count: 10 }} />);
+    const badgeElement = container?.querySelector<HTMLSpanElement>('.ant-float-btn .ant-badge');
+    expect(badgeElement?.querySelector<HTMLElement>('.ant-badge-count')).toBeTruthy();
+  });
+
+  it('support badge dot', () => {
+    const { container } = render(<FloatButton badge={{ dot: true }} />);
+    const badgeElement = container?.querySelector<HTMLSpanElement>('.ant-float-btn .ant-badge');
+    expect(badgeElement?.querySelector<HTMLElement>('.ant-badge-dot')).toBeTruthy();
   });
 });

@@ -4,6 +4,7 @@ subtitle: 树选择
 group: 数据录入
 title: TreeSelect
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DfTMRYSDngEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Y5pcQLplFu4AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -40,7 +41,7 @@ demo:
 | defaultValue | 指定默认选中的条目 | string \| string\[] | - |  |
 | disabled | 是否禁用 | boolean | false |  |
 | popupClassName | 下拉菜单的 className 属性 | string | - | 4.23.0 |
-| dropdownMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true |  |
+| popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true | 5.5.0 |
 | dropdownRender | 自定义下拉框内容 | (originNode: ReactNode, props) => ReactNode | - |  |
 | dropdownStyle | 下拉菜单的样式 | object | - |  |
 | fieldNames | 自定义节点 label、value、children 的字段 | object | { label: `label`, value: `value`, children: `children` } | 4.17.0 |
@@ -51,12 +52,13 @@ demo:
 | loadData | 异步加载数据 | function(node) | - |  |
 | maxTagCount | 最多显示多少个 tag，响应式模式会对性能产生损耗 | number \| `responsive` | - | responsive: 4.10 |
 | maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode \| function(omittedValues) | - |  |
+| maxTagTextLength | 最大显示的 tag 文本长度 | number | - |  |
 | multiple | 支持多选（当设置 treeCheckable 时自动变为 true） | boolean | false |  |
 | notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `Not Found` |  |
 | placeholder | 选择框默认文字 | string | - |  |
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | searchValue | 搜索框的值，可以通过 `onSearch` 获取用户输入 | string | - |  |
-| showArrow | 是否显示 `suffixIcon`，单选模式下默认 `true` | boolean | - |  |
+| showArrow | 是否显示 `suffixIcon` | boolean | `true` |  |
 | showCheckedStrategy | 配置 `treeCheckable` 时，定义选中项回填的方式。`TreeSelect.SHOW_ALL`: 显示所有选中节点(包括父节点)。`TreeSelect.SHOW_PARENT`: 只显示父节点(当父节点下所有子节点都选中时)。 默认只显示子节点 | `TreeSelect.SHOW_ALL` \| `TreeSelect.SHOW_PARENT` \| `TreeSelect.SHOW_CHILD` | `TreeSelect.SHOW_CHILD` |  |
 | showSearch | 是否支持搜索框 | boolean | 单选：false \| 多选：true |  |
 | size | 选择框大小 | `large` \| `middle` \| `small` | - |  |
@@ -107,11 +109,15 @@ demo:
 | title           | 树节点显示的内容                                   | ReactNode | `---`  |      |
 | value           | 默认根据此属性值进行筛选（其值在整个树范围内唯一） | string    | -      |      |
 
+## Design Token
+
+<ComponentTokenTable component="TreeSelect"></ComponentTokenTable>
+
 ## FAQ
 
 ### onChange 时如何获得父节点信息？
 
-从性能角度考虑，我们默认不透出父节点信息。你可以这样获得：<https://codesandbox.io/s/wk080nn81k>
+从性能角度考虑，我们默认不透出父节点信息。你可以这样获得：<https://codesandbox.io/s/get-parent-node-in-onchange-eb1608>
 
 ### 自定义 Option 样式导致滚动异常怎么办？
 

@@ -1,18 +1,21 @@
 import classNames from 'classnames';
+import omit from 'rc-util/lib/omit';
 import React, { useContext, useMemo } from 'react';
+import warning from '../_util/warning';
+import Badge from '../badge';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import useStyle from './style';
 import Tooltip from '../tooltip';
 import Content from './FloatButtonContent';
+import FloatButtonGroupContext from './context';
 import type {
   CompoundedComponent,
+  FloatButtonBadgeProps,
   FloatButtonContentProps,
   FloatButtonProps,
   FloatButtonShape,
 } from './interface';
-import FloatButtonGroupContext from './context';
-import warning from '../_util/warning';
+import useStyle from './style';
 
 export const floatButtonPrefixCls = 'float-btn';
 
@@ -23,11 +26,13 @@ const FloatButton: React.ForwardRefRenderFunction<
   const {
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     type = 'default',
     shape = 'circle',
     icon,
     description,
     tooltip,
+    badge = {},
     ...restProps
   } = props;
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -41,6 +46,7 @@ const FloatButton: React.ForwardRefRenderFunction<
     hashId,
     prefixCls,
     className,
+    rootClassName,
     `${prefixCls}-${type}`,
     `${prefixCls}-${mergeShape}`,
     {
@@ -48,16 +54,24 @@ const FloatButton: React.ForwardRefRenderFunction<
     },
   );
 
+  // 虽然在 ts 中已经 omit 过了，但是为了防止多余的属性被透传进来，这里再 omit 一遍，以防万一
+  const badgeProps = useMemo<FloatButtonBadgeProps>(
+    () => omit(badge, ['title', 'children', 'status', 'text'] as any[]),
+    [badge],
+  );
+
   const contentProps = useMemo<FloatButtonContentProps>(
     () => ({ prefixCls, description, icon, type }),
     [prefixCls, description, icon, type],
   );
 
-  const buttonNode = (
-    <Tooltip title={tooltip} placement="left">
-      <div className={`${prefixCls}-body`}>
-        <Content {...contentProps} />
-      </div>
+  const buttonNode: React.ReactNode = (
+    <Tooltip title={tooltip} placement={direction === 'rtl' ? 'right' : 'left'}>
+      <Badge {...badgeProps}>
+        <div className={`${prefixCls}-body`}>
+          <Content {...contentProps} />
+        </div>
+      </Badge>
     </Tooltip>
   );
 

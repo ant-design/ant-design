@@ -4,6 +4,7 @@ subtitle: 滑动输入条
 group: 数据录入
 title: Slider
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*_4heQaUrFn4AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*XkgXTaudeosAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -26,7 +27,7 @@ demo:
 <code src="./demo/vertical.tsx">垂直</code>
 <code src="./demo/show-tooltip.tsx">控制 ToolTip 的显示</code>
 <code src="./demo/reverse.tsx">反向</code>
-<code src="./demo/dragableTrack.tsx">范围可拖拽</code>
+<code src="./demo/draggableTrack.tsx">范围可拖拽</code>
 
 ## API
 
@@ -35,6 +36,7 @@ demo:
 | allowClear | 支持清除, 单选模式有效 | boolean | false |  |
 | defaultValue | 设置初始取值。当 `range` 为 false 时，使用 number，否则用 \[number, number] | number \| \[number, number] | 0 \| \[0, 0] |  |
 | disabled | 值为 true 时，滑块为禁用状态 | boolean | false |  |
+| keyboard | 支持使用键盘操作 handler | boolean | true | 5.2.0+ |
 | dots | 是否只能拖拽到刻度上 | boolean | false |  |
 | included | `marks` 不为空对象时有效，值为 true 时表示值为包含关系，false 表示并列 | boolean | true |  |
 | marks | 刻度标记，key 的类型必须为 `number` 且取值在闭区间 \[min, max] 内，每个标签可以单独设置样式 | object | { number: ReactNode } or { number: { style: CSSProperties, label: ReactNode } } |  |
@@ -70,3 +72,7 @@ demo:
 | ------- | -------- | ---- |
 | blur()  | 移除焦点 |      |
 | focus() | 获取焦点 |      |
+
+## Design Token
+
+<ComponentTokenTable component="Slider"></ComponentTokenTable>

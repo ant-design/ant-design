@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent } from '../../style';
 
 export interface ComponentToken {
   contentWidth: number;
@@ -122,6 +122,13 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
     lineWidth,
   } = token;
 
+  const alignCls: any = {};
+  ['start', 'center', 'end'].forEach((item) => {
+    alignCls[`&-align-${item}`] = {
+      textAlign: item,
+    };
+  });
+
   return {
     [`${componentCls}`]: {
       ...resetComponent(token),
@@ -133,9 +140,11 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
         background: 'transparent',
         paddingBlock: paddingSM,
       },
+
       [`${componentCls}-pagination`]: {
         marginBlockStart: marginLG,
-        textAlign: 'end',
+
+        ...alignCls,
 
         // https://github.com/ant-design/ant-design/issues/20037
         [`${antCls}-pagination-options`]: {
@@ -178,7 +187,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
           },
 
           [`${componentCls}-item-meta-title`]: {
-            marginBottom: token.marginXXS,
+            margin: `0 0 ${token.marginXXS}px 0`,
             color: colorText,
             fontSize: token.fontSize,
             lineHeight: token.lineHeight,
@@ -275,6 +284,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
         marginBlockEnd: padding,
 
         [`${componentCls}-item-meta-title`]: {
+          marginBlockStart: 0,
           marginBlockEnd: paddingSM,
           color: colorText,
           fontSize: token.fontSizeLG,
@@ -341,7 +351,7 @@ export default genComponentStyleHook(
     const listToken = mergeToken<ListToken>(token, {
       listBorderedCls: `${token.componentCls}-bordered`,
       minHeight: token.controlHeightLG,
-      listItemPadding: `${token.paddingContentVertical}px ${token.paddingContentHorizontalLG}px`,
+      listItemPadding: `${token.paddingContentVertical}px 0`,
       listItemPaddingSM: `${token.paddingContentVerticalSM}px ${token.paddingContentHorizontal}px`,
       listItemPaddingLG: `${token.paddingContentVerticalLG}px ${token.paddingContentHorizontalLG}px`,
     });

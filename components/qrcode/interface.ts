@@ -16,12 +16,14 @@ interface QRProps {
   style?: CSSProperties;
   includeMargin?: boolean;
   imageSettings?: ImageSettings;
+  bgColor?: string;
 }
 
 export type QRPropsCanvas = QRProps & React.CanvasHTMLAttributes<HTMLCanvasElement>;
 
 export interface QRCodeProps extends QRProps {
   className?: string;
+  rootClassName?: string;
   prefixCls?: string;
   icon?: string;
   iconSize?: number;

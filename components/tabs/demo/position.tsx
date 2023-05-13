@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import type { RadioChangeEvent } from 'antd';
 import { Radio, Space, Tabs } from 'antd';
+import React, { useState } from 'react';
 
 type TabPosition = 'left' | 'right' | 'top' | 'bottom';
 

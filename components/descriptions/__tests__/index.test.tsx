@@ -4,6 +4,7 @@ import Descriptions from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { resetWarned } from '../../_util/warning';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Descriptions', () => {
   mountTest(Descriptions);
@@ -80,7 +81,7 @@ describe('Descriptions', () => {
     wrapper.unmount();
   });
 
-  it('warning if ecceed the row span', () => {
+  it('warning if exceed the row span', () => {
     resetWarned();
 
     render(
@@ -255,5 +256,27 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
     expect(wrapper.container.firstChild).toMatchSnapshot();
+  });
+
+  it('should pass data-* and accessibility attributes', () => {
+    const { getByTestId } = render(
+      <Descriptions data-testid="test-id" data-id="12345" aria-describedby="some-label">
+        <Descriptions.Item label="banana">banana</Descriptions.Item>
+      </Descriptions>,
+    );
+    const container = getByTestId('test-id');
+    expect(container).toHaveAttribute('data-id', '12345');
+    expect(container).toHaveAttribute('aria-describedby', 'some-label');
+  });
+
+  it('Descriptions should inherit the size from ConfigProvider if the componentSize is set ', () => {
+    const { container } = render(
+      <ConfigProvider componentSize="small">
+        <Descriptions bordered>
+          <Descriptions.Item label="small">small</Descriptions.Item>
+        </Descriptions>
+      </ConfigProvider>,
+    );
+    expect(container.querySelectorAll('.ant-descriptions-small')).toHaveLength(1);
   });
 });

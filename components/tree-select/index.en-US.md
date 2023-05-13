@@ -3,6 +3,7 @@ category: Components
 group: Data Entry
 title: TreeSelect
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DfTMRYSDngEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Y5pcQLplFu4AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -39,7 +40,7 @@ Tree selection control.
 | defaultValue | To set the initial selected treeNode(s) | string \| string\[] | - |  |
 | disabled | Disabled or not | boolean | false |  |
 | popupClassName | The className of dropdown menu | string | - | 4.23.0 |
-| dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |
+| popupMatchSelectWidth | Determine whether the popup menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | 5.5.0 |
 | dropdownRender | Customize dropdown content | (originNode: ReactNode, props) => ReactNode | - |  |
 | dropdownStyle | To set the style of the dropdown menu | CSSProperties | - |  |
 | fieldNames | Customize node label, value, children field name | object | { label: `label`, value: `value`, children: `children` } | 4.17.0 |
@@ -50,12 +51,13 @@ Tree selection control.
 | loadData | Load data asynchronously | function(node) | - |  |
 | maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| `responsive` | - | responsive: 4.10 |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode \| function(omittedValues) | - |  |
+| maxTagTextLength | Max tag text length to show | number | - |  |
 | multiple | Support multiple or not, will be `true` when enable `treeCheckable` | boolean | false |  |
 | notFoundContent | Specify content to show when no result matches | ReactNode | `Not Found` |  |
 | placeholder | Placeholder of the select input | string | - |  |
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | searchValue | Work with `onSearch` to make search value controlled | string | - |  |
-| showArrow | Whether to show the `suffixIcon`，when single selection mode, default `true` | boolean | - |  |
+| showArrow | Whether to show the `suffixIcon` | boolean | `true` |  |
 | showCheckedStrategy | The way show selected item in box when `treeCheckable` set. **Default:** just show child nodes. **`TreeSelect.SHOW_ALL`:** show all checked treeNodes (include parent treeNode). **`TreeSelect.SHOW_PARENT`:** show checked treeNodes (just show parent treeNode) | `TreeSelect.SHOW_ALL` \| `TreeSelect.SHOW_PARENT` \| `TreeSelect.SHOW_CHILD` | `TreeSelect.SHOW_CHILD` |  |
 | showSearch | Support search or not | boolean | single: false \| multiple: true |  |
 | size | To set the size of the select input | `large` \| `middle` \| `small` | - |  |
@@ -106,11 +108,15 @@ Tree selection control.
 | title | Content showed on the treeNodes | ReactNode | `---` |  |
 | value | Will be treated as `treeNodeFilterProp` by default, should be unique in the tree | string | - |  |
 
+## Design Token
+
+<ComponentTokenTable component="TreeSelect"></ComponentTokenTable>
+
 ## FAQ
 
 ### How to get parent node in onChange?
 
-We don't provide this since performance consideration. You can get by this way: <https://codesandbox.io/s/wk080nn81k>
+We don't provide this since performance consideration. You can get by this way: <https://codesandbox.io/s/get-parent-node-in-onchange-eb1608>
 
 ### Why sometime customize Option cause scroll break?
 

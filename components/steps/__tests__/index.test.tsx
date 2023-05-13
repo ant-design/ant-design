@@ -4,6 +4,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import ConfigProvider from '../../config-provider';
 
 describe('Steps', () => {
   mountTest(Steps);
@@ -105,5 +106,14 @@ describe('Steps', () => {
       'Warning: [antd: Steps] Step is deprecated. Please use `items` directly.',
     );
     errorSpy.mockRestore();
+  });
+
+  it('Steps should inherit the size from ConfigProvider if the componentSize is set ', () => {
+    const { container } = render(
+      <ConfigProvider componentSize="small">
+        <Steps items={[{ title: 'In Progress' }, { title: 'Finished' }]} />
+      </ConfigProvider>,
+    );
+    expect(container.querySelectorAll('.ant-steps-small')).toHaveLength(1);
   });
 });

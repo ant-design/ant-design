@@ -14,7 +14,10 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     [`&${componentCls}-${size}`]: {
       [`> ${componentCls}-container`]: {
         [`> ${componentCls}-content, > ${componentCls}-body`]: {
-          '> table > tbody > tr > td': {
+          [`
+            > table > tbody > tr > th,
+            > table > tbody > tr > td
+          `]: {
             [`> ${componentCls}-expanded-row-fixed`]: {
               margin: `-${paddingVertical}px -${paddingHorizontal + token.lineWidth}px`,
             },
@@ -36,6 +39,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         // ============================ Content ============================
         [`> ${componentCls}-container`]: {
           borderInlineStart: tableBorder,
+          borderTop: tableBorder,
 
           [`
             > ${componentCls}-content,
@@ -47,6 +51,8 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
               // ============================= Cell =============================
               [`
                 > thead > tr > th,
+                > thead > tr > td,
+                > tbody > tr > th,
                 > tbody > tr > td,
                 > tfoot > tr > th,
                 > tfoot > tr > td
@@ -77,7 +83,10 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
               },
 
               // ========================== Expandable ==========================
-              '> tbody > tr > td': {
+              [`
+                > tbody > tr > th,
+                > tbody > tr > td
+              `]: {
                 [`> ${componentCls}-expanded-row-fixed`]: {
                   margin: `-${token.tablePaddingVertical}px -${
                     token.tablePaddingHorizontal + token.lineWidth
@@ -95,15 +104,6 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
               },
             },
           },
-
-          [`
-            > ${componentCls}-content,
-            > ${componentCls}-header
-          `]: {
-            '> table': {
-              borderTop: tableBorder,
-            },
-          },
         },
 
         // ============================ Scroll ============================
@@ -114,7 +114,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
                 > tr${componentCls}-expanded-row,
                 > tr${componentCls}-placeholder
               `]: {
-                '> td': {
+                [`> th, > td`]: {
                   borderInlineEnd: 0,
                 },
               },
@@ -151,6 +151,10 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         '&-scrollbar:not([rowspan])': {
           boxShadow: `0 ${token.lineWidth}px 0 ${token.lineWidth}px ${token.tableHeaderBg}`,
         },
+      },
+
+      [`${componentCls}-bordered ${componentCls}-cell-scrollbar`]: {
+        borderInlineEnd: tableBorder,
       },
     },
   };

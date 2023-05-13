@@ -4,6 +4,7 @@ subtitle: 穿梭框
 group: 数据录入
 title: Transfer
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EAApQ5ephigAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*yv12S4sSRAEAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 双栏穿梭选择框。
@@ -91,6 +92,10 @@ Transfer 支持接收 `children` 自定义渲染列表，并返回以下参数�
 // 比如你的数据主键是 uid
 return <Transfer rowKey={(record) => record.uid} />;
 ```
+
+## Design Token
+
+<ComponentTokenTable component="Transfer"></ComponentTokenTable>
 
 ## FAQ
 

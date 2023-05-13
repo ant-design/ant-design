@@ -3,7 +3,7 @@ import React from 'react';
 import Popconfirm from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, fireEvent, act, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 
 describe('Popconfirm', () => {
@@ -57,7 +57,7 @@ describe('Popconfirm', () => {
 
   it('should show overlay when trigger is clicked', async () => {
     const popconfirm = render(
-      <Popconfirm title="code">
+      <Popconfirm title="code" autoAdjustOverflow={false}>
         <span>show me your code</span>
       </Popconfirm>,
     );
@@ -94,7 +94,7 @@ describe('Popconfirm', () => {
 
     expect(popconfirm.container.querySelector('.ant-popover')).not.toBe(null);
     expect(popconfirm.container.querySelector('.ant-popover')?.innerHTML).toContain('some-title');
-    expect(popconfirm.container.querySelector('.ant-popover')?.innerHTML).toMatchSnapshot();
+    expect(popconfirm.container.querySelector('.ant-popover')).toMatchSnapshot();
   });
 
   it('should be controlled by open', () => {
@@ -285,5 +285,20 @@ describe('Popconfirm', () => {
     await waitFakeTimer(500);
     // expect(container.textContent).toEqual('Unmounted');
     expect(error).not.toHaveBeenCalled();
+  });
+
+  it('should trigger onPopupClick', async () => {
+    const onPopupClick = jest.fn();
+
+    const popconfirm = render(
+      <Popconfirm title="pop test" onPopupClick={onPopupClick}>
+        <span>show me your code</span>
+      </Popconfirm>,
+    );
+    const triggerNode = popconfirm.container.querySelector('span')!;
+    fireEvent.click(triggerNode);
+    await waitFakeTimer();
+    fireEvent.click(popconfirm.container.querySelector('.ant-popover-inner-content')!);
+    expect(onPopupClick).toHaveBeenCalled();
   });
 });

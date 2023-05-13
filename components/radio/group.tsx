@@ -1,18 +1,16 @@
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import SizeContext from '../config-provider/SizeContext';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
+import { ConfigContext } from '../config-provider';
+import useSize from '../config-provider/hooks/useSize';
 import { RadioGroupContextProvider } from './context';
 import type { RadioChangeEvent, RadioGroupButtonStyle, RadioGroupProps } from './interface';
 import Radio from './radio';
-
 import useStyle from './style';
 
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const size = React.useContext(SizeContext);
 
   const [value, setValue] = useMergedState(props.defaultValue, {
     value: props.value,
@@ -32,7 +30,8 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
 
   const {
     prefixCls: customizePrefixCls,
-    className = '',
+    className,
+    rootClassName,
     options,
     buttonStyle = 'outline' as RadioGroupButtonStyle,
     disabled,
@@ -85,7 +84,8 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     });
   }
 
-  const mergedSize = customizeSize || size;
+  const mergedSize = useSize(customizeSize);
+
   const classString = classNames(
     groupPrefixCls,
     `${groupPrefixCls}-${buttonStyle}`,
@@ -94,6 +94,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
     hashId,
   );
   return wrapSSR(

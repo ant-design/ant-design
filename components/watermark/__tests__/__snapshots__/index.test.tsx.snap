@@ -3,6 +3,7 @@
 exports[`Watermark Image watermark snapshot 1`] = `
 <div>
   <div
+    class=""
     style="position: relative;"
   >
     <div
@@ -20,6 +21,19 @@ exports[`Watermark Interleaved watermark backgroundSize is correct 1`] = `
   >
     <div
       style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 600px;"
+    />
+  </div>
+</div>
+`;
+
+exports[`Watermark Invalid image watermark 1`] = `
+<div>
+  <div
+    class="watermark"
+    style="position: relative;"
+  >
+    <div
+      style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 440px;"
     />
   </div>
 </div>
@@ -79,6 +93,7 @@ exports[`Watermark The watermark should render successfully 1`] = `
 
 exports[`Watermark rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
+  class=""
   style="position: relative;"
 >
   <div

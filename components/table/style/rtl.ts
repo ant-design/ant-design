@@ -32,6 +32,18 @@ const genStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           transform: 'rotate(0deg)',
         },
       },
+
+      [`${componentCls}-container`]: {
+        '&::before': {
+          insetInlineStart: 'unset',
+          insetInlineEnd: 0,
+        },
+
+        '&::after': {
+          insetInlineStart: 0,
+          insetInlineEnd: 'unset',
+        },
+      },
     },
   };
 };

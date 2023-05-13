@@ -21,7 +21,7 @@ const App: React.FC = () => {
           console.log(collapsed, type);
         }}
       >
-        <div className="logo" />
+        <div className="demo-logo-vertical" />
         <Menu
           theme="dark"
           mode="inline"

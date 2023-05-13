@@ -5,7 +5,7 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
 import * as React from 'react';
 import ConfigProvider from '../config-provider';
-import LocaleReceiver from '../locale/LocaleReceiver';
+import { useLocale } from '../locale';
 import ActionButton from '../_util/ActionButton';
 import { getTransitionName } from '../_util/motion';
 import warning from '../_util/warning';
@@ -81,57 +81,53 @@ export function ConfirmContent(
 
   const autoFocusButton = props.autoFocusButton === null ? false : props.autoFocusButton || 'ok';
 
-  return (
-    <LocaleReceiver componentName="Modal">
-      {(locale) => {
-        const mergedLocale = staticLocale || locale;
+  const [locale] = useLocale('Modal');
 
-        const cancelButton = mergedOkCancel && (
+  const mergedLocale = staticLocale || locale;
+
+  const cancelButton = mergedOkCancel && (
+    <ActionButton
+      actionFn={onCancel}
+      close={close}
+      autoFocus={autoFocusButton === 'cancel'}
+      buttonProps={cancelButtonProps}
+      prefixCls={`${rootPrefixCls}-btn`}
+    >
+      {cancelText || mergedLocale?.cancelText}
+    </ActionButton>
+  );
+
+  return (
+    <div className={`${confirmPrefixCls}-body-wrapper`}>
+      <div className={`${confirmPrefixCls}-body`}>
+        {mergedIcon}
+        {props.title === undefined ? null : (
+          <span className={`${confirmPrefixCls}-title`}>{props.title}</span>
+        )}
+        <div className={`${confirmPrefixCls}-content`}>{props.content}</div>
+      </div>
+      {footer === undefined ? (
+        <div className={`${confirmPrefixCls}-btns`}>
+          {cancelButton}
           <ActionButton
-            actionFn={onCancel}
+            type={okType}
+            actionFn={onOk}
             close={close}
-            autoFocus={autoFocusButton === 'cancel'}
-            buttonProps={cancelButtonProps}
+            autoFocus={autoFocusButton === 'ok'}
+            buttonProps={okButtonProps}
             prefixCls={`${rootPrefixCls}-btn`}
           >
-            {cancelText || mergedLocale?.cancelText}
+            {okText || (mergedOkCancel ? mergedLocale?.okText : mergedLocale?.justOkText)}
           </ActionButton>
-        );
-
-        return (
-          <div className={`${confirmPrefixCls}-body-wrapper`}>
-            <div className={`${confirmPrefixCls}-body`}>
-              {mergedIcon}
-              {props.title === undefined ? null : (
-                <span className={`${confirmPrefixCls}-title`}>{props.title}</span>
-              )}
-              <div className={`${confirmPrefixCls}-content`}>{props.content}</div>
-            </div>
-            {footer !== undefined ? (
-              footer
-            ) : (
-              <div className={`${confirmPrefixCls}-btns`}>
-                {cancelButton}
-                <ActionButton
-                  type={okType}
-                  actionFn={onOk}
-                  close={close}
-                  autoFocus={autoFocusButton === 'ok'}
-                  buttonProps={okButtonProps}
-                  prefixCls={`${rootPrefixCls}-btn`}
-                >
-                  {okText || (mergedOkCancel ? mergedLocale?.okText : mergedLocale?.justOkText)}
-                </ActionButton>
-              </div>
-            )}
-          </div>
-        );
-      }}
-    </LocaleReceiver>
+        </div>
+      ) : (
+        footer
+      )}
+    </div>
   );
 }
 
-const ConfirmDialog = (props: ConfirmDialogProps) => {
+const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
   const {
     close,
     zIndex,
@@ -189,7 +185,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
         onCancel={() => close?.({ triggerCancel: true })}
         open={open}
         title=""
-        footer=""
+        footer={null}
         transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
         maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
         mask={mask}

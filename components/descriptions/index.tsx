@@ -2,14 +2,14 @@
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
 import useResponsiveObserver, { responsiveArray } from '../_util/responsiveObserver';
 import warning from '../_util/warning';
+import { ConfigContext } from '../config-provider';
+import useSize from '../config-provider/hooks/useSize';
 import DescriptionsItem from './Item';
 import Row from './Row';
-
 import useStyle from './style';
 
 export interface DescriptionsContextProps {
@@ -101,6 +101,7 @@ function getRows(children: React.ReactNode, column: number) {
 export interface DescriptionsProps {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   bordered?: boolean;
   size?: 'middle' | 'small' | 'default';
@@ -124,15 +125,19 @@ function Descriptions({
   layout,
   children,
   className,
+  rootClassName,
   style,
-  size,
+  size: customizeSize,
   labelStyle,
   contentStyle,
+  ...restProps
 }: DescriptionsProps) {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
   const [screens, setScreens] = React.useState<ScreenMap>({});
   const mergedColumn = getColumn(column, screens);
+
+  const mergedSize = useSize(customizeSize);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const responsiveObserver = useResponsiveObserver();
@@ -164,14 +169,16 @@ function Descriptions({
         className={classNames(
           prefixCls,
           {
-            [`${prefixCls}-${size}`]: size && size !== 'default',
+            [`${prefixCls}-${mergedSize}`]: mergedSize && mergedSize !== 'default',
             [`${prefixCls}-bordered`]: !!bordered,
             [`${prefixCls}-rtl`]: direction === 'rtl',
           },
           className,
+          rootClassName,
           hashId,
         )}
         style={style}
+        {...restProps}
       >
         {(title || extra) && (
           <div className={`${prefixCls}-header`}>

@@ -1,7 +1,3 @@
-import React, { useContext } from 'react';
-import RcFooter from 'rc-footer';
-import { Link, FormattedMessage } from 'dumi';
-import type { FooterColumn } from 'rc-footer/lib/column';
 import {
   AntDesignOutlined,
   BgColorsOutlined,
@@ -10,20 +6,24 @@ import {
   HistoryOutlined,
   IssuesCloseOutlined,
   MediumOutlined,
+  MessageOutlined,
   QuestionCircleOutlined,
   TwitterOutlined,
   UsergroupAddOutlined,
   ZhihuOutlined,
-  MessageOutlined,
 } from '@ant-design/icons';
-import { css } from '@emotion/react';
 import { TinyColor } from '@ctrl/tinycolor';
+import { css } from '@emotion/react';
 import getAlphaColor from 'antd/es/theme/util/getAlphaColor';
-import useLocation from '../../../hooks/useLocation';
+import { FormattedMessage, Link } from 'dumi';
+import RcFooter from 'rc-footer';
+import type { FooterColumn } from 'rc-footer/lib/column';
+import React, { useContext } from 'react';
 import useLocale from '../../../hooks/useLocale';
+import useLocation from '../../../hooks/useLocation';
 import useSiteToken from '../../../hooks/useSiteToken';
-import AdditionalInfo from './AdditionalInfo';
 import SiteContext from '../SiteContext';
+import AdditionalInfo from './AdditionalInfo';
 
 const locales = {
   cn: {
@@ -87,7 +87,7 @@ const useStyle = () => {
   };
 };
 
-const Footer = () => {
+const Footer: React.FC = () => {
   const location = useLocation();
   const [locale, lang] = useLocale(locales);
   const style = useStyle();
@@ -215,7 +215,7 @@ const Footer = () => {
         {
           icon: <ZhihuOutlined style={{ color: '#056de8' }} />,
           title: <FormattedMessage id="app.footer.zhihu.xtech" />,
-          url: 'http://zhuanlan.zhihu.com/xtech',
+          url: 'https://www.zhihu.com/column/c_1543658574504751104',
           openExternal: true,
         },
         {

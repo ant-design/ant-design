@@ -4,6 +4,7 @@ group: Feedback
 noinstant: true
 title: Message
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JjZBT6N1MusAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7qMTRoq3ZGkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -27,10 +28,11 @@ Display global messages as feedback in response to user operations.
 <code src="./demo/update.tsx">Update Message Content</code>
 <code src="./demo/info.tsx">Normal prompt</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
-This components provides some static methods, with usage and arguments as following:
+This component provides some static methods, with usage and arguments as following:
 
 - `message.success(content, [duration], onClose)`
 - `message.error(content, [duration], onClose)`
@@ -106,6 +108,10 @@ message.config({
 | prefixCls | The prefix className of message node | string | `ant-message` | 4.5.0 |
 | rtl | Whether to enable RTL mode | boolean | false |  |
 | top | Distance from top | number | 8 |  |
+
+## Design Token
+
+<ComponentTokenTable component="Message"></ComponentTokenTable>
 
 ## FAQ
 

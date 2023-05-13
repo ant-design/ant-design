@@ -1,5 +1,6 @@
 import React from 'react';
 import Radio, { Button, Group } from '..';
+import Form from '../../form';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -32,5 +33,25 @@ describe('Radio', () => {
 
     fireEvent.mouseLeave(container.querySelector('label')!);
     expect(onMouseLeave).toHaveBeenCalled();
+  });
+
+  it('should use own disabled status first', () => {
+    const { getByRole } = render(
+      <Form disabled>
+        <Radio disabled={false} />
+      </Form>,
+    );
+    expect(getByRole('radio')).not.toBeDisabled();
+  });
+
+  it('should obtained correctly disabled status', () => {
+    const { getByRole } = render(
+      <Form disabled>
+        <Radio.Group disabled={false}>
+          <Radio />
+        </Radio.Group>
+      </Form>,
+    );
+    expect(getByRole('radio')).not.toBeDisabled();
   });
 });
