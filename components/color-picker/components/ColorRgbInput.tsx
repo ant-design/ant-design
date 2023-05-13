@@ -13,7 +13,7 @@ interface ColorRgbInputProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
 
 const ColorRgbInput: FC<ColorRgbInputProps> = ({ prefixCls, value, onChange }) => {
   const colorRgbInputPrefixCls = `${prefixCls}-rgb-input`;
-  const [rgbValue, setRgbValue] = useState(generateColor(value || '#000'));
+  const [rgbValue, setRgbValue] = useState<Color>(generateColor(value || '#000'));
 
   // Update step value
   useEffect(() => {

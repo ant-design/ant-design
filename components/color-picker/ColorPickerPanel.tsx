@@ -37,16 +37,10 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
         prefixCls={prefixCls}
         {...injectProps}
       />
-
       {Array.isArray(presets) && (
         <>
           <Divider className={`${colorPickerPanelPrefixCls}-divider`} />
-          <ColorPresets
-            value={color}
-            presets={presets}
-            onChange={(value) => onChange?.(value)}
-            prefixCls={prefixCls}
-          />
+          <ColorPresets value={color} presets={presets} prefixCls={prefixCls} onChange={onChange} />
         </>
       )}
     </div>
@@ -60,4 +54,9 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
     />
   );
 };
+
+if (process.env.NODE_ENV !== 'production') {
+  ColorPickerPanel.displayName = 'ColorPickerPanel';
+}
+
 export default ColorPickerPanel;
