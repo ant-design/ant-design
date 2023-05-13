@@ -17,7 +17,7 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
   const { prefixCls, allowClear, presets, onChange, onClear, color, ...injectProps } = props;
   const colorPickerPanelPrefixCls = `${prefixCls}-inner-panel`;
 
-  const extraPanelRender = (panel: React.ReactElement) => (
+  const extraPanelRender = (panel: React.ReactNode) => (
     <div className={colorPickerPanelPrefixCls}>
       {allowClear && (
         <ColorClear

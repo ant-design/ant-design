@@ -28,7 +28,7 @@ export interface ColorPickerProps
   > {
   value?: Color | string;
   defaultValue?: Color | string;
-  children?: React.ReactElement;
+  children?: React.ReactNode;
   open?: boolean;
   disabled?: boolean;
   placement?: TriggerPlacement;
