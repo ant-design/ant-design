@@ -126,7 +126,7 @@ Basic text writing, including headings, body text, lists, and more.
 | onChange | Called when input at textarea | function(value: string) | - |  |
 | onCancel | Called when type ESC to exit editable state | function | - |  |
 | onStart | Called when enter editable state | function | - |  |
-| onEnd | Called when type ENTER to exit editable state | function | - | 4.14.0 |
+| onEnd | Called when type ENTER or onBlur to exit editable state | function | - | 4.14.0 |
 | triggerType | Edit mode trigger - icon, text or both (not specifying icon as trigger hides it) | Array&lt;`icon`\|`text`> | \[`icon`] |  |
 | enterIcon | Custom "enter" icon in the edit field (passing `null` removes the icon) | ReactNode | `<EnterOutlined />` | 4.17.0 |
 

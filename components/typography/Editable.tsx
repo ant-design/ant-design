@@ -110,6 +110,7 @@ const Editable: React.FC<EditableProps> = ({
 
   const onBlur: React.FocusEventHandler<HTMLTextAreaElement> = () => {
     confirmChange();
+    onEnd?.();
   };
 
   const textClassName = component ? `${prefixCls}-${component}` : '';
