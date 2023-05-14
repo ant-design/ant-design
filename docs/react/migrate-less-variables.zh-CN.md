@@ -19,7 +19,20 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Badge 徽标数 -->
 
-<!-- ### BreadCrumb 面包屑 -->
+### BreadCrumb 面包屑
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@drawer-bg` | `popoverBg` | - |
+| `@breadcrumb-base-color` | `baseColor` | - |
+| `@breadcrumb-last-item-color` | `lastItemColor` | - |
+| `@breadcrumb-font-size` | `fontSize` | 全局 Token |
+| `@breadcrumb-icon-font-size` | `iconFontSize` | - |
+| `@breadcrumb-link-color` | `linkColor` | - |
+| `@breadcrumb-link-color-hover` | `linkColorHover` | - |
+| `@breadcrumb-separator-color` | `separatorColor` | - |
+| `@breadcrumb-separator-margin` | `separatorMargin` | - |
 
 <!-- ### Button 按钮 -->
 
