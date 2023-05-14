@@ -10,11 +10,11 @@ group:
   title: Data Entry
 ---
 
-Components providing color selection
+Components providing color selection, Available since `5.5.0`.
 
 ## When To Use
 
-Used when the user needs to customize the color selection
+Used when the user needs to customize the color selection.
 
 ## Examples
 
@@ -29,7 +29,7 @@ Used when the user needs to customize the color selection
 
 ## API
 
-> This component is available since antd@5.5.0
+> This component is available since `antd@5.5.0`.
 
 <!-- prettier-ignore -->
 | Property | Description | Type | Default |
@@ -41,7 +41,7 @@ Used when the user needs to customize the color selection
 | onChange | Callback when `value` is changed | `(value: Color, hex: string) => void` | - |
 | allowClear | 	Allow clearing color selected | boolean | false |
 | presets | 	Preset colors | `{ label: ReactNode, colors: Array<string \| Color> }[]` | - |
-| children | Trigger of ColorPicker | ReactElement | - |
+| children | Trigger of ColorPicker | React.ReactNode | - |
 | trigger | ColorPicker trigger mode | `hover` \| `click` | `click` |
 | open | Whether to show popup | boolean | - |
 | onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - |

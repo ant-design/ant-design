@@ -8,7 +8,10 @@ export enum ColorFormat {
   hsb = 'hsb',
 }
 
-export type PresetsItem = { label: ReactNode; colors: Array<string | Color> };
+export interface PresetsItem {
+  label: ReactNode;
+  colors: (string | Color)[];
+}
 
 export interface ColorPickerBaseProps {
   color?: Color;
