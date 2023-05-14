@@ -5,13 +5,20 @@ import type { FullToken, GenerateStyle, PresetColorType } from '../../theme/inte
 import { PresetColors, genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
-  zIndexPopup: number;
-  width: number;
+  popoverBg: string;
+  popoverColor: string;
+  minWidth: number;
+  minHeight: number;
+  arrowWidth: number;
+  arrowColor: string;
+  arrowOuterColor: string;
+  distance: number;
+  paddingHorizontal: number;
 }
 
 export type PopoverToken = FullToken<'Popover'> & {
-  popoverBg: string;
-  popoverColor: string;
+  zIndexPopup: number;
+  width: number;
   popoverPadding: number | string;
 };
 
@@ -166,12 +173,12 @@ const genWireframeStyle: GenerateStyle<PopoverToken> = (token) => {
 export default genComponentStyleHook(
   'Popover',
   (token) => {
-    const { colorBgElevated, colorText, wireframe } = token;
+    const { wireframe, zIndexPopupBase } = token;
 
     const popoverToken = mergeToken<PopoverToken>(token, {
-      popoverBg: colorBgElevated,
-      popoverColor: colorText,
       popoverPadding: 12, // Fixed Value
+      zIndexPopup: zIndexPopupBase + 30,
+      width: 177,
     });
 
     return [
@@ -181,8 +188,15 @@ export default genComponentStyleHook(
       initZoomMotion(popoverToken, 'zoom-big'),
     ];
   },
-  ({ zIndexPopupBase }) => ({
-    zIndexPopup: zIndexPopupBase + 30,
-    width: 177,
+  (token) => ({
+    popoverBg: token.colorBgElevated,
+    popoverColor: token.colorText,
+    minWidth: 177,
+    minHeight: 32,
+    arrowWidth: token.sizePopupArrow,
+    arrowColor: token.colorBgElevated,
+    arrowOuterColor: token.colorBgElevated,
+    distance: token.sizePopupArrow + 4,
+    paddingHorizontal: token.paddingMD,
   }),
 );

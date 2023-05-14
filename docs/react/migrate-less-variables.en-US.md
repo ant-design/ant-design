@@ -205,7 +205,21 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Pagination -->
 
-<!-- ### Popover -->
+### Popover>
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@result-icon-font-size` | `iconFontSize` | - |
+| `@popover-bg` | `popoverBg` | - |
+| `@popover-color` | `popoverColor` | - |
+| `@popover-min-width` | `minWidth` | - |
+| `@popover-min-height` | `minHeight` | - |
+| `@popover-arrow-width` | `arrowWidth` | - |
+| `@popover-arrow-color` | `arrowColor` | - |
+| `@popover-arrow-outer-color` | `arrowOuterColor` | - |
+| `@popover-distance` | `distance` | - |
+| `@popover-padding-horizontal` | `paddingHorizontal` | - |
 
 <!-- ### Progress -->
 

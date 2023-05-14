@@ -203,7 +203,21 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Pagination 分页 -->
 
-<!-- ### Popover 气泡卡片 -->
+### Popover 气泡卡片
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@result-icon-font-size` | `iconFontSize` | - |
+| `@popover-bg` | `popoverBg` | - |
+| `@popover-color` | `popoverColor` | - |
+| `@popover-min-width` | `minWidth` | - |
+| `@popover-min-height` | `minHeight` | - |
+| `@popover-arrow-width` | `arrowWidth` | - |
+| `@popover-arrow-color` | `arrowColor` | - |
+| `@popover-arrow-outer-color` | `arrowOuterColor` | - |
+| `@popover-distance` | `distance` | - |
+| `@popover-padding-horizontal` | `paddingHorizontal` | - |
 
 <!-- ### Progress 进度条 -->
 
