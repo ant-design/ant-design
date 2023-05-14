@@ -66,7 +66,13 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### List -->
 
-<!-- ### Mentions -->
+### Mentions
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@mentions-dropdown-bg` | `dropdownBg` | - |
+| `@mentions-dropdown-menu-item-hover-bg` | `dropdownMenuItemHoverBg` | - |
 
 <!-- ### Menu -->
 

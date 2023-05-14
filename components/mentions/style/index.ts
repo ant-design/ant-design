@@ -7,14 +7,16 @@ import {
   genStatusStyle,
   initInputToken,
 } from '../../input/style';
+import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook } from '../../theme/internal';
-import { resetComponent, textEllipsis } from '../../style';
 
 export interface ComponentToken {
   zIndexPopup: number;
   dropdownHeight: number;
   controlItemWidth: number;
+  dropdownBg: string;
+  dropdownMenuItemHoverBg: string;
 }
 
 type MentionsToken = InputToken<FullToken<'Mentions'>>;
@@ -218,5 +220,7 @@ export default genComponentStyleHook(
     dropdownHeight: 250,
     controlItemWidth: 100,
     zIndexPopup: token.zIndexPopupBase + 50,
+    dropdownBg: token.colorBgContainer,
+    dropdownMenuItemHoverBg: token.colorBgContainer,
   }),
 );

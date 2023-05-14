@@ -66,7 +66,13 @@ title: Less 变量迁移 Design Token
 
 <!-- ### List 列表 -->
 
-<!-- ### Mentions 提及 -->
+### Mentions
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@mentions-dropdown-bg` | `dropdownBg` | - |
+| `@mentions-dropdown-menu-item-hover-bg` | `dropdownMenuItemHoverBg` | - |
 
 <!-- ### Menu 导航菜单 -->
 
