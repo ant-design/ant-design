@@ -39,7 +39,6 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Divider 分割线 -->
 
-
 ## Drawer 抽屉
 
 <!-- prettier-ignore -->
@@ -53,7 +52,6 @@ title: Less 变量迁移 Design Token
 | `@drawer-footer-padding-vertical` | `drawerFooterPaddingVertical` | `drawerFooterPaddingVertical` 为数字，不带单位，`@drawer-footer-padding-vertical` 带单位 |
 | `@drawer-footer-padding-horizontal` | `drawerFooterPaddingHorizontal` | `drawerFooterPaddingHorizontal` 为数字，不带单位，`@drawer-footer-padding-horizontal` 带单位 |
 
-
 <!-- ### Dropdown 下拉菜单 -->
 
 <!-- ### Empty 空状态 -->
@@ -63,6 +61,35 @@ title: Less 变量迁移 Design Token
 <!-- ### Image 图片 -->
 
 <!-- ### Input 输入框 -->
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@input-height-base` | - | 由于样式变化已废弃 |
+| `@input-height-lg` | - | 由于样式变化已废弃 |
+| `@input-height-sm` | - | 由于样式变化已废弃 |
+| `@input-padding-horizontal` | - | 由于样式变化已废弃 |
+| `@input-padding-horizontal-base` | `inputPaddingHorizontal` | - |
+| `@input-padding-horizontal-sm` | `inputPaddingHorizontalSM` | - |
+| `@input-padding-horizontal-lg` | `inputPaddingHorizontalLG` | - |
+| `@input-padding-vertical-base` | `inputPaddingVertical` | - |
+| `@input-padding-vertical-sm` | `inputPaddingVerticalSM` | - |
+| `@input-padding-vertical-lg` | `inputPaddingVerticalLG` | - |
+| `@input-placeholder-color` | - | 由于样式变化已废弃 |
+| `@input-color` | - | 由于样式变化已废弃 |
+| `@input-icon-color` | - | 由于样式变化已废弃 |
+| `@input-border-color` | - | 由于样式变化已废弃 |
+| `@input-bg` | - | 由于样式变化已废弃 |
+| `@input-number-hover-border-color` | - | 由于样式变化已废弃 |
+| `@input-number-handler-active-bg` | - | 由于样式变化已废弃 |
+| `@input-number-handler-hover-bg` | - | 由于样式变化已废弃 |
+| `@input-number-handler-bg` | - | 由于样式变化已废弃 |
+| `@input-number-handler-border-color` | - | 由于样式变化已废弃 |
+| `@input-addon-bg` | - | 由于样式变化已废弃 |
+| `@input-hover-border-color` | `inputBorderHoverColor` | - |
+| `@input-disabled-bg` | - | 由于样式变化已废弃 |
+| `@input-outline-offset` | - | 由于样式变化已废弃 |
+| `@input-icon-hover-color` | - | 由于样式变化已废弃 |
+| `@input-disabled-color` | - | 由于样式变化已废弃 |
 
 <!-- ### Layout 布局 -->
 
@@ -134,7 +161,6 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Rate 评分 -->
 
-
 ## Result 结果
 
 <!-- prettier-ignore -->
@@ -145,7 +171,6 @@ title: Less 变量迁移 Design Token
 | `@result-subtitle-font-size` | `resultSubtitleFontSize` | - |
 | `@result-extra-margin` | `resultExtraMargin` | - |
 
-
 <!-- ### Segment 分段器 -->
 
 <!-- ### Select 选择器 -->
@@ -153,7 +178,6 @@ title: Less 变量迁移 Design Token
 <!-- ### Skeleton 骨架屏 -->
 
 <!-- ### Slider 滑动输入条 -->
-
 
 ## Statistic 统计数值
 
@@ -163,7 +187,6 @@ title: Less 变量迁移 Design Token
 | `@statistic-title-font-size` | `statisticTitleFontSize` | - |
 | `@statistic-content-font-size` | `statisticContentFontSize` | - |
 | `@statistic-font-family` | `statisticFontFamily` | - |
-
 
 ### Step 步骤条
 

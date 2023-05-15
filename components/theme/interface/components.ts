@@ -49,6 +49,7 @@ import type { ComponentToken as TourComponentToken } from '../../tour/style';
 import type { ComponentToken as QRCodeComponentToken } from '../../qrcode/style';
 import type { ComponentToken as AppComponentToken } from '../../app/style';
 import type { ComponentToken as StatisticComponentToken } from '../../statistic/style';
+import type { ComponentToken as InputComponentToken } from '../../input/style';
 import type { ComponentToken as WaveToken } from '../../_util/wave/style';
 
 export interface ComponentTokenMap {
@@ -75,7 +76,7 @@ export interface ComponentTokenMap {
   Form?: {};
   Grid?: {};
   Image?: ImageComponentToken;
-  Input?: {};
+  Input?: InputComponentToken;
   InputNumber?: InputNumberComponentToken;
   Layout?: LayoutComponentToken;
   List?: ListComponentToken;

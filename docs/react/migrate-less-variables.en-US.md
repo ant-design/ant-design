@@ -39,7 +39,6 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Divider -->
 
-
 ## Drawer
 
 <!-- prettier-ignore -->
@@ -53,7 +52,6 @@ This document contains the correspondence between all the less variables related
 | `@drawer-footer-padding-vertical` | `drawerFooterPaddingVertical` | `drawerFooterPaddingVertical`  is a number without units, `@drawer-footer-padding-vertical` with units |
 | `@drawer-footer-padding-horizontal` | `drawerFooterPaddingHorizontal` | `drawerFooterPaddingHorizontal`  is a number without units, `@drawer-footer-padding-horizontal` with units |
 
-
 <!-- ### Dropdown -->
 
 <!-- ### Empty -->
@@ -63,6 +61,35 @@ This document contains the correspondence between all the less variables related
 <!-- ### Image -->
 
 <!-- ### Input -->
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@input-height-base` | - | Deprecated for style change |
+| `@input-height-lg` | - | Deprecated for style change |
+| `@input-height-sm` | - | Deprecated for style change |
+| `@input-padding-horizontal` | - | Deprecated for style change |
+| `@input-padding-horizontal-base` | `inputPaddingHorizontal` | - |
+| `@input-padding-horizontal-sm` | `inputPaddingHorizontalSM` | - |
+| `@input-padding-horizontal-lg` | `inputPaddingHorizontalLG` | - |
+| `@input-padding-vertical-base` | `inputPaddingVertical` | - |
+| `@input-padding-vertical-sm` | `inputPaddingVerticalSM` | - |
+| `@input-padding-vertical-lg` | `inputPaddingVerticalLG` | - |
+| `@input-placeholder-color` | - | Deprecated for style change |
+| `@input-color` | - | Deprecated for style change |
+| `@input-icon-color` | - | Deprecated for style change |
+| `@input-border-color` | - | Deprecated for style change |
+| `@input-bg` | - | Deprecated for style change |
+| `@input-number-hover-border-color` | - | Deprecated for style change |
+| `@input-number-handler-active-bg` | - | Deprecated for style change |
+| `@input-number-handler-hover-bg` | - | Deprecated for style change |
+| `@input-number-handler-bg` | - | Deprecated for style change |
+| `@input-number-handler-border-color` | - | Deprecated for style change |
+| `@input-addon-bg` | - | Deprecated for style change |
+| `@input-hover-border-color` | `inputBorderHoverColor` | - |
+| `@input-disabled-bg` | - | Deprecated for style change |
+| `@input-outline-offset` | - | Deprecated for style change |
+| `@input-icon-hover-color` | - | Deprecated for style change |
+| `@input-disabled-color` | - | Deprecated for style change |
 
 <!-- ### Layout -->
 
@@ -134,7 +161,6 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Rate -->
 
-
 ## Result
 
 <!-- prettier-ignore -->
@@ -145,7 +171,6 @@ This document contains the correspondence between all the less variables related
 | `@result-subtitle-font-size` | `resultSubtitleFontSize` | - |
 | `@result-extra-margin` | `resultExtraMargin` | - |
 
-
 <!-- ### Segment -->
 
 <!-- ### Select -->
@@ -153,7 +178,6 @@ This document contains the correspondence between all the less variables related
 <!-- ### Skeleton -->
 
 <!-- ### Slider -->
-
 
 ## Statistic
 
@@ -163,7 +187,6 @@ This document contains the correspondence between all the less variables related
 | `@statistic-title-font-size` | `statisticTitleFontSize` | - |
 | `@statistic-content-font-size` | `statisticContentFontSize` | - |
 | `@statistic-font-family` | `statisticFontFamily` | - |
-
 
 ## Step
 

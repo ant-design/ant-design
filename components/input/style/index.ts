@@ -5,8 +5,8 @@ import type { GlobalToken } from '../../theme/interface';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
-export type InputToken<T extends GlobalToken = FullToken<'Input'>> = T & {
-  inputAffixPadding: number;
+/** Component only token. Which will handle additional calculation of alias token */
+export interface ComponentToken {
   inputPaddingVertical: number;
   inputPaddingVerticalLG: number;
   inputPaddingVerticalSM: number;
@@ -14,6 +14,10 @@ export type InputToken<T extends GlobalToken = FullToken<'Input'>> = T & {
   inputPaddingHorizontalLG: number;
   inputPaddingHorizontalSM: number;
   inputBorderHoverColor: string;
+}
+
+export type InputToken<T extends GlobalToken = FullToken<'Input'>> = T & {
+  inputAffixPadding: number;
   inputBorderActiveColor: string;
 };
 
@@ -849,23 +853,6 @@ export function initInputToken<T extends GlobalToken = GlobalToken>(token: T): I
   // @ts-ignore
   return mergeToken<InputToken<T>>(token, {
     inputAffixPadding: token.paddingXXS,
-    inputPaddingVertical: Math.max(
-      Math.round(((token.controlHeight - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
-        token.lineWidth,
-      3,
-    ),
-    inputPaddingVerticalLG:
-      Math.ceil(((token.controlHeightLG - token.fontSizeLG * token.lineHeightLG) / 2) * 10) / 10 -
-      token.lineWidth,
-    inputPaddingVerticalSM: Math.max(
-      Math.round(((token.controlHeightSM - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
-        token.lineWidth,
-      0,
-    ),
-    inputPaddingHorizontal: token.paddingSM - token.lineWidth,
-    inputPaddingHorizontalSM: token.paddingXS - token.lineWidth,
-    inputPaddingHorizontalLG: token.controlPaddingHorizontal - token.lineWidth,
-    inputBorderHoverColor: token.colorPrimaryHover,
     inputBorderActiveColor: token.colorPrimaryHover,
   });
 }
@@ -952,18 +939,40 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Input', (token) => {
-  const inputToken = initInputToken<FullToken<'Input'>>(token);
+export default genComponentStyleHook(
+  'Input',
+  (token) => {
+    const inputToken = initInputToken<FullToken<'Input'>>(token);
 
-  return [
-    genInputStyle(inputToken),
-    genTextAreaStyle(inputToken),
-    genAffixStyle(inputToken),
-    genGroupStyle(inputToken),
-    genSearchInputStyle(inputToken),
-    // =====================================================
-    // ==             Space Compact                       ==
-    // =====================================================
-    genCompactItemStyle(inputToken),
-  ];
-});
+    return [
+      genInputStyle(inputToken),
+      genTextAreaStyle(inputToken),
+      genAffixStyle(inputToken),
+      genGroupStyle(inputToken),
+      genSearchInputStyle(inputToken),
+      // =====================================================
+      // ==             Space Compact                       ==
+      // =====================================================
+      genCompactItemStyle(inputToken),
+    ];
+  },
+  (token) => ({
+    inputPaddingVertical: Math.max(
+      Math.round(((token.controlHeight - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
+        token.lineWidth,
+      3,
+    ),
+    inputPaddingVerticalLG:
+      Math.ceil(((token.controlHeightLG - token.fontSizeLG * token.lineHeightLG) / 2) * 10) / 10 -
+      token.lineWidth,
+    inputPaddingVerticalSM: Math.max(
+      Math.round(((token.controlHeightSM - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
+        token.lineWidth,
+      0,
+    ),
+    inputPaddingHorizontal: token.paddingSM - token.lineWidth,
+    inputPaddingHorizontalSM: token.paddingXS - token.lineWidth,
+    inputPaddingHorizontalLG: token.controlPaddingHorizontal - token.lineWidth,
+    inputBorderHoverColor: token.colorPrimaryHover,
+  }),
+);
