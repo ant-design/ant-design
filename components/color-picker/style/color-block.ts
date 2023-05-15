@@ -6,9 +6,9 @@ const TRANSPARENT_DOT_COLOR = '#EEE';
 /**
  * @private Internal usage only
  */
-export const getTransBg = (size: number): CSSObject => ({
+export const getTransBg = (size: string): CSSObject => ({
   backgroundImage: `conic-gradient(${TRANSPARENT_DOT_COLOR} 0 25%, transparent 0 50%, ${TRANSPARENT_DOT_COLOR} 0 75%, transparent 0)`,
-  backgroundSize: `${size}px ${size}px`,
+  backgroundSize: `${size} ${size}`,
 });
 
 const genColorBlockStyle = (token: ColorPickerToken, size: number): CSSObject => {
@@ -21,7 +21,7 @@ const genColorBlockStyle = (token: ColorPickerToken, size: number): CSSObject =>
       width: size,
       height: size,
       boxShadow: colorPickerInsetShadow,
-      ...getTransBg(size / 2),
+      ...getTransBg('50%'),
       [`${componentCls}-color-block-inner`]: {
         width: '100%',
         height: '100%',
