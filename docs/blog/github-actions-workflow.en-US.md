@@ -54,8 +54,6 @@ However, even with the use of the issue assistant, team members may sometimes be
 
 For some common issues, the team provides detailed answers to help developers solve problems more quickly. For example, when the title of an issue contains keywords such as `can not open`, `website`, `down`, `IE`, etc., the [issue-open-check.yml#L43-L94](https://github.com/ant-design/ant-design/blob/da83561f9cb57b0eb03d18543d96393689f799be/.github/workflows/issue-open-check.yml#L43-L94) job records the standard reply format in detail and will automatically close the issue.
 
-![issue-auto-comment-preview](https://user-images.githubusercontent.com/32004925/231660324-b763d7ac-95d8-431a-a31d-69b2eff72dfd.png)
-
 ### Regular Issue Cleanup
 
 Using GitHub Actions scheduled tasks to help manage and close issues, these automated operations can effectively avoid excessive accumulation of unprocessed issues.
@@ -134,10 +132,6 @@ As we all know, the [https://ant.design](https://ant.design) official website al
 ## Other
 
 The previous section has covered most of the core content on how Ant Design utilizes CI/CD. However, there are still some Jobs that haven't been specifically introduced. Here are some additional details to supplement that.
-
-### Sync to Gitee
-
-Ant Design mainly utilizes GitHub for development and communication, but some developers in mainland China may prefer to use Gitee for code management. To accommodate this, the team implemented code mirroring to the [Gitee ant-design](https://gitee.com/ant-design/ant-design) repository in the [sync-gitee.yml](https://github.com/ant-design/ant-design/blob/b09153c4fcffe00aac8aaaae8417d5588c444342/.github/workflows/sync-gitee.yml) job.
 
 ### IM notification
 

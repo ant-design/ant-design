@@ -54,8 +54,6 @@ issue 作为 GitHub 平台上的一个功能，它像一个信息汇总中心一
 
 对于一些常见的 issue，团队提供了详细的解答，以帮助开发者更快地解决问题。例如 issue 的 title 中包含有 `官网`、`网站`、`挂了`、`IE` 等类似关键词时，在 [issue-open-check.yml#L43-L94](https://github.com/ant-design/ant-design/blob/da83561f9cb57b0eb03d18543d96393689f799be/.github/workflows/issue-open-check.yml#L43-L94) Job 中详细记录了标准回复格式，并且将自动关闭 issue。
 
-![issue-auto-comment-preview](https://user-images.githubusercontent.com/32004925/231660324-b763d7ac-95d8-431a-a31d-69b2eff72dfd.png)
-
 ### 定期清理 issue
 
 使用 GitHub Actions 定时任务来帮助管理和关闭 issue，这些自动化操作可以有效避免过多的未处理 issue 堆积。
@@ -136,10 +134,6 @@ Ant Design 团队非常鼓励社区参与 Pull Request (PR)，可以先阅读 [�
 ## 其他
 
 上面的篇幅已经讲述了 Ant Design 利用 CI/CD 完成的大部分核心内容，但实际上还有一些 Job 没有具体介绍，这里再补充一些
-
-### 同步到码云
-
-因为 Ant Design 主要使用 GitHub 进行开发与交流，但一部分中国大陆开发者可能偏向于使用码云管理代码，所以团队在 [sync-gitee.yml](https://github.com/ant-design/ant-design/blob/b09153c4fcffe00aac8aaaae8417d5588c444342/.github/workflows/sync-gitee.yml) Job 中实现将代码镜像到 [Gitee ant-design](https://gitee.com/ant-design/ant-design) 仓库。
 
 ### 接入 IM 通知
 
