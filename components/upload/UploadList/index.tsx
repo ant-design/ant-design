@@ -16,10 +16,7 @@ import type { InternalUploadFile, UploadFile, UploadListProps } from '../interfa
 import { isImageUrl, previewImage } from '../utils';
 import ListItem from './ListItem';
 
-const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProps> = (
-  props,
-  ref,
-) => {
+const InternalUploadList = React.forwardRef<unknown, UploadListProps>((props, ref) => {
   const {
     listType = 'text',
     previewFile = previewImage,
@@ -252,9 +249,9 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
       )}
     </div>
   );
-};
+});
 
-const UploadList = React.forwardRef<unknown, UploadListProps>(InternalUploadList);
+const UploadList = Object.assign(InternalUploadList, {});
 
 if (process.env.NODE_ENV !== 'production') {
   UploadList.displayName = 'UploadList';

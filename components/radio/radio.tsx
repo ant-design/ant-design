@@ -12,7 +12,7 @@ import type { RadioChangeEvent, RadioProps } from './interface';
 
 import useStyle from './style';
 
-const InternalRadio: React.ForwardRefRenderFunction<CheckboxRef, RadioProps> = (props, ref) => {
+const InternalRadio = React.forwardRef<CheckboxRef, RadioProps>((props, ref) => {
   const groupContext = React.useContext(RadioGroupContext);
   const radioOptionTypeContext = React.useContext(RadioOptionTypeContext);
 
@@ -83,9 +83,9 @@ const InternalRadio: React.ForwardRefRenderFunction<CheckboxRef, RadioProps> = (
       {children !== undefined ? <span>{children}</span> : null}
     </label>,
   );
-};
+});
 
-const Radio = React.forwardRef<CheckboxRef, RadioProps>(InternalRadio);
+const Radio = Object.assign(InternalRadio, {});
 
 if (process.env.NODE_ENV !== 'production') {
   Radio.displayName = 'Radio';

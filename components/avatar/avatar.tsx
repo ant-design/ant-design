@@ -40,10 +40,7 @@ export interface AvatarProps {
   onError?: () => boolean;
 }
 
-const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProps> = (
-  props,
-  ref,
-) => {
+const InternalAvatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
   const groupSize = React.useContext(SizeContext);
 
   const [scale, setScale] = React.useState(1);
@@ -236,9 +233,9 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
       {childrenToRender}
     </span>,
   );
-};
+});
 
-const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(InternalAvatar);
+const Avatar = Object.assign(InternalAvatar, {});
 
 if (process.env.NODE_ENV !== 'production') {
   Avatar.displayName = 'Avatar';

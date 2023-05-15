@@ -25,7 +25,7 @@ export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
 export type { UploadProps };
 
-const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (props, ref) => {
+const InternalUpload = React.forwardRef<unknown, UploadProps>((props, ref) => {
   const {
     fileList,
     defaultFileList,
@@ -459,9 +459,9 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       {renderUploadList()}
     </span>,
   );
-};
+});
 
-const Upload = React.forwardRef<unknown, UploadProps>(InternalUpload);
+const Upload = Object.assign(InternalUpload, {});
 
 if (process.env.NODE_ENV !== 'production') {
   Upload.displayName = 'Upload';

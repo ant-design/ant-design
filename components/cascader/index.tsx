@@ -126,7 +126,7 @@ export interface CascaderRef {
   blur: () => void;
 }
 
-const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<CascaderRef>) => {
+const InternalCascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     size: customizeSize,
@@ -331,15 +331,18 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
 if (process.env.NODE_ENV !== 'production') {
-  Cascader.displayName = 'Cascader';
+  InternalCascader.displayName = 'Cascader';
 }
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(Cascader);
+const PurePanel = genPurePanel(InternalCascader);
 
-Cascader.SHOW_PARENT = SHOW_PARENT;
-Cascader.SHOW_CHILD = SHOW_CHILD;
-Cascader._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+const Cascader = Object.assign(InternalCascader, {
+  SHOW_PARENT,
+  SHOW_CHILD,
+  /** @internal */
+  _InternalPanelDoNotUseOrYouWillBeFired: PurePanel,
+});
 
 export default Cascader;

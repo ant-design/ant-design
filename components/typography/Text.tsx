@@ -10,27 +10,28 @@ export interface TextProps
   ellipsis?: boolean | Omit<EllipsisConfig, 'expandable' | 'rows' | 'onExpand'>;
 }
 
-const Text: React.ForwardRefRenderFunction<HTMLSpanElement, TextProps> = (
-  { ellipsis, ...restProps },
-  ref,
-) => {
-  const mergedEllipsis = React.useMemo(() => {
-    if (ellipsis && typeof ellipsis === 'object') {
-      return omit(ellipsis as any, ['expandable', 'rows']);
-    }
+const InternalText = React.forwardRef<HTMLSpanElement, TextProps>(
+  ({ ellipsis, ...restProps }, ref) => {
+    const mergedEllipsis = React.useMemo(() => {
+      if (ellipsis && typeof ellipsis === 'object') {
+        return omit(ellipsis as any, ['expandable', 'rows']);
+      }
 
-    return ellipsis;
-  }, [ellipsis]);
+      return ellipsis;
+    }, [ellipsis]);
 
-  warning(
-    typeof ellipsis !== 'object' ||
-      !ellipsis ||
-      (!('expandable' in ellipsis) && !('rows' in ellipsis)),
-    'Typography.Text',
-    '`ellipsis` do not support `expandable` or `rows` props.',
-  );
+    warning(
+      typeof ellipsis !== 'object' ||
+        !ellipsis ||
+        (!('expandable' in ellipsis) && !('rows' in ellipsis)),
+      'Typography.Text',
+      '`ellipsis` do not support `expandable` or `rows` props.',
+    );
 
-  return <Base ref={ref} {...restProps} ellipsis={mergedEllipsis} component="span" />;
-};
+    return <Base ref={ref} {...restProps} ellipsis={mergedEllipsis} component="span" />;
+  },
+);
 
-export default React.forwardRef(Text);
+const Text = Object.assign(InternalText, {});
+
+export default Text;

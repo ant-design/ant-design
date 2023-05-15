@@ -54,10 +54,7 @@ function isSelectOptionOrSelectOptGroup(child: any): Boolean {
   return child && child.type && (child.type.isSelectOption || child.type.isSelectOptGroup);
 }
 
-const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteProps> = (
-  props,
-  ref,
-) => {
+const InternalAutoComplete = React.forwardRef<RefSelectProps, AutoCompleteProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -161,31 +158,29 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       {optionChildren}
     </Select>
   );
-};
+});
 
-const RefAutoComplete = React.forwardRef<RefSelectProps, AutoCompleteProps>(
-  AutoComplete,
-) as unknown as (<
+type AutoCompleteType = <
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 >(
   props: React.PropsWithChildren<AutoCompleteProps<ValueType, OptionType>> & {
     ref?: React.Ref<BaseSelectRef>;
   },
-) => React.ReactElement) & {
-  Option: typeof Option;
-  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
-};
+) => React.ReactElement;
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(RefAutoComplete);
+const PurePanel = genPurePanel(InternalAutoComplete);
 
-RefAutoComplete.Option = Option;
-RefAutoComplete._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+const AutoComplete = Object.assign(InternalAutoComplete as AutoCompleteType, {
+  Option,
+  /** @internal */
+  _InternalPanelDoNotUseOrYouWillBeFired: PurePanel,
+});
 
 if (process.env.NODE_ENV !== 'production') {
-  AutoComplete.displayName = 'AutoComplete';
+  InternalAutoComplete.displayName = 'AutoComplete';
 }
 
-export default RefAutoComplete;
+export default AutoComplete;

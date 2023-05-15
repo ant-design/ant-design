@@ -27,12 +27,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   bordered?: boolean;
 }
 
-export interface TagType
-  extends React.ForwardRefExoticComponent<TagProps & React.RefAttributes<HTMLElement>> {
-  CheckableTag: typeof CheckableTag;
-}
-
-const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (tagProps, ref) => {
+const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -136,14 +131,16 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   );
 
   return wrapSSR(isNeedWave ? <Wave>{tagNode}</Wave> : tagNode);
-};
+});
 
-const Tag = React.forwardRef<HTMLSpanElement , TagProps>(InternalTag) as TagType;
+const Tag = Object.assign(InternalTag, {
+  CheckableTag,
+});
 
 if (process.env.NODE_ENV !== 'production') {
   Tag.displayName = 'Tag';
 }
 
-Tag.CheckableTag = CheckableTag;
-
 export default Tag;
+
+export type TagType = typeof Tag;

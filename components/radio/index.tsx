@@ -1,6 +1,4 @@
-import type * as React from 'react';
 import Group from './group';
-import type { RadioProps } from './interface';
 import InternalRadio from './radio';
 import Button from './radioButton';
 
@@ -15,17 +13,11 @@ export {
 } from './interface';
 export { Button, Group };
 
-type CompoundedComponent = React.ForwardRefExoticComponent<
-  RadioProps & React.RefAttributes<HTMLElement>
-> & {
-  Group: typeof Group;
-  Button: typeof Button;
+const Radio = Object.assign(InternalRadio, {
+  Button,
+  Group,
   /** @internal */
-  __ANT_RADIO: boolean;
-};
+  __ANT_RADIO: true,
+});
 
-const Radio = InternalRadio as CompoundedComponent;
-Radio.Button = Button;
-Radio.Group = Group;
-Radio.__ANT_RADIO = true;
 export default Radio;
