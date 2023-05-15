@@ -37,5 +37,13 @@ export default function LocaleLink({ sourceType, to, ...props }: LocaleLinkProps
     return to;
   }, [to]);
 
-  return <Component to={localeTo} {...props} />;
+  const linkProps: LocaleLinkProps = {
+    ...props,
+  } as LocaleLinkProps;
+
+  if (to) {
+    linkProps.to = localeTo;
+  }
+
+  return <Component {...linkProps} />;
 }
