@@ -11,7 +11,7 @@ group:
   title: 数据录入
 ---
 
-提供颜色选取的组件
+提供颜色选取的组件，自 `5.5.0` 版本开始提供该组件。
 
 ## 何时使用
 
@@ -42,7 +42,7 @@ group:
 | onChange | 颜色变化的回调 | `(value: Color, hex: string) => void` | - |
 | allowClear | 允许清除选择的颜色 | boolean | false |
 | presets | 预设的颜色 | `{ label: ReactNode, colors: Array<string \| Color> }[]` | - |
-| children | 颜色选择器的触发器 | ReactElement | - |
+| children | 颜色选择器的触发器 | React.ReactNode | - |
 | trigger | 颜色选择器的触发模式 | `hover` \| `click` | `click` |
 | open | 是否显示弹出窗口 | boolean | - |
 | onOpenChange | 当 `open` 被改变时的回调 | `(open: boolean) => void` | - |
