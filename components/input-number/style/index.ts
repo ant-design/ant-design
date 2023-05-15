@@ -108,8 +108,10 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
         // ===================== Out Of Range =====================
         '&-out-of-range': {
-          input: {
-            color: colorError,
+          [`${componentCls}-input-wrap`]: {
+            input: {
+              color: colorError,
+            },
           },
         },
 

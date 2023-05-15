@@ -2,11 +2,13 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import React, { useMemo, useRef, useState } from 'react';
+import { isValidElement } from '../_util/reactNode';
+import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
 import type { MenuProps } from '../menu';
-import { isValidElement } from '../_util/reactNode';
-import { groupKeysMap } from '../_util/transKeys';
+import type { ListBodyRef, TransferListBodyProps } from './ListBody';
+import DefaultListBody, { OmitProps } from './ListBody';
 import type {
   KeyWiseTransferItem,
   RenderResult,
@@ -16,8 +18,6 @@ import type {
   TransferLocale,
 } from './index';
 import type { PaginationType } from './interface';
-import type { ListBodyRef, TransferListBodyProps } from './ListBody';
-import DefaultListBody, { OmitProps } from './ListBody';
 import Search from './search';
 
 const defaultRender = () => null;
@@ -51,7 +51,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   checkedKeys: string[];
   handleFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onItemSelect: (key: string, check: boolean) => void;
-  onItemSelectAll: (dataSource: string[], checkAll: boolean) => void;
+  onItemSelectAll: (dataSource: string[], checkAll: boolean | 'replace') => void;
   onItemRemove?: (keys: string[]) => void;
   handleClear: () => void;
   /** Render item */
@@ -345,8 +345,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
               newCheckedKeys.push(key);
             }
           });
-          onItemSelectAll?.(newCheckedKeys, true);
-          onItemSelectAll?.(newUnCheckedKeys, false);
+          onItemSelectAll?.(newCheckedKeys, 'replace');
         },
       },
     ];

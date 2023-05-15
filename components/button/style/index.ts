@@ -13,18 +13,19 @@ export interface ButtonToken extends FullToken<'Button'> {
   colorOutlineDefault: string;
   buttonPaddingHorizontal: number;
   buttonIconOnlyFontSize: number;
+  buttonFontWeight: number;
 }
 
 // ============================== Shared ==============================
 const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSSObject => {
-  const { componentCls, iconCls } = token;
+  const { componentCls, iconCls, buttonFontWeight } = token;
 
   return {
     [componentCls]: {
       outline: 'none',
       position: 'relative',
       display: 'inline-block',
-      fontWeight: 400,
+      fontWeight: buttonFontWeight,
       whiteSpace: 'nowrap',
       textAlign: 'center',
       backgroundImage: 'none',
@@ -509,6 +510,7 @@ export default genComponentStyleHook('Button', (token) => {
     colorOutlineDefault: controlTmpOutline,
     buttonPaddingHorizontal: paddingContentHorizontal,
     buttonIconOnlyFontSize: token.fontSizeLG,
+    buttonFontWeight: 400,
   });
 
   return [

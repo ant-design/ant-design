@@ -152,7 +152,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
         <RcMenu
           getPopupContainer={getPopupContainer}
           overflowedIndicator={<EllipsisOutlined />}
-          overflowedIndicatorPopupClassName={`${prefixCls}-${theme}`}
+          overflowedIndicatorPopupClassName={classNames(prefixCls, `${prefixCls}-${theme}`)}
           mode={mergedMode}
           selectable={mergedSelectable}
           onClick={onItemClick}
