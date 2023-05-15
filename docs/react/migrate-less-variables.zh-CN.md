@@ -303,31 +303,31 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@tabs-card-head-background` | `tabsCardHeadBackground` | 由于样式变化已废弃 |
-| `@tabs-card-heigh` | - | 由于样式变化已废弃 |
-| `@tabs-card-active-color` | - | 由于样式变化已废弃 |
-| `@tabs-card-horizontal-padding` | - | 由于样式变化已废弃 |
-| `@tabs-card-horizontal-padding-sm` | - | 由于样式变化已废弃 |
-| `@tabs-card-horizontal-padding-lg` | - | 由于样式变化已废弃 |
-| `@tabs-title-font-size` | - | 由于样式变化已废弃 |
-| `@tabs-title-font-size-lg` | - | 由于样式变化已废弃 |
-| `@tabs-title-font-size-sm` | - | 由于样式变化已废弃 |
-| `@tabs-ink-bar-color` | - | 由于样式变化已废弃 |
-| `@tabs-bar-margin` | - | 由于样式变化已废弃 |
-| `@tabs-horizontal-gutter` | - | 由于样式变化已废弃 |
-| `@tabs-horizontal-margin` | - | 由于样式变化已废弃 |
-| `@tabs-horizontal-margin-rtl` | - | 由于样式变化已废弃 |
-| `@tabs-horizontal-padding` | - | 由于样式变化已废弃 |
-| `@tabs-horizontal-padding-lg` | - | 由于样式变化已废弃 |
-| `@tabs-horizontal-padding-sm` | - | 由于样式变化已废弃 |
-| `@tabs-vertical-padding` | - | 由于样式变化已废弃 |
-| `@tabs-vertical-margin` | - | 由于样式变化已废弃 |
-| `@tabs-scrolling-size` | - | 由于样式变化已废弃 |
-| `@tabs-highlight-color` | - | 由于样式变化已废弃 |
-| `@tabs-hover-color` | - | 由于样式变化已废弃 |
-| `@tabs-active-color` | - | 由于样式变化已废弃 |
-| `@tabs-card-gutter` | - | 由于样式变化已废弃 |
-| `@tabs-card-tab-active-border-top` | - | 由于样式变化已废弃 |
+| `@tabs-card-head-background` | `cardHeadBackground` | - |
+| `@tabs-card-heigh` | `cardHeight` | - |
+| `@tabs-card-active-color` | `cardActiveColor` | - |
+| `@tabs-card-horizontal-padding` | `cardHorizontalPadding` | - |
+| `@tabs-card-horizontal-padding-sm` | `cardHorizontalPaddingSm` | - |
+| `@tabs-card-horizontal-padding-lg` | `cardHorizontalPaddingLg` | - |
+| `@tabs-title-font-size` | `titleFontSize` | - |
+| `@tabs-title-font-size-lg` | `titleFontSizeLg` | - |
+| `@tabs-title-font-size-sm` | `titleFontSizeSm` | - |
+| `@tabs-ink-bar-color` | `inkBarColor` | - |
+| `@tabs-bar-margin` | `barMargin` | - |
+| `@tabs-horizontal-gutter` | `horizontalGutter` | - |
+| `@tabs-horizontal-margin` | `horizontalMargin` | - |
+| `@tabs-horizontal-margin-rtl` | `horizontalMarginRtl` | - |
+| `@tabs-horizontal-padding` | `horizontalPadding` | - |
+| `@tabs-horizontal-padding-lg` | `horizontalPaddingLg` | - |
+| `@tabs-horizontal-padding-sm` | `horizontalPaddingSm` | - |
+| `@tabs-vertical-padding` | `verticalPadding` | - |
+| `@tabs-vertical-margin` | `verticalMargin` | - |
+| `@tabs-scrolling-size` | `scrollingSize` | - |
+| `@tabs-highlight-color` | `highlightColor` | - |
+| `@tabs-hover-color` | `hoverColor` | - |
+| `@tabs-active-color` | `activeColor` | - |
+| `@tabs-card-gutter` | `cardGutter` | - |
+| `@tabs-card-tab-active-border-top` | `cardTabActiveBorderTop` | - |
 
 ## Tag 标签
 

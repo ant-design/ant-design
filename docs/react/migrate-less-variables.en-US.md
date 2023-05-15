@@ -300,7 +300,36 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Table -->
 
-<!-- ### Tabs -->
+### Tabs 标签页
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@tabs-card-head-background` | `cardHeadBackground` | - |
+| `@tabs-card-heigh` | `cardHeight` | - |
+| `@tabs-card-active-color` | `cardActiveColor` | - |
+| `@tabs-card-horizontal-padding` | `cardHorizontalPadding` | - |
+| `@tabs-card-horizontal-padding-sm` | `cardHorizontalPaddingSm` | - |
+| `@tabs-card-horizontal-padding-lg` | `cardHorizontalPaddingLg` | - |
+| `@tabs-title-font-size` | `titleFontSize` | - |
+| `@tabs-title-font-size-lg` | `titleFontSizeLg` | - |
+| `@tabs-title-font-size-sm` | `titleFontSizeSm` | - |
+| `@tabs-ink-bar-color` | `inkBarColor` | - |
+| `@tabs-bar-margin` | `barMargin` | - |
+| `@tabs-horizontal-gutter` | `horizontalGutter` | - |
+| `@tabs-horizontal-margin` | `horizontalMargin` | - |
+| `@tabs-horizontal-margin-rtl` | `horizontalMarginRtl` | - |
+| `@tabs-horizontal-padding` | `horizontalPadding` | - |
+| `@tabs-horizontal-padding-lg` | `horizontalPaddingLg` | - |
+| `@tabs-horizontal-padding-sm` | `horizontalPaddingSm` | - |
+| `@tabs-vertical-padding` | `verticalPadding` | - |
+| `@tabs-vertical-margin` | `verticalMargin` | - |
+| `@tabs-scrolling-size` | `scrollingSize` | - |
+| `@tabs-highlight-color` | `highlightColor` | - |
+| `@tabs-hover-color` | `hoverColor` | - |
+| `@tabs-active-color` | `activeColor` | - |
+| `@tabs-card-gutter` | `cardGutter` | - |
+| `@tabs-card-tab-active-border-top` | `cardTabActiveBorderTop` | - |
 
 ## Tag
 
