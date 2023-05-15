@@ -68,7 +68,7 @@ jobs:
 
       - name: build dist and bundle analyzer report
         run: npm run dist
-        with:
+        env:
           CI: false
 
       - name: Get version
