@@ -26,8 +26,8 @@ export default () => {
   );
 
   return (
-    <Space direction='vertical' size='middle' style={{ display: 'flex' }}>
-      <Row align='middle'>
+    <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
+      <Row align="middle">
         <Space>
           <Col>
             <ColorPicker
@@ -42,7 +42,7 @@ export default () => {
           </Col>
         </Space>
       </Row>
-      <Row align='middle'>
+      <Row align="middle">
         <Space>
           <Col>
             <ColorPicker
@@ -57,7 +57,7 @@ export default () => {
           </Col>
         </Space>
       </Row>
-      <Row align='middle'>
+      <Row align="middle">
         <Space>
           <Col>
             <ColorPicker
