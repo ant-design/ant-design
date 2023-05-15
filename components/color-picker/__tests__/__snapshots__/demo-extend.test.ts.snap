@@ -2187,7 +2187,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
           >
             HSB:
             <span>
-              hsb(215,91%,100%)
+              hsb(215, 91%, 100%)
             </span>
           </div>
         </div>
@@ -2815,7 +2815,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
           >
             RGB:
             <span>
-              rgb(22,119,255)
+              rgb(22, 119, 255)
             </span>
           </div>
         </div>
@@ -3973,7 +3973,7 @@ Array [
       style="margin-right: 8px;"
     >
       <div
-        style="width: 20px; height: 20px; border-radius: 4px; background: rgb(22, 119, 255);"
+        style="width: 20px; height: 20px; border-radius: 4px; background-color: rgb(22, 119, 255);"
       />
     </div>
     <div

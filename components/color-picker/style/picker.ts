@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle } from '../../theme/internal';
-import type { ColorPickerToken } from './index';
 import genColorBlockStyle from './color-block';
+import type { ColorPickerToken } from './index';
 
 const genPickerStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
   const {
@@ -41,6 +41,7 @@ const genPickerStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
       border: `${lineWidthBold}px solid ${colorBgElevated}`,
       position: 'relative',
       borderRadius: '50%',
+      cursor: 'pointer',
       boxShadow: `${colorPickerInsetShadow}, 0 0 0 1px ${colorFillSecondary}`,
       '&-sm': {
         width: colorPickerHandlerSizeSM,

@@ -2,20 +2,17 @@ import { useEffect, useState } from 'react';
 import type { Color } from '../color';
 import { generateColor } from '../util';
 
-function hasValue(value: Color | string | undefined) {
+function hasValue(value?: Color | string) {
   return value !== undefined;
 }
 
 const useColorState = (
   defaultStateValue: Color | string,
-  option: {
-    defaultValue?: Color | string;
-    value?: Color | string;
-  },
-): [Color, React.Dispatch<React.SetStateAction<Color>>] => {
+  option: { defaultValue?: Color | string; value?: Color | string },
+): readonly [Color, React.Dispatch<React.SetStateAction<Color>>] => {
   const { defaultValue, value } = option;
-  const [colorValue, setColorValue] = useState(() => {
-    let mergeState;
+  const [colorValue, setColorValue] = useState<Color>(() => {
+    let mergeState: string | Color | undefined;
     if (hasValue(value)) {
       mergeState = value;
     } else if (hasValue(defaultValue)) {
@@ -23,8 +20,7 @@ const useColorState = (
     } else {
       mergeState = defaultStateValue;
     }
-    const genColor = generateColor(mergeState || '');
-    return genColor;
+    return generateColor(mergeState || '');
   });
 
   useEffect(() => {
@@ -33,7 +29,7 @@ const useColorState = (
     }
   }, [value]);
 
-  return [colorValue, setColorValue];
+  return [colorValue, setColorValue] as const;
 };
 
 export default useColorState;
