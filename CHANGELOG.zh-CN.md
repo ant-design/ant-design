@@ -17,7 +17,7 @@ timeline: true
 
 ## 5.5.0
 
-`2023-05-14`
+`2023-05-15`
 
 - 🔥 新增颜色选择器组件。[#41990](https://github.com/ant-design/ant-design/pull/41990) [@RedJue](https://github.com/RedJue)
 - 🆕 Form `validateFields` 支持 `validateOnly` 配置仅做校验而不改变 UI 状态。[#42273](https://github.com/ant-design/ant-design/pull/42273)
