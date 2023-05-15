@@ -99,4 +99,9 @@ export default defineConfig({
     })();
     `,
   ],
+  chainWebpack(memo) {
+    // FIXME: disable case-sensitive-paths plugin since it costs more than 1min in HMR, wait for plugin repair then remove
+    memo.plugins.delete('case-sensitive-paths');
+    return memo;
+  },
 });
