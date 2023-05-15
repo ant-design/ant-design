@@ -99,4 +99,8 @@ export default defineConfig({
     })();
     `,
   ],
+  chainWebpack(memo) {
+    memo.plugins.delete('case-sensitive-paths');
+    return memo;
+  },
 });
