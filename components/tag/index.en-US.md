@@ -30,6 +30,7 @@ Tag for categorizing or markup.
 <code src="./demo/borderless.tsx">borderless</code>
 <code src="./demo/borderlessLayout.tsx" debug>borderless in layout</code>
 <code src="./demo/customize.tsx" debug>Customize close</code>
+<code src="./demo/draggable.tsx">Draggable Tag</code>
 
 ## API
 

@@ -34,6 +34,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 <code src="./demo/no-mask.tsx" debug>No mask</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/scroll-debug.tsx" debug>Scroll Debug</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
