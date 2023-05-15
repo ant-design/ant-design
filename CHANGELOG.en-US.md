@@ -17,7 +17,7 @@ timeline: true
 
 ## 5.5.0
 
-`2023-05-14`
+`2023-05-15`
 
 - 🔥 New Component ColorPicker. [#41990](https://github.com/ant-design/ant-design/pull/41990) [@RedJue](https://github.com/RedJue)
 - 🆕 Form `validateFields` support `validateOnly` to not to update UI status. [#42273](https://github.com/ant-design/ant-design/pull/42273)
