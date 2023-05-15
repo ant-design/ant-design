@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle } from '../../theme/internal';
-import genColorBlockStyle from './color-block';
+import genColorBlockStyle, { getTransBg } from './color-block';
 import type { ColorPickerToken } from './index';
 
 const genPickerStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
@@ -58,11 +58,7 @@ const genPickerStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
         borderRadius: colorPickerSliderHeight / 2,
         boxShadow: colorPickerInsetShadow,
       },
-      '&-alpha': {
-        backgroundSize: colorPickerSliderHeight * 2,
-        backgroundImage:
-          'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAFpJREFUWAntljEKADAIA23p6v//qQ+wfUEcCu1yriEgp0FHRJSJcnehmmWm1Dv/lO4HIg1AAAKjTqm03ea88zMCCEDgO4HV5bS757f+7wRoAAIQ4B9gByAAgQ3pfiDmXmAeEwAAAABJRU5ErkJggg==")',
-      },
+      '&-alpha': getTransBg(8),
       marginBottom: marginSM,
     },
 
