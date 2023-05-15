@@ -1,7 +1,6 @@
 import { CalendarOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
-import ContributorsList from '@qixian.cs/github-contributors-list';
-import { Affix, Anchor, Avatar, Col, Skeleton, Space, Tooltip, Typography } from 'antd';
+import { Affix, Anchor, Avatar, Col, Skeleton, Space, Typography } from 'antd';
 import classNames from 'classnames';
 import DayJS from 'dayjs';
 import { FormattedMessage, useIntl, useRouteMeta, useTabMeta } from 'dumi';
@@ -109,7 +108,7 @@ type AnchorItem = {
 const AvatarPlaceholder = ({ num = 3 }: { num?: number }) => (
   <>
     {Array.from({ length: num }).map((_, i) => (
-      <Skeleton.Avatar size="small" active key={i} style={{ marginLeft: i === 0 ? 0 : -8 }} />
+      <Skeleton.Avatar size='small' active key={i} style={{ marginLeft: i === 0 ? 0 : -8 }} />
     ))}
   </>
 );
@@ -125,9 +124,9 @@ const AuthorAvatar = ({ name, avatar }: { name: string; avatar: string }) => {
   }, []);
 
   if (error) return null;
-  if (loading) return <Skeleton.Avatar size="small" active />;
+  if (loading) return <Skeleton.Avatar size='small' active />;
   return (
-    <Avatar size="small" src={avatar} alt={name}>
+    <Avatar size='small' src={avatar} alt={name}>
       {name}
     </Avatar>
   );
@@ -242,7 +241,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
               )}
               {!pathname.startsWith('/components/overview') && (
                 <EditButton
-                  title={<FormattedMessage id="app.content.edit-page" />}
+                  title={<FormattedMessage id='app.content.edit-page' />}
                   filename={meta.frontmatter.filename}
                 />
               )}
@@ -260,8 +259,8 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                 {mergedAuthorInfos.map((info) => (
                   <a
                     href={`https://github.com/${info.name}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target='_blank'
+                    rel='noopener noreferrer'
                     key={info.name}
                   >
                     <Space size={3}>
@@ -275,36 +274,6 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
           ) : null}
           {!meta.frontmatter.__autoDescription && meta.frontmatter.description}
           {children}
-          {meta.frontmatter.filename && (
-            <ContributorsList
-              repo="ant-design"
-              owner="ant-design"
-              css={styles.contributorsList}
-              cache
-              fileName={meta.frontmatter.filename}
-              renderItem={(item, loading) =>
-                loading || !item ? (
-                  <AvatarPlaceholder />
-                ) : (
-                  <Tooltip
-                    mouseEnterDelay={0.3}
-                    title={`${formatMessage({ id: 'app.content.contributors' })}: ${item.username}`}
-                    key={item.username}
-                  >
-                    <a
-                      href={`https://github.com/${item.username}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Avatar size="small" src={item.url}>
-                        {item.username}
-                      </Avatar>
-                    </a>
-                  </Tooltip>
-                )
-              }
-            />
-          )}
         </article>
         <PrevAndNext />
         <Footer />
