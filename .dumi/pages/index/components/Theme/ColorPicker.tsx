@@ -19,7 +19,7 @@ const useStyle = () => {
       transition: all ${token.motionDurationFast};
       display: inline-block;
 
-      & > input[type="radio"] {
+      & > input[type='radio'] {
         width: 0;
         height: 0;
         opacity: 0;
@@ -102,7 +102,7 @@ export default function ThemeColorPicker({ value, onChange }: RadiusPickerProps)
   }, [value]);
 
   return (
-    <Space size='large'>
+    <Space size="large">
       <Input
         value={typeof value === 'string' ? value : value.toHexString()}
         onChange={(event) => {
@@ -111,7 +111,7 @@ export default function ThemeColorPicker({ value, onChange }: RadiusPickerProps)
         style={{ width: 120 }}
       />
 
-      <Space size='middle'>
+      <Space size="middle">
         {matchColors.map(({ color, active, picker }) => {
           let colorNode = (
             // eslint-disable-next-line jsx-a11y/label-has-associated-control
@@ -128,7 +128,7 @@ export default function ThemeColorPicker({ value, onChange }: RadiusPickerProps)
               }}
             >
               <input
-                type='radio'
+                type="radio"
                 name={picker ? 'picker' : 'color'}
                 tabIndex={picker ? -1 : 0}
                 onClick={(e) => e.stopPropagation()}
