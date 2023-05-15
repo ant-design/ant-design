@@ -155,7 +155,11 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
   blockNode?: boolean;
 }
 
-const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
+type TreeType = <T extends BasicDataNode | DataNode = DataNode>(
+  props: React.PropsWithChildren<TreeProps<T>> & { ref?: React.Ref<RcTree> },
+) => React.ReactElement;
+
+const InternalTree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
   const { getPrefixCls, direction, virtual } = React.useContext(ConfigContext);
   const {
     prefixCls: customizePrefixCls,
@@ -255,7 +259,9 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
 });
 
 if (process.env.NODE_ENV !== 'production') {
-  Tree.displayName = 'Tree';
+  InternalTree.displayName = 'Tree';
 }
+
+const Tree = Object.assign(InternalTree as TreeType, {});
 
 export default Tree;

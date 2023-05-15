@@ -291,7 +291,7 @@ describe('Button', () => {
   });
 
   it('skip check 2 words when ConfigProvider disable this', () => {
-    const buttonInstance = React.createRef<HTMLElement>();
+    const buttonInstance = React.createRef<HTMLButtonElement>();
     render(
       <ConfigProvider autoInsertSpaceInButton={false}>
         <Button ref={buttonInstance}>test</Button>
