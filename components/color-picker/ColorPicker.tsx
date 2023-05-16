@@ -159,6 +159,7 @@ const ColorPicker: CompoundedComponent = (props) => {
           color={colorValue}
           prefixCls={prefixCls}
           disabled={disabled}
+          colorCleared={colorCleared}
         />
       )}
     </Popover>,
