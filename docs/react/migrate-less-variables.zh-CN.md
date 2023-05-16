@@ -131,6 +131,8 @@ title: Less 变量迁移 Design Token
 | `@result-subtitle-font-size` | `subtitleFontSize` | - |
 | `@result-extra-margin` | `extraMargin` | - |
 
+### Segment
+
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |

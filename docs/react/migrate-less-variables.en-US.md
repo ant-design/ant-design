@@ -131,6 +131,8 @@ This document contains the correspondence between all the less variables related
 | `@result-subtitle-font-size` | `subtitleFontSize` | - |
 | `@result-extra-margin` | `extraMargin` | - |
 
+### Segment
+
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
