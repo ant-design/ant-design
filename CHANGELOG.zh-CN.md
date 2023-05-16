@@ -20,7 +20,7 @@ timeline: true
 `2023-05-15`
 
 - 🔥 新增颜色选择器组件。[#41990](https://github.com/ant-design/ant-design/pull/41990) [@RedJue](https://github.com/RedJue)
-- 💄 优化 Select、Tree-select、Cascader 多选模式下的样式，去除标签的边框。[#41480](https://github.com/ant-design/ant-design/pull/41480)
+- 💄 优化 Select、TreeSelect、Cascader 多选模式下的样式，去除标签的边框。[#41480](https://github.com/ant-design/ant-design/pull/41480)
 - 🆕 Form `validateFields` 支持 `validateOnly` 配置仅做校验而不改变 UI 状态。[#42273](https://github.com/ant-design/ant-design/pull/42273)
 - 🆕 DatePicker 支持 `changeOnBlur` 以允许不点击确认按钮，在失去焦点时也能触发 change 事件。[#42168](https://github.com/ant-design/ant-design/pull/42168)
 - 🆕 Cascader `options` 支持 `disableCheckbox` 在多选时禁用勾选框。[#42024](https://github.com/ant-design/ant-design/pull/42024) [@BoyYangzai](https://github.com/BoyYangzai)
