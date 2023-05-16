@@ -320,7 +320,7 @@
     "mode": "npm"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx}": "rome format --write",
+    "*.{ts,tsx,js,jsx}": "prettier --ignore-unknown --write",
     "*.{json,less,md}": "prettier --ignore-unknown --write"
   }
 }
