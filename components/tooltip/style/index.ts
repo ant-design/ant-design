@@ -151,6 +151,9 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
       zIndexPopup: zIndexPopupBase + 70,
       colorBgDefault: colorBgSpotlight,
     }),
+    {
+      resetStyle: false,
+    },
   );
 
   return useOriginHook(prefixCls);
