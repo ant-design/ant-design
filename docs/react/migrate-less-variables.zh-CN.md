@@ -147,7 +147,7 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@segmented-container-padding` | `segmentedContainerPadding` | - |
+| `@segmented-container-padding` | `padding` | - |
 | `@segmented-label-color` | `labelColor` | - |
 | `@segmented-bg` | `bgColor` | - |
 | `@segmented-hover-bg` | `bgColorHover` | - |

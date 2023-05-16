@@ -4,7 +4,7 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import { resetComponent, textEllipsis } from '../../style';
 
 export interface ComponentToken {
-  segmentedContainerPadding: number;
+  padding: number;
   labelColor: string;
   labelColorHover: string;
   bgColor: string;
@@ -49,7 +49,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       ...resetComponent(token),
 
       display: 'inline-block',
-      padding: token.segmentedContainerPadding,
+      padding: token.padding,
       color: token.labelColor,
       backgroundColor: token.bgColor,
       borderRadius: token.borderRadius,
@@ -114,8 +114,8 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         },
 
         '&-label': {
-          minHeight: token.controlHeight - token.segmentedContainerPadding * 2,
-          lineHeight: `${token.controlHeight - token.segmentedContainerPadding * 2}px`,
+          minHeight: token.controlHeight - token.padding * 2,
+          lineHeight: `${token.controlHeight - token.padding * 2}px`,
           padding: `0 ${token.segmentedPaddingHorizontal}px`,
           ...segmentedTextEllipsisCss,
         },
@@ -158,8 +158,8 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       [`&${componentCls}-lg`]: {
         borderRadius: token.borderRadiusLG,
         [`${componentCls}-item-label`]: {
-          minHeight: token.controlHeightLG - token.segmentedContainerPadding * 2,
-          lineHeight: `${token.controlHeightLG - token.segmentedContainerPadding * 2}px`,
+          minHeight: token.controlHeightLG - token.padding * 2,
+          lineHeight: `${token.controlHeightLG - token.padding * 2}px`,
           padding: `0 ${token.segmentedPaddingHorizontal}px`,
           fontSize: token.fontSizeLG,
         },
@@ -171,8 +171,8 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       [`&${componentCls}-sm`]: {
         borderRadius: token.borderRadiusSM,
         [`${componentCls}-item-label`]: {
-          minHeight: token.controlHeightSM - token.segmentedContainerPadding * 2,
-          lineHeight: `${token.controlHeightSM - token.segmentedContainerPadding * 2}px`,
+          minHeight: token.controlHeightSM - token.padding * 2,
+          lineHeight: `${token.controlHeightSM - token.padding * 2}px`,
           padding: `0 ${token.segmentedPaddingHorizontalSM}px`,
         },
         [`${componentCls}-item, ${componentCls}-thumb`]: {
@@ -215,7 +215,7 @@ export default genComponentStyleHook(
       lineWidthBold,
     } = token;
     return {
-      segmentedContainerPadding: lineWidthBold,
+      padding: lineWidthBold,
       labelColor: colorTextLabel,
       labelColorHover: colorText,
       bgColor: colorBgLayout,
