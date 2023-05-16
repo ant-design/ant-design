@@ -80,13 +80,11 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     setScale(1);
   }, [props.src]);
 
-  React.useEffect(() => {
-    setScaleParam();
-  }, [props.gap]);
+  React.useEffect(setScaleParam, [props.gap]);
 
   const handleImgLoadError = () => {
     const { onError } = props;
-    const errorFlag = onError ? onError() : undefined;
+    const errorFlag = onError?.();
     if (errorFlag !== false) {
       setIsImgExist(false);
     }
