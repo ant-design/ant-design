@@ -6,7 +6,7 @@ import type {
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties } from 'react';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import genPurePanel from '../_util/PurePanel';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
@@ -134,6 +134,12 @@ const ColorPicker: CompoundedComponent = (props) => {
     format,
     onFormatChange,
   };
+
+  useEffect(() => {
+    if (clearColor) {
+      setPopupOpen(false);
+    }
+  }, [clearColor]);
 
   return wrapSSR(
     <Popover
