@@ -47,10 +47,10 @@ export function getTimeProps<DateType, DisabledTime>(
     if (!firstFormat.includes('m') && showMinute === undefined) {
       showTimeObj.showMinute = false;
     }
-    if (!firstFormat.includes('H') && !firstFormat.includes('h') && showHour === undefined) {
+    if (!firstFormat.includes('H') && !firstFormat.includes('h') 
+      && !firstFormat.includes('K') && !firstFormat.includes('k') && showHour === undefined) {
       showTimeObj.showHour = false;
     }
-
     if ((firstFormat.includes('a') || firstFormat.includes('A')) && use12Hours === undefined) {
       showTimeObj.use12Hours = true;
     }

@@ -295,4 +295,25 @@ describe('DatePicker', () => {
     const { container } = render(<MyDatePicker />);
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it('kk:mm format', () => {
+    const { container } = render(
+      <DatePicker
+        defaultValue={moment()}
+        format="kk:mm"
+        open
+      />,
+    );
+    expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(2);
+    expect(
+      container
+        .querySelectorAll('.ant-picker-time-panel-column')?.[0]
+        .querySelectorAll('.ant-picker-time-panel-cell').length,
+    ).toBe(24);
+    expect(
+      container
+        .querySelectorAll('.ant-picker-time-panel-column')?.[1]
+        .querySelectorAll('.ant-picker-time-panel-cell').length,
+    ).toBe(60);
+  });
 });
