@@ -147,7 +147,7 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@segmented-container-padding` | `segmentedContainerPadding` | - |
+| `@segmented-container-padding` | `padding` | - |
 | `@segmented-label-color` | `labelColor` | - |
 | `@segmented-bg` | `bgColor` | - |
 | `@segmented-hover-bg` | `bgColorHover` | - |
