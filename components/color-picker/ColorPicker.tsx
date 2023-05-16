@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties } from 'react';
 import React, { useContext, useState } from 'react';
+import genPurePanel from '../_util/PurePanel';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import type { PopoverProps } from '../popover';
@@ -19,7 +20,6 @@ import useColorState from './hooks/useColorState';
 import type { ColorFormat, ColorPickerBaseProps, PresetsItem } from './interface';
 import useStyle from './style/index';
 import { customizePrefixCls, generateColor } from './util';
-import genPurePanel from '../_util/PurePanel';
 
 export interface ColorPickerProps
   extends Omit<
@@ -167,6 +167,7 @@ if (process.env.NODE_ENV !== 'production') {
 const PurePanel = genPurePanel(
   ColorPicker,
   'color-picker',
+  /* istanbul ignore next */
   (prefixCls) => prefixCls,
   (props: ColorPickerProps) => ({
     ...props,
