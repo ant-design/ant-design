@@ -33,7 +33,7 @@ timeline: true
   - 🐞 Fix ConfigProvider `size` prop not work on Steps. [#42278](https://github.com/ant-design/ant-design/pull/42278) [@wanghui2021](https://github.com/wanghui2021)
   - 🐞 Fix ConfigProvider `size` prop not work on Descriptions. [#42244](https://github.com/ant-design/ant-design/pull/42244) [@wanghui2021](https://github.com/wanghui2021)
   - 🐞 Fix the size is not inherited from ConfigProvider when the `componentSize` is set. [#42199](https://github.com/ant-design/ant-design/pull/42199) [@Ec-tracker](https://github.com/Ec-tracker)
-- 🐞 Optimize the style of `Select`, `Tree-select`, `Cascader` multi-selection mode, remove the Tag border. [#41480](https://github.com/ant-design/ant-design/pull/41480)
+- 💄 Optimize the style of `Select`, `Tree-select`, `Cascader` multi-selection mode, remove the Tag border. [#41480](https://github.com/ant-design/ant-design/pull/41480)
 - 🐞 Fix then icon styles for Input are incorrect in Space Compact mode. [#42167](https://github.com/ant-design/ant-design/pull/42167) [@pengyw97](https://github.com/pengyw97)
 - 🐞 Fix Popover display empty div when `title` and `content` is null. [#42217](https://github.com/ant-design/ant-design/pull/42217) [@hairgc](https://github.com/hairgc)
 - 🐞 Fix the error that Circle Progress does not set `size`. [#41875](https://github.com/ant-design/ant-design/pull/41875) [@notzheng](https://github.com/notzheng)
