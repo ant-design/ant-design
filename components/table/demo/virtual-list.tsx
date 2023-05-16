@@ -51,14 +51,14 @@ const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) 
 
   useEffect(() => resetVirtualGrid, [tableWidth]);
 
-  const renderVirtualList = (rawData: object[], { scrollbarSize, ref, onScroll }: any) => {
+  const renderVirtualList = (rawData: readonly object[], { scrollbarSize, ref, onScroll }: any) => {
     ref.current = connectObject;
     const totalHeight = rawData.length * 54;
 
     return (
       <Grid
         ref={gridRef}
-        className="virtual-grid"
+        className='virtual-grid'
         columnCount={mergedColumns.length}
         columnWidth={(index: number) => {
           const { width } = mergedColumns[index];
@@ -110,7 +110,7 @@ const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) 
     >
       <Table
         {...props}
-        className="virtual-table"
+        className='virtual-table'
         columns={mergedColumns}
         pagination={false}
         components={{

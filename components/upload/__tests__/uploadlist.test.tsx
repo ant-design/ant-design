@@ -1,14 +1,14 @@
 import React from 'react';
+import type { UploadFile, UploadProps } from '..';
 import Upload from '..';
 import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
+import type { FormInstance } from '../../form';
 import Form from '../../form';
 import UploadList from '../UploadList';
+import type { UploadListProps, UploadLocale } from '../interface';
 import { previewImage } from '../utils';
 import { setup, teardown } from './mock';
 import { errorRequest, successRequest } from './requests';
-import type { FormInstance } from '../../form';
-import type { UploadFile, UploadProps } from '..';
-import type { UploadListProps, UploadLocale } from '../interface';
 
 const fileList: UploadProps['fileList'] = [
   {
@@ -99,8 +99,8 @@ describe('Upload List', () => {
   // https://github.com/ant-design/ant-design/issues/4653
   it('should use file.thumbUrl for <img /> in priority', () => {
     const { container: wrapper, unmount } = render(
-      <Upload defaultFileList={fileList} listType="picture">
-        <button type="button">upload</button>
+      <Upload defaultFileList={fileList} listType='picture'>
+        <button type='button'>upload</button>
       </Upload>,
     );
     fileList.forEach((file, i) => {
@@ -132,7 +132,7 @@ describe('Upload List', () => {
     ];
     const { container, unmount } = render(
       <Upload defaultFileList={list as UploadProps['defaultFileList']}>
-        <button type="button">upload</button>
+        <button type='button'>upload</button>
       </Upload>,
     );
     expect(container.querySelectorAll('.ant-upload-list-item').length).toBe(2);
@@ -174,11 +174,11 @@ describe('Upload List', () => {
     };
     wrapper = render(
       <Upload
-        action="http://jsonplaceholder.typicode.com/posts/"
+        action='http://jsonplaceholder.typicode.com/posts/'
         onChange={onChange}
         customRequest={successRequest}
       >
-        <button type="button">upload</button>
+        <button type='button'>upload</button>
       </Upload>,
     );
     fireEvent.change(wrapper.container.querySelector('input')!, {
@@ -200,11 +200,11 @@ describe('Upload List', () => {
       baseElement,
     } = render(
       <Upload
-        action="http://jsonplaceholder.typicode.com/posts/"
+        action='http://jsonplaceholder.typicode.com/posts/'
         onChange={onChange}
         customRequest={errorRequest}
       >
-        <button type="button">upload</button>
+        <button type='button'>upload</button>
       </Upload>,
     );
     fireEvent.change(wrapper.querySelector('input')!, {
@@ -242,12 +242,12 @@ describe('Upload List', () => {
     const { container: wrapper, unmount } = render(
       <Upload
         ref={ref}
-        listType="picture"
+        listType='picture'
         defaultFileList={fileList}
         onChange={handleChange}
         beforeUpload={() => false}
       >
-        <button type="button">upload</button>
+        <button type='button'>upload</button>
       </Upload>,
     );
     fireEvent.change(wrapper.querySelector('input')!, {
@@ -268,11 +268,11 @@ describe('Upload List', () => {
     const file = { status: 'error', uid: 'file' };
     const { container: wrapper, unmount } = render(
       <Upload
-        listType="picture"
+        listType='picture'
         fileList={[file] as UploadProps['fileList']}
         showUploadList={{ showDownloadIcon: true }}
       >
-        <button type="button">upload</button>
+        <button type='button'>upload</button>
       </Upload>,
     );
 
@@ -290,11 +290,11 @@ describe('Upload List', () => {
     const file = { status: 'error', uid: 'file' };
     const { container: wrapper, unmount } = render(
       <Upload
-        listType="picture-card"
+        listType='picture-card'
         fileList={[file] as UploadProps['fileList']}
         showUploadList={{ showDownloadIcon: true }}
       >
-        <button type="button">upload</button>
+        <button type='button'>upload</button>
       </Upload>,
     );
     expect(wrapper.querySelectorAll('div.ant-upload-list-item i.anticon-download').length).toBe(0);
@@ -306,11 +306,11 @@ describe('Upload List', () => {
     const file = { status: 'error', uid: 'file' };
     const { container: wrapper, unmount } = render(
       <Upload
-        listType="text"
+        listType='text'
         fileList={[file] as UploadProps['fileList']}
         showUploadList={{ showDownloadIcon: true }}
       >
-        <button type="button">upload</button>
+        <button type='button'>upload</button>
       </Upload>,
     );
     expect(wrapper.querySelectorAll('div.ant-upload-list-item i.anticon-download').length).toBe(0);
@@ -321,8 +321,8 @@ describe('Upload List', () => {
   it('should support onPreview', () => {
     const handlePreview = jest.fn();
     const { container: wrapper, unmount } = render(
-      <Upload listType="picture-card" defaultFileList={fileList} onPreview={handlePreview}>
-        <button type="button">upload</button>
+      <Upload listType='picture-card' defaultFileList={fileList} onPreview={handlePreview}>
+        <button type='button'>upload</button>
       </Upload>,
     );
     fireEvent.click(wrapper.querySelectorAll('.anticon-eye')[0]);
@@ -338,12 +338,12 @@ describe('Upload List', () => {
     const handleChange = jest.fn();
     const { container: wrapper, unmount } = render(
       <Upload
-        listType="picture-card"
+        listType='picture-card'
         defaultFileList={fileList}
         onRemove={handleRemove}
         onChange={handleChange}
       >
-        <button type="button">upload</button>
+        <button type='button'>upload</button>
       </Upload>,
     );
     fireEvent.click(wrapper.querySelectorAll('.anticon-delete')[0]);
@@ -360,7 +360,7 @@ describe('Upload List', () => {
     const handleDownload = jest.fn();
     const { container: wrapper, unmount } = render(
       <Upload
-        listType="picture-card"
+        listType='picture-card'
         defaultFileList={[
           {
             uid: '0',
@@ -374,7 +374,7 @@ describe('Upload List', () => {
           showDownloadIcon: true,
         }}
       >
-        <button type="button">upload</button>
+        <button type='button'>upload</button>
       </Upload>,
     );
     fireEvent.click(wrapper.querySelectorAll('.anticon-download')[0]);
@@ -386,7 +386,7 @@ describe('Upload List', () => {
   it('should support no onDownload', async () => {
     const { container: wrapper, unmount } = render(
       <Upload
-        listType="picture-card"
+        listType='picture-card'
         defaultFileList={[
           {
             uid: '0',
@@ -399,7 +399,7 @@ describe('Upload List', () => {
           showDownloadIcon: true,
         }}
       >
-        <button type="button">upload</button>
+        <button type='button'>upload</button>
       </Upload>,
     );
     fireEvent.click(wrapper.querySelectorAll('.anticon-download')[0]);
@@ -430,11 +430,11 @@ describe('Upload List', () => {
         const { unmount } = render(
           <Upload
             ref={ref}
-            listType="picture-card"
+            listType='picture-card'
             defaultFileList={newFileList}
             onPreview={handlePreview}
           >
-            <button type="button">upload</button>
+            <button type='button'>upload</button>
           </Upload>,
         );
         await waitFakeTimer();
@@ -519,8 +519,8 @@ describe('Upload List', () => {
     ];
 
     const { container: wrapper, unmount } = render(
-      <Upload listType="picture" defaultFileList={list as UploadProps['defaultFileList']}>
-        <button type="button">upload</button>
+      <Upload listType='picture' defaultFileList={list as UploadProps['defaultFileList']}>
+        <button type='button'>upload</button>
       </Upload>,
     );
     expect(wrapper.firstChild).toMatchSnapshot();
@@ -531,7 +531,7 @@ describe('Upload List', () => {
   it('not crash when uploading not provides percent', async () => {
     const { unmount } = render(
       <Upload
-        listType="picture"
+        listType='picture'
         defaultFileList={
           [{ name: 'bamboo.png', status: 'uploading' }] as UploadProps['defaultFileList']
         }
@@ -561,14 +561,14 @@ describe('Upload List', () => {
 
     const { container: wrapper, unmount } = render(
       <Upload
-        listType="picture"
+        listType='picture'
         defaultFileList={list as UploadProps['defaultFileList']}
         showUploadList={{
           showRemoveIcon: false,
           showPreviewIcon: false,
         }}
       >
-        <button type="button">upload</button>
+        <button type='button'>upload</button>
       </Upload>,
     );
     expect(wrapper.firstChild).toMatchSnapshot();
@@ -582,20 +582,20 @@ describe('Upload List', () => {
     const myClick = jest.fn();
     const { container: wrapper, unmount } = render(
       <Upload
-        listType="picture-card"
+        listType='picture-card'
         defaultFileList={fileList}
         onRemove={handleRemove}
         onChange={handleChange}
         showUploadList={{
           showRemoveIcon: true,
           removeIcon: (
-            <i className="custom-delete" onClick={myClick}>
+            <i className='custom-delete' onClick={myClick}>
               RM
             </i>
           ),
         }}
       >
-        <button type="button">upload</button>
+        <button type='button'>upload</button>
       </Upload>,
     );
     fireEvent.click(wrapper.querySelectorAll('.custom-delete')[0]);
@@ -628,7 +628,7 @@ describe('Upload List', () => {
 
     const { container: wrapper, unmount } = render(
       <Upload
-        listType="picture"
+        listType='picture'
         defaultFileList={list as UploadProps['defaultFileList']}
         showUploadList={{
           showRemoveIcon: true,
@@ -639,7 +639,7 @@ describe('Upload List', () => {
           previewIcon: <i>PV</i>,
         }}
       >
-        <button type="button">upload</button>
+        <button type='button'>upload</button>
       </Upload>,
     );
     expect(wrapper.firstChild).toMatchSnapshot();
@@ -647,7 +647,7 @@ describe('Upload List', () => {
 
     const { container: wrapper2, unmount: unmount2 } = render(
       <Upload
-        listType="picture"
+        listType='picture'
         defaultFileList={list as UploadProps['defaultFileList']}
         showUploadList={{
           showRemoveIcon: true,
@@ -658,7 +658,7 @@ describe('Upload List', () => {
           previewIcon: () => <i>PV</i>,
         }}
       >
-        <button type="button">upload</button>
+        <button type='button'>upload</button>
       </Upload>,
     );
     expect(wrapper2.firstChild).toMatchSnapshot();
@@ -676,8 +676,8 @@ describe('Upload List', () => {
       return (
         <Form form={form}>
           <Form.Item
-            name="file"
-            valuePropName="fileList"
+            name='file'
+            valuePropName='fileList'
             getValueFromEvent={(e) => e.fileList}
             rules={[
               {
@@ -691,7 +691,7 @@ describe('Upload List', () => {
             ]}
           >
             <Upload beforeUpload={() => false}>
-              <button type="button">upload</button>
+              <button type='button'>upload</button>
             </Upload>
           </Form.Item>
         </Form>
@@ -749,7 +749,7 @@ describe('Upload List', () => {
         fileList={items as UploadProps['fileList']}
         previewFile={previewFunc}
         locale={{ previewFile: '' }}
-        listType="picture-card"
+        listType='picture-card'
       />,
     );
 
@@ -772,7 +772,7 @@ describe('Upload List', () => {
     const { container: wrapper, unmount } = render(
       <UploadList
         showDownloadIcon
-        listType="picture-card"
+        listType='picture-card'
         items={items as UploadListProps['items']}
         onDownload={downloadFunc}
         locale={{ downloadFile: 'Download file' }}
@@ -792,7 +792,7 @@ describe('Upload List', () => {
     const items = [{ uid: 'upload-list-item', url: '' }];
     const { container: wrapper, unmount } = render(
       <UploadList
-        listType="picture-card"
+        listType='picture-card'
         items={items as UploadListProps['items']}
         locale={{ previewFile: '' }}
       />,
@@ -805,7 +805,7 @@ describe('Upload List', () => {
     const items = [{ status: 'done', uid: 'upload-list-item', url: '/example' }];
     const { container: wrapper, unmount } = render(
       <UploadList
-        listType="picture"
+        listType='picture'
         onDownload={(file) => {
           expect(file.url).toBe('/example');
           unmount();
@@ -823,7 +823,7 @@ describe('Upload List', () => {
     const items = [{ status: 'uploading', uid: 'upload-list-item' }];
     const { container: wrapper, unmount } = render(
       <UploadList
-        listType="picture-card"
+        listType='picture-card'
         items={items as UploadListProps['items']}
         locale={{ uploading: 'uploading' }}
       />,
@@ -843,7 +843,7 @@ describe('Upload List', () => {
       unmount,
     } = render(
       <UploadList
-        listType="picture-card"
+        listType='picture-card'
         items={items as UploadListProps['items']}
         locale={{ uploading: 'uploading' }}
         onPreview={onPreview}
@@ -855,7 +855,7 @@ describe('Upload List', () => {
     expect(onPreview).toHaveBeenCalled();
     rerender(
       <UploadList
-        listType="picture-card"
+        listType='picture-card'
         items={[{ thumbUrl: 'thumbUrl', uid: 'upload-list-item' }] as UploadListProps['items']}
         locale={{ uploading: 'uploading' }}
         onPreview={onPreview}
@@ -879,7 +879,7 @@ describe('Upload List', () => {
         fileList={[{ originFileObj: mockFile }] as UploadProps['fileList']}
         previewFile={previewFunc}
         locale={{ uploading: 'uploading' }}
-        listType="picture-card"
+        listType='picture-card'
       />,
     );
 
@@ -908,7 +908,7 @@ describe('Upload List', () => {
         fileList={[{ originFileObj: mockFile }] as UploadProps['fileList']}
         previewFile={previewFunc}
         locale={{ uploading: 'uploading' }}
-        listType="picture-card"
+        listType='picture-card'
       />,
     );
 
@@ -932,7 +932,7 @@ describe('Upload List', () => {
         fileList={[{ originFileObj: mockFile }] as UploadProps['fileList']}
         previewFile={previewFunc}
         locale={{ uploading: 'uploading' }}
-        listType="picture-card"
+        listType='picture-card'
       />,
     );
 
@@ -960,11 +960,11 @@ describe('Upload List', () => {
         const { container: wrapper, unmount } = render(
           <Upload
             ref={ref}
-            listType="picture"
+            listType='picture'
             defaultFileList={[file] as UploadProps['defaultFileList']}
             previewFile={previewFile}
           >
-            <button type="button">button</button>
+            <button type='button'>button</button>
           </Upload>,
         );
         expect(previewFile).toHaveBeenCalledWith(file.originFileObj);
@@ -996,8 +996,8 @@ describe('Upload List', () => {
     ];
     it('should not render <img /> when file.thumbUrl use "!" as separator', () => {
       const { container: wrapper, unmount } = render(
-        <Upload listType="picture-card" fileList={list as UploadProps['fileList']}>
-          <button type="button">button</button>
+        <Upload listType='picture-card' fileList={list as UploadProps['fileList']}>
+          <button type='button'>button</button>
         </Upload>,
       );
       const imgNode = wrapper.querySelectorAll('.ant-upload-list-item-thumbnail img');
@@ -1008,11 +1008,11 @@ describe('Upload List', () => {
       const isImageUrl = jest.fn(() => true);
       const { container: wrapper, unmount } = render(
         <Upload
-          listType="picture-card"
+          listType='picture-card'
           fileList={list as UploadProps['fileList']}
           isImageUrl={isImageUrl}
         >
-          <button type="button">button</button>
+          <button type='button'>button</button>
         </Upload>,
       );
       const imgNode = wrapper.querySelectorAll('.ant-upload-list-item-thumbnail img');
@@ -1024,11 +1024,11 @@ describe('Upload List', () => {
       const isImageUrl = jest.fn(() => false);
       const { container: wrapper, unmount } = render(
         <Upload
-          listType="picture-card"
+          listType='picture-card'
           fileList={list as UploadProps['fileList']}
           isImageUrl={isImageUrl}
         >
-          <button type="button">button</button>
+          <button type='button'>button</button>
         </Upload>,
       );
       const imgNode = wrapper.querySelectorAll('.ant-upload-list-item-thumbnail img');
@@ -1049,13 +1049,13 @@ describe('Upload List', () => {
 
           wrapper.rerender(
             <Upload
-              action="http://jsonplaceholder.typicode.com/posts/"
-              listType="picture-card"
+              action='http://jsonplaceholder.typicode.com/posts/'
+              listType='picture-card'
               fileList={newFileList}
               onChange={onChange}
               customRequest={successRequest}
             >
-              <button type="button">upload</button>
+              <button type='button'>upload</button>
             </Upload>,
           );
         },
@@ -1063,13 +1063,13 @@ describe('Upload List', () => {
 
       wrapper = render(
         <Upload
-          action="http://jsonplaceholder.typicode.com/posts/"
-          listType="picture-card"
+          action='http://jsonplaceholder.typicode.com/posts/'
+          listType='picture-card'
           fileList={[]}
           onChange={onChange}
           customRequest={successRequest}
         >
-          <button type="button">upload</button>
+          <button type='button'>upload</button>
         </Upload>,
       );
       const imgNode = wrapper.container.querySelectorAll('.ant-upload-list-item-thumbnail img');
@@ -1103,26 +1103,26 @@ describe('Upload List', () => {
         ({ fileList: files }) => {
           wrapper.rerender(
             <Upload
-              action="http://jsonplaceholder.typicode.com/posts/"
-              listType="picture-card"
+              action='http://jsonplaceholder.typicode.com/posts/'
+              listType='picture-card'
               fileList={files}
               onChange={onChange}
               customRequest={successRequest}
             >
-              <button type="button">upload</button>
+              <button type='button'>upload</button>
             </Upload>,
           );
         },
       );
       wrapper = render(
         <Upload
-          action="http://jsonplaceholder.typicode.com/posts/"
-          listType="picture-card"
+          action='http://jsonplaceholder.typicode.com/posts/'
+          listType='picture-card'
           fileList={[]}
           onChange={onChange}
           customRequest={successRequest}
         >
-          <button type="button">upload</button>
+          <button type='button'>upload</button>
         </Upload>,
       );
       const imgNode = wrapper.container.querySelectorAll('.ant-upload-list-item-thumbnail img');
@@ -1157,12 +1157,12 @@ describe('Upload List', () => {
     };
     wrapper = render(
       <Upload
-        action="http://jsonplaceholder.typicode.com/posts/"
+        action='http://jsonplaceholder.typicode.com/posts/'
         transformFile={handleTransformFile}
         onChange={onChange}
         customRequest={successRequest}
       >
-        <button type="button">upload</button>
+        <button type='button'>upload</button>
       </Upload>,
     );
     fireEvent.change(wrapper.container.querySelector('input')!, {
@@ -1177,8 +1177,8 @@ describe('Upload List', () => {
       unmount,
     } = render(
       <Upload
-        action="http://jsonplaceholder.typicode.com/posts/"
-        listType="picture-card"
+        action='http://jsonplaceholder.typicode.com/posts/'
+        listType='picture-card'
         fileList={[
           {
             uid: '0',
@@ -1187,7 +1187,7 @@ describe('Upload List', () => {
         ]}
         showUploadList
       >
-        <button className="trigger" type="button">
+        <button className='trigger' type='button'>
           upload
         </button>
       </Upload>,
@@ -1195,8 +1195,8 @@ describe('Upload List', () => {
     expect(wrapper.querySelectorAll('.ant-upload-list button.trigger').length).toBeGreaterThan(0);
     rerender(
       <Upload
-        action="http://jsonplaceholder.typicode.com/posts/"
-        listType="picture-card"
+        action='http://jsonplaceholder.typicode.com/posts/'
+        listType='picture-card'
         fileList={[
           {
             uid: '0',
@@ -1205,7 +1205,7 @@ describe('Upload List', () => {
         ]}
         showUploadList={false}
       >
-        <button className="trigger" type="button">
+        <button className='trigger' type='button'>
           upload
         </button>
       </Upload>,
@@ -1226,13 +1226,13 @@ describe('Upload List', () => {
         <Upload
           ref={uploadRef}
           fileList={testFileList}
-          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+          action='https://www.mocky.io/v2/5cc8019d300000980a055e76'
           multiple
           onChange={(info) => {
             setTestFileList([...info.fileList]);
           }}
         >
-          <button type="button">Upload</button>
+          <button type='button'>Upload</button>
         </Upload>
       );
     };
@@ -1268,19 +1268,19 @@ describe('Upload List', () => {
       const { name, status, uid, url } = file;
       const index = currFileList.indexOf(file);
       return (
-        <div className="custom-item-render">
+        <div className='custom-item-render'>
           <span>
             {`uid:${uid} name: ${name} status: ${status} url: ${url}  ${index + 1}/${
               currFileList.length
             }`}
           </span>
-          <span onClick={actions.remove} className="custom-item-render-action-remove">
+          <span onClick={actions.remove} className='custom-item-render-action-remove'>
             remove
           </span>
-          <span onClick={actions.download} className="custom-item-render-action-download">
+          <span onClick={actions.download} className='custom-item-render-action-download'>
             download
           </span>
-          <span onClick={actions.preview} className="custom-item-render-action-preview">
+          <span onClick={actions.preview} className='custom-item-render-action-preview'>
             preview
           </span>
         </div>
@@ -1348,8 +1348,8 @@ describe('Upload List', () => {
     ];
 
     const { container: wrapper, unmount } = render(
-      <Upload fileList={list as UploadProps['fileList']} listType="picture">
-        <button type="button">upload</button>
+      <Upload fileList={list as UploadProps['fileList']} listType='picture'>
+        <button type='button'>upload</button>
       </Upload>,
     );
     list.forEach((_, i) => {
@@ -1388,8 +1388,8 @@ describe('Upload List', () => {
     ];
 
     const { container: wrapper, unmount } = render(
-      <Upload fileList={list as UploadProps['fileList']} listType="picture">
-        <button type="button">upload</button>
+      <Upload fileList={list as UploadProps['fileList']} listType='picture'>
+        <button type='button'>upload</button>
       </Upload>,
     );
     list.forEach((file, i) => {
@@ -1412,8 +1412,8 @@ describe('Upload List', () => {
     ];
 
     const { container: wrapper, unmount } = render(
-      <Upload fileList={list as UploadProps['fileList']} listType="picture">
-        <button type="button">upload</button>
+      <Upload fileList={list as UploadProps['fileList']} listType='picture'>
+        <button type='button'>upload</button>
       </Upload>,
     );
     list.forEach((_, i) => {
@@ -1452,8 +1452,8 @@ describe('Upload List', () => {
     ];
 
     const { container: wrapper, unmount } = render(
-      <Upload fileList={list as UploadProps['fileList']} listType="picture">
-        <button type="button">upload</button>
+      <Upload fileList={list as UploadProps['fileList']} listType='picture'>
+        <button type='button'>upload</button>
       </Upload>,
     );
     list.forEach((file, i) => {
@@ -1476,7 +1476,7 @@ describe('Upload List', () => {
         },
       ];
       const { container: wrapper, unmount } = render(
-        <Upload fileList={list as UploadProps['defaultFileList']} listType="picture-card" />,
+        <Upload fileList={list as UploadProps['defaultFileList']} listType='picture-card' />,
       );
       expect(wrapper.querySelectorAll('.ant-upload-select').length).toBe(1);
       expect(wrapper.querySelectorAll<HTMLDivElement>('.ant-upload-select')[0]?.style.display).toBe(
@@ -1500,7 +1500,7 @@ describe('Upload List', () => {
         <Upload
           fileList={list as UploadProps['fileList']}
           showUploadList={false}
-          listType="picture-card"
+          listType='picture-card'
         />,
       );
       expect(wrapper.querySelectorAll('.ant-upload-select').length).toBe(1);
@@ -1524,7 +1524,7 @@ describe('Upload List', () => {
     const { container } = render(
       <Upload
         fileList={list as UploadProps['fileList']}
-        listType="picture-card"
+        listType='picture-card'
         onChange={onChange}
       />,
     );
@@ -1540,5 +1540,32 @@ describe('Upload List', () => {
     );
 
     expect(container.querySelector('.ant-upload-list-item-error')).toBeTruthy();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/42056
+  describe('when form is disabled but upload is not', () => {
+    it('should not disable remove button', () => {
+      const { container } = render(
+        <Form name='base' disabled>
+          <Form.Item name='upload'>
+            <Upload
+              disabled={false}
+              defaultFileList={[
+                {
+                  uid: '1',
+                  name: 'zzz.png',
+                  status: 'error',
+                  url: 'http://www.baidu.com/zzz.png',
+                },
+              ]}
+            />
+          </Form.Item>
+        </Form>,
+      );
+
+      const removeButton = container.querySelector('.ant-upload-list-item-actions > button');
+      expect(removeButton).toBeTruthy();
+      expect(removeButton).not.toBeDisabled();
+    });
   });
 });

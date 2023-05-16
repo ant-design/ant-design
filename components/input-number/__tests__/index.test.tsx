@@ -5,6 +5,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
+import Button from '../../button';
 
 describe('InputNumber', () => {
   focusTest(InputNumber, { refFocus: true });
@@ -14,7 +15,7 @@ describe('InputNumber', () => {
   // https://github.com/ant-design/ant-design/issues/13896
   it('should return null when blur a empty input number', () => {
     const onChange = jest.fn();
-    const { container } = render(<InputNumber defaultValue="1" onChange={onChange} />);
+    const { container } = render(<InputNumber defaultValue='1' onChange={onChange} />);
     fireEvent.change(container.querySelector('input')!, { target: { value: '' } });
     expect(onChange).toHaveBeenLastCalledWith(null);
   });
@@ -57,8 +58,8 @@ describe('InputNumber', () => {
     const { container } = render(
       <InputNumber
         controls={{
-          upIcon: <ArrowUpOutlined className="my-class-name" />,
-          downIcon: <ArrowDownOutlined className="my-class-name" />,
+          upIcon: <ArrowUpOutlined className='my-class-name' />,
+          downIcon: <ArrowDownOutlined className='my-class-name' />,
         }}
       />,
     );
@@ -67,6 +68,32 @@ describe('InputNumber', () => {
     );
     expect(
       container.querySelector('.anticon-arrow-down')?.className.includes('my-class-name'),
+    ).toBe(true);
+  });
+
+  it('renders correctly when the controlled mode number is out of range', () => {
+    const App: React.FC = () => {
+      const [value, setValue] = React.useState<number | null>(1);
+      return (
+        <>
+          <InputNumber min={1} max={10} value={value} onChange={(v) => setValue(v)} />
+          <Button
+            type='primary'
+            onClick={() => {
+              setValue(99);
+            }}
+          >
+            Reset
+          </Button>
+        </>
+      );
+    };
+    const { container } = render(<App />);
+    fireEvent.click(container.querySelector('button')!);
+    expect(
+      container
+        .querySelector('.ant-input-number')
+        ?.className.includes('ant-input-number-out-of-range'),
     ).toBe(true);
   });
 });

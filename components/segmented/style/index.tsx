@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent, textEllipsis } from '../../style';
 
 export interface ComponentToken {
   padding: number;
@@ -9,6 +9,7 @@ export interface ComponentToken {
   labelColorHover: string;
   bgColor: string;
   bgColorHover: string;
+  bgColorActive: string;
   bgColorSelected: string;
 }
 
@@ -107,9 +108,14 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
         [`&:hover:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
           color: token.labelColorHover,
-
           '&::after': {
             backgroundColor: token.bgColorHover,
+          },
+        },
+        [`&:active:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
+          color: token.labelColorHover,
+          '&::after': {
+            backgroundColor: token.bgColorActive,
           },
         },
 
@@ -213,6 +219,7 @@ export default genComponentStyleHook(
       colorBgLayout,
       colorBgElevated,
       lineWidthBold,
+      colorFill,
     } = token;
     return {
       padding: lineWidthBold,
@@ -221,6 +228,7 @@ export default genComponentStyleHook(
       bgColor: colorBgLayout,
       bgColorHover: colorFillSecondary,
       bgColorSelected: colorBgElevated,
+      bgColorActive: colorFill,
     };
   },
 );

@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';
+import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
-import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
 import Compact from './Compact';
 import Item from './Item';
 
@@ -41,7 +41,7 @@ function getNumberSize(size: SpaceSize) {
   return typeof size === 'string' ? spaceSize[size] : size || 0;
 }
 
-const Space: React.FC<SpaceProps> = (props) => {
+const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
   const { getPrefixCls, space, direction: directionConfig } = React.useContext(ConfigContext);
 
   const {
@@ -142,6 +142,7 @@ const Space: React.FC<SpaceProps> = (props) => {
 
   return wrapSSR(
     <div
+      ref={ref}
       className={cn}
       style={{
         ...gapStyle,
@@ -152,13 +153,15 @@ const Space: React.FC<SpaceProps> = (props) => {
       <SpaceContext.Provider value={spaceContext}>{nodes}</SpaceContext.Provider>
     </div>,
   );
-};
+});
 
 if (process.env.NODE_ENV !== 'production') {
   Space.displayName = 'Space';
 }
 
-type CompoundedComponent = React.FC<SpaceProps> & {
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  SpaceProps & React.RefAttributes<HTMLDivElement>
+> & {
   Compact: typeof Compact;
 };
 

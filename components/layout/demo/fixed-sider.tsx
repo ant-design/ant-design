@@ -46,10 +46,10 @@ const App: React.FC = () => {
           bottom: 0,
         }}
       >
-        <div style={{ height: 32, margin: 16, background: 'rgba(255, 255, 255, 0.2)' }} />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
+        <div className='demo-logo-vertical' />
+        <Menu theme='dark' mode='inline' defaultSelectedKeys={['4']} items={items} />
       </Sider>
-      <Layout className="site-layout" style={{ marginLeft: 200 }}>
+      <Layout className='site-layout' style={{ marginLeft: 200 }}>
         <Header style={{ padding: 0, background: colorBgContainer }} />
         <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
           <div style={{ padding: 24, textAlign: 'center', background: colorBgContainer }}>

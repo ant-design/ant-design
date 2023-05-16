@@ -11,7 +11,7 @@ describe('Popover', () => {
     const ref = React.createRef<any>();
 
     const popover = render(
-      <Popover ref={ref} content="console.log('hello world')" title="code" trigger="click">
+      <Popover ref={ref} content="console.log('hello world')" title='code' trigger='click'>
         <span>show me your code</span>
       </Popover>,
     );
@@ -27,7 +27,7 @@ describe('Popover', () => {
     const ref = React.createRef<any>();
 
     const popover = render(
-      <Popover ref={ref} content={renderContent} title={renderTitle} trigger="click">
+      <Popover ref={ref} content={renderContent} title={renderTitle} trigger='click'>
         <span>show me your code </span>
       </Popover>,
     );
@@ -43,26 +43,26 @@ describe('Popover', () => {
 
   it('handles empty title/content props safely', () => {
     const { container } = render(
-      <Popover trigger="click">
+      <Popover trigger='click'>
         <span>show me your code</span>
       </Popover>,
     );
     fireEvent.click(container.querySelector('span')!);
 
-    expect(container.querySelector('.ant-popover-title')?.textContent).toBeFalsy();
-    expect(container.querySelector('.ant-popover-inner-content')?.textContent).toBeFalsy();
+    const popup = document.querySelector('.ant-popover');
+    expect(popup).toBe(null);
   });
 
   it('should not render popover when the title & content props is empty', () => {
     const { container } = render(
-      <Popover trigger="click">
+      <Popover trigger='click'>
         <span>show me your code</span>
       </Popover>,
     );
     fireEvent.click(container.querySelector('span')!);
 
-    expect(container.querySelector('.ant-popover-title')?.textContent).toBeFalsy();
-    expect(container.querySelector('.ant-popover-inner-content')?.textContent).toBeFalsy();
+    const popup = document.querySelector('.ant-popover');
+    expect(popup).toBe(null);
   });
 
   it('props#overlay do not warn anymore', () => {
@@ -70,7 +70,7 @@ describe('Popover', () => {
 
     const overlay = jest.fn();
     render(
-      <Popover content="console.log('hello world')" title="code" trigger="click">
+      <Popover content="console.log('hello world')" title='code' trigger='click'>
         <span>show me your code</span>
       </Popover>,
     );
@@ -81,8 +81,8 @@ describe('Popover', () => {
 
   it(`should be rendered correctly in RTL direction`, () => {
     const wrapper = render(
-      <ConfigProvider direction="rtl">
-        <Popover title="RTL" open>
+      <ConfigProvider direction='rtl'>
+        <Popover title='RTL' open>
           <span>show me your Rtl demo</span>
         </Popover>
       </ConfigProvider>,

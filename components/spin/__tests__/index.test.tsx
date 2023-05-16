@@ -1,9 +1,9 @@
-import React from 'react';
 import { render } from '@testing-library/react';
-import { waitFakeTimer } from '../../../tests/utils';
+import React from 'react';
 import Spin from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { waitFakeTimer } from '../../../tests/utils';
 
 describe('Spin', () => {
   mountTest(Spin);
@@ -20,7 +20,7 @@ describe('Spin', () => {
   });
 
   it("should render custom indicator when it's set", () => {
-    const customIndicator = <div className="custom-indicator" />;
+    const customIndicator = <div className='custom-indicator' />;
     const { asFragment } = render(<Spin indicator={customIndicator} />);
     expect(asFragment().firstChild).toMatchSnapshot();
   });
@@ -42,7 +42,7 @@ describe('Spin', () => {
   });
 
   it('should support static method Spin.setDefaultIndicator', () => {
-    Spin.setDefaultIndicator(<em className="custom-spinner" />);
+    Spin.setDefaultIndicator(<em className='custom-spinner' />);
     const { asFragment } = render(<Spin />);
     expect(asFragment().firstChild).toMatchSnapshot();
     Spin.setDefaultIndicator(null);
@@ -51,5 +51,16 @@ describe('Spin', () => {
   it('should render 0', () => {
     const { container } = render(<Spin>{0}</Spin>);
     expect(container.querySelector('.ant-spin-container')?.textContent).toBe('0');
+  });
+
+  it('warning tip without nest', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const { container } = render(<Spin tip='Not Show' />);
+    expect(container.querySelector('.ant-spin-text')).toBeFalsy();
+
+    expect(errSpy).toHaveBeenCalledWith('Warning: [antd: Spin] `tip` only work in nest pattern.');
+
+    errSpy.mockRestore();
   });
 });

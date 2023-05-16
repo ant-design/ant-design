@@ -148,16 +148,16 @@ describe('Menu', () => {
 
   it('If has select nested submenu item ,the menu items on the grandfather level should be highlight', () => {
     const { container } = render(
-      <Menu defaultSelectedKeys={['1-3-2']} mode="vertical">
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="1-1">Option 1</Menu.Item>
-          <Menu.Item key="1-2">Option 2</Menu.Item>
-          <SubMenu key="1-3" title="submenu1-3">
-            <Menu.Item key="1-3-1">Option 3</Menu.Item>
-            <Menu.Item key="1-3-2">Option 4</Menu.Item>
+      <Menu defaultSelectedKeys={['1-3-2']} mode='vertical'>
+        <SubMenu key='1' title='submenu1'>
+          <Menu.Item key='1-1'>Option 1</Menu.Item>
+          <Menu.Item key='1-2'>Option 2</Menu.Item>
+          <SubMenu key='1-3' title='submenu1-3'>
+            <Menu.Item key='1-3-1'>Option 3</Menu.Item>
+            <Menu.Item key='1-3-2'>Option 4</Menu.Item>
           </SubMenu>
         </SubMenu>
-        <Menu.Item key="2">menu2</Menu.Item>
+        <Menu.Item key='2'>menu2</Menu.Item>
       </Menu>,
     );
     expect(container.querySelectorAll('li.ant-menu-submenu-selected').length).toBe(1);
@@ -165,10 +165,10 @@ describe('Menu', () => {
 
   it('forceSubMenuRender', () => {
     const { container, rerender } = render(
-      <Menu mode="horizontal">
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="1-1">
-            <span className="bamboo" />
+      <Menu mode='horizontal'>
+        <SubMenu key='1' title='submenu1'>
+          <Menu.Item key='1-1'>
+            <span className='bamboo' />
           </Menu.Item>
         </SubMenu>
       </Menu>,
@@ -177,10 +177,10 @@ describe('Menu', () => {
     expect(container.querySelector('.bamboo')).toBeFalsy();
 
     rerender(
-      <Menu mode="horizontal" forceSubMenuRender>
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="1-1">
-            <span className="bamboo" />
+      <Menu mode='horizontal' forceSubMenuRender>
+        <SubMenu key='1' title='submenu1'>
+          <Menu.Item key='1-1'>
+            <span className='bamboo' />
           </Menu.Item>
         </SubMenu>
       </Menu>,
@@ -190,12 +190,12 @@ describe('Menu', () => {
 
   it('should accept defaultOpenKeys in mode horizontal', () => {
     const { container } = render(
-      <Menu defaultOpenKeys={['1']} mode="horizontal">
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="submenu1">Option 1</Menu.Item>
-          <Menu.Item key="submenu2">Option 2</Menu.Item>
+      <Menu defaultOpenKeys={['1']} mode='horizontal'>
+        <SubMenu key='1' title='submenu1'>
+          <Menu.Item key='submenu1'>Option 1</Menu.Item>
+          <Menu.Item key='submenu2'>Option 2</Menu.Item>
         </SubMenu>
-        <Menu.Item key="2">menu2</Menu.Item>
+        <Menu.Item key='2'>menu2</Menu.Item>
       </Menu>,
     );
 
@@ -207,12 +207,12 @@ describe('Menu', () => {
 
   it('should accept defaultOpenKeys in mode inline', () => {
     const { container } = render(
-      <Menu defaultOpenKeys={['1']} mode="inline">
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="submenu1">Option 1</Menu.Item>
-          <Menu.Item key="submenu2">Option 2</Menu.Item>
+      <Menu defaultOpenKeys={['1']} mode='inline'>
+        <SubMenu key='1' title='submenu1'>
+          <Menu.Item key='submenu1'>Option 1</Menu.Item>
+          <Menu.Item key='submenu2'>Option 2</Menu.Item>
         </SubMenu>
-        <Menu.Item key="2">menu2</Menu.Item>
+        <Menu.Item key='2'>menu2</Menu.Item>
       </Menu>,
     );
 
@@ -224,12 +224,12 @@ describe('Menu', () => {
 
   it('should accept defaultOpenKeys in mode vertical', () => {
     const { container } = render(
-      <Menu defaultOpenKeys={['1']} mode="vertical">
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="submenu1">Option 1</Menu.Item>
-          <Menu.Item key="submenu2">Option 2</Menu.Item>
+      <Menu defaultOpenKeys={['1']} mode='vertical'>
+        <SubMenu key='1' title='submenu1'>
+          <Menu.Item key='submenu1'>Option 1</Menu.Item>
+          <Menu.Item key='submenu2'>Option 2</Menu.Item>
         </SubMenu>
-        <Menu.Item key="2">menu2</Menu.Item>
+        <Menu.Item key='2'>menu2</Menu.Item>
       </Menu>,
     );
     expect(container.querySelector('.ant-menu-sub')).toBeFalsy();
@@ -237,12 +237,12 @@ describe('Menu', () => {
 
   it('should accept openKeys in mode horizontal', () => {
     const { container } = render(
-      <Menu openKeys={['1']} mode="horizontal">
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="submenu1">Option 1</Menu.Item>
-          <Menu.Item key="submenu2">Option 2</Menu.Item>
+      <Menu openKeys={['1']} mode='horizontal'>
+        <SubMenu key='1' title='submenu1'>
+          <Menu.Item key='submenu1'>Option 1</Menu.Item>
+          <Menu.Item key='submenu2'>Option 2</Menu.Item>
         </SubMenu>
-        <Menu.Item key="2">menu2</Menu.Item>
+        <Menu.Item key='2'>menu2</Menu.Item>
       </Menu>,
     );
     triggerAllTimer();
@@ -253,12 +253,12 @@ describe('Menu', () => {
 
   it('should accept openKeys in mode inline', () => {
     const { container } = render(
-      <Menu openKeys={['1']} mode="inline">
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="submenu1">Option 1</Menu.Item>
-          <Menu.Item key="submenu2">Option 2</Menu.Item>
+      <Menu openKeys={['1']} mode='inline'>
+        <SubMenu key='1' title='submenu1'>
+          <Menu.Item key='submenu1'>Option 1</Menu.Item>
+          <Menu.Item key='submenu2'>Option 2</Menu.Item>
         </SubMenu>
-        <Menu.Item key="2">menu2</Menu.Item>
+        <Menu.Item key='2'>menu2</Menu.Item>
       </Menu>,
     );
     expect(container.querySelector('ul.ant-menu-sub')).not.toHaveClass('ant-menu-hidden');
@@ -266,12 +266,12 @@ describe('Menu', () => {
 
   it('should accept openKeys in mode vertical', () => {
     const { container } = render(
-      <Menu openKeys={['1']} mode="vertical">
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="submenu1">Option 1</Menu.Item>
-          <Menu.Item key="submenu2">Option 2</Menu.Item>
+      <Menu openKeys={['1']} mode='vertical'>
+        <SubMenu key='1' title='submenu1'>
+          <Menu.Item key='submenu1'>Option 1</Menu.Item>
+          <Menu.Item key='submenu2'>Option 2</Menu.Item>
         </SubMenu>
-        <Menu.Item key="2">menu2</Menu.Item>
+        <Menu.Item key='2'>menu2</Menu.Item>
       </Menu>,
     );
     triggerAllTimer();
@@ -285,11 +285,11 @@ describe('Menu', () => {
 
     const Demo: React.FC<MenuProps> = (props) => (
       <Menu {...defaultTestProps} {...props}>
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="submenu1">Option 1</Menu.Item>
-          <Menu.Item key="submenu2">Option 2</Menu.Item>
+        <SubMenu key='1' title='submenu1'>
+          <Menu.Item key='submenu1'>Option 1</Menu.Item>
+          <Menu.Item key='submenu2'>Option 2</Menu.Item>
         </SubMenu>
-        <Menu.Item key="2">menu2</Menu.Item>
+        <Menu.Item key='2'>menu2</Menu.Item>
       </Menu>
     );
 
@@ -309,11 +309,11 @@ describe('Menu', () => {
     const defaultTestProps: MenuProps = { mode: 'inline' };
     const Demo: React.FC<MenuProps> = (props) => (
       <Menu {...defaultTestProps} {...props}>
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="submenu1">Option 1</Menu.Item>
-          <Menu.Item key="submenu2">Option 2</Menu.Item>
+        <SubMenu key='1' title='submenu1'>
+          <Menu.Item key='submenu1'>Option 1</Menu.Item>
+          <Menu.Item key='submenu2'>Option 2</Menu.Item>
         </SubMenu>
-        <Menu.Item key="2">menu2</Menu.Item>
+        <Menu.Item key='2'>menu2</Menu.Item>
       </Menu>
     );
     const instance = render(<Demo />);
@@ -329,11 +329,11 @@ describe('Menu', () => {
     const defaultTestProps: MenuProps = { mode: 'vertical' };
     const Demo: React.FC<MenuProps> = (props) => (
       <Menu {...defaultTestProps} {...props}>
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="submenu1">Option 1</Menu.Item>
-          <Menu.Item key="submenu2">Option 2</Menu.Item>
+        <SubMenu key='1' title='submenu1'>
+          <Menu.Item key='submenu1'>Option 1</Menu.Item>
+          <Menu.Item key='submenu2'>Option 2</Menu.Item>
         </SubMenu>
-        <Menu.Item key="2">menu2</Menu.Item>
+        <Menu.Item key='2'>menu2</Menu.Item>
       </Menu>
     );
 
@@ -351,12 +351,12 @@ describe('Menu', () => {
     menuModesWithPopupSubMenu.forEach((menuMode) => {
       it(`when menu is mode ${menuMode}`, () => {
         const { container } = render(
-          <Menu mode={menuMode} openKeys={['1']} theme="dark">
-            <SubMenu key="1" title="submenu1" theme="light">
-              <Menu.Item key="submenu1">Option 1</Menu.Item>
-              <Menu.Item key="submenu2">Option 2</Menu.Item>
+          <Menu mode={menuMode} openKeys={['1']} theme='dark'>
+            <SubMenu key='1' title='submenu1' theme='light'>
+              <Menu.Item key='submenu1'>Option 1</Menu.Item>
+              <Menu.Item key='submenu2'>Option 2</Menu.Item>
             </SubMenu>
-            <Menu.Item key="2">menu2</Menu.Item>
+            <Menu.Item key='2'>menu2</Menu.Item>
           </Menu>,
         );
 
@@ -375,10 +375,10 @@ describe('Menu', () => {
   // TypeError: Cannot read property 'indexOf' of undefined
   it('pr #4677 and issue #4692', () => {
     render(
-      <Menu mode="horizontal">
-        <SubMenu title="submenu">
-          <Menu.Item key="1">menu1</Menu.Item>
-          <Menu.Item key="2">menu2</Menu.Item>
+      <Menu mode='horizontal'>
+        <SubMenu title='submenu'>
+          <Menu.Item key='1'>menu1</Menu.Item>
+          <Menu.Item key='2'>menu2</Menu.Item>
         </SubMenu>
       </Menu>,
     );
@@ -391,34 +391,34 @@ describe('Menu', () => {
 
   it('should always follow openKeys when mode is switched', () => {
     const Demo: React.FC<MenuProps> = (props) => (
-      <Menu openKeys={['1']} mode="inline" {...props}>
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="submenu1">Option 1</Menu.Item>
-          <Menu.Item key="submenu2">Option 2</Menu.Item>
+      <Menu openKeys={['1']} mode='inline' {...props}>
+        <SubMenu key='1' title='submenu1'>
+          <Menu.Item key='submenu1'>Option 1</Menu.Item>
+          <Menu.Item key='submenu2'>Option 2</Menu.Item>
         </SubMenu>
-        <Menu.Item key="2">menu2</Menu.Item>
+        <Menu.Item key='2'>menu2</Menu.Item>
       </Menu>
     );
 
     const { container, rerender } = render(<Demo />);
     expect(container.querySelector('ul.ant-menu-sub')).not.toHaveClass('ant-menu-hidden');
 
-    rerender(<Demo mode="vertical" />);
+    rerender(<Demo mode='vertical' />);
     expect(container.querySelector('ul.ant-menu-sub')).not.toHaveClass('ant-menu-hidden');
 
-    rerender(<Demo mode="inline" />);
+    rerender(<Demo mode='inline' />);
     expect(container.querySelector('ul.ant-menu-sub')).not.toHaveClass('ant-menu-hidden');
   });
 
   it('should always follow openKeys when inlineCollapsed is switched', () => {
     const Demo: React.FC<MenuProps> = (props) => (
-      <Menu defaultOpenKeys={['1']} mode="inline" {...props}>
-        <Menu.Item key="menu1" icon={<InboxOutlined />}>
+      <Menu defaultOpenKeys={['1']} mode='inline' {...props}>
+        <Menu.Item key='menu1' icon={<InboxOutlined />}>
           Option
         </Menu.Item>
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="submenu1">Option</Menu.Item>
-          <Menu.Item key="submenu2">Option</Menu.Item>
+        <SubMenu key='1' title='submenu1'>
+          <Menu.Item key='submenu1'>Option</Menu.Item>
+          <Menu.Item key='submenu2'>Option</Menu.Item>
         </SubMenu>
       </Menu>
     );
@@ -452,13 +452,13 @@ describe('Menu', () => {
 
   it('inlineCollapsed should works well when specify a not existed default openKeys', () => {
     const Demo: React.FC<MenuProps> = (props) => (
-      <Menu defaultOpenKeys={['not-existed']} mode="inline" {...props}>
-        <Menu.Item key="menu1" icon={<InboxOutlined />}>
+      <Menu defaultOpenKeys={['not-existed']} mode='inline' {...props}>
+        <Menu.Item key='menu1' icon={<InboxOutlined />}>
           Option
         </Menu.Item>
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="submenu1">Option</Menu.Item>
-          <Menu.Item key="submenu2">Option</Menu.Item>
+        <SubMenu key='1' title='submenu1'>
+          <Menu.Item key='submenu1'>Option</Menu.Item>
+          <Menu.Item key='submenu2'>Option</Menu.Item>
         </SubMenu>
       </Menu>
     );
@@ -490,24 +490,24 @@ describe('Menu', () => {
     const { container } = render(
       <Menu
         defaultOpenKeys={['not-existed']}
-        mode="inline"
+        mode='inline'
         inlineCollapsed
         getPopupContainer={(node) => node.parentNode as HTMLElement}
       >
-        <Menu.Item key="menu1">item</Menu.Item>
-        <Menu.Item key="menu2" title="title">
+        <Menu.Item key='menu1'>item</Menu.Item>
+        <Menu.Item key='menu2' title='title'>
           item
         </Menu.Item>
-        <Menu.Item key="menu3" title={undefined}>
+        <Menu.Item key='menu3' title={undefined}>
           item
         </Menu.Item>
-        <Menu.Item key="menu4" title={null}>
+        <Menu.Item key='menu4' title={null}>
           item
         </Menu.Item>
-        <Menu.Item key="menu5" title="">
+        <Menu.Item key='menu5' title=''>
           item
         </Menu.Item>
-        <Menu.Item key="menu6" title={false}>
+        <Menu.Item key='menu6' title={false}>
           item
         </Menu.Item>
       </Menu>,
@@ -541,11 +541,11 @@ describe('Menu', () => {
       const defaultTestProps: MenuProps = { mode: 'inline' };
       const Demo: React.FC<MenuProps> = (props) => (
         <Menu {...defaultTestProps} {...props}>
-          <SubMenu key="1" title="submenu1">
-            <Menu.Item key="submenu1">Option 1</Menu.Item>
-            <Menu.Item key="submenu2">Option 2</Menu.Item>
+          <SubMenu key='1' title='submenu1'>
+            <Menu.Item key='submenu1'>Option 1</Menu.Item>
+            <Menu.Item key='submenu2'>Option 2</Menu.Item>
           </SubMenu>
-          <Menu.Item key="2">menu2</Menu.Item>
+          <Menu.Item key='2'>menu2</Menu.Item>
         </Menu>
       );
 
@@ -569,12 +569,12 @@ describe('Menu', () => {
       const onEnterEnd = jest.spyOn(cloneMotion, 'onEnterEnd');
 
       const { container } = render(
-        <Menu mode="inline" motion={cloneMotion} onOpenChange={onOpenChange}>
-          <SubMenu key="1" title="submenu1">
-            <Menu.Item key="submenu1">Option 1</Menu.Item>
-            <Menu.Item key="submenu2">Option 2</Menu.Item>
+        <Menu mode='inline' motion={cloneMotion} onOpenChange={onOpenChange}>
+          <SubMenu key='1' title='submenu1'>
+            <Menu.Item key='submenu1'>Option 1</Menu.Item>
+            <Menu.Item key='submenu2'>Option 2</Menu.Item>
           </SubMenu>
-          <Menu.Item key="2">menu2</Menu.Item>
+          <Menu.Item key='2'>menu2</Menu.Item>
         </Menu>,
       );
 
@@ -590,11 +590,11 @@ describe('Menu', () => {
       const defaultTestProps: MenuProps = { mode: 'vertical' };
       const Demo: React.FC = () => (
         <Menu {...defaultTestProps}>
-          <SubMenu key="1" title="submenu1">
-            <Menu.Item key="submenu1">Option 1</Menu.Item>
-            <Menu.Item key="submenu2">Option 2</Menu.Item>
+          <SubMenu key='1' title='submenu1'>
+            <Menu.Item key='submenu1'>Option 1</Menu.Item>
+            <Menu.Item key='submenu2'>Option 2</Menu.Item>
           </SubMenu>
-          <Menu.Item key="2">menu2</Menu.Item>
+          <Menu.Item key='2'>menu2</Menu.Item>
         </Menu>
       );
 
@@ -612,11 +612,11 @@ describe('Menu', () => {
       const defaultTestProps: MenuProps = { mode: 'vertical', triggerSubMenuAction: 'click' };
       const Demo: React.FC = () => (
         <Menu {...defaultTestProps}>
-          <SubMenu key="1" title="submenu1">
-            <Menu.Item key="submenu1">Option 1</Menu.Item>
-            <Menu.Item key="submenu2">Option 2</Menu.Item>
+          <SubMenu key='1' title='submenu1'>
+            <Menu.Item key='submenu1'>Option 1</Menu.Item>
+            <Menu.Item key='submenu2'>Option 2</Menu.Item>
           </SubMenu>
-          <Menu.Item key="2">menu2</Menu.Item>
+          <Menu.Item key='2'>menu2</Menu.Item>
         </Menu>
       );
 
@@ -634,11 +634,11 @@ describe('Menu', () => {
       const defaultTestProps: MenuProps = { mode: 'horizontal' };
       const Demo: React.FC = () => (
         <Menu {...defaultTestProps}>
-          <SubMenu key="1" title="submenu1">
-            <Menu.Item key="submenu1">Option 1</Menu.Item>
-            <Menu.Item key="submenu2">Option 2</Menu.Item>
+          <SubMenu key='1' title='submenu1'>
+            <Menu.Item key='submenu1'>Option 1</Menu.Item>
+            <Menu.Item key='submenu2'>Option 2</Menu.Item>
           </SubMenu>
-          <Menu.Item key="2">menu2</Menu.Item>
+          <Menu.Item key='2'>menu2</Menu.Item>
         </Menu>
       );
 
@@ -656,11 +656,11 @@ describe('Menu', () => {
       const defaultTestProps: MenuProps = { mode: 'horizontal', triggerSubMenuAction: 'click' };
       const Demo: React.FC = () => (
         <Menu {...defaultTestProps}>
-          <SubMenu key="1" title="submenu1">
-            <Menu.Item key="submenu1">Option 1</Menu.Item>
-            <Menu.Item key="submenu2">Option 2</Menu.Item>
+          <SubMenu key='1' title='submenu1'>
+            <Menu.Item key='submenu1'>Option 1</Menu.Item>
+            <Menu.Item key='submenu2'>Option 2</Menu.Item>
           </SubMenu>
-          <Menu.Item key="2">menu2</Menu.Item>
+          <Menu.Item key='2'>menu2</Menu.Item>
         </Menu>
       );
 
@@ -677,13 +677,13 @@ describe('Menu', () => {
 
   it('inline title', () => {
     const { container } = render(
-      <Menu mode="inline" inlineCollapsed>
-        <Menu.Item key="1" title="bamboo lucky" icon={<PieChartOutlined />}>
+      <Menu mode='inline' inlineCollapsed>
+        <Menu.Item key='1' title='bamboo lucky' icon={<PieChartOutlined />}>
           Option 1
           <img
             style={{ width: 20 }}
-            alt="test"
-            src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+            alt='test'
+            src='https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg'
           />
         </Menu.Item>
       </Menu>,
@@ -703,12 +703,12 @@ describe('Menu', () => {
             collapsed={collapsed}
             onCollapse={() => setCollapsed(!collapsed)}
           >
-            <div className="logo" />
-            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-              <SubMenu key="sub1" icon={<UserOutlined />} title="User">
-                <Menu.Item key="3">Tom</Menu.Item>
-                <Menu.Item key="4">Bill</Menu.Item>
-                <Menu.Item key="5">Alex</Menu.Item>
+            <div className='demo-logo' />
+            <Menu theme='dark' defaultSelectedKeys={['1']} mode='inline'>
+              <SubMenu key='sub1' icon={<UserOutlined />} title='User'>
+                <Menu.Item key='3'>Tom</Menu.Item>
+                <Menu.Item key='4'>Bill</Menu.Item>
+                <Menu.Item key='5'>Alex</Menu.Item>
               </SubMenu>
             </Menu>
           </Layout.Sider>
@@ -734,8 +734,8 @@ describe('Menu', () => {
     const onMouseEnter = jest.fn();
     const { container } = render(
       <Menu onMouseEnter={onMouseEnter} defaultSelectedKeys={['test1']}>
-        <Menu.Item key="test1">Navigation One</Menu.Item>
-        <Menu.Item key="test2">Navigation Two</Menu.Item>
+        <Menu.Item key='test1'>Navigation One</Menu.Item>
+        <Menu.Item key='test2'>Navigation Two</Menu.Item>
       </Menu>,
     );
     fireEvent.mouseEnter(container.querySelector('ul.ant-menu-root')!);
@@ -744,15 +744,15 @@ describe('Menu', () => {
 
   it('MenuItem should not render Tooltip when inlineCollapsed is false', () => {
     const { container } = render(
-      <Menu defaultSelectedKeys={['mail']} defaultOpenKeys={['mail']} mode="horizontal">
-        <Menu.Item key="mail" icon={<MailOutlined />}>
+      <Menu defaultSelectedKeys={['mail']} defaultOpenKeys={['mail']} mode='horizontal'>
+        <Menu.Item key='mail' icon={<MailOutlined />}>
           Navigation One
         </Menu.Item>
-        <Menu.Item key="app" icon={<AppstoreOutlined />}>
+        <Menu.Item key='app' icon={<AppstoreOutlined />}>
           Navigation Two
         </Menu.Item>
-        <Menu.Item key="alipay">
-          <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+        <Menu.Item key='alipay'>
+          <a href='https://ant.design' target='_blank' rel='noopener noreferrer'>
             Navigation Four - Link
           </a>
         </Menu.Item>
@@ -770,7 +770,7 @@ describe('Menu', () => {
   it('MenuItem should render icon and icon should be the first child when icon exists', () => {
     const { container } = render(
       <Menu>
-        <Menu.Item key="mail" icon={<MailOutlined />}>
+        <Menu.Item key='mail' icon={<MailOutlined />}>
           Navigation One
         </Menu.Item>
       </Menu>,
@@ -780,8 +780,8 @@ describe('Menu', () => {
 
   it('should controlled collapse work', () => {
     const { asFragment, rerender } = render(
-      <Menu mode="inline" inlineCollapsed={false}>
-        <Menu.Item key="1" icon={<PieChartOutlined />}>
+      <Menu mode='inline' inlineCollapsed={false}>
+        <Menu.Item key='1' icon={<PieChartOutlined />}>
           Option 1
         </Menu.Item>
       </Menu>,
@@ -790,8 +790,8 @@ describe('Menu', () => {
     expect(asFragment()).toMatchSnapshot();
 
     rerender(
-      <Menu mode="inline" inlineCollapsed>
-        <Menu.Item key="1" icon={<PieChartOutlined />}>
+      <Menu mode='inline' inlineCollapsed>
+        <Menu.Item key='1' icon={<PieChartOutlined />}>
           Option 1
         </Menu.Item>
       </Menu>,
@@ -803,8 +803,8 @@ describe('Menu', () => {
   it('not title if not collapsed', () => {
     jest.useFakeTimers();
     const { container } = render(
-      <Menu mode="inline" inlineCollapsed={false}>
-        <Menu.Item key="1" icon={<PieChartOutlined />}>
+      <Menu mode='inline' inlineCollapsed={false}>
+        <Menu.Item key='1' icon={<PieChartOutlined />}>
           Option 1
         </Menu.Item>
       </Menu>,
@@ -829,7 +829,7 @@ describe('Menu', () => {
         <Menu
           {...menuProps}
           defaultOpenKeys={['1']}
-          mode="inline"
+          mode='inline'
           items={[
             {
               key: '1',
@@ -862,17 +862,17 @@ describe('Menu', () => {
       const menuProps = useMemo<MenuProps>(() => ({ collapsedWidth: 0 }) as MenuProps, []);
       return (
         <Menu
-          mode="inline"
+          mode='inline'
           inlineCollapsed={false}
           defaultSelectedKeys={['1']}
           openKeys={['3']}
           {...menuProps}
           {...props}
         >
-          <Menu.Item key="1">Option 1</Menu.Item>
-          <Menu.Item key="2">Option 2</Menu.Item>
-          <Menu.SubMenu key="3" title="Option 3">
-            <Menu.Item key="4">Option 4</Menu.Item>
+          <Menu.Item key='1'>Option 1</Menu.Item>
+          <Menu.Item key='2'>Option 2</Menu.Item>
+          <Menu.SubMenu key='3' title='Option 3'>
+            <Menu.Item key='4'>Option 4</Menu.Item>
           </Menu.SubMenu>
         </Menu>
       );
@@ -898,14 +898,14 @@ describe('Menu', () => {
   it('Menu.Item with icon children auto wrap span', () => {
     const { asFragment } = render(
       <Menu>
-        <Menu.Item key="1" icon={<MailOutlined />}>
+        <Menu.Item key='1' icon={<MailOutlined />}>
           Navigation One
         </Menu.Item>
-        <Menu.Item key="2" icon={<MailOutlined />}>
+        <Menu.Item key='2' icon={<MailOutlined />}>
           <span>Navigation One</span>
         </Menu.Item>
-        <Menu.SubMenu key="3" icon={<MailOutlined />} title="Navigation One" />
-        <Menu.SubMenu key="4" icon={<MailOutlined />} title={<span>Navigation One</span>} />
+        <Menu.SubMenu key='3' icon={<MailOutlined />} title='Navigation One' />
+        <Menu.SubMenu key='4' icon={<MailOutlined />} title={<span>Navigation One</span>} />
       </Menu>,
     );
     expect(asFragment()).toMatchSnapshot();
@@ -919,17 +919,17 @@ describe('Menu', () => {
       return (
         <>
           <button
-            type="button"
+            type='button'
             onClick={() => {
               setInlineCollapsed(!inlineCollapsed);
             }}
           >
             collapse menu
           </button>
-          <Menu mode="inline" onOpenChange={onOpenChange} inlineCollapsed={inlineCollapsed}>
-            <Menu.SubMenu key="1" title="menu">
-              <Menu.Item key="1-1">menu</Menu.Item>
-              <Menu.Item key="1-2">menu</Menu.Item>
+          <Menu mode='inline' onOpenChange={onOpenChange} inlineCollapsed={inlineCollapsed}>
+            <Menu.SubMenu key='1' title='menu'>
+              <Menu.Item key='1-1'>menu</Menu.Item>
+              <Menu.Item key='1-2'>menu</Menu.Item>
             </Menu.SubMenu>
           </Menu>
         </>
@@ -942,8 +942,8 @@ describe('Menu', () => {
 
   it('Use first char as Icon when collapsed', () => {
     const { container } = render(
-      <Menu mode="inline" inlineCollapsed>
-        <Menu.SubMenu title="Light" />
+      <Menu mode='inline' inlineCollapsed>
+        <Menu.SubMenu title='Light' />
         <Menu.Item>Bamboo</Menu.Item>
       </Menu>,
     );
@@ -957,17 +957,17 @@ describe('Menu', () => {
 
   it('divider should show', () => {
     const { container } = render(
-      <Menu mode="vertical">
-        <SubMenu key="sub1" title="Navigation One">
-          <Menu.Item key="1">Option 1</Menu.Item>
+      <Menu mode='vertical'>
+        <SubMenu key='sub1' title='Navigation One'>
+          <Menu.Item key='1'>Option 1</Menu.Item>
         </SubMenu>
         <Menu.Divider dashed />
-        <SubMenu key="sub2" title="Navigation Two">
-          <Menu.Item key="2">Option 2</Menu.Item>
+        <SubMenu key='sub2' title='Navigation Two'>
+          <Menu.Item key='2'>Option 2</Menu.Item>
         </SubMenu>
         <Menu.Divider />
-        <SubMenu key="sub4" title="Navigation Three">
-          <Menu.Item key="3">Option 3</Menu.Item>
+        <SubMenu key='sub4' title='Navigation Three'>
+          <Menu.Item key='3'>Option 3</Menu.Item>
         </SubMenu>
       </Menu>,
     );
@@ -980,7 +980,7 @@ describe('Menu', () => {
     const ref = React.createRef<MenuRef>();
     const { container } = render(
       <Menu ref={ref}>
-        <Menu.Item key="1">Option 1</Menu.Item>
+        <Menu.Item key='1'>Option 1</Menu.Item>
       </Menu>,
     );
     expect(ref.current?.menu?.list).toBe(container.querySelector('ul'));
@@ -990,9 +990,9 @@ describe('Menu', () => {
 
   it('expandIcon', () => {
     const { container } = render(
-      <Menu defaultOpenKeys={['1']} mode="inline" expandIcon={() => <span className="bamboo" />}>
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="submenu1">Option 1</Menu.Item>
+      <Menu defaultOpenKeys={['1']} mode='inline' expandIcon={() => <span className='bamboo' />}>
+        <SubMenu key='1' title='submenu1'>
+          <Menu.Item key='submenu1'>Option 1</Menu.Item>
         </SubMenu>
       </Menu>,
     );
@@ -1003,7 +1003,7 @@ describe('Menu', () => {
   it('all types must be available in the "items" syntax', () => {
     const { asFragment } = render(
       <Menu
-        mode="inline"
+        mode='inline'
         defaultOpenKeys={['submenu', 'group-submenu']}
         items={[
           {
@@ -1051,7 +1051,7 @@ describe('Menu', () => {
   it('expandIconClassName', () => {
     const { container } = render(
       <Menu
-        expandIcon={<span className="custom-expand-icon" />}
+        expandIcon={<span className='custom-expand-icon' />}
         inlineCollapsed
         items={[
           {
@@ -1075,7 +1075,7 @@ describe('Menu', () => {
   it('should not show icon when inlineCollapsed', () => {
     const { container } = render(
       <Menu
-        expandIcon={<span className="bamboo">I</span>}
+        expandIcon={<span className='bamboo'>I</span>}
         inlineCollapsed
         items={[
           {

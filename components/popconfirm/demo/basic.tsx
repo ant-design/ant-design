@@ -1,5 +1,5 @@
-import React from 'react';
 import { Button, message, Popconfirm } from 'antd';
+import React from 'react';
 
 const confirm = (e: React.MouseEvent<HTMLElement>) => {
   console.log(e);
@@ -13,14 +13,14 @@ const cancel = (e: React.MouseEvent<HTMLElement>) => {
 
 const App: React.FC = () => (
   <Popconfirm
-    title="Delete the task"
-    description="Are you sure to delete this task?"
+    title='Delete the task'
+    description='Are you sure to delete this task?'
     onConfirm={confirm}
     onCancel={cancel}
-    okText="Yes"
-    cancelText="No"
+    okText='Yes'
+    cancelText='No'
   >
-    <Button type="link">Delete</Button>
+    <Button type='link'>Delete</Button>
   </Popconfirm>
 );
 

@@ -1,11 +1,11 @@
-import React from 'react';
+import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
+import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { screen, render } from '../../../tests/utils';
+import { render, screen } from '../../../tests/utils';
 import Button from '../../button/index';
 import Card from '../index';
-import '@testing-library/jest-dom';
 
 describe('Card', () => {
   mountTest(Card);
@@ -30,7 +30,7 @@ describe('Card', () => {
 
   it('title should be vertically aligned', () => {
     const { container } = render(
-      <Card title="Card title" extra={<Button>Button</Button>} style={{ width: 300 }}>
+      <Card title='Card title' extra={<Button>Button</Button>} style={{ width: 300 }}>
         <p>Card content</p>
       </Card>,
     );
@@ -62,7 +62,7 @@ describe('Card', () => {
     const numberStub = 11;
     render(
       // @ts-ignore ignore for the wrong action value
-      <Card title="Card title" actions={numberStub}>
+      <Card title='Card title' actions={numberStub}>
         <p>Card content</p>
       </Card>,
     );
@@ -72,7 +72,7 @@ describe('Card', () => {
   it('with tab props', () => {
     const { container } = render(
       <Card
-        title="Card title"
+        title='Card title'
         tabList={[
           {
             key: 'key',
@@ -87,15 +87,80 @@ describe('Card', () => {
     expect(container.querySelectorAll('.ant-tabs-small').length === 0).toBeFalsy();
   });
 
+  it('tab size extend card size', () => {
+    const { container: largeContainer } = render(
+      <Card
+        title='Card title'
+        tabList={[
+          {
+            key: 'key',
+            tab: 'tab',
+          },
+        ]}
+      >
+        <p>Card content</p>
+      </Card>,
+    );
+    expect(largeContainer.querySelectorAll('.ant-tabs-large').length === 0).toBeFalsy();
+
+    const { container } = render(
+      <Card
+        title='Card title'
+        tabList={[
+          {
+            key: 'key',
+            tab: 'tab',
+          },
+        ]}
+        size='small'
+      >
+        <p>Card content</p>
+      </Card>,
+    );
+    expect(container.querySelectorAll('.ant-tabs-small').length === 0).toBeFalsy();
+  });
+
   it('get ref of card', () => {
     const cardRef = React.createRef<HTMLDivElement>();
 
     render(
-      <Card ref={cardRef} title="Card title">
+      <Card ref={cardRef} title='Card title'>
         <p>Card content</p>
       </Card>,
     );
 
     expect(cardRef.current).toHaveClass('ant-card');
+  });
+
+  it('correct pass tabList props', () => {
+    const { container } = render(
+      <Card
+        tabList={[
+          {
+            label: 'Basic',
+            key: 'basic',
+          },
+          {
+            tab: 'Deprecated',
+            key: 'deprecated',
+          },
+          {
+            tab: 'Disabled',
+            key: 'disabled',
+            disabled: true,
+          },
+          {
+            tab: 'NotClosable',
+            key: 'notClosable',
+            closable: false,
+          },
+        ]}
+        tabProps={{
+          type: 'editable-card',
+        }}
+      />,
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

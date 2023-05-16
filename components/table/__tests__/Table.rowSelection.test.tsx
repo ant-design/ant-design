@@ -952,7 +952,7 @@ describe('Table.rowSelection', () => {
       },
     ];
     const { container } = render(
-      <Table columns={columns} dataSource={newData} childrenColumnName="test" rowSelection={{}} />,
+      <Table columns={columns} dataSource={newData} childrenColumnName='test' rowSelection={{}} />,
     );
     const checkboxes = container.querySelectorAll('input');
     const objectContaining: { checked?: boolean; indeterminate?: boolean } = {};
@@ -986,7 +986,7 @@ describe('Table.rowSelection', () => {
       <Table
         columns={columns}
         dataSource={newData}
-        childrenColumnName="list"
+        childrenColumnName='list'
         rowSelection={{ onChange }}
         expandedRowKeys={[1]}
       />,
@@ -1017,7 +1017,7 @@ describe('Table.rowSelection', () => {
         dataSource={dataSource}
         rowSelection={{}}
         expandedRowRender={() => null}
-        rowKey="id"
+        rowKey='id'
       />,
     );
     const checkboxes = container.querySelectorAll('input');
@@ -1031,7 +1031,7 @@ describe('Table.rowSelection', () => {
         dataSource={dataSource}
         rowSelection={null as unknown as TableRowSelection<any>}
         expandedRowRender={() => null}
-        rowKey="id"
+        rowKey='id'
       />,
     );
 
@@ -1208,7 +1208,7 @@ describe('Table.rowSelection', () => {
         dataSource={[{ name: 'light', sub: [{ name: 'bamboo' }] }]}
         expandable={{ expandedRowKeys: ['light'], childrenColumnName: 'sub' }}
         rowSelection={{ onChange }}
-        rowKey="name"
+        rowKey='name'
       />,
     );
 
@@ -1216,6 +1216,19 @@ describe('Table.rowSelection', () => {
     fireEvent.click(checkboxes[checkboxes.length - 1]);
 
     expect(onChange.mock.calls[0][1]).toEqual([expect.objectContaining({ name: 'bamboo' })]);
+  });
+
+  it('support onCell', () => {
+    const onCell = jest.fn().mockReturnValue({ rowSpan: 4 });
+    const { container } = render(
+      createTable({
+        rowSelection: {
+          onCell,
+        },
+      }),
+    );
+    expect(onCell).toHaveBeenCalledTimes(8);
+    expect(container.querySelectorAll("td[rowspan='4']").length).toBe(4);
   });
 
   describe('supports children', () => {
@@ -1552,14 +1565,14 @@ describe('Table.rowSelection', () => {
         <Table
           dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
           rowSelection={{ onChange }}
-          rowKey="name"
+          rowKey='name'
         />,
       );
 
       fireEvent.click(container.querySelector('tbody input')!);
       expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }], { type: 'single' });
       rerender(
-        <Table dataSource={[{ name: 'bamboo' }]} rowSelection={{ onChange }} rowKey="name" />,
+        <Table dataSource={[{ name: 'bamboo' }]} rowSelection={{ onChange }} rowKey='name' />,
       );
       fireEvent.click(container.querySelector('tbody input')!);
       expect(onChange).toHaveBeenCalledWith(['bamboo'], [{ name: 'bamboo' }], { type: 'single' });
@@ -1571,7 +1584,7 @@ describe('Table.rowSelection', () => {
         <Table
           dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
           rowSelection={{ onChange, preserveSelectedRowKeys: true }}
-          rowKey="name"
+          rowKey='name'
         />,
       );
 
@@ -1582,7 +1595,7 @@ describe('Table.rowSelection', () => {
         <Table
           dataSource={[{ name: 'bamboo' }]}
           rowSelection={{ onChange, preserveSelectedRowKeys: true }}
-          rowKey="name"
+          rowKey='name'
         />,
       );
       fireEvent.click(container.querySelector('tbody input')!);
@@ -1600,7 +1613,7 @@ describe('Table.rowSelection', () => {
         <Table
           dataSource={dataSource}
           rowSelection={{ onChange, selectedRowKeys: [0] }}
-          rowKey="name"
+          rowKey='name'
         />,
       );
 
@@ -1608,7 +1621,7 @@ describe('Table.rowSelection', () => {
         <Table
           dataSource={dataSource}
           rowSelection={{ onChange, selectedRowKeys: undefined }}
-          rowKey="name"
+          rowKey='name'
         />,
       );
 
@@ -1623,14 +1636,14 @@ describe('Table.rowSelection', () => {
         <Table
           dataSource={dataSource}
           rowSelection={{ onChange, selectedRowKeys: [0], type: 'radio' }}
-          rowKey="name"
+          rowKey='name'
         />,
       );
       rerender(
         <Table
           dataSource={dataSource}
           rowSelection={{ onChange, selectedRowKeys: undefined, type: 'radio' }}
-          rowKey="name"
+          rowKey='name'
         />,
       );
 
@@ -1650,7 +1663,7 @@ describe('Table.rowSelection', () => {
         <Table
           dataSource={dataSource.slice(0, 2)}
           rowSelection={rowSelection}
-          rowKey="name"
+          rowKey='name'
           columns={[
             {
               title: 'Name',
@@ -1665,7 +1678,7 @@ describe('Table.rowSelection', () => {
         <Table
           dataSource={dataSource.slice(2, 4)}
           rowSelection={rowSelection}
-          rowKey="name"
+          rowKey='name'
           columns={[{ title: 'Name', dataIndex: 'name', key: 'name' }]}
         />,
       );

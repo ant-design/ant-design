@@ -407,7 +407,7 @@ describe('Cascader', () => {
         ],
       },
     ];
-    const { container } = render(<Cascader options={customOptions} placement="topRight" />);
+    const { container } = render(<Cascader options={customOptions} placement='topRight' />);
     toggleOpen(container);
 
     // Inject in tests/__mocks__/rc-trigger.js
@@ -416,7 +416,7 @@ describe('Cascader', () => {
 
   it('popup correctly with defaultValue RTL', () => {
     const { asFragment } = render(
-      <ConfigProvider direction="rtl">
+      <ConfigProvider direction='rtl'>
         <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} open />
       </ConfigProvider>,
     );
@@ -460,12 +460,12 @@ describe('Cascader', () => {
     ];
     const onChange = jest.fn();
     const { container } = render(
-      <ConfigProvider direction="rtl">
+      <ConfigProvider direction='rtl'>
         <Cascader
           options={options2}
           defaultValue={['zhejiang', 'hangzhou']}
           onChange={onChange}
-          popupPlacement="bottomRight"
+          popupPlacement='bottomRight'
           open
         />
       </ConfigProvider>,
@@ -525,7 +525,7 @@ describe('Cascader', () => {
   });
 
   it('rtl should work well with placement', () => {
-    const { container } = render(<Cascader options={options} direction="rtl" />);
+    const { container } = render(<Cascader options={options} direction='rtl' />);
     toggleOpen(container);
 
     // Inject in tests/__mocks__/rc-trigger.js
@@ -534,7 +534,7 @@ describe('Cascader', () => {
 
   describe('legacy props', () => {
     it('popupPlacement', () => {
-      render(<Cascader open popupPlacement="bottomLeft" />);
+      render(<Cascader open popupPlacement='bottomLeft' />);
       // Inject in tests/__mocks__/rc-trigger.js
       expect((global as any).triggerProps.popupPlacement).toEqual('bottomLeft');
     });
@@ -543,7 +543,7 @@ describe('Cascader', () => {
       resetWarned();
 
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const { container } = render(<Cascader dropdownClassName="legacy" open />);
+      const { container } = render(<Cascader dropdownClassName='legacy' open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Cascader] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
       );
@@ -680,5 +680,39 @@ describe('Cascader', () => {
       expect(selectedValue!.length).toBe(1);
       expect(selectedValue!.join(',')).toBe('zhejiang');
     });
+  });
+
+  it('should be correct expression with disableCheckbox', () => {
+    const { container } = render(
+      <Cascader
+        multiple
+        options={[
+          {
+            label: '台湾',
+            value: 'tw',
+            children: [
+              {
+                label: '福建',
+                value: 'fj',
+                disableCheckbox: true,
+              },
+              {
+                label: '兰州',
+                value: 'lz',
+              },
+              { label: '北京', value: 'bj' },
+            ],
+          },
+        ]}
+      />,
+    );
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    // disabled className
+    fireEvent.click(container.querySelector('.ant-cascader-menu-item')!);
+    expect(container.querySelectorAll('.ant-cascader-checkbox-disabled')).toHaveLength(1);
+    // Check all children except disableCheckbox When the parent checkbox is checked
+    expect(container.querySelectorAll('.ant-cascader-checkbox')).toHaveLength(4);
+    fireEvent.click(container.querySelector('.ant-cascader-checkbox')!);
+    expect(container.querySelectorAll('.ant-cascader-checkbox-checked')).toHaveLength(3);
   });
 });
