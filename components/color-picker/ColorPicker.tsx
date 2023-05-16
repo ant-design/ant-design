@@ -164,11 +164,17 @@ if (process.env.NODE_ENV !== 'production') {
   ColorPicker.displayName = 'ColorPicker';
 }
 
-const PurePanel = genPurePanel(ColorPicker, 'color-picker', null, (props: ColorPickerProps) => ({
-  ...props,
-  placement: 'bottom' as TriggerPlacement,
-  autoAdjustOverflow: false,
-}));
+const PurePanel = genPurePanel(
+  ColorPicker,
+  'color-picker',
+  /* istanbul ignore next */
+  (prefixCls) => prefixCls,
+  (props: ColorPickerProps) => ({
+    ...props,
+    placement: 'bottom' as TriggerPlacement,
+    autoAdjustOverflow: false,
+  }),
+);
 
 ColorPicker._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
