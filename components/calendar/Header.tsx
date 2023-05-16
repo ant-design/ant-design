@@ -5,7 +5,7 @@ import { useContext, useMemo } from 'react';
 import { FormItemInputContext } from '../form/context';
 import { Button, Group } from '../radio';
 import Select from '../select';
-import type { CalendarMode } from './generateCalendar';
+import type { CalendarMode, SelectInfo } from './generateCalendar';
 
 const YearSelectOffset = 10;
 const YearSelectTotal = 20;
@@ -18,7 +18,7 @@ interface SharedProps<DateType> {
   locale: Locale;
   fullscreen: boolean;
   divRef: React.RefObject<HTMLDivElement>;
-  onChange: (year: DateType) => void;
+  onChange: (year: DateType, selectInfo: SelectInfo) => void;
 }
 
 function YearSelect<DateType>(props: SharedProps<DateType>) {
@@ -68,7 +68,9 @@ function YearSelect<DateType>(props: SharedProps<DateType>) {
           }
         }
 
-        onChange(newDate);
+        onChange(newDate, {
+          triggerType: 'year',
+        });
       }}
       getPopupContainer={() => divRef!.current!}
     />
@@ -110,7 +112,9 @@ function MonthSelect<DateType>(props: SharedProps<DateType>) {
       value={month}
       options={options}
       onChange={(newMonth) => {
-        onChange(generateConfig.setMonth(value, newMonth));
+        onChange(generateConfig.setMonth(value, newMonth), {
+          triggerType: 'month',
+        });
       }}
       getPopupContainer={() => divRef!.current!}
     />
@@ -133,8 +137,8 @@ function ModeSwitch<DateType>(props: ModeSwitchProps<DateType>) {
       size={fullscreen ? undefined : 'small'}
       className={`${prefixCls}-mode-switch`}
     >
-      <Button value="month">{locale.month}</Button>
-      <Button value="year">{locale.year}</Button>
+      <Button value='month'>{locale.month}</Button>
+      <Button value='year'>{locale.year}</Button>
     </Group>
   );
 }
@@ -147,7 +151,7 @@ export interface CalendarHeaderProps<DateType> {
   locale: Locale;
   mode: CalendarMode;
   fullscreen: boolean;
-  onChange: (date: DateType) => void;
+  onChange: (date: DateType, selectInfo: SelectInfo) => void;
   onModeChange: (mode: CalendarMode) => void;
 }
 function CalendarHeader<DateType>(props: CalendarHeaderProps<DateType>) {

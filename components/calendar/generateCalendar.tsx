@@ -35,11 +35,15 @@ export type PickerProps<DateType> =
   | PickerPanelDateProps<DateType>
   | PickerPanelTimeProps<DateType>;
 
+export interface SelectInfo {
+  triggerType?: CalendarSelectable;
+}
 export type CalendarMode = 'year' | 'month';
+export type CalendarSelectable = 'date' | 'year' | 'month';
 export type HeaderRender<DateType> = (config: {
   value: DateType;
   type: CalendarMode;
-  onChange: (date: DateType) => void;
+  onChange: (date: DateType, selectInfo?: SelectInfo) => void;
   onTypeChange: (type: CalendarMode) => void;
 }) => React.ReactNode;
 
@@ -68,6 +72,7 @@ export interface CalendarProps<DateType> {
   fullscreen?: boolean;
   onChange?: (date: DateType) => void;
   onPanelChange?: (date: DateType, mode: CalendarMode) => void;
+  selectable?: CalendarSelectable[];
   onSelect?: (date: DateType) => void;
 }
 
@@ -109,6 +114,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       fullscreen = true,
       onChange,
       onPanelChange,
+      selectable,
       onSelect,
     } = props;
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
@@ -198,9 +204,14 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       triggerPanelChange(mergedValue, newMode);
     };
 
-    const onInternalSelect = (date: DateType) => {
+    const onInternalSelect = (date: DateType, selectInfo: SelectInfo = {}) => {
       triggerChange(date);
 
+      const { triggerType } = selectInfo;
+
+      if (triggerType && !(selectable || []).includes(triggerType)) {
+        return;
+      }
       onSelect?.(date);
     };
 
@@ -332,7 +343,11 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
           locale={contextLocale?.lang}
           generateConfig={generateConfig}
           cellRender={mergedCellRender}
-          onSelect={onInternalSelect}
+          onSelect={(date) =>
+            onInternalSelect(date, {
+              triggerType: panelMode === 'date' ? 'date' : 'month',
+            })
+          }
           mode={panelMode}
           picker={panelMode}
           disabledDate={mergedDisabledDate}
