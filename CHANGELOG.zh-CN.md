@@ -33,7 +33,7 @@ timeline: true
   - 🐞 修复 ConfigProvider `size` 对 Steps 无效的问题。[#42278](https://github.com/ant-design/ant-design/pull/42278) [@wanghui2021](https://github.com/wanghui2021)
   - 🐞 修复 ConfigProvider `size` 对 Descriptions 无效的问题。[#42244](https://github.com/ant-design/ant-design/pull/42244) [@wanghui2021](https://github.com/wanghui2021)
   - 🐞 修复当 ConfigProvider 中 `componentSize` 被设定时, Space.Compact 没有继承的问题。[#42199](https://github.com/ant-design/ant-design/pull/42199) [@Ec-tracker](https://github.com/Ec-tracker)
-- 🐞 优化 `Select`、`Tree-select`、`Cascader` 多选模式下的样式，去除标签的边框。[#41480](https://github.com/ant-design/ant-design/pull/41480)
+- 💄 优化 `Select`、`Tree-select`、`Cascader` 多选模式下的样式，去除标签的边框。[#41480](https://github.com/ant-design/ant-design/pull/41480)
 - 🐞 修复 Input 在 Space.Compact 下使用图标的样式错误。[#42167](https://github.com/ant-design/ant-design/pull/42167) [@pengyw97](https://github.com/pengyw97)
 - 🐞 修复当 `title` 和 `content` 属性均为空值时，Popover 组件展示空白气泡的问题。[#42217](https://github.com/ant-design/ant-design/pull/42217) [@hairgc](https://github.com/hairgc)
 - 🐞 修复 Circle Progress 未设置 `size` 的报错问题。[#41875](https://github.com/ant-design/ant-design/pull/41875) [@notzheng](https://github.com/notzheng)
