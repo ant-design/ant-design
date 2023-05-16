@@ -47,7 +47,7 @@ Used when the user needs to customize the color selection.
 | onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - |
 | disabled | Disable ColorPicker | boolean | - |
 | placement | Placement of popup | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` |
-| arrow | Configuration for popup arrow | boolean | `{ pointAtCenter: boolean }` | - |
+| arrow | Configuration for popup arrow | `boolean \| { pointAtCenter: boolean }` | `true` | - |
 
 ### Color
 
