@@ -16,9 +16,8 @@ export type CardSize = 'default' | 'small';
 export interface CardTabListType extends Omit<Tab, 'label'> {
   key: string;
   /** @deprecated Please use `label` instead */
-  tab: React.ReactNode;
+  tab?: React.ReactNode;
   label?: React.ReactNode;
-  disabled?: boolean;
 }
 
 export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
