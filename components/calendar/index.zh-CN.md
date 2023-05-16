@@ -40,6 +40,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 />
 ```
 
+### Calendar
+
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | dateCellRender | 自定义渲染日期单元格，返回内容会被追加到单元格，>= 5.4.0 请用 `cellRender` | function(date: Dayjs): ReactNode | - | < 5.4.0 |
@@ -49,7 +51,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 | defaultValue | 默认展示的日期 | [dayjs](https://day.js.org/) | - |  |
 | disabledDate | 不可选择的日期，参数为当前 `value`，注意使用时[不要直接修改](https://github.com/ant-design/ant-design/issues/30987) | (currentDate: Dayjs) => boolean | - |  |
 | fullscreen | 是否全屏显示 | boolean | true |  |
-| headerRender | 自定义头部内容 | function(object:{value: Dayjs, type: string, onChange: f(), onTypeChange: f()}) | - |  |
+| headerRender | 义头部内容，参考[配置项](#headerrender) | object | - |  |
 | locale | 国际化配置 | object | [(默认配置)](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
 | mode | 初始模式 | `month` \| `year` | `month` |  |
 | monthCellRender | 自定义渲染月单元格，返回内容会被追加到单元格，>= 5.4.0 请用 `cellRender` | function(date: Dayjs): ReactNode | - | < 5.4.0 |
@@ -62,6 +64,17 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 | onPanelChange | 日期面板变化回调 | function(date: Dayjs, mode: string) | - |  |
 | selectable | 使日历可以按 `date`、`month` 和 `year` 进行选择 | ('date' \| 'year' \| 'month')[] | - | 5.6.0 |
 | onSelect | 点击选择日期回调 | function(date: Dayjs） | - |  |
+
+### headerRender
+
+义头部内容的配置项
+
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| value | 当前日期 | [dayjs](https://day.js.org/) | - |
+| type | 初始模式 | `month` \| `year` | - |
+| onChange | 日期变化回调 | function(date: Dayjs, selectInfo?: { triggerType?: CalendarSelectable }) | - |
+| onTypeChange | 模式改变回调 | function(type: `month` \| `year`) | - |
 
 ## Design Token
 
