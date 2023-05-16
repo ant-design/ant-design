@@ -89,7 +89,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     postState: (openData) => !disabled && openData,
     onChange: onOpenChange,
   });
-  const [isClearColor, setIsClearColor] = useState(false);
+  const [colorCleared, setColorCleared] = useState(false);
 
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
@@ -101,8 +101,8 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const handleChange = (data: Color) => {
     const color: Color = generateColor(data);
-    if (isClearColor && color.toHsb().a > 0) {
-      setIsClearColor(false);
+    if (colorCleared && color.toHsb().a > 0) {
+      setColorCleared(false);
     }
     if (!value) {
       setColorValue(color);
@@ -111,7 +111,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   };
 
   const handleClear = (clear: boolean) => {
-    setIsClearColor(clear);
+    setColorCleared(clear);
   };
 
   const popoverProps: PopoverProps = {
@@ -128,7 +128,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     prefixCls,
     color: colorValue,
     allowClear,
-    clearColor: isClearColor,
+    colorCleared,
     disabled,
     presets,
     format,
@@ -136,10 +136,10 @@ const ColorPicker: CompoundedComponent = (props) => {
   };
 
   useEffect(() => {
-    if (isClearColor) {
+    if (colorCleared) {
       setPopupOpen(false);
     }
-  }, [isClearColor]);
+  }, [colorCleared]);
 
   return wrapSSR(
     <Popover
@@ -158,7 +158,6 @@ const ColorPicker: CompoundedComponent = (props) => {
           style={style}
           color={colorValue}
           prefixCls={prefixCls}
-          clearColor={isClearColor}
           disabled={disabled}
         />
       )}
