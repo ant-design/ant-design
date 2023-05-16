@@ -46,6 +46,7 @@ export interface ColorPickerProps
   onFormatChange?: (format: ColorFormat) => void;
   onChange?: (value: Color, hex: string) => void;
   getPopupContainer?: PopoverProps['getPopupContainer'];
+  autoAdjustOverflow?: PopoverProps['autoAdjustOverflow'];
 }
 
 type CompoundedComponent = React.FC<ColorPickerProps> & {
@@ -73,6 +74,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     onChange,
     onOpenChange,
     getPopupContainer,
+    autoAdjustOverflow = true,
   } = props;
 
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -119,6 +121,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     arrow,
     rootClassName,
     getPopupContainer,
+    autoAdjustOverflow,
   };
 
   const colorBaseProps: ColorPickerBaseProps = {
@@ -161,7 +164,16 @@ if (process.env.NODE_ENV !== 'production') {
   ColorPicker.displayName = 'ColorPicker';
 }
 
-const PurePanel = genPurePanel(ColorPicker, 'color-picker', (prefixCls) => prefixCls);
+const PurePanel = genPurePanel(
+  ColorPicker,
+  'color-picker',
+  (prefixCls) => prefixCls,
+  (props: ColorPickerProps) => ({
+    ...props,
+    placement: 'bottom' as TriggerPlacement,
+    autoAdjustOverflow: false,
+  }),
+);
 
 ColorPicker._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
