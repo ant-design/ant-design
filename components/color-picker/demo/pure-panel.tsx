@@ -8,5 +8,9 @@ export default () => {
   const { token } = theme.useToken();
   const [color, setColor] = useState<Color | string>(token.colorPrimary);
 
-  return <PureRenderColorPicker value={color} onChange={setColor} />;
+  return (
+    <div style={{ paddingLeft: 100 }}>
+      <PureRenderColorPicker value={color} onChange={setColor} />
+    </div>
+  );
 };
