@@ -169,7 +169,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
       class="ant-layout-sider-children"
     >
       <div
-        class="logo"
+        class="demo-logo-vertical"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
@@ -436,10 +436,10 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
 >
   <header
     class="ant-layout-header"
-    style="position: sticky; top: 0px; z-index: 1; width: 100%;"
+    style="position: sticky; top: 0px; z-index: 1; width: 100%; display: flex; align-items: center;"
   >
     <div
-      style="float: left; width: 120px; height: 31px; margin: 16px 24px 16px 0px; background: rgba(255, 255, 255, 0.2);"
+      class="demo-logo"
     />
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
@@ -575,7 +575,7 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
         </div>
         <div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
             style="opacity: 0;"
           >
             <ul
@@ -716,7 +716,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
       class="ant-layout-sider-children"
     >
       <div
-        style="height: 32px; margin: 16px; background: rgba(255, 255, 255, 0.2);"
+        class="demo-logo-vertical"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
@@ -1502,7 +1502,7 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
       class="ant-layout-sider-children"
     >
       <div
-        class="logo"
+        class="demo-logo-vertical"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed"
@@ -1861,7 +1861,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
       class="ant-layout-sider-children"
     >
       <div
-        style="height: 32px; margin: 16px; background: rgba(255, 255, 255, 0.2);"
+        class="demo-logo-vertical"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
@@ -2449,7 +2449,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
     </div>
   </aside>
   <section
-    class="ant-layout site-layout"
+    class="ant-layout"
   >
     <header
       class="ant-layout-header"
@@ -2508,9 +2508,10 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
 >
   <header
     class="ant-layout-header"
+    style="display: flex; align-items: center;"
   >
     <div
-      class="logo"
+      class="demo-logo"
     />
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
@@ -2994,7 +2995,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         </div>
         <div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
             style="opacity: 0;"
           >
             <ul
@@ -3333,10 +3334,11 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
   class="ant-layout"
 >
   <header
-    class="ant-layout-header header"
+    class="ant-layout-header"
+    style="display: flex; align-items: center;"
   >
     <div
-      class="logo"
+      class="demo-logo"
     />
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
@@ -3472,7 +3474,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
         </div>
         <div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
             style="opacity: 0;"
           >
             <ul
@@ -4496,10 +4498,11 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
   class="ant-layout"
 >
   <header
-    class="ant-layout-header header"
+    class="ant-layout-header"
+    style="display: flex; align-items: center;"
   >
     <div
-      class="logo"
+      class="demo-logo"
     />
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
@@ -4635,7 +4638,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
         </div>
         <div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
             style="opacity: 0;"
           >
             <ul

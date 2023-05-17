@@ -2,11 +2,11 @@ import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
+import { cloneElement } from '../_util/reactNode';
 import Button from '../button';
 import { ConfigContext } from '../config-provider';
-import SizeContext from '../config-provider/SizeContext';
+import useSize from '../config-provider/hooks/useSize';
 import { useCompactItemContext } from '../space/Compact';
-import { cloneElement } from '../_util/reactNode';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
 
@@ -42,14 +42,14 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   } = props;
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const contextSize = React.useContext(SizeContext);
+
   const composedRef = React.useRef<boolean>(false);
 
   const prefixCls = getPrefixCls('input-search', customizePrefixCls);
   const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
   const { compactSize } = useCompactItemContext(prefixCls, direction);
 
-  const size = compactSize || customizeSize || contextSize;
+  const size = useSize((ctx) => compactSize ?? customizeSize ?? ctx);
 
   const inputRef = React.useRef<InputRef>(null);
 

@@ -15,8 +15,8 @@ import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import useSize from '../config-provider/hooks/useSize';
 import { FormItemInputContext } from '../form/context';
 import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
@@ -102,7 +102,6 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     popupOverflow,
     select,
   } = React.useContext(ConfigContext);
-  const size = React.useContext(SizeContext);
 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
@@ -170,7 +169,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     hashId,
   );
 
-  const mergedSize = compactSize || customizeSize || size;
+  const mergedSize = useSize((ctx) => compactSize ?? customizeSize ?? ctx);
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
