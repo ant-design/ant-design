@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { type HastRoot, type UnifiedTransformer, unistUtilVisit } from 'dumi';
+import { unistUtilVisit, type HastRoot, type UnifiedTransformer } from 'dumi';
 
 /**
  * plugin for modify hast tree when docs compiling
@@ -60,6 +60,10 @@ function rehypeAntd(): UnifiedTransformer<HastRoot> {
         if (!node.properties) return;
         node.properties.className ??= [];
         (node.properties.className as string[]).push('component-api-table');
+      } else if (node.type === 'element' && (node.tagName === 'Link' || node.tagName === 'a')) {
+        const { tagName } = node;
+        node.properties.sourceType = tagName;
+        node.tagName = 'LocaleLink';
       }
     });
   };

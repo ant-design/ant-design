@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent, textEllipsis } from '../../style';
 
 export interface ComponentToken {}
 
@@ -13,6 +13,7 @@ interface SegmentedToken extends FullToken<'Segmented'> {
   labelColorHover: string;
   bgColor: string;
   bgColorHover: string;
+  bgColorActive: string;
   bgColorSelected: string;
 }
 
@@ -106,9 +107,14 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
         [`&:hover:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
           color: token.labelColorHover,
-
           '&::after': {
             backgroundColor: token.bgColorHover,
+          },
+        },
+        [`&:active:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
+          color: token.labelColorHover,
+          '&::after': {
+            backgroundColor: token.bgColorActive,
           },
         },
 
@@ -200,6 +206,7 @@ export default genComponentStyleHook('Segmented', (token) => {
     colorTextLabel,
     colorText,
     colorFillSecondary,
+    colorFill,
     colorBgLayout,
     colorBgElevated,
   } = token;
@@ -212,6 +219,7 @@ export default genComponentStyleHook('Segmented', (token) => {
     labelColorHover: colorText,
     bgColor: colorBgLayout,
     bgColorHover: colorFillSecondary,
+    bgColorActive: colorFill,
     bgColorSelected: colorBgElevated,
   });
   return [genSegmentedStyle(segmentedToken)];
