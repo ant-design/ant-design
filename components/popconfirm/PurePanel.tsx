@@ -59,18 +59,16 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const [contextLocale] = useLocale('Popconfirm', defaultLocale.Popconfirm);
-  const renderTitle = getRenderPropValue(title);
-  const renderDescription = getRenderPropValue(description);
+  const theTitle = getRenderPropValue(title);
+  const theDescription = getRenderPropValue(description);
 
   return (
     <div className={`${prefixCls}-inner-content`} onClick={onPopupClick}>
       <div className={`${prefixCls}-message`}>
         {icon && <span className={`${prefixCls}-message-icon`}>{icon}</span>}
         <div className={`${prefixCls}-message-text`}>
-          {title && <div className={classNames(`${prefixCls}-title`)}>{renderTitle}</div>}
-          {renderDescription && (
-            <div className={`${prefixCls}-description`}>{renderDescription}</div>
-          )}
+          {theTitle && <div className={classNames(`${prefixCls}-title`)}>{theTitle}</div>}
+          {theDescription && <div className={`${prefixCls}-description`}>{theDescription}</div>}
         </div>
       </div>
       <div className={`${prefixCls}-buttons`}>
