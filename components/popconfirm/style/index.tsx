@@ -24,13 +24,9 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
   return {
     [componentCls]: {
       zIndex: zIndexPopup,
-
-      [`${componentCls}-inner-content`]: {
-        color: colorText,
-      },
+      color: colorText,
 
       [`${componentCls}-message`]: {
-        position: 'relative',
         marginBottom: marginXS,
         display: 'flex',
         flexWrap: 'nowrap',
@@ -39,13 +35,11 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
         [`> ${componentCls}-message-icon ${iconCls}`]: {
           color: colorWarning,
           fontSize,
-          flex: 'none',
           lineHeight: 1,
           marginInlineEnd: marginXS,
         },
 
         [`${componentCls}-title`]: {
-          flex: 'auto',
           fontWeight: fontWeightStrong,
 
           '&:only-child': {
@@ -54,9 +48,7 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
         },
 
         [`${componentCls}-description`]: {
-          position: 'relative',
           marginTop: marginXXS,
-          color: colorText,
         },
       },
 
