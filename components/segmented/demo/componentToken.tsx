@@ -6,7 +6,7 @@ export default () => (
     theme={{
       components: {
         Segmented: {
-          segmentedContainerPadding: 50,
+          padding: 50,
           labelColor: '#222',
           labelColorHover: '#333',
           bgColor: '#e6e6e6',
