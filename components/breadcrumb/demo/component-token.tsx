@@ -45,7 +45,7 @@ export default () => (
     }}
   >
     <Breadcrumb
-      separator=""
+      separator=">"
       items={[
         {
           title: 'Home',
@@ -60,6 +60,7 @@ export default () => (
         {
           title: 'Application Center',
           href: '',
+          separator: '-',
         },
         {
           href: '',
