@@ -36,10 +36,11 @@ export type PickerProps<DateType> =
   | PickerPanelTimeProps<DateType>;
 
 export type CalendarMode = 'year' | 'month';
+export type CalendarSelectable = 'date' | 'year' | 'month';
 export type HeaderRender<DateType> = (config: {
   value: DateType;
   type: CalendarMode;
-  onChange: (date: DateType) => void;
+  onChange: (date: DateType, selectType?: CalendarSelectable) => void;
   onTypeChange: (type: CalendarMode) => void;
 }) => React.ReactNode;
 
@@ -73,6 +74,8 @@ export interface CalendarProps<DateType> {
   onChange?: (date: DateType) => void;
   onPanelChange?: (date: DateType, mode: CalendarMode) => void;
   onSelect?: (date: DateType, selectInfo: SelectInfo) => void;
+  selectable?: CalendarSelectable[];
+  hideModeSwitch?: boolean;
 }
 
 function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
@@ -114,6 +117,8 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       onChange,
       onPanelChange,
       onSelect,
+      selectable,
+      hideModeSwitch = false,
     } = props;
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
@@ -328,8 +333,9 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
             fullscreen={fullscreen}
             locale={contextLocale?.lang}
             validRange={validRange}
-            onChange={onInternalSelect}
+            onChange={triggerChange}
             onModeChange={triggerModeChange}
+            hideModeSwitch={hideModeSwitch}
           />
         )}
         <RCPickerPanel
@@ -338,9 +344,9 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
           locale={contextLocale?.lang}
           generateConfig={generateConfig}
           cellRender={mergedCellRender}
-          onSelect={(nextDate) => {
-            onInternalSelect(nextDate, 'date');
-          }}
+          onSelect={(nextDate) =>
+            onInternalSelect(nextDate, panelMode === 'date' ? 'date' : 'month')
+          }
           mode={panelMode}
           picker={panelMode}
           disabledDate={mergedDisabledDate}

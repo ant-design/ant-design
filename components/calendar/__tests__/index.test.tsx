@@ -86,6 +86,266 @@ describe('Calendar', () => {
     MockDate.reset();
   });
 
+  it('only month change should trigger onSelect callback', () => {
+    const onSelect = jest.fn();
+    const { container } = render(
+      <Calendar onSelect={onSelect} defaultValue={Dayjs('2018-02-02')} selectable={['month']} />,
+    );
+
+    fireEvent.click(container.querySelector('[title="2018-02-05"]')!);
+    fireEvent.click(container.querySelector('[title="2018-02-07"]')!);
+    expect(onSelect.mock.calls.length).toBe(0);
+
+    onSelect.mockReset();
+
+    openSelect(container, '.ant-picker-calendar-year-select');
+    fireEvent.click(Array.from(container.querySelectorAll('.ant-select-item-option')).at(2)!);
+    fireEvent.click(Array.from(container.querySelectorAll('.ant-select-item-option')).at(4)!);
+    expect(onSelect.mock.calls.length).toBe(0);
+
+    onSelect.mockReset();
+
+    const wrapper = render(
+      <Calendar
+        onSelect={onSelect}
+        defaultValue={Dayjs('2018-02-02')}
+        mode="year"
+        selectable={['month']}
+      />,
+    );
+
+    fireEvent.click(wrapper.container.querySelector('[title="2018-01"]')!);
+    fireEvent.click(wrapper.container.querySelector('[title="2018-03"]')!);
+    expect(onSelect.mock.calls.length).toBe(2);
+
+    onSelect.mockReset();
+
+    wrapper.rerender(<Calendar onSelect={onSelect} mode="month" selectable={['month']} />);
+
+    openSelect(wrapper.container, '.ant-picker-calendar-month-select');
+    fireEvent.click(
+      Array.from(wrapper.container.querySelectorAll('.ant-select-item-option')).at(5)!,
+    );
+    expect(onSelect.mock.calls.length).toBe(1);
+  });
+
+  it('only year change should trigger onSelect callback', () => {
+    const onSelect = jest.fn();
+    const { container } = render(
+      <Calendar onSelect={onSelect} defaultValue={Dayjs('2018-02-02')} selectable={['year']} />,
+    );
+
+    fireEvent.click(container.querySelector('[title="2018-02-05"]')!);
+    fireEvent.click(container.querySelector('[title="2018-02-07"]')!);
+    expect(onSelect.mock.calls.length).toBe(0);
+
+    onSelect.mockReset();
+
+    openSelect(container, '.ant-picker-calendar-year-select');
+    fireEvent.click(Array.from(container.querySelectorAll('.ant-select-item-option')).at(2)!);
+    fireEvent.click(Array.from(container.querySelectorAll('.ant-select-item-option')).at(4)!);
+    expect(onSelect.mock.calls.length).toBe(2);
+
+    onSelect.mockReset();
+
+    const wrapper = render(
+      <Calendar
+        onSelect={onSelect}
+        defaultValue={Dayjs('2018-02-02')}
+        mode="year"
+        selectable={['year']}
+      />,
+    );
+
+    fireEvent.click(wrapper.container.querySelector('[title="2018-01"]')!);
+    fireEvent.click(wrapper.container.querySelector('[title="2018-03"]')!);
+    expect(onSelect.mock.calls.length).toBe(0);
+  });
+
+  it('only date select should trigger onSelect callback', () => {
+    const onSelect = jest.fn();
+    const { container } = render(
+      <Calendar onSelect={onSelect} defaultValue={Dayjs('2018-02-02')} selectable={['date']} />,
+    );
+
+    fireEvent.click(container.querySelector('[title="2018-02-05"]')!);
+    fireEvent.click(container.querySelector('[title="2018-02-07"]')!);
+    expect(onSelect.mock.calls.length).toBe(2);
+
+    onSelect.mockReset();
+
+    openSelect(container, '.ant-picker-calendar-year-select');
+    fireEvent.click(Array.from(container.querySelectorAll('.ant-select-item-option')).at(2)!);
+    fireEvent.click(Array.from(container.querySelectorAll('.ant-select-item-option')).at(4)!);
+    expect(onSelect.mock.calls.length).toBe(0);
+
+    onSelect.mockReset();
+
+    const wrapper = render(
+      <Calendar
+        onSelect={onSelect}
+        defaultValue={Dayjs('2018-02-02')}
+        mode="year"
+        selectable={['date']}
+      />,
+    );
+
+    fireEvent.click(wrapper.container.querySelector('[title="2018-01"]')!);
+    fireEvent.click(wrapper.container.querySelector('[title="2018-03"]')!);
+    expect(onSelect.mock.calls.length).toBe(0);
+
+    onSelect.mockReset();
+
+    wrapper.rerender(<Calendar onSelect={onSelect} mode="month" selectable={['date']} />);
+
+    openSelect(wrapper.container, '.ant-picker-calendar-month-select');
+    fireEvent.click(
+      Array.from(wrapper.container.querySelectorAll('.ant-select-item-option')).at(5)!,
+    );
+    expect(onSelect.mock.calls.length).toBe(0);
+  });
+
+  it('only date select and month change should trigger onSelect callback', () => {
+    const onSelect = jest.fn();
+    const { container } = render(
+      <Calendar
+        onSelect={onSelect}
+        defaultValue={Dayjs('2018-02-02')}
+        selectable={['date', 'month']}
+      />,
+    );
+
+    fireEvent.click(container.querySelector('[title="2018-02-05"]')!);
+    fireEvent.click(container.querySelector('[title="2018-02-07"]')!);
+    expect(onSelect.mock.calls.length).toBe(2);
+
+    onSelect.mockReset();
+
+    openSelect(container, '.ant-picker-calendar-year-select');
+    fireEvent.click(Array.from(container.querySelectorAll('.ant-select-item-option')).at(2)!);
+    fireEvent.click(Array.from(container.querySelectorAll('.ant-select-item-option')).at(4)!);
+    expect(onSelect.mock.calls.length).toBe(0);
+
+    onSelect.mockReset();
+
+    const wrapper = render(
+      <Calendar
+        onSelect={onSelect}
+        defaultValue={Dayjs('2018-02-02')}
+        mode="year"
+        selectable={['date', 'month']}
+      />,
+    );
+
+    fireEvent.click(wrapper.container.querySelector('[title="2018-01"]')!);
+    fireEvent.click(wrapper.container.querySelector('[title="2018-03"]')!);
+    expect(onSelect.mock.calls.length).toBe(2);
+
+    onSelect.mockReset();
+
+    wrapper.rerender(<Calendar onSelect={onSelect} mode="month" selectable={['date', 'month']} />);
+
+    openSelect(wrapper.container, '.ant-picker-calendar-month-select');
+    fireEvent.click(
+      Array.from(wrapper.container.querySelectorAll('.ant-select-item-option')).at(5)!,
+    );
+    expect(onSelect.mock.calls.length).toBe(1);
+  });
+
+  it('only date select and year change should trigger onSelect callback', () => {
+    const onSelect = jest.fn();
+    const { container } = render(
+      <Calendar
+        onSelect={onSelect}
+        defaultValue={Dayjs('2018-02-02')}
+        selectable={['date', 'year']}
+      />,
+    );
+
+    fireEvent.click(container.querySelector('[title="2018-02-05"]')!);
+    fireEvent.click(container.querySelector('[title="2018-02-07"]')!);
+    expect(onSelect.mock.calls.length).toBe(2);
+
+    onSelect.mockReset();
+
+    openSelect(container, '.ant-picker-calendar-year-select');
+    fireEvent.click(Array.from(container.querySelectorAll('.ant-select-item-option')).at(2)!);
+    fireEvent.click(Array.from(container.querySelectorAll('.ant-select-item-option')).at(4)!);
+    expect(onSelect.mock.calls.length).toBe(2);
+
+    onSelect.mockReset();
+
+    const wrapper = render(
+      <Calendar
+        onSelect={onSelect}
+        defaultValue={Dayjs('2018-02-02')}
+        mode="year"
+        selectable={['date', 'year']}
+      />,
+    );
+
+    fireEvent.click(wrapper.container.querySelector('[title="2018-01"]')!);
+    fireEvent.click(wrapper.container.querySelector('[title="2018-03"]')!);
+    expect(onSelect.mock.calls.length).toBe(0);
+
+    onSelect.mockReset();
+
+    wrapper.rerender(<Calendar onSelect={onSelect} mode="month" selectable={['date', 'year']} />);
+
+    openSelect(wrapper.container, '.ant-picker-calendar-month-select');
+    fireEvent.click(
+      Array.from(wrapper.container.querySelectorAll('.ant-select-item-option')).at(5)!,
+    );
+    expect(onSelect.mock.calls.length).toBe(0);
+  });
+
+  it('only month chnage and year change should trigger onSelect callback', () => {
+    const onSelect = jest.fn();
+    const { container } = render(
+      <Calendar
+        onSelect={onSelect}
+        defaultValue={Dayjs('2018-02-02')}
+        selectable={['month', 'year']}
+      />,
+    );
+
+    fireEvent.click(container.querySelector('[title="2018-02-05"]')!);
+    fireEvent.click(container.querySelector('[title="2018-02-07"]')!);
+    expect(onSelect.mock.calls.length).toBe(0);
+
+    onSelect.mockReset();
+
+    openSelect(container, '.ant-picker-calendar-year-select');
+    fireEvent.click(Array.from(container.querySelectorAll('.ant-select-item-option')).at(2)!);
+    fireEvent.click(Array.from(container.querySelectorAll('.ant-select-item-option')).at(4)!);
+    expect(onSelect.mock.calls.length).toBe(2);
+
+    onSelect.mockReset();
+
+    const wrapper = render(
+      <Calendar
+        onSelect={onSelect}
+        defaultValue={Dayjs('2018-02-02')}
+        mode="year"
+        selectable={['month', 'year']}
+      />,
+    );
+
+    fireEvent.click(wrapper.container.querySelector('[title="2018-01"]')!);
+    fireEvent.click(wrapper.container.querySelector('[title="2018-03"]')!);
+    expect(onSelect.mock.calls.length).toBe(2);
+
+    onSelect.mockReset();
+
+    wrapper.rerender(<Calendar onSelect={onSelect} mode="month" selectable={['month', 'year']} />);
+
+    openSelect(wrapper.container, '.ant-picker-calendar-month-select');
+    fireEvent.click(
+      Array.from(wrapper.container.querySelectorAll('.ant-select-item-option')).at(5)!,
+    );
+    expect(onSelect.mock.calls.length).toBe(1);
+  });
+
   it('only Valid range should be selectable', () => {
     const onSelect = jest.fn();
     const validRange: [Dayjs.Dayjs, Dayjs.Dayjs] = [Dayjs('2018-02-02'), Dayjs('2018-02-18')];

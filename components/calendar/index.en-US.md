@@ -56,6 +56,7 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 | onChange | Callback for when date changes | function(date: Dayjs) | - |  |
 | onPanelChange | Callback for when panel changes | function(date: Dayjs, mode: string) | - |  |
 | onSelect | Callback for when a date is selected, include source info | function(date: Dayjs, info: { source: 'year' \| 'month' \| 'date' \| 'customize' }) | - | `info`: 5.6.0 |
+| hideModeSwitch | Hide the mode switch in the header | boolean | false |  |
 
 ## Design Token
 

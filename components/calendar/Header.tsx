@@ -18,7 +18,7 @@ interface SharedProps<DateType> {
   locale: Locale;
   fullscreen: boolean;
   divRef: React.RefObject<HTMLDivElement>;
-  onChange: (year: DateType) => void;
+  onChange: (year: DateType, selectType: CalendarSelectable) => void;
 }
 
 function YearSelect<DateType>(props: SharedProps<DateType>) {
@@ -68,7 +68,7 @@ function YearSelect<DateType>(props: SharedProps<DateType>) {
           }
         }
 
-        onChange(newDate);
+        onChange(newDate, 'year');
       }}
       getPopupContainer={() => divRef!.current!}
     />
@@ -110,7 +110,7 @@ function MonthSelect<DateType>(props: SharedProps<DateType>) {
       value={month}
       options={options}
       onChange={(newMonth) => {
-        onChange(generateConfig.setMonth(value, newMonth));
+        onChange(generateConfig.setMonth(value, newMonth), 'month');
       }}
       getPopupContainer={() => divRef!.current!}
     />
@@ -149,9 +149,10 @@ export interface CalendarHeaderProps<DateType> {
   fullscreen: boolean;
   onChange: (date: DateType, source: SelectInfo['source']) => void;
   onModeChange: (mode: CalendarMode) => void;
+  hideModeSwitch?: boolean;
 }
 function CalendarHeader<DateType>(props: CalendarHeaderProps<DateType>) {
-  const { prefixCls, fullscreen, mode, onChange, onModeChange } = props;
+  const { prefixCls, fullscreen, mode, onChange, onModeChange, hideModeSwitch } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
 
   const formItemInputContext = useContext(FormItemInputContext);
@@ -187,7 +188,7 @@ function CalendarHeader<DateType>(props: CalendarHeaderProps<DateType>) {
           />
         )}
       </FormItemInputContext.Provider>
-      <ModeSwitch {...sharedProps} onModeChange={onModeChange} />
+      {!hideModeSwitch && <ModeSwitch {...sharedProps} onModeChange={onModeChange} />}
     </div>
   );
 }
