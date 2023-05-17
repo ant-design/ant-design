@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import {
   AppstoreOutlined,
   CalendarOutlined,
@@ -6,8 +5,9 @@ import {
   MailOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
-import { Menu, Switch, ConfigProvider } from 'antd';
+import { ConfigProvider, Menu, Switch } from 'antd';
 import type { MenuProps } from 'antd/es/menu';
+import React, { useState } from 'react';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -66,8 +66,8 @@ const App: React.FC = () => {
             Menu: {
               radiusItem: 0,
               radiusSubMenuItem: 0,
-              colorItemTextHover: '#1890ff',
-              colorItemTextSelected: '#1890ff',
+              colorItemTextHover: '#1677ff',
+              colorItemTextSelected: '#1677ff',
               colorItemBgSelected: '#e6f7ff',
               colorActiveBarWidth: 3,
               itemMarginInline: 0,

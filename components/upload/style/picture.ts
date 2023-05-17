@@ -1,7 +1,7 @@
 import { TinyColor } from '@ctrl/tinycolor';
 import type { UploadToken } from '.';
-import type { GenerateStyle } from '../../theme/internal';
 import { clearFix, textEllipsis } from '../../style';
+import type { GenerateStyle } from '../../theme/internal';
 
 const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
   const { componentCls, iconCls, uploadThumbnailSize, uploadProgressOffset } = token;
@@ -64,7 +64,7 @@ const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
             [`svg path[fill='#e6f7ff']`]: {
               fill: token.colorErrorBg,
             },
-            [`svg path[fill='#1890ff']`]: {
+            [`svg path[fill='#1677ff']`]: {
               fill: token.colorError,
             },
           },
