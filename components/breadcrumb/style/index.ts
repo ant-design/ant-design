@@ -4,7 +4,7 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
-  baseColor: string;
+  itemColor: string;
   iconFontSize: number;
   linkColor: string;
   linkColorHover: string;
@@ -21,7 +21,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
   return {
     [componentCls]: {
       ...resetComponent(token),
-      color: token.baseColor,
+      color: token.itemColor,
       fontSize: token.fontSize,
 
       [iconCls]: {
@@ -108,16 +108,19 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Breadcrumb', (token) => {
-  const BreadcrumbToken = mergeToken<BreadcrumbToken>(token, {
-    baseColor: token.colorTextDescription,
+export default genComponentStyleHook(
+  'Breadcrumb',
+  (token) => {
+    const BreadcrumbToken = mergeToken<BreadcrumbToken>(token, {});
+    return [genBreadcrumbStyle(BreadcrumbToken)];
+  },
+  (token) => ({
+    itemColor: token.colorTextDescription,
     lastItemColor: token.colorText,
     iconFontSize: token.fontSize,
     linkColor: token.colorTextDescription,
     linkColorHover: token.colorText,
     separatorColor: token.colorTextDescription,
     separatorMargin: token.marginXS,
-  });
-
-  return [genBreadcrumbStyle(BreadcrumbToken)];
-});
+  }),
+);

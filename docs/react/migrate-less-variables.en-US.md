@@ -24,8 +24,7 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@drawer-bg` | `popoverBg` | - |
-| `@breadcrumb-base-color` | `baseColor` | - |
+| `@breadcrumb-base-color` | `itemColor` | - |
 | `@breadcrumb-last-item-color` | `lastItemColor` | - |
 | `@breadcrumb-font-size` | `fontSize` | GlobalToken |
 | `@breadcrumb-icon-font-size` | `iconFontSize` | - |

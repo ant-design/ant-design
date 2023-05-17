@@ -24,8 +24,7 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@drawer-bg` | `popoverBg` | - |
-| `@breadcrumb-base-color` | `baseColor` | - |
+| `@breadcrumb-base-color` | `itemColor` | - |
 | `@breadcrumb-last-item-color` | `lastItemColor` | - |
 | `@breadcrumb-font-size` | `fontSize` | 全局 Token |
 | `@breadcrumb-icon-font-size` | `iconFontSize` | - |
