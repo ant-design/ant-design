@@ -23,11 +23,11 @@ describe('Space', () => {
           <span>1</span>
           <span>2</span>
         </Space>
-        <Space size='middle'>
+        <Space size="middle">
           <span>1</span>
           <span>2</span>
         </Space>
-        <Space size='large'>
+        <Space size="large">
           <span>1</span>
           <span>2</span>
         </Space>
@@ -39,16 +39,16 @@ describe('Space', () => {
 
   it('should render width rtl', () => {
     const { container } = render(
-      <ConfigProvider direction='rtl'>
+      <ConfigProvider direction="rtl">
         <Space>
           <span>1</span>
           <span>2</span>
         </Space>
-        <Space size='middle'>
+        <Space size="middle">
           <span>1</span>
           <span>2</span>
         </Space>
-        <Space size='large'>
+        <Space size="large">
           <span>1</span>
           <span>2</span>
         </Space>
@@ -89,7 +89,7 @@ describe('Space', () => {
 
   it('should render vertical space width customize size', () => {
     const { container } = render(
-      <Space size={10} direction='vertical'>
+      <Space size={10} direction="vertical">
         <span>1</span>
         <span>2</span>
       </Space>,
@@ -132,7 +132,7 @@ describe('Space', () => {
 
       return (
         <div
-          id='demo'
+          id="demo"
           onClick={() => {
             setState((value) => value + 1);
           }}
@@ -169,7 +169,7 @@ describe('Space', () => {
 
   it('split', () => {
     const { container } = render(
-      <Space split='-'>
+      <Space split="-">
         text1<span>text1</span>
         {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>text3</>
@@ -184,9 +184,9 @@ describe('Space', () => {
     const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <Space>
-        <div key='1' />
+        <div key="1" />
         <div />
-        <div key='3' />
+        <div key="3" />
         <div />
       </Space>,
     );

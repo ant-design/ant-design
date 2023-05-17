@@ -38,13 +38,13 @@ const App: React.FC = () => {
   return (
     <Layout>
       <Header style={{ display: 'flex', alignItems: 'center' }}>
-        <div className='demo-logo' />
-        <Menu theme='dark' mode='horizontal' defaultSelectedKeys={['2']} items={items1} />
+        <div className="demo-logo" />
+        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} items={items1} />
       </Header>
       <Layout>
         <Sider width={200} style={{ background: colorBgContainer }}>
           <Menu
-            mode='inline'
+            mode="inline"
             defaultSelectedKeys={['1']}
             defaultOpenKeys={['sub1']}
             style={{ height: '100%', borderRight: 0 }}

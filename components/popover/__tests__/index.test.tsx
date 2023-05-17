@@ -11,7 +11,7 @@ describe('Popover', () => {
     const ref = React.createRef<any>();
 
     const popover = render(
-      <Popover ref={ref} content="console.log('hello world')" title='code' trigger='click'>
+      <Popover ref={ref} content="console.log('hello world')" title="code" trigger="click">
         <span>show me your code</span>
       </Popover>,
     );
@@ -27,7 +27,7 @@ describe('Popover', () => {
     const ref = React.createRef<any>();
 
     const popover = render(
-      <Popover ref={ref} content={renderContent} title={renderTitle} trigger='click'>
+      <Popover ref={ref} content={renderContent} title={renderTitle} trigger="click">
         <span>show me your code </span>
       </Popover>,
     );
@@ -43,7 +43,7 @@ describe('Popover', () => {
 
   it('handles empty title/content props safely', () => {
     const { container } = render(
-      <Popover trigger='click'>
+      <Popover trigger="click">
         <span>show me your code</span>
       </Popover>,
     );
@@ -55,7 +55,7 @@ describe('Popover', () => {
 
   it('should not render popover when the title & content props is empty', () => {
     const { container } = render(
-      <Popover trigger='click'>
+      <Popover trigger="click">
         <span>show me your code</span>
       </Popover>,
     );
@@ -70,7 +70,7 @@ describe('Popover', () => {
 
     const overlay = jest.fn();
     render(
-      <Popover content="console.log('hello world')" title='code' trigger='click'>
+      <Popover content="console.log('hello world')" title="code" trigger="click">
         <span>show me your code</span>
       </Popover>,
     );
@@ -81,8 +81,8 @@ describe('Popover', () => {
 
   it(`should be rendered correctly in RTL direction`, () => {
     const wrapper = render(
-      <ConfigProvider direction='rtl'>
-        <Popover title='RTL' open>
+      <ConfigProvider direction="rtl">
+        <Popover title="RTL" open>
           <span>show me your Rtl demo</span>
         </Popover>
       </ConfigProvider>,

@@ -23,31 +23,31 @@ export default () => {
   );
 
   return (
-    <Space direction='vertical' size='middle' style={{ display: 'flex' }}>
-      <Row align='middle'>
+    <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
+      <Row align="middle">
         <Space>
           <Col>
-            <ColorPicker format='hex' value={colorHex} onChange={setColorHex} />
+            <ColorPicker format="hex" value={colorHex} onChange={setColorHex} />
           </Col>
           <Col>
             HEX: <span>{hexString}</span>
           </Col>
         </Space>
       </Row>
-      <Row align='middle'>
+      <Row align="middle">
         <Space>
           <Col>
-            <ColorPicker format='hsb' value={colorHsb} onChange={setColorHsb} />
+            <ColorPicker format="hsb" value={colorHsb} onChange={setColorHsb} />
           </Col>
           <Col>
             HSB: <span>{hsbString}</span>
           </Col>
         </Space>
       </Row>
-      <Row align='middle'>
+      <Row align="middle">
         <Space>
           <Col>
-            <ColorPicker format='rgb' value={colorRgb} onChange={setColorRgb} />
+            <ColorPicker format="rgb" value={colorRgb} onChange={setColorRgb} />
           </Col>
           <Col>
             RGB: <span>{rgbString}</span>

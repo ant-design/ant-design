@@ -12,8 +12,8 @@ const App: React.FC = () => {
   return (
     <Layout>
       <Sider
-        breakpoint='lg'
-        collapsedWidth='0'
+        breakpoint="lg"
+        collapsedWidth="0"
         onBreakpoint={(broken) => {
           console.log(broken);
         }}
@@ -21,10 +21,10 @@ const App: React.FC = () => {
           console.log(collapsed, type);
         }}
       >
-        <div className='demo-logo-vertical' />
+        <div className="demo-logo-vertical" />
         <Menu
-          theme='dark'
-          mode='inline'
+          theme="dark"
+          mode="inline"
           defaultSelectedKeys={['4']}
           items={[UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].map(
             (icon, index) => ({

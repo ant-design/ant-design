@@ -77,7 +77,7 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
       )}
       <div className={`${prefixCls}-buttons`}>
         {showCancel && (
-          <Button onClick={onCancel} size='small' {...cancelButtonProps}>
+          <Button onClick={onCancel} size="small" {...cancelButtonProps}>
             {cancelText ?? contextLocale?.cancelText}
           </Button>
         )}

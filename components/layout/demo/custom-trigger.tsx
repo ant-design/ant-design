@@ -19,10 +19,10 @@ const App: React.FC = () => {
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className='demo-logo-vertical' />
+        <div className="demo-logo-vertical" />
         <Menu
-          theme='dark'
-          mode='inline'
+          theme="dark"
+          mode="inline"
           defaultSelectedKeys={['1']}
           items={[
             {
@@ -46,7 +46,7 @@ const App: React.FC = () => {
       <Layout>
         <Header style={{ padding: 0, background: colorBgContainer }}>
           <Button
-            type='text'
+            type="text"
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
             onClick={() => setCollapsed(!collapsed)}
             style={{

@@ -174,7 +174,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     <div
       ref={ref}
       className={classString}
-      role='progressbar'
+      role="progressbar"
       {...omit(restProps, [
         'trailColor',
         'strokeWidth',

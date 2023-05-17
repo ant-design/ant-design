@@ -20,10 +20,10 @@ const App: React.FC = () => {
           alignItems: 'center',
         }}
       >
-        <div className='demo-logo' />
+        <div className="demo-logo" />
         <Menu
-          theme='dark'
-          mode='horizontal'
+          theme="dark"
+          mode="horizontal"
           defaultSelectedKeys={['2']}
           items={new Array(3).fill(null).map((_, index) => ({
             key: String(index + 1),
@@ -31,7 +31,7 @@ const App: React.FC = () => {
           }))}
         />
       </Header>
-      <Content className='site-layout' style={{ padding: '0 50px' }}>
+      <Content className="site-layout" style={{ padding: '0 50px' }}>
         <Breadcrumb style={{ margin: '16px 0' }}>
           <Breadcrumb.Item>Home</Breadcrumb.Item>
           <Breadcrumb.Item>List</Breadcrumb.Item>

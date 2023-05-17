@@ -92,7 +92,7 @@ describe('Form', () => {
       const { container } = render(
         <Form>
           <Form.Item>
-            <Form.Item name='test' label='test' initialValue='bamboo' rules={[{ required: true }]}>
+            <Form.Item name="test" label="test" initialValue="bamboo" rules={[{ required: true }]}>
               <Input onChange={onChange} />
             </Form.Item>
           </Form.Item>
@@ -130,7 +130,7 @@ describe('Form', () => {
 
         return (
           <Form form={form} initialValues={{ aaa: '2' }}>
-            <Form.Item name='aaa'>
+            <Form.Item name="aaa">
               <Input onChange={onChange} />
             </Form.Item>
             <Form.Item shouldUpdate noStyle>
@@ -139,7 +139,7 @@ describe('Form', () => {
 
                 if (aaa === '1') {
                   return (
-                    <Form.Item name='bbb' rules={[{ required: true, message: 'aaa' }]}>
+                    <Form.Item name="bbb" rules={[{ required: true, message: 'aaa' }]}>
                       <Input />
                     </Form.Item>
                   );
@@ -147,7 +147,7 @@ describe('Form', () => {
 
                 return (
                   <Form.Item>
-                    <Form.Item name='ccc' rules={[{ required: true, message: 'ccc' }]} noStyle>
+                    <Form.Item name="ccc" rules={[{ required: true, message: 'ccc' }]} noStyle>
                       <Input />
                     </Form.Item>
                   </Form.Item>
@@ -179,7 +179,7 @@ describe('Form', () => {
         const { help = false } = props || {};
         return (
           <Form>
-            <Form.Item name='list' label='List' rules={[{ required: true }]}>
+            <Form.Item name="list" label="List" rules={[{ required: true }]}>
               <Form.Item name={['list', 0]} noStyle help={help} rules={[{ required: true }]}>
                 <Input />
               </Form.Item>
@@ -188,7 +188,7 @@ describe('Form', () => {
               </Form.Item>
             </Form.Item>
             <Form.Item>
-              <button type='submit'>submit</button>
+              <button type="submit">submit</button>
             </Form.Item>
           </Form>
         );
@@ -203,7 +203,7 @@ describe('Form', () => {
       expect(container.querySelectorAll('.ant-form-item-explain-error')).toHaveLength(1);
 
       // When noStyle=true but help is not false, help will be displayed
-      rerender(<App help='help' />);
+      rerender(<App help="help" />);
       await waitFakeTimer();
       fireEvent.click(getByRole('button'));
       await waitFakeTimer();
@@ -238,7 +238,7 @@ describe('Form', () => {
   it('`name` should not work with render props', () => {
     render(
       <Form>
-        <Form.Item name='test' shouldUpdate>
+        <Form.Item name="test" shouldUpdate>
           {() => null}
         </Form.Item>
       </Form>,
@@ -251,7 +251,7 @@ describe('Form', () => {
   it('multiple children with a name prop', () => {
     render(
       <Form>
-        <Form.Item name='test'>
+        <Form.Item name="test">
           <div>one</div>
           <div>two</div>
         </Form.Item>
@@ -265,7 +265,7 @@ describe('Form', () => {
   it('input element should have the prop aria-describedby pointing to the help id when there is a help message', () => {
     const { container } = pureRender(
       <Form>
-        <Form.Item name='test' help='This is a help'>
+        <Form.Item name="test" help="This is a help">
           <input />
         </Form.Item>
       </Form>,
@@ -277,7 +277,7 @@ describe('Form', () => {
   it('input element should not have the prop aria-describedby pointing to the help id when there is a help message and name is not defined', () => {
     const { container } = render(
       <Form>
-        <Form.Item help='This is a help'>
+        <Form.Item help="This is a help">
           <input />
         </Form.Item>
       </Form>,
@@ -288,8 +288,8 @@ describe('Form', () => {
 
   it('input element should have the prop aria-describedby concatenated with the form name pointing to the help id when there is a help message', () => {
     const { container } = render(
-      <Form name='form'>
-        <Form.Item name='test' help='This is a help'>
+      <Form name="form">
+        <Form.Item name="test" help="This is a help">
           <input />
         </Form.Item>
       </Form>,
@@ -303,7 +303,7 @@ describe('Form', () => {
   it('input element should have the prop aria-describedby pointing to the help id when there are errors', async () => {
     const { container } = pureRender(
       <Form>
-        <Form.Item name='test' rules={[{ len: 3 }, { type: 'number' }]}>
+        <Form.Item name="test" rules={[{ len: 3 }, { type: 'number' }]}>
           <input />
         </Form.Item>
       </Form>,
@@ -318,7 +318,7 @@ describe('Form', () => {
   it('input element should have the prop aria-invalid when there are errors', async () => {
     const { container } = render(
       <Form>
-        <Form.Item name='test' rules={[{ len: 3 }, { type: 'number' }]}>
+        <Form.Item name="test" rules={[{ len: 3 }, { type: 'number' }]}>
           <input />
         </Form.Item>
       </Form>,
@@ -331,7 +331,7 @@ describe('Form', () => {
   it('input element should have the prop aria-required when the prop `required` is true', () => {
     const { container } = render(
       <Form>
-        <Form.Item name='test' required>
+        <Form.Item name="test" required>
           <input />
         </Form.Item>
       </Form>,
@@ -342,7 +342,7 @@ describe('Form', () => {
   it('input element should have the prop aria-required when there is a rule with required', () => {
     const { container } = render(
       <Form>
-        <Form.Item name='test' rules={[{ required: true }]}>
+        <Form.Item name="test" rules={[{ required: true }]}>
           <input />
         </Form.Item>
       </Form>,
@@ -353,7 +353,7 @@ describe('Form', () => {
   it('input element should have the prop aria-describedby pointing to the extra id when there is a extra message', () => {
     const { container } = render(
       <Form>
-        <Form.Item name='test' extra='This is a extra message'>
+        <Form.Item name="test" extra="This is a extra message">
           <input />
         </Form.Item>
       </Form>,
@@ -365,7 +365,7 @@ describe('Form', () => {
   it('input element should not have the prop aria-describedby pointing to the extra id when there is a extra message and name is not defined', () => {
     const { container } = render(
       <Form>
-        <Form.Item extra='This is a extra message'>
+        <Form.Item extra="This is a extra message">
           <input />
         </Form.Item>
       </Form>,
@@ -377,7 +377,7 @@ describe('Form', () => {
   it('input element should have the prop aria-describedby pointing to the help and extra id when there is a help and extra message', () => {
     const { container } = render(
       <Form>
-        <Form.Item name='test' help='This is a help' extra='This is a extra message'>
+        <Form.Item name="test" help="This is a help" extra="This is a extra message">
           <input />
         </Form.Item>
       </Form>,
@@ -397,8 +397,8 @@ describe('Form', () => {
           callGetForm = getForm;
 
           return (
-            <Form name='scroll' {...props}>
-              <Form.Item name='test'>
+            <Form name="scroll" {...props}>
+              <Form.Item name="test">
                 <Input />
               </Form.Item>
             </Form>
@@ -449,11 +449,11 @@ describe('Form', () => {
 
     const { container } = render(
       <Form scrollToFirstError={{ block: 'center' }} onFinishFailed={onFinishFailed}>
-        <Form.Item name='test' rules={[{ required: true }]}>
+        <Form.Item name="test" rules={[{ required: true }]}>
           <input />
         </Form.Item>
         <Form.Item>
-          <Button htmlType='submit'>Submit</Button>
+          <Button htmlType="submit">Submit</Button>
         </Form.Item>
       </Form>,
     );
@@ -474,7 +474,7 @@ describe('Form', () => {
     const { container } = render(
       <Form>
         {/* @ts-ignore */}
-        <Form.Item data-text='123' aria-hidden='true' cccc='bbbb'>
+        <Form.Item data-text="123" aria-hidden="true" cccc="bbbb">
           text
         </Form.Item>
       </Form>,
@@ -485,7 +485,7 @@ describe('Form', () => {
   it('warning when use `name` but children is not validate element', () => {
     render(
       <Form>
-        <Form.Item name='warning'>text</Form.Item>
+        <Form.Item name="warning">text</Form.Item>
       </Form>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
@@ -496,12 +496,12 @@ describe('Form', () => {
   it('dynamic change required', async () => {
     const { container } = render(
       <Form>
-        <Form.Item label='light' name='light' valuePropName='checked'>
-          <input type='checkbox' />
+        <Form.Item label="light" name="light" valuePropName="checked">
+          <input type="checkbox" />
         </Form.Item>
         <Form.Item
-          label='bamboo'
-          name='bamboo'
+          label="bamboo"
+          name="bamboo"
           dependencies={['light']}
           rules={[({ getFieldValue }) => ({ required: getFieldValue('light') })]}
         >
@@ -531,7 +531,7 @@ describe('Form', () => {
     it('normal', async () => {
       const { container } = render(
         <Form>
-          <Form.Item help='good'>
+          <Form.Item help="good">
             <input />
           </Form.Item>
         </Form>,
@@ -546,7 +546,7 @@ describe('Form', () => {
     it('empty string', async () => {
       const { container } = render(
         <Form>
-          <Form.Item help=''>
+          <Form.Item help="">
             <input />
           </Form.Item>
         </Form>,
@@ -571,8 +571,8 @@ describe('Form', () => {
     const { container } = render(
       <Form>
         <Form.Item
-          name='name'
-          label='test'
+          name="name"
+          label="test"
           rules={[
             { required: true },
             {
@@ -610,7 +610,7 @@ describe('Form', () => {
       const [message, updateMessage] = React.useState('');
       return (
         <Form>
-          <Form.Item label='hello' help={message}>
+          <Form.Item label="hello" help={message}>
             <Input />
           </Form.Item>
           <Button onClick={() => updateMessage('bamboo')} />
@@ -670,10 +670,10 @@ describe('Form', () => {
           <Form.Item>
             <StaticInput />
           </Form.Item>
-          <Form.Item name='light'>
-            <DynamicInput id='changed' />
+          <Form.Item name="light">
+            <DynamicInput id="changed" />
           </Form.Item>
-          <Button id='fill-btn' onClick={() => form.setFieldValue('light', 'bamboo')}>
+          <Button id="fill-btn" onClick={() => form.setFieldValue('light', 'bamboo')}>
             fill
           </Button>
         </Form>
@@ -698,7 +698,7 @@ describe('Form', () => {
 
   it('empty help should also render', () => {
     const { container } = render(
-      <Form.Item help=''>
+      <Form.Item help="">
         <input />
       </Form.Item>,
     );
@@ -709,10 +709,10 @@ describe('Form', () => {
     const { container } = render(
       <Form>
         <Form.Item
-          name='test'
-          label='test'
-          help='help'
-          initialValue='bamboo'
+          name="test"
+          label="test"
+          help="help"
+          initialValue="bamboo"
           rules={[{ required: true, message: 'message' }]}
         >
           <Input />
@@ -728,7 +728,7 @@ describe('Form', () => {
   it('clear validation message when', async () => {
     const { container } = render(
       <Form>
-        <Form.Item name='test' label='test' rules={[{ required: true, message: 'message' }]}>
+        <Form.Item name="test" label="test" rules={[{ required: true, message: 'message' }]}>
           <Input />
         </Form.Item>
       </Form>,
@@ -747,7 +747,7 @@ describe('Form', () => {
   // https://github.com/ant-design/ant-design/issues/21167
   it('`require` without `name`', () => {
     const { container } = render(
-      <Form.Item label='test' name='test' required>
+      <Form.Item label="test" name="test" required>
         <input />
       </Form.Item>,
     );
@@ -758,7 +758,7 @@ describe('Form', () => {
 
   it('0 is a validate Field', () => {
     render(
-      <Form.Item name={0} label='0'>
+      <Form.Item name={0} label="0">
         <input />
       </Form.Item>,
     );
@@ -769,7 +769,7 @@ describe('Form', () => {
 
   it('`null` triggers warning and is treated as `undefined`', () => {
     render(
-      <Form.Item name={null as unknown as NamePath} label='test'>
+      <Form.Item name={null as unknown as NamePath} label="test">
         <input />
       </Form.Item>,
     );
@@ -788,7 +788,7 @@ describe('Form', () => {
     );
     render(
       <Form>
-        <Form.Item name='custom'>
+        <Form.Item name="custom">
           <CustomComponent />
         </Form.Item>
       </Form>,
@@ -805,14 +805,14 @@ describe('Form', () => {
           <Form.Item
             help={error ? 'This is an error msg' : undefined}
             validateStatus={error ? 'error' : ''}
-            label='Username'
-            name='username'
+            label="Username"
+            name="username"
           >
             <input />
           </Form.Item>
 
           <Form.Item>
-            <button type='button' onClick={() => setError(!error)}>
+            <button type="button" onClick={() => setError(!error)}>
               Trigger
             </button>
           </Form.Item>
@@ -830,7 +830,7 @@ describe('Form', () => {
     const { container } = render(
       // eslint-disable-next-line no-template-curly-in-string
       <Form validateMessages={{ required: '${label} is good!' }}>
-        <Form.Item name='test' label='Bamboo' rules={[{ required: true }]}>
+        <Form.Item name="test" label="Bamboo" rules={[{ required: true }]}>
           <input />
         </Form.Item>
       </Form>,
@@ -850,7 +850,7 @@ describe('Form', () => {
       <ConfigProvider locale={zhCN}>
         <ConfigProvider>
           <Form>
-            <Form.Item name='test' label='Bamboo' rules={[{ required: true }]}>
+            <Form.Item name="test" label="Bamboo" rules={[{ required: true }]}>
               <input />
             </Form.Item>
           </Form>
@@ -870,7 +870,7 @@ describe('Form', () => {
     const { container } = render(
       // eslint-disable-next-line no-template-curly-in-string
       <Form validateMessages={{ required: '${label} is good!' }}>
-        <Form.Item name='Bamboo' rules={[{ required: true }]}>
+        <Form.Item name="Bamboo" rules={[{ required: true }]}>
           <input />
         </Form.Item>
       </Form>,
@@ -888,7 +888,7 @@ describe('Form', () => {
     const { container } = render(
       // eslint-disable-next-line no-template-curly-in-string
       <Form validateMessages={{ required: '${label} is good!' }}>
-        <Form.Item name='test' messageVariables={{ label: 'Bamboo' }} rules={[{ required: true }]}>
+        <Form.Item name="test" messageVariables={{ label: 'Bamboo' }} rules={[{ required: true }]}>
           <input />
         </Form.Item>
       </Form>,
@@ -907,11 +907,11 @@ describe('Form', () => {
     const { container } = render(
       // eslint-disable-next-line no-template-curly-in-string
       <Form validateMessages={{ required: 'name is good!' }}>
-        <Form.Item name='test' rules={[{ required: true }]}>
+        <Form.Item name="test" rules={[{ required: true }]}>
           <input />
         </Form.Item>
         <Form.Item>
-          <Button htmlType='submit'>Submit</Button>
+          <Button htmlType="submit">Submit</Button>
         </Form.Item>
       </Form>,
     );
@@ -933,7 +933,7 @@ describe('Form', () => {
       const [, forceUpdate] = React.useState({});
       return (
         <button
-          type='button'
+          type="button"
           onClick={() => {
             forceUpdate({});
           }}
@@ -964,7 +964,7 @@ describe('Form', () => {
 
     const Demo: React.FC = () => (
       <Form>
-        <Form.Item name='username' label='username' rules={[{ required: true }]}>
+        <Form.Item name="username" label="username" rules={[{ required: true }]}>
           <MyInput />
         </Form.Item>
       </Form>
@@ -981,8 +981,8 @@ describe('Form', () => {
   it('should warning with `defaultValue`', () => {
     render(
       <Form>
-        <Form.Item name='light'>
-          <input defaultValue='should warning' />
+        <Form.Item name="light">
+          <input defaultValue="should warning" />
         </Form.Item>
       </Form>,
     );
@@ -996,11 +996,11 @@ describe('Form', () => {
     const Demo: React.FC<{ showA?: boolean }> = ({ showA }) => (
       <Form>
         {showA ? (
-          <Form.Item name='a' help='error'>
+          <Form.Item name="a" help="error">
             <input />
           </Form.Item>
         ) : (
-          <Form.Item name='b'>
+          <Form.Item name="b">
             <input />
           </Form.Item>
         )}
@@ -1021,7 +1021,7 @@ describe('Form', () => {
   it('no warning of initialValue & getValueProps & preserve', () => {
     render(
       <Form>
-        <Form.Item initialValue='bamboo' getValueProps={() => ({})} preserve={false}>
+        <Form.Item initialValue="bamboo" getValueProps={() => ({})} preserve={false}>
           <Input />
         </Form.Item>
       </Form>,
@@ -1032,8 +1032,8 @@ describe('Form', () => {
   it('should customize id when pass with id', () => {
     const { container } = render(
       <Form>
-        <Form.Item name='light'>
-          <Input id='bamboo' />
+        <Form.Item name="light">
+          <Input id="bamboo" />
         </Form.Item>
       </Form>,
     );
@@ -1043,8 +1043,8 @@ describe('Form', () => {
 
   it('should trigger validate when onBlur when pass validateTrigger onBlur', async () => {
     const { container } = render(
-      <Form validateTrigger='onBlur'>
-        <Form.Item name='light' label='light' rules={[{ len: 3 }]}>
+      <Form validateTrigger="onBlur">
+        <Form.Item name="light" label="light" rules={[{ len: 3 }]}>
           <Input />
         </Form.Item>
       </Form>,
@@ -1065,7 +1065,7 @@ describe('Form', () => {
     it('should work', () => {
       const { container } = render(
         <Form>
-          <Form.Item name='light' hidden>
+          <Form.Item name="light" hidden>
             <Input />
           </Form.Item>
         </Form>,
@@ -1076,7 +1076,7 @@ describe('Form', () => {
     it('noStyle should not work when hidden', () => {
       const { container } = render(
         <Form>
-          <Form.Item name='light' hidden noStyle>
+          <Form.Item name="light" hidden noStyle>
             <Input />
           </Form.Item>
         </Form>,
@@ -1087,8 +1087,8 @@ describe('Form', () => {
 
   it('legacy hideRequiredMark', () => {
     const { container } = render(
-      <Form hideRequiredMark role='form'>
-        <Form.Item name='light' label='light' required>
+      <Form hideRequiredMark role="form">
+        <Form.Item name="light" label="light" required>
           <Input />
         </Form.Item>
       </Form>,
@@ -1099,25 +1099,25 @@ describe('Form', () => {
 
   it('form should support disabled', () => {
     const App: React.FC = () => (
-      <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} layout='horizontal' disabled>
-        <Form.Item label='Form disabled' name='disabled' valuePropName='checked'>
+      <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} layout="horizontal" disabled>
+        <Form.Item label="Form disabled" name="disabled" valuePropName="checked">
           <Checkbox>disabled</Checkbox>
         </Form.Item>
-        <Form.Item label='Radio'>
+        <Form.Item label="Radio">
           <Radio.Group>
-            <Radio value='apple'>Apple</Radio>
-            <Radio value='pear'>Pear</Radio>
+            <Radio value="apple">Apple</Radio>
+            <Radio value="pear">Pear</Radio>
           </Radio.Group>
         </Form.Item>
-        <Form.Item label='Input'>
+        <Form.Item label="Input">
           <Input />
         </Form.Item>
-        <Form.Item label='Select'>
+        <Form.Item label="Select">
           <Select>
-            <Select.Option value='demo'>Demo</Select.Option>
+            <Select.Option value="demo">Demo</Select.Option>
           </Select>
         </Form.Item>
-        <Form.Item label='TreeSelect'>
+        <Form.Item label="TreeSelect">
           <TreeSelect
             treeData={[
               {
@@ -1128,7 +1128,7 @@ describe('Form', () => {
             ]}
           />
         </Form.Item>
-        <Form.Item label='Cascader'>
+        <Form.Item label="Cascader">
           <Cascader
             options={[
               {
@@ -1139,25 +1139,25 @@ describe('Form', () => {
             ]}
           />
         </Form.Item>
-        <Form.Item label='DatePicker'>
+        <Form.Item label="DatePicker">
           <DatePicker />
         </Form.Item>
-        <Form.Item label='RangePicker'>
+        <Form.Item label="RangePicker">
           <RangePicker />
         </Form.Item>
-        <Form.Item label='InputNumber'>
+        <Form.Item label="InputNumber">
           <InputNumber />
         </Form.Item>
-        <Form.Item label='TextArea'>
+        <Form.Item label="TextArea">
           <TextArea rows={4} />
         </Form.Item>
-        <Form.Item label='Switch' valuePropName='checked'>
+        <Form.Item label="Switch" valuePropName="checked">
           <Switch />
         </Form.Item>
-        <Form.Item label='Upload' valuePropName='fileList'>
+        <Form.Item label="Upload" valuePropName="fileList">
           <Upload />
         </Form.Item>
-        <Form.Item label='Button'>
+        <Form.Item label="Button">
           <Button>Button</Button>
         </Form.Item>
       </Form>
@@ -1170,7 +1170,7 @@ describe('Form', () => {
     const { container } = render(
       <Form>
         <Form.Item
-          name='light'
+          name="light"
           // @ts-ignore
           _internalItemRender={{
             mark: 'pro_table_render',
@@ -1184,7 +1184,7 @@ describe('Form', () => {
             ),
           }}
         >
-          <input defaultValue='should warning' />
+          <input defaultValue="should warning" />
         </Form.Item>
       </Form>,
     );
@@ -1205,19 +1205,19 @@ describe('Form', () => {
           <Form>
             <Form.Item name={itemName} label={itemName}>
               <Select
-                className='form_item_parentNode'
-                defaultValue='lucy'
+                className="form_item_parentNode"
+                defaultValue="lucy"
                 open={open}
                 style={{ width: 120 }}
               >
-                <Option value='jack'>Jack</Option>
-                <Option value='lucy'>Lucy</Option>
-                <Option value='Yiminghe'>yiminghe</Option>
+                <Option value="jack">Jack</Option>
+                <Option value="lucy">Lucy</Option>
+                <Option value="Yiminghe">yiminghe</Option>
               </Select>
             </Form.Item>
           </Form>
           <button
-            type='button'
+            type="button"
             onClick={() => {
               setOpen(true);
             }}
@@ -1250,7 +1250,7 @@ describe('Form', () => {
     it('ReactNode', async () => {
       const { container } = render(
         <Form>
-          <Form.Item label='light' tooltip={<span>Bamboo</span>}>
+          <Form.Item label="light" tooltip={<span>Bamboo</span>}>
             <Input />
           </Form.Item>
         </Form>,
@@ -1265,7 +1265,7 @@ describe('Form', () => {
     it('config tooltip should show when hover on icon', async () => {
       const { container } = render(
         <Form>
-          <Form.Item label='light' tooltip={{ title: 'Bamboo' }}>
+          <Form.Item label="light" tooltip={{ title: 'Bamboo' }}>
             <Input />
           </Form.Item>
         </Form>,
@@ -1283,9 +1283,9 @@ describe('Form', () => {
       <Form>
         <Form.Item>
           <Form.Item
-            name='test'
-            label='test'
-            initialValue='bamboo'
+            name="test"
+            label="test"
+            initialValue="bamboo"
             rules={[{ required: true, warningOnly: true }]}
           >
             <Input />
@@ -1309,8 +1309,8 @@ describe('Form', () => {
         <Form.Item>
           <Form.Item
             noStyle
-            name='test'
-            initialValue='bamboo'
+            name="test"
+            initialValue="bamboo"
             rules={[
               {
                 validator: () =>
@@ -1340,7 +1340,7 @@ describe('Form', () => {
     it('default colon', () => {
       render(
         <Form>
-          <Form.Item label='姓名' name='姓名'>
+          <Form.Item label="姓名" name="姓名">
             <input />
           </Form.Item>
         </Form>,
@@ -1352,7 +1352,7 @@ describe('Form', () => {
     it('set Form.Item colon false', () => {
       render(
         <Form colon>
-          <Form.Item colon={false} label='姓名' name='姓名'>
+          <Form.Item colon={false} label="姓名" name="姓名">
             <Input />
           </Form.Item>
         </Form>,
@@ -1364,7 +1364,7 @@ describe('Form', () => {
     it('set Form colon false', () => {
       render(
         <Form colon={false}>
-          <Form.Item label='姓名' name='姓名'>
+          <Form.Item label="姓名" name="姓名">
             <Input />
           </Form.Item>
         </Form>,
@@ -1403,22 +1403,22 @@ describe('Form', () => {
   it('noStyle should not affect status', () => {
     const Demo: React.FC = () => (
       <Form>
-        <Form.Item validateStatus='error' noStyle>
-          <Select className='custom-select' />
+        <Form.Item validateStatus="error" noStyle>
+          <Select className="custom-select" />
         </Form.Item>
-        <Form.Item validateStatus='error'>
+        <Form.Item validateStatus="error">
           <Form.Item noStyle>
-            <Select className='custom-select-b' />
+            <Select className="custom-select-b" />
           </Form.Item>
         </Form.Item>
-        <Form.Item validateStatus='error'>
-          <Form.Item noStyle validateStatus='warning'>
-            <Select className='custom-select-c' />
+        <Form.Item validateStatus="error">
+          <Form.Item noStyle validateStatus="warning">
+            <Select className="custom-select-c" />
           </Form.Item>
         </Form.Item>
         <Form.Item noStyle>
-          <Form.Item validateStatus='warning'>
-            <Select className='custom-select-d' />
+          <Form.Item validateStatus="warning">
+            <Select className="custom-select-d" />
           </Form.Item>
         </Form.Item>
       </Form>
@@ -1437,14 +1437,14 @@ describe('Form', () => {
   it('should not affect Popup children style', () => {
     const Demo: React.FC = () => (
       <Form>
-        <Form.Item labelCol={4 as ColProps} validateStatus='error'>
+        <Form.Item labelCol={4 as ColProps} validateStatus="error">
           <Modal open>
-            <Select className='modal-select' />
+            <Select className="modal-select" />
           </Modal>
         </Form.Item>
-        <Form.Item validateStatus='error'>
+        <Form.Item validateStatus="error">
           <Drawer open>
-            <Select className='drawer-select' />
+            <Select className="drawer-select" />
           </Drawer>
         </Form.Item>
       </Form>
@@ -1460,7 +1460,7 @@ describe('Form', () => {
     render(
       <Modal open>
         <Form>
-          <Form.Item help='This is a help message'>
+          <Form.Item help="This is a help message">
             <Input />
           </Form.Item>
         </Form>
@@ -1487,18 +1487,18 @@ describe('Form', () => {
       const [form] = Form.useForm();
 
       return (
-        <Form form={form} name='my-form'>
-          <Form.Item name='required' rules={[{ required: true }]}>
-            <CustomInput className='custom-input-required' value='' />
+        <Form form={form} name="my-form">
+          <Form.Item name="required" rules={[{ required: true }]}>
+            <CustomInput className="custom-input-required" value="" />
           </Form.Item>
-          <Form.Item name='warning' validateStatus='warning'>
-            <CustomInput className='custom-input-warning' />
+          <Form.Item name="warning" validateStatus="warning">
+            <CustomInput className="custom-input-warning" />
           </Form.Item>
-          <Form.Item name='normal'>
-            <CustomInput className='custom-input' />
+          <Form.Item name="normal">
+            <CustomInput className="custom-input" />
           </Form.Item>
-          <CustomInput className='custom-input-wrong' />
-          <Button onClick={() => form.submit()} className='submit-button'>
+          <CustomInput className="custom-input-wrong" />
+          <Button onClick={() => form.submit()} className="submit-button">
             Submit
           </Button>
         </Form>
@@ -1536,29 +1536,29 @@ describe('Form', () => {
 
     const ErrorItem: React.FC = () => {
       const { errors } = useStatus();
-      return <div className='test-error'>{errors[0]}</div>;
+      return <div className="test-error">{errors[0]}</div>;
     };
 
     const WarningItem: React.FC = () => {
       const { warnings } = useStatus();
-      return <div className='test-warning'>{warnings[0]}</div>;
+      return <div className="test-warning">{warnings[0]}</div>;
     };
 
     const Demo: React.FC = () => {
       const [form] = Form.useForm();
 
       return (
-        <Form form={form} name='test-form'>
-          <Form.Item name='error' rules={[{ required: true, message: 'This is a error message.' }]}>
+        <Form form={form} name="test-form">
+          <Form.Item name="error" rules={[{ required: true, message: 'This is a error message.' }]}>
             <ErrorItem />
           </Form.Item>
           <Form.Item
-            name='warning'
+            name="warning"
             rules={[{ required: true, message: 'This is a warning message.', warningOnly: true }]}
           >
             <WarningItem />
           </Form.Item>
-          <Button onClick={() => form.submit()} className='submit-button'>
+          <Button onClick={() => form.submit()} className="submit-button">
             Submit
           </Button>
         </Form>
@@ -1583,7 +1583,7 @@ describe('Form', () => {
 
     const { container } = render(
       <Form>
-        <Form.Item name='required' initialValue='bamboo' rules={[{ required: true }]}>
+        <Form.Item name="required" initialValue="bamboo" rules={[{ required: true }]}>
           <Input />
         </Form.Item>
       </Form>,
@@ -1608,34 +1608,34 @@ describe('Form', () => {
       capture: true,
     };
     const renderComps = (disabled?: boolean) => [
-      <Button key='Button' disabled={disabled} type='primary' htmlType='submit'>
+      <Button key="Button" disabled={disabled} type="primary" htmlType="submit">
         test
       </Button>,
-      <Cascader key='Cascader' disabled={disabled} options={[]} />,
-      <Checkbox key='Checkbox' disabled={disabled} />,
+      <Cascader key="Cascader" disabled={disabled} options={[]} />,
+      <Checkbox key="Checkbox" disabled={disabled} />,
       <Checkbox.Group
-        key='CheckboxGroup'
+        key="CheckboxGroup"
         disabled={disabled}
         options={[
           { label: 'male', value: 0 },
           { label: 'female', value: 1 },
         ]}
       />,
-      <InputNumber key='InputNumber' disabled={disabled} />,
-      <Input key='Input' disabled={disabled} />,
-      <Select key='Select' disabled={disabled} />,
-      <Switch key='Switch' disabled={disabled} />,
-      <TreeSelect key='TreeSelect' disabled={disabled} />,
-      <Upload key='Upload' {...props} disabled={disabled}>
+      <InputNumber key="InputNumber" disabled={disabled} />,
+      <Input key="Input" disabled={disabled} />,
+      <Select key="Select" disabled={disabled} />,
+      <Switch key="Switch" disabled={disabled} />,
+      <TreeSelect key="TreeSelect" disabled={disabled} />,
+      <Upload key="Upload" {...props} disabled={disabled}>
         <Button disabled={disabled}>Click to Upload</Button>
       </Upload>,
-      <DatePicker key='DatePicker' disabled={disabled} />,
-      <DatePicker.RangePicker key='DatePicker.RangePicker' disabled={disabled} />,
-      <DatePicker.MonthPicker key='DatePicker.MonthPicker' disabled={disabled} />,
-      <DatePicker.QuarterPicker key='DatePicker.QuarterPicker' disabled={disabled} />,
-      <DatePicker.WeekPicker key='DatePicker.WeekPicker' disabled={disabled} />,
-      <DatePicker.YearPicker key='DatePicker.YearPicker' disabled={disabled} />,
-      <DatePicker.TimePicker key='DatePicker.TimePicker' disabled={disabled} />,
+      <DatePicker key="DatePicker" disabled={disabled} />,
+      <DatePicker.RangePicker key="DatePicker.RangePicker" disabled={disabled} />,
+      <DatePicker.MonthPicker key="DatePicker.MonthPicker" disabled={disabled} />,
+      <DatePicker.QuarterPicker key="DatePicker.QuarterPicker" disabled={disabled} />,
+      <DatePicker.WeekPicker key="DatePicker.WeekPicker" disabled={disabled} />,
+      <DatePicker.YearPicker key="DatePicker.YearPicker" disabled={disabled} />,
+      <DatePicker.TimePicker key="DatePicker.TimePicker" disabled={disabled} />,
     ];
     const App = () => <Form disabled>{renderComps(false)}</Form>;
 
@@ -1678,10 +1678,10 @@ describe('Form', () => {
       return (
         <Form ref={form}>
           <Form.Item
-            label='Success'
-            name='name1'
+            label="Success"
+            name="name1"
             hasFeedback
-            initialValue='test@qq.com'
+            initialValue="test@qq.com"
             rules={[
               {
                 type: 'email',
@@ -1696,9 +1696,9 @@ describe('Form', () => {
             <Input />
           </Form.Item>
           <Form.Item
-            label='Success'
-            name='name2'
-            initialValue='test@qq.com'
+            label="Success"
+            name="name2"
+            initialValue="test@qq.com"
             rules={[
               {
                 type: 'email',
@@ -1733,11 +1733,11 @@ describe('Form', () => {
 
       return (
         <Form form={form}>
-          <Form.Item name='success' initialValue='test' hasFeedback rules={[{ required: true }]}>
+          <Form.Item name="success" initialValue="test" hasFeedback rules={[{ required: true }]}>
             <Input />
           </Form.Item>
           <Form.Item
-            name='validating'
+            name="validating"
             hasFeedback
             rules={[
               {
@@ -1750,13 +1750,13 @@ describe('Form', () => {
           >
             <Input />
           </Form.Item>
-          <Form.Item name='warning' hasFeedback rules={[{ required: true, warningOnly: true }]}>
+          <Form.Item name="warning" hasFeedback rules={[{ required: true, warningOnly: true }]}>
             <Input />
           </Form.Item>
-          <Form.Item name='error' hasFeedback rules={[{ required: true }]}>
+          <Form.Item name="error" hasFeedback rules={[{ required: true }]}>
             <Input />
           </Form.Item>
-          <Button onClick={() => form.submit()} className='submit-button'>
+          <Button onClick={() => form.submit()} className="submit-button">
             Submit
           </Button>
         </Form>
@@ -1779,7 +1779,7 @@ describe('Form', () => {
     // When require is `undefined`, the `isRequire` calculation logic should be preserved
     const { container } = render(
       <Form>
-        <Form.Item label='test' name='success' required={undefined} rules={[{ required: true }]}>
+        <Form.Item label="test" name="success" required={undefined} rules={[{ required: true }]}>
           <Input />
         </Form.Item>
       </Form>,
@@ -1802,7 +1802,7 @@ describe('Form', () => {
     const App = () => (
       <Form>
         <Form.Item>
-          <Form.Item name='test' label='test' rules={[{ len: 3, message: 'error.' }]}>
+          <Form.Item name="test" label="test" rules={[{ len: 3, message: 'error.' }]}>
             <CustomInput />
           </Form.Item>
         </Form.Item>
@@ -1842,16 +1842,16 @@ describe('Form', () => {
     const genProps = (value: any) => ({ ...value });
 
     const { container } = render(
-      <Form name='basic' requiredMark='optional'>
+      <Form name="basic" requiredMark="optional">
         <Form.Item
-          label='First Name'
-          name='firstName'
+          label="First Name"
+          name="firstName"
           required
           {...genProps({ requiredMark: false })}
         >
           <Input />
         </Form.Item>
-        <Form.Item label='Last Name' name='lastName' required {...genProps({ requiredMark: true })}>
+        <Form.Item label="Last Name" name="lastName" required {...genProps({ requiredMark: true })}>
           <Input />
         </Form.Item>
       </Form>,
@@ -1866,11 +1866,11 @@ describe('Form', () => {
 
     const { container } = render(
       <Form initialValues={{ name: 'bamboo', age: '14' }}>
-        <Form.Item name='name'>
+        <Form.Item name="name">
           {/* Comment here */}
           <Input />
         </Form.Item>
-        <Form.Item name='age'>{[null, <Input key='input' />]}</Form.Item>
+        <Form.Item name="age">{[null, <Input key="input" />]}</Form.Item>
       </Form>,
     );
 
@@ -1884,8 +1884,8 @@ describe('Form', () => {
 
     render(
       <>
-        <Form name='same' />
-        <Form name='same' />
+        <Form name="same" />
+        <Form name="same" />
       </>,
     );
 

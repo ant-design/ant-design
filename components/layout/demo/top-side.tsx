@@ -38,8 +38,8 @@ const App: React.FC = () => {
   return (
     <Layout>
       <Header style={{ display: 'flex', alignItems: 'center' }}>
-        <div className='demo-logo' />
-        <Menu theme='dark' mode='horizontal' defaultSelectedKeys={['2']} items={items1} />
+        <div className="demo-logo" />
+        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} items={items1} />
       </Header>
       <Content style={{ padding: '0 50px' }}>
         <Breadcrumb style={{ margin: '16px 0' }}>
@@ -50,7 +50,7 @@ const App: React.FC = () => {
         <Layout style={{ padding: '24px 0', background: colorBgContainer }}>
           <Sider style={{ background: colorBgContainer }} width={200}>
             <Menu
-              mode='inline'
+              mode="inline"
               defaultSelectedKeys={['1']}
               defaultOpenKeys={['sub1']}
               style={{ height: '100%' }}

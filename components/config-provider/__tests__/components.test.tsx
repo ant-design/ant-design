@@ -80,7 +80,7 @@ describe('ConfigProvider', () => {
         // configProvider
         it('configProvider', () => {
           const { container } = render(
-            <ConfigProvider pageHeader={{ ghost: false }} prefixCls='config'>
+            <ConfigProvider pageHeader={{ ghost: false }} prefixCls="config">
               {renderComponent({})}
             </ConfigProvider>,
           );
@@ -89,7 +89,7 @@ describe('ConfigProvider', () => {
 
         it('configProvider componentSize large', () => {
           const { container } = render(
-            <ConfigProvider componentSize='large' prefixCls='config'>
+            <ConfigProvider componentSize="large" prefixCls="config">
               {renderComponent({})}
             </ConfigProvider>,
           );
@@ -98,7 +98,7 @@ describe('ConfigProvider', () => {
 
         it('configProvider componentSize middle', () => {
           const { container } = render(
-            <ConfigProvider componentSize='middle' prefixCls='config'>
+            <ConfigProvider componentSize="middle" prefixCls="config">
               {renderComponent({})}
             </ConfigProvider>,
           );
@@ -107,7 +107,7 @@ describe('ConfigProvider', () => {
 
         it('configProvider componentSize small', () => {
           const { container } = render(
-            <ConfigProvider componentSize='small' prefixCls='config'>
+            <ConfigProvider componentSize="small" prefixCls="config">
               {renderComponent({})}
             </ConfigProvider>,
           );
@@ -116,7 +116,7 @@ describe('ConfigProvider', () => {
 
         it('configProvider componentDisabled', () => {
           const { container } = render(
-            <ConfigProvider componentDisabled prefixCls='config'>
+            <ConfigProvider componentDisabled prefixCls="config">
               {renderComponent({})}
             </ConfigProvider>,
           );
@@ -127,13 +127,13 @@ describe('ConfigProvider', () => {
 
     // Alert
     testPair('Alert', (props) => (
-      <Alert {...props} message='Bamboo is Little Light' type='success' />
+      <Alert {...props} message="Bamboo is Little Light" type="success" />
     ));
 
     // Anchor
     testPair('Anchor', (props) => (
       <Anchor {...props}>
-        <Anchor.Link {...props} href='#bamboo' title='Little Light' />
+        <Anchor.Link {...props} href="#bamboo" title="Little Light" />
       </Anchor>
     ));
 
@@ -189,8 +189,8 @@ describe('ConfigProvider', () => {
     // Calendar
     testPair('Calendar', (props) => (
       <div>
-        <Calendar {...props} value={dayjs('2000-09-03')} mode='month' />
-        <Calendar {...props} value={dayjs('2000-09-03')} mode='year' />
+        <Calendar {...props} value={dayjs('2000-09-03')} mode="month" />
+        <Calendar {...props} value={dayjs('2000-09-03')} mode="year" />
       </div>
     ));
 
@@ -228,7 +228,7 @@ describe('ConfigProvider', () => {
     // Collapse
     testPair('Collapse', (props) => (
       <Collapse {...props}>
-        <Collapse.Panel key='Collapse' header='Bamboo'>
+        <Collapse.Panel key="Collapse" header="Bamboo">
           <p>Light</p>
         </Collapse.Panel>
       </Collapse>
@@ -279,7 +279,7 @@ describe('ConfigProvider', () => {
     // Form
     testPair('Form', (props) => (
       <Form {...props}>
-        <Form.Item {...props} validateStatus='error' help='Bamboo is Light'>
+        <Form.Item {...props} validateStatus="error" help="Bamboo is Light">
           <Input {...props} />
         </Form.Item>
       </Form>
@@ -345,15 +345,15 @@ describe('ConfigProvider', () => {
     testPair('List', (props) => (
       <List
         {...props}
-        itemLayout='horizontal'
+        itemLayout="horizontal"
         dataSource={['']}
         renderItem={() => (
           <List.Item {...props}>
             <List.Item.Meta
               {...props}
-              avatar={<Avatar src='https://xsgames.co/randomusers/avatar.php?g=pixel' />}
-              title='Ant Design'
-              description='Ant Design, a design language for background applications, is refined by Ant UED Team'
+              avatar={<Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />}
+              title="Ant Design"
+              description="Ant Design, a design language for background applications, is refined by Ant UED Team"
             />
           </List.Item>
         )}
@@ -362,10 +362,10 @@ describe('ConfigProvider', () => {
 
     // Menu
     testPair('Menu', (props) => (
-      <Menu {...props} defaultOpenKeys={['bamboo']} mode='inline'>
-        <Menu.SubMenu {...props} key='bamboo' title='bamboo'>
-          <Menu.ItemGroup {...props} key='g1' title='Item 1'>
-            <Menu.Item {...props} key='1'>
+      <Menu {...props} defaultOpenKeys={['bamboo']} mode="inline">
+        <Menu.SubMenu {...props} key="bamboo" title="bamboo">
+          <Menu.ItemGroup {...props} key="g1" title="Item 1">
+            <Menu.Item {...props} key="1">
               Light
             </Menu.Item>
           </Menu.ItemGroup>
@@ -386,7 +386,7 @@ describe('ConfigProvider', () => {
     testPair('Pagination', (props) => (
       <div>
         <Pagination showSizeChanger showQuickJumper {...props} />
-        <Pagination size='small' showSizeChanger showQuickJumper {...props} />
+        <Pagination size="small" showSizeChanger showQuickJumper {...props} />
       </div>
     ));
 
@@ -429,8 +429,8 @@ describe('ConfigProvider', () => {
     // Select
     testPair('Select', (props) => (
       <Select {...props} open>
-        <Select.OptGroup key='grp'>
-          <Select.Option key='Bamboo'>Light</Select.Option>
+        <Select.OptGroup key="grp">
+          <Select.Option key="Bamboo">Light</Select.Option>
         </Select.OptGroup>
       </Select>
     ));
@@ -510,7 +510,7 @@ describe('ConfigProvider', () => {
     // Tabs
     testPair('Tabs', (props) => (
       <Tabs {...props}>
-        <Tabs.TabPane tab='Bamboo' key='Light' />
+        <Tabs.TabPane tab="Bamboo" key="Light" />
       </Tabs>
     ));
 
@@ -536,7 +536,7 @@ describe('ConfigProvider', () => {
 
     // Tooltip
     testPair('Tooltip', (props) => (
-      <Tooltip {...props} title='Bamboo' open>
+      <Tooltip {...props} title="Bamboo" open>
         <span>Light</span>
       </Tooltip>
     ));
@@ -548,10 +548,10 @@ describe('ConfigProvider', () => {
     testPair('Tree', (props) => (
       <div>
         <Tree {...props}>
-          <Tree.TreeNode title='bamboo' />
+          <Tree.TreeNode title="bamboo" />
         </Tree>
         <Tree.DirectoryTree {...props}>
-          <Tree.TreeNode title='bamboo' />
+          <Tree.TreeNode title="bamboo" />
         </Tree.DirectoryTree>
       </div>
     ));
@@ -559,7 +559,7 @@ describe('ConfigProvider', () => {
     // TreeSelect
     testPair('TreeSelect', (props) => (
       <TreeSelect {...props} open>
-        <TreeSelect.TreeNode title='bamboo' value='light' />
+        <TreeSelect.TreeNode title="bamboo" value="light" />
       </TreeSelect>
     ));
 

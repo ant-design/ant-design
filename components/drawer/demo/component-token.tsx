@@ -9,7 +9,7 @@ export default () => (
     theme={{ components: { Drawer: { footerPaddingBlock: 0, footerPaddingInline: 0 } } }}
   >
     <div style={{ padding: 32, background: '#e6e6e6' }}>
-      <InternalDrawer title='Hello Title' style={{ height: 300 }} footer='Footer!'>
+      <InternalDrawer title="Hello Title" style={{ height: 300 }} footer="Footer!">
         Hello Content
       </InternalDrawer>
     </div>

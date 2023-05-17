@@ -9,12 +9,12 @@ const App: React.FC = () => {
   } = theme.useToken();
 
   return (
-    <Layout className='layout'>
+    <Layout className="layout">
       <Header style={{ display: 'flex', alignItems: 'center' }}>
-        <div className='demo-logo' />
+        <div className="demo-logo" />
         <Menu
-          theme='dark'
-          mode='horizontal'
+          theme="dark"
+          mode="horizontal"
           defaultSelectedKeys={['2']}
           items={new Array(15).fill(null).map((_, index) => {
             const key = index + 1;
@@ -31,7 +31,7 @@ const App: React.FC = () => {
           <Breadcrumb.Item>List</Breadcrumb.Item>
           <Breadcrumb.Item>App</Breadcrumb.Item>
         </Breadcrumb>
-        <div className='site-layout-content' style={{ background: colorBgContainer }}>
+        <div className="site-layout-content" style={{ background: colorBgContainer }}>
           Content
         </div>
       </Content>

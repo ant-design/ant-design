@@ -35,9 +35,9 @@ describe('Popconfirm', () => {
 
     const wrapper = render(
       <Popconfirm
-        title={<span className='popconfirm-test'>Are you sure delete this task?</span>}
-        okText='Yes'
-        cancelText='No'
+        title={<span className="popconfirm-test">Are you sure delete this task?</span>}
+        okText="Yes"
+        cancelText="No"
         mouseEnterDelay={0}
         mouseLeaveDelay={0}
         onOpenChange={onOpenChange}
@@ -57,7 +57,7 @@ describe('Popconfirm', () => {
 
   it('should show overlay when trigger is clicked', async () => {
     const popconfirm = render(
-      <Popconfirm title='code' autoAdjustOverflow={false}>
+      <Popconfirm title="code" autoAdjustOverflow={false}>
         <span>show me your code</span>
       </Popconfirm>,
     );
@@ -100,14 +100,14 @@ describe('Popconfirm', () => {
   it('should be controlled by open', () => {
     jest.useFakeTimers();
     const popconfirm = render(
-      <Popconfirm title='code'>
+      <Popconfirm title="code">
         <span>show me your code</span>
       </Popconfirm>,
     );
 
     expect(popconfirm.container.querySelector('.ant-popover')).toBe(null);
     popconfirm.rerender(
-      <Popconfirm title='code' open>
+      <Popconfirm title="code" open>
         <span>show me your code</span>
       </Popconfirm>,
     );
@@ -118,7 +118,7 @@ describe('Popconfirm', () => {
     );
 
     popconfirm.rerender(
-      <Popconfirm title='code' open={false}>
+      <Popconfirm title="code" open={false}>
         <span>show me your code</span>
       </Popconfirm>,
     );
@@ -136,7 +136,7 @@ describe('Popconfirm', () => {
       e?.persist?.();
     });
     const popconfirm = render(
-      <Popconfirm title='code' onConfirm={confirm} onCancel={cancel} onOpenChange={onOpenChange}>
+      <Popconfirm title="code" onConfirm={confirm} onCancel={cancel} onOpenChange={onOpenChange}>
         <span>show me your code</span>
       </Popconfirm>,
     );
@@ -165,7 +165,7 @@ describe('Popconfirm', () => {
       e?.persist?.();
     });
     const popconfirm = render(
-      <Popconfirm title='code' onConfirm={confirm} onOpenChange={onOpenChange}>
+      <Popconfirm title="code" onConfirm={confirm} onOpenChange={onOpenChange}>
         <span>show me your code</span>
       </Popconfirm>,
     );
@@ -181,7 +181,7 @@ describe('Popconfirm', () => {
 
   it('should support customize icon', () => {
     const popconfirm = render(
-      <Popconfirm title='code' icon={<span className='customize-icon'>custom-icon</span>}>
+      <Popconfirm title="code" icon={<span className="customize-icon">custom-icon</span>}>
         <span>show me your code</span>
       </Popconfirm>,
     );
@@ -196,8 +196,8 @@ describe('Popconfirm', () => {
     const wrapper = render(
       <Popconfirm
         open
-        title='x'
-        prefixCls='custom-popconfirm'
+        title="x"
+        prefixCls="custom-popconfirm"
         okButtonProps={{ prefixCls: btnPrefixCls }}
         cancelButtonProps={{ prefixCls: btnPrefixCls }}
       >
@@ -211,7 +211,7 @@ describe('Popconfirm', () => {
 
   it('should support defaultOpen', () => {
     const wrapper = render(
-      <Popconfirm title='code' defaultOpen>
+      <Popconfirm title="code" defaultOpen>
         <span>show me your code</span>
       </Popconfirm>,
     );
@@ -220,7 +220,7 @@ describe('Popconfirm', () => {
 
   it('should not open in disabled', () => {
     const wrapper = render(
-      <Popconfirm title='code' disabled>
+      <Popconfirm title="code" disabled>
         <span>click me</span>
       </Popconfirm>,
     );
@@ -234,7 +234,7 @@ describe('Popconfirm', () => {
       e?.persist?.();
     });
     const wrapper = render(
-      <Popconfirm title='title' mouseEnterDelay={0} mouseLeaveDelay={0} onOpenChange={onOpenChange}>
+      <Popconfirm title="title" mouseEnterDelay={0} mouseLeaveDelay={0} onOpenChange={onOpenChange}>
         <span>Delete</span>
       </Popconfirm>,
     );
@@ -254,7 +254,7 @@ describe('Popconfirm', () => {
       if (show) {
         return (
           <Popconfirm
-            title='will unmount'
+            title="will unmount"
             onConfirm={() =>
               new Promise((resolve) => {
                 setTimeout(() => {
@@ -264,7 +264,7 @@ describe('Popconfirm', () => {
               })
             }
           >
-            <Button className='clickTarget'>Test</Button>
+            <Button className="clickTarget">Test</Button>
           </Popconfirm>
         );
       }
@@ -291,7 +291,7 @@ describe('Popconfirm', () => {
     const onPopupClick = jest.fn();
 
     const popconfirm = render(
-      <Popconfirm title='pop test' onPopupClick={onPopupClick}>
+      <Popconfirm title="pop test" onPopupClick={onPopupClick}>
         <span>show me your code</span>
       </Popconfirm>,
     );

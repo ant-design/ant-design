@@ -525,7 +525,7 @@ const InternalTable = <RecordType extends AnyObject = any>(
   );
 
   const emptyText = (locale && locale.emptyText) || renderEmpty?.('Table') || (
-    <DefaultRenderEmpty componentName='Table' />
+    <DefaultRenderEmpty componentName="Table" />
   );
 
   return wrapSSR(

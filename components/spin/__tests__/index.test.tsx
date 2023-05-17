@@ -20,7 +20,7 @@ describe('Spin', () => {
   });
 
   it("should render custom indicator when it's set", () => {
-    const customIndicator = <div className='custom-indicator' />;
+    const customIndicator = <div className="custom-indicator" />;
     const { asFragment } = render(<Spin indicator={customIndicator} />);
     expect(asFragment().firstChild).toMatchSnapshot();
   });
@@ -42,7 +42,7 @@ describe('Spin', () => {
   });
 
   it('should support static method Spin.setDefaultIndicator', () => {
-    Spin.setDefaultIndicator(<em className='custom-spinner' />);
+    Spin.setDefaultIndicator(<em className="custom-spinner" />);
     const { asFragment } = render(<Spin />);
     expect(asFragment().firstChild).toMatchSnapshot();
     Spin.setDefaultIndicator(null);
@@ -56,7 +56,7 @@ describe('Spin', () => {
   it('warning tip without nest', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    const { container } = render(<Spin tip='Not Show' />);
+    const { container } = render(<Spin tip="Not Show" />);
     expect(container.querySelector('.ant-spin-text')).toBeFalsy();
 
     expect(errSpy).toHaveBeenCalledWith('Warning: [antd: Spin] `tip` only work in nest pattern.');

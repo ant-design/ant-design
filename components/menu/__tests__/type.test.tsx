@@ -86,20 +86,20 @@ describe('Menu.typescript', () => {
 
     const menu = (
       <Menu>
-        <Menu.Item<CustomItemProps> key='item' title='Item' data-x={0} />
-        <Menu.SubMenu key='submenu' theme='light'>
-          <Menu.Item<CustomItemProps> key='submenu-item' title='SubmenuItem' data-x={0} />
-          <Menu.SubMenu key='submenu-submenu' theme='light' />
-          <Menu.Divider key='submenu-divider' />
-          <Menu.ItemGroup key='submenu-group' />
+        <Menu.Item<CustomItemProps> key="item" title="Item" data-x={0} />
+        <Menu.SubMenu key="submenu" theme="light">
+          <Menu.Item<CustomItemProps> key="submenu-item" title="SubmenuItem" data-x={0} />
+          <Menu.SubMenu key="submenu-submenu" theme="light" />
+          <Menu.Divider key="submenu-divider" />
+          <Menu.ItemGroup key="submenu-group" />
         </Menu.SubMenu>
-        <Menu.ItemGroup key='group'>
-          <Menu.Item<CustomItemProps> key='group-item' title='GroupItem' data-x={0} />
-          <Menu.SubMenu key='group-submenu' theme='light' />
-          <Menu.Divider key='group-divider' />
-          <Menu.ItemGroup key='group-group' />
+        <Menu.ItemGroup key="group">
+          <Menu.Item<CustomItemProps> key="group-item" title="GroupItem" data-x={0} />
+          <Menu.SubMenu key="group-submenu" theme="light" />
+          <Menu.Divider key="group-divider" />
+          <Menu.ItemGroup key="group-group" />
         </Menu.ItemGroup>
-        <Menu.Divider key='divider' />
+        <Menu.Divider key="divider" />
       </Menu>
     );
 
