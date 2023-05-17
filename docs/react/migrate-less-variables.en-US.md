@@ -54,7 +54,12 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Dropdown -->
 
-<!-- ### Empty -->
+### Empty
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@empty-font-size` | `fontSize` | GlobalToken |
 
 <!-- ### Form -->
 
