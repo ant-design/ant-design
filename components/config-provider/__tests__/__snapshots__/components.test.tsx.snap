@@ -26159,7 +26159,7 @@ exports[`ConfigProvider components Steps configProvider componentDisabled 1`] = 
 
 exports[`ConfigProvider components Steps configProvider componentSize large 1`] = `
 <div
-  class="config-steps config-steps-vertical"
+  class="config-steps config-steps-vertical config-steps-large"
 >
   <div
     class="config-steps-item config-steps-item-process config-steps-item-active"
@@ -26200,7 +26200,7 @@ exports[`ConfigProvider components Steps configProvider componentSize large 1`] 
 
 exports[`ConfigProvider components Steps configProvider componentSize middle 1`] = `
 <div
-  class="config-steps config-steps-vertical"
+  class="config-steps config-steps-vertical config-steps-middle"
 >
   <div
     class="config-steps-item config-steps-item-process config-steps-item-active"
@@ -26241,7 +26241,7 @@ exports[`ConfigProvider components Steps configProvider componentSize middle 1`]
 
 exports[`ConfigProvider components Steps configProvider componentSize small 1`] = `
 <div
-  class="config-steps config-steps-vertical"
+  class="config-steps config-steps-vertical config-steps-small"
 >
   <div
     class="config-steps-item config-steps-item-process config-steps-item-active"
