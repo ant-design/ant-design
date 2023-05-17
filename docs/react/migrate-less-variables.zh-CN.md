@@ -54,7 +54,12 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Dropdown 下拉菜单 -->
 
-<!-- ### Empty 空状态 -->
+### Empty 空状态
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@empty-font-size` | `fontSize` | 全局 Token |
 
 <!-- ### Form 表单 -->
 
