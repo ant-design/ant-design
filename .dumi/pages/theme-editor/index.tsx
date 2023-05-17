@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useState, Suspense, useLayoutEffect } from 'react';
-import { enUS, ThemeEditor, zhCN } from 'antd-token-previewer';
-import { Button, ConfigProvider, message, Modal, Spin, Typography } from 'antd';
+import { css } from '@emotion/react';
+import { Button, ConfigProvider, Modal, Spin, Typography, message } from 'antd';
+import { ThemeEditor, enUS, zhCN } from 'antd-token-previewer';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
 import { Helmet } from 'dumi';
-import { css } from '@emotion/react';
+import React, { Suspense, useCallback, useEffect, useLayoutEffect, useState } from 'react';
 import type { JSONContent, TextContent } from 'vanilla-jsoneditor';
 import useLocale from '../../hooks/useLocale';
 
@@ -96,18 +96,17 @@ const CustomTheme = () => {
 
   const handleEditConfigChange = (newcontent, preContent, status) => {
     setThemeConfigContent(newcontent);
-    if (
-      Array.isArray(status.contentErrors.validationErrors) &&
-      status.contentErrors.validationErrors.length === 0
-    ) {
-      setEditThemeFormatRight(true);
-    } else {
+    const contentFormatError = status.contentErrors;
+    if (contentFormatError) {
       setEditThemeFormatRight(false);
+    } else {
+      setEditThemeFormatRight(true);
     }
   };
 
   const editSave = useCallback(() => {
-    if (!editThemeFormatRight) {
+    const contentFormatError = !editThemeFormatRight && !themeConfigContent.json;
+    if (contentFormatError) {
       message.error(locale.editJsonContentTypeError);
       return;
     }
@@ -167,11 +166,13 @@ const CustomTheme = () => {
                   </div>
                 }
               >
-                <JSONEditor
-                  content={themeConfigContent}
-                  onChange={handleEditConfigChange}
-                  mainMenuBar={false}
-                />
+                {editModelOpen && (
+                  <JSONEditor
+                    content={themeConfigContent}
+                    onChange={handleEditConfigChange}
+                    mainMenuBar={false}
+                  />
+                )}
               </Suspense>
             </Modal>
             <Button onClick={handleExport} style={{ marginRight: 8 }}>
