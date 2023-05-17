@@ -391,7 +391,31 @@ export default App;
 | `@skeleton-paragraph-li-height` | `paragraphLiHeight` | - |
 | `@skeleton-paragraph-li-margin-top` | - | 由于样式变化已废弃 |
 
-<!-- ### Slider -->
+### Slider
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@slider-margin` | `iconFontSize` | - |
+| `@slider-rail-background-color` | `railBackgroundColor` | - |
+| `@slider-rail-background-color-hover` | `railBackgroundColorHover` | - |
+| `@slider-track-background-color` | `trackBackgroundColor` | - |
+| `@slider-track-background-color-hover` | `trackBackgroundColorHover` | - |
+| `@slider-handle-border-width` | `handleBorderWidth` | - |
+| `@slider-handle-background-color` | `handleBackgroundColor` | - |
+| `@slider-handle-color` | `handleColor` | - |
+| `@slider-handle-color-hover` | `handleColorHover` | - |
+| `@slider-handle-color-focus` | `handleColorFocus` | - |
+| `@slider-handle-color-focus-shadow` | `handleColorFocusShadow` | - |
+| `@slider-handle-color-tooltip-open` | `handleColorTooltipOpen` | - |
+| `@slider-handle-size` | `handleSize` | - |
+| `@slider-handle-margin-top` | `handleMarginTop` | - |
+| `@slider-handle-margin-left` | `handleMarginLeft` | - |
+| `@slider-handle-shadow` | `handleShadow` | - |
+| `@slider-dot-border-color` | `dotBorderColor` | - |
+| `@slider-dot-border-color-active` | `dotBorderColorActive` | - |
+| `@slider-disabled-color` | `disabledColor` | - |
+| `@slider-disabled-background-color` | `disabledBackgroundColor` | - |
 
 ### Statistic
 

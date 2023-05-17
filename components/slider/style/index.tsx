@@ -19,6 +19,25 @@ export interface ComponentToken {
   handleLineWidth: number;
   handleLineWidthHover: number;
   dotSize: number;
+  sliderMargin: string;
+  railBackgroundColor: string;
+  railBackgroundColorHover: string;
+  trackBackgroundColor: string;
+  trackBackgroundColorHover: string;
+  handleBorderWidth: number;
+  handleBackgroundColor: string;
+  handleColor: string;
+  handleColorHover: string;
+  handleColorFocus: string;
+  handleColorFocusShadow: string;
+  handleColorTooltipOpen: string;
+  handleMarginTop: number;
+  handleMarginLeft: number;
+  handleShadow: number;
+  dotBorderColor: string;
+  dotBorderColorActive: string;
+  disabledColor: string;
+  disabledBackgroundColor: string;
 }
 
 interface SliderToken extends FullToken<'Slider'> {
@@ -339,6 +358,25 @@ export default genComponentStyleHook(
       dotSize: 8,
       handleLineWidth,
       handleLineWidthHover,
+      sliderMargin: '10px 6px 10px', // FIX ME
+      railBackgroundColor: token.colorBgBase,
+      railBackgroundColorHover: '#e1e1e1', // FIX ME
+      trackBackgroundColor: '@primary-3', // FIX ME
+      trackBackgroundColorHover: '@primary-4', // FIX ME
+      handleBorderWidth: 2,
+      handleBackgroundColor: token.colorBgBase,
+      handleColor: token.colorPrimary,
+      handleColorHover: token.colorPrimaryHover,
+      handleColorFocus: 'tint(@primaryColor, 20%)', // FIX ME
+      handleColorFocusShadow: 'fade(@primary-color, 12%)', // FIX ME
+      handleColorTooltipOpen: token.colorPrimary,
+      handleMarginTop: -5,
+      handleMarginLeft: -5,
+      handleShadow: 0,
+      dotBorderColor: '#303030',
+      dotBorderColorActive: 'tint(@primary-color, 50%)', // FIX ME
+      disabledColor: token.colorBgContainerDisabled,
+      disabledBackgroundColor: token.colorBgBase,
     };
   },
 );
