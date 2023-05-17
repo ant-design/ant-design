@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.4.7",
+  "version": "5.5.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -116,7 +116,7 @@
     "@rc-component/color-picker": "~1.0.0",
     "@rc-component/mutate-observer": "^1.0.0",
     "@rc-component/tour": "~1.8.0",
-    "@rc-component/trigger": "^1.12.0",
+    "@rc-component/trigger": "^1.13.0",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
     "dayjs": "^1.11.1",
@@ -135,7 +135,7 @@
     "rc-menu": "~9.8.3",
     "rc-motion": "^2.7.3",
     "rc-notification": "~5.0.4",
-    "rc-pagination": "~3.3.1",
+    "rc-pagination": "~3.4.2",
     "rc-picker": "~3.7.4",
     "rc-progress": "~3.4.1",
     "rc-rate": "~2.10.0",
@@ -195,7 +195,6 @@
     "@types/puppeteer": "^7.0.4",
     "@types/qs": "^6.9.7",
     "@types/react": "^18.0.0",
-    "@types/react-color": "^3.0.1",
     "@types/react-copy-to-clipboard": "^5.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/react-highlight-words": "^0.16.4",
@@ -267,7 +266,6 @@
     "rc-tween-one": "^3.0.3",
     "rc-virtual-list": "^3.4.11",
     "react": "^18.0.0",
-    "react-color": "^2.17.3",
     "react-copy-to-clipboard": "^5.0.1",
     "react-countup": "^6.4.0",
     "react-dom": "^18.0.0",
@@ -322,7 +320,7 @@
     "mode": "npm"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx}": "rome format --write",
+    "*.{ts,tsx,js,jsx}": "prettier --ignore-unknown --write",
     "*.{json,less,md}": "prettier --ignore-unknown --write"
   }
 }

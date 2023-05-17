@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties } from 'react';
 import React, { useContext, useState } from 'react';
+import genPurePanel from '../_util/PurePanel';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import type { PopoverProps } from '../popover';
@@ -19,7 +20,6 @@ import useColorState from './hooks/useColorState';
 import type { ColorFormat, ColorPickerBaseProps, PresetsItem } from './interface';
 import useStyle from './style/index';
 import { customizePrefixCls, generateColor } from './util';
-import genPurePanel from '../_util/PurePanel';
 
 export interface ColorPickerProps
   extends Omit<
@@ -46,6 +46,7 @@ export interface ColorPickerProps
   onFormatChange?: (format: ColorFormat) => void;
   onChange?: (value: Color, hex: string) => void;
   getPopupContainer?: PopoverProps['getPopupContainer'];
+  autoAdjustOverflow?: PopoverProps['autoAdjustOverflow'];
 }
 
 type CompoundedComponent = React.FC<ColorPickerProps> & {
@@ -73,6 +74,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     onChange,
     onOpenChange,
     getPopupContainer,
+    autoAdjustOverflow = true,
   } = props;
 
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -119,6 +121,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     arrow,
     rootClassName,
     getPopupContainer,
+    autoAdjustOverflow,
   };
 
   const colorBaseProps: ColorPickerBaseProps = {
@@ -161,7 +164,17 @@ if (process.env.NODE_ENV !== 'production') {
   ColorPicker.displayName = 'ColorPicker';
 }
 
-const PurePanel = genPurePanel(ColorPicker, 'color-picker', (prefixCls) => prefixCls);
+const PurePanel = genPurePanel(
+  ColorPicker,
+  'color-picker',
+  /* istanbul ignore next */
+  (prefixCls) => prefixCls,
+  (props: ColorPickerProps) => ({
+    ...props,
+    placement: 'bottom' as TriggerPlacement,
+    autoAdjustOverflow: false,
+  }),
+);
 
 ColorPicker._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 

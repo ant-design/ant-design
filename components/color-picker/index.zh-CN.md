@@ -21,6 +21,7 @@ group:
 
 <!-- prettier-ignore -->
 <code src="./demo/base.tsx">基本使用</code>
+<code src="./demo/controlled.tsx">受控模式</code>
 <code src="./demo/disabled.tsx" debug>禁用</code>
 <code src="./demo/allowClear.tsx">清除颜色</code>
 <code src="./demo/trigger.tsx">自定义触发器</code>
@@ -48,7 +49,7 @@ group:
 | onOpenChange | 当 `open` 被改变时的回调 | `(open: boolean) => void` | - |
 | disabled | 禁用颜色选择器 | boolean | - |
 | placement | 弹出窗口的位置 | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` |
-| arrow | 配置弹出的箭头 | boolean | `{ pointAtCenter: boolean }` | - |
+| arrow | 配置弹出的箭头 | `boolean \| { pointAtCenter: boolean }` | `true` | - |
 
 ### Color
 
