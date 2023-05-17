@@ -41,8 +41,7 @@ export interface AvatarProps {
 }
 
 const InternalAvatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
-  const groupSize = React.useContext(SizeContext);
-
+  const contextSize = React.useContext(SizeContext);
   const [scale, setScale] = React.useState(1);
   const [mounted, setMounted] = React.useState(false);
   const [isImgExist, setIsImgExist] = React.useState(true);
@@ -77,13 +76,11 @@ const InternalAvatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, re
     setScale(1);
   }, [props.src]);
 
-  React.useEffect(() => {
-    setScaleParam();
-  }, [props.gap]);
+  React.useEffect(setScaleParam, [props.gap]);
 
   const handleImgLoadError = () => {
     const { onError } = props;
-    const errorFlag = onError ? onError() : undefined;
+    const errorFlag = onError?.();
     if (errorFlag !== false) {
       setIsImgExist(false);
     }
@@ -105,7 +102,7 @@ const InternalAvatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, re
     ...others
   } = props;
 
-  const size = customSize === 'default' ? groupSize : customSize;
+  const size = customSize === 'default' ? contextSize : customSize;
 
   const needResponsive = Object.keys(typeof size === 'object' ? size || {} : {}).some((key) =>
     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),
