@@ -104,9 +104,9 @@ const ColorPicker: CompoundedComponent = (props) => {
     if (colorCleared) {
       setColorCleared(false);
       const hsba = color.toHsb();
-      const { h, s, b } = colorValue.toHsb();
+      const { h, s, b, a } = colorValue.toHsb();
       // ignore alpha slider
-      if (hsba.a === 0 && (h !== hsba.h || s !== hsba.s || b !== hsba.b)) {
+      if (a === 0 && (h !== hsba.h || s !== hsba.s || b !== hsba.b)) {
         hsba.a = 1;
         color = generateColor(hsba);
       }
