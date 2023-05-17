@@ -23,7 +23,18 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Button -->
 
-<!-- ### Calendar -->
+## Calendar
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@calendar-bg` | - | Deprecated for style change |
+| `@calendar-input-bg` | - | Deprecated for style change |
+| `@calendar-border-color` | - | Deprecated for style change |
+| `@calendar-item-active-bg` | `itemActiveBg` | - |
+| `@calendar-column-active-bg` | - | Deprecated for style change |
+| `@calendar-full-bg` | `fullBg` | - |
+| `@calendar-full-panel-bg` | `fullPanelBg` | - |
 
 <!-- ### Card -->
 
