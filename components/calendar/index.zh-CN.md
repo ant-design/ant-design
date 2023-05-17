@@ -79,3 +79,17 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 ### 为什么时间类组件的国际化 locale 设置不生效？
 
 参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#为什么时间类组件的国际化-locale-设置不生效)。
+
+### 如何仅获取来自面板点击的日期？
+
+`onSelect` 事件提供额外的来源信息，你可以通过 `info.source` 来判断来源：
+
+```tsx
+<Calendar
+  onSelect={(date, { source }) => {
+    if (source === 'date') {
+      console.log('Panel Select:', source);
+    }
+  }}
+/>
+```

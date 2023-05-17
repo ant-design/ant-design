@@ -74,3 +74,17 @@ See [How to set locale for date-related components](/components/date-picker/#loc
 ### Date-related components locale is not working?
 
 See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-related-components-locale-is-not-working)
+
+### How to get date from panel click?
+
+`onSelect` provide `info.source` to help on this:
+
+```tsx
+<Calendar
+  onSelect={(date, { source }) => {
+    if (source === 'date') {
+      console.log('Panel Select:', source);
+    }
+  }}
+/>
+```
