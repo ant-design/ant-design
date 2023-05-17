@@ -60,7 +60,6 @@ export default () => (
         {
           title: 'Application Center',
           href: '',
-          separator: '-',
         },
         {
           href: '',
