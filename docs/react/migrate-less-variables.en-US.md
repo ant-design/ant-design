@@ -29,7 +29,7 @@ This document contains the correspondence between all the less variables related
 | `@breadcrumb-font-size` | `fontSize` | GlobalToken |
 | `@breadcrumb-icon-font-size` | `iconFontSize` | - |
 | `@breadcrumb-link-color` | `linkColor` | - |
-| `@breadcrumb-link-color-hover` | `linkColorHover` | - |
+| `@breadcrumb-link-color-hover` | `linkHoverColor` | - |
 | `@breadcrumb-separator-color` | `separatorColor` | - |
 | `@breadcrumb-separator-margin` | `separatorMargin` | - |
 

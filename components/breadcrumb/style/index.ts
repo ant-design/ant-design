@@ -7,7 +7,7 @@ export interface ComponentToken {
   itemColor: string;
   iconFontSize: number;
   linkColor: string;
-  linkColorHover: string;
+  linkHoverColor: string;
   lastItemColor: string;
   separatorMargin: number;
   separatorColor: string;
@@ -46,7 +46,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
         marginInline: -token.marginXXS,
 
         '&:hover': {
-          color: token.linkColorHover,
+          color: token.linkHoverColor,
           backgroundColor: token.colorBgTextHover,
         },
 
@@ -84,11 +84,11 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
         },
 
         '&:hover': {
-          color: token.linkColorHover,
+          color: token.linkHoverColor,
           backgroundColor: token.colorBgTextHover,
 
           a: {
-            color: token.linkColorHover,
+            color: token.linkHoverColor,
           },
         },
 
@@ -119,7 +119,7 @@ export default genComponentStyleHook(
     lastItemColor: token.colorText,
     iconFontSize: token.fontSize,
     linkColor: token.colorTextDescription,
-    linkColorHover: token.colorText,
+    linkHoverColor: token.colorText,
     separatorColor: token.colorTextDescription,
     separatorMargin: token.marginXS,
   }),

@@ -10,7 +10,7 @@ export default () => (
           lastItemColor: '#0f3a88',
           iconFontSize: 28,
           linkColor: '#979a42',
-          linkColorHover: '#9450c0',
+          linkHoverColor: '#9450c0',
           separatorColor: '#b41b60',
           separatorMargin: 22,
         },

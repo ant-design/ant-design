@@ -29,7 +29,7 @@ title: Less 变量迁移 Design Token
 | `@breadcrumb-font-size` | `fontSize` | 全局 Token |
 | `@breadcrumb-icon-font-size` | `iconFontSize` | - |
 | `@breadcrumb-link-color` | `linkColor` | - |
-| `@breadcrumb-link-color-hover` | `linkColorHover` | - |
+| `@breadcrumb-link-color-hover` | `linkHoverColor` | - |
 | `@breadcrumb-separator-color` | `separatorColor` | - |
 | `@breadcrumb-separator-margin` | `separatorMargin` | - |
 
