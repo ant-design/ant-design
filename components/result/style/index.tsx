@@ -1,19 +1,18 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import type { CSSProperties } from 'react';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
-  imageWidth: number;
-  imageHeight: number;
+  titleFontSize: number;
+  subtitleFontSize: number;
+  iconFontSize: number;
+  extraMargin: CSSProperties['margin'];
 }
 
 interface ResultToken extends FullToken<'Result'> {
-  resultTitleFontSize: number;
-  resultSubtitleFontSize: number;
-  resultIconFontSize: number;
-
-  resultExtraMargin: string;
-
+  imageWidth: number;
+  imageHeight: number;
   resultInfoIconColor: string;
   resultSuccessIconColor: string;
   resultWarningIconColor: string;
@@ -57,13 +56,13 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
       textAlign: 'center',
 
       [`& > ${iconCls}`]: {
-        fontSize: token.resultIconFontSize,
+        fontSize: token.iconFontSize,
       },
     },
 
     [`${componentCls} ${componentCls}-title`]: {
       color: token.colorTextHeading,
-      fontSize: token.resultTitleFontSize,
+      fontSize: token.titleFontSize,
       lineHeight: lineHeightHeading3,
       marginBlock: marginXS,
       textAlign: 'center',
@@ -71,7 +70,7 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
 
     [`${componentCls} ${componentCls}-subtitle`]: {
       color: token.colorTextDescription,
-      fontSize: token.resultSubtitleFontSize,
+      fontSize: token.subtitleFontSize,
       lineHeight,
       textAlign: 'center',
     },
@@ -83,7 +82,7 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
     },
 
     [`${componentCls} ${componentCls}-extra`]: {
-      margin: token.resultExtraMargin,
+      margin: token.extraMargin,
       textAlign: 'center',
 
       '& > *': {
@@ -127,31 +126,26 @@ const getStyle: GenerateStyle<ResultToken> = (token) => genResultStyle(token);
 export default genComponentStyleHook(
   'Result',
   (token) => {
-    const { paddingLG, fontSizeHeading3 } = token;
-
-    const resultSubtitleFontSize = token.fontSize;
-    const resultExtraMargin = `${paddingLG}px 0 0 0`;
-
     const resultInfoIconColor = token.colorInfo;
     const resultErrorIconColor = token.colorError;
     const resultSuccessIconColor = token.colorSuccess;
     const resultWarningIconColor = token.colorWarning;
 
     const resultToken = mergeToken<ResultToken>(token, {
-      resultTitleFontSize: fontSizeHeading3,
-      resultSubtitleFontSize,
-      resultIconFontSize: fontSizeHeading3 * 3,
-      resultExtraMargin,
       resultInfoIconColor,
       resultErrorIconColor,
       resultSuccessIconColor,
       resultWarningIconColor,
+      imageWidth: 250,
+      imageHeight: 295,
     });
 
     return [getStyle(resultToken)];
   },
-  {
-    imageWidth: 250,
-    imageHeight: 295,
-  },
+  (token) => ({
+    titleFontSize: token.fontSizeHeading3,
+    subtitleFontSize: token.fontSize,
+    iconFontSize: token.fontSizeHeading3 * 3,
+    extraMargin: `${token.paddingLG}px 0 0 0`,
+  }),
 );

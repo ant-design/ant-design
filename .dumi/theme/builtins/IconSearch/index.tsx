@@ -85,8 +85,11 @@ const IconSearch: React.FC = () => {
           iconList = iconList.filter((iconName) => iconName.toLowerCase().includes(matchKey));
         }
 
-        // CopyrightCircle is same as Copyright, don't show it
-        iconList = iconList.filter((icon) => icon !== 'CopyrightCircle');
+        const ignore = [
+          'CopyrightCircle', // same as Copyright
+          'DollarCircle', // same as Dollar
+        ];
+        iconList = iconList.filter((icon) => !ignore.includes(icon));
 
         return {
           category: key,
@@ -121,11 +124,11 @@ const IconSearch: React.FC = () => {
   };
 
   return (
-    <div className="markdown">
+    <div className='markdown'>
       <Affix offsetTop={24} onChange={setSearchBarAffixed}>
         <div css={iconSearchAffix} style={searchBarAffixed ? affixedStyle : {}}>
           <Segmented
-            size="large"
+            size='large'
             value={displayState.theme}
             options={options(intl)}
             onChange={handleChangeTheme}
@@ -135,7 +138,7 @@ const IconSearch: React.FC = () => {
             style={{ flex: 1, marginInlineStart: 16 }}
             allowClear
             autoFocus
-            size="large"
+            size='large'
             onChange={handleSearchIcon}
           />
         </div>

@@ -509,113 +509,111 @@ Array [
                 />
               </svg>
             </span>
-            <div>
-              <div
-                class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                style="opacity: 0;"
+            <div
+              class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <ul
+                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                data-menu-list="true"
+                role="menu"
+                tabindex="0"
               >
-                <ul
-                  class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-                  data-menu-list="true"
-                  role="menu"
-                  tabindex="0"
+                <li
+                  class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-selectAll"
+                  role="menuitem"
+                  tabindex="-1"
                 >
-                  <li
-                    class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-test-selectAll"
-                    role="menuitem"
-                    tabindex="-1"
+                  <span
+                    class="ant-dropdown-menu-title-content"
                   >
-                    <span
-                      class="ant-dropdown-menu-title-content"
-                    >
-                      Select all data
-                    </span>
-                  </li>
-                  <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
-                  </div>
-                  <li
-                    class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-test-selectInvert"
-                    role="menuitem"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-dropdown-menu-title-content"
-                    >
-                      Invert current page
-                    </span>
-                  </li>
-                  <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
-                  </div>
-                </ul>
+                    Select all data
+                  </span>
+                </li>
                 <div
-                  aria-hidden="true"
-                  style="display: none;"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
-                  </div>
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                    class="ant-tooltip-content"
                   >
                     <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
+                      class="ant-tooltip-inner"
+                      role="tooltip"
                     />
+                  </div>
+                </div>
+                <li
+                  class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-selectInvert"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-dropdown-menu-title-content"
+                  >
+                    Invert current page
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
                     <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
+              </ul>
+              <div
+                aria-hidden="true"
+                style="display: none;"
+              >
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
                   </div>
                 </div>
               </div>
@@ -674,23 +672,27 @@ Array [
             type="button"
           >
             <span
-              aria-label="right"
-              class="anticon anticon-right"
-              role="img"
+              class="ant-btn-icon"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="right"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
             </span>
           </button>
           <button
@@ -699,23 +701,27 @@ Array [
             type="button"
           >
             <span
-              aria-label="left"
-              class="anticon anticon-left"
-              role="img"
+              class="ant-btn-icon"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="left"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="left"
+                class="anticon anticon-left"
+                role="img"
               >
-                <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </span>
             </span>
           </button>
         </div>
@@ -760,113 +766,111 @@ Array [
                 />
               </svg>
             </span>
-            <div>
-              <div
-                class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                style="opacity: 0;"
+            <div
+              class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <ul
+                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                data-menu-list="true"
+                role="menu"
+                tabindex="0"
               >
-                <ul
-                  class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-                  data-menu-list="true"
-                  role="menu"
-                  tabindex="0"
+                <li
+                  class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-selectAll"
+                  role="menuitem"
+                  tabindex="-1"
                 >
-                  <li
-                    class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-test-selectAll"
-                    role="menuitem"
-                    tabindex="-1"
+                  <span
+                    class="ant-dropdown-menu-title-content"
                   >
-                    <span
-                      class="ant-dropdown-menu-title-content"
-                    >
-                      Select all data
-                    </span>
-                  </li>
-                  <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
-                  </div>
-                  <li
-                    class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-test-selectInvert"
-                    role="menuitem"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-dropdown-menu-title-content"
-                    >
-                      Invert current page
-                    </span>
-                  </li>
-                  <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
-                  </div>
-                </ul>
+                    Select all data
+                  </span>
+                </li>
                 <div
-                  aria-hidden="true"
-                  style="display: none;"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
-                  </div>
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                    class="ant-tooltip-content"
                   >
                     <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
+                      class="ant-tooltip-inner"
+                      role="tooltip"
                     />
+                  </div>
+                </div>
+                <li
+                  class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-selectInvert"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-dropdown-menu-title-content"
+                  >
+                    Invert current page
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
                     <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
+              </ul>
+              <div
+                aria-hidden="true"
+                style="display: none;"
+              >
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
                   </div>
                 </div>
               </div>
