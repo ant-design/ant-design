@@ -1,5 +1,5 @@
-import React from 'react';
 import { ConfigProvider, Divider, Typography } from 'antd';
+import React from 'react';
 
 const { Title, Paragraph, Text, Link } = Typography;
 
@@ -12,8 +12,8 @@ const App: React.FC = () => (
       components: {
         Typography: {
           titleFontWeight: 700,
-          sizeMarginHeadingVerticalStart: '2.4em',
-          sizeMarginHeadingVerticalEnd: '1em',
+          titleMarginTop: '2.4em',
+          titleMarginBottom: '1em',
         },
       },
     }}

@@ -218,7 +218,7 @@ This document contains the correspondence between all the less variables related
 | Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@typography-title-font-weight` | `titleFontWeight` | - |
-| `@typography-title-margin-top` | `sizeMarginHeadingVerticalStart` | - |
-| `@typography-title-margin-bottom` | `sizeMarginHeadingVerticalEnd` | - |
+| `@typography-title-margin-top` | `titleMarginTop` | - |
+| `@typography-title-margin-bottom` | `titleMarginBottom` | - |
 
 <!-- ### Upload -->

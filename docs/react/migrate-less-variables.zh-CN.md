@@ -218,7 +218,7 @@ title: Less 变量迁移 Design Token
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
 | `@typography-title-font-weight` | `titleFontWeight` | - |
-| `@typography-title-margin-top` | `sizeMarginHeadingVerticalStart` | - |
-| `@typography-title-margin-bottom` | `sizeMarginHeadingVerticalEnd` | - |
+| `@typography-title-margin-top` | `titleMarginTop` | - |
+| `@typography-title-margin-bottom` | `titleMarginBottom` | - |
 
 <!-- ### Upload 上传 -->
