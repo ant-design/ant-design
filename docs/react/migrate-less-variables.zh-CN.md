@@ -138,7 +138,15 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Radio 单选框 -->
 
-<!-- ### Rate 评分 -->
+## Rate 评分
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@rate-star-color` | `starColor` | - |
+| `@rate-star-bg` | `starBg` | - |
+| `@rate-star-size` | `starSize` | - |
+| `@rate-star-hover-scale` | `starHoverScale` | - |
 
 ### Result 结果
 
