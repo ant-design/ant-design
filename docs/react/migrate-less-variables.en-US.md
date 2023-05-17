@@ -35,7 +35,21 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Collapse -->
 
-<!-- ### Descriptions -->
+### Descriptions
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@descriptions-bg` | `labelBg` | - |
+| `@descriptions-title-margin-bottom` | `titleMarginBottom` | - |
+| `@descriptions-default-padding` | `padding`、`paddingLG` | GlobalToken, used as `${token.padding}px ${token.paddingLG}px` |
+| `@descriptions-middle-padding` | `paddingSM`、`paddingLG` | GlobalToken, used as `${token.paddingSM}px ${token.paddingLG}px` |
+| `@descriptions-small-padding` | `paddingXS`、`padding` | GlobalToken, used as `${token.paddingXS}px ${token.padding}px` |
+| `@descriptions-item-padding-bottom` | `itemPaddingBottom` | - |
+| `@descriptions-item-trailing-colon` | - | Deprecated for style change |
+| `@descriptions-item-label-colon-margin-right` | `colonMarginRight` | - |
+| `@descriptions-item-label-colon-margin-left` | `colonMarginLeft` | - |
+| `@descriptions-extra-color` | `extraColor` | - |
 
 <!-- ### Divider -->
 
