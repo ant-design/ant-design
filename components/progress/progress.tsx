@@ -4,7 +4,7 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import React from 'react';
+import * as React from 'react';
 import warning from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
@@ -55,7 +55,7 @@ export interface ProgressProps {
   children?: React.ReactNode;
 }
 
-const Progress: React.FC<ProgressProps> = (props) => {
+const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -172,6 +172,7 @@ const Progress: React.FC<ProgressProps> = (props) => {
 
   return wrapSSR(
     <div
+      ref={ref}
       className={classString}
       role="progressbar"
       {...omit(restProps, [
@@ -188,7 +189,7 @@ const Progress: React.FC<ProgressProps> = (props) => {
       {progress}
     </div>,
   );
-};
+});
 
 if (process.env.NODE_ENV !== 'production') {
   Progress.displayName = 'Progress';

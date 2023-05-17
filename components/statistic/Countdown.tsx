@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import useForceUpdate from '../_util/hooks/useForceUpdate';
 import { cloneElement } from '../_util/reactNode';
 import type { StatisticProps } from './Statistic';

@@ -1,4 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import type { CSSProperties } from 'react';
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -13,25 +14,24 @@ import genStepsSmallStyle from './small';
 import genStepsVerticalStyle from './vertical';
 
 export interface ComponentToken {
-  descriptionWidth: number;
-  processTailColor: string;
-  stepsNavArrowColor: string;
-  stepsIconSize: number;
-  stepsIconCustomSize: number;
-  stepsIconCustomTop: number;
-  stepsIconCustomFontSize: number;
-  stepsIconTop: number;
-  stepsIconFontSize: number;
-  stepsDotSize: number;
-  stepsCurrentDotSize: number;
-  stepsNavContentMaxWidth: string;
-  stepsSmallIconSize: number;
+  descriptionMaxWidth: number;
+  customIconSize: number;
+  customIconTop: number;
+  customIconFontSize: number;
+  iconSize: number;
+  iconTop: number;
+  iconFontSize: number;
+  dotSize: number;
+  dotCurrentSize: number;
+  navArrowColor: string;
+  navContentMaxWidth: CSSProperties['maxWidth'];
+  iconSizeSM: number;
+  titleLineHeight: number;
 }
 
 export interface StepsToken extends FullToken<'Steps'> {
   // Steps variable default.less
   processTailColor: string;
-  stepsTitleLineHeight: number;
   // Steps component less variable
   processIconColor: string;
   processTitleColor: string;
@@ -143,29 +143,29 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       verticalAlign: 'top',
     },
     [`${stepsItemCls}-icon`]: {
-      width: token.stepsIconSize,
-      height: token.stepsIconSize,
+      width: token.iconSize,
+      height: token.iconSize,
       marginTop: 0,
       marginBottom: 0,
       marginInlineStart: 0,
       marginInlineEnd: token.marginXS,
-      fontSize: token.stepsIconFontSize,
+      fontSize: token.iconFontSize,
       fontFamily: token.fontFamily,
-      lineHeight: `${token.stepsIconSize}px`,
+      lineHeight: `${token.iconSize}px`,
       textAlign: 'center',
-      borderRadius: token.stepsIconSize,
+      borderRadius: token.iconSize,
       border: `${token.lineWidth}px ${token.lineType} transparent`,
       transition: `background-color ${motionDurationSlow}, border-color ${motionDurationSlow}`,
       [`${componentCls}-icon`]: {
         position: 'relative',
-        top: token.stepsIconTop,
+        top: token.iconTop,
         color: token.colorPrimary,
         lineHeight: 1,
       },
     },
     [`${stepsItemCls}-tail`]: {
       position: 'absolute',
-      top: token.stepsIconSize / 2 - token.paddingXXS,
+      top: token.iconSize / 2 - token.paddingXXS,
       insetInlineStart: 0,
       width: '100%',
 
@@ -185,11 +185,11 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       paddingInlineEnd: token.padding,
       color: token.colorText,
       fontSize: token.fontSizeLG,
-      lineHeight: `${token.stepsTitleLineHeight}px`,
+      lineHeight: `${token.titleLineHeight}px`,
 
       '&::after': {
         position: 'absolute',
-        top: token.stepsTitleLineHeight / 2,
+        top: token.titleLineHeight / 2,
         insetInlineStart: '100%',
         display: 'block',
         width: 9999,
@@ -279,7 +279,7 @@ const genStepsClickableStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
           display: 'none',
         },
         '&-description': {
-          maxWidth: token.descriptionWidth,
+          maxWidth: token.descriptionMaxWidth,
           whiteSpace: 'normal',
         },
       },
@@ -353,6 +353,7 @@ export default genComponentStyleHook(
       processIconBgColor: colorPrimary,
       processIconBorderColor: colorPrimary,
       processDotColor: colorPrimary,
+      processTailColor: colorSplit,
       waitIconColor: wireframe ? colorTextDisabled : colorTextLabel,
       waitTitleColor: colorTextDescription,
       waitDescriptionColor: colorTextDescription,
@@ -392,23 +393,21 @@ export default genComponentStyleHook(
       controlHeight,
       controlHeightLG,
       fontSizeHeading3,
-      colorSplit,
     } = token;
     return {
-      processTailColor: colorSplit,
-      stepsNavArrowColor: colorTextDisabled,
-      stepsIconSize: controlHeight,
-      stepsTitleLineHeight: controlHeight,
-      stepsIconCustomSize: controlHeight,
-      stepsIconCustomTop: 0,
-      stepsIconCustomFontSize: controlHeightSM,
-      stepsIconTop: -0.5, // magic for ui experience
-      stepsIconFontSize: fontSize,
-      stepsDotSize: controlHeight / 4,
-      descriptionWidth: 140,
-      stepsCurrentDotSize: controlHeightLG / 4,
-      stepsNavContentMaxWidth: 'auto',
-      stepsSmallIconSize: fontSizeHeading3,
+      titleLineHeight: controlHeight,
+      customIconSize: controlHeight,
+      customIconTop: 0,
+      customIconFontSize: controlHeightSM,
+      iconSize: controlHeight,
+      iconTop: -0.5, // magic for ui experience
+      iconFontSize: fontSize,
+      iconSizeSM: fontSizeHeading3,
+      dotSize: controlHeight / 4,
+      dotCurrentSize: controlHeightLG / 4,
+      navArrowColor: colorTextDisabled,
+      navContentMaxWidth: 'auto',
+      descriptionMaxWidth: 140,
     };
   },
 );

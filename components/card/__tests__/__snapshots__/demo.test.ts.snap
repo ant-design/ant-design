@@ -770,7 +770,6 @@ Array [
                 data-node-key="tab1"
               >
                 <div
-                  aria-disabled="false"
                   aria-selected="true"
                   class="ant-tabs-tab-btn"
                   role="tab"
@@ -784,7 +783,6 @@ Array [
                 data-node-key="tab2"
               >
                 <div
-                  aria-disabled="false"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
                   role="tab"
@@ -889,7 +887,6 @@ Array [
                 data-node-key="article"
               >
                 <div
-                  aria-disabled="false"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
                   role="tab"
@@ -903,7 +900,6 @@ Array [
                 data-node-key="app"
               >
                 <div
-                  aria-disabled="false"
                   aria-selected="true"
                   class="ant-tabs-tab-btn"
                   role="tab"
@@ -917,7 +913,6 @@ Array [
                 data-node-key="project"
               >
                 <div
-                  aria-disabled="false"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
                   role="tab"

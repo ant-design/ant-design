@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import type { ProgressProps as RcProgressProps } from 'rc-progress';
 import { Circle as RCCircle } from 'rc-progress';
-import React from 'react';
+import * as React from 'react';
 import Tooltip from '../tooltip';
 import type { ProgressGradient, ProgressProps } from './progress';
 import { getPercentage, getSize, getStrokeColor } from './utils';
@@ -28,12 +28,10 @@ const Circle: React.FC<CircleProps> = (props) => {
     type,
     children,
     success,
-    size,
+    size = originWidth,
   } = props;
 
-  const mergedSize = size ?? [originWidth, originWidth];
-
-  const [width, height] = getSize(mergedSize, 'circle');
+  const [width, height] = getSize(size, 'circle');
 
   let { strokeWidth } = props;
   if (strokeWidth === undefined) {
