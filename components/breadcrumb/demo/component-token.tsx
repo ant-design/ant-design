@@ -1,6 +1,33 @@
+import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 import { Breadcrumb, ConfigProvider } from 'antd';
 import React from 'react';
 
+const menuItems = [
+  {
+    key: '1',
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+        General
+      </a>
+    ),
+  },
+  {
+    key: '2',
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+        Layout
+      </a>
+    ),
+  },
+  {
+    key: '3',
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
+        Navigation
+      </a>
+    ),
+  },
+];
 export default () => (
   <ConfigProvider
     theme={{
@@ -18,24 +45,34 @@ export default () => (
     }}
   >
     <Breadcrumb
-      routes={[
+      separator=""
+      items={[
         {
-          path: '/home',
-          breadcrumbName: 'Home',
+          title: 'Home',
         },
         {
-          path: '/user',
-          breadcrumbName: 'User',
-          children: [
-            {
-              path: '/user1',
-              breadcrumbName: 'User1',
-            },
-            {
-              path: '/user2',
-              breadcrumbName: 'User2',
-            },
-          ],
+          title: <a href="">Application Center</a>,
+        },
+        {
+          title: <a href="">General</a>,
+          menu: { items: menuItems },
+        },
+        {
+          title: 'Application Center',
+          href: '',
+        },
+        {
+          href: '',
+          title: <HomeOutlined />,
+        },
+        {
+          href: '',
+          title: (
+            <>
+              <UserOutlined />
+              <span>Application List</span>
+            </>
+          ),
         },
       ]}
     />
