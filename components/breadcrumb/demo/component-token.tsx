@@ -6,7 +6,7 @@ export default () => (
     theme={{
       components: {
         Breadcrumb: {
-          baseColor: '#b02121',
+          itemColor: '#b02121',
           lastItemColor: '#0f3a88',
           iconFontSize: 28,
           linkColor: '#979a42',
