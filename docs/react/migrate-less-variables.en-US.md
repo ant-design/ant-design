@@ -13,7 +13,16 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Alert -->
 
-<!-- ### Anchor -->
+## Anchor
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@anchor-bg` | `background` | - |
+| `@anchor-border-color` | `colorSplit` | GlobalToken |
+| `@anchor-link-top` | `paddingBlock` | - |
+| `@anchor-link-left` | `paddingInline` | - |
+| `@anchor-link-padding` | - | Deprecated for style change |
 
 <!-- ### Avatar -->
 
