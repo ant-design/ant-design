@@ -7,6 +7,7 @@ import { render } from '../../../tests/utils';
 import AutoComplete from '../../auto-complete';
 import Button from '../../button';
 import Cascader from '../../cascader';
+import ConfigProvider from '../../config-provider';
 import DatePicker from '../../date-picker';
 import Drawer from '../../drawer';
 import Dropdown from '../../dropdown';
@@ -310,5 +311,30 @@ describe('Space.Compact', () => {
         ?.querySelector('.ant-picker')
         ?.classList.contains('ant-picker-compact-item'),
     ).toBe(false);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/41876
+  it('Space.Compact should inherit the size from ConfigProvider if the componentSize is set', () => {
+    const { container } = render(
+      <ConfigProvider componentSize="large">
+        <Space.Compact>
+          <Select placeholder="Select" />
+        </Space.Compact>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelectorAll('.ant-select-lg')).toHaveLength(1);
+  });
+
+  it('The size property of Space.Compact should have an higher priority over the componentSize property of ConfigProvider', () => {
+    const { container } = render(
+      <ConfigProvider componentSize="large">
+        <Space.Compact size="small">
+          <Select placeholder="Select" />
+        </Space.Compact>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelectorAll('.ant-select-sm')).toHaveLength(1);
   });
 });

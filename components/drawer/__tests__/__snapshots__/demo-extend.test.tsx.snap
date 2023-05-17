@@ -99,6 +99,70 @@ Array [
 ]
 `;
 
+exports[`renders components/drawer/demo/component-token.tsx extend context correctly 1`] = `
+<div
+  style="padding: 32px; background: rgb(230, 230, 230);"
+>
+  <div
+    class="ant-drawer ant-drawer-pure ant-drawer-right"
+    style="height: 300px;"
+  >
+    <div
+      class="ant-drawer-wrapper-body"
+    >
+      <div
+        class="ant-drawer-header"
+      >
+        <div
+          class="ant-drawer-header-title"
+        >
+          <button
+            aria-label="Close"
+            class="ant-drawer-close"
+            type="button"
+          >
+            <span
+              aria-label="close"
+              class="anticon anticon-close"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                />
+              </svg>
+            </span>
+          </button>
+          <div
+            class="ant-drawer-title"
+          >
+            Hello Title
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-drawer-body"
+      >
+        Hello Content
+      </div>
+      <div
+        class="ant-drawer-footer"
+      >
+        Footer!
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/drawer/demo/config-provider.tsx extend context correctly 1`] = `
 <div
   class="site-drawer-render-in-current-wrapper"
@@ -752,7 +816,7 @@ Array [
                               </div>
                               <div
                                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                                style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <div>
                                   <div
@@ -930,7 +994,7 @@ Array [
                               </div>
                               <div
                                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                                style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <div>
                                   <div
@@ -1113,7 +1177,7 @@ Array [
                               </div>
                               <div
                                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                                style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <div>
                                   <div
@@ -1340,7 +1404,7 @@ Array [
                             </div>
                             <div
                               class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-                              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
