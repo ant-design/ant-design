@@ -60,7 +60,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 | value | 展示日期 | [dayjs](https://day.js.org/) | - |  |
 | onChange | 日期变化回调 | function(date: Dayjs) | - |  |
 | onPanelChange | 日期面板变化回调 | function(date: Dayjs, mode: string) | - |  |
-| onSelect | 点击选择日期回调 | function(date: Dayjs） | - |  |
+| onSelect | 选择日期回调，包含来源信息 | function(date: Dayjs, info: { source: 'year' \| 'month' \| 'date' \| 'customize' }) | - | `info`: 5.6.0 |
 
 ## Design Token
 
