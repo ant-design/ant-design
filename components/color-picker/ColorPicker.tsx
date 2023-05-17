@@ -100,9 +100,16 @@ const ColorPicker: CompoundedComponent = (props) => {
   const mergeCls = classNames(mergeRootCls, className, hashId);
 
   const handleChange = (data: Color) => {
-    const color: Color = generateColor(data);
-    if (colorCleared && color.toHsb().a > 0) {
+    let color: Color = generateColor(data);
+    if (colorCleared) {
       setColorCleared(false);
+      const hsba = color.toHsb();
+      const { h, s, b } = colorValue.toHsb();
+      // ignore alpha slider
+      if (hsba.a === 0 && (h !== hsba.h || s !== hsba.s || b !== hsba.b)) {
+        hsba.a = 1;
+        color = generateColor(hsba);
+      }
     }
     if (!value) {
       setColorValue(color);
