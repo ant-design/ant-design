@@ -47,6 +47,31 @@ describe('Calendar.onSelect', () => {
     expect(onSelect).toHaveBeenCalledWith(expect.anything(), { source: 'month' });
   });
 
+  it('source of customize', async () => {
+    const onSelect = jest.fn();
+    const { container } = render(
+      <Calendar
+        onSelect={onSelect}
+        headerRender={({ onChange }) => (
+          <button
+            className="bamboo"
+            type="button"
+            onClick={() => {
+              onChange(Dayjs('1999-01-01'));
+            }}
+          >
+            Trigger
+          </button>
+        )}
+      />,
+    );
+
+    fireEvent.click(container.querySelector('.bamboo')!);
+    await waitFakeTimer();
+
+    expect(onSelect).toHaveBeenCalledWith(expect.anything(), { source: 'customize' });
+  });
+
   it('source of date', () => {
     const onSelect = jest.fn();
     const { container } = render(<Calendar onSelect={onSelect} />);
