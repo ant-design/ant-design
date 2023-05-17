@@ -1,20 +1,26 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
+import { resetComponent, resetIcon, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent, resetIcon, textEllipsis } from '../../style';
 
 export interface ComponentToken {
   listWidth: number;
   listWidthLG: number;
   listHeight: number;
+  itemHeight: number;
+  disabledBg: string;
+  itemHoverBg: string;
+  itemSelectedHoverBg: string;
+  itemPaddingVertical: number;
+  listSearchIconTop: number;
 }
 
 interface TransferToken extends FullToken<'Transfer'> {
-  transferItemHeight: number;
-  transferHeaderVerticalPadding: number;
-  transferItemPaddingVertical: number;
-  transferHeaderHeight: number;
+  itemHeight: number;
+  headerVerticalPadding: number;
+  itemPaddingVertical: number;
+  headerHeight: number;
 }
 
 const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
@@ -89,10 +95,10 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     colorBorder,
     colorSplit,
     lineWidth,
-    transferItemHeight,
-    transferHeaderHeight,
-    transferHeaderVerticalPadding,
-    transferItemPaddingVertical,
+    itemHeight,
+    headerHeight,
+    headerVerticalPadding,
+    itemPaddingVertical,
     controlItemBgActive,
     controlItemBgActiveHover,
     colorTextDisabled,
@@ -130,11 +136,9 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       display: 'flex',
       flex: 'none',
       alignItems: 'center',
-      height: transferHeaderHeight,
+      height: headerHeight,
       // border-top is on the transfer dom. We should minus 1px for this
-      padding: `${
-        transferHeaderVerticalPadding - lineWidth
-      }px ${paddingSM}px ${transferHeaderVerticalPadding}px`,
+      padding: `${headerVerticalPadding - lineWidth}px ${paddingSM}px ${headerVerticalPadding}px`,
       color: token.colorText,
       background: token.colorBgContainer,
       borderBottom: `${lineWidth}px ${lineType} ${colorSplit}`,
@@ -191,8 +195,8 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       '&-item': {
         display: 'flex',
         alignItems: 'center',
-        minHeight: transferItemHeight,
-        padding: `${transferItemPaddingVertical}px ${paddingSM}px`,
+        minHeight: itemHeight,
+        padding: `${itemPaddingVertical}px ${paddingSM}px`,
         transition: `all ${motionDurationSlow}`,
 
         '> *:not(:last-child)': {
@@ -221,7 +225,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
 
           '&::after': {
             position: 'absolute',
-            insert: `-${transferItemPaddingVertical}px -50%`,
+            insert: `-${itemPaddingVertical}px -50%`,
             content: '""',
           },
         },
@@ -280,7 +284,7 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
     antCls,
     iconCls,
     componentCls,
-    transferHeaderHeight,
+    headerHeight,
     marginXS,
     marginXXS,
     fontSizeIcon,
@@ -326,7 +330,7 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
       },
 
       [`${antCls}-empty-image`]: {
-        maxHeight: transferHeaderHeight / 2 - Math.round(fontSize * lineHeight),
+        maxHeight: headerHeight / 2 - Math.round(fontSize * lineHeight),
       },
     },
   };
@@ -348,14 +352,12 @@ export default genComponentStyleHook(
     const { fontSize, lineHeight, lineWidth, controlHeightLG, controlHeight } = token;
 
     const fontHeight = Math.round(fontSize * lineHeight);
-    const transferHeaderHeight = controlHeightLG;
-    const transferItemHeight = controlHeight;
-
+    const headerHeight = controlHeightLG;
     const transferToken = mergeToken<TransferToken>(token, {
-      transferItemHeight,
-      transferHeaderHeight,
-      transferHeaderVerticalPadding: Math.ceil((transferHeaderHeight - lineWidth - fontHeight) / 2),
-      transferItemPaddingVertical: (transferItemHeight - fontHeight) / 2,
+      itemHeight: controlHeight,
+      headerHeight,
+      headerVerticalPadding: Math.ceil((headerHeight - lineWidth - fontHeight) / 2),
+      itemPaddingVertical: (controlHeight - fontHeight) / 2,
     });
 
     return [
@@ -365,9 +367,16 @@ export default genComponentStyleHook(
       genTransferRTLStyle(transferToken),
     ];
   },
-  {
+  (token) => ({
     listWidth: 180,
     listHeight: 200,
     listWidthLG: 250,
-  },
+    headerHeight: 40,
+    itemHeight: token.controlHeight,
+    disabledBg: token.colorBgContainerDisabled,
+    itemHoverBg: token.controlItemBgHover,
+    itemSelectedHoverBg: token.controlItemBgHover,
+    itemPaddingVertical: 6,
+    listSearchIconTop: 12,
+  }),
 );
