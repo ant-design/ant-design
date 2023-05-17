@@ -1,3 +1,4 @@
+import { blue } from '@ant-design/colors';
 import { TinyColor } from '@ctrl/tinycolor';
 import type { UploadToken } from '.';
 import { clearFix, textEllipsis } from '../../style';
@@ -61,10 +62,10 @@ const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
 
           // Adjust the color of the error icon : https://github.com/ant-design/ant-design/pull/24160
           [`${itemCls}-thumbnail ${iconCls}`]: {
-            [`svg path[fill='#e6f7ff']`]: {
+            [`svg path[fill='${blue[0].toLowerCase()}']`]: {
               fill: token.colorErrorBg,
             },
-            [`svg path[fill='#1677ff']`]: {
+            [`svg path[fill='${blue.primary}']`]: {
               fill: token.colorError,
             },
           },
