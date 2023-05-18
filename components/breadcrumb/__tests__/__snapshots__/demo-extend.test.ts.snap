@@ -75,6 +75,12 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
         Home
       </span>
     </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      &gt;
+    </li>
     <li>
       <span
         class="ant-breadcrumb-link"
@@ -85,6 +91,12 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
           Application Center
         </a>
       </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      &gt;
     </li>
     <li>
       <span
@@ -293,6 +305,12 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
         </div>
       </div>
     </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      &gt;
+    </li>
     <li>
       <a
         class="ant-breadcrumb-link"
@@ -300,6 +318,12 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
       >
         Application Center
       </a>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      &gt;
     </li>
     <li>
       <a
@@ -326,6 +350,12 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
           </svg>
         </span>
       </a>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      &gt;
     </li>
     <li>
       <a
