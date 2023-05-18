@@ -1,16 +1,16 @@
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import classNames from 'classnames';
-import { Notice } from 'rc-notification';
-import type { NoticeProps } from 'rc-notification/lib/Notice';
 import * as React from 'react';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import { Notice } from 'rc-notification';
+import classNames from 'classnames';
+import type { NoticeProps } from 'rc-notification/lib/Notice';
+import useStyle from './style';
 import { ConfigContext } from '../config-provider';
 import type { IconType } from './interface';
-import useStyle from './style';
 
 export const TypeIcon = {
   info: <InfoCircleFilled />,
