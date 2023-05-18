@@ -4,10 +4,16 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export type ComponentToken = {
+  /** @deprecated use gradientFromColor instead. */
   color: string;
+  /** @deprecated use gradientToColor instead. */
   colorGradientEnd: string;
+  gradientFromColor: string;
+  gradientToColor: string;
   titleHeight: number;
   blockRadius: number;
+  paragraphMarginTop: number;
+  paragraphLineHeight: number;
 };
 
 const skeletonClsLoading = new Keyframes(`ant-skeleton-loading`, {
@@ -27,8 +33,6 @@ interface SkeletonToken extends FullToken<'Skeleton'> {
   skeletonInputCls: string;
   skeletonImageCls: string;
   imageSizeBase: number;
-  skeletonParagraphLineHeight: number;
-  skeletonParagraphMarginTop: number;
   skeletonLoadingBackground: string;
   skeletonLoadingMotionDuration: string;
   borderRadius: number;
@@ -217,9 +221,9 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
     borderRadius,
     titleHeight,
     blockRadius,
-    skeletonParagraphLineHeight,
+    paragraphLineHeight,
     controlHeightXS,
-    skeletonParagraphMarginTop,
+    paragraphMarginTop,
   } = token;
 
   return {
@@ -270,7 +274,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
           padding: 0,
           '> li': {
             width: '100%',
-            height: skeletonParagraphLineHeight,
+            height: paragraphLineHeight,
             listStyle: 'none',
             background: color,
             borderRadius: blockRadius,
@@ -297,7 +301,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
         marginBlockStart: marginSM,
 
         [`+ ${skeletonParagraphCls}`]: {
-          marginBlockStart: skeletonParagraphMarginTop,
+          marginBlockStart: paragraphMarginTop,
         },
       },
     },
@@ -353,8 +357,6 @@ export default genComponentStyleHook(
       skeletonInputCls: `${componentCls}-input`,
       skeletonImageCls: `${componentCls}-image`,
       imageSizeBase: token.controlHeight * 1.5,
-      skeletonParagraphLineHeight: token.controlHeight / 2,
-      skeletonParagraphMarginTop: token.marginLG + token.marginXXS,
       borderRadius: 100, // Large number to make capsule shape
       skeletonLoadingBackground: `linear-gradient(90deg, ${token.color} 25%, ${token.colorGradientEnd} 37%, ${token.color} 63%)`,
       skeletonLoadingMotionDuration: '1.4s',
@@ -363,12 +365,15 @@ export default genComponentStyleHook(
   },
   (token) => {
     const { colorFillContent, colorFill } = token;
-
     return {
       color: colorFillContent,
       colorGradientEnd: colorFill,
+      gradientFromColor: colorFillContent,
+      gradientToColor: colorFill,
       titleHeight: token.controlHeight / 2,
       blockRadius: token.borderRadiusSM,
+      paragraphMarginTop: token.marginLG + token.marginXXS,
+      paragraphLineHeight: token.controlHeight / 2,
     };
   },
 );

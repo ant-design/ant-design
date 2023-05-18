@@ -161,8 +161,11 @@ This document contains the correspondence between all the less variables related
 | --- | --- | --- |
 | `@skeleton-block-radius` | `blockRadius` | - |
 | `@skeleton-title-height` | `titleHeight` | - |
-| `@skeleton-color` | `color` | - |
-| `@skeleton-to-color` | `colorGradientEnd` | - |
+| `@skeleton-color` | `gradientFromColor` | - |
+| `@skeleton-to-color` | `gradientToColor` | - |
+| `@skeleton-paragraph-margin-top` | `paragraphMarginTop` | - |
+| `@skeleton-paragraph-li-height` | `paragraphLineHeight` | - |
+| `@skeleton-paragraph-li-margin-top` | - | 由于样式变化已废弃 |
 
 <!-- ### Slider -->
 
