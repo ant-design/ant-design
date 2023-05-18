@@ -20,6 +20,7 @@ export const ANT_MARK = 'internalMark';
 
 export interface Locale {
   locale: string;
+  dateFormat: string;
   Pagination?: PaginationLocale;
   DatePicker?: DatePickerLocale;
   TimePicker?: Record<string, any>;

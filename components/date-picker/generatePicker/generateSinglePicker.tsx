@@ -55,7 +55,12 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           ...restProps
         } = props;
 
-        const { getPrefixCls, direction, getPopupContainer } = useContext(ConfigContext);
+        const {
+          getPrefixCls,
+          direction,
+          getPopupContainer,
+          locale: ctxLocale,
+        } = useContext(ConfigContext);
         const prefixCls = getPrefixCls('picker', customizePrefixCls);
         const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
         const innerRef = React.useRef<RCPicker<DateType>>(null);
@@ -120,7 +125,10 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           </>
         );
 
-        const [contextLocale] = useLocale('DatePicker', enUS);
+        const [contextLocale] = useLocale('DatePicker', {
+          ...(ctxLocale?.DatePicker ?? enUS),
+          dateFormat: ctxLocale?.dateFormat,
+        });
 
         const locale = { ...contextLocale, ...props.locale! };
 
@@ -137,6 +145,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
             superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
             allowClear
             transitionName={`${rootPrefixCls}-slide-up`}
+            format={locale!.dateFormat}
             {...additionalProps}
             {...restProps}
             {...additionalOverrideProps}
