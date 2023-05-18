@@ -254,7 +254,7 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@timeline-width` | - | Deprecated for style change |
+| `@timeline-width` | `tailWidth` | `tailWidth`  is a number without units, `@timeline-width` with units |
 | `@timeline-color` | `tailColor` | - |
 | `@timeline-dot-border-width` | `dotBorderWidth` | - |
 | `@timeline-dot-color` | - | Deprecated |

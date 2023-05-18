@@ -5,6 +5,7 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   tailColor: string;
+  tailWidth: number;
   dotBorderWidth: number;
   dotBg: string;
   itemPaddingBottom: number;
@@ -13,7 +14,6 @@ export interface ComponentToken {
 interface TimelineToken extends FullToken<'Timeline'> {
   itemHeadSize: number;
   customHeadPaddingVertical: number;
-  lineItemTailWidth: number;
   paddingInlineEnd: number;
 }
 
@@ -37,9 +37,9 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
         '&-tail': {
           position: 'absolute',
           insetBlockStart: token.itemHeadSize,
-          insetInlineStart: (token.itemHeadSize - token.lineItemTailWidth) / 2,
+          insetInlineStart: (token.itemHeadSize - token.tailWidth) / 2,
           height: `calc(100% - ${token.itemHeadSize}px)`,
-          borderInlineStart: `${token.lineItemTailWidth}px ${token.lineType} ${token.tailColor}`,
+          borderInlineStart: `${token.tailWidth}px ${token.lineType} ${token.tailColor}`,
         },
 
         '&-pending': {
@@ -130,7 +130,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
             marginInlineStart: `-${token.marginXXS}px`,
 
             '&-custom': {
-              marginInlineStart: token.lineItemTailWidth / 2,
+              marginInlineStart: token.tailWidth / 2,
             },
           },
 
@@ -157,9 +157,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           [`${componentCls}-item-tail,
             ${componentCls}-item-head,
             ${componentCls}-item-head-custom`]: {
-            insetInlineStart: `calc(100% - ${
-              (token.itemHeadSize + token.lineItemTailWidth) / 2
-            }px)`,
+            insetInlineStart: `calc(100% - ${(token.itemHeadSize + token.tailWidth) / 2}px)`,
           },
 
           [`${componentCls}-item-content`]: {
@@ -173,7 +171,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
         ${componentCls}-item-tail`]: {
         display: 'block',
         height: `calc(100% - ${token.margin}px)`,
-        borderInlineStart: `${token.lineItemTailWidth}px dotted ${token.tailColor}`,
+        borderInlineStart: `${token.tailWidth}px dotted ${token.tailColor}`,
       },
 
       [`&${componentCls}-reverse
@@ -187,7 +185,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           insetBlockStart: token.margin,
           display: 'block',
           height: `calc(100% - ${token.margin}px)`,
-          borderInlineStart: `${token.lineItemTailWidth}px dotted ${token.tailColor}`,
+          borderInlineStart: `${token.tailWidth}px dotted ${token.tailColor}`,
         },
 
         [`${componentCls}-item-content`]: {
@@ -198,8 +196,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
       [`&${componentCls}-label`]: {
         [`${componentCls}-item-label`]: {
           position: 'absolute',
-          insetBlockStart:
-            -(token.fontSize * token.lineHeight - token.fontSize) + token.lineItemTailWidth,
+          insetBlockStart: -(token.fontSize * token.lineHeight - token.fontSize) + token.tailWidth,
           width: `calc(50% - ${token.marginSM}px)`,
           textAlign: 'end',
         },
@@ -233,13 +230,13 @@ export default genComponentStyleHook(
       itemHeadSize: 10,
       customHeadPaddingVertical: token.paddingXXS,
       paddingInlineEnd: 2,
-      lineItemTailWidth: token.lineWidthBold,
     });
 
     return [genTimelineStyle(timeLineToken)];
   },
   (token) => ({
     tailColor: token.colorSplit,
+    tailWidth: token.lineWidthBold,
     dotBorderWidth: token.wireframe ? token.lineWidthBold : token.lineWidth * 3,
     dotBg: token.colorBgContainer,
     itemPaddingBottom: token.padding * 1.25,
