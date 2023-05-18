@@ -19,11 +19,34 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Badge 徽标数 -->
 
-<!-- ### BreadCrumb 面包屑 -->
+### BreadCrumb 面包屑
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@breadcrumb-base-color` | `itemColor` | - |
+| `@breadcrumb-last-item-color` | `lastItemColor` | - |
+| `@breadcrumb-font-size` | `fontSize` | 全局 Token |
+| `@breadcrumb-icon-font-size` | `iconFontSize` | - |
+| `@breadcrumb-link-color` | `linkColor` | - |
+| `@breadcrumb-link-color-hover` | `linkHoverColor` | - |
+| `@breadcrumb-separator-color` | `separatorColor` | - |
+| `@breadcrumb-separator-margin` | `separatorMargin` | - |
 
 <!-- ### Button 按钮 -->
 
-<!-- ### Calendar 日历 -->
+## Calendar 日历
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@calendar-bg` | - | 由于样式变化已废弃 |
+| `@calendar-input-bg` | - | 由于样式变化已废弃 |
+| `@calendar-border-color` | - | 由于样式变化已废弃 |
+| `@calendar-item-active-bg` | `itemActiveBg` | - |
+| `@calendar-column-active-bg` | - | 由于样式变化已废弃 |
+| `@calendar-full-bg` | `fullBg` | - |
+| `@calendar-full-panel-bg` | `fullPanelBg` | - |
 
 <!-- ### Card 卡片 -->
 
@@ -138,7 +161,15 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Radio 单选框 -->
 
-<!-- ### Rate 评分 -->
+## Rate 评分
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@rate-star-color` | `starColor` | - |
+| `@rate-star-bg` | `starBg` | - |
+| `@rate-star-size` | `starSize` | - |
+| `@rate-star-hover-scale` | `starHoverScale` | - |
 
 ### Result 结果
 

@@ -4,6 +4,7 @@ import type { ComponentToken as AnchorComponentToken } from '../../anchor/style'
 import type { ComponentToken as AppComponentToken } from '../../app/style';
 import type { ComponentToken as AvatarComponentToken } from '../../avatar/style';
 import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
+import type { ComponentToken as BreadcrumbComponentToken } from '../../breadcrumb/style';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 import type { ComponentToken as CalendarComponentToken } from '../../calendar/style';
 import type { ComponentToken as CardComponentToken } from '../../card/style';
@@ -61,7 +62,7 @@ export interface ComponentTokenMap {
   BackTop?: BackTopComponentToken;
   Badge?: {};
   Button?: ButtonComponentToken;
-  Breadcrumb?: {};
+  Breadcrumb?: BreadcrumbComponentToken;
   Card?: CardComponentToken;
   Carousel?: CarouselComponentToken;
   Cascader?: CascaderComponentToken;
