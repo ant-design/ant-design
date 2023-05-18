@@ -90,8 +90,8 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
     if (targetFunc) {
       // [Legacy] Wait for parent component ref has its value.
       // We should use target as directly element instead of function which makes element check hard.
-      const target = targetFunc?.() || null;
       this.timer = setTimeout(() => {
+        const target = targetFunc?.() || null;
         TRIGGER_EVENTS.forEach((eventName) => {
           target?.addEventListener(eventName, this.lazyUpdatePosition);
         });
@@ -106,15 +106,13 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
     const targetFunc = this.getTargetFunc();
     const newTarget = targetFunc?.() || null;
     if (prevTarget !== newTarget) {
+      TRIGGER_EVENTS.forEach((eventName) => {
+        prevTarget?.removeEventListener(eventName, this.lazyUpdatePosition);
+        newTarget?.addEventListener(eventName, this.lazyUpdatePosition);
+      });
       if (newTarget) {
-        TRIGGER_EVENTS.forEach((eventName) => {
-          prevTarget?.removeEventListener(eventName, this.lazyUpdatePosition);
-          newTarget?.addEventListener(eventName, this.lazyUpdatePosition);
-        });
-        // Mock Event object.
         this.updatePosition();
       }
-
       // eslint-disable-next-line react/no-did-update-set-state
       this.setState({ prevTarget: newTarget });
     }
@@ -138,12 +136,8 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
     const newTarget = targetFunc?.();
     TRIGGER_EVENTS.forEach((eventName) => {
       newTarget?.removeEventListener(eventName, this.lazyUpdatePosition);
+      prevTarget?.removeEventListener(eventName, this.lazyUpdatePosition);
     });
-    if (prevTarget !== newTarget) {
-      TRIGGER_EVENTS.forEach((eventName) => {
-        prevTarget?.removeEventListener(eventName, this.lazyUpdatePosition);
-      });
-    }
     this.updatePosition.cancel();
     // https://github.com/ant-design/ant-design/issues/22683
     this.lazyUpdatePosition.cancel();
