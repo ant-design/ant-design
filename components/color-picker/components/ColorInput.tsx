@@ -23,7 +23,7 @@ const selectOptions = [ColorFormat.hex, ColorFormat.hsb, ColorFormat.rgb].map((f
 
 const ColorInput: FC<ColorInputProps> = (props) => {
   const { prefixCls, format, value, onFormatChange, onChange } = props;
-  const [colorFormat, setColorFormat] = useMergedState('hex', {
+  const [colorFormat, setColorFormat] = useMergedState(ColorFormat.hex, {
     value: format,
     onChange: onFormatChange,
   });

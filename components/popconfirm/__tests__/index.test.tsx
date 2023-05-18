@@ -73,8 +73,7 @@ describe('Popconfirm', () => {
     expect(popconfirm.container.querySelector('.ant-popover')?.className).toContain(
       'ant-popover-placement-top',
     );
-    expect(popconfirm.container.querySelector('.ant-popover')?.innerHTML).toMatchSnapshot();
-    expect(popconfirm.container.querySelector('.ant-popover')?.innerHTML).toMatchSnapshot();
+    expect(popconfirm.container.querySelector('.ant-popover')).toMatchSnapshot();
   });
 
   it('shows content for render functions', async () => {
