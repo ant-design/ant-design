@@ -8,8 +8,10 @@ const App: React.FC = () => (
         Skeleton: {
           blockRadius: 30,
           titleHeight: 30,
-          color: '#222',
-          colorGradientEnd: '#444',
+          gradientFromColor: '#222',
+          gradientToColor: '#444',
+          paragraphMarginTop: 30,
+          paragraphLineHeight: 30,
         },
       },
     }}
