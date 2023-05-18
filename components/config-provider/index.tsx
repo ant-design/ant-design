@@ -138,6 +138,7 @@ interface ProviderChildrenProps extends ConfigProviderProps {
 export const defaultPrefixCls = 'ant';
 let globalPrefixCls: string;
 let globalIconPrefixCls: string;
+let globalTheme: ThemeConfig;
 
 function getGlobalPrefixCls() {
   return globalPrefixCls || defaultPrefixCls;
@@ -147,11 +148,15 @@ function getGlobalIconPrefixCls() {
   return globalIconPrefixCls || defaultIconPrefixCls;
 }
 
+function isLegacyTheme(theme: Theme | ThemeConfig): theme is Theme {
+  return Object.keys(theme).some((key) => key.endsWith('Color'));
+}
+
 const setGlobalConfig = ({
   prefixCls,
   iconPrefixCls,
   theme,
-}: Pick<ConfigProviderProps, 'prefixCls' | 'iconPrefixCls'> & { theme?: Theme }) => {
+}: Pick<ConfigProviderProps, 'prefixCls' | 'iconPrefixCls'> & { theme?: Theme | ThemeConfig }) => {
   if (prefixCls !== undefined) {
     globalPrefixCls = prefixCls;
   }
@@ -160,7 +165,16 @@ const setGlobalConfig = ({
   }
 
   if (theme) {
-    registerTheme(getGlobalPrefixCls(), theme);
+    if (isLegacyTheme(theme)) {
+      warning(
+        false,
+        'ConfigProvider',
+        '`config` of css variable theme is not work in v5. Please use new `theme` config instead.',
+      );
+      registerTheme(getGlobalPrefixCls(), theme);
+    } else {
+      globalTheme = theme;
+    }
   }
 };
 
@@ -179,6 +193,7 @@ export const globalConfig = () => ({
     // Fallback to default prefixCls
     return getGlobalPrefixCls();
   },
+  getTheme: () => globalTheme,
 });
 
 const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {

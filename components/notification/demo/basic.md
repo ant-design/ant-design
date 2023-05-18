@@ -1,7 +1,7 @@
 ## zh-CN
 
-最简单的用法，4.5 秒后自动关闭。
+静态方法无法消费 Context，推荐优先使用 Hooks 版本。
 
 ## en-US
 
-The simplest usage that close the notification box after 4.5s.
+Static methods cannot consume Context. Please use hooks first.

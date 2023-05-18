@@ -27,7 +27,7 @@ demo:
 <code src="./demo/thenable.tsx">Promise 接口</code>
 <code src="./demo/custom-style.tsx">自定义样式</code>
 <code src="./demo/update.tsx">更新消息内容</code>
-<code src="./demo/info.tsx">普通提示</code>
+<code src="./demo/info.tsx">静态方法（不推荐）</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
