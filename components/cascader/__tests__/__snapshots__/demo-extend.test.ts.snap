@@ -35,7 +35,7 @@ exports[`renders components/cascader/demo/basic.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
       <div
@@ -183,7 +183,7 @@ exports[`renders components/cascader/demo/change-on-select.tsx extend context co
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
       <div
@@ -333,7 +333,7 @@ exports[`renders components/cascader/demo/custom-dropdown.tsx extend context cor
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
       <div>
@@ -508,7 +508,7 @@ exports[`renders components/cascader/demo/custom-render.tsx extend context corre
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
       <div
@@ -659,7 +659,7 @@ exports[`renders components/cascader/demo/custom-trigger.tsx extend context corr
   </a>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
       <div
@@ -784,7 +784,7 @@ exports[`renders components/cascader/demo/default-value.tsx extend context corre
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
       <div
@@ -958,7 +958,7 @@ exports[`renders components/cascader/demo/disabled-option.tsx extend context cor
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
       <div
@@ -1108,7 +1108,7 @@ exports[`renders components/cascader/demo/fields-name.tsx extend context correct
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
       <div
@@ -1256,7 +1256,7 @@ exports[`renders components/cascader/demo/hover.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
       <div
@@ -1404,7 +1404,7 @@ exports[`renders components/cascader/demo/lazy.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
       <div
@@ -1568,7 +1568,7 @@ exports[`renders components/cascader/demo/multiple.tsx extend context correctly 
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
       <div
@@ -1816,7 +1816,7 @@ Array [
     </div>
     <div
       class="ant-select-dropdown ant-slide-down-appear ant-slide-down-appear-prepare ant-slide-down ant-cascader-dropdown ant-select-dropdown-placement-topLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
         <div
@@ -1971,7 +1971,7 @@ exports[`renders components/cascader/demo/render-panel.tsx extend context correc
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
         <div
@@ -2119,7 +2119,7 @@ exports[`renders components/cascader/demo/search.tsx extend context correctly 1`
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
       <div
@@ -2297,7 +2297,7 @@ Array [
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
         <div
@@ -2513,7 +2513,7 @@ Array [
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
         <div
@@ -2703,7 +2703,7 @@ Array [
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
         <div
@@ -2850,7 +2850,7 @@ Array [
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
         <div
@@ -2997,7 +2997,7 @@ Array [
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
         <div
@@ -3157,7 +3157,7 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
           <div
@@ -3307,7 +3307,7 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
           <div
@@ -3444,7 +3444,7 @@ Array [
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
         <div
@@ -3593,7 +3593,7 @@ Array [
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
         <div
@@ -3724,7 +3724,7 @@ Array [
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
         <div
@@ -3873,7 +3873,7 @@ Array [
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
         <div

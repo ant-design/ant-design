@@ -2,7 +2,7 @@ import { resetComponent } from '../../style';
 import { initZoomMotion } from '../../style/motion';
 import getArrowStyle from '../../style/placementArrow';
 import type { FullToken, GenerateStyle, PresetColorType } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken, PresetColors } from '../../theme/internal';
+import { PresetColors, genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -48,6 +48,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         textAlign: 'start',
         cursor: 'auto',
         userSelect: 'text',
+        transformOrigin: `var(--arrow-x, 50%) var(--arrow-y, 50%)`,
         '--antd-arrow-background-color': colorBgElevated,
 
         '&-rtl': {

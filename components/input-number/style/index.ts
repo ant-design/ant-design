@@ -9,10 +9,10 @@ import {
   genStatusStyle,
   initInputToken,
 } from '../../input/style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook } from '../../theme/internal';
 import { resetComponent, resetIcon } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook } from '../../theme/internal';
 
 export interface ComponentToken {
   controlWidth: number;
@@ -108,8 +108,10 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
         // ===================== Out Of Range =====================
         '&-out-of-range': {
-          input: {
-            color: colorError,
+          [`${componentCls}-input-wrap`]: {
+            input: {
+              color: colorError,
+            },
           },
         },
 

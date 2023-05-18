@@ -19,6 +19,7 @@ exports[`antd dist files exports modules correctly 1`] = `
   "Checkbox",
   "Col",
   "Collapse",
+  "ColorPicker",
   "ConfigProvider",
   "DatePicker",
   "Descriptions",

@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   AppstoreOutlined,
   BarChartOutlined,
@@ -11,6 +10,7 @@ import {
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Layout, Menu, theme } from 'antd';
+import React from 'react';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -46,7 +46,7 @@ const App: React.FC = () => {
           bottom: 0,
         }}
       >
-        <div style={{ height: 32, margin: 16, background: 'rgba(255, 255, 255, 0.2)' }} />
+        <div className="demo-logo-vertical" />
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
       </Sider>
       <Layout className="site-layout" style={{ marginLeft: 200 }}>

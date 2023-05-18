@@ -20,7 +20,7 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         paddingInlineStart: token.paddingXXS,
         [`> ${componentCls}-item-container > ${componentCls}-item-tail`]: {
           top: token.marginXXS,
-          insetInlineStart: token.stepsIconSize / 2 - token.lineWidth + token.paddingXXS,
+          insetInlineStart: token.iconSize / 2 - token.lineWidth + token.paddingXXS,
         },
       },
 
@@ -33,7 +33,7 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
       [`&${componentCls}-small${componentCls}-vertical > ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]:
         {
-          insetInlineStart: token.stepsSmallIconSize / 2 - token.lineWidth + token.paddingXXS,
+          insetInlineStart: token.iconSizeSM / 2 - token.lineWidth + token.paddingXXS,
         },
 
       [`&${componentCls}-label-vertical`]: {
@@ -47,10 +47,8 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
         [`${antCls}-progress`]: {
           position: 'absolute',
-          insetBlockStart:
-            (token.stepsIconSize - token.stepsProgressSize - token.lineWidth * 2) / 2,
-          insetInlineStart:
-            (token.stepsIconSize - token.stepsProgressSize - token.lineWidth * 2) / 2,
+          insetBlockStart: (token.iconSize - token.stepsProgressSize - token.lineWidth * 2) / 2,
+          insetInlineStart: (token.iconSize - token.stepsProgressSize - token.lineWidth * 2) / 2,
         },
       },
     },

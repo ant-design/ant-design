@@ -62,8 +62,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本结构</code>
 <code src="./demo/top.tsx" compact background="grey">上中下布局</code>
-<code src="./demo/top-side-2.tsx" compact background="grey">顶部-侧边布局-通栏</code>
 <code src="./demo/top-side.tsx" compact background="grey">顶部-侧边布局</code>
+<code src="./demo/top-side-2.tsx" compact background="grey">顶部-侧边布局-通栏</code>
 <code src="./demo/side.tsx" iframe="360">侧边布局</code>
 <code src="./demo/custom-trigger.tsx" compact background="grey">自定义触发器</code>
 <code src="./demo/responsive.tsx" compact background="grey">响应式布局</code>
