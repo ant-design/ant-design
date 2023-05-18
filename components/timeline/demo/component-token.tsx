@@ -7,6 +7,7 @@ const App: React.FC = () => (
       components: {
         Timeline: {
           tailColor: 'red',
+          tailWidth: 10,
           dotBorderWidth: 1,
           dotBg: 'green',
           itemPaddingBottom: 10,
