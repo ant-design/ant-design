@@ -138,7 +138,15 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Radio -->
 
-<!-- ### Rate -->
+## Rate
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@rate-star-color` | `starColor` | - |
+| `@rate-star-bg` | `starBg` | - |
+| `@rate-star-size` | `starSize` | - |
+| `@rate-star-hover-scale` | `starHoverScale` | - |
 
 ### Result
 

@@ -25,6 +25,7 @@ Rate component.
 <code src="./demo/clear.tsx">Clear star</code>
 <code src="./demo/character.tsx">Other Character</code>
 <code src="./demo/character-function.tsx">Customize character</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
