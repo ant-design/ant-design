@@ -82,7 +82,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
 
         const defaultComponentToken =
           typeof getDefaultToken === 'function' ? getDefaultToken(proxyToken) : getDefaultToken;
-        const customComponentToken = token[component] as ComponentToken;
+        const customComponentToken = token[component] as ComponentToken<ComponentName>;
         const mergedComponentToken = { ...defaultComponentToken, ...customComponentToken };
 
         if (options?.deprecatedTokens) {

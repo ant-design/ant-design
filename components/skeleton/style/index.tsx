@@ -5,9 +5,9 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export type ComponentToken = {
   /** @deprecated use gradientFromColor instead. */
-  color?: string;
+  color: string;
   /** @deprecated use gradientToColor instead. */
-  colorGradientEnd?: string;
+  colorGradientEnd: string;
   gradientFromColor: string;
   gradientToColor: string;
   titleHeight: number;
@@ -64,12 +64,13 @@ const genSkeletonElementInputSize = (size: number): CSSObject => ({
 });
 
 const genSkeletonElementAvatar = (token: SkeletonToken): CSSObject => {
-  const { skeletonAvatarCls, color, controlHeight, controlHeightLG, controlHeightSM } = token;
+  const { skeletonAvatarCls, gradientFromColor, controlHeight, controlHeightLG, controlHeightSM } =
+    token;
   return {
     [`${skeletonAvatarCls}`]: {
       display: 'inline-block',
       verticalAlign: 'top',
-      background: color,
+      background: gradientFromColor,
       ...genSkeletonElementAvatarSize(controlHeight),
     },
     [`${skeletonAvatarCls}${skeletonAvatarCls}-circle`]: {
@@ -91,13 +92,13 @@ const genSkeletonElementInput = (token: SkeletonToken): CSSObject => {
     skeletonInputCls,
     controlHeightLG,
     controlHeightSM,
-    color,
+    gradientFromColor,
   } = token;
   return {
     [`${skeletonInputCls}`]: {
       display: 'inline-block',
       verticalAlign: 'top',
-      background: color,
+      background: gradientFromColor,
       borderRadius: borderRadiusSM,
       ...genSkeletonElementInputSize(controlHeight),
     },
@@ -118,14 +119,14 @@ const genSkeletonElementImageSize = (size: number): CSSObject => ({
 });
 
 const genSkeletonElementImage = (token: SkeletonToken): CSSObject => {
-  const { skeletonImageCls, imageSizeBase, color, borderRadiusSM } = token;
+  const { skeletonImageCls, imageSizeBase, gradientFromColor, borderRadiusSM } = token;
   return {
     [`${skeletonImageCls}`]: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       verticalAlign: 'top',
-      background: color,
+      background: gradientFromColor,
       borderRadius: borderRadiusSM,
       ...genSkeletonElementImageSize(imageSizeBase * 2),
       [`${skeletonImageCls}-path`]: {
@@ -176,13 +177,13 @@ const genSkeletonElementButton = (token: SkeletonToken): CSSObject => {
     controlHeight,
     controlHeightLG,
     controlHeightSM,
-    color,
+    gradientFromColor,
   } = token;
   return {
     [`${skeletonButtonCls}`]: {
       display: 'inline-block',
       verticalAlign: 'top',
-      background: color,
+      background: gradientFromColor,
       borderRadius: borderRadiusSM,
       width: controlHeight * 2,
       minWidth: controlHeight * 2,
@@ -215,7 +216,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
     controlHeight,
     controlHeightLG,
     controlHeightSM,
-    color,
+    gradientFromColor,
     padding,
     marginSM,
     borderRadius,
@@ -240,7 +241,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
         [`${skeletonAvatarCls}`]: {
           display: 'inline-block',
           verticalAlign: 'top',
-          background: color,
+          background: gradientFromColor,
           ...genSkeletonElementAvatarSize(controlHeight),
         },
         [`${skeletonAvatarCls}-circle`]: {
@@ -262,7 +263,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
         [`${skeletonTitleCls}`]: {
           width: '100%',
           height: titleHeight,
-          background: color,
+          background: gradientFromColor,
           borderRadius: blockRadius,
           [`+ ${skeletonParagraphCls}`]: {
             marginBlockStart: controlHeightSM,
@@ -276,7 +277,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
             width: '100%',
             height: paragraphLiHeight,
             listStyle: 'none',
-            background: color,
+            background: gradientFromColor,
             borderRadius: blockRadius,
             '+ li': {
               marginBlockStart: controlHeightXS,
@@ -368,6 +369,8 @@ export default genComponentStyleHook(
     const gradientFromColor = colorFillContent;
     const gradientToColor = colorFill;
     return {
+      color: gradientFromColor,
+      colorGradientEnd: gradientToColor,
       gradientFromColor,
       gradientToColor,
       titleHeight: token.controlHeight / 2,
