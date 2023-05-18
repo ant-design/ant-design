@@ -66,8 +66,8 @@ const App: React.FC = () => {
             Menu: {
               radiusItem: 0,
               radiusSubMenuItem: 0,
-              colorItemTextHover: '#1677ff',
-              colorItemTextSelected: '#1677ff',
+              colorItemTextHover: '#1890ff',
+              colorItemTextSelected: '#1890ff',
               colorItemBgSelected: '#e6f7ff',
               colorActiveBarWidth: 3,
               itemMarginInline: 0,
