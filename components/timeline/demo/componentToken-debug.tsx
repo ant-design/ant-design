@@ -1,14 +1,14 @@
-import React from 'react';
 import { ConfigProvider, Timeline } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <ConfigProvider
     theme={{
       components: {
         Timeline: {
-          color: 'red',
-          headBorderWidth: 1,
-          headBg: 'green',
+          tailColor: 'red',
+          dotBorderWidth: 1,
+          dotBg: 'green',
           itemPaddingBottom: 10,
         },
       },
