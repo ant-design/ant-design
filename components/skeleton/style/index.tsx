@@ -371,8 +371,6 @@ export default genComponentStyleHook(
     const gradientFromColor = colorFillContent;
     const gradientToColor = colorFill;
     return {
-      color: gradientFromColor,
-      colorGradientEnd: gradientToColor,
       gradientFromColor,
       gradientToColor,
       titleHeight: token.controlHeight / 2,
