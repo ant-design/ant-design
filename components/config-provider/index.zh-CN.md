@@ -73,7 +73,7 @@ export default Demo;
 
 ### ConfigProvider.config()
 
-设置 `Modal`、`Message`、`Notification` 静态方法配置。
+设置 `Modal`、`Message`、`Notification` 静态方法配置，只会对非 hooks 的静态方法调用生效。
 
 ```ts
 ConfigProvider.config({

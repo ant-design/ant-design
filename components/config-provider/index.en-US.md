@@ -72,7 +72,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 
 ### ConfigProvider.config()
 
-Setting `Modal`、`Message`、`Notification` static config.
+Setting `Modal`、`Message`、`Notification` static config. Not work on hooks.
 
 ```ts
 ConfigProvider.config({
