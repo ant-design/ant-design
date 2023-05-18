@@ -98,7 +98,7 @@ const CustomTheme = () => {
   }, [themeConfigContent]);
 
   const handleEditConfigChange = (newcontent, preContent, status) => {
-    if (!!status.contentErrors) {
+    if (status.contentErrors) {
       setEditThemeFormatRight(false);
     } else {
       setEditThemeFormatRight(true);
