@@ -153,9 +153,8 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 export default genComponentStyleHook(
   'Tag',
   (token) => {
-    const { lineWidth, fontSizeIcon } = token;
     const tagToken = mergeToken<TagToken>(token, {
-      tagIconSize: fontSizeIcon - 2 * lineWidth, // Tag icon is much more smaller
+      tagIconSize: token.lineHeightSM, // Tag icon is much more smaller
       tagPaddingHorizontal: 8, // Fixed padding.
       tagBorderlessBg: token.colorFillTertiary,
     });
