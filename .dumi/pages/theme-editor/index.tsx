@@ -96,12 +96,7 @@ const CustomTheme = () => {
 
   const handleEditConfigChange = (newcontent, preContent, status) => {
     setThemeConfigContent(newcontent);
-    const contentFormatError = status.contentErrors;
-    if (contentFormatError) {
-      setEditThemeFormatRight(false);
-    } else {
-      setEditThemeFormatRight(true);
-    }
+    setEditThemeFormatRight(!status.contentErrors);
   };
 
   const editSave = useCallback(() => {
