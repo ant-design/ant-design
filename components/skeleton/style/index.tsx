@@ -349,6 +349,9 @@ export default genComponentStyleHook(
   (token) => {
     const { componentCls } = token;
 
+    const gradientFromColor = token.gradientFromColor || token.color;
+    const gradientToColor = token.gradientToColor || token.colorGradientEnd;
+
     const skeletonToken = mergeToken<SkeletonToken>(token, {
       skeletonAvatarCls: `${componentCls}-avatar`,
       skeletonTitleCls: `${componentCls}-title`,
@@ -358,18 +361,22 @@ export default genComponentStyleHook(
       skeletonImageCls: `${componentCls}-image`,
       imageSizeBase: token.controlHeight * 1.5,
       borderRadius: 100, // Large number to make capsule shape
-      skeletonLoadingBackground: `linear-gradient(90deg, ${token.color} 25%, ${token.colorGradientEnd} 37%, ${token.color} 63%)`,
+      skeletonLoadingBackground: `linear-gradient(90deg, ${gradientFromColor} 25%, ${gradientToColor} 37%, ${gradientFromColor} 63%)`,
       skeletonLoadingMotionDuration: '1.4s',
     });
     return [genBaseStyle(skeletonToken)];
   },
   (token) => {
     const { colorFillContent, colorFill } = token;
+    const color = colorFillContent;
+    const colorGradientEnd = colorFill;
     return {
-      color: colorFillContent,
-      colorGradientEnd: colorFill,
-      gradientFromColor: colorFillContent,
-      gradientToColor: colorFill,
+      color,
+      colorGradientEnd,
+      // do not set default value because it will be override by color's default value
+      gradientFromColor: '',
+      // do not set default value because it will be override by colorGradientEnd's default value
+      gradientToColor: '',
       titleHeight: token.controlHeight / 2,
       blockRadius: token.borderRadiusSM,
       paragraphMarginTop: token.marginLG + token.marginXXS,
