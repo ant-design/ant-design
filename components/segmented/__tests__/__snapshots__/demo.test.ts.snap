@@ -136,6 +136,88 @@ exports[`renders components/segmented/demo/block.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/segmented/demo/componentToken.tsx correctly 1`] = `
+<div
+  class="ant-segmented"
+>
+  <div
+    class="ant-segmented-group"
+  >
+    <label
+      class="ant-segmented-item ant-segmented-item-selected"
+    >
+      <input
+        checked=""
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+        title="Daily"
+      >
+        Daily
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+        title="Weekly"
+      >
+        Weekly
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+        title="Monthly"
+      >
+        Monthly
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+        title="Quarterly"
+      >
+        Quarterly
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+        title="Yearly"
+      >
+        Yearly
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
 exports[`renders components/segmented/demo/controlled.tsx correctly 1`] = `
 <div
   class="ant-segmented"

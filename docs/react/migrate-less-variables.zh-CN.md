@@ -192,7 +192,17 @@ title: Less 变量迁移 Design Token
 | `@result-subtitle-font-size` | `subtitleFontSize` | - |
 | `@result-extra-margin` | `extraMargin` | - |
 
-<!-- ### Segment 分段器 -->
+### Segment
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@segmented-container-padding` | `padding` | - |
+| `@segmented-label-color` | `itemColor` | - |
+| `@segmented-bg` | - | 可以用 `className` 或 `style` 自定义 |
+| `@segmented-hover-bg` | `itemHoverBg` | - |
+| `@segmented-label-hover-color` | `itemHoverColor` | - |
+| `@segmented-selected-bg` | `itemSelectedBg` | - |
 
 <!-- ### Select 选择器 -->
 
