@@ -29,6 +29,7 @@ export interface ArgsProps {
   onClick?: () => void;
   closeIcon?: React.ReactNode;
   props?: DivProps;
+  role?: 'alert' | 'status';
 }
 
 type StaticFn = (args: ArgsProps) => void;
