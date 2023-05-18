@@ -1,8 +1,8 @@
-import React from 'react';
 import { UserOutlined } from '@ant-design/icons';
+import React from 'react';
 import notification, { actWrapper } from '..';
-import ConfigProvider from '../../config-provider';
 import { act, fireEvent } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
 
 describe('notification', () => {
@@ -300,5 +300,17 @@ describe('notification', () => {
     });
 
     expect(document.querySelectorAll("[data-testid='test-notification']").length).toBe(1);
+  });
+
+  it('support role', async () => {
+    act(() => {
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        role: 'status',
+      });
+    });
+
+    expect(document.querySelectorAll('[role="status"]').length).toBe(1);
   });
 });
