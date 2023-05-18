@@ -72,7 +72,10 @@ const CustomTheme = () => {
   }, []);
 
   useEffect(() => {
-    if (editModelOpen === true) return;
+    if (editModelOpen === true) {
+      setThemeConfigContent(themeConfigContent);
+      return;
+    }
     setThemeConfigContent({
       json: theme as any,
       text: undefined,
@@ -95,12 +98,17 @@ const CustomTheme = () => {
   }, [themeConfigContent]);
 
   const handleEditConfigChange = (newcontent, preContent, status) => {
-    setThemeConfigContent(newcontent);
-    setEditThemeFormatRight(!status.contentErrors);
+    if (!!status.contentErrors) {
+      setEditThemeFormatRight(false);
+    } else {
+      setEditThemeFormatRight(true);
+      setThemeConfigContent(newcontent);
+    }
   };
 
   const editSave = useCallback(() => {
-    const contentFormatError = !editThemeFormatRight && !themeConfigContent.json;
+    const contentFormatError = !editThemeFormatRight;
+
     if (contentFormatError) {
       message.error(locale.editJsonContentTypeError);
       return;
@@ -115,7 +123,7 @@ const CustomTheme = () => {
     setTheme(themeConfig);
     editModelClose();
     messageApi.success(locale.editSuccessfully);
-  }, [themeConfigContent]);
+  }, [themeConfigContent, editThemeFormatRight]);
 
   const handleExport = () => {
     const file = new File([JSON.stringify(theme, null, 2)], `Ant Design Theme.json`, {
@@ -161,13 +169,11 @@ const CustomTheme = () => {
                   </div>
                 }
               >
-                {editModelOpen && (
-                  <JSONEditor
-                    content={themeConfigContent}
-                    onChange={handleEditConfigChange}
-                    mainMenuBar={false}
-                  />
-                )}
+                <JSONEditor
+                  content={themeConfigContent}
+                  onChange={handleEditConfigChange}
+                  mainMenuBar={false}
+                />
               </Suspense>
             </Modal>
             <Button onClick={handleExport} style={{ marginRight: 8 }}>
