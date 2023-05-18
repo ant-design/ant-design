@@ -377,9 +377,9 @@ export default genComponentStyleHook(
     };
   },
   {
-    deprecatedTokens: {
-      color: 'gradientFromColor',
-      colorGradientEnd: 'gradientToColor',
-    },
+    deprecatedTokens: [
+      ['color', 'gradientFromColor'],
+      ['colorGradientEnd', 'gradientToColor'],
+    ],
   },
 );

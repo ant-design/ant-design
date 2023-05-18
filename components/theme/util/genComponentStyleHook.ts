@@ -44,8 +44,11 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
     | ((token: GlobalToken) => OverrideTokenWithoutDerivative[ComponentName]),
   options?: {
     resetStyle?: boolean;
-    // Deprecated token key map {[oldTokenKey]: newTokenKey}
-    deprecatedTokens?: Record<string, string>;
+    // Deprecated token key map [["oldTokenKey", "newTokenKey"], ["oldTokenKey", "newTokenKey"]]
+    deprecatedTokens?: [
+      keyof Exclude<OverrideTokenWithoutDerivative[ComponentName], undefined>,
+      keyof Exclude<OverrideTokenWithoutDerivative[ComponentName], undefined>,
+    ][];
   },
 ) {
   return (prefixCls: string): UseComponentStyleResult => {
@@ -75,23 +78,27 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
 
         const defaultComponentToken =
           typeof getDefaultToken === 'function' ? getDefaultToken(proxyToken) : getDefaultToken;
-        const mergedComponentToken = { ...defaultComponentToken, ...token[component] };
+        const customComponentToken = token[component] as Exclude<
+          OverrideTokenWithoutDerivative[ComponentName],
+          undefined
+        >;
+        const mergedComponentToken = { ...defaultComponentToken, ...customComponentToken };
 
         if (options?.deprecatedTokens) {
           const { deprecatedTokens } = options;
-          Object.keys(deprecatedTokens).forEach((oldTokenKey) => {
-            const newTokenKey = deprecatedTokens[oldTokenKey];
-            const userToken = token[component] as unknown as Record<string, any>;
+          deprecatedTokens.forEach(([oldTokenKey, newTokenKey]) => {
             if (process.env.NODE_ENV !== 'production') {
               warning(
-                !userToken?.[oldTokenKey],
-                `The token '${oldTokenKey}' of ${component} had deprecated, use '${newTokenKey}' instead.`,
+                !customComponentToken?.[oldTokenKey],
+                `The token '${String(oldTokenKey)}' of ${component} had deprecated, use '${String(
+                  newTokenKey,
+                )}' instead.`,
               );
             }
 
             mergedComponentToken[newTokenKey] =
-              userToken?.[newTokenKey] ||
-              userToken?.[oldTokenKey] ||
+              customComponentToken?.[newTokenKey] ||
+              customComponentToken?.[oldTokenKey] ||
               defaultComponentToken[newTokenKey];
           });
         }
