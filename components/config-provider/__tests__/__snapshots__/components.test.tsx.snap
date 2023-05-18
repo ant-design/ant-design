@@ -21039,7 +21039,7 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
                 </span>
               </span>
               <div
-                class="config-popconfirm-message-title"
+                class="config-popconfirm-message-text"
               />
             </div>
             <div
@@ -21125,7 +21125,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentDisabled 1
                 </span>
               </span>
               <div
-                class="config-popconfirm-message-title"
+                class="config-popconfirm-message-text"
               />
             </div>
             <div
@@ -21213,7 +21213,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
                 </span>
               </span>
               <div
-                class="config-popconfirm-message-title"
+                class="config-popconfirm-message-text"
               />
             </div>
             <div
@@ -21299,7 +21299,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
                 </span>
               </span>
               <div
-                class="config-popconfirm-message-title"
+                class="config-popconfirm-message-text"
               />
             </div>
             <div
@@ -21385,7 +21385,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize small
                 </span>
               </span>
               <div
-                class="config-popconfirm-message-title"
+                class="config-popconfirm-message-text"
               />
             </div>
             <div
@@ -21471,7 +21471,7 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title"
+                class="ant-popconfirm-message-text"
               />
             </div>
             <div
@@ -21557,7 +21557,7 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
                 </span>
               </span>
               <div
-                class="prefix-Popconfirm-message-title"
+                class="prefix-Popconfirm-message-text"
               />
             </div>
             <div

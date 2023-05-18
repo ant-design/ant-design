@@ -6,7 +6,7 @@ import type {
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties } from 'react';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import genPurePanel from '../_util/PurePanel';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
@@ -89,7 +89,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     postState: (openData) => !disabled && openData,
     onChange: onOpenChange,
   });
-  const [clearColor, setClearColor] = useState(false);
+  const [colorCleared, setColorCleared] = useState(false);
 
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
@@ -101,8 +101,8 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const handleChange = (data: Color) => {
     const color: Color = generateColor(data);
-    if (clearColor && color.toHsb().a > 0) {
-      setClearColor(false);
+    if (colorCleared && color.toHsb().a > 0) {
+      setColorCleared(false);
     }
     if (!value) {
       setColorValue(color);
@@ -111,7 +111,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   };
 
   const handleClear = (clear: boolean) => {
-    setClearColor(clear);
+    setColorCleared(clear);
   };
 
   const popoverProps: PopoverProps = {
@@ -128,12 +128,18 @@ const ColorPicker: CompoundedComponent = (props) => {
     prefixCls,
     color: colorValue,
     allowClear,
-    clearColor,
+    colorCleared,
     disabled,
     presets,
     format,
     onFormatChange,
   };
+
+  useEffect(() => {
+    if (colorCleared) {
+      setPopupOpen(false);
+    }
+  }, [colorCleared]);
 
   return wrapSSR(
     <Popover
@@ -152,8 +158,8 @@ const ColorPicker: CompoundedComponent = (props) => {
           style={style}
           color={colorValue}
           prefixCls={prefixCls}
-          clearColor={clearColor}
           disabled={disabled}
+          colorCleared={colorCleared}
         />
       )}
     </Popover>,

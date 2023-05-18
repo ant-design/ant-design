@@ -6,7 +6,7 @@ import type { ColorPickerBaseProps } from '../interface';
 import ColorClear from './ColorClear';
 
 interface colorTriggerProps
-  extends Pick<ColorPickerBaseProps, 'prefixCls' | 'clearColor' | 'disabled'> {
+  extends Pick<ColorPickerBaseProps, 'prefixCls' | 'colorCleared' | 'disabled'> {
   color: Exclude<ColorPickerBaseProps['color'], undefined>;
   open?: boolean;
   className?: string;
@@ -17,17 +17,17 @@ interface colorTriggerProps
 }
 
 const ColorTrigger = forwardRef<HTMLDivElement, colorTriggerProps>((props, ref) => {
-  const { color, prefixCls, open, clearColor, disabled, className, ...rest } = props;
+  const { color, prefixCls, open, colorCleared, disabled, className, ...rest } = props;
   const colorTriggerPrefixCls = `${prefixCls}-trigger`;
 
   const containerNode = useMemo<React.ReactNode>(
     () =>
-      clearColor ? (
+      colorCleared ? (
         <ColorClear prefixCls={prefixCls} />
       ) : (
         <ColorBlock prefixCls={prefixCls} color={color.toRgbString()} />
       ),
-    [color, clearColor, prefixCls],
+    [color, colorCleared, prefixCls],
   );
 
   return (
