@@ -1,6 +1,7 @@
 import { render } from 'rc-util/lib/React/render';
 import * as React from 'react';
 import ConfigProvider, { globalConfig, warnContext } from '../config-provider';
+import PurePanel from './PurePanel';
 import type {
   ArgsProps,
   ConfigOptions,
@@ -9,7 +10,6 @@ import type {
   NoticeType,
   TypeOpen,
 } from './interface';
-import PurePanel from './PurePanel';
 import useMessage, { useInternalMessage } from './useMessage';
 import { wrapPromiseFn } from './util';
 
@@ -102,6 +102,7 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   const global = globalConfig();
   const rootPrefixCls = global.getRootPrefixCls();
   const rootIconPrefixCls = global.getIconPrefixCls();
+  const theme = global.getTheme();
 
   const sync = () => {
     setMessageConfig(initializeMessageConfig);
@@ -126,7 +127,7 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   });
 
   return (
-    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls}>
+    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls} theme={theme}>
       {holder}
     </ConfigProvider>
   );

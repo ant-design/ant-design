@@ -26,7 +26,7 @@ Display global messages as feedback in response to user operations.
 <code src="./demo/thenable.tsx">Promise interface</code>
 <code src="./demo/custom-style.tsx">Customized style</code>
 <code src="./demo/update.tsx">Update Message Content</code>
-<code src="./demo/info.tsx">Normal prompt</code>
+<code src="./demo/info.tsx">Static method (deprecated)</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
