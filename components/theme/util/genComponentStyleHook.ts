@@ -11,15 +11,8 @@ import { mergeToken, statisticToken, useToken } from '../internal';
 
 export type OverrideTokenWithoutDerivative = ComponentTokenMap;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
-type MergedComponentToken<
-  C extends OverrideComponent,
-  Dep extends OverrideComponent | null = null,
-> = OverrideTokenWithoutDerivative[C] &
-  (Dep extends OverrideComponent ? OverrideTokenWithoutDerivative[Dep] : {});
-export type GlobalTokenWithComponent<
-  ComponentName extends OverrideComponent,
-  DepComponent extends OverrideComponent | null = null,
-> = GlobalToken & MergedComponentToken<ComponentName, DepComponent>;
+export type GlobalTokenWithComponent<ComponentName extends OverrideComponent> = GlobalToken &
+  ComponentTokenMap[ComponentName];
 
 type ComponentToken<ComponentName extends OverrideComponent> = Exclude<
   OverrideTokenWithoutDerivative[ComponentName],
@@ -46,27 +39,20 @@ export type TokenWithCommonCls<T> = T & {
   /** Wrap ant prefixCls class with `.` prefix */
   antCls: string;
 };
-export type FullToken<
-  ComponentName extends OverrideComponent,
-  DepComponent extends OverrideComponent | null = null,
-> = TokenWithCommonCls<GlobalTokenWithComponent<ComponentName, DepComponent>>;
-export default function genComponentStyleHook<
-  ComponentName extends OverrideComponent,
-  DepComponent extends OverrideComponent | null = null,
->(
+export type FullToken<ComponentName extends OverrideComponent> = TokenWithCommonCls<
+  GlobalTokenWithComponent<ComponentName>
+>;
+
+export default function genComponentStyleHook<ComponentName extends OverrideComponent>(
   component: ComponentName,
-  styleFn: (
-    token: FullToken<ComponentName, DepComponent>,
-    info: StyleInfo<ComponentName>,
-  ) => CSSInterpolation,
+  styleFn: (token: FullToken<ComponentName>, info: StyleInfo<ComponentName>) => CSSInterpolation,
   getDefaultToken?:
-    | MergedComponentToken<ComponentName, DepComponent>
-    | ((token: GlobalToken) => MergedComponentToken<ComponentName, DepComponent>),
+    | OverrideTokenWithoutDerivative[ComponentName]
+    | ((token: GlobalToken) => OverrideTokenWithoutDerivative[ComponentName]),
   options?: {
     resetStyle?: boolean;
     // Deprecated token key map [["oldTokenKey", "newTokenKey"], ["oldTokenKey", "newTokenKey"]]
     deprecatedTokens?: [ComponentTokenKey<ComponentName>, ComponentTokenKey<ComponentName>][];
-    depComponent?: DepComponent;
   },
 ) {
   return (prefixCls: string): UseComponentStyleResult => {
@@ -97,11 +83,7 @@ export default function genComponentStyleHook<
         const defaultComponentToken =
           typeof getDefaultToken === 'function' ? getDefaultToken(proxyToken) : getDefaultToken;
         const customComponentToken = token[component] as ComponentToken<ComponentName>;
-        const mergedComponentToken = {
-          ...defaultComponentToken,
-          ...customComponentToken,
-          ...(options?.depComponent ? token[options.depComponent] : {}),
-        };
+        const mergedComponentToken = { ...defaultComponentToken, ...customComponentToken };
 
         if (options?.deprecatedTokens) {
           const { deprecatedTokens } = options;
@@ -136,16 +118,13 @@ export default function genComponentStyleHook<
           mergedComponentToken,
         );
 
-        const styleInterpolation = styleFn(
-          mergedToken as unknown as FullToken<ComponentName, DepComponent>,
-          {
-            hashId,
-            prefixCls,
-            rootPrefixCls,
-            iconPrefixCls,
-            overrideComponentToken: token[component],
-          },
-        );
+        const styleInterpolation = styleFn(mergedToken as unknown as FullToken<ComponentName>, {
+          hashId,
+          prefixCls,
+          rootPrefixCls,
+          iconPrefixCls,
+          overrideComponentToken: token[component],
+        });
         flush(component, mergedComponentToken);
         return [
           options?.resetStyle === false ? null : genCommonStyle(token, prefixCls),
