@@ -210,16 +210,15 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@result-icon-font-size` | `iconFontSize` | - |
-| `@popover-bg` | `popoverBg` | - |
-| `@popover-color` | `popoverColor` | - |
+| `@popover-bg` | `colorBgContainer` | GlobalToken |
+| `@popover-color` | `colorText` | GlobalToken |
 | `@popover-min-width` | `minWidth` | - |
-| `@popover-min-height` | `minHeight` | - |
-| `@popover-arrow-width` | `arrowWidth` | - |
-| `@popover-arrow-color` | `arrowColor` | - |
+| `@popover-min-height` | - | eprecated for style change |
+| `@popover-arrow-width` | `sizePopupArrow` | GlobalToken |
+| `@popover-arrow-color` | - | eprecated for style change |
 | `@popover-arrow-outer-color` | `arrowOuterColor` | - |
-| `@popover-distance` | `distance` | - |
-| `@popover-padding-horizontal` | `paddingHorizontal` | - |
+| `@popover-distance` | `marginXXS` | Global Token |
+| `@popover-padding-horizontal` | - | Deprecated for style change |
 
 <!-- ### Progress -->
 

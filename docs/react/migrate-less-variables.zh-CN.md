@@ -208,16 +208,15 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@result-icon-font-size` | `iconFontSize` | - |
-| `@popover-bg` | `popoverBg` | - |
-| `@popover-color` | `popoverColor` | - |
+| `@popover-bg` | `colorText` | - |
+| `@popover-color` | `colorText` | GlobalToken |
 | `@popover-min-width` | `minWidth` | - |
-| `@popover-min-height` | `minHeight` | - |
-| `@popover-arrow-width` | `arrowWidth` | - |
-| `@popover-arrow-color` | `arrowColor` | - |
-| `@popover-arrow-outer-color` | `arrowOuterColor` | - |
-| `@popover-distance` | `distance` | - |
-| `@popover-padding-horizontal` | `paddingHorizontal` | - |
+| `@popover-min-height` | - | eprecated for style change |
+| `@popover-arrow-width` | `sizePopupArrow` | 全局 Token |
+| `@popover-arrow-color` | - | eprecated for style change |
+| `@popover-arrow-outer-color`| - | eprecated for style change |
+| `@popover-distance` | `marginXXS` | Global Token |
+| `@popover-padding-horizontal` | - | Deprecated for style change |
 
 <!-- ### Progress 进度条 -->
 
@@ -238,7 +237,6 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@result-icon-font-size` | `iconFontSize` | - |
 | `@result-title-font-size` | `titleFontSize` | - |
 | `@result-subtitle-font-size` | `subtitleFontSize` | - |
 | `@result-extra-margin` | `extraMargin` | - |

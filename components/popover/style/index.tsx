@@ -5,15 +5,9 @@ import type { FullToken, GenerateStyle, PresetColorType } from '../../theme/inte
 import { PresetColors, genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
-  popoverBg: string;
-  popoverColor: string;
   minWidth: number;
   minHeight: number;
-  arrowWidth: number;
-  arrowColor: string;
-  arrowOuterColor: string;
   distance: number;
-  paddingHorizontal: number;
 }
 
 export type PopoverToken = FullToken<'Popover'> & {
@@ -25,8 +19,7 @@ export type PopoverToken = FullToken<'Popover'> & {
 const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
   const {
     componentCls,
-    popoverBg,
-    popoverColor,
+    colorText,
     width,
     fontWeightStrong,
     popoverPadding,
@@ -36,6 +29,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
     zIndexPopup,
     marginXS,
     colorBgElevated,
+    colorBgContainer,
   } = token;
 
   return [
@@ -71,7 +65,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         },
 
         [`${componentCls}-inner`]: {
-          backgroundColor: popoverBg,
+          backgroundColor: colorBgContainer,
           backgroundClip: 'padding-box',
           borderRadius,
           boxShadow: boxShadowSecondary,
@@ -86,7 +80,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         },
 
         [`${componentCls}-inner-content`]: {
-          color: popoverColor,
+          color: colorText,
         },
       },
     },
@@ -189,14 +183,8 @@ export default genComponentStyleHook(
     ];
   },
   (token) => ({
-    popoverBg: token.colorBgElevated,
-    popoverColor: token.colorText,
     minWidth: 177,
     minHeight: 32,
-    arrowWidth: token.sizePopupArrow,
-    arrowColor: token.colorBgElevated,
-    arrowOuterColor: token.colorBgElevated,
-    distance: token.sizePopupArrow + 4,
-    paddingHorizontal: token.paddingMD,
+    distance: token.marginXXS,
   }),
 );
