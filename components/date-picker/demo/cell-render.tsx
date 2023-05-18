@@ -9,7 +9,7 @@ const App: React.FC = () => (
       cellRender={(current) => {
         const style: React.CSSProperties = {};
         if (current.date() === 1) {
-          style.border = '1px solid #1890ff';
+          style.border = '1px solid #1677ff';
           style.borderRadius = '50%';
         }
         return (
@@ -23,7 +23,7 @@ const App: React.FC = () => (
       cellRender={(current) => {
         const style: React.CSSProperties = {};
         if (current.date() === 1) {
-          style.border = '1px solid #1890ff';
+          style.border = '1px solid #1677ff';
           style.borderRadius = '50%';
         }
         return (
