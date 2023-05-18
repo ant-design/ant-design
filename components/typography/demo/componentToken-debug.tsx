@@ -11,7 +11,7 @@ const App: React.FC = () => (
     theme={{
       components: {
         Typography: {
-          titleFontWeight: 700,
+          fontWeightStrong: 700,
           titleMarginTop: '2.4em',
           titleMarginBottom: '1em',
         },

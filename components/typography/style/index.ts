@@ -14,7 +14,7 @@ import {
 export interface ComponentToken {
   titleMarginTop: number | string;
   titleMarginBottom: number | string;
-  titleFontWeight: number;
+  fontWeightStrong: number;
 }
 
 export type TypographyToken = FullToken<'Typography'>;
@@ -129,6 +129,6 @@ export default genComponentStyleHook(
   (token) => ({
     titleMarginTop: '1.2em',
     titleMarginBottom: '0.5em',
-    titleFontWeight: token.fontWeightStrong,
+    fontWeightStrong: token.fontWeightStrong,
   }),
 );
