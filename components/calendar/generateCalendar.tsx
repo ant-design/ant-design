@@ -36,11 +36,10 @@ export type PickerProps<DateType> =
   | PickerPanelTimeProps<DateType>;
 
 export type CalendarMode = 'year' | 'month';
-export type CalendarSelectable = 'date' | 'year' | 'month';
 export type HeaderRender<DateType> = (config: {
   value: DateType;
   type: CalendarMode;
-  onChange: (date: DateType, selectType?: CalendarSelectable) => void;
+  onChange: (date: DateType) => void;
   onTypeChange: (type: CalendarMode) => void;
 }) => React.ReactNode;
 
@@ -74,7 +73,6 @@ export interface CalendarProps<DateType> {
   onChange?: (date: DateType) => void;
   onPanelChange?: (date: DateType, mode: CalendarMode) => void;
   onSelect?: (date: DateType, selectInfo: SelectInfo) => void;
-  selectable?: CalendarSelectable[];
   hideModeSwitch?: boolean;
 }
 
@@ -333,7 +331,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
             fullscreen={fullscreen}
             locale={contextLocale?.lang}
             validRange={validRange}
-            onChange={triggerChange}
+            onChange={onInternalSelect}
             onModeChange={triggerModeChange}
             hideModeSwitch={hideModeSwitch}
           />

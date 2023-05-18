@@ -18,7 +18,7 @@ interface SharedProps<DateType> {
   locale: Locale;
   fullscreen: boolean;
   divRef: React.RefObject<HTMLDivElement>;
-  onChange: (year: DateType, selectType: CalendarSelectable) => void;
+  onChange: (year: DateType) => void;
 }
 
 function YearSelect<DateType>(props: SharedProps<DateType>) {
@@ -68,7 +68,7 @@ function YearSelect<DateType>(props: SharedProps<DateType>) {
           }
         }
 
-        onChange(newDate, 'year');
+        onChange(newDate);
       }}
       getPopupContainer={() => divRef!.current!}
     />
@@ -110,7 +110,7 @@ function MonthSelect<DateType>(props: SharedProps<DateType>) {
       value={month}
       options={options}
       onChange={(newMonth) => {
-        onChange(generateConfig.setMonth(value, newMonth), 'month');
+        onChange(generateConfig.setMonth(value, newMonth));
       }}
       getPopupContainer={() => divRef!.current!}
     />
