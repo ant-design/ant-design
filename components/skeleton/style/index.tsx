@@ -5,9 +5,9 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export type ComponentToken = {
   /** @deprecated use gradientFromColor instead. */
-  color: string;
+  color?: string;
   /** @deprecated use gradientToColor instead. */
-  colorGradientEnd: string;
+  colorGradientEnd?: string;
   gradientFromColor: string;
   gradientToColor: string;
   titleHeight: number;
