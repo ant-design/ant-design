@@ -185,7 +185,18 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Select -->
 
-<!-- ### Skeleton -->
+### Skeleton
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@skeleton-block-radius` | `blockRadius` | - |
+| `@skeleton-title-height` | `titleHeight` | - |
+| `@skeleton-color` | `gradientFromColor` | - |
+| `@skeleton-to-color` | `gradientToColor` | - |
+| `@skeleton-paragraph-margin-top` | `paragraphMarginTop` | - |
+| `@skeleton-paragraph-li-height` | `paragraphLiHeight` | - |
+| `@skeleton-paragraph-li-margin-top` | - | 由于样式变化已废弃 |
 
 <!-- ### Slider -->
 
