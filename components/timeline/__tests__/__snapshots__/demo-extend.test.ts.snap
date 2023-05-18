@@ -379,7 +379,7 @@ exports[`renders components/timeline/demo/color.tsx extend context correctly 1`]
 </ul>
 `;
 
-exports[`renders components/timeline/demo/componentToken-debug.tsx extend context correctly 1`] = `
+exports[`renders components/timeline/demo/component-token.tsx extend context correctly 1`] = `
 <ul
   class="ant-timeline"
 >
