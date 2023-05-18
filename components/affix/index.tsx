@@ -137,11 +137,13 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
     const targetFunc = this.getTargetFunc();
     const newTarget = targetFunc?.();
     TRIGGER_EVENTS.forEach((eventName) => {
-      [newTarget, prevTarget].forEach((target) => {
-        target?.removeEventListener(eventName, this.lazyUpdatePosition);
-      });
+      newTarget?.removeEventListener(eventName, this.lazyUpdatePosition);
     });
-
+    if (prevTarget !== newTarget) {
+      TRIGGER_EVENTS.forEach((eventName) => {
+        prevTarget?.removeEventListener(eventName, this.lazyUpdatePosition);
+      });
+    }
     this.updatePosition.cancel();
     // https://github.com/ant-design/ant-design/issues/22683
     this.lazyUpdatePosition.cancel();
