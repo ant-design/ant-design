@@ -18,7 +18,7 @@ export interface ColorPickerBaseProps {
   prefixCls: string;
   format?: keyof typeof ColorFormat;
   allowClear?: boolean;
-  clearColor?: boolean;
+  colorCleared?: boolean;
   disabled?: boolean;
   presets?: PresetsItem[];
   onFormatChange?: ColorPickerProps['onFormatChange'];

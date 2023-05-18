@@ -190,18 +190,18 @@ describe('Progress', () => {
 
   it('steps should be changeable when has strokeColor', () => {
     const { container: wrapper, rerender } = render(
-      <Progress steps={5} percent={60} strokeColor="#1890ff" />,
+      <Progress steps={5} percent={60} strokeColor="#1677ff" />,
     );
     expect(
       wrapper.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item')[0].style.backgroundColor,
-    ).toBe('rgb(24, 144, 255)');
-    rerender(<Progress steps={5} percent={40} strokeColor="#1890ff" />);
+    ).toBe('rgb(22, 119, 255)');
+    rerender(<Progress steps={5} percent={40} strokeColor="#1677ff" />);
     expect(
       wrapper.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item')[2].style.backgroundColor,
     ).toBe('');
     expect(
       wrapper.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item')[1].style.backgroundColor,
-    ).toBe('rgb(24, 144, 255)');
+    ).toBe('rgb(22, 119, 255)');
   });
 
   it('steps should support trailColor', () => {
