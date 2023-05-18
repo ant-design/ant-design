@@ -1,18 +1,18 @@
-import classNames from 'classnames';
+import * as React from 'react';
 import { useNotification as useRcNotification } from 'rc-notification';
 import type { NotificationAPI } from 'rc-notification/lib';
-import * as React from 'react';
-import warning from '../_util/warning';
+import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
-import { PureContent, getCloseIcon } from './PurePanel';
 import type {
-  ArgsProps,
-  NotificationConfig,
   NotificationInstance,
+  ArgsProps,
   NotificationPlacement,
+  NotificationConfig,
 } from './interface';
+import { getPlacementStyle, getMotion } from './util';
+import warning from '../_util/warning';
 import useStyle from './style';
-import { getMotion, getPlacementStyle } from './util';
+import { getCloseIcon, PureContent } from './PurePanel';
 
 const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;
