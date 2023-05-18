@@ -339,7 +339,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
           generateConfig={generateConfig}
           cellRender={mergedCellRender}
           onSelect={(nextDate) => {
-            onInternalSelect(nextDate, 'date');
+            onInternalSelect(nextDate, panelMode);
           }}
           mode={panelMode}
           picker={panelMode}
