@@ -14,6 +14,13 @@ export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
 export type GlobalTokenWithComponent<ComponentName extends OverrideComponent> = GlobalToken &
   ComponentTokenMap[ComponentName];
 
+type ComponentToken<ComponentName extends OverrideComponent> = Exclude<
+  OverrideTokenWithoutDerivative[ComponentName],
+  undefined
+>;
+type ComponentTokenKey<ComponentName extends OverrideComponent> =
+  keyof ComponentToken<ComponentName>;
+
 export interface StyleInfo<ComponentName extends OverrideComponent> {
   hashId: string;
   prefixCls: string;
@@ -45,10 +52,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
   options?: {
     resetStyle?: boolean;
     // Deprecated token key map [["oldTokenKey", "newTokenKey"], ["oldTokenKey", "newTokenKey"]]
-    deprecatedTokens?: [
-      keyof Exclude<OverrideTokenWithoutDerivative[ComponentName], undefined>,
-      keyof Exclude<OverrideTokenWithoutDerivative[ComponentName], undefined>,
-    ][];
+    deprecatedTokens?: [ComponentTokenKey<ComponentName>, ComponentTokenKey<ComponentName>][];
   },
 ) {
   return (prefixCls: string): UseComponentStyleResult => {
@@ -78,10 +82,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
 
         const defaultComponentToken =
           typeof getDefaultToken === 'function' ? getDefaultToken(proxyToken) : getDefaultToken;
-        const customComponentToken = token[component] as Exclude<
-          OverrideTokenWithoutDerivative[ComponentName],
-          undefined
-        >;
+        const customComponentToken = token[component] as ComponentToken;
         const mergedComponentToken = { ...defaultComponentToken, ...customComponentToken };
 
         if (options?.deprecatedTokens) {
