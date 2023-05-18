@@ -13,7 +13,7 @@ export type ComponentToken = {
   titleHeight: number;
   blockRadius: number;
   paragraphMarginTop: number;
-  paragraphLineHeight: number;
+  paragraphLiHeight: number;
 };
 
 const skeletonClsLoading = new Keyframes(`ant-skeleton-loading`, {
@@ -221,7 +221,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
     borderRadius,
     titleHeight,
     blockRadius,
-    paragraphLineHeight,
+    paragraphLiHeight,
     controlHeightXS,
     paragraphMarginTop,
   } = token;
@@ -373,7 +373,7 @@ export default genComponentStyleHook(
       titleHeight: token.controlHeight / 2,
       blockRadius: token.borderRadiusSM,
       paragraphMarginTop: token.marginLG + token.marginXXS,
-      paragraphLineHeight: token.controlHeight / 2,
+      paragraphLiHeight: token.controlHeight / 2,
     };
   },
 );

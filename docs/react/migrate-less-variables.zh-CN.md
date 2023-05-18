@@ -164,7 +164,7 @@ title: Less 变量迁移 Design Token
 | `@skeleton-color` | `gradientFromColor` | - |
 | `@skeleton-to-color` | `gradientToColor` | - |
 | `@skeleton-paragraph-margin-top` | `paragraphMarginTop` | - |
-| `@skeleton-paragraph-li-height` | `paragraphLineHeight` | - |
+| `@skeleton-paragraph-li-height` | `paragraphLiHeight` | - |
 | `@skeleton-paragraph-li-margin-top` | - | 由于样式变化已废弃 |
 
 <!-- ### Slider 滑动输入条 -->

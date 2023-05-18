@@ -11,7 +11,7 @@ const App: React.FC = () => (
           gradientFromColor: '#222',
           gradientToColor: '#444',
           paragraphMarginTop: 30,
-          paragraphLineHeight: 30,
+          paragraphLiHeight: 30,
         },
       },
     }}
