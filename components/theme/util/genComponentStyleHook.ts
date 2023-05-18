@@ -20,7 +20,6 @@ export interface StyleInfo<ComponentName extends OverrideComponent> {
   rootPrefixCls: string;
   iconPrefixCls: string;
   overrideComponentToken: ComponentTokenMap[ComponentName];
-  deprecatedToken: <T>(newTokenKey: string, oldTokenKey: string) => T;
 }
 
 export type TokenWithCommonCls<T> = T & {
@@ -45,6 +44,8 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
     | ((token: GlobalToken) => OverrideTokenWithoutDerivative[ComponentName]),
   options?: {
     resetStyle?: boolean;
+    // Deprecated token key map {[oldTokenKey]: newTokenKey}
+    deprecatedTokens?: Record<string, string>;
   },
 ) {
   return (prefixCls: string): UseComponentStyleResult => {
@@ -76,6 +77,25 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
           typeof getDefaultToken === 'function' ? getDefaultToken(proxyToken) : getDefaultToken;
         const mergedComponentToken = { ...defaultComponentToken, ...token[component] };
 
+        if (options?.deprecatedTokens) {
+          const { deprecatedTokens } = options;
+          Object.keys(deprecatedTokens).forEach((oldTokenKey) => {
+            const newTokenKey = deprecatedTokens[oldTokenKey];
+            const userToken = token[component] as unknown as Record<string, any>;
+            if (process.env.NODE_ENV !== 'production') {
+              warning(
+                !userToken?.[oldTokenKey],
+                `The token '${oldTokenKey}' of ${component} had deprecated, use '${newTokenKey}' instead.`,
+              );
+            }
+
+            mergedComponentToken[newTokenKey] =
+              userToken?.[newTokenKey] ||
+              userToken?.[oldTokenKey] ||
+              defaultComponentToken[newTokenKey];
+          });
+        }
+
         const componentCls = `.${prefixCls}`;
         const mergedToken = mergeToken<
           TokenWithCommonCls<GlobalTokenWithComponent<OverrideComponent>>
@@ -96,20 +116,6 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
           rootPrefixCls,
           iconPrefixCls,
           overrideComponentToken: token[component],
-          deprecatedToken: (newTokenKey, oldTokenKey) => {
-            const userToken = token[component] as unknown as Record<string, any>;
-            if (process.env.NODE_ENV !== 'production') {
-              warning(
-                !userToken?.[oldTokenKey],
-                `The token '${oldTokenKey}' of ${component} had deprecated, use '${newTokenKey}' instead.`,
-              );
-            }
-            return (
-              userToken?.[newTokenKey] ||
-              userToken?.[oldTokenKey] ||
-              defaultComponentToken[newTokenKey]
-            );
-          },
         });
         flush(component, mergedComponentToken);
         return [

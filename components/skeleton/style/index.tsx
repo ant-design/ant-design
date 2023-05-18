@@ -346,11 +346,8 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Skeleton',
-  (token, { deprecatedToken }) => {
+  (token) => {
     const { componentCls } = token;
-
-    const gradientFromColor = deprecatedToken('gradientFromColor', 'color');
-    const gradientToColor = deprecatedToken('gradientToColor', 'colorGradientEnd');
 
     const skeletonToken = mergeToken<SkeletonToken>(token, {
       skeletonAvatarCls: `${componentCls}-avatar`,
@@ -361,7 +358,7 @@ export default genComponentStyleHook(
       skeletonImageCls: `${componentCls}-image`,
       imageSizeBase: token.controlHeight * 1.5,
       borderRadius: 100, // Large number to make capsule shape
-      skeletonLoadingBackground: `linear-gradient(90deg, ${gradientFromColor} 25%, ${gradientToColor} 37%, ${gradientFromColor} 63%)`,
+      skeletonLoadingBackground: `linear-gradient(90deg, ${token.gradientFromColor} 25%, ${token.gradientToColor} 37%, ${token.gradientFromColor} 63%)`,
       skeletonLoadingMotionDuration: '1.4s',
     });
     return [genBaseStyle(skeletonToken)];
@@ -378,5 +375,11 @@ export default genComponentStyleHook(
       paragraphMarginTop: token.marginLG + token.marginXXS,
       paragraphLiHeight: token.controlHeight / 2,
     };
+  },
+  {
+    deprecatedTokens: {
+      color: 'gradientFromColor',
+      colorGradientEnd: 'gradientToColor',
+    },
   },
 );
