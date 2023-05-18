@@ -558,14 +558,14 @@ describe('Calendar', () => {
       container.querySelector('.ant-picker-calendar-mode-switch label:nth-child(1)')!,
     );
     fireEvent.click(container.querySelector('.ant-picker-cell')!);
-    expect(onSelect).toHaveBeenCalledWith(expect.anything(), { source: 'date' });
+    expect(onSelect).toHaveBeenCalledWith(expect.anything(), 'date');
     expect(onChange).toHaveBeenCalled();
 
     fireEvent.click(
       container.querySelector('.ant-picker-calendar-mode-switch label:nth-child(2)')!,
     );
     fireEvent.click(container.querySelector('.ant-picker-cell')!);
-    expect(onSelect).toHaveBeenCalledWith(expect.anything(), { source: 'year' });
+    expect(onSelect).toHaveBeenCalledWith(expect.anything(), 'year');
     expect(onChange).toHaveBeenCalled();
   });
 });
