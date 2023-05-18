@@ -107,8 +107,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
             return (
               userToken?.[newTokenKey] ||
               userToken?.[oldTokenKey] ||
-              defaultComponentToken[newTokenKey] ||
-              defaultComponentToken[oldTokenKey]
+              defaultComponentToken[newTokenKey]
             );
           },
         });
