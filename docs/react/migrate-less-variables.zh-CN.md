@@ -19,7 +19,19 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Badge 徽标数 -->
 
-<!-- ### BreadCrumb 面包屑 -->
+### BreadCrumb 面包屑
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@breadcrumb-base-color` | `itemColor` | - |
+| `@breadcrumb-last-item-color` | `lastItemColor` | - |
+| `@breadcrumb-font-size` | `fontSize` | 全局 Token |
+| `@breadcrumb-icon-font-size` | `iconFontSize` | - |
+| `@breadcrumb-link-color` | `linkColor` | - |
+| `@breadcrumb-link-color-hover` | `linkHoverColor` | - |
+| `@breadcrumb-separator-color` | `separatorColor` | - |
+| `@breadcrumb-separator-margin` | `separatorMargin` | - |
 
 <!-- ### Button 按钮 -->
 
@@ -184,7 +196,18 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Select 选择器 -->
 
-<!-- ### Skeleton 骨架屏 -->
+### Skeleton 骨架屏
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@skeleton-block-radius` | `blockRadius` | - |
+| `@skeleton-title-height` | `titleHeight` | - |
+| `@skeleton-color` | `gradientFromColor` | - |
+| `@skeleton-to-color` | `gradientToColor` | - |
+| `@skeleton-paragraph-margin-top` | `paragraphMarginTop` | - |
+| `@skeleton-paragraph-li-height` | `paragraphLiHeight` | - |
+| `@skeleton-paragraph-li-margin-top` | - | 由于样式变化已废弃 |
 
 <!-- ### Slider 滑动输入条 -->
 

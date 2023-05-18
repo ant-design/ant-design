@@ -1,18 +1,19 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { genFocusStyle, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { genFocusStyle, resetComponent } from '../../style';
 
-interface BreadcrumbToken extends FullToken<'Breadcrumb'> {
-  breadcrumbBaseColor: string;
-  breadcrumbFontSize: number;
-  breadcrumbIconFontSize: number;
-  breadcrumbLinkColor: string;
-  breadcrumbLinkColorHover: string;
-  breadcrumbLastItemColor: string;
-  breadcrumbSeparatorMargin: number;
-  breadcrumbSeparatorColor: string;
+export interface ComponentToken {
+  itemColor: string;
+  iconFontSize: number;
+  linkColor: string;
+  linkHoverColor: string;
+  lastItemColor: string;
+  separatorMargin: number;
+  separatorColor: string;
 }
+
+interface BreadcrumbToken extends FullToken<'Breadcrumb'> {}
 
 const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) => {
   const { componentCls, iconCls } = token;
@@ -20,11 +21,11 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
   return {
     [componentCls]: {
       ...resetComponent(token),
-      color: token.breadcrumbBaseColor,
-      fontSize: token.breadcrumbFontSize,
+      color: token.itemColor,
+      fontSize: token.fontSize,
 
       [iconCls]: {
-        fontSize: token.breadcrumbIconFontSize,
+        fontSize: token.iconFontSize,
       },
 
       ol: {
@@ -36,7 +37,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
       },
 
       a: {
-        color: token.breadcrumbLinkColor,
+        color: token.linkColor,
         transition: `color ${token.motionDurationMid}`,
         padding: `0 ${token.paddingXXS}px`,
         borderRadius: token.borderRadiusSM,
@@ -45,7 +46,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
         marginInline: -token.marginXXS,
 
         '&:hover': {
-          color: token.breadcrumbLinkColorHover,
+          color: token.linkHoverColor,
           backgroundColor: token.colorBgTextHover,
         },
 
@@ -53,12 +54,12 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
       },
 
       [`li:last-child`]: {
-        color: token.breadcrumbLastItemColor,
+        color: token.lastItemColor,
       },
 
       [`${componentCls}-separator`]: {
-        marginInline: token.breadcrumbSeparatorMargin,
-        color: token.breadcrumbSeparatorColor,
+        marginInline: token.separatorMargin,
+        color: token.separatorColor,
       },
 
       [`${componentCls}-link`]: {
@@ -83,11 +84,11 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
         },
 
         '&:hover': {
-          color: token.breadcrumbLinkColorHover,
+          color: token.linkHoverColor,
           backgroundColor: token.colorBgTextHover,
 
           a: {
-            color: token.breadcrumbLinkColorHover,
+            color: token.linkHoverColor,
           },
         },
 
@@ -107,17 +108,19 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Breadcrumb', (token) => {
-  const BreadcrumbToken = mergeToken<BreadcrumbToken>(token, {
-    breadcrumbBaseColor: token.colorTextDescription,
-    breadcrumbFontSize: token.fontSize,
-    breadcrumbIconFontSize: token.fontSize,
-    breadcrumbLinkColor: token.colorTextDescription,
-    breadcrumbLinkColorHover: token.colorText,
-    breadcrumbLastItemColor: token.colorText,
-    breadcrumbSeparatorMargin: token.marginXS,
-    breadcrumbSeparatorColor: token.colorTextDescription,
-  });
-
-  return [genBreadcrumbStyle(BreadcrumbToken)];
-});
+export default genComponentStyleHook(
+  'Breadcrumb',
+  (token) => {
+    const BreadcrumbToken = mergeToken<BreadcrumbToken>(token, {});
+    return [genBreadcrumbStyle(BreadcrumbToken)];
+  },
+  (token) => ({
+    itemColor: token.colorTextDescription,
+    lastItemColor: token.colorText,
+    iconFontSize: token.fontSize,
+    linkColor: token.colorTextDescription,
+    linkHoverColor: token.colorText,
+    separatorColor: token.colorTextDescription,
+    separatorMargin: token.marginXS,
+  }),
+);

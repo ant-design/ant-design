@@ -19,7 +19,19 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Badge -->
 
-<!-- ### BreadCrumb -->
+### BreadCrumb 面包屑
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@breadcrumb-base-color` | `itemColor` | - |
+| `@breadcrumb-last-item-color` | `lastItemColor` | - |
+| `@breadcrumb-font-size` | `fontSize` | GlobalToken |
+| `@breadcrumb-icon-font-size` | `iconFontSize` | - |
+| `@breadcrumb-link-color` | `linkColor` | - |
+| `@breadcrumb-link-color-hover` | `linkHoverColor` | - |
+| `@breadcrumb-separator-color` | `separatorColor` | - |
+| `@breadcrumb-separator-margin` | `separatorMargin` | - |
 
 <!-- ### Button -->
 
@@ -186,7 +198,18 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Select -->
 
-<!-- ### Skeleton -->
+### Skeleton
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@skeleton-block-radius` | `blockRadius` | - |
+| `@skeleton-title-height` | `titleHeight` | - |
+| `@skeleton-color` | `gradientFromColor` | - |
+| `@skeleton-to-color` | `gradientToColor` | - |
+| `@skeleton-paragraph-margin-top` | `paragraphMarginTop` | - |
+| `@skeleton-paragraph-li-height` | `paragraphLiHeight` | - |
+| `@skeleton-paragraph-li-margin-top` | - | 由于样式变化已废弃 |
 
 <!-- ### Slider -->
 
