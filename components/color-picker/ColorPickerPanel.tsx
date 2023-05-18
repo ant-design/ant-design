@@ -1,4 +1,4 @@
-import { ColorPickerPanel as RcColorPickerPanel } from '@rc-component/color-picker';
+import RcColorPicker from '@rc-component/color-picker';
 import type { FC } from 'react';
 import React from 'react';
 import Divider from '../divider';
@@ -41,7 +41,7 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
     </div>
   );
   return (
-    <RcColorPickerPanel
+    <RcColorPicker
       prefixCls={prefixCls}
       value={color?.toHsb()}
       onChange={onChange}
