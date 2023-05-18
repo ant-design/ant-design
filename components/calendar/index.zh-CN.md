@@ -21,6 +21,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 <code src="./demo/card.tsx" clientOnly>卡片模式</code>
 <code src="./demo/select.tsx" clientOnly>选择功能</code>
 <code src="./demo/customize-header.tsx" clientOnly>自定义头部</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
@@ -60,7 +61,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 | value | 展示日期 | [dayjs](https://day.js.org/) | - |  |
 | onChange | 日期变化回调 | function(date: Dayjs) | - |  |
 | onPanelChange | 日期面板变化回调 | function(date: Dayjs, mode: string) | - |  |
-| onSelect | 点击选择日期回调 | function(date: Dayjs） | - |  |
+| onSelect | 选择日期回调，包含来源信息 | function(date: Dayjs, info: { source: 'year' \| 'month' \| 'date' \| 'customize' }) | - | `info`: 5.6.0 |
 
 ## Design Token
 
@@ -79,3 +80,17 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 ### 为什么时间类组件的国际化 locale 设置不生效？
 
 参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#为什么时间类组件的国际化-locale-设置不生效)。
+
+### 如何仅获取来自面板点击的日期？
+
+`onSelect` 事件提供额外的来源信息，你可以通过 `info.source` 来判断来源：
+
+```tsx
+<Calendar
+  onSelect={(date, { source }) => {
+    if (source === 'date') {
+      console.log('Panel Select:', source);
+    }
+  }}
+/>
+```

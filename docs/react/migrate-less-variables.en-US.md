@@ -19,11 +19,34 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Badge -->
 
-<!-- ### BreadCrumb -->
+### BreadCrumb 面包屑
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@breadcrumb-base-color` | `itemColor` | - |
+| `@breadcrumb-last-item-color` | `lastItemColor` | - |
+| `@breadcrumb-font-size` | `fontSize` | GlobalToken |
+| `@breadcrumb-icon-font-size` | `iconFontSize` | - |
+| `@breadcrumb-link-color` | `linkColor` | - |
+| `@breadcrumb-link-color-hover` | `linkHoverColor` | - |
+| `@breadcrumb-separator-color` | `separatorColor` | - |
+| `@breadcrumb-separator-margin` | `separatorMargin` | - |
 
 <!-- ### Button -->
 
-<!-- ### Calendar -->
+## Calendar
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@calendar-bg` | - | Deprecated for style change |
+| `@calendar-input-bg` | - | Deprecated for style change |
+| `@calendar-border-color` | - | Deprecated for style change |
+| `@calendar-item-active-bg` | `itemActiveBg` | - |
+| `@calendar-column-active-bg` | - | Deprecated for style change |
+| `@calendar-full-bg` | `fullBg` | - |
+| `@calendar-full-panel-bg` | `fullPanelBg` | - |
 
 <!-- ### Card -->
 
@@ -35,7 +58,21 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Collapse -->
 
-<!-- ### Descriptions -->
+### Descriptions
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@descriptions-bg` | `labelBg` | - |
+| `@descriptions-title-margin-bottom` | `titleMarginBottom` | - |
+| `@descriptions-default-padding` | `padding`、`paddingLG` | GlobalToken, used as `${token.padding}px ${token.paddingLG}px` |
+| `@descriptions-middle-padding` | `paddingSM`、`paddingLG` | GlobalToken, used as `${token.paddingSM}px ${token.paddingLG}px` |
+| `@descriptions-small-padding` | `paddingXS`、`padding` | GlobalToken, used as `${token.paddingXS}px ${token.padding}px` |
+| `@descriptions-item-padding-bottom` | `itemPaddingBottom` | - |
+| `@descriptions-item-trailing-colon` | - | Deprecated for style change |
+| `@descriptions-item-label-colon-margin-right` | `colonMarginRight` | - |
+| `@descriptions-item-label-colon-margin-left` | `colonMarginLeft` | - |
+| `@descriptions-extra-color` | `extraColor` | - |
 
 <!-- ### Divider -->
 
@@ -54,7 +91,12 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Dropdown -->
 
-<!-- ### Empty -->
+### Empty
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@empty-font-size` | `fontSize` | GlobalToken |
 
 <!-- ### Form -->
 
@@ -119,7 +161,15 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Radio -->
 
-<!-- ### Rate -->
+## Rate
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@rate-star-color` | `starColor` | - |
+| `@rate-star-bg` | `starBg` | - |
+| `@rate-star-size` | `starSize` | - |
+| `@rate-star-hover-scale` | `starHoverScale` | - |
 
 ### Result
 
