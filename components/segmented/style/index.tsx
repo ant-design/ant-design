@@ -4,16 +4,16 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
-  padding: number;
-  labelColor: string;
-  labelColorHover: string;
+  itemColor: string;
+  itemHoverColor: string;
   bgColor: string;
-  bgColorHover: string;
-  bgColorActive: string;
-  bgColorSelected: string;
+  itemHoverBg: string;
+  itemActiveBg: string;
+  itemSelectedBg: string;
 }
 
 interface SegmentedToken extends FullToken<'Segmented'> {
+  padding: number;
   segmentedPaddingHorizontal: number;
   segmentedPaddingHorizontalSM: number;
 }
@@ -30,7 +30,7 @@ function getItemDisabledStyle(cls: string, token: SegmentedToken): CSSObject {
 
 function getItemSelectedStyle(token: SegmentedToken): CSSObject {
   return {
-    backgroundColor: token.bgColorSelected,
+    backgroundColor: token.itemSelectedBg,
     boxShadow: token.boxShadowTertiary,
   };
 }
@@ -51,7 +51,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
       display: 'inline-block',
       padding: token.padding,
-      color: token.labelColor,
+      color: token.itemColor,
       backgroundColor: token.bgColor,
       borderRadius: token.borderRadius,
       transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
@@ -89,7 +89,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
         '&-selected': {
           ...getItemSelectedStyle(token),
-          color: token.labelColorHover,
+          color: token.itemHoverColor,
         },
 
         '&::after': {
@@ -107,15 +107,15 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         },
 
         [`&:hover:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
-          color: token.labelColorHover,
+          color: token.itemHoverColor,
           '&::after': {
-            backgroundColor: token.bgColorHover,
+            backgroundColor: token.itemHoverBg,
           },
         },
         [`&:active:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
-          color: token.labelColorHover,
+          color: token.itemHoverColor,
           '&::after': {
-            backgroundColor: token.bgColorActive,
+            backgroundColor: token.itemActiveBg,
           },
         },
 
@@ -203,9 +203,10 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 export default genComponentStyleHook(
   'Segmented',
   (token) => {
-    const { lineWidth } = token;
+    const { lineWidth, lineWidthBold } = token;
 
     const segmentedToken = mergeToken<SegmentedToken>(token, {
+      padding: lineWidthBold,
       segmentedPaddingHorizontal: token.controlPaddingHorizontal - lineWidth,
       segmentedPaddingHorizontalSM: token.controlPaddingHorizontalSM - lineWidth,
     });
@@ -218,17 +219,15 @@ export default genComponentStyleHook(
       colorFillSecondary,
       colorBgLayout,
       colorBgElevated,
-      lineWidthBold,
       colorFill,
     } = token;
     return {
-      padding: lineWidthBold,
-      labelColor: colorTextLabel,
-      labelColorHover: colorText,
+      itemColor: colorTextLabel,
+      itemHoverColor: colorText,
       bgColor: colorBgLayout,
-      bgColorHover: colorFillSecondary,
-      bgColorSelected: colorBgElevated,
-      bgColorActive: colorFill,
+      itemHoverBg: colorFillSecondary,
+      itemSelectedBg: colorBgElevated,
+      itemActiveBg: colorFill,
     };
   },
 );

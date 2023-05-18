@@ -156,11 +156,11 @@ This document contains the correspondence between all the less variables related
 | Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@segmented-container-padding` | `padding` | - |
-| `@segmented-label-color` | `labelColor` | - |
+| `@segmented-label-color` | `itemColor` | - |
 | `@segmented-bg` | `bgColor` | - |
-| `@segmented-hover-bg` | `bgColorHover` | - |
-| `@segmented-label-hover-color` | `labelColorHover` | - |
-| `@segmented-selected-bg` | `bgColorSelected` | - |
+| `@segmented-hover-bg` | `itemHoverBg` | - |
+| `@segmented-label-hover-color` | `itemHoverColor` | - |
+| `@segmented-selected-bg` | `itemSelectedBg` | - |
 
 <!-- ### Select -->
 

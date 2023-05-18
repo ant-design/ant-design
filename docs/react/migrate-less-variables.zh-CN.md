@@ -156,11 +156,11 @@ title: Less 变量迁移 Design Token
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
 | `@segmented-container-padding` | `padding` | - |
-| `@segmented-label-color` | `labelColor` | - |
+| `@segmented-label-color` | `itemColor` | - |
 | `@segmented-bg` | `bgColor` | - |
-| `@segmented-hover-bg` | `bgColorHover` | - |
-| `@segmented-label-hover-color` | `labelColorHover` | - |
-| `@segmented-selected-bg` | `bgColorSelected` | - |
+| `@segmented-hover-bg` | `itemHoverBg` | - |
+| `@segmented-label-hover-color` | `itemHoverColor` | - |
+| `@segmented-selected-bg` | `itemSelectedBg` | - |
 
 <!-- ### Select 选择器 -->
 
