@@ -478,7 +478,7 @@ Array [
     </div>
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
-      style="background-color: rgb(24, 144, 255);"
+      style="background-color: rgb(22, 119, 255);"
     >
       <span
         aria-label="ant-design"
@@ -600,7 +600,7 @@ Array [
             </div>
             <span
               class="ant-avatar ant-avatar-circle ant-avatar-icon"
-              style="background-color: rgb(24, 144, 255);"
+              style="background-color: rgb(22, 119, 255);"
             >
               <span
                 aria-label="ant-design"
@@ -726,7 +726,7 @@ Array [
             </div>
             <span
               class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
-              style="background-color: rgb(24, 144, 255);"
+              style="background-color: rgb(22, 119, 255);"
             >
               <span
                 aria-label="ant-design"
@@ -852,7 +852,7 @@ Array [
             </div>
             <span
               class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
-              style="background-color: rgb(24, 144, 255);"
+              style="background-color: rgb(22, 119, 255);"
             >
               <span
                 aria-label="ant-design"
