@@ -21,6 +21,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 <code src="./demo/card.tsx" clientOnly>卡片模式</code>
 <code src="./demo/select.tsx" clientOnly>选择功能</code>
 <code src="./demo/customize-header.tsx" clientOnly>自定义头部</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
