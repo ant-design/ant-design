@@ -115,7 +115,6 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       onChange,
       onPanelChange,
       onSelect,
-      selectable,
       hideModeSwitch = false,
     } = props;
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
@@ -342,9 +341,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
           locale={contextLocale?.lang}
           generateConfig={generateConfig}
           cellRender={mergedCellRender}
-          onSelect={(nextDate) =>
-            onInternalSelect(nextDate, panelMode === 'date' ? 'date' : 'month')
-          }
+          onSelect={(nextDate) => onInternalSelect(nextDate)}
           mode={panelMode}
           picker={panelMode}
           disabledDate={mergedDisabledDate}
