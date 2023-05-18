@@ -54,7 +54,18 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Cascader 级联选择 -->
 
-<!-- ### Checkbox 多选框 -->
+## Checkbox 多选框
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@checkbox-size` | `controlInteractiveSize` | 全局 Token |
+| `@checkbox-color` | `colorPrimary` | - |
+| `@checkbox-check-color` | `colorWhite` | - |
+| `@checkbox-check-bg` | - | `colorPrimary` |
+| `@checkbox-border-width` | `lineWidth` | - |
+| `@checkbox-border-radius` | `borderRadiusSM` | - |
+| `@checkbox-group-item-margin-right` | - | 由于样式变化已废弃 |
 
 <!-- ### Collapse 折叠面板 -->
 

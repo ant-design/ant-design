@@ -56,6 +56,19 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Checkbox -->
 
+## Checkbox
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@checkbox-size` | `controlInteractiveSize` | GlobalToken |
+| `@checkbox-color` | `colorPrimary` | - |
+| `@checkbox-check-color` | `colorWhite` | - |
+| `@checkbox-check-bg` | - | `colorPrimary` |
+| `@checkbox-border-width` | `lineWidth` | - |
+| `@checkbox-border-radius` | `borderRadiusSM` | - |
+| `@checkbox-group-item-margin-right` | - | Deprecated for style change |
+
 <!-- ### Collapse -->
 
 ### Descriptions
