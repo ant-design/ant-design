@@ -29,7 +29,6 @@ const App: React.FC = () => {
             barMargin: `0 0 20px 0`,
             horizontalGutter: 32,
             horizontalMargin: '0 0 0 32px',
-            horizontalMarginRtl: '0 0 0 32px',
             horizontalPadding: `30px 0`,
             horizontalPaddingLg: `20px 0`,
             horizontalPaddingSm: `10px 0`,
@@ -40,7 +39,7 @@ const App: React.FC = () => {
             hoverColor: '#508c18',
             activeColor: '#346717',
             cardGutter: 10,
-            cardTabActiveBorderTop: '2px solid transparent',
+            cardActiveBorderTop: '2px solid transparent',
           },
         },
       }}
@@ -78,9 +77,9 @@ const App: React.FC = () => {
             setParentType(val);
           }}
         >
-          <Option value='line'>Parent - line</Option>
-          <Option value='card'>Parent - card</Option>
-          <Option value='editable-card'>Parent - card edit</Option>
+          <Option value="line">Parent - line</Option>
+          <Option value="card">Parent - card</Option>
+          <Option value="editable-card">Parent - card edit</Option>
         </Select>
 
         <Select
@@ -89,13 +88,13 @@ const App: React.FC = () => {
             setChildType(val);
           }}
         >
-          <Option value='line'>Child - line</Option>
-          <Option value='card'>Child - card</Option>
-          <Option value='editable-card'>Parent - card edit</Option>
+          <Option value="line">Child - line</Option>
+          <Option value="card">Child - card</Option>
+          <Option value="editable-card">Parent - card edit</Option>
         </Select>
 
         <Tabs
-          defaultActiveKey='1'
+          defaultActiveKey="1"
           tabPosition={parentPos}
           type={parentType}
           items={[
@@ -104,7 +103,7 @@ const App: React.FC = () => {
               key: '1',
               children: (
                 <Tabs
-                  defaultActiveKey='1'
+                  defaultActiveKey="1"
                   tabPosition={childPos}
                   type={childType}
                   style={{ height: 300 }}

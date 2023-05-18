@@ -305,8 +305,8 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@tabs-card-head-background` | `cardHeadBackground` | - |
-| `@tabs-card-heigh` | `cardHeight` | - |
+| `@tabs-card-head-background` | `cardBg` | - |
+| `@tabs-card-height` | `cardHeight` | - |
 | `@tabs-card-active-color` | `cardActiveColor` | - |
 | `@tabs-card-horizontal-padding` | `cardHorizontalPadding` | - |
 | `@tabs-card-horizontal-padding-sm` | `cardHorizontalPaddingSm` | - |
@@ -318,7 +318,7 @@ This document contains the correspondence between all the less variables related
 | `@tabs-bar-margin` | `barMargin` | - |
 | `@tabs-horizontal-gutter` | `horizontalGutter` | - |
 | `@tabs-horizontal-margin` | `horizontalMargin` | - |
-| `@tabs-horizontal-margin-rtl` | `horizontalMarginRtl` | - |
+| `@tabs-horizontal-margin-rtl` | - | Deprecated |
 | `@tabs-horizontal-padding` | `horizontalPadding` | - |
 | `@tabs-horizontal-padding-lg` | `horizontalPaddingLg` | - |
 | `@tabs-horizontal-padding-sm` | `horizontalPaddingSm` | - |

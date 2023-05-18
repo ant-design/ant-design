@@ -15,7 +15,6 @@ export interface ComponentToken {
   inkBarColor: string;
   barMargin: string;
   horizontalMargin: string;
-  horizontalMarginRtl: string;
   horizontalPadding: string;
   horizontalPaddingLg: string;
   horizontalPaddingSm: string;
@@ -23,7 +22,7 @@ export interface ComponentToken {
   verticalMargin: string;
   scrollingSize: 32; // Fixed Value
   highlightColor: string;
-  cardTabActiveBorderTop: string;
+  cardActiveBorderTop: string;
   cardGutter: number;
   hoverColor: string;
   activeColor: string;
@@ -925,7 +924,6 @@ export default genComponentStyleHook(
     barMargin: `0 0 ${token.marginMD} 0`,
     horizontalGutter: 32, // Fixed Value
     horizontalMargin: '0 0 0 32px', // Fixed Value
-    horizontalMarginRtl: '0 0 0 32px', // Fixed Value
     horizontalPadding: `${token.paddingSM} 0`,
     horizontalPaddingLg: `${token.paddingMD} 0`,
     horizontalPaddingSm: `${token.paddingXS} 0`,
@@ -936,6 +934,6 @@ export default genComponentStyleHook(
     hoverColor: token.colorPrimaryHover,
     activeColor: token.colorPrimaryActive,
     cardGutter: token.marginXXS / 2,
-    cardTabActiveBorderTop: '2px solid transparent',
+    cardActiveBorderTop: '2px solid transparent',
   }),
 );
