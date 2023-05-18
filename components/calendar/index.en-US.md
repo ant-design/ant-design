@@ -55,7 +55,7 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 | value | The current selected date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback for when date changes | function(date: Dayjs) | - |  |
 | onPanelChange | Callback for when panel changes | function(date: Dayjs, mode: string) | - |  |
-| onSelect | Callback for when a date is selected | function(date: Dayjs） | - |  |
+| onSelect | Callback for when a date is selected, include source info | function(date: Dayjs, info: { source: 'year' \| 'month' \| 'date' \| 'customize' }) | - | `info`: 5.6.0 |
 
 ## Design Token
 
@@ -74,3 +74,17 @@ See [How to set locale for date-related components](/components/date-picker/#loc
 ### Date-related components locale is not working?
 
 See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-related-components-locale-is-not-working)
+
+### How to get date from panel click?
+
+`onSelect` provide `info.source` to help on this:
+
+```tsx
+<Calendar
+  onSelect={(date, { source }) => {
+    if (source === 'date') {
+      console.log('Panel Select:', source);
+    }
+  }}
+/>
+```
