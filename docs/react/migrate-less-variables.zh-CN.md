@@ -23,7 +23,18 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Button 按钮 -->
 
-<!-- ### Calendar 日历 -->
+## Calendar 日历
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@calendar-bg` | - | 由于样式变化已废弃 |
+| `@calendar-input-bg` | - | 由于样式变化已废弃 |
+| `@calendar-border-color` | - | 由于样式变化已废弃 |
+| `@calendar-item-active-bg` | `itemActiveBg` | - |
+| `@calendar-column-active-bg` | - | 由于样式变化已废弃 |
+| `@calendar-full-bg` | `fullBg` | - |
+| `@calendar-full-panel-bg` | `fullPanelBg` | - |
 
 <!-- ### Card 卡片 -->
 
@@ -46,7 +57,21 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Collapse 折叠面板 -->
 
-<!-- ### Descriptions 描述列表 -->
+### Descriptions 描述列表
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@descriptions-bg` | `labelBg` | - |
+| `@descriptions-title-margin-bottom` | `titleMarginBottom` | - |
+| `@descriptions-default-padding` | `padding`、`paddingLG` | 全局 Token，对应值为 `${token.padding}px ${token.paddingLG}px` |
+| `@descriptions-middle-padding` | `paddingSM`、`paddingLG` | 全局 Token，对应值为 `${token.paddingSM}px ${token.paddingLG}px` |
+| `@descriptions-small-padding` | `paddingXS`、`padding` | 全局 Token，对应值为 `${token.paddingXS}px ${token.padding}px` |
+| `@descriptions-item-padding-bottom` | `itemPaddingBottom` | - |
+| `@descriptions-item-trailing-colon` | - | 由于样式变化已废弃 |
+| `@descriptions-item-label-colon-margin-right` | `colonMarginRight` | - |
+| `@descriptions-item-label-colon-margin-left` | `colonMarginLeft` | - |
+| `@descriptions-extra-color` | `extraColor` | - |
 
 <!-- ### Divider 分割线 -->
 
@@ -65,7 +90,12 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Dropdown 下拉菜单 -->
 
-<!-- ### Empty 空状态 -->
+### Empty 空状态
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@empty-font-size` | `fontSize` | 全局 Token |
 
 <!-- ### Form 表单 -->
 
@@ -130,7 +160,15 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Radio 单选框 -->
 
-<!-- ### Rate 评分 -->
+## Rate 评分
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@rate-star-color` | `starColor` | - |
+| `@rate-star-bg` | `starBg` | - |
+| `@rate-star-size` | `starSize` | - |
+| `@rate-star-hover-scale` | `starHoverScale` | - |
 
 ### Result 结果
 

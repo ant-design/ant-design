@@ -13,7 +13,7 @@ exports[`renders components/popconfirm/demo/async.tsx correctly 1`] = `
 
 exports[`renders components/popconfirm/demo/basic.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-link"
+  class="ant-btn ant-btn-default ant-btn-dangerous"
   type="button"
 >
   <span>
@@ -25,7 +25,7 @@ exports[`renders components/popconfirm/demo/basic.tsx correctly 1`] = `
 exports[`renders components/popconfirm/demo/dynamic-trigger.tsx correctly 1`] = `
 <div>
   <button
-    class="ant-btn ant-btn-link"
+    class="ant-btn ant-btn-default ant-btn-dangerous"
     type="button"
   >
     <span>
@@ -60,7 +60,7 @@ exports[`renders components/popconfirm/demo/dynamic-trigger.tsx correctly 1`] = 
 
 exports[`renders components/popconfirm/demo/icon.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-link"
+  class="ant-btn ant-btn-default ant-btn-dangerous"
   type="button"
 >
   <span>
@@ -71,7 +71,7 @@ exports[`renders components/popconfirm/demo/icon.tsx correctly 1`] = `
 
 exports[`renders components/popconfirm/demo/locale.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-link"
+  class="ant-btn ant-btn-default ant-btn-dangerous"
   type="button"
 >
   <span>
@@ -256,15 +256,19 @@ Array [
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                class="ant-popconfirm-message-text"
               >
-                Are you OK?
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Are you OK?
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Does this look good?
+                </div>
               </div>
-            </div>
-            <div
-              class="ant-popconfirm-description"
-            >
-              Does this look good?
             </div>
             <div
               class="ant-popconfirm-buttons"
@@ -339,15 +343,138 @@ Array [
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                class="ant-popconfirm-message-text"
               >
-                Are you OK?
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Are you OK?
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Does this look good?
+                </div>
               </div>
             </div>
             <div
-              class="ant-popconfirm-description"
+              class="ant-popconfirm-buttons"
             >
-              Does this look good?
+              <button
+                class="ant-btn ant-btn-default ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  Cancel
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-top ant-popconfirm"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-content"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-inner-content"
+        >
+          <div
+            class="ant-popconfirm-inner-content"
+          >
+            <div
+              class="ant-popconfirm-message"
+            >
+              <div
+                class="ant-popconfirm-message-text"
+              >
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Are you OK?
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-popconfirm-buttons"
+            >
+              <button
+                class="ant-btn ant-btn-default ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  Cancel
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-top ant-popconfirm"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-content"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-inner-content"
+        >
+          <div
+            class="ant-popconfirm-inner-content"
+          >
+            <div
+              class="ant-popconfirm-message"
+            >
+              <div
+                class="ant-popconfirm-message-text"
+              >
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Are you OK?
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Does this look good?
+                </div>
+              </div>
             </div>
             <div
               class="ant-popconfirm-buttons"
@@ -425,9 +552,13 @@ Array [
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title"
+                class="ant-popconfirm-message-text"
               >
-                Are you OK?
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Are you OK?
+                </div>
               </div>
             </div>
             <div
@@ -503,9 +634,13 @@ Array [
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title"
+                class="ant-popconfirm-message-text"
               >
-                Are you OK?
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Are you OK?
+                </div>
               </div>
             </div>
             <div

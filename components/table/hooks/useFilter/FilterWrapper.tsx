@@ -1,5 +1,5 @@
-import * as React from 'react';
 import KeyCode from 'rc-util/lib/KeyCode';
+import * as React from 'react';
 
 export interface FilterDropdownMenuWrapperProps {
   children?: React.ReactNode;
@@ -13,7 +13,7 @@ const onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (event) => {
   }
 };
 
-const FilterDropdownMenuWrapper = (props: FilterDropdownMenuWrapperProps) => (
+const FilterDropdownMenuWrapper: React.FC<FilterDropdownMenuWrapperProps> = (props) => (
   <div className={props.className} onClick={(e) => e.stopPropagation()} onKeyDown={onKeyDown}>
     {props.children}
   </div>

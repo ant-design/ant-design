@@ -1,9 +1,9 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { resetComponent } from '../../style';
 import type { PickerPanelToken } from '../../date-picker/style';
 import { genPanelStyle, initPickerPanelToken } from '../../date-picker/style';
 import type { InputToken } from '../../input/style';
 import { initInputToken } from '../../input/style';
+import { resetComponent } from '../../style';
 import type { FullToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
@@ -11,26 +11,25 @@ export interface ComponentToken {
   yearControlWidth: number;
   monthControlWidth: number;
   miniContentHeight: number;
+  fullBg: string;
+  fullPanelBg: string;
+  itemActiveBg: string;
 }
 
 interface CalendarToken extends InputToken<FullToken<'Calendar'>>, PickerPanelToken {
   calendarCls: string;
-  calendarFullBg: string;
-  calendarFullPanelBg: string;
-  calendarItemActiveBg: string;
   dateValueHeight: number;
   weekHeight: number;
   dateContentHeight: number;
 }
 
 export const genCalendarStyles = (token: CalendarToken): CSSObject => {
-  const { calendarCls, componentCls, calendarFullBg, calendarFullPanelBg, calendarItemActiveBg } =
-    token;
+  const { calendarCls, componentCls, fullBg, fullPanelBg, itemActiveBg } = token;
   return {
     [calendarCls]: {
       ...genPanelStyle(token),
       ...resetComponent(token),
-      background: calendarFullBg,
+      background: fullBg,
       '&-rtl': {
         direction: 'rtl',
       },
@@ -52,7 +51,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
       },
     },
     [`${calendarCls} ${componentCls}-panel`]: {
-      background: calendarFullPanelBg,
+      background: fullPanelBg,
       border: 0,
       borderTop: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       borderRadius: 0,
@@ -92,7 +91,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         display: 'block',
         width: '100%',
         textAlign: 'end',
-        background: calendarFullBg,
+        background: fullBg,
         border: 0,
         [`${componentCls}-body`]: {
           'th, td': {
@@ -121,7 +120,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         // >>> Selected
         [`&-in-view${componentCls}-cell-selected`]: {
           [`${calendarCls}-date, ${calendarCls}-date-today`]: {
-            background: calendarItemActiveBg,
+            background: itemActiveBg,
           },
         },
         '&-selected, &-selected:hover': {
@@ -198,9 +197,6 @@ export default genComponentStyleHook(
       {
         calendarCls,
         pickerCellInnerCls: `${token.componentCls}-cell-inner`,
-        calendarFullBg: token.colorBgContainer,
-        calendarFullPanelBg: token.colorBgContainer,
-        calendarItemActiveBg: token.controlItemBgActive,
         dateValueHeight: token.controlHeightSM,
         weekHeight: token.controlHeightSM * 0.75,
         dateContentHeight:
@@ -210,9 +206,12 @@ export default genComponentStyleHook(
 
     return [genCalendarStyles(calendarToken)];
   },
-  {
+  (token) => ({
+    fullBg: token.colorBgContainer,
+    fullPanelBg: token.colorBgContainer,
+    itemActiveBg: token.controlItemBgActive,
     yearControlWidth: 80,
     monthControlWidth: 70,
     miniContentHeight: 256,
-  },
+  }),
 );
