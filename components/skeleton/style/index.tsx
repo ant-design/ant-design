@@ -274,7 +274,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
           padding: 0,
           '> li': {
             width: '100%',
-            height: paragraphLineHeight,
+            height: paragraphLiHeight,
             listStyle: 'none',
             background: color,
             borderRadius: blockRadius,
