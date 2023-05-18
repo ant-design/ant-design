@@ -78,7 +78,10 @@ Setting `Modal`、`Message`、`Notification` static config.
 ConfigProvider.config({
   prefixCls: 'ant',
   iconPrefixCls: 'anticon',
-  theme: { token: { colorPrimary: 'red' } }, // 5.6.0+
+
+  // 5.6.0+
+  // Please use hooks version first
+  theme: { token: { colorPrimary: 'red' } },
 });
 ```
 

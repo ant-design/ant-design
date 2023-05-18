@@ -79,7 +79,10 @@ export default Demo;
 ConfigProvider.config({
   prefixCls: 'ant',
   iconPrefixCls: 'anticon',
-  theme: { token: { colorPrimary: 'red' } }, // 5.6.0+
+
+  // 5.6.0+
+  // 请优先考虑使用 hooks 版本
+  theme: { token: { colorPrimary: 'red' } },
 });
 ```
 
