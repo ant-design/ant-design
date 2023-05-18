@@ -1,4 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import type { CSSProperties } from 'react';
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -8,12 +9,12 @@ export interface ComponentToken {
   itemPaddingLG: string;
   itemPaddingSM: string;
   itemPadding: string;
-  headerBackground: string;
-  footerBackground: string;
-  emptyTextPadding: number;
-  metaMarginBottom: number;
-  avatarMarginRight: number;
-  titleMarginBottom: number;
+  headerBg: string;
+  footerBg: string;
+  emptyTextPadding: CSSProperties['padding'];
+  metaMarginBottom: CSSProperties['marginBottom'];
+  avatarMarginRight: CSSProperties['marginRight'];
+  titleMarginBottom: CSSProperties['marginBottom'];
   descriptionFontSize: number;
 }
 
@@ -28,8 +29,8 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
     componentCls,
     paddingLG,
     margin,
-    padding,
     itemPaddingSM,
+    itemPaddingLG,
     marginLG,
     borderRadiusLG,
   } = token;
@@ -53,7 +54,7 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
 
     [`${listBorderedCls}${componentCls}-lg`]: {
       [`${componentCls}-item,${componentCls}-header,${componentCls}-footer`]: {
-        padding: `${padding}px ${paddingLG}px`,
+        padding: itemPaddingLG,
       },
     },
   };
@@ -127,8 +128,8 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
     colorTextDescription,
     motionDurationSlow,
     lineWidth,
-    headerBackground,
-    footerBackground,
+    headerBg,
+    footerBg,
     emptyTextPadding,
     metaMarginBottom,
     avatarMarginRight,
@@ -151,10 +152,10 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
         outline: 'none',
       },
       [`${componentCls}-header`]: {
-        background: headerBackground,
+        background: headerBg,
       },
       [`${componentCls}-footer`]: {
-        background: footerBackground,
+        background: footerBg,
       },
       [`${componentCls}-header, ${componentCls}-footer`]: {
         paddingBlock: paddingSM,
@@ -379,8 +380,8 @@ export default genComponentStyleHook(
     itemPadding: `${token.paddingContentVertical}px 0`,
     itemPaddingSM: `${token.paddingContentVerticalSM}px ${token.paddingContentHorizontal}px`,
     itemPaddingLG: `${token.paddingContentVerticalLG}px ${token.paddingContentHorizontalLG}px`,
-    headerBackground: 'transparent',
-    footerBackground: 'transparent',
+    headerBg: 'transparent',
+    footerBg: 'transparent',
     emptyTextPadding: token.padding,
     metaMarginBottom: token.padding,
     avatarMarginRight: token.padding,

@@ -88,8 +88,8 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@list-header-background` | `headerBackground` | - |
-| `@list-footer-background` | `footerBackground` | - |
+| `@list-header-background` | `headerBg` | - |
+| `@list-footer-background` | `footerBg` | - |
 | `@list-empty-text-padding` | `emptyTextPadding` | - |
 | `@list-item-padding` | `itemPadding` | - |
 | `@list-item-padding-sm` | `itemPaddingSM` | - |

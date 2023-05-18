@@ -1,4 +1,4 @@
-import { Avatar, ConfigProvider, List, Typography, Divider } from 'antd';
+import { Avatar, ConfigProvider, Divider, List, Typography } from 'antd';
 import React from 'react';
 
 const data = [
@@ -29,8 +29,8 @@ const App: React.FC = () => (
     theme={{
       components: {
         List: {
-          headerBackground: 'pink',
-          footerBackground: 'pink',
+          headerBg: 'pink',
+          footerBg: 'pink',
           emptyTextPadding: 32,
           itemPadding: '26px',
           itemPaddingSM: '16px',
