@@ -4,9 +4,9 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
-  color: string;
-  headBorderWidth: number;
-  headBg: string;
+  tailColor: string;
+  dotBorderWidth: number;
+  dotBg: string;
   itemPaddingBottom: number;
 }
 
@@ -39,7 +39,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           insetBlockStart: token.itemHeadSize,
           insetInlineStart: (token.itemHeadSize - token.lineItemTailWidth) / 2,
           height: `calc(100% - ${token.itemHeadSize}px)`,
-          borderInlineStart: `${token.lineItemTailWidth}px ${token.lineType} ${token.color}`,
+          borderInlineStart: `${token.lineItemTailWidth}px ${token.lineType} ${token.tailColor}`,
         },
 
         '&-pending': {
@@ -57,8 +57,8 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           position: 'absolute',
           width: token.itemHeadSize,
           height: token.itemHeadSize,
-          backgroundColor: token.headBg,
-          border: `${token.headBorderWidth}px ${token.lineType} transparent`,
+          backgroundColor: token.dotBg,
+          border: `${token.dotBorderWidth}px ${token.lineType} transparent`,
           borderRadius: '50%',
 
           '&-blue': {
@@ -173,7 +173,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
         ${componentCls}-item-tail`]: {
         display: 'block',
         height: `calc(100% - ${token.margin}px)`,
-        borderInlineStart: `${token.lineItemTailWidth}px dotted ${token.color}`,
+        borderInlineStart: `${token.lineItemTailWidth}px dotted ${token.tailColor}`,
       },
 
       [`&${componentCls}-reverse
@@ -187,7 +187,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           insetBlockStart: token.margin,
           display: 'block',
           height: `calc(100% - ${token.margin}px)`,
-          borderInlineStart: `${token.lineItemTailWidth}px dotted ${token.color}`,
+          borderInlineStart: `${token.lineItemTailWidth}px dotted ${token.tailColor}`,
         },
 
         [`${componentCls}-item-content`]: {
@@ -239,9 +239,9 @@ export default genComponentStyleHook(
     return [genTimelineStyle(timeLineToken)];
   },
   (token) => ({
-    color: token.colorSplit,
-    headBorderWidth: token.wireframe ? token.lineWidthBold : token.lineWidth * 3,
-    headBg: token.colorBgContainer,
+    tailColor: token.colorSplit,
+    dotBorderWidth: token.wireframe ? token.lineWidthBold : token.lineWidth * 3,
+    dotBg: token.colorBgContainer,
     itemPaddingBottom: token.padding * 1.25,
   }),
 );

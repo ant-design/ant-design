@@ -221,10 +221,10 @@ title: Less 变量迁移 Design Token
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
 | `@timeline-width` | - | 由于样式变化已废弃 |
-| `@timeline-color` | `color` | - |
-| `@timeline-dot-border-width` | `headBorderWidth` | - |
-| `@timeline-dot-color` | - | 由于样式变化已废弃 |
-| `@timeline-dot-bg` | `headBg` | - |
+| `@timeline-color` | `tailColor` | - |
+| `@timeline-dot-border-width` | `dotBorderWidth` | - |
+| `@timeline-dot-color` | - | 已废弃 |
+| `@timeline-dot-bg` | `dotBg` | - |
 | `@timeline-item-padding-bottom` | `itemPaddingBottom` | - |
 
 <!-- ### TimePicker 时间选择 -->

@@ -255,10 +255,10 @@ This document contains the correspondence between all the less variables related
 | Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@timeline-width` | - | Deprecated for style change |
-| `@timeline-color` | `color` | - |
-| `@timeline-dot-border-width` | `headBorderWidth` | - |
-| `@timeline-dot-color` | - | Deprecated for style change |
-| `@timeline-dot-bg` | `headBg` | - |
+| `@timeline-color` | `tailColor` | - |
+| `@timeline-dot-border-width` | `dotBorderWidth` | - |
+| `@timeline-dot-color` | - | Deprecated |
+| `@timeline-dot-bg` | `dotBg` | - |
 | `@timeline-item-padding-bottom` | `itemPaddingBottom` | - |
 
 <!-- ### TimePicker -->
