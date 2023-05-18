@@ -2,18 +2,21 @@ import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import omit from 'rc-util/lib/omit';
 import React, { createRef, forwardRef, useContext } from 'react';
+import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
-
 import useStyle from './style';
-import {
-  addObserveTarget,
-  getFixedBottom,
-  getFixedTop,
-  getTargetRect,
-  removeObserveTarget,
-} from './utils';
+import { getFixedBottom, getFixedTop, getTargetRect } from './utils';
+
+const TRIGGER_EVENTS = [
+  'resize',
+  'scroll',
+  'touchstart',
+  'touchmove',
+  'touchend',
+  'pageshow',
+  'load',
+] as const;
 
 function getDefaultTarget() {
   return typeof window !== 'undefined' ? window : null;
@@ -87,8 +90,11 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
     if (targetFunc) {
       // [Legacy] Wait for parent component ref has its value.
       // We should use target as directly element instead of function which makes element check hard.
+      const target = targetFunc?.() || null;
       this.timer = setTimeout(() => {
-        addObserveTarget(targetFunc(), this);
+        TRIGGER_EVENTS.forEach((eventName) => {
+          target?.addEventListener(eventName, this.lazyUpdatePosition);
+        });
         // Mock Event object.
         this.updatePosition();
       });
@@ -99,11 +105,12 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
     const { prevTarget } = this.state;
     const targetFunc = this.getTargetFunc();
     const newTarget = targetFunc?.() || null;
-
     if (prevTarget !== newTarget) {
-      removeObserveTarget(this);
       if (newTarget) {
-        addObserveTarget(newTarget, this);
+        TRIGGER_EVENTS.forEach((eventName) => {
+          prevTarget?.removeEventListener(eventName, this.lazyUpdatePosition);
+          newTarget?.addEventListener(eventName, this.lazyUpdatePosition);
+        });
         // Mock Event object.
         this.updatePosition();
       }
@@ -126,7 +133,17 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
       clearTimeout(this.timer);
       this.timer = null;
     }
-    removeObserveTarget(this);
+    const { prevTarget } = this.state;
+    const targetFunc = this.getTargetFunc();
+    const newTarget = targetFunc?.();
+    TRIGGER_EVENTS.forEach((eventName) => {
+      newTarget?.removeEventListener(eventName, this.lazyUpdatePosition);
+    });
+    if (prevTarget !== newTarget) {
+      TRIGGER_EVENTS.forEach((eventName) => {
+        prevTarget?.removeEventListener(eventName, this.lazyUpdatePosition);
+      });
+    }
     this.updatePosition.cancel();
     // https://github.com/ant-design/ant-design/issues/22683
     this.lazyUpdatePosition.cancel();
