@@ -1,6 +1,7 @@
 /* eslint-disable no-redeclare */
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
+import { warning } from 'rc-util';
 import { useContext } from 'react';
 import { ConfigContext } from '../../config-provider/context';
 import { genCommonStyle, genLinkStyle } from '../../style';
@@ -19,6 +20,7 @@ export interface StyleInfo<ComponentName extends OverrideComponent> {
   rootPrefixCls: string;
   iconPrefixCls: string;
   overrideComponentToken: ComponentTokenMap[ComponentName];
+  deprecatedToken: <T>(newTokenKey: string, oldTokenKey: string) => T;
 }
 
 export type TokenWithCommonCls<T> = T & {
@@ -94,6 +96,21 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
           rootPrefixCls,
           iconPrefixCls,
           overrideComponentToken: token[component],
+          deprecatedToken: (newTokenKey, oldTokenKey) => {
+            const userToken = token[component] as unknown as Record<string, any>;
+            if (process.env.NODE_ENV !== 'production') {
+              warning(
+                !userToken?.[oldTokenKey],
+                `The token '${oldTokenKey}' of ${component} had deprecated, use '${newTokenKey}' instead.`,
+              );
+            }
+            return (
+              userToken?.[newTokenKey] ||
+              userToken?.[oldTokenKey] ||
+              defaultComponentToken[newTokenKey] ||
+              defaultComponentToken[oldTokenKey]
+            );
+          },
         });
         flush(component, mergedComponentToken);
         return [

@@ -7,7 +7,7 @@ const App: React.FC = () => (
       components: {
         Skeleton: {
           blockRadius: 30,
-          titleHeight: 30,
+          titleHeight: 50,
           gradientFromColor: '#222',
           gradientToColor: '#444',
           paragraphMarginTop: 30,

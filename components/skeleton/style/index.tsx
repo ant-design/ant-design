@@ -346,11 +346,11 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Skeleton',
-  (token) => {
+  (token, { deprecatedToken }) => {
     const { componentCls } = token;
 
-    const gradientFromColor = token.gradientFromColor || token.color;
-    const gradientToColor = token.gradientToColor || token.colorGradientEnd;
+    const gradientFromColor = deprecatedToken('gradientFromColor', 'color');
+    const gradientToColor = deprecatedToken('gradientToColor', 'colorGradientEnd');
 
     const skeletonToken = mergeToken<SkeletonToken>(token, {
       skeletonAvatarCls: `${componentCls}-avatar`,
@@ -368,15 +368,13 @@ export default genComponentStyleHook(
   },
   (token) => {
     const { colorFillContent, colorFill } = token;
-    const color = colorFillContent;
-    const colorGradientEnd = colorFill;
+    const gradientFromColor = colorFillContent;
+    const gradientToColor = colorFill;
     return {
-      color,
-      colorGradientEnd,
-      // do not set default value because it will be override by color's default value
-      gradientFromColor: '',
-      // do not set default value because it will be override by colorGradientEnd's default value
-      gradientToColor: '',
+      color: gradientFromColor,
+      colorGradientEnd: gradientToColor,
+      gradientFromColor,
+      gradientToColor,
       titleHeight: token.controlHeight / 2,
       blockRadius: token.borderRadiusSM,
       paragraphMarginTop: token.marginLG + token.marginXXS,
