@@ -6,15 +6,14 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 export interface ComponentToken {
   avatarBg: string;
   avatarColor: string;
-  avatarSizeBase: number;
-  avatarSizeLG: number;
-  avatarSizeSM: number;
-  avatarFontSizeBase: number;
-  avatarFontSizeLG: number;
-  avatarFontSizeSM: number;
-  groupSpace: number;
+  size: number;
+  sizeLG: number;
+  sizeSM: number;
+  fontSize: number;
+  fontSizeLG: number;
+  fontSizeSM: number;
+  groupOverlapping: number;
   groupBorderColor: string;
-  avatarBorderRadius: number;
 }
 
 type AvatarToken = FullToken<'Avatar'> & {
@@ -29,12 +28,11 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
     iconCls,
     avatarBg,
     avatarColor,
-    avatarSizeBase,
-    avatarSizeLG,
-    avatarSizeSM,
-    avatarFontSizeBase,
-    avatarFontSizeLG,
-    avatarFontSizeSM,
+    sizeLG,
+    sizeSM,
+    fontSize,
+    fontSizeLG,
+    fontSizeSM,
     borderRadius,
     borderRadiusLG,
     borderRadiusSM,
@@ -91,14 +89,14 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
         display: 'block',
       },
 
-      ...avatarSizeStyle(avatarSizeBase, avatarFontSizeBase, borderRadius),
+      ...avatarSizeStyle(token.size, fontSize, borderRadius),
 
       [`&-lg`]: {
-        ...avatarSizeStyle(avatarSizeLG, avatarFontSizeLG, borderRadiusLG),
+        ...avatarSizeStyle(sizeLG, fontSizeLG, borderRadiusLG),
       },
 
       [`&-sm`]: {
-        ...avatarSizeStyle(avatarSizeSM, avatarFontSizeSM, borderRadiusSM),
+        ...avatarSizeStyle(sizeSM, fontSizeSM, borderRadiusSM),
       },
 
       '> img': {
@@ -112,7 +110,7 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
 };
 
 const genGroupStyle: GenerateStyle<AvatarToken> = (token) => {
-  const { componentCls, groupBorderColor, groupSpace } = token;
+  const { componentCls, groupBorderColor, groupOverlapping } = token;
 
   return {
     [`${componentCls}-group`]: {
@@ -123,7 +121,7 @@ const genGroupStyle: GenerateStyle<AvatarToken> = (token) => {
       },
 
       [`> *:not(:first-child)`]: {
-        marginInlineStart: groupSpace,
+        marginInlineStart: groupOverlapping,
       },
     },
   };
@@ -153,18 +151,17 @@ export default genComponentStyleHook(
       colorTextPlaceholder,
     } = token;
     return {
-      avatarSizeBase: controlHeight,
-      avatarSizeLG: controlHeightLG,
-      avatarSizeSM: controlHeightSM,
+      size: controlHeight,
+      sizeLG: controlHeightLG,
+      sizeSM: controlHeightSM,
 
-      avatarFontSizeBase: Math.round((fontSizeLG + fontSizeXL) / 2),
-      avatarFontSizeLG: fontSizeHeading3,
-      avatarFontSizeSM: fontSize,
+      fontSize: Math.round((fontSizeLG + fontSizeXL) / 2),
+      fontSizeLG: fontSizeHeading3,
+      fontSizeSM: fontSize,
 
-      avatarBorderRadius: token.borderRadius,
       avatarBg: colorTextPlaceholder,
       avatarColor: colorTextLightSolid,
-      groupSpace: -marginXS,
+      groupOverlapping: -marginXS,
       groupBorderColor: colorBorderBg,
     };
   },

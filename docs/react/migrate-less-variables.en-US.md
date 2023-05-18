@@ -29,18 +29,18 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@avatar-size-base` | `avatarSizeBase` | - |
-| `@avatar-size-lg` | `avatarSizeLG` | - |
-| `@avatar-size-sm` | `avatarSizeSM` | - |
-| `@avatar-font-size-base` | `avatarFontSizeBase` | - |
-| `@avatar-font-size-lg` | `avatarFontSizeLG` | - |
-| `@avatar-font-size-sm` | `avatarFontSizeSM` | - |
-| `@avatar-bg` | `avatarBg` | - |
-| `@avatar-color` | `avatarColor` | - |
-| `@avatar-border-radius` | - | Deprecated for style change |
+| `@avatar-size-base` | `size` | - |
+| `@avatar-size-lg` | `sizeLG` | - |
+| `@avatar-size-sm` | `sizeSM` | - |
+| `@avatar-font-size-base` | `textFontSize` | - |
+| `@avatar-font-size-lg` | `textFontSizeLG` | - |
+| `@avatar-font-size-sm` | `textFontSizeSM` | - |
+| `@avatar-bg` | - | Can be directly overridden by `className` or `style` |
+| `@avatar-color` | `colorTextLightSolid` | Global Token |
+| `@avatar-border-radius` | `borderRadius` | Global Token |
 | `@avatar-group-overlapping` | - | Deprecated for style change |
 | `@avatar-group-space` | `groupSpace` | - |
-| `@avatar-group-border-color` | `groupBorderColor` | - |
+| `@avatar-group-border-color` | `colorBorderBg` | Global Token |
 
 <!-- ### Badge -->
 
