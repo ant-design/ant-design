@@ -8,7 +8,6 @@ export default () => (
         Segmented: {
           itemColor: '#222',
           itemHoverColor: '#333',
-          bgColor: '#e6e6e6',
           itemHoverBg: 'rgba(0, 0, 0, 0.06)',
           itemSelectedBg: '#aaa',
           itemActiveBg: '#ccc',
