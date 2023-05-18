@@ -18,7 +18,7 @@ export default () => (
         Carousel: {
           dotWidth: 50,
           dotHeight: 50,
-          dotWidthActive: 80,
+          dotActiveWidth: 80,
         },
       },
     }}

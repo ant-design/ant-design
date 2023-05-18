@@ -57,7 +57,7 @@ This document contains the correspondence between all the less variables related
 | --- | --- | --- |
 | `@carousel-dot-width` | `dotWidth` | - |
 | `@carousel-dot-height` | `dotHeight` | - |
-| `@carousel-dot-active-width` | `dotWidthActive` | - |
+| `@carousel-dot-active-width` | `dotActiveWidth` | - |
 
 <!-- ### Cascader -->
 

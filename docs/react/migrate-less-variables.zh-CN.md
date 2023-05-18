@@ -57,7 +57,7 @@ title: Less 变量迁移 Design Token
 | --- | --- | --- |
 | `@carousel-dot-width` | `dotWidth` | - |
 | `@carousel-dot-height` | `dotHeight` | - |
-| `@carousel-dot-active-width` | `dotWidthActive` | - |
+| `@carousel-dot-active-width` | `dotActiveWidth` | - |
 
 <!-- ### Cascader 级联选择 -->
 
