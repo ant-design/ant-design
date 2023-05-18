@@ -70,14 +70,15 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | theme | Set theme, ref [Customize Theme](/docs/react/customize-theme) | - | - | 5.0.0 |
 | virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
 
-### ConfigProvider.config() `4.13.0+`
+### ConfigProvider.config()
 
-Setting `Modal`、`Message`、`Notification` rootPrefixCls.
+Setting `Modal`、`Message`、`Notification` static config.
 
 ```ts
 ConfigProvider.config({
-  prefixCls: 'ant', // 4.13.0+
-  iconPrefixCls: 'anticon', // 4.17.0+
+  prefixCls: 'ant',
+  iconPrefixCls: 'anticon',
+  theme: { token: { colorPrimary: 'red' } }, // 5.6.0+
 });
 ```
 
