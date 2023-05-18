@@ -304,7 +304,7 @@ exports[`renders components/tree/demo/basic.tsx correctly 1`] = `
                 class="ant-tree-title"
               >
                 <span
-                  style="color:#1890ff"
+                  style="color:#1677ff"
                 >
                   sss
                 </span>
