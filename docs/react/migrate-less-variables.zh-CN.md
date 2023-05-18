@@ -157,7 +157,6 @@ title: Less 变量迁移 Design Token
 | --- | --- | --- |
 | `@segmented-container-padding` | `padding` | - |
 | `@segmented-label-color` | `itemColor` | - |
-| `@segmented-bg` | `bgColor` | - |
 | `@segmented-hover-bg` | `itemHoverBg` | - |
 | `@segmented-label-hover-color` | `itemHoverColor` | - |
 | `@segmented-selected-bg` | `itemSelectedBg` | - |

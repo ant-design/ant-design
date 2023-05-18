@@ -157,7 +157,6 @@ This document contains the correspondence between all the less variables related
 | --- | --- | --- |
 | `@segmented-container-padding` | `padding` | - |
 | `@segmented-label-color` | `itemColor` | - |
-| `@segmented-bg` | `bgColor` | - |
 | `@segmented-hover-bg` | `itemHoverBg` | - |
 | `@segmented-label-hover-color` | `itemHoverColor` | - |
 | `@segmented-selected-bg` | `itemSelectedBg` | - |

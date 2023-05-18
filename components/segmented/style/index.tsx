@@ -6,7 +6,6 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 export interface ComponentToken {
   itemColor: string;
   itemHoverColor: string;
-  bgColor: string;
   itemHoverBg: string;
   itemActiveBg: string;
   itemSelectedBg: string;
@@ -14,6 +13,7 @@ export interface ComponentToken {
 
 interface SegmentedToken extends FullToken<'Segmented'> {
   padding: number;
+  bgColor: string;
   segmentedPaddingHorizontal: number;
   segmentedPaddingHorizontalSM: number;
 }
@@ -213,18 +213,10 @@ export default genComponentStyleHook(
     return [genSegmentedStyle(segmentedToken)];
   },
   (token) => {
-    const {
-      colorTextLabel,
-      colorText,
-      colorFillSecondary,
-      colorBgLayout,
-      colorBgElevated,
-      colorFill,
-    } = token;
+    const { colorTextLabel, colorText, colorFillSecondary, colorBgElevated, colorFill } = token;
     return {
       itemColor: colorTextLabel,
       itemHoverColor: colorText,
-      bgColor: colorBgLayout,
       itemHoverBg: colorFillSecondary,
       itemSelectedBg: colorBgElevated,
       itemActiveBg: colorFill,
