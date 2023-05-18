@@ -23,7 +23,18 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Button 按钮 -->
 
-<!-- ### Calendar 日历 -->
+## Calendar 日历
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@calendar-bg` | - | 由于样式变化已废弃 |
+| `@calendar-input-bg` | - | 由于样式变化已废弃 |
+| `@calendar-border-color` | - | 由于样式变化已废弃 |
+| `@calendar-item-active-bg` | `itemActiveBg` | - |
+| `@calendar-column-active-bg` | - | 由于样式变化已废弃 |
+| `@calendar-full-bg` | `fullBg` | - |
+| `@calendar-full-panel-bg` | `fullPanelBg` | - |
 
 <!-- ### Card 卡片 -->
 
