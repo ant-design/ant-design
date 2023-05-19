@@ -3,7 +3,7 @@ import { Button, ConfigProvider, Modal, Spin, Typography, message } from 'antd';
 import { ThemeEditor, enUS, zhCN } from 'antd-token-previewer';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
 import { Helmet } from 'dumi';
-import React, { Suspense, useCallback, useLayoutEffect, useState } from 'react';
+import React, { Suspense, useCallback, useEffect, useState } from 'react';
 import type { JSONContent, TextContent } from 'vanilla-jsoneditor';
 import useLocale from '../../hooks/useLocale';
 
@@ -64,14 +64,16 @@ const CustomTheme = () => {
     json: undefined,
   });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const storedConfig = localStorage.getItem(ANT_DESIGN_V5_THEME_EDITOR_THEME);
     if (storedConfig) {
+      const tehemConfig = JSON.parse(storedConfig);
       const originThemeConfig = {
-        json: JSON.parse(storedConfig),
+        json: tehemConfig,
         text: undefined,
       };
       setThemeConfigContent(originThemeConfig);
+      setTheme(tehemConfig);
     }
   }, []);
 
