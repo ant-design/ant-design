@@ -39,7 +39,7 @@ title: Less 变量迁移 Design Token
 | `@avatar-color` | `colorTextLightSolid` | 全局 Token |
 | `@avatar-border-radius` | `borderRadius` | 全局 Token |
 | `@avatar-group-overlapping` | `groupOverlapping` | - |
-| `@avatar-group-space` | `groupSpace` | Deprecated for style change |
+| `@avatar-group-space` | `groupSpace` | - |
 | `@avatar-group-border-color` | `colorBorderBg` | 全局 Token |
 
 <!-- ### Badge 徽标数 -->
