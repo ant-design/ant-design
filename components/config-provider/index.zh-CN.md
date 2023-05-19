@@ -71,14 +71,18 @@ export default Demo;
 | theme | 设置主题，参考 [定制主题](/docs/react/customize-theme-cn) | - | - | 5.0.0 |
 | virtual | 设置 `false` 时关闭虚拟滚动 | boolean | - | 4.3.0 |
 
-### ConfigProvider.config() `4.13.0+`
+### ConfigProvider.config()
 
-设置 `Modal`、`Message`、`Notification` rootPrefixCls。
+设置 `Modal`、`Message`、`Notification` 静态方法配置，只会对非 hooks 的静态方法调用生效。
 
 ```ts
 ConfigProvider.config({
-  prefixCls: 'ant', // 4.13.0+
-  iconPrefixCls: 'anticon', // 4.17.0+
+  prefixCls: 'ant',
+  iconPrefixCls: 'anticon',
+
+  // 5.6.0+
+  // 请优先考虑使用 hooks 版本
+  theme: { token: { colorPrimary: 'red' } },
 });
 ```
 

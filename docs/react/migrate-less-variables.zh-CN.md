@@ -54,7 +54,18 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Cascader 级联选择 -->
 
-<!-- ### Checkbox 多选框 -->
+## Checkbox 多选框
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@checkbox-size` | `controlInteractiveSize` | 全局 Token |
+| `@checkbox-color` | `colorPrimary` | - |
+| `@checkbox-check-color` | `colorWhite` | - |
+| `@checkbox-check-bg` | - | `colorPrimary` |
+| `@checkbox-border-width` | `lineWidth` | - |
+| `@checkbox-border-radius` | `borderRadiusSM` | - |
+| `@checkbox-group-item-margin-right` | - | 由于样式变化已废弃 |
 
 <!-- ### Collapse 折叠面板 -->
 
@@ -181,11 +192,32 @@ title: Less 变量迁移 Design Token
 | `@result-subtitle-font-size` | `subtitleFontSize` | - |
 | `@result-extra-margin` | `extraMargin` | - |
 
-<!-- ### Segment 分段器 -->
+### Segment
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@segmented-container-padding` | `padding` | - |
+| `@segmented-label-color` | `itemColor` | - |
+| `@segmented-bg` | - | 可以用 `className` 或 `style` 自定义 |
+| `@segmented-hover-bg` | `itemHoverBg` | - |
+| `@segmented-label-hover-color` | `itemHoverColor` | - |
+| `@segmented-selected-bg` | `itemSelectedBg` | - |
 
 <!-- ### Select 选择器 -->
 
-<!-- ### Skeleton 骨架屏 -->
+### Skeleton 骨架屏
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@skeleton-block-radius` | `blockRadius` | - |
+| `@skeleton-title-height` | `titleHeight` | - |
+| `@skeleton-color` | `gradientFromColor` | - |
+| `@skeleton-to-color` | `gradientToColor` | - |
+| `@skeleton-paragraph-margin-top` | `paragraphMarginTop` | - |
+| `@skeleton-paragraph-li-height` | `paragraphLiHeight` | - |
+| `@skeleton-paragraph-li-margin-top` | - | 由于样式变化已废弃 |
 
 <!-- ### Slider 滑动输入条 -->
 
@@ -243,6 +275,18 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Tree 树形控件 -->
 
-<!-- ### Typography 排版 -->
+### Typography 排版
 
-<!-- ### Upload 上传 -->
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@typography-title-font-weight` | `fontWeightStrong` | 全局 Token |
+| `@typography-title-margin-top` | `titleMarginTop` | - |
+| `@typography-title-margin-bottom` | `titleMarginBottom` | - |
+
+### Upload 上传
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@upload-actions-color` | `actionsColor` | - |
