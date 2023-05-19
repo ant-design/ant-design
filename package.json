@@ -150,7 +150,7 @@
     "rc-textarea": "~1.2.2",
     "rc-tooltip": "~6.0.0",
     "rc-tree": "~5.7.0",
-    "rc-tree-select": "~5.8.0",
+    "rc-tree-select": "~5.9.0",
     "rc-upload": "~4.3.0",
     "rc-util": "^5.27.0",
     "scroll-into-view-if-needed": "^3.0.3",
