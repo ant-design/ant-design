@@ -30,7 +30,6 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
     avatarColor,
     sizeLG,
     sizeSM,
-    fontSize,
     fontSizeLG,
     fontSizeSM,
     borderRadius,
@@ -89,7 +88,7 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
         display: 'block',
       },
 
-      ...avatarSizeStyle(token.size, fontSize, borderRadius),
+      ...avatarSizeStyle(token.size, token.fontSize, borderRadius),
 
       [`&-lg`]: {
         ...avatarSizeStyle(sizeLG, fontSizeLG, borderRadiusLG),
