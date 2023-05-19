@@ -1,5 +1,5 @@
-import React from 'react';
 import { Button, message } from 'antd';
+import React from 'react';
 
 const info = () => {
   message.info('This is a normal message');
@@ -7,7 +7,7 @@ const info = () => {
 
 const App: React.FC = () => (
   <Button type="primary" onClick={info}>
-    Display normal message
+    Static Method
   </Button>
 );
 

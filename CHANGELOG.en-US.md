@@ -20,6 +20,7 @@ timeline: true
 `2023-05-15`
 
 - 🔥 New Component ColorPicker. [#41990](https://github.com/ant-design/ant-design/pull/41990) [@RedJue](https://github.com/RedJue)
+- 🆕 Add `DatePicker.generateCalendar` and `Calendar.generateCalendar` custom date component method, no need to import from module path. [#41773](https://github.com/ant-design/ant-design/pull/41773)
 - 💄 Optimize the style of Select, TreeSelect, Cascader multi-selection mode, remove the Tag border. [#41480](https://github.com/ant-design/ant-design/pull/41480)
 - 🆕 Form `validateFields` support `validateOnly` to not to update UI status. [#42273](https://github.com/ant-design/ant-design/pull/42273)
 - 🆕 DatePicker support changeOnBlur to trigger change event without clicking confirm. [#42168](https://github.com/ant-design/ant-design/pull/42168)
