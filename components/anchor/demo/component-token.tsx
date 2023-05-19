@@ -8,10 +8,8 @@ export default () => (
     theme={{
       components: {
         Anchor: {
-          background: 'yellow',
-          paddingBlock: 100,
-          paddingInline: 50,
-          // padding: '50px 60px 70px 80px',
+          linkPaddingBlock: 100,
+          linkPaddingInlineStart: 50,
         },
       },
     }}

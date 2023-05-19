@@ -18,11 +18,11 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@anchor-bg` | `background` | - |
+| `@anchor-bg` | - | 可以由 `className` 或 `style` 直接修改 |
 | `@anchor-border-color` | `colorSplit` | 全局 Token |
-| `@anchor-link-top` | `paddingBlock` | - |
-| `@anchor-link-left` | `paddingInline` | - |
-| `@anchor-link-padding` | - | 由于样式变化已废弃 |
+| `@anchor-link-top` | `linkPaddingBlock` | - |
+| `@anchor-link-left` | `linkPaddingInlineStart` | - |
+| `@anchor-link-padding` | - | `${linkPaddingBlock}px ${linkPaddingInlineStart}px` |
 
 <!-- ### Avatar 头像 -->
 

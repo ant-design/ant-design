@@ -4,9 +4,8 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
-  background: string;
-  paddingBlock: number;
-  paddingInline: number;
+  linkPaddingBlock: number;
+  linkPaddingInlineStart: number;
 }
 
 interface AnchorToken extends FullToken<'Anchor'> {
@@ -36,16 +35,14 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
       // delete overflow: auto
       // overflow: 'auto',
 
-      backgroundColor: token.background,
-
       [componentCls]: {
         ...resetComponent(token),
         position: 'relative',
         paddingInlineStart: lineWidthBold,
 
         [`${componentCls}-link`]: {
-          paddingBlock: token.paddingBlock,
-          paddingInline: `${token.paddingInline}px 0`,
+          paddingBlock: token.linkPaddingBlock,
+          paddingInline: `${token.linkPaddingInlineStart}px 0`,
 
           '&-title': {
             ...textEllipsis,
@@ -174,8 +171,7 @@ export default genComponentStyleHook(
     return [genSharedAnchorStyle(anchorToken), genSharedAnchorHorizontalStyle(anchorToken)];
   },
   (token) => ({
-    background: 'transparent',
-    paddingBlock: token.paddingXXS,
-    paddingInline: token.padding,
+    linkPaddingBlock: token.paddingXXS,
+    linkPaddingInlineStart: token.padding,
   }),
 );

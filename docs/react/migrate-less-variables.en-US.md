@@ -18,11 +18,11 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@anchor-bg` | `background` | - |
+| `@anchor-bg` | '-' | Can be modified directly by `className` or `style` |
 | `@anchor-border-color` | `colorSplit` | GlobalToken |
-| `@anchor-link-top` | `paddingBlock` | - |
-| `@anchor-link-left` | `paddingInline` | - |
-| `@anchor-link-padding` | - | Deprecated for style change |
+| `@anchor-link-top` | `linkPaddingBlock` | - |
+| `@anchor-link-left` | `linkPaddingInlineStart` | - |
+| `@anchor-link-padding` | - | `${linkPaddingBlock}px ${linkPaddingInlineStart}px` |
 
 <!-- ### Avatar -->
 
