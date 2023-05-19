@@ -84,49 +84,20 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
     return getTargetContainer ?? getDefaultTarget;
   }
 
-  // Event handler
-  componentDidMount() {
+  addListeners = () => {
     const targetFunc = this.getTargetFunc();
-    if (targetFunc) {
-      // [Legacy] Wait for parent component ref has its value.
-      // We should use target as directly element instead of function which makes element check hard.
-      this.timer = setTimeout(() => {
-        const target = targetFunc?.() || null;
-        TRIGGER_EVENTS.forEach((eventName) => {
-          target?.addEventListener(eventName, this.lazyUpdatePosition);
-        });
-        // Mock Event object.
-        this.updatePosition();
-      });
-    }
-  }
-
-  componentDidUpdate(prevProps: AffixProps) {
+    const target = targetFunc?.();
     const { prevTarget } = this.state;
-    const targetFunc = this.getTargetFunc();
-    const newTarget = targetFunc?.() || null;
-    if (prevTarget !== newTarget) {
+    if (prevTarget !== target) {
       TRIGGER_EVENTS.forEach((eventName) => {
         prevTarget?.removeEventListener(eventName, this.lazyUpdatePosition);
-        newTarget?.addEventListener(eventName, this.lazyUpdatePosition);
+        target?.addEventListener(eventName, this.lazyUpdatePosition);
       });
-      if (newTarget) {
-        this.updatePosition();
-      }
-      // eslint-disable-next-line react/no-did-update-set-state
-      this.setState({ prevTarget: newTarget });
-    }
-
-    if (
-      prevProps.offsetTop !== this.props.offsetTop ||
-      prevProps.offsetBottom !== this.props.offsetBottom
-    ) {
       this.updatePosition();
+      this.setState({ prevTarget: target });
     }
-    this.measure();
-  }
-
-  componentWillUnmount() {
+  };
+  removeListeners = () => {
     if (this.timer) {
       clearTimeout(this.timer);
       this.timer = null;
@@ -141,6 +112,27 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
     this.updatePosition.cancel();
     // https://github.com/ant-design/ant-design/issues/22683
     this.lazyUpdatePosition.cancel();
+  };
+  // Event handler
+  componentDidMount() {
+    // [Legacy] Wait for parent component ref has its value.
+    // We should use target as directly element instead of function which makes element check hard.
+    this.timer = setTimeout(this.addListeners);
+  }
+
+  componentDidUpdate(prevProps: AffixProps) {
+    this.addListeners();
+    if (
+      prevProps.offsetTop !== this.props.offsetTop ||
+      prevProps.offsetBottom !== this.props.offsetBottom
+    ) {
+      this.updatePosition();
+    }
+    this.measure();
+  }
+
+  componentWillUnmount() {
+    this.removeListeners();
   }
 
   getOffsetTop = () => {
@@ -236,7 +228,6 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
       onTestUpdatePosition?.();
     }
   };
-
   updatePosition = throttleByAnimationFrame(() => {
     this.prepareMeasure();
   });
