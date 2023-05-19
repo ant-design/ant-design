@@ -97,6 +97,7 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
       this.setState({ prevTarget: target });
     }
   };
+
   removeListeners = () => {
     if (this.timer) {
       clearTimeout(this.timer);
@@ -113,6 +114,7 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
     // https://github.com/ant-design/ant-design/issues/22683
     this.lazyUpdatePosition.cancel();
   };
+
   // Event handler
   componentDidMount() {
     // [Legacy] Wait for parent component ref has its value.
@@ -228,6 +230,7 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
       onTestUpdatePosition?.();
     }
   };
+
   updatePosition = throttleByAnimationFrame(() => {
     this.prepareMeasure();
   });
