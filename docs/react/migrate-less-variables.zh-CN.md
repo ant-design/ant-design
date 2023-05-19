@@ -275,6 +275,13 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Tree 树形控件 -->
 
-<!-- ### Typography 排版 -->
+### Typography 排版
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@typography-title-font-weight` | `fontWeightStrong` | 全局 Token |
+| `@typography-title-margin-top` | `titleMarginTop` | - |
+| `@typography-title-margin-bottom` | `titleMarginBottom` | - |
 
 <!-- ### Upload 上传 -->
