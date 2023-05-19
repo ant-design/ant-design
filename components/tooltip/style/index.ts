@@ -62,6 +62,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
           backgroundColor: tooltipBg,
           borderRadius: tooltipBorderRadius,
           boxShadow: boxShadowSecondary,
+          boxSizing: 'border-box',
         },
 
         // Limit left and right placement radius

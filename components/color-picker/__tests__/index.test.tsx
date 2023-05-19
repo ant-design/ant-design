@@ -83,8 +83,11 @@ describe('ColorPicker', () => {
     const { container } = render(<ColorPicker allowClear />);
     fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
+    expect(container.querySelector('.ant-popover-hidden')).toBeFalsy();
     expect(container.querySelector('.ant-color-picker-clear')).toBeTruthy();
     fireEvent.click(container.querySelector('.ant-color-picker-clear')!);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-popover-hidden')).toBeTruthy();
     expect(
       container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
     ).toEqual('0%');
