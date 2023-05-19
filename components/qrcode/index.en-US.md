@@ -34,13 +34,14 @@ Used when the text needs to be converted into a QR Code.
 
 > This component is available since `antd@5.1.0`
 
-| Property | Description | Type | Default |
-| :-- | :-- | :-- | :-- |
+| Property | Description | Type | Default | Version |
+| :-- | :-- | :-- | :-- | :-- |
 | value | scanned text | string | - |
 | icon | include image url (only image link are supported) | string | - |
 | size | QRCode size | number | 128 |
 | iconSize | include image size | number | 32 |
 | color | QRCode Color | string | `#000` |
+| bgColor | QRCode Background Color | string | `transparent` | 5.5.0 |
 | bordered | Whether has border style | boolean | `true` |
 | errorLevel | Error Code Level | `'L' \| 'M' \| 'Q' \| 'H' ` | `M` |
 | status | QRCode status | `active \| expired \| loading ` | `active` |

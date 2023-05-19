@@ -24,6 +24,7 @@ demo:
 <code src="./demo/animated.tsx">动画效果</code>
 <code src="./demo/card.tsx" background="grey">在卡片中使用</code>
 <code src="./demo/countdown.tsx">倒计时</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 

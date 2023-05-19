@@ -16,13 +16,14 @@ import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
+import useSize from '../config-provider/hooks/useSize';
 import { useCompactItemContext } from '../space/Compact';
 import LoadingIcon from './LoadingIcon';
 import Group, { GroupSizeContext } from './button-group';
 import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
 import useStyle from './style';
+import IconWrapper from './IconWrapper';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -48,6 +49,8 @@ export interface BaseButtonProps {
   block?: boolean;
   children?: React.ReactNode;
   [key: `data-${string}`]: string;
+  classNames?: { icon: string };
+  styles?: { icon: React.CSSProperties };
 }
 
 export type AnchorButtonProps = {
@@ -107,6 +110,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     danger,
     shape = 'default',
     size: customizeSize,
+    styles,
     disabled: customDisabled,
     className,
     rootClassName,
@@ -116,6 +120,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     block = false,
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
     htmlType = 'button',
+    classNames: customClassNames,
     ...rest
   } = props;
 
@@ -124,7 +129,6 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const size = useContext(SizeContext);
   const disabled = useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
@@ -204,7 +208,9 @@ const InternalButton: React.ForwardRefRenderFunction<
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
-  const sizeFullname = compactSize || groupSize || customizeSize || size;
+
+  const sizeFullname = useSize((ctxSize) => compactSize ?? groupSize ?? customizeSize ?? ctxSize);
+
   const sizeCls = sizeFullname ? sizeClassNameMap[sizeFullname] || '' : '';
 
   const iconType = innerLoading ? 'loading' : icon;
@@ -236,7 +242,9 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const iconNode =
     icon && !innerLoading ? (
-      icon
+      <IconWrapper prefixCls={prefixCls} className={customClassNames?.icon} style={styles?.icon}>
+        {icon}
+      </IconWrapper>
     ) : (
       <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
     );

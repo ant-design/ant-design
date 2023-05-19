@@ -2,12 +2,11 @@ import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import SizeContext from '../config-provider/SizeContext';
+import useSize from '../config-provider/hooks/useSize';
 import Skeleton from '../skeleton';
 import type { TabsProps } from '../tabs';
 import Tabs from '../tabs';
 import Grid from './Grid';
-
 import useStyle from './style';
 
 export type CardType = 'inner';
@@ -55,24 +54,7 @@ function getAction(actions: React.ReactNode[]) {
   return actionList;
 }
 
-const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>) => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const size = React.useContext(SizeContext);
-
-  const onTabChange = (key: string) => {
-    props.onTabChange?.(key);
-  };
-
-  const isContainGrid = () => {
-    let containGrid;
-    React.Children.forEach(props.children, (element: JSX.Element) => {
-      if (element && element.type && element.type === Grid) {
-        containGrid = true;
-      }
-    });
-    return containGrid;
-  };
-
+const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -97,6 +79,22 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
     ...others
   } = props;
 
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+
+  const onTabChange = (key: string) => {
+    props.onTabChange?.(key);
+  };
+
+  const isContainGrid = React.useMemo<boolean>(() => {
+    let containGrid = false;
+    React.Children.forEach(children, (element: JSX.Element) => {
+      if (element && element.type && element.type === Grid) {
+        containGrid = true;
+      }
+    });
+    return containGrid;
+  }, [children]);
+
   const prefixCls = getPrefixCls('card', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
@@ -116,7 +114,7 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
   };
 
   let head: React.ReactNode;
-  const mergedSize = customizeSize || size;
+  const mergedSize = useSize(customizeSize);
   const tabSize = !mergedSize || mergedSize === 'default' ? 'large' : mergedSize;
   const tabs =
     tabList && tabList.length ? (
@@ -160,7 +158,7 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-bordered`]: bordered,
       [`${prefixCls}-hoverable`]: hoverable,
-      [`${prefixCls}-contain-grid`]: isContainGrid(),
+      [`${prefixCls}-contain-grid`]: isContainGrid,
       [`${prefixCls}-contain-tabs`]: tabList && tabList.length,
       [`${prefixCls}-${mergedSize}`]: mergedSize,
       [`${prefixCls}-type-${type}`]: !!type,

@@ -28,10 +28,11 @@ Display global messages as feedback in response to user operations.
 <code src="./demo/update.tsx">Update Message Content</code>
 <code src="./demo/info.tsx">Normal prompt</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
-This components provides some static methods, with usage and arguments as following:
+This component provides some static methods, with usage and arguments as following:
 
 - `message.success(content, [duration], onClose)`
 - `message.error(content, [duration], onClose)`

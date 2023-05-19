@@ -33,6 +33,7 @@ demo:
 <code src="./demo/no-mask.tsx" debug>无遮罩</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/scroll-debug.tsx" debug>滚动锁定调试</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 

@@ -31,7 +31,20 @@ export default () => (
     }
 ```
 
-注意：关闭 `:where` 降权后，你可能需要手动调整一些样式的优先级。
+注意：关闭 `:where` 降权后，你可能需要手动调整一些样式的优先级。亦或者**使用 PostCSS 插件**提升应用样式的优先级，PostCSS 提供了非常多的插件来调整优先级，你可以自行按需选择，例如：
+
+- [postcss-scopify](https://www.npmjs.com/package/postcss-scopify)
+- [postcss-increase-specificity](https://www.npmjs.com/package/postcss-increase-specificity)
+- [postcss-add-root-selector](https://www.npmjs.com/package/postcss-add-root-selector)
+
+通过插件配置，将你的 css 样式进行提升：
+
+```diff
+--  .my-btn {
+++  #root .my-btn {
+      background: red;
+    }
+```
 
 ### CSS 逻辑属性
 

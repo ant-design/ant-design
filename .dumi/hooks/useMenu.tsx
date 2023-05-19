@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import React, { useMemo } from 'react';
 import type { MenuProps } from 'antd';
 import { useFullSidebarData, useSidebarData } from 'dumi';
+import { Tag, theme } from 'antd';
 import useLocation from './useLocation';
 import Link from '../theme/common/Link';
 
@@ -15,6 +16,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
   const { pathname, search } = useLocation();
   const sidebarData = useSidebarData();
   const { before, after } = options;
+  const { token } = theme.useToken();
 
   const menuItems = useMemo<MenuProps['items']>(() => {
     const sidebarItems = [...(sidebarData ?? [])];
@@ -108,6 +110,11 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
                     <span className="chinese" key="chinese">
                       {(item.frontmatter as any).subtitle}
                     </span>
+                    {(item.frontmatter as any).tag && (
+                      <Tag color="warning" style={{ marginLeft: token.marginXS }}>
+                        {(item.frontmatter as any).tag}
+                      </Tag>
+                    )}
                     {after}
                   </Link>
                 ),

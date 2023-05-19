@@ -1,6 +1,7 @@
 import type {
   ColumnType as RcColumnType,
   FixedType,
+  GetComponentProps,
   RenderedCell as RcRenderedCell,
 } from 'rc-table/lib/interface';
 import { ExpandableConfig, GetRowKey } from 'rc-table/lib/interface';
@@ -198,6 +199,7 @@ export interface TableRowSelection<T> {
     index: number,
     originNode: React.ReactNode,
   ) => React.ReactNode | RcRenderedCell<T>;
+  onCell?: GetComponentProps<T>;
 }
 
 export type TransformColumns<RecordType> = (

@@ -1,9 +1,9 @@
 import React from 'react';
-import { render } from '../../../tests/utils';
 import TreeSelect, { TreeNode } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
 describe('TreeSelect', () => {
@@ -62,6 +62,18 @@ describe('TreeSelect', () => {
       'Warning: [antd: TreeSelect] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
     );
     expect(container.querySelector('.legacy')).toBeTruthy();
+
+    errSpy.mockRestore();
+  });
+
+  it('warning for legacy dropdownMatchSelectWidth', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<TreeSelect dropdownMatchSelectWidth open />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Select] `dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
+    );
 
     errSpy.mockRestore();
   });

@@ -190,18 +190,18 @@ describe('Progress', () => {
 
   it('steps should be changeable when has strokeColor', () => {
     const { container: wrapper, rerender } = render(
-      <Progress steps={5} percent={60} strokeColor="#1890ff" />,
+      <Progress steps={5} percent={60} strokeColor="#1677ff" />,
     );
     expect(
       wrapper.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item')[0].style.backgroundColor,
-    ).toBe('rgb(24, 144, 255)');
-    rerender(<Progress steps={5} percent={40} strokeColor="#1890ff" />);
+    ).toBe('rgb(22, 119, 255)');
+    rerender(<Progress steps={5} percent={40} strokeColor="#1677ff" />);
     expect(
       wrapper.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item')[2].style.backgroundColor,
     ).toBe('');
     expect(
       wrapper.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item')[1].style.backgroundColor,
-    ).toBe('rgb(24, 144, 255)');
+    ).toBe('rgb(22, 119, 255)');
   });
 
   it('steps should support trailColor', () => {
@@ -262,6 +262,13 @@ describe('Progress', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] Type "circle" and "dashbord" do not accept array as `size`, please use number or preset size instead.',
     );
+  });
+
+  it('should not warning if not pass the `size` prop in type Circle', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    errorSpy.mockClear();
+    render(<Progress type="circle" />);
+    expect(errorSpy).not.toHaveBeenCalled();
   });
 
   it('should warnning if pass number[] into `size` in type dashboard', () => {

@@ -1182,6 +1182,29 @@ Array [
 ]
 `;
 
+exports[`renders components/tag/demo/draggable.tsx correctly 1`] = `
+Array [
+  <span
+    class="ant-tag"
+    style="cursor:move;transition:unset"
+  >
+    Tag 1
+  </span>,
+  <span
+    class="ant-tag"
+    style="cursor:move;transition:unset"
+  >
+    Tag 2
+  </span>,
+  <span
+    class="ant-tag"
+    style="cursor:move;transition:unset"
+  >
+    Tag 3
+  </span>,
+]
+`;
+
 exports[`renders components/tag/demo/icon.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"

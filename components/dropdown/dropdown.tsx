@@ -31,6 +31,7 @@ const Placements = [
 ] as const;
 
 type Placement = typeof Placements[number];
+type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
 type OverlayFunc = () => React.ReactElement;
 
@@ -153,13 +154,13 @@ const Dropdown: CompoundedComponent = (props) => {
     return `${rootPrefixCls}-slide-up`;
   }, [getPrefixCls, placement, transitionName]);
 
-  const memoPlacement = React.useMemo<string>(() => {
+  const memoPlacement = React.useMemo<DropdownPlacement>(() => {
     if (!placement) {
       return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
     }
 
     if (placement.includes('Center')) {
-      const newPlacement = placement.slice(0, placement.indexOf('Center'));
+      const newPlacement = placement.slice(0, placement.indexOf('Center')) as DropdownPlacement;
       warning(
         !placement.includes('Center'),
         'Dropdown',
@@ -168,7 +169,7 @@ const Dropdown: CompoundedComponent = (props) => {
       return newPlacement;
     }
 
-    return placement;
+    return placement as DropdownPlacement;
   }, [placement, direction]);
 
   if (process.env.NODE_ENV !== 'production') {
@@ -288,8 +289,7 @@ const Dropdown: CompoundedComponent = (props) => {
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
       visible={mergedOpen}
-      // TODO: remove `as any` when `rc-dropdown` upgrade to use `@rc-component/trigger`
-      builtinPlacements={builtinPlacements as any}
+      builtinPlacements={builtinPlacements}
       arrow={!!arrow}
       overlayClassName={overlayClassNameCustomized}
       prefixCls={prefixCls}
@@ -307,8 +307,20 @@ const Dropdown: CompoundedComponent = (props) => {
 
 Dropdown.Button = DropdownButton;
 
+function postPureProps(props: DropdownProps) {
+  return {
+    ...props,
+    align: {
+      overflow: {
+        adjustX: false,
+        adjustY: false,
+      },
+    },
+  };
+}
+
 // We don't care debug panel
-const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls);
+const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls, postPureProps);
 
 /* istanbul ignore next */
 const WrapPurePanel = (props: DropdownProps) => (

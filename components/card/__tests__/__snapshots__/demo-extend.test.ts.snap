@@ -836,24 +836,22 @@ Array [
                 </svg>
               </span>
             </button>
-            <div>
+            <div
+              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <ul
+                aria-label="expanded dropdown"
+                class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+                data-menu-list="true"
+                id="rc-tabs-test-more-popup"
+                role="listbox"
+                tabindex="-1"
+              />
               <div
-                class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                style="opacity: 0;"
-              >
-                <ul
-                  aria-label="expanded dropdown"
-                  class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-                  data-menu-list="true"
-                  id="rc-tabs-test-more-popup"
-                  role="listbox"
-                  tabindex="-1"
-                />
-                <div
-                  aria-hidden="true"
-                  style="display: none;"
-                />
-              </div>
+                aria-hidden="true"
+                style="display: none;"
+              />
             </div>
           </div>
         </div>
@@ -996,24 +994,22 @@ Array [
                 </svg>
               </span>
             </button>
-            <div>
+            <div
+              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <ul
+                aria-label="expanded dropdown"
+                class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+                data-menu-list="true"
+                id="rc-tabs-test-more-popup"
+                role="listbox"
+                tabindex="-1"
+              />
               <div
-                class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                style="opacity: 0;"
-              >
-                <ul
-                  aria-label="expanded dropdown"
-                  class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-                  data-menu-list="true"
-                  id="rc-tabs-test-more-popup"
-                  role="listbox"
-                  tabindex="-1"
-                />
-                <div
-                  aria-hidden="true"
-                  style="display: none;"
-                />
-              </div>
+                aria-hidden="true"
+                style="display: none;"
+              />
             </div>
           </div>
           <div

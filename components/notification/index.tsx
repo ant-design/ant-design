@@ -1,8 +1,8 @@
 import { render } from 'rc-util/lib/React/render';
 import * as React from 'react';
 import ConfigProvider, { globalConfig, warnContext } from '../config-provider';
-import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
 import PurePanel from './PurePanel';
+import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
 import useNotification, { useInternalNotification } from './useNotification';
 
 let notification: GlobalNotification | null = null;
@@ -58,7 +58,7 @@ interface GlobalHolderRef {
 
 const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   const [prefixCls, setPrefixCls] = React.useState<string>();
-  const [container, setContainer] = React.useState<HTMLElement>();
+  const [container, setContainer] = React.useState<HTMLElement | ShadowRoot>();
   const [maxCount, setMaxCount] = React.useState<number>();
   const [rtl, setRTL] = React.useState<boolean>();
   const [top, setTop] = React.useState<number>();

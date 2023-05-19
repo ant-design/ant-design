@@ -29,6 +29,7 @@ demo:
 <code src="./demo/update.tsx">更新消息内容</code>
 <code src="./demo/info.tsx">普通提示</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
