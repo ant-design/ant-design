@@ -7,10 +7,8 @@ export default () => (
     theme={{
       components: {
         Tag: {
-          tagFontSize: 20,
           defaultBg: '#f9f0ff',
           defaultColor: '#4b34d3',
-          tagLineHeight: 30,
         },
       },
     }}
