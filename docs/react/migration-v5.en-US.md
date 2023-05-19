@@ -216,7 +216,7 @@ module.exports = {
 };
 ```
 
-Ant then remove antd less reference in your less file:
+And then remove antd less reference in your less file:
 
 ```diff
 // Your less file
