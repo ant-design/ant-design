@@ -299,7 +299,7 @@ describe('DatePicker', () => {
   it('kk:mm format', () => {
     const { container } = render(
       <DatePicker
-        defaultValue={moment()}
+        defaultValue={dayjs()}
         format="kk:mm"
         open
       />,
