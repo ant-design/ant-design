@@ -162,58 +162,55 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
     const offsetBottom = this.getOffsetBottom();
 
     const targetNode = targetFunc();
-    if (!targetNode) {
-      return;
-    }
-
-    const newState: Partial<AffixState> = {
-      status: AffixStatus.None,
-    };
-    const placeholderRect = getTargetRect(this.placeholderNodeRef.current);
-
-    if (
-      placeholderRect.top === 0 &&
-      placeholderRect.left === 0 &&
-      placeholderRect.width === 0 &&
-      placeholderRect.height === 0
-    ) {
-      return;
-    }
-
-    const targetRect = getTargetRect(targetNode);
-    const fixedTop = getFixedTop(placeholderRect, targetRect, offsetTop);
-    const fixedBottom = getFixedBottom(placeholderRect, targetRect, offsetBottom);
-
-    if (fixedTop !== undefined) {
-      newState.affixStyle = {
-        position: 'fixed',
-        top: fixedTop,
-        width: placeholderRect.width,
-        height: placeholderRect.height,
+    if (targetNode) {
+      const newState: Partial<AffixState> = {
+        status: AffixStatus.None,
       };
-      newState.placeholderStyle = {
-        width: placeholderRect.width,
-        height: placeholderRect.height,
-      };
-    } else if (fixedBottom !== undefined) {
-      newState.affixStyle = {
-        position: 'fixed',
-        bottom: fixedBottom,
-        width: placeholderRect.width,
-        height: placeholderRect.height,
-      };
-      newState.placeholderStyle = {
-        width: placeholderRect.width,
-        height: placeholderRect.height,
-      };
-    }
+      const placeholderRect = getTargetRect(this.placeholderNodeRef.current);
 
-    newState.lastAffix = !!newState.affixStyle;
-    if (onChange && lastAffix !== newState.lastAffix) {
-      onChange(newState.lastAffix);
-    }
+      if (
+        placeholderRect.top === 0 &&
+        placeholderRect.left === 0 &&
+        placeholderRect.width === 0 &&
+        placeholderRect.height === 0
+      ) {
+        return;
+      }
 
-    this.setState(newState as AffixState);
+      const targetRect = getTargetRect(targetNode);
+      const fixedTop = getFixedTop(placeholderRect, targetRect, offsetTop);
+      const fixedBottom = getFixedBottom(placeholderRect, targetRect, offsetBottom);
+
+      if (fixedTop !== undefined) {
+        newState.affixStyle = {
+          position: 'fixed',
+          top: fixedTop,
+          width: placeholderRect.width,
+          height: placeholderRect.height,
+        };
+        newState.placeholderStyle = {
+          width: placeholderRect.width,
+          height: placeholderRect.height,
+        };
+      } else if (fixedBottom !== undefined) {
+        newState.affixStyle = {
+          position: 'fixed',
+          bottom: fixedBottom,
+          width: placeholderRect.width,
+          height: placeholderRect.height,
+        };
+        newState.placeholderStyle = {
+          width: placeholderRect.width,
+          height: placeholderRect.height,
+        };
+      }
+
+      newState.lastAffix = !!newState.affixStyle;
+      if (onChange && lastAffix !== newState.lastAffix) {
+        onChange(newState.lastAffix);
+      }
+      this.setState(newState as AffixState);
+    }
   };
 
   prepareMeasure = () => {
