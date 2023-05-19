@@ -11,6 +11,7 @@ Ant Design default using CSS-in-JS with `:where` Selector to reduce priority to 
 
 ```tsx
 import { StyleProvider } from '@ant-design/cssinjs';
+import React from 'react';
 
 // Config `hashPriority` to `high` instead of default `low`
 // Which will remove `:where` wrapper
@@ -30,20 +31,7 @@ It will turn `:where` to class selector:
     }
 ```
 
-Note: After turning off the `:where` downgrade, you may need to manually adjust the priority of some styles. Or you can **use PostCSS plugin** to raise application css selector priority. PostCSS provides many plugins can help on this. e.g:
-
-- [postcss-scopify](https://www.npmjs.com/package/postcss-scopify)
-- [postcss-increase-specificity](https://www.npmjs.com/package/postcss-increase-specificity)
-- [postcss-add-root-selector](https://www.npmjs.com/package/postcss-add-root-selector)
-
-Raise priority through plugin:
-
-```diff
---  .my-btn {
-++  #root .my-btn {
-      background: red;
-    }
-```
+Note: After turning off the `:where` downgrade, you may need to manually adjust the priority of some styles.
 
 ### CSS Logical Properties
 
@@ -51,6 +39,7 @@ To unify LTR and RTL styles, Ant Design uses CSS logical properties. For example
 
 ```tsx
 import { StyleProvider, legacyLogicalPropertiesTransformer } from '@ant-design/cssinjs';
+import React from 'react';
 
 // `transformers` provides a way to transform CSS properties
 export default () => (

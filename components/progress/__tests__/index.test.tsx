@@ -1,4 +1,3 @@
-import { Tooltip } from 'antd';
 import React, { useState } from 'react';
 import type { ProgressProps } from '..';
 import Progress from '..';
@@ -6,12 +5,13 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import { handleGradient, sortGradient } from '../Line';
-import ProgressSteps from '../Steps';
 import { ProgressTypes } from '../progress';
+import ProgressSteps from '../Steps';
 
 describe('Progress', () => {
   mountTest(Progress);
   rtlTest(Progress);
+
   it('successPercent should decide the progress status when it exists', () => {
     const { container: wrapper, rerender } = render(
       <Progress percent={100} success={{ percent: 50 }} />,
@@ -264,13 +264,6 @@ describe('Progress', () => {
     );
   });
 
-  it('should not warning if not pass the `size` prop in type Circle', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    errorSpy.mockClear();
-    render(<Progress type="circle" />);
-    expect(errorSpy).not.toHaveBeenCalled();
-  });
-
   it('should warnning if pass number[] into `size` in type dashboard', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress size={[60, 20]} type="dashboard" />);
@@ -366,23 +359,5 @@ describe('Progress', () => {
       width: '60px',
       height: '60px',
     });
-  });
-
-  it('no strict warning', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const { rerender } = render(
-      <Tooltip title="当前已使用60%">
-        <Progress percent={60} type="circle" />
-      </Tooltip>,
-    );
-    rerender(
-      <Tooltip title="当前已使用60%">
-        <Progress percent={60} type="circle" />
-      </Tooltip>,
-    );
-    expect(errSpy).not.toHaveBeenCalledWith(
-      expect.stringContaining('findDOMNode is deprecated in StrictMode'),
-    );
-    errSpy.mockRestore();
   });
 });

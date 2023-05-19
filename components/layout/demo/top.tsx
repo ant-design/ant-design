@@ -1,5 +1,5 @@
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import React from 'react';
+import { Breadcrumb, Layout, Menu, theme } from 'antd';
 
 const { Header, Content, Footer } = Layout;
 
@@ -10,8 +10,8 @@ const App: React.FC = () => {
 
   return (
     <Layout className="layout">
-      <Header style={{ display: 'flex', alignItems: 'center' }}>
-        <div className="demo-logo" />
+      <Header>
+        <div className="logo" />
         <Menu
           theme="dark"
           mode="horizontal"

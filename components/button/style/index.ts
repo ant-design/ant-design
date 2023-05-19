@@ -7,13 +7,14 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genGroupStyle from './group';
 
 /** Component only token. Which will handle additional calculation of alias token */
-export interface ComponentToken {}
+export interface ComponentToken {
+  buttonFontWeight: number;
+}
 
 export interface ButtonToken extends FullToken<'Button'> {
   colorOutlineDefault: string;
   buttonPaddingHorizontal: number;
   buttonIconOnlyFontSize: number;
-  buttonFontWeight: number;
 }
 
 // ============================== Shared ==============================
@@ -503,36 +504,41 @@ const genBlockButtonStyle: GenerateStyle<ButtonToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Button', (token) => {
-  const { controlTmpOutline, paddingContentHorizontal } = token;
+export default genComponentStyleHook(
+  'Button',
+  (token) => {
+    const { controlTmpOutline, paddingContentHorizontal } = token;
 
-  const buttonToken = mergeToken<ButtonToken>(token, {
-    colorOutlineDefault: controlTmpOutline,
-    buttonPaddingHorizontal: paddingContentHorizontal,
-    buttonIconOnlyFontSize: token.fontSizeLG,
+    const buttonToken = mergeToken<ButtonToken>(token, {
+      colorOutlineDefault: controlTmpOutline,
+      buttonPaddingHorizontal: paddingContentHorizontal,
+      buttonIconOnlyFontSize: token.fontSizeLG,
+    });
+
+    return [
+      // Shared
+      genSharedButtonStyle(buttonToken),
+
+      // Size
+      genSizeSmallButtonStyle(buttonToken),
+      genSizeBaseButtonStyle(buttonToken),
+      genSizeLargeButtonStyle(buttonToken),
+
+      // Block
+      genBlockButtonStyle(buttonToken),
+
+      // Group (type, ghost, danger, disabled, loading)
+      genTypeButtonStyle(buttonToken),
+
+      // Button Group
+      genGroupStyle(buttonToken),
+
+      // Space Compact
+      genCompactItemStyle(token),
+      genCompactItemVerticalStyle(token),
+    ];
+  },
+  {
     buttonFontWeight: 400,
-  });
-
-  return [
-    // Shared
-    genSharedButtonStyle(buttonToken),
-
-    // Size
-    genSizeSmallButtonStyle(buttonToken),
-    genSizeBaseButtonStyle(buttonToken),
-    genSizeLargeButtonStyle(buttonToken),
-
-    // Block
-    genBlockButtonStyle(buttonToken),
-
-    // Group (type, ghost, danger, disabled, loading)
-    genTypeButtonStyle(buttonToken),
-
-    // Button Group
-    genGroupStyle(buttonToken),
-
-    // Space Compact
-    genCompactItemStyle(token),
-    genCompactItemVerticalStyle(token),
-  ];
-});
+  },
+);

@@ -1,11 +1,10 @@
 import classNames from 'classnames';
+import { debounce } from 'throttle-debounce';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-import { debounce } from 'throttle-debounce';
-import { cloneElement, isValidElement } from '../_util/reactNode';
-import warning from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
+import { cloneElement, isValidElement } from '../_util/reactNode';
 import useStyle from './style/index';
 
 const SpinSizes = ['small', 'default', 'large'] as const;
@@ -109,10 +108,6 @@ const Spin: React.FC<SpinClassProps> = (props) => {
 
   const isNestedPattern = React.useMemo<boolean>(() => typeof children !== 'undefined', [children]);
 
-  if (process.env.NODE_ENV !== 'production') {
-    warning(!tip || isNestedPattern, 'Spin', '`tip` only work in nest pattern.');
-  }
-
   const { direction } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
   const spinClassName = classNames(
@@ -145,7 +140,7 @@ const Spin: React.FC<SpinClassProps> = (props) => {
       aria-busy={spinning}
     >
       {renderIndicator(prefixCls, props)}
-      {tip && isNestedPattern ? <div className={`${prefixCls}-text`}>{tip}</div> : null}
+      {tip ? <div className={`${prefixCls}-text`}>{tip}</div> : null}
     </div>
   );
 

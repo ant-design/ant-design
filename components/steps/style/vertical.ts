@@ -3,7 +3,7 @@ import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, iconSizeSM, iconSize } = token;
+  const { componentCls, stepsSmallIconSize, stepsIconSize } = token;
 
   return {
     [`&${componentCls}-vertical`]: {
@@ -26,7 +26,7 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           overflow: 'hidden',
         },
         [`${componentCls}-item-title`]: {
-          lineHeight: `${iconSize}px`,
+          lineHeight: `${stepsIconSize}px`,
         },
         [`${componentCls}-item-description`]: {
           paddingBottom: token.paddingSM,
@@ -35,10 +35,10 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       [`> ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]: {
         position: 'absolute',
         top: 0,
-        insetInlineStart: iconSize / 2 - token.lineWidth,
+        insetInlineStart: token.stepsIconSize / 2 - token.lineWidth,
         width: token.lineWidth,
         height: '100%',
-        padding: `${iconSize + token.marginXXS * 1.5}px 0 ${token.marginXXS * 1.5}px`,
+        padding: `${stepsIconSize + token.marginXXS * 1.5}px 0 ${token.marginXXS * 1.5}px`,
 
         '&::after': {
           width: token.lineWidth,
@@ -59,11 +59,11 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         [`${componentCls}-item-tail`]: {
           position: 'absolute',
           top: 0,
-          insetInlineStart: iconSizeSM / 2 - token.lineWidth,
-          padding: `${iconSizeSM + token.marginXXS * 1.5}px 0 ${token.marginXXS * 1.5}px`,
+          insetInlineStart: token.stepsSmallIconSize / 2 - token.lineWidth,
+          padding: `${stepsSmallIconSize + token.marginXXS * 1.5}px 0 ${token.marginXXS * 1.5}px`,
         },
         [`${componentCls}-item-title`]: {
-          lineHeight: `${iconSizeSM}px`,
+          lineHeight: `${stepsSmallIconSize}px`,
         },
       },
     },

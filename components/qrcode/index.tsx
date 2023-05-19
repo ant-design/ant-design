@@ -29,7 +29,6 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     className,
     rootClassName,
     prefixCls: customizePrefixCls,
-    bgColor = 'transparent',
   } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
@@ -48,11 +47,11 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
       value,
       size: size - (token.paddingSM + token.lineWidth) * 2,
       level: errorLevel,
-      bgColor,
+      bgColor: 'transparent',
       fgColor: color,
       imageSettings: icon ? imageSettings : undefined,
     };
-  }, [errorLevel, color, icon, iconSize, size, value, bgColor]);
+  }, [errorLevel, color, icon, iconSize, size, value]);
 
   const [locale] = useLocale('QRCode');
 
@@ -76,7 +75,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   });
 
   return wrapSSR(
-    <div style={{ ...style, width: size, height: size, backgroundColor: bgColor }} className={cls}>
+    <div style={{ ...style, width: size, height: size }} className={cls}>
       {status !== 'active' && (
         <div className={`${prefixCls}-mask`}>
           {status === 'loading' && <Spin />}

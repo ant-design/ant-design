@@ -16,7 +16,6 @@ interface QRProps {
   style?: CSSProperties;
   includeMargin?: boolean;
   imageSettings?: ImageSettings;
-  bgColor?: string;
 }
 
 export type QRPropsCanvas = QRProps & React.CanvasHTMLAttributes<HTMLCanvasElement>;

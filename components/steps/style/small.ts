@@ -5,7 +5,7 @@ import type { GenerateStyle } from '../../theme/internal';
 const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const {
     componentCls,
-    iconSizeSM,
+    stepsSmallIconSize,
     // stepsSmallIconMargin,
     fontSizeSM,
     fontSize,
@@ -22,24 +22,24 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-item-icon`]: {
-        width: iconSizeSM,
-        height: iconSizeSM,
+        width: stepsSmallIconSize,
+        height: stepsSmallIconSize,
         // margin: stepsSmallIconMargin,
         marginTop: 0,
         marginBottom: 0,
         marginInline: `0 ${token.marginXS}px`,
         fontSize: fontSizeSM,
-        lineHeight: `${iconSizeSM}px`,
+        lineHeight: `${stepsSmallIconSize}px`,
         textAlign: 'center',
-        borderRadius: iconSizeSM,
+        borderRadius: stepsSmallIconSize,
       },
       [`${componentCls}-item-title`]: {
         paddingInlineEnd: token.paddingSM,
         fontSize,
-        lineHeight: `${iconSizeSM}px`,
+        lineHeight: `${stepsSmallIconSize}px`,
 
         '&::after': {
-          top: iconSizeSM / 2,
+          top: stepsSmallIconSize / 2,
         },
       },
       [`${componentCls}-item-description`]: {
@@ -47,7 +47,7 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         fontSize,
       },
       [`${componentCls}-item-tail`]: {
-        top: iconSizeSM / 2 - token.paddingXXS,
+        top: stepsSmallIconSize / 2 - token.paddingXXS,
       },
       [`${componentCls}-item-custom ${componentCls}-item-icon`]: {
         width: 'inherit',
@@ -57,8 +57,8 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         border: 0,
         borderRadius: 0,
         [`> ${componentCls}-icon`]: {
-          fontSize: iconSizeSM,
-          lineHeight: `${iconSizeSM}px`,
+          fontSize: stepsSmallIconSize,
+          lineHeight: `${stepsSmallIconSize}px`,
           transform: 'none',
         },
       },

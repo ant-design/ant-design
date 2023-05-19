@@ -771,6 +771,7 @@ Array [
               >
                 <div
                   aria-controls="rc-tabs-test-panel-tab1"
+                  aria-disabled="false"
                   aria-selected="true"
                   class="ant-tabs-tab-btn"
                   id="rc-tabs-test-tab-tab1"
@@ -786,6 +787,7 @@ Array [
               >
                 <div
                   aria-controls="rc-tabs-test-panel-tab2"
+                  aria-disabled="false"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
                   id="rc-tabs-test-tab-tab2"
@@ -836,7 +838,7 @@ Array [
             </button>
             <div
               class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
                 aria-label="expanded dropdown"
@@ -911,6 +913,7 @@ Array [
               >
                 <div
                   aria-controls="rc-tabs-test-panel-article"
+                  aria-disabled="false"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
                   id="rc-tabs-test-tab-article"
@@ -926,6 +929,7 @@ Array [
               >
                 <div
                   aria-controls="rc-tabs-test-panel-app"
+                  aria-disabled="false"
                   aria-selected="true"
                   class="ant-tabs-tab-btn"
                   id="rc-tabs-test-tab-app"
@@ -941,6 +945,7 @@ Array [
               >
                 <div
                   aria-controls="rc-tabs-test-panel-project"
+                  aria-disabled="false"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
                   id="rc-tabs-test-tab-project"
@@ -991,7 +996,7 @@ Array [
             </button>
             <div
               class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
                 aria-label="expanded dropdown"

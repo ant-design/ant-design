@@ -11,9 +11,9 @@ import Menu from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import Layout from '../../layout';
 import initCollapseMotion from '../../_util/motion';
 import { noop } from '../../_util/warning';
-import Layout from '../../layout';
 
 Object.defineProperty(globalThis, 'IS_REACT_ACT_ENVIRONMENT', {
   writable: true,
@@ -703,7 +703,7 @@ describe('Menu', () => {
             collapsed={collapsed}
             onCollapse={() => setCollapsed(!collapsed)}
           >
-            <div className="demo-logo" />
+            <div className="logo" />
             <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
               <SubMenu key="sub1" icon={<UserOutlined />} title="User">
                 <Menu.Item key="3">Tom</Menu.Item>
@@ -824,7 +824,7 @@ describe('Menu', () => {
     const onOpen = jest.fn();
     const onClose = jest.fn();
     const Demo: React.FC = () => {
-      const menuProps = useMemo<MenuProps>(() => ({ onOpen, onClose } as MenuProps), []);
+      const menuProps = useMemo<MenuProps>(() => ({ onOpen, onClose }) as MenuProps, []);
       return (
         <Menu
           {...menuProps}
@@ -859,7 +859,7 @@ describe('Menu', () => {
   it('should keep selectedKeys in state when collapsed to 0px', () => {
     jest.useFakeTimers();
     const Demo: React.FC<MenuProps> = (props) => {
-      const menuProps = useMemo<MenuProps>(() => ({ collapsedWidth: 0 } as MenuProps), []);
+      const menuProps = useMemo<MenuProps>(() => ({ collapsedWidth: 0 }) as MenuProps, []);
       return (
         <Menu
           mode="inline"

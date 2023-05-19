@@ -1,7 +1,6 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
-import type { CSSProperties } from 'react';
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -9,14 +8,14 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   // Component token here
+  height: number;
   zIndexPopup: number;
-  contentBg: string;
-  contentPadding: CSSProperties['padding'];
+  messageNoticeContentBg: string;
+  messageNoticeContentPadding: string;
 }
 
 interface MessageToken extends FullToken<'Message'> {
   // Custom token here
-  height: number;
 }
 
 const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
@@ -25,6 +24,7 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
     iconCls,
     boxShadow,
     colorText,
+    colorBgElevated,
     colorSuccess,
     colorError,
     colorWarning,
@@ -37,8 +37,7 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
     borderRadiusLG,
     zIndexPopup,
     // Custom token
-    contentPadding,
-    contentBg,
+    messageNoticeContentPadding,
   } = token;
 
   const noticeCls = `${componentCls}-notice`;
@@ -82,8 +81,8 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
 
     [`${noticeCls}-content`]: {
       display: 'inline-block',
-      padding: contentPadding,
-      background: contentBg,
+      padding: messageNoticeContentPadding,
+      background: colorBgElevated,
       borderRadius: borderRadiusLG,
       boxShadow,
       pointerEvents: 'all',
@@ -177,16 +176,15 @@ export default genComponentStyleHook(
   'Message',
   (token) => {
     // Gen-style functions here
-    const combinedToken = mergeToken<MessageToken>(token, {
-      height: 150,
-    });
+    const combinedToken = mergeToken<MessageToken>(token, {});
     return [genMessageStyle(combinedToken)];
   },
   (token) => ({
+    height: 150,
     zIndexPopup: token.zIndexPopupBase + 10,
-    contentBg: token.colorBgElevated,
-    contentPadding: `${(token.controlHeightLG - token.fontSize * token.lineHeight) / 2}px ${
-      token.paddingSM
-    }px`,
+    messageNoticeContentBg: token.colorBgElevated,
+    messageNoticeContentPadding: `${
+      (token.controlHeightLG - token.fontSize * token.lineHeight) / 2
+    }px ${token.paddingSM}px`,
   }),
 );

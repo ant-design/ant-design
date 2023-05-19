@@ -4,17 +4,16 @@ import classNames from 'classnames';
 import RcSteps from 'rc-steps';
 import type {
   ProgressDotRender,
-  StepsProps as RcStepsProps,
   StepIconRender,
+  StepsProps as RcStepsProps,
 } from 'rc-steps/lib/Steps';
 import * as React from 'react';
+import Tooltip from '../tooltip';
 import { ConfigContext } from '../config-provider';
-import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import Progress from '../progress';
-import Tooltip from '../tooltip';
-import useStyle from './style';
 import useLegacyItems from './useLegacyItems';
+import useStyle from './style';
 
 export interface StepProps {
   className?: string;
@@ -56,7 +55,7 @@ type CompoundedComponent = React.FC<StepsProps> & {
 const Steps: CompoundedComponent = (props) => {
   const {
     percent,
-    size: customizeSize,
+    size,
     className,
     rootClassName,
     direction,
@@ -73,8 +72,6 @@ const Steps: CompoundedComponent = (props) => {
     () => (responsive && xs ? 'vertical' : direction),
     [xs, direction],
   );
-
-  const size = useSize(customizeSize);
 
   const prefixCls = getPrefixCls('steps', props.prefixCls);
 

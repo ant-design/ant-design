@@ -36,13 +36,6 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         ...resetComponent(token),
 
         display: 'inline-flex',
-        flexWrap: 'wrap',
-        columnGap: token.marginXS,
-
-        // Group > Grid
-        [`> ${token.antCls}-row`]: {
-          flex: 1,
-        },
       },
 
       // Wrapper
@@ -63,7 +56,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
 
         // Checkbox near checkbox
         [`& + ${wrapperCls}`]: {
-          marginInlineStart: 0,
+          marginInlineStart: token.marginXS,
         },
 
         [`&${wrapperCls}-in-form-item`]: {

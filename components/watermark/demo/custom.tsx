@@ -1,28 +1,55 @@
-import { ColorPicker, Form, Input, InputNumber, Slider, Space, Typography, Watermark } from 'antd';
-import type { Color } from 'antd/es/color-picker';
 import React, { useMemo, useState } from 'react';
+import { Watermark, Popover, Typography, Form, Input, Slider, Space, InputNumber } from 'antd';
+import { SketchPicker } from 'react-color';
+import type { RGBColor } from 'react-color';
 
 const { Paragraph } = Typography;
 
-interface WatermarkConfig {
-  content: string;
-  color: string | Color;
-  fontSize: number;
-  zIndex: number;
-  rotate: number;
-  gap: [number, number];
-  offset?: [number, number];
+interface ColorPickerProps {
+  value?: RGBColor;
+  onChange?: (value: RGBColor) => void;
 }
+
+const ColorPicker: React.FC<ColorPickerProps> = ({ value, onChange }) => {
+  const switchStyle = {
+    padding: 4,
+    background: '#fff',
+    borderRadius: 2,
+    border: '1px solid #dedede',
+    display: 'inline-block',
+    cursor: 'pointer',
+  };
+
+  const colorStyle = {
+    width: 36,
+    height: 14,
+    borderRadius: 2,
+    background: `rgba(${value?.r}, ${value?.g}, ${value?.b}, ${value?.a})`,
+  };
+
+  return (
+    <Popover
+      trigger="click"
+      placement="bottomLeft"
+      overlayInnerStyle={{ padding: 0 }}
+      content={<SketchPicker color={value} onChange={(color) => onChange?.(color.rgb)} />}
+    >
+      <div style={switchStyle}>
+        <div style={colorStyle} />
+      </div>
+    </Popover>
+  );
+};
 
 const App: React.FC = () => {
   const [form] = Form.useForm();
-  const [config, setConfig] = useState<WatermarkConfig>({
+  const [config, setConfig] = useState({
     content: 'Ant Design',
-    color: 'rgba(0, 0, 0, 0.15)',
+    color: { r: 0, g: 0, b: 0, a: 0.15 },
     fontSize: 16,
     zIndex: 11,
     rotate: -22,
-    gap: [100, 100],
+    gap: [100, 100] as [number, number],
     offset: undefined,
   });
   const { content, color, fontSize, zIndex, rotate, gap, offset } = config;
@@ -31,7 +58,7 @@ const App: React.FC = () => {
     () => ({
       content,
       font: {
-        color: typeof color === 'string' ? color : color.toRgbString(),
+        color: `rgba(${color.r},${color.g},${color.b},${color.a})`,
         fontSize,
       },
       zIndex,

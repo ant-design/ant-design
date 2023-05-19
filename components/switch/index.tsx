@@ -2,11 +2,13 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import RcSwitch from 'rc-switch';
 import * as React from 'react';
-import warning from '../_util/warning';
-import Wave from '../_util/wave';
+
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
-import useSize from '../config-provider/hooks/useSize';
+import SizeContext from '../config-provider/SizeContext';
+import warning from '../_util/warning';
+import Wave from '../_util/wave';
+
 import useStyle from './style';
 
 export type SwitchSize = 'small' | 'default';
@@ -63,6 +65,7 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
     );
 
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
+    const size = React.useContext(SizeContext);
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
@@ -78,11 +81,9 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
     // Style
     const [wrapSSR, hashId] = useStyle(prefixCls);
 
-    const mergedSize = useSize(customizeSize);
-
     const classes = classNames(
       {
-        [`${prefixCls}-small`]: mergedSize === 'small',
+        [`${prefixCls}-small`]: (customizeSize || size) === 'small',
         [`${prefixCls}-loading`]: loading,
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },

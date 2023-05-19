@@ -1,23 +1,28 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { resetComponent, textEllipsis } from '../../style';
 
-/** Component only token. Which will handle additional calculation of alias token */
-export interface ComponentToken {
-  // Component token here
-  labelBg: string;
-  titleMarginBottom: number;
-  itemPaddingBottom: number;
-  colonMarginRight: number;
-  colonMarginLeft: number;
-  extraColor: string;
+interface DescriptionsToken extends FullToken<'Descriptions'> {
+  descriptionsTitleMarginBottom: number;
+  descriptionsExtraColor: string;
+  descriptionItemPaddingBottom: number;
+  descriptionsDefaultPadding: string;
+  descriptionsBg: string;
+  descriptionsMiddlePadding: string;
+  descriptionsSmallPadding: string;
+  descriptionsItemLabelColonMarginRight: number;
+  descriptionsItemLabelColonMarginLeft: number;
 }
 
-interface DescriptionsToken extends FullToken<'Descriptions'> {}
-
 const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
-  const { componentCls, labelBg } = token;
+  const {
+    componentCls,
+    descriptionsSmallPadding,
+    descriptionsDefaultPadding,
+    descriptionsMiddlePadding,
+    descriptionsBg,
+  } = token;
   return {
     [`&${componentCls}-bordered`]: {
       [`${componentCls}-view`]: {
@@ -28,7 +33,7 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
         },
       },
       [`${componentCls}-item-label, ${componentCls}-item-content`]: {
-        padding: `${token.padding}px ${token.paddingLG}px`,
+        padding: descriptionsDefaultPadding,
         borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
         '&:last-child': {
           borderInlineEnd: 'none',
@@ -36,7 +41,7 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
       },
       [`${componentCls}-item-label`]: {
         color: token.colorTextSecondary,
-        backgroundColor: labelBg,
+        backgroundColor: descriptionsBg,
         '&::after': {
           display: 'none',
         },
@@ -49,26 +54,26 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
       },
       [`&${componentCls}-middle`]: {
         [`${componentCls}-item-label, ${componentCls}-item-content`]: {
-          padding: `${token.paddingSM}px ${token.paddingLG}px`,
+          padding: descriptionsMiddlePadding,
         },
       },
       [`&${componentCls}-small`]: {
         [`${componentCls}-item-label, ${componentCls}-item-content`]: {
-          padding: `${token.paddingXS}px ${token.padding}px`,
+          padding: descriptionsSmallPadding,
         },
       },
     },
   };
 };
 
-const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
+const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: DescriptionsToken) => {
   const {
     componentCls,
-    extraColor,
-    itemPaddingBottom,
-    colonMarginRight,
-    colonMarginLeft,
-    titleMarginBottom,
+    descriptionsExtraColor,
+    descriptionItemPaddingBottom,
+    descriptionsItemLabelColonMarginRight,
+    descriptionsItemLabelColonMarginLeft,
+    descriptionsTitleMarginBottom,
   } = token;
   return {
     [componentCls]: {
@@ -80,7 +85,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
       [`${componentCls}-header`]: {
         display: 'flex',
         alignItems: 'center',
-        marginBottom: titleMarginBottom,
+        marginBottom: descriptionsTitleMarginBottom,
       },
       [`${componentCls}-title`]: {
         ...textEllipsis,
@@ -92,7 +97,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
       },
       [`${componentCls}-extra`]: {
         marginInlineStart: 'auto',
-        color: extraColor,
+        color: descriptionsExtraColor,
         fontSize: token.fontSize,
       },
       [`${componentCls}-view`]: {
@@ -105,7 +110,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
       },
       [`${componentCls}-row`]: {
         '> th, > td': {
-          paddingBottom: itemPaddingBottom,
+          paddingBottom: descriptionItemPaddingBottom,
         },
         '&:last-child': {
           borderBottom: 'none',
@@ -122,7 +127,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
           content: '":"',
           position: 'relative',
           top: -0.5, // magic for position
-          marginInline: `${colonMarginLeft}px ${colonMarginRight}px`,
+          marginInline: `${descriptionsItemLabelColonMarginLeft}px ${descriptionsItemLabelColonMarginRight}px`,
         },
 
         [`&${componentCls}-item-no-colon::after`]: {
@@ -177,18 +182,28 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
   };
 };
 // ============================== Export ==============================
-export default genComponentStyleHook(
-  'Descriptions',
-  (token) => {
-    const descriptionToken = mergeToken<DescriptionsToken>(token, {});
-    return [genDescriptionStyles(descriptionToken)];
-  },
-  (token) => ({
-    labelBg: token.colorFillAlter,
-    titleMarginBottom: token.fontSizeSM * token.lineHeightSM,
-    itemPaddingBottom: token.padding,
-    colonMarginRight: token.marginXS,
-    colonMarginLeft: token.marginXXS / 2,
-    extraColor: token.colorText,
-  }),
-);
+export default genComponentStyleHook('Descriptions', (token) => {
+  const descriptionsBg = token.colorFillAlter;
+  const descriptionsTitleMarginBottom = token.fontSizeSM * token.lineHeightSM;
+  const descriptionsExtraColor = token.colorText;
+  const descriptionsSmallPadding = `${token.paddingXS}px ${token.padding}px`;
+  const descriptionsDefaultPadding = `${token.padding}px ${token.paddingLG}px`;
+  const descriptionsMiddlePadding = `${token.paddingSM}px ${token.paddingLG}px`;
+  const descriptionItemPaddingBottom = token.padding;
+  const descriptionsItemLabelColonMarginRight = token.marginXS;
+  const descriptionsItemLabelColonMarginLeft = token.marginXXS / 2;
+
+  const descriptionToken = mergeToken<DescriptionsToken>(token, {
+    descriptionsBg,
+    descriptionsTitleMarginBottom,
+    descriptionsExtraColor,
+    descriptionItemPaddingBottom,
+    descriptionsSmallPadding,
+    descriptionsDefaultPadding,
+    descriptionsMiddlePadding,
+    descriptionsItemLabelColonMarginRight,
+    descriptionsItemLabelColonMarginLeft,
+  });
+
+  return [genDescriptionStyles(descriptionToken)];
+});

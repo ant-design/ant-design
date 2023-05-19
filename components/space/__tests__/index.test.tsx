@@ -210,16 +210,4 @@ describe('Space', () => {
     expect(item).toBeEmptyDOMElement();
     expect(getComputedStyle(item).display).toBe('none');
   });
-
-  it('should ref work', () => {
-    const ref = React.createRef<HTMLDivElement>();
-    const { container } = render(
-      <Space ref={ref}>
-        <span>Text1</span>
-        <span>Text2</span>
-      </Space>,
-    );
-
-    expect(ref.current).toBe(container.firstChild);
-  });
 });

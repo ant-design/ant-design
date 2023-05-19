@@ -16,14 +16,14 @@ import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
-import useSize from '../config-provider/hooks/useSize';
+import SizeContext from '../config-provider/SizeContext';
 import { useCompactItemContext } from '../space/Compact';
-import IconWrapper from './IconWrapper';
 import LoadingIcon from './LoadingIcon';
 import Group, { GroupSizeContext } from './button-group';
 import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
 import useStyle from './style';
+import IconWrapper from './IconWrapper';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -129,6 +129,7 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
+  const size = useContext(SizeContext);
   const disabled = useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
@@ -208,9 +209,7 @@ const InternalButton: React.ForwardRefRenderFunction<
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
-
-  const sizeFullname = useSize((ctxSize) => compactSize ?? groupSize ?? customizeSize ?? ctxSize);
-
+  const sizeFullname = compactSize || groupSize || customizeSize || size;
   const sizeCls = sizeFullname ? sizeClassNameMap[sizeFullname] || '' : '';
 
   const iconType = innerLoading ? 'loading' : icon;

@@ -64,5 +64,3 @@ __image_snapshots__/
 
 .devcontainer*
 .husky/prepare-commit-msg
-
-.eslintcache

@@ -4,8 +4,9 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
-  titleFontSize: number;
-  contentFontSize: number;
+  statisticTitleFontSize: number;
+  statisticContentFontSize: number;
+  statisticFontFamily: string;
 }
 
 interface StatisticToken extends FullToken<'Statistic'> {}
@@ -16,10 +17,10 @@ const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken)
     marginXXS,
     padding,
     colorTextDescription,
-    titleFontSize,
+    statisticTitleFontSize,
     colorTextHeading,
-    contentFontSize,
-    fontFamily,
+    statisticContentFontSize,
+    statisticFontFamily,
   } = token;
 
   return {
@@ -28,7 +29,7 @@ const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken)
       [`${componentCls}-title`]: {
         marginBottom: marginXXS,
         color: colorTextDescription,
-        fontSize: titleFontSize,
+        fontSize: statisticTitleFontSize,
       },
 
       [`${componentCls}-skeleton`]: {
@@ -37,8 +38,8 @@ const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken)
 
       [`${componentCls}-content`]: {
         color: colorTextHeading,
-        fontSize: contentFontSize,
-        fontFamily,
+        fontSize: statisticContentFontSize,
+        fontFamily: statisticFontFamily,
         [`${componentCls}-content-value`]: {
           display: 'inline-block',
           direction: 'ltr',
@@ -65,10 +66,11 @@ export default genComponentStyleHook(
     return [genStatisticStyle(statisticToken)];
   },
   (token) => {
-    const { fontSizeHeading3, fontSize } = token;
+    const { fontSizeHeading3, fontSize, fontFamily } = token;
     return {
-      titleFontSize: fontSize,
-      contentFontSize: fontSizeHeading3,
+      statisticTitleFontSize: fontSize,
+      statisticContentFontSize: fontSizeHeading3,
+      statisticFontFamily: fontFamily,
     };
   },
 );

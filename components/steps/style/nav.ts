@@ -1,13 +1,13 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { StepsToken } from '.';
 import { textEllipsis } from '../../style';
+import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const {
     componentCls,
-    navContentMaxWidth,
-    navArrowColor,
+    stepsNavContentMaxWidth,
+    stepsNavArrowColor,
     stepsNavActiveColor,
     motionDurationSlow,
   } = token;
@@ -37,7 +37,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           transition: `opacity ${motionDurationSlow}`,
 
           [`${componentCls}-item-content`]: {
-            maxWidth: navContentMaxWidth,
+            maxWidth: stepsNavContentMaxWidth,
           },
 
           [`${componentCls}-item-title`]: {
@@ -76,10 +76,10 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           display: 'inline-block',
           width: token.fontSizeIcon,
           height: token.fontSizeIcon,
-          borderTop: `${token.lineWidth}px ${token.lineType} ${navArrowColor}`,
+          borderTop: `${token.lineWidth}px ${token.lineType} ${stepsNavArrowColor}`,
           borderBottom: 'none',
           borderInlineStart: 'none',
-          borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${navArrowColor}`,
+          borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${stepsNavArrowColor}`,
           transform: 'translateY(-50%) translateX(-50%) rotate(45deg)',
           content: '""',
         },

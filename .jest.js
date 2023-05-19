@@ -1,4 +1,4 @@
-const compileModules = ['react-sticky-box', 'rc-tween-one', '@babel', '@ant-design', 'countup.js'];
+const compileModules = ['dnd-core', 'react-sticky-box', 'tween-one', '@babel', '@ant-design'];
 
 const ignoreList = [];
 

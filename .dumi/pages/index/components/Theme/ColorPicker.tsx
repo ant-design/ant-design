@@ -1,11 +1,12 @@
-import { css } from '@emotion/react';
-import { ColorPicker, Input, Space } from 'antd';
-import type { Color, ColorPickerProps } from 'antd/es/color-picker';
-import { generateColor } from 'antd/es/color-picker/util';
+import { Input, Space, Popover } from 'antd';
 import type { FC } from 'react';
 import React, { useEffect, useState } from 'react';
-import useSiteToken from '../../../../hooks/useSiteToken';
+import { css } from '@emotion/react';
+import { TinyColor } from '@ctrl/tinycolor';
+import type { ColorPanelProps } from 'antd-token-previewer/es/ColorPanel';
+import ColorPanel from 'antd-token-previewer/es/ColorPanel';
 import { PRESET_COLORS } from './colorUtil';
+import useSiteToken from '../../../../hooks/useSiteToken';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -19,7 +20,7 @@ const useStyle = () => {
       transition: all ${token.motionDurationFast};
       display: inline-block;
 
-      & > input[type='radio'] {
+      & > input[type="radio"] {
         width: 0;
         height: 0;
         opacity: 0;
@@ -37,7 +38,7 @@ const useStyle = () => {
   };
 };
 
-const DebouncedColorPicker: FC<ColorPickerProps> = ({ value: color, onChange, children }) => {
+const DebouncedColorPanel: FC<ColorPanelProps> = ({ color, onChange }) => {
   const [value, setValue] = useState(color);
 
   useEffect(() => {
@@ -51,36 +52,23 @@ const DebouncedColorPicker: FC<ColorPickerProps> = ({ value: color, onChange, ch
     setValue(color);
   }, [color]);
 
-  return (
-    <ColorPicker
-      value={value}
-      onChange={setValue}
-      presets={[
-        {
-          label: 'PresetColors',
-          colors: PRESET_COLORS,
-        },
-      ]}
-    >
-      {children}
-    </ColorPicker>
-  );
+  return <ColorPanel color={value} onChange={setValue} />;
 };
 
 export interface RadiusPickerProps {
-  value?: string | Color;
+  value?: string;
   onChange?: (value: string) => void;
 }
 
-export default function ThemeColorPicker({ value, onChange }: RadiusPickerProps) {
+export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
   const style = useStyle();
 
   const matchColors = React.useMemo(() => {
-    const valueStr = generateColor(value).toRgbString();
+    const valueStr = new TinyColor(value).toRgbString();
     let existActive = false;
 
     const colors = PRESET_COLORS.map((color) => {
-      const colorStr = generateColor(color).toRgbString();
+      const colorStr = new TinyColor(color).toRgbString();
       const active = colorStr === valueStr;
       existActive = existActive || active;
 
@@ -104,7 +92,7 @@ export default function ThemeColorPicker({ value, onChange }: RadiusPickerProps)
   return (
     <Space size="large">
       <Input
-        value={typeof value === 'string' ? value : value.toHexString()}
+        value={value}
         onChange={(event) => {
           onChange?.(event.target.value);
         }}
@@ -138,9 +126,17 @@ export default function ThemeColorPicker({ value, onChange }: RadiusPickerProps)
 
           if (picker) {
             colorNode = (
-              <DebouncedColorPicker value={value || ''} onChange={onChange}>
+              <Popover
+                key={color}
+                overlayInnerStyle={{ padding: 0 }}
+                content={
+                  <DebouncedColorPanel color={value || ''} onChange={(c) => onChange?.(c)} />
+                }
+                trigger="click"
+                arrow={false}
+              >
                 {colorNode}
-              </DebouncedColorPicker>
+              </Popover>
             );
           }
 

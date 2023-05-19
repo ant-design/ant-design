@@ -2,7 +2,7 @@ import { resetComponent } from '../../style';
 import { initZoomMotion } from '../../style/motion';
 import getArrowStyle, { MAX_VERTICAL_CONTENT_RADIUS } from '../../style/placementArrow';
 import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../theme/internal';
-import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken, genPresetColor } from '../../theme/internal';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -43,7 +43,6 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         width: 'max-content',
         maxWidth: tooltipMaxWidth,
         visibility: 'visible',
-        transformOrigin: `var(--arrow-x, 50%) var(--arrow-y, 50%)`,
         '&-hidden': {
           display: 'none',
         },
@@ -152,9 +151,6 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
       zIndexPopup: zIndexPopupBase + 70,
       colorBgDefault: colorBgSpotlight,
     }),
-    {
-      resetStyle: false,
-    },
   );
 
   return useOriginHook(prefixCls);

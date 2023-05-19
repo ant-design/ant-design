@@ -1,7 +1,7 @@
 ## zh-CN
 
-使用 `changeOnBlur` 配合 `onCalendarChange` 和 `disabledDate` 来限制动态的日期区间选择。
+这里举例如何用 `onCalendarChange` 和 `disabledDate` 来限制动态的日期区间选择。
 
 ## en-US
 
-Using `changeOnBlur` work with `onCalendarChange` and `disabledDate` to limit date selection.
+A example shows how to select a dynamic range by using `onCalendarChange` and `disabledDate`.

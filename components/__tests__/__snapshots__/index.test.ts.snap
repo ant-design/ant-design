@@ -19,7 +19,6 @@ exports[`antd exports modules correctly 1`] = `
   "Checkbox",
   "Col",
   "Collapse",
-  "ColorPicker",
   "ConfigProvider",
   "DatePicker",
   "Descriptions",

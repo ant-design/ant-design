@@ -2,17 +2,19 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
 import RcCollapse from 'rc-collapse';
 import type { CSSMotionProps } from 'rc-motion';
+import * as React from 'react';
+
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
-import useSize from '../config-provider/hooks/useSize';
+import SizeContext from '../config-provider/SizeContext';
 import type { CollapsibleType } from './CollapsePanel';
 import CollapsePanel from './CollapsePanel';
+
 import useStyle from './style';
 
 /** @deprecated Please use `start` | `end` instead */
@@ -54,6 +56,7 @@ interface PanelProps {
 
 const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const size = React.useContext(SizeContext);
 
   const {
     prefixCls: customizePrefixCls,
@@ -67,7 +70,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     expandIcon,
   } = props;
 
-  const mergedSize = useSize((ctx) => customizeSize ?? ctx ?? 'middle');
+  const mergedSize = customizeSize || size || 'middle';
   const prefixCls = getPrefixCls('collapse', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
   const [wrapSSR, hashId] = useStyle(prefixCls);

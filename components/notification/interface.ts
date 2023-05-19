@@ -47,7 +47,7 @@ export interface GlobalConfigProps {
   bottom?: number;
   duration?: number;
   prefixCls?: string;
-  getContainer?: () => HTMLElement | ShadowRoot;
+  getContainer?: () => HTMLElement;
   placement?: NotificationPlacement;
   closeIcon?: React.ReactNode;
   rtl?: boolean;
@@ -59,7 +59,7 @@ export interface NotificationConfig {
   top?: number;
   bottom?: number;
   prefixCls?: string;
-  getContainer?: () => HTMLElement | ShadowRoot;
+  getContainer?: () => HTMLElement;
   placement?: NotificationPlacement;
   maxCount?: number;
   rtl?: boolean;

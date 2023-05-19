@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { INTERNAL_HOOKS, type TableProps as RcTableProps } from 'rc-table';
+import { type TableProps as RcTableProps, INTERNAL_HOOKS } from 'rc-table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
@@ -7,10 +7,10 @@ import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import warning from '../_util/warning';
 import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
-import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import defaultLocale from '../locale/en_US';
 import Pagination from '../pagination';
@@ -172,6 +172,8 @@ const InternalTable = <RecordType extends AnyObject = any>(
 
   const tableProps: TableProps<RecordType> = omit(props, ['className', 'style', 'columns']);
 
+  const size = React.useContext<SizeType>(SizeContext);
+
   const {
     locale: contextLocale = defaultLocale,
     direction,
@@ -180,7 +182,7 @@ const InternalTable = <RecordType extends AnyObject = any>(
     getPopupContainer: getContextPopupContainer,
   } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
-  const mergedSize = useSize(customizeSize);
+  const mergedSize = customizeSize || size;
   const tableLocale: TableLocale = { ...contextLocale.Table, ...locale };
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
 

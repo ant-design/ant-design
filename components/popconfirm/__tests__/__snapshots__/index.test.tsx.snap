@@ -90,7 +90,7 @@ exports[`Popconfirm should show overlay when trigger is clicked 1`] = `
 exports[`Popconfirm shows content for render functions 1`] = `
 <div
   class="ant-popover ant-popconfirm ant-popover-placement-bottom"
-  style="--arrow-x: 0px; --arrow-y: -6px; left: 0px; top: 12px; box-sizing: border-box;"
+  style="left: 0px; top: 12px; box-sizing: border-box; transform-origin: 50% 12px;"
 >
   <div
     class="ant-popover-arrow"

@@ -1,10 +1,12 @@
+import * as React from 'react';
+import { css } from '@emotion/react';
+import { TinyColor } from '@ctrl/tinycolor';
 import {
   BellOutlined,
   FolderOutlined,
   HomeOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
-import { css } from '@emotion/react';
 import type { MenuProps } from 'antd';
 import {
   Breadcrumb,
@@ -16,24 +18,21 @@ import {
   Menu,
   Radio,
   Space,
-  Typography,
   theme,
+  Typography,
 } from 'antd';
-import type { Color } from 'antd/es/color-picker';
-import { generateColor } from 'antd/es/color-picker/util';
-import * as React from 'react';
 import useLocale from '../../../../hooks/useLocale';
 import useSiteToken from '../../../../hooks/useSiteToken';
-import SiteContext from '../../../../theme/slots/SiteContext';
-import Group from '../Group';
-import { useCarouselStyle } from '../util';
-import BackgroundImage from './BackgroundImage';
-import ColorPicker from './ColorPicker';
-import MobileCarousel from './MobileCarousel';
-import RadiusPicker from './RadiusPicker';
 import type { THEME } from './ThemePicker';
 import ThemePicker from './ThemePicker';
-import { DEFAULT_COLOR, PINK_COLOR, getAvatarURL, getClosetColor } from './colorUtil';
+import ColorPicker from './ColorPicker';
+import RadiusPicker from './RadiusPicker';
+import Group from '../Group';
+import BackgroundImage from './BackgroundImage';
+import { DEFAULT_COLOR, getAvatarURL, getClosetColor, PINK_COLOR } from './colorUtil';
+import SiteContext from '../../../../theme/slots/SiteContext';
+import { useCarouselStyle } from '../util';
+import MobileCarousel from './MobileCarousel';
 
 const { Header, Content, Sider } = Layout;
 
@@ -222,12 +221,12 @@ const sideMenuItems: MenuProps['items'] = [
 
 // ============================= Theme =============================
 
-function getTitleColor(colorPrimary: string | Color, isLight?: boolean) {
+function getTitleColor(colorPrimary: string, isLight?: boolean) {
   if (!isLight) {
     return '#FFF';
   }
 
-  const color = generateColor(colorPrimary);
+  const color = new TinyColor(colorPrimary);
   const closestColor = getClosetColor(colorPrimary);
 
   switch (closestColor) {
@@ -237,13 +236,13 @@ function getTitleColor(colorPrimary: string | Color, isLight?: boolean) {
       return undefined;
 
     default:
-      return color.toHsb().b < 0.7 ? '#FFF' : undefined;
+      return color.toHsl().l < 0.7 ? '#FFF' : undefined;
   }
 }
 
 interface ThemeData {
   themeType: THEME;
-  colorPrimary: string | Color;
+  colorPrimary: string;
   borderRadius: number;
   compact: 'default' | 'compact';
 }
@@ -281,14 +280,10 @@ export default function Theme() {
     setThemeData(nextThemeData);
   };
 
-  const { compact, themeType, colorPrimary, ...themeToken } = themeData;
+  const { compact, themeType, ...themeToken } = themeData;
   const isLight = themeType !== 'dark';
   const [form] = Form.useForm();
   const { isMobile } = React.useContext(SiteContext);
-  const colorPrimaryValue = React.useMemo(
-    () => (typeof colorPrimary === 'string' ? colorPrimary : colorPrimary.toHexString()),
-    [colorPrimary],
-  );
 
   // const algorithmFn = isLight ? theme.defaultAlgorithm : theme.darkAlgorithm;
   const algorithmFn = React.useMemo(() => {
@@ -314,14 +309,14 @@ export default function Theme() {
   }, [themeType]);
 
   // ================================ Tokens ================================
-  const closestColor = getClosetColor(colorPrimaryValue);
+  const closestColor = getClosetColor(themeData.colorPrimary);
 
   const [backgroundColor, avatarColor] = React.useMemo(() => {
     let bgColor = 'transparent';
 
     const mapToken = theme.defaultAlgorithm({
       ...theme.defaultConfig.token,
-      colorPrimary: colorPrimaryValue,
+      colorPrimary: themeData.colorPrimary,
     });
 
     if (themeType === 'dark') {
@@ -333,14 +328,14 @@ export default function Theme() {
     }
 
     return [bgColor, mapToken.colorPrimaryBgHover];
-  }, [themeType, closestColor, colorPrimaryValue]);
+  }, [themeType, closestColor, themeData.colorPrimary]);
 
   const logoColor = React.useMemo(() => {
-    const hsb = generateColor(colorPrimaryValue).toHsb();
-    hsb.b = Math.min(hsb.b, 0.7);
+    const hsl = new TinyColor(themeData.colorPrimary).toHsl();
+    hsl.l = Math.min(hsl.l, 0.7);
 
-    return generateColor(hsb).toHexString();
-  }, [colorPrimaryValue]);
+    return new TinyColor(hsl).toHexString();
+  }, [themeData.colorPrimary]);
 
   // ================================ Render ================================
   const themeNode = (
@@ -354,7 +349,6 @@ export default function Theme() {
                 // colorBgContainer: '#474C56',
                 // colorBorderSecondary: 'rgba(255,255,255,0.06)',
               }),
-          colorPrimary: colorPrimaryValue,
         },
         hashed: true,
         algorithm: algorithmFn,
@@ -517,7 +511,7 @@ export default function Theme() {
   ) : (
     <Group
       title={locale.themeTitle}
-      titleColor={getTitleColor(colorPrimaryValue, isLight)}
+      titleColor={getTitleColor(themeData.colorPrimary, isLight)}
       description={locale.themeDesc}
       id="flexible"
       background={backgroundColor}
@@ -573,7 +567,7 @@ export default function Theme() {
           </div>
 
           {/* >>>>>> Background Image <<<<<< */}
-          <BackgroundImage isLight={isLight} colorPrimary={colorPrimaryValue} />
+          <BackgroundImage isLight={isLight} colorPrimary={themeData.colorPrimary} />
         </>
       }
     >

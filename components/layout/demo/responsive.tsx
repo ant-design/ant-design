@@ -1,6 +1,6 @@
+import React from 'react';
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { Layout, Menu, theme } from 'antd';
-import React from 'react';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -21,7 +21,7 @@ const App: React.FC = () => {
           console.log(collapsed, type);
         }}
       >
-        <div className="demo-logo-vertical" />
+        <div className="logo" />
         <Menu
           theme="dark"
           mode="inline"

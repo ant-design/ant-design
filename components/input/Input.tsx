@@ -1,22 +1,24 @@
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
-import type { InputRef, InputProps as RcInputProps } from 'rc-input';
+import type { InputProps as RcInputProps, InputRef } from 'rc-input';
 import RcInput from 'rc-input';
 import type { BaseInputProps } from 'rc-input/lib/interface';
 import { composeRef } from 'rc-util/lib/ref';
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
-import type { InputStatus } from '../_util/statusUtils';
-import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
-import useSize from '../config-provider/hooks/useSize';
+import SizeContext from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
 import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import warning from '../_util/warning';
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
-import useStyle from './style';
 import { hasPrefixSuffix } from './utils';
+
+// CSSINJS
+import useStyle from './style';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
@@ -97,7 +99,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   // ===================== Size =====================
-  const mergedSize = useSize((ctx) => compactSize ?? customSize ?? ctx);
+  const size = React.useContext(SizeContext);
+  const mergedSize = compactSize || customSize || size;
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);

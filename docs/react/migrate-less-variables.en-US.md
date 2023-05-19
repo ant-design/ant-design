@@ -9,7 +9,7 @@ This document contains the correspondence between all the less variables related
 
 <!-- ## 全局变量 -->
 
-## Component Token
+## 组件变量
 
 <!-- ### Alert -->
 
@@ -71,45 +71,26 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Collapse -->
 
-### Descriptions
-
-<!-- prettier-ignore -->
-| Less variables | Component Token | Note |
-| --- | --- | --- |
-| `@descriptions-bg` | `labelBg` | - |
-| `@descriptions-title-margin-bottom` | `titleMarginBottom` | - |
-| `@descriptions-default-padding` | `padding`、`paddingLG` | GlobalToken, used as `${token.padding}px ${token.paddingLG}px` |
-| `@descriptions-middle-padding` | `paddingSM`、`paddingLG` | GlobalToken, used as `${token.paddingSM}px ${token.paddingLG}px` |
-| `@descriptions-small-padding` | `paddingXS`、`padding` | GlobalToken, used as `${token.paddingXS}px ${token.padding}px` |
-| `@descriptions-item-padding-bottom` | `itemPaddingBottom` | - |
-| `@descriptions-item-trailing-colon` | - | Deprecated for style change |
-| `@descriptions-item-label-colon-margin-right` | `colonMarginRight` | - |
-| `@descriptions-item-label-colon-margin-left` | `colonMarginLeft` | - |
-| `@descriptions-extra-color` | `extraColor` | - |
+<!-- ### Descriptions -->
 
 <!-- ### Divider -->
 
-### Drawer
+## Drawer
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@drawer-bg` | `colorBgElevated` | GlobalToken |
-| `@drawer-header-padding` | `padding`、`paddingLG` | GlobalToken, used as `${padding}px ${paddingLG}px` |
-| `@drawer-title-font-size` | `fontSizeLG` | GlobalToken |
-| `@drawer-title-line-height` | `lineHeightLG` | GlobalToken |
-| `@drawer-body-padding` | `paddingLG` | GlobalToken |
-| `@drawer-footer-padding-vertical` | `footerPaddingBlock` | `footerPaddingBlock`  is a number without units, `@drawer-footer-padding-vertical` with units |
-| `@drawer-footer-padding-horizontal` | `footerPaddingInline` | `footerPaddingInline`  is a number without units, `@drawer-footer-padding-horizontal` with units |
+| `@drawer-bg` | `colorBgElevated` | - |
+| `@drawer-header-padding` | `padding`、`paddingLG` | `${padding}px ${paddingLG}px` |
+| `@drawer-title-font-size` | `fontSizeLG` | - |
+| `@drawer-title-line-height` | `lineHeightLG` | - |
+| `@drawer-body-padding` | `paddingLG` | - |
+| `@drawer-footer-padding-vertical` | `drawerFooterPaddingVertical` | `drawerFooterPaddingVertical`  is a number without units, `@drawer-footer-padding-vertical` with units |
+| `@drawer-footer-padding-horizontal` | `drawerFooterPaddingHorizontal` | `drawerFooterPaddingHorizontal`  is a number without units, `@drawer-footer-padding-horizontal` with units |
 
 <!-- ### Dropdown -->
 
-### Empty
-
-<!-- prettier-ignore -->
-| Less variables | Component Token | Note |
-| --- | --- | --- |
-| `@empty-font-size` | `fontSize` | GlobalToken |
+<!-- ### Empty -->
 
 <!-- ### Form -->
 
@@ -125,16 +106,16 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Menu -->
 
-### Message
+## Message
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@zindex-message` | `zIndexPopup` | - |
-| `@message-notice-content-padding` | `contentPadding` | - |
-| `@message-notice-content-bg` | `contentBg` | - |
+| `@message-notice-content-padding` | `messageNoticeContentPadding` | - |
+| `@message-notice-content-bg` | `messageNoticeContentBg` | - |
 
-### Modal
+## Modal
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -142,29 +123,40 @@ This document contains the correspondence between all the less variables related
 | `@modal-header-padding-vertical` | - | Deprecated for style change |
 | `@modal-header-padding-horizontal` | - | Deprecated for style change |
 | `@modal-body-padding` | - | Deprecated for style change |
-| `@modal-header-bg` | `headerBg` | - |
+| `@modal-header-bg` | `modalHeaderBg` | - |
 | `@modal-header-padding` | - | Deprecated for style change |
 | `@modal-header-border-width` | - | Deprecated for style change |
 | `@modal-header-border-style` | - | Deprecated for style change |
-| `@modal-header-title-line-height` | `titleLineHeight` | - |
-| `@modal-header-title-font-size` | `titleFontSize` | - |
+| `@modal-header-title-line-height` | `modalHeaderTitleLineHeight` | - |
+| `@modal-header-title-font-size` | `modalHeaderTitleFontSize` | - |
 | `@modal-header-border-color-split` | - | Deprecated for style change |
 | `@modal-header-close-size` | - | Deprecated for style change |
-| `@modal-content-bg` | `contentBg` | - |
-| `@modal-heading-color` | `titleColor` | - |
-| `@modal-close-color` | `colorIcon` | GlobalToken |
-| `@modal-footer-bg` | `footerBg` | - |
+| `@modal-content-bg` | `modalContentBg` | - |
+| `@modal-heading-color` | `modalHeadingColor` | - |
+| `@modal-close-color` | `modalCloseIconColor` | - |
+| `@modal-footer-bg` | `modalFooterBg` | - |
 | `@modal-footer-border-color-split` | - | Deprecated for style change |
 | `@modal-footer-border-style` | - | Deprecated for style change |
 | `@modal-footer-padding-vertical` | - | Deprecated for style change |
 | `@modal-footer-padding-horizontal` | - | Deprecated for style change |
 | `@modal-footer-border-width` | - | Deprecated for style change |
-| `@modal-mask-bg` | `colorBgMask` | GlobalToken |
+| `@modal-mask-bg` | `colorBgMask` | - |
 | `@modal-confirm-body-padding` | - | Deprecated for style change |
-| `@modal-confirm-title-font-size` | `titleFontSize` | - |
-| `@modal-border-radius` | `borderRadiusLG` | GlobalToken |
+| `@modal-confirm-title-font-size` | `modalHeaderTitleFontSize` | - |
+| `@modal-border-radius` | `borderRadiusLG` | - |
 
-<!-- ### Notification -->
+## Notification
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@notification-width` | `width` | - |
+| `@notification-padding` | `notificationPadding` | - |
+| `@notification-padding-vertical` | `notificationPaddingVertical` | - |
+| `@notification-padding-horizontal` | `notificationPaddingHorizontal` | - |
+| `@notification-margin-bottom` | `notificationMarginBottom` | - |
+| `@notification-margin-edge` | `notificationMarginEdge` | - |
+| `@notification-bg` | `notificationBg` | - |
 
 <!-- ### Pagination -->
 
@@ -184,15 +176,15 @@ This document contains the correspondence between all the less variables related
 | `@rate-star-size` | `starSize` | - |
 | `@rate-star-hover-scale` | `starHoverScale` | - |
 
-### Result
+## Result
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@result-icon-font-size` | `iconFontSize` | - |
-| `@result-title-font-size` | `titleFontSize` | - |
-| `@result-subtitle-font-size` | `subtitleFontSize` | - |
-| `@result-extra-margin` | `extraMargin` | - |
+| `@result-icon-font-size` | `resultIconFontSize` | - |
+| `@result-title-font-size` | `resultTitleFontSize` | - |
+| `@result-subtitle-font-size` | `resultSubtitleFontSize` | - |
+| `@result-extra-margin` | `resultExtraMargin` | - |
 
 ### Segment
 
@@ -223,41 +215,41 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Slider -->
 
-### Statistic
+## Statistic
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@statistic-title-font-size` | `titleFontSize` | - |
-| `@statistic-content-font-size` | `contentFontSize` | - |
-| `@statistic-font-family` | `fontFamily` | GlobalToken |
+| `@statistic-title-font-size` | `statisticTitleFontSize` | - |
+| `@statistic-content-font-size` | `statisticContentFontSize` | - |
+| `@statistic-font-family` | `statisticFontFamily` | - |
 
-### Step
+## Step
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@process-tail-color` | `colorSplit` | GlobalToken |
-| `@steps-nav-arrow-color` | `navArrowColor` | - |
-| `@steps-background` | `colorBgContainer` | - |
-| `@steps-icon-size` | `iconSize` | - |
-| `@steps-icon-custom-size` | `customIconSize` | - |
-| `@steps-icon-custom-top` | `customIconTop` | - |
-| `@steps-icon-custom-font-size` | `customIconFontSize` | - |
-| `@steps-icon-top` | `iconTop` | - |
-| `@steps-icon-font-size` | `iconFontSize` | - |
-| `@steps-icon-margin` | - | Deprecated |
-| `@steps-title-line-height` | `titleLineHeight` | - |
-| `@steps-small-icon-size` | `iconSizeSM` | - |
-| `@steps-small-icon-margin` | - | Deprecated |
-| `@steps-dot-size` | `dotSize` | - |
-| `@steps-dot-top` | - | Deprecated |
-| `@steps-current-dot-size` | `dotCurrentSize` | - |
-| `@steps-description-max-width` | `descriptionMaxWidth` | - |
-| `@steps-nav-content-max-width` | `stepsNavContentMaxWidth` | - |
-| `@steps-vertical-icon-width` | `iconSize` | - |
-| `@steps-vertical-tail-width` | - | Deprecated |
-| `@steps-vertical-tail-width-sm` | - | Deprecated |
+| `@process-tail-color` | `processTailColor` | - |
+| `@steps-nav-arrow-color` | `stepsNavArrowColor` | - |
+| `@steps-background` | - | Deprecated for style change |
+| `@steps-icon-size` | `stepsIconSize` | - |
+| `@steps-icon-custom-size` | `stepsIconCustomSize` | - |
+| `@steps-icon-custom-top` | `stepsIconCustomTop` | - |
+| `@steps-icon-custom-font-size` | `stepsIconCustomFontSize` | - |
+| `@steps-icon-top` | `stepsIconTop` | - |
+| `@steps-icon-font-size` | `stepsIconFontSize` | - |
+| `@steps-icon-margin` | - | Deprecated for style change |
+| `@steps-title-line-height` | `stepsTitleLineHeight` | - |
+| `@steps-small-icon-size` | `stepsSmallIconSize` | - |
+| `@steps-small-icon-margin` | - | Deprecated for style change |
+| `@steps-dot-size` | `stepsDotSize` | - |
+| `@steps-dot-top` | - | Deprecated for style change |
+| `@steps-current-dot-size` | `stepsCurrentDotSize` | - |
+| `@steps-description-max-width` | `stepsNavContentMaxWidth` | - |
+| `@steps-nav-content-max-width` | - | Deprecated for style change |
+| `@steps-vertical-icon-width` | - | Deprecated for style change |
+| `@steps-vertical-tail-width` | - | Deprecated for style change |
+| `@steps-vertical-tail-width-sm` | - | Deprecated for style change |
 
 <!-- ### Switch -->
 

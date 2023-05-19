@@ -11,6 +11,7 @@ Ant Design 的 CSS-in-JS 默认通过 `:where` 选择器降低 CSS Selector 优�
 
 ```tsx
 import { StyleProvider } from '@ant-design/cssinjs';
+import React from 'react';
 
 // `hashPriority` 默认为 `low`，配置为 `high` 后，
 // 会移除 `:where` 选择器封装
@@ -30,20 +31,7 @@ export default () => (
     }
 ```
 
-注意：关闭 `:where` 降权后，你可能需要手动调整一些样式的优先级。亦或者**使用 PostCSS 插件**提升应用样式的优先级，PostCSS 提供了非常多的插件来调整优先级，你可以自行按需选择，例如：
-
-- [postcss-scopify](https://www.npmjs.com/package/postcss-scopify)
-- [postcss-increase-specificity](https://www.npmjs.com/package/postcss-increase-specificity)
-- [postcss-add-root-selector](https://www.npmjs.com/package/postcss-add-root-selector)
-
-通过插件配置，将你的 css 样式进行提升：
-
-```diff
---  .my-btn {
-++  #root .my-btn {
-      background: red;
-    }
-```
+注意：关闭 `:where` 降权后，你可能需要手动调整一些样式的优先级。
 
 ### CSS 逻辑属性
 
@@ -51,6 +39,7 @@ export default () => (
 
 ```tsx
 import { StyleProvider, legacyLogicalPropertiesTransformer } from '@ant-design/cssinjs';
+import React from 'react';
 
 // `transformers` 提供预处理功能将样式进行转换
 export default () => (

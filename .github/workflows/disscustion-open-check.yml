@@ -1,0 +1,25 @@
+name: Discussions
+
+on:
+  discussion:
+    types: [created]
+
+permissions:
+  contents: read
+
+jobs:
+  discussion-create:
+    permissions:
+      contents: read  # for visiky/dingtalk-release-notify to get latest release
+    runs-on: ubuntu-latest
+    steps:
+      - name: send to dingtalk
+        uses: visiky/dingtalk-release-notify@main
+        with:
+          DING_TALK_TOKEN: |
+            ${{ secrets.DINGDING_BOT_TOKEN }}
+            ${{ secrets.DINGDING_BOT_COLLABORATOR_TOKEN }}
+          notify_title: '🔥 @${{ github.event.discussion.user.login }} 创建了讨论：${{ github.event.discussion.title }}'
+          notify_body: '### 🔥 @${{ github.event.discussion.user.login }} 创建了讨论：[${{ github.event.discussion.title }}](${{ github.event.discussion.html_url }}) <hr /> ![](https://gw.alipayobjects.com/zos/antfincdn/5Cl2G7JjF/jieping2022-03-20%252520xiawu11.06.04.png)'
+          notify_footer: '> 💬 欢迎前往 GitHub 进行讨论，社区可能需要你的帮助。'
+          at_all: false # whether to ding everybody

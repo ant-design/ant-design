@@ -10,7 +10,7 @@ Array [
   />,
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
@@ -29,7 +29,7 @@ Array [
         >
           <div
             class="ant-qrcode ant-qrcode-borderless"
-            style="width: 160px; height: 160px; background-color: transparent;"
+            style="width: 160px; height: 160px;"
           >
             <canvas
               height="134"
@@ -54,7 +54,7 @@ exports[`renders components/qrcode/demo/base.tsx extend context correctly 1`] = 
   >
     <div
       class="ant-qrcode"
-      style="width: 160px; height: 160px; background-color: transparent;"
+      style="width: 160px; height: 160px;"
     >
       <canvas
         height="134"
@@ -87,7 +87,7 @@ exports[`renders components/qrcode/demo/customColor.tsx extend context correctly
   >
     <div
       class="ant-qrcode"
-      style="width: 160px; height: 160px; background-color: transparent;"
+      style="margin-bottom: 16px; background-color: rgb(245, 245, 245); width: 160px; height: 160px;"
     >
       <canvas
         height="134"
@@ -101,7 +101,7 @@ exports[`renders components/qrcode/demo/customColor.tsx extend context correctly
   >
     <div
       class="ant-qrcode"
-      style="width: 160px; height: 160px; background-color: rgb(245, 245, 245);"
+      style="margin-bottom: 16px; background-color: rgb(245, 245, 245); width: 160px; height: 160px;"
     >
       <canvas
         height="134"
@@ -190,7 +190,7 @@ Array [
   </div>,
   <div
     class="ant-qrcode"
-    style="width: 160px; height: 160px; background-color: transparent;"
+    style="width: 160px; height: 160px;"
   >
     <canvas
       height="134"
@@ -211,7 +211,7 @@ exports[`renders components/qrcode/demo/download.tsx extend context correctly 1`
 >
   <div
     class="ant-qrcode"
-    style="margin-bottom: 16px; width: 160px; height: 160px; background-color: transparent;"
+    style="margin-bottom: 16px; width: 160px; height: 160px;"
   >
     <canvas
       height="134"
@@ -234,7 +234,7 @@ exports[`renders components/qrcode/demo/errorlevel.tsx extend context correctly 
 Array [
   <div
     class="ant-qrcode"
-    style="margin-bottom: 16px; width: 160px; height: 160px; background-color: transparent;"
+    style="margin-bottom: 16px; width: 160px; height: 160px;"
   >
     <canvas
       height="134"
@@ -313,7 +313,7 @@ Array [
 exports[`renders components/qrcode/demo/icon.tsx extend context correctly 1`] = `
 <div
   class="ant-qrcode"
-  style="width: 160px; height: 160px; background-color: transparent;"
+  style="width: 160px; height: 160px;"
 >
   <canvas
     height="134"
@@ -338,7 +338,7 @@ exports[`renders components/qrcode/demo/status.tsx extend context correctly 1`] 
   >
     <div
       class="ant-qrcode"
-      style="width: 160px; height: 160px; background-color: transparent;"
+      style="width: 160px; height: 160px;"
     >
       <div
         class="ant-qrcode-mask"
@@ -379,7 +379,7 @@ exports[`renders components/qrcode/demo/status.tsx extend context correctly 1`] 
   >
     <div
       class="ant-qrcode"
-      style="width: 160px; height: 160px; background-color: transparent;"
+      style="width: 160px; height: 160px;"
     >
       <div
         class="ant-qrcode-mask"
