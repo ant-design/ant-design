@@ -8,16 +8,16 @@ Click `TimePicker`, and then we could select or input a time in panel.
 
 ```tsx
 import { TimePicker } from 'antd';
-import type { Moment } from 'moment';
-import moment from 'moment';
+import type { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import React from 'react';
 
-const onChange = (time: Moment, timeString: string) => {
+const onChange = (time: Dayjs, timeString: string) => {
   console.log(time, timeString);
 };
 
 const App: React.FC = () => (
-  <TimePicker format="kk:mm" onChange={onChange} defaultOpenValue={moment()} />
+  <TimePicker format="kk:mm" onChange={onChange} defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')} />
 );
 
 export default App;
