@@ -1,5 +1,5 @@
 import { AntDesignOutlined, UserOutlined } from '@ant-design/icons';
-import { Avatar, ConfigProvider, Space, Tooltip } from 'antd';
+import { Avatar, Badge, ConfigProvider, Space, Tooltip } from 'antd';
 import React from 'react';
 
 const App: React.FC = () => (
@@ -8,17 +8,17 @@ const App: React.FC = () => (
       components: {
         Avatar: {
           size: 60,
-          avatarSizeLG: 30,
-          avatarSizeSM: 16,
+          sizeLG: 30,
+          sizeSM: 16,
 
-          avatarFontSizeBase: 18,
-          avatarFontSizeLG: 28,
-          avatarFontSizeSM: 12,
+          fontSize: 18,
+          fontSizeLG: 28,
+          fontSizeSM: 12,
 
-          avatarBorderRadius: 10,
+          borderRadius: 10,
           avatarBg: '#fde3cf',
           avatarColor: '#a3323d',
-          groupSpace: -10,
+          groupOverlapping: -10,
           groupBorderColor: '#eee',
         },
       },
@@ -28,18 +28,25 @@ const App: React.FC = () => (
       <Avatar shape="circle" src="http://abc.com/not-exist.jpg">
         A
       </Avatar>
-      <Avatar shape="circle" src="http://abc.com/not-exist.jpg">
-        ABC
-      </Avatar>
     </Space>
-    <Avatar.Group maxCount={2} maxStyle={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
-      <Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2" />
-      <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
-      <Tooltip title="Ant User" placement="top">
-        <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
-      </Tooltip>
-      <Avatar style={{ backgroundColor: '#1890ff' }} icon={<AntDesignOutlined />} />
-    </Avatar.Group>
+    <Space>
+      <Avatar.Group maxCount={2} maxStyle={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
+        <Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2" />
+        <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
+        <Tooltip title="Ant User" placement="top">
+          <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
+        </Tooltip>
+        <Avatar style={{ backgroundColor: '#1890ff' }} icon={<AntDesignOutlined />} />
+      </Avatar.Group>
+    </Space>
+    <Space>
+      <Badge count={1}>
+        <Avatar shape="square" icon={<UserOutlined />} />
+      </Badge>
+      <Badge dot>
+        <Avatar shape="square" icon={<UserOutlined />} />
+      </Badge>
+    </Space>
   </ConfigProvider>
 );
 
