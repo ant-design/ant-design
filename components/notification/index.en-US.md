@@ -45,7 +45,7 @@ To display a notification message at any of the four corners of the viewport. Ty
 The properties of config are as follows:
 
 | Property | Description | Type | Default |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | btn | Customized close button | ReactNode | - |
 | className | Customized CSS class | string | - |
 | closeIcon | Custom close icon | ReactNode | - |
@@ -56,7 +56,7 @@ The properties of config are as follows:
 | message | The title of notification box (required) | ReactNode | - |
 | placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
 | style | Customized inline style | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
-| role | The semantics of notification content recognized by screen readers. The default value is `alert`. When set as the default value, the screen reader will promptly interrupt any ongoing content reading and prioritize the notification content for immediate attention. | `alert \| status` | `alert` |
+| role | The semantics of notification content recognized by screen readers. The default value is `alert`. When set as the default value, the screen reader will promptly interrupt any ongoing content reading and prioritize the notification content for immediate attention. | `alert \| status` | `alert` | 5.6.0 |
 | onClick | Specify a function that will be called when the notification is clicked | function | - |
 | onClose | Trigger when notification closed | function | - |
 | props | An object that can contain `data-*`, `aria-*`, or `role` props, to be put on the notification `div`. This currently only allows `data-testid` instead of `data-*` in TypeScript. See https://github.com/microsoft/TypeScript/issues/28960. | Object | - |
