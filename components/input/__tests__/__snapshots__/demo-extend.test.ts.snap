@@ -9885,7 +9885,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
               aria-label="audio"
               class="anticon anticon-audio"
               role="img"
-              style="font-size: 16px; color: rgb(24, 144, 255);"
+              style="font-size: 16px; color: rgb(22, 119, 255);"
             >
               <svg
                 aria-hidden="true"
