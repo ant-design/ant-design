@@ -1,12 +1,9 @@
-import type {
-  ColorPickerPanelProps as RcColorPickerPanelProps,
-  TriggerPlacement,
-  TriggerType,
-} from '@rc-component/color-picker';
+import type { ColorPickerProps as RcColorPickerProps } from '@rc-component/color-picker';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties } from 'react';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import genPurePanel from '../_util/PurePanel';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import type { PopoverProps } from '../popover';
@@ -16,16 +13,18 @@ import ColorPickerPanel from './ColorPickerPanel';
 import type { Color } from './color';
 import ColorTrigger from './components/ColorTrigger';
 import useColorState from './hooks/useColorState';
-import type { ColorFormat, ColorPickerBaseProps, PresetsItem } from './interface';
+import type {
+  ColorFormat,
+  ColorPickerBaseProps,
+  PresetsItem,
+  TriggerPlacement,
+  TriggerType,
+} from './interface';
 import useStyle from './style/index';
 import { customizePrefixCls, generateColor } from './util';
-import genPurePanel from '../_util/PurePanel';
 
 export interface ColorPickerProps
-  extends Omit<
-    RcColorPickerPanelProps,
-    'onChange' | 'arrow' | 'value' | 'defaultValue' | 'children' | 'panelRender'
-  > {
+  extends Omit<RcColorPickerProps, 'onChange' | 'value' | 'defaultValue' | 'panelRender'> {
   value?: Color | string;
   defaultValue?: Color | string;
   children?: React.ReactNode;
@@ -37,15 +36,13 @@ export interface ColorPickerProps
   allowClear?: boolean;
   presets?: PresetsItem[];
   arrow?: boolean | { pointAtCenter: boolean };
-  prefixCls?: string;
-  className?: string;
-  style?: CSSProperties;
   styles?: { popup?: CSSProperties };
   rootClassName?: string;
   onOpenChange?: (open: boolean) => void;
   onFormatChange?: (format: ColorFormat) => void;
   onChange?: (value: Color, hex: string) => void;
   getPopupContainer?: PopoverProps['getPopupContainer'];
+  autoAdjustOverflow?: PopoverProps['autoAdjustOverflow'];
 }
 
 type CompoundedComponent = React.FC<ColorPickerProps> & {
@@ -73,6 +70,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     onChange,
     onOpenChange,
     getPopupContainer,
+    autoAdjustOverflow = true,
   } = props;
 
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -87,7 +85,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     postState: (openData) => !disabled && openData,
     onChange: onOpenChange,
   });
-  const [clearColor, setClearColor] = useState(false);
+  const [colorCleared, setColorCleared] = useState(false);
 
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
@@ -99,8 +97,8 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const handleChange = (data: Color) => {
     const color: Color = generateColor(data);
-    if (clearColor && color.toHsb().a > 0) {
-      setClearColor(false);
+    if (colorCleared && color.toHsb().a > 0) {
+      setColorCleared(false);
     }
     if (!value) {
       setColorValue(color);
@@ -109,7 +107,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   };
 
   const handleClear = (clear: boolean) => {
-    setClearColor(clear);
+    setColorCleared(clear);
   };
 
   const popoverProps: PopoverProps = {
@@ -119,18 +117,25 @@ const ColorPicker: CompoundedComponent = (props) => {
     arrow,
     rootClassName,
     getPopupContainer,
+    autoAdjustOverflow,
   };
 
   const colorBaseProps: ColorPickerBaseProps = {
     prefixCls,
     color: colorValue,
     allowClear,
-    clearColor,
+    colorCleared,
     disabled,
     presets,
     format,
     onFormatChange,
   };
+
+  useEffect(() => {
+    if (colorCleared) {
+      setPopupOpen(false);
+    }
+  }, [colorCleared]);
 
   return wrapSSR(
     <Popover
@@ -149,8 +154,8 @@ const ColorPicker: CompoundedComponent = (props) => {
           style={style}
           color={colorValue}
           prefixCls={prefixCls}
-          clearColor={clearColor}
           disabled={disabled}
+          colorCleared={colorCleared}
         />
       )}
     </Popover>,
@@ -161,7 +166,17 @@ if (process.env.NODE_ENV !== 'production') {
   ColorPicker.displayName = 'ColorPicker';
 }
 
-const PurePanel = genPurePanel(ColorPicker, 'color-picker', (prefixCls) => prefixCls);
+const PurePanel = genPurePanel(
+  ColorPicker,
+  'color-picker',
+  /* istanbul ignore next */
+  (prefixCls) => prefixCls,
+  (props: ColorPickerProps) => ({
+    ...props,
+    placement: 'bottom' as TriggerPlacement,
+    autoAdjustOverflow: false,
+  }),
+);
 
 ColorPicker._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 

@@ -3599,7 +3599,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
               aria-label="audio"
               class="anticon anticon-audio"
               role="img"
-              style="font-size:16px;color:#1890ff"
+              style="font-size:16px;color:#1677ff"
             >
               <svg
                 aria-hidden="true"

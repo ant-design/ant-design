@@ -10,16 +10,17 @@ group:
   title: Data Entry
 ---
 
-Components providing color selection
+Components providing color selection, Available since `5.5.0`.
 
 ## When To Use
 
-Used when the user needs to customize the color selection
+Used when the user needs to customize the color selection.
 
 ## Examples
 
 <!-- prettier-ignore -->
 <code src="./demo/base.tsx">Basic Usage</code>
+<code src="./demo/controlled.tsx">controlled mode</code>
 <code src="./demo/disabled.tsx" debug>Disable</code>
 <code src="./demo/allowClear.tsx">Clear Color</code>
 <code src="./demo/trigger.tsx">Custom Trigger</code>
@@ -29,7 +30,7 @@ Used when the user needs to customize the color selection
 
 ## API
 
-> This component is available since antd@5.5.0
+> This component is available since `antd@5.5.0`.
 
 <!-- prettier-ignore -->
 | Property | Description | Type | Default |
@@ -47,7 +48,7 @@ Used when the user needs to customize the color selection
 | onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - |
 | disabled | Disable ColorPicker | boolean | - |
 | placement | Placement of popup | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` |
-| arrow | Configuration for popup arrow | boolean | `{ pointAtCenter: boolean }` | - |
+| arrow | Configuration for popup arrow | `boolean \| { pointAtCenter: boolean }` | `true` | - |
 
 ### Color
 

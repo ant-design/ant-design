@@ -4814,9 +4814,13 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                                     </span>
                                   </span>
                                   <div
-                                    class="ant-popconfirm-message-title"
+                                    class="ant-popconfirm-message-text"
                                   >
-                                    Sure to delete?
+                                    <div
+                                      class="ant-popconfirm-title"
+                                    >
+                                      Sure to delete?
+                                    </div>
                                   </div>
                                 </div>
                                 <div
@@ -4924,9 +4928,13 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                                     </span>
                                   </span>
                                   <div
-                                    class="ant-popconfirm-message-title"
+                                    class="ant-popconfirm-message-text"
                                   >
-                                    Sure to delete?
+                                    <div
+                                      class="ant-popconfirm-title"
+                                    >
+                                      Sure to delete?
+                                    </div>
                                   </div>
                                 </div>
                                 <div

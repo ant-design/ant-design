@@ -113,11 +113,16 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                style="padding:4px;background:#fff;border-radius:2px;border:1px solid #dedede;display:inline-block;cursor:pointer"
+                class="ant-color-picker-trigger"
               >
                 <div
-                  style="width:36px;height:14px;border-radius:2px;background:rgba(0, 0, 0, 0.15)"
-                />
+                  class="ant-color-picker-color-block"
+                >
+                  <div
+                    class="ant-color-picker-color-block-inner"
+                    style="background:rgba(0, 0, 0, 0.15)"
+                  />
+                </div>
               </div>
             </div>
           </div>

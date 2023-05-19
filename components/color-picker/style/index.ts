@@ -1,10 +1,10 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import genPickerStyle from './picker';
-import genInputStyle from './input';
-import genPresetsStyle from './presets';
 import genColorBlockStyle from './color-block';
+import genInputStyle from './input';
+import genPickerStyle from './picker';
+import genPresetsStyle from './presets';
 
 export interface ComponentToken {}
 
@@ -137,7 +137,7 @@ export default genComponentStyleHook('ColorPicker', (token) => {
 
   const colorPickerSliderHeight = 8;
 
-  const ColorPickerToken = mergeToken<ColorPickerToken>(token, {
+  const colorPickerToken = mergeToken<ColorPickerToken>(token, {
     colorPickerWidth: 234,
     colorPickerHandlerSize: 16,
     colorPickerHandlerSizeSM: 12,
@@ -149,5 +149,5 @@ export default genComponentStyleHook('ColorPicker', (token) => {
     colorPickerPreviewSize: colorPickerSliderHeight * 2 + marginSM,
   });
 
-  return [genColorPickerStyle(ColorPickerToken)];
+  return [genColorPickerStyle(colorPickerToken)];
 });

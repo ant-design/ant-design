@@ -20,7 +20,7 @@ const App: React.FC = () => (
     okText="Yes"
     cancelText="No"
   >
-    <Button type="link">Delete</Button>
+    <Button danger>Delete</Button>
   </Popconfirm>
 );
 

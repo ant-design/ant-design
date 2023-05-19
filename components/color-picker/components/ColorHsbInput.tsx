@@ -14,7 +14,7 @@ interface ColorHsbInputProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
 
 const ColorHsbInput: FC<ColorHsbInputProps> = ({ prefixCls, value, onChange }) => {
   const colorHsbInputPrefixCls = `${prefixCls}-hsb-input`;
-  const [hsbValue, setHsbValue] = useState(generateColor(value || '#000'));
+  const [hsbValue, setHsbValue] = useState<Color>(generateColor(value || '#000'));
 
   // Update step value
   useEffect(() => {

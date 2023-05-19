@@ -1,4 +1,4 @@
-import { ColorPickerPanel as RcColorPickerPanel } from '@rc-component/color-picker';
+import RcColorPicker from '@rc-component/color-picker';
 import type { FC } from 'react';
 import React from 'react';
 import Divider from '../divider';
@@ -31,28 +31,17 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
         />
       )}
       {panel}
-      <ColorInput
-        value={color}
-        onChange={(value) => onChange?.(value)}
-        prefixCls={prefixCls}
-        {...injectProps}
-      />
-
+      <ColorInput value={color} onChange={onChange} prefixCls={prefixCls} {...injectProps} />
       {Array.isArray(presets) && (
         <>
           <Divider className={`${colorPickerPanelPrefixCls}-divider`} />
-          <ColorPresets
-            value={color}
-            presets={presets}
-            onChange={(value) => onChange?.(value)}
-            prefixCls={prefixCls}
-          />
+          <ColorPresets value={color} presets={presets} prefixCls={prefixCls} onChange={onChange} />
         </>
       )}
     </div>
   );
   return (
-    <RcColorPickerPanel
+    <RcColorPicker
       prefixCls={prefixCls}
       value={color?.toHsb()}
       onChange={onChange}
@@ -60,4 +49,9 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
     />
   );
 };
+
+if (process.env.NODE_ENV !== 'production') {
+  ColorPickerPanel.displayName = 'ColorPickerPanel';
+}
+
 export default ColorPickerPanel;

@@ -18,7 +18,7 @@ const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, onChange }) => {
       onChange?.(genColor);
     }
   };
-
   return <div className={`${prefixCls}-clear`} onClick={handleClick} />;
 };
+
 export default ColorClear;

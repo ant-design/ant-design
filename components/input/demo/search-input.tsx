@@ -1,6 +1,6 @@
-import React from 'react';
 import { AudioOutlined } from '@ant-design/icons';
 import { Input, Space } from 'antd';
+import React from 'react';
 
 const { Search } = Input;
 
@@ -8,7 +8,7 @@ const suffix = (
   <AudioOutlined
     style={{
       fontSize: 16,
-      color: '#1890ff',
+      color: '#1677ff',
     }}
   />
 );

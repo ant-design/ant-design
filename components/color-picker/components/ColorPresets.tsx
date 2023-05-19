@@ -1,8 +1,8 @@
+import { ColorBlock } from '@rc-component/color-picker';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { FC } from 'react';
 import React, { useMemo } from 'react';
-import { ColorBlock } from '@rc-component/color-picker';
 import Collapse from '../../collapse';
 import { useLocale } from '../../locale';
 import type { Color } from '../color';
@@ -39,7 +39,7 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
   });
   const colorPresetsPrefixCls = `${prefixCls}-presets`;
 
-  const activeKey = useMemo(
+  const activeKeys = useMemo<string[]>(
     () => presetsValue.map((preset) => `panel-${preset.label}`),
     [presetsValue],
   );
@@ -50,14 +50,14 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
 
   return (
     <div className={colorPresetsPrefixCls}>
-      <Collapse defaultActiveKey={activeKey} ghost>
+      <Collapse defaultActiveKey={activeKeys} ghost>
         {presetsValue.map((preset) => (
           <Panel
             header={<div className={`${colorPresetsPrefixCls}-label`}>{preset?.label}</div>}
             key={`panel-${preset?.label}`}
           >
             <div className={`${colorPresetsPrefixCls}-items`}>
-              {Array.isArray(preset?.colors) && preset?.colors.length ? (
+              {Array.isArray(preset?.colors) && preset.colors?.length > 0 ? (
                 preset.colors.map((presetColor: Color) => (
                   <ColorBlock
                     key={`preset-${presetColor.toHexString()}`}
@@ -81,4 +81,5 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
     </div>
   );
 };
+
 export default ColorPresets;

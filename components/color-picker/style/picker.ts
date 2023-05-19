@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle } from '../../theme/internal';
+import genColorBlockStyle, { getTransBg } from './color-block';
 import type { ColorPickerToken } from './index';
-import genColorBlockStyle from './color-block';
 
 const genPickerStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
   const {
@@ -41,6 +41,7 @@ const genPickerStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
       border: `${lineWidthBold}px solid ${colorBgElevated}`,
       position: 'relative',
       borderRadius: '50%',
+      cursor: 'pointer',
       boxShadow: `${colorPickerInsetShadow}, 0 0 0 1px ${colorFillSecondary}`,
       '&-sm': {
         width: colorPickerHandlerSizeSM,
@@ -57,11 +58,7 @@ const genPickerStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
         borderRadius: colorPickerSliderHeight / 2,
         boxShadow: colorPickerInsetShadow,
       },
-      '&-alpha': {
-        backgroundSize: colorPickerSliderHeight * 2,
-        backgroundImage:
-          'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAFpJREFUWAntljEKADAIA23p6v//qQ+wfUEcCu1yriEgp0FHRJSJcnehmmWm1Dv/lO4HIg1AAAKjTqm03ea88zMCCEDgO4HV5bS757f+7wRoAAIQ4B9gByAAgQ3pfiDmXmAeEwAAAABJRU5ErkJggg==")',
-      },
+      '&-alpha': getTransBg(`${colorPickerSliderHeight}px`),
       marginBottom: marginSM,
     },
 
