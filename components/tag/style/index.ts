@@ -66,7 +66,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       marginInlineEnd: token.marginXS,
       paddingInline,
       fontSize: token.fontSizeSM,
-      lineHeight: `${token.lineHeight}px`,
+      lineHeight: token.lineHeight,
       whiteSpace: 'nowrap',
       background: token.defaultBg,
       border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
