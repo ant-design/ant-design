@@ -7,8 +7,8 @@ author: zombieJ
 Recently we encountered an [issue](https://github.com/ant-design/ant-design/issues/39427), saying that when `contextHolder` of `Modal.useModal` is placed in different positions, `modal.confirm` popup location will be different:
 
 ```tsx
-import { Button, Modal } from 'antd';
 import React from 'react';
+import { Button, Modal } from 'antd';
 
 export default () => {
   const [modal, contextHolder] = Modal.useModal();

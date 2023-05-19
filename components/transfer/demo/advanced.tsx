@@ -42,9 +42,7 @@ const App: React.FC = () => {
 
   const renderFooter = (
     _: TransferListProps<any>,
-    {
-      direction,
-    }: {
+    { direction }: {
       direction: TransferDirection;
     },
   ) => {

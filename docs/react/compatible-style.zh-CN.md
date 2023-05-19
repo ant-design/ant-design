@@ -11,7 +11,6 @@ Ant Design 的 CSS-in-JS 默认通过 `:where` 选择器降低 CSS Selector 优�
 
 ```tsx
 import { StyleProvider } from '@ant-design/cssinjs';
-import React from 'react';
 
 // `hashPriority` 默认为 `low`，配置为 `high` 后，
 // 会移除 `:where` 选择器封装
@@ -52,7 +51,6 @@ export default () => (
 
 ```tsx
 import { StyleProvider, legacyLogicalPropertiesTransformer } from '@ant-design/cssinjs';
-import React from 'react';
 
 // `transformers` 提供预处理功能将样式进行转换
 export default () => (

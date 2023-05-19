@@ -7,8 +7,8 @@ author: zombieJ
 最近我们遇到了一个 [issue](https://github.com/ant-design/ant-design/issues/39427)，说是 `Modal.useModal` 的 `contextHolder` 在放置不同的位置时，`modal.confirm` 弹出位置会不一样：
 
 ```tsx
-import { Button, Modal } from 'antd';
 import React from 'react';
+import { Button, Modal } from 'antd';
 
 export default () => {
   const [modal, contextHolder] = Modal.useModal();

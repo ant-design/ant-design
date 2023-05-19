@@ -11,7 +11,6 @@ Ant Design default using CSS-in-JS with `:where` Selector to reduce priority to 
 
 ```tsx
 import { StyleProvider } from '@ant-design/cssinjs';
-import React from 'react';
 
 // Config `hashPriority` to `high` instead of default `low`
 // Which will remove `:where` wrapper
@@ -52,7 +51,6 @@ To unify LTR and RTL styles, Ant Design uses CSS logical properties. For example
 
 ```tsx
 import { StyleProvider, legacyLogicalPropertiesTransformer } from '@ant-design/cssinjs';
-import React from 'react';
 
 // `transformers` provides a way to transform CSS properties
 export default () => (
