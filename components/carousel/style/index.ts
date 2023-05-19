@@ -345,13 +345,16 @@ export default genComponentStyleHook(
     ];
   },
   () => {
-    const dotWidthActive = 24;
+    const dotActiveWidth = 24;
 
     return {
       dotWidth: 16,
       dotHeight: 3,
-      dotWidthActive,
-      dotActiveWidth: dotWidthActive,
+      dotWidthActive: dotActiveWidth,
+      dotActiveWidth,
     };
+  },
+  {
+    deprecatedTokens: [['dotWidthActive', 'dotActiveWidth']],
   },
 );
