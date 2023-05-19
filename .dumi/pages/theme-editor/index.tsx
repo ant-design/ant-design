@@ -3,7 +3,7 @@ import { Button, ConfigProvider, Modal, Spin, Typography, message } from 'antd';
 import { ThemeEditor, enUS, zhCN } from 'antd-token-previewer';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
 import { Helmet } from 'dumi';
-import React, { Suspense, useCallback, useEffect, useLayoutEffect, useState } from 'react';
+import React, { Suspense, useCallback, useLayoutEffect, useState } from 'react';
 import type { JSONContent, TextContent } from 'vanilla-jsoneditor';
 import useLocale from '../../hooks/useLocale';
 
@@ -67,20 +67,13 @@ const CustomTheme = () => {
   useLayoutEffect(() => {
     const storedConfig = localStorage.getItem(ANT_DESIGN_V5_THEME_EDITOR_THEME);
     if (storedConfig) {
-      setTheme(() => JSON.parse(storedConfig));
+      const originThemeConfig = {
+        json: JSON.parse(storedConfig),
+        text: undefined,
+      };
+      setThemeConfigContent(originThemeConfig);
     }
   }, []);
-
-  useEffect(() => {
-    if (editModelOpen === true) {
-      setThemeConfigContent(themeConfigContent);
-      return;
-    }
-    setThemeConfigContent({
-      json: theme as any,
-      text: undefined,
-    });
-  }, [theme, editModelOpen]);
 
   const styles = useStyle();
 
@@ -98,12 +91,8 @@ const CustomTheme = () => {
   }, [themeConfigContent]);
 
   const handleEditConfigChange = (newcontent, preContent, status) => {
-    if (status.contentErrors) {
-      setEditThemeFormatRight(false);
-    } else {
-      setEditThemeFormatRight(true);
-      setThemeConfigContent(newcontent);
-    }
+    setThemeConfigContent(newcontent);
+    setEditThemeFormatRight(!status.contentErrors);
   };
 
   const editSave = useCallback(() => {
