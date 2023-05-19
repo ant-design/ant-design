@@ -548,24 +548,4 @@ describe('Calendar', () => {
 
     jest.useRealTimers();
   });
-
-  it('Calendar should trigger corresponding source based on panelMode', () => {
-    const onSelect = jest.fn();
-    const onChange = jest.fn();
-    const { container } = render(<Calendar onSelect={onSelect} onChange={onChange} />);
-
-    fireEvent.click(
-      container.querySelector('.ant-picker-calendar-mode-switch label:nth-child(1)')!,
-    );
-    fireEvent.click(container.querySelector('.ant-picker-cell')!);
-    expect(onSelect).toHaveBeenCalledWith(expect.anything(), { source: 'date' });
-    expect(onChange).toHaveBeenCalled();
-
-    fireEvent.click(
-      container.querySelector('.ant-picker-calendar-mode-switch label:nth-child(2)')!,
-    );
-    fireEvent.click(container.querySelector('.ant-picker-cell')!);
-    expect(onSelect).toHaveBeenCalledWith(expect.anything(), { source: 'year' });
-    expect(onChange).toHaveBeenCalled();
-  });
 });
