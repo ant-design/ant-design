@@ -13,7 +13,16 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Alert -->
 
-<!-- ### Anchor -->
+## Anchor
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@anchor-bg` | '-' | Can be modified directly by `className` or `style` |
+| `@anchor-border-color` | `colorSplit` | GlobalToken |
+| `@anchor-link-top` | `linkPaddingBlock` | - |
+| `@anchor-link-left` | `linkPaddingInlineStart` | - |
+| `@anchor-link-padding` | - | `${linkPaddingBlock}px ${linkPaddingInlineStart}px` |
 
 <!-- ### Avatar -->
 
@@ -50,7 +59,14 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Card -->
 
-<!-- ### Carousel -->
+## Carousel
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@carousel-dot-width` | `dotWidth` | - |
+| `@carousel-dot-height` | `dotHeight` | - |
+| `@carousel-dot-active-width` | `dotActiveWidth` | - |
 
 <!-- ### Cascader -->
 
