@@ -50,7 +50,14 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Card -->
 
-<!-- ### Carousel -->
+## Carousel
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@carousel-dot-width` | `dotWidth` | - |
+| `@carousel-dot-height` | `dotHeight` | - |
+| `@carousel-dot-active-width` | `dotActiveWidth` | - |
 
 <!-- ### Cascader -->
 

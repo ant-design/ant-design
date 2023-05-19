@@ -50,7 +50,14 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Card 卡片 -->
 
-<!-- ### Carousel 走马灯 -->
+## Carousel 走马灯
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@carousel-dot-width` | `dotWidth` | - |
+| `@carousel-dot-height` | `dotHeight` | - |
+| `@carousel-dot-active-width` | `dotActiveWidth` | - |
 
 <!-- ### Cascader 级联选择 -->
 
