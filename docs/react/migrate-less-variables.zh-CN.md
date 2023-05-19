@@ -13,7 +13,16 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Alert 警告提示 -->
 
-<!-- ### Anchor 锚点 -->
+## Anchor 锚点
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@anchor-bg` | - | 可以由 `className` 或 `style` 直接修改 |
+| `@anchor-border-color` | `colorSplit` | 全局 Token |
+| `@anchor-link-top` | `linkPaddingBlock` | - |
+| `@anchor-link-left` | `linkPaddingInlineStart` | - |
+| `@anchor-link-padding` | - | `${linkPaddingBlock}px ${linkPaddingInlineStart}px` |
 
 <!-- ### Avatar 头像 -->
 
