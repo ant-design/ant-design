@@ -1,12 +1,11 @@
-import React, { useEffect, useRef } from 'react';
 import type { CSSProperties } from 'react';
+import React, { useEffect, useRef } from 'react';
 import type { InternalAffixClass } from '..';
 import Affix from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
-import { addObserveTarget, getObserverEntities } from '../utils';
 
 const events: Partial<Record<keyof HTMLElementEventMap, (ev: Partial<Event>) => void>> = {};
 
@@ -49,8 +48,6 @@ describe('Affix Render', () => {
 
   beforeEach(() => {
     jest.useFakeTimers();
-    const entities = getObserverEntities();
-    entities.splice(0, entities.length);
   });
 
   beforeAll(() => {
@@ -157,23 +154,6 @@ describe('Affix Render', () => {
       expect(affixInstance!.state.placeholderStyle).toBe(undefined);
     });
 
-    it('instance change', async () => {
-      const container = document.createElement('div');
-      document.body.appendChild(container);
-      let target: HTMLDivElement | null = container;
-
-      const getTarget = () => target;
-      const { rerender } = render(<Affix target={getTarget}>{null}</Affix>);
-      await waitFakeTimer();
-      expect(getObserverEntities()).toHaveLength(1);
-      expect(getObserverEntities()[0].target).toBe(container);
-
-      target = null;
-      rerender(<Affix>{null}</Affix>);
-      expect(getObserverEntities()).toHaveLength(1);
-      expect(getObserverEntities()[0].target).toBe(window);
-    });
-
     it('check position change before measure', async () => {
       const { container } = render(
         <>
@@ -263,12 +243,6 @@ describe('Affix Render', () => {
 
         expect(updateCalled).toHaveBeenCalled();
       });
-    });
-
-    it('addObserveTarget should not Throw Error when target is null', () => {
-      expect(() => {
-        addObserveTarget(null);
-      }).not.toThrow();
     });
   });
 });
