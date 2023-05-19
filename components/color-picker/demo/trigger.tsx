@@ -11,17 +11,17 @@ export default () => {
     [color],
   );
 
+  const divStyle: React.CSSProperties = {
+    width: token.sizeMD,
+    height: token.sizeMD,
+    borderRadius: token.borderRadiusSM,
+    backgroundColor: bgColor,
+  };
+
   return (
     <ColorPicker value={color} onChange={setColor}>
       <Space>
-        <div
-          style={{
-            width: token.sizeMD,
-            height: token.sizeMD,
-            borderRadius: token.borderRadiusSM,
-            backgroundColor: bgColor,
-          }}
-        />
+        <div style={divStyle} />
         <span>{bgColor}</span>
       </Space>
     </ColorPicker>

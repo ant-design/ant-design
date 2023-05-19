@@ -48,7 +48,7 @@ A card can be used to display content related to a single subject. The content c
 | loading | Shows a loading indicator while the contents of the card are being fetched | boolean | false |  |
 | size | Size of card | `default` \| `small` | `default` |  |
 | tabBarExtraContent | Extra content in tab bar | ReactNode | - |  |
-| tabList | List of TabPane's head | Array&lt;{key: string, tab: ReactNode}> | - |  |
+| tabList | List of TabPane's head | [TabItemType](/components/tabs#tabitemtype)[] | - |  |
 | tabProps | [Tabs](/components/tabs/#tabs) | - | - |  |
 | title | Card title | ReactNode | - |  |
 | type | Card style type, can be set to `inner` or not set | string | - |  |

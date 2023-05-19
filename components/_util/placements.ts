@@ -13,6 +13,7 @@ export interface PlacementsConfig {
   autoAdjustOverflow?: boolean | AdjustOverflow;
   offset: number;
   borderRadius: number;
+  visibleFirst?: boolean;
 }
 
 export function getOverflowOptions(
@@ -141,7 +142,8 @@ const DisableAutoArrowList: Set<keyof BuildInPlacements> = new Set([
 ]);
 
 export default function getPlacements(config: PlacementsConfig) {
-  const { arrowWidth, autoAdjustOverflow, arrowPointAtCenter, offset, borderRadius } = config;
+  const { arrowWidth, autoAdjustOverflow, arrowPointAtCenter, offset, borderRadius, visibleFirst } =
+    config;
   const halfArrowWidth = arrowWidth / 2;
 
   const placementMap: BuildInPlacements = {};
@@ -220,6 +222,11 @@ export default function getPlacements(config: PlacementsConfig) {
 
     // Overflow
     placementInfo.overflow = getOverflowOptions(key, arrowOffset, arrowWidth, autoAdjustOverflow);
+
+    // VisibleFirst
+    if (visibleFirst) {
+      placementInfo.htmlRegion = 'visibleFirst';
+    }
   });
 
   return placementMap;

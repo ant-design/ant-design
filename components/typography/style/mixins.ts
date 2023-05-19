@@ -11,8 +11,8 @@ import { gold } from '@ant-design/colors';
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { TypographyToken } from '.';
 import { initInputToken } from '../../input/style';
-import type { GenerateStyle } from '../../theme/internal';
 import { operationUnit } from '../../style';
+import type { GenerateStyle } from '../../theme/internal';
 
 // eslint-disable-next-line import/prefer-default-export
 const getTitleStyle = (
@@ -21,10 +21,10 @@ const getTitleStyle = (
   color: string,
   token: TypographyToken,
 ) => {
-  const { sizeMarginHeadingVerticalEnd, fontWeightStrong } = token;
+  const { titleMarginBottom, fontWeightStrong } = token;
 
   return {
-    marginBottom: sizeMarginHeadingVerticalEnd,
+    marginBottom: titleMarginBottom,
     color,
     fontWeight: fontWeightStrong,
     fontSize,

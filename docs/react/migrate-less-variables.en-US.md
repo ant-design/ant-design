@@ -19,11 +19,34 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Badge -->
 
-<!-- ### BreadCrumb -->
+### BreadCrumb 面包屑
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@breadcrumb-base-color` | `itemColor` | - |
+| `@breadcrumb-last-item-color` | `lastItemColor` | - |
+| `@breadcrumb-font-size` | `fontSize` | GlobalToken |
+| `@breadcrumb-icon-font-size` | `iconFontSize` | - |
+| `@breadcrumb-link-color` | `linkColor` | - |
+| `@breadcrumb-link-color-hover` | `linkHoverColor` | - |
+| `@breadcrumb-separator-color` | `separatorColor` | - |
+| `@breadcrumb-separator-margin` | `separatorMargin` | - |
 
 <!-- ### Button -->
 
-<!-- ### Calendar -->
+## Calendar
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@calendar-bg` | - | Deprecated for style change |
+| `@calendar-input-bg` | - | Deprecated for style change |
+| `@calendar-border-color` | - | Deprecated for style change |
+| `@calendar-item-active-bg` | `itemActiveBg` | - |
+| `@calendar-column-active-bg` | - | Deprecated for style change |
+| `@calendar-full-bg` | `fullBg` | - |
+| `@calendar-full-panel-bg` | `fullPanelBg` | - |
 
 <!-- ### Card -->
 
@@ -33,9 +56,36 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Checkbox -->
 
+## Checkbox
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@checkbox-size` | `controlInteractiveSize` | GlobalToken |
+| `@checkbox-color` | `colorPrimary` | - |
+| `@checkbox-check-color` | `colorWhite` | - |
+| `@checkbox-check-bg` | - | `colorPrimary` |
+| `@checkbox-border-width` | `lineWidth` | - |
+| `@checkbox-border-radius` | `borderRadiusSM` | - |
+| `@checkbox-group-item-margin-right` | - | Deprecated for style change |
+
 <!-- ### Collapse -->
 
-<!-- ### Descriptions -->
+### Descriptions
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@descriptions-bg` | `labelBg` | - |
+| `@descriptions-title-margin-bottom` | `titleMarginBottom` | - |
+| `@descriptions-default-padding` | `padding`、`paddingLG` | GlobalToken, used as `${token.padding}px ${token.paddingLG}px` |
+| `@descriptions-middle-padding` | `paddingSM`、`paddingLG` | GlobalToken, used as `${token.paddingSM}px ${token.paddingLG}px` |
+| `@descriptions-small-padding` | `paddingXS`、`padding` | GlobalToken, used as `${token.paddingXS}px ${token.padding}px` |
+| `@descriptions-item-padding-bottom` | `itemPaddingBottom` | - |
+| `@descriptions-item-trailing-colon` | - | Deprecated for style change |
+| `@descriptions-item-label-colon-margin-right` | `colonMarginRight` | - |
+| `@descriptions-item-label-colon-margin-left` | `colonMarginLeft` | - |
+| `@descriptions-extra-color` | `extraColor` | - |
 
 <!-- ### Divider -->
 
@@ -54,7 +104,12 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Dropdown -->
 
-<!-- ### Empty -->
+### Empty
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@empty-font-size` | `fontSize` | GlobalToken |
 
 <!-- ### Form -->
 
@@ -119,7 +174,15 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Radio -->
 
-<!-- ### Rate -->
+## Rate
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@rate-star-color` | `starColor` | - |
+| `@rate-star-bg` | `starBg` | - |
+| `@rate-star-size` | `starSize` | - |
+| `@rate-star-hover-scale` | `starHoverScale` | - |
 
 ### Result
 
@@ -131,11 +194,32 @@ This document contains the correspondence between all the less variables related
 | `@result-subtitle-font-size` | `subtitleFontSize` | - |
 | `@result-extra-margin` | `extraMargin` | - |
 
-<!-- ### Segment -->
+### Segment
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@segmented-container-padding` | `padding` | - |
+| `@segmented-label-color` | `itemColor` | - |
+| `@segmented-hover-bg` | `itemHoverBg` | - |
+| `@segmented-bg` | - | Could be customized with `className` or `style` |
+| `@segmented-label-hover-color` | `itemHoverColor` | - |
+| `@segmented-selected-bg` | `itemSelectedBg` | - |
 
 <!-- ### Select -->
 
-<!-- ### Skeleton -->
+### Skeleton
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@skeleton-block-radius` | `blockRadius` | - |
+| `@skeleton-title-height` | `titleHeight` | - |
+| `@skeleton-color` | `gradientFromColor` | - |
+| `@skeleton-to-color` | `gradientToColor` | - |
+| `@skeleton-paragraph-margin-top` | `paragraphMarginTop` | - |
+| `@skeleton-paragraph-li-height` | `paragraphLiHeight` | - |
+| `@skeleton-paragraph-li-margin-top` | - | 由于样式变化已废弃 |
 
 <!-- ### Slider -->
 
@@ -193,6 +277,18 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Tree -->
 
-<!-- ### Typography -->
+### Typography
 
-<!-- ### Upload -->
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@typography-title-font-weight` | `fontWeightStrong` | Global Token |
+| `@typography-title-margin-top` | `titleMarginTop` | - |
+| `@typography-title-margin-bottom` | `titleMarginBottom` | - |
+
+### Upload
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@upload-actions-color` | `actionsColor` | - |

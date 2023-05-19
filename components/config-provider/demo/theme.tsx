@@ -1,6 +1,6 @@
-import { Button, ConfigProvider, Form, InputNumber } from 'antd';
+import { Button, ColorPicker, ConfigProvider, Form, InputNumber } from 'antd';
+import type { Color } from 'antd/es/color-picker';
 import React from 'react';
-import { SketchPicker } from 'react-color';
 
 type ThemeData = {
   borderRadius: number;
@@ -25,7 +25,7 @@ export default () => {
         form={form}
         onValuesChange={(changedValues, allValues) => {
           const colorObj = changedValues?.colorPrimary
-            ? { colorPrimary: allValues?.colorPrimary?.hex }
+            ? { colorPrimary: (allValues?.colorPrimary as Color)?.toHexString() }
             : {};
           setData({
             ...allValues,
@@ -38,7 +38,7 @@ export default () => {
         wrapperCol={{ span: 20 }}
       >
         <Form.Item valuePropName="color" name="colorPrimary" label="Primary Color">
-          <SketchPicker />
+          <ColorPicker />
         </Form.Item>
         <Form.Item name="borderRadius" label="Border Radius">
           <InputNumber />
