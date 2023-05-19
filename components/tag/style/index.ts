@@ -10,8 +10,8 @@ export interface ComponentToken {
 }
 
 interface TagToken extends FullToken<'Tag'> {
-  tagIconSize: number;
-  tagPaddingHorizontal: number;
+  iconSize: number;
+  paddingHorizontal: number;
   tagBorderlessBg: string;
 }
 
@@ -53,8 +53,8 @@ const genPresetStyle = (token: TagToken) =>
   }));
 
 const genBaseStyle = (token: TagToken): CSSInterpolation => {
-  const { paddingXXS, lineWidth, tagPaddingHorizontal, componentCls } = token;
-  const paddingInline = tagPaddingHorizontal - lineWidth;
+  const { paddingXXS, lineWidth, paddingHorizontal, componentCls } = token;
+  const paddingInline = paddingHorizontal - lineWidth;
   const iconMarginInline = paddingXXS - lineWidth;
 
   return {
@@ -87,7 +87,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       [`${componentCls}-close-icon`]: {
         marginInlineStart: iconMarginInline,
         color: token.colorTextDescription,
-        fontSize: token.tagIconSize,
+        fontSize: token.iconSize,
         cursor: 'pointer',
         transition: `all ${token.motionDurationMid}`,
 
@@ -151,8 +151,8 @@ export default genComponentStyleHook(
   'Tag',
   (token) => {
     const tagToken = mergeToken<TagToken>(token, {
-      tagIconSize: token.lineHeightSM, // Tag icon is much more smaller
-      tagPaddingHorizontal: 8, // Fixed padding.
+      iconSize: token.fontSizeSM - 2 * token.lineWidth, // Tag icon is much more smaller
+      paddingHorizontal: 8, // Fixed padding.
       tagBorderlessBg: token.colorFillTertiary,
     });
 
