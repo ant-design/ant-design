@@ -284,4 +284,9 @@ title: Less 变量迁移 Design Token
 | `@typography-title-margin-top` | `titleMarginTop` | - |
 | `@typography-title-margin-bottom` | `titleMarginBottom` | - |
 
-<!-- ### Upload 上传 -->
+### Upload 上传
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@upload-actions-color` | `actionsColor` | - |

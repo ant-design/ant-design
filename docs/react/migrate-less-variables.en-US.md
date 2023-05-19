@@ -286,4 +286,9 @@ This document contains the correspondence between all the less variables related
 | `@typography-title-margin-top` | `titleMarginTop` | - |
 | `@typography-title-margin-bottom` | `titleMarginBottom` | - |
 
-<!-- ### Upload -->
+### Upload
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@upload-actions-color` | `actionsColor` | - |
