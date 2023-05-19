@@ -1,13 +1,10 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
-import type React from 'react';
 import capitalize from '../../_util/capitalize';
 import { resetComponent } from '../../style';
 import type { FullToken } from '../../theme/internal';
 import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
-  tagFontSize: number;
-  tagLineHeight: React.CSSProperties['lineHeight'];
   defaultBg: string;
   defaultColor: string;
 }
@@ -68,8 +65,8 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       height: 'auto',
       marginInlineEnd: token.marginXS,
       paddingInline,
-      fontSize: token.tagFontSize,
-      lineHeight: `${token.tagLineHeight}px`,
+      fontSize: token.fontSizeSM,
+      lineHeight: `${token.lineHeight}px`,
       whiteSpace: 'nowrap',
       background: token.defaultBg,
       border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
@@ -168,15 +165,8 @@ export default genComponentStyleHook(
       genTagStatusStyle(tagToken, 'warning', 'Warning'),
     ];
   },
-  (token) => {
-    const { fontSize, lineHeight, lineWidth } = token;
-    const tagLineHeight = Math.round(fontSize * lineHeight) - lineWidth * 2;
-
-    return {
-      tagFontSize: token.fontSizeSM,
-      defaultBg: token.colorFillQuaternary,
-      defaultColor: token.colorText,
-      tagLineHeight,
-    };
-  },
+  (token) => ({
+    defaultBg: token.colorFillQuaternary,
+    defaultColor: token.colorText,
+  }),
 );

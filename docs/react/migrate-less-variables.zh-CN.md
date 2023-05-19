@@ -271,19 +271,8 @@ title: Less 变量迁移 Design Token
 | `@tag-border-radius` | `borderRadiusSM` | Global Token |
 | `@tag-default-bg` | `defaultBg` | - |
 | `@tag-default-color` | `defaultColor` | - |
-| `@tag-font-size` | `tagFontSize` | 全局 Token |
-| `@tag-line-height` | `tagLineHeight` | 全局 Token |
-
-## Tag 标签
-
-<!-- prettier-ignore -->
-| less 变量 | Component Token | 备注 |
-| --- | --- | --- |
-| `@tag-border-radius` | `tagBorderlessBg` | - |
-| `@tag-default-bg` | `tagDefaultBg` | - |
-| `@tag-default-color` | `tagDefaultColor` | - |
-| `@tag-font-size` | `tagFontSize` | - |
-| `@tag-line-height` | `tagLineHeight` | - |
+| `@tag-font-size` | `fontSizeSM` | 全局 Token |
+| `@tag-line-height` | `lineHeightSM` | 全局 Token |
 
 <!-- ### Timeline 时间轴 -->
 

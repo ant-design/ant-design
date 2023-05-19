@@ -265,8 +265,8 @@ This document contains the correspondence between all the less variables related
 | `@tag-border-radius` | `borderRadiusSM` | Global Token |
 | `@tag-default-bg` | `defaultBg` | - |
 | `@tag-default-color` | `defaultColor` | - |
-| `@tag-font-size` | `tagFontSize` | Global Token |
-| `@tag-line-height` | `tagLineHeight` | Global Token |
+| `@tag-font-size` | `fontSizeSM` | Global Token |
+| `@tag-line-height` | `lineHeightSM` | Global Token |
 
 <!-- ### Timeline -->
 
