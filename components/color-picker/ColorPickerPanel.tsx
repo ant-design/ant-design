@@ -1,3 +1,4 @@
+import type { HsbaColorType } from '@rc-component/color-picker';
 import RcColorPicker from '@rc-component/color-picker';
 import type { FC } from 'react';
 import React from 'react';
@@ -9,7 +10,7 @@ import ColorPresets from './components/ColorPresets';
 import type { ColorPickerBaseProps } from './interface';
 
 interface ColorPickerPanelProps extends ColorPickerBaseProps {
-  onChange?: (value?: Color) => void;
+  onChange?: (value?: Color, type?: HsbaColorType) => void;
   onClear?: (clear?: boolean) => void;
 }
 

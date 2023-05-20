@@ -1,4 +1,7 @@
-import type { ColorPickerProps as RcColorPickerProps } from '@rc-component/color-picker';
+import type {
+  HsbaColorType,
+  ColorPickerProps as RcColorPickerProps,
+} from '@rc-component/color-picker';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties } from 'react';
@@ -95,10 +98,16 @@ const ColorPicker: CompoundedComponent = (props) => {
   });
   const mergeCls = classNames(mergeRootCls, className, hashId);
 
-  const handleChange = (data: Color) => {
-    const color: Color = generateColor(data);
-    if (colorCleared && color.toHsb().a > 0) {
+  const handleChange = (data: Color, type?: HsbaColorType) => {
+    let color: Color = generateColor(data);
+    if (colorCleared) {
       setColorCleared(false);
+      const hsba = color.toHsb();
+      // ignore alpha slider
+      if (colorValue.toHsb().a === 0 && type !== 'alpha') {
+        hsba.a = 1;
+        color = generateColor(hsba);
+      }
     }
     if (!value) {
       setColorValue(color);

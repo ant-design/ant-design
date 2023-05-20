@@ -88,6 +88,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     builtinPlacements,
     dropdownMatchSelectWidth,
     popupMatchSelectWidth,
+    direction: propDirection,
     ...props
   }: SelectProps<OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -96,7 +97,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     renderEmpty,
-    direction,
+    direction: contextDirection,
     virtual,
     popupMatchSelectWidth: contextPopupMatchSelectWidth,
     popupOverflow,
@@ -105,6 +106,8 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
+  const direction = propDirection ?? contextDirection;
+
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
