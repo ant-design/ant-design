@@ -3,11 +3,13 @@ import mountTest from '../../../tests/shared/mountTest';
 import { act, fireEvent, getByText, render, waitFakeTimer } from '../../../tests/utils';
 import Wave from '../wave';
 
-(global as any).isVisible = true;
+let isVisible = vi.hoisted(() => false);
 
-vi.mock('rc-util/lib/Dom/isVisible', () => {
-  const mockFn = () => (global as any).isVisible;
-  return mockFn;
+vi.mock('rc-util/es/Dom/isVisible', () => {
+  const mockFn = () => isVisible;
+  return {
+    default: mockFn,
+  };
 });
 
 describe('Wave component', () => {
@@ -39,7 +41,7 @@ describe('Wave component', () => {
   });
 
   beforeEach(() => {
-    (global as any).isVisible = true;
+    isVisible = true;
     document.body.innerHTML = '';
   });
 
@@ -90,7 +92,7 @@ describe('Wave component', () => {
   });
 
   it('invisible in screen', () => {
-    (global as any).isVisible = false;
+    isVisible = false;
     const { container, unmount } = render(
       <Wave>
         <button type="button">button</button>
@@ -222,7 +224,7 @@ describe('Wave component', () => {
   });
 
   it('not show when hidden', () => {
-    (global as any).isVisible = false;
+    isVisible = false;
 
     const { container } = render(
       <Wave>
