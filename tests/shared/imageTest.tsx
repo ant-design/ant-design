@@ -21,7 +21,7 @@ export default function imageTest(component: React.ReactElement) {
   [theme.defaultAlgorithm, theme.darkAlgorithm, theme.compactAlgorithm].forEach(
     (algorithm, index) => {
       it(`component image screenshot should correct${index || ''}`, async () => {
-        await jestPuppeteer.resetPage();
+        await resetPage();
         await page.setRequestInterception(true);
         const onRequestHandle = (request: any) => {
           if (['image'].includes(request.resourceType())) {

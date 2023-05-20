@@ -3,7 +3,7 @@ import type { TestingLibraryMatchers } from '@testing-library/jest-dom/matchers'
 import matchers from '@testing-library/jest-dom/matchers';
 import React from 'react';
 import util from 'util';
-import { expect } from 'vitest';
+import { expect, vi } from 'vitest';
 
 import { toHaveNoViolations } from 'jest-axe';
 import jsdom from 'jsdom';
@@ -93,7 +93,7 @@ if (process.env.LIB_DIR === 'dist') {
   });
 } else if (process.env.LIB_DIR === 'es') {
   vi.mock('../es/theme/internal', async (importOriginal) => {
-    const esTheme = await importOriginal<typeof import('../es/theme/internal')>();
+    const esTheme = await importOriginal<typeof import('../components/theme/internal')>();
     if (esTheme.defaultConfig) {
       esTheme.defaultConfig.hashed = false;
     }

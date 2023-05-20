@@ -258,6 +258,7 @@
     "pretty-format": "^29.0.0",
     "prismjs": "^1.29.0",
     "progress": "^2.0.3",
+    "puppeteer": "^20.2.1",
     "qs": "^6.10.1",
     "rc-footer": "^0.6.8",
     "rc-trigger": "^5.3.4",

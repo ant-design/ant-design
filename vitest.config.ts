@@ -33,14 +33,11 @@ export default defineConfig({
     ],
   },
   test: {
-    include: ['components/*/__tests__/*.test.*'],
-    exclude: ['**/{image,demo,demo-extend}.test.*', 'components/dropdown/**'],
+    include: ['components/**/*.test.*'],
+    exclude: ['**/{demo,demo-extend,node}.test.*', 'components/dropdown/**'],
     globals: true,
-    setupFiles: ['./tests/setup.ts'],
+    setupFiles: ['./tests/setup.ts', './tests/setupPuppeteer.ts'],
     environment: 'jsdom',
-    deps: {
-      inline: ['countup.js'],
-    },
   },
   plugins: [
     {
