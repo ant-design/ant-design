@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Rate rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`Rate > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <ul
   class="ant-rate ant-rate-rtl"
   role="radiogroup"

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Table.sorter renders sorter icon correctly 1`] = `
+exports[`Table.sorter > renders sorter icon correctly 1`] = `
 <thead
   class="ant-table-thead"
 >
@@ -72,7 +72,7 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
 </thead>
 `;
 
-exports[`Table.sorter should support defaultOrder in Column 1`] = `
+exports[`Table.sorter > should support defaultOrder in Column 1`] = `
 <div
   class="ant-table-wrapper"
 >

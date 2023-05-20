@@ -5,19 +5,22 @@ import type { Options } from '../../tests/shared/demoTest';
 
 (global as any).testConfig = {};
 
-jest.mock('../../tests/shared/demoTest', () => {
+vi.mock('../../tests/shared/demoTest', () => {
   function fakeDemoTest(name: string, option: Options = {}) {
     (global as any).testConfig[name] = option;
   }
 
   fakeDemoTest.rootPropsTest = () => {};
 
-  return fakeDemoTest;
+  return {
+    default: fakeDemoTest,
+    rootPropsTest: () => {},
+  };
 });
 
 describe('node', () => {
   beforeAll(() => {
-    jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
+    vi.useFakeTimers().setSystemTime(new Date('2016-11-22'));
   });
 
   // Find the component exist demo test file
@@ -27,19 +30,20 @@ describe('node', () => {
     const componentName = componentTestFile.match(/components\/([^/]*)\//)![1];
 
     // Test for ssr
-    describe(componentName, () => {
+    // eslint-disable-next-line jest/valid-describe-callback
+    describe(componentName, async () => {
       const demoList = globSync(`./components/${componentName}/demo/*.tsx`);
 
       // Use mock to get config
-      require(`../../${componentTestFile}`); // eslint-disable-line global-require, import/no-dynamic-require
+      await import(`../../${componentTestFile}`);
       const option = (global as any).testConfig?.[componentName];
 
       demoList.forEach((demoFile) => {
         const skip: string[] = option?.skip || [];
         const test = skip.some((skipMarkdown) => demoFile.includes(skipMarkdown)) ? it.skip : it;
 
-        test(demoFile, () => {
-          const Demo = require(`../../${demoFile}`).default; // eslint-disable-line global-require, import/no-dynamic-require
+        test(demoFile, async () => {
+          const Demo = (await import(`../../${demoFile}`)).default;
           expect(() => {
             renderToString(<Demo />);
           }).not.toThrow();

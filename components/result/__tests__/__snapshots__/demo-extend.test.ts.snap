@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`renders components/result/demo/403.tsx extend context correctly 1`] = `
 <div
@@ -1318,6 +1318,53 @@ exports[`renders components/result/demo/info.tsx extend context correctly 1`] = 
 
 exports[`renders components/result/demo/success.tsx extend context correctly 1`] = `
 <div
+  class="ant-result ant-result-warning"
+>
+  <div
+    class="ant-result-icon"
+  >
+    <span
+      aria-label="warning"
+      class="anticon anticon-warning"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="warning"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M955.7 856l-416-720c-6.2-10.7-16.9-16-27.7-16s-21.6 5.3-27.7 16l-416 720C56 877.4 71.4 904 96 904h832c24.6 0 40-26.6 27.7-48zM480 416c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v184c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V416zm32 352a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="ant-result-title"
+  >
+    There are some problems with your operation.
+  </div>
+  <div
+    class="ant-result-extra"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Go Console
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/result/demo/success.tsx extend context correctly 2`] = `
+<div
   class="ant-result ant-result-success"
 >
   <div
@@ -1370,53 +1417,6 @@ exports[`renders components/result/demo/success.tsx extend context correctly 1`]
     >
       <span>
         Buy Again
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`renders components/result/demo/warning.tsx extend context correctly 1`] = `
-<div
-  class="ant-result ant-result-warning"
->
-  <div
-    class="ant-result-icon"
-  >
-    <span
-      aria-label="warning"
-      class="anticon anticon-warning"
-      role="img"
-    >
-      <svg
-        aria-hidden="true"
-        data-icon="warning"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
-      >
-        <path
-          d="M955.7 856l-416-720c-6.2-10.7-16.9-16-27.7-16s-21.6 5.3-27.7 16l-416 720C56 877.4 71.4 904 96 904h832c24.6 0 40-26.6 27.7-48zM480 416c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v184c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V416zm32 352a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-        />
-      </svg>
-    </span>
-  </div>
-  <div
-    class="ant-result-title"
-  >
-    There are some problems with your operation.
-  </div>
-  <div
-    class="ant-result-extra"
-  >
-    <button
-      class="ant-btn ant-btn-primary"
-      type="button"
-    >
-      <span>
-        Go Console
       </span>
     </button>
   </div>

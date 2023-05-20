@@ -1,22 +1,22 @@
-import React from 'react';
+import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
+import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { screen, render } from '../../../tests/utils';
+import { render, screen } from '../../../tests/utils';
 import Button from '../../button/index';
 import Card from '../index';
-import '@testing-library/jest-dom';
 
 describe('Card', () => {
   mountTest(Card);
   rtlTest(Card);
 
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterAll(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should still have padding when card which set padding to 0 is loading', () => {
@@ -48,7 +48,7 @@ describe('Card', () => {
         tab: 'tab2',
       },
     ];
-    const onTabChange = jest.fn();
+    const onTabChange = vi.fn();
     render(
       <Card onTabChange={onTabChange} tabList={tabList}>
         xxx
@@ -112,7 +112,7 @@ describe('Card', () => {
             tab: 'tab',
           },
         ]}
-        size='small'
+        size="small"
       >
         <p>Card content</p>
       </Card>,

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`renders components/watermark/demo/basic.tsx extend context correctly 1`] = `
 <div
@@ -7,9 +7,6 @@ exports[`renders components/watermark/demo/basic.tsx extend context correctly 1`
 >
   <div
     style="height: 500px;"
-  />
-  <div
-    style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 220px;"
   />
 </div>
 `;
@@ -45,9 +42,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       alt="示例图片"
       src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zx7LTI_ECSAAAAAAAAAAAABkARQnAQ"
       style="z-index: 10; width: 100%; max-width: 800px; position: relative;"
-    />
-    <div
-      style="z-index: 11; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 220px;"
     />
   </div>
   <form
@@ -303,7 +297,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                   >
                                     <div
                                       class="rc-virtual-list-holder"
-                                      style="max-height: 256px; overflow-y: auto;"
+                                      style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                                     >
                                       <div>
                                         <div
@@ -1220,9 +1214,6 @@ exports[`renders components/watermark/demo/multi-line.tsx extend context correct
 >
   <div
     style="height: 500px;"
-  />
-  <div
-    style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 226px;"
   />
 </div>
 `;

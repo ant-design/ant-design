@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`renders components/tree-select/demo/async.tsx extend context correctly 1`] = `
 <div
@@ -55,7 +55,7 @@ exports[`renders components/tree-select/demo/async.tsx extend context correctly 
           <div
             aria-hidden="true"
             class="ant-select-tree-treenode"
-            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
           >
             <div
               class="ant-select-tree-indent"
@@ -71,7 +71,7 @@ exports[`renders components/tree-select/demo/async.tsx extend context correctly 
           >
             <div
               class="ant-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -276,7 +276,7 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
           <div
             aria-hidden="true"
             class="ant-select-tree-treenode"
-            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
           >
             <div
               class="ant-select-tree-indent"
@@ -292,7 +292,7 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
           >
             <div
               class="ant-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -673,7 +673,7 @@ exports[`renders components/tree-select/demo/checkable.tsx extend context correc
           <div
             aria-hidden="true"
             class="ant-select-tree-treenode"
-            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
           >
             <div
               class="ant-select-tree-indent"
@@ -689,7 +689,7 @@ exports[`renders components/tree-select/demo/checkable.tsx extend context correc
           >
             <div
               class="ant-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -903,7 +903,7 @@ exports[`renders components/tree-select/demo/multiple.tsx extend context correct
           <div
             aria-hidden="true"
             class="ant-select-tree-treenode"
-            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
           >
             <div
               class="ant-select-tree-indent"
@@ -919,7 +919,7 @@ exports[`renders components/tree-select/demo/multiple.tsx extend context correct
           >
             <div
               class="ant-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -1329,7 +1329,7 @@ Array [
             <div
               aria-hidden="true"
               class="ant-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
             >
               <div
                 class="ant-select-tree-indent"
@@ -1345,7 +1345,7 @@ Array [
             >
               <div
                 class="ant-select-tree-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -1680,7 +1680,7 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
             <div
               aria-hidden="true"
               class="ant-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
             >
               <div
                 class="ant-select-tree-indent"
@@ -1696,7 +1696,7 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
             >
               <div
                 class="ant-select-tree-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -2125,7 +2125,7 @@ exports[`renders components/tree-select/demo/suffix.tsx extend context correctly
           <div
             aria-hidden="true"
             class="ant-select-tree-treenode"
-            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
           >
             <div
               class="ant-select-tree-indent"
@@ -2141,7 +2141,7 @@ exports[`renders components/tree-select/demo/suffix.tsx extend context correctly
           >
             <div
               class="ant-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -2418,6 +2418,231 @@ exports[`renders components/tree-select/demo/suffix.tsx extend context correctly
 
 exports[`renders components/tree-select/demo/treeData.tsx extend context correctly 1`] = `
 <div
+  class="ant-space ant-space-vertical"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom: 8px;"
+  >
+    <button
+      aria-checked="true"
+      class="ant-switch ant-switch-checked"
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      >
+        <span
+          class="ant-switch-inner-checked"
+        >
+          treeLine
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          treeLine
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom: 8px;"
+  >
+    <button
+      aria-checked="false"
+      class="ant-switch"
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      >
+        <span
+          class="ant-switch-inner-checked"
+        >
+          showLeafIcon
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          showLeafIcon
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+      style="width: 300px;"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        />
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div>
+          <div>
+            <div
+              class="ant-select-tree ant-select-tree-show-line"
+              role="tree"
+            >
+              <div>
+                <input
+                  aria-label="for screen reader"
+                  disabled=""
+                  style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+                  value=""
+                />
+              </div>
+              <div
+                aria-hidden="true"
+                class="ant-select-tree-treenode"
+                style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+              >
+                <div
+                  class="ant-select-tree-indent"
+                >
+                  <div
+                    class="ant-select-tree-indent-unit"
+                  />
+                </div>
+              </div>
+              <div
+                class="ant-select-tree-list"
+                style="position: relative;"
+              >
+                <div
+                  class="ant-select-tree-list-holder"
+                  style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                >
+                  <div>
+                    <div
+                      class="ant-select-tree-list-holder-inner"
+                      style="display: flex; flex-direction: column;"
+                    >
+                      <div
+                        aria-grabbed="false"
+                        class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
+                        draggable="false"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="ant-select-tree-indent"
+                        />
+                        <span
+                          class="ant-select-tree-switcher ant-select-tree-switcher_close"
+                        >
+                          <span
+                            aria-label="plus-square"
+                            class="anticon anticon-plus-square ant-select-tree-switcher-line-icon"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="plus-square"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
+                              />
+                              <path
+                                d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                        <span
+                          class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-close"
+                          title="parent 1"
+                        >
+                          <span
+                            class="ant-select-tree-title"
+                          >
+                            parent 1
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select: none;"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/tree-select/demo/treeData.tsx extend context correctly 2`] = `
+<div
   class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
   style="width: 100%;"
 >
@@ -2471,7 +2696,7 @@ exports[`renders components/tree-select/demo/treeData.tsx extend context correct
           <div
             aria-hidden="true"
             class="ant-select-tree-treenode"
-            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
           >
             <div
               class="ant-select-tree-indent"
@@ -2487,7 +2712,7 @@ exports[`renders components/tree-select/demo/treeData.tsx extend context correct
           >
             <div
               class="ant-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -2648,230 +2873,5 @@ exports[`renders components/tree-select/demo/treeData.tsx extend context correct
       </svg>
     </span>
   </span>
-</div>
-`;
-
-exports[`renders components/tree-select/demo/treeLine.tsx extend context correctly 1`] = `
-<div
-  class="ant-space ant-space-vertical"
->
-  <div
-    class="ant-space-item"
-    style="margin-bottom: 8px;"
-  >
-    <button
-      aria-checked="true"
-      class="ant-switch ant-switch-checked"
-      role="switch"
-      type="button"
-    >
-      <div
-        class="ant-switch-handle"
-      />
-      <span
-        class="ant-switch-inner"
-      >
-        <span
-          class="ant-switch-inner-checked"
-        >
-          treeLine
-        </span>
-        <span
-          class="ant-switch-inner-unchecked"
-        >
-          treeLine
-        </span>
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-bottom: 8px;"
-  >
-    <button
-      aria-checked="false"
-      class="ant-switch"
-      role="switch"
-      type="button"
-    >
-      <div
-        class="ant-switch-handle"
-      />
-      <span
-        class="ant-switch-inner"
-      >
-        <span
-          class="ant-switch-inner-checked"
-        >
-          showLeafIcon
-        </span>
-        <span
-          class="ant-switch-inner-unchecked"
-        >
-          showLeafIcon
-        </span>
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <div
-      class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
-      style="width: 300px;"
-    >
-      <div
-        class="ant-select-selector"
-      >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        />
-      </div>
-      <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-      >
-        <div>
-          <div>
-            <div
-              class="ant-select-tree ant-select-tree-show-line"
-              role="tree"
-            >
-              <div>
-                <input
-                  aria-label="for screen reader"
-                  disabled=""
-                  style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-                  value=""
-                />
-              </div>
-              <div
-                aria-hidden="true"
-                class="ant-select-tree-treenode"
-                style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
-              >
-                <div
-                  class="ant-select-tree-indent"
-                >
-                  <div
-                    class="ant-select-tree-indent-unit"
-                  />
-                </div>
-              </div>
-              <div
-                class="ant-select-tree-list"
-                style="position: relative;"
-              >
-                <div
-                  class="ant-select-tree-list-holder"
-                  style="max-height: 256px; overflow-y: auto;"
-                >
-                  <div>
-                    <div
-                      class="ant-select-tree-list-holder-inner"
-                      style="display: flex; flex-direction: column;"
-                    >
-                      <div
-                        aria-grabbed="false"
-                        class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
-                        draggable="false"
-                      >
-                        <span
-                          aria-hidden="true"
-                          class="ant-select-tree-indent"
-                        />
-                        <span
-                          class="ant-select-tree-switcher ant-select-tree-switcher_close"
-                        >
-                          <span
-                            aria-label="plus-square"
-                            class="anticon anticon-plus-square ant-select-tree-switcher-line-icon"
-                            role="img"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="plus-square"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
-                            >
-                              <path
-                                d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                              />
-                              <path
-                                d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
-                              />
-                            </svg>
-                          </span>
-                        </span>
-                        <span
-                          class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-close"
-                          title="parent 1"
-                        >
-                          <span
-                            class="ant-select-tree-title"
-                          >
-                            parent 1
-                          </span>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <span
-        aria-hidden="true"
-        class="ant-select-arrow"
-        style="user-select: none;"
-        unselectable="on"
-      >
-        <span
-          aria-label="down"
-          class="anticon anticon-down ant-select-suffix"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-  </div>
 </div>
 `;

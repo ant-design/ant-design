@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = `
 <div
@@ -5636,7 +5636,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                 >
                   <div
                     class="rc-virtual-list-holder"
-                    style="max-height: 256px; overflow-y: auto;"
+                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                   >
                     <div>
                       <div
@@ -7036,7 +7036,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                               <div
                                 aria-hidden="true"
                                 class="ant-tree-treenode"
-                                style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+                                style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
                               >
                                 <div
                                   class="ant-tree-indent"
@@ -8009,7 +8009,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                               <div
                                 aria-hidden="true"
                                 class="ant-tree-treenode"
-                                style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+                                style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
                               >
                                 <div
                                   class="ant-tree-indent"
@@ -10276,7 +10276,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx extend context c
                 >
                   <div
                     class="rc-virtual-list-holder"
-                    style="max-height: 256px; overflow-y: auto;"
+                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                   >
                     <div>
                       <div
@@ -11643,7 +11643,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                 >
                   <div
                     class="rc-virtual-list-holder"
-                    style="max-height: 256px; overflow-y: auto;"
+                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                   >
                     <div>
                       <div
@@ -12967,7 +12967,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                 >
                   <div
                     class="rc-virtual-list-holder"
-                    style="max-height: 256px; overflow-y: auto;"
+                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                   >
                     <div>
                       <div
@@ -15381,7 +15381,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                   >
                     <div
                       class="rc-virtual-list-holder"
-                      style="max-height: 256px; overflow-y: auto;"
+                      style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                     >
                       <div>
                         <div
@@ -27883,7 +27883,7 @@ exports[`renders components/table/demo/sticky.tsx extend context correctly 1`] =
                 >
                   <div
                     class="rc-virtual-list-holder"
-                    style="max-height: 256px; overflow-y: auto;"
+                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                   >
                     <div>
                       <div

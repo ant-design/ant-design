@@ -1,27 +1,10 @@
 import React from 'react';
-import type { TriggerProps } from '@rc-component/trigger';
-import Dropdown from '..';
 import type { DropDownProps } from '..';
+import Dropdown from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
-
-let triggerProps: TriggerProps;
-
-jest.mock('@rc-component/trigger', () => {
-  let Trigger = jest.requireActual('@rc-component/trigger/lib/mock');
-  Trigger = Trigger.default || Trigger;
-  const h: typeof React = jest.requireActual('react');
-
-  return {
-    default: h.forwardRef<unknown, TriggerProps>((props, ref) => {
-      triggerProps = props;
-      return h.createElement(Trigger, { ref, ...props });
-    }),
-    __esModule: true,
-  };
-});
 
 describe('Dropdown', () => {
   const items = [
@@ -80,7 +63,7 @@ describe('Dropdown', () => {
   });
 
   it('support Menu expandIcon', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const props: DropDownProps = {
       menu: {
         items: [
@@ -112,11 +95,11 @@ describe('Dropdown', () => {
     );
     await waitFakeTimer();
     expect(container.querySelectorAll('#customExpandIcon').length).toBe(1);
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should warn if use topCenter or bottomCenter', () => {
-    const error = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const error = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <div>
         <Dropdown menu={{ items }} placement="bottomCenter">
@@ -144,7 +127,7 @@ describe('Dropdown', () => {
       </Dropdown>,
     );
 
-    expect(triggerProps.builtinPlacements).toEqual(
+    expect(globalThis.triggerProps.builtinPlacements).toEqual(
       expect.objectContaining({
         bottomLeft: expect.objectContaining({
           overflow: {
@@ -156,8 +139,8 @@ describe('Dropdown', () => {
     );
   });
 
-  it('menu item with group', () => {
-    jest.useFakeTimers();
+  it('menu item with group', async () => {
+    vi.useFakeTimers();
     const { container } = render(
       <Dropdown
         trigger={['click']}
@@ -183,32 +166,28 @@ describe('Dropdown', () => {
     // Open
     fireEvent.click(container.querySelector('a')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     // Close
     fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
 
     // Force Motion move on
-    for (let i = 0; i < 10; i += 1) {
-      act(() => {
-        jest.runAllTimers();
-      });
-    }
+    await waitFakeTimer(0);
 
     // Motion End
     fireEvent.animationEnd(container.querySelector('.ant-slide-up-leave-active')!);
 
     expect(container.querySelector('.ant-dropdown-hidden')).toBeTruthy();
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('legacy visible', () => {
     resetWarned();
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const onOpenChange = jest.fn();
-    const onVisibleChange = jest.fn();
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const onOpenChange = vi.fn();
+    const onVisibleChange = vi.fn();
 
     const { container, rerender } = render(
       <Dropdown

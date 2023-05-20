@@ -11,9 +11,13 @@ import { useToken } from '../../theme/internal';
 const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 
 // eslint-disable-next-line no-var
-var mockCanUseDom = true;
+var mockCanUseDom = vi.hoisted(() => true);
 
-jest.mock('rc-util/lib/Dom/canUseDom', () => () => mockCanUseDom);
+vi.mock('rc-util/lib/Dom/canUseDom', () => {
+  return {
+    default: () => mockCanUseDom,
+  };
+});
 
 describe('ConfigProvider.Theme', () => {
   beforeEach(() => {
@@ -44,7 +48,7 @@ describe('ConfigProvider.Theme', () => {
   it('warning for SSR', () => {
     resetWarned();
 
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     mockCanUseDom = false;
     expect(canUseDom()).toBeFalsy();
 

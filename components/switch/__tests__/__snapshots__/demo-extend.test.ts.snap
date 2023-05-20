@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`renders components/switch/demo/basic.tsx extend context correctly 1`] = `
 <button
@@ -157,52 +157,6 @@ Array [
 `;
 
 exports[`renders components/switch/demo/size.tsx extend context correctly 1`] = `
-Array [
-  <button
-    aria-checked="true"
-    class="ant-switch ant-switch-checked"
-    role="switch"
-    type="button"
-  >
-    <div
-      class="ant-switch-handle"
-    />
-    <span
-      class="ant-switch-inner"
-    >
-      <span
-        class="ant-switch-inner-checked"
-      />
-      <span
-        class="ant-switch-inner-unchecked"
-      />
-    </span>
-  </button>,
-  <br />,
-  <button
-    aria-checked="true"
-    class="ant-switch ant-switch-small ant-switch-checked"
-    role="switch"
-    type="button"
-  >
-    <div
-      class="ant-switch-handle"
-    />
-    <span
-      class="ant-switch-inner"
-    >
-      <span
-        class="ant-switch-inner-checked"
-      />
-      <span
-        class="ant-switch-inner-unchecked"
-      />
-    </span>
-  </button>,
-]
-`;
-
-exports[`renders components/switch/demo/text.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -329,4 +283,50 @@ exports[`renders components/switch/demo/text.tsx extend context correctly 1`] = 
     </button>
   </div>
 </div>
+`;
+
+exports[`renders components/switch/demo/size.tsx extend context correctly 2`] = `
+Array [
+  <button
+    aria-checked="true"
+    class="ant-switch ant-switch-checked"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
+  </button>,
+  <br />,
+  <button
+    aria-checked="true"
+    class="ant-switch ant-switch-small ant-switch-checked"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
+  </button>,
+]
 `;

@@ -8,7 +8,7 @@ describe('notification.config', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -21,7 +21,7 @@ describe('notification.config', () => {
       getContainer: null,
     });
 
-    jest.useRealTimers();
+    vi.useRealTimers();
 
     await awaitPromise();
   });
@@ -44,7 +44,7 @@ describe('notification.config', () => {
 
       act(() => {
         // One frame is 16ms
-        jest.advanceTimersByTime(100);
+        vi.advanceTimersByTime(100);
       });
 
       // eslint-disable-next-line no-await-in-loop
@@ -64,7 +64,7 @@ describe('notification.config', () => {
 
     act(() => {
       // One frame is 16ms
-      jest.advanceTimersByTime(100);
+      vi.advanceTimersByTime(100);
     });
     await triggerMotionEnd(false);
 
@@ -74,10 +74,10 @@ describe('notification.config', () => {
     );
 
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     await triggerMotionEnd(false);

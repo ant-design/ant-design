@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Watermark Image watermark snapshot 1`] = `
+exports[`Watermark > Image watermark snapshot 1`] = `
 <div>
   <div
     class=""
@@ -13,7 +13,7 @@ exports[`Watermark Image watermark snapshot 1`] = `
 </div>
 `;
 
-exports[`Watermark Interleaved watermark backgroundSize is correct 1`] = `
+exports[`Watermark > Interleaved watermark backgroundSize is correct 1`] = `
 <div>
   <div
     class="watermark"
@@ -26,7 +26,7 @@ exports[`Watermark Interleaved watermark backgroundSize is correct 1`] = `
 </div>
 `;
 
-exports[`Watermark Invalid image watermark 1`] = `
+exports[`Watermark > Invalid image watermark 1`] = `
 <div>
   <div
     class="watermark"
@@ -39,33 +39,29 @@ exports[`Watermark Invalid image watermark 1`] = `
 </div>
 `;
 
-exports[`Watermark MutationObserver should work properly 1`] = `
+exports[`Watermark > MutationObserver should work properly 1`] = `
+<div>
+  <div
+    class="watermark"
+    style="position: relative;"
+  />
+</div>
+`;
+
+exports[`Watermark > Observe the modification of style 1`] = `
 <div>
   <div
     class="watermark"
     style="position: relative;"
   >
     <div
-      style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 232px;"
+      style=""
     />
   </div>
 </div>
 `;
 
-exports[`Watermark Observe the modification of style 1`] = `
-<div>
-  <div
-    class="watermark"
-    style="position: relative;"
-  >
-    <div
-      style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: -250px -250px; background-image: url('data:image/png;base64,00'); background-size: 232px;"
-    />
-  </div>
-</div>
-`;
-
-exports[`Watermark The offset should be correct 1`] = `
+exports[`Watermark > The offset should be correct 1`] = `
 <div>
   <div
     class="watermark"
@@ -78,7 +74,7 @@ exports[`Watermark The offset should be correct 1`] = `
 </div>
 `;
 
-exports[`Watermark The watermark should render successfully 1`] = `
+exports[`Watermark > The watermark should render successfully 1`] = `
 <div>
   <div
     class="watermark"
@@ -91,7 +87,7 @@ exports[`Watermark The watermark should render successfully 1`] = `
 </div>
 `;
 
-exports[`Watermark rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`Watermark > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   class=""
   style="position: relative;"

@@ -26,7 +26,7 @@ describe('Statistic', () => {
   });
 
   it('customize formatter', () => {
-    const formatter = jest.fn(() => 93);
+    const formatter = vi.fn(() => 93);
     const { container } = render(<Statistic value={1128} formatter={formatter} />);
     expect(formatter).toHaveBeenCalledWith(1128);
     expect(container.querySelector('.ant-statistic-content-value')!.textContent).toEqual('93');
@@ -102,9 +102,9 @@ describe('Statistic', () => {
     });
 
     it('time going', async () => {
-      jest.useFakeTimers();
+      vi.useFakeTimers();
       const now = Date.now() + 1000;
-      const onFinish = jest.fn();
+      const onFinish = vi.fn();
 
       const { unmount } = render(<Statistic.Countdown value={now} onFinish={onFinish} />);
 
@@ -112,13 +112,13 @@ describe('Statistic', () => {
 
       unmount();
       expect(onFinish).not.toHaveBeenCalled();
-      jest.clearAllTimers();
-      jest.useRealTimers();
+      vi.clearAllTimers();
+      vi.useRealTimers();
     });
 
     it('responses hover events', () => {
-      const onMouseEnter = jest.fn();
-      const onMouseLeave = jest.fn();
+      const onMouseEnter = vi.fn();
+      const onMouseLeave = vi.fn();
       const { container } = render(
         <Statistic onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
       );
@@ -129,8 +129,8 @@ describe('Statistic', () => {
     });
 
     it('responses hover events for Countdown', () => {
-      const onMouseEnter = jest.fn();
-      const onMouseLeave = jest.fn();
+      const onMouseEnter = vi.fn();
+      const onMouseLeave = vi.fn();
       const { container } = render(
         <Statistic.Countdown onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
       );
@@ -142,7 +142,7 @@ describe('Statistic', () => {
 
     describe('time onchange', () => {
       it("called if time has't passed", async () => {
-        jest.useFakeTimers();
+        vi.useFakeTimers();
         const deadline = Date.now() + 10 * 1000;
         let remainingTime;
 
@@ -153,29 +153,29 @@ describe('Statistic', () => {
         // container.update();
         await waitFakeTimer(100);
         expect(remainingTime).toBeGreaterThan(0);
-        jest.clearAllTimers();
-        jest.useRealTimers();
+        vi.clearAllTimers();
+        vi.useRealTimers();
       });
     });
 
     describe('time finished', () => {
       it('not call if time already passed', () => {
         const now = Date.now() - 1000;
-        const onFinish = jest.fn();
+        const onFinish = vi.fn();
         render(<Statistic.Countdown value={now} onFinish={onFinish} />);
 
         expect(onFinish).not.toHaveBeenCalled();
       });
 
       it('called if finished', async () => {
-        jest.useFakeTimers();
+        vi.useFakeTimers();
         const now = Date.now() + 10;
-        const onFinish = jest.fn();
+        const onFinish = vi.fn();
         render(<Statistic.Countdown value={now} onFinish={onFinish} />);
         await waitFakeTimer();
         expect(onFinish).toHaveBeenCalled();
-        jest.clearAllTimers();
-        jest.useRealTimers();
+        vi.clearAllTimers();
+        vi.useRealTimers();
       });
     });
   });

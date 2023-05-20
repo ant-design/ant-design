@@ -1,12 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TimeLine rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`TimeLine > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <ul
   class="ant-timeline ant-timeline-rtl"
 />
 `;
 
-exports[`TimeLine rtl render component should be rendered correctly in RTL direction 2`] = `
+exports[`TimeLine > rtl render > component should be rendered correctly in RTL direction 2`] = `
 <li
   class="ant-timeline-item"
 >

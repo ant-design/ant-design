@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`renders components/select/demo/automatic-tokenization.tsx extend context correctly 1`] = `
 <div
@@ -78,7 +78,7 @@ exports[`renders components/select/demo/automatic-tokenization.tsx extend contex
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -483,7 +483,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -657,7 +657,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -779,7 +779,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -901,7 +901,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -1065,7 +1065,7 @@ exports[`renders components/select/demo/bordered.tsx extend context correctly 1`
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -1222,7 +1222,7 @@ exports[`renders components/select/demo/bordered.tsx extend context correctly 1`
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -1360,7 +1360,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -1507,7 +1507,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -1670,7 +1670,7 @@ exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context 
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -1950,7 +1950,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -2172,7 +2172,7 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -2420,7 +2420,7 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -2632,7 +2632,7 @@ exports[`renders components/select/demo/debug-flip-shift.tsx extend context corr
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -4457,7 +4457,7 @@ exports[`renders components/select/demo/hide-selected.tsx extend context correct
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -4612,7 +4612,7 @@ exports[`renders components/select/demo/label-in-value.tsx extend context correc
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -4856,7 +4856,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -5372,7 +5372,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -5828,7 +5828,7 @@ exports[`renders components/select/demo/optgroup.tsx extend context correctly 1`
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -6008,7 +6008,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -6235,7 +6235,7 @@ exports[`renders components/select/demo/option-label-prop.tsx extend context cor
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -6554,7 +6554,7 @@ Array [
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -6758,7 +6758,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -7312,7 +7312,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -7836,7 +7836,7 @@ exports[`renders components/select/demo/search.tsx extend context correctly 1`] 
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -8041,7 +8041,7 @@ exports[`renders components/select/demo/search-sort.tsx extend context correctly
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -8418,7 +8418,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -9064,7 +9064,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -9602,7 +9602,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -10313,7 +10313,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -10487,7 +10487,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -10628,7 +10628,7 @@ exports[`renders components/select/demo/tags.tsx extend context correctly 1`] = 
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div

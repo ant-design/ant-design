@@ -86,9 +86,9 @@ export function imageDemoTest(component: string, options: Options = {}) {
     } else {
       describeMethod = describe;
     }
-    describeMethod(`Test ${file} image`, () => {
+    describeMethod(`Test ${file} image`, async () => {
       // eslint-disable-next-line global-require,import/no-dynamic-require
-      let Demo = require(`../../${file}`).default;
+      let { default: Demo } = await import(`../../${file}`);
       if (typeof Demo === 'function') {
         Demo = <Demo />;
       }

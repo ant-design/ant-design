@@ -1,11 +1,11 @@
 import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
-import { render, fireEvent, getByText, waitFakeTimer, act } from '../../../tests/utils';
+import { act, fireEvent, getByText, render, waitFakeTimer } from '../../../tests/utils';
 import Wave from '../wave';
 
 (global as any).isVisible = true;
 
-jest.mock('rc-util/lib/Dom/isVisible', () => {
+vi.mock('rc-util/lib/Dom/isVisible', () => {
   const mockFn = () => (global as any).isVisible;
   return mockFn;
 });
@@ -29,11 +29,11 @@ describe('Wave component', () => {
     }
 
     (window as any).ResizeObserver = FakeResizeObserver;
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterAll(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
     expect(obCnt).not.toBe(0);
     expect(disCnt).not.toBe(0);
   });
@@ -44,7 +44,7 @@ describe('Wave component', () => {
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
+    vi.clearAllTimers();
     const styles = document.getElementsByTagName('style');
     for (let i = 0; i < styles.length; i += 1) {
       styles[i].remove();
@@ -66,7 +66,7 @@ describe('Wave component', () => {
 
   function waitRaf() {
     act(() => {
-      jest.advanceTimersByTime(100);
+      vi.advanceTimersByTime(100);
     });
   }
 

@@ -13,7 +13,7 @@ export async function triggerMotionEnd(selector: string = '.ant-message-move-up-
   // Flush css motion state update
   for (let i = 0; i < 5; i += 1) {
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
   }
 

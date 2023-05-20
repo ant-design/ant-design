@@ -19,7 +19,7 @@ function isSingleNode(node: any): node is Element {
   return node && node instanceof HTMLElement;
 }
 
-export default function rootPropsTest(
+export default async function rootPropsTest(
   component: string,
   customizeRender?: (
     component: React.ComponentType<any> & Record<string, any>,
@@ -27,7 +27,7 @@ export default function rootPropsTest(
   ) => React.ReactNode,
   options?: Options,
 ) {
-  const Component = require(`../../components/${component}`).default as any;
+  const { default: Component } = await import(`../../components/${component}`);
   const name = options?.name ? `(${options.name})` : '';
 
   describe(`RootProps${name}`, () => {
@@ -35,7 +35,7 @@ export default function rootPropsTest(
 
     beforeEach(() => {
       passed = false;
-      jest.useFakeTimers();
+      vi.useFakeTimers();
     });
 
     afterEach(() => {
@@ -43,7 +43,7 @@ export default function rootPropsTest(
         // eslint-disable-next-line no-console
         console.log(document.body.innerHTML);
       }
-      jest.useRealTimers();
+      vi.useRealTimers();
     });
 
     it('rootClassName', async () => {

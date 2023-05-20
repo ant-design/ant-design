@@ -1,15 +1,15 @@
 import React from 'react';
-import { render, fireEvent, pureRender } from '../../../tests/utils';
 import notification from '..';
+import { fireEvent, pureRender, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('notification.hooks', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should work', () => {
@@ -127,7 +127,7 @@ describe('notification.hooks', () => {
     });
 
     it('warning if user call update in render', () => {
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
       const Demo = () => {
         const [api, holder] = notification.useNotification();
