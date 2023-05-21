@@ -38,6 +38,19 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./tests/setup.ts', './tests/setupPuppeteer.ts'],
     environment: 'jsdom',
+    coverage: {
+      exclude: [
+        'components/*/style/index.tsx',
+        'components/style/index.tsx',
+        'components/*/locale/index.tsx',
+        'components/*/__tests__/type.test.tsx',
+        'components/**/*/interface.{ts,tsx}',
+        'components/*/__tests__/image.test.{ts,tsx}',
+        'components/__tests__/node.test.tsx',
+        'components/*/demo/*.tsx',
+        'components/*/design/**',
+      ],
+    },
   },
   plugins: [
     {
