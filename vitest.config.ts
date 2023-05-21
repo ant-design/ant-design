@@ -40,9 +40,6 @@ export const commonConfig: UserConfig = {
   },
   test: {
     testTimeout: 5000,
-    deps: {
-      inline: ['react-countup', 'countup.js'],
-    },
   },
 };
 
