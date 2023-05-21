@@ -151,7 +151,7 @@ export default genComponentStyleHook(
   'Tag',
   (token) => {
     const tagToken = mergeToken<TagToken>(token, {
-      iconSize: token.fontSizeSM - 2 * token.lineWidth, // Tag icon is much more smaller
+      iconSize: token.fontSizeIcon - 2 * token.lineWidth, // Tag icon is much more smaller
       paddingHorizontal: 8, // Fixed padding.
       tagBorderlessBg: token.colorFillTertiary,
     });
