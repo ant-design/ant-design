@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import type { TestingLibraryMatchers } from '@testing-library/jest-dom/matchers';
 import matchers from '@testing-library/jest-dom/matchers';
 import React from 'react';
