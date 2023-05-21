@@ -26,9 +26,11 @@ const { SubMenu } = Menu;
 
 describe('Menu', () => {
   function triggerAllTimer() {
-    act(() => {
-      vi.runAllTimers();
-    });
+    for (let i = 0; i < 10; i += 1) {
+      act(() => {
+        jest.runAllTimers();
+      });
+    }
   }
 
   const expectSubMenuBehavior = (
