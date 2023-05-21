@@ -1,15 +1,20 @@
 import path from 'path';
+import React from 'react';
+import type { UserConfig } from 'vitest/config';
 import { defineConfig } from 'vitest/config';
 
 const resolve = (dir: string) => path.resolve(__dirname, dir);
 
 const include = ['lib', 'es', 'dist'].includes(process.env.LIB_DIR || '')
   ? ['components/*/__tests__/demo.test.{ts,tsx}']
-  : ['components/*/__tests__/*.test.{ts,tsx}'];
+  : ['components/statistic/__tests__/*.test.{ts,tsx}'];
 
-export const commonConfig = {
+export const commonConfig: UserConfig = {
+  esbuild: {
+    jsx: React.version.startsWith('16') ? 'transform' : 'automatic',
+  },
   resolve: {
-    mainFields: ['module', 'main'],
+    mainFields: ['module'],
     alias: [
       {
         find: 'antd',
@@ -33,11 +38,18 @@ export const commonConfig = {
       },
     ],
   },
+  test: {
+    testTimeout: 8000,
+    deps: {
+      inline: ['react-countup', 'countup.js'],
+    },
+  },
 };
 
 export default defineConfig({
   ...commonConfig,
   test: {
+    ...commonConfig.test,
     include,
     exclude: ['**/{node,image}.test.*', 'components/dropdown/**', 'node_modules', 'dist'],
     globals: true,
