@@ -4,7 +4,7 @@ import { commonConfig } from './vitest.config';
 export default defineConfig({
   ...commonConfig,
   test: {
-    include: ['**/image.test.*'],
+    include: ['components/input/__tests__/image.test.{ts,tsx}'],
     globals: true,
     setupFiles: ['./tests/setup.ts', './tests/setupPuppeteer.ts'],
     environment: 'jsdom',

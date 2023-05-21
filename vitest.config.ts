@@ -4,8 +4,8 @@ import { defineConfig } from 'vitest/config';
 const resolve = (dir: string) => path.resolve(__dirname, dir);
 
 const include = ['lib', 'es', 'dist'].includes(process.env.LIB_DIR || '')
-  ? ['components/**/demo.test.*']
-  : ['components/**/*.test.*'];
+  ? ['components/*/__tests__/demo.test.{ts,tsx}']
+  : ['components/**/*.test.{ts,tsx}'];
 
 export const commonConfig = {
   resolve: {
@@ -39,9 +39,9 @@ export default defineConfig({
   ...commonConfig,
   test: {
     include,
-    exclude: ['**/node.test.*', 'components/dropdown/**', 'node_modules', 'dist'],
+    exclude: ['**/{node,image}test.*', 'components/dropdown/**', 'node_modules', 'dist'],
     globals: true,
-    setupFiles: ['./tests/setup.ts', './tests/setupPuppeteer.ts'],
+    setupFiles: ['./tests/setup.ts'],
     environment: 'jsdom',
     coverage: {
       exclude: [
@@ -57,15 +57,4 @@ export default defineConfig({
       ],
     },
   },
-  plugins: [
-    {
-      name: 'antd',
-      configResolved(config) {
-        console.log(
-          '🚀 ~ file: vitest.config.ts:41 ~ configResolved ~ config:',
-          config.resolve.mainFields,
-        );
-      },
-    },
-  ],
 });
