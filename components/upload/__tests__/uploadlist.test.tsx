@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mock, MockInstance } from 'vitest';
+import type { Mock, MockInstance } from 'vitest';
 import type { UploadFile, UploadProps } from '..';
 import Upload from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -1136,8 +1136,8 @@ describe('Upload List', () => {
     });
   });
 
-  it('[deprecated] should support transformFile', () => {
-    return new Promise<void>((resolve) => {
+  it('[deprecated] should support transformFile', () =>
+    new Promise<void>((resolve) => {
       vi.useRealTimers();
       let wrapper: ReturnType<typeof render>;
       let lastFile: UploadFile;
@@ -1166,8 +1166,7 @@ describe('Upload List', () => {
       fireEvent.change(wrapper.container.querySelector('input')!, {
         target: { files: [{ name: 'foo.png' }] },
       });
-    });
-  });
+    }));
 
   it('should render button inside UploadList when listStyle is picture-card', () => {
     const {

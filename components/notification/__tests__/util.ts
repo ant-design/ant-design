@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import { act, fireEvent } from '../../../tests/utils';
 
 export async function awaitPromise() {

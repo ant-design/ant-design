@@ -1,7 +1,7 @@
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { SpyInstance } from 'vitest';
+import type { SpyInstance } from 'vitest';
 import { fireEvent, render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 import type { EllipsisConfig } from '../Base';
 import Base from '../Base';

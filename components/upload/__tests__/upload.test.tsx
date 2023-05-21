@@ -183,8 +183,8 @@ describe('Upload', () => {
     });
   });
 
-  it('should not stop upload when return value of beforeUpload is not false', () => {
-    return new Promise<void>((resolve) => {
+  it('should not stop upload when return value of beforeUpload is not false', () =>
+    new Promise<void>((resolve) => {
       const data = vi.fn();
       const props = {
         action: 'http://upload.com',
@@ -207,8 +207,7 @@ describe('Upload', () => {
           files: [{ file: 'foo.png' }],
         },
       });
-    });
-  });
+    }));
 
   // https://github.com/ant-design/ant-design/issues/14779
   it('should contain input file control if upload button is hidden', () => {

@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import notification, { actWrapper } from '..';
 import { act } from '../../../tests/utils';
 import { awaitPromise, triggerMotionEnd } from './util';

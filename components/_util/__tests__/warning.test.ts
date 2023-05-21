@@ -1,4 +1,4 @@
-import { SpyInstance } from 'vitest';
+import type { SpyInstance } from 'vitest';
 
 describe('Test warning', () => {
   let spy: SpyInstance;
