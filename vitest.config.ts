@@ -39,7 +39,7 @@ export default defineConfig({
   ...commonConfig,
   test: {
     include,
-    exclude: ['**/{node,image}test.*', 'components/dropdown/**', 'node_modules', 'dist'],
+    exclude: ['**/{node,image}.test.*', 'components/dropdown/**', 'node_modules', 'dist'],
     globals: true,
     setupFiles: ['./tests/setup.ts'],
     environment: 'jsdom',
