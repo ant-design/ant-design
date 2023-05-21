@@ -86,6 +86,7 @@ describe('ColorPicker', () => {
     expect(container.querySelector('.ant-popover-hidden')).toBeFalsy();
     expect(container.querySelector('.ant-color-picker-clear')).toBeTruthy();
     fireEvent.click(container.querySelector('.ant-color-picker-clear')!);
+
     await waitFakeTimer();
     expect(container.querySelector('.ant-popover-hidden')).toBeTruthy();
     expect(
@@ -94,12 +95,19 @@ describe('ColorPicker', () => {
     expect(
       container.querySelector('.ant-color-picker-trigger .ant-color-picker-clear'),
     ).toBeTruthy();
-    fireEvent.change(container.querySelector('.ant-color-picker-alpha-input input')!, {
-      target: { value: 1 },
+
+    fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
+    await waitFakeTimer();
+    expect(
+      container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
+    ).toEqual('0%');
+
+    fireEvent.change(container.querySelector('.ant-color-picker-hex-input input')!, {
+      target: { value: '#273B57' },
     });
     expect(
-      container.querySelector('.ant-color-picker-trigger .ant-color-picker-clear'),
-    ).toBeFalsy();
+      container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
+    ).toEqual('100%');
   });
 
   it('Should render trigger work', async () => {

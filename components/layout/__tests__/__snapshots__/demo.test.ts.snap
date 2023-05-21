@@ -46,7 +46,7 @@ exports[`renders components/layout/demo/basic.tsx correctly 1`] = `
         Header
       </header>
       <section
-        class="ant-layout"
+        class="ant-layout ant-layout-has-sider"
       >
         <aside
           class="ant-layout-sider ant-layout-sider-dark"
@@ -87,7 +87,7 @@ exports[`renders components/layout/demo/basic.tsx correctly 1`] = `
         Header
       </header>
       <section
-        class="ant-layout"
+        class="ant-layout ant-layout-has-sider"
       >
         <main
           class="ant-layout-content"
