@@ -44,7 +44,7 @@ export const commonConfig: UserConfig = {
     ],
   },
   test: {
-    testTimeout: 8000,
+    testTimeout: 5000,
     deps: {
       inline: ['react-countup', 'countup.js'],
     },
