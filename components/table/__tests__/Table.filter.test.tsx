@@ -1,6 +1,7 @@
 /* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable react/no-multi-comp */
 import React, { useEffect, useState } from 'react';
+import { SpyInstance } from 'vitest';
 import type { ColumnGroupType, ColumnType, TableProps } from '..';
 import Table from '..';
 import { act, fireEvent, render, waitFor } from '../../../tests/utils';

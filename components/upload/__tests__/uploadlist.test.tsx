@@ -66,7 +66,7 @@ describe('Upload List', () => {
     vi.useRealTimers();
   });
 
-  let open: MockInstance<any, any[]>;
+  let open: MockInstance<any, Window | null>;
   beforeAll(() => {
     open = vi.spyOn(window, 'open').mockImplementation(() => null);
     mockWidthGet.mockImplementation(() => size.width);

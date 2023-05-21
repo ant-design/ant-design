@@ -31,7 +31,7 @@ describe('Collapse', () => {
   it('should support remove expandIcon', () => {
     const { asFragment } = render(
       <Collapse expandIcon={() => null}>
-        <Collapse.Panel header="header" />
+        <Collapse.Panel key={1} header="header" />
       </Collapse>,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -54,7 +54,7 @@ describe('Collapse', () => {
           </button>
         )}
       >
-        <Collapse.Panel header="header" />
+        <Collapse.Panel key={1} header="header" />
       </Collapse>,
     );
 
@@ -64,8 +64,8 @@ describe('Collapse', () => {
   it('should render extra node of panel', () => {
     const { asFragment } = render(
       <Collapse>
-        <Collapse.Panel header="header" extra={<button type="button">action</button>} />
-        <Collapse.Panel header="header" extra={<button type="button">action</button>} />
+        <Collapse.Panel header="header" key={1} extra={<button type="button">action</button>} />
+        <Collapse.Panel header="header" key={2} extra={<button type="button">action</button>} />
       </Collapse>,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -92,8 +92,9 @@ describe('Collapse', () => {
   });
 
   it('could override default openMotion', () => {
+    const props = { openMotion: {} };
     const { container, asFragment } = render(
-      <Collapse openMotion={{}}>
+      <Collapse {...props}>
         <Collapse.Panel header="This is panel header 1" key="1">
           content
         </Collapse.Panel>
@@ -183,28 +184,26 @@ describe('Collapse', () => {
   });
 
   describe('expandIconPosition', () => {
-    ['left', 'right'].forEach((pos) => {
-      it(`warning for legacy '${pos}'`, () => {
-        render(
-          <Collapse expandIconPosition={pos}>
-            <Collapse.Panel header="header" key="1" />
-          </Collapse>,
-        );
+    it.each(['left', 'right'] as const)(`warning for legacy %s'`, (pos) => {
+      render(
+        <Collapse expandIconPosition={pos}>
+          <Collapse.Panel header="header" key="1" />
+        </Collapse>,
+      );
 
-        expect(errorSpy).toHaveBeenCalledWith(
-          'Warning: [antd: Collapse] `expandIconPosition` with `left` or `right` is deprecated. Please use `start` or `end` instead.',
-        );
-      });
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Collapse] `expandIconPosition` with `left` or `right` is deprecated. Please use `start` or `end` instead.',
+      );
+    });
 
-      it('position end', () => {
-        const { container } = render(
-          <Collapse expandIconPosition="end">
-            <Collapse.Panel header="header" key="1" />
-          </Collapse>,
-        );
+    it('position end', () => {
+      const { container } = render(
+        <Collapse expandIconPosition="end">
+          <Collapse.Panel header="header" key="1" />
+        </Collapse>,
+      );
 
-        expect(container.querySelector('.ant-collapse-icon-position-end')).toBeTruthy();
-      });
+      expect(container.querySelector('.ant-collapse-icon-position-end')).toBeTruthy();
     });
   });
 });
