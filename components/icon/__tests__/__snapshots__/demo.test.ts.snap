@@ -452,6 +452,100 @@ exports[`renders components/icon/demo/scriptUrl.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/icon/demo/scriptUrl.tsx correctly 2`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
+  >
+    <span
+      class="anticon"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        width="1em"
+      >
+        <use
+          xlink:href="#icon-javascript"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
+  >
+    <span
+      class="anticon"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        width="1em"
+      >
+        <use
+          xlink:href="#icon-java"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
+  >
+    <span
+      class="anticon"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        width="1em"
+      >
+        <use
+          xlink:href="#icon-shoppingcart"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <span
+      class="anticon"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        width="1em"
+      >
+        <use
+          xlink:href="#icon-python"
+        />
+      </svg>
+    </span>
+  </div>
+</div>
+`;
+
 exports[`renders components/icon/demo/two-tone.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"

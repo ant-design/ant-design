@@ -1405,6 +1405,23 @@ exports[`renders components/grid/demo/sort.tsx extend context correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/grid/demo/sort.tsx extend context correctly 2`] = `
+<div
+  class="ant-row"
+>
+  <div
+    class="ant-col ant-col-18 ant-col-push-6"
+  >
+    col-18 col-push-6
+  </div>
+  <div
+    class="ant-col ant-col-6 ant-col-pull-18"
+  >
+    col-6 col-pull-18
+  </div>
+</div>
+`;
+
 exports[`renders components/grid/demo/useBreakpoint.tsx extend context correctly 1`] = `
 Array [
   Current break point: ,

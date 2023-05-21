@@ -717,6 +717,101 @@ Array [
 ]
 `;
 
+exports[`renders components/avatar/demo/toggle-debug.tsx correctly 2`] = `
+Array [
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
+    style="flex-wrap:wrap;margin-bottom:-8px"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-right:8px;padding-bottom:8px"
+    >
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          Toggle Avatar visibility
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right:8px;padding-bottom:8px"
+    >
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          Toggle Avatar size
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+      style="padding-bottom:8px"
+    >
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          Change Avatar scale
+        </span>
+      </button>
+    </div>
+  </div>,
+  <div
+    style="text-align:center;transform:scale(1);margin-top:24px"
+  >
+    <span
+      class="ant-avatar ant-avatar-lg ant-avatar-circle"
+      style="background:#7265e6;display:none"
+    >
+      <span
+        class="ant-avatar-string"
+        style="opacity:0"
+      >
+        Avatar
+      </span>
+    </span>
+    <span
+      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
+      style="background:#00a2ae;display:none"
+    >
+      <img
+        src="invalid"
+      />
+    </span>
+    <div
+      style="display:none"
+    >
+      <span
+        class="ant-avatar ant-avatar-lg ant-avatar-circle"
+        style="background:#7265e6"
+      >
+        <span
+          class="ant-avatar-string"
+          style="opacity:0"
+        >
+          Avatar
+        </span>
+      </span>
+      <span
+        class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
+        style="background:#00a2ae"
+      >
+        <img
+          src="invalid"
+        />
+      </span>
+    </div>
+  </div>,
+]
+`;
+
 exports[`renders components/avatar/demo/type.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"

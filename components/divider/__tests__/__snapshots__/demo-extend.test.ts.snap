@@ -144,6 +144,30 @@ Array [
 ]
 `;
 
+exports[`renders components/divider/demo/vertical.tsx extend context correctly 2`] = `
+Array [
+  Text,
+  <div
+    class="ant-divider ant-divider-vertical"
+    role="separator"
+  />,
+  <a
+    href="#"
+  >
+    Link
+  </a>,
+  <div
+    class="ant-divider ant-divider-vertical"
+    role="separator"
+  />,
+  <a
+    href="#"
+  >
+    Link
+  </a>,
+]
+`;
+
 exports[`renders components/divider/demo/with-text.tsx extend context correctly 1`] = `
 Array [
   <p>

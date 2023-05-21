@@ -1829,6 +1829,213 @@ Array [
 ]
 `;
 
+exports[`renders components/progress/demo/segment.tsx extend context correctly 2`] = `
+Array [
+  <div
+    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    role="progressbar"
+  >
+    <div
+      class="ant-progress-outer"
+      style="width: 100%; height: 8px;"
+    >
+      <div
+        class="ant-progress-inner"
+      >
+        <div
+          class="ant-progress-bg"
+          style="width: 60%; height: 8px;"
+        />
+        <div
+          class="ant-progress-success-bg"
+          style="width: 30%; height: 8px;"
+        />
+      </div>
+    </div>
+    <span
+      class="ant-progress-text"
+      title="60%"
+    >
+      60%
+    </span>
+  </div>,
+  <div
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
+    <div
+      class="ant-tooltip-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    />
+    <div
+      class="ant-tooltip-content"
+    >
+      <div
+        class="ant-tooltip-inner"
+        role="tooltip"
+      >
+        3 done / 3 in progress / 4 to do
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
+    style="flex-wrap: wrap; margin-bottom: -8px;"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-right: 8px; padding-bottom: 8px;"
+    >
+      <div
+        class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+        role="progressbar"
+      >
+        <div
+          class="ant-progress-inner"
+          style="width: 120px; height: 120px; font-size: 24px;"
+        >
+          <svg
+            class="ant-progress-circle"
+            role="presentation"
+            viewBox="-50 -50 100 100"
+          >
+            <circle
+              class="ant-progress-circle-trail"
+              cx="0"
+              cy="0"
+              r="47"
+              stroke-linecap="round"
+              stroke-width="6"
+              style="stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+            />
+            <circle
+              class="ant-progress-circle-path"
+              cx="0"
+              cy="0"
+              opacity="1"
+              r="47"
+              stroke-linecap="round"
+              stroke-width="6"
+              style="stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 209.7167966062084; transform: rotate(18deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+            />
+            <circle
+              class="ant-progress-circle-path"
+              cx="0"
+              cy="0"
+              opacity="1"
+              r="47"
+              stroke-linecap="round"
+              stroke-width="6"
+              style="stroke: #52C41A; stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 209.7167966062084; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+            />
+          </svg>
+          <span
+            class="ant-progress-text"
+            title="60%"
+          >
+            60%
+          </span>
+        </div>
+      </div>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            3 done / 3 in progress / 4 to do
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+      style="padding-bottom: 8px;"
+    >
+      <div
+        class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+        role="progressbar"
+      >
+        <div
+          class="ant-progress-inner"
+          style="width: 120px; height: 120px; font-size: 24px;"
+        >
+          <svg
+            class="ant-progress-circle"
+            role="presentation"
+            viewBox="-50 -50 100 100"
+          >
+            <circle
+              class="ant-progress-circle-trail"
+              cx="0"
+              cy="0"
+              r="47"
+              stroke-linecap="round"
+              stroke-width="6"
+              style="stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(127.5deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+            />
+            <circle
+              class="ant-progress-circle-path"
+              cx="0"
+              cy="0"
+              opacity="1"
+              r="47"
+              stroke-linecap="round"
+              stroke-width="6"
+              style="stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 166.6507973132483; transform: rotate(213deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+            />
+            <circle
+              class="ant-progress-circle-path"
+              cx="0"
+              cy="0"
+              opacity="1"
+              r="47"
+              stroke-linecap="round"
+              stroke-width="6"
+              style="stroke: #52C41A; stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 166.6507973132483; transform: rotate(127.5deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+            />
+          </svg>
+          <span
+            class="ant-progress-text"
+            title="60%"
+          >
+            60%
+          </span>
+        </div>
+      </div>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            3 done / 3 in progress / 4 to do
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
 exports[`renders components/progress/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div

@@ -327,6 +327,23 @@ exports[`renders components/qrcode/demo/icon.tsx extend context correctly 1`] = 
 </div>
 `;
 
+exports[`renders components/qrcode/demo/icon.tsx extend context correctly 2`] = `
+<div
+  class="ant-qrcode"
+  style="width: 160px; height: 160px; background-color: transparent;"
+>
+  <canvas
+    height="134"
+    style="height: 134px; width: 134px;"
+    width="134"
+  />
+  <img
+    src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+    style="display: none;"
+  />
+</div>
+`;
+
 exports[`renders components/qrcode/demo/status.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"

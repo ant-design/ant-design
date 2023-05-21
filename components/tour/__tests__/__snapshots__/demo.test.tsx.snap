@@ -327,6 +327,17 @@ exports[`renders components/tour/demo/placement.tsx correctly 1`] = `
 </button>
 `;
 
+exports[`renders components/tour/demo/placement.tsx correctly 2`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Begin Tour
+  </span>
+</button>
+`;
+
 exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
 <div
   style="display:flex;flex-direction:column;row-gap:16px;background:rgba(50,0,0,0.65);padding:8px"

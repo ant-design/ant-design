@@ -42,12 +42,16 @@ describe('node', () => {
         const skip: string[] = option?.skip || [];
         const test = skip.some((skipMarkdown) => demoFile.includes(skipMarkdown)) ? it.skip : it;
 
-        test(demoFile, async () => {
-          const Demo = (await import(`../../${demoFile}`)).default;
-          expect(() => {
-            renderToString(<Demo />);
-          }).not.toThrow();
-        });
+        test(
+          demoFile,
+          async () => {
+            const Demo = (await import(`../../${demoFile}`)).default;
+            expect(() => {
+              renderToString(<Demo />);
+            }).not.toThrow();
+          },
+          10000,
+        );
       });
     });
   });

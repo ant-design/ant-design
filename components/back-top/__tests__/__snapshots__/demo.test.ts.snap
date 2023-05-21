@@ -15,6 +15,21 @@ Array [
 ]
 `;
 
+exports[`renders components/back-top/demo/basic.tsx correctly 2`] = `
+Array [
+  <div
+    class="ant-back-top"
+  />,
+  Scroll down to see the bottom-right,
+  <strong
+    class="site-back-top-basic"
+  >
+     gray
+  </strong>,
+  button.,
+]
+`;
+
 exports[`renders components/back-top/demo/custom.tsx correctly 1`] = `
 <div
   style="height:600vh;padding:8px"

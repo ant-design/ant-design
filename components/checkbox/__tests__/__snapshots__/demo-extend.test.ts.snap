@@ -682,6 +682,204 @@ Array [
 ]
 `;
 
+exports[`renders components/checkbox/demo/group.tsx extend context correctly 2`] = `
+Array [
+  <div
+    class="ant-checkbox-group"
+  >
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="Apple"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Apple
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox"
+      >
+        <input
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="Pear"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Pear
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox"
+      >
+        <input
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="Orange"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Orange
+      </span>
+    </label>
+  </div>,
+  <br />,
+  <br />,
+  <div
+    class="ant-checkbox-group"
+  >
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox"
+      >
+        <input
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="Apple"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Apple
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="Pear"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Pear
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox"
+      >
+        <input
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="Orange"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Orange
+      </span>
+    </label>
+  </div>,
+  <br />,
+  <br />,
+  <div
+    class="ant-checkbox-group"
+  >
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          disabled=""
+          type="checkbox"
+          value="Apple"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Apple
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-checkbox-disabled"
+      >
+        <input
+          class="ant-checkbox-input"
+          disabled=""
+          type="checkbox"
+          value="Pear"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Pear
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-checkbox-disabled"
+      >
+        <input
+          class="ant-checkbox-input"
+          disabled=""
+          type="checkbox"
+          value="Orange"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Orange
+      </span>
+    </label>
+  </div>,
+]
+`;
+
 exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`] = `
 <div
   class="ant-checkbox-group"

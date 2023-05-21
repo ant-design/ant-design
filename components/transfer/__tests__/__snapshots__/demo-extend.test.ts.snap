@@ -9266,6 +9266,1410 @@ Array [
 ]
 `;
 
+exports[`renders components/transfer/demo/table-transfer.tsx extend context correctly 2`] = `
+Array [
+  <div
+    class="ant-transfer ant-transfer-customize-list"
+  >
+    <div
+      class="ant-transfer-list"
+    >
+      <div
+        class="ant-transfer-list-header"
+      >
+        <label
+          class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        >
+          <span
+            class="ant-checkbox"
+          >
+            <input
+              class="ant-checkbox-input"
+              type="checkbox"
+            />
+            <span
+              class="ant-checkbox-inner"
+            />
+          </span>
+        </label>
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <div
+          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        >
+          <ul
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            data-menu-list="true"
+            role="menu"
+            tabindex="0"
+          >
+            <li
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-selectAll"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Select all data
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+            <li
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-selectInvert"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Invert current page
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+          </ul>
+          <div
+            aria-hidden="true"
+            style="display: none;"
+          >
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <span
+          class="ant-transfer-list-header-selected"
+        >
+          14 items
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        />
+      </div>
+      <div
+        class="ant-transfer-list-body"
+      >
+        <div
+          class="ant-transfer-list-body-customize-wrapper"
+        >
+          <div
+            class="ant-table-wrapper"
+          >
+            <div
+              class="ant-spin-nested-loading"
+            >
+              <div
+                class="ant-spin-container"
+              >
+                <div
+                  class="ant-table ant-table-small"
+                >
+                  <div
+                    class="ant-table-container"
+                  >
+                    <div
+                      class="ant-table-content"
+                    >
+                      <table
+                        style="table-layout: auto;"
+                      >
+                        <colgroup>
+                          <col
+                            class="ant-table-selection-col"
+                          />
+                        </colgroup>
+                        <thead
+                          class="ant-table-thead"
+                        >
+                          <tr>
+                            <th
+                              class="ant-table-cell ant-table-selection-column"
+                              scope="col"
+                            >
+                              <div
+                                class="ant-table-selection"
+                              >
+                                <label
+                                  class="ant-checkbox-wrapper"
+                                >
+                                  <span
+                                    class="ant-checkbox"
+                                  >
+                                    <input
+                                      aria-label="Select all"
+                                      class="ant-checkbox-input"
+                                      type="checkbox"
+                                    />
+                                    <span
+                                      class="ant-checkbox-inner"
+                                    />
+                                  </span>
+                                </label>
+                              </div>
+                            </th>
+                            <th
+                              class="ant-table-cell"
+                              scope="col"
+                            >
+                              Name
+                            </th>
+                            <th
+                              class="ant-table-cell"
+                              scope="col"
+                            >
+                              Tag
+                            </th>
+                            <th
+                              class="ant-table-cell"
+                              scope="col"
+                            >
+                              Description
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody
+                          class="ant-table-tbody"
+                        >
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="0"
+                          >
+                            <td
+                              class="ant-table-cell ant-table-selection-column"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                              >
+                                <span
+                                  class="ant-checkbox ant-checkbox-disabled"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    disabled=""
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              content1
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-tag"
+                              >
+                                cat
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              description of content1
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="1"
+                          >
+                            <td
+                              class="ant-table-cell ant-table-selection-column"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              content2
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-tag"
+                              >
+                                dog
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              description of content2
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="3"
+                          >
+                            <td
+                              class="ant-table-cell ant-table-selection-column"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              content4
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-tag"
+                              >
+                                cat
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              description of content4
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="4"
+                          >
+                            <td
+                              class="ant-table-cell ant-table-selection-column"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                              >
+                                <span
+                                  class="ant-checkbox ant-checkbox-disabled"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    disabled=""
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              content5
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-tag"
+                              >
+                                dog
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              description of content5
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="6"
+                          >
+                            <td
+                              class="ant-table-cell ant-table-selection-column"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              content7
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-tag"
+                              >
+                                cat
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              description of content7
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="7"
+                          >
+                            <td
+                              class="ant-table-cell ant-table-selection-column"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              content8
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-tag"
+                              >
+                                dog
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              description of content8
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="9"
+                          >
+                            <td
+                              class="ant-table-cell ant-table-selection-column"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              content10
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-tag"
+                              >
+                                cat
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              description of content10
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="10"
+                          >
+                            <td
+                              class="ant-table-cell ant-table-selection-column"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              content11
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-tag"
+                              >
+                                dog
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              description of content11
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="12"
+                          >
+                            <td
+                              class="ant-table-cell ant-table-selection-column"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                              >
+                                <span
+                                  class="ant-checkbox ant-checkbox-disabled"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    disabled=""
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              content13
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-tag"
+                              >
+                                cat
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              description of content13
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="13"
+                          >
+                            <td
+                              class="ant-table-cell ant-table-selection-column"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              content14
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-tag"
+                              >
+                                dog
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              description of content14
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <ul
+                  class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
+                >
+                  <li
+                    aria-disabled="true"
+                    class="ant-pagination-prev ant-pagination-disabled"
+                    title="Previous Page"
+                  >
+                    <button
+                      class="ant-pagination-item-link"
+                      disabled=""
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        aria-label="left"
+                        class="anticon anticon-left"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="left"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </li>
+                  <li
+                    class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+                    tabindex="0"
+                    title="1"
+                  >
+                    <a
+                      rel="nofollow"
+                    >
+                      1
+                    </a>
+                  </li>
+                  <li
+                    class="ant-pagination-item ant-pagination-item-2"
+                    tabindex="0"
+                    title="2"
+                  >
+                    <a
+                      rel="nofollow"
+                    >
+                      2
+                    </a>
+                  </li>
+                  <li
+                    aria-disabled="false"
+                    class="ant-pagination-next"
+                    tabindex="0"
+                    title="Next Page"
+                  >
+                    <button
+                      class="ant-pagination-item-link"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        aria-label="right"
+                        class="anticon anticon-right"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="right"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-transfer-operation"
+    >
+      <button
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="right"
+            class="anticon anticon-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="left"
+            class="anticon anticon-left"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="left"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-transfer-list"
+    >
+      <div
+        class="ant-transfer-list-header"
+      >
+        <label
+          class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        >
+          <span
+            class="ant-checkbox"
+          >
+            <input
+              class="ant-checkbox-input"
+              type="checkbox"
+            />
+            <span
+              class="ant-checkbox-inner"
+            />
+          </span>
+        </label>
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <div
+          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        >
+          <ul
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            data-menu-list="true"
+            role="menu"
+            tabindex="0"
+          >
+            <li
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-selectAll"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Select all data
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+            <li
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-selectInvert"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Invert current page
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+          </ul>
+          <div
+            aria-hidden="true"
+            style="display: none;"
+          >
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <span
+          class="ant-transfer-list-header-selected"
+        >
+          6 items
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        />
+      </div>
+      <div
+        class="ant-transfer-list-body"
+      >
+        <div
+          class="ant-transfer-list-body-customize-wrapper"
+        >
+          <div
+            class="ant-table-wrapper"
+          >
+            <div
+              class="ant-spin-nested-loading"
+            >
+              <div
+                class="ant-spin-container"
+              >
+                <div
+                  class="ant-table ant-table-small"
+                >
+                  <div
+                    class="ant-table-container"
+                  >
+                    <div
+                      class="ant-table-content"
+                    >
+                      <table
+                        style="table-layout: auto;"
+                      >
+                        <colgroup>
+                          <col
+                            class="ant-table-selection-col"
+                          />
+                        </colgroup>
+                        <thead
+                          class="ant-table-thead"
+                        >
+                          <tr>
+                            <th
+                              class="ant-table-cell ant-table-selection-column"
+                              scope="col"
+                            >
+                              <div
+                                class="ant-table-selection"
+                              >
+                                <label
+                                  class="ant-checkbox-wrapper"
+                                >
+                                  <span
+                                    class="ant-checkbox"
+                                  >
+                                    <input
+                                      aria-label="Select all"
+                                      class="ant-checkbox-input"
+                                      type="checkbox"
+                                    />
+                                    <span
+                                      class="ant-checkbox-inner"
+                                    />
+                                  </span>
+                                </label>
+                              </div>
+                            </th>
+                            <th
+                              class="ant-table-cell"
+                              scope="col"
+                            >
+                              Name
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody
+                          class="ant-table-tbody"
+                        >
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="2"
+                          >
+                            <td
+                              class="ant-table-cell ant-table-selection-column"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              content3
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="5"
+                          >
+                            <td
+                              class="ant-table-cell ant-table-selection-column"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              content6
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="8"
+                          >
+                            <td
+                              class="ant-table-cell ant-table-selection-column"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                              >
+                                <span
+                                  class="ant-checkbox ant-checkbox-disabled"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    disabled=""
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              content9
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="11"
+                          >
+                            <td
+                              class="ant-table-cell ant-table-selection-column"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              content12
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="14"
+                          >
+                            <td
+                              class="ant-table-cell ant-table-selection-column"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              content15
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="17"
+                          >
+                            <td
+                              class="ant-table-cell ant-table-selection-column"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              content18
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <ul
+                  class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
+                >
+                  <li
+                    aria-disabled="true"
+                    class="ant-pagination-prev ant-pagination-disabled"
+                    title="Previous Page"
+                  >
+                    <button
+                      class="ant-pagination-item-link"
+                      disabled=""
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        aria-label="left"
+                        class="anticon anticon-left"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="left"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </li>
+                  <li
+                    class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+                    tabindex="0"
+                    title="1"
+                  >
+                    <a
+                      rel="nofollow"
+                    >
+                      1
+                    </a>
+                  </li>
+                  <li
+                    aria-disabled="true"
+                    class="ant-pagination-next ant-pagination-disabled"
+                    title="Next Page"
+                  >
+                    <button
+                      class="ant-pagination-item-link"
+                      disabled=""
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        aria-label="right"
+                        class="anticon anticon-right"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="right"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
+    style="margin-top: 16px;"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-right: 8px;"
+    >
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          <span
+            class="ant-switch-inner-checked"
+          >
+            disabled
+          </span>
+          <span
+            class="ant-switch-inner-unchecked"
+          >
+            disabled
+          </span>
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          <span
+            class="ant-switch-inner-checked"
+          >
+            showSearch
+          </span>
+          <span
+            class="ant-switch-inner-unchecked"
+          >
+            showSearch
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>,
+]
+`;
+
 exports[`renders components/transfer/demo/tree-transfer.tsx extend context correctly 1`] = `
 <div
   class="ant-transfer ant-transfer-customize-list tree-transfer"

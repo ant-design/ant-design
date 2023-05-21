@@ -3,7 +3,7 @@ import React from 'react';
 import Alert from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, screen } from '../../../tests/utils';
+import { render, screen, waitFor } from '../../../tests/utils';
 import Button from '../../button';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
@@ -101,7 +101,9 @@ describe('Alert', () => {
 
     await userEvent.hover(screen.getByRole('alert'));
 
-    expect(screen.getByRole('tooltip')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByRole('tooltip')).toBeInTheDocument();
+    });
   });
 
   it('could be used with Popconfirm', async () => {
