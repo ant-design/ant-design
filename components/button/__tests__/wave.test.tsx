@@ -10,7 +10,8 @@ describe('click wave effect', () => {
     vi.useFakeTimers();
   });
 
-  afterEach(() => {
+  afterEach(async () => {
+    await vi.runAllTimersAsync();
     vi.clearAllTimers();
     vi.useRealTimers();
     document.body.innerHTML = '';

@@ -108,8 +108,6 @@ describe('message.hooks', () => {
 
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('button')!);
-
-    triggerMotionEnd();
   });
 
   it('should work with close promise', (done) => {
@@ -134,8 +132,6 @@ describe('message.hooks', () => {
 
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('button')!);
-
-    triggerMotionEnd();
   });
 
   it('should work with hide', async () => {

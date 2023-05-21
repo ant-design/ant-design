@@ -3,7 +3,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import { act, fireEvent, getByText, render, waitFakeTimer } from '../../../tests/utils';
 import Wave from '../wave';
 
-let isVisible = vi.hoisted(() => false);
+let isVisible = vi.hoisted(() => true);
 
 vi.mock('rc-util/es/Dom/isVisible', () => {
   const mockFn = () => isVisible;
@@ -45,7 +45,8 @@ describe('Wave component', () => {
     document.body.innerHTML = '';
   });
 
-  afterEach(() => {
+  afterEach(async () => {
+    await vi.runAllTimersAsync();
     vi.clearAllTimers();
     const styles = document.getElementsByTagName('style');
     for (let i = 0; i < styles.length; i += 1) {

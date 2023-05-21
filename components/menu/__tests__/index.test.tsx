@@ -10,7 +10,7 @@ import type { MenuProps, MenuRef } from '..';
 import Menu from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render, waitFor } from '../../../tests/utils';
 import initCollapseMotion from '../../_util/motion';
 import { noop } from '../../_util/warning';
 import Layout from '../../layout';
@@ -85,10 +85,11 @@ describe('Menu', () => {
 
   beforeEach(() => {
     vi.useFakeTimers();
-    vi.clearAllTimers();
   });
 
-  afterEach(() => {
+  afterEach(async () => {
+    await vi.runAllTimersAsync();
+    vi.clearAllTimers();
     vi.useRealTimers();
   });
 
@@ -554,7 +555,9 @@ describe('Menu', () => {
       triggerAllTimer();
 
       expect(onOpenChange).toHaveBeenCalled();
-      expect(onEnterEnd).toHaveBeenCalledTimes(1);
+      await waitFor(() => {
+        expect(onEnterEnd).toHaveBeenCalledTimes(1);
+      });
     });
 
     it('vertical with hover(default)', () => {
@@ -786,8 +789,6 @@ describe('Menu', () => {
     });
 
     expect(container.querySelectorAll('.ant-tooltip-inner').length).toBeFalsy();
-
-    vi.useRealTimers();
   });
 
   it('props#onOpen and props#onClose do not warn anymore', () => {
@@ -828,7 +829,6 @@ describe('Menu', () => {
   // https://github.com/ant-design/ant-design/issues/18825
   // https://github.com/ant-design/ant-design/issues/8587
   it('should keep selectedKeys in state when collapsed to 0px', () => {
-    vi.useFakeTimers();
     const Demo: React.FC<MenuProps> = (props) => {
       const menuProps = useMemo<MenuProps>(() => ({ collapsedWidth: 0 } as MenuProps), []);
       return (
@@ -863,7 +863,6 @@ describe('Menu', () => {
     rerender(<Demo inlineCollapsed={false} />);
 
     expect(container.querySelector('li.ant-menu-item-selected')?.textContent).toBe('Option 2');
-    vi.useRealTimers();
   });
 
   it('Menu.Item with icon children auto wrap span', () => {

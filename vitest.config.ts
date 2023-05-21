@@ -5,7 +5,7 @@ const resolve = (dir: string) => path.resolve(__dirname, dir);
 
 const include = ['lib', 'es', 'dist'].includes(process.env.LIB_DIR || '')
   ? ['components/*/__tests__/demo.test.{ts,tsx}']
-  : ['components/**/*.test.{ts,tsx}'];
+  : ['components/*/__tests__/*.test.{ts,tsx}'];
 
 export const commonConfig = {
   resolve: {

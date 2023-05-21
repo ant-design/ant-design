@@ -1,5 +1,21 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`renders components/statistic/demo/animated.tsx correctly 1`] = `
+<div
+  class="ant-row"
+  style="margin-left:-8px;margin-right:-8px"
+>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  />
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  />
+</div>
+`;
+
 exports[`renders components/statistic/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-row"

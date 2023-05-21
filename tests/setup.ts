@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import type { TestingLibraryMatchers } from '@testing-library/jest-dom/matchers';
 import matchers from '@testing-library/jest-dom/matchers';
 import React from 'react';
@@ -9,7 +10,6 @@ import jsdom from 'jsdom';
 import format, { plugins } from 'pretty-format';
 import { defaultConfig } from '../components/theme/internal';
 
-// eslint-disable-next-line no-console
 console.log('Current React Version:', React.version);
 
 declare module 'vitest' {
@@ -19,12 +19,6 @@ declare module 'vitest' {
 }
 
 expect.extend(matchers);
-
-if (typeof window !== 'undefined') {
-  // https://github.com/nickcolley/jest-axe/issues/147#issuecomment-758804533
-  const { getComputedStyle } = window;
-  window.getComputedStyle = (elt) => getComputedStyle(elt);
-}
 
 const originConsoleErr = console.error;
 
@@ -41,7 +35,6 @@ console.error = (...args) => {
   }
 };
 
-/* eslint-disable global-require */
 if (typeof window !== 'undefined') {
   global.window.resizeTo = (width, height) => {
     global.window.innerWidth = width || global.window.innerWidth;
@@ -68,10 +61,16 @@ if (typeof window !== 'undefined') {
   window.AnimationEvent = window.AnimationEvent || window.Event;
   window.TransitionEvent = window.TransitionEvent || window.Event;
 
+  // https://github.com/nickcolley/jest-axe/issues/147#issuecomment-758804533
+  const { getComputedStyle } = window;
+  window.getComputedStyle = (elt) => getComputedStyle(elt);
+
   // ref: https://jestjs.io/docs/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
   // ref: https://github.com/jsdom/jsdom/issues/2524
-  Object.defineProperty(window, 'TextEncoder', { writable: true, value: util.TextEncoder });
-  Object.defineProperty(window, 'TextDecoder', { writable: true, value: util.TextDecoder });
+  if (!window.TextDecoder) {
+    Object.defineProperty(window, 'TextEncoder', { writable: true, value: util.TextEncoder });
+    Object.defineProperty(window, 'TextDecoder', { writable: true, value: util.TextDecoder });
+  }
 }
 
 vi.mock('@rc-component/trigger');

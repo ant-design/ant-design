@@ -185,6 +185,17 @@ exports[`renders components/message/demo/thenable.tsx extend context correctly 1
 </button>
 `;
 
+exports[`renders components/message/demo/thenable.tsx extend context correctly 2`] = `
+<button
+  class="ant-btn ant-btn-default"
+  type="button"
+>
+  <span>
+    Display sequential messages
+  </span>
+</button>
+`;
+
 exports[`renders components/message/demo/update.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"

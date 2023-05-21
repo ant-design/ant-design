@@ -111,9 +111,6 @@ describe('Mentions', () => {
     const { container } = wrapper;
     fireEvent.mouseEnter(container.querySelector('li.ant-mentions-dropdown-menu-item:last-child')!);
     fireEvent.focus(container.querySelector('textarea')!);
-    act(() => {
-      vi.runAllTimers();
-    });
     expect(
       wrapper.container.querySelector('.ant-mentions-dropdown-menu-item-active')?.textContent,
     ).toBe('Yesmeck');

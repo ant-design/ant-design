@@ -2827,7 +2827,7 @@ Array [
                         <div
                           aria-hidden="true"
                           class="ant-select-tree-treenode"
-                          style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+                          style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
                         >
                           <div
                             class="ant-select-tree-indent"
@@ -10228,7 +10228,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                       <div
                         aria-hidden="true"
                         class="ant-select-tree-treenode"
-                        style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+                        style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
                       >
                         <div
                           class="ant-select-tree-indent"
@@ -25064,7 +25064,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       <div
                         aria-hidden="true"
                         class="ant-select-tree-treenode"
-                        style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+                        style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
                       >
                         <div
                           class="ant-select-tree-indent"
