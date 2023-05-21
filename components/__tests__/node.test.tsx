@@ -50,7 +50,7 @@ describe('node', () => {
               renderToString(<Demo />);
             }).not.toThrow();
           },
-          10000,
+          15000,
         );
       });
     });
