@@ -20,7 +20,6 @@ vi.mock('../dropdown', async (importOriginal) => {
       clone[key] = props[key];
     });
 
-    console.log('🚀 ~ file: dropdown-button.test.tsx:26 ~ vi.mock ~ clone:', clone);
     dropdownProps = clone;
     const { children, ...restProps } = props;
     return h.createElement(ActualDropdownComponent, { ...restProps }, children);
@@ -28,7 +27,7 @@ vi.mock('../dropdown', async (importOriginal) => {
   MockedDropdown.Button = ActualDropdownComponent.Button;
 
   return {
-    // ...ActualDropdown,
+    ...ActualDropdown,
     default: MockedDropdown,
   };
 });

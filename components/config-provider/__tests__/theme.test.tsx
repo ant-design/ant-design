@@ -13,11 +13,9 @@ const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 // eslint-disable-next-line no-var
 var mockCanUseDom = vi.hoisted(() => true);
 
-vi.mock('rc-util/lib/Dom/canUseDom', () => {
-  return {
-    default: () => mockCanUseDom,
-  };
-});
+vi.mock('rc-util/es/Dom/canUseDom', () => ({
+  default: () => mockCanUseDom,
+}));
 
 describe('ConfigProvider.Theme', () => {
   beforeEach(() => {

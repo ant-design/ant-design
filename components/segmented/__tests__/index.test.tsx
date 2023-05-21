@@ -9,8 +9,8 @@ import type { SegmentedValue } from '../index';
 import Segmented from '../index';
 
 // Make CSSMotion working without transition
-vi.mock('rc-motion/lib/util/motion', async (importOriginal) => ({
-  ...(await importOriginal<typeof import('rc-motion/lib/util/motion')>()),
+vi.mock('rc-motion/es/util/motion', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('rc-motion/es/util/motion')>()),
   supportTransition: false,
 }));
 

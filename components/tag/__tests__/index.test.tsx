@@ -8,11 +8,13 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 
-(global as any).isVisible = true;
+const isVisible = vi.hoisted(() => true);
 
-vi.mock('rc-util/lib/Dom/isVisible', () => {
-  const mockFn = () => (global as any).isVisible;
-  return mockFn;
+vi.mock('rc-util/es/Dom/isVisible', () => {
+  const mockFn = () => isVisible;
+  return {
+    default: mockFn,
+  };
 });
 
 function waitRaf() {

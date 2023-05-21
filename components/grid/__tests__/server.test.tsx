@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Row } from '..';
 import { render } from '../../../tests/utils';
 
-vi.mock('rc-util/lib/Dom/canUseDom', () => ({ default: () => false }));
+vi.mock('rc-util/es/Dom/canUseDom', () => ({ default: () => false }));
 
 describe('Grid.Server', () => {
   it('use compatible gap logic', () => {

@@ -3,10 +3,7 @@ import React from 'react';
 import Button from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
 
-vi.mock('rc-util/lib/Dom/isVisible', () => {
-  const mockFn = () => true;
-  return mockFn;
-});
+vi.mock('rc-util/es/Dom/isVisible', () => ({ default: () => true }));
 
 describe('click wave effect', () => {
   beforeEach(() => {
