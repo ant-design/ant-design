@@ -88,7 +88,7 @@
     "sort-api": "antd-tools run sort-api-table",
     "start": "cross-env PORT=8001 dumi dev",
     "test": "vitest --run",
-    "test:update": "jest --config .jest.js --no-cache -u",
+    "test:update": "vitest --run -u",
     "test-all": "sh -e ./scripts/test-all.sh",
     "test-node": "npm run version && vitest --config vitest.node.config.ts",
     "tsc": "tsc --noEmit",
