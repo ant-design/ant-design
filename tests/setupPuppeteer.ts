@@ -1,3 +1,4 @@
+// Reference: https://github.com/argos-ci/jest-puppeteer/blob/main/packages/jest-puppeteer/src/index.ts
 import puppeteer from 'puppeteer';
 import { afterAll, beforeAll } from 'vitest';
 
