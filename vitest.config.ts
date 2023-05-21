@@ -36,11 +36,6 @@ export const commonConfig: UserConfig = {
         find: /rc-([\w-]+)\/lib\/(.*)/,
         replacement: 'rc-$1/es/$2',
       },
-      // Fixes https://github.com/glennreyes/react-countup/issues/805#issuecomment-1536311026
-      {
-        find: 'countup.js',
-        replacement: 'countup.js/countUp.umd.js',
-      },
     ],
   },
   test: {
