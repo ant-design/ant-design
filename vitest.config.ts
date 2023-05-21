@@ -3,6 +3,10 @@ import { defineConfig } from 'vitest/config';
 
 const resolve = (dir: string) => path.resolve(__dirname, dir);
 
+const include = ['lib', 'es', 'dist'].includes(process.env.LIB_DIR || '')
+  ? ['components/**/demo.test.*']
+  : ['components/**/*.test.*'];
+
 export default defineConfig({
   esbuild: {
     jsx: 'automatic',
@@ -33,8 +37,8 @@ export default defineConfig({
     ],
   },
   test: {
-    include: ['components/**/*.test.*'],
-    exclude: ['**/{demo,demo-extend,node}.test.*', 'components/dropdown/**'],
+    include,
+    exclude: ['**/node.test.*', 'components/dropdown/**'],
     globals: true,
     setupFiles: ['./tests/setup.ts', './tests/setupPuppeteer.ts'],
     environment: 'jsdom',
