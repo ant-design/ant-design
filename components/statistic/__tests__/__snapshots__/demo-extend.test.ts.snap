@@ -8,11 +8,53 @@ exports[`renders components/statistic/demo/animated.tsx extend context correctly
   <div
     class="ant-col ant-col-12"
     style="padding-left: 8px; padding-right: 8px;"
-  />
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Active Users
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          <span>
+            0
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-col ant-col-12"
     style="padding-left: 8px; padding-right: 8px;"
-  />
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Account Balance (CNY)
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          <span>
+            0
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 

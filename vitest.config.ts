@@ -7,7 +7,7 @@ const resolve = (dir: string) => path.resolve(__dirname, dir);
 
 const include = ['lib', 'es', 'dist'].includes(process.env.LIB_DIR || '')
   ? ['components/*/__tests__/demo.test.{ts,tsx}']
-  : ['components/statistic/__tests__/*.test.{ts,tsx}'];
+  : ['components/*/__tests__/*.test.{ts,tsx}'];
 
 export const commonConfig: UserConfig = {
   esbuild: {
@@ -35,6 +35,11 @@ export const commonConfig: UserConfig = {
       {
         find: /rc-([\w-]+)\/lib\/(.*)/,
         replacement: 'rc-$1/es/$2',
+      },
+      // fix https://github.com/glennreyes/react-countup/issues/805#issuecomment-1536311026
+      {
+        find: 'countUp.js',
+        replacement: 'countup.js/countUp.umd.js',
       },
     ],
   },
