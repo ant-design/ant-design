@@ -8,6 +8,5 @@ export default defineConfig({
     include: ['**/node.test.{ts,tsx}'],
     environment: 'node',
     globals: true,
-    deps: {},
   },
 });
