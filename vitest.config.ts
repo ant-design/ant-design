@@ -7,10 +7,7 @@ const include = ['lib', 'es', 'dist'].includes(process.env.LIB_DIR || '')
   ? ['components/**/demo.test.*']
   : ['components/**/*.test.*'];
 
-export default defineConfig({
-  esbuild: {
-    jsx: 'automatic',
-  },
+export const commonConfig = {
   resolve: {
     mainFields: ['module', 'main'],
     alias: [
@@ -36,9 +33,13 @@ export default defineConfig({
       },
     ],
   },
+};
+
+export default defineConfig({
+  ...commonConfig,
   test: {
     include,
-    exclude: ['**/node.test.*', 'components/dropdown/**'],
+    exclude: ['**/node.test.*', 'components/dropdown/**', 'node_modules', 'dist'],
     globals: true,
     setupFiles: ['./tests/setup.ts', './tests/setupPuppeteer.ts'],
     environment: 'jsdom',
