@@ -13,7 +13,6 @@ interface TagToken extends FullToken<'Tag'> {
   iconSize: number;
   paddingHorizontal: number;
   tagBorderlessBg: string;
-  tagLineHeight: number;
 }
 
 // ============================== Styles ==============================
@@ -67,7 +66,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       marginInlineEnd: token.marginXS,
       paddingInline,
       fontSize: token.fontSizeSM,
-      lineHeight: token.tagLineHeight,
+      lineHeight: token.lineHeight,
       whiteSpace: 'nowrap',
       background: token.defaultBg,
       border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
@@ -151,13 +150,10 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 export default genComponentStyleHook(
   'Tag',
   (token) => {
-    const { fontSize, lineHeight, lineWidth } = token;
-    const tagHeight = Math.round(fontSize * lineHeight);
     const tagToken = mergeToken<TagToken>(token, {
-      iconSize: token.fontSizeIcon - 2 * lineWidth, // Tag icon is much more smaller
+      iconSize: token.fontSizeIcon - 2 * token.lineWidth, // Tag icon is much more smaller
       paddingHorizontal: 8, // Fixed padding.
       tagBorderlessBg: token.colorFillTertiary,
-      tagLineHeight: tagHeight - lineWidth * 2,
     });
 
     return [
