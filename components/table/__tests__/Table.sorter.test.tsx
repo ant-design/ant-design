@@ -356,11 +356,11 @@ describe('Table.sorter', () => {
   });
 
   it('renders custome sort icon correctly', () => {
-    const sortIcon = ({ sorterOrder }: { sorterOrder?: SortOrder }): React.ReactNode => {
+    const sortIcon = ({ sortOrder }: { sortOrder?: SortOrder }): React.ReactNode => {
       let text: string;
-      if (sorterOrder === undefined) {
+      if (sortOrder === undefined) {
         text = 'unsorted';
-      } else if (sorterOrder === 'descend') {
+      } else if (sortOrder === 'descend') {
         text = 'sortDescend';
       } else {
         text = 'sortAscend';
@@ -889,7 +889,7 @@ describe('Table.sorter', () => {
     expect(container.querySelectorAll('th.ant-table-column-sort')).toHaveLength(1);
   });
 
-  it('surger should support sorterOrder', () => {
+  it('surger should support sortOrder', () => {
     const { container } = render(
       <Table>
         <Table.Column key="name" title="Name" dataIndex="name" sortOrder="ascend" sorter />
