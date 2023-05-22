@@ -548,17 +548,6 @@ exports[`renders components/notification/demo/with-btn.tsx extend context correc
 </button>
 `;
 
-exports[`renders components/notification/demo/with-btn.tsx extend context correctly 2`] = `
-<button
-  class="ant-btn ant-btn-primary"
-  type="button"
->
-  <span>
-    Open the notification box
-  </span>
-</button>
-`;
-
 exports[`renders components/notification/demo/with-icon.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"

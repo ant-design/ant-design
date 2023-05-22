@@ -65,72 +65,7 @@ exports[`renders components/affix/demo/debug.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/affix/demo/debug.tsx correctly 2`] = `
-<div>
-  <div
-    class=""
-  >
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        120px to affix top
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`renders components/affix/demo/debug.tsx correctly 3`] = `
-<div
-  style="height:10000px"
->
-  <div>
-    Top
-  </div>
-  <div>
-    <div
-      class=""
-    >
-      <div
-        style="background:red"
-      >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            Affix top
-          </span>
-        </button>
-      </div>
-    </div>
-  </div>
-  <div>
-    Bottom
-  </div>
-</div>
-`;
-
 exports[`renders components/affix/demo/on-change.tsx correctly 1`] = `
-<div>
-  <div
-    class=""
-  >
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        120px to affix top
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`renders components/affix/demo/on-change.tsx correctly 2`] = `
 <div>
   <div
     class=""
