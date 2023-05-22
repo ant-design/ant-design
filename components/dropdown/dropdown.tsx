@@ -30,7 +30,7 @@ const Placements = [
   'bottom',
 ] as const;
 
-type Placement = typeof Placements[number];
+type Placement = (typeof Placements)[number];
 type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
 type OverlayFunc = () => React.ReactElement;
@@ -322,7 +322,7 @@ function postPureProps(props: DropdownProps) {
 // We don't care debug panel
 const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls, postPureProps);
 
-/* istanbul ignore next */
+/* c8 ignore next */
 const WrapPurePanel = (props: DropdownProps) => (
   <PurePanel {...props}>
     <span />

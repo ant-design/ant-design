@@ -173,7 +173,7 @@ const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
               insetInlineStart: token.switchHandleActiveInset,
             },
           }
-        : /* istanbul ignore next */
+        : /* c8 ignore next */
           {},
     },
   };

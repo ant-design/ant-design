@@ -271,7 +271,7 @@ const Select = React.forwardRef(InternalSelect) as unknown as (<
 };
 
 // We don't care debug panel
-/* istanbul ignore next */
+/* c8 ignore next */
 const PurePanel = genPurePanel(Select);
 
 Select.SECRET_COMBOBOX_MODE_DO_NOT_USE = SECRET_COMBOBOX_MODE_DO_NOT_USE;

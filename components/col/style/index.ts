@@ -1,4 +1,4 @@
 // Compatible for babel-plugin-import
 
-/* istanbul ignore next */
+/* c8 ignore next */
 export default {};
