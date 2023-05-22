@@ -209,7 +209,7 @@ title: Less 变量迁移 Design Token
 | `@pagination-item-bg` | `itemBg` | - |
 | `@pagination-item-size` | `itemSize` | - |
 | `@pagination-item-size-sm` | `itemSizeSM` | - |
-| `@pagination-font-family` | `fontFamily` | - |
+| `@pagination-font-family` | `fontFamily` | 全局 Token |
 | `@pagination-font-weight-active` | `fontWeightActive` | - |
 | `@pagination-item-bg-active` | `itemBgActive` | - |
 | `@pagination-item-link-bg` | `itemLinkBg` | - |

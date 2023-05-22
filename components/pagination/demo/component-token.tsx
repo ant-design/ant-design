@@ -1,6 +1,16 @@
-import React from 'react';
+import type { PaginationProps } from 'antd';
 import { ConfigProvider, Pagination } from 'antd';
+import React from 'react';
 
+const itemRender: PaginationProps['itemRender'] = (_, type, originalElement) => {
+  if (type === 'prev') {
+    return <a>Previous</a>;
+  }
+  if (type === 'next') {
+    return <a>Next</a>;
+  }
+  return originalElement;
+};
 const App: React.FC = () => (
   <ConfigProvider
     theme={{
@@ -21,7 +31,14 @@ const App: React.FC = () => (
       },
     }}
   >
-    <Pagination showSizeChanger defaultCurrent={3} total={500} />
+    <Pagination
+      showSizeChanger
+      defaultCurrent={3}
+      total={500}
+      itemRender={itemRender}
+      showQuickJumper
+      showTotal={(total) => `Total ${total} items`}
+    />
     <br />
     <Pagination showSizeChanger defaultCurrent={3} total={500} disabled />
   </ConfigProvider>
