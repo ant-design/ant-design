@@ -281,7 +281,17 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Tag 标签 -->
 
-<!-- ### Timeline 时间轴 -->
+### Timeline 时间轴
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@timeline-width` | `tailWidth` | `tailWidth` 为数字，不带单位，`@timeline-width` 带单位 |
+| `@timeline-color` | `tailColor` | - |
+| `@timeline-dot-border-width` | `dotBorderWidth` | - |
+| `@timeline-dot-color` | - | 已废弃 |
+| `@timeline-dot-bg` | `dotBg` | - |
+| `@timeline-item-padding-bottom` | `itemPaddingBottom` | - |
 
 <!-- ### TimePicker 时间选择 -->
 
