@@ -1,4 +1,5 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
+import type React from 'react';
 import capitalize from '../../_util/capitalize';
 import { resetComponent } from '../../style';
 import type { FullToken } from '../../theme/internal';
@@ -7,6 +8,7 @@ import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/i
 export interface ComponentToken {
   defaultBg: string;
   defaultColor: string;
+  tagLineHeight: React.CSSProperties['lineHeight'];
 }
 
 interface TagToken extends FullToken<'Tag'> {
@@ -66,7 +68,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       marginInlineEnd: token.marginXS,
       paddingInline,
       fontSize: token.fontSizeSM,
-      lineHeight: token.lineHeight,
+      lineHeight: `${token.tagLineHeight}px`,
       whiteSpace: 'nowrap',
       background: token.defaultBg,
       border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
@@ -165,8 +167,13 @@ export default genComponentStyleHook(
       genTagStatusStyle(tagToken, 'warning', 'Warning'),
     ];
   },
-  (token) => ({
-    defaultBg: token.colorFillQuaternary,
-    defaultColor: token.colorText,
-  }),
+  (token) => {
+    const tagHeight = Math.round(token.fontSize * token.lineHeight);
+    const tagLineHeight = tagHeight - token.lineWidth * 2;
+    return {
+      defaultBg: token.colorFillQuaternary,
+      defaultColor: token.colorText,
+      tagLineHeight,
+    };
+  },
 );
