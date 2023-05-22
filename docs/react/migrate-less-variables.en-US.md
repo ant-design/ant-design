@@ -141,7 +141,22 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Layout -->
 
-<!-- ### List -->
+### List
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@list-header-background` | `headerBg` | - |
+| `@list-footer-background` | `footerBg` | - |
+| `@list-empty-text-padding` | `emptyTextPadding` | - |
+| `@list-item-padding` | `itemPadding` | - |
+| `@list-item-padding-sm` | `itemPaddingSM` | - |
+| `@list-item-padding-lg` | `itemPaddingLG` | - |
+| `@list-item-meta-margin-bottom` | `metaMarginBottom` | - |
+| `@list-item-meta-avatar-margin-right` | `avatarMarginRight` | - |
+| `@list-item-meta-title-margin-bottom` | `titleMarginBottom` | - |
+| `@list-customize-card-bg` | - | Deprecated for style change |
+| `@list-item-meta-description-font-size` | `descriptionFontSize` | - |
 
 <!-- ### Mentions -->
 

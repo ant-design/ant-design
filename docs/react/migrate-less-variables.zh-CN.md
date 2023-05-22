@@ -139,7 +139,22 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Layout 布局 -->
 
-<!-- ### List 列表 -->
+### List 列表
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@list-header-background` | `headerBg` | - |
+| `@list-footer-background` | `footerBg` | - |
+| `@list-empty-text-padding` | `emptyTextPadding` | - |
+| `@list-item-padding` | `itemPadding` | - |
+| `@list-item-padding-sm` | `itemPaddingSM` | - |
+| `@list-item-padding-lg` | `itemPaddingLG` | - |
+| `@list-item-meta-margin-bottom` | `metaMarginBottom` | - |
+| `@list-item-meta-avatar-margin-right` | `avatarMarginRight` | - |
+| `@list-item-meta-title-margin-bottom` | `titleMarginBottom` | - |
+| `@list-customize-card-bg` | - | 由于样式变化已废弃 |
+| `@list-item-meta-description-font-size` | `descriptionFontSize` | - |
 
 <!-- ### Mentions 提及 -->
 
