@@ -53,6 +53,7 @@ export default defineConfig({
     setupFiles: ['./tests/setup.ts'],
     environment: 'jsdom',
     coverage: {
+      include: ['components/**/*.{ts,tsx}'],
       exclude: [
         'components/*/style/index.tsx',
         'components/style/index.tsx',
