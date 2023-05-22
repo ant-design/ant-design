@@ -175,10 +175,8 @@ export default genComponentStyleHook(
       genTagStatusStyle(tagToken, 'warning', 'Warning'),
     ];
   },
-  (token) => {
-    return {
-      defaultBg: token.colorFillQuaternary,
-      defaultColor: token.colorText,
-    };
-  },
+  (token) => ({
+    defaultBg: token.colorFillQuaternary,
+    defaultColor: token.colorText,
+  }),
 );
