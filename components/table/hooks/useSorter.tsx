@@ -130,7 +130,7 @@ function injectSorter<RecordType>(
 
       let sorter: React.ReactNode;
       if (column.sortIcon) {
-        sorter = column.sortIcon(sorterOrder);
+        sorter = column.sortIcon({ sorterOrder });
       } else {
         const upNode: React.ReactNode = sortDirections.includes(ASCEND) && (
           <CaretUpOutlined

@@ -356,11 +356,11 @@ describe('Table.sorter', () => {
   });
 
   it('renders custome sort icon correctly', () => {
-    const sortIcon = (sortOrder?: SortOrder): React.ReactNode => {
+    const sortIcon = ({ sorterOrder }: { sorterOrder?: SortOrder }): React.ReactNode => {
       let text: string;
-      if (sortOrder === undefined) {
+      if (sorterOrder === undefined) {
         text = 'unsorted';
-      } else if (sortOrder === 'descend') {
+      } else if (sorterOrder === 'descend') {
         text = 'sortDescend';
       } else {
         text = 'sortAscend';
