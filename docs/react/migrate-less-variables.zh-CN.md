@@ -116,7 +116,13 @@ title: Less 变量迁移 Design Token
 | `@drawer-footer-padding-vertical` | `footerPaddingBlock` | `footerPaddingBlock` 为数字，不带单位，`@drawer-footer-padding-vertical` 带单位 |
 | `@drawer-footer-padding-horizontal` | `footerPaddingInline` | `footerPaddingInline` 为数字，不带单位，`@drawer-footer-padding-horizontal` 带单位 |
 
-<!-- ### Dropdown 下拉菜单 -->
+### Dropdown 下拉菜单
+
+| Less 变量                            | Component Token       | 备注       |
+| ------------------------------------ | --------------------- | ---------- |
+| `@dropdown-selected-color`           | `colorPrimary`        | -          |
+| `@dropdown-menu-submenu-disabled-bg` | `colorBgElevated`     | 全局 Token |
+| `@dropdown-selected-bg`              | `controlItemBgActive` | 全局 Token |
 
 ### Empty 空状态
 

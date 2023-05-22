@@ -118,7 +118,13 @@ This document contains the correspondence between all the less variables related
 | `@drawer-footer-padding-vertical` | `footerPaddingBlock` | `footerPaddingBlock`  is a number without units, `@drawer-footer-padding-vertical` with units |
 | `@drawer-footer-padding-horizontal` | `footerPaddingInline` | `footerPaddingInline`  is a number without units, `@drawer-footer-padding-horizontal` with units |
 
-<!-- ### Dropdown -->
+### Dropdown
+
+| Less variables                       | Component Token       | Note        |
+| ------------------------------------ | --------------------- | ----------- |
+| `@dropdown-selected-color`           | `colorPrimary`        | -           |
+| `@dropdown-menu-submenu-disabled-bg` | `colorBgElevated`     | GlobalToken |
+| `@dropdown-selected-bg`              | `controlItemBgActive` | GlobalToken |
 
 ### Empty
 
