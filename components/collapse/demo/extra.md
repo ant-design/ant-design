@@ -4,4 +4,4 @@
 
 ## en-US
 
-Render extra element in the top-right corner.
+Render extra element in the top-right corner of each panel.
