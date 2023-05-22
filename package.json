@@ -200,6 +200,7 @@
     "@types/react-window": "^1.8.2",
     "@types/throttle-debounce": "^5.0.0",
     "@types/warning": "^3.0.0",
+    "@types/jsdom": "^21.1.1",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
     "@vitest/coverage-c8": "^0.31.1",
