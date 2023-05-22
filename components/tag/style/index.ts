@@ -8,12 +8,13 @@ import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/i
 export interface ComponentToken {
   defaultBg: string;
   defaultColor: string;
-  tagLineHeight: React.CSSProperties['lineHeight'];
 }
 
 interface TagToken extends FullToken<'Tag'> {
-  iconSize: number;
-  paddingHorizontal: number;
+  tagFontSize: number;
+  tagLineHeight: React.CSSProperties['lineHeight'];
+  tagIconSize: number;
+  tagPaddingHorizontal: number;
   tagBorderlessBg: string;
 }
 
@@ -55,8 +56,8 @@ const genPresetStyle = (token: TagToken) =>
   }));
 
 const genBaseStyle = (token: TagToken): CSSInterpolation => {
-  const { paddingXXS, lineWidth, paddingHorizontal, componentCls } = token;
-  const paddingInline = paddingHorizontal - lineWidth;
+  const { paddingXXS, lineWidth, tagPaddingHorizontal, componentCls } = token;
+  const paddingInline = tagPaddingHorizontal - lineWidth;
   const iconMarginInline = paddingXXS - lineWidth;
 
   return {
@@ -67,7 +68,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       height: 'auto',
       marginInlineEnd: token.marginXS,
       paddingInline,
-      fontSize: token.fontSizeSM,
+      fontSize: token.tagFontSize,
       lineHeight: `${token.tagLineHeight}px`,
       whiteSpace: 'nowrap',
       background: token.defaultBg,
@@ -89,7 +90,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       [`${componentCls}-close-icon`]: {
         marginInlineStart: iconMarginInline,
         color: token.colorTextDescription,
-        fontSize: token.iconSize,
+        fontSize: token.tagIconSize,
         cursor: 'pointer',
         transition: `all ${token.motionDurationMid}`,
 
@@ -152,9 +153,16 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 export default genComponentStyleHook(
   'Tag',
   (token) => {
+    const { lineWidth, fontSizeIcon } = token;
+
+    const tagFontSize = token.fontSizeSM;
+    const tagLineHeight = token.lineHeightSM;
+
     const tagToken = mergeToken<TagToken>(token, {
-      iconSize: token.fontSizeIcon - 2 * token.lineWidth, // Tag icon is much more smaller
-      paddingHorizontal: 8, // Fixed padding.
+      tagFontSize,
+      tagLineHeight,
+      tagIconSize: fontSizeIcon - 2 * lineWidth, // Tag icon is much smaller
+      tagPaddingHorizontal: 8, // Fixed padding.
       tagBorderlessBg: token.colorFillTertiary,
     });
 
@@ -168,12 +176,9 @@ export default genComponentStyleHook(
     ];
   },
   (token) => {
-    const tagHeight = Math.round(token.fontSize * token.lineHeight);
-    const tagLineHeight = tagHeight - token.lineWidth * 2;
     return {
       defaultBg: token.colorFillQuaternary,
       defaultColor: token.colorText,
-      tagLineHeight,
     };
   },
 );

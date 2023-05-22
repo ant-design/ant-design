@@ -265,8 +265,6 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Tabs -->
 
-<!-- ### Tag -->
-
 ## Tag
 
 <!-- prettier-ignore -->
@@ -276,7 +274,7 @@ This document contains the correspondence between all the less variables related
 | `@tag-default-bg` | `defaultBg` | - |
 | `@tag-default-color` | `defaultColor` | - |
 | `@tag-font-size` | `fontSizeSM` | Global Token |
-| `@tag-line-height` | `tagLineHeight` | - |
+| `@tag-line-height` | `lineHeightSM` | Global Token |
 
 <!-- ### Timeline -->
 

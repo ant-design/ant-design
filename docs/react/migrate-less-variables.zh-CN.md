@@ -272,7 +272,7 @@ title: Less 变量迁移 Design Token
 | `@tag-default-bg` | `defaultBg` | - |
 | `@tag-default-color` | `defaultColor` | - |
 | `@tag-font-size` | `fontSizeSM` | 全局 Token |
-| `@tag-line-height` | `tagLineHeight` | - |
+| `@tag-line-height` | `lineHeightSM` | 全局 Token |
 
 <!-- ### Timeline 时间轴 -->
 
