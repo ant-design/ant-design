@@ -55,15 +55,13 @@ export default defineConfig({
     coverage: {
       include: ['components/**/*.{ts,tsx}'],
       exclude: [
+        '**/__tests__/**',
+        'components/*/demo/**',
+        'components/*/design/**',
         'components/*/style/index.tsx',
         'components/style/index.tsx',
         'components/*/locale/index.tsx',
-        'components/*/__tests__/type.test.tsx',
         'components/**/*/interface.{ts,tsx}',
-        'components/*/__tests__/image.test.{ts,tsx}',
-        'components/__tests__/node.test.tsx',
-        'components/*/demo/*.tsx',
-        'components/*/design/**',
       ],
     },
   },
