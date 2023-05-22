@@ -66,7 +66,7 @@ export default function imageTest(component: React.ReactElement) {
 
         MockDate.reset();
         page.removeListener('request', onRequestHandle);
-      });
+      }, 15000);
     },
   );
 }
