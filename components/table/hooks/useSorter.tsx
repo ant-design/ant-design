@@ -127,20 +127,39 @@ function injectSorter<RecordType>(
       const sorterState = sorterStates.find(({ key }) => key === columnKey);
       const sorterOrder = sorterState ? sorterState.sortOrder : null;
       const nextSortOrder = nextSortDirection(sortDirections, sorterOrder);
-      const upNode: React.ReactNode = sortDirections.includes(ASCEND) && (
-        <CaretUpOutlined
-          className={classNames(`${prefixCls}-column-sorter-up`, {
-            active: sorterOrder === ASCEND,
-          })}
-        />
-      );
-      const downNode: React.ReactNode = sortDirections.includes(DESCEND) && (
-        <CaretDownOutlined
-          className={classNames(`${prefixCls}-column-sorter-down`, {
-            active: sorterOrder === DESCEND,
-          })}
-        />
-      );
+
+      let sorter: React.ReactNode;
+      if (column.sortIcon) {
+        sorter = column.sortIcon({ sorterOrder });
+      } else {
+        const upNode: React.ReactNode = sortDirections.includes(ASCEND) && (
+          <CaretUpOutlined
+            className={classNames(`${prefixCls}-column-sorter-up`, {
+              active: sorterOrder === ASCEND,
+            })}
+          />
+        );
+        const downNode: React.ReactNode = sortDirections.includes(DESCEND) && (
+          <CaretDownOutlined
+            className={classNames(`${prefixCls}-column-sorter-down`, {
+              active: sorterOrder === DESCEND,
+            })}
+          />
+        );
+        sorter = (
+          <span
+            className={classNames(`${prefixCls}-column-sorter`, {
+              [`${prefixCls}-column-sorter-full`]: !!(upNode && downNode),
+            })}
+          >
+            <span className={`${prefixCls}-column-sorter-inner`} aria-hidden="true">
+              {upNode}
+              {downNode}
+            </span>
+          </span>
+        );
+      }
+
       const { cancelSort, triggerAsc, triggerDesc } = tableLocale || {};
       let sortTip: string | undefined = cancelSort;
       if (nextSortOrder === DESCEND) {
@@ -159,16 +178,7 @@ function injectSorter<RecordType>(
               <span className={`${prefixCls}-column-title`}>
                 {renderColumnTitle(column.title, renderProps)}
               </span>
-              <span
-                className={classNames(`${prefixCls}-column-sorter`, {
-                  [`${prefixCls}-column-sorter-full`]: !!(upNode && downNode),
-                })}
-              >
-                <span className={`${prefixCls}-column-sorter-inner`} aria-hidden="true">
-                  {upNode}
-                  {downNode}
-                </span>
-              </span>
+              {sorter}
             </div>
           );
           return showSorterTooltip ? (
