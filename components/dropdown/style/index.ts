@@ -70,9 +70,10 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
           content: '""',
         },
 
-        [`&-trigger${antCls}-btn > ${iconCls}-down`]: {
-          fontSize: fontSizeIcon,
-          transform: 'none',
+        [`&-trigger${antCls}-btn`]: {
+          [`& > ${iconCls}-down, & > ${antCls}-btn-icon > ${iconCls}-down`]: {
+            fontSize: fontSizeIcon,
+          },
         },
 
         [`${componentCls}-wrap`]: {
