@@ -127,7 +127,7 @@ describe('Test utils function', () => {
     });
 
     it('isStyleSupport return false in service side', () => {
-      const spy = jest
+      const spy = vi
         .spyOn(window.document, 'documentElement', 'get')
         .mockImplementation(() => undefined as unknown as HTMLElement);
       expect(isStyleSupport('color')).toBe(false);

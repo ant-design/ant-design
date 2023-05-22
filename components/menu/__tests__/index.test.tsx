@@ -6,6 +6,7 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import React, { useMemo, useState } from 'react';
+import { vi } from 'vitest';
 import type { MenuProps, MenuRef } from '..';
 import Menu from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -28,7 +29,7 @@ describe('Menu', () => {
   function triggerAllTimer() {
     for (let i = 0; i < 10; i += 1) {
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
     }
   }

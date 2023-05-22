@@ -126,7 +126,7 @@ describe('Collapse', () => {
 
   it('should end motion when set activeKey while hiding', async () => {
     vi.useFakeTimers();
-    const spiedRAF = jest
+    const spiedRAF = vi
       .spyOn(window, 'requestAnimationFrame')
       .mockImplementation((cb) => setTimeout(cb, 16.66));
 

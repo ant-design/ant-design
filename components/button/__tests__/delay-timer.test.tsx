@@ -36,7 +36,7 @@ it('Delay loading timer in Button component', () => {
   const wrapper = render(<Content />);
 
   const btnTimer = 9527;
-  const setTimeoutMock = jest
+  const setTimeoutMock = vi
     .spyOn<Window, 'setTimeout'>(window, 'setTimeout')
     .mockReturnValue(btnTimer);
   const clearTimeoutMock = vi.spyOn<Window, 'clearTimeout'>(window, 'clearTimeout');
