@@ -119,7 +119,7 @@ export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, '
   sortOrder?: SortOrder;
   defaultSortOrder?: SortOrder;
   sortDirections?: SortOrder[];
-  sortIcon?: (props: { sorterOrder: SortOrder }) => React.ReactNode;
+  sortIcon?: (props: { sortOrder: SortOrder }) => React.ReactNode;
   showSorterTooltip?: boolean | TooltipProps;
 
   // Filter
