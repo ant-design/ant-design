@@ -156,7 +156,7 @@ export default genComponentStyleHook(
     const { lineWidth, fontSizeIcon } = token;
 
     const tagFontSize = token.fontSizeSM;
-    const tagLineHeight = token.lineHeightSM;
+    const tagLineHeight = `${token.lineHeightSM * tagFontSize}px`;
 
     const tagToken = mergeToken<TagToken>(token, {
       tagFontSize,
