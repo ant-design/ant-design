@@ -8,5 +8,6 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./tests/setupPuppeteer.ts'],
     environment: 'jsdom',
+    maxThreads: 2,
   },
 });
