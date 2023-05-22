@@ -12,6 +12,7 @@ export interface ComponentToken {
   fontSize: number;
   fontSizeLG: number;
   fontSizeSM: number;
+  groupSpace: number;
   groupOverlapping: number;
   groupBorderColor: string;
 }
@@ -109,7 +110,7 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
 };
 
 const genGroupStyle: GenerateStyle<AvatarToken> = (token) => {
-  const { componentCls, groupBorderColor, groupOverlapping } = token;
+  const { componentCls, groupBorderColor, groupOverlapping, groupSpace } = token;
 
   return {
     [`${componentCls}-group`]: {
@@ -123,6 +124,11 @@ const genGroupStyle: GenerateStyle<AvatarToken> = (token) => {
         marginInlineStart: groupOverlapping,
       },
     },
+    [`${componentCls}-group-popover`]: {
+      [`${componentCls} + ${componentCls}`]: {
+        marginInlineStart: groupSpace,
+      },
+    },
   };
 };
 
@@ -130,6 +136,7 @@ export default genComponentStyleHook(
   'Avatar',
   (token) => {
     const avatarToken = mergeToken<AvatarToken>(token, {});
+    console.log([genBaseStyle(avatarToken), genGroupStyle(avatarToken)]);
     return [genBaseStyle(avatarToken), genGroupStyle(avatarToken)];
   },
   (token) => {
@@ -146,6 +153,7 @@ export default genComponentStyleHook(
       fontSizeHeading3,
 
       marginXS,
+      marginXXS,
       colorBorderBg,
       colorTextPlaceholder,
     } = token;
@@ -160,6 +168,7 @@ export default genComponentStyleHook(
 
       avatarBg: colorTextPlaceholder,
       avatarColor: colorTextLightSolid,
+      groupSpace: marginXXS,
       groupOverlapping: -marginXS,
       groupBorderColor: colorBorderBg,
     };
