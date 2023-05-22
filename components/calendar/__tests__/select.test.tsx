@@ -85,10 +85,7 @@ describe('Calendar.onSelect', () => {
     const onPanelChange = jest.fn();
     const { container } = render(<Calendar onSelect={onSelect} onPanelChange={onPanelChange} />);
 
-    // Click month radio
-    fireEvent.click(container.querySelectorAll('.ant-radio-button-input')[0]!);
-    expect(onPanelChange).toHaveBeenCalledWith(expect.anything(), 'month');
-
+    // Default is month radio
     fireEvent.click(container.querySelector('.ant-picker-cell')!);
     expect(onSelect).toHaveBeenCalledWith(expect.anything(), { source: 'date' });
 
