@@ -268,11 +268,11 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@tag-border-radius` | `borderRadiusSM` | Global Token |
+| `@tag-border-radius` | `borderRadiusSM` | 全局 Token |
 | `@tag-default-bg` | `defaultBg` | - |
 | `@tag-default-color` | `defaultColor` | - |
 | `@tag-font-size` | `fontSizeSM` | 全局 Token |
-| `@tag-line-height` | `lineHeightSM` | 全局 Token |
+| `@tag-line-height` | `tagLineHeight` | - |
 
 <!-- ### Timeline 时间轴 -->
 
