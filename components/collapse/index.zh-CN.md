@@ -49,7 +49,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
 
 ### Collapse.Panel
 
-<Alert message="&gt; 5.6.0 请使用 items 方式配置面板."></Alert>
+<Alert message="&gt;= 5.6.0 请使用 items 方式配置面板."></Alert>
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
