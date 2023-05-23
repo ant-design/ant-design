@@ -15,6 +15,29 @@ timeline: true
 
 ---
 
+## 5.5.1
+
+`2023-05-22`
+
+- 🐞 Fix wrong Button icon size and margin. [#42516](https://github.com/ant-design/ant-design/pull/42516) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix Select remove &amp; selected icon not align in center. [#42513](https://github.com/ant-design/ant-design/pull/42513)
+- 🐞 Refactor Popconfirm DOM structure to fix extra margin before `title` and `description` when `icon={null}`. [#42433](https://github.com/ant-design/ant-design/pull/42433)
+- 🐞 Fix Menu item icon not centered when `itemMarginInline` is 0. [#42426](https://github.com/ant-design/ant-design/pull/42426) [@zzwgh](https://github.com/zzwgh)
+- 🐞 Fix Tag wrapped with Tooltip will use wrong `font-size` when hover. [#42414](https://github.com/ant-design/ant-design/pull/42414)
+- 🐞 Fix Popconfirm trigger `onVisibleChange` twice. [#42393](https://github.com/ant-design/ant-design/pull/42393)
+- 🐞 Adjust Tooltip &amp; Popover display logic. Now the first priority is to ensure that it will not be clipped by `overflow: hidden`, and the second is to ensure that it is displayed within the viewport as much as possible. [#42394](https://github.com/ant-design/ant-design/pull/42394)
+- ColorPicker
+  - 🐞 Optimize ColorPicker the `allowClear` interaction logic, reopening the panel to select a color will default to 100% transparency instead of 0%. [#42439](https://github.com/ant-design/ant-design/pull/42439) [@RedJue](https://github.com/RedJue)
+  - 🐞 Optimize ColorPicker interaction. Now it will close panel when click clear button. [#42406](https://github.com/ant-design/ant-design/pull/42406) [@kiner-tang](https://github.com/kiner-tang)
+- 💄 Optimize border radius in filter dropdown of Table. [#42451](https://github.com/ant-design/ant-design/pull/42451) [@Yuiai01](https://github.com/Yuiai01)
+- 🛠 Remove `addEventListener` from `rc-util/lib/Dom/addEventListener` and use native `addEventListener` instead. [#42464](https://github.com/ant-design/ant-design/pull/42464) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛠 Reduce 1KB @ant-design/icons bundle size. Fix TwoTone icon color to primary color of 5.0. [#42443](https://github.com/ant-design/ant-design/pull/42443)
+- 🌐 Add missing translation for `mn_MN`. [#42512](https://github.com/ant-design/ant-design/pull/42512) [@ariunbatb](https://github.com/ariunbatb)
+- RTL
+  - 💄 Fix Select scrollbar `rtl` direction position. [#42508](https://github.com/ant-design/ant-design/pull/42508) [@BoyYangzai](https://github.com/BoyYangzai)
+- TypeScript
+  - 🤖 Optimize Slider ref type definition, replace `unknown` and `any` with `SliderRef`. [#42420](https://github.com/ant-design/ant-design/pull/42420) [@li-jia-nan](https://github.com/li-jia-nan)
+
 ## 5.5.0
 
 `2023-05-15`

@@ -95,7 +95,7 @@ Select component to select value from options.
 | showSearch | Whether select is searchable | boolean | single: false, multiple: true |  |
 | size | Size of Select input | `large` \| `middle` \| `small` | `middle` |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
-| suffixIcon | The custom suffix icon | ReactNode | - |  |
+| suffixIcon | The custom suffix icon. Customize icon will not response click open to avoid icon designed to do other interactive. You can use `pointer-events: none` style to bypass | ReactNode | - |  |
 | tagRender | Customize tag render, only applies when `mode` is set to `multiple` or `tags` | (props) => ReactNode | - |  |
 | tokenSeparators | Separator used to tokenize, only applies when `mode="tags"` | string\[] | - |  |
 | value | Current selected option (considered as a immutable array) | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
