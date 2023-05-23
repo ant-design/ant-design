@@ -210,7 +210,7 @@ title: Less 变量迁移 Design Token
 | --- | --- | --- |
 | `@popover-bg` | `colorBgElevated` | - |
 | `@popover-color` | `colorText` | 全局 Token |
-| `@popover-min-width` | `width` | - |
+| `@popover-min-width` | `minWidth` | - |
 | `@popover-min-height` | - | 已废弃 |
 | `@popover-arrow-width` | `sizePopupArrow` | 全局 Token |
 | `@popover-arrow-color` | - | 已废弃 |

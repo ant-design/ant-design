@@ -212,7 +212,7 @@ This document contains the correspondence between all the less variables related
 | --- | --- | --- |
 | `@popover-bg` | `colorBgContainer` | - |
 | `@popover-color` | `colorText` | GlobalToken |
-| `@popover-min-width` | `width` | - |
+| `@popover-min-width` | `minWidth` | - |
 | `@popover-min-height` | - | Deprecated  for style change |
 | `@popover-arrow-width` | `sizePopupArrow` | GlobalToken |
 | `@popover-arrow-color` | - | Deprecated  for style change |
