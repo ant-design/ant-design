@@ -22,7 +22,7 @@ const downloadQRCodeSvg = () => {
     const href = URL.createObjectURL(blob);
     const img = new Image();
     img.src = href;
-    img.onload = function () {
+    img.onload = () => {
       const canvas = document.createElement('canvas');
       canvas.width = svg.clientWidth || 134;
       canvas.height = svg.clientHeight || 134;
