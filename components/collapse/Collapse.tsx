@@ -1,5 +1,6 @@
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
+import type { CollapseProps as OriCollapseProps } from 'rc-collapse';
 import RcCollapse from 'rc-collapse';
 import type { CSSMotionProps } from 'rc-motion';
 import toArray from 'rc-util/lib/Children/toArray';
@@ -20,6 +21,7 @@ type ExpandIconPositionLegacy = 'left' | 'right';
 export type ExpandIconPosition = 'start' | 'end' | ExpandIconPositionLegacy | undefined;
 
 export interface CollapseProps {
+  items: OriCollapseProps['items'];
   activeKey?: Array<string | number> | string | number;
   defaultActiveKey?: Array<string | number> | string | number;
   /** 手风琴效果 */

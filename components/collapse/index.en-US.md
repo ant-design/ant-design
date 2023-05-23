@@ -44,8 +44,11 @@ A content area which can be collapsed and expanded.
 | ghost | Make the collapse borderless and its background transparent | boolean | false | 4.4.0 |
 | size | Set the size of collapse | `large` \| `middle` \| `small` | `middle` | 5.2.0 |
 | onChange | Callback function executed when active panel is changed | function | - |  |
+| items | collapse items content | [ItemType](https://github.com/react-component/collapse/blob/27250ca5415faab16db412b9bff2c131bb4f32fc/src/interface.ts#L6) | - | 5.6.0 |
 
 ### Collapse.Panel
+
+<Alert message="&gt; 5.6.0 configure the panel by `items`."></Alert>
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |

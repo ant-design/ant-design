@@ -1,7 +1,6 @@
+import type { CollapseProps } from 'antd';
+import { Collapse } from 'antd';
 import React from 'react';
-import { Collapse, Space } from 'antd';
-
-const { Panel } = Collapse;
 
 const text = `
   A dog is a type of domesticated animal.
@@ -9,24 +8,29 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
+const items: CollapseProps['items'] = [
+  {
+    key: '1',
+    label: 'This panel can only be collapsed by clicking text',
+    children: <p>{text}</p>,
+    collapsible: 'header',
+  },
+  {
+    key: '2',
+    label: 'This panel can only be collapsed by clicking icon',
+    children: <p>{text}</p>,
+    collapsible: 'icon',
+  },
+  {
+    key: '3',
+    label: "This panel can't be collapsed",
+    children: <p>{text}</p>,
+    collapsible: 'disabled',
+  },
+];
+
 const App: React.FC = () => (
-  <Space direction="vertical">
-    <Collapse collapsible="header" defaultActiveKey={['1']}>
-      <Panel header="This panel can only be collapsed by clicking text" key="1">
-        <p>{text}</p>
-      </Panel>
-    </Collapse>
-    <Collapse collapsible="icon" defaultActiveKey={['1']}>
-      <Panel header="This panel can only be collapsed by clicking icon" key="1">
-        <p>{text}</p>
-      </Panel>
-    </Collapse>
-    <Collapse collapsible="disabled">
-      <Panel header="This panel can't be collapsed" key="1">
-        <p>{text}</p>
-      </Panel>
-    </Collapse>
-  </Space>
+  <Collapse items={items} collapsible="header" defaultActiveKey={['1']} />
 );
 
 export default App;
