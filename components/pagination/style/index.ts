@@ -109,17 +109,19 @@ const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = (t
         },
       },
 
-      [`${componentCls}-item-link-icon`]: {
-        opacity: 0,
-      },
-
-      [`${componentCls}-item-ellipsis`]: {
-        opacity: 1,
-      },
-
       [`${componentCls}-simple-pager`]: {
         color: token.colorTextDisabled,
       },
+
+      [`${componentCls}-jump-prev, ${componentCls}-jump-next`]: {
+        [`${componentCls}-item-link-icon`]: {
+          opacity: 0,
+        },
+
+        [`${componentCls}-item-ellipsis`]: {
+          opacity: 1,
+        },
+      }
     },
     [`&${componentCls}-simple`]: {
       [`${componentCls}-prev, ${componentCls}-next`]: {
