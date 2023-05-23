@@ -6,9 +6,9 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 export interface ComponentToken {
   avatarBg: string;
   avatarColor: string;
-  size: number;
-  sizeLG: number;
-  sizeSM: number;
+  containerSize: number;
+  containerSizeLG: number;
+  containerSizeSM: number;
   fontSize: number;
   fontSizeLG: number;
   fontSizeSM: number;
@@ -29,8 +29,8 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
     iconCls,
     avatarBg,
     avatarColor,
-    sizeLG,
-    sizeSM,
+    containerSizeLG,
+    containerSizeSM,
     fontSizeLG,
     fontSizeSM,
     borderRadius,
@@ -41,10 +41,10 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
   } = token;
 
   // Avatar size style
-  const avatarSizeStyle = (size: number, fontSize: number, radius: number): CSSObject => ({
-    width: size,
-    height: size,
-    lineHeight: `${size - lineWidth * 2}px`,
+  const avatarSizeStyle = (containerSize: number, fontSize: number, radius: number): CSSObject => ({
+    width: containerSize,
+    height: containerSize,
+    lineHeight: `${containerSize - lineWidth * 2}px`,
     borderRadius: '50%',
 
     [`&${componentCls}-square`]: {
@@ -92,11 +92,11 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
       ...avatarSizeStyle(token.size, token.fontSize, borderRadius),
 
       [`&-lg`]: {
-        ...avatarSizeStyle(sizeLG, fontSizeLG, borderRadiusLG),
+        ...avatarSizeStyle(containerSizeLG, fontSizeLG, borderRadiusLG),
       },
 
       [`&-sm`]: {
-        ...avatarSizeStyle(sizeSM, fontSizeSM, borderRadiusSM),
+        ...avatarSizeStyle(containerSizeSM, fontSizeSM, borderRadiusSM),
       },
 
       '> img': {
@@ -158,9 +158,9 @@ export default genComponentStyleHook(
       colorTextPlaceholder,
     } = token;
     return {
-      size: controlHeight,
-      sizeLG: controlHeightLG,
-      sizeSM: controlHeightSM,
+      containerSize: controlHeight,
+      containerSizeLG: controlHeightLG,
+      containerSizeSM: controlHeightSM,
 
       fontSize: Math.round((fontSizeLG + fontSizeXL) / 2),
       fontSizeLG: fontSizeHeading3,

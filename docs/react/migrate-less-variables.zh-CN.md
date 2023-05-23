@@ -29,9 +29,9 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@avatar-size-base` | `size` | - |
-| `@avatar-size-lg` | `sizeLG` | - |
-| `@avatar-size-sm` | `sizeSM` | - |
+| `@avatar-size-base` | `containerSize` | - |
+| `@avatar-size-lg` | `containerSizeLG` | - |
+| `@avatar-size-sm` | `containerSizeSM` | - |
 | `@avatar-font-size-base` | `textFontSize` | - |
 | `@avatar-font-size-lg` | `textFontSizeLG` | - |
 | `@avatar-font-size-sm` | `textFontSizeSM` | - |
