@@ -1,7 +1,7 @@
 import Pagination from 'rc-pagination/lib/locale/mn_MN';
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/mn_MN';
 import DatePicker from '../date-picker/locale/mn_MN';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/mn_MN';
 
 const localeValues: Locale = {
@@ -12,18 +12,18 @@ const localeValues: Locale = {
   Calendar,
   Table: {
     filterTitle: 'Хайх цэс',
-    filterConfirm: 'OK',
+    filterConfirm: 'Тийм',
     filterReset: 'Цэвэрлэх',
     selectAll: 'Бүгдийг сонгох',
     selectInvert: 'Бусдыг сонгох',
   },
   Modal: {
-    okText: 'OK',
+    okText: 'Тийм',
     cancelText: 'Цуцлах',
-    justOkText: 'OK',
+    justOkText: 'Тийм',
   },
   Popconfirm: {
-    okText: 'OK',
+    okText: 'Тийм',
     cancelText: 'Цуцлах',
   },
   Transfer: {

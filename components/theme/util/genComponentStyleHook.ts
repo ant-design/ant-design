@@ -5,7 +5,7 @@ import { warning } from 'rc-util';
 import { useContext } from 'react';
 import { ConfigContext } from '../../config-provider/context';
 import { genCommonStyle, genLinkStyle } from '../../style';
-import type { ComponentTokenMap, GlobalToken } from '../interface';
+import type { ComponentTokenMap, GlobalToken, OverrideToken } from '../interface';
 import type { UseComponentStyleResult } from '../internal';
 import { mergeToken, statisticToken, useToken } from '../internal';
 
@@ -15,7 +15,7 @@ export type GlobalTokenWithComponent<ComponentName extends OverrideComponent> = 
   ComponentTokenMap[ComponentName];
 
 type ComponentToken<ComponentName extends OverrideComponent> = Exclude<
-  OverrideTokenWithoutDerivative[ComponentName],
+  OverrideToken[ComponentName],
   undefined
 >;
 type ComponentTokenKey<ComponentName extends OverrideComponent> =
@@ -80,9 +80,11 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
       useStyleRegister({ ...sharedConfig, path: [component, prefixCls, iconPrefixCls] }, () => {
         const { token: proxyToken, flush } = statisticToken(token);
 
-        const defaultComponentToken =
-          typeof getDefaultToken === 'function' ? getDefaultToken(proxyToken) : getDefaultToken;
         const customComponentToken = token[component] as ComponentToken<ComponentName>;
+        const defaultComponentToken =
+          typeof getDefaultToken === 'function'
+            ? getDefaultToken(mergeToken(proxyToken, customComponentToken ?? {}))
+            : getDefaultToken;
         const mergedComponentToken = { ...defaultComponentToken, ...customComponentToken };
 
         if (options?.deprecatedTokens) {
