@@ -29,6 +29,7 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
     iconCls,
     avatarBg,
     avatarColor,
+    containerSize,
     containerSizeLG,
     containerSizeSM,
     fontSizeLG,
@@ -41,10 +42,10 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
   } = token;
 
   // Avatar size style
-  const avatarSizeStyle = (containerSize: number, fontSize: number, radius: number): CSSObject => ({
-    width: containerSize,
-    height: containerSize,
-    lineHeight: `${containerSize - lineWidth * 2}px`,
+  const avatarSizeStyle = (size: number, fontSize: number, radius: number): CSSObject => ({
+    width: size,
+    height: size,
+    lineHeight: `${size - lineWidth * 2}px`,
     borderRadius: '50%',
 
     [`&${componentCls}-square`]: {
@@ -89,7 +90,7 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
         display: 'block',
       },
 
-      ...avatarSizeStyle(token.size, token.fontSize, borderRadius),
+      ...avatarSizeStyle(containerSize, token.fontSize, borderRadius),
 
       [`&-lg`]: {
         ...avatarSizeStyle(containerSizeLG, fontSizeLG, borderRadiusLG),
