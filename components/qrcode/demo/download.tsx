@@ -19,7 +19,7 @@ const downloadQRCodeSvg = () => {
   if (svg) {
     const svgString = new XMLSerializer().serializeToString(svg);
     const blob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
-    const href = URL.createObjectURL(blob); // revokeObjectURL 别忘记释放资源
+    const href = URL.createObjectURL(blob);
     const img = new Image();
     img.src = href;
     img.onload = function () {
@@ -30,10 +30,10 @@ const downloadQRCodeSvg = () => {
       if (!ctx) return;
       ctx.drawImage(img, 0, 0);
       const a = document.createElement('a');
-      a.href = canvas.toDataURL('image/png'); //将画布内的信息导出为png图片数据
-      a.download = 'QRCodeSvg.png'; //设定下载名称
+      a.href = canvas.toDataURL('image/png');
+      a.download = 'QRCodeSvg.png';
       document.body.appendChild(a);
-      a.click(); //点击触发下载
+      a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(href);
     };
