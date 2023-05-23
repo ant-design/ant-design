@@ -302,7 +302,16 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Tabs -->
 
-<!-- ### Tag -->
+## Tag
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@tag-border-radius` | `borderRadiusSM` | Global Token |
+| `@tag-default-bg` | `defaultBg` | - |
+| `@tag-default-color` | `defaultColor` | - |
+| `@tag-font-size` | `fontSizeSM` | Global Token |
+| `@tag-line-height` | `lineHeightSM` | Global Token |
 
 ### Timeline
 

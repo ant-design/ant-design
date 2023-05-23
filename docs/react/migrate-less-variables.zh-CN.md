@@ -300,7 +300,16 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Tabs 标签页 -->
 
-<!-- ### Tag 标签 -->
+## Tag 标签
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@tag-border-radius` | `borderRadiusSM` | 全局 Token |
+| `@tag-default-bg` | `defaultBg` | - |
+| `@tag-default-color` | `defaultColor` | - |
+| `@tag-font-size` | `fontSizeSM` | 全局 Token |
+| `@tag-line-height` | `lineHeightSM` | 全局 Token |
 
 ### Timeline 时间轴
 
