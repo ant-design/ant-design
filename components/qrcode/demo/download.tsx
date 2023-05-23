@@ -17,19 +17,19 @@ const downloadQRCode = () => {
 const downloadQRCodeSvg = () => {
   const svg = document.getElementById('myqrcodesvg')?.querySelector<SVGElement>('svg');
   if (svg) {
-    var svgString = new XMLSerializer().serializeToString(svg);
-    var blob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
-    var href = URL.createObjectURL(blob); // revokeObjectURL 别忘记释放资源
-    var img = new Image();
+    const svgString = new XMLSerializer().serializeToString(svg);
+    const blob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+    const href = URL.createObjectURL(blob); // revokeObjectURL 别忘记释放资源
+    const img = new Image();
     img.src = href;
     img.onload = function () {
-      var canvas = document.createElement('canvas');
+      const canvas = document.createElement('canvas');
       canvas.width = svg.clientWidth || 134;
       canvas.height = svg.clientHeight || 134;
-      var ctx = canvas.getContext('2d');
+      const ctx = canvas.getContext('2d');
       if (!ctx) return;
       ctx.drawImage(img, 0, 0);
-      var a = document.createElement('a');
+      const a = document.createElement('a');
       a.href = canvas.toDataURL('image/png'); //将画布内的信息导出为png图片数据
       a.download = 'QRCodeSvg.png'; //设定下载名称
       document.body.appendChild(a);
