@@ -2,18 +2,21 @@ import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import omit from 'rc-util/lib/omit';
 import React, { createRef, forwardRef, useContext } from 'react';
+import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
-
 import useStyle from './style';
-import {
-  addObserveTarget,
-  getFixedBottom,
-  getFixedTop,
-  getTargetRect,
-  removeObserveTarget,
-} from './utils';
+import { getFixedBottom, getFixedTop, getTargetRect } from './utils';
+
+const TRIGGER_EVENTS = [
+  'resize',
+  'scroll',
+  'touchstart',
+  'touchmove',
+  'touchend',
+  'pageshow',
+  'load',
+] as const;
 
 function getDefaultTarget() {
   return typeof window !== 'undefined' ? window : null;
@@ -81,37 +84,46 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
     return getTargetContainer ?? getDefaultTarget;
   }
 
+  addListeners = () => {
+    const targetFunc = this.getTargetFunc();
+    const target = targetFunc?.();
+    const { prevTarget } = this.state;
+    if (prevTarget !== target) {
+      TRIGGER_EVENTS.forEach((eventName) => {
+        prevTarget?.removeEventListener(eventName, this.lazyUpdatePosition);
+        target?.addEventListener(eventName, this.lazyUpdatePosition);
+      });
+      this.updatePosition();
+      this.setState({ prevTarget: target });
+    }
+  };
+
+  removeListeners = () => {
+    if (this.timer) {
+      clearTimeout(this.timer);
+      this.timer = null;
+    }
+    const { prevTarget } = this.state;
+    const targetFunc = this.getTargetFunc();
+    const newTarget = targetFunc?.();
+    TRIGGER_EVENTS.forEach((eventName) => {
+      newTarget?.removeEventListener(eventName, this.lazyUpdatePosition);
+      prevTarget?.removeEventListener(eventName, this.lazyUpdatePosition);
+    });
+    this.updatePosition.cancel();
+    // https://github.com/ant-design/ant-design/issues/22683
+    this.lazyUpdatePosition.cancel();
+  };
+
   // Event handler
   componentDidMount() {
-    const targetFunc = this.getTargetFunc();
-    if (targetFunc) {
-      // [Legacy] Wait for parent component ref has its value.
-      // We should use target as directly element instead of function which makes element check hard.
-      this.timer = setTimeout(() => {
-        addObserveTarget(targetFunc(), this);
-        // Mock Event object.
-        this.updatePosition();
-      });
-    }
+    // [Legacy] Wait for parent component ref has its value.
+    // We should use target as directly element instead of function which makes element check hard.
+    this.timer = setTimeout(this.addListeners);
   }
 
   componentDidUpdate(prevProps: AffixProps) {
-    const { prevTarget } = this.state;
-    const targetFunc = this.getTargetFunc();
-    const newTarget = targetFunc?.() || null;
-
-    if (prevTarget !== newTarget) {
-      removeObserveTarget(this);
-      if (newTarget) {
-        addObserveTarget(newTarget, this);
-        // Mock Event object.
-        this.updatePosition();
-      }
-
-      // eslint-disable-next-line react/no-did-update-set-state
-      this.setState({ prevTarget: newTarget });
-    }
-
+    this.addListeners();
     if (
       prevProps.offsetTop !== this.props.offsetTop ||
       prevProps.offsetBottom !== this.props.offsetBottom
@@ -122,14 +134,7 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
   }
 
   componentWillUnmount() {
-    if (this.timer) {
-      clearTimeout(this.timer);
-      this.timer = null;
-    }
-    removeObserveTarget(this);
-    this.updatePosition.cancel();
-    // https://github.com/ant-design/ant-design/issues/22683
-    this.lazyUpdatePosition.cancel();
+    this.removeListeners();
   }
 
   getOffsetTop = () => {
@@ -157,58 +162,55 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
     const offsetBottom = this.getOffsetBottom();
 
     const targetNode = targetFunc();
-    if (!targetNode) {
-      return;
-    }
-
-    const newState: Partial<AffixState> = {
-      status: AffixStatus.None,
-    };
-    const placeholderRect = getTargetRect(this.placeholderNodeRef.current);
-
-    if (
-      placeholderRect.top === 0 &&
-      placeholderRect.left === 0 &&
-      placeholderRect.width === 0 &&
-      placeholderRect.height === 0
-    ) {
-      return;
-    }
-
-    const targetRect = getTargetRect(targetNode);
-    const fixedTop = getFixedTop(placeholderRect, targetRect, offsetTop);
-    const fixedBottom = getFixedBottom(placeholderRect, targetRect, offsetBottom);
-
-    if (fixedTop !== undefined) {
-      newState.affixStyle = {
-        position: 'fixed',
-        top: fixedTop,
-        width: placeholderRect.width,
-        height: placeholderRect.height,
+    if (targetNode) {
+      const newState: Partial<AffixState> = {
+        status: AffixStatus.None,
       };
-      newState.placeholderStyle = {
-        width: placeholderRect.width,
-        height: placeholderRect.height,
-      };
-    } else if (fixedBottom !== undefined) {
-      newState.affixStyle = {
-        position: 'fixed',
-        bottom: fixedBottom,
-        width: placeholderRect.width,
-        height: placeholderRect.height,
-      };
-      newState.placeholderStyle = {
-        width: placeholderRect.width,
-        height: placeholderRect.height,
-      };
-    }
+      const placeholderRect = getTargetRect(this.placeholderNodeRef.current);
 
-    newState.lastAffix = !!newState.affixStyle;
-    if (onChange && lastAffix !== newState.lastAffix) {
-      onChange(newState.lastAffix);
-    }
+      if (
+        placeholderRect.top === 0 &&
+        placeholderRect.left === 0 &&
+        placeholderRect.width === 0 &&
+        placeholderRect.height === 0
+      ) {
+        return;
+      }
 
-    this.setState(newState as AffixState);
+      const targetRect = getTargetRect(targetNode);
+      const fixedTop = getFixedTop(placeholderRect, targetRect, offsetTop);
+      const fixedBottom = getFixedBottom(placeholderRect, targetRect, offsetBottom);
+
+      if (fixedTop !== undefined) {
+        newState.affixStyle = {
+          position: 'fixed',
+          top: fixedTop,
+          width: placeholderRect.width,
+          height: placeholderRect.height,
+        };
+        newState.placeholderStyle = {
+          width: placeholderRect.width,
+          height: placeholderRect.height,
+        };
+      } else if (fixedBottom !== undefined) {
+        newState.affixStyle = {
+          position: 'fixed',
+          bottom: fixedBottom,
+          width: placeholderRect.width,
+          height: placeholderRect.height,
+        };
+        newState.placeholderStyle = {
+          width: placeholderRect.width,
+          height: placeholderRect.height,
+        };
+      }
+
+      newState.lastAffix = !!newState.affixStyle;
+      if (onChange && lastAffix !== newState.lastAffix) {
+        onChange(newState.lastAffix);
+      }
+      this.setState(newState as AffixState);
+    }
   };
 
   prepareMeasure = () => {

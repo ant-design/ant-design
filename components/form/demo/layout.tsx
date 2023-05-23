@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Button, Form, Input, Radio } from 'antd';
+import React, { useState } from 'react';
 
 type LayoutType = Parameters<typeof Form>[0]['layout'];
 
@@ -24,7 +24,7 @@ const App: React.FC = () => {
       form={form}
       initialValues={{ layout: formLayout }}
       onValuesChange={onFormLayoutChange}
-      style={{ maxWidth: 600 }}
+      style={{ maxWidth: formLayout === 'inline' ? 'none' : 600 }}
     >
       <Form.Item label="Form Layout" name="layout">
         <Radio.Group value={formLayout}>

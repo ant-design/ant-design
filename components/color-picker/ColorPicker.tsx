@@ -1,7 +1,6 @@
 import type {
-  ColorPickerPanelProps as RcColorPickerPanelProps,
-  TriggerPlacement,
-  TriggerType,
+  HsbaColorType,
+  ColorPickerProps as RcColorPickerProps,
 } from '@rc-component/color-picker';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -17,15 +16,18 @@ import ColorPickerPanel from './ColorPickerPanel';
 import type { Color } from './color';
 import ColorTrigger from './components/ColorTrigger';
 import useColorState from './hooks/useColorState';
-import type { ColorFormat, ColorPickerBaseProps, PresetsItem } from './interface';
+import type {
+  ColorFormat,
+  ColorPickerBaseProps,
+  PresetsItem,
+  TriggerPlacement,
+  TriggerType,
+} from './interface';
 import useStyle from './style/index';
 import { customizePrefixCls, generateColor } from './util';
 
 export interface ColorPickerProps
-  extends Omit<
-    RcColorPickerPanelProps,
-    'onChange' | 'arrow' | 'value' | 'defaultValue' | 'children' | 'panelRender'
-  > {
+  extends Omit<RcColorPickerProps, 'onChange' | 'value' | 'defaultValue' | 'panelRender'> {
   value?: Color | string;
   defaultValue?: Color | string;
   children?: React.ReactNode;
@@ -37,9 +39,6 @@ export interface ColorPickerProps
   allowClear?: boolean;
   presets?: PresetsItem[];
   arrow?: boolean | { pointAtCenter: boolean };
-  prefixCls?: string;
-  className?: string;
-  style?: CSSProperties;
   styles?: { popup?: CSSProperties };
   rootClassName?: string;
   onOpenChange?: (open: boolean) => void;
@@ -99,10 +98,16 @@ const ColorPicker: CompoundedComponent = (props) => {
   });
   const mergeCls = classNames(mergeRootCls, className, hashId);
 
-  const handleChange = (data: Color) => {
-    const color: Color = generateColor(data);
-    if (colorCleared && color.toHsb().a > 0) {
+  const handleChange = (data: Color, type?: HsbaColorType) => {
+    let color: Color = generateColor(data);
+    if (colorCleared) {
       setColorCleared(false);
+      const hsba = color.toHsb();
+      // ignore alpha slider
+      if (colorValue.toHsb().a === 0 && type !== 'alpha') {
+        hsba.a = 1;
+        color = generateColor(hsba);
+      }
     }
     if (!value) {
       setColorValue(color);
