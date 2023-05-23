@@ -2,8 +2,6 @@ import type { CollapseProps } from 'antd';
 import { Collapse } from 'antd';
 import React from 'react';
 
-const { Panel } = Collapse;
-
 const text = `
   A dog is a type of domesticated animal.
   Known for its loyalty and faithfulness,

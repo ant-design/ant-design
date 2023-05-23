@@ -3,7 +3,6 @@ import type { CollapseProps } from 'antd';
 import { Collapse, Select } from 'antd';
 import React, { useState } from 'react';
 
-const { Panel } = Collapse;
 const { Option } = Select;
 
 const text = `
