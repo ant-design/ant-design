@@ -121,7 +121,7 @@ const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = (t
         [`${componentCls}-item-ellipsis`]: {
           opacity: 1,
         },
-      }
+      },
     },
     [`&${componentCls}-simple`]: {
       [`${componentCls}-prev, ${componentCls}-next`]: {
