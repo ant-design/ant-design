@@ -48,7 +48,7 @@ A content area which can be collapsed and expanded.
 
 ### Collapse.Panel
 
-<Alert message="&gt; 5.6.0 configure the panel by `items`."></Alert>
+<Alert message="&gt;= 5.6.0 configure the panel by `items`."></Alert>
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
