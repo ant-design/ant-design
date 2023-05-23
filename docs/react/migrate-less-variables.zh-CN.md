@@ -208,15 +208,15 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@popover-bg` | `colorText` | - |
-| `@popover-color` | `colorText` | GlobalToken |
-| `@popover-min-width` | `minWidth` | - |
-| `@popover-min-height` | - | eprecated for style change |
+| `@popover-bg` | `colorBgElevated` | - |
+| `@popover-color` | `colorText` | 全局 Token |
+| `@popover-min-width` | `width` | - |
+| `@popover-min-height` | - | 已废弃 |
 | `@popover-arrow-width` | `sizePopupArrow` | 全局 Token |
-| `@popover-arrow-color` | - | eprecated for style change |
-| `@popover-arrow-outer-color`| - | eprecated for style change |
-| `@popover-distance` | `marginXXS` | Global Token |
-| `@popover-padding-horizontal` | - | Deprecated for style change |
+| `@popover-arrow-color` | - | 已废弃 |
+| `@popover-arrow-outer-color`| - | 已废弃 |
+| `@popover-distance` | `marginXXS` | 全局 Token |
+| `@popover-padding-horizontal` | - | 已废弃 |
 
 <!-- ### Progress 进度条 -->
 

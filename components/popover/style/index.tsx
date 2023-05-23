@@ -5,14 +5,15 @@ import type { FullToken, GenerateStyle, PresetColorType } from '../../theme/inte
 import { PresetColors, genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
+  width: number;
   minWidth: number;
   minHeight: number;
-  distance: number;
+  zIndexPopup: number;
 }
 
 export type PopoverToken = FullToken<'Popover'> & {
-  zIndexPopup: number;
-  width: number;
+  popoverBg: string;
+  popoverColor: string;
   popoverPadding: number | string;
 };
 
@@ -167,12 +168,11 @@ const genWireframeStyle: GenerateStyle<PopoverToken> = (token) => {
 export default genComponentStyleHook(
   'Popover',
   (token) => {
-    const { wireframe, zIndexPopupBase } = token;
-
+    const { colorBgElevated, colorText, wireframe } = token;
     const popoverToken = mergeToken<PopoverToken>(token, {
       popoverPadding: 12, // Fixed Value
-      zIndexPopup: zIndexPopupBase + 30,
-      width: 177,
+      popoverBg: colorBgElevated,
+      popoverColor: colorText,
     });
 
     return [
@@ -183,8 +183,12 @@ export default genComponentStyleHook(
     ];
   },
   (token) => ({
+    width: 177,
     minWidth: 177,
     minHeight: 32,
-    distance: token.marginXXS,
+    zIndexPopup: token.zIndexPopupBase + 30,
   }),
+  {
+    deprecatedTokens: [['width', 'minWidth']],
+  },
 );

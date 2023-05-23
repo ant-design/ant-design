@@ -210,13 +210,13 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@popover-bg` | `colorBgContainer` | GlobalToken |
+| `@popover-bg` | `colorBgContainer` | - |
 | `@popover-color` | `colorText` | GlobalToken |
-| `@popover-min-width` | `minWidth` | - |
-| `@popover-min-height` | - | eprecated for style change |
+| `@popover-min-width` | `width` | - |
+| `@popover-min-height` | - | Deprecated  for style change |
 | `@popover-arrow-width` | `sizePopupArrow` | GlobalToken |
-| `@popover-arrow-color` | - | eprecated for style change |
-| `@popover-arrow-outer-color` | `arrowOuterColor` | - |
+| `@popover-arrow-color` | - | Deprecated  for style change |
+| `@popover-arrow-outer-color` | - | Deprecated  for style change |
 | `@popover-distance` | `marginXXS` | Global Token |
 | `@popover-padding-horizontal` | - | Deprecated for style change |
 
