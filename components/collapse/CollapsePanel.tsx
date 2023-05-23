@@ -21,9 +21,7 @@ export interface CollapsePanelProps {
   collapsible?: CollapsibleType;
   children?: React.ReactNode;
 }
-/**
- * @deprecated use `items` instead
- */
+
 const CollapsePanel = React.forwardRef<HTMLDivElement, CollapsePanelProps>((props, ref) => {
   warning(
     !('disabled' in props),
