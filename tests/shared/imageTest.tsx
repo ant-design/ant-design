@@ -46,7 +46,10 @@ export default function imageTest(component: React.ReactElement) {
       <StyleProvider cache={cache}>
         <App>
           {Object.entries(themes).map(([key, algorithm]) => (
-            <div style={{ background: key === 'dark' ? '#000' : '', padding: 12 }} key={key}>
+            <div
+              style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }}
+              key={key}
+            >
               <ConfigProvider theme={{ algorithm }}>{component}</ConfigProvider>
             </div>
           ))}
