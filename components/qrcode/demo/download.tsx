@@ -59,7 +59,7 @@ const App: React.FC = () => (
     </Col>
     <Col span={12}>
       <Button type="primary" onClick={downloadQRCodeSvg}>
-        Download Svg QR
+        Download Svg
       </Button>
     </Col>
   </Row>
