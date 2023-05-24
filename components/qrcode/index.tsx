@@ -37,7 +37,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const { token } = useToken();
   const qrCodeProps = useMemo<QRProps>(() => {
-    const imageSettings: QRCodeProps['imageSettings'] = {
+    const imageSettings: QRProps['imageSettings'] = {
       src: icon,
       x: undefined,
       y: undefined,
