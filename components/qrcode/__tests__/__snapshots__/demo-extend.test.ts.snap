@@ -264,7 +264,7 @@ exports[`renders components/qrcode/demo/download.tsx extend context correctly 1`
       type="button"
     >
       <span>
-        Download Canvas QR
+        Download Canvas
       </span>
     </button>
   </div>
@@ -276,7 +276,7 @@ exports[`renders components/qrcode/demo/download.tsx extend context correctly 1`
       type="button"
     >
       <span>
-        Download Svg QR
+        Download Svg
       </span>
     </button>
   </div>
