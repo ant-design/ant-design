@@ -142,7 +142,7 @@ Array [
 `;
 
 exports[`renders components/slider/demo/component-token.tsx extend context correctly 1`] = `
-Array [
+<div>
   <div
     style="display: inline-block; height: 300px; margin-left: 70px;"
   >
@@ -189,7 +189,7 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     style="display: inline-block; height: 300px; margin-left: 70px;"
   >
@@ -265,7 +265,7 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     style="display: inline-block; height: 300px; margin-left: 70px;"
   >
@@ -388,7 +388,7 @@ Array [
         </span>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="ant-slider ant-slider-horizontal"
   >
@@ -460,7 +460,7 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="ant-slider ant-slider-horizontal"
   >
@@ -532,7 +532,7 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="ant-slider ant-slider-horizontal"
   >
@@ -575,7 +575,7 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="icon-wrapper"
   >
@@ -660,7 +660,7 @@ Array [
         />
       </svg>
     </span>
-  </div>,
+  </div>
   <div
     class="ant-slider ant-slider-horizontal ant-slider-with-marks"
   >
@@ -779,8 +779,8 @@ Array [
         </strong>
       </span>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders components/slider/demo/draggableTrack.tsx extend context correctly 1`] = `

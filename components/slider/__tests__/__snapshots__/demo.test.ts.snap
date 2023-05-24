@@ -85,7 +85,7 @@ Array [
 `;
 
 exports[`renders components/slider/demo/component-token.tsx correctly 1`] = `
-Array [
+<div>
   <div
     style="display:inline-block;height:300px;margin-left:70px"
   >
@@ -113,7 +113,7 @@ Array [
         tabindex="0"
       />
     </div>
-  </div>,
+  </div>
   <div
     style="display:inline-block;height:300px;margin-left:70px"
   >
@@ -151,7 +151,7 @@ Array [
         tabindex="0"
       />
     </div>
-  </div>,
+  </div>
   <div
     style="display:inline-block;height:300px;margin-left:70px"
   >
@@ -236,7 +236,7 @@ Array [
         </span>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="ant-slider ant-slider-horizontal"
   >
@@ -270,7 +270,7 @@ Array [
       style="left:50%;transform:translateX(-50%)"
       tabindex="0"
     />
-  </div>,
+  </div>
   <div
     class="ant-slider ant-slider-horizontal"
   >
@@ -304,7 +304,7 @@ Array [
       style="left:50%;transform:translateX(-50%)"
       tabindex="0"
     />
-  </div>,
+  </div>
   <div
     class="ant-slider ant-slider-horizontal"
   >
@@ -347,7 +347,7 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="icon-wrapper"
   >
@@ -413,7 +413,7 @@ Array [
         />
       </svg>
     </span>
-  </div>,
+  </div>
   <div
     class="ant-slider ant-slider-horizontal ant-slider-with-marks"
   >
@@ -494,8 +494,8 @@ Array [
         </strong>
       </span>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders components/slider/demo/draggableTrack.tsx correctly 1`] = `
