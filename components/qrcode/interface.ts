@@ -22,7 +22,6 @@ interface QRProps {
 
 export type QRPropsCanvas = QRProps & React.CanvasHTMLAttributes<HTMLCanvasElement>;
 export type QRPropsSvg = QRProps & React.SVGAttributes<SVGSVGElement>;
-
 export interface QRCodeProps extends QRProps {
   className?: string;
   rootClassName?: string;
