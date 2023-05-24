@@ -149,7 +149,12 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
         [`> ${componentCls}-item`]: {
           [`> ${componentCls}-header`]: {
             padding: collapseHeaderPaddingSM,
-            paddingInlineStart: paddingSM - paddingXS,
+            paddingInlineStart: paddingXS,
+
+            [`> ${componentCls}-expand-icon`]: {
+              // Arrow offset
+              marginInlineStart: paddingSM - paddingXS,
+            },
           },
           [`> ${componentCls}-content > ${componentCls}-content-box`]: {
             padding: paddingSM,
@@ -163,10 +168,12 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
 
           [`> ${componentCls}-header`]: {
             padding: collapseHeaderPaddingLG,
-            paddingInlineStart: paddingLG - padding,
+            paddingInlineStart: paddingLG,
 
             [`> ${componentCls}-expand-icon`]: {
               height: fontSizeLG * lineHeight,
+              // Arrow offset
+              marginInlineStart: paddingLG - padding,
             },
           },
           [`> ${componentCls}-content > ${componentCls}-content-box`]: {
