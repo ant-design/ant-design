@@ -29,7 +29,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
     zIndexPopup,
     marginXS,
     colorBgElevated,
-    colorBgContainer,
+    popoverBg,
   } = token;
 
   return [
@@ -65,7 +65,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         },
 
         [`${componentCls}-inner`]: {
-          backgroundColor: colorBgContainer,
+          backgroundColor: popoverBg,
           backgroundClip: 'padding-box',
           borderRadius,
           boxShadow: boxShadowSecondary,
