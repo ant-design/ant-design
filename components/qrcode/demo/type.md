@@ -4,4 +4,4 @@
 
 ## en-US
 
-Customize the rendering results by setting 'type'. Provide two options: 'canvas' and' svg '.
+Customize the rendering results by `type`, provide options `canvas` and `svg`.
