@@ -327,7 +327,7 @@ title: Less 变量迁移 Design Token
 | `@tabs-hover-color` | `hoverColor` | - |
 | `@tabs-active-color` | `activeColor` | - |
 | `@tabs-card-gutter` | `cardGutter` | - |
-| `@tabs-card-tab-active-border-top` | `cardTabActiveBorderTop` | - |
+| `@tabs-card-tab-active-border-top` | `cardActiveBorderTop` | - |
 
 ## Tag 标签
 

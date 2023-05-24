@@ -329,7 +329,7 @@ This document contains the correspondence between all the less variables related
 | `@tabs-hover-color` | `hoverColor` | - |
 | `@tabs-active-color` | `activeColor` | - |
 | `@tabs-card-gutter` | `cardGutter` | - |
-| `@tabs-card-tab-active-border-top` | `cardTabActiveBorderTop` | - |
+| `@tabs-card-tab-active-border-top` | `cardActiveBorderTop` | - |
 
 ## Tag
 
