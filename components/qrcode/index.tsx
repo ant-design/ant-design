@@ -1,7 +1,7 @@
 import { ReloadOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import { QRCodeCanvas, QRCodeSVG } from 'qrcode.react';
-import React, { useContext, useMemo } from 'react';
+import React, { useContext } from 'react';
 import warning from '../_util/warning';
 import Button from '../button';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -36,25 +36,25 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const { token } = useToken();
-  const qrCodeProps = useMemo<QRProps>(() => {
-    const imageSettings: QRProps['imageSettings'] = {
-      src: icon,
-      x: undefined,
-      y: undefined,
-      height: iconSize,
-      width: iconSize,
-      excavate: true,
-    };
-    return {
-      value,
-      size: size - (token.paddingSM + token.lineWidth) * 2,
-      level: errorLevel,
-      bgColor,
-      fgColor: color,
-      imageSettings: icon ? imageSettings : undefined,
-    };
-  }, [errorLevel, color, icon, iconSize, size, value, bgColor]);
 
+  const imageSettings: QRProps['imageSettings'] = {
+    src: icon,
+    x: undefined,
+    y: undefined,
+    height: iconSize,
+    width: iconSize,
+    excavate: true,
+  };
+  
+  const qrCodeProps = {
+    value,
+    size: size - (token.paddingSM + token.lineWidth) * 2,
+    level: errorLevel,
+    bgColor,
+    fgColor: color,
+    imageSettings: icon ? imageSettings : undefined,
+  }
+  
   const [locale] = useLocale('QRCode');
 
   if (!value) {
