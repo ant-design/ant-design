@@ -1,6 +1,3 @@
-import type { GenerateConfig } from 'rc-picker/lib/generate/index';
-import type { Locale as RcPickerLocale, PickerMode } from 'rc-picker/lib/interface';
-import type { SharedTimeProps } from 'rc-picker/lib/panels/TimePanel';
 import type {
   PickerBaseProps as RCPickerBaseProps,
   PickerDateProps as RCPickerDateProps,
@@ -11,9 +8,12 @@ import type {
   RangePickerDateProps as RCRangePickerDateProps,
   RangePickerTimeProps as RCRangePickerTimeProps,
 } from 'rc-picker/lib/RangePicker';
+import type { GenerateConfig } from 'rc-picker/lib/generate/index';
+import type { PickerMode, Locale as RcPickerLocale } from 'rc-picker/lib/interface';
+import type { SharedTimeProps } from 'rc-picker/lib/panels/TimePanel';
+import type { InputStatus } from '../../_util/statusUtils';
 import type { SizeType } from '../../config-provider/SizeContext';
 import type { TimePickerLocale } from '../../time-picker';
-import type { InputStatus } from '../../_util/statusUtils';
 import PickerButton from '../PickerButton';
 import generateRangePicker from './generateRangePicker';
 import generateSinglePicker from './generateSinglePicker';
@@ -47,10 +47,15 @@ export function getTimeProps<DateType, DisabledTime>(
     if (!firstFormat.includes('m') && showMinute === undefined) {
       showTimeObj.showMinute = false;
     }
-    if (!firstFormat.includes('H') && !firstFormat.includes('h') && showHour === undefined) {
+    if (
+      !firstFormat.includes('H') &&
+      !firstFormat.includes('h') &&
+      !firstFormat.includes('K') &&
+      !firstFormat.includes('k') &&
+      showHour === undefined
+    ) {
       showTimeObj.showHour = false;
     }
-
     if ((firstFormat.includes('a') || firstFormat.includes('A')) && use12Hours === undefined) {
       showTimeObj.use12Hours = true;
     }
@@ -70,7 +75,7 @@ export function getTimeProps<DateType, DisabledTime>(
   };
 }
 const DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;
-type DataPickerPlacement = typeof DataPickerPlacements[number];
+type DataPickerPlacement = (typeof DataPickerPlacements)[number];
 
 type InjectDefaultProps<Props> = Omit<
   Props,
