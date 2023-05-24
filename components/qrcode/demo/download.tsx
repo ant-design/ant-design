@@ -54,7 +54,7 @@ const App: React.FC = () => (
     </Col>
     <Col span={12}>
       <Button type="primary" onClick={downloadQRCode}>
-        Download Canvas QR
+        Download Canvas
       </Button>
     </Col>
     <Col span={12}>
