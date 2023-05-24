@@ -1,4 +1,4 @@
-/* eslint import/no-unresolved: 0 */
+import { css } from '@emotion/react';
 import { ConfigProvider, Table } from 'antd';
 import { getDesignToken } from 'antd-token-previewer';
 import tokenMeta from 'antd/es/version/token-meta.json';
@@ -25,16 +25,66 @@ const locales = {
   },
 };
 
+const useStyle = () => ({
+  tableTitle: css`
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  `,
+  arrowIcon: css`
+    position: relative;
+    width: 10px;
+    height: 0;
+    margin-right: 8px;
+
+    &:before,
+    &:after {
+      position: absolute;
+      display: block;
+      width: 6px;
+      height: 1.5px;
+      background-color: currentcolor;
+      border-radius: 6px;
+      transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+        transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+        top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+        color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      content: '';
+    }
+  `,
+  openIcon: css`
+    &:before {
+      transform: rotate(-45deg) translateX(2.5px);
+    }
+    &:after {
+      transform: rotate(45deg) translateX(-2.5px);
+    }
+  `,
+  closeIcon: css`
+    &:before {
+      transform: rotate(45deg) translateX(2.5px);
+    }
+    &:after {
+      transform: rotate(-45deg) translateX(-2.5px);
+    }
+  `,
+});
+
 interface SubTokenTableProps {
   defaultOpen?: boolean;
   title: string;
   tokens: string[];
 }
 
-function SubTokenTable({ defaultOpen, tokens, title }: SubTokenTableProps) {
+const SubTokenTable: React.FC<SubTokenTableProps> = ({ defaultOpen, tokens, title }) => {
   const [, lang] = useLocale(locales);
   const { token } = useSiteToken();
   const columns = useColumns();
+
+  const { tableTitle, arrowIcon, openIcon, closeIcon } = useStyle();
+
+  const [open, setOpen] = React.useState(defaultOpen || process.env.NODE_ENV !== 'production');
 
   if (!tokens.length) {
     return null;
@@ -66,43 +116,39 @@ function SubTokenTable({ defaultOpen, tokens, title }: SubTokenTableProps) {
         name,
         desc: lang === 'cn' ? meta.desc : meta.descEn,
         type: meta.type,
-        value: (defaultToken as any)[name],
+        value: defaultToken[name],
       };
     })
-    .filter((info) => info);
+    .filter(Boolean);
 
   return (
-    // Reuse `.markdown` style
-    <details className="markdown" open={defaultOpen || process.env.NODE_ENV !== 'production'}>
-      <summary>
-        <h3 style={{ display: 'inline' }}>{title}</h3>
-      </summary>
-      <ConfigProvider
-        theme={{
-          token: {
-            borderRadius: 0,
-          },
-        }}
-      >
-        <Table
-          size="middle"
-          columns={columns}
-          bordered
-          dataSource={data}
-          style={{ marginBottom: token.margin }}
-          pagination={false}
-          rowKey={(record) => record.name}
-        />
-      </ConfigProvider>
-    </details>
+    <div>
+      <div css={[tableTitle]} onClick={() => setOpen(!open)}>
+        <i css={[arrowIcon, open ? openIcon : closeIcon]} />
+        <h3>{title}</h3>
+      </div>
+      {open && (
+        <ConfigProvider theme={{ token: { borderRadius: 0 } }}>
+          <Table
+            size="middle"
+            columns={columns}
+            bordered
+            dataSource={data}
+            style={{ marginBottom: token.margin }}
+            pagination={false}
+            rowKey={(record) => record.name}
+          />
+        </ConfigProvider>
+      )}
+    </div>
   );
-}
+};
 
 export interface ComponentTokenTableProps {
   component: string;
 }
 
-function ComponentTokenTable({ component }: ComponentTokenTableProps) {
+const ComponentTokenTable: React.FC<ComponentTokenTableProps> = ({ component }) => {
   const [mergedGlobalTokens] = React.useMemo(() => {
     const globalTokenSet = new Set<string>();
     let componentTokens: Record<string, string> = {};
@@ -124,13 +170,7 @@ function ComponentTokenTable({ component }: ComponentTokenTableProps) {
     return [Array.from(globalTokenSet), componentTokens];
   }, [component]);
 
-  return (
-    <>
-      {/* Component Token 先不展示 */}
-      {/* <SubTokenTable title="Component Token" tokens={mergedComponentTokens} defaultOpen /> */}
-      <SubTokenTable title="Global Token" tokens={mergedGlobalTokens} />
-    </>
-  );
-}
+  return <SubTokenTable title="Global Token" tokens={mergedGlobalTokens} />;
+};
 
 export default React.memo(ComponentTokenTable);
