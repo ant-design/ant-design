@@ -370,7 +370,19 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Tooltip 文字提示 -->
 
-<!-- ### Transfer 穿梭框 -->
+Transfer 穿梭框
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@transfer-header-height` | `headerHeight` | - |
+| `@transfer-item-height` | `itemHeight` | - |
+| `@transfer-disabled-bg` | `disabledBg` | - |
+| `@transfer-list-height` | `listHeight` | - |
+| `@transfer-item-hover-bg` | `itemHoverBg` | - |
+| `@transfer-item-selected-hover-bg` | `itemSelectedHoverBg` | - |
+| `@transfer-item-padding-vertical` | `itemPaddingVertical` | - |
+| `@transfer-list-search-icon-top` | `listSearchIconTop` | - |
 
 <!-- ### Tree 树形控件 -->
 

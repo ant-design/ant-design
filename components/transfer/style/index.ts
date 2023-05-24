@@ -5,8 +5,6 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
-  listWidth: number;
-  listWidthLG: number;
   listHeight: number;
   itemHeight: number;
   disabledBg: string;
@@ -21,6 +19,8 @@ interface TransferToken extends FullToken<'Transfer'> {
   headerVerticalPadding: number;
   itemPaddingVertical: number;
   headerHeight: number;
+  listWidth: number;
+  listWidthLG: number;
 }
 
 const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
@@ -358,6 +358,8 @@ export default genComponentStyleHook(
       headerHeight,
       headerVerticalPadding: Math.ceil((headerHeight - lineWidth - fontHeight) / 2),
       itemPaddingVertical: (controlHeight - fontHeight) / 2,
+      listWidthLG: 250,
+      listWidth: 180,
     });
 
     return [
@@ -368,9 +370,7 @@ export default genComponentStyleHook(
     ];
   },
   (token) => ({
-    listWidth: 180,
     listHeight: 200,
-    listWidthLG: 250,
     headerHeight: 40,
     itemHeight: token.controlHeight,
     disabledBg: token.colorBgContainerDisabled,
