@@ -24,12 +24,12 @@ Used when the text needs to be converted into a QR Code.
 <code src="./demo/base.tsx">base</code>
 <code src="./demo/icon.tsx">With Icon</code>
 <code src="./demo/status.tsx">other status</code>
+<code src="./demo/type.tsx">Custom Render Type</code>
 <code src="./demo/customSize.tsx">Custom Size</code>
 <code src="./demo/customColor.tsx">Custom Color</code>
 <code src="./demo/download.tsx">Download QRCode</code>
 <code src="./demo/errorlevel.tsx">Error Level</code>
 <code src="./demo/Popover.tsx">Advanced Usage</code>
-<code src="./demo/type.tsx">Render Type</code>
 
 ## API
 
