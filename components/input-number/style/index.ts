@@ -124,7 +124,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             display: 'inline-block',
             textAlign: 'start',
             verticalAlign: 'top', // https://github.com/ant-design/ant-design/issues/6403
-  
             [`${componentCls}-affix-wrapper`]: {
               width: '100%',
             },
