@@ -69,25 +69,27 @@ const App: React.FC = () => (
       },
     }}
   >
-    <div style={style}>
-      <Slider vertical defaultValue={30} />
+    <div>
+      <div style={style}>
+        <Slider vertical defaultValue={30} />
+      </div>
+      <div style={style}>
+        <Slider vertical range step={10} defaultValue={[20, 50]} />
+      </div>
+      <div style={style}>
+        <Slider vertical range marks={marks} defaultValue={[26, 37]} />
+      </div>
+
+      <Slider range defaultValue={[20, 50]} />
+
+      <Slider range={{ draggableTrack: true }} defaultValue={[20, 50]} />
+
+      <Slider defaultValue={30} tooltip={{ open: true }} />
+
+      <IconSlider min={0} max={20} />
+
+      <Slider range marks={marks} defaultValue={[26, 37]} />
     </div>
-    <div style={style}>
-      <Slider vertical range step={10} defaultValue={[20, 50]} />
-    </div>
-    <div style={style}>
-      <Slider vertical range marks={marks} defaultValue={[26, 37]} />
-    </div>
-
-    <Slider range defaultValue={[20, 50]} />
-
-    <Slider range={{ draggableTrack: true }} defaultValue={[20, 50]} />
-
-    <Slider defaultValue={30} tooltip={{ open: true }} />
-
-    <IconSlider min={0} max={20} />
-
-    <Slider range marks={marks} defaultValue={[26, 37]} />
   </ConfigProvider>
 );
 
