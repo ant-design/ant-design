@@ -18,7 +18,6 @@ export interface ComponentToken {
 }
 
 type AvatarToken = FullToken<'Avatar'> & {
-  avatarGroupOverlapping: number;
   avatarBgColor: string;
 };
 
