@@ -574,4 +574,14 @@ describe('TextArea allowClear', () => {
 
     textareaSpy.mockRestore();
   });
+
+  it('should have correct className when onFocus and onBlur', () => {
+    const { container } = render(<TextArea allowClear />);
+
+    fireEvent.focus(container.querySelector('textarea')!);
+    expect(container.querySelector('.ant-input-affix-wrapper-focused')).toBeTruthy();
+
+    fireEvent.blur(container.querySelector('textarea')!);
+    expect(container.querySelector('.ant-input-affix-wrapper-focused')).toBeFalsy();
+  });
 });

@@ -1332,6 +1332,78 @@ Array [
       style="background:#fa541c"
     />
   </span>,
+  <span
+    class="ant-badge ant-badge-not-a-wrapper"
+  >
+    <sup
+      class="ant-scroll-number ant-badge-count"
+      data-show="true"
+      title="0"
+    >
+      0
+    </sup>
+  </span>,
+  <span
+    class="ant-badge ant-badge-not-a-wrapper"
+  >
+    <sup
+      class="ant-scroll-number ant-badge-count ant-badge-status-blue"
+      data-show="true"
+      title="0"
+    >
+      0
+    </sup>
+  </span>,
+  <span
+    class="ant-badge ant-badge-not-a-wrapper"
+  >
+    <sup
+      class="ant-scroll-number ant-badge-count"
+      data-show="true"
+      style="background:#f0f"
+      title="0"
+    >
+      0
+    </sup>
+  </span>,
+  <span
+    class="ant-badge"
+  >
+    <span
+      class="ant-avatar ant-avatar-lg ant-avatar-square"
+    >
+      <span
+        class="ant-avatar-string"
+        style="opacity:0"
+      />
+    </span>
+    <sup
+      class="ant-scroll-number ant-badge-count"
+      data-show="true"
+      title="0"
+    >
+      0
+    </sup>
+  </span>,
+  <span
+    class="ant-badge"
+  >
+    <span
+      class="ant-avatar ant-avatar-lg ant-avatar-square"
+    >
+      <span
+        class="ant-avatar-string"
+        style="opacity:0"
+      />
+    </span>
+    <sup
+      class="ant-scroll-number ant-badge-count ant-badge-status-blue"
+      data-show="true"
+      title="0"
+    >
+      0
+    </sup>
+  </span>,
 ]
 `;
 
@@ -1356,6 +1428,42 @@ exports[`renders ./components/badge/demo/no-wrapper.md extend context correctly 
         class="ant-switch-inner"
       />
     </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
+  >
+    <span
+      class="ant-badge ant-badge-not-a-wrapper"
+    >
+      <sup
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+        data-show="true"
+        style="background:#faad14"
+        title="11"
+      >
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            1
+          </span>
+        </span>
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            1
+          </span>
+        </span>
+      </sup>
+    </span>
   </div>
   <div
     class="ant-space-item"

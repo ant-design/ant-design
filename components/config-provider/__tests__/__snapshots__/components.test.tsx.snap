@@ -12091,7 +12091,6 @@ exports[`ConfigProvider components Checkbox configProvider 1`] = `
       <input
         class="config-checkbox-input"
         type="checkbox"
-        value=""
       />
       <span
         class="config-checkbox-inner"
@@ -12118,7 +12117,6 @@ exports[`ConfigProvider components Checkbox configProvider componentDisabled 1`]
         class="config-checkbox-input"
         disabled=""
         type="checkbox"
-        value=""
       />
       <span
         class="config-checkbox-inner"
@@ -12144,7 +12142,6 @@ exports[`ConfigProvider components Checkbox configProvider componentSize large 1
       <input
         class="config-checkbox-input"
         type="checkbox"
-        value=""
       />
       <span
         class="config-checkbox-inner"
@@ -12170,7 +12167,6 @@ exports[`ConfigProvider components Checkbox configProvider componentSize middle 
       <input
         class="config-checkbox-input"
         type="checkbox"
-        value=""
       />
       <span
         class="config-checkbox-inner"
@@ -12196,7 +12192,6 @@ exports[`ConfigProvider components Checkbox configProvider virtual and dropdownM
       <input
         class="ant-checkbox-input"
         type="checkbox"
-        value=""
       />
       <span
         class="ant-checkbox-inner"
@@ -12222,7 +12217,6 @@ exports[`ConfigProvider components Checkbox normal 1`] = `
       <input
         class="ant-checkbox-input"
         type="checkbox"
-        value=""
       />
       <span
         class="ant-checkbox-inner"
@@ -12248,7 +12242,6 @@ exports[`ConfigProvider components Checkbox prefixCls 1`] = `
       <input
         class="prefix-Checkbox-input"
         type="checkbox"
-        value=""
       />
       <span
         class="prefix-Checkbox-inner"
@@ -17966,18 +17959,22 @@ HTMLCollection [
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
       >
         <li
           class="config-menu-item-group"
+          role="presentation"
         >
           <div
             class="config-menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="config-menu-item-group-list"
+            role="group"
           >
             <li
               class="config-menu-item config-menu-item-only-child"
@@ -18039,18 +18036,22 @@ HTMLCollection [
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
       >
         <li
           class="config-menu-item-group"
+          role="presentation"
         >
           <div
             class="config-menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="config-menu-item-group-list"
+            role="group"
           >
             <li
               class="config-menu-item config-menu-item-only-child"
@@ -18112,18 +18113,22 @@ HTMLCollection [
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
       >
         <li
           class="config-menu-item-group"
+          role="presentation"
         >
           <div
             class="config-menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="config-menu-item-group-list"
+            role="group"
           >
             <li
               class="config-menu-item config-menu-item-only-child"
@@ -18185,18 +18190,22 @@ HTMLCollection [
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
       >
         <li
           class="config-menu-item-group"
+          role="presentation"
         >
           <div
             class="config-menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="config-menu-item-group-list"
+            role="group"
           >
             <li
               class="config-menu-item config-menu-item-only-child"
@@ -18258,18 +18267,22 @@ HTMLCollection [
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
       >
         <li
           class="ant-menu-item-group"
+          role="presentation"
         >
           <div
             class="ant-menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="ant-menu-item-group-list"
+            role="group"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child"
@@ -18331,18 +18344,22 @@ HTMLCollection [
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
       >
         <li
           class="ant-menu-item-group"
+          role="presentation"
         >
           <div
             class="ant-menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="ant-menu-item-group-list"
+            role="group"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child"
@@ -18404,19 +18421,23 @@ HTMLCollection [
         class="prefix-Menu prefix-Menu-sub prefix-Menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
       >
         <li
           class="prefix-Menu-item-group"
           prefixcls="prefix-Menu"
+          role="presentation"
         >
           <div
             class="prefix-Menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="prefix-Menu-item-group-list"
+            role="group"
           >
             <li
               class="prefix-Menu-item prefix-Menu-item-only-child"
@@ -19255,7 +19276,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
 <div>
   <ul
     class="config-pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -19402,7 +19422,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
   </ul>
   <ul
     class="config-pagination config-pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -19554,7 +19573,6 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
 <div>
   <ul
     class="config-pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -19702,7 +19720,6 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
   </ul>
   <ul
     class="config-pagination config-pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -19855,7 +19872,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
 <div>
   <ul
     class="config-pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -20002,7 +20018,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
   </ul>
   <ul
     class="config-pagination config-pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -20154,7 +20169,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
 <div>
   <ul
     class="config-pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -20301,7 +20315,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
   </ul>
   <ul
     class="config-pagination config-pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -20453,7 +20466,6 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
 <div>
   <ul
     class="ant-pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -20600,7 +20612,6 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
   </ul>
   <ul
     class="ant-pagination ant-pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -20752,7 +20763,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
 <div>
   <ul
     class="ant-pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -20899,7 +20909,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
   </ul>
   <ul
     class="ant-pagination ant-pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -21051,7 +21060,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
 <div>
   <ul
     class="prefix-Pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -21198,7 +21206,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
   </ul>
   <ul
     class="prefix-Pagination prefix-Pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -22184,6 +22191,7 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
 exports[`ConfigProvider components Progress configProvider 1`] = `
 <div
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
+  role="progressbar"
 >
   <div
     class="config-progress-outer"
@@ -22209,6 +22217,7 @@ exports[`ConfigProvider components Progress configProvider 1`] = `
 exports[`ConfigProvider components Progress configProvider componentDisabled 1`] = `
 <div
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
+  role="progressbar"
 >
   <div
     class="config-progress-outer"
@@ -22234,6 +22243,7 @@ exports[`ConfigProvider components Progress configProvider componentDisabled 1`]
 exports[`ConfigProvider components Progress configProvider componentSize large 1`] = `
 <div
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
+  role="progressbar"
 >
   <div
     class="config-progress-outer"
@@ -22259,6 +22269,7 @@ exports[`ConfigProvider components Progress configProvider componentSize large 1
 exports[`ConfigProvider components Progress configProvider componentSize middle 1`] = `
 <div
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
+  role="progressbar"
 >
   <div
     class="config-progress-outer"
@@ -22284,6 +22295,7 @@ exports[`ConfigProvider components Progress configProvider componentSize middle 
 exports[`ConfigProvider components Progress configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+  role="progressbar"
 >
   <div
     class="ant-progress-outer"
@@ -22309,6 +22321,7 @@ exports[`ConfigProvider components Progress configProvider virtual and dropdownM
 exports[`ConfigProvider components Progress normal 1`] = `
 <div
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+  role="progressbar"
 >
   <div
     class="ant-progress-outer"
@@ -22334,6 +22347,7 @@ exports[`ConfigProvider components Progress normal 1`] = `
 exports[`ConfigProvider components Progress prefixCls 1`] = `
 <div
   class="prefix-Progress prefix-Progress-line prefix-Progress-status-normal prefix-Progress-show-info prefix-Progress-default"
+  role="progressbar"
 >
   <div
     class="prefix-Progress-outer"
@@ -22371,7 +22385,6 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
           checked=""
           class="config-radio-input"
           type="radio"
-          value=""
         />
         <span
           class="config-radio-inner"
@@ -22395,7 +22408,6 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
           checked=""
           class="config-radio-button-input"
           type="radio"
-          value=""
         />
         <span
           class="config-radio-button-inner"
@@ -22425,7 +22437,6 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
           class="config-radio-input"
           disabled=""
           type="radio"
-          value=""
         />
         <span
           class="config-radio-inner"
@@ -22450,7 +22461,6 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
           class="config-radio-button-input"
           disabled=""
           type="radio"
-          value=""
         />
         <span
           class="config-radio-button-inner"
@@ -22479,7 +22489,6 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
           checked=""
           class="config-radio-input"
           type="radio"
-          value=""
         />
         <span
           class="config-radio-inner"
@@ -22503,7 +22512,6 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
           checked=""
           class="config-radio-button-input"
           type="radio"
-          value=""
         />
         <span
           class="config-radio-button-inner"
@@ -22532,7 +22540,6 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
           checked=""
           class="config-radio-input"
           type="radio"
-          value=""
         />
         <span
           class="config-radio-inner"
@@ -22556,7 +22563,6 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
           checked=""
           class="config-radio-button-input"
           type="radio"
-          value=""
         />
         <span
           class="config-radio-button-inner"
@@ -22585,7 +22591,6 @@ exports[`ConfigProvider components Radio configProvider virtual and dropdownMatc
           checked=""
           class="ant-radio-input"
           type="radio"
-          value=""
         />
         <span
           class="ant-radio-inner"
@@ -22609,7 +22614,6 @@ exports[`ConfigProvider components Radio configProvider virtual and dropdownMatc
           checked=""
           class="ant-radio-button-input"
           type="radio"
-          value=""
         />
         <span
           class="ant-radio-button-inner"
@@ -22638,7 +22642,6 @@ exports[`ConfigProvider components Radio normal 1`] = `
           checked=""
           class="ant-radio-input"
           type="radio"
-          value=""
         />
         <span
           class="ant-radio-inner"
@@ -22662,7 +22665,6 @@ exports[`ConfigProvider components Radio normal 1`] = `
           checked=""
           class="ant-radio-button-input"
           type="radio"
-          value=""
         />
         <span
           class="ant-radio-button-inner"
@@ -22691,7 +22693,6 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
           checked=""
           class="prefix-Radio-input"
           type="radio"
-          value=""
         />
         <span
           class="prefix-Radio-inner"
@@ -22715,7 +22716,6 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
           checked=""
           class="prefix-Radio-button-input"
           type="radio"
-          value=""
         />
         <span
           class="prefix-Radio-button-inner"
@@ -26954,7 +26954,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="Name"
                     class="config-table-cell config-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -27077,7 +27077,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                       <input
                                         class="config-checkbox-input"
                                         type="checkbox"
-                                        value=""
                                       />
                                       <span
                                         class="config-checkbox-inner"
@@ -27260,7 +27259,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="Name"
                     class="config-table-cell config-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -27384,7 +27383,6 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                                         class="config-checkbox-input"
                                         disabled=""
                                         type="checkbox"
-                                        value=""
                                       />
                                       <span
                                         class="config-checkbox-inner"
@@ -27568,7 +27566,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="Name"
                     class="config-table-cell config-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -27691,7 +27689,6 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                                       <input
                                         class="config-checkbox-input"
                                         type="checkbox"
-                                        value=""
                                       />
                                       <span
                                         class="config-checkbox-inner"
@@ -27874,7 +27871,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="Name"
                     class="config-table-cell config-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -27997,7 +27994,6 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                                       <input
                                         class="config-checkbox-input"
                                         type="checkbox"
-                                        value=""
                                       />
                                       <span
                                         class="config-checkbox-inner"
@@ -28180,7 +28176,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="Name"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -28303,7 +28299,6 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                                       <input
                                         class="ant-checkbox-input"
                                         type="checkbox"
-                                        value=""
                                       />
                                       <span
                                         class="ant-checkbox-inner"
@@ -28486,7 +28481,7 @@ exports[`ConfigProvider components Table normal 1`] = `
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="Name"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -28609,7 +28604,6 @@ exports[`ConfigProvider components Table normal 1`] = `
                                       <input
                                         class="ant-checkbox-input"
                                         type="checkbox"
-                                        value=""
                                       />
                                       <span
                                         class="ant-checkbox-inner"
@@ -28792,7 +28786,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="Name"
                     class="prefix-Table-cell prefix-Table-column-has-sorters"
                     tabindex="0"
                   >
@@ -28915,7 +28909,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                       <input
                                         class="ant-checkbox-input"
                                         type="checkbox"
-                                        value=""
                                       />
                                       <span
                                         class="ant-checkbox-inner"
@@ -29087,6 +29080,7 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
       >
         <div
           class="config-tabs-tab config-tabs-tab-active"
+          data-node-key="Light"
         >
           <div
             aria-controls="rc-tabs-test-panel-Light"
@@ -29176,6 +29170,7 @@ exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
       >
         <div
           class="config-tabs-tab config-tabs-tab-active"
+          data-node-key="Light"
         >
           <div
             aria-controls="rc-tabs-test-panel-Light"
@@ -29265,6 +29260,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
       >
         <div
           class="config-tabs-tab config-tabs-tab-active"
+          data-node-key="Light"
         >
           <div
             aria-controls="rc-tabs-test-panel-Light"
@@ -29354,6 +29350,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
       >
         <div
           class="config-tabs-tab config-tabs-tab-active"
+          data-node-key="Light"
         >
           <div
             aria-controls="rc-tabs-test-panel-Light"
@@ -29443,6 +29440,7 @@ exports[`ConfigProvider components Tabs configProvider virtual and dropdownMatch
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="Light"
         >
           <div
             aria-controls="rc-tabs-test-panel-Light"
@@ -29532,6 +29530,7 @@ exports[`ConfigProvider components Tabs normal 1`] = `
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="Light"
         >
           <div
             aria-controls="rc-tabs-test-panel-Light"
@@ -29621,6 +29620,7 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
       >
         <div
           class="prefix-Tabs-tab prefix-Tabs-tab-active"
+          data-node-key="Light"
         >
           <div
             aria-controls="rc-tabs-test-panel-Light"
@@ -38723,7 +38723,6 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
           <input
             class="config-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -38883,7 +38882,6 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
           <input
             class="config-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -38997,7 +38995,6 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
             class="config-checkbox-input"
             disabled=""
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -39158,7 +39155,6 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
             class="config-checkbox-input"
             disabled=""
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -39271,7 +39267,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
           <input
             class="config-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -39431,7 +39426,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
           <input
             class="config-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -39544,7 +39538,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
           <input
             class="config-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -39704,7 +39697,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
           <input
             class="config-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -39817,7 +39809,6 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
           <input
             class="ant-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -39977,7 +39968,6 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
           <input
             class="ant-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -40090,7 +40080,6 @@ exports[`ConfigProvider components Transfer normal 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -40250,7 +40239,6 @@ exports[`ConfigProvider components Transfer normal 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -40363,7 +40351,6 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -40523,7 +40510,6 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -40634,7 +40620,7 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
     <div
       aria-hidden="true"
       class="config-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
     >
       <div
         class="config-tree-indent"
@@ -40699,7 +40685,7 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
     <div
       aria-hidden="true"
       class="config-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
     >
       <div
         class="config-tree-indent"
@@ -40792,7 +40778,7 @@ exports[`ConfigProvider components Tree configProvider componentDisabled 1`] = `
     <div
       aria-hidden="true"
       class="config-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
     >
       <div
         class="config-tree-indent"
@@ -40857,7 +40843,7 @@ exports[`ConfigProvider components Tree configProvider componentDisabled 1`] = `
     <div
       aria-hidden="true"
       class="config-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
     >
       <div
         class="config-tree-indent"
@@ -40950,7 +40936,7 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
     <div
       aria-hidden="true"
       class="config-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
     >
       <div
         class="config-tree-indent"
@@ -41015,7 +41001,7 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
     <div
       aria-hidden="true"
       class="config-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
     >
       <div
         class="config-tree-indent"
@@ -41108,7 +41094,7 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
     <div
       aria-hidden="true"
       class="config-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
     >
       <div
         class="config-tree-indent"
@@ -41173,7 +41159,7 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
     <div
       aria-hidden="true"
       class="config-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
     >
       <div
         class="config-tree-indent"
@@ -41266,7 +41252,7 @@ exports[`ConfigProvider components Tree configProvider virtual and dropdownMatch
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
     >
       <div
         class="ant-tree-indent"
@@ -41331,7 +41317,7 @@ exports[`ConfigProvider components Tree configProvider virtual and dropdownMatch
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
     >
       <div
         class="ant-tree-indent"
@@ -41424,7 +41410,7 @@ exports[`ConfigProvider components Tree normal 1`] = `
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
     >
       <div
         class="ant-tree-indent"
@@ -41489,7 +41475,7 @@ exports[`ConfigProvider components Tree normal 1`] = `
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
     >
       <div
         class="ant-tree-indent"
@@ -41582,7 +41568,7 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
     <div
       aria-hidden="true"
       class="prefix-Tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
     >
       <div
         class="prefix-Tree-indent"
@@ -41647,7 +41633,7 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
     <div
       aria-hidden="true"
       class="prefix-Tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
     >
       <div
         class="prefix-Tree-indent"
@@ -41776,7 +41762,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
             <div
               aria-hidden="true"
               class="config-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
             >
               <div
                 class="config-select-tree-indent"
@@ -41974,7 +41960,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
             <div
               aria-hidden="true"
               class="config-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
             >
               <div
                 class="config-select-tree-indent"
@@ -42111,7 +42097,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
             <div
               aria-hidden="true"
               class="config-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
             >
               <div
                 class="config-select-tree-indent"
@@ -42248,7 +42234,7 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
             <div
               aria-hidden="true"
               class="ant-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
             >
               <div
                 class="ant-select-tree-indent"
@@ -42385,7 +42371,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
             <div
               aria-hidden="true"
               class="ant-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
             >
               <div
                 class="ant-select-tree-indent"
@@ -42522,7 +42508,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
             <div
               aria-hidden="true"
               class="prefix-TreeSelect-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
             >
               <div
                 class="prefix-TreeSelect-tree-indent"

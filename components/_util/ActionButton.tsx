@@ -22,7 +22,7 @@ function isThenable(thing?: PromiseLike<any>): boolean {
 
 const ActionButton: React.FC<ActionButtonProps> = props => {
   const clickedRef = React.useRef<boolean>(false);
-  const ref = React.useRef<any>();
+  const ref = React.useRef<HTMLInputElement>(null);
   const [loading, setLoading] = useState<ButtonProps['loading']>(false);
   const { close } = props;
   const onInternalClose = (...args: any[]) => {
@@ -30,10 +30,11 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
   };
 
   React.useEffect(() => {
-    let timeoutId: any;
+    let timeoutId: NodeJS.Timer | null = null;
     if (props.autoFocus) {
-      const $this = ref.current as HTMLInputElement;
-      timeoutId = setTimeout(() => $this.focus());
+      timeoutId = setTimeout(() => {
+        ref.current?.focus();
+      });
     }
     return () => {
       if (timeoutId) {

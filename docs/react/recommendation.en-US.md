@@ -16,7 +16,7 @@ title: Third-Party Libraries
 | Code Editor | [react-codemirror2](https://github.com/scniro/react-codemirror2) [react-monaco-editor](https://github.com/superRaytin/react-monaco-editor) |
 | Rich Text Editor | [react-quill](https://github.com/zenoamaro/react-quill) [braft-editor](https://github.com/margox/braft-editor) |
 | JSON Viewer | [react-json-view](https://github.com/mac-s-g/react-json-view) |
-| Color Picker | [react-color](http://casesandberg.github.io/react-color/) |
+| Color Picker | [react-colorful](https://github.com/omgovich/react-colorful) [react-color](http://casesandberg.github.io/react-color/) |
 | Media Query | [react-responsive](https://github.com/contra/react-responsive) [react-media](https://github.com/ReactTraining/react-media) |
 | Copy to clipboard | [react-copy-to-clipboard](https://github.com/nkbt/react-copy-to-clipboard) |
 | Document head manager | [react-helmet](https://github.com/nfl/react-helmet) [react-helmet-async](https://github.com/staylor/react-helmet-async) |

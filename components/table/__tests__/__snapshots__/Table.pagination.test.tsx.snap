@@ -84,7 +84,6 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -231,7 +230,6 @@ exports[`Table.pagination renders pagination correctly 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right my-page"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -409,7 +407,6 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"

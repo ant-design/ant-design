@@ -50,6 +50,7 @@ const App: React.FC = () => {
       onCalendarChange={val => setDates(val)}
       onChange={val => setValue(val)}
       onOpenChange={onOpenChange}
+      onBlur={() => console.log('blur has been triggered')}
     />
   );
 };

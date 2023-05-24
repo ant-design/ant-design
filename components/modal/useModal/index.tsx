@@ -28,7 +28,7 @@ const ElementsHolder = React.memo(
 );
 
 export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.ReactElement] {
-  const holderRef = React.useRef<ElementsHolderRef>(null as any);
+  const holderRef = React.useRef<ElementsHolderRef>(null);
 
   // ========================== Effect ==========================
   const [actionQueue, setActionQueue] = React.useState<(() => void)[]>([]);
@@ -52,14 +52,14 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
 
         const modalRef = React.createRef<HookModalRef>();
 
-        let closeFunc: Function;
+        let closeFunc: Function | undefined;
         const modal = (
           <HookModal
             key={`modal-${uuid}`}
             config={withFunc(config)}
             ref={modalRef}
             afterClose={() => {
-              closeFunc();
+              closeFunc?.();
             }}
           />
         );

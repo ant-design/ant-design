@@ -27,12 +27,12 @@ export interface DropdownButtonProps extends ButtonGroupProps, DropdownProps {
   buttonsRender?: (buttons: React.ReactNode[]) => React.ReactNode[];
 }
 
-interface DropdownButtonInterface extends React.FC<DropdownButtonProps> {
+type CompoundedComponent = React.FC<DropdownButtonProps> & {
   /** @internal */
   __ANT_BUTTON: boolean;
-}
+};
 
-const DropdownButton: DropdownButtonInterface = props => {
+const DropdownButton: CompoundedComponent = (props) => {
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -79,7 +79,6 @@ const DropdownButton: DropdownButtonInterface = props => {
     arrow,
     autoFocus,
     align,
-    overlay,
     disabled,
     trigger: disabled ? [] : trigger,
     onOpenChange: onOpenChange || onVisibleChange,
@@ -90,9 +89,14 @@ const DropdownButton: DropdownButtonInterface = props => {
     overlayStyle,
     destroyPopupOnHide,
   };
+
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const classes = classNames(prefixCls, compactItemClassnames, className);
+
+  if ('overlay' in props) {
+    dropdownProps.overlay = overlay;
+  }
 
   if ('open' in props) {
     dropdownProps.open = open;

@@ -59,8 +59,11 @@ site/theme/template/Resources/*.jsx
 site/theme/template/Resources/**/*.jsx
 site/theme/template/NotFound.jsx
 scripts/previewEditor/index.html
-components/version/version.tsx
-components/version/token.tsx
+components/version/
+!components/version/style/index.tsx
+.dumi
+components/version/token-meta.json
+components/version/token.json
 
 # Image snapshot diff
 __diff_output__/
@@ -70,3 +73,6 @@ __image_snapshots__/
 /imageDiffSnapshots
 
 .devcontainer*
+
+# From v5
+locale/

@@ -4,7 +4,7 @@ import { sleep, render, fireEvent } from '../utils';
 // eslint-disable-next-line jest/no-export
 export default function focusTest(
   Component: React.ComponentType<any>,
-  { refFocus = false, testLib = false } = {},
+  { refFocus = false, testLib = false, blurDelay = 0 } = {},
 ) {
   describe('focus and blur', () => {
     let focused = false;
@@ -110,7 +110,7 @@ export default function focusTest(
         expect(blurred).toBeTruthy();
 
         fireEvent.blur(getElement(container));
-        await sleep(0);
+        await sleep(blurDelay);
         expect(onBlur).toHaveBeenCalled();
       });
 

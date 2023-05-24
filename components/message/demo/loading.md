@@ -14,16 +14,29 @@ title:
 Display a global loading indicator, which is dismissed by itself asynchronously.
 
 ```tsx
-import { Button, message } from 'antd';
+import { Button, message, Space } from 'antd';
 import React from 'react';
 
 const success = () => {
-  const hide = message.loading('Action in progress..', 0);
+  const hide = message.loading('Action in progress..', 0, () => {
+    message.success('loading had closed');
+  });
   // Dismiss manually and asynchronously
   setTimeout(hide, 2500);
 };
 
-const App: React.FC = () => <Button onClick={success}>Display a loading indicator</Button>;
+const success2 = () => {
+  message.loading('Action in progress..', 3, () => {
+    message.success('loading had closed');
+  });
+};
+
+const App: React.FC = () => (
+  <Space>
+    <Button onClick={success}>Display a loading indicator</Button>
+    <Button onClick={success2}>Display a loading and auto hide</Button>
+  </Space>
+);
 
 export default App;
 ```

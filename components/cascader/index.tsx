@@ -101,7 +101,7 @@ type MultipleCascaderProps = Omit<RcMultipleCascaderProps, 'checkable' | 'option
 
 type UnionCascaderProps = SingleCascaderProps | MultipleCascaderProps;
 
-export type CascaderProps<DataNodeType> = UnionCascaderProps & {
+export type CascaderProps<DataNodeType = any> = UnionCascaderProps & {
   multiple?: boolean;
   size?: SizeType;
   disabled?: boolean;
@@ -122,7 +122,7 @@ export interface CascaderRef {
   blur: () => void;
 }
 
-const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<CascaderRef>) => {
+const Cascader = React.forwardRef((props: CascaderProps, ref: React.Ref<CascaderRef>) => {
   const {
     prefixCls: customizePrefixCls,
     size: customizeSize,
@@ -174,12 +174,6 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     !dropdownClassName,
     'Cascader',
     '`dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
-  );
-
-  warning(
-    !multiple || !props.displayRender,
-    'Cascader',
-    '`displayRender` not work on `multiple`. Please use `tagRender` instead.',
   );
 
   // =================== No Found ====================

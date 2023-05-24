@@ -289,7 +289,7 @@ describe('Segmented', () => {
     expectMatchChecked(container, [false, false, true]);
 
     // thumb appeared
-    expect(container.querySelectorAll(`.${prefixCls}-thumb`).length).toBe(1);
+    expect(container.querySelectorAll(`.${prefixCls}-thumb`).length).toBe(0);
 
     // change selection again
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
@@ -298,7 +298,7 @@ describe('Segmented', () => {
     expectMatchChecked(container, [false, true, false]);
 
     // thumb appeared
-    expect(container.querySelectorAll(`.${prefixCls}-thumb`).length).toBe(1);
+    expect(container.querySelectorAll(`.${prefixCls}-thumb`).length).toBe(0);
   });
 
   it('render segmented with `block`', () => {

@@ -176,6 +176,7 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
         'successPercent',
       ])}
       className={classString}
+      role="progressbar"
     >
       {progress}
     </div>

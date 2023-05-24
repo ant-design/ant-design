@@ -1,12 +1,11 @@
 import HolderOutlined from '@ant-design/icons/HolderOutlined';
 import classNames from 'classnames';
 import type { BasicDataNode, TreeProps as RcTreeProps } from 'rc-tree';
-import RcTree, { TreeNode } from 'rc-tree';
+import RcTree from 'rc-tree';
 import type { DataNode, Key } from 'rc-tree/lib/interface';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import collapseMotion from '../_util/motion';
-import DirectoryTree from './DirectoryTree';
 import dropIndicatorRender from './utils/dropIndicator';
 import renderSwitcherIcon from './utils/iconUtil';
 
@@ -52,7 +51,7 @@ export interface AntTreeNodeProps {
   [customProp: string]: any;
 }
 
-export interface AntTreeNode extends React.Component<AntTreeNodeProps, {}> {}
+export interface AntTreeNode extends React.Component<AntTreeNodeProps, {}> { }
 
 export interface AntTreeNodeBaseEvent {
   node: AntTreeNode;
@@ -145,21 +144,14 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
   style?: React.CSSProperties;
   showIcon?: boolean;
   icon?:
-    | ((nodeProps: AntdTreeNodeAttribute) => React.ReactNode)
-    | React.ReactNode
-    | RcTreeProps<T>['icon'];
+  | ((nodeProps: AntdTreeNodeAttribute) => React.ReactNode)
+  | React.ReactNode
+  | RcTreeProps<T>['icon'];
   switcherIcon?: SwitcherIcon | RcTreeProps<T>['switcherIcon'];
   prefixCls?: string;
   children?: React.ReactNode;
   blockNode?: boolean;
 }
-
-type CompoundedComponent = (<T extends BasicDataNode | DataNode = DataNode>(
-  props: React.PropsWithChildren<TreeProps<T>> & { ref?: React.Ref<RcTree> },
-) => React.ReactElement) & {
-  TreeNode: typeof TreeNode;
-  DirectoryTree: typeof DirectoryTree;
-};
 
 const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
   const { getPrefixCls, direction, virtual } = React.useContext(ConfigContext);
@@ -242,10 +234,6 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       {children}
     </RcTree>
   );
-}) as unknown as CompoundedComponent;
-
-Tree.TreeNode = TreeNode;
-
-Tree.DirectoryTree = DirectoryTree;
+});
 
 export default Tree;

@@ -9,6 +9,7 @@ import Input from '../../input';
 import Menu from '../../menu';
 import Select from '../../select';
 import Tooltip from '../../tooltip';
+import { resetWarned } from '../../_util/warning';
 import type { SelectProps } from '../../select';
 import type { ColumnGroupType, ColumnType, TableProps } from '..';
 import type { ColumnFilterItem, FilterDropdownProps, FilterValue } from '../interface';
@@ -72,6 +73,7 @@ describe('Table.filter', () => {
   });
 
   afterEach(() => {
+    jest.clearAllTimers();
     jest.useRealTimers();
   });
 
@@ -1877,7 +1879,7 @@ describe('Table.filter', () => {
 
     it('should skip search when filters[0].text is ReactNode', () => {
       jest.spyOn(console, 'error').mockImplementation(() => undefined);
-      const { container } = render(
+      const { container, unmount } = render(
         createTable({
           columns: [
             {
@@ -1911,11 +1913,13 @@ describe('Table.filter', () => {
       expect(container.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(3);
       fireEvent.change(container.querySelector('.ant-input')!, { target: { value: '123' } });
       expect(container.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(2);
+
+      unmount();
     });
 
     it('should supports filterSearch has type of function', () => {
-      jest.spyOn(console, 'error').mockImplementation(() => undefined);
-      const { container } = render(
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const { container, unmount } = render(
         createTable({
           columns: [
             {
@@ -1939,6 +1943,9 @@ describe('Table.filter', () => {
       expect(container.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(3);
       fireEvent.change(container.querySelector('.ant-input')!, { target: { value: '456' } });
       expect(container.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(2);
+
+      unmount();
+      errorSpy.mockRestore();
     });
 
     it('should supports filterSearch has type of function when filterMode is tree', () => {
@@ -2369,9 +2376,18 @@ describe('Table.filter', () => {
     expect(onSelect).toHaveBeenCalled();
   });
 
-  it('filteredKeys should all be controlled or not controlled', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    errorSpy.mockReset();
+  describe('filteredKeys should all be controlled or not controlled', () => {
+    let errorSpy: jest.SpyInstance;
+
+    beforeEach(() => {
+      resetWarned();
+      errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      errorSpy.mockReset();
+    });
+
+    afterEach(() => {
+      errorSpy.mockRestore();
+    });
     const tableData = [
       {
         key: '1',
@@ -2379,7 +2395,7 @@ describe('Table.filter', () => {
         age: 32,
       },
     ];
-    const columns = [
+    const getColumns = () => [
       {
         title: 'name',
         dataIndex: 'name',
@@ -2393,33 +2409,42 @@ describe('Table.filter', () => {
         filters: [],
       },
     ];
-    render(
-      createTable({
-        columns,
-        data: tableData,
-      } as TableProps<any>),
-    );
-    expect(errorSpy).not.toHaveBeenCalled();
-    errorSpy.mockReset();
-    (columns[0] as any).filteredValue = [];
-    render(
-      createTable({
-        columns,
-        data: tableData,
-      } as TableProps<any>),
-    );
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Table] Columns should all contain `filteredValue` or not contain `filteredValue`.',
-    );
-    errorSpy.mockReset();
-    (columns[1] as any).filteredValue = [];
-    render(
-      createTable({
-        columns,
-        data: tableData,
-      } as TableProps<any>),
-    );
-    expect(errorSpy).not.toHaveBeenCalled();
+    it('all uncontrolled', () => {
+      render(
+        createTable({
+          columns: getColumns(),
+          data: tableData,
+        } as TableProps<any>),
+      );
+      expect(errorSpy).not.toHaveBeenCalled();
+    });
+
+    it('part controlled', () => {
+      const columns = getColumns();
+      (columns[0] as any).filteredValue = [];
+      render(
+        createTable({
+          columns,
+          data: tableData,
+        } as TableProps<any>),
+      );
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Table] Columns should all contain `filteredValue` or not contain `filteredValue`.',
+      );
+    });
+
+    it('all controlled', () => {
+      const columns = getColumns();
+      (columns[0] as any).filteredValue = [];
+      (columns[1] as any).filteredValue = [];
+      render(
+        createTable({
+          columns,
+          data: tableData,
+        } as TableProps<any>),
+      );
+      expect(errorSpy).not.toHaveBeenCalled();
+    });
   });
 
   // Warning: An update to Item ran an effect, but was not wrapped in act(...).

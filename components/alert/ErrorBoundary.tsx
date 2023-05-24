@@ -7,15 +7,14 @@ interface ErrorBoundaryProps {
   children?: React.ReactNode;
 }
 
-export default class ErrorBoundary extends React.Component<
-  ErrorBoundaryProps,
-  {
-    error?: Error | null;
-    info: {
-      componentStack?: string;
-    };
-  }
-> {
+interface ErrorBoundaryStates {
+  error?: Error | null;
+  info?: {
+    componentStack?: string;
+  };
+}
+
+class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryStates> {
   state = {
     error: undefined,
     info: {
@@ -41,3 +40,5 @@ export default class ErrorBoundary extends React.Component<
     return children;
   }
 }
+
+export default ErrorBoundary;

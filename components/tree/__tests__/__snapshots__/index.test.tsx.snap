@@ -16,7 +16,7 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"
@@ -168,7 +168,7 @@ exports[`Tree showLine is object type should render correctly 1`] = `
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"
@@ -511,7 +511,7 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"
@@ -635,7 +635,7 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"

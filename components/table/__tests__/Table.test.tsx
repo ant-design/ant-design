@@ -108,8 +108,6 @@ describe('Table', () => {
       { key: '2', age: 42 },
     ];
 
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
     const columnsPageRange = jest.fn();
     const columnsPageSize = jest.fn();
     const props = { columnsPageRange, columnsPageSize };
@@ -119,7 +117,7 @@ describe('Table', () => {
       </Table>,
     );
 
-    expect(errorSpy).not.toHaveBeenCalledWith(
+    expect(warnSpy).not.toHaveBeenCalledWith(
       '`columnsPageRange` and `columnsPageSize` are removed, please use fixed columns instead, see: https://u.ant.design/fixed-columns.',
     );
 
@@ -285,5 +283,72 @@ describe('Table', () => {
     };
     render(<Wrapper />);
     expect(warnSpy).not.toHaveBeenCalled();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/38371
+  it('should render title', () => {
+    const columns = [
+      {
+        title: (
+          <div>
+            <span>name</span>
+            <span>Jason</span>
+          </div>
+        ),
+        key: 'name',
+        sorter: true,
+      },
+      {
+        title: (
+          <div>
+            <i />
+          </div>
+        ),
+        key: 'name',
+        sorter: true,
+      },
+      {
+        title: () => (
+          <div>
+            <span>age</span>
+            <span>20</span>
+          </div>
+        ),
+        key: 'name',
+        sorter: true,
+      },
+      {
+        title: () => 'color',
+        key: 'name',
+        sorter: true,
+      },
+      {
+        title: 'sex',
+        key: 'name',
+        sorter: true,
+      },
+    ];
+    const { container } = render(<Table columns={columns} />);
+    expect(container).toMatchSnapshot();
+  });
+
+  it('title should support ReactNode', () => {
+    const { container } = render(
+      <Table
+        columns={[
+          {
+            title: (
+              <div>
+                <strong>Current</strong> <span>User</span>
+              </div>
+            ),
+            dataIndex: 'name',
+          },
+        ]}
+        dataSource={[]}
+      />,
+    );
+
+    expect(container.querySelector('thead th')).toMatchSnapshot();
   });
 });

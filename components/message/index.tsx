@@ -194,6 +194,7 @@ function notice(args: ArgsProps): MessageType {
   const result: any = () => {
     if (messageInstance) {
       messageInstance.removeNotice(target);
+      args.onClose?.();
     }
   };
   result.then = (filled: ThenableArgument, rejected: ThenableArgument) =>

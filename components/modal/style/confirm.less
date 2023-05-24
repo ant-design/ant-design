@@ -71,4 +71,9 @@
   &-success &-body > .@{iconfont-css-prefix} {
     color: @success-color;
   }
+
+  // https://github.com/ant-design/ant-design/issues/37329
+  .@{ant-prefix}-zoom-leave .@{confirm-prefix-cls}-btns {
+    pointer-events: none;
+  }
 }

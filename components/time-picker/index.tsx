@@ -26,7 +26,8 @@ const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => 
   return (
     <InternalRangePicker
       {...props}
-      dropdownClassName={popupClassName || dropdownClassName}
+      dropdownClassName={dropdownClassName}
+      popupClassName={popupClassName}
       picker="time"
       mode={undefined}
       ref={ref}
@@ -63,15 +64,10 @@ const TimePicker = React.forwardRef<any, TimePickerProps>(
       return undefined;
     }, [addon, renderExtraFooter]);
 
-    warning(
-      !dropdownClassName,
-      'TimePicker',
-      '`dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
-    );
-
     return (
       <InternalTimePicker
-        dropdownClassName={popupClassName || dropdownClassName}
+        dropdownClassName={dropdownClassName}
+        popupClassName={popupClassName}
         {...restProps}
         mode={undefined}
         ref={ref}

@@ -11,7 +11,7 @@ import { closePicker, openPicker, selectCell } from './utils';
 const { RangePicker } = DatePicker;
 
 describe('RangePicker', () => {
-  focusTest(RangePicker, { refFocus: true });
+  focusTest(RangePicker, { refFocus: true, blurDelay: 110 });
 
   beforeEach(() => {
     setMockDate();

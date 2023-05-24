@@ -418,7 +418,7 @@ describe('Table.pagination', () => {
    * to `pagination`, since they misunderstand that `pagination` can accept a boolean value.
    */
   it('Accepts pagination as true', () => {
-    const { asFragment } = render(createTable({ pagination: true } as TableProps<any>));
+    const { asFragment } = render(createTable({ pagination: true as any } as TableProps<any>));
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 

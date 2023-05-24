@@ -83,6 +83,7 @@ function genEmptyMeta(): Meta {
     warnings: [],
     touched: false,
     validating: false,
+    validated: false,
     name: [],
   };
 }
@@ -158,7 +159,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   // >>>>> Collect noStyle Field error to the top FormItem
   const onSubItemMetaChange = (subMeta: Meta & { destroy: boolean }, uniqueKeys: React.Key[]) => {
     // Only `noStyle` sub item will trigger
-    setSubFieldErrors(prevSubFieldErrors => {
+    setSubFieldErrors((prevSubFieldErrors) => {
       const clone = {
         ...prevSubFieldErrors,
       };
@@ -184,7 +185,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     const errorList: string[] = [...meta.errors];
     const warningList: string[] = [...meta.warnings];
 
-    Object.values(subFieldErrors).forEach(subFieldError => {
+    Object.values(subFieldErrors).forEach((subFieldError) => {
       errorList.push(...(subFieldError.errors || []));
       warningList.push(...(subFieldError.warnings || []));
     });
@@ -254,7 +255,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
             ? required
             : !!(
                 rules &&
-                rules.some(rule => {
+                rules.some((rule) => {
                   if (rule && typeof rule === 'object' && rule.required && !rule.warningOnly) {
                     return true;
                   }
@@ -276,27 +277,31 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         warning(
           !(shouldUpdate && dependencies),
           'Form.Item',
-          "`shouldUpdate` and `dependencies` shouldn't be used together. See https://ant.design/components/form/#dependencies.",
+          "`shouldUpdate` and `dependencies` shouldn't be used together. See https://u.ant.design/form-deps.",
         );
         if (Array.isArray(children) && hasName) {
-          warning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
+          warning(
+            false,
+            'Form.Item',
+            'A `Form.Item` with a `name` prop must have a single child element. For information on how to render more complex form items, see https://u.ant.design/complex-form-item.',
+          );
           childNode = children;
         } else if (isRenderProps && (!(shouldUpdate || dependencies) || hasName)) {
           warning(
             !!(shouldUpdate || dependencies),
             'Form.Item',
-            '`children` of render props only work with `shouldUpdate` or `dependencies`.',
+            'A `Form.Item` with a render function must have either `shouldUpdate` or `dependencies`.',
           );
           warning(
             !hasName,
             'Form.Item',
-            "Do not use `name` with `children` of render props since it's not a field.",
+            'A `Form.Item` with a render function cannot be a field, and thus cannot have a `name` prop.',
           );
         } else if (dependencies && !isRenderProps && !hasName) {
           warning(
             false,
             'Form.Item',
-            'Must set `name` or use render props when `dependencies` is set.',
+            'Must set `name` or use a render function when `dependencies` is set.',
           );
         } else if (isValidElement(children)) {
           warning(
@@ -339,7 +344,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
             ...toArray(mergedValidateTrigger),
           ]);
 
-          triggers.forEach(eventName => {
+          triggers.forEach((eventName) => {
             childProps[eventName] = (...args: any[]) => {
               mergedControl[eventName]?.(...args);
               children.props[eventName]?.(...args);
@@ -381,11 +386,11 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
 
 type InternalFormItemType = typeof InternalFormItem;
 
-interface FormItemInterface extends InternalFormItemType {
+type CompoundedComponent = InternalFormItemType & {
   useStatus: typeof useFormItemStatus;
-}
+};
 
-const FormItem = InternalFormItem as FormItemInterface;
+const FormItem = InternalFormItem as CompoundedComponent;
 FormItem.useStatus = useFormItemStatus;
 
 export default FormItem;

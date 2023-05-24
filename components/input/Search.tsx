@@ -75,7 +75,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   };
 
   const onPressEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (composedRef.current) {
+    if (composedRef.current || loading) {
       return;
     }
     onSearch(e);

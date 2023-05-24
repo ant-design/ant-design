@@ -2,7 +2,7 @@ import React from 'react';
 import Steps from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render } from '../../../tests/utils';
+import { fireEvent, render, screen } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
 describe('Steps', () => {
@@ -31,6 +31,46 @@ describe('Steps', () => {
       />,
     );
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('items out of render function', () => {
+    const items = [
+      {
+        title: '已完成',
+      },
+      {
+        title: '进行中',
+      },
+      {
+        title: '待运行',
+        description: 'Hello World!',
+      },
+      {
+        title: '待运行',
+      },
+    ];
+    const ControlSteps = () => {
+      const [current, setCurrent] = React.useState(0);
+      return (
+        <Steps
+          current={current}
+          onChange={(val: number) => {
+            // eslint-disable-next-line no-console
+            console.log('Change:', val);
+            setCurrent(val);
+          }}
+          items={items}
+        />
+      );
+    };
+    const { container } = render(<ControlSteps />);
+    expect(
+      container.querySelectorAll('.ant-steps-item')[1].classList.contains('ant-steps-item-process'),
+    ).toBe(false);
+    fireEvent.click(screen.getByText(/进行中/i));
+    expect(
+      container.querySelectorAll('.ant-steps-item')[1].classList.contains('ant-steps-item-process'),
+    ).toBe(true);
   });
 
   it('should render correct when use Step', () => {

@@ -246,14 +246,14 @@ const TreeSelectRef = React.forwardRef(InternalTreeSelect) as <
 
 type InternalTreeSelectType = typeof TreeSelectRef;
 
-interface TreeSelectInterface extends InternalTreeSelectType {
+type CompoundedComponent = InternalTreeSelectType & {
   TreeNode: typeof TreeNode;
   SHOW_ALL: typeof SHOW_ALL;
   SHOW_PARENT: typeof SHOW_PARENT;
   SHOW_CHILD: typeof SHOW_CHILD;
-}
+};
 
-const TreeSelect = TreeSelectRef as TreeSelectInterface;
+const TreeSelect = TreeSelectRef as CompoundedComponent;
 
 TreeSelect.TreeNode = TreeNode;
 TreeSelect.SHOW_ALL = SHOW_ALL;

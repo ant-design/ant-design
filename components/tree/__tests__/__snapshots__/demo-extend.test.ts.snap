@@ -16,7 +16,7 @@ exports[`renders ./components/tree/demo/basic.md extend context correctly 1`] = 
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
   >
     <div
       class="ant-tree-indent"
@@ -334,7 +334,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md extend context corre
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
   >
     <div
       class="ant-tree-indent"
@@ -873,7 +873,7 @@ exports[`renders ./components/tree/demo/customized-icon.md extend context correc
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
   >
     <div
       class="ant-tree-indent"
@@ -1084,7 +1084,7 @@ exports[`renders ./components/tree/demo/directory.md extend context correctly 1`
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
   >
     <div
       class="ant-tree-indent"
@@ -1512,7 +1512,7 @@ Array [
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
-      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
     >
       <div
         class="ant-tree-indent"
@@ -2324,7 +2324,7 @@ exports[`renders ./components/tree/demo/draggable.md extend context correctly 1`
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
   >
     <div
       class="ant-tree-indent"
@@ -2896,7 +2896,7 @@ exports[`renders ./components/tree/demo/dynamic.md extend context correctly 1`] 
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
   >
     <div
       class="ant-tree-indent"
@@ -3247,7 +3247,7 @@ exports[`renders ./components/tree/demo/line.md extend context correctly 1`] = `
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
-      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
     >
       <div
         class="ant-tree-indent"
@@ -3734,7 +3734,7 @@ exports[`renders ./components/tree/demo/search.md extend context correctly 1`] =
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
-      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
     >
       <div
         class="ant-tree-indent"
@@ -3904,7 +3904,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md extend context correctl
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
   >
     <div
       class="ant-tree-indent"

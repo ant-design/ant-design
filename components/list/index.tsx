@@ -104,8 +104,6 @@ function List<T>({
     total: 0,
   };
 
-  const listItemsKeys: { [index: number]: React.Key } = {};
-
   const triggerPaginationEvent = (eventName: string) => (page: number, pageSize: number) => {
     setPaginationCurrent(page);
     setPaginationSize(pageSize);
@@ -135,9 +133,7 @@ function List<T>({
       key = `list-item-${index}`;
     }
 
-    listItemsKeys[index] = key;
-
-    return renderItem(item, index);
+    return <React.Fragment key={key}>{renderItem(item, index)}</React.Fragment>;
   };
 
   const isSomethingAfterLastItem = () => !!(loadMore || pagination || footer);
@@ -249,13 +245,14 @@ function List<T>({
   let childrenContent = isLoading && <div style={{ minHeight: 53 }} />;
   if (splitDataSource.length > 0) {
     const items = splitDataSource.map((item: T, index: number) => renderInnerItem(item, index));
-    const childrenList = React.Children.map(items, (child: React.ReactNode, index: number) => (
-      <div key={listItemsKeys[index]} style={colStyle}>
-        {child}
-      </div>
-    ));
     childrenContent = grid ? (
-      <Row gutter={grid.gutter}>{childrenList}</Row>
+      <Row gutter={grid.gutter}>
+        {React.Children.map(items, child => (
+          <div key={child?.key} style={colStyle}>
+            {child}
+          </div>
+        ))}
+      </Row>
     ) : (
       <ul className={`${prefixCls}-items`}>{items}</ul>
     );

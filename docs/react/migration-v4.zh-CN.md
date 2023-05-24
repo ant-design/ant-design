@@ -147,7 +147,7 @@ const Demo = () => (
 - Tabs 重写（[4.3.0](https://github.com/ant-design/ant-design/pull/24552)）
   - Dom 结构变化，如有覆盖样式需要仔细检查。
   - 横向滚动交互变化，`onPrevClick` 和 `onNextClick` 不再工作。
-- less 变量变化，如 DatePicker/TimePicker/Calendar 相关变量已全部重构，又如 [@btn-padding-base](https://github.com/ant-design/ant-design/issues/28141) 等进行了重命名，具体变化请自行对比 [3.x 变量](https://github.com/ant-design/ant-design/blob/3.x-stable/components/style/themes/default.less) 和 [4.x 变量](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)。
+- less 变量变化，如 DatePicker/TimePicker/Calendar 相关变量已全部重构，又如 [@btn-padding-base](https://github.com/ant-design/ant-design/issues/28141) 等进行了重命名，具体变化请自行对比 [3.x 变量](https://github.com/ant-design/ant-design/blob/3.x-stable/components/style/themes/default.less) 和 [4.x 变量](https://github.com/ant-design/ant-design/blob/4.x-stable/components/style/themes/default.less)。
 
 ```diff
 <Table

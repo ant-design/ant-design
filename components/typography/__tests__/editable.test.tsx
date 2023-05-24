@@ -44,7 +44,7 @@ describe('Typography.Editable', () => {
 
   it('should use editConfig.text over children in editing mode ', async () => {
     const suffix = '--The information is very important';
-    const ref = React.createRef<any>();
+    const ref = React.createRef<HTMLElement>();
     const { container: wrapper, unmount } = render(
       <Base
         ellipsis={{ rows: 1, suffix }}
@@ -65,7 +65,7 @@ describe('Typography.Editable', () => {
 
   it('should use children as the fallback of editConfig.text in editing mode', async () => {
     const suffix = '--The information is very important';
-    const ref = React.createRef<any>();
+    const ref = React.createRef<HTMLElement>();
     const { container: wrapper, unmount } = render(
       <Base ellipsis={{ rows: 1, suffix }} component="p" ref={ref} editable>
         {fullStr}

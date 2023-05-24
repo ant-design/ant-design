@@ -39,7 +39,7 @@ describe('Table.sorter', () => {
     container
       ?.querySelector('.ant-table-tbody')
       ?.querySelectorAll('tr')
-      ?.forEach(tr => {
+      ?.forEach((tr) => {
         namesList.push(tr.querySelector('td')?.textContent);
       });
     return namesList;
@@ -105,33 +105,7 @@ describe('Table.sorter', () => {
 
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
-    expect(getNameColumn()?.getAttribute('aria-label')).toEqual('Name sortable');
-  });
-
-  it('aria-label should be use the first text content in element when title is ReactElement', () => {
-    const { container } = render(
-      createTable(
-        {
-          sortDirections: ['descend', 'ascend'],
-        },
-        {
-          title: (
-            <span>
-              <em>Name</em>
-              <b>kiner</b>
-            </span>
-          ),
-          defaultSortOrder: 'descend',
-        },
-      ),
-    );
-
-    const getNameColumn = () => container.querySelector('th');
-    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
-    expect(getNameColumn()?.getAttribute('aria-label')).toEqual(null);
-    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
-    expect(getNameColumn()?.getAttribute('aria-label')).toEqual('Name sortable');
+    expect(getNameColumn()?.getAttribute('aria-label')).toEqual('Name');
   });
 
   it('sort records', () => {
@@ -153,7 +127,7 @@ describe('Table.sorter', () => {
     expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
   });
 
-  it('sort records with keydown', () => {
+  it('sort records when press enter', () => {
     const { container } = render(createTable());
 
     // ascend
@@ -163,6 +137,30 @@ describe('Table.sorter', () => {
     // descend
     fireEvent.keyDown(container.querySelector('.ant-table-column-sorters')!, { keyCode: 13 });
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/38579
+  it('should not sort records when press enter in filter dropdown', () => {
+    const { container } = render(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filters: [{ text: 'J', value: 'J' }],
+            onFilter: (value: any, record: any) => record.name.includes(value),
+            filterDropdownOpen: true,
+          },
+        ],
+      }),
+    );
+
+    // don't trigger ascend
+    fireEvent.keyDown(container.querySelector('.ant-table-filter-dropdown')!, { keyCode: 13 });
+    expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+
+    // don't trigger descend
+    fireEvent.keyDown(container.querySelector('.ant-table-filter-dropdown')!, { keyCode: 13 });
+    expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
   });
 
   describe('can be controlled by sortOrder', () => {
@@ -458,7 +456,7 @@ describe('Table.sorter', () => {
     class TableTest extends React.Component {
       state = { pagination: {} };
 
-      onChange: TableProps<any>['onChange'] = pagination => {
+      onChange: TableProps<any>['onChange'] = (pagination) => {
         this.setState({ pagination });
       };
 
@@ -518,7 +516,7 @@ describe('Table.sorter', () => {
         pagination: {},
       };
 
-      onChange: TableProps<any>['onChange'] = pagination => {
+      onChange: TableProps<any>['onChange'] = (pagination) => {
         this.setState({ pagination });
       };
 
@@ -585,7 +583,7 @@ describe('Table.sorter', () => {
         pagination: {},
       };
 
-      onChange: TableProps<any>['onChange'] = pagination => {
+      onChange: TableProps<any>['onChange'] = (pagination) => {
         this.setState({ pagination });
       };
 

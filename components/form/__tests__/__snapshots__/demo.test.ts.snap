@@ -3366,7 +3366,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md correctly 
 <form
   autocomplete="off"
   class="ant-form ant-form-horizontal"
-  id="dynamic_form_nest_item"
+  id="dynamic_form_complex"
 >
   <div
     class="ant-form-item"
@@ -3379,7 +3379,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md correctly 
       >
         <label
           class="ant-form-item-required"
-          for="dynamic_form_nest_item_area"
+          for="dynamic_form_complex_area"
           title="Area"
         >
           Area
@@ -3405,15 +3405,15 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md correctly 
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="dynamic_form_nest_item_area_list_0"
+                    aria-activedescendant="dynamic_form_complex_area_list_0"
                     aria-autocomplete="list"
-                    aria-controls="dynamic_form_nest_item_area_list"
+                    aria-controls="dynamic_form_complex_area_list"
                     aria-haspopup="listbox"
-                    aria-owns="dynamic_form_nest_item_area_list"
+                    aria-owns="dynamic_form_complex_area_list"
                     aria-required="true"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
-                    id="dynamic_form_nest_item_area"
+                    id="dynamic_form_complex_area"
                     readonly=""
                     role="combobox"
                     style="opacity:0"
@@ -3546,7 +3546,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-no-style.md correctly
 <form
   autocomplete="off"
   class="ant-form ant-form-horizontal"
-  id="dynamic_form_nest_item"
+  id="dynamic_form_no_style"
 >
   <div
     class="ant-form-item"

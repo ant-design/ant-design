@@ -57,7 +57,6 @@ describe('Carousel', () => {
   });
 
   it('should trigger autoPlay after window resize', async () => {
-    jest.useRealTimers();
     const ref = React.createRef<CarouselRef>();
     render(
       <Carousel autoplay ref={ref}>

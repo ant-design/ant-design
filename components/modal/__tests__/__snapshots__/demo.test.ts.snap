@@ -104,6 +104,17 @@ exports[`renders ./components/modal/demo/confirm-router.md correctly 1`] = `
 </button>
 `;
 
+exports[`renders ./components/modal/demo/custom-mouse-position.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open Modal
+  </span>
+</button>
+`;
+
 exports[`renders ./components/modal/demo/dark.md correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"

@@ -5,10 +5,10 @@ export default function useRemovePasswordTimeout(
   inputRef: React.RefObject<InputRef>,
   triggerOnMount?: boolean,
 ) {
-  const removePasswordTimeoutRef = useRef<number[]>([]);
+  const removePasswordTimeoutRef = useRef<NodeJS.Timer[]>([]);
   const removePasswordTimeout = () => {
     removePasswordTimeoutRef.current.push(
-      window.setTimeout(() => {
+      setTimeout(() => {
         if (
           inputRef.current?.input &&
           inputRef.current?.input.getAttribute('type') === 'password' &&
@@ -25,7 +25,12 @@ export default function useRemovePasswordTimeout(
       removePasswordTimeout();
     }
 
-    return () => removePasswordTimeoutRef.current.forEach(item => window.clearTimeout(item));
+    return () =>
+      removePasswordTimeoutRef.current.forEach(timer => {
+        if (timer) {
+          clearTimeout(timer);
+        }
+      });
   }, []);
 
   return removePasswordTimeout;

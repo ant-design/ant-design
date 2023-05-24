@@ -160,7 +160,7 @@ class Wave extends React.Component<WaveProps> {
       : `${getPrefixCls('')}-click-animating-without-extra-node`;
   }
 
-  bindAnimationEvent = (node: HTMLElement) => {
+  bindAnimationEvent = (node?: HTMLElement) => {
     if (
       !node ||
       !node.getAttribute ||

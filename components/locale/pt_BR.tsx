@@ -21,6 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'Resetar',
     filterEmptyText: 'Sem filtros',
+    filterCheckall: 'Selecionar todos os items',
     emptyText: 'Sem conteúdo',
     selectAll: 'Selecionar página atual',
     selectInvert: 'Inverter seleção',

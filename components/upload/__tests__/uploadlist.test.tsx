@@ -956,7 +956,7 @@ describe('Upload List', () => {
           originFileObj: renderInstance(),
         };
         delete file.thumbUrl;
-        const ref = React.createRef();
+        const ref = React.createRef<any>();
         const { container: wrapper, unmount } = render(
           <Upload
             ref={ref}
@@ -1540,5 +1540,32 @@ describe('Upload List', () => {
     );
 
     expect(container.querySelector('.ant-upload-list-item-error')).toBeTruthy();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/42056
+  describe('when form is disabled but upload is not', () => {
+    it('should not disable remove button', () => {
+      const { container } = render(
+        <Form name="base" disabled>
+          <Form.Item name="upload">
+            <Upload
+              disabled={false}
+              defaultFileList={[
+                {
+                  uid: '1',
+                  name: 'zzz.png',
+                  status: 'error',
+                  url: 'http://www.baidu.com/zzz.png',
+                },
+              ]}
+            />
+          </Form.Item>
+        </Form>,
+      );
+
+      const removeButton = container.querySelector('.ant-upload-list-item-card-actions > button');
+      expect(removeButton).toBeTruthy();
+      expect(removeButton).not.toBeDisabled();
+    });
   });
 });

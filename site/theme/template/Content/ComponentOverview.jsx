@@ -50,7 +50,7 @@ const ComponentOverview = ({
   const [search, setSearch] = useState('');
 
   // keydown.enter goto first component
-  const sectionRef = React.createRef();
+  const sectionRef = React.useRef(null);
   const onKeyDown = event => {
     if (event.keyCode === 13 && search.trim().length) {
       sectionRef.current?.querySelector('.components-overview-card')?.click();

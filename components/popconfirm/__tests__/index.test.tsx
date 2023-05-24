@@ -158,7 +158,7 @@ describe('Popconfirm', () => {
 
   it('should support onConfirm to return Promise', async () => {
     const confirm = () =>
-      new Promise(res => {
+      new Promise((res) => {
         setTimeout(res, 300);
       });
     const onOpenChange = jest.fn((_, e) => {
@@ -256,7 +256,7 @@ describe('Popconfirm', () => {
           <Popconfirm
             title="will unmount"
             onConfirm={() =>
-              new Promise(resolve => {
+              new Promise((resolve) => {
                 setTimeout(() => {
                   setShow(false);
                   resolve(true);
@@ -285,5 +285,27 @@ describe('Popconfirm', () => {
     await waitFakeTimer(500);
     // expect(container.textContent).toEqual('Unmounted');
     expect(error).not.toHaveBeenCalled();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/42314
+  it('legacy onVisibleChange should only trigger once', async () => {
+    const onOpenChange = jest.fn();
+    const onVisibleChange = jest.fn();
+
+    const { container } = render(
+      <Popconfirm
+        title="will unmount"
+        onOpenChange={onOpenChange}
+        onVisibleChange={onVisibleChange}
+      >
+        <span className="target" />
+      </Popconfirm>,
+    );
+
+    fireEvent.click(container.querySelector('.target')!);
+    await waitFakeTimer();
+
+    expect(onOpenChange).toHaveBeenCalledTimes(1);
+    expect(onVisibleChange).toHaveBeenCalledTimes(1);
   });
 });

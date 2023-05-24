@@ -206,6 +206,12 @@ ConfigProvider.config({
 
 因为历史原因，弹层类组件展示命名并不统一，出现了 `open` 与 `visible` 都在使用的情况。这使得非 tsx 用户在开发时遭遇的记忆成本。同样导致新增 feature 时选择何种命名的模棱两可。因而我们希望统一该属性命名，你仍然可以使用原本的 `visible` 它仍然会向下兼容，但是从 v5 起我们将从文档中移除该属性。
 
+## 设置了样式变量 `@line-height-base` 导致布局异常怎么办？
+
+因为 `@line-height-base` 参与了部分组件的布局计算，所以只支持 `number` 类型的单位。如果传入了 `20px`，会被解析成 `20` 进行计算，导致布局异常。
+
+相关 issue：[#39451](https://github.com/ant-design/ant-design/issues/39451)
+
 ## 如何正确的拼写 Ant Design？
 
 - ✅ **Ant Design**：用空格分隔的首字母大写单词，指代设计语言。

@@ -10,12 +10,15 @@ import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import { NoCompactStyle } from '../space/Compact';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
 import warning from '../_util/warning';
 import { getConfirmLocale } from './locale';
 
-let mousePosition: { x: number; y: number } | null;
+type MousePosition = { x: number; y: number } | null;
+
+let mousePosition: MousePosition;
 
 // ref: https://github.com/ant-design/ant-design/issues/15795
 const getClickPosition = (e: MouseEvent) => {
@@ -91,6 +94,7 @@ export interface ModalProps {
   modalRender?: (node: React.ReactNode) => React.ReactNode;
   focusTriggerAfterClose?: boolean;
   children?: React.ReactNode;
+  mousePosition?: MousePosition;
 }
 
 type getContainerFunc = () => HTMLElement;
@@ -145,7 +149,7 @@ export interface ModalLocale {
   justOkText: string;
 }
 
-const Modal: React.FC<ModalProps> = props => {
+const Modal: React.FC<ModalProps> = (props) => {
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -187,7 +191,7 @@ const Modal: React.FC<ModalProps> = props => {
 
   const defaultFooter = (
     <LocaleReceiver componentName="Modal" defaultLocale={getConfirmLocale()}>
-      {contextLocale => {
+      {(contextLocale) => {
         const { okText, okType = 'primary', cancelText, confirmLoading = false } = props;
 
         return (
@@ -220,25 +224,29 @@ const Modal: React.FC<ModalProps> = props => {
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
   return (
-    <NoFormStyle status override>
-      <Dialog
-        width={width}
-        {...restProps}
-        getContainer={
-          getContainer === undefined ? (getContextPopupContainer as getContainerFunc) : getContainer
-        }
-        prefixCls={prefixCls}
-        wrapClassName={wrapClassNameExtended}
-        footer={footer === undefined ? defaultFooter : footer}
-        visible={open || visible}
-        mousePosition={mousePosition}
-        onClose={handleCancel}
-        closeIcon={closeIconToRender}
-        focusTriggerAfterClose={focusTriggerAfterClose}
-        transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
-        maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
-      />
-    </NoFormStyle>
+    <NoCompactStyle>
+      <NoFormStyle status override>
+        <Dialog
+          width={width}
+          {...restProps}
+          getContainer={
+            getContainer === undefined
+              ? (getContextPopupContainer as getContainerFunc)
+              : getContainer
+          }
+          prefixCls={prefixCls}
+          wrapClassName={wrapClassNameExtended}
+          footer={footer === undefined ? defaultFooter : footer}
+          visible={open || visible}
+          mousePosition={restProps.mousePosition ?? mousePosition}
+          onClose={handleCancel}
+          closeIcon={closeIconToRender}
+          focusTriggerAfterClose={focusTriggerAfterClose}
+          transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
+          maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
+        />
+      </NoFormStyle>
+    </NoCompactStyle>
   );
 };
 

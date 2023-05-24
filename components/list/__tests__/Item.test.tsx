@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import List from '..';
-import { render } from '../../../tests/utils';
+import { pureRender, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('List Item Layout', () => {
@@ -203,5 +203,31 @@ describe('List Item Layout', () => {
       </List>,
     );
     expect(ref.current).toHaveClass('ant-col');
+  });
+  it('react key', () => {
+    const loadId: number[] = [];
+
+    const Demo = ({ id }: { id: number }) => {
+      useEffect(() => {
+        loadId.push(id);
+      }, []);
+
+      return <div>{id}</div>;
+    };
+    const getDom = (id = 1) => (
+      <List
+        dataSource={[{ id, title: `ant design` }]}
+        rowKey={item => item.id}
+        renderItem={item => (
+          <List.Item>
+            <Demo id={item.id} />
+          </List.Item>
+        )}
+      />
+    );
+    const { rerender } = pureRender(getDom(1));
+    rerender(getDom(3));
+    rerender(getDom(5));
+    expect(loadId).toEqual([1, 3, 5]);
   });
 });

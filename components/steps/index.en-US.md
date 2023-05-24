@@ -22,7 +22,7 @@ ReactDOM.render(<Alert message="After version 4.24.0, we provide a simpler usage
 ```jsx
 // works when >=4.24.0, recommended ✅
 const items = [{ title: 'first step' }, { title: 'second step' }, { title: 'third step' }];
-return <Tabs items={items} />;
+return <Steps items={items} />;
 
 // works when <4.24.0, deprecated when >=4.24.0 🙅🏻‍♀️
 <Steps>

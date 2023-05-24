@@ -67,4 +67,11 @@ describe('Result', () => {
 
     warnSpy.mockRestore();
   });
+
+  it('should hide icon by setting icon to false or null', () => {
+    const { container } = render(<Result title="404" icon={null} />);
+    expect(container.querySelectorAll('.ant-result-icon')).toHaveLength(0);
+    const { container: container2 } = render(<Result title="404" icon={false} />);
+    expect(container2.querySelectorAll('.ant-result-icon')).toHaveLength(0);
+  });
 });

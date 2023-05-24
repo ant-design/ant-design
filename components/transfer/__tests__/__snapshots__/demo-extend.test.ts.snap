@@ -6550,6 +6550,7 @@ Array [
                                     class="ant-checkbox"
                                   >
                                     <input
+                                      aria-label="Select all"
                                       class="ant-checkbox-input"
                                       type="checkbox"
                                     />
@@ -7020,7 +7021,6 @@ Array [
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     aria-disabled="true"
@@ -7399,6 +7399,7 @@ Array [
                                     class="ant-checkbox"
                                   >
                                     <input
+                                      aria-label="Select all"
                                       class="ant-checkbox-input"
                                       type="checkbox"
                                     />
@@ -7601,7 +7602,6 @@ Array [
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     aria-disabled="true"
@@ -7764,7 +7764,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.md extend context corr
           <div
             aria-hidden="true"
             class="ant-tree-treenode"
-            style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+            style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
           >
             <div
               class="ant-tree-indent"

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 /** Similar with `useEffect` but only trigger after mounted */
-export default (callback: () => void, conditions: any[]) => {
+const useUpdatedEffect = (callback: () => void, conditions?: React.DependencyList) => {
   const mountRef = React.useRef(false);
 
   React.useEffect(() => {
@@ -12,3 +12,5 @@ export default (callback: () => void, conditions: any[]) => {
     }
   }, conditions);
 };
+
+export default useUpdatedEffect;
