@@ -19,7 +19,7 @@ export type PopoverToken = FullToken<'Popover'> & {
 const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
   const {
     componentCls,
-    colorText,
+    popoverColor,
     minWidth,
     fontWeightStrong,
     popoverPadding,
@@ -80,7 +80,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         },
 
         [`${componentCls}-inner-content`]: {
-          color: colorText,
+          color: popoverColor,
         },
       },
     },
@@ -168,6 +168,7 @@ export default genComponentStyleHook(
   'Popover',
   (token) => {
     const { colorBgElevated, colorText, wireframe } = token;
+
     const popoverToken = mergeToken<PopoverToken>(token, {
       popoverPadding: 12, // Fixed Value
       popoverBg: colorBgElevated,
