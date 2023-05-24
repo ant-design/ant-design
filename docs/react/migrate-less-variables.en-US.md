@@ -378,14 +378,14 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@transfer-header-height` | `headerHeight` | - |
-| `@transfer-item-height` | `itemHeight` | - |
-| `@transfer-disabled-bg` | `disabledBg` | - |
-| `@transfer-list-height` | `listHeight` | - |
-| `@transfer-item-hover-bg` | `itemHoverBg` | - |
-| `@transfer-item-selected-hover-bg` | `itemSelectedHoverBg` | - |
-| `@transfer-item-padding-vertical` | `itemPaddingVertical` | - |
-| `@transfer-list-search-icon-top` | `listSearchIconTop` | - |
+| `@transfer-header-height` | `transferheaderHeight` | - |
+| `@transfer-item-height` | `transferItemHeight` | Global Token |
+| `@transfer-disabled-bg` | - | Deprecated |
+| `@transfer-list-height` | - | Deprecated |
+| `@transfer-item-hover-bg` | - | Deprecated |
+| `@transfer-item-selected-hover-bg` | - | Deprecated |
+| `@transfer-item-padding-vertical` | `transferItemVerticalPadding` | - |
+| `@transfer-list-search-icon-top` | - | Deprecated |
 
 <!-- ### Tree -->
 

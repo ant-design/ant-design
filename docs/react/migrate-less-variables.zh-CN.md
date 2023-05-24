@@ -375,14 +375,14 @@ Transfer 穿梭框
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@transfer-header-height` | `headerHeight` | - |
-| `@transfer-item-height` | `itemHeight` | - |
-| `@transfer-disabled-bg` | `disabledBg` | - |
-| `@transfer-list-height` | `listHeight` | - |
-| `@transfer-item-hover-bg` | `itemHoverBg` | - |
-| `@transfer-item-selected-hover-bg` | `itemSelectedHoverBg` | - |
-| `@transfer-item-padding-vertical` | `itemPaddingVertical` | - |
-| `@transfer-list-search-icon-top` | `listSearchIconTop` | - |
+| `@transfer-header-height` | `transferheaderHeight` | - |
+| `@transfer-item-height` | `transferItemHeight` | 全局 Token |
+| `@transfer-disabled-bg` | - | 已废弃 |
+| `@transfer-list-height` | - | 已废弃 |
+| `@transfer-item-hover-bg` | - | 已废弃 |
+| `@transfer-item-selected-hover-bg` | - | 已废弃 |
+| `@transfer-item-padding-vertical` | `transferItemVerticalPadding` | - |
+| `@transfer-list-search-icon-top` | - | 已废弃 |
 
 <!-- ### Tree 树形控件 -->
 
