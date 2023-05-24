@@ -1,7 +1,7 @@
+import { resetComponent, resetIcon } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent, resetIcon } from '../../style';
 
 export interface ComponentToken {}
 
@@ -73,6 +73,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           flexWrap: 'nowrap',
           alignItems: 'flex-start',
           padding: collapseHeaderPadding,
+          paddingInlineStart: paddingSM,
           color: colorTextHeading,
           lineHeight,
           cursor: 'pointer',
@@ -92,6 +93,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
             display: 'flex',
             alignItems: 'center',
             paddingInlineEnd: marginSM,
+            marginInlineStart: padding - paddingSM,
           },
 
           [`${componentCls}-arrow`]: {
@@ -123,12 +125,6 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
 
           [`${componentCls}-expand-icon`]: {
             cursor: 'pointer',
-          },
-        },
-
-        [`&${componentCls}-no-arrow`]: {
-          [`> ${componentCls}-header`]: {
-            paddingInlineStart: paddingSM,
           },
         },
       },
