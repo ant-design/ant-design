@@ -38,7 +38,7 @@ Used when the text needs to be converted into a QR Code.
 | Property | Description | Type | Default | Version |
 | :-- | :-- | :-- | :-- | :-- |
 | value | scanned text | string | - |
-| renderAs | render type | `canvas \| svg ` | `canvas` | 5.5.2 |
+| type | render type | `canvas \| svg ` | `canvas` | 5.6.0 |
 | icon | include image url (only image link are supported) | string | - |
 | size | QRCode size | number | 128 |
 | iconSize | include image size | number | 32 |

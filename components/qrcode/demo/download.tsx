@@ -49,7 +49,7 @@ const App: React.FC = () => (
     </Col>
     <Col span={12}>
       <div id="myqrcodesvg">
-        <QRCode renderAs="svg" value="https://ant.design/" style={{ marginBottom: 16 }} />
+        <QRCode type="svg" value="https://ant.design/" style={{ marginBottom: 16 }} />
       </div>
     </Col>
     <Col span={12}>

@@ -17,7 +17,7 @@ const { useToken } = theme;
 const QRCode: React.FC<QRCodeProps> = (props) => {
   const {
     value,
-    renderAs = 'canvas',
+    type = 'canvas',
     icon = '',
     size = 160,
     iconSize = 40,
@@ -36,7 +36,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const { token } = useToken();
-  const qrCodeProps = useMemo<QRPropsCanvas | QRPropsSvg | any>(() => {
+  const qrCodeProps = useMemo<QRPropsCanvas | QRPropsSvg>(() => {
     const imageSettings: QRCodeProps['imageSettings'] = {
       src: icon,
       x: undefined,
@@ -47,7 +47,6 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     };
     return {
       value,
-      renderAs,
       size: size - (token.paddingSM + token.lineWidth) * 2,
       level: errorLevel,
       bgColor,
@@ -94,10 +93,10 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
           )}
         </div>
       )}
-      {qrCodeProps.renderAs === 'canvas' ? (
-        <QRCodeCanvas {...qrCodeProps} />
+      {type === 'canvas' ? (
+        <QRCodeCanvas {...(qrCodeProps as QRPropsCanvas)} />
       ) : (
-        <QRCodeSVG {...qrCodeProps} />
+        <QRCodeSVG {...(qrCodeProps as QRPropsSvg)} />
       )}
     </div>,
   );

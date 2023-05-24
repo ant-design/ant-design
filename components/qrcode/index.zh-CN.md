@@ -39,7 +39,7 @@ group:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | :-- | :-- | :-- | :-- | :-- |
 | value | 扫描后的文本 | string | - |
-| renderAs | 渲染类型 | `canvas \| svg ` | `canvas` | 5.5.2 |
+| type | 渲染类型 | `canvas \| svg ` | `canvas` | 5.6.0 |
 | icon | 二维码中图片的地址（目前只支持图片地址） | string | - |
 | size | 二维码大小 | number | 160 |
 | iconSize | 二维码中图片的大小 | number | 40 |

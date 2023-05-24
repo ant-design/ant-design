@@ -11,7 +11,7 @@ interface ImageSettings {
 
 interface QRProps {
   value: string;
-  renderAs?: string;
+  type?: 'canvas' | 'svg';
   size?: number;
   color?: string;
   style?: CSSProperties;
@@ -21,7 +21,8 @@ interface QRProps {
 }
 
 export type QRPropsCanvas = QRProps & React.CanvasHTMLAttributes<HTMLCanvasElement>;
-export type QRPropsSvg = QRProps & React.CanvasHTMLAttributes<SVGElement>;
+export type QRPropsSvg = QRProps & React.SVGAttributes<SVGSVGElement>;
+
 export interface QRCodeProps extends QRProps {
   className?: string;
   rootClassName?: string;
