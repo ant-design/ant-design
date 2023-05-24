@@ -7,7 +7,12 @@
   "customSyntax": "postcss-less",
   "plugins": ["stylelint-declaration-block-no-ignored-properties"],
   "rules": {
-    "function-name-case": ["lower", { "ignoreFunctions": ["/colorPalette/"] }],
+    "function-name-case": [
+      "lower",
+      {
+        "ignoreFunctions": ["/colorPalette/"]
+      }
+    ],
     "function-no-unknown": [
       true,
       {
