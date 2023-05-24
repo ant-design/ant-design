@@ -11,7 +11,7 @@ interface ImageSettings {
 
 interface QRProps {
   value: string;
-  renderAs?: string;
+  type?: 'canvas' | 'svg';
   size?: number;
   color?: string;
   style?: CSSProperties;
