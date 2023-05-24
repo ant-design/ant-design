@@ -29,7 +29,7 @@ Used when the text needs to be converted into a QR Code.
 <code src="./demo/download.tsx">Download QRCode</code>
 <code src="./demo/errorlevel.tsx">Error Level</code>
 <code src="./demo/Popover.tsx">Advanced Usage</code>
-<code src="./demo/renderAs.tsx">Render Type</code>
+<code src="./demo/type.tsx">Render Type</code>
 
 ## API
 
