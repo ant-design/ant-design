@@ -7,7 +7,6 @@ import { PresetColors, genComponentStyleHook, mergeToken } from '../../theme/int
 export interface ComponentToken {
   width: number;
   minWidth: number;
-  minHeight: number;
   zIndexPopup: number;
 }
 
@@ -185,7 +184,6 @@ export default genComponentStyleHook(
   (token) => ({
     width: 177,
     minWidth: 177,
-    minHeight: 32,
     zIndexPopup: token.zIndexPopupBase + 30,
   }),
   {
