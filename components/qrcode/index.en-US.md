@@ -29,6 +29,7 @@ Used when the text needs to be converted into a QR Code.
 <code src="./demo/download.tsx">Download QRCode</code>
 <code src="./demo/errorlevel.tsx">Error Level</code>
 <code src="./demo/Popover.tsx">Advanced Usage</code>
+<code src="./demo/renderAs.tsx">Render Type</code>
 
 ## API
 
@@ -37,6 +38,7 @@ Used when the text needs to be converted into a QR Code.
 | Property | Description | Type | Default | Version |
 | :-- | :-- | :-- | :-- | :-- |
 | value | scanned text | string | - |
+| type | render type | `canvas \| svg ` | `canvas` | 5.6.0 |
 | icon | include image url (only image link are supported) | string | - |
 | size | QRCode size | number | 128 |
 | iconSize | include image size | number | 32 |

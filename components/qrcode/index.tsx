@@ -1,6 +1,6 @@
 import { ReloadOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
-import { QRCodeCanvas } from 'qrcode.react';
+import { QRCodeCanvas, QRCodeSVG } from 'qrcode.react';
 import React, { useContext, useMemo } from 'react';
 import warning from '../_util/warning';
 import Button from '../button';
@@ -9,7 +9,7 @@ import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import Spin from '../spin';
 import theme from '../theme';
-import type { QRCodeProps, QRPropsCanvas } from './interface';
+import type { QRCodeProps, QRPropsCanvas, QRPropsSvg } from './interface';
 import useStyle from './style/index';
 
 const { useToken } = theme;
@@ -17,6 +17,7 @@ const { useToken } = theme;
 const QRCode: React.FC<QRCodeProps> = (props) => {
   const {
     value,
+    type = 'canvas',
     icon = '',
     size = 160,
     iconSize = 40,
@@ -35,7 +36,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const { token } = useToken();
-  const qrCodeProps = useMemo<QRPropsCanvas>(() => {
+  const qrCodeProps = useMemo<QRPropsCanvas | QRPropsSvg>(() => {
     const imageSettings: QRCodeProps['imageSettings'] = {
       src: icon,
       x: undefined,
@@ -92,7 +93,11 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
           )}
         </div>
       )}
-      <QRCodeCanvas {...qrCodeProps} />
+      {type === 'canvas' ? (
+        <QRCodeCanvas {...(qrCodeProps as QRPropsCanvas)} />
+      ) : (
+        <QRCodeSVG {...(qrCodeProps as QRPropsSvg)} />
+      )}
     </div>,
   );
 };
