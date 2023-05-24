@@ -20,7 +20,7 @@ const App: React.FC = () => (
           itemSizeSM: 12,
           fontFamily: 'SimSun, sans-serif',
           itemLinkBg: '#344324',
-          itemDisabledBgActive: '#9c1515',
+          itemActiveBgDisabled: '#9c1515',
           itemInputBg: '#9c1515',
           miniOptionsSizeChangerTop: 0,
           itemBg: '#333',

@@ -15,7 +15,7 @@ export interface ComponentToken {
   itemActiveBg: string;
   itemSizeSM: number;
   itemLinkBg: string;
-  itemDisabledBgActive: string;
+  itemActiveBgDisabled: string;
   itemActiveColorDisabled: string;
   itemInputBg: string;
   miniOptionsSizeChangerTop: number;
@@ -84,10 +84,10 @@ const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = (t
 
         '&-active': {
           borderColor: token.colorBorder,
-          backgroundColor: token.itemDisabledBgActive,
+          backgroundColor: token.itemActiveBgDisabled,
 
           '&:hover, &:active': {
-            backgroundColor: token.itemDisabledBgActive,
+            backgroundColor: token.itemActiveBgDisabled,
           },
 
           a: {
@@ -626,7 +626,7 @@ const genBorderedStyle: GenerateStyle<PaginationToken> = (token) => {
         },
 
         [`&${componentCls}-item-active`]: {
-          backgroundColor: token.itemDisabledBgActive,
+          backgroundColor: token.itemActiveBgDisabled,
         },
       },
 
@@ -721,7 +721,7 @@ export default genComponentStyleHook(
     itemActiveBg: token.colorBgContainer,
     itemLinkBg: token.colorBgContainer,
     itemActiveColorDisabled: token.colorTextDisabled,
-    itemDisabledBgActive: token.controlItemBgActiveDisabled,
+    itemActiveBgDisabled: token.controlItemBgActiveDisabled,
     itemInputBg: token.colorBgContainer,
     miniOptionsSizeChangerTop: 0,
   }),
