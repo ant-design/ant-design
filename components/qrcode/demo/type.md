@@ -1,6 +1,6 @@
 ## zh-CN
 
-通过设置 `type` 自定义渲染结果。提供 `canvas` 和 `svg` 两个选项。
+通过设置 `type` 自定义渲染结果，提供 `canvas` 和 `svg` 两个选项。
 
 ## en-US
 
