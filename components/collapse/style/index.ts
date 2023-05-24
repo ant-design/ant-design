@@ -94,6 +94,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
             display: 'flex',
             alignItems: 'center',
             paddingInlineEnd: marginSM,
+            // Arrow offset
             marginInlineStart: padding - paddingSM,
           },
 
