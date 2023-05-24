@@ -168,7 +168,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
 
           [`> ${componentCls}-header`]: {
             padding: collapseHeaderPaddingLG,
-            paddingInlineStart: paddingLG,
+            paddingInlineStart: padding,
 
             [`> ${componentCls}-expand-icon`]: {
               height: fontSizeLG * lineHeight,
