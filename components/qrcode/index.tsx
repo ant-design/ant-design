@@ -9,7 +9,7 @@ import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import Spin from '../spin';
 import theme from '../theme';
-import type { QRCodeProps, QRPropsCanvas, QRPropsSvg } from './interface';
+import type { QRCodeProps, QRProps } from './interface';
 import useStyle from './style/index';
 
 const { useToken } = theme;
@@ -36,7 +36,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const { token } = useToken();
-  const qrCodeProps = useMemo<QRPropsCanvas | QRPropsSvg>(() => {
+  const qrCodeProps = useMemo<QRProps>(() => {
     const imageSettings: QRCodeProps['imageSettings'] = {
       src: icon,
       x: undefined,
@@ -94,9 +94,9 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
         </div>
       )}
       {type === 'canvas' ? (
-        <QRCodeCanvas {...(qrCodeProps as QRPropsCanvas)} />
+        <QRCodeCanvas {...qrCodeProps} />
       ) : (
-        <QRCodeSVG {...(qrCodeProps as QRPropsSvg)} />
+        <QRCodeSVG {...qrCodeProps} />
       )}
     </div>,
   );

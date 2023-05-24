@@ -9,7 +9,7 @@ interface ImageSettings {
   y?: number;
 }
 
-interface QRProps {
+export interface QRProps {
   value: string;
   type?: 'canvas' | 'svg';
   size?: number;

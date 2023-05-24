@@ -1,7 +1,7 @@
 ## zh-CN
 
-通过设置 `type` 自定义渲染类型。二维码上鼠标右键->检查->源码中查看渲染结果。
+通过设置 `type` 自定义渲染结果。提供 `canvas` 和 `svg` 两个选项。
 
 ## en-US
 
-Render Type.
+Customize the rendering results by setting 'type'. Provide two options: 'canvas' and' svg '.
