@@ -5,6 +5,7 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genMotionStyle from './motion';
 
 export interface ComponentToken {
+  zIndexPopup: number;
   cardActiveColor: string;
   cardHorizontalPadding: string;
   cardHorizontalPaddingSm: string;
@@ -32,13 +33,11 @@ export interface ComponentToken {
 }
 
 export interface TabsToken extends FullToken<'Tabs'> {
-  zIndexPopup: number;
-  cardHorizontalPadding: string;
   dropdownEdgeChildVerticalPadding: number;
-  navWrapPseudoWidth: number;
-  activeTextShadow: string;
-  dropdownHeight: number;
-  dropdownWidth: number;
+  tabsNavWrapPseudoWidth: number;
+  tabsActiveTextShadow: string;
+  tabsDropdownHeight: number;
+  tabsDropdownWidth: number;
 }
 
 const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
@@ -174,7 +173,7 @@ const genDropdownStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
       },
 
       [`${componentCls}-dropdown-menu`]: {
-        maxHeight: token.dropdownHeight,
+        maxHeight: token.tabsDropdownHeight,
         margin: 0,
         padding: `${dropdownEdgeChildVerticalPadding}px 0`,
         overflowX: 'hidden',
@@ -194,7 +193,7 @@ const genDropdownStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
           ...textEllipsis,
           display: 'flex',
           alignItems: 'center',
-          minWidth: token.dropdownWidth,
+          minWidth: token.tabsDropdownWidth,
           margin: 0,
           padding: `${token.paddingXXS}px ${token.paddingSM}px`,
           color: token.colorText,
@@ -594,7 +593,7 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
 
       [`&${tabCls}-active ${tabCls}-btn`]: {
         color: token.colorPrimary,
-        textShadow: token.activeTextShadow,
+        textShadow: token.tabsActiveTextShadow,
       },
 
       [`&${tabCls}-disabled`]: {
@@ -887,15 +886,14 @@ export default genComponentStyleHook(
   'Tabs',
   (token) => {
     const tabsToken = mergeToken<TabsToken>(token, {
-      zIndexPopup: token.zIndexPopupBase + 50,
       cardHorizontalPadding: `${
         (token.controlHeightLG - Math.round(token.fontSize * token.lineHeight)) / 2 -
         token.lineWidth
       }px ${token.padding}px`,
       dropdownEdgeChildVerticalPadding: token.paddingXXS,
-      activeTextShadow: '0 0 0.25px currentcolor',
-      dropdownHeight: 200,
-      dropdownWidth: 120,
+      tabsActiveTextShadow: '0 0 0.25px currentcolor',
+      tabsDropdownHeight: 200,
+      tabsDropdownWidth: 120,
     });
 
     return [
@@ -909,6 +907,7 @@ export default genComponentStyleHook(
     ];
   },
   (token) => ({
+    zIndexPopup: token.zIndexPopupBase + 50,
     cardHeadBackground: token.colorFillAlter,
     cardHeight: token.controlHeightLG,
     cardActiveColor: token.colorPrimary,
