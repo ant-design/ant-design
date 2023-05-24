@@ -39,6 +39,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
     marginSM,
     paddingSM,
     paddingLG,
+    paddingXS,
     motionDurationSlow,
     fontSizeIcon,
   } = token;
@@ -147,6 +148,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
         [`> ${componentCls}-item`]: {
           [`> ${componentCls}-header`]: {
             padding: collapseHeaderPaddingSM,
+            paddingInlineStart: paddingSM - paddingXS,
           },
           [`> ${componentCls}-content > ${componentCls}-content-box`]: {
             padding: paddingSM,
@@ -160,6 +162,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
 
           [`> ${componentCls}-header`]: {
             padding: collapseHeaderPaddingLG,
+            paddingInlineStart: paddingLG - padding,
 
             [`> ${componentCls}-expand-icon`]: {
               height: fontSizeLG * lineHeight,
