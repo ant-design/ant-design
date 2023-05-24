@@ -12,13 +12,11 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 export interface ComponentToken {
   itemBg: string;
   itemSize: number;
-  fontFamily: string;
-  itemBgActive: string;
-  fontWeightActive: number;
+  itemActiveBg: string;
   itemSizeSM: number;
   itemLinkBg: string;
   itemDisabledBgActive: string;
-  itemDisabledColorActive: string;
+  itemActiveColorDisabled: string;
   itemInputBg: string;
   miniOptionsSizeChangerTop: number;
 }
@@ -93,7 +91,7 @@ const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = (t
           },
 
           a: {
-            color: token.itemDisabledColorActive,
+            color: token.itemActiveColorDisabled,
           },
         },
       },
@@ -509,8 +507,8 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       ...genFocusStyle(token),
 
       '&-active': {
-        fontWeight: token.fontWeightActive,
-        backgroundColor: token.itemBgActive,
+        fontWeight: token.fontWeightStrong,
+        backgroundColor: token.itemActiveBg,
         borderColor: token.colorPrimary,
 
         a: {
@@ -720,11 +718,9 @@ export default genComponentStyleHook(
     itemBg: token.colorBgContainer,
     itemSize: token.controlHeight,
     itemSizeSM: token.controlHeightSM,
-    fontFamily: token.fontFamily,
-    fontWeightActive: token.fontWeightStrong,
-    itemBgActive: token.colorBgContainer,
+    itemActiveBg: token.colorBgContainer,
     itemLinkBg: token.colorBgContainer,
-    itemDisabledColorActive: token.colorTextDisabled,
+    itemActiveColorDisabled: token.colorTextDisabled,
     itemDisabledBgActive: token.controlItemBgActiveDisabled,
     itemInputBg: token.colorBgContainer,
     miniOptionsSizeChangerTop: 0,

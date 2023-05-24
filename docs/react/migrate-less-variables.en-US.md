@@ -212,7 +212,7 @@ This document contains the correspondence between all the less variables related
 | `@pagination-item-size` | `itemSize` | - |
 | `@pagination-item-size-sm` | `itemSizeSM` | - |
 | `@pagination-font-family` | `fontFamily` | GlobalToken |
-| `@pagination-font-weight-active` | `fontWeightActive` | - |
+| `@pagination-font-weight-active` | `fontWeightStrong` | GlobalToken |
 | `@pagination-item-bg-active` | `itemBgActive` | - |
 | `@pagination-item-link-bg` | `itemLinkBg` | - |
 | `@pagination-item-disabled-color-active` | `itemDisabledColorActive` | - |
