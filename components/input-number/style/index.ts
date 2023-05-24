@@ -123,7 +123,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           '&-wrapper': {
             display: 'inline-block',
             textAlign: 'start',
-
+            verticalAlign: 'top', // https://github.com/ant-design/ant-design/issues/6403
+  
             [`${componentCls}-affix-wrapper`]: {
               width: '100%',
             },
@@ -156,7 +157,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             transition: `all ${motionDurationMid} linear`,
             appearance: 'textfield',
             fontSize: 'inherit',
-            verticalAlign: 'top',
             ...genPlaceholderStyle(token.colorTextPlaceholder),
 
             '&[type="number"]::-webkit-inner-spin-button, &[type="number"]::-webkit-outer-spin-button':
