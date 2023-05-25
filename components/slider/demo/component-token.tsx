@@ -41,11 +41,7 @@ const App: React.FC = () => (
   >
     <Slider vertical defaultValue={30} />
     <Slider range defaultValue={[20, 50]} />
-
-    <Slider range={{ draggableTrack: true }} defaultValue={[20, 50]} />
-
     <Slider defaultValue={30} tooltip={{ open: true }} />
-
     <Slider range marks={marks} defaultValue={[26, 37]} />
   </ConfigProvider>
 );
