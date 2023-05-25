@@ -17,6 +17,7 @@ import defaultLocale from '../locale/en_US';
 import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
+  ButtonConfig,
   ConfigConsumerProps,
   CSPConfig,
   DirectionType,
@@ -86,6 +87,7 @@ const PASSED_PROPS: Exclude<keyof ConfigConsumerProps, 'rootPrefixCls' | 'getPre
   'pagination',
   'form',
   'select',
+  'button',
 ];
 
 export interface ConfigProviderProps {
@@ -128,6 +130,7 @@ export interface ConfigProviderProps {
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
+  button?: ButtonConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
