@@ -1,8 +1,8 @@
 import { createTheme } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
-import { setValues } from 'rc-field-form/lib/utils/valueUtil';
 import useMemo from 'rc-util/lib/hooks/useMemo';
+import { merge } from 'rc-util/lib/utils/set';
 import type { ReactElement } from 'react';
 import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
@@ -293,8 +293,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   const validateMessages = React.useMemo(
     () =>
-      setValues(
-        {},
+      merge(
         defaultLocale.Form?.defaultValidateMessages || {},
         memoedConfig.locale?.Form?.defaultValidateMessages || {},
         form?.validateMessages || {},
