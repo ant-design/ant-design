@@ -31,6 +31,7 @@ const useStyle = (open: boolean) => ({
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    line-height: 40px;
   `,
   arrowIcon: css`
     position: relative;
