@@ -25,7 +25,7 @@ const locales = {
   },
 };
 
-const useStyle = () => ({
+const useStyle = (open: boolean) => ({
   tableTitle: css`
     position: relative;
     display: flex;
@@ -36,8 +36,7 @@ const useStyle = () => ({
     position: relative;
     width: 10px;
     height: 0;
-    margin-right: 8px;
-
+    margin-right: 12px;
     &:before,
     &:after {
       position: absolute;
@@ -53,22 +52,23 @@ const useStyle = () => ({
       content: '';
     }
   `,
-  openIcon: css`
-    &:before {
-      transform: rotate(-45deg) translateX(2.5px);
-    }
-    &:after {
-      transform: rotate(45deg) translateX(-2.5px);
-    }
-  `,
-  closeIcon: css`
-    &:before {
-      transform: rotate(45deg) translateX(2.5px);
-    }
-    &:after {
-      transform: rotate(-45deg) translateX(-2.5px);
-    }
-  `,
+  toogleIcon: open
+    ? css`
+        &:before {
+          transform: rotate(-45deg) translateX(2.5px);
+        }
+        &:after {
+          transform: rotate(45deg) translateX(-2.5px);
+        }
+      `
+    : css`
+        &:before {
+          transform: rotate(45deg) translateX(2.5px);
+        }
+        &:after {
+          transform: rotate(-45deg) translateX(-2.5px);
+        }
+      `,
 });
 
 interface SubTokenTableProps {
@@ -82,9 +82,9 @@ const SubTokenTable: React.FC<SubTokenTableProps> = ({ defaultOpen, tokens, titl
   const { token } = useSiteToken();
   const columns = useColumns();
 
-  const { tableTitle, arrowIcon, openIcon, closeIcon } = useStyle();
-
   const [open, setOpen] = React.useState(defaultOpen || process.env.NODE_ENV !== 'production');
+
+  const { tableTitle, arrowIcon, toogleIcon } = useStyle(open);
 
   if (!tokens.length) {
     return null;
@@ -123,8 +123,8 @@ const SubTokenTable: React.FC<SubTokenTableProps> = ({ defaultOpen, tokens, titl
 
   return (
     <div>
-      <div css={[tableTitle]} onClick={() => setOpen(!open)}>
-        <i css={[arrowIcon, open ? openIcon : closeIcon]} />
+      <div css={tableTitle} onClick={() => setOpen(!open)}>
+        <i css={[arrowIcon, toogleIcon]} />
         <h3>{title}</h3>
       </div>
       {open && (
