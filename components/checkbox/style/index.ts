@@ -83,6 +83,8 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         lineHeight: 1,
         cursor: 'pointer',
 
+        // To make alignment right when `controlHeight` is changed
+        alignSelf: 'center',
         // https://github.com/ant-design/ant-design/issues/41564
         // Since `checkboxSize` is dynamic which should align with the text box,
         // We need do calculation here for offset.
