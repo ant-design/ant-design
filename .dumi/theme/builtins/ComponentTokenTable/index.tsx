@@ -1,4 +1,4 @@
-import { ArrowRightOutlined } from '@ant-design/icons';
+import { RightOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
 import { ConfigProvider, Table } from 'antd';
 import { getDesignToken } from 'antd-token-previewer';
@@ -97,7 +97,7 @@ const SubTokenTable: React.FC<SubTokenTableProps> = ({ defaultOpen, tokens, titl
   return (
     <div>
       <div css={tableTitle} onClick={() => setOpen(!open)}>
-        <ArrowRightOutlined css={arrowIcon} rotate={open ? 90 : 0} />
+        <RightOutlined css={arrowIcon} rotate={open ? 90 : 0} />
         <h3>{title}</h3>
       </div>
       {open && (
