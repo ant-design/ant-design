@@ -4,8 +4,6 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
-  avatarBg: string;
-  avatarColor: string;
   containerSize: number;
   containerSizeLG: number;
   containerSizeSM: number;
@@ -19,6 +17,8 @@ export interface ComponentToken {
 
 type AvatarToken = FullToken<'Avatar'> & {
   avatarBgColor: string;
+  avatarBg: string;
+  avatarColor: string;
 };
 
 const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
@@ -135,14 +135,15 @@ const genGroupStyle: GenerateStyle<AvatarToken> = (token) => {
 export default genComponentStyleHook(
   'Avatar',
   (token) => {
-    const avatarToken = mergeToken<AvatarToken>(token, {});
-    console.log([genBaseStyle(avatarToken), genGroupStyle(avatarToken)]);
+    const { colorTextLightSolid, colorTextPlaceholder } = token;
+    const avatarToken = mergeToken<AvatarToken>(token, {
+      avatarBg: colorTextPlaceholder,
+      avatarColor: colorTextLightSolid,
+    });
     return [genBaseStyle(avatarToken), genGroupStyle(avatarToken)];
   },
   (token) => {
     const {
-      colorTextLightSolid,
-
       controlHeight,
       controlHeightLG,
       controlHeightSM,
@@ -155,7 +156,6 @@ export default genComponentStyleHook(
       marginXS,
       marginXXS,
       colorBorderBg,
-      colorTextPlaceholder,
     } = token;
     return {
       containerSize: controlHeight,
@@ -166,8 +166,6 @@ export default genComponentStyleHook(
       fontSizeLG: fontSizeHeading3,
       fontSizeSM: fontSize,
 
-      avatarBg: colorTextPlaceholder,
-      avatarColor: colorTextLightSolid,
       groupSpace: marginXXS,
       groupOverlapping: -marginXS,
       groupBorderColor: colorBorderBg,
