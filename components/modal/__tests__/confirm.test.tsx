@@ -829,4 +829,20 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       expect(document.querySelector(`.ant-modal-content`)).toMatchSnapshot();
     });
   });
+
+  it('warning getContainer be false', async () => {
+    resetWarned();
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    Modal.confirm({
+      getContainer: false,
+    });
+
+    await waitFakeTimer();
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Modal] Static method not support `getContainer` to be `false` since it do not have context env.',
+    );
+
+    warnSpy.mockRestore();
+  });
 });
