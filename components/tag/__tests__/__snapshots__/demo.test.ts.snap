@@ -321,7 +321,7 @@ Array [
       style="margin-right:0;padding-bottom:8px"
     >
       <span
-        class="ant-tag ant-tag-magenta ant-tag-borderless"
+        class="ant-tag ant-tag-processing ant-tag-borderless"
       >
         magenta
       </span>
@@ -331,9 +331,9 @@ Array [
       style="margin-right:0;padding-bottom:8px"
     >
       <span
-        class="ant-tag ant-tag-red ant-tag-borderless"
+        class="ant-tag ant-tag-success ant-tag-borderless"
       >
-        red
+        green
       </span>
     </div>
     <div
@@ -341,7 +341,7 @@ Array [
       style="margin-right:0;padding-bottom:8px"
     >
       <span
-        class="ant-tag ant-tag-volcano ant-tag-borderless"
+        class="ant-tag ant-tag-error ant-tag-borderless"
       >
         volcano
       </span>
@@ -351,7 +351,7 @@ Array [
       style="margin-right:0;padding-bottom:8px"
     >
       <span
-        class="ant-tag ant-tag-orange ant-tag-borderless"
+        class="ant-tag ant-tag-warning ant-tag-borderless"
       >
         orange
       </span>
