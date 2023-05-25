@@ -17,8 +17,8 @@ export interface ComponentToken {
   barMargin: string;
   horizontalMargin: string;
   horizontalPadding: string;
-  horizontalPaddingLg: string;
-  horizontalPaddingSm: string;
+  horizontalPaddingLG: string;
+  horizontalPaddingSM: string;
   verticalPadding: string;
   verticalMargin: string;
   scrollingSize: 32; // Fixed Value
@@ -924,8 +924,8 @@ export default genComponentStyleHook(
     horizontalGutter: 32, // Fixed Value
     horizontalMargin: '0 0 0 32px', // Fixed Value
     horizontalPadding: `${token.paddingSM} 0`,
-    horizontalPaddingLg: `${token.paddingMD} 0`,
-    horizontalPaddingSm: `${token.paddingXS} 0`,
+    horizontalPaddingLG: `${token.paddingMD} 0`,
+    horizontalPaddingSM: `${token.paddingXS} 0`,
     verticalPadding: `${token.paddingMD} ${token.paddingLG}`,
     verticalMargin: `${token.marginMD} 0 0 0`,
     scrollingSize: 32, // Fixed Value
