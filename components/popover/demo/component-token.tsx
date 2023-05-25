@@ -16,7 +16,6 @@ const App: React.FC = () => (
       components: {
         Popover: {
           minWidth: 40,
-          minHeight: 30,
         },
       },
     }}
