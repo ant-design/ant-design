@@ -16,16 +16,16 @@ const App: React.FC = () => (
     <Divider />
     <Space size={[0, 'small']} wrap>
       <Tag bordered={false} color="processing">
-        magenta
+        processing
       </Tag>
       <Tag bordered={false} color="success">
-        green
+        success
       </Tag>
       <Tag bordered={false} color="error">
-        volcano
+        error
       </Tag>
       <Tag bordered={false} color="warning">
-        orange
+        warning
       </Tag>
       <Tag bordered={false} color="magenta">
         magenta
