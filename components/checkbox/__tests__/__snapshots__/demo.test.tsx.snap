@@ -383,24 +383,50 @@ exports[`renders components/checkbox/demo/debug-line.tsx correctly 1`] = `
       </span>
     </label>
   </div>
-  <label
-    class="ant-checkbox-wrapper"
-  >
-    <span
-      class="ant-checkbox"
+  <div>
+    <label
+      class="ant-checkbox-wrapper"
     >
-      <input
-        class="ant-checkbox-input"
-        type="checkbox"
-      />
       <span
-        class="ant-checkbox-inner"
-      />
-    </span>
-    <span>
-      Aligned
-    </span>
-  </label>
+        class="ant-checkbox"
+      >
+        <input
+          class="ant-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Aligned
+      </span>
+    </label>
+  </div>
+  <div>
+    <label
+      class="ant-checkbox-wrapper"
+    >
+      <span
+        class="ant-checkbox"
+      >
+        <input
+          class="ant-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        <span
+          style="font-size:32px"
+        >
+          Aligned
+        </span>
+      </span>
+    </label>
+  </div>
 </div>
 `;
 
