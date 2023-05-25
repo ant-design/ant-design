@@ -1,56 +1,64 @@
-import { Tree } from 'antd';
-import type { DataNode, TreeProps } from 'antd/es/tree';
+import { Button, Tree } from 'antd';
+import type { DataNode } from 'antd/es/tree';
 import React from 'react';
 
-const treeData: DataNode[] = [
-  {
-    title: 'parent 1',
-    key: '0-0',
-    children: [
+const App: React.FC = () => {
+  const [treeData, setTreeData] = React.useState<DataNode[]>([
+    {
+      key: '1-1',
+      title: '1-1',
+      children: [
+        { key: '1-1-1', title: '1-1-1' },
+        { key: '1-1-2', title: '1-1-2' },
+        { key: '1-1-3', title: '1-1-3' },
+      ],
+    },
+    {
+      key: '1-2',
+      title: '1-2',
+      children: [
+        { key: '1-2-1', title: '1-2-1' },
+        { key: '1-2-2', title: '1-2-2' },
+        { key: '1-2-3', title: '1-2-3' },
+      ],
+    },
+    {
+      key: '1-3',
+      title: '1-3',
+    },
+  ]);
+
+  const handleDelete = () => {
+    setTreeData([
       {
-        title: 'parent 1-0',
-        key: '0-0-0',
-        disabled: true,
+        key: '1-1',
+        title: '1-1',
         children: [
-          {
-            title: 'leaf',
-            key: '0-0-0-0',
-            disableCheckbox: true,
-          },
-          {
-            title: 'leaf',
-            key: '0-0-0-1',
-          },
+          { key: '1-1-1', title: '1-1-1' },
+          { key: '1-1-2', title: '1-1-2' },
+          { key: '1-1-3', title: '1-1-3' },
         ],
       },
       {
-        title: 'parent 1-1',
-        key: '0-0-1',
-        children: [{ title: <span style={{ color: '#1677ff' }}>sss</span>, key: '0-0-1-0' }],
+        key: '1-2',
+        title: '1-2',
+        children: [
+          { key: '1-2-1', title: '1-2-1' },
+          { key: '1-2-3', title: '1-2-3' },
+        ],
       },
-    ],
-  },
-];
-
-const App: React.FC = () => {
-  const onSelect: TreeProps['onSelect'] = (selectedKeys, info) => {
-    console.log('selected', selectedKeys, info);
-  };
-
-  const onCheck: TreeProps['onCheck'] = (checkedKeys, info) => {
-    console.log('onCheck', checkedKeys, info);
+      {
+        key: '1-3',
+        title: '1-3',
+      },
+    ]);
   };
 
   return (
-    <Tree
-      checkable
-      defaultExpandedKeys={['0-0-0', '0-0-1']}
-      defaultSelectedKeys={['0-0-0', '0-0-1']}
-      defaultCheckedKeys={['0-0-0', '0-0-1']}
-      onSelect={onSelect}
-      onCheck={onCheck}
-      treeData={treeData}
-    />
+    <div>
+      <Tree defaultExpandAll style={{ transform: '* 20s' }} showLine treeData={treeData} />
+      <Button onClick={handleDelete}>Delete</Button>
+    </div>
   );
 };
 
