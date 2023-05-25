@@ -152,7 +152,7 @@
     "rc-tree": "~5.7.4",
     "rc-tree-select": "~5.9.0",
     "rc-upload": "~4.3.0",
-    "rc-util": "^5.27.0",
+    "rc-util": "^5.31.2",
     "scroll-into-view-if-needed": "^3.0.3",
     "throttle-debounce": "^5.0.0"
   },
