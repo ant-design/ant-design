@@ -1,9 +1,10 @@
+import { ArrowRightOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
 import { ConfigProvider, Table } from 'antd';
 import { getDesignToken } from 'antd-token-previewer';
 import tokenMeta from 'antd/es/version/token-meta.json';
 import tokenData from 'antd/es/version/token.json';
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
 import { useColumns } from '../TokenTable';
@@ -25,8 +26,9 @@ const locales = {
   },
 };
 
-const useStyle = (open: boolean) => ({
+const useStyle = () => ({
   tableTitle: css`
+    cursor: pointer;
     position: relative;
     display: flex;
     align-items: center;
@@ -34,42 +36,12 @@ const useStyle = (open: boolean) => ({
     line-height: 40px;
   `,
   arrowIcon: css`
-    position: relative;
-    width: 10px;
-    height: 0;
-    margin-right: 12px;
-    &:before,
-    &:after {
-      position: absolute;
-      display: block;
-      width: 6px;
-      height: 1.5px;
-      background-color: currentcolor;
-      border-radius: 6px;
-      transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
-        transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
-        top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
-        color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-      content: '';
+    font-size: 16px;
+    margin-right: 8px;
+    & svg {
+      transition: all 0.3s;
     }
   `,
-  toogleIcon: open
-    ? css`
-        &:before {
-          transform: rotate(-45deg) translateX(2.5px);
-        }
-        &:after {
-          transform: rotate(45deg) translateX(-2.5px);
-        }
-      `
-    : css`
-        &:before {
-          transform: rotate(45deg) translateX(2.5px);
-        }
-        &:after {
-          transform: rotate(-45deg) translateX(-2.5px);
-        }
-      `,
 });
 
 interface SubTokenTableProps {
@@ -83,9 +55,9 @@ const SubTokenTable: React.FC<SubTokenTableProps> = ({ defaultOpen, tokens, titl
   const { token } = useSiteToken();
   const columns = useColumns();
 
-  const [open, setOpen] = React.useState(defaultOpen || process.env.NODE_ENV !== 'production');
+  const [open, setOpen] = useState<boolean>(defaultOpen || process.env.NODE_ENV !== 'production');
 
-  const { tableTitle, arrowIcon, toogleIcon } = useStyle(open);
+  const { tableTitle, arrowIcon } = useStyle();
 
   if (!tokens.length) {
     return null;
@@ -125,7 +97,7 @@ const SubTokenTable: React.FC<SubTokenTableProps> = ({ defaultOpen, tokens, titl
   return (
     <div>
       <div css={tableTitle} onClick={() => setOpen(!open)}>
-        <i css={[arrowIcon, toogleIcon]} />
+        <ArrowRightOutlined css={arrowIcon} rotate={open ? 90 : 0} />
         <h3>{title}</h3>
       </div>
       {open && (
@@ -150,7 +122,7 @@ export interface ComponentTokenTableProps {
 }
 
 const ComponentTokenTable: React.FC<ComponentTokenTableProps> = ({ component }) => {
-  const [mergedGlobalTokens] = React.useMemo(() => {
+  const [mergedGlobalTokens] = useMemo(() => {
     const globalTokenSet = new Set<string>();
     let componentTokens: Record<string, string> = {};
 
@@ -168,7 +140,7 @@ const ComponentTokenTable: React.FC<ComponentTokenTableProps> = ({ component }) 
       };
     });
 
-    return [Array.from(globalTokenSet), componentTokens];
+    return [Array.from(globalTokenSet), componentTokens] as const;
   }, [component]);
 
   return <SubTokenTable title="Global Token" tokens={mergedGlobalTokens} />;
