@@ -1,11 +1,11 @@
 import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
 import * as React from 'react';
-import { globalConfig, warnContext } from '../config-provider';
 import warning from '../_util/warning';
+import { globalConfig, warnContext } from '../config-provider';
 import ConfirmDialog from './ConfirmDialog';
+import type { ModalFuncProps } from './Modal';
 import destroyFns from './destroyFns';
 import { getConfirmLocale } from './locale';
-import type { ModalFuncProps } from './Modal';
 
 let defaultRootPrefixCls = '';
 
@@ -50,7 +50,13 @@ export default function confirm(config: ModalFuncProps) {
     reactUnmount(container);
   }
 
-  function render({ okText, cancelText, prefixCls: customizePrefixCls, ...props }: any) {
+  function render({
+    okText,
+    cancelText,
+    prefixCls: customizePrefixCls,
+    getContainer,
+    ...props
+  }: any) {
     clearTimeout(timeoutId);
 
     /**
@@ -66,9 +72,23 @@ export default function confirm(config: ModalFuncProps) {
       const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
       const iconPrefixCls = getIconPrefixCls();
 
+      let mergedGetContainer = getContainer;
+      if (mergedGetContainer === false) {
+        mergedGetContainer = undefined;
+
+        if (process.env.NODE_ENV !== 'production') {
+          warning(
+            false,
+            'Modal',
+            'Static method not support `getContainer` to be `false` since it do not have context env.',
+          );
+        }
+      }
+
       reactRender(
         <ConfirmDialog
           {...props}
+          getContainer={mergedGetContainer}
           prefixCls={prefixCls}
           rootPrefixCls={rootPrefixCls}
           iconPrefixCls={iconPrefixCls}
