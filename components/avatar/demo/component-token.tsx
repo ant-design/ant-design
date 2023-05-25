@@ -16,8 +16,6 @@ const App: React.FC = () => (
           fontSizeSM: 12,
 
           borderRadius: 10,
-          avatarBg: '#fde3cf',
-          avatarColor: '#a3323d',
           groupOverlapping: -10,
           groupBorderColor: '#eee',
         },
