@@ -361,6 +361,46 @@ Array [
       style="margin-right: 0px; padding-bottom: 8px;"
     >
       <span
+        class="ant-tag ant-tag-magenta ant-tag-borderless"
+      >
+        magenta
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 0px; padding-bottom: 8px;"
+    >
+      <span
+        class="ant-tag ant-tag-red ant-tag-borderless"
+      >
+        red
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 0px; padding-bottom: 8px;"
+    >
+      <span
+        class="ant-tag ant-tag-volcano ant-tag-borderless"
+      >
+        volcano
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 0px; padding-bottom: 8px;"
+    >
+      <span
+        class="ant-tag ant-tag-orange ant-tag-borderless"
+      >
+        orange
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 0px; padding-bottom: 8px;"
+    >
+      <span
         class="ant-tag ant-tag-gold ant-tag-borderless"
       >
         gold

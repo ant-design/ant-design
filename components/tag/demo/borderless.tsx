@@ -27,6 +27,18 @@ const App: React.FC = () => (
       <Tag bordered={false} color="warning">
         orange
       </Tag>
+      <Tag bordered={false} color="magenta">
+        magenta
+      </Tag>
+      <Tag bordered={false} color="red">
+        red
+      </Tag>
+      <Tag bordered={false} color="volcano">
+        volcano
+      </Tag>
+      <Tag bordered={false} color="orange">
+        orange
+      </Tag>
       <Tag bordered={false} color="gold">
         gold
       </Tag>
