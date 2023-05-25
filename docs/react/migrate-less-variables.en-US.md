@@ -256,7 +256,7 @@ This document contains the correspondence between all the less variables related
 | `@skeleton-to-color` | `gradientToColor` | - |
 | `@skeleton-paragraph-margin-top` | `paragraphMarginTop` | - |
 | `@skeleton-paragraph-li-height` | `paragraphLiHeight` | - |
-| `@skeleton-paragraph-li-margin-top` | - | 由于样式变化已废弃 |
+| `@skeleton-paragraph-li-margin-top` | - | Deprecated |
 
 <!-- ### Slider -->
 
@@ -305,7 +305,7 @@ This document contains the correspondence between all the less variables related
 ## Tag
 
 <!-- prettier-ignore -->
-| less 变量 | Component Token | 备注 |
+| Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@tag-border-radius` | `borderRadiusSM` | Global Token |
 | `@tag-default-bg` | `defaultBg` | - |
@@ -325,7 +325,25 @@ This document contains the correspondence between all the less variables related
 | `@timeline-dot-bg` | `dotBg` | - |
 | `@timeline-item-padding-bottom` | `itemPaddingBottom` | - |
 
-<!-- ### TimePicker -->
+### TimePicker
+
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@picker-bg` | - | Deprecated |
+| `@picker-basic-cell-hover-color` | - | Deprecated |
+| `@picker-basic-cell-active-with-range-color` | - | Deprecated |
+| `@picker-basic-cell-hover-with-range-color` | `pickerBasicCellHoverWithRangeColor` | - |
+| `@picker-basic-cell-disabled-bg` | `colorBgContainerDisabled` | Global Token |
+| `@picker-border-color` | - | Deprecated |
+| `@picker-date-hover-range-border-color` | `pickerDateHoverRangeBorderColor` | - |
+| `@picker-date-hover-range-color` | - | Deprecated |
+| `@picker-time-panel-column-width` | `pickerTimePanelColumnWidth` | - |
+| `@picker-time-panel-column-height` | `pickerTimePanelColumnHeight` | - |
+| `@picker-time-panel-cell-height` | `pickerTimePanelCellHeight` | - |
+| `@picker-panel-cell-height` | `pickerPanelCellHeight` | - |
+| `@picker-panel-cell-width` | `pickerPanelCellWidth` | - |
+| `@picker-text-height` | `pickerTextHeight` | - |
+| `@picker-panel-without-time-cell-height` | `pickerPanelWithoutTimeCellHeight` | - |
 
 <!-- ### Tooltip -->
 

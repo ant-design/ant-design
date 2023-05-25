@@ -26,22 +26,22 @@ export interface ComponentToken {
   presetsWidth: number;
   presetsMaxWidth: number;
   zIndexPopup: number;
+  pickerBasicCellHoverWithRangeColor: string;
+  pickerDateHoverRangeBorderColor: string;
+  pickerTimePanelColumnWidth: number;
+  pickerTimePanelColumnHeight: number;
+  pickerTimePanelCellHeight: number;
+  pickerPanelCellWidth: number;
+  pickerPanelCellHeight: number;
+  pickerTextHeight: number;
+  pickerPanelWithoutTimeCellHeight: number;
 }
 
 export type PickerPanelToken = {
   pickerCellCls: string;
   pickerCellInnerCls: string;
-  pickerTextHeight: number;
-  pickerPanelCellWidth: number;
-  pickerPanelCellHeight: number;
-  pickerDateHoverRangeBorderColor: string;
-  pickerBasicCellHoverWithRangeColor: string;
-  pickerPanelWithoutTimeCellHeight: number;
   pickerDatePanelPaddingHorizontal: number;
   pickerYearMonthCellWidth: number;
-  pickerTimePanelColumnHeight: number;
-  pickerTimePanelColumnWidth: number;
-  pickerTimePanelCellHeight: number;
   pickerCellPaddingVertical: number;
   pickerQuarterPanelContentHeight: number;
   pickerCellBorderGap: number;
@@ -1450,23 +1450,12 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
 };
 
 export const initPickerPanelToken = (token: TokenWithCommonCls<GlobalToken>): PickerPanelToken => {
-  const pickerTimePanelCellHeight = 28;
-  const { componentCls, controlHeightLG, controlHeightSM, colorPrimary, paddingXXS, padding } =
-    token;
+  const { componentCls, controlHeightLG, paddingXXS, padding } = token;
 
   return {
     pickerCellCls: `${componentCls}-cell`,
     pickerCellInnerCls: `${componentCls}-cell-inner`,
-    pickerTextHeight: controlHeightLG,
-    pickerPanelCellWidth: controlHeightSM * 1.5,
-    pickerPanelCellHeight: controlHeightSM,
-    pickerDateHoverRangeBorderColor: new TinyColor(colorPrimary).lighten(20).toHexString(),
-    pickerBasicCellHoverWithRangeColor: new TinyColor(colorPrimary).lighten(35).toHexString(),
-    pickerPanelWithoutTimeCellHeight: controlHeightLG * 1.65,
     pickerYearMonthCellWidth: controlHeightLG * 1.5,
-    pickerTimePanelColumnHeight: pickerTimePanelCellHeight * 8,
-    pickerTimePanelColumnWidth: controlHeightLG * 1.4,
-    pickerTimePanelCellHeight,
     pickerQuarterPanelContentHeight: controlHeightLG * 1.4,
     pickerCellPaddingVertical: paddingXXS + paddingXXS / 2,
     pickerCellBorderGap: 2, // Magic for gap between cells
@@ -1499,5 +1488,14 @@ export default genComponentStyleHook(
     presetsWidth: 120,
     presetsMaxWidth: 200,
     zIndexPopup: token.zIndexPopupBase + 50,
+    pickerBasicCellHoverWithRangeColor: new TinyColor(token.colorPrimary).lighten(35).toHexString(),
+    pickerDateHoverRangeBorderColor: new TinyColor(token.colorPrimary).lighten(20).toHexString(),
+    pickerTimePanelColumnWidth: token.controlHeightLG * 1.4,
+    pickerTimePanelColumnHeight: 28 * 8,
+    pickerTimePanelCellHeight: 28,
+    pickerPanelCellWidth: token.controlHeightSM * 1.5,
+    pickerPanelCellHeight: token.controlHeightSM,
+    pickerTextHeight: token.controlHeightLG,
+    pickerPanelWithoutTimeCellHeight: token.controlHeightLG * 1.65,
   }),
 );
