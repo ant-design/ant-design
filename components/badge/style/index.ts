@@ -1,8 +1,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken, genPresetColor } from '../../theme/internal';
 import { resetComponent } from '../../style';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/internal';
 
 interface BadgeToken extends FullToken<'Badge'> {
   badgeFontHeight: number;
@@ -150,9 +150,9 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         insetInlineEnd: 0,
         transform: 'translate(50%, -50%)',
         transformOrigin: '100% 0%',
-        [`${iconCls}-spin`]: {
+        [`&${iconCls}-spin`]: {
           animationName: antBadgeLoadingCircle,
-          animationDuration: token.motionDurationMid,
+          animationDuration: '1s',
           animationIterationCount: 'infinite',
           animationTimingFunction: 'linear',
         },
