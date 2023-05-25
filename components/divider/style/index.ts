@@ -6,10 +6,10 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   sizePaddingEdgeHorizontal: number;
+  dividerVerticalGutterMargin: number;
 }
 
 interface DividerToken extends FullToken<'Divider'> {
-  dividerVerticalGutterMargin: number;
   dividerHorizontalWithTextGutterMargin: number;
   dividerHorizontalGutterMargin: number;
 }
@@ -155,13 +155,13 @@ export default genComponentStyleHook(
   'Divider',
   (token) => {
     const dividerToken = mergeToken<DividerToken>(token, {
-      dividerVerticalGutterMargin: token.marginXS,
       dividerHorizontalWithTextGutterMargin: token.margin,
       dividerHorizontalGutterMargin: token.marginLG,
     });
     return [genSharedDividerStyle(dividerToken)];
   },
-  {
+  (token) => ({
+    dividerVerticalGutterMargin: token.marginXS,
     sizePaddingEdgeHorizontal: 0,
-  },
+  }),
 );

@@ -101,7 +101,15 @@ title: Less 变量迁移 Design Token
 | `@descriptions-item-label-colon-margin-left` | `colonMarginLeft` | - |
 | `@descriptions-extra-color` | `extraColor` | - |
 
-<!-- ### Divider 分割线 -->
+### Divider 分割线
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@divider-color` | `colorSplit` | 全局 Token |
+| `@divider-vertical-gutter` | `marginXS` | 全局 Token |
+| `@divider-text-padding` | - | 由于样式变化已废弃 |
+| `@divider-orientation-margin` | - | 由于样式变化已废弃 |
 
 ### Drawer 抽屉
 

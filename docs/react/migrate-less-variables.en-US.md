@@ -103,7 +103,15 @@ This document contains the correspondence between all the less variables related
 | `@descriptions-item-label-colon-margin-left` | `colonMarginLeft` | - |
 | `@descriptions-extra-color` | `extraColor` | - |
 
-<!-- ### Divider -->
+### Divider
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@divider-color` | `colorSplit` | GlobalToken |
+| `@divider-vertical-gutter` | `marginXS` | GlobalToken |
+| `@divider-text-padding` | - | Deprecated for style change |
+| `@divider-orientation-margin` | - | Deprecated for style change |
 
 ### Drawer
 
