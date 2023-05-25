@@ -6,7 +6,7 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   sizePaddingEdgeHorizontal: number;
-  dividerVerticalGutterMargin: number;
+  verticalGutterMargin: number;
 }
 
 interface DividerToken extends FullToken<'Divider'> {
@@ -29,7 +29,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         top: '-0.06em',
         display: 'inline-block',
         height: '0.9em',
-        margin: `0 ${token.dividerVerticalGutterMargin}px`,
+        margin: `0 ${token.verticalGutterMargin}px`,
         verticalAlign: 'middle',
         borderTop: 0,
         borderInlineStart: `${lineWidth}px solid ${colorSplit}`,
@@ -161,7 +161,7 @@ export default genComponentStyleHook(
     return [genSharedDividerStyle(dividerToken)];
   },
   (token) => ({
-    dividerVerticalGutterMargin: token.marginXS,
+    verticalGutterMargin: token.marginXS,
     sizePaddingEdgeHorizontal: 0,
   }),
 );
