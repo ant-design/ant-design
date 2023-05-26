@@ -32,7 +32,7 @@ export interface HeaderProps {
   intl: { locale: string };
   location: { pathname: string; query: any };
   router: any;
-  themeConfig?: { docVersions: Record<string, string> };
+  themeConfig?: { docVersions: Record<string, string>; docNewVersions: Record<string, string> };
   changeDirection: (direction: DirectionType) => void;
 }
 
@@ -208,6 +208,7 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = (props) =>
       {({ isMobile }) => {
         const { menuVisible, windowWidth, searching, showTechUIButton } = headerState;
         const docVersions: Record<string, string> = {
+          ...themeConfig?.docNewVersions,
           [antdVersion]: antdVersion,
           ...themeConfig?.docVersions,
         };
