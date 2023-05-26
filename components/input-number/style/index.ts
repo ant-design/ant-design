@@ -157,7 +157,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             transition: `all ${motionDurationMid} linear`,
             appearance: 'textfield',
             fontSize: 'inherit',
-            verticalAlign: 'top',
             ...genPlaceholderStyle(token.colorTextPlaceholder),
 
             '&[type="number"]::-webkit-inner-spin-button, &[type="number"]::-webkit-outer-spin-button':

@@ -7,6 +7,7 @@ import DayJS from 'dayjs';
 import { FormattedMessage, useIntl, useRouteMeta, useTabMeta } from 'dumi';
 import type { ReactNode } from 'react';
 import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
+import useLayoutState from '../../../hooks/useLayoutState';
 import useLocation from '../../../hooks/useLocation';
 import useSiteToken from '../../../hooks/useSiteToken';
 import EditButton from '../../common/EditButton';
@@ -15,7 +16,6 @@ import type { DemoContextProps } from '../DemoContext';
 import DemoContext from '../DemoContext';
 import Footer from '../Footer';
 import SiteContext from '../SiteContext';
-import useLayoutState from '../../../hooks/useLayoutState';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -27,6 +27,7 @@ const useStyle = () => {
       display: flex;
       flex-wrap: wrap;
       margin-top: 120px !important;
+      clear: both;
       a,
       ${antCls}-avatar + ${antCls}-avatar {
         transition: all ${token.motionDurationSlow};
