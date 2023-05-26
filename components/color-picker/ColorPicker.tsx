@@ -46,6 +46,7 @@ export interface ColorPickerProps
   onChange?: (value: Color, hex: string) => void;
   getPopupContainer?: PopoverProps['getPopupContainer'];
   autoAdjustOverflow?: PopoverProps['autoAdjustOverflow'];
+  destroyTooltipOnHide?: PopoverProps['destroyTooltipOnHide'];
 }
 
 type CompoundedComponent = React.FC<ColorPickerProps> & {
@@ -74,6 +75,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     onOpenChange,
     getPopupContainer,
     autoAdjustOverflow = true,
+    destroyTooltipOnHide,
   } = props;
 
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -127,6 +129,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     rootClassName,
     getPopupContainer,
     autoAdjustOverflow,
+    destroyTooltipOnHide,
   };
 
   const colorBaseProps: ColorPickerBaseProps = {

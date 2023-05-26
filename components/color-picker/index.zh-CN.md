@@ -50,6 +50,7 @@ group:
 | disabled | 禁用颜色选择器 | boolean | - |
 | placement | 弹出窗口的位置 | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` |
 | arrow | 配置弹出的箭头 | `boolean \| { pointAtCenter: boolean }` | `true` | - |
+| destroyTooltipOnHide | 关闭后是否销毁弹窗 | `boolean` | `false` |
 
 ### Color
 
