@@ -1,19 +1,19 @@
 import type {
-  HsbaColorType,
   ColorPickerProps as RcColorPickerProps,
+  HsbaColorType,
 } from '@rc-component/color-picker';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties } from 'react';
-import React, { useContext, useEffect, useState } from 'react';
-import genPurePanel from '../_util/PurePanel';
+import React, { useContext, useState } from 'react';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import theme from '../theme';
-import ColorPickerPanel from './ColorPickerPanel';
+import genPurePanel from '../_util/PurePanel';
 import type { Color } from './color';
+import ColorPickerPanel from './ColorPickerPanel';
 import ColorTrigger from './components/ColorTrigger';
 import useColorState from './hooks/useColorState';
 import type {
@@ -42,6 +42,7 @@ export interface ColorPickerProps
   styles?: { popup?: CSSProperties };
   rootClassName?: string;
   onOpenChange?: (open: boolean) => void;
+  onClear?: () => void;
   onFormatChange?: (format: ColorFormat) => void;
   onChange?: (value: Color, hex: string) => void;
   getPopupContainer?: PopoverProps['getPopupContainer'];
@@ -71,6 +72,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     styles,
     onFormatChange,
     onChange,
+    onClear,
     onOpenChange,
     getPopupContainer,
     autoAdjustOverflow = true,
@@ -117,6 +119,7 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const handleClear = (clear: boolean) => {
     setColorCleared(clear);
+    onClear?.();
   };
 
   const popoverProps: PopoverProps = {
@@ -139,12 +142,6 @@ const ColorPicker: CompoundedComponent = (props) => {
     format,
     onFormatChange,
   };
-
-  useEffect(() => {
-    if (colorCleared) {
-      setPopupOpen(false);
-    }
-  }, [colorCleared]);
 
   return wrapSSR(
     <Popover

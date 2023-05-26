@@ -3,8 +3,8 @@ import React, { useMemo, useState } from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { waitFakeTimer } from '../../../tests/utils';
-import ColorPicker from '../ColorPicker';
 import type { Color } from '../color';
+import ColorPicker from '../ColorPicker';
 
 describe('ColorPicker', () => {
   mountTest(ColorPicker);
@@ -83,12 +83,9 @@ describe('ColorPicker', () => {
     const { container } = render(<ColorPicker allowClear />);
     fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
-    expect(container.querySelector('.ant-popover-hidden')).toBeFalsy();
     expect(container.querySelector('.ant-color-picker-clear')).toBeTruthy();
     fireEvent.click(container.querySelector('.ant-color-picker-clear')!);
 
-    await waitFakeTimer();
-    expect(container.querySelector('.ant-popover-hidden')).toBeTruthy();
     expect(
       container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
     ).toEqual('0%');
