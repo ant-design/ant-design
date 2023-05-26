@@ -1,7 +1,7 @@
-import React from 'react';
 import type { TriggerProps } from '@rc-component/trigger';
-import Dropdown from '..';
+import React from 'react';
 import type { DropDownProps } from '..';
+import Dropdown from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -251,5 +251,30 @@ describe('Dropdown', () => {
     );
 
     errorSpy.mockRestore();
+  });
+
+  it('click item should trigger onOpenChange', () => {
+    const onOpenChange = jest.fn();
+
+    const { container } = render(
+      <Dropdown
+        open
+        onOpenChange={onOpenChange}
+        menu={{
+          items: [
+            {
+              label: <div className="bamboo" />,
+              key: 'bamboo',
+            },
+          ],
+        }}
+      >
+        <a className="little" />
+      </Dropdown>,
+    );
+
+    fireEvent.click(container.querySelector('.bamboo')!);
+
+    expect(onOpenChange).toHaveBeenCalledWith(false);
   });
 });

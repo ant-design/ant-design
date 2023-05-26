@@ -30,7 +30,7 @@ const Placements = [
   'bottom',
 ] as const;
 
-type Placement = typeof Placements[number];
+type Placement = (typeof Placements)[number];
 type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
 type OverlayFunc = () => React.ReactElement;
@@ -214,7 +214,7 @@ const Dropdown: CompoundedComponent = (props) => {
     value: open ?? visible,
   });
 
-  const onInnerOpenChange = useEvent((nextOpen: boolean) => {
+  const triggerOpen = useEvent((nextOpen: boolean) => {
     onOpenChange?.(nextOpen);
     onVisibleChange?.(nextOpen);
     setOpen(nextOpen);
@@ -234,7 +234,7 @@ const Dropdown: CompoundedComponent = (props) => {
   });
 
   const onMenuClick = React.useCallback(() => {
-    setOpen(false);
+    triggerOpen(false);
   }, []);
 
   const renderOverlay = () => {
@@ -298,7 +298,7 @@ const Dropdown: CompoundedComponent = (props) => {
       trigger={triggerActions}
       overlay={renderOverlay}
       placement={memoPlacement}
-      onVisibleChange={onInnerOpenChange}
+      onVisibleChange={triggerOpen}
     >
       {dropdownTrigger}
     </RcDropdown>,
