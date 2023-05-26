@@ -269,11 +269,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
           width: '100%',
         },
 
-        img: {
-          borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
-        },
-
-        [`${antCls}-image-mask`]: {
+        [`img, img + ${antCls}-image-mask`]: {
           borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
         },
       },
