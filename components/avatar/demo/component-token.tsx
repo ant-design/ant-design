@@ -7,9 +7,9 @@ const App: React.FC = () => (
     theme={{
       components: {
         Avatar: {
-          size: 60,
-          sizeLG: 30,
-          sizeSM: 16,
+          containerSize: 60,
+          containerSizeLG: 30,
+          containerSizeSM: 16,
 
           textFontSize: 18,
           textFontSizeLG: 28,
