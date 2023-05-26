@@ -24,7 +24,23 @@ This document contains the correspondence between all the less variables related
 | `@anchor-link-left` | `linkPaddingInlineStart` | - |
 | `@anchor-link-padding` | - | `${linkPaddingBlock}px ${linkPaddingInlineStart}px` |
 
-<!-- ### Avatar -->
+### Avatar
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@avatar-size-base` | `containerSize` | - |
+| `@avatar-size-lg` | `containerSizeLG` | - |
+| `@avatar-size-sm` | `containerSizeSM` | - |
+| `@avatar-font-size-base` | `textFontSize` | - |
+| `@avatar-font-size-lg` | `textFontSizeLG` | - |
+| `@avatar-font-size-sm` | `textFontSizeSM` | - |
+| `@avatar-bg` | - | Can be directly overridden by `className` or `style` |
+| `@avatar-color` | `colorTextLightSolid` | Global Token |
+| `@avatar-border-radius` | `borderRadius` | Global Token |
+| `@avatar-group-overlapping` | - | Deprecated for style change |
+| `@avatar-group-space` | `groupSpace` | - |
+| `@avatar-group-border-color` | `colorBorderBg` | Global Token |
 
 <!-- ### Badge -->
 

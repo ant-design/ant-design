@@ -24,7 +24,23 @@ title: Less 变量迁移 Design Token
 | `@anchor-link-left` | `linkPaddingInlineStart` | - |
 | `@anchor-link-padding` | - | `${linkPaddingBlock}px ${linkPaddingInlineStart}px` |
 
-<!-- ### Avatar 头像 -->
+### Avatar 头像
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@avatar-size-base` | `containerSize` | - |
+| `@avatar-size-lg` | `containerSizeLG` | - |
+| `@avatar-size-sm` | `containerSizeSM` | - |
+| `@avatar-font-size-base` | `textFontSize` | - |
+| `@avatar-font-size-lg` | `textFontSizeLG` | - |
+| `@avatar-font-size-sm` | `textFontSizeSM` | - |
+| `@avatar-bg` | - | 可由 `className` 或 `style` 直接覆盖 |
+| `@avatar-color` | `colorTextLightSolid` | 全局 Token |
+| `@avatar-border-radius` | `borderRadius` | 全局 Token |
+| `@avatar-group-overlapping` | `groupOverlapping` | - |
+| `@avatar-group-space` | `groupSpace` | - |
+| `@avatar-group-border-color` | `colorBorderBg` | 全局 Token |
 
 <!-- ### Badge 徽标数 -->
 
