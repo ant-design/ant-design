@@ -25,6 +25,7 @@ group:
 <code src="./demo/disabled.tsx" debug>禁用</code>
 <code src="./demo/allowClear.tsx">清除颜色</code>
 <code src="./demo/trigger.tsx">自定义触发器</code>
+<code src="./demo/trigger-event.tsx">自定义触发事件</code>
 <code src="./demo/format.tsx">颜色编码</code>
 <code src="./demo/presets.tsx">预设颜色</code>
 <code src="./demo/pure-panel.tsx" debug>Pure Render</code>
