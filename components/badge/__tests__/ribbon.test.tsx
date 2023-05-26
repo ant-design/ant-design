@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -77,6 +77,23 @@ describe('Ribbon', () => {
         </Badge.Ribbon>,
       );
       expect(container.querySelectorAll('.cool').length).toEqual(1);
+    });
+
+    it('support onClick', () => {
+      const onClick = jest.fn();
+      const holderClick = jest.fn();
+      const { container } = render(
+        <Badge.Ribbon text="test" onClick={onClick}>
+          <div id="placeholder" onClick={holderClick}>
+            aaa
+          </div>
+        </Badge.Ribbon>,
+      );
+      fireEvent.click(container.querySelector('.ant-ribbon')!);
+      expect(onClick).toHaveBeenCalled();
+      expect(holderClick).not.toHaveBeenCalled();
+      fireEvent.click(container.querySelector('#placeholder')!);
+      expect(holderClick).toHaveBeenCalled();
     });
   });
 });

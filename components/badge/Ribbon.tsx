@@ -1,10 +1,10 @@
 import classNames from 'classnames';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
 import type { PresetColorType } from '../_util/colors';
-import type { LiteralUnion } from '../_util/type';
-import useStyle from './style';
 import { isPresetColor } from '../_util/colors';
+import type { LiteralUnion } from '../_util/type';
+import { ConfigContext } from '../config-provider';
+import useStyle from './style';
 
 type RibbonPlacement = 'start' | 'end';
 
@@ -16,6 +16,7 @@ export interface RibbonProps {
   color?: LiteralUnion<PresetColorType>;
   children?: React.ReactNode;
   placement?: RibbonPlacement;
+  onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
 const Ribbon: React.FC<RibbonProps> = ({
@@ -26,6 +27,7 @@ const Ribbon: React.FC<RibbonProps> = ({
   children,
   text,
   placement = 'end',
+  onClick,
 }) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('ribbon', customizePrefixCls);
@@ -49,7 +51,11 @@ const Ribbon: React.FC<RibbonProps> = ({
   return wrapSSR(
     <div className={classNames(`${prefixCls}-wrapper`, hashId)}>
       {children}
-      <div className={classNames(ribbonCls, hashId)} style={{ ...colorStyle, ...style }}>
+      <div
+        className={classNames(ribbonCls, hashId)}
+        style={{ ...colorStyle, ...style }}
+        onClick={onClick}
+      >
         <span className={`${prefixCls}-text`}>{text}</span>
         <div className={`${prefixCls}-corner`} style={cornerColorStyle} />
       </div>
