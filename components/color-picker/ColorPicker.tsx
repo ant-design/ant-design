@@ -140,12 +140,6 @@ const ColorPicker: CompoundedComponent = (props) => {
     onFormatChange,
   };
 
-  useEffect(() => {
-    if (colorCleared) {
-      setPopupOpen(false);
-    }
-  }, [colorCleared]);
-
   return wrapSSR(
     <Popover
       style={styles?.popup}
