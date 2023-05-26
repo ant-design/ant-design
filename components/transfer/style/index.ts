@@ -10,11 +10,9 @@ export interface ComponentToken {
   itemHeight: number;
   itemPaddingBlock: number;
   headerHeight: number;
-  itemPaddingVertical: number;
   disabledBg: string;
   itemHoverBg: string;
   itemSelectedHoverBg: string;
-  listSearchIconTop: number;
 }
 
 interface TransferToken extends FullToken<'Transfer'> {
@@ -109,6 +107,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     lineType,
     iconCls,
     motionDurationSlow,
+    itemHoverBg,
   } = token;
 
   return {
@@ -254,7 +253,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       // Do not change hover style when `oneWay` mode
       [`&-show-remove ${componentCls}-list-content-item:not(${componentCls}-list-content-item-disabled):hover`]:
         {
-          background: 'transparent',
+          background: itemHoverBg,
           cursor: 'default',
         },
     },
@@ -290,6 +289,7 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
     fontSizeIcon,
     fontSize,
     lineHeight,
+    disabledBg,
   } = token;
 
   return {
@@ -302,7 +302,7 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
 
       [`${componentCls}-disabled`]: {
         [`${componentCls}-list`]: {
-          background: token.colorBgContainerDisabled,
+          background: disabledBg,
         },
       },
 
@@ -349,7 +349,11 @@ const genTransferRTLStyle: GenerateStyle<TransferToken> = (token: TransferToken)
 export default genComponentStyleHook(
   'Transfer',
   (token) => {
-    const transferToken = mergeToken<TransferToken>(token, {});
+    const { fontSize, lineHeight, lineWidth, controlHeightLG } = token;
+    const fontHeight = Math.round(fontSize * lineHeight);
+    const transferToken = mergeToken<TransferToken>(token, {
+      transferHeaderVerticalPadding: Math.ceil((controlHeightLG - lineWidth - fontHeight) / 2),
+    });
 
     return [
       genTransferStyle(transferToken),
@@ -359,7 +363,7 @@ export default genComponentStyleHook(
     ];
   },
   (token) => {
-    const { fontSize, lineHeight, lineWidth, controlHeightLG, controlHeight } = token;
+    const { fontSize, lineHeight, controlHeight } = token;
     const fontHeight = Math.round(fontSize * lineHeight);
     return {
       listWidth: 180,
@@ -367,12 +371,10 @@ export default genComponentStyleHook(
       listWidthLG: 250,
       headerHeight: controlHeight,
       itemHeight: token.controlHeightLG,
-      itemPaddingBlock: Math.ceil((controlHeightLG - lineWidth - fontHeight) / 2),
+      itemPaddingBlock: (controlHeight - fontHeight) / 2,
       disabledBg: token.colorBgContainerDisabled,
       itemHoverBg: token.controlItemBgHover,
       itemSelectedHoverBg: token.controlItemBgHover,
-      itemPaddingVertical: token.paddingContentVertical,
-      listSearchIconTop: 12,
     };
   },
 );

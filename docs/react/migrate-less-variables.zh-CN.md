@@ -381,8 +381,8 @@ Transfer 穿梭框
 | `@transfer-list-height` | `listHeight` | - |
 | `@transfer-item-hover-bg` | `itemHoverBg` | - |
 | `@transfer-item-selected-hover-bg` | `itemSelectedHoverBg` | - |
-| `@transfer-item-padding-vertical` | `itemVerticalPadding` | - |
-| `@transfer-list-search-icon-top` | `listSearchIconTop` | - |
+| `@transfer-item-padding-vertical` | `itemPaddingBlock` | - |
+| `@transfer-list-search-icon-top` | - | Deprecated |
 
 <!-- ### Tree 树形控件 -->
 
