@@ -7,9 +7,9 @@ export interface ComponentToken {
   containerSize: number;
   containerSizeLG: number;
   containerSizeSM: number;
-  fontSize: number;
-  fontSizeLG: number;
-  fontSizeSM: number;
+  textFontSize: number;
+  textFontSizeLG: number;
+  textFontSizeSM: number;
   groupSpace: number;
   groupOverlapping: number;
   groupBorderColor: string;
@@ -31,8 +31,9 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
     containerSize,
     containerSizeLG,
     containerSizeSM,
-    fontSizeLG,
-    fontSizeSM,
+    textFontSize,
+    textFontSizeLG,
+    textFontSizeSM,
     borderRadius,
     borderRadiusLG,
     borderRadiusSM,
@@ -89,14 +90,14 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
         display: 'block',
       },
 
-      ...avatarSizeStyle(containerSize, token.fontSize, borderRadius),
+      ...avatarSizeStyle(containerSize, textFontSize, borderRadius),
 
       [`&-lg`]: {
-        ...avatarSizeStyle(containerSizeLG, fontSizeLG, borderRadiusLG),
+        ...avatarSizeStyle(containerSizeLG, textFontSizeLG, borderRadiusLG),
       },
 
       [`&-sm`]: {
-        ...avatarSizeStyle(containerSizeSM, fontSizeSM, borderRadiusSM),
+        ...avatarSizeStyle(containerSizeSM, textFontSizeSM, borderRadiusSM),
       },
 
       '> img': {
@@ -162,9 +163,9 @@ export default genComponentStyleHook(
       containerSizeLG: controlHeightLG,
       containerSizeSM: controlHeightSM,
 
-      fontSize: Math.round((fontSizeLG + fontSizeXL) / 2),
-      fontSizeLG: fontSizeHeading3,
-      fontSizeSM: fontSize,
+      textFontSize: Math.round((fontSizeLG + fontSizeXL) / 2),
+      textFontSizeLG: fontSizeHeading3,
+      textFontSizeSM: fontSize,
 
       groupSpace: marginXXS,
       groupOverlapping: -marginXS,

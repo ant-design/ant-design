@@ -11,9 +11,9 @@ const App: React.FC = () => (
           sizeLG: 30,
           sizeSM: 16,
 
-          fontSize: 18,
-          fontSizeLG: 28,
-          fontSizeSM: 12,
+          textFontSize: 18,
+          textFontSizeLG: 28,
+          textFontSizeSM: 12,
 
           borderRadius: 10,
           groupOverlapping: -10,
