@@ -22,7 +22,7 @@ const AffixMounter: React.FC<AffixProps> = ({ getInstance, ...restProps }) => {
   const container = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (container.current) {
-      container.current.addEventListener = jest
+      container.current.addEventListener = vi
         .fn()
         .mockImplementation((event: keyof HTMLElementEventMap, cb: (ev: Event) => void) => {
           events[event] = cb;
