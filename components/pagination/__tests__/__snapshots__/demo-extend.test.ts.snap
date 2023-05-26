@@ -1305,7 +1305,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+        class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -1324,11 +1324,8 @@ Array [
               autocomplete="off"
               class="ant-select-selection-search-input"
               id="rc_select_TEST_OR_SSR"
-              readonly=""
               role="combobox"
-              style="opacity: 0;"
               type="search"
-              unselectable="on"
               value=""
             />
           </span>
@@ -1658,7 +1655,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled"
+        class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -1678,11 +1675,8 @@ Array [
               class="ant-select-selection-search-input"
               disabled=""
               id="rc_select_TEST_OR_SSR"
-              readonly=""
               role="combobox"
-              style="opacity: 0;"
               type="search"
-              unselectable="on"
               value=""
             />
           </span>
