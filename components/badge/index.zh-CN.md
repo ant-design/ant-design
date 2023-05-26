@@ -50,7 +50,7 @@ group: 数据展示
 | status | 设置 Badge 为状态点 | `success` \| `processing` \| `default` \| `error` \| `warning` | - |  |
 | text | 在设置了 `status` 的前提下有效，设置状态点的文本 | ReactNode | - |  |
 | title | 设置鼠标放在状态点上时显示的文字 | string | - |  |
-| onClick | 点击时回调 | () => void | - |  |
+| onClick | 点击时回调 | () => void | - | 5.6.0 |
 
 ### Badge.Ribbon (4.5.0+)
 
