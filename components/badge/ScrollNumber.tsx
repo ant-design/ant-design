@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
+import { ConfigContext } from '../config-provider';
 import SingleNumber from './SingleNumber';
 
 export interface ScrollNumberProps {
@@ -14,6 +14,7 @@ export interface ScrollNumberProps {
   style?: React.CSSProperties;
   title?: string | number | null;
   show: boolean;
+  onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
 export interface ScrollNumberState {

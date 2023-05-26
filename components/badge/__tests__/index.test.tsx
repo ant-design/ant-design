@@ -221,4 +221,26 @@ describe('Badge', () => {
     expect(container.querySelectorAll('.ant-badge-count')).toHaveLength(4);
     expect(container.querySelectorAll('[title="0"]')).toHaveLength(4);
   });
+
+  it('support onClick', () => {
+    const onClick = jest.fn();
+    const { container, rerender } = render(<Badge count={0} showZero onClick={onClick} />);
+    fireEvent.click(container.querySelector('.ant-badge-count')!);
+    expect(onClick).toHaveBeenCalled();
+
+    onClick.mockReset();
+    const holderClick = jest.fn();
+    rerender(
+      <Badge count={5} onClick={onClick}>
+        <div id="placeholder" onClick={holderClick}>
+          aaa
+        </div>
+      </Badge>,
+    );
+    fireEvent.click(container.querySelector('.ant-badge-count')!);
+    expect(onClick).toHaveBeenCalled();
+    expect(holderClick).not.toHaveBeenCalled();
+    fireEvent.click(container.querySelector('#placeholder')!);
+    expect(holderClick).toHaveBeenCalled();
+  });
 });

@@ -2,12 +2,12 @@ import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import * as React from 'react';
 import { useMemo, useRef } from 'react';
-import { ConfigContext } from '../config-provider';
-import type { PresetColorKey } from '../theme/internal';
 import type { PresetStatusColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
 import { cloneElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
+import { ConfigContext } from '../config-provider';
+import type { PresetColorKey } from '../theme/internal';
 import Ribbon from './Ribbon';
 import ScrollNumber from './ScrollNumber';
 import useStyle from './style';
@@ -40,6 +40,7 @@ export interface BadgeProps {
   offset?: [number | string, number | string];
   title?: string;
   children?: React.ReactNode;
+  onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
 const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps> = (props, ref) => {
@@ -60,6 +61,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
     className,
     rootClassName,
     showZero = false,
+    onClick,
     ...restProps
   } = props;
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
@@ -182,7 +184,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
   if (!children && hasStatus) {
     const statusTextColor = mergedStyle.color;
     return wrapSSR(
-      <span {...restProps} className={badgeClassName} style={mergedStyle}>
+      <span {...restProps} className={badgeClassName} style={mergedStyle} onClick={onClick}>
         <span className={statusCls} style={statusStyle} />
         {text && (
           <span style={{ color: statusTextColor }} className={`${prefixCls}-status-text`}>
@@ -237,6 +239,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
               style={scrollNumberStyle}
               key="scrollNumber"
               ref={scrollNumberRef}
+              onClick={onClick}
             >
               {displayNode}
             </ScrollNumber>
