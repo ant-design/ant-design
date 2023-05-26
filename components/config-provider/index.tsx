@@ -1,13 +1,13 @@
 import { createTheme } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
-import { FormProvider as RcFormProvider } from 'rc-field-form';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
-import { setValues } from 'rc-field-form/lib/utils/valueUtil';
 import useMemo from 'rc-util/lib/hooks/useMemo';
+import { merge } from 'rc-util/lib/utils/set';
 import type { ReactElement } from 'react';
 import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
 import warning from '../_util/warning';
+import { ValidateMessagesContext } from '../form/context';
 import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale';
 import LocaleProvider, { ANT_MARK } from '../locale';
@@ -293,8 +293,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   const validateMessages = React.useMemo(
     () =>
-      setValues(
-        {},
+      merge(
         defaultLocale.Form?.defaultValidateMessages || {},
         memoedConfig.locale?.Form?.defaultValidateMessages || {},
         form?.validateMessages || {},
@@ -303,7 +302,11 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   );
 
   if (Object.keys(validateMessages).length > 0) {
-    childNode = <RcFormProvider validateMessages={validateMessages}>{children}</RcFormProvider>;
+    childNode = (
+      <ValidateMessagesContext.Provider value={validateMessages}>
+        {children}
+      </ValidateMessagesContext.Provider>
+    );
   }
 
   if (locale) {

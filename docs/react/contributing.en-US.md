@@ -62,6 +62,12 @@ Since antd's components are based on react-component, sometimes you may need to 
 
 ## Development Workflow
 
+Before you can start you must run the following command to enable [corepack](https://nodejs.org/api/corepack.html)。
+
+```bash
+corepack enable
+```
+
 After cloning antd, run `npm install` to fetch its dependencies. Then, you can run several commands:
 
 1. `npm start` runs Ant Design website locally.

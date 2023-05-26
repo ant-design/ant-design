@@ -9940,7 +9940,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
                         <tbody>
                           <tr>
                             <td
-                              class="ant-picker-cell ant-picker-cell-end"
+                              class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-end"
                               title="2015-05-31"
                             >
                               <div
@@ -9950,7 +9950,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-start ant-picker-cell-in-view"
                               title="2015-06-01"
                             >
                               <div
@@ -9960,7 +9960,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                               title="2015-06-02"
                             >
                               <div
@@ -9970,7 +9970,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                               title="2015-06-03"
                             >
                               <div
@@ -9980,7 +9980,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                               title="2015-06-04"
                             >
                               <div
@@ -9990,7 +9990,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                               title="2015-06-05"
                             >
                               <div
@@ -10000,7 +10000,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-range-start ant-picker-cell-range-end ant-picker-cell-selected"
+                              class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view ant-picker-cell-range-start ant-picker-cell-range-end ant-picker-cell-selected"
                               title="2015-06-06"
                             >
                               <div

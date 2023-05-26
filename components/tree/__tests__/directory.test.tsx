@@ -100,14 +100,14 @@ describe('Directory Tree', () => {
         );
       };
 
-      it('click', () => {
+      it('click', async () => {
         const { container, asFragment } = render(<StateDirTree expandAction="click" />);
 
         fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper')!);
         vi.runAllTimers();
         expect(asFragment().firstChild).toMatchSnapshot();
       });
-      it('doubleClick', () => {
+      it('doubleClick', async () => {
         const { container, asFragment } = render(<StateDirTree expandAction="doubleClick" />);
 
         fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper')!);
@@ -151,7 +151,7 @@ describe('Directory Tree', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('expandedKeys update', () => {
+  it('expandedKeys update', async () => {
     const { rerender, asFragment } = render(createTree());
     rerender(createTree({ expandedKeys: ['0-1'] }));
     vi.runAllTimers();

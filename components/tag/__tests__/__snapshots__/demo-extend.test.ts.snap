@@ -321,6 +321,46 @@ Array [
       style="margin-right: 0px; padding-bottom: 8px;"
     >
       <span
+        class="ant-tag ant-tag-processing ant-tag-borderless"
+      >
+        processing
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 0px; padding-bottom: 8px;"
+    >
+      <span
+        class="ant-tag ant-tag-success ant-tag-borderless"
+      >
+        success
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 0px; padding-bottom: 8px;"
+    >
+      <span
+        class="ant-tag ant-tag-error ant-tag-borderless"
+      >
+        error
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 0px; padding-bottom: 8px;"
+    >
+      <span
+        class="ant-tag ant-tag-warning ant-tag-borderless"
+      >
+        warning
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 0px; padding-bottom: 8px;"
+    >
+      <span
         class="ant-tag ant-tag-magenta ant-tag-borderless"
       >
         magenta
