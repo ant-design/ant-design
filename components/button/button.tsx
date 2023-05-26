@@ -18,12 +18,12 @@ import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import useSize from '../config-provider/hooks/useSize';
 import { useCompactItemContext } from '../space/Compact';
+import IconWrapper from './IconWrapper';
 import LoadingIcon from './LoadingIcon';
 import Group, { GroupSizeContext } from './button-group';
 import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
 import useStyle from './style';
-import IconWrapper from './IconWrapper';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -121,10 +121,11 @@ const InternalButton: React.ForwardRefRenderFunction<
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
     htmlType = 'button',
     classNames: customClassNames,
+    style: customStyle = {},
     ...rest
   } = props;
 
-  const { getPrefixCls, autoInsertSpaceInButton, direction } = useContext(ConfigContext);
+  const { getPrefixCls, autoInsertSpaceInButton, direction, button } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
@@ -238,11 +239,17 @@ const InternalButton: React.ForwardRefRenderFunction<
     compactItemClassnames,
     className,
     rootClassName,
+    button?.className,
   );
+
+  const fullStyle = { ...button?.style, ...customStyle };
+
+  const iconClasses = classNames(customClassNames?.icon, button?.classNames?.icon);
+  const iconStyle = { ...(styles?.icon || {}), ...(button?.styles?.icon || {}) };
 
   const iconNode =
     icon && !innerLoading ? (
-      <IconWrapper prefixCls={prefixCls} className={customClassNames?.icon} style={styles?.icon}>
+      <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
         {icon}
       </IconWrapper>
     ) : (
@@ -257,6 +264,7 @@ const InternalButton: React.ForwardRefRenderFunction<
       <a
         {...linkButtonRestProps}
         className={classes}
+        style={fullStyle}
         onClick={handleClick}
         ref={buttonRef as React.Ref<HTMLAnchorElement>}
       >
@@ -271,6 +279,7 @@ const InternalButton: React.ForwardRefRenderFunction<
       {...(rest as NativeButtonProps)}
       type={htmlType}
       className={classes}
+      style={fullStyle}
       onClick={handleClick}
       disabled={mergedDisabled}
       ref={buttonRef as React.Ref<HTMLButtonElement>}
