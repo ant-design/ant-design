@@ -43,6 +43,7 @@ return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
 <code src="./demo/overlay.tsx">带下拉菜单的面包屑</code>
 <code src="./demo/separator-component.tsx">独立的分隔符</code>
 <code src="./demo/debug-routes.tsx">Debug Routes</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
