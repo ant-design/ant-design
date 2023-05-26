@@ -834,7 +834,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
   it('warning getContainer be false', async () => {
     resetWarned();
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     Modal.confirm({
       getContainer: false,
