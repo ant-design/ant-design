@@ -498,6 +498,7 @@ describe('Anchor Render', () => {
         </Anchor>,
       );
 
+    // Since it's mock rect pos here. We need always reset the `scrollTop` for test
     document.body.scrollTop = 0;
     fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
     await waitFakeTimer();
