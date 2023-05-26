@@ -44,15 +44,23 @@ const App: React.FC = () => (
       <Radio value="little">Little</Radio>
     </div>
 
-    <ConfigProvider
-      theme={{
-        token: {
-          controlHeight: 48,
-        },
-      }}
-    >
-      <Checkbox>Aligned</Checkbox>
-    </ConfigProvider>
+    <div>
+      <ConfigProvider
+        theme={{
+          token: {
+            controlHeight: 48,
+          },
+        }}
+      >
+        <Checkbox>Aligned</Checkbox>
+      </ConfigProvider>
+    </div>
+
+    <div>
+      <Checkbox>
+        <span style={{ fontSize: 32 }}>Aligned</span>
+      </Checkbox>
+    </div>
   </div>
 );
 

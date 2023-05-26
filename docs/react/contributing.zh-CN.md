@@ -62,6 +62,12 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 
 ## 开发流程
 
+在开始之前，请先执行下面的命令启用 [corepack](https://nodejs.org/api/corepack.html)。
+
+```bash
+corepack enable
+```
+
 在你 clone 了 antd 的代码并且使用 `npm install` 安装完依赖后，你还可以运行下面几个常用的命令：
 
 1. `npm start` 在本地运行 Ant Design 的网站。
