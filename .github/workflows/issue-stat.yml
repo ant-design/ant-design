@@ -1,0 +1,19 @@
+name: Issue Stats Card
+
+on:
+  issues:
+    types: [opened, edited, closed]
+  issue_comment:
+    types: [created, deleted]
+  workflow_dispatch: # Run workflow manually (without waiting for the cron to be called), through the Github Actions Workflow page directly
+
+jobs:
+  get_repo_issue_stats:
+    runs-on: ubuntu-latest
+    name: Get repo issue stats
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Get issue stats then generate card
+      uses: arndom/issue-stats-card@v1
