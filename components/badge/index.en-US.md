@@ -58,6 +58,7 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 | color | Customize Ribbon color | string | - |  |
 | placement | The placement of the Ribbon, `start` and `end` follow text direction (RTL or LTR) | `start` \| `end` | `end` |  |
 | text | Content inside the Ribbon | ReactNode | - |  |
+| onClick | Will Call When click | () => void | - |  |
 
 ## Design Token
 
