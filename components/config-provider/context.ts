@@ -1,6 +1,7 @@
 import type { DerivativeFunc } from '@ant-design/cssinjs';
 import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
+import type { ButtonProps } from '../button';
 import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale';
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../theme/interface';
@@ -37,8 +38,8 @@ export interface ThemeConfig {
 interface componentStyleConfig {
   className?: string;
   style?: React.CSSProperties;
-  classNames?: { icon: string };
-  styles?: { icon: React.CSSProperties };
+  classNames?: ButtonProps['classNames'];
+  styles?: ButtonProps['styles'];
 }
 
 export interface ButtonConfig extends componentStyleConfig {}
