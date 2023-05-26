@@ -7,9 +7,14 @@ export interface ComponentToken {
   listWidth: number;
   listWidthLG: number;
   listHeight: number;
-  transferItemHeight: number;
-  transferItemVerticalPadding: number;
-  transferHeaderHeight: number;
+  itemHeight: number;
+  itemPaddingBlock: number;
+  headerHeight: number;
+  itemPaddingVertical: number;
+  disabledBg: string;
+  itemHoverBg: string;
+  itemSelectedHoverBg: string;
+  listSearchIconTop: number;
 }
 
 interface TransferToken extends FullToken<'Transfer'> {
@@ -88,10 +93,10 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     colorBorder,
     colorSplit,
     lineWidth,
-    transferItemHeight,
-    transferHeaderHeight,
+    itemHeight,
+    headerHeight,
     transferHeaderVerticalPadding,
-    transferItemVerticalPadding,
+    itemPaddingBlock,
     controlItemBgActive,
     controlItemBgActiveHover,
     colorTextDisabled,
@@ -129,7 +134,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       display: 'flex',
       flex: 'none',
       alignItems: 'center',
-      height: transferHeaderHeight,
+      height: headerHeight,
       // border-top is on the transfer dom. We should minus 1px for this
       padding: `${
         transferHeaderVerticalPadding - lineWidth
@@ -190,8 +195,8 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       '&-item': {
         display: 'flex',
         alignItems: 'center',
-        minHeight: transferItemHeight,
-        padding: `${transferItemVerticalPadding}px ${paddingSM}px`,
+        minHeight: itemHeight,
+        padding: `${itemPaddingBlock}px ${paddingSM}px`,
         transition: `all ${motionDurationSlow}`,
 
         '> *:not(:last-child)': {
@@ -220,7 +225,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
 
           '&::after': {
             position: 'absolute',
-            insert: `-${transferItemVerticalPadding}px -50%`,
+            insert: `-${itemPaddingBlock}px -50%`,
             content: '""',
           },
         },
@@ -279,7 +284,7 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
     antCls,
     iconCls,
     componentCls,
-    transferHeaderHeight,
+    headerHeight,
     marginXS,
     marginXXS,
     fontSizeIcon,
@@ -325,7 +330,7 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
       },
 
       [`${antCls}-empty-image`]: {
-        maxHeight: transferHeaderHeight / 2 - Math.round(fontSize * lineHeight),
+        maxHeight: headerHeight / 2 - Math.round(fontSize * lineHeight),
       },
     },
   };
@@ -360,9 +365,14 @@ export default genComponentStyleHook(
       listWidth: 180,
       listHeight: 200,
       listWidthLG: 250,
-      transferHeaderHeight: controlHeight,
-      transferItemHeight: token.controlHeightLG,
-      transferItemVerticalPadding: Math.ceil((controlHeightLG - lineWidth - fontHeight) / 2),
+      headerHeight: controlHeight,
+      itemHeight: token.controlHeightLG,
+      itemPaddingBlock: Math.ceil((controlHeightLG - lineWidth - fontHeight) / 2),
+      disabledBg: token.colorBgContainerDisabled,
+      itemHoverBg: token.controlItemBgHover,
+      itemSelectedHoverBg: token.controlItemBgHover,
+      itemPaddingVertical: token.paddingContentVertical,
+      listSearchIconTop: 12,
     };
   },
 );

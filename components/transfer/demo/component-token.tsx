@@ -149,7 +149,22 @@ const App: React.FC = () => {
 
   return (
     <ConfigProvider
-      theme={{ components: { Drawer: { footerPaddingBlock: 0, footerPaddingInline: 0 } } }}
+      theme={{
+        components: {
+          Transfer: {
+            listWidth: 40,
+            listWidthLG: 50,
+            listHeight: 30,
+            itemHeight: 20,
+            itemPaddingBlock: 10,
+            headerHeight: 18,
+            disabledBg: '#ab2020',
+            itemHoverBg: '#ada567',
+            itemSelectedHoverBg: '#50968b',
+            itemPaddingVertical: 14,
+          },
+        },
+      }}
     >
       <Transfer
         dataSource={mockData}
