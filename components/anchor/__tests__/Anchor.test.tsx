@@ -10,8 +10,9 @@ import type { AnchorDirection } from '../Anchor';
 
 const { Link } = Anchor;
 
-function createDiv() {
+function createRootDiv() {
   const root = document.createElement('div');
+  root.className = 'root';
   document.body.appendChild(root);
   return root;
 }
@@ -189,7 +190,7 @@ describe('Anchor Render', () => {
   });
 
   it('scrolls the page when clicking a link', async () => {
-    const root = createDiv();
+    const root = createRootDiv();
     const scrollToSpy = vi.spyOn(window, 'scrollTo');
     render(<div id="/faq?locale=en#Q1">Q1</div>, { container: root });
     const { container } = render(
@@ -199,12 +200,13 @@ describe('Anchor Render', () => {
     fireEvent.click(link);
     await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenCalled();
+    scrollToSpy.mockRestore();
   });
 
   it('handleScroll should not be triggered when scrolling caused by clicking a link', async () => {
     const hash1 = getHashUrl();
     const hash2 = getHashUrl();
-    const root = createDiv();
+    const root = createRootDiv();
     const onChange = vi.fn();
     render(
       <div>
@@ -265,7 +267,7 @@ describe('Anchor Render', () => {
     const hash = getHashUrl();
 
     const scrollToSpy = vi.spyOn(window, 'scrollTo');
-    const root = createDiv();
+    const root = createRootDiv();
     render(<h1 id={hash}>Hello</h1>, { container: root });
     const { container, rerender } = render(
       <Anchor items={[{ key: hash, href: `#${hash}`, title: hash }]} />,
@@ -289,6 +291,8 @@ describe('Anchor Render', () => {
     fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
     await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
+
+    scrollToSpy.mockRestore();
   });
 
   // https://github.com/ant-design/ant-design/issues/31941
@@ -296,7 +300,7 @@ describe('Anchor Render', () => {
     const hash = `${getHashUrl()} s p a c e s`;
 
     const scrollToSpy = vi.spyOn(window, 'scrollTo');
-    const root = createDiv();
+    const root = createRootDiv();
     render(<h1 id={hash}>Hello</h1>, { container: root });
     const { container, rerender } = render(
       <Anchor items={[{ key: hash, href: `#${hash}`, title: hash }]} />,
@@ -318,6 +322,8 @@ describe('Anchor Render', () => {
     fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
     await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
+
+    scrollToSpy.mockRestore();
   });
 
   it('onClick event', () => {
@@ -435,7 +441,7 @@ describe('Anchor Render', () => {
     const hash = getHashUrl();
 
     const scrollToSpy = vi.spyOn(window, 'scrollTo');
-    const root = createDiv();
+    const root = createRootDiv();
     render(<h1 id={hash}>Hello</h1>, { container: root });
     const { container, rerender } = render(
       <Anchor>
@@ -469,13 +475,14 @@ describe('Anchor Render', () => {
       height: 100,
       top: 1000,
     } as DOMRect);
+
+    scrollToSpy.mockRestore();
   });
 
-  it.todo('test edge case when container is not windows', async () => {
+  it('test edge case when container is not windows', async () => {
     const hash = getHashUrl();
 
-    const scrollToSpy = vi.spyOn(window, 'scrollTo');
-    const root = createDiv();
+    const root = createRootDiv();
     render(<h1 id={hash}>Hello</h1>, { container: root });
 
     const { container, rerender } = render(
@@ -493,17 +500,17 @@ describe('Anchor Render', () => {
 
     fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
     await waitFakeTimer();
-    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
+    expect(document.body.scrollTop).toEqual(1000);
 
     setProps({ offsetTop: 100 });
     fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
     await waitFakeTimer();
-    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
+    expect(document.body.scrollTop).toEqual(1900);
 
     setProps({ targetOffset: 200 });
     fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
     await waitFakeTimer();
-    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
+    expect(document.body.scrollTop).toEqual(2700);
   });
 
   describe('getCurrentAnchor', () => {
@@ -603,7 +610,7 @@ describe('Anchor Render', () => {
       it('targetOffset horizontal', async () => {
         const hash = getHashUrl();
         const scrollToSpy = vi.spyOn(window, 'scrollTo');
-        const root = createDiv();
+        const root = createRootDiv();
         render(<h1 id={hash}>Hello</h1>, { container: root });
         const { container, rerender } = render(
           <Anchor
@@ -647,6 +654,8 @@ describe('Anchor Render', () => {
         fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
         await waitFakeTimer();
         expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
+
+        scrollToSpy.mockRestore();
       });
     });
 
@@ -759,7 +768,7 @@ describe('Anchor Render', () => {
     });
 
     it('scrolls the page when clicking a link', async () => {
-      const root = createDiv();
+      const root = createRootDiv();
       const scrollToSpy = vi.spyOn(window, 'scrollTo');
       render(<div id="/faq?locale=en#Q1">Q1</div>, { container: root });
       const { container } = render(
@@ -771,12 +780,14 @@ describe('Anchor Render', () => {
       fireEvent.click(link);
       await waitFakeTimer();
       expect(scrollToSpy).toHaveBeenCalled();
+
+      scrollToSpy.mockRestore();
     });
 
     it('handleScroll should not be triggered when scrolling caused by clicking a link', async () => {
       const hash1 = getHashUrl();
       const hash2 = getHashUrl();
-      const root = createDiv();
+      const root = createRootDiv();
       const onChange = vi.fn();
       render(
         <div>

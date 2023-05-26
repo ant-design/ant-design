@@ -22,7 +22,7 @@ const AffixMounter: React.FC<AffixProps> = ({ getInstance, ...restProps }) => {
   const container = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (container.current) {
-      container.current.addEventListener = vi
+      container.current.addEventListener = jest
         .fn()
         .mockImplementation((event: keyof HTMLElementEventMap, cb: (ev: Event) => void) => {
           events[event] = cb;
@@ -57,8 +57,8 @@ describe('Affix Render', () => {
   });
 
   afterEach(() => {
-    vi.clearAllTimers();
     vi.useRealTimers();
+    vi.clearAllTimers();
   });
 
   afterAll(() => {
@@ -88,8 +88,12 @@ describe('Affix Render', () => {
     expect(container.querySelector('.ant-affix')).toBeFalsy();
   });
 
-  it.todo('Anchor correct render when target is null', async () => {
-    render(<Affix target={() => null}>test</Affix>);
+  it('Anchor correct render when target is null', async () => {
+    render(
+      <Affix target={() => null}>
+        <span>test</span>
+      </Affix>,
+    );
     await waitFakeTimer();
   });
 
