@@ -498,19 +498,22 @@ describe('Anchor Render', () => {
         </Anchor>,
       );
 
+    document.body.scrollTop = 0;
     fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
     await waitFakeTimer();
     expect(document.body.scrollTop).toEqual(1000);
 
+    document.body.scrollTop = 0;
     setProps({ offsetTop: 100 });
     fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
     await waitFakeTimer();
-    expect(document.body.scrollTop).toEqual(1900);
+    expect(document.body.scrollTop).toEqual(900);
 
+    document.body.scrollTop = 0;
     setProps({ targetOffset: 200 });
     fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
     await waitFakeTimer();
-    expect(document.body.scrollTop).toEqual(2700);
+    expect(document.body.scrollTop).toEqual(800);
   });
 
   describe('getCurrentAnchor', () => {
