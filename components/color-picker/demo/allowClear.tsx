@@ -1,4 +1,16 @@
 import { ColorPicker } from 'antd';
-import React from 'react';
+import React, { useState } from 'react';
 
-export default () => <ColorPicker allowClear />;
+export default () => {
+  const [open, setOpen] = useState(false);
+  return (
+    <ColorPicker
+      open={open}
+      allowClear
+      onOpenChange={setOpen}
+      onClear={() => {
+        setOpen(false);
+      }}
+    />
+  );
+};
