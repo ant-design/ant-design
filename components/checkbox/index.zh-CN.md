@@ -4,6 +4,7 @@ subtitle: 多选框
 group: 数据录入
 title: Checkbox
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DzgiRbW3khIAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*G3MjTYXL6AIAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -48,7 +49,7 @@ demo:
 | disabled | 整组失效 | boolean | false |  |
 | name | CheckboxGroup 下所有 `input[type="checkbox"]` 的 `name` 属性 | string | - |  |
 | options | 指定可选项 | string\[] \| number\[] \| Option\[] | \[] |  |
-| value | 指定选中的选项 | (string \| number)\[] | \[] |  |
+| value | 指定选中的选项 | (string \| number \| boolean)\[] | \[] |  |
 | onChange | 变化时的回调函数 | (checkedValue: CheckboxValueType[]) => void | - |  |
 
 ##### Option
@@ -69,3 +70,7 @@ interface Option {
 | ------- | -------- | ---- |
 | blur()  | 移除焦点 |      |
 | focus() | 获取焦点 |      |
+
+## Design Token
+
+<ComponentTokenTable component="Checkbox"></ComponentTokenTable>

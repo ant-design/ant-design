@@ -9,7 +9,7 @@ const App: React.FC = () => (
         {
           label: (
             <div style={{ padding: 4 }}>
-              <Avatar src="https://joeschmoe.io/api/v1/random" />
+              <Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />
               <div>User 1</div>
             </div>
           ),

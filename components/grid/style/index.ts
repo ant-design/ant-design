@@ -46,8 +46,12 @@ const genGridRowStyle: GenerateStyle<GridRowToken> = (token): CSSObject => {
         justifyContent: 'space-between',
       },
 
-      '&-space-around ': {
+      '&-space-around': {
         justifyContent: 'space-around',
+      },
+
+      '&-space-evenly': {
+        justifyContent: 'space-evenly',
       },
 
       // Align at the top
@@ -104,7 +108,7 @@ const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObjec
         insetInlineEnd: 'auto',
       };
       gridColumnsStyle[`${componentCls}${sizeCls}-offset-${i}`] = {
-        marginInlineEnd: 0,
+        marginInlineStart: 0,
       };
       gridColumnsStyle[`${componentCls}${sizeCls}-order-${i}`] = {
         order: 0,

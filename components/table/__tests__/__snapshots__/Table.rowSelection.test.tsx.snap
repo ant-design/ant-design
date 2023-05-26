@@ -57,7 +57,6 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                             aria-label="Select all"
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -135,7 +134,6 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -177,7 +175,6 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -219,7 +216,6 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -261,7 +257,6 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -414,7 +409,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                             aria-label="Select all"
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -473,7 +467,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -504,7 +497,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -535,7 +527,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -566,7 +557,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -719,7 +709,6 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                             aria-label="Select all"
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -779,7 +768,6 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -811,7 +799,6 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -843,7 +830,6 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -875,7 +861,6 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -981,8 +966,8 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
 
 exports[`Table.rowSelection render with default selection correctly 1`] = `
 <div
-  class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-  style="opacity: 0;"
+  class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
+  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
 >
   <ul
     class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -1082,7 +1067,6 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                             aria-label="Custom selection"
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -1114,63 +1098,58 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                               />
                             </svg>
                           </span>
-                          <div
-                            style="position: absolute; top: 0px; left: 0px; width: 100%;"
-                          />
                         </span>
-                        <div>
-                          <div
-                            class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                            style="opacity: 0;"
+                        <div
+                          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                        >
+                          <ul
+                            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                            data-menu-list="true"
+                            role="menu"
+                            tabindex="0"
                           >
-                            <ul
-                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-                              data-menu-list="true"
-                              role="menu"
-                              tabindex="0"
+                            <li
+                              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                              data-menu-id="rc-menu-uuid-test-all"
+                              role="menuitem"
+                              tabindex="-1"
                             >
-                              <li
-                                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                data-menu-id="rc-menu-uuid-test-all"
-                                role="menuitem"
-                                tabindex="-1"
+                              <span
+                                class="ant-dropdown-menu-title-content"
                               >
-                                <span
-                                  class="ant-dropdown-menu-title-content"
-                                >
-                                  Select all data
-                                </span>
-                              </li>
-                              <li
-                                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                data-menu-id="rc-menu-uuid-test-invert"
-                                role="menuitem"
-                                tabindex="-1"
+                                Select all data
+                              </span>
+                            </li>
+                            <li
+                              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                              data-menu-id="rc-menu-uuid-test-invert"
+                              role="menuitem"
+                              tabindex="-1"
+                            >
+                              <span
+                                class="ant-dropdown-menu-title-content"
                               >
-                                <span
-                                  class="ant-dropdown-menu-title-content"
-                                >
-                                  Invert current page
-                                </span>
-                              </li>
-                              <li
-                                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                data-menu-id="rc-menu-uuid-test-none"
-                                role="menuitem"
-                                tabindex="-1"
+                                Invert current page
+                              </span>
+                            </li>
+                            <li
+                              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                              data-menu-id="rc-menu-uuid-test-none"
+                              role="menuitem"
+                              tabindex="-1"
+                            >
+                              <span
+                                class="ant-dropdown-menu-title-content"
                               >
-                                <span
-                                  class="ant-dropdown-menu-title-content"
-                                >
-                                  Clear all data
-                                </span>
-                              </li>
-                            </ul>
-                            <div
-                              aria-hidden="true"
-                              style="display: none;"
-                            />
-                          </div>
+                                Clear all data
+                              </span>
+                            </li>
+                          </ul>
+                          <div
+                            aria-hidden="true"
+                            style="display: none;"
+                          />
                         </div>
                       </div>
                     </div>
@@ -1202,7 +1181,6 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -1232,7 +1210,6 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -1262,7 +1239,6 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -1292,7 +1268,6 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -1443,7 +1418,6 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                             aria-label="Custom selection"
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -1476,63 +1450,58 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                             </svg>
                           </span>
                         </span>
-                        <div>
-                          <div
-                            class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                            style="opacity: 0;"
-                          >
-                            <ul
-                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-                              data-menu-list="true"
-                              role="menu"
-                              tabindex="0"
-                            >
-                              <li
-                                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                data-menu-id="rc-menu-uuid-test-all"
-                                role="menuitem"
-                                tabindex="-1"
-                              >
-                                <span
-                                  class="ant-dropdown-menu-title-content"
-                                >
-                                  Select all data
-                                </span>
-                              </li>
-                              <li
-                                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                data-menu-id="rc-menu-uuid-test-invert"
-                                role="menuitem"
-                                tabindex="-1"
-                              >
-                                <span
-                                  class="ant-dropdown-menu-title-content"
-                                >
-                                  Invert current page
-                                </span>
-                              </li>
-                              <li
-                                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                data-menu-id="rc-menu-uuid-test-none"
-                                role="menuitem"
-                                tabindex="-1"
-                              >
-                                <span
-                                  class="ant-dropdown-menu-title-content"
-                                >
-                                  Clear all data
-                                </span>
-                              </li>
-                            </ul>
-                            <div
-                              aria-hidden="true"
-                              style="display: none;"
-                            />
-                          </div>
-                        </div>
                         <div
-                          style="position: absolute; top: 0px; left: 0px; width: 100%;"
-                        />
+                          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                        >
+                          <ul
+                            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                            data-menu-list="true"
+                            role="menu"
+                            tabindex="0"
+                          >
+                            <li
+                              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                              data-menu-id="rc-menu-uuid-test-all"
+                              role="menuitem"
+                              tabindex="-1"
+                            >
+                              <span
+                                class="ant-dropdown-menu-title-content"
+                              >
+                                Select all data
+                              </span>
+                            </li>
+                            <li
+                              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                              data-menu-id="rc-menu-uuid-test-invert"
+                              role="menuitem"
+                              tabindex="-1"
+                            >
+                              <span
+                                class="ant-dropdown-menu-title-content"
+                              >
+                                Invert current page
+                              </span>
+                            </li>
+                            <li
+                              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                              data-menu-id="rc-menu-uuid-test-none"
+                              role="menuitem"
+                              tabindex="-1"
+                            >
+                              <span
+                                class="ant-dropdown-menu-title-content"
+                              >
+                                Clear all data
+                              </span>
+                            </li>
+                          </ul>
+                          <div
+                            aria-hidden="true"
+                            style="display: none;"
+                          />
+                        </div>
                       </div>
                     </div>
                   </th>
@@ -1563,7 +1532,6 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -1593,7 +1561,6 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -1623,7 +1590,6 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -1653,7 +1619,6 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -1804,7 +1769,6 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                             aria-label="Select all"
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -1840,7 +1804,6 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -1870,7 +1833,6 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -1900,7 +1862,6 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -1930,7 +1891,6 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"

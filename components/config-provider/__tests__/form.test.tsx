@@ -1,6 +1,7 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import scrollIntoView from 'scroll-into-view-if-needed';
+import type { ValidateMessages } from 'rc-field-form/es/interface';
 import Button from '../../button';
 import ConfigProvider from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -8,6 +9,7 @@ import type { FormInstance } from '../../form';
 import Form from '../../form';
 import Input from '../../input';
 import zhCN from '../../locale/zh_CN';
+import InputNumber from '../../input-number';
 
 jest.mock('scroll-into-view-if-needed');
 
@@ -92,6 +94,59 @@ describe('ConfigProvider.Form', () => {
 
       expect(explains[0]).toHaveTextContent('必须');
       expect(explains[explains.length - 1]).toHaveTextContent('年龄必须等于17');
+    });
+
+    it('nested description should use the default value of this warehouse first', async () => {
+      const validateMessages: ValidateMessages = {
+        number: {
+          // eslint-disable-next-line no-template-curly-in-string
+          max: '${label} 最大值为 ${max}',
+          /**
+           * Intentionally not filling `range` to test default message
+           * default: https://github.com/ant-design/ant-design/blob/12596a06f2ff88d8a27e72f6f9bac7c63a0b2ece/components/locale/en_US.ts#L123
+           */
+          // range:
+        },
+      };
+
+      const formRef = React.createRef<FormInstance>();
+      const { container } = render(
+        <ConfigProvider form={{ validateMessages }}>
+          <Form ref={formRef} initialValues={{ age: 1, rate: 6 }}>
+            <Form.Item name="rate" rules={[{ type: 'number', max: 5 }]}>
+              <InputNumber />
+            </Form.Item>
+            <Form.Item name="age" rules={[{ type: 'number', max: 99, min: 18 }]}>
+              <InputNumber />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      await act(async () => {
+        try {
+          await formRef.current?.validateFields();
+        } catch (e) {
+          // Do nothing
+        }
+      });
+
+      await act(async () => {
+        jest.runAllTimers();
+        await Promise.resolve();
+      });
+
+      act(() => {
+        jest.runAllTimers();
+      });
+
+      expect(container.querySelectorAll('.ant-form-item-explain')).toHaveLength(2);
+      expect(container.querySelectorAll('.ant-form-item-explain')[0]).toHaveTextContent(
+        'rate 最大值为 5',
+      );
+      expect(container.querySelectorAll('.ant-form-item-explain')[1]).toHaveTextContent(
+        'age must be between 18-99',
+      );
     });
   });
 

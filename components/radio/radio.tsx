@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import type { CheckboxRef } from 'rc-checkbox';
 import RcCheckbox from 'rc-checkbox';
 import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
@@ -11,12 +12,12 @@ import type { RadioChangeEvent, RadioProps } from './interface';
 
 import useStyle from './style';
 
-const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (props, ref) => {
+const InternalRadio: React.ForwardRefRenderFunction<CheckboxRef, RadioProps> = (props, ref) => {
   const groupContext = React.useContext(RadioGroupContext);
   const radioOptionTypeContext = React.useContext(RadioOptionTypeContext);
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const innerRef = React.useRef<HTMLElement>();
+  const innerRef = React.useRef<CheckboxRef>(null);
   const mergedRef = composeRef(ref, innerRef);
   const { isFormItemInput } = React.useContext(FormItemInputContext);
 
@@ -33,7 +34,6 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
     rootClassName,
     children,
     style,
-    disabled: customDisabled,
     ...restProps
   } = props;
   const radioPrefixCls = getPrefixCls('radio', customizePrefixCls);
@@ -49,14 +49,15 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
-  radioProps.disabled = customDisabled || disabled;
 
   if (groupContext) {
     radioProps.name = groupContext.name;
     radioProps.onChange = onChange;
     radioProps.checked = props.value === groupContext.value;
-    radioProps.disabled = radioProps.disabled || groupContext.disabled;
+    radioProps.disabled = radioProps.disabled ?? groupContext.disabled;
   }
+
+  radioProps.disabled = radioProps.disabled ?? disabled;
   const wrapperClassString = classNames(
     `${prefixCls}-wrapper`,
     {
@@ -84,7 +85,7 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
   );
 };
 
-const Radio = React.forwardRef<unknown, RadioProps>(InternalRadio);
+const Radio = React.forwardRef<CheckboxRef, RadioProps>(InternalRadio);
 
 if (process.env.NODE_ENV !== 'production') {
   Radio.displayName = 'Radio';

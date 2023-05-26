@@ -20,7 +20,7 @@ To help users quickly and clearly understand the meanings of data, analyze trend
     <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*v6FAS7wJ4TUAAAAAAAAAAABkARQnAQ" />
     <div>
       <h4>Organized</h4>
-      <p>Define the layout logically, prioritize the content in order. In most cases, in order to emphasize the common-used analysis thoughts, you should organize the information from top to bottom and from left to right, or use processive interactions. To sum up, put the summary first, then focus on filters, and finally provide details whenever the user needs.</p>
+      <p>Define the layout logically, prioritize the content in order. In most cases, in order to emphasize the common-used analysis thoughts, you should organize the information from top to bottom and from left to right, or use progressive interactions. To sum up, put the summary first, then focus on filters, and finally provide details whenever the user needs.</p>
     </div>
   </div>
   <div>

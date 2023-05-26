@@ -10,3 +10,4 @@ export { default as BrowserMockup } from './BrowserMockup';
 export { default as Responsive } from './Responsive';
 export { default as NProgress } from './NProgress';
 export { default as PreviewImage } from './PreviewImage';
+export { default as SearchBar } from './SearchBar';

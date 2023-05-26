@@ -46,7 +46,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
   } = token;
 
   return {
-    [`${componentCls}-${themeSuffix}`]: {
+    [`${componentCls}-${themeSuffix}, ${componentCls}-${themeSuffix} > ${componentCls}`]: {
       color: colorItemText,
       background: colorItemBg,
 

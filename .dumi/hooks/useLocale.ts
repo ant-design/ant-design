@@ -9,6 +9,6 @@ export default function useLocale<Key extends string>(
   localeMap?: LocaleMap<Key>,
 ): [Record<Key, string>, 'cn' | 'en'] {
   const { id } = useDumiLocale();
-  const localeType = id === 'zh-CN' ? 'cn' : ('en' as const);
-  return [localeMap?.[localeType]!, localeType];
+  const localeType = id === 'zh-CN' ? 'cn' : 'en';
+  return [localeMap?.[localeType], localeType];
 }

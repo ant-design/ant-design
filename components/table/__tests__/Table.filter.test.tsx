@@ -494,7 +494,7 @@ describe('Table.filter', () => {
         container
           ?.querySelector('.ant-table-filter-dropdown')
           ?.querySelectorAll<HTMLInputElement>('.ant-checkbox-input')[0].checked,
-      ).toEqual(true);
+      ).toBe(true);
     });
 
     const { container } = render(
@@ -514,7 +514,7 @@ describe('Table.filter', () => {
       container
         ?.querySelector('.ant-table-filter-dropdown')
         ?.querySelectorAll<HTMLInputElement>('.ant-checkbox-input')[0]?.checked,
-    ).toEqual(false);
+    ).toBe(false);
   });
 
   it('can read defaults from defaultFilteredValue', () => {
@@ -546,7 +546,7 @@ describe('Table.filter', () => {
     expect(container.querySelectorAll('tbody tr').length).toBe(1);
     expect(container.querySelector('tbody tr')?.textContent).toBe('Lucy');
 
-    // Should properly be overidden by non-null filteredValue
+    // Should properly be overridden by non-null filteredValue
     rerender(
       createTable({
         columns: [
@@ -561,7 +561,7 @@ describe('Table.filter', () => {
     expect(container.querySelectorAll('tbody tr').length).toBe(1);
     expect(container.querySelector('tbody tr')?.textContent).toBe('Tom');
 
-    // Should properly be overidden by a null filteredValue
+    // Should properly be overridden by a null filteredValue
     rerender(
       createTable({
         columns: [
@@ -760,6 +760,7 @@ describe('Table.filter', () => {
         });
         // Another time of Filter show
         // https://github.com/ant-design/ant-design/issues/15593
+        fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
 
         fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
 
@@ -767,7 +768,7 @@ describe('Table.filter', () => {
           container
             ?.querySelector('.ant-table-filter-dropdown')
             ?.querySelectorAll<HTMLInputElement>('.ant-checkbox-input')[0].checked,
-        ).toEqual(false);
+        ).toBe(false);
       });
     });
   });
@@ -990,7 +991,7 @@ describe('Table.filter', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/17833
-  it('should not trigger onChange when bluring custom filterDropdown', () => {
+  it('should not trigger onChange when blurring custom filterDropdown', () => {
     const onChange = jest.fn();
     const filterDropdown = ({ setSelectedKeys }: FilterDropdownProps) => (
       <input onChange={(e) => setSelectedKeys([e.target.value])} />
@@ -1190,6 +1191,7 @@ describe('Table.filter', () => {
       />,
     );
 
+    fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
     fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
     expect(onChange).toHaveBeenCalled();
@@ -1569,12 +1571,12 @@ describe('Table.filter', () => {
     const { container } = render(createTable({ columns: [filterControlledColumn] }));
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!); // close drodown
+    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!); // close dropdown
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!); // reopen
     const checkbox = container
       ?.querySelector('.ant-dropdown-menu-item')
       ?.querySelector<HTMLInputElement>('input[type=checkbox]');
-    expect(checkbox?.checked).toEqual(false);
+    expect(checkbox?.checked).toBe(false);
   });
 
   it('should not trigger onChange when filters is empty', () => {
@@ -2389,9 +2391,19 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
     expect(renderedNames(container)).toEqual(['Jack']);
 
-    fireEvent.click(container.querySelectorAll('.ant-tree-checkbox')[2]);
+    fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    fireEvent.click(container.querySelectorAll('.ant-tree-checkbox-inner')[2]);
     fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+
+    fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
+    act(() => {
+      jest.runAllTimers();
+    });
 
     fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[2]);
     fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
@@ -2482,7 +2494,7 @@ describe('Table.filter', () => {
       defaultFilteredValue: ['girl'],
     };
 
-    const { container, rerender } = render(
+    const { container } = render(
       createTable({
         columns: [columnFilter],
       }),
@@ -2498,7 +2510,7 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('button.ant-btn-link')!, nativeEvent);
     expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
 
-    rerender(
+    const { container: container2 } = render(
       createTable({
         columns: [
           {
@@ -2509,15 +2521,15 @@ describe('Table.filter', () => {
       }),
     );
 
-    fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
+    fireEvent.click(container2.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
     act(() => {
       jest.runAllTimers();
     });
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-checkall')!);
-    expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(5);
-    fireEvent.click(container.querySelector('button.ant-btn-link')!, nativeEvent);
-    expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
-    expect(container.querySelector('.ant-tree-checkbox-checked+span')?.textContent).toBe('Girl');
+    fireEvent.click(container2.querySelector('.ant-table-filter-dropdown-checkall')!);
+    expect(container2.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(5);
+    fireEvent.click(container2.querySelector('button.ant-btn-link')!, nativeEvent);
+    expect(container2.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
+    expect(container2.querySelector('.ant-tree-checkbox-checked+span')?.textContent).toBe('Girl');
   });
 
   it('filterDropdown should not override customize Menu selectable', () => {
@@ -2776,5 +2788,48 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
 
     expect(renderedNames(container)).toEqual(['Jack']);
+  });
+
+  it('changes to table data should not reset the filter dropdown state being changed by a user', () => {
+    const tableProps = {
+      key: 'stabletable',
+      rowKey: 'name',
+      dataSource: [],
+      columns: [
+        {
+          title: 'Name',
+          dataIndex: 'name',
+          filteredValue: [], // User is controlling filteredValue. It begins with no items checked.
+          filters: [{ text: 'J', value: 'J' }],
+          onFilter: (value: any, record: any) => record.name.includes(value),
+        },
+      ],
+    };
+
+    const { container, rerender } = render(createTable(tableProps));
+
+    // User opens filter Dropdown.
+    fireEvent.click(container.querySelector('.ant-dropdown-trigger.ant-table-filter-trigger')!);
+
+    // There is one checkbox and it begins unchecked.
+    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toEqual(
+      false,
+    );
+
+    // User checks it.
+    fireEvent.click(container.querySelector('input[type="checkbox"]')!);
+
+    // The checkbox is now checked.
+    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toEqual(
+      true,
+    );
+
+    // Table data changes while the dropdown is open and a user is setting filters.
+    rerender(createTable({ ...tableProps, dataSource: [{ name: 'Foo' }] }));
+
+    // The checkbox is still checked.
+    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toEqual(
+      true,
+    );
   });
 });

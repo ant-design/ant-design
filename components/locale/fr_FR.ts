@@ -1,8 +1,8 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/fr_FR';
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/fr_FR';
 import DatePicker from '../date-picker/locale/fr_FR';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/fr_FR';
 
 const typeTemplate = "La valeur du champ ${label} n'est pas valide pour le type ${type}";
@@ -36,6 +36,11 @@ const localeValues: Locale = {
     okText: 'OK',
     cancelText: 'Annuler',
     justOkText: 'OK',
+  },
+  Tour: {
+    Next: 'Étape suivante',
+    Previous: 'Étape précédente',
+    Finish: 'Fin de la visite guidée',
   },
   Popconfirm: {
     okText: 'OK',

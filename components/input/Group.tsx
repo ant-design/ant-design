@@ -4,6 +4,7 @@ import { useContext, useMemo } from 'react';
 import { ConfigContext } from '../config-provider';
 import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
+import warning from '../_util/warning';
 import useStyle from './style';
 
 export interface GroupProps {
@@ -46,6 +47,14 @@ const Group: React.FC<GroupProps> = (props) => {
     }),
     [formItemContext],
   );
+
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      false,
+      'Input.Group',
+      `'Input.Group' is deprecated. Please use 'Space.Compact' instead.`,
+    );
+  }
 
   return wrapSSR(
     <span

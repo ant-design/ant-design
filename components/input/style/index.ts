@@ -1,9 +1,9 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import type { GlobalToken } from '../../theme/interface';
 import { clearFix, resetComponent } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
+import type { GlobalToken } from '../../theme/interface';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export type InputToken<T extends GlobalToken = FullToken<'Input'>> = T & {
   inputAffixPadding: number;
@@ -175,7 +175,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
 
   // Reset height for `textarea`s
   'textarea&': {
-    maxWidth: '100%', // prevent textearea resize from coming out of its container
+    maxWidth: '100%', // prevent textarea resize from coming out of its container
     height: 'auto',
     minHeight: token.controlHeight,
     lineHeight: token.lineHeight,
@@ -610,6 +610,10 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         borderRadius: 0,
         outline: 'none',
 
+        '&::-ms-reveal': {
+          display: 'none',
+        },
+
         '&:focus': {
           boxShadow: 'none !important',
         },
@@ -669,7 +673,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 };
 
 const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
-  const { componentCls, colorError, colorSuccess, borderRadiusLG, borderRadiusSM } = token;
+  const { componentCls, colorError, colorWarning, borderRadiusLG, borderRadiusSM } = token;
 
   return {
     [`${componentCls}-group`]: {
@@ -711,9 +715,38 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           },
         },
         '&-status-warning': {
-          [`${componentCls}-group-addon:last-child`]: {
-            color: colorSuccess,
-            borderColor: colorSuccess,
+          [`${componentCls}-group-addon`]: {
+            color: colorWarning,
+            borderColor: colorWarning,
+          },
+        },
+
+        '&-disabled': {
+          [`${componentCls}-group-addon`]: {
+            ...genDisabledStyle(token),
+          },
+        },
+
+        // Fix the issue of using icons in Space Compact mode
+        // https://github.com/ant-design/ant-design/issues/42122
+        [`&:not(${componentCls}-compact-first-item):not(${componentCls}-compact-last-item)${componentCls}-compact-item`]:
+          {
+            [`${componentCls}, ${componentCls}-group-addon`]: {
+              borderRadius: 0,
+            },
+          },
+
+        [`&:not(${componentCls}-compact-last-item)${componentCls}-compact-first-item`]: {
+          [`${componentCls}, ${componentCls}-group-addon`]: {
+            borderStartEndRadius: 0,
+            borderEndEndRadius: 0,
+          },
+        },
+
+        [`&:not(${componentCls}-compact-first-item)${componentCls}-compact-last-item`]: {
+          [`${componentCls}, ${componentCls}-group-addon`]: {
+            borderStartStartRadius: 0,
+            borderEndStartRadius: 0,
           },
         },
       },
@@ -875,17 +908,18 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
         },
 
         [`${componentCls}-data-count`]: {
+          position: 'absolute',
+          bottom: -token.fontSize * token.lineHeight,
+          insetInlineEnd: 0,
           color: token.colorTextDescription,
           whiteSpace: 'nowrap',
           pointerEvents: 'none',
-          float: 'right',
-          marginBottom: -token.fontSize * token.lineHeight,
         },
+      },
 
-        '&-rtl': {
-          [`${componentCls}-data-count`]: {
-            float: 'left',
-          },
+      '&-allow-clear': {
+        [`> ${componentCls}`]: {
+          paddingInlineEnd: paddingLG,
         },
       },
 

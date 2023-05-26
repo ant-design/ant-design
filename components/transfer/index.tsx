@@ -1,17 +1,17 @@
 import classNames from 'classnames';
 import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
+import warning from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
+import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
-import LocaleReceiver from '../locale/LocaleReceiver';
-import type { InputStatus } from '../_util/statusUtils';
-import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
-import warning from '../_util/warning';
 import type { PaginationType } from './interface';
 import type { TransferListProps } from './list';
 import List from './list';
@@ -104,24 +104,6 @@ export interface TransferProps<RecordType> {
   status?: InputStatus;
 }
 
-// interface TransferFCProps {
-//   prefixCls: string;
-//   className?: string;
-//   rootClassName?: string;
-//   style?: React.CSSProperties;
-//   children: React.ReactNode;
-// }
-
-// const TransferFC: React.FC<TransferFCProps> = (props) => {
-//   const { prefixCls, className, rootClassName, style, children } = props;
-//   const [wrapSSR, hashId] = useStyle(prefixCls);
-//   return wrapSSR(
-//     <div className={classNames(className, rootClassName, hashId)} style={style}>
-//       {children}
-//     </div>,
-//   );
-// };
-
 const Transfer = <RecordType extends TransferItem = TransferItem>(
   props: TransferProps<RecordType>,
 ) => {
@@ -191,9 +173,11 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const setStateKeys = useCallback(
     (direction: TransferDirection, keys: string[] | ((prevKeys: string[]) => string[])) => {
       if (direction === 'left') {
-        setSourceSelectedKeys((prev) => (typeof keys === 'function' ? keys(prev || []) : keys));
+        const nextKeys = typeof keys === 'function' ? keys(sourceSelectedKeys || []) : keys;
+        setSourceSelectedKeys(nextKeys);
       } else {
-        setTargetSelectedKeys((prev) => (typeof keys === 'function' ? keys(prev || []) : keys));
+        const nextKeys = typeof keys === 'function' ? keys(targetSelectedKeys || []) : keys;
+        setTargetSelectedKeys(nextKeys);
       }
     },
     [sourceSelectedKeys, targetSelectedKeys],
@@ -248,10 +232,16 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     moveTo('right');
   };
 
-  const onItemSelectAll = (direction: TransferDirection, keys: string[], checkAll: boolean) => {
+  const onItemSelectAll = (
+    direction: TransferDirection,
+    keys: string[],
+    checkAll: boolean | 'replace',
+  ) => {
     setStateKeys(direction, (prevKeys) => {
       let mergedCheckedKeys: string[] = [];
-      if (checkAll) {
+      if (checkAll === 'replace') {
+        mergedCheckedKeys = keys;
+      } else if (checkAll) {
         // Merge current keys with origin key
         mergedCheckedKeys = Array.from(new Set<string>([...prevKeys, ...keys]));
       } else {
@@ -367,78 +357,76 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     hashId,
   );
 
+  const [contextLocale] = useLocale('Transfer', defaultLocale.Transfer);
+
+  const listLocale = getLocale(contextLocale!);
+
+  const [leftTitle, rightTitle] = getTitles(listLocale);
+
   return wrapSSR(
-    <LocaleReceiver componentName="Transfer" defaultLocale={defaultLocale.Transfer}>
-      {(contextLocale) => {
-        const listLocale = getLocale(contextLocale);
-        const [leftTitle, rightTitle] = getTitles(listLocale);
-        return (
-          <div className={cls} style={style}>
-            <List<KeyWise<RecordType>>
-              prefixCls={`${prefixCls}-list`}
-              titleText={leftTitle}
-              dataSource={leftDataSource}
-              filterOption={filterOption}
-              style={handleListStyle('left')}
-              checkedKeys={sourceSelectedKeys}
-              handleFilter={leftFilter}
-              handleClear={handleLeftClear}
-              onItemSelect={onLeftItemSelect}
-              onItemSelectAll={onLeftItemSelectAll}
-              render={render}
-              showSearch={showSearch}
-              renderList={children}
-              footer={footer}
-              onScroll={handleLeftScroll}
-              disabled={disabled}
-              direction={dir === 'rtl' ? 'right' : 'left'}
-              showSelectAll={showSelectAll}
-              selectAllLabel={selectAllLabels[0]}
-              pagination={mergedPagination}
-              {...listLocale}
-            />
-            <Operation
-              className={`${prefixCls}-operation`}
-              rightActive={rightActive}
-              rightArrowText={operations[0]}
-              moveToRight={moveToRight}
-              leftActive={leftActive}
-              leftArrowText={operations[1]}
-              moveToLeft={moveToLeft}
-              style={operationStyle}
-              disabled={disabled}
-              direction={dir}
-              oneWay={oneWay}
-            />
-            <List<KeyWise<RecordType>>
-              prefixCls={`${prefixCls}-list`}
-              titleText={rightTitle}
-              dataSource={rightDataSource}
-              filterOption={filterOption}
-              style={handleListStyle('right')}
-              checkedKeys={targetSelectedKeys}
-              handleFilter={rightFilter}
-              handleClear={handleRightClear}
-              onItemSelect={onRightItemSelect}
-              onItemSelectAll={onRightItemSelectAll}
-              onItemRemove={onRightItemRemove}
-              render={render}
-              showSearch={showSearch}
-              renderList={children}
-              footer={footer}
-              onScroll={handleRightScroll}
-              disabled={disabled}
-              direction={dir === 'rtl' ? 'left' : 'right'}
-              showSelectAll={showSelectAll}
-              selectAllLabel={selectAllLabels[1]}
-              showRemove={oneWay}
-              pagination={mergedPagination}
-              {...listLocale}
-            />
-          </div>
-        );
-      }}
-    </LocaleReceiver>,
+    <div className={cls} style={style}>
+      <List<KeyWise<RecordType>>
+        prefixCls={`${prefixCls}-list`}
+        titleText={leftTitle}
+        dataSource={leftDataSource}
+        filterOption={filterOption}
+        style={handleListStyle('left')}
+        checkedKeys={sourceSelectedKeys}
+        handleFilter={leftFilter}
+        handleClear={handleLeftClear}
+        onItemSelect={onLeftItemSelect}
+        onItemSelectAll={onLeftItemSelectAll}
+        render={render}
+        showSearch={showSearch}
+        renderList={children}
+        footer={footer}
+        onScroll={handleLeftScroll}
+        disabled={disabled}
+        direction={dir === 'rtl' ? 'right' : 'left'}
+        showSelectAll={showSelectAll}
+        selectAllLabel={selectAllLabels[0]}
+        pagination={mergedPagination}
+        {...listLocale}
+      />
+      <Operation
+        className={`${prefixCls}-operation`}
+        rightActive={rightActive}
+        rightArrowText={operations[0]}
+        moveToRight={moveToRight}
+        leftActive={leftActive}
+        leftArrowText={operations[1]}
+        moveToLeft={moveToLeft}
+        style={operationStyle}
+        disabled={disabled}
+        direction={dir}
+        oneWay={oneWay}
+      />
+      <List<KeyWise<RecordType>>
+        prefixCls={`${prefixCls}-list`}
+        titleText={rightTitle}
+        dataSource={rightDataSource}
+        filterOption={filterOption}
+        style={handleListStyle('right')}
+        checkedKeys={targetSelectedKeys}
+        handleFilter={rightFilter}
+        handleClear={handleRightClear}
+        onItemSelect={onRightItemSelect}
+        onItemSelectAll={onRightItemSelectAll}
+        onItemRemove={onRightItemRemove}
+        render={render}
+        showSearch={showSearch}
+        renderList={children}
+        footer={footer}
+        onScroll={handleRightScroll}
+        disabled={disabled}
+        direction={dir === 'rtl' ? 'left' : 'right'}
+        showSelectAll={showSelectAll}
+        selectAllLabel={selectAllLabels[1]}
+        showRemove={oneWay}
+        pagination={mergedPagination}
+        {...listLocale}
+      />
+    </div>,
   );
 };
 

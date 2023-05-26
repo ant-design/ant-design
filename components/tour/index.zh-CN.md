@@ -4,6 +4,7 @@ subtitle: 漫游式引导
 group: 数据展示
 title: Tour
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8CC_Tbe3_e4AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*nF6hQpM0XtEAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -21,6 +22,7 @@ demo:
 <code src="./demo/non-modal.tsx">非模态</code>
 <code src="./demo/placement.tsx">位置</code>
 <code src="./demo/mask.tsx">自定义遮罩样式</code>
+<code src="./demo/indicator.tsx">自定义指示器</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
@@ -36,9 +38,11 @@ demo:
 | mask | 是否启用蒙层，也可传入配置改变蒙层样式和填充色 | `boolean \| { style?: React.CSSProperties; color?: string; }` | `true` |  |
 | type | 类型，影响底色与文字颜色 | `default` \| `primary` | `default` |  |
 | open | 打开引导 | `boolean` | - |  |
-| onChange | 步骤改变时的回调，current 为当前前的步骤 | `(current: number) => void` | - |  |
+| onChange | 步骤改变时的回调，current 为当前的步骤 | `(current: number) => void` | - |  |
 | current | 当前处于哪一步 | `number` | - |  |
 | scrollIntoViewOptions | 是否支持当前元素滚动到视窗内，也可传入配置指定滚动视窗的相关参数 | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |
+| indicatorsRender | 自定义指示器 | `(current: number, total: number) => ReactNode` | - | 5.2.0 |
+| zIndex | Tour 的层级 | number | 1001 | 5.3.0 |
 
 ### TourStep 引导步骤卡片
 
@@ -56,3 +60,7 @@ demo:
 | nextButtonProps | 下一步按钮的属性 | `{ children: ReactNode; onClick: Function }` | - |  |
 | prevButtonProps | 上一步按钮的属性 | `{ children: ReactNode; onClick: Function }` | - |  |
 | scrollIntoViewOptions | 是否支持当前元素滚动到视窗内，也可传入配置指定滚动视窗的相关参数，默认跟随 Tour 的 `scrollIntoViewOptions` 属性 | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |
+
+## Design Token
+
+<ComponentTokenTable component="Tour"></ComponentTokenTable>

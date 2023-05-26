@@ -4,6 +4,7 @@ subtitle: 骨架屏
 group: 反馈
 title: Skeleton
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*uae3QbkNCm8AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 在需要等待加载内容的位置提供一个占位图形组合。
@@ -74,3 +75,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*uae3QbkNCm8AAAAAAA
 | ------ | ---------------- | ------------------------------- | ------ |
 | active | 是否展示动画效果 | boolean                         | false  |
 | size   | 设置输入框的大小 | `large` \| `small` \| `default` | -      |
+
+## Design Token
+
+<ComponentTokenTable component="Skeleton"></ComponentTokenTable>

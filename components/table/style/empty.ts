@@ -11,7 +11,10 @@ const genEmptyStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         textAlign: 'center',
         color: token.colorTextDisabled,
 
-        '&:hover > td': {
+        [`
+          &:hover > th,
+          &:hover > td,
+        `]: {
           background: token.colorBgContainer,
         },
       },

@@ -12,6 +12,7 @@ const locale: PickerLocale = {
     weekPlaceholder: 'انتخاب هفته',
     rangePlaceholder: ['تاریخ شروع', 'تاریخ پایان'],
     rangeYearPlaceholder: ['سال شروع', 'سال پایان'],
+    rangeQuarterPlaceholder: ['فصل شروع', 'فصل پایان'],
     rangeMonthPlaceholder: ['ماه شروع', 'ماه پایان'],
     rangeWeekPlaceholder: ['هفته شروع', 'هفته پایان'],
     ...CalendarLocale,

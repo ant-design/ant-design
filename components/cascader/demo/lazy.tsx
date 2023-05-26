@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Cascader } from 'antd';
 
 interface Option {
-  value: string;
-  label: string;
+  value?: string | number | null;
+  label: React.ReactNode;
   children?: Option[];
   isLeaf?: boolean;
   loading?: boolean;
@@ -25,7 +25,7 @@ const optionLists: Option[] = [
 const App: React.FC = () => {
   const [options, setOptions] = useState<Option[]>(optionLists);
 
-  const onChange = (value: string[], selectedOptions: Option[]) => {
+  const onChange = (value: (string | number)[], selectedOptions: Option[]) => {
     console.log(value, selectedOptions);
   };
 

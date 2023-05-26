@@ -4,6 +4,7 @@ group: 数据展示
 title: Table
 subtitle: 表格
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3yz3QqMlShYAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Sv8XQ50NB40AAAAAAAAAAAAADrJ8AQ/original
 ---
 
 展示行列数据。
@@ -104,6 +105,7 @@ const columns = [
 <code src="./demo/row-selection-custom-debug.tsx" debug>自定义选择项组</code>
 <code src="./demo/sticky.tsx">随页面滚动的固定表头和滚动条</code>
 <code src="./demo/dynamic-settings.tsx">动态控制表格属性</code>
+<code src="./demo/selections-debug.tsx" debug>带下拉箭头的表头</code>
 
 ## API
 
@@ -258,6 +260,7 @@ const columns = [
 | defaultSelectedRowKeys | 默认选中项的 key 数组 | string\[] \| number\[] | \[] |  |
 | selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[] \| boolean | true |  |
 | type | 多选/单选 | `checkbox` \| `radio` | `checkbox` |  |
+| onCell | 设置单元格属性，用法与 Column 的 `onCell` 相同 | function(record, rowIndex) | - | 5.5.0 |
 | onChange | 选中项发生变化时的回调 | function(selectedRowKeys, selectedRows, info: { type }) | - | `info.type`: 4.21.0 |
 | onSelect | 用户手动选择/取消选择某行的回调 | function(record, selected, selectedRows, nativeEvent) | - |  |
 | onSelectAll | 用户手动选择/取消选择所有行的回调 | function(selected, selectedRows, changeRows) | - |  |
@@ -286,6 +289,7 @@ const columns = [
 ```tsx
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+import React from 'react';
 
 interface User {
   key: number;
@@ -307,7 +311,7 @@ const data: User[] = [
   },
 ];
 
-export default () => (
+const Demo: React.FC = () => (
   <>
     <Table<User> columns={columns} dataSource={data} />
     {/* 使用 JSX 风格的 API */}
@@ -316,9 +320,15 @@ export default () => (
     </Table>
   </>
 );
+
+export default Demo;
 ```
 
 TypeScript 里使用 Table 的 [CodeSandbox 实例](https://codesandbox.io/s/serene-platform-0jo5t)。
+
+## Design Token
+
+<ComponentTokenTable component="Table"></ComponentTokenTable>
 
 ## 注意
 

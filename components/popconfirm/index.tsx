@@ -1,15 +1,15 @@
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import KeyCode from 'rc-util/lib/KeyCode';
-import * as React from 'react';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
+import * as React from 'react';
+import type { RenderFunction } from '../_util/getRenderPropValue';
+import { cloneElement } from '../_util/reactNode';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import { ConfigContext } from '../config-provider';
 import Popover from '../popover';
 import type { AbstractTooltipProps } from '../tooltip';
-import type { RenderFunction } from '../_util/getRenderPropValue';
-import { cloneElement } from '../_util/reactNode';
 import PurePanel, { Overlay } from './PurePanel';
 import usePopconfirmStyle from './style';
 
@@ -30,6 +30,7 @@ export interface PopconfirmProps extends AbstractTooltipProps {
     open: boolean,
     e?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLDivElement>,
   ) => void;
+  onPopupClick?: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 export interface PopconfirmState {
@@ -37,6 +38,19 @@ export interface PopconfirmState {
 }
 
 const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
+  const {
+    prefixCls: customizePrefixCls,
+    placement = 'top',
+    trigger = 'click',
+    okType = 'primary',
+    icon = <ExclamationCircleFilled />,
+    children,
+    overlayClassName,
+    onOpenChange,
+    onVisibleChange,
+    ...restProps
+  } = props;
+
   const { getPrefixCls } = React.useContext(ConfigContext);
   const [open, setOpen] = useMergedState(false, {
     value: props.open,
@@ -50,7 +64,8 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     e?: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>,
   ) => {
     setOpen(value, true);
-    props.onOpenChange?.(value, e);
+    onVisibleChange?.(value);
+    onOpenChange?.(value, e);
   };
 
   const close = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -70,7 +85,7 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     }
   };
 
-  const onOpenChange = (value: boolean) => {
+  const onInternalOpenChange = (value: boolean) => {
     const { disabled = false } = props;
     if (disabled) {
       return;
@@ -78,16 +93,6 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     settingOpen(value);
   };
 
-  const {
-    prefixCls: customizePrefixCls,
-    placement = 'top',
-    trigger = 'click',
-    okType = 'primary',
-    icon = <ExclamationCircleFilled />,
-    children,
-    overlayClassName,
-    ...restProps
-  } = props;
   const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
   const overlayClassNames = classNames(prefixCls, overlayClassName);
 
@@ -98,7 +103,7 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
       {...omit(restProps, ['title'])}
       trigger={trigger}
       placement={placement}
-      onOpenChange={onOpenChange}
+      onOpenChange={onInternalOpenChange}
       open={open}
       ref={ref}
       overlayClassName={overlayClassNames}

@@ -3,6 +3,7 @@ category: Components
 subtitle: 徽标数
 title: Badge
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e0qITYqF394AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*v8EQT7KoGbcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group: 数据展示
@@ -57,3 +58,7 @@ group: 数据展示
 | color | 自定义缎带的颜色 | string | - |  |
 | placement | 缎带的位置，`start` 和 `end` 随文字方向（RTL 或 LTR）变动 | `start` \| `end` | `end` |  |
 | text | 缎带中填入的内容 | ReactNode | - |  |
+
+## Design Token
+
+<ComponentTokenTable component="Badge"></ComponentTokenTable>

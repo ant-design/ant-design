@@ -1,10 +1,10 @@
 import { Theme } from '@ant-design/cssinjs';
 import * as React from 'react';
-import genRadius from '../themes/shared/genRadius';
+import theme from '..';
 import { render, renderHook } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Row from '../../row';
-import theme from '..';
+import genRadius from '../themes/shared/genRadius';
 
 const { useToken } = theme;
 
@@ -204,5 +204,21 @@ describe('Theme', () => {
         rowShouldThrow({ [screen]: value }, error);
       });
     });
+  });
+
+  it('motion false token', () => {
+    const Shower = () => {
+      const { token } = useToken();
+
+      return <div className="duration">{token.motionDurationSlow}</div>;
+    };
+
+    const { container } = render(
+      <ConfigProvider theme={{ token: { motion: false } }}>
+        <Shower />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.duration')?.textContent).toEqual('0s');
   });
 });

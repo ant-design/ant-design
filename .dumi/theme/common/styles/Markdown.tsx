@@ -340,7 +340,7 @@ export default () => {
 
               &:nth-child(3) {
                 width: 22%;
-                color: ${token['magenta-7']};
+                color: ${token.magenta7};
                 font-size: ${Math.max(token.fontSize - 1, 12)}px;
               }
 

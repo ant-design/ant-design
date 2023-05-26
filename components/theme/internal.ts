@@ -17,20 +17,20 @@ import defaultSeedToken from './themes/seed';
 import formatToken from './util/alias';
 import type { FullToken } from './util/genComponentStyleHook';
 import genComponentStyleHook from './util/genComponentStyleHook';
-import statisticToken, { merge as mergeToken, statistic } from './util/statistic';
+import statisticToken, { merge as mergeToken } from './util/statistic';
+import genPresetColor from './util/genPresetColor';
 
 const defaultTheme = createTheme(defaultDerivative);
 
 export {
   // colors
   PresetColors,
-  // Statistic
-  statistic,
   statisticToken,
   mergeToken,
   // hooks
   useStyleRegister,
   genComponentStyleHook,
+  genPresetColor,
 };
 export type {
   SeedToken,

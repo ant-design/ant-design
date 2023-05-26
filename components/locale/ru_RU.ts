@@ -23,6 +23,7 @@ const localeValues: Locale = {
     filterReset: 'Сбросить',
     filterEmptyText: 'Без фильтров',
     filterCheckall: 'Выбрать все элементы',
+    filterSearchPlaceholder: 'Поиск в фильтрах',
     emptyText: 'Нет данных',
     selectAll: 'Выбрать всё',
     selectInvert: 'Инвертировать выбор',
@@ -34,6 +35,11 @@ const localeValues: Locale = {
     triggerDesc: 'Нажмите для сортировки по убыванию',
     triggerAsc: 'Нажмите для сортировки по возрастанию',
     cancelSort: 'Нажмите, чтобы отменить сортировку',
+  },
+  Tour: {
+    Next: 'Далее',
+    Previous: 'Назад',
+    Finish: 'Завершить',
   },
   Modal: {
     okText: 'OK',
@@ -79,6 +85,7 @@ const localeValues: Locale = {
     back: 'Назад',
   },
   Form: {
+    optional: '(необязательно)',
     defaultValidateMessages: {
       default: 'Ошибка проверки поля ${label}',
       required: 'Пожалуйста, введите ${label}',
@@ -114,6 +121,7 @@ const localeValues: Locale = {
         len: '${label} должна быть равна ${len}',
         min: '${label} должна быть больше или равна ${min}',
         max: '${label} должна быть меньше или равна ${max}',
+        range: '${label} должна быть между ${min}-${max}',
       },
       array: {
         len: 'Количество элементов ${label} должно быть равно ${len}',
@@ -128,6 +136,10 @@ const localeValues: Locale = {
   },
   Image: {
     preview: 'Предпросмотр',
+  },
+  QRCode: {
+    expired: 'QR-код устарел',
+    refresh: 'Обновить',
   },
 };
 

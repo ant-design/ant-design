@@ -15,7 +15,7 @@ const App: React.FC = () => {
     if (inputVisible) {
       inputRef.current?.focus();
     }
-  }, []);
+  }, [inputVisible]);
 
   const handleClose = (removedTag: string) => {
     const newTags = tags.filter((tag) => tag !== removedTag);

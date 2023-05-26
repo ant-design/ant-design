@@ -3,6 +3,7 @@ category: Components
 group: Data Display
 title: Tree
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Ag9_Q6ArswEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1GeUQJPTGUYAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -121,6 +122,10 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 | Name | Description |
 | --- | --- |
 | scrollTo({ key: string \| number; align?: 'top' \| 'bottom' \| 'auto'; offset?: number }) | Scroll to key item in virtual scroll |
+
+## Design Token
+
+<ComponentTokenTable component="Transfer"></ComponentTokenTable>
 
 ## FAQ
 

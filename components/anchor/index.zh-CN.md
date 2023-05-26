@@ -3,6 +3,7 @@ category: Components
 title: Anchor
 subtitle: 锚点
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*TBTSR4PyVmkAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JGb3RIzyOCkAAAAAAAAAAAAADrJ8AQ/original
 demo:
 group:
   title: 导航
@@ -35,7 +36,7 @@ group:
 
 ### Anchor Props
 
-| 成员 | 说明 | 类型 | 默认值 | 版本 |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | affix | 固定模式 | boolean | true |  |
 | bounds | 锚点区域边界 | number | 5 |  |
@@ -51,7 +52,7 @@ group:
 
 ### AnchorItem
 
-| 成员 | 说明 | 类型 | 默认值 | 版本 |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | key | 唯一标志 | string \| number | - |  |
 | href | 锚点链接 | string | - |  |
@@ -63,8 +64,12 @@ group:
 
 建议使用 items 形式。
 
-| 成员   | 说明                           | 类型      | 默认值 | 版本 |
+| 参数   | 说明                           | 类型      | 默认值 | 版本 |
 | ------ | ------------------------------ | --------- | ------ | ---- |
 | href   | 锚点链接                       | string    | -      |      |
 | target | 该属性指定在何处显示链接的资源 | string    | -      |      |
 | title  | 文字内容                       | ReactNode | -      |      |
+
+## Design Token
+
+<ComponentTokenTable component="Anchor"></ComponentTokenTable>

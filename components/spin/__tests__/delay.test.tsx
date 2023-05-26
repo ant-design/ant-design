@@ -42,4 +42,15 @@ describe('delay spinning', () => {
     unmount();
     expect(cancel).toHaveBeenCalled();
   });
+
+  it('should close immediately', async () => {
+    jest.useFakeTimers();
+    const { container, rerender } = render(<Spin spinning delay={500} />);
+
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-spin-spinning')).toBeTruthy();
+
+    rerender(<Spin spinning={false} delay={500} />);
+    expect(container.querySelector('.ant-spin-spinning')).toBeFalsy();
+  });
 });

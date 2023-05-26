@@ -1,11 +1,11 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import { Popup } from 'rc-tooltip';
+import * as React from 'react';
 import type { PopoverProps } from '.';
 import { ConfigContext } from '../config-provider';
 
-import useStyle from './style';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
+import useStyle from './style';
 
 export const getOverlay = (
   prefixCls: string,
@@ -48,6 +48,7 @@ export function RawPurePanel(props: any) {
       )}
       style={style}
     >
+      <div className={`${prefixCls}-arrow`} />
       <Popup {...props} className={hashId} prefixCls={prefixCls}>
         {children || getOverlay(prefixCls, title, content)}
       </Popup>

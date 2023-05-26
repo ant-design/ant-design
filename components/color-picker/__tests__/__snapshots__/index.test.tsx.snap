@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColorPicker Should disabled work 1`] = `
+<div>
+  <div
+    class="ant-color-picker-trigger ant-color-picker-trigger-disabled"
+  >
+    <div
+      class="ant-color-picker-color-block"
+    >
+      <div
+        class="ant-color-picker-color-block-inner"
+        style="background: rgb(22, 119, 255);"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorPicker Should render trigger work 1`] = `
+<div>
+  <div
+    class="trigger"
+  />
+</div>
+`;
+
+exports[`ColorPicker rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-color-picker-trigger ant-color-picker-rtl"
+>
+  <div
+    class="ant-color-picker-color-block"
+  >
+    <div
+      class="ant-color-picker-color-block-inner"
+      style="background: rgb(22, 119, 255);"
+    />
+  </div>
+</div>
+`;

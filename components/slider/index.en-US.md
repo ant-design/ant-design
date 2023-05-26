@@ -3,6 +3,7 @@ category: Components
 group: Data Entry
 title: Slider
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*_4heQaUrFn4AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*XkgXTaudeosAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -25,7 +26,7 @@ To input a value in a range.
 <code src="./demo/vertical.tsx">Vertical</code>
 <code src="./demo/show-tooltip.tsx">Control visible of ToolTip</code>
 <code src="./demo/reverse.tsx">Reverse</code>
-<code src="./demo/dragableTrack.tsx">Draggable track</code>
+<code src="./demo/draggableTrack.tsx">Draggable track</code>
 
 ## API
 
@@ -73,3 +74,7 @@ To input a value in a range.
 | ------- | ------------ | ------- |
 | blur()  | Remove focus |         |
 | focus() | Get focus    |         |
+
+## Design Token
+
+<ComponentTokenTable component="Slider"></ComponentTokenTable>

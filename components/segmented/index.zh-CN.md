@@ -4,6 +4,7 @@ subtitle: 分段控制器
 group: 数据展示
 title: Segmented
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*papwTpNscPIAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tz7qSaWpi1kAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -45,3 +46,7 @@ demo:
 | options | 数据化配置选项内容 | string\[] \| number\[] \| Array<{ label: ReactNode value: string icon? ReactNode disabled?: boolean className?: string }> | [] |  |
 | size | 控件尺寸 | `large` \| `middle` \| `small` | `middle` |  |
 | value | 当前选中的值 | string \| number |  |  |
+
+## Design Token
+
+<ComponentTokenTable component="Segmented"></ComponentTokenTable>

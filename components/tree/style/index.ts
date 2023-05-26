@@ -1,10 +1,10 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
-import { genCollapseMotion } from '../../style/motion';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
+import { genFocusOutline, resetComponent } from '../../style';
+import { genCollapseMotion } from '../../style/motion';
 import type { DerivativeToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { genFocusOutline, resetComponent } from '../../style';
 
 // ============================ Keyframes =============================
 const treeNodeFX = new Keyframes('ant-tree-node-fx-do-not-use', {
@@ -64,8 +64,6 @@ type TreeToken = DerivativeToken & {
 
 export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => {
   const { treeCls, treeNodeCls, treeNodePadding, treeTitleHeight } = token;
-
-  const treeCheckBoxMarginVertical = (treeTitleHeight - token.fontSizeLG) / 2;
   const treeCheckBoxMarginHorizontal = token.paddingXS;
 
   return {
@@ -163,6 +161,8 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
 
         '&-draggable': {
           [`${treeCls}-draggable-icon`]: {
+            // https://github.com/ant-design/ant-design/issues/41915
+            flexShrink: 0,
             width: treeTitleHeight,
             lineHeight: `${treeTitleHeight}px`,
             textAlign: 'center',
@@ -260,7 +260,6 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       [`${treeCls}-checkbox`]: {
         top: 'initial',
         marginInlineEnd: treeCheckBoxMarginHorizontal,
-        marginBlockStart: treeCheckBoxMarginVertical,
       },
 
       // >>> Title

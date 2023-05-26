@@ -46,11 +46,12 @@ describe('ConfigProvider', () => {
 
     const { container } = pureRender(<App />);
 
+    const startCalledTimes = spy.mock.calls.length;
     fireEvent.click(container.querySelector('.render')!);
-    expect(spy.mock.calls.length).toEqual(1);
+    expect(spy.mock.calls.length).toEqual(startCalledTimes);
 
     fireEvent.click(container.querySelector('.setState')!);
-    expect(spy.mock.calls.length).toEqual(2);
+    expect(spy.mock.calls.length).toEqual(startCalledTimes + 1);
   });
 
   it('should not generate new context config in nested ConfigProvider when render', () => {
@@ -81,10 +82,11 @@ describe('ConfigProvider', () => {
 
     const { container } = pureRender(<App />);
 
+    const startCalledTimes = spy.mock.calls.length;
     fireEvent.click(container.querySelector('.render')!);
-    expect(spy.mock.calls.length).toEqual(1);
+    expect(spy.mock.calls.length).toEqual(startCalledTimes);
 
     fireEvent.click(container.querySelector('.setState')!);
-    expect(spy.mock.calls.length).toEqual(2);
+    expect(spy.mock.calls.length).toEqual(startCalledTimes + 1);
   });
 });

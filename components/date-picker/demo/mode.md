@@ -4,4 +4,4 @@
 
 ## en-US
 
-Determing which panel to show with `mode` and `onPanelChange`.
+Determine which panel to show with `mode` and `onPanelChange`.

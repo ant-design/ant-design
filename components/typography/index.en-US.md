@@ -3,6 +3,7 @@ category: Components
 group: General
 title: Typography
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*MLt3R6m9huoAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Basic text writing, including headings, body text, lists, and more.
@@ -150,6 +151,10 @@ Basic text writing, including headings, body text, lists, and more.
 | tooltip | Show tooltip when ellipsis | boolean \| ReactNode \| [TooltipProps](/components/tooltip/#api) | - | 4.11.0 |
 | onEllipsis | Called when enter or leave ellipsis state | function(ellipsis) | - | 4.2.0 |
 | onExpand | Called when expand content | function(event) | - |  |
+
+## Design Token
+
+<ComponentTokenTable component="Typography"></ComponentTokenTable>
 
 ## FAQ
 

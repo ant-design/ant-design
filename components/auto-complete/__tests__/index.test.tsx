@@ -68,7 +68,7 @@ describe('AutoComplete', () => {
     expect(screen.getByTitle(/reactnode/i)).toBeInTheDocument();
   });
 
-  it('legacy AutoComplete.Option should be compatiable', async () => {
+  it('legacy AutoComplete.Option should be compatible', async () => {
     render(
       <AutoComplete>
         <AutoComplete.Option value="111">111</AutoComplete.Option>

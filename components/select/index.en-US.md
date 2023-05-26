@@ -3,6 +3,7 @@ category: Components
 group: Data Entry
 title: Select
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*zo76T7KQx2UAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5oPiTqPxGAUAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -41,6 +42,8 @@ Select component to select value from options.
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/debug.tsx" debug>4.0 Debug</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/option-label-center.tsx" debug>Options label Centered</code>
+<code src="./demo/debug-flip-shift.tsx" iframe="200" debug>Flip + Shift</code>
 
 ## API
 
@@ -61,10 +64,10 @@ Select component to select value from options.
 | clearIcon | The custom clear icon | ReactNode | - |  |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
 | defaultOpen | Initial open state of dropdown | boolean | - |  |
-| defaultValue | Initial selected option | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
+| defaultValue | Initial selected option | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
 | disabled | Whether disabled select | boolean | false |  |
 | popupClassName | The className of dropdown menu | string | - | 4.23.0 |
-| dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |
+| popupMatchSelectWidth | Determine whether the popup menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | 5.5.0 |
 | dropdownRender | Customize dropdown content | (originNode: ReactNode) => ReactNode | - |  |
 | dropdownStyle | The style of dropdown menu | CSSProperties | - |  |
 | fieldNames | Customize node label, value, options field name | object | { label: `label`, value: `value`, options: `options` } | 4.17.0 |
@@ -88,19 +91,19 @@ Select component to select value from options.
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | removeIcon | The custom remove icon | ReactNode | - |  |
 | searchValue | The current input "search" text | string | - |  |
-| showArrow | Whether to show the drop-down arrow | boolean | true(for single select), false(for multiple select) |  |
+| showArrow | Whether to show the drop-down arrow | boolean | `true` |  |
 | showSearch | Whether select is searchable | boolean | single: false, multiple: true |  |
 | size | Size of Select input | `large` \| `middle` \| `small` | `middle` |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
-| suffixIcon | The custom suffix icon | ReactNode | - |  |
+| suffixIcon | The custom suffix icon. Customize icon will not response click open to avoid icon designed to do other interactive. You can use `pointer-events: none` style to bypass | ReactNode | - |  |
 | tagRender | Customize tag render, only applies when `mode` is set to `multiple` or `tags` | (props) => ReactNode | - |  |
 | tokenSeparators | Separator used to tokenize, only applies when `mode="tags"` | string\[] | - |  |
-| value | Current selected option (considered as a immutable array) | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
+| value | Current selected option (considered as a immutable array) | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onBlur | Called when blur | function | - |  |
 | onChange | Called when select an option or input value change | function(value, option:Option \| Array&lt;Option>) | - |  |
 | onClear | Called when clear | function | - | 4.6.0 |
-| onDeselect | Called when an option is deselected, param is the selected option's value. Only called for `multiple` or `tags`, effective in multiple or tags mode only | function(string \| number \| LabeledValue) | - |  |
+| onDeselect | Called when an option is deselected, param is the selected option's value. Only called for `multiple` or `tags`, effective in multiple or tags mode only | function(value: string \| number \| LabeledValue) | - |  |
 | onDropdownVisibleChange | Called when dropdown open | function(open) | - |  |
 | onFocus | Called when focus | function | - |  |
 | onInputKeyDown | Called when key pressed | function | - |  |
@@ -108,7 +111,7 @@ Select component to select value from options.
 | onMouseLeave | Called when mouse leave | function | - |  |
 | onPopupScroll | Called when dropdown scrolls | function | - |  |
 | onSearch | Callback function that is fired when input changed | function(value: string) | - |  |
-| onSelect | Called when an option is selected, the params are option's value (or key) and option instance | function(string \| number \| LabeledValue, option: Option) | - |  |
+| onSelect | Called when an option is selected, the params are option's value (or key) and option instance | function(value: string \| number \| LabeledValue, option: Option) | - |  |
 
 > Note, if you find that the drop-down menu scrolls with the page, or you need to trigger Select in other popup layers, please try to use `getPopupContainer={triggerNode => triggerNode.parentElement}` to fix the drop-down popup rendering node in the parent element of the trigger .
 
@@ -134,6 +137,10 @@ Select component to select value from options.
 | -------- | ----------- | ----------------------- | ------- | ------- |
 | key      | Group key   | string                  | -       |         |
 | label    | Group label | string \| React.Element | -       |         |
+
+## Design Token
+
+<ComponentTokenTable component="Select"></ComponentTokenTable>
 
 ## FAQ
 

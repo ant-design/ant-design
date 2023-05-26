@@ -3,6 +3,7 @@ category: Components
 group: Data Entry
 title: Form
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-lcdS5Qm1bsAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 High performance Form component with data scope management. Including data collection, verification, and styles.
@@ -25,6 +26,7 @@ High performance Form component with data scope management. Including data colle
 <code src="./demo/layout-can-wrap.tsx">label can wrap</code>
 <code src="./demo/warning-only.tsx">No block rule</code>
 <code src="./demo/useWatch.tsx">Watch Hooks</code>
+<code src="./demo/validate-only.tsx">Validate Only</code>
 <code src="./demo/form-item-path.tsx">Path Prefix</code>
 <code src="./demo/dynamic-form-item.tsx">Dynamic Form Item</code>
 <code src="./demo/dynamic-form-items.tsx">Dynamic Form nest Items</code>
@@ -72,7 +74,7 @@ High performance Form component with data scope management. Including data colle
 | requiredMark | Required mark style. Can use required mark or optional mark. You can not config to single Form.Item since this is a Form level config | boolean \| `optional` | true | 4.6.0 |
 | scrollToFirstError | Auto scroll to first failed field when submit | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) | false |  |
 | size | Set field component size (antd components only) | `small` \| `middle` \| `large` | - |  |
-| validateMessages | Validation prompt template, description [see below](#validatemessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |  |
+| validateMessages | Validation prompt template, description [see below](#validatemessages) | [ValidateMessages](https://github.com/ant-design/ant-design/blob/6234509d18bac1ac60fbb3f92a5b2c6a6361295a/components/locale/en_US.ts#L88-L134) | - |  |
 | validateTrigger | Config field validate trigger | string \| string\[] | `onChange` | 4.3.0 |
 | wrapperCol | The layout for input controls, same as `labelCol` | [object](/components/grid/#col) | - |  |
 | onFieldsChange | Trigger when field updated | function(changedFields, allFields) | - |  |
@@ -82,7 +84,7 @@ High performance Form component with data scope management. Including data colle
 
 ### validateMessages
 
-Form provides [default verification error messages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts). You can modify the template by configuring `validateMessages` property. A common usage is to configure localization:
+Form provides [default verification error messages](https://github.com/ant-design/ant-design/blob/6234509d18bac1ac60fbb3f92a5b2c6a6361295a/components/locale/en_US.ts#L88-L134). You can modify the template by configuring `validateMessages` property. A common usage is to configure localization:
 
 ```jsx
 const validateMessages = {
@@ -193,10 +195,18 @@ You can modify the default verification information of Form.Item through `messag
 
 ```jsx
 <Form>
-  <Form.Item messageVariables={{ another: 'good' }} label="user">
+  <Form.Item
+    messageVariables={{ another: 'good' }}
+    label="user"
+    rules={[{ required: true, message: '${another} is required' }]}
+  >
     <Input />
   </Form.Item>
-  <Form.Item messageVariables={{ label: 'good' }} label={<span>user</span>}>
+  <Form.Item
+    messageVariables={{ label: 'good' }}
+    label={<span>user</span>}
+    rules={[{ required: true, message: '${label} is required' }]}
+  >
     <Input />
   </Form.Item>
 </Form>
@@ -287,7 +297,7 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 | setFieldValue | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first) | (name: [NamePath](#namepath), value: any) => void | 4.22.0 |
 | setFieldsValue | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first). Use `setFieldValue` instead if you want to only config single value in Form.List | (values) => void |  |
 | submit | Submit the form. It's same as click `submit` button | () => void |  |
-| validateFields | Validate fields | (nameList?: [NamePath](#namepath)\[]) => Promise |  |
+| validateFields | Validate fields | (nameList?: [NamePath](#namepath)\[], { validateOnly?: boolean }) => Promise | `validateOnly`: 5.5.0 |
 
 #### validateFields return sample
 
@@ -353,9 +363,9 @@ export default () => {
 
 ### Form.useWatch
 
-`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance): Value`
+`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance | WatchOptions): Value`
 
-Added in `4.20.0`. Watch the value of a field. You can use this to interactive with other hooks like `useSWR` to reduce develop cost:
+Watch the value of a field. You can use this to interact with other hooks like `useSWR` to reduce development costs:
 
 ```tsx
 const Demo = () => {
@@ -374,16 +384,47 @@ const Demo = () => {
 };
 ```
 
+If your component is wrapped by `Form.Item`, you can omit the second argument, `Form.useWatch` will find the nearest `FormInstance` automatically.
+
+By default `useWatch` only watches the registered field. If you want to watch the unregistered field, please use `preserve`:
+
+```tsx
+const Demo = () => {
+  const [form] = Form.useForm();
+
+  const age = Form.useWatch('age', { form, preserve: true });
+  console.log(age);
+
+  return (
+    <div>
+      <Button onClick={() => form.setFieldValue('age', 2)}>Update</Button>
+      <Form form={form}>
+        <Form.Item name="name">
+          <Input />
+        </Form.Item>
+      </Form>
+    </div>
+  );
+};
+```
+
 ### Form.Item.useStatus
 
-`type Form.useFormItemStatus = (): { status: ValidateStatus | undefined }`
+`type Form.Item.useStatus = (): { status: ValidateStatus | undefined, errors: ReactNode[], warnings: ReactNode[] }`
 
-Added in `4.22.0`. Could be used to get validate status of Form.Item. If this hook is not used under Form.Item, `status` would be `undefined`:
+Added in `4.22.0`. Could be used to get validate status of Form.Item. If this hook is not used under Form.Item, `status` would be `undefined`. Added `error` and `warnings` in `5.4.0`, Could be used to get error messages and warning messages of Form.Item:
 
 ```tsx
 const CustomInput = ({ value, onChange }) => {
-  const { status } = Form.Item.useStatus();
-  return <input value={value} onChange={onChange} className={`custom-input-${status}`} />;
+  const { status, errors } = Form.Item.useStatus();
+  return (
+    <input
+      value={value}
+      onChange={onChange}
+      className={`custom-input-${status}`}
+      placeholder={(errors.length && errors[0]) || ''}
+    />
+  );
 };
 
 export default () => (
@@ -410,6 +451,7 @@ Form only update the Field which changed to avoid full refresh perf issue. Thus 
 | Name       | Description              | Type                     |
 | ---------- | ------------------------ | ------------------------ |
 | errors     | Error messages           | string\[]                |
+| warnings   | Warning messages         | string\[]                |
 | name       | Field name path          | [NamePath](#namepath)\[] |
 | touched    | Whether is operated      | boolean                  |
 | validating | Whether is in validating | boolean                  |
@@ -440,6 +482,17 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | validator | Customize validation rule. Accept Promise as return. See [example](#components-form-demo-register) | ([rule](#rule), value) => Promise |  |
 | warningOnly | Warning only. Not block form submit | boolean | 4.17.0 |
 | whitespace | Failed if only has whitespace, only work with `type: 'string'` rule | boolean |  |
+
+#### WatchOptions
+
+| Name | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| form | Form instance | FormInstance | Current form in context | 5.4.0 |
+| preserve | Whether to watch the field which has no matched `Form.Item` | boolean | false | 5.4.0 |
+
+## Design Token
+
+<ComponentTokenTable component="Form"></ComponentTokenTable>
 
 ## FAQ
 
@@ -540,6 +593,10 @@ React can not get correct interaction of controlled component with async value u
 See similar issues: [#28370](https://github.com/ant-design/ant-design/issues/28370) [#27994](https://github.com/ant-design/ant-design/issues/27994)
 
 `scrollToFirstError` and `scrollToField` deps on `id` attribute passed to form control, please make sure that it hasn't been ignored in your custom form control. Check [codesandbox](https://codesandbox.io/s/antd-reproduction-template-forked-25nul?file=/index.js) for solution.
+
+### Continue, why not use `ref` to bind element?
+
+Form can not get real DOM node when customize component not support `ref`. It will get warning in React Strict Mode if wrap with Class Component and call `findDOMNode`. So we use `id` to locate element.
 
 ### `setFieldsValue` do not trigger `onFieldsChange` or `onValuesChange`?
 

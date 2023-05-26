@@ -1,21 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/divider/demo/customize-style.tsx extend context correctly 1`] = `
+exports[`renders components/divider/demo/customize-style.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal"
     role="separator"
-    style="border-width:2px;border-color:#7cb305"
+    style="border-width: 2px; border-color: #7cb305;"
   />,
   <div
     class="ant-divider ant-divider-horizontal ant-divider-dashed"
     role="separator"
-    style="border-color:#7cb305"
+    style="border-color: #7cb305;"
   />,
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-dashed"
     role="separator"
-    style="border-color:#7cb305"
+    style="border-color: #7cb305;"
   >
     <span
       class="ant-divider-inner-text"
@@ -26,20 +26,20 @@ Array [
   <div
     class="ant-divider ant-divider-vertical"
     role="separator"
-    style="height:60px;border-color:#7cb305"
+    style="height: 60px; border-color: #7cb305;"
   />,
   <div
     class="ant-divider ant-divider-vertical ant-divider-dashed"
     role="separator"
-    style="height:60px;border-color:#7cb305"
+    style="height: 60px; border-color: #7cb305;"
   />,
   <div
-    style="display:flex;flex-direction:column;height:50px;box-shadow:0 0 1px red"
+    style="display: flex; flex-direction: column; height: 50px; box-shadow: 0 0 1px red;"
   >
     <div
       class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
       role="separator"
-      style="background:rgba(0,255,0,0.05)"
+      style="background: rgba(0, 255, 0, 0.05);"
     >
       <span
         class="ant-divider-inner-text"
@@ -51,7 +51,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/divider/demo/horizontal.tsx extend context correctly 1`] = `
+exports[`renders components/divider/demo/horizontal.tsx extend context correctly 1`] = `
 Array [
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -73,7 +73,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/divider/demo/plain.tsx extend context correctly 1`] = `
+exports[`renders components/divider/demo/plain.tsx extend context correctly 1`] = `
 Array [
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -120,7 +120,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/divider/demo/vertical.tsx extend context correctly 1`] = `
+exports[`renders components/divider/demo/vertical.tsx extend context correctly 1`] = `
 Array [
   Text,
   <div
@@ -144,7 +144,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/divider/demo/with-text.tsx extend context correctly 1`] = `
+exports[`renders components/divider/demo/with-text.tsx extend context correctly 1`] = `
 Array [
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -194,7 +194,7 @@ Array [
   >
     <span
       class="ant-divider-inner-text"
-      style="margin-left:0"
+      style="margin-left: 0px;"
     >
       Left Text with 0 orientationMargin
     </span>
@@ -208,7 +208,7 @@ Array [
   >
     <span
       class="ant-divider-inner-text"
-      style="margin-right:50px"
+      style="margin-right: 50px;"
     >
       Right Text with 50px orientationMargin
     </span>

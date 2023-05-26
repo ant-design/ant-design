@@ -4,6 +4,7 @@ group: 布局
 subtitle: 间距
 title: Space
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZiJ3SbOH9SUAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAAAAAAAAAAAADrJ8AQ/original
 ---
 
 设置组件之间的间距。
@@ -70,3 +71,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZiJ3SbOH9SUAAAAAAA
 | block | 将宽度调整为父元素宽度的选项 | boolean | false | 4.24.0 |
 | direction | 指定排列方向 | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | size | 子组件大小 | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
+
+## Design Token
+
+<ComponentTokenTable component="Space"></ComponentTokenTable>

@@ -35,6 +35,11 @@ const localeValues: Locale = {
     triggerAsc: 'Сортувати за зростанням',
     cancelSort: 'Відмінити сортування',
   },
+  Tour: {
+    Next: 'Далі',
+    Previous: 'Назад',
+    Finish: 'Завершити',
+  },
   Modal: {
     okText: 'Гаразд',
     cancelText: 'Скасувати',
@@ -130,6 +135,10 @@ const localeValues: Locale = {
   },
   Image: {
     preview: 'Попередній перегляд',
+  },
+  QRCode: {
+    expired: 'QR-код закінчився',
+    refresh: 'Оновити',
   },
 };
 

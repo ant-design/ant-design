@@ -13,6 +13,7 @@ import {
   PreviewImage,
   Reset,
   Responsive,
+  SearchBar,
 } from './styles';
 
 const GlobalStyles = () => (
@@ -30,6 +31,7 @@ const GlobalStyles = () => (
     <PreviewImage />
     <ColorStyle />
     <HeadingAnchor />
+    <SearchBar />
   </>
 );
 

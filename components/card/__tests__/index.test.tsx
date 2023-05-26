@@ -87,6 +87,39 @@ describe('Card', () => {
     expect(container.querySelectorAll('.ant-tabs-small').length === 0).toBeFalsy();
   });
 
+  it('tab size extend card size', () => {
+    const { container: largeContainer } = render(
+      <Card
+        title="Card title"
+        tabList={[
+          {
+            key: 'key',
+            tab: 'tab',
+          },
+        ]}
+      >
+        <p>Card content</p>
+      </Card>,
+    );
+    expect(largeContainer.querySelectorAll('.ant-tabs-large').length === 0).toBeFalsy();
+
+    const { container } = render(
+      <Card
+        title="Card title"
+        tabList={[
+          {
+            key: 'key',
+            tab: 'tab',
+          },
+        ]}
+        size='small'
+      >
+        <p>Card content</p>
+      </Card>,
+    );
+    expect(container.querySelectorAll('.ant-tabs-small').length === 0).toBeFalsy();
+  });
+
   it('get ref of card', () => {
     const cardRef = React.createRef<HTMLDivElement>();
 

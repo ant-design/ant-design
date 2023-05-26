@@ -1,6 +1,6 @@
+import { resetComponent } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
-import { resetComponent } from '../../style';
 
 const genFilterStyle: GenerateStyle<TableToken> = (token) => {
   const {
@@ -77,6 +77,7 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
           backgroundColor: tableFilterDropdownBg,
           borderRadius,
           boxShadow: boxShadowSecondary,
+          overflow: 'hidden',
 
           // Reset menu
           [`${dropdownPrefixCls}-menu`]: {
@@ -86,6 +87,7 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
             overflowX: 'hidden',
             border: 0,
             boxShadow: 'none',
+            borderRadius: 'unset',
 
             '&:empty::after': {
               display: 'block',
@@ -142,7 +144,6 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
             justifyContent: 'space-between',
             padding: `${paddingXS - lineWidth}px ${paddingXS}px`,
             overflow: 'hidden',
-            backgroundColor: 'inherit',
             borderTop: tableBorder,
           },
         },

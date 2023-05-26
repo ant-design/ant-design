@@ -4,6 +4,7 @@ subtitle: 表单
 group: 数据录入
 title: Form
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-lcdS5Qm1bsAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 高性能表单控件，自带数据域管理。包含数据录入、校验以及对应样式。
@@ -26,6 +27,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-lcdS5Qm1bsAAAAAAA
 <code src="./demo/layout-can-wrap.tsx">表单标签可换行</code>
 <code src="./demo/warning-only.tsx">非阻塞校验</code>
 <code src="./demo/useWatch.tsx">字段监听 Hooks</code>
+<code src="./demo/validate-only.tsx">仅校验</code>
 <code src="./demo/form-item-path.tsx">字段路径前缀</code>
 <code src="./demo/dynamic-form-item.tsx">动态增减表单项</code>
 <code src="./demo/dynamic-form-items.tsx">动态增减嵌套字段</code>
@@ -73,7 +75,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-lcdS5Qm1bsAAAAAAA
 | requiredMark | 必选样式，可以切换为必选或者可选展示样式。此为 Form 配置，Form.Item 无法单独配置 | boolean \| `optional` | true | 4.6.0 |
 | scrollToFirstError | 提交失败自动滚动到第一个错误字段 | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) | false |  |
 | size | 设置字段组件的尺寸（仅限 antd 组件） | `small` \| `middle` \| `large` | - |  |
-| validateMessages | 验证提示模板，说明[见下](#validatemessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |  |
+| validateMessages | 验证提示模板，说明[见下](#validatemessages) | [ValidateMessages](https://github.com/ant-design/ant-design/blob/6234509d18bac1ac60fbb3f92a5b2c6a6361295a/components/locale/en_US.ts#L88-L134) | - |  |
 | validateTrigger | 统一设置字段触发验证的时机 | string \| string\[] | `onChange` | 4.3.0 |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](/components/grid-cn#col) | - |  |
 | onFieldsChange | 字段更新时触发回调事件 | function(changedFields, allFields) | - |  |
@@ -83,7 +85,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-lcdS5Qm1bsAAAAAAA
 
 ### validateMessages
 
-Form 为验证提供了[默认的错误提示信息](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts)，你可以通过配置 `validateMessages` 属性，修改对应的提示模板。一种常见的使用方式，是配置国际化提示信息：
+Form 为验证提供了[默认的错误提示信息](https://github.com/ant-design/ant-design/blob/6234509d18bac1ac60fbb3f92a5b2c6a6361295a/components/locale/en_US.ts#L88-L134)，你可以通过配置 `validateMessages` 属性，修改对应的提示模板。一种常见的使用方式，是配置国际化提示信息：
 
 ```jsx
 const validateMessages = {
@@ -194,10 +196,18 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 ```jsx
 <Form>
-  <Form.Item messageVariables={{ another: 'good' }} label="user">
+  <Form.Item
+    messageVariables={{ another: 'good' }}
+    label="user"
+    rules={[{ required: true, message: '${another} is required' }]}
+  >
     <Input />
   </Form.Item>
-  <Form.Item messageVariables={{ label: 'good' }} label={<span>user</span>}>
+  <Form.Item
+    messageVariables={{ label: 'good' }}
+    label={<span>user</span>}
+    rules={[{ required: true, message: '${label} is required' }]}
+  >
     <Input />
   </Form.Item>
 </Form>
@@ -286,7 +296,7 @@ Form.List 渲染表单相关操作函数。
 | setFieldValue | 设置表单的值（该值将直接传入 form store 中。如果你不希望传入对象被修改，请克隆后传入） | (name: [NamePath](#namepath), value: any) => void | 4.22.0 |
 | setFieldsValue | 设置表单的值（该值将直接传入 form store 中。如果你不希望传入对象被修改，请克隆后传入）。如果你只想修改 Form.List 中单项值，请通过 `setFieldValue` 进行指定 | (values) => void |  |
 | submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |  |
-| validateFields | 触发表单验证 | (nameList?: [NamePath](#namepath)\[]) => Promise |  |
+| validateFields | 触发表单验证 | (nameList?: [NamePath](#namepath)\[], { validateOnly?: boolean }) => Promise | `validateOnly`: 5.5.0 |
 
 #### validateFields 返回示例
 
@@ -352,9 +362,9 @@ export default () => {
 
 ### Form.useWatch
 
-`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance): Value`
+`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance | WatchOptions): Value`
 
-`4.20.0` 新增，用于直接获取 form 中字段对应的值。通过该 Hooks 可以与诸如 `useSWR` 进行联动从而降低维护成本：
+用于直接获取 form 中字段对应的值。通过该 Hooks 可以与诸如 `useSWR` 进行联动从而降低维护成本：
 
 ```tsx
 const Demo = () => {
@@ -373,16 +383,47 @@ const Demo = () => {
 };
 ```
 
+如果你的组件被包裹在 `Form.Item` 内部，你可以省略第二个参数，`Form.useWatch` 会自动找到上层最近的 `FormInstance`。
+
+`useWatch` 默认只监听在 Form 中注册的字段，如果需要监听非注册字段，可以通过配置 `preserve` 进行监听：
+
+```tsx
+const Demo = () => {
+  const [form] = Form.useForm();
+
+  const age = Form.useWatch('age', { form, preserve: true });
+  console.log(age);
+
+  return (
+    <div>
+      <Button onClick={() => form.setFieldValue('age', 2)}>Update</Button>
+      <Form form={form}>
+        <Form.Item name="name">
+          <Input />
+        </Form.Item>
+      </Form>
+    </div>
+  );
+};
+```
+
 ### Form.Item.useStatus
 
-`type Form.Item.useStatus = (): { status: ValidateStatus | undefined }`
+`type Form.Item.useStatus = (): { status: ValidateStatus | undefined, errors: ReactNode[], warnings: ReactNode[] }`
 
-`4.22.0` 新增，可用于获取当前 Form.Item 的校验状态，如果上层没有 Form.Item，`status` 将会返回 `undefined`：
+`4.22.0` 新增，可用于获取当前 Form.Item 的校验状态，如果上层没有 Form.Item，`status` 将会返回 `undefined`。`5.4.0` 新增 `errors` 和 `warnings`，可用于获取当前 Form.Item 的错误信息和警告信息：
 
 ```tsx
 const CustomInput = ({ value, onChange }) => {
-  const { status } = Form.Item.useStatus();
-  return <input value={value} onChange={onChange} className={`custom-input-${status}`} />;
+  const { status, errors } = Form.Item.useStatus();
+  return (
+    <input
+      value={value}
+      onChange={onChange}
+      className={`custom-input-${status}`}
+      placeholder={(errors.length && errors[0]) || ''}
+    />
+  );
 };
 
 export default () => (
@@ -409,6 +450,7 @@ Form 仅会对变更的 Field 进行刷新，从而避免完整的组件刷新�
 | 名称       | 说明             | 类型                     |
 | ---------- | ---------------- | ------------------------ |
 | errors     | 错误信息         | string\[]                |
+| warnings   | 警告信息         | string\[]                |
 | name       | 字段名称         | [NamePath](#namepath)\[] |
 | touched    | 是否被用户操作过 | boolean                  |
 | validating | 是否正在校验     | boolean                  |
@@ -439,6 +481,17 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | validator | 自定义校验，接收 Promise 作为返回值。[示例](#components-form-demo-register)参考 | ([rule](#rule), value) => Promise |  |
 | warningOnly | 仅警告，不阻塞表单提交 | boolean | 4.17.0 |
 | whitespace | 如果字段仅包含空格则校验不通过，只在 `type: 'string'` 时生效 | boolean |  |
+
+#### WatchOptions
+
+| 名称     | 说明                                  | 类型         | 默认值                 | 版本  |
+| -------- | ------------------------------------- | ------------ | ---------------------- | ----- |
+| form     | 指定 Form 实例                        | FormInstance | 当前 context 中的 Form | 5.4.0 |
+| preserve | 是否监视没有对应的 `Form.Item` 的字段 | boolean      | false                  | 5.4.0 |
+
+## Design Token
+
+<ComponentTokenTable component="Form"></ComponentTokenTable>
 
 ## FAQ
 
@@ -476,7 +529,7 @@ validator(rule, value, callback) => {
 
 当你为 Form.Item 设置 `name` 属性后，子组件会转为受控模式。因而 `defaultValue` 不会生效。你需要在 Form 上通过 `initialValues` 设置默认值。
 
-### 为什么第一次调用 `ref` 的 From 为空？
+### 为什么第一次调用 `ref` 的 Form 为空？
 
 `ref` 仅在节点被加载时才会被赋值，请参考 React 官方文档：<https://reactjs.org/docs/refs-and-the-dom.html#accessing-refs>
 
@@ -539,6 +592,10 @@ React 中异步更新会导致受控组件交互行为异常。当用户交互�
 类似问题：[#28370](https://github.com/ant-design/ant-design/issues/28370) [#27994](https://github.com/ant-design/ant-design/issues/27994)
 
 滚动依赖于表单控件元素上绑定的 `id` 字段，如果自定义控件没有将 `id` 赋到正确的元素上，这个功能将失效。你可以参考这个 [codesandbox](https://codesandbox.io/s/antd-reproduction-template-forked-25nul?file=/index.js)。
+
+### 继上，为何不通过 `ref` 绑定元素？
+
+当自定义组件不支持 `ref` 时，Form 无法获取子元素真实 DOM 节点，而通过包裹 Class Component 调用 `findDOMNode` 会在 React Strict Mode 下触发警告。因而我们使用 id 来进行元素定位。
 
 ### `setFieldsValue` 不会触发 `onFieldsChange` 和 `onValuesChange`？
 

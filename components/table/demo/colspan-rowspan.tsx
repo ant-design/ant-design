@@ -23,6 +23,11 @@ const sharedOnCell = (_: DataType, index: number) => {
 
 const columns: ColumnsType<DataType> = [
   {
+    title: 'RowHead',
+    dataIndex: 'key',
+    rowScope: 'row',
+  },
+  {
     title: 'Name',
     dataIndex: 'name',
     render: (text) => <a>{text}</a>,

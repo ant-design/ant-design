@@ -29,6 +29,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
     position: 'absolute',
     display: 'none',
     color: token.colorPrimary,
+    fontSize: 0,
     textAlign: 'center',
     verticalAlign: 'middle',
     opacity: 0,
@@ -65,6 +66,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
           width: '100%',
           paddingTop: (token.spinDotSize - token.fontSize) / 2 + 2,
           textShadow: `0 1px 2px ${token.colorBgContainer}`, // FIXME: shadow
+          fontSize: token.fontSize,
         },
 
         [`&${token.componentCls}-show-text ${token.componentCls}-dot`]: {

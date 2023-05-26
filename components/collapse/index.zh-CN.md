@@ -4,6 +4,7 @@ group: 数据展示
 title: Collapse
 subtitle: 折叠面板
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*B7HKR5OBe8gAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 可以折叠/展开的内容区域。
@@ -55,3 +56,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*B7HKR5OBe8gAAAAAAA
 | header | 面板头内容 | ReactNode | - |  |
 | key | 对应 activeKey | string \| number | - |  |
 | showArrow | 是否展示当前面板上的箭头（为 false 时，collapsible 不能置为 icon） | boolean | true |  |
+
+## Design Token
+
+<ComponentTokenTable component="Collapse"></ComponentTokenTable>

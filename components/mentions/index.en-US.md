@@ -3,6 +3,7 @@ category: Components
 group: Data Entry
 title: Mentions
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e4bXT7Uhi9YAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*pxR2S53P_xoAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -86,3 +87,7 @@ return (
 | disabled | Optional | boolean | - |
 | className | className | string | - |
 | style | The style of the option | React.CSSProperties | - |
+
+## Design Token
+
+<ComponentTokenTable component="Mentions"></ComponentTokenTable>

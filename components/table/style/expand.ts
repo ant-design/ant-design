@@ -123,7 +123,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
       [`tr${componentCls}-expanded-row`]: {
         '&, &:hover': {
-          '> td': {
+          [`> th, > td`]: {
             background: tableExpandedRowBg,
           },
         },

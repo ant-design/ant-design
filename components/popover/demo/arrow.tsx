@@ -16,7 +16,7 @@ const App: React.FC = () => {
   const [arrowAtCenter, setArrowAtCenter] = useState(false);
 
   const mergedArrow = useMemo(() => {
-    if (arrowAtCenter) return { arrowPointAtCenter: true };
+    if (arrowAtCenter) return { pointAtCenter: true };
     return showArrow;
   }, [showArrow, arrowAtCenter]);
 

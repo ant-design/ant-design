@@ -4,6 +4,7 @@ subtitle: 描述列表
 group: 数据展示
 title: Descriptions
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*fHdlTpif6XQAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*d27AQJrowGAAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 成组展示多个只读字段。
@@ -50,3 +51,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*fHdlTpif6XQAAAAAAA
 | span         | 包含列的数量   | number        | 1      |       |
 
 > span 是 Description.Item 的数量。 span={2} 会占用两个 DescriptionItem 的宽度。当同时配置 `style` 和 `labelStyle`（或 `contentStyle`）时，两者会同时作用。样式冲突时，后者会覆盖前者。
+
+## Design Token
+
+<ComponentTokenTable component="Descriptions"></ComponentTokenTable>

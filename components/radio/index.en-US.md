@@ -3,6 +3,7 @@ category: Components
 group: Data Entry
 title: Radio
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*M-YKTJnWM2kAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a9roS6DHFIcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -66,3 +67,7 @@ Radio group can wrap a group of `Radio`。
 | ------- | ------------ |
 | blur()  | Remove focus |
 | focus() | Get focus    |
+
+## Design Token
+
+<ComponentTokenTable component="Radio"></ComponentTokenTable>

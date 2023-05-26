@@ -8,14 +8,14 @@ import type {
 import { composeRef } from 'rc-util/lib/ref';
 // eslint-disable-next-line import/no-named-as-default
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
-import { FormItemInputContext } from '../form/context';
-import Spin from '../spin';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';
+import { ConfigContext } from '../config-provider';
+import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import { FormItemInputContext } from '../form/context';
+import Spin from '../spin';
 
 import useStyle from './style';
 
@@ -81,7 +81,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
   ref,
 ) => {
   const [focused, setFocused] = React.useState(false);
-  const innerRef = React.useRef<MentionsRef>();
+  const innerRef = React.useRef<MentionsRef>(null);
   const mergedRef = composeRef(ref, innerRef);
 
   // =================== Warning =====================
@@ -123,7 +123,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     return renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />;
   }, [notFoundContent, renderEmpty]);
 
-  const getOptions = () => {
+  const mentionOptions = React.useMemo<React.ReactNode>(() => {
     if (loading) {
       return (
         <Option value="ANTD_SEARCHING" disabled>
@@ -131,9 +131,8 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
         </Option>
       );
     }
-
     return children;
-  };
+  }, [loading, children]);
 
   const mergedOptions = loading
     ? [
@@ -176,14 +175,12 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
       onFocus={onFocus}
       onBlur={onBlur}
       dropdownClassName={classNames(popupClassName, rootClassName, hashId)}
-      ref={mergedRef as any}
+      ref={mergedRef}
       options={mergedOptions}
       suffix={hasFeedback && feedbackIcon}
-      classes={{
-        affixWrapper: classNames(hashId, className),
-      }}
+      classes={{ affixWrapper: classNames(hashId, className) }}
     >
-      {getOptions()}
+      {mentionOptions}
     </RcMentions>
   );
 

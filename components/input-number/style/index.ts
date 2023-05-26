@@ -108,8 +108,10 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
         // ===================== Out Of Range =====================
         '&-out-of-range': {
-          input: {
-            color: colorError,
+          [`${componentCls}-input-wrap`]: {
+            input: {
+              color: colorError,
+            },
           },
         },
 
@@ -143,6 +145,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
         [componentCls]: {
           '&-input': {
+            ...resetComponent(token),
             width: '100%',
             height: controlHeight - 2 * lineWidth,
             padding: `0 ${inputPaddingHorizontal}px`,
@@ -153,9 +156,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             outline: 0,
             transition: `all ${motionDurationMid} linear`,
             appearance: 'textfield',
-            color: token.colorText,
             fontSize: 'inherit',
-            verticalAlign: 'top',
             ...genPlaceholderStyle(token.colorTextPlaceholder),
 
             '&[type="number"]::-webkit-inner-spin-button, &[type="number"]::-webkit-outer-spin-button':
@@ -262,6 +263,10 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         '&-disabled, &-readonly': {
           [`${componentCls}-handler-wrap`]: {
             display: 'none',
+          },
+
+          [`${componentCls}-input`]: {
+            color: 'inherit',
           },
         },
 

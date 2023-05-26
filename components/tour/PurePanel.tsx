@@ -1,9 +1,9 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import type { TourStepProps } from './interface';
-import panelRender from './panelRender';
 import { RawPurePanel as PopoverRawPurePanel } from '../popover/PurePanel';
+import type { TourStepProps } from './interface';
+import TourPanel from './panelRender';
 import useStyle from './style';
 
 export interface PurePanelProps extends TourStepProps {}
@@ -24,16 +24,6 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const node = panelRender(
-    {
-      ...restProps,
-      prefixCls,
-      total,
-    },
-    current,
-    type,
-  );
-
   return wrapSSR(
     <PopoverRawPurePanel
       prefixCls={prefixCls}
@@ -41,11 +31,9 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
       className={classNames(className, `${prefixCls}-pure`, type && `${prefixCls}-${type}`)}
       style={style}
     >
-      {node}
+      <TourPanel stepProps={{ ...restProps, prefixCls, total }} current={current} type={type} />
     </PopoverRawPurePanel>,
   );
-
-  // return node as React.ReactElement;
 };
 
 export default PurePanel;

@@ -329,64 +329,58 @@ exports[`Menu all types must be available in the "items" syntax 1`] = `
 `;
 
 exports[`Menu rtl render component should be rendered correctly in RTL direction 1`] = `
-HTMLCollection [
-  <ul
-    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-menu-rtl"
-    data-menu-list="true"
-    dir="rtl"
-    role="menu"
-    tabindex="0"
+<ul
+  class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-menu-rtl"
+  data-menu-list="true"
+  dir="rtl"
+  role="menu"
+  tabindex="0"
+>
+  <li
+    class="ant-menu-item"
+    data-menu-id="rc-menu-uuid-test-tmp_key-0"
+    role="menuitem"
+    tabindex="-1"
   >
-    <li
-      class="ant-menu-item"
-      data-menu-id="rc-menu-uuid-test-tmp_key-0"
+    <span
+      class="ant-menu-title-content"
+    />
+  </li>
+  <li
+    class="ant-menu-item-group"
+    role="presentation"
+  >
+    <div
+      class="ant-menu-item-group-title"
+      role="presentation"
+    />
+    <ul
+      class="ant-menu-item-group-list"
+      role="group"
+    />
+  </li>
+  <li
+    class="ant-menu-submenu ant-menu-submenu-vertical"
+    role="none"
+  >
+    <div
+      aria-controls="rc-menu-uuid-test-tmp_key-2-popup"
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-menu-submenu-title"
+      data-menu-id="rc-menu-uuid-test-tmp_key-2"
       role="menuitem"
       tabindex="-1"
     >
       <span
         class="ant-menu-title-content"
       />
-    </li>
-    <li
-      class="ant-menu-item-group"
-      role="presentation"
-    >
-      <div
-        class="ant-menu-item-group-title"
-        role="presentation"
+      <i
+        class="ant-menu-submenu-arrow"
       />
-      <ul
-        class="ant-menu-item-group-list"
-        role="group"
-      />
-    </li>
-    <li
-      class="ant-menu-submenu ant-menu-submenu-vertical"
-      role="none"
-    >
-      <div
-        aria-controls="rc-menu-uuid-test-tmp_key-2-popup"
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-tmp_key-2"
-        role="menuitem"
-        tabindex="-1"
-      >
-        <span
-          class="ant-menu-title-content"
-        />
-        <i
-          class="ant-menu-submenu-arrow"
-        />
-      </div>
-    </li>
-  </ul>,
-  <div
-    aria-hidden="true"
-    style="display: none;"
-  />,
-]
+    </div>
+  </li>
+</ul>
 `;
 
 exports[`Menu should controlled collapse work 1`] = `

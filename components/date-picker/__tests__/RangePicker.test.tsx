@@ -88,7 +88,7 @@ describe('RangePicker', () => {
   });
 
   describe('ranges', () => {
-    it('RangePicker support presetted ranges with Tags', () => {
+    it('RangePicker support preset ranges with Tags', () => {
       const { container } = render(
         <RangePicker
           open

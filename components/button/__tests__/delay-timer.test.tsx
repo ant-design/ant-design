@@ -91,3 +91,8 @@ it('Delay loading timer in Button component', () => {
 
   jest.restoreAllMocks();
 });
+it('Delay loading while use loading delay at first time', () => {
+  const Demo = () => <Button loading={{ delay: specialDelay }} />;
+  const wrapper = render(<Demo />);
+  expect(wrapper.container.firstChild).not.toHaveClass('ant-btn-loading');
+});

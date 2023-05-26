@@ -1,7 +1,7 @@
 import { Keyframes } from '@ant-design/cssinjs';
+import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { genFocusOutline, resetComponent } from '../../style';
 
 export interface ComponentToken {}
 
@@ -36,6 +36,13 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         ...resetComponent(token),
 
         display: 'inline-flex',
+        flexWrap: 'wrap',
+        columnGap: token.marginXS,
+
+        // Group > Grid
+        [`> ${token.antCls}-row`]: {
+          flex: 1,
+        },
       },
 
       // Wrapper
@@ -56,7 +63,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
 
         // Checkbox near checkbox
         [`& + ${wrapperCls}`]: {
-          marginInlineStart: token.marginXS,
+          marginInlineStart: 0,
         },
 
         [`&${wrapperCls}-in-form-item`]: {
@@ -71,21 +78,26 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
       [checkboxCls]: {
         ...resetComponent(token),
 
-        top: '0.2em',
         position: 'relative',
         whiteSpace: 'nowrap',
         lineHeight: 1,
         cursor: 'pointer',
 
+        // To make alignment right when `controlHeight` is changed
+        // Ref: https://github.com/ant-design/ant-design/issues/41564
+        alignSelf: 'center',
+
         // Wrapper > Checkbox > input
         [`${checkboxCls}-input`]: {
           position: 'absolute',
+          // Since baseline align will get additional space offset,
+          // we need to move input to top to make it align with text.
+          // Ref: https://github.com/ant-design/ant-design/issues/38926#issuecomment-1486137799
           inset: 0,
           zIndex: 1,
-          width: '100%',
-          height: '100%',
           cursor: 'pointer',
           opacity: 0,
+          margin: 0,
 
           [`&:focus-visible + ${checkboxCls}-inner`]: {
             ...genFocusOutline(token),

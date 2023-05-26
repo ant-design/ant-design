@@ -1,21 +1,21 @@
-import type { TextAreaProps as RcTextAreaProps } from 'rc-textarea/lib/interface';
-import type { TextAreaRef as RcTextAreaRef } from 'rc-textarea';
-import { forwardRef } from 'react';
-import * as React from 'react';
-import RcTextArea from 'rc-textarea';
-import classNames from 'classnames';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import classNames from 'classnames';
 import type { BaseInputProps } from 'rc-input/lib/interface';
-import { FormItemInputContext } from '../form/context';
-import useStyle from './style';
-import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
+import type { TextAreaRef as RcTextAreaRef } from 'rc-textarea';
+import RcTextArea from 'rc-textarea';
+import type { TextAreaProps as RcTextAreaProps } from 'rc-textarea/lib/interface';
+import * as React from 'react';
+import { forwardRef } from 'react';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import useSize from '../config-provider/hooks/useSize';
+import { FormItemInputContext } from '../form/context';
 import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
-import DisabledContext from '../config-provider/DisabledContext';
-import { ConfigContext } from '../config-provider';
+import useStyle from './style';
 
 export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
   bordered?: boolean;
@@ -38,6 +38,8 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       disabled: customDisabled,
       status: customStatus,
       allowClear,
+      showCount,
+      classNames: classes,
       ...rest
     },
     ref,
@@ -45,8 +47,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
     // ===================== Size =====================
-    const size = React.useContext(SizeContext);
-    const mergedSize = customizeSize || size;
+    const mergedSize = useSize(customizeSize);
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
@@ -97,15 +98,14 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
               [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
               [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
               [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
+              [`${prefixCls}-textarea-show-count`]: showCount,
             },
             getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus),
             hashId,
           ),
-          countWrapper: classNames(
-            `${prefixCls}-textarea`,
-            `${prefixCls}-textarea-show-count`,
-            hashId,
-          ),
+        }}
+        classNames={{
+          ...classes,
           textarea: classNames(
             {
               [`${prefixCls}-borderless`]: !bordered,
@@ -114,12 +114,14 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
             },
             getStatusClassNames(prefixCls, mergedStatus),
             hashId,
+            classes?.textarea,
           ),
         }}
         prefixCls={prefixCls}
         suffix={
           hasFeedback && <span className={`${prefixCls}-textarea-suffix`}>{feedbackIcon}</span>
         }
+        showCount={showCount}
         ref={innerRef}
       />,
     );

@@ -3,6 +3,7 @@ category: Components
 title: Divider
 subtitle: 分割线
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7sMiTbzvaDoAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*KPSEQ74PLg4AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group:
@@ -38,3 +39,7 @@ group:
 | plain | 文字是否显示为普通正文样式 | boolean | false | 4.2.0 |
 | style | 分割线样式对象 | CSSProperties | - |  |
 | type | 水平还是垂直类型 | `horizontal` \| `vertical` | `horizontal` |  |
+
+## Design Token
+
+<ComponentTokenTable component="Divider"></ComponentTokenTable>

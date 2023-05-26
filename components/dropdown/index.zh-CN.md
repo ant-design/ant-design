@@ -4,6 +4,7 @@ subtitle: 下拉菜单
 group: 导航
 title: Dropdown
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*mBBcQ6goljkAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5qm4S4Zgh2QAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -36,6 +37,7 @@ demo:
 <code src="./demo/selectable.tsx">菜单可选选择</code>
 <code src="./demo/menu-full.tsx" debug>Menu 完整样式</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/icon-debug.tsx" debug>Icon debug</code>
 
 ## API
 
@@ -71,3 +73,11 @@ demo:
 | size | 按钮大小，和 [Button](/components/button-cn#api) 一致 | string | `default` |  |
 | type | 按钮类型，和 [Button](/components/button-cn#api) 一致 | string | `default` |  |
 | onClick | 点击左侧按钮的回调，和 [Button](/components/button-cn#api) 一致 | (event) => void | - |  |
+
+## 注意
+
+请确保 `Dropdown` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onFocus`、`onClick` 事件。
+
+## Design Token
+
+<ComponentTokenTable component="Dropdown"></ComponentTokenTable>

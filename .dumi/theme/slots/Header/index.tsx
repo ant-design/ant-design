@@ -2,10 +2,9 @@ import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
 import { ClassNames, css } from '@emotion/react';
 import { Col, Modal, Popover, Row, Select } from 'antd';
 import classNames from 'classnames';
-import { useLocation } from 'dumi';
+import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import packageJson from '../../../../package.json';
 import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
 import * as utils from '../../utils';
@@ -21,8 +20,6 @@ import SwitchBtn from './SwitchBtn';
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
 
-const antdVersion: string = packageJson.version;
-
 const useStyle = () => {
   const { token } = useSiteToken();
   const searchIconColor = '#ced4d9';
@@ -33,7 +30,7 @@ const useStyle = () => {
       z-index: 10;
       max-width: 100%;
       background: ${token.colorBgContainer};
-      box-shadow: ${token.boxShadow};
+      box-shadow: ${token.boxShadowTertiary};
 
       @media only screen and (max-width: ${token.mobileMaxWidth}px) {
         text-align: center;
@@ -129,6 +126,8 @@ const Header: React.FC = () => {
   const [isClient, setIsClient] = React.useState(false);
   const [, lang] = useLocale();
 
+  const { pkg } = useSiteData();
+
   const themeConfig = getThemeConfig();
   const [headerState, setHeaderState] = useState<HeaderState>({
     menuVisible: false,
@@ -210,7 +209,11 @@ const Header: React.FC = () => {
         .replace(/\/$/, '');
       return;
     }
-    window.location.href = currentUrl.replace(window.location.origin, url);
+
+    // Mirror url must have `/`, we add this for compatible
+    const urlObj = new URL(currentUrl.replace(window.location.origin, url));
+    urlObj.pathname = `${urlObj.pathname.replace(/\/$/, '')}/`;
+    window.location.href = urlObj.href;
   }, []);
 
   const onLangChange = useCallback(() => {
@@ -240,7 +243,7 @@ const Header: React.FC = () => {
 
   const { menuVisible, windowWidth, searching } = headerState;
   const docVersions: Record<string, string> = {
-    [antdVersion]: antdVersion,
+    [pkg.version]: pkg.version,
     ...themeConfig?.docVersions,
   };
   const versionOptions = Object.keys(docVersions).map((version) => ({
@@ -287,7 +290,7 @@ const Header: React.FC = () => {
       key="version"
       className="version"
       size="small"
-      defaultValue={antdVersion}
+      defaultValue={pkg.version}
       onChange={handleVersionChange}
       dropdownStyle={getDropdownStyle}
       dropdownMatchSelectWidth={false}
@@ -358,7 +361,7 @@ const Header: React.FC = () => {
               content={menu}
               trigger="click"
               open={menuVisible}
-              arrowPointAtCenter
+              arrow={{ arrowPointAtCenter: true }}
               onOpenChange={onMenuVisibleChange}
             >
               <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />

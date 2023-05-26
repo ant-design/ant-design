@@ -1,5 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
+import { clearFix, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genBorderedStyle from './bordered';
@@ -16,7 +17,6 @@ import genSizeStyle from './size';
 import genSorterStyle from './sorter';
 import genStickyStyle from './sticky';
 import genSummaryStyle from './summary';
-import { clearFix, resetComponent } from '../../style';
 
 export interface ComponentToken {}
 
@@ -117,6 +117,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       // ============================= Cell =============================
       [`
           ${componentCls}-thead > tr > th,
+          ${componentCls}-tbody > tr > th,
           ${componentCls}-tbody > tr > td,
           tfoot > tr > th,
           tfoot > tr > td
@@ -171,7 +172,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       // ============================ Body ============================
       [`${componentCls}-tbody`]: {
         '> tr': {
-          '> td': {
+          [`> th, > td`]: {
             transition: `background ${motionDurationMid}, border-color ${motionDurationMid}`,
             borderBottom: tableBorder,
 
@@ -195,19 +196,31 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
             },
           },
 
+          '> th': {
+            position: 'relative',
+            color: tableHeaderTextColor,
+            fontWeight: fontWeightStrong,
+            textAlign: 'start',
+            background: tableHeaderBg,
+            borderBottom: tableBorder,
+            transition: `background ${motionDurationMid} ease`,
+          },
+
           [`
+            &${componentCls}-row:hover > th,
             &${componentCls}-row:hover > td,
+            > th${componentCls}-cell-row-hover,
             > td${componentCls}-cell-row-hover
           `]: {
             background: tableRowHoverBg,
           },
 
           [`&${componentCls}-row-selected`]: {
-            '> td': {
+            [`> th, > td`]: {
               background: tableSelectedRowBg,
             },
 
-            '&:hover > td': {
+            [`&:hover > th, &:hover > td`]: {
               background: tableSelectedRowHoverBg,
             },
           },
@@ -257,14 +270,14 @@ export default genComponentStyleHook('Table', (token) => {
 
   const colorFillSecondarySolid = new TinyColor(colorFillSecondary)
     .onBackground(colorBgContainer)
-    .toHexString();
+    .toHexShortString();
   const colorFillContentSolid = new TinyColor(colorFillContent)
     .onBackground(colorBgContainer)
-    .toHexString();
+    .toHexShortString();
 
   const colorFillAlterSolid = new TinyColor(colorFillAlter)
     .onBackground(colorBgContainer)
-    .toHexString();
+    .toHexShortString();
 
   const tableToken = mergeToken<TableToken>(token, {
     tableFontSize: fontSize,

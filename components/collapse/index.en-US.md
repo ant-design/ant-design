@@ -3,6 +3,7 @@ category: Components
 group: Data Display
 title: Collapse
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*B7HKR5OBe8gAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 A content area which can be collapsed and expanded.
@@ -54,3 +55,7 @@ A content area which can be collapsed and expanded.
 | header | Title of the panel | ReactNode | - |  |
 | key | Unique key identifying the panel from among its siblings | string \| number | - |  |
 | showArrow | If false, panel will not show arrow icon. If false, collapsible can't be set as icon | boolean | true |  |
+
+## Design Token
+
+<ComponentTokenTable component="Collapse"></ComponentTokenTable>

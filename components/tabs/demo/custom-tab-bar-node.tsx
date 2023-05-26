@@ -1,125 +1,112 @@
-import React, { useRef, useState } from 'react';
-import type { TabsProps } from 'antd';
+import type { DragEndEvent } from '@dnd-kit/core';
+import { DndContext, PointerSensor, useSensor } from '@dnd-kit/core';
+import {
+  arrayMove,
+  horizontalListSortingStrategy,
+  SortableContext,
+  useSortable,
+} from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
+import { css } from '@emotion/css';
 import { Tabs } from 'antd';
-import { DndProvider, useDrag, useDrop } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
+import React, { useEffect, useState } from 'react';
 
-const type = 'DraggableTabNode';
 interface DraggableTabPaneProps extends React.HTMLAttributes<HTMLDivElement> {
-  index: React.Key;
-  moveNode: (dragIndex: React.Key, hoverIndex: React.Key) => void;
+  'data-node-key': string;
+  onActiveBarTransform: (className: string) => void;
 }
 
-const DraggableTabNode = ({ index, children, moveNode }: DraggableTabPaneProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const [{ isOver }, drop] = useDrop({
-    accept: type,
-    collect: (monitor) => {
-      const { index: dragIndex } = monitor.getItem() || {};
-      if (dragIndex === index) {
-        return {};
-      }
-      return {
-        isOver: monitor.isOver(),
-      };
-    },
-    drop: (item: { index: React.Key }) => {
-      moveNode(item.index, index);
-    },
+const DraggableTabNode = ({ className, onActiveBarTransform, ...props }: DraggableTabPaneProps) => {
+  const { attributes, listeners, setNodeRef, transform, transition, isSorting } = useSortable({
+    id: props['data-node-key'],
   });
-  const [, drag] = useDrag({
-    type,
-    item: { index },
-    collect: (monitor) => ({
-      isDragging: monitor.isDragging(),
-    }),
-  });
-  drop(drag(ref));
 
-  // Style
-  const style: React.CSSProperties = { marginRight: 24 };
-  if (isOver) {
-    style.transition = 'all 0.3s';
-  }
-
-  return (
-    <div ref={ref} style={style}>
-      {children}
-    </div>
-  );
-};
-
-const DraggableTabs: React.FC<TabsProps> = (props) => {
-  const { items = [] } = props;
-  const [order, setOrder] = useState<React.Key[]>([]);
-
-  const moveTabNode = (dragKey: React.Key, hoverKey: React.Key) => {
-    const newOrder = order.slice();
-
-    items.forEach((item) => {
-      if (item.key && newOrder.indexOf(item.key) === -1) {
-        newOrder.push(item.key);
-      }
-    });
-
-    const dragIndex = newOrder.indexOf(dragKey);
-    const hoverIndex = newOrder.indexOf(hoverKey);
-
-    newOrder.splice(dragIndex, 1);
-    newOrder.splice(hoverIndex, 0, dragKey);
-
-    setOrder(newOrder);
+  const style: React.CSSProperties = {
+    ...props.style,
+    transform: CSS.Transform.toString(transform),
+    transition,
+    cursor: 'move',
   };
 
-  const renderTabBar: TabsProps['renderTabBar'] = (tabBarProps, DefaultTabBar) => (
-    <DefaultTabBar {...tabBarProps}>
-      {(node) => (
-        <DraggableTabNode key={node.key} index={node.key!} moveNode={moveTabNode}>
-          {node}
-        </DraggableTabNode>
-      )}
-    </DefaultTabBar>
-  );
-
-  const orderItems = [...items].sort((a, b) => {
-    const orderA = order.indexOf(a.key!);
-    const orderB = order.indexOf(b.key!);
-
-    if (orderA !== -1 && orderB !== -1) {
-      return orderA - orderB;
+  useEffect(() => {
+    if (!isSorting) {
+      onActiveBarTransform('');
+    } else if (className?.includes('ant-tabs-tab-active')) {
+      onActiveBarTransform(
+        css`
+          .ant-tabs-ink-bar {
+            transform: ${CSS.Transform.toString(transform)};
+            transition: ${transition} !important;
+          }
+        `,
+      );
     }
-    if (orderA !== -1) {
-      return -1;
-    }
-    if (orderB !== -1) {
-      return 1;
-    }
+  }, [className, isSorting, transform]);
 
-    const ia = items.indexOf(a);
-    const ib = items.indexOf(b);
-
-    return ia - ib;
+  return React.cloneElement(props.children as React.ReactElement, {
+    ref: setNodeRef,
+    style,
+    ...attributes,
+    ...listeners,
   });
-
-  return (
-    <DndProvider backend={HTML5Backend}>
-      <Tabs renderTabBar={renderTabBar} {...props} items={orderItems} />
-    </DndProvider>
-  );
 };
 
-const App: React.FC = () => (
-  <DraggableTabs
-    items={new Array(3).fill(null).map((_, i) => {
-      const id = String(i + 1);
-      return {
-        label: `tab ${id}`,
-        key: id,
-        children: `Content of Tab Pane ${id}`,
-      };
-    })}
-  />
-);
+const App: React.FC = () => {
+  const [items, setItems] = useState([
+    {
+      key: '1',
+      label: `Tab 1`,
+      children: 'Content of Tab Pane 1',
+    },
+    {
+      key: '2',
+      label: `Tab 2`,
+      children: 'Content of Tab Pane 2',
+    },
+    {
+      key: '3',
+      label: `Tab 3`,
+      children: 'Content of Tab Pane 3',
+    },
+  ]);
+
+  const [className, setClassName] = useState('');
+
+  const sensor = useSensor(PointerSensor, { activationConstraint: { distance: 10 } });
+
+  const onDragEnd = ({ active, over }: DragEndEvent) => {
+    if (active.id !== over?.id) {
+      setItems((prev) => {
+        const activeIndex = prev.findIndex((i) => i.key === active.id);
+        const overIndex = prev.findIndex((i) => i.key === over?.id);
+        return arrayMove(prev, activeIndex, overIndex);
+      });
+    }
+  };
+
+  return (
+    <Tabs
+      className={className}
+      items={items}
+      renderTabBar={(tabBarProps, DefaultTabBar) => (
+        <DndContext sensors={[sensor]} onDragEnd={onDragEnd}>
+          <SortableContext items={items.map((i) => i.key)} strategy={horizontalListSortingStrategy}>
+            <DefaultTabBar {...tabBarProps}>
+              {(node) => (
+                <DraggableTabNode
+                  {...node.props}
+                  key={node.key}
+                  onActiveBarTransform={setClassName}
+                >
+                  {node}
+                </DraggableTabNode>
+              )}
+            </DefaultTabBar>
+          </SortableContext>
+        </DndContext>
+      )}
+    />
+  );
+};
 
 export default App;

@@ -1,16 +1,16 @@
-import React, { useMemo, useContext } from 'react';
-import { QRCodeCanvas } from 'qrcode.react';
-import classNames from 'classnames';
 import { ReloadOutlined } from '@ant-design/icons';
-import { ConfigContext } from '../config-provider';
-import LocaleReceiver from '../locale/LocaleReceiver';
-import type { ConfigConsumerProps } from '../config-provider';
-import type { QRCodeProps, QRPropsCanvas } from './interface';
+import classNames from 'classnames';
+import { QRCodeCanvas } from 'qrcode.react';
+import React, { useContext, useMemo } from 'react';
 import warning from '../_util/warning';
-import useStyle from './style/index';
-import Spin from '../spin';
 import Button from '../button';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
+import { useLocale } from '../locale';
+import Spin from '../spin';
 import theme from '../theme';
+import type { QRCodeProps, QRPropsCanvas } from './interface';
+import useStyle from './style/index';
 
 const { useToken } = theme;
 
@@ -29,6 +29,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     className,
     rootClassName,
     prefixCls: customizePrefixCls,
+    bgColor = 'transparent',
   } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
@@ -47,11 +48,13 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
       value,
       size: size - (token.paddingSM + token.lineWidth) * 2,
       level: errorLevel,
-      bgColor: 'transparent',
+      bgColor,
       fgColor: color,
       imageSettings: icon ? imageSettings : undefined,
     };
-  }, [errorLevel, color, icon, iconSize, size, value]);
+  }, [errorLevel, color, icon, iconSize, size, value, bgColor]);
+
+  const [locale] = useLocale('QRCode');
 
   if (!value) {
     if (process.env.NODE_ENV !== 'production') {
@@ -73,28 +76,24 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   });
 
   return wrapSSR(
-    <LocaleReceiver componentName="QRCode">
-      {(locale) => (
-        <div style={{ ...style, width: size, height: size }} className={cls}>
-          {status !== 'active' && (
-            <div className={`${prefixCls}-mask`}>
-              {status === 'loading' && <Spin />}
-              {status === 'expired' && (
-                <>
-                  <p className={`${prefixCls}-expired`}>{locale.expired}</p>
-                  {typeof onRefresh === 'function' && (
-                    <Button type="link" icon={<ReloadOutlined />} onClick={onRefresh}>
-                      {locale.refresh}
-                    </Button>
-                  )}
-                </>
+    <div style={{ ...style, width: size, height: size, backgroundColor: bgColor }} className={cls}>
+      {status !== 'active' && (
+        <div className={`${prefixCls}-mask`}>
+          {status === 'loading' && <Spin />}
+          {status === 'expired' && (
+            <>
+              <p className={`${prefixCls}-expired`}>{locale?.expired}</p>
+              {onRefresh && (
+                <Button type="link" icon={<ReloadOutlined />} onClick={onRefresh}>
+                  {locale?.refresh}
+                </Button>
               )}
-            </div>
+            </>
           )}
-          <QRCodeCanvas {...qrCodeProps} />
         </div>
       )}
-    </LocaleReceiver>,
+      <QRCodeCanvas {...qrCodeProps} />
+    </div>,
   );
 };
 

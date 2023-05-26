@@ -1,6 +1,6 @@
 import { render } from 'rc-util/lib/React/render';
 import * as React from 'react';
-import ConfigProvider, { globalConfig } from '../config-provider';
+import ConfigProvider, { globalConfig, warnContext } from '../config-provider';
 import type {
   ArgsProps,
   ConfigOptions,
@@ -14,8 +14,6 @@ import useMessage, { useInternalMessage } from './useMessage';
 import { wrapPromiseFn } from './util';
 
 export { ArgsProps };
-
-const methods: NoticeType[] = ['success', 'info', 'warning', 'error', 'loading'];
 
 let message: GlobalMessage | null = null;
 
@@ -112,9 +110,9 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   React.useEffect(sync, []);
 
   React.useImperativeHandle(ref, () => {
-    const instance: any = { ...api };
+    const instance: MessageInstance = { ...api };
 
-    Object.keys(instance).forEach((method) => {
+    Object.keys(instance).forEach((method: keyof MessageInstance) => {
       instance[method] = (...args: any[]) => {
         sync();
         return (api as any)[method](...args);
@@ -220,7 +218,6 @@ function flushNotice() {
 // ==============================================================================
 // ==                                  Export                                  ==
 // ==============================================================================
-type MethodType = typeof methods[number];
 
 function setMessageGlobalConfig(config: ConfigOptions) {
   defaultGlobalConfig = {
@@ -265,6 +262,11 @@ function open(config: ArgsProps): MessageType {
 }
 
 function typeOpen(type: NoticeType, args: Parameters<TypeOpen>): MessageType {
+  // Warning if exist theme
+  if (process.env.NODE_ENV !== 'production') {
+    warnContext('message');
+  }
+
   const result = wrapPromiseFn((resolve) => {
     let closeFn: VoidFunction;
 
@@ -303,14 +305,26 @@ function destroy(key: React.Key) {
   flushNotice();
 }
 
-const baseStaticMethods: {
+interface BaseMethods {
   open: (config: ArgsProps) => MessageType;
   destroy: (key?: React.Key) => void;
   config: typeof setMessageGlobalConfig;
   useMessage: typeof useMessage;
   /** @private Internal Component. Do not use in your production. */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
-} = {
+}
+
+interface MessageMethods {
+  info: TypeOpen;
+  success: TypeOpen;
+  error: TypeOpen;
+  warning: TypeOpen;
+  loading: TypeOpen;
+}
+
+const methods: (keyof MessageMethods)[] = ['success', 'info', 'warning', 'error', 'loading'];
+
+const baseStaticMethods: BaseMethods = {
   open,
   destroy,
   config: setMessageGlobalConfig,
@@ -318,10 +332,9 @@ const baseStaticMethods: {
   _InternalPanelDoNotUseOrYouWillBeFired: PurePanel,
 };
 
-const staticMethods: typeof baseStaticMethods & Record<MethodType, TypeOpen> =
-  baseStaticMethods as any;
+const staticMethods = baseStaticMethods as MessageMethods & BaseMethods;
 
-methods.forEach((type) => {
+methods.forEach((type: keyof MessageMethods) => {
   staticMethods[type] = (...args: Parameters<TypeOpen>) => typeOpen(type, args);
 });
 
@@ -330,7 +343,7 @@ methods.forEach((type) => {
 // ==============================================================================
 const noop = () => {};
 
-/** @private Only Work in test env */
+/** @internal Only Work in test env */
 // eslint-disable-next-line import/no-mutable-exports
 export let actWrapper: (wrapper: any) => void = noop;
 
@@ -340,7 +353,7 @@ if (process.env.NODE_ENV === 'test') {
   };
 }
 
-/** @private Only Work in test env */
+/** @internal Only Work in test env */
 // eslint-disable-next-line import/no-mutable-exports
 export let actDestroy = noop;
 

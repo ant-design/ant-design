@@ -4,6 +4,7 @@ subtitle: 选择器
 group: 数据录入
 title: Select
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*zo76T7KQx2UAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5oPiTqPxGAUAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -42,6 +43,8 @@ demo:
 <code src="./demo/placement.tsx">弹出位置</code>
 <code src="./demo/debug.tsx" debug>4.0 Debug</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/option-label-center.tsx" debug>选项文本居中</code>
+<code src="./demo/debug-flip-shift.tsx" iframe="200" debug>翻转+偏移</code>
 
 ## API
 
@@ -62,10 +65,10 @@ demo:
 | clearIcon | 自定义的多选框清空图标 | ReactNode | - |  |
 | defaultActiveFirstOption | 是否默认高亮第一个选项 | boolean | true |  |
 | defaultOpen | 是否默认展开下拉菜单 | boolean | - |  |
-| defaultValue | 指定默认选中的条目 | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
+| defaultValue | 指定默认选中的条目 | string \| string\[] \|<br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
 | disabled | 是否禁用 | boolean | false |  |
 | popupClassName | 下拉菜单的 className 属性 | string | - | 4.23.0 |
-| dropdownMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true |  |
+| popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true | 5.5.0 |
 | dropdownRender | 自定义下拉框内容 | (originNode: ReactNode) => ReactNode | - |  |
 | dropdownStyle | 下拉菜单的 style 属性 | CSSProperties | - |  |
 | fieldNames | 自定义节点 label、value、options 的字段 | object | { label: `label`, value: `value`, options: `options` } | 4.17.0 |
@@ -89,19 +92,19 @@ demo:
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |  |
 | searchValue | 控制搜索文本 | string | - |  |
-| showArrow | 是否显示下拉小箭头 | boolean | 单选为 true，多选为 false |  |
+| showArrow | 是否显示下拉小箭头 | boolean | `true` |  |
 | showSearch | 配置是否可搜索 | boolean | 单选为 false，多选为 true |  |
 | size | 选择框大小 | `large` \| `middle` \| `small` | `middle` |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
-| suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
+| suffixIcon | 自定义的选择框后缀图标。以防止图标被用于其他交互，替换的图标默认不会响应展开、收缩事件，可以通过添加 `pointer-events: none` 样式透传。 | ReactNode | - |  |
 | tagRender | 自定义 tag 内容 render，仅在 `mode` 为 `multiple` 或 `tags` 时生效 | (props) => ReactNode | - |  |
 | tokenSeparators | 自动分词的分隔符，仅在 `mode="tags"` 时生效 | string\[] | - |  |
-| value | 指定当前选中的条目，多选时为一个数组。（value 数组引用未变化时，Select 不会更新） | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
+| value | 指定当前选中的条目，多选时为一个数组。（value 数组引用未变化时，Select 不会更新） | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onBlur | 失去焦点时回调 | function | - |  |
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value, option:Option \| Array&lt;Option>) | - |  |
 | onClear | 清除内容时回调 | function | - | 4.6.0 |
-| onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 `multiple` 或 `tags` 模式下生效 | function(string \| number \| LabeledValue) | - |  |
+| onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 `multiple` 或 `tags` 模式下生效 | function(value: string \| number \| LabeledValue) | - |  |
 | onDropdownVisibleChange | 展开下拉菜单的回调 | function(open) | - |  |
 | onFocus | 获得焦点时回调 | function | - |  |
 | onInputKeyDown | 按键按下时回调 | function | - |  |
@@ -109,7 +112,7 @@ demo:
 | onMouseLeave | 鼠标移出时回调 | function | - |  |
 | onPopupScroll | 下拉列表滚动时的回调 | function | - |  |
 | onSearch | 文本框值变化时回调 | function(value: string) | - |  |
-| onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(string \| number \| LabeledValue, option: Option) | - |  |
+| onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(value: string \| number \| LabeledValue, option: Option) | - |  |
 
 > 注意，如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用 `getPopupContainer={triggerNode => triggerNode.parentElement}` 将下拉弹层渲染节点固定在触发器的父元素中。
 
@@ -135,6 +138,10 @@ demo:
 | ----- | ---- | ----------------------- | ------ | ---- |
 | key   | Key  | string                  | -      |      |
 | label | 组名 | string \| React.Element | -      |      |
+
+## Design Token
+
+<ComponentTokenTable component="Select"></ComponentTokenTable>
 
 ## FAQ
 

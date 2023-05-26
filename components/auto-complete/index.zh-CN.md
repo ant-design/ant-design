@@ -3,6 +3,7 @@ category: Components
 subtitle: 自动完成
 title: AutoComplete
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g8THS4NpV6sAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WERTQ6qvgEYAAAAAAAAAAAAADrJ8AQ/original
 group:
   title: 数据录入
   order: 4
@@ -72,6 +73,10 @@ demo:
 | ------- | -------- | ---- |
 | blur()  | 移除焦点 |      |
 | focus() | 获取焦点 |      |
+
+## Design Token
+
+<ComponentTokenTable component="Select"></ComponentTokenTable>
 
 ## FAQ
 

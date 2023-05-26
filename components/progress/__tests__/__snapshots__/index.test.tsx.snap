@@ -169,6 +169,7 @@ exports[`Progress render format 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -199,6 +200,7 @@ exports[`Progress render negative progress 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -225,6 +227,7 @@ exports[`Progress render negative successPercent 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -255,6 +258,7 @@ exports[`Progress render normal progress 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -281,6 +285,7 @@ exports[`Progress render out-of-range progress 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -324,6 +329,7 @@ exports[`Progress render out-of-range progress with info 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -421,6 +427,7 @@ exports[`Progress render strokeColor 2`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -447,6 +454,7 @@ exports[`Progress render strokeColor 3`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -529,6 +537,7 @@ exports[`Progress render successColor progress 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -667,6 +676,7 @@ exports[`Progress render trailColor progress 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -694,6 +704,7 @@ exports[`Progress rtl render component should be rendered correctly in RTL direc
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"

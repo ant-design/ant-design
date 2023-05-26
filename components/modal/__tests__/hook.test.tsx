@@ -350,4 +350,21 @@ describe('Modal.hook', () => {
 
     expect(document.body.querySelector('.bamboo')?.textContent).toEqual('好的');
   });
+
+  it('it should call forwarded afterClose', () => {
+    const afterClose = jest.fn();
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+      React.useEffect(() => {
+        modal.confirm({ title: 'Confirm', afterClose });
+      }, []);
+      return contextHolder;
+    };
+
+    render(<Demo />);
+    const btns = document.body.querySelectorAll('.ant-btn');
+    fireEvent.click(btns[btns.length - 1]);
+
+    expect(afterClose).toHaveBeenCalledTimes(1);
+  });
 });

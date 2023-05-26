@@ -3,6 +3,7 @@ category: Components
 group: Data Display
 title: Table
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3yz3QqMlShYAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Sv8XQ50NB40AAAAAAAAAAAAADrJ8AQ/original
 ---
 
 A table displays rows of data.
@@ -103,6 +104,7 @@ const columns = [
 <code src="./demo/row-selection-custom-debug.tsx" debug>Custom selection group</code>
 <code src="./demo/sticky.tsx">Fixed header and scroll bar with the page</code>
 <code src="./demo/dynamic-settings.tsx">Dynamic Settings</code>
+<code src="./demo/selections-debug.tsx" debug>selections with icon</code>
 
 ## API
 
@@ -255,6 +257,7 @@ Properties for row selection.
 | selectedRowKeys | Controlled selected row keys | string\[] \| number\[] | \[] |  |
 | selections | Custom selection [config](#selection), only displays default selections when set to `true` | object\[] \| boolean | - |  |
 | type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` |  |
+| onCell | Set props on per cell. Same as `onCell` in column | function(record, rowIndex) | - | 5.5.0 |
 | onChange | Callback executed when selected rows change | function(selectedRowKeys, selectedRows, info: { type }) | - | `info.type`: 4.21.0 |
 | onSelect | Callback executed when select/deselect one row | function(record, selected, selectedRows, nativeEvent) | - |  |
 | onSelectAll | Callback executed when select/deselect all rows | function(selected, selectedRows, changeRows) | - |  |
@@ -283,6 +286,7 @@ Properties for row selection.
 ```tsx
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+import React from 'react';
 
 interface User {
   key: number;
@@ -304,7 +308,7 @@ const data: User[] = [
   },
 ];
 
-export default () => (
+const Demo: React.FC = () => (
   <>
     <Table<User> columns={columns} dataSource={data} />
     {/* JSX style usage */}
@@ -313,9 +317,15 @@ export default () => (
     </Table>
   </>
 );
+
+export default Demo;
 ```
 
 Here is the [CodeSandbox for TypeScript](https://codesandbox.io/s/serene-platform-0jo5t).
+
+## Design Token
+
+<ComponentTokenTable component="Table"></ComponentTokenTable>
 
 ## Note
 
@@ -340,7 +350,7 @@ You can set `hideOnSinglePage` with `pagination` prop.
 
 ### Table will return to first page when filter data.
 
-Table total page count usually reduce after filter data, we defaultly return to first page in case of current page is out of filtered results.
+Table total page count usually reduce after filter data, we by default return to first page in case of current page is out of filtered results.
 
 You may need to keep current page after filtering when fetch data from remote service, please check [this demo](https://codesandbox.io/s/yuanchengjiazaishuju-ant-design-demo-7y2uf) as workaround.
 

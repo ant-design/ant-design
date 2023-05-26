@@ -1,14 +1,10 @@
 ## zh-CN
 
-输入框的组合展现。
-
-注意：使用 `compact` 模式时，不需要通过 `Col` 来控制宽度。
+`Input.Group` 已废弃，可以使用 [Space.Compact](/components/space-cn#spacecompact) 替代 `Input.Group`。
 
 ## en-US
 
-Input.Group example.
-
-Note: You don't need `Col` to control the width in the `compact` mode.
+`Input.Group` is deprecated. Can use [Space.Compact](/components/space#spacecompact) substitute for `Input.Group`.
 
 ```css
 .site-input-group-wrapper .site-input-split {

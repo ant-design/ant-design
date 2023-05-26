@@ -3,6 +3,7 @@ category: Components
 group: Navigation
 title: Dropdown
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*mBBcQ6goljkAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5qm4S4Zgh2QAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -32,6 +33,7 @@ When there are more than a few options to choose from, you can wrap them in a `D
 <code src="./demo/selectable.tsx">Selectable Menu</code>
 <code src="./demo/menu-full.tsx" debug>Menu full styles</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/icon-debug.tsx" debug>Icon debug</code>
 
 ## API
 
@@ -67,3 +69,11 @@ Same props from Dropdown. And includes additional props:
 | size | Size of the button, the same as [Button](/components/button/#api) | string | `default` |  |
 | type | Type of the button, the same as [Button](/components/button/#api) | string | `default` |  |
 | onClick | The same as [Button](/components/button/#api): called when you click the button on the left | (event) => void | - |  |
+
+## Note
+
+Please ensure that the child node of `Dropdown` accepts `onMouseEnter`, `onMouseLeave`, `onFocus`, `onClick` events.
+
+## Design Token
+
+<ComponentTokenTable component="Dropdown"></ComponentTokenTable>

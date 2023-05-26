@@ -52,7 +52,7 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 1. 在项目根目录下运行了 `npm install`。
 1. 如果你修复了一个 bug 或者新增了一个功能，请确保写了相应的测试，这很重要。
 1. 确认所有的测试都是通过的 `npm run test`。 小贴士：开发过程中可以用 `npm test -- --watch TestName` 来运行指定的测试。
-1. 运行 `npm test -- -u` 来更新 [jest snapshot](http://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) 并且把这些更新也提交上来（如果有的话）。
+1. 运行 `npm test -- -u` 来更新 [jest snapshot](https://jestjs.io/zh-Hans/docs/snapshot-testing) 并且把这些更新也提交上来（如果有的话）。
 1. 确认所有的 UI 改动通过 `npm run test-image`，可以运行 `npm run test-image -- -u` 更新 UI 快照并且把这些更新也提交上来（如果有的话），**UI 测试基于 [Docker](https://docs.docker.com/get-docker/)，根据平台下载对应的安装程序。**
 1. 确保你的代码通过了 lint 检查 `npm run lint`. 小贴士: Lint 会在你 `git commit` 的时候自动运行（通过[Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)）。
 
@@ -61,6 +61,12 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 由于 antd 的大部分组件都是基于 react-component 的，所以有时候你可能需要给相应的 react-component 仓库发送 pull request。如果你是修复了某个 bug，那么我们在合并你的修改后会尽快发布一个 patch 版本，然后你只要重新安装你的依赖就可以使用新发布的版本了。如果你的 pull request 是新增了某个功能，那么在你的修改合并并且发布版本后，你还需要发送一个 pull request 到 [Ant Design](https://github.com/ant-design/ant-design/) 来升级相应的依赖、文档以及 TypeScript 的类型定义。
 
 ## 开发流程
+
+在开始之前，请先执行下面的命令启用 [corepack](https://nodejs.org/api/corepack.html)。
+
+```bash
+corepack enable
+```
 
 在你 clone 了 antd 的代码并且使用 `npm install` 安装完依赖后，你还可以运行下面几个常用的命令：
 

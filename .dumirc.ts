@@ -1,6 +1,7 @@
 import { defineConfig } from 'dumi';
 import path from 'path';
 import rehypeAntd from './.dumi/rehypeAntd';
+import remarkAntd from './.dumi/remarkAntd';
 import { version } from './package.json';
 
 export default defineConfig({
@@ -33,7 +34,8 @@ export default defineConfig({
     antd: require.resolve('./.dumi/theme/antd.js'),
   },
   extraRehypePlugins: [rehypeAntd],
-  extraBabelPresets: ['@emotion/babel-preset-css-prop'],
+  extraRemarkPlugins: [remarkAntd],
+  extraBabelPresets: [require.resolve('@emotion/babel-preset-css-prop')],
   mfsu: false,
   metas: [{ name: 'theme-color', content: '#1677ff' }],
   analytics: {

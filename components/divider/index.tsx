@@ -57,7 +57,7 @@ const Divider: React.FC<DividerProps> = (props) => {
     rootClassName,
   );
 
-  const innerStyle = {
+  const innerStyle: React.CSSProperties = {
     ...(hasCustomMarginLeft && { marginLeft: orientationMargin }),
     ...(hasCustomMarginRight && { marginRight: orientationMargin }),
   };
