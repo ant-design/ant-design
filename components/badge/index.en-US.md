@@ -49,7 +49,7 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 | status | Set Badge as a status dot | `success` \| `processing` \| `default` \| `error` \| `warning` | - |  |
 | text | If `status` is set, `text` sets the display text of the status `dot` | ReactNode | - |  |
 | title | Text to show when hovering over the badge | string | - |  |
-| onClick | Will Call When click | () => void | - |  |
+| onClick | Will Call When click | () => void | - | 5.6.0 |
 
 ### Badge.Ribbon (4.5.0+)
 
@@ -58,7 +58,7 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 | color | Customize Ribbon color | string | - |  |
 | placement | The placement of the Ribbon, `start` and `end` follow text direction (RTL or LTR) | `start` \| `end` | `end` |  |
 | text | Content inside the Ribbon | ReactNode | - |  |
-| onClick | Will Call When click | () => void | - |  |
+| onClick | Will Call When click | () => void | - | 5.6.0 |
 
 ## Design Token
 
