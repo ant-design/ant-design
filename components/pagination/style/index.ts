@@ -23,13 +23,13 @@ export interface ComponentToken {
 
 interface PaginationToken extends InputToken<FullToken<'Pagination'>> {
   inputOutlineOffset: number;
-  miniOptionsMarginInlineStart: number;
-  miniQuickJumperInputWidth: number;
-  itemPaddingInline: number;
-  ellipsisLetterSpacing: number;
-  ellipsisTextIndent: string;
-  slashMarginInlineStart: number;
-  slashMarginInlineEnd: number;
+  paginationMiniOptionsMarginInlineStart: number;
+  paginationMiniQuickJumperInputWidth: number;
+  paginationItemPaddingInline: number;
+  paginationEllipsisLetterSpacing: number;
+  paginationEllipsisTextIndent: string;
+  paginationSlashMarginInlineStart: number;
+  paginationSlashMarginInlineEnd: number;
 }
 
 const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
@@ -201,7 +201,7 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       },
 
     [`&${componentCls}-mini ${componentCls}-options`]: {
-      marginInlineStart: token.miniOptionsMarginInlineStart,
+      marginInlineStart: token.paginationMiniOptionsMarginInlineStart,
 
       [`&-size-changer`]: {
         top: token.miniOptionsSizeChangerTop,
@@ -214,7 +214,7 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
         input: {
           ...genInputSmallStyle(token),
 
-          width: token.miniQuickJumperInputWidth,
+          width: token.paginationMiniQuickJumperInputWidth,
           height: token.controlHeightSM,
         },
       },
@@ -259,7 +259,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
         boxSizing: 'border-box',
         height: '100%',
         marginInlineEnd: token.marginXS,
-        padding: `0 ${token.itemPaddingInline}px`,
+        padding: `0 ${token.paginationItemPaddingInline}px`,
         textAlign: 'center',
         backgroundColor: token.itemInputBg,
         border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
@@ -323,9 +323,9 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
           margin: 'auto',
           color: token.colorTextDisabled,
           fontFamily: 'Arial, Helvetica, sans-serif',
-          letterSpacing: token.ellipsisLetterSpacing,
+          letterSpacing: token.paginationEllipsisLetterSpacing,
           textAlign: 'center',
-          textIndent: token.ellipsisTextIndent,
+          textIndent: token.paginationEllipsisTextIndent,
           opacity: 1,
           transition: `all ${token.motionDurationMid}`,
         },
@@ -423,8 +423,8 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
     },
 
     [`${componentCls}-slash`]: {
-      marginInlineEnd: token.slashMarginInlineEnd,
-      marginInlineStart: token.slashMarginInlineStart,
+      marginInlineEnd: token.paginationSlashMarginInlineEnd,
+      marginInlineStart: token.paginationSlashMarginInlineStart,
     },
 
     [`${componentCls}-options`]: {
@@ -482,7 +482,7 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token
 
       a: {
         display: 'block',
-        padding: `0 ${token.itemPaddingInline}px`,
+        padding: `0 ${token.paginationItemPaddingInline}px`,
         color: token.colorText,
         transition: 'none',
 
@@ -699,13 +699,13 @@ export default genComponentStyleHook(
       token,
       {
         inputOutlineOffset: 0,
-        miniOptionsMarginInlineStart: token.marginXXS / 2,
-        miniQuickJumperInputWidth: token.controlHeightLG * 1.1,
-        itemPaddingInline: token.marginXXS * 1.5,
-        ellipsisLetterSpacing: token.marginXXS / 2,
-        slashMarginInlineStart: token.marginXXS,
-        slashMarginInlineEnd: token.marginSM,
-        ellipsisTextIndent: '0.13em', // magic for ui experience
+        paginationMiniOptionsMarginInlineStart: token.marginXXS / 2,
+        paginationMiniQuickJumperInputWidth: token.controlHeightLG * 1.1,
+        paginationItemPaddingInline: token.marginXXS * 1.5,
+        paginationEllipsisLetterSpacing: token.marginXXS / 2,
+        paginationSlashMarginInlineStart: token.marginXXS,
+        paginationSlashMarginInlineEnd: token.marginSM,
+        paginationEllipsisTextIndent: '0.13em', // magic for ui experience
       },
       initInputToken(token),
     );
