@@ -1,9 +1,9 @@
+import type { TriggerProps } from '@rc-component/trigger';
 import dayjs from 'dayjs';
 import 'dayjs/locale/mk'; // to test local in 'prop locale should works' test case
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import MockDate from 'mockdate';
 import dayJsGenerateConfig from 'rc-picker/lib/generate/dayjs';
-import type { TriggerProps } from 'rc-trigger';
 import React from 'react';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
