@@ -117,8 +117,8 @@ const ColorPicker: CompoundedComponent = (props) => {
     onChange?.(color, color.toHexString());
   };
 
-  const handleClear = (clear: boolean) => {
-    setColorCleared(clear);
+  const handleClear = () => {
+    setColorCleared(true);
     onClear?.();
   };
 
