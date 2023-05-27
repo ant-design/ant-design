@@ -36,6 +36,7 @@ demo:
 <code src="./demo/start-end.tsx" debug>自定义日期范围选择</code>
 <code src="./demo/suffix.tsx" debug>后缀图标</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 

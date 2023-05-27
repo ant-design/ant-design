@@ -35,6 +35,7 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/start-end.tsx" debug>Customized Range Picker</code>
 <code src="./demo/suffix.tsx" debug>Suffix</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
