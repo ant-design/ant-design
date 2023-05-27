@@ -8,7 +8,7 @@ const Empty: React.FC = () => {
   const bgColor = new TinyColor(token.colorBgBase);
 
   // Dark Theme need more dark of this
-  let themeStyle: React.CSSProperties = bgColor.toHsl().l < 0.5 ? { opacity: 0.65 } : {};
+  const themeStyle: React.CSSProperties = bgColor.toHsl().l < 0.5 ? { opacity: 0.65 } : {};
 
   return (
     <svg
