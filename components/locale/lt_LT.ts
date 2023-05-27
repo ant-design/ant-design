@@ -1,9 +1,8 @@
 /* eslint-disable no-template-curly-in-string */
-
 import Pagination from 'rc-pagination/lib/locale/lt_LT';
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/lt_LT';
 import DatePicker from '../date-picker/locale/lt_LT';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/lt_LT';
 
 const typeTemplate: string = '${label} neatitinka tipo ${type}';
@@ -14,14 +13,20 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    placeholder: 'Pasirinkite',
+  },
   Table: {
     filterTitle: 'Filtras',
     filterConfirm: 'Gerai',
     filterReset: 'Atstatyti',
     filterEmptyText: 'Be filtrų',
+    filterCheckall: 'Pasirinkti visus',
+    filterSearchPlaceholder: 'Ieškoti filtruose',
     emptyText: 'Nėra duomenų',
     selectAll: 'Pasirinkti viską',
     selectInvert: 'Apversti pasirinkimą',
+    selectNone: 'Išvalyti visus',
     selectionAll: 'Rinktis visus',
     sortTitle: 'Rikiavimas',
     expand: 'Išskleisti',
@@ -29,6 +34,11 @@ const localeValues: Locale = {
     triggerDesc: 'Spustelėkite norėdami rūšiuoti mažėjančia tvarka',
     triggerAsc: 'Spustelėkite norėdami rūšiuoti didėjančia tvarka',
     cancelSort: 'Spustelėkite, kad atšauktumėte rūšiavimą',
+  },
+  Tour: {
+    Next: 'Kitas',
+    Previous: 'Ankstesnis',
+    Finish: 'Baigti',
   },
   Modal: {
     okText: 'Taip',
@@ -45,18 +55,18 @@ const localeValues: Locale = {
     itemUnit: 'vnt.',
     itemsUnit: 'vnt.',
     remove: 'Pašalinti',
-    selectAll: 'Pasirinkti visus',
-    selectCurrent: 'Pasirinkite dabartinį puslapį',
-    selectInvert: 'Atkeist pasirinkimą',
-    removeAll: 'Ištrinti visus duomenis',
+    selectCurrent: 'Pasirinkti dabartinį puslapį',
     removeCurrent: 'Ištrinti dabartinį puslapį',
+    selectAll: 'Pasirinkti viską',
+    removeAll: 'Ištrinti viską',
+    selectInvert: 'Apversti pasirinkimą',
   },
   Upload: {
-    uploading: 'Gaunami duomenys...',
+    uploading: 'Įkeliami duomenys...',
     removeFile: 'Ištrinti failą',
     uploadError: 'Įkeliant įvyko klaida',
     previewFile: 'Failo peržiūra',
-    downloadFile: 'Įkelti failą',
+    downloadFile: 'Atsisiųsti failą',
   },
   Empty: {
     description: 'Nėra duomenų',
@@ -74,11 +84,12 @@ const localeValues: Locale = {
     back: 'Atgal',
   },
   Form: {
+    optional: '(neprivaloma)',
     defaultValidateMessages: {
-      default: 'Laukelio klaida ${label}',
+      default: 'Klaida laukelyje ${label}',
       required: 'Prašome įvesti ${label}',
-      enum: '${label} turėtu būti vienas iš [${enum}]',
-      whitespace: '${label} negali likti tuščiu',
+      enum: '${label} turi būti vienas iš [${enum}]',
+      whitespace: '${label} negali likti tuščias',
       date: {
         format: '${label} neteisingas datos formatas',
         parse: '${label} negali būti konvertuotas į datą',
@@ -101,25 +112,36 @@ const localeValues: Locale = {
       },
       string: {
         len: '${label} turi būti ${len} simbolių',
-        min: '${label} turi būti ilgesnis nei ${min} simbolių',
-        max: '${label} turi būti ne trumpesnis ${max} simbolių',
-        range: 'Lauko ${label} reikšmės ribos ${min}-${max} simbolių',
+        min: '${label} turi būti bent ${min} simbolių',
+        max: '${label} turi būti ne ilgesnis nei ${max} simbolių',
+        range: 'Laukelio ${label} reikšmės ribos ${min}-${max} simbolių',
       },
       number: {
         len: '${label} turi būti lygi ${len}',
-        min: '${label} turi būti lygus arba didesnis ${min}',
-        max: '${label} turi būti lygus arba mažesnis ${max}',
+        min: '${label} turi būti lygus arba didesnis už ${min}',
+        max: '${label} turi būti lygus arba mažesnis už ${max}',
+        range: '${label} turi būti tarp ${min}-${max}',
       },
       array: {
         len: 'Pasirinktas kiekis ${label} turi būti lygus ${len}',
-        min: 'Pasirinktas kiekis ${label} turi būti lygus arba didesnis ${min}',
-        max: 'Pasirinktas kiekis ${label} turi būti lygus arba mažesnis ${max}',
-        range: 'Pasirinktas kiekis ${label} turi būti tarp ${min} и ${max}',
+        min: 'Pasirinktas kiekis ${label} turi būti bent ${min}',
+        max: 'Pasirinktas kiekis ${label} turi būti ne ilgesnis nei ${max}',
+        range: 'Pasirinktas ${label} kiekis turi būti tarp ${min}-${max}',
       },
       pattern: {
         mismatch: '${label} neatitinka modelio ${pattern}',
       },
     },
+  },
+  Image: {
+    preview: 'Peržiūrėti',
+  },
+  QRCode: {
+    expired: 'QR kodo galiojimas baigėsi',
+    refresh: 'Atnaujinti',
+  },
+  ColorPicker: {
+    presetEmpty: 'Tuščia',
   },
 };
 
