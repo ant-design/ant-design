@@ -1,5 +1,6 @@
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
+import type { CollapseProps as RcCollapseProps } from 'rc-collapse';
 import RcCollapse from 'rc-collapse';
 import type { CSSMotionProps } from 'rc-motion';
 import toArray from 'rc-util/lib/Children/toArray';
@@ -20,6 +21,7 @@ type ExpandIconPositionLegacy = 'left' | 'right';
 export type ExpandIconPosition = 'start' | 'end' | ExpandIconPositionLegacy | undefined;
 
 export interface CollapseProps {
+  items: RcCollapseProps['items'];
   activeKey?: Array<string | number> | string | number;
   defaultActiveKey?: Array<string | number> | string | number;
   /** 手风琴效果 */
@@ -36,6 +38,9 @@ export interface CollapseProps {
   ghost?: boolean;
   size?: SizeType;
   collapsible?: CollapsibleType;
+  /**
+   * @deprecated use `items` instead
+   */
   children?: React.ReactNode;
 }
 
@@ -125,7 +130,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
         if (child.props?.disabled) {
           const key = child.key ?? String(index);
           const { disabled, collapsible } = child.props;
-          const childProps: CollapseProps & { key: React.Key } = {
+          const childProps: Omit<CollapseProps, 'items'> & { key: React.Key } = {
             ...omit(child.props, ['disabled']),
             key,
             collapsible: collapsible ?? (disabled ? 'disabled' : undefined),

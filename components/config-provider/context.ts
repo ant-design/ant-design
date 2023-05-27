@@ -1,11 +1,12 @@
-import * as React from 'react';
 import type { DerivativeFunc } from '@ant-design/cssinjs';
+import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
+import type { ButtonProps } from '../button';
 import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale';
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../theme/interface';
-import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { SizeType } from './SizeContext';
+import type { RenderEmptyHandler } from './defaultRenderEmpty';
 
 export const defaultIconPrefixCls = 'anticon';
 
@@ -33,6 +34,15 @@ export interface ThemeConfig {
   hashed?: boolean;
   inherit?: boolean;
 }
+
+interface componentStyleConfig {
+  className?: string;
+  style?: React.CSSProperties;
+  classNames?: ButtonProps['classNames'];
+  styles?: ButtonProps['styles'];
+}
+
+export interface ButtonConfig extends componentStyleConfig {}
 
 export type PopupOverflow = 'viewport' | 'scroll';
 
@@ -71,6 +81,7 @@ export interface ConfigConsumerProps {
   select?: {
     showSearch?: boolean;
   };
+  button?: ButtonConfig;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {

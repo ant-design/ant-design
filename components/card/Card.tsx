@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import type { Tab } from 'rc-tabs/lib/interface';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
@@ -12,10 +13,11 @@ import useStyle from './style';
 export type CardType = 'inner';
 export type CardSize = 'default' | 'small';
 
-export interface CardTabListType {
+export interface CardTabListType extends Omit<Tab, 'label'> {
   key: string;
-  tab: React.ReactNode;
-  disabled?: boolean;
+  /** @deprecated Please use `label` instead */
+  tab?: React.ReactNode;
+  label?: React.ReactNode;
 }
 
 export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
@@ -123,10 +125,9 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
         {...extraProps}
         className={`${prefixCls}-head-tabs`}
         onChange={onTabChange}
-        items={tabList.map((item) => ({
-          label: item.tab,
-          key: item.key,
-          disabled: item.disabled ?? false,
+        items={tabList.map(({ tab, ...item }) => ({
+          label: tab,
+          ...item,
         }))}
       />
     ) : null;
