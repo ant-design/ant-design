@@ -15,6 +15,7 @@ import LZString from 'lz-string';
 import Prism from 'prismjs';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import type { AntdPreviewerProps } from '.';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
@@ -27,7 +28,6 @@ import RiddleIcon from '../../common/RiddleIcon';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import { ping } from '../../utils';
-import type { AntdPreviewerProps } from '.';
 
 const { ErrorBoundary } = Alert;
 
@@ -331,6 +331,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
     main: 'index.js',
     dependencies: {
       ...dependencies,
+      'rc-util': 'latest',
       react: '^18.0.0',
       'react-dom': '^18.0.0',
       'react-scripts': '^5.0.0',
