@@ -1,6 +1,7 @@
 {
   "name": "antd",
   "version": "5.5.1",
+  "packageManager": "^npm@9.0.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -127,7 +128,7 @@
     "rc-dialog": "~9.1.0",
     "rc-drawer": "~6.1.1",
     "rc-dropdown": "~4.1.0",
-    "rc-field-form": "~1.31.0",
+    "rc-field-form": "~1.32.0",
     "rc-image": "~5.16.0",
     "rc-input": "~1.0.4",
     "rc-input-number": "~7.4.0",
@@ -152,7 +153,7 @@
     "rc-tree": "~5.7.4",
     "rc-tree-select": "~5.9.0",
     "rc-upload": "~4.3.0",
-    "rc-util": "^5.27.0",
+    "rc-util": "^5.32.0",
     "scroll-into-view-if-needed": "^3.0.3",
     "throttle-debounce": "^5.0.0"
   },
@@ -244,7 +245,7 @@
     "jest-environment-jsdom": "^29.0.1",
     "jest-environment-node": "^29.0.0",
     "jest-image-snapshot": "^6.0.0",
-    "jest-puppeteer": "^8.0.4",
+    "jest-puppeteer": "^9.0.0",
     "jquery": "^3.4.1",
     "jsdom": "^22.0.0",
     "jsonml-to-react-element": "^1.1.11",
