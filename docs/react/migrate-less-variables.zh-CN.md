@@ -368,7 +368,18 @@ title: Less 变量迁移 Design Token
 
 <!-- ### TimePicker 时间选择 -->
 
-<!-- ### Tooltip 文字提示 -->
+### Tooltip 文字提示
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@tooltip-max-width` | `tooltipMaxWidth` | - |
+| `@tooltip-color` | `tooltipColor` | - |
+| `@tooltip-bg` | `tooltipBg` | - |
+| `@tooltip-arrow-width` | - | 由于样式变化已废弃 |
+| `@tooltip-distance` | - | 由于样式变化已废弃 |
+| `@tooltip-arrow-color` | - | 由于样式变化已废弃 |
+| `@tooltip-border-radius` | `tooltipBorderRadius` | - |
 
 <!-- ### Transfer 穿梭框 -->
 
@@ -382,10 +393,3 @@ title: Less 变量迁移 Design Token
 | `@typography-title-font-weight` | `fontWeightStrong` | 全局 Token |
 | `@typography-title-margin-top` | `titleMarginTop` | - |
 | `@typography-title-margin-bottom` | `titleMarginBottom` | - |
-
-### Upload 上传
-
-<!-- prettier-ignore -->
-| less 变量 | Component Token | 备注 |
-| --- | --- | --- |
-| `@upload-actions-color` | `actionsColor` | - |

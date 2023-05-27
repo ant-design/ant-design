@@ -371,7 +371,18 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### TimePicker -->
 
-<!-- ### Tooltip -->
+### Tooltip
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@tooltip-max-width` | `tooltipMaxWidth` | - |
+| `@tooltip-color` | `tooltipColor` | - |
+| `@tooltip-bg` | `tooltipBg` | - |
+| `@tooltip-arrow-width` | - | Deprecated for style change |
+| `@tooltip-distance` | - | Deprecated for style change |
+| `@tooltip-arrow-color` | - | Deprecated for style change |
+| `@tooltip-border-radius` | `tooltipBorderRadius` | - |
 
 <!-- ### Transfer -->
 
@@ -385,10 +396,3 @@ This document contains the correspondence between all the less variables related
 | `@typography-title-font-weight` | `fontWeightStrong` | Global Token |
 | `@typography-title-margin-top` | `titleMarginTop` | - |
 | `@typography-title-margin-bottom` | `titleMarginBottom` | - |
-
-### Upload
-
-<!-- prettier-ignore -->
-| Less variables | Component Token | Note |
-| --- | --- | --- |
-| `@upload-actions-color` | `actionsColor` | - |
