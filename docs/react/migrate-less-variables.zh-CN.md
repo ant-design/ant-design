@@ -325,23 +325,23 @@ title: Less 变量迁移 Design Token
 
 ### TimePicker 时间选择
 
-| Less 变量                                    | Component Token                      | 备注       |
-| -------------------------------------------- | ------------------------------------ | ---------- |
-| `@picker-bg`                                 | -                                    | 已废弃     |
-| `@picker-basic-cell-hover-color`             | -                                    | 已废弃     |
-| `@picker-basic-cell-active-with-range-color` | -                                    | 已废弃     |
-| `@picker-basic-cell-hover-with-range-color`  | `pickerBasicCellHoverWithRangeColor` | -          |
-| `@picker-basic-cell-disabled-bg`             | `colorBgContainerDisabled`           | 全局 Token |
-| `@picker-border-color`                       | -                                    | 已废弃     |
-| `@picker-date-hover-range-border-color`      | `pickerDateHoverRangeBorderColor`    | -          |
-| `@picker-date-hover-range-color`             | -                                    | 已废弃     |
-| `@picker-time-panel-column-width`            | `pickerTimePanelColumnWidth`         | -          |
-| `@picker-time-panel-column-height`           | `pickerTimePanelColumnHeight`        | -          |
-| `@picker-time-panel-cell-height`             | `pickerTimePanelCellHeight`          | -          |
-| `@picker-panel-cell-height`                  | `pickerPanelCellHeight`              | -          |
-| `@picker-panel-cell-width`                   | `pickerPanelCellWidth`               | -          |
-| `@picker-text-height`                        | `pickerTextHeight`                   | -          |
-| `@picker-panel-without-time-cell-height`     | `pickerPanelWithoutTimeCellHeight`   | -          |
+| Less 变量                                    | Component Token                | 备注       |
+| -------------------------------------------- | ------------------------------ | ---------- |
+| `@picker-bg`                                 | -                              | 已废弃     |
+| `@picker-basic-cell-hover-color`             | -                              | 已废弃     |
+| `@picker-basic-cell-active-with-range-color` | -                              | 已废弃     |
+| `@picker-basic-cell-hover-with-range-color`  | `basicCellHoverWithRangeColor` | -          |
+| `@picker-basic-cell-disabled-bg`             | `colorBgContainerDisabled`     | 全局 Token |
+| `@picker-border-color`                       | -                              | 已废弃     |
+| `@picker-date-hover-range-border-color`      | `dateHoverRangeBorderColor`    | -          |
+| `@picker-date-hover-range-color`             | -                              | 已废弃     |
+| `@picker-time-panel-column-width`            | `timePanelColumnWidth`         | -          |
+| `@picker-time-panel-column-height`           | `timePanelColumnHeight`        | -          |
+| `@picker-time-panel-cell-height`             | `timePanelCellHeight`          | -          |
+| `@picker-panel-cell-height`                  | `panelCellHeight`              | -          |
+| `@picker-panel-cell-width`                   | `panelCellWidth`               | -          |
+| `@picker-text-height`                        | `textHeight`                   | -          |
+| `@picker-panel-without-time-cell-height`     | `panelWithoutTimeCellHeight`   | -          |
 
 <!-- ### Tooltip 文字提示 -->
 

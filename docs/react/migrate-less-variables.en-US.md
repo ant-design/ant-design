@@ -327,23 +327,23 @@ This document contains the correspondence between all the less variables related
 
 ### TimePicker
 
-| Less variables | Component Token | Note |
-| --- | --- | --- |
-| `@picker-bg` | - | Deprecated |
-| `@picker-basic-cell-hover-color` | - | Deprecated |
-| `@picker-basic-cell-active-with-range-color` | - | Deprecated |
-| `@picker-basic-cell-hover-with-range-color` | `pickerBasicCellHoverWithRangeColor` | - |
-| `@picker-basic-cell-disabled-bg` | `colorBgContainerDisabled` | Global Token |
-| `@picker-border-color` | - | Deprecated |
-| `@picker-date-hover-range-border-color` | `pickerDateHoverRangeBorderColor` | - |
-| `@picker-date-hover-range-color` | - | Deprecated |
-| `@picker-time-panel-column-width` | `pickerTimePanelColumnWidth` | - |
-| `@picker-time-panel-column-height` | `pickerTimePanelColumnHeight` | - |
-| `@picker-time-panel-cell-height` | `pickerTimePanelCellHeight` | - |
-| `@picker-panel-cell-height` | `pickerPanelCellHeight` | - |
-| `@picker-panel-cell-width` | `pickerPanelCellWidth` | - |
-| `@picker-text-height` | `pickerTextHeight` | - |
-| `@picker-panel-without-time-cell-height` | `pickerPanelWithoutTimeCellHeight` | - |
+| Less variables                               | Component Token                | Note         |
+| -------------------------------------------- | ------------------------------ | ------------ |
+| `@picker-bg`                                 | -                              | Deprecated   |
+| `@picker-basic-cell-hover-color`             | -                              | Deprecated   |
+| `@picker-basic-cell-active-with-range-color` | -                              | Deprecated   |
+| `@picker-basic-cell-hover-with-range-color`  | `basicCellHoverWithRangeColor` | -            |
+| `@picker-basic-cell-disabled-bg`             | `colorBgContainerDisabled`     | Global Token |
+| `@picker-border-color`                       | -                              | Deprecated   |
+| `@picker-date-hover-range-border-color`      | `dateHoverRangeBorderColor`    | -            |
+| `@picker-date-hover-range-color`             | -                              | Deprecated   |
+| `@picker-time-panel-column-width`            | `timePanelColumnWidth`         | -            |
+| `@picker-time-panel-column-height`           | `timePanelColumnHeight`        | -            |
+| `@picker-time-panel-cell-height`             | `timePanelCellHeight`          | -            |
+| `@picker-panel-cell-height`                  | `panelCellHeight`              | -            |
+| `@picker-panel-cell-width`                   | `panelCellWidth`               | -            |
+| `@picker-text-height`                        | `textHeight`                   | -            |
+| `@picker-panel-without-time-cell-height`     | `panelWithoutTimeCellHeight`   | -            |
 
 <!-- ### Tooltip -->
 
