@@ -149,7 +149,18 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Form 表单 -->
 
-<!-- ### Image 图片 -->
+## Image 图片
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@image-size-base` | - | 未使用已废弃 |
+| `@image-font-size-base` | - | 未使用已废弃 |
+| `@image-bg` | `colorFillTertiary` | - |
+| `@image-color` | `colorTextLightSolid` | - |
+| `@image-preview-operation-size` | `imagePreviewOperationSize` | - |
+| `@image-preview-operation-color` | `imagePreviewOperationColor` | - |
+| `@image-preview-operation-disabled-color` | `imagePreviewOperationDisabledColor` | - |
 
 <!-- ### Input 输入框 -->
 
