@@ -290,10 +290,13 @@ describe('ColorPicker', () => {
         height: 100,
       }),
     });
-    const { container } = render(<ColorPicker trigger="hover" open />);
+    const { container } = render(<ColorPicker trigger="hover" />);
     fireEvent.mouseEnter(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
     doMouseMove(container, 0, 999);
     expect(container.querySelector('.ant-popover-hidden')).toBeFalsy();
+    fireEvent.mouseLeave(container.querySelector('.ant-color-picker-trigger')!);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-popover-hidden')).toBeTruthy();
   });
 });
