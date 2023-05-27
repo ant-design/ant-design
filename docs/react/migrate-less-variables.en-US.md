@@ -156,8 +156,8 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@image-size-base` | - | Deprecated for style change |
-| `@image-font-size-base` | - | Deprecated for style change |
+| `@image-size-base` | - | Deprecated for not used |
+| `@image-font-size-base` | - | Deprecated for not used |
 | `@image-bg` | - | Deprecated for style change |
 | `@image-color` | - | Deprecated for style change |
 | `@image-preview-operation-color` | `imagePreviewOperationSize` | - |

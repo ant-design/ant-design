@@ -149,7 +149,7 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Form 表单 -->
 
-## Image 图片
+### Image 图片
 
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
