@@ -3,6 +3,7 @@ import type { IApi, IRoute } from 'dumi';
 import ReactTechStack from 'dumi/dist/techStacks/react';
 import fs from 'fs';
 import sylvanas from 'sylvanas';
+import pkg from '../../package.json';
 
 /**
  * extends dumi internal tech stack, for customize previewer props
@@ -18,7 +19,9 @@ class AntdReactTechStack extends ReactTechStack {
 
       const codePath = opts.fileAbsPath!.replace(/\.\w+$/, '.tsx');
       const code = fs.existsSync(codePath) ? fs.readFileSync(codePath, 'utf-8') : '';
+      const pkgDependencyList = pkg.dependencies;
 
+      props.pkgDependencyList = pkgDependencyList;
       props.jsx = sylvanas.parseText(code);
 
       if (md) {

@@ -105,6 +105,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     filename,
     version,
     clientOnly,
+    pkgDependencyList,
   } = props;
 
   const { pkg } = useSiteData();
@@ -331,7 +332,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
     main: 'index.js',
     dependencies: {
       ...dependencies,
-      'rc-util': '^5.32.0',
+      'rc-util': pkgDependencyList['rc-util'],
       react: '^18.0.0',
       'react-dom': '^18.0.0',
       'react-scripts': '^5.0.0',
