@@ -139,7 +139,7 @@
     "rc-pagination": "~3.4.2",
     "rc-picker": "~3.7.4",
     "rc-progress": "~3.4.1",
-    "rc-rate": "~2.10.0",
+    "rc-rate": "~2.11.2",
     "rc-resize-observer": "^1.2.0",
     "rc-segmented": "~2.2.0",
     "rc-select": "~14.5.0",
