@@ -1,10 +1,10 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import { genModalMaskStyle } from '../../modal/style';
-import { initZoomMotion, initFadeMotion } from '../../style/motion';
+import { resetComponent, textEllipsis } from '../../style';
+import { initFadeMotion, initZoomMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent, textEllipsis } from '../../style';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -81,6 +81,7 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
         padding: paddingSM,
         cursor: 'pointer',
         transition: `all ${motionDurationSlow}`,
+        userSelect: 'none',
 
         '&:hover': {
           background: operationBgHover.toRgbString(),
@@ -140,6 +141,7 @@ export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
       cursor: 'pointer',
       transition: `all ${motionDurationSlow}`,
       pointerEvents: 'auto',
+      userSelect: 'none',
 
       '&:hover': {
         background: operationBgHover.toRgbString(),
