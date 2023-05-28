@@ -9,6 +9,7 @@ const options = [
 
 const App: React.FC = () => (
   <AutoComplete
+		className="w-25 h-4 rounde-md shasow-sm shadow-[#c0c0c0] hover:shasow-[#ccc]"
     style={{ width: 200 }}
     options={options}
     placeholder="try to type `b`"
