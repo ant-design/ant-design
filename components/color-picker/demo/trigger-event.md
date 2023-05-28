@@ -4,4 +4,4 @@
 
 ## en-US
 
-Triggers event for customizing color panels.
+Triggers event for customizing color panels, provide options `click` and `hover`.
