@@ -117,7 +117,7 @@ const Alert: CompoundedComponent = ({
 }) => {
   const [closed, setClosed] = React.useState(false);
 
-  const ref = React.useRef<HTMLElement>();
+  const ref = React.useRef<HTMLDivElement>(null);
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
