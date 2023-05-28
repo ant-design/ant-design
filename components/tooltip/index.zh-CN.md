@@ -29,6 +29,7 @@ demo:
 <code src="./demo/colorful.tsx">多彩文字提示</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug.tsx" debug>Debug</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
