@@ -396,3 +396,10 @@ This document contains the correspondence between all the less variables related
 | `@typography-title-font-weight` | `fontWeightStrong` | Global Token |
 | `@typography-title-margin-top` | `titleMarginTop` | - |
 | `@typography-title-margin-bottom` | `titleMarginBottom` | - |
+
+### Upload
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@upload-actions-color` | `actionsColor` | - |
