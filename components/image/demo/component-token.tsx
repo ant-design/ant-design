@@ -6,9 +6,9 @@ const App: React.FC = () => (
     theme={{
       components: {
         Image: {
-          imagePreviewOperationSize: 20,
-          imagePreviewOperationColor: '#222',
-          imagePreviewOperationDisabledColor: '#b20000',
+          previewOperationSize: 20,
+          previewOperationColor: '#222',
+          previewOperationDisabledColor: '#b20000',
         },
       },
     }}
