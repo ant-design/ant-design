@@ -1,7 +1,7 @@
 import type {
   RcFile as OriRcFile,
-  UploadProps as RcUploadProps,
   UploadRequestOption as RcCustomRequestOptions,
+  UploadProps as RcUploadProps,
 } from 'rc-upload/lib/interface';
 import type * as React from 'react';
 import type { ProgressProps } from '../progress';
@@ -35,6 +35,8 @@ export interface UploadFile<T = any> {
   type?: string;
   xhr?: T;
   preview?: string;
+  ariaLabel?: string;
+  ariaLabelledBy?: string;
 }
 
 export interface InternalUploadFile<T = any> extends UploadFile<T> {
