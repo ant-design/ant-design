@@ -376,13 +376,13 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@tooltip-max-width` | `tooltipMaxWidth` | - |
-| `@tooltip-color` | `tooltipColor` | - |
-| `@tooltip-bg` | `tooltipBg` | - |
-| `@tooltip-arrow-width` | - | Deprecated for style change |
-| `@tooltip-distance` | - | Deprecated for style change |
-| `@tooltip-arrow-color` | - | Deprecated for style change |
-| `@tooltip-border-radius` | `tooltipBorderRadius` | - |
+| `@tooltip-max-width` | - | Can be directly modified by `className` or `style` |
+| `@tooltip-color` | `colorTextLightSolid` | Global Token |
+| `@tooltip-bg` | `colorBgSpotlight` | Global Token |
+| `@tooltip-arrow-width` | `sizePopupArrow` | Global Token |
+| `@tooltip-distance` | `marginXXS` | Global Token |
+| `@tooltip-arrow-color` | - | same as `@tooltip-bg`，Deprecated |
+| `@tooltip-border-radius` | `borderRadius` | Global Token |
 
 <!-- ### Transfer -->
 
