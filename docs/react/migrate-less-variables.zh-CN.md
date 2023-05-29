@@ -378,7 +378,7 @@ title: Less 变量迁移 Design Token
 | `@tooltip-bg` | `colorBgSpotlight` | 全局 token |
 | `@tooltip-arrow-width` | `sizePopupArrow` | 全局 Token |
 | `@tooltip-distance` | `marginXXS` | 全局 Token |
-| `@tooltip-arrow-color` | - | 由于样式变化已废弃 |
+| `@tooltip-arrow-color` | - | 同 `@tooltip-bg`，已废弃 |
 | `@tooltip-border-radius` | `tooltipBorderRadius` | - |
 
 <!-- ### Transfer 穿梭框 -->
