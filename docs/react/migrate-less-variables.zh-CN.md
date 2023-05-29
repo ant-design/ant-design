@@ -376,7 +376,7 @@ title: Less 变量迁移 Design Token
 | `@tooltip-max-width` | `tooltipMaxWidth` | - |
 | `@tooltip-color` | `tooltipColor` | - |
 | `@tooltip-bg` | `colorBgSpotlight` | 全局 token |
-| `@tooltip-arrow-width` | - | 由于样式变化已废弃 |
+| `@tooltip-arrow-width` | `sizePopupArrow` | 全局 Token |
 | `@tooltip-distance` | - | 由于样式变化已废弃 |
 | `@tooltip-arrow-color` | - | 由于样式变化已废弃 |
 | `@tooltip-border-radius` | `tooltipBorderRadius` | - |
