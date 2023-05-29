@@ -161,7 +161,6 @@ const App: React.FC = () => {
             disabledBg: '#ab2020',
             itemHoverBg: '#ada567',
             itemSelectedHoverBg: '#50968b',
-            itemPaddingVertical: 14,
           },
         },
       }}
