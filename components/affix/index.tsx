@@ -52,7 +52,11 @@ export interface AffixState {
   prevTarget: Window | HTMLElement | null;
 }
 
-const Affix: React.FC<AffixProps> = (props) => {
+interface AffixRef {
+  updatePosition: ReturnType<typeof throttleByAnimationFrame>;
+}
+
+const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
   const {
     rootClassName: customizeRootClassName,
     children,
@@ -134,9 +138,8 @@ const Affix: React.FC<AffixProps> = (props) => {
     });
   };
 
-  const lazyUpdatePosition = throttleByAnimationFrame(() => {
+  const updatePosition = throttleByAnimationFrame(() => {
     // Check position change before measure to make Safari smooth
-
     if (target && placeholderNodeRef.current) {
       const targetRect = getTargetRect(target);
       const placeholderRect = getTargetRect(placeholderNodeRef.current);
@@ -152,10 +155,12 @@ const Affix: React.FC<AffixProps> = (props) => {
     measure();
   });
 
+  React.useImperativeHandle(ref, () => ({ updatePosition }));
+
   useEffect(() => {
     timerRef.current = setTimeout(() => {
       TRIGGER_EVENTS.forEach((eventName) => {
-        target?.addEventListener(eventName, lazyUpdatePosition);
+        target?.addEventListener(eventName, updatePosition);
       });
       measure();
     });
@@ -165,10 +170,10 @@ const Affix: React.FC<AffixProps> = (props) => {
         timerRef.current = null;
       }
       TRIGGER_EVENTS.forEach((eventName) => {
-        target?.removeEventListener(eventName, lazyUpdatePosition);
+        target?.removeEventListener(eventName, updatePosition);
       });
 
-      lazyUpdatePosition.cancel();
+      updatePosition.cancel();
     };
   }, [offsetTop, offsetBottom, customizeTarget, getTargetContainer]);
   const [wrapSSR, hashId] = useStyle(affixPrefixCls);
@@ -188,16 +193,16 @@ const Affix: React.FC<AffixProps> = (props) => {
   ]);
 
   return wrapSSR(
-    <ResizeObserver onResize={lazyUpdatePosition}>
+    <ResizeObserver onResize={updatePosition}>
       <div {...divProps} ref={placeholderNodeRef}>
         {affixStyle && <div style={placeholderStyle} aria-hidden="true" />}
         <div className={className} ref={fixedNodeRef} style={affixStyle}>
-          <ResizeObserver onResize={lazyUpdatePosition}>{children}</ResizeObserver>
+          <ResizeObserver onResize={updatePosition}>{children}</ResizeObserver>
         </div>
       </div>
     </ResizeObserver>,
   );
-};
+});
 
 if (process.env.NODE_ENV !== 'production') {
   Affix.displayName = 'Affix';
