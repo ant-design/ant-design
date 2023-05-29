@@ -158,8 +158,8 @@ This document contains the correspondence between all the less variables related
 | --- | --- | --- |
 | `@image-size-base` | - | Deprecated for not used |
 | `@image-font-size-base` | - | Deprecated for not used |
-| `@image-bg` | `colorFillTertiary` | - |
-| `@image-color` | `colorTextLightSolid` | - |
+| `@image-bg` | `colorFillTertiary` | GlobalToken |
+| `@image-color` | `colorTextLightSolid` | GlobalToken |
 | `@image-preview-operation-color` | `previewOperationSize` | - |
 | `@image-bg` | `previewOperationColor` | - |
 | `@image-preview-operation-disabled-color` | `previewOperationDisabledColor` | - |
