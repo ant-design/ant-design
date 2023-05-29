@@ -373,7 +373,7 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@tooltip-max-width` | `tooltipMaxWidth` | - |
+| `@tooltip-max-width` | - | 可由 `className` 或 `style` 直接修改 |
 | `@tooltip-color` | `colorTextLightSolid` | 全局 Token |
 | `@tooltip-bg` | `colorBgSpotlight` | 全局 token |
 | `@tooltip-arrow-width` | `sizePopupArrow` | 全局 Token |
