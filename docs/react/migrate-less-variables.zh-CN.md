@@ -158,9 +158,9 @@ title: Less 变量迁移 Design Token
 | `@image-font-size-base` | - | 未使用已废弃 |
 | `@image-bg` | `colorFillTertiary` | - |
 | `@image-color` | `colorTextLightSolid` | - |
-| `@image-preview-operation-size` | `imagePreviewOperationSize` | - |
-| `@image-preview-operation-color` | `imagePreviewOperationColor` | - |
-| `@image-preview-operation-disabled-color` | `imagePreviewOperationDisabledColor` | - |
+| `@image-preview-operation-size` | `previewOperationSize` | - |
+| `@image-preview-operation-color` | `previewOperationColor` | - |
+| `@image-preview-operation-disabled-color` | `previewOperationColorDisabled` | - |
 
 <!-- ### Input 输入框 -->
 
