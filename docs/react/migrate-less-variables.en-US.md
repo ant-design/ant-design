@@ -160,9 +160,9 @@ This document contains the correspondence between all the less variables related
 | `@image-font-size-base` | - | Deprecated for not used |
 | `@image-bg` | `colorFillTertiary` | - |
 | `@image-color` | `colorTextLightSolid` | - |
-| `@image-preview-operation-color` | `imagePreviewOperationSize` | - |
-| `@image-bg` | `imagePreviewOperationColor` | - |
-| `@image-preview-operation-disabled-color` | `imagePreviewOperationDisabledColor` | - |
+| `@image-preview-operation-color` | `previewOperationSize` | - |
+| `@image-bg` | `previewOperationColor` | - |
+| `@image-preview-operation-disabled-color` | `previewOperationDisabledColor` | - |
 
 <!-- ### Input -->
 
