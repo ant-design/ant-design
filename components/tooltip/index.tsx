@@ -291,6 +291,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
         arrowWidth: mergedShowArrow ? token.sizePopupArrow : 0,
         borderRadius: token.borderRadius,
         offset: token.marginXXS,
+        visibleFirst: true,
       })
     );
   }, [arrowPointAtCenter, arrow, builtinPlacements, token]);

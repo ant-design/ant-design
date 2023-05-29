@@ -1,5 +1,5 @@
-import React from 'react';
 import { Button, Popconfirm } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Popconfirm
@@ -8,7 +8,7 @@ const App: React.FC = () => (
     okText="Yes"
     cancelText="No"
   >
-    <Button type="link">Delete</Button>
+    <Button danger>Delete</Button>
   </Popconfirm>
 );
 

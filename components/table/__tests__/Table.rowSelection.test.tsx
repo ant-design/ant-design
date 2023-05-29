@@ -1218,6 +1218,19 @@ describe('Table.rowSelection', () => {
     expect(onChange.mock.calls[0][1]).toEqual([expect.objectContaining({ name: 'bamboo' })]);
   });
 
+  it('support onCell', () => {
+    const onCell = jest.fn().mockReturnValue({ rowSpan: 4 });
+    const { container } = render(
+      createTable({
+        rowSelection: {
+          onCell,
+        },
+      }),
+    );
+    expect(onCell).toHaveBeenCalledTimes(8);
+    expect(container.querySelectorAll("td[rowspan='4']").length).toBe(4);
+  });
+
   describe('supports children', () => {
     const dataWithChildren = [
       { key: 0, name: 'Jack' },

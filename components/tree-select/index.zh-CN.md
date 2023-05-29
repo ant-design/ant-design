@@ -41,7 +41,7 @@ demo:
 | defaultValue | 指定默认选中的条目 | string \| string\[] | - |  |
 | disabled | 是否禁用 | boolean | false |  |
 | popupClassName | 下拉菜单的 className 属性 | string | - | 4.23.0 |
-| dropdownMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true |  |
+| popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true | 5.5.0 |
 | dropdownRender | 自定义下拉框内容 | (originNode: ReactNode, props) => ReactNode | - |  |
 | dropdownStyle | 下拉菜单的样式 | object | - |  |
 | fieldNames | 自定义节点 label、value、children 的字段 | object | { label: `label`, value: `value`, children: `children` } | 4.17.0 |
@@ -49,7 +49,7 @@ demo:
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () => document.body |  |
 | labelInValue | 是否把每个选项的 label 包装到 value 中，会把 value 类型从 `string` 变为 {value: string, label: ReactNode, halfChecked(treeCheckStrictly 时有效): string\[] } 的格式 | boolean | false |  |
 | listHeight | 设置弹窗滚动高度 | number | 256 |  |
-| loadData | 异步加载数据 | function(node) | - |  |
+| loadData | 异步加载数据。在过滤时不会调用以防止网络堵塞，可参考 FAQ 获得更多内容 | function(node) | - |  |
 | maxTagCount | 最多显示多少个 tag，响应式模式会对性能产生损耗 | number \| `responsive` | - | responsive: 4.10 |
 | maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode \| function(omittedValues) | - |  |
 | maxTagTextLength | 最大显示的 tag 文本长度 | number | - |  |
@@ -122,3 +122,21 @@ demo:
 ### 自定义 Option 样式导致滚动异常怎么办？
 
 请参考 Select 的 [FAQ](/components/select-cn)。
+
+### 为何在搜索时 `loadData` 不会触发展开？
+
+在 v4 alpha 版本中，默认在搜索时亦会进行搜索。但是经反馈，在输入时会快速阻塞网络。因而改为搜索不触发 `loadData`。但是你仍然可以通过 `filterTreeNode` 处理异步加载逻辑：
+
+```tsx
+<TreeSelect
+  filterTreeNode={(input, treeNode) => {
+    const match = YOUR_LOGIC_HERE;
+
+    if (match && !treeNode.isLeaf && !treeNode.children) {
+      // Do some loading logic
+    }
+
+    return match;
+  }}
+/>
+```

@@ -9,19 +9,18 @@ import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
 import type { RangePickerProps } from '.';
 import { Components, getTimeProps } from '.';
+import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
+import warning from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
-import SizeContext from '../../config-provider/SizeContext';
+import useSize from '../../config-provider/hooks/useSize';
 import { FormItemInputContext } from '../../form/context';
 import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
-import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
-import warning from '../../_util/warning';
 import enUS from '../locale/en_US';
+import useStyle from '../style';
 import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
 import type { CommonPickerMethods, PickerComponentClass } from './interface';
-
-import useStyle from '../style';
 
 export default function generateRangePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type InternalRangePickerProps = RangePickerProps<DateType> & {};
@@ -79,8 +78,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
     }
 
     // ===================== Size =====================
-    const size = React.useContext(SizeContext);
-    const mergedSize = compactSize || customizeSize || size;
+    const mergedSize = useSize((ctx) => compactSize ?? customizeSize ?? ctx);
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
@@ -132,11 +130,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
             [`${prefixCls}-${mergedSize}`]: mergedSize,
             [`${prefixCls}-borderless`]: !bordered,
           },
-          getStatusClassNames(
-            prefixCls as string,
-            getMergedStatus(contextStatus, customStatus),
-            hasFeedback,
-          ),
+          getStatusClassNames(prefixCls, getMergedStatus(contextStatus, customStatus), hasFeedback),
           hashId,
           compactItemClassnames,
           className,

@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent } from '../../style';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -105,7 +105,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
       },
 
       [`&-vertical${componentCls}-dashed`]: {
-        borderInlineStart: lineWidth,
+        borderInlineStartWidth: lineWidth,
         borderInlineEnd: 0,
         borderBlockStart: 0,
         borderBlockEnd: 0,

@@ -35,13 +35,14 @@ group:
 
 > 自 `antd@5.1.0` 版本开始提供该组件。
 
-| 参数 | 说明 | 类型 | 默认值 |
-| :-- | :-- | :-- | :-- |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| :-- | :-- | :-- | :-- | :-- |
 | value | 扫描后的文本 | string | - |
 | icon | 二维码中图片的地址（目前只支持图片地址） | string | - |
 | size | 二维码大小 | number | 160 |
 | iconSize | 二维码中图片的大小 | number | 40 |
 | color | 二维码颜色 | string | `#000` |
+| bgColor | 二维码背景颜色 | string | `transparent` | 5.5.0 |
 | bordered | 是否有边框 | boolean | `true` |
 | errorLevel | 二维码纠错等级 | `'L' \| 'M' \| 'Q' \| 'H' ` | `M` |
 | status | 二维码状态 | `active \| expired \| loading ` | `active` |

@@ -1,12 +1,13 @@
 import { createTheme } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
-import { FormProvider as RcFormProvider } from 'rc-field-form';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
-import { setValues } from 'rc-field-form/lib/utils/valueUtil';
 import useMemo from 'rc-util/lib/hooks/useMemo';
+import { merge } from 'rc-util/lib/utils/set';
 import type { ReactElement } from 'react';
 import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
+import warning from '../_util/warning';
+import { ValidateMessagesContext } from '../form/context';
 import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale';
 import LocaleProvider, { ANT_MARK } from '../locale';
@@ -15,14 +16,21 @@ import LocaleContext from '../locale/context';
 import defaultLocale from '../locale/en_US';
 import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
-import warning from '../_util/warning';
-import type { ConfigConsumerProps, CSPConfig, DirectionType, Theme, ThemeConfig } from './context';
+import type {
+  ConfigConsumerProps,
+  CSPConfig,
+  DirectionType,
+  PopupOverflow,
+  Theme,
+  ThemeConfig,
+} from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
 import { registerTheme } from './cssVariables';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import { DisabledContextProvider } from './DisabledContext';
 import useConfig from './hooks/useConfig';
 import useTheme from './hooks/useTheme';
+import MotionWrapper from './MotionWrapper';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
@@ -115,7 +123,10 @@ export interface ConfigProviderProps {
     size?: SizeType | number;
   };
   virtual?: boolean;
+  /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean;
+  popupMatchSelectWidth?: boolean;
+  popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
 }
 
@@ -182,6 +193,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     space,
     virtual,
     dropdownMatchSelectWidth,
+    popupMatchSelectWidth,
+    popupOverflow,
     legacyLocale,
     parentContext,
     iconPrefixCls: customIconPrefixCls,
@@ -189,6 +202,16 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     componentDisabled,
   } = props;
 
+  // =================================== Warning ===================================
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      dropdownMatchSelectWidth === undefined,
+      'ConfigProvider',
+      '`dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
+    );
+  }
+
+  // =================================== Context ===================================
   const getPrefixCls = React.useCallback(
     (suffixCls: string, customizePrefixCls?: string) => {
       const { prefixCls } = props;
@@ -221,7 +244,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     direction,
     space,
     virtual,
-    dropdownMatchSelectWidth,
+    popupMatchSelectWidth: popupMatchSelectWidth ?? dropdownMatchSelectWidth,
+    popupOverflow,
     getPrefixCls,
     iconPrefixCls,
     theme: mergedTheme,
@@ -269,8 +293,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   const validateMessages = React.useMemo(
     () =>
-      setValues(
-        {},
+      merge(
         defaultLocale.Form?.defaultValidateMessages || {},
         memoedConfig.locale?.Form?.defaultValidateMessages || {},
         form?.validateMessages || {},
@@ -279,7 +302,11 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   );
 
   if (Object.keys(validateMessages).length > 0) {
-    childNode = <RcFormProvider validateMessages={validateMessages}>{children}</RcFormProvider>;
+    childNode = (
+      <ValidateMessagesContext.Provider value={validateMessages}>
+        {children}
+      </ValidateMessagesContext.Provider>
+    );
   }
 
   if (locale) {
@@ -299,6 +326,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   if (componentSize) {
     childNode = <SizeContextProvider size={componentSize}>{childNode}</SizeContextProvider>;
   }
+
+  // =================================== Motion ===================================
+  childNode = <MotionWrapper>{childNode}</MotionWrapper>;
 
   // ================================ Dynamic theme ================================
   const memoTheme = React.useMemo(() => {

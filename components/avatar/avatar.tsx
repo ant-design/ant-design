@@ -2,11 +2,11 @@ import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import useBreakpoint from '../grid/hooks/useBreakpoint';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import warning from '../_util/warning';
+import { ConfigContext } from '../config-provider';
+import useBreakpoint from '../grid/hooks/useBreakpoint';
 import type { AvatarSize } from './SizeContext';
 import SizeContext from './SizeContext';
 import useStyle from './style';
@@ -44,7 +44,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   props,
   ref,
 ) => {
-  const groupSize = React.useContext(SizeContext);
+  const contextSize = React.useContext<AvatarSize>(SizeContext);
 
   const [scale, setScale] = React.useState(1);
   const [mounted, setMounted] = React.useState(false);
@@ -80,13 +80,11 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     setScale(1);
   }, [props.src]);
 
-  React.useEffect(() => {
-    setScaleParam();
-  }, [props.gap]);
+  React.useEffect(setScaleParam, [props.gap]);
 
   const handleImgLoadError = () => {
     const { onError } = props;
-    const errorFlag = onError ? onError() : undefined;
+    const errorFlag = onError?.();
     if (errorFlag !== false) {
       setIsImgExist(false);
     }
@@ -108,13 +106,13 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     ...others
   } = props;
 
-  const size = customSize === 'default' ? groupSize : customSize;
+  const size = customSize === 'default' ? contextSize : customSize;
 
   const needResponsive = Object.keys(typeof size === 'object' ? size || {} : {}).some((key) =>
     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),
   );
   const screens = useBreakpoint(needResponsive);
-  const responsiveSizeStyle: React.CSSProperties = React.useMemo(() => {
+  const responsiveSizeStyle = React.useMemo<React.CSSProperties>(() => {
     if (typeof size !== 'object') {
       return {};
     }

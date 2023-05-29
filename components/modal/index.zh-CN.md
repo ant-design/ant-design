@@ -37,6 +37,7 @@ demo:
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/custom-mouse-position.tsx" debug>控制弹框动画原点</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
@@ -202,10 +203,6 @@ return (
 **异同**：通过 hooks 创建的 `contextHolder` 必须插入到子元素节点中才会生效，当你不需要上下文信息时请直接调用。
 
 > 可通过 [App 包裹组件](/components/app-cn) 简化 `useModal` 等方法需要手动植入 contextHolder 的问题。
-
-### 如何关闭 Modal 动画？
-
-你可以通过 `transitionName=""` 和 `maskTransitionName=""` 去除动画 CSS，但是需要注意的是。该方法为内部方法，我们不保证下个大版本重构时该属性会被保留。
 
 ### 静态方法如何设置 prefixCls ？
 

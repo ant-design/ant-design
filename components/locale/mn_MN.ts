@@ -12,18 +12,18 @@ const localeValues: Locale = {
   Calendar,
   Table: {
     filterTitle: 'Хайх цэс',
-    filterConfirm: 'OK',
+    filterConfirm: 'Тийм',
     filterReset: 'Цэвэрлэх',
     selectAll: 'Бүгдийг сонгох',
     selectInvert: 'Бусдыг сонгох',
   },
   Modal: {
-    okText: 'OK',
+    okText: 'Тийм',
     cancelText: 'Цуцлах',
-    justOkText: 'OK',
+    justOkText: 'Тийм',
   },
   Popconfirm: {
-    okText: 'OK',
+    okText: 'Тийм',
     cancelText: 'Цуцлах',
   },
   Transfer: {

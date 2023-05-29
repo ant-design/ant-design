@@ -16,59 +16,70 @@ const toMatchImageSnapshot = configureToMatchImageSnapshot({
 
 expect.extend({ toMatchImageSnapshot });
 
+const themes = {
+  default: theme.defaultAlgorithm,
+  dark: theme.darkAlgorithm,
+  compact: theme.compactAlgorithm,
+};
+
 // eslint-disable-next-line jest/no-export
 export default function imageTest(component: React.ReactElement) {
-  [theme.defaultAlgorithm, theme.darkAlgorithm, theme.compactAlgorithm].forEach(
-    (algorithm, index) => {
-      it(`component image screenshot should correct${index || ''}`, async () => {
-        await jestPuppeteer.resetPage();
-        await page.setRequestInterception(true);
-        const onRequestHandle = (request: any) => {
-          if (['image'].includes(request.resourceType())) {
-            request.abort();
-          } else {
-            request.continue();
-          }
-        };
+  it(`component image screenshot should correct`, async () => {
+    await jestPuppeteer.resetPage();
+    await page.setRequestInterception(true);
+    const onRequestHandle = (request: any) => {
+      if (['image'].includes(request.resourceType())) {
+        request.abort();
+      } else {
+        request.continue();
+      }
+    };
 
-        MockDate.set(dayjs('2016-11-22').valueOf());
-        page.on('request', onRequestHandle);
-        await page.goto(`file://${process.cwd()}/tests/index.html`);
-        await page.addStyleTag({ path: `${process.cwd()}/dist/reset.css` });
+    MockDate.set(dayjs('2016-11-22').valueOf());
+    page.on('request', onRequestHandle);
+    await page.goto(`file://${process.cwd()}/tests/index.html`);
+    await page.addStyleTag({ path: `${process.cwd()}/dist/reset.css` });
 
-        const cache = createCache();
+    const cache = createCache();
 
-        const element = (
-          <ConfigProvider theme={{ algorithm }}>
-            <App style={{ background: algorithm === theme.darkAlgorithm ? '#000' : '' }}>
-              <StyleProvider cache={cache}>{component}</StyleProvider>
-            </App>
-          </ConfigProvider>
-        );
+    const element = (
+      <StyleProvider cache={cache}>
+        <App>
+          {Object.entries(themes).map(([key, algorithm]) => (
+            <div
+              style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }}
+              key={key}
+            >
+              <ConfigProvider theme={{ algorithm }}>{component}</ConfigProvider>
+            </div>
+          ))}
+        </App>
+      </StyleProvider>
+    );
 
-        const html = ReactDOMServer.renderToString(element);
-        const styleStr = extractStyle(cache);
+    const html = ReactDOMServer.renderToString(element);
+    const styleStr = extractStyle(cache);
 
-        await page.evaluate(
-          (innerHTML, ssrStyle) => {
-            document.querySelector('#root')!.innerHTML = innerHTML;
+    await page.evaluate(
+      (innerHTML, ssrStyle) => {
+        document.querySelector('#root')!.innerHTML = innerHTML;
 
-            const head = document.querySelector('head')!;
-            head.innerHTML += ssrStyle;
-          },
-          html,
-          styleStr,
-        );
+        const head = document.querySelector('head')!;
+        head.innerHTML += ssrStyle;
+      },
+      html,
+      styleStr,
+    );
 
-        const image = await page.screenshot();
+    const image = await page.screenshot({
+      fullPage: true,
+    });
 
-        expect(image).toMatchImageSnapshot();
+    expect(image).toMatchImageSnapshot();
 
-        MockDate.reset();
-        page.removeListener('request', onRequestHandle);
-      });
-    },
-  );
+    MockDate.reset();
+    page.removeListener('request', onRequestHandle);
+  });
 }
 
 type Options = {

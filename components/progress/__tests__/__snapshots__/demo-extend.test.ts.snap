@@ -272,23 +272,27 @@ Array [
       type="button"
     >
       <span
-        aria-label="minus"
-        class="anticon anticon-minus"
-        role="img"
+        class="ant-btn-icon"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="minus"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="minus"
+          class="anticon anticon-minus"
+          role="img"
         >
-          <path
-            d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="minus"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+            />
+          </svg>
+        </span>
       </span>
     </button>
     <button
@@ -296,29 +300,33 @@ Array [
       type="button"
     >
       <span
-        aria-label="plus"
-        class="anticon anticon-plus"
-        role="img"
+        class="ant-btn-icon"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="plus"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="plus"
+          class="anticon anticon-plus"
+          role="img"
         >
-          <defs>
-            <style />
-          </defs>
-          <path
-            d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-          />
-          <path
-            d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="plus"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <defs>
+              <style />
+            </defs>
+            <path
+              d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+            />
+            <path
+              d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+            />
+          </svg>
+        </span>
       </span>
     </button>
   </div>,
@@ -771,23 +779,27 @@ Array [
       type="button"
     >
       <span
-        aria-label="minus"
-        class="anticon anticon-minus"
-        role="img"
+        class="ant-btn-icon"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="minus"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="minus"
+          class="anticon anticon-minus"
+          role="img"
         >
-          <path
-            d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="minus"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+            />
+          </svg>
+        </span>
       </span>
     </button>
     <button
@@ -795,29 +807,33 @@ Array [
       type="button"
     >
       <span
-        aria-label="plus"
-        class="anticon anticon-plus"
-        role="img"
+        class="ant-btn-icon"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="plus"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="plus"
+          class="anticon anticon-plus"
+          role="img"
         >
-          <defs>
-            <style />
-          </defs>
-          <path
-            d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-          />
-          <path
-            d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="plus"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <defs>
+              <style />
+            </defs>
+            <path
+              d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+            />
+            <path
+              d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+            />
+          </svg>
+        </span>
       </span>
     </button>
   </div>,

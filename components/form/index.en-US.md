@@ -26,6 +26,7 @@ High performance Form component with data scope management. Including data colle
 <code src="./demo/layout-can-wrap.tsx">label can wrap</code>
 <code src="./demo/warning-only.tsx">No block rule</code>
 <code src="./demo/useWatch.tsx">Watch Hooks</code>
+<code src="./demo/validate-only.tsx">Validate Only</code>
 <code src="./demo/form-item-path.tsx">Path Prefix</code>
 <code src="./demo/dynamic-form-item.tsx">Dynamic Form Item</code>
 <code src="./demo/dynamic-form-items.tsx">Dynamic Form nest Items</code>
@@ -296,7 +297,7 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 | setFieldValue | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first) | (name: [NamePath](#namepath), value: any) => void | 4.22.0 |
 | setFieldsValue | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first). Use `setFieldValue` instead if you want to only config single value in Form.List | (values) => void |  |
 | submit | Submit the form. It's same as click `submit` button | () => void |  |
-| validateFields | Validate fields | (nameList?: [NamePath](#namepath)\[]) => Promise |  |
+| validateFields | Validate fields | (nameList?: [NamePath](#namepath)\[], { validateOnly?: boolean }) => Promise | `validateOnly`: 5.5.0 |
 
 #### validateFields return sample
 

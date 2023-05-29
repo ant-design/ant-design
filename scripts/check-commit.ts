@@ -17,7 +17,7 @@ function exitProcess(code = 1) {
 
 async function checkVersion() {
   try {
-    const { versions } = await fetch('http://registry.npmjs.org/antd').then((res: any) =>
+    const { versions } = await fetch('http://registry.npmjs.org/antd').then((res: Response) =>
       res.json(),
     );
     if (version in versions) {

@@ -11,6 +11,10 @@ import type { BaseSelectRef } from 'rc-select';
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
+import genPurePanel from '../_util/PurePanel';
+import { isValidElement } from '../_util/reactNode';
+import type { InputStatus } from '../_util/statusUtils';
+import warning from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import type {
@@ -20,10 +24,6 @@ import type {
   RefSelectProps,
 } from '../select';
 import Select from '../select';
-import genPurePanel from '../_util/PurePanel';
-import { isValidElement } from '../_util/reactNode';
-import type { InputStatus } from '../_util/statusUtils';
-import warning from '../_util/warning';
 
 const { Option } = Select;
 
@@ -45,6 +45,9 @@ export interface AutoCompleteProps<
   popupClassName?: string;
   /** @deprecated Please use `popupClassName` instead */
   dropdownClassName?: string;
+  /** @deprecated Please use `popupMatchSelectWidth` instead */
+  dropdownMatchSelectWidth?: boolean | number;
+  popupMatchSelectWidth?: boolean | number;
 }
 
 function isSelectOptionOrSelectOptGroup(child: any): Boolean {

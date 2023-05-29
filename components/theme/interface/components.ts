@@ -1,20 +1,23 @@
+import type { ComponentToken as WaveToken } from '../../_util/wave/style';
 import type { ComponentToken as AlertComponentToken } from '../../alert/style';
 import type { ComponentToken as AnchorComponentToken } from '../../anchor/style';
+import type { ComponentToken as AppComponentToken } from '../../app/style';
 import type { ComponentToken as AvatarComponentToken } from '../../avatar/style';
 import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
-import type { ComponentToken as FloatButtonComponentToken } from '../../float-button/style';
 import type { ComponentToken as CalendarComponentToken } from '../../calendar/style';
 import type { ComponentToken as CardComponentToken } from '../../card/style';
 import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';
 import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
 import type { ComponentToken as CheckboxComponentToken } from '../../checkbox/style';
 import type { ComponentToken as CollapseComponentToken } from '../../collapse/style';
+import type { ComponentToken as ColorPickerComponentToken } from '../../color-picker/style';
 import type { ComponentToken as DatePickerComponentToken } from '../../date-picker/style';
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
-import type { ComponentToken as DropdownComponentToken } from '../../dropdown/style';
 import type { ComponentToken as DrawerComponentToken } from '../../drawer/style';
+import type { ComponentToken as DropdownComponentToken } from '../../dropdown/style';
 import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
+import type { ComponentToken as FloatButtonComponentToken } from '../../float-button/style';
 import type { ComponentToken as ImageComponentToken } from '../../image/style';
 import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
 import type { ComponentToken as LayoutComponentToken } from '../../layout/style';
@@ -27,6 +30,7 @@ import type { ComponentToken as NotificationComponentToken } from '../../notific
 import type { ComponentToken as PopconfirmComponentToken } from '../../popconfirm/style';
 import type { ComponentToken as PopoverComponentToken } from '../../popover/style';
 import type { ComponentToken as ProgressComponentToken } from '../../progress/style';
+import type { ComponentToken as QRCodeComponentToken } from '../../qrcode/style';
 import type { ComponentToken as RadioComponentToken } from '../../radio/style';
 import type { ComponentToken as RateComponentToken } from '../../rate/style';
 import type { ComponentToken as ResultComponentToken } from '../../result/style';
@@ -36,19 +40,17 @@ import type { ComponentToken as SkeletonComponentToken } from '../../skeleton/st
 import type { ComponentToken as SliderComponentToken } from '../../slider/style';
 import type { ComponentToken as SpaceComponentToken } from '../../space/style';
 import type { ComponentToken as SpinComponentToken } from '../../spin/style';
+import type { ComponentToken as StatisticComponentToken } from '../../statistic/style';
 import type { ComponentToken as StepsComponentToken } from '../../steps/style';
 import type { ComponentToken as TableComponentToken } from '../../table/style';
 import type { ComponentToken as TabsComponentToken } from '../../tabs/style';
 import type { ComponentToken as TagComponentToken } from '../../tag/style';
 import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
 import type { ComponentToken as TooltipComponentToken } from '../../tooltip/style';
+import type { ComponentToken as TourComponentToken } from '../../tour/style';
 import type { ComponentToken as TransferComponentToken } from '../../transfer/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
-import type { ComponentToken as TourComponentToken } from '../../tour/style';
-import type { ComponentToken as QRCodeComponentToken } from '../../qrcode/style';
-import type { ComponentToken as AppComponentToken } from '../../app/style';
-import type { ComponentToken as WaveToken } from '../../_util/wave/style';
 
 export interface ComponentTokenMap {
   Affix?: {};
@@ -63,6 +65,7 @@ export interface ComponentTokenMap {
   Carousel?: CarouselComponentToken;
   Cascader?: CascaderComponentToken;
   Checkbox?: CheckboxComponentToken;
+  ColorPicker?: ColorPickerComponentToken;
   Collapse?: CollapseComponentToken;
   DatePicker?: DatePickerComponentToken;
   Descriptions?: {};
@@ -91,7 +94,7 @@ export interface ComponentTokenMap {
   Skeleton?: SkeletonComponentToken;
   Slider?: SliderComponentToken;
   Spin?: SpinComponentToken;
-  Statistic?: {};
+  Statistic?: StatisticComponentToken;
   Switch?: {};
   Tag?: TagComponentToken;
   Tree?: {};

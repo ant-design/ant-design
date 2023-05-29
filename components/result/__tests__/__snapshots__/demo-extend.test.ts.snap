@@ -387,7 +387,7 @@ exports[`renders components/result/demo/404.tsx extend context correctly 1`] = `
         />
         <path
           d="M174.823 30.03c0-16.281 13.198-29.48 29.48-29.48 16.28 0 29.48 13.199 29.48 29.48 0 16.28-13.2 29.48-29.48 29.48-16.282 0-29.48-13.2-29.48-29.48"
-          fill="#1890FF"
+          fill="#1677ff"
         />
         <path
           d="M205.952 38.387c.5.5.785 1.142.785 1.928s-.286 1.465-.785 1.964c-.572.5-1.214.75-2 .75-.785 0-1.429-.285-1.929-.785-.572-.5-.82-1.143-.82-1.929s.248-1.428.82-1.928c.5-.5 1.144-.75 1.93-.75.785 0 1.462.25 1.999.75m4.285-19.463c1.428 1.249 2.143 2.963 2.143 5.142 0 1.712-.427 3.13-1.219 4.25-.067.096-.137.18-.218.265-.416.429-1.41 1.346-2.956 2.699a5.07 5.07 0 0 0-1.428 1.75 5.207 5.207 0 0 0-.536 2.357v.5h-4.107v-.5c0-1.357.215-2.536.714-3.5.464-.964 1.857-2.464 4.178-4.536l.43-.5c.643-.785.964-1.643.964-2.535 0-1.18-.358-2.108-1-2.785-.678-.68-1.643-1.001-2.858-1.001-1.536 0-2.642.464-3.357 1.43-.37.5-.621 1.135-.76 1.904a1.999 1.999 0 0 1-1.971 1.63h-.004c-1.277 0-2.257-1.183-1.98-2.43.337-1.518 1.02-2.78 2.073-3.784 1.536-1.5 3.607-2.25 6.25-2.25 2.32 0 4.214.607 5.642 1.894"
@@ -1016,6 +1016,66 @@ exports[`renders components/result/demo/500.tsx extend context correctly 1`] = `
     >
       <span>
         Back Home
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/result/demo/component-token.tsx extend context correctly 1`] = `
+<div
+  class="ant-result ant-result-success"
+>
+  <div
+    class="ant-result-icon"
+  >
+    <span
+      aria-label="check-circle"
+      class="anticon anticon-check-circle"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="check-circle"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="ant-result-title"
+  >
+    Successfully Purchased Cloud Server ECS!
+  </div>
+  <div
+    class="ant-result-subtitle"
+  >
+    Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait.
+  </div>
+  <div
+    class="ant-result-extra"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Go Console
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Buy Again
       </span>
     </button>
   </div>

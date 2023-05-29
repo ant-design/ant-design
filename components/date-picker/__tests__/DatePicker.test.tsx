@@ -2,13 +2,14 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/mk'; // to test local in 'prop locale should works' test case
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import MockDate from 'mockdate';
-import React from 'react';
+import dayJsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import type { TriggerProps } from 'rc-trigger';
-import { fireEvent, render } from '../../../tests/utils';
+import React from 'react';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import type { PickerLocale } from '../generatePicker';
+import { fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import type { PickerLocale } from '../generatePicker';
 
 dayjs.extend(customParseFormat);
 
@@ -287,5 +288,11 @@ describe('DatePicker', () => {
     expect(container.querySelector('.legacy')).toBeTruthy();
 
     errSpy.mockRestore();
+  });
+
+  it('support DatePicker.generatePicker', () => {
+    const MyDatePicker = DatePicker.generatePicker(dayJsGenerateConfig);
+    const { container } = render(<MyDatePicker />);
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

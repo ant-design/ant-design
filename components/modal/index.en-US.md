@@ -36,6 +36,7 @@ Additionally, if you need show a simple confirmation dialog, you can use [`App.u
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/custom-mouse-position.tsx" debug>Control modal's animation origin position</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
@@ -203,10 +204,6 @@ return (
 **Note:** You must insert `contextHolder` into your children with hooks. You can use origin method if you do not need context connection.
 
 > [App Package Component](/components/app) can be used to simplify the problem of `useModal` and other methods that need to manually implant contextHolder.
-
-### How to disable motion?
-
-You can config `transitionName=""` and `maskTransitionName=""` to remove motion class. But you should note that these prop is internal usage which we don't promise exist in next major version.
 
 ### How to set static methods prefixCls ？
 

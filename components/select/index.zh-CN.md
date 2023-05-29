@@ -68,7 +68,7 @@ demo:
 | defaultValue | 指定默认选中的条目 | string \| string\[] \|<br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
 | disabled | 是否禁用 | boolean | false |  |
 | popupClassName | 下拉菜单的 className 属性 | string | - | 4.23.0 |
-| dropdownMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true |  |
+| popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true | 5.5.0 |
 | dropdownRender | 自定义下拉框内容 | (originNode: ReactNode) => ReactNode | - |  |
 | dropdownStyle | 下拉菜单的 style 属性 | CSSProperties | - |  |
 | fieldNames | 自定义节点 label、value、options 的字段 | object | { label: `label`, value: `value`, options: `options` } | 4.17.0 |
@@ -96,7 +96,7 @@ demo:
 | showSearch | 配置是否可搜索 | boolean | 单选为 false，多选为 true |  |
 | size | 选择框大小 | `large` \| `middle` \| `small` | `middle` |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
-| suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
+| suffixIcon | 自定义的选择框后缀图标。以防止图标被用于其他交互，替换的图标默认不会响应展开、收缩事件，可以通过添加 `pointer-events: none` 样式透传。 | ReactNode | - |  |
 | tagRender | 自定义 tag 内容 render，仅在 `mode` 为 `multiple` 或 `tags` 时生效 | (props) => ReactNode | - |  |
 | tokenSeparators | 自动分词的分隔符，仅在 `mode="tags"` 时生效 | string\[] | - |  |
 | value | 指定当前选中的条目，多选时为一个数组。（value 数组引用未变化时，Select 不会更新） | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |

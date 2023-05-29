@@ -321,6 +321,46 @@ Array [
       style="margin-right: 0px; padding-bottom: 8px;"
     >
       <span
+        class="ant-tag ant-tag-processing ant-tag-borderless"
+      >
+        processing
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 0px; padding-bottom: 8px;"
+    >
+      <span
+        class="ant-tag ant-tag-success ant-tag-borderless"
+      >
+        success
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 0px; padding-bottom: 8px;"
+    >
+      <span
+        class="ant-tag ant-tag-error ant-tag-borderless"
+      >
+        error
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 0px; padding-bottom: 8px;"
+    >
+      <span
+        class="ant-tag ant-tag-warning ant-tag-borderless"
+      >
+        warning
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 0px; padding-bottom: 8px;"
+    >
+      <span
         class="ant-tag ant-tag-magenta ant-tag-borderless"
       >
         magenta
@@ -1179,6 +1219,44 @@ Array [
       </span>
     </span>
   </span>,
+]
+`;
+
+exports[`renders components/tag/demo/draggable.tsx extend context correctly 1`] = `
+Array [
+  <span
+    class="ant-tag"
+    style="cursor: move; transition: unset;"
+  >
+    Tag 1
+  </span>,
+  <span
+    class="ant-tag"
+    style="cursor: move; transition: unset;"
+  >
+    Tag 2
+  </span>,
+  <span
+    class="ant-tag"
+    style="cursor: move; transition: unset;"
+  >
+    Tag 3
+  </span>,
+  <div
+    id="DndDescribedBy-1"
+    style="display: none;"
+  >
+    To pick up a draggable item, press the space bar.
+    While dragging, use the arrow keys to move the item.
+    Press space again to drop the item in its new position, or press escape to cancel.
+  </div>,
+  <div
+    aria-atomic="true"
+    aria-live="assertive"
+    id="DndLiveRegion-1"
+    role="status"
+    style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+  />,
 ]
 `;
 
