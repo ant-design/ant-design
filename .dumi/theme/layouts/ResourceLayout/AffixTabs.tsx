@@ -5,6 +5,8 @@ import * as React from 'react';
 import scrollTo from '../../../../components/_util/scrollTo';
 import useSiteToken from '../../../hooks/useSiteToken';
 
+const listenerEvents = ['scroll', 'resize'] as const;
+
 const useStyle = () => {
   const { token } = useSiteToken();
 
@@ -105,13 +107,10 @@ const AffixTabs: React.FC = () => {
   }, []);
 
   React.useEffect(() => {
-    window.addEventListener('scroll', onSyncAffix);
-    window.addEventListener('resize', onSyncAffix);
+    listenerEvents.forEach((event) => window.addEventListener(event, onSyncAffix));
     onSyncAffix();
-
     return () => {
-      window.removeEventListener('scroll', onSyncAffix);
-      window.removeEventListener('resize', onSyncAffix);
+      listenerEvents.forEach((event) => window.removeEventListener(event, onSyncAffix));
     };
   }, []);
 
