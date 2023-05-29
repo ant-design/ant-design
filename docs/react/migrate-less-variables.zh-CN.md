@@ -17,8 +17,8 @@ title: Less 变量迁移 Design Token
 | Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@alert-with-description-icon-size` | `alertIconSizeLG` | - |
-| `@alert-padding-horizontal` | `alertPaddingHorizontal` | - |
-| `@alert-padding-vertical` | `alertPaddingVertical` | - |
+| `@alert-padding-horizontal` | - | 可由 `className` 和 `style` 直接修改 |
+| `@alert-padding-vertical` | - | 可由 `className` 和 `style` 直接修改 |
 
 <!-- ### Anchor 锚点 -->
 
