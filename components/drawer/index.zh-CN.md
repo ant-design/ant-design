@@ -48,9 +48,3 @@ cover: https://img.alicdn.com/imgextra/i4/O1CN019djdZP1OHwXSRGCOW_!!600000000168
 | width | 宽度 | string \| number | 378 |  |
 | zIndex | 设置 Drawer 的 `z-index` | number | 1000 |  |
 | onClose | 点击遮罩层或左上角叉或取消按钮的回调 | function(e) | - |  |
-| onMouseEnter | 鼠标移入面板时触发回调 | React.MouseEventHandler\<HTMLDivElement\> | 4.24.11 |
-| onMouseOver | 鼠标覆盖在面板上时触发回调 | React.MouseEventHandler\<HTMLDivElement\> | 4.24.11 |
-| onMouseLeave | 鼠标移出面板时触发回调 | React.MouseEventHandler\<HTMLDivElement\> | 4.24.11 |
-| onClick | 点击面板时触发回调 | React.MouseEventHandler\<HTMLDivElement\> | 4.24.11 |
-| onKeyDown | 在面板区按下按键时触发回调 | React.MouseEventHandler\<HTMLDivElement\> | 4.24.11 |
-| onKeyUp | 再面板区松开按键时触发回调 | React.MouseEventHandler\<HTMLDivElement\> | 4.24.11 |
