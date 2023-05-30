@@ -138,6 +138,6 @@ describe('App', () => {
         <div>test</div>
       </App>,
     );
-    expect(container.querySelector<HTMLDivElement>('.ant-app')?.style.color).toBe('blue');
+    expect(container.querySelector<HTMLDivElement>('.ant-app')!.style.color).toBe('blue');
   });
 });
