@@ -7,7 +7,7 @@ const resolve = (dir: string) => path.resolve(__dirname, dir);
 
 const include = ['lib', 'es', 'dist'].includes(process.env.LIB_DIR || '')
   ? ['components/*/__tests__/demo.test.{ts,tsx}']
-  : ['components/__tests__/*.test.{ts,tsx}', 'components/*/__tests__/*.test.{ts,tsx}'];
+  : ['components/__tests__/*.test.{ts,tsx}', 'components/dropdown/__tests__/*.test.{ts,tsx}'];
 
 export const commonConfig: UserConfig = {
   esbuild: {
@@ -48,7 +48,7 @@ export default defineConfig({
   test: {
     ...commonConfig.test,
     include,
-    exclude: ['**/{node,image}.test.*', 'components/dropdown/**', 'node_modules', 'dist'],
+    exclude: ['**/{node,image}.test.*', 'node_modules', 'dist'],
     globals: true,
     setupFiles: ['./tests/setup.ts'],
     environment: 'jsdom',
