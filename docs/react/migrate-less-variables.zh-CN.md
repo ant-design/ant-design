@@ -73,9 +73,32 @@ title: Less 变量迁移 Design Token
 | `@calendar-full-bg` | `fullBg` | - |
 | `@calendar-full-panel-bg` | `fullPanelBg` | - |
 
-<!-- ### Card 卡片 -->
+### Card 卡片
 
-## Carousel 走马灯
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@card-head-color` | - | Deprecated for style change |
+| `@card-head-background` | - | Deprecated for style change |
+| `@card-head-font-size` | - | Deprecated for style change |
+| `@card-head-font-size-sm` | - | Deprecated for style change |
+| `@card-head-padding` | - | Deprecated for style change |
+| `@card-head-padding-sm` | - | Deprecated for style change |
+| `@card-head-height` | - | Deprecated for style change |
+| `@card-head-height-sm` | - | Deprecated for style change |
+| `@card-inner-head-padding` | - | Deprecated for style change |
+| `@card-padding-base` | - | Deprecated for style change |
+| `@card-padding-base-sm` | - | Deprecated for style change |
+| `@card-actions-background` | - | Deprecated for style change |
+| `@card-actions-li-margin` | - | Deprecated for style change |
+| `@card-skeleton-bg` | - | Deprecated for style change |
+| `@card-background` | - | Deprecated for style change |
+| `@card-shadow` | - | Deprecated for style change |
+| `@card-radius` | - | Deprecated for style change |
+| `@card-head-tabs-margin-bottom` | - | Deprecated for style change |
+| `@card-head-extra-color` | - | Deprecated for style change |
+
+### Carousel 走马灯
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
