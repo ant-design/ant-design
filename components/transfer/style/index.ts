@@ -363,18 +363,25 @@ export default genComponentStyleHook(
     ];
   },
   (token) => {
-    const { fontSize, lineHeight, controlHeight } = token;
+    const {
+      fontSize,
+      lineHeight,
+      controlHeight,
+      controlHeightLG,
+      colorBgContainerDisabled,
+      controlItemBgHover,
+    } = token;
     const fontHeight = Math.round(fontSize * lineHeight);
     return {
       listWidth: 180,
       listHeight: 200,
       listWidthLG: 250,
-      headerHeight: controlHeight,
-      itemHeight: token.controlHeightLG,
+      headerHeight: controlHeightLG,
+      itemHeight: controlHeight,
       itemPaddingBlock: (controlHeight - fontHeight) / 2,
-      disabledBg: token.colorBgContainerDisabled,
-      itemHoverBg: token.controlItemBgHover,
-      itemSelectedHoverBg: token.controlItemBgHover,
+      disabledBg: colorBgContainerDisabled,
+      itemHoverBg: controlItemBgHover,
+      itemSelectedHoverBg: controlItemBgHover,
     };
   },
 );
