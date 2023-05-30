@@ -6,7 +6,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
-vi.mock('rc-util/lib/Dom/isVisible', () => {
+vi.mock('rc-util/es/Dom/isVisible', () => {
   const mockFn = () => true;
   return {
     default: mockFn,

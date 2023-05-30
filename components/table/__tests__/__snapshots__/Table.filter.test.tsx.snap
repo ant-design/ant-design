@@ -88,6 +88,8 @@ exports[`Table.filter > renders custom content correctly 1`] = `
 </div>
 `;
 
+exports[`Table.filter > renders custom content correctly 2`] = `null`;
+
 exports[`Table.filter > renders custom filter icon as ReactNode 1`] = `
 <div
   class="ant-table-wrapper"
@@ -691,6 +693,8 @@ exports[`Table.filter > renders menu correctly 1`] = `
 </div>
 `;
 
+exports[`Table.filter > renders menu correctly 2`] = `null`;
+
 exports[`Table.filter > renders radio filter correctly 1`] = `
 <div
   class="ant-table-filter-dropdown"
@@ -830,3 +834,5 @@ exports[`Table.filter > renders radio filter correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`Table.filter > renders radio filter correctly 2`] = `null`;
