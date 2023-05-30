@@ -73,7 +73,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
         [componentCls]: {
           '&::before': {
             position: 'absolute',
-            left: {
+            insetInlineStart: {
               _skip_check_: true,
               value: 0,
             },
@@ -85,7 +85,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
 
           [`${componentCls}-ink`]: {
             position: 'absolute',
-            left: {
+            insetInlineStart: {
               _skip_check_: true,
               value: 0,
             },
