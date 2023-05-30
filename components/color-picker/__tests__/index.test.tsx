@@ -1,10 +1,33 @@
-import { fireEvent, render } from '@testing-library/react';
+import { createEvent, fireEvent, render } from '@testing-library/react';
+import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import React, { useMemo, useState } from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { waitFakeTimer } from '../../../tests/utils';
 import ColorPicker from '../ColorPicker';
 import type { Color } from '../color';
+
+function doMouseMove(
+  container: HTMLElement,
+  start: number,
+  end: number,
+  element = 'ant-color-picker-handler',
+) {
+  const mouseDown = createEvent.mouseDown(container.getElementsByClassName(element)[0], {
+    pageX: start,
+    pageY: start,
+  });
+  fireEvent(container.getElementsByClassName(element)[0], mouseDown);
+  // Drag
+  const mouseMove: any = new Event('mousemove');
+  mouseMove.pageX = end;
+  mouseMove.pageY = end;
+
+  fireEvent(document, mouseMove);
+
+  const mouseUp = createEvent.mouseUp(document);
+  fireEvent(document, mouseUp);
+}
 
 describe('ColorPicker', () => {
   mountTest(ColorPicker);
@@ -256,5 +279,24 @@ describe('ColorPicker', () => {
     expect(
       container.querySelector('.ant-color-picker-color-block-inner')?.getAttribute('style'),
     ).toEqual('background: rgb(99, 22, 22);');
+  });
+
+  it('Should fix hover boundary issues', async () => {
+    spyElementPrototypes(HTMLElement, {
+      getBoundingClientRect: () => ({
+        x: 0,
+        y: 100,
+        width: 100,
+        height: 100,
+      }),
+    });
+    const { container } = render(<ColorPicker trigger="hover" />);
+    fireEvent.mouseEnter(container.querySelector('.ant-color-picker-trigger')!);
+    await waitFakeTimer();
+    doMouseMove(container, 0, 999);
+    expect(container.querySelector('.ant-popover-hidden')).toBeFalsy();
+    fireEvent.mouseLeave(container.querySelector('.ant-color-picker-trigger')!);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-popover-hidden')).toBeTruthy();
   });
 });

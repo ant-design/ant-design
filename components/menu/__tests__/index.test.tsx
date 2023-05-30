@@ -9,6 +9,7 @@ import React, { useMemo, useState } from 'react';
 import { vi } from 'vitest';
 import type { MenuProps, MenuRef } from '..';
 import Menu from '..';
+import { TriggerMockContext } from '../../../tests/shared/demoTestContext';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFor } from '../../../tests/utils';
@@ -1071,5 +1072,28 @@ describe('Menu', () => {
       'opacity',
       '0',
     );
+  });
+
+  it('Overflow indicator className should not override menu class', () => {
+    const { container } = render(
+      <TriggerMockContext.Provider value={{ popupVisible: true }}>
+        <Menu
+          items={[
+            { key: '1', label: 'Option 1' },
+            { key: '2', label: 'Option 1' },
+            { key: '3', label: 'Option 1' },
+            { key: '4', label: 'Option 1' },
+            { key: '5', label: 'Option 1' },
+            { key: '6', label: 'Option 1' },
+            { key: '7', label: 'Option 1' },
+            { key: '8', label: 'Option 1' },
+          ]}
+          mode="horizontal"
+          overflowedIndicatorPopupClassName="custom-popover"
+          getPopupContainer={(node) => node.parentElement!}
+        />
+      </TriggerMockContext.Provider>,
+    );
+    expect(container.querySelector('.ant-menu.ant-menu-light.custom-popover')).toBeTruthy();
   });
 });

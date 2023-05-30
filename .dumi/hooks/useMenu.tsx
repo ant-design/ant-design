@@ -111,7 +111,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
                       {(item.frontmatter as any).subtitle}
                     </span>
                     {(item.frontmatter as any).tag && (
-                      <Tag color="warning" style={{ marginLeft: token.marginXS }}>
+                      <Tag color="warning" style={{ marginInlineStart: token.marginXS }}>
                         {(item.frontmatter as any).tag}
                       </Tag>
                     )}

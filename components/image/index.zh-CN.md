@@ -47,17 +47,17 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 ```typescript
 {
   visible?: boolean;
-  onVisibleChange?: (visible, prevVisible, current: number) => void; // current 参数v5.3.0后支持
+  onVisibleChange?: (visible, prevVisible, current: number) => void; // current 参数 v5.3.0 后支持
   getContainer?: string | HTMLElement | (() => HTMLElement); // v4.8.0
   src?: string; // v4.10.0
   mask?: ReactNode; // v4.9.0
   maskClassName?: string; // v4.11.0
-  rootClassName?: string; // v5.4.0后支持
+  rootClassName?: string; // v5.4.0 后支持
   current?: number; // v4.12.0 仅支持 PreviewGroup
   countRender?: (current: number, total: number) => string  // v4.20.0 仅支持 PreviewGroup
   scaleStep?: number;
   forceRender?: boolean;
-  onChange?: (current: number, prevCurrent: number) => void; // v5.3.0后支持
+  onChange?: (current: number, prevCurrent: number) => void; // v5.3.0 后支持
 }
 ```
 

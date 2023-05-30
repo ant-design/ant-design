@@ -69,6 +69,40 @@ Array [
 ]
 `;
 
+exports[`renders components/auto-complete/demo/borderless.tsx correctly 1`] = `
+<div
+  class="ant-select ant-select-borderless ant-select-auto-complete ant-select-single ant-select-show-search"
+  style="width:200px"
+>
+  <div
+    class="ant-select-selector"
+  >
+    <span
+      class="ant-select-selection-search"
+    >
+      <input
+        aria-activedescendant="undefined_list_0"
+        aria-autocomplete="list"
+        aria-controls="undefined_list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="undefined_list"
+        autocomplete="off"
+        class="ant-select-selection-search-input"
+        role="combobox"
+        type="search"
+        value=""
+      />
+    </span>
+    <span
+      class="ant-select-selection-placeholder"
+    >
+      Borderless
+    </span>
+  </div>
+</div>
+`;
+
 exports[`renders components/auto-complete/demo/certain-category.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"

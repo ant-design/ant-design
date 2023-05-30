@@ -6,6 +6,7 @@ on:
 
 jobs:
   stats:
+    if: github.repository == 'ant-design/ant-design'
     runs-on: ubuntu-latest
     steps:
       - name: Run pull request stats
