@@ -17,7 +17,7 @@ const App: React.FC = () => {
       style={{ width: 200 }}
       placeholder="Borderless"
       onSearch={(text) => setOptions(getPanelValue(text))}
-      onSelect={window.console.log}
+      onSelect={globalThis.console.log}
       bordered={false}
     />
   );
