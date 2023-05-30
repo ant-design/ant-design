@@ -49,3 +49,9 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | width | Width of the Drawer dialog | string \| number | 378 |  |
 | zIndex | The `z-index` of the Drawer | number | 1000 |  |
 | onClose | Specify a callback that will be called when a user clicks mask, close button or Cancel button | function(e) | - |  |
+| onMouseEnter | Trigger when mouse enter drawer panel | React.MouseEventHandler\<HTMLDivElement\> | 4.24.11 |
+| onMouseOver | Trigger when mouse over drawer panel | React.MouseEventHandler\<HTMLDivElement\> | 4.24.11 |
+| onMouseLeave | Trigger when mouse leave drawer panel | React.MouseEventHandler\<HTMLDivElement\> | 4.24.11 |
+| onClick | Trigger when mouse click drawer panel | React.MouseEventHandler\<HTMLDivElement\> | 4.24.11 |
+| onKeyDown | Trigger when mouse keydown on drawer panel | React.MouseEventHandler\<HTMLDivElement\> | 4.24.11 |
+| onKeyUp | Trigger when mouse keyup on drawer panel | React.MouseEventHandler\<HTMLDivElement\> | 4.24.11 |
