@@ -27,7 +27,7 @@ timeline: true
 - 🐞 修复使用 ConfigProvider 会导致未使用的 Form 组件也被打包的问题。[#42604](https://github.com/ant-design/ant-design/pull/42604)
 - 🐞 修复 InputNumber 和其他组件无法基线对齐的问题。[#42580](https://github.com/ant-design/ant-design/pull/42580)
 - 🐞 修复 Badge 组件中旋转的 `icon` 动画。[#42575](https://github.com/ant-design/ant-design/pull/42575) [@MadCcc](https://github.com/MadCcc)
-- ⚡️ 优化 Form `setFieldsValue` 相关代码以降低打包尺寸。[#42635](https://github.com/ant-design/ant-design/pull/42635)
+- 📦 优化 Form `setFieldsValue` 相关代码以降低打包尺寸。[#42635](https://github.com/ant-design/ant-design/pull/42635)
 - 💄 优化 Image 组件预览组样式。[#42675](https://github.com/ant-design/ant-design/pull/42675) [@kiner-tang](https://github.com/kiner-tang)
 - 💄 修复 Tag 无边框样式在 `error` 等状态下不生效的问题。[#42619](https://github.com/ant-design/ant-design/pull/42619) [@li-jia-nan](https://github.com/li-jia-nan)
 - 💄 修复 Table `rowSpan` 悬浮高亮背景颜色丢失的问题。[#42572](https://github.com/ant-design/ant-design/pull/42572)
