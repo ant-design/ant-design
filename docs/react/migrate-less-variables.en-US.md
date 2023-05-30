@@ -396,25 +396,25 @@ export default App;
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@slider-margin` | `iconFontSize` | - |
-| `@slider-rail-background-color` | `railBackgroundColor` | - |
-| `@slider-rail-background-color-hover` | `railBackgroundColorHover` | - |
-| `@slider-track-background-color` | `trackBackgroundColor` | - |
-| `@slider-track-background-color-hover` | `trackBackgroundColorHover` | - |
-| `@slider-handle-border-width` | `handleBorderWidth` | - |
-| `@slider-handle-background-color` | `handleBackgroundColor` | - |
+| `@slider-margin` | - | Could be customized with `className` or `style` |
+| `@slider-rail-background-color` | `railBg` | - |
+| `@slider-rail-background-color-hover` | `railHoverBg` | - |
+| `@slider-track-background-color` | `trackBg` | - |
+| `@slider-track-background-color-hover` | `trackHoverBg` | - |
+| `@slider-handle-border-width` | `handleLineWidth` | - |
+| `@slider-handle-background-color` | `handleBg` | - |
 | `@slider-handle-color` | `handleColor` | - |
-| `@slider-handle-color-hover` | `handleColorHover` | - |
-| `@slider-handle-color-focus` | `handleColorFocus` | - |
-| `@slider-handle-color-focus-shadow` | `handleColorFocusShadow` | - |
-| `@slider-handle-color-tooltip-open` | `handleColorTooltipOpen` | - |
+| `@slider-handle-color-hover` | `handleHoverColor` | - |
+| `@slider-handle-color-focus` | `handleActiveColor` | - |
+| `@slider-handle-color-focus-shadow` | - | Deprecated for style change |
+| `@slider-handle-color-tooltip-open` | `handleActiveColor` | - |
 | `@slider-handle-size` | `handleSize` | - |
 | `@slider-handle-margin-top` | `handleMarginTop` | - |
 | `@slider-handle-margin-left` | `handleMarginLeft` | - |
-| `@slider-handle-shadow` | `handleShadow` | - |
+| `@slider-handle-shadow` | - | Deprecated for style change |
 | `@slider-dot-border-color` | `dotBorderColor` | - |
-| `@slider-dot-border-color-active` | `dotBorderColorActive` | - |
-| `@slider-disabled-color` | `disabledColor` | - |
+| `@slider-dot-border-color-active` | `dotActiveBorderColor` | - |
+| `@slider-disabled-color` | `trackBgDisabled` | - |
 | `@slider-disabled-background-color` | `disabledBackgroundColor` | - |
 
 ### Statistic

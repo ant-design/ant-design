@@ -20,23 +20,19 @@ export interface ComponentToken {
   handleLineWidthHover: number;
   dotSize: number;
   sliderMargin: string;
-  railBackgroundColor: string;
-  railBackgroundColorHover: string;
-  trackBackgroundColor: string;
-  trackBackgroundColorHover: string;
-  handleBorderWidth: number;
-  handleBackgroundColor: string;
+  railBg: string;
+  railHoverBg: string;
+  trackBg: string;
+  trackHoverBg: string;
   handleColor: string;
-  handleColorHover: string;
-  handleColorFocus: string;
-  handleColorFocusShadow: string;
+  handleHoverColor: string;
+  handleActiveColor: string;
   handleColorTooltipOpen: string;
   handleMarginTop: number;
   handleMarginLeft: number;
-  handleShadow: number;
   dotBorderColor: string;
-  dotBorderColorActive: string;
-  disabledColor: string;
+  dotActiveBorderColor: string;
+  trackBgDisabled: string;
   disabledBackgroundColor: string;
 }
 
@@ -68,25 +64,25 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
 
       [`${componentCls}-rail`]: {
         position: 'absolute',
-        backgroundColor: token.colorFillTertiary,
+        backgroundColor: token.railBg,
         borderRadius: token.borderRadiusXS,
         transition: `background-color ${token.motionDurationMid}`,
       },
 
       [`${componentCls}-track`]: {
         position: 'absolute',
-        backgroundColor: token.colorPrimaryBorder,
+        backgroundColor: token.trackBg,
         borderRadius: token.borderRadiusXS,
         transition: `background-color ${token.motionDurationMid}`,
       },
 
       '&:hover': {
         [`${componentCls}-rail`]: {
-          backgroundColor: token.colorFillSecondary,
+          backgroundColor: token.railHoverBg,
         },
 
         [`${componentCls}-track`]: {
-          backgroundColor: token.colorPrimaryBorderHover,
+          backgroundColor: token.trackHoverBg,
         },
 
         [`${componentCls}-dot`]: {
@@ -212,7 +208,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         cursor: 'not-allowed',
 
         [`${componentCls}-rail`]: {
-          backgroundColor: `${token.colorFillSecondary} !important`,
+          backgroundColor: `${token.railBg} !important`,
         },
 
         [`${componentCls}-track`]: {
@@ -359,23 +355,19 @@ export default genComponentStyleHook(
       handleLineWidth,
       handleLineWidthHover,
       sliderMargin: '10px 6px 10px', // FIX ME
-      railBackgroundColor: token.colorBgBase,
-      railBackgroundColorHover: '#e1e1e1', // FIX ME
-      trackBackgroundColor: '@primary-3', // FIX ME
-      trackBackgroundColorHover: '@primary-4', // FIX ME
-      handleBorderWidth: 2,
-      handleBackgroundColor: token.colorBgBase,
+      railBg: token.colorBgBase,
+      railHoverBg: '#e1e1e1', // FIX ME
+      trackBg: '@primary-3', // FIX ME
+      trackHoverBg: '@primary-4', // FIX ME
       handleColor: token.colorPrimary,
-      handleColorHover: token.colorPrimaryHover,
-      handleColorFocus: 'tint(@primaryColor, 20%)', // FIX ME
-      handleColorFocusShadow: 'fade(@primary-color, 12%)', // FIX ME
+      handleHoverColor: token.colorPrimaryHover,
+      handleActiveColor: 'tint(@primaryColor, 20%)', // FIX ME
       handleColorTooltipOpen: token.colorPrimary,
       handleMarginTop: -5,
       handleMarginLeft: -5,
-      handleShadow: 0,
       dotBorderColor: '#303030',
-      dotBorderColorActive: 'tint(@primary-color, 50%)', // FIX ME
-      disabledColor: token.colorBgContainerDisabled,
+      dotActiveBorderColor: 'tint(@primary-color, 50%)', // FIX ME
+      trackBgDisabled: token.colorBgContainerDisabled,
       disabledBackgroundColor: token.colorBgBase,
     };
   },
