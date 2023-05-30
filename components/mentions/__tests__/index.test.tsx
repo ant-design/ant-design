@@ -118,4 +118,12 @@ describe('Mentions', () => {
       wrapper.container.querySelector('.ant-mentions-dropdown-menu-item-active')?.textContent,
     ).toBe('Yesmeck');
   });
+
+  it('bordered should work', () => {
+    const { container } = render(<Mentions bordered={false} />);
+
+    const mentions = container.querySelector('.ant-mentions');
+    expect(mentions).toBeTruthy();
+    expect(mentions!.classList.contains('ant-mentions-borderless')).toBeTruthy();
+  });
 });

@@ -42,6 +42,7 @@ return (
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/autoSize.tsx">autoSize</code>
 <code src="./demo/status.tsx">Status</code>
+<code src="./demo/borderless.tsx">Borderless</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
@@ -53,6 +54,7 @@ return (
 | --- | --- | --- | --- | --- |
 | autoFocus | Auto get focus when component mounted | boolean | false |  |
 | autoSize | Textarea height autosize feature, can be set to true \| false or an object { minRows: 2, maxRows: 6 } | boolean \| object | false |  |
+| bordered | Whether has border style | boolean | true | 5.6.0 |
 | defaultValue | Default value | string | - |  |
 | filterOption | Customize filter option logic | false \| (input: string, option: OptionProps) => boolean | - |  |
 | getPopupContainer | Set the mount HTML node for suggestions | () => HTMLElement | - |  |

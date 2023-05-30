@@ -41,6 +41,12 @@ export interface MentionProps extends Omit<RcMentionsProps, 'suffix'> {
   status?: InputStatus;
   options?: MentionsOptionProps[];
   popupClassName?: string;
+  /**
+   * Whether has border style
+   * @default true
+   * @since 5.6.0
+   */
+  bordered?: boolean;
 }
 
 export interface MentionsRef extends RcMentionsRef {}
@@ -80,6 +86,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     status: customStatus,
     popupClassName,
     style,
+    bordered = true,
     ...restProps
   } = props;
   const [focused, setFocused] = React.useState(false);
@@ -160,6 +167,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
 
   const mergedClassName = classNames(
     {
+      [`${prefixCls}-borderless`]: !bordered,
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-focused`]: focused,
       [`${prefixCls}-rtl`]: direction === 'rtl',
