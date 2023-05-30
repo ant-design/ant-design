@@ -95,10 +95,10 @@ const ColorPicker: CompoundedComponent = (props) => {
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
-  const mergeRootCls = classNames(rootClassName, {
-    [`${prefixCls}-rtl`]: direction,
-  });
+  const rtlCls = { [`${prefixCls}-rtl`]: direction };
+  const mergeRootCls = classNames(rootClassName, rtlCls);
   const mergeCls = classNames(mergeRootCls, className, hashId);
+  const mergePopupCls = classNames(prefixCls, rtlCls);
 
   const handleChange = (data: Color, type?: HsbaColorType) => {
     let color: Color = generateColor(data);
@@ -150,7 +150,7 @@ const ColorPicker: CompoundedComponent = (props) => {
       content={
         <ColorPickerPanel {...colorBaseProps} onChange={handleChange} onClear={handleClear} />
       }
-      overlayClassName={prefixCls}
+      overlayClassName={mergePopupCls}
       {...popoverProps}
     >
       {children || (
