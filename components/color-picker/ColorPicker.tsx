@@ -93,10 +93,11 @@ const ColorPicker: CompoundedComponent = (props) => {
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
-  const mergeRootCls = classNames(rootClassName, {
-    [`${prefixCls}-rtl`]: direction,
-  });
+  const rtlCls = { [`${prefixCls}-rtl`]: direction };
+  const mergeRootCls = classNames(rootClassName, rtlCls);
   const mergeCls = classNames(mergeRootCls, className, hashId);
+  const mergePopupCls = classNames(prefixCls, rtlCls);
+
   const popupAllowCloseRef = useRef(true);
 
   const handleChange = (data: Color, type?: HsbaColorType, pickColor?: boolean) => {
@@ -171,7 +172,7 @@ const ColorPicker: CompoundedComponent = (props) => {
           onClear={handleClear}
         />
       }
-      overlayClassName={prefixCls}
+      overlayClassName={mergePopupCls}
       {...popoverProps}
     >
       {children || (
