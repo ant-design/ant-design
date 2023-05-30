@@ -26,6 +26,24 @@ export const genActiveStyle = (token: ColorPickerToken) => ({
   outline: 0,
 });
 
+const genRtlStyle = (token: ColorPickerToken): CSSObject => {
+  const { componentCls } = token;
+  return {
+    '&-rtl': {
+      [`${componentCls}-presets-color`]: {
+        '&::after': {
+          direction: 'ltr',
+        },
+      },
+      [`${componentCls}-clear`]: {
+        '&::after': {
+          direction: 'ltr',
+        },
+      },
+    },
+  };
+};
+
 const genClearStyle = (token: ColorPickerToken, size: number): CSSObject => {
   const { componentCls, borderRadiusSM, lineWidth, colorSplit, red6 } = token;
 
@@ -127,6 +145,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           ...genClearStyle(token, controlHeightSM),
           ...genColorBlockStyle(token, controlHeightSM),
         },
+        ...genRtlStyle(token),
       },
     },
   ];
