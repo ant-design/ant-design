@@ -385,4 +385,23 @@ describe('Progress', () => {
     );
     errSpy.mockRestore();
   });
+
+  it('should be accessible', () => {
+    const { container: wrapper, rerender } = render(
+      <Progress percent={70} ariaLabel="My progress" />,
+    );
+    let progress = wrapper.querySelector('[role="progressbar"]');
+    expect(progress).toHaveAttribute('aria-label', 'My progress');
+    expect(progress).toHaveAttribute('aria-valuenow', '70');
+
+    rerender(
+      <>
+        <span id="progressLabel">My progress</span>
+        <Progress percent={90} ariaLabelledBy="progressLabel" />
+      </>,
+    );
+    progress = wrapper.querySelector('[role="progressbar"]');
+    expect(progress).toHaveAttribute('aria-labelledby', 'progressLabel');
+    expect(progress).toHaveAttribute('aria-valuenow', '90');
+  });
 });

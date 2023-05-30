@@ -10,6 +10,7 @@ exports[`renders components/progress/demo/circle.tsx correctly 1`] = `
     style="margin-right:8px;padding-bottom:8px"
   >
     <div
+      aria-valuenow="75"
       class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
@@ -66,6 +67,7 @@ exports[`renders components/progress/demo/circle.tsx correctly 1`] = `
     style="margin-right:8px;padding-bottom:8px"
   >
     <div
+      aria-valuenow="70"
       class="ant-progress ant-progress-circle ant-progress-status-exception ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
@@ -139,6 +141,7 @@ exports[`renders components/progress/demo/circle.tsx correctly 1`] = `
     style="padding-bottom:8px"
   >
     <div
+      aria-valuenow="100"
       class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
@@ -213,6 +216,7 @@ exports[`renders components/progress/demo/circle.tsx correctly 1`] = `
 exports[`renders components/progress/demo/circle-dynamic.tsx correctly 1`] = `
 Array [
   <div
+    aria-valuenow="0"
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
     role="progressbar"
     style="margin-right:8px"
@@ -336,6 +340,7 @@ Array [
 exports[`renders components/progress/demo/circle-micro.tsx correctly 1`] = `
 Array [
   <div
+    aria-valuenow="60"
     class="ant-progress ant-progress-inline-circle ant-progress-circle ant-progress-status-normal ant-progress-show-info"
     role="progressbar"
   >
@@ -401,6 +406,7 @@ exports[`renders components/progress/demo/circle-mini.tsx correctly 1`] = `
     style="margin-right:8px;padding-bottom:8px"
   >
     <div
+      aria-valuenow="30"
       class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
       role="progressbar"
     >
@@ -457,6 +463,7 @@ exports[`renders components/progress/demo/circle-mini.tsx correctly 1`] = `
     style="margin-right:8px;padding-bottom:8px"
   >
     <div
+      aria-valuenow="70"
       class="ant-progress ant-progress-circle ant-progress-status-exception ant-progress-show-info"
       role="progressbar"
     >
@@ -530,6 +537,7 @@ exports[`renders components/progress/demo/circle-mini.tsx correctly 1`] = `
     style="padding-bottom:8px"
   >
     <div
+      aria-valuenow="100"
       class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info"
       role="progressbar"
     >
@@ -611,6 +619,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
     style="margin-right:8px;padding-bottom:8px"
   >
     <div
+      aria-valuenow="75"
       class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
@@ -667,6 +676,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
     style="padding-bottom:8px"
   >
     <div
+      aria-valuenow="75"
       class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
@@ -724,6 +734,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
 exports[`renders components/progress/demo/dynamic.tsx correctly 1`] = `
 Array [
   <div
+    aria-valuenow="0"
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
@@ -826,6 +837,7 @@ exports[`renders components/progress/demo/format.tsx correctly 1`] = `
     style="margin-right:8px;padding-bottom:8px"
   >
     <div
+      aria-valuenow="75"
       class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
@@ -882,6 +894,7 @@ exports[`renders components/progress/demo/format.tsx correctly 1`] = `
     style="padding-bottom:8px"
   >
     <div
+      aria-valuenow="100"
       class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
@@ -939,6 +952,7 @@ exports[`renders components/progress/demo/format.tsx correctly 1`] = `
 exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
 Array [
   <div
+    aria-valuenow="99"
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
@@ -963,6 +977,7 @@ Array [
     </span>
   </div>,
   <div
+    aria-valuenow="99"
     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
@@ -995,6 +1010,7 @@ Array [
       style="margin-right:8px;padding-bottom:8px"
     >
       <div
+        aria-valuenow="90"
         class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
         role="progressbar"
       >
@@ -1070,6 +1086,7 @@ Array [
       style="padding-bottom:8px"
     >
       <div
+        aria-valuenow="100"
         class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
         role="progressbar"
       >
@@ -1164,6 +1181,7 @@ Array [
 exports[`renders components/progress/demo/line.tsx correctly 1`] = `
 Array [
   <div
+    aria-valuenow="30"
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
@@ -1188,6 +1206,7 @@ Array [
     </span>
   </div>,
   <div
+    aria-valuenow="50"
     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
@@ -1212,6 +1231,7 @@ Array [
     </span>
   </div>,
   <div
+    aria-valuenow="70"
     class="ant-progress ant-progress-line ant-progress-status-exception ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
@@ -1253,6 +1273,7 @@ Array [
     </span>
   </div>,
   <div
+    aria-valuenow="100"
     class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
@@ -1294,6 +1315,7 @@ Array [
     </span>
   </div>,
   <div
+    aria-valuenow="50"
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default"
     role="progressbar"
   >
@@ -1319,6 +1341,7 @@ exports[`renders components/progress/demo/line-mini.tsx correctly 1`] = `
   style="width:170px"
 >
   <div
+    aria-valuenow="30"
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
     role="progressbar"
   >
@@ -1343,6 +1366,7 @@ exports[`renders components/progress/demo/line-mini.tsx correctly 1`] = `
     </span>
   </div>
   <div
+    aria-valuenow="50"
     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
     role="progressbar"
   >
@@ -1367,6 +1391,7 @@ exports[`renders components/progress/demo/line-mini.tsx correctly 1`] = `
     </span>
   </div>
   <div
+    aria-valuenow="70"
     class="ant-progress ant-progress-line ant-progress-status-exception ant-progress-show-info ant-progress-small"
     role="progressbar"
   >
@@ -1408,6 +1433,7 @@ exports[`renders components/progress/demo/line-mini.tsx correctly 1`] = `
     </span>
   </div>
   <div
+    aria-valuenow="100"
     class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-small"
     role="progressbar"
   >
@@ -1454,6 +1480,7 @@ exports[`renders components/progress/demo/line-mini.tsx correctly 1`] = `
 exports[`renders components/progress/demo/linecap.tsx correctly 1`] = `
 Array [
   <div
+    aria-valuenow="75"
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
@@ -1487,6 +1514,7 @@ Array [
       style="margin-right:8px;padding-bottom:8px"
     >
       <div
+        aria-valuenow="75"
         class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
         role="progressbar"
       >
@@ -1543,6 +1571,7 @@ Array [
       style="padding-bottom:8px"
     >
       <div
+        aria-valuenow="75"
         class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
         role="progressbar"
       >
@@ -1601,6 +1630,7 @@ Array [
 exports[`renders components/progress/demo/segment.tsx correctly 1`] = `
 Array [
   <div
+    aria-valuenow="30"
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
@@ -1637,6 +1667,7 @@ Array [
       style="margin-right:8px;padding-bottom:8px"
     >
       <div
+        aria-valuenow="30"
         class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
         role="progressbar"
       >
@@ -1693,6 +1724,7 @@ Array [
       style="padding-bottom:8px"
     >
       <div
+        aria-valuenow="30"
         class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
         role="progressbar"
       >
@@ -1758,6 +1790,7 @@ Array [
       style="margin-bottom:8px"
     >
       <div
+        aria-valuenow="50"
         class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
         role="progressbar"
       >
@@ -1787,6 +1820,7 @@ Array [
       style="margin-bottom:8px"
     >
       <div
+        aria-valuenow="50"
         class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
         role="progressbar"
       >
@@ -1815,6 +1849,7 @@ Array [
       class="ant-space-item"
     >
       <div
+        aria-valuenow="50"
         class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info"
         role="progressbar"
       >
@@ -1850,6 +1885,7 @@ Array [
       style="margin-right:30px"
     >
       <div
+        aria-valuenow="50"
         class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
         role="progressbar"
       >
@@ -1906,6 +1942,7 @@ Array [
       style="margin-right:30px"
     >
       <div
+        aria-valuenow="50"
         class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-small"
         role="progressbar"
       >
@@ -1961,6 +1998,7 @@ Array [
       class="ant-space-item"
     >
       <div
+        aria-valuenow="50"
         class="ant-progress ant-progress-inline-circle ant-progress-circle ant-progress-status-normal ant-progress-show-info"
         role="progressbar"
       >
@@ -2019,6 +2057,7 @@ Array [
       style="margin-right:30px"
     >
       <div
+        aria-valuenow="50"
         class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
         role="progressbar"
       >
@@ -2075,6 +2114,7 @@ Array [
       style="margin-right:30px"
     >
       <div
+        aria-valuenow="50"
         class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-small"
         role="progressbar"
       >
@@ -2130,6 +2170,7 @@ Array [
       class="ant-space-item"
     >
       <div
+        aria-valuenow="50"
         class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
         role="progressbar"
       >
@@ -2189,6 +2230,7 @@ Array [
       style="margin-right:30px;padding-bottom:30px"
     >
       <div
+        aria-valuenow="50"
         class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
         role="progressbar"
       >
@@ -2221,6 +2263,7 @@ Array [
       style="margin-right:30px;padding-bottom:30px"
     >
       <div
+        aria-valuenow="50"
         class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-small"
         role="progressbar"
       >
@@ -2253,6 +2296,7 @@ Array [
       style="margin-right:30px;padding-bottom:30px"
     >
       <div
+        aria-valuenow="50"
         class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info"
         role="progressbar"
       >
@@ -2285,6 +2329,7 @@ Array [
       style="padding-bottom:30px"
     >
       <div
+        aria-valuenow="50"
         class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info"
         role="progressbar"
       >
@@ -2319,6 +2364,7 @@ Array [
 exports[`renders components/progress/demo/steps.tsx correctly 1`] = `
 Array [
   <div
+    aria-valuenow="50"
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
@@ -2347,6 +2393,7 @@ Array [
   </div>,
   <br />,
   <div
+    aria-valuenow="30"
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
@@ -2383,6 +2430,7 @@ Array [
   </div>,
   <br />,
   <div
+    aria-valuenow="100"
     class="ant-progress ant-progress-steps ant-progress-status-success ant-progress-show-info ant-progress-small"
     role="progressbar"
   >
@@ -2436,6 +2484,7 @@ Array [
   </div>,
   <br />,
   <div
+    aria-valuenow="60"
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
     role="progressbar"
   >

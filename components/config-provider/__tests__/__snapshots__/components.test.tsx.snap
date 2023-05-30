@@ -21779,6 +21779,7 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
 
 exports[`ConfigProvider components Progress configProvider 1`] = `
 <div
+  aria-valuenow="0"
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
   role="progressbar"
 >
@@ -21806,6 +21807,7 @@ exports[`ConfigProvider components Progress configProvider 1`] = `
 
 exports[`ConfigProvider components Progress configProvider componentDisabled 1`] = `
 <div
+  aria-valuenow="0"
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
   role="progressbar"
 >
@@ -21833,6 +21835,7 @@ exports[`ConfigProvider components Progress configProvider componentDisabled 1`]
 
 exports[`ConfigProvider components Progress configProvider componentSize large 1`] = `
 <div
+  aria-valuenow="0"
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
   role="progressbar"
 >
@@ -21860,6 +21863,7 @@ exports[`ConfigProvider components Progress configProvider componentSize large 1
 
 exports[`ConfigProvider components Progress configProvider componentSize middle 1`] = `
 <div
+  aria-valuenow="0"
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
   role="progressbar"
 >
@@ -21887,6 +21891,7 @@ exports[`ConfigProvider components Progress configProvider componentSize middle 
 
 exports[`ConfigProvider components Progress configProvider componentSize small 1`] = `
 <div
+  aria-valuenow="0"
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
   role="progressbar"
 >
@@ -21914,6 +21919,7 @@ exports[`ConfigProvider components Progress configProvider componentSize small 1
 
 exports[`ConfigProvider components Progress normal 1`] = `
 <div
+  aria-valuenow="0"
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
@@ -21941,6 +21947,7 @@ exports[`ConfigProvider components Progress normal 1`] = `
 
 exports[`ConfigProvider components Progress prefixCls 1`] = `
 <div
+  aria-valuenow="0"
   class="prefix-Progress prefix-Progress-line prefix-Progress-status-normal prefix-Progress-show-info prefix-Progress-default"
   role="progressbar"
 >
