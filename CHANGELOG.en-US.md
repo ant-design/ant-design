@@ -35,6 +35,7 @@ timeline: true
 - 💄 Fix that global token should be able to override component style. [#42535](https://github.com/ant-design/ant-design/pull/42535) [@MadCcc](https://github.com/MadCcc)
 - 🇱🇹 Add missing i18n for `lt_LT` locale. [#42664](https://github.com/ant-design/ant-design/pull/42664) [@Digital-512](https://github.com/Digital-512)
 - RTL
+  - 💄 Fix ColorPicker style in RTL mode. [#42716](https://github.com/ant-design/ant-design/pull/42716) [@RedJue](https://github.com/RedJue)
   - 💄 Fix Anchor track position in RTL mode. [#42706](https://github.com/ant-design/ant-design/pull/42706) [@qmhc](https://github.com/qmhc)
 
 ## 5.5.1

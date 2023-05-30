@@ -35,6 +35,7 @@ timeline: true
 - 💄 修复部分全局 Token 无法覆盖组件样式的问题。[#42535](https://github.com/ant-design/ant-design/pull/42535) [@MadCcc](https://github.com/MadCcc)
 - 🇱🇹 为 `lt_LT` 添加缺失的部分 i18n。[#42664](https://github.com/ant-design/ant-design/pull/42664) [@Digital-512](https://github.com/Digital-512)
 - RTL
+  - 💄 修复 ColorPicker 组件 RTL 模式样式。[#42716](https://github.com/ant-design/ant-design/pull/42716) [@RedJue](https://github.com/RedJue)
   - 💄 修复 Anchor RTL 模式下轨道的位置。[#42706](https://github.com/ant-design/ant-design/pull/42706) [@qmhc](https://github.com/qmhc)
 
 ## 5.5.1
