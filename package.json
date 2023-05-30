@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.5.1",
+  "version": "5.5.2",
   "packageManager": "^npm@9.0.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
@@ -126,7 +126,7 @@
     "rc-checkbox": "~3.0.0",
     "rc-collapse": "~3.5.2",
     "rc-dialog": "~9.1.0",
-    "rc-drawer": "~6.1.1",
+    "rc-drawer": "~6.2.0",
     "rc-dropdown": "~4.1.0",
     "rc-field-form": "~1.32.0",
     "rc-image": "~5.16.0",

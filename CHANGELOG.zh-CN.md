@@ -15,6 +15,29 @@ timeline: true
 
 ---
 
+## 5.5.2
+
+`2023-05-30`
+
+- 🐞 修复 ColorPicker 组件悬停边界问题。[#42669](https://github.com/ant-design/ant-design/pull/42669) [@RedJue](https://github.com/RedJue)
+- 🐞 修复 Menu 组件 `overflowedIndicatorClassName` 覆盖了原本的 class 的问题。[#42692](https://github.com/ant-design/ant-design/pull/42692) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Select 组件在某些情况下显示乱码问题。[#42651](https://github.com/ant-design/ant-design/pull/42651) [@895433995](https://github.com/895433995)
+- 🐞 修复 Card 组件，当 Image 设置 `cover` 属性时，悬停蒙版没有圆角属性，导致 UI 异常。[#42642](https://github.com/ant-design/ant-design/pull/42642) [@iNeedToCopy](https://github.com/iNeedToCopy)
+- 🐞 修复 Checkbox 和 label 不对齐的问题。[#42590](https://github.com/ant-design/ant-design/pull/42590) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复使用 ConfigProvider 会导致未使用的 Form 组件也被打包的问题。[#42604](https://github.com/ant-design/ant-design/pull/42604)
+- 🐞 修复 InputNumber 和其他组件无法基线对齐的问题。[#42580](https://github.com/ant-design/ant-design/pull/42580)
+- 🐞 修复 Badge 组件中旋转的 `icon` 动画。[#42575](https://github.com/ant-design/ant-design/pull/42575) [@MadCcc](https://github.com/MadCcc)
+- 📦 优化 Form `setFieldsValue` 相关代码以降低打包尺寸。[#42635](https://github.com/ant-design/ant-design/pull/42635)
+- 💄 优化 Image 组件预览组样式。[#42675](https://github.com/ant-design/ant-design/pull/42675) [@kiner-tang](https://github.com/kiner-tang)
+- 💄 修复 Tag 无边框样式在 `error` 等状态下不生效的问题。[#42619](https://github.com/ant-design/ant-design/pull/42619) [@li-jia-nan](https://github.com/li-jia-nan)
+- 💄 修复 Table `rowSpan` 悬浮高亮背景颜色丢失的问题。[#42572](https://github.com/ant-design/ant-design/pull/42572)
+- 💄 修复 Pagination 在禁用状态下 link 图标和 ellipsis hover 时的样式。[#42541](https://github.com/ant-design/ant-design/pull/42541) [@qmhc](https://github.com/qmhc)
+- 💄 修复部分全局 Token 无法覆盖组件样式的问题。[#42535](https://github.com/ant-design/ant-design/pull/42535) [@MadCcc](https://github.com/MadCcc)
+- 🇱🇹 为 `lt_LT` 添加缺失的部分文案。[#42664](https://github.com/ant-design/ant-design/pull/42664) [@Digital-512](https://github.com/Digital-512)
+- RTL
+  - 💄 修复 ColorPicker 组件 RTL 模式样式。[#42716](https://github.com/ant-design/ant-design/pull/42716) [@RedJue](https://github.com/RedJue)
+  - 💄 修复 Anchor RTL 模式下轨道的位置。[#42706](https://github.com/ant-design/ant-design/pull/42706) [@qmhc](https://github.com/qmhc)
+
 ## 5.5.1
 
 `2023-05-22`
