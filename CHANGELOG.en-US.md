@@ -27,7 +27,7 @@ timeline: true
 - 🐞 Fix ConfigProvider makes Form component in the bundle even not use it. [#42604](https://github.com/ant-design/ant-design/pull/42604)
 - 🐞 Fix InputNumber cannot align well by baseline. [#42580](https://github.com/ant-design/ant-design/pull/42580)
 - 🐞 Fix spinning icon animation in Badge. [#42575](https://github.com/ant-design/ant-design/pull/42575) [@MadCcc](https://github.com/MadCcc)
-- ⚡️ Optimize Form `setFieldsValue` logic to reduce bundle size. [#42635](https://github.com/ant-design/ant-design/pull/42635)
+- 📦 Optimize Form `setFieldsValue` logic to reduce bundle size. [#42635](https://github.com/ant-design/ant-design/pull/42635)
 - 💄 Optimize ImagePreviewGroup style. [#42675](https://github.com/ant-design/ant-design/pull/42675) [@kiner-tang](https://github.com/kiner-tang)
 - 💄 Fix Tag borderless style with `error` and other status. [#42619](https://github.com/ant-design/ant-design/pull/42619) [@li-jia-nan](https://github.com/li-jia-nan)
 - 💄 Fix Table `rowSpan` hover highlight style missing. [#42572](https://github.com/ant-design/ant-design/pull/42572)
