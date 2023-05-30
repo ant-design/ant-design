@@ -70,8 +70,6 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     type = 'line',
     status,
     format,
-    ariaLabel,
-    ariaLabelledBy,
     ...restProps
   } = props;
 
@@ -180,8 +178,6 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
       className={classString}
       role="progressbar"
       aria-valuenow={percentNumber}
-      aria-label={ariaLabel}
-      aria-labelledby={ariaLabelledBy}
       {...omit(restProps, [
         'trailColor',
         'strokeWidth',
