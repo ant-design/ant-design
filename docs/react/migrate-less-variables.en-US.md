@@ -389,7 +389,7 @@ export default App;
 | `@skeleton-to-color` | `gradientToColor` | - |
 | `@skeleton-paragraph-margin-top` | `paragraphMarginTop` | - |
 | `@skeleton-paragraph-li-height` | `paragraphLiHeight` | - |
-| `@skeleton-paragraph-li-margin-top` | - | 由于样式变化已废弃 |
+| `@skeleton-paragraph-li-margin-top` | - | Deprecated for style change |
 
 ### Slider
 
@@ -402,11 +402,11 @@ export default App;
 | `@slider-track-background-color` | `trackBg` | - |
 | `@slider-track-background-color-hover` | `trackHoverBg` | - |
 | `@slider-handle-border-width` | `handleLineWidth` | - |
-| `@slider-handle-background-color` | `handleBg` | - |
+| `@slider-handle-background-color` | - | Deprecated for style change |
 | `@slider-handle-color` | `handleColor` | - |
-| `@slider-handle-color-hover` | `handleHoverColor` | - |
-| `@slider-handle-color-focus` | `handleActiveColor` | - |
-| `@slider-handle-color-focus-shadow` | - | Deprecated for style change |
+| `@slider-handle-color-hover` | - | Deprecated for style change |
+| `@slider-handle-color-focus` | - | Deprecated for style change |
+| `@slider-handle-color-focus-shadow` | - Deprecated for style change |
 | `@slider-handle-color-tooltip-open` | `handleActiveColor` | - |
 | `@slider-handle-size` | `handleSize` | - |
 | `@slider-handle-margin-top` | `handleMarginTop` | - |
@@ -415,7 +415,7 @@ export default App;
 | `@slider-dot-border-color` | `dotBorderColor` | - |
 | `@slider-dot-border-color-active` | `dotActiveBorderColor` | - |
 | `@slider-disabled-color` | `trackBgDisabled` | - |
-| `@slider-disabled-background-color` | `disabledBackgroundColor` | - |
+| `@slider-disabled-background-color` | - | Deprecated for style change |
 
 ### Statistic
 

@@ -32,7 +32,6 @@ export interface ComponentToken {
   dotBorderColor: string;
   dotActiveBorderColor: string;
   trackBgDisabled: string;
-  disabledBackgroundColor: string;
 }
 
 interface SliderToken extends FullToken<'Slider'> {
@@ -366,7 +365,6 @@ export default genComponentStyleHook(
       dotBorderColor: '#303030',
       dotActiveBorderColor: 'tint(@primary-color, 50%)', // FIX ME
       trackBgDisabled: token.colorBgContainerDisabled,
-      disabledBackgroundColor: token.colorBgBase,
     };
   },
 );

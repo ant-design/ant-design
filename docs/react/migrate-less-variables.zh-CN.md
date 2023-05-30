@@ -399,10 +399,10 @@ Mentions 提及
 | `@slider-track-background-color` | `trackBg` | - |
 | `@slider-track-background-color-hover` | `trackHoverBg` | - |
 | `@slider-handle-border-width` | `handleLineWidth` | - |
-| `@slider-handle-background-color` | `handleBg` | - |
+| `@slider-handle-background-color` | - | 样式变化已废弃 |
 | `@slider-handle-color` | `handleColor` | - |
-| `@slider-handle-color-hover` | `handleHoverColor` | - |
-| `@slider-handle-color-focus` | `handleActiveColor` | - |
+| `@slider-handle-color-hover` | - | 样式变化已废弃 |
+| `@slider-handle-color-focus` | - | 样式变化已废弃 |
 | `@slider-handle-color-focus-shadow` | - | 样式变化已废弃 |
 | `@slider-handle-color-tooltip-open` | `handleActiveColor` | - |
 | `@slider-handle-size` | `handleSize` | - |
@@ -412,7 +412,7 @@ Mentions 提及
 | `@slider-dot-border-color` | `dotBorderColor` | - |
 | `@slider-dot-border-color-active` | `dotActiveBorderColor` | - |
 | `@slider-disabled-color` | `trackBgDisabled` | - |
-| `@slider-disabled-background-color` | `disabledBackgroundColor` | - |
+| `@slider-disabled-background-color` | - | 样式变化已废弃 |
 
 ### Statistic 统计数值
 
