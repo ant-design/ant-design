@@ -1,6 +1,6 @@
 ---
 title: Hi, GitHub Actions
-date: 2023-05-01
+date: 2023-06-01
 author: Wxh16144
 ---
 
@@ -143,15 +143,15 @@ To ensure that developers and community members are informed of relevant informa
 
 - Other jobs not mentioned here are waiting for you to explore and discover...
 
-# Apply to your own projects
+## Apply to your own projects
 
 In the previous sections, we introduced many scenarios in which Ant Design uses GitHub Action. Why not try to apply it to your own project and improve production efficiency? Let's demonstrate this with a simple demo.
 
-## Creating a Project
+### Creating a Project
 
 Create a Vite + React project by running the command `pnpm create vite@latest my-react-app --template react-ts` in the command line.
 
-## Configuring CI Workflow
+### Configuring CI Workflow
 
 Create a new file named `ci.yml` in the `.github/workflows` folder located in the project's root directory with the following code:
 
@@ -217,7 +217,7 @@ The above workflow includes a CI job that will run `lint`, `build`, and `deploy`
 
 ![test-CI-preview](https://user-images.githubusercontent.com/32004925/234609284-ec7b40f5-a221-4c8b-9093-ce68a1a545bb.png)
 
-## Adding Caching
+### Adding Caching
 
 To further optimize dependency installation speed, we can add pnpm caching. After that, we can initiate a pull request to verify the previous steps.
 
@@ -253,6 +253,6 @@ Regarding the `Setup pnpm cache` step above, any cached items that have not been
 
 ![cache-pnpm-store](https://user-images.githubusercontent.com/32004925/234618808-46137b0d-27a0-4b01-b1a6-6e4931f6d388.png)
 
-# End
+## End
 
 That concludes this article. I hope it has helped you gain a deeper understanding of Ant Design. You are also welcome to participate in discussions and contribute to the project at the [Ant Design Discussion](https://github.com/ant-design/ant-design/discussions).
