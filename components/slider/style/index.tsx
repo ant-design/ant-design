@@ -26,7 +26,6 @@ export interface ComponentToken {
   trackHoverBg: string;
   handleColor: string;
   handleHoverColor: string;
-  handleActiveColor: string;
   handleColorTooltipOpen: string;
   handleMarginTop: number;
   handleMarginLeft: number;
@@ -94,7 +93,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         },
 
         [`${componentCls}-dot-active`]: {
-          borderColor: token.colorPrimary,
+          borderColor: token.dotActiveBorderColor,
         },
       },
 
@@ -212,14 +211,14 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         },
 
         [`${componentCls}-track`]: {
-          backgroundColor: `${token.colorTextDisabled} !important`,
+          backgroundColor: `${token.trackBgDisabled} !important`,
         },
 
         [`
           ${componentCls}-dot
         `]: {
           backgroundColor: token.colorBgElevated,
-          borderColor: token.colorTextDisabled,
+          borderColor: token.trackBgDisabled,
           boxShadow: 'none',
           cursor: 'not-allowed',
         },
@@ -361,7 +360,6 @@ export default genComponentStyleHook(
       trackHoverBg: '@primary-4', // FIX ME
       handleColor: token.colorPrimary,
       handleHoverColor: token.colorPrimaryHover,
-      handleActiveColor: 'tint(@primaryColor, 20%)', // FIX ME
       handleColorTooltipOpen: token.colorPrimary,
       handleMarginTop: -5,
       handleMarginLeft: -5,
