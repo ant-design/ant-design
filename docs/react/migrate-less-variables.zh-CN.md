@@ -377,7 +377,7 @@ Transfer 穿梭框
 | --- | --- | --- |
 | `@transfer-header-height` | `headerHeight` | - |
 | `@transfer-item-height` | `itemHeight` | - |
-| `@transfer-disabled-bg` | `disabledBg` | - |
+| `@transfer-disabled-bg` | `colorBgContainerDisabled` | Global Token |
 | `@transfer-list-height` | `listHeight` | - |
 | `@transfer-item-hover-bg` | `itemHoverBg` | - |
 | `@transfer-item-selected-hover-bg` | `itemSelectedHoverBg` | - |
