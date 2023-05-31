@@ -5,7 +5,7 @@ import type {
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties } from 'react';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import genPurePanel from '../_util/PurePanel';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
@@ -44,6 +44,7 @@ export interface ColorPickerProps
   onOpenChange?: (open: boolean) => void;
   onFormatChange?: (format: ColorFormat) => void;
   onChange?: (value: Color, hex: string) => void;
+  onClear?: () => void;
   getPopupContainer?: PopoverProps['getPopupContainer'];
   autoAdjustOverflow?: PopoverProps['autoAdjustOverflow'];
 }
@@ -71,6 +72,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     styles,
     onFormatChange,
     onChange,
+    onClear,
     onOpenChange,
     getPopupContainer,
     autoAdjustOverflow = true,
@@ -115,8 +117,9 @@ const ColorPicker: CompoundedComponent = (props) => {
     onChange?.(color, color.toHexString());
   };
 
-  const handleClear = (clear: boolean) => {
-    setColorCleared(clear);
+  const handleClear = () => {
+    setColorCleared(true);
+    onClear?.();
   };
 
   const popoverProps: PopoverProps = {
@@ -139,12 +142,6 @@ const ColorPicker: CompoundedComponent = (props) => {
     format,
     onFormatChange,
   };
-
-  useEffect(() => {
-    if (colorCleared) {
-      setPopupOpen(false);
-    }
-  }, [colorCleared]);
 
   return wrapSSR(
     <Popover

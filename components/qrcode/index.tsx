@@ -45,7 +45,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     width: iconSize,
     excavate: true,
   };
-  
+
   const qrCodeProps = {
     value,
     size: size - (token.paddingSM + token.lineWidth) * 2,
@@ -53,8 +53,8 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     bgColor,
     fgColor: color,
     imageSettings: icon ? imageSettings : undefined,
-  }
-  
+  };
+
   const [locale] = useLocale('QRCode');
 
   if (!value) {
@@ -93,11 +93,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
           )}
         </div>
       )}
-      {type === 'canvas' ? (
-        <QRCodeCanvas {...qrCodeProps} />
-      ) : (
-        <QRCodeSVG {...qrCodeProps} />
-      )}
+      {type === 'canvas' ? <QRCodeCanvas {...qrCodeProps} /> : <QRCodeSVG {...qrCodeProps} />}
     </div>,
   );
 };

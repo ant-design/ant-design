@@ -5,11 +5,11 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
+import pickAttrs from 'rc-util/lib/pickAttrs';
 import type { ReactElement } from 'react';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 import { replaceElement } from '../_util/reactNode';
+import { ConfigContext } from '../config-provider';
 import ErrorBoundary from './ErrorBoundary';
 
 // CSSINJS
@@ -117,7 +117,7 @@ const Alert: CompoundedComponent = ({
 }) => {
   const [closed, setClosed] = React.useState(false);
 
-  const ref = React.useRef<HTMLElement>();
+  const ref = React.useRef<HTMLDivElement>(null);
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
@@ -157,7 +157,10 @@ const Alert: CompoundedComponent = ({
     hashId,
   );
 
-  const dataOrAriaProps = getDataOrAriaProps(props);
+  const dataOrAriaProps = pickAttrs(props, {
+    aria: true,
+    data: true,
+  });
 
   return wrapSSR(
     <CSSMotion

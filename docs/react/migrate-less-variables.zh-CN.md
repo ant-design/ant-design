@@ -24,7 +24,23 @@ title: Less 变量迁移 Design Token
 | `@anchor-link-left` | `linkPaddingInlineStart` | - |
 | `@anchor-link-padding` | - | `${linkPaddingBlock}px ${linkPaddingInlineStart}px` |
 
-<!-- ### Avatar 头像 -->
+### Avatar 头像
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@avatar-size-base` | `containerSize` | - |
+| `@avatar-size-lg` | `containerSizeLG` | - |
+| `@avatar-size-sm` | `containerSizeSM` | - |
+| `@avatar-font-size-base` | `textFontSize` | - |
+| `@avatar-font-size-lg` | `textFontSizeLG` | - |
+| `@avatar-font-size-sm` | `textFontSizeSM` | - |
+| `@avatar-bg` | - | 可由 `className` 或 `style` 直接覆盖 |
+| `@avatar-color` | `colorTextLightSolid` | 全局 Token |
+| `@avatar-border-radius` | `borderRadius` | 全局 Token |
+| `@avatar-group-overlapping` | `groupOverlapping` | - |
+| `@avatar-group-space` | `groupSpace` | - |
+| `@avatar-group-border-color` | `colorBorderBg` | 全局 Token |
 
 <!-- ### Badge 徽标数 -->
 
@@ -156,7 +172,13 @@ title: Less 变量迁移 Design Token
 | `@list-customize-card-bg` | - | 由于样式变化已废弃 |
 | `@list-item-meta-description-font-size` | `descriptionFontSize` | - |
 
-<!-- ### Mentions 提及 -->
+Mentions 提及
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@mentions-dropdown-bg` | `colorBgElevated` | - |
+| `@mentions-dropdown-menu-item-hover-bg` | - | 已废弃 |
 
 <!-- ### Menu 导航菜单 -->
 
@@ -201,9 +223,37 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Notification 通知提醒框 -->
 
-<!-- ### Pagination 分页 -->
+### Pagination 分页
 
-<!-- ### Popover 气泡卡片 -->
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@pagination-item-bg` | `itemBg` | - |
+| `@pagination-item-size` | `itemSize` | - |
+| `@pagination-item-size-sm` | `itemSizeSM` | - |
+| `@pagination-font-family` | `fontFamily` | 全局 Token |
+| `@pagination-font-weight-active` | `fontWeightStrong` | 全局 Token |
+| `@pagination-item-bg-active` | `itemActiveBg` | - |
+| `@pagination-item-link-bg` | `itemLinkBg` | - |
+| `@pagination-item-disabled-color-active` | `itemActiveColorDisabled` | - |
+| `@pagination-item-disabled-bg-active` | `itemActiveBgDisabled` | - |
+| `@pagination-item-input-bg` | `itemInputBg` | - |
+| `@pagination-mini-options-size-changer-top` | `miniOptionsSizeChangerTop` | - |
+
+### Popover 气泡卡片
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@popover-bg` | `colorBgElevated` | - |
+| `@popover-color` | `colorText` | 全局 Token |
+| `@popover-min-width` | `minWidth` | - |
+| `@popover-min-height` | - | 已废弃 |
+| `@popover-arrow-width` | `sizePopupArrow` | 全局 Token |
+| `@popover-arrow-color` | - | 已废弃 |
+| `@popover-arrow-outer-color`| - | 已废弃 |
+| `@popover-distance` | `marginXXS` | 全局 Token |
+| `@popover-padding-horizontal` | - | 已废弃 |
 
 <!-- ### Progress 进度条 -->
 
@@ -224,7 +274,6 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@result-icon-font-size` | `iconFontSize` | - |
 | `@result-title-font-size` | `titleFontSize` | - |
 | `@result-subtitle-font-size` | `subtitleFontSize` | - |
 | `@result-extra-margin` | `extraMargin` | - |

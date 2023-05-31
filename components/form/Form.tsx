@@ -12,7 +12,7 @@ import { SizeContextProvider } from '../config-provider/SizeContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { ColProps } from '../grid/col';
 import type { FormContextProps } from './context';
-import { FormContext } from './context';
+import { FormContext, FormProvider, ValidateMessagesContext } from './context';
 import useForm, { type FormInstance } from './hooks/useForm';
 import useFormWarning from './hooks/useFormWarning';
 import type { FormLabelAlign } from './interface';
@@ -66,6 +66,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
   } = props;
 
   const mergedSize = useSize(size);
+
+  const contextValidateMessages = React.useContext(ValidateMessagesContext);
 
   if (process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -158,16 +160,23 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
   return wrapSSR(
     <DisabledContextProvider disabled={disabled}>
       <SizeContextProvider size={mergedSize}>
-        <FormContext.Provider value={formContextValue}>
-          <FieldForm
-            id={name}
-            {...restFormProps}
-            name={name}
-            onFinishFailed={onInternalFinishFailed}
-            form={wrapForm}
-            className={formClassName}
-          />
-        </FormContext.Provider>
+        <FormProvider
+          {...{
+            // This is not list in API, we pass with spread
+            validateMessages: contextValidateMessages,
+          }}
+        >
+          <FormContext.Provider value={formContextValue}>
+            <FieldForm
+              id={name}
+              {...restFormProps}
+              name={name}
+              onFinishFailed={onInternalFinishFailed}
+              form={wrapForm}
+              className={formClassName}
+            />
+          </FormContext.Provider>
+        </FormProvider>
       </SizeContextProvider>
     </DisabledContextProvider>,
   );
