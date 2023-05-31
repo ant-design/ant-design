@@ -158,7 +158,6 @@ const App: React.FC = () => {
             itemHeight: 20,
             itemPaddingBlock: 10,
             headerHeight: 18,
-            disabledBg: '#ab2020',
             itemHoverBg: '#ada567',
             itemSelectedHoverBg: '#50968b',
           },
