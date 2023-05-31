@@ -74,8 +74,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 
 ### `styles` 和 `classNames` 属性
 
-| 名称 | 说明                      | 版本  |
-| ---- | ------------------------- | ----- |
+<!-- prettier-ignore -->
+| 名称 | 说明  | 版本  |
+| ---- | --------------------- | ----- |
 | item | 设置 `Space` 包裹的子组件 | 5.6.0 |
 
 ## Design Token

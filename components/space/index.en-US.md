@@ -66,7 +66,8 @@ Use Space.Compact when child form components are compactly connected and the bor
 
 ### `styles` and `classNames` attribute
 
-| Property | Description               | Version |
+<!-- prettier-ignore -->
+| Property | Description | Version |
 | -------- | ------------------------- | ------- |
 | item     | set `Space` child element | 5.6.0   |
 
