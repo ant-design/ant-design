@@ -2582,6 +2582,7 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
+              aria-valuenow="60"
               class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
               role="progressbar"
             >
@@ -3348,6 +3349,7 @@ exports[`renders components/steps/demo/progress.tsx extend context correctly 1`]
           class="ant-steps-progress-icon"
         >
           <div
+            aria-valuenow="60"
             class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
             role="progressbar"
           >
@@ -3595,6 +3597,7 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
+              aria-valuenow="0"
               class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
               role="progressbar"
             >
@@ -3777,6 +3780,7 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
+              aria-valuenow="0"
               class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
               role="progressbar"
             >
@@ -3959,6 +3963,7 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
+              aria-valuenow="0"
               class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
               role="progressbar"
             >
@@ -4141,6 +4146,7 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
+              aria-valuenow="0"
               class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
               role="progressbar"
             >
