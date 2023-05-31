@@ -29,7 +29,9 @@ export interface SuccessProps {
   strokeColor?: string;
 }
 
-export interface ProgressProps {
+export type ProgressAriaProps = Pick<React.AriaAttributes, 'aria-label' | 'aria-labelledby'>;
+
+export interface ProgressProps extends ProgressAriaProps {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -52,8 +54,6 @@ export interface ProgressProps {
   steps?: number;
   /** @deprecated Use `success` instead */
   successPercent?: number;
-  ariaLabel?: string;
-  ariaLabelledBy?: string;
   children?: React.ReactNode;
 }
 

@@ -251,8 +251,8 @@ const ListItem = React.forwardRef(
                     {...progressProps}
                     type="line"
                     percent={file.percent}
-                    ariaLabel={file.ariaLabel}
-                    ariaLabelledBy={file.ariaLabelledBy}
+                    aria-label={file['aria-label']}
+                    aria-labelledby={file['aria-labelledby']}
                   />
                 ) : null;
 

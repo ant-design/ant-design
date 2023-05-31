@@ -4,7 +4,7 @@ import type {
   UploadProps as RcUploadProps,
 } from 'rc-upload/lib/interface';
 import type * as React from 'react';
-import type { ProgressProps } from '../progress';
+import type { ProgressAriaProps, ProgressProps } from '../progress';
 
 export interface RcFile extends OriRcFile {
   readonly lastModifiedDate: Date;
@@ -16,7 +16,7 @@ export interface HttpRequestHeader {
   [key: string]: string;
 }
 
-export interface UploadFile<T = any> {
+export interface UploadFile<T = any> extends ProgressAriaProps {
   uid: string;
   size?: number;
   name: string;
@@ -35,8 +35,6 @@ export interface UploadFile<T = any> {
   type?: string;
   xhr?: T;
   preview?: string;
-  ariaLabel?: string;
-  ariaLabelledBy?: string;
 }
 
 export interface InternalUploadFile<T = any> extends UploadFile<T> {
