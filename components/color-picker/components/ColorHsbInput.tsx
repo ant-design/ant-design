@@ -1,5 +1,5 @@
 import type { HSB } from '@rc-component/color-picker';
-import { getRoundNumber } from '@rc-component/color-picker/lib/util';
+import { getRoundNumber } from '@rc-component/color-picker/lib/color';
 import type { FC } from 'react';
 import React, { useEffect, useState } from 'react';
 import type { Color } from '../color';

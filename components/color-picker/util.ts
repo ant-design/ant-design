@@ -1,5 +1,5 @@
 import type { ColorGenInput } from '@rc-component/color-picker';
-import { getRoundNumber } from '@rc-component/color-picker/lib/util';
+import { getRoundNumber } from '@rc-component/color-picker/lib/color';
 import type { Color } from './color';
 import { ColorFactory } from './color';
 
