@@ -224,14 +224,14 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
 
           '&::after': {
             position: 'absolute',
-            insert: `-${itemPaddingBlock}px -50%`,
+            inset: `-${itemPaddingBlock}px -50%`,
             content: '""',
           },
         },
 
         [`&:not(${componentCls}-list-content-item-disabled)`]: {
           '&:hover': {
-            backgroundColor: token.controlItemBgHover,
+            backgroundColor: itemHoverBg,
             cursor: 'pointer',
           },
 
@@ -253,7 +253,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       // Do not change hover style when `oneWay` mode
       [`&-show-remove ${componentCls}-list-content-item:not(${componentCls}-list-content-item-disabled):hover`]:
         {
-          background: itemHoverBg,
+          background: 'transparent',
           cursor: 'default',
         },
     },
