@@ -10,7 +10,6 @@ export interface ComponentToken {
   itemHeight: number;
   itemPaddingBlock: number;
   headerHeight: number;
-  disabledBg: string;
   itemHoverBg: string;
   itemSelectedHoverBg: string;
 }
@@ -107,7 +106,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     lineType,
     iconCls,
     motionDurationSlow,
-    itemHoverBg,
+    colorBgContainerDisabled,
   } = token;
 
   return {
@@ -231,7 +230,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
 
         [`&:not(${componentCls}-list-content-item-disabled)`]: {
           '&:hover': {
-            backgroundColor: itemHoverBg,
+            backgroundColor: colorBgContainerDisabled,
             cursor: 'pointer',
           },
 
@@ -289,7 +288,7 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
     fontSizeIcon,
     fontSize,
     lineHeight,
-    disabledBg,
+    colorBgContainerDisabled,
   } = token;
 
   return {
@@ -302,7 +301,7 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
 
       [`${componentCls}-disabled`]: {
         [`${componentCls}-list`]: {
-          background: disabledBg,
+          background: colorBgContainerDisabled,
         },
       },
 
@@ -363,14 +362,7 @@ export default genComponentStyleHook(
     ];
   },
   (token) => {
-    const {
-      fontSize,
-      lineHeight,
-      controlHeight,
-      controlHeightLG,
-      colorBgContainerDisabled,
-      controlItemBgHover,
-    } = token;
+    const { fontSize, lineHeight, controlHeight, controlHeightLG, controlItemBgHover } = token;
     const fontHeight = Math.round(fontSize * lineHeight);
     return {
       listWidth: 180,
@@ -379,7 +371,6 @@ export default genComponentStyleHook(
       headerHeight: controlHeightLG,
       itemHeight: controlHeight,
       itemPaddingBlock: (controlHeight - fontHeight) / 2,
-      disabledBg: colorBgContainerDisabled,
       itemHoverBg: controlItemBgHover,
       itemSelectedHoverBg: controlItemBgHover,
     };
