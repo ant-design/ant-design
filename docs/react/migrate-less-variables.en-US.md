@@ -174,7 +174,13 @@ This document contains the correspondence between all the less variables related
 | `@list-customize-card-bg` | - | Deprecated for style change |
 | `@list-item-meta-description-font-size` | `descriptionFontSize` | - |
 
-<!-- ### Mentions -->
+### Mentions
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | Note |
+| --- | --- | --- |
+| `@mentions-dropdown-bg` | `colorBgElevated` | GlobalToken |
+| `@mentions-dropdown-menu-item-hover-bg` | - | Deprecated |
 
 <!-- ### Menu -->
 

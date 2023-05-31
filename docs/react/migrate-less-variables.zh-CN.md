@@ -172,7 +172,13 @@ title: Less 变量迁移 Design Token
 | `@list-customize-card-bg` | - | 由于样式变化已废弃 |
 | `@list-item-meta-description-font-size` | `descriptionFontSize` | - |
 
-<!-- ### Mentions 提及 -->
+Mentions 提及
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@mentions-dropdown-bg` | `colorBgElevated` | - |
+| `@mentions-dropdown-menu-item-hover-bg` | - | 已废弃 |
 
 <!-- ### Menu 导航菜单 -->
 
