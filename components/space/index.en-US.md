@@ -68,7 +68,7 @@ Use Space.Compact when child form components are compactly connected and the bor
 
 | Property | Description               | Version |
 | -------- | ------------------------- | ------- |
-| icon     | set `Space` child element | 5.6.0   |
+| item     | set `Space` child element | 5.6.0   |
 
 ## Design Token
 
