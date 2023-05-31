@@ -172,7 +172,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     hashId,
   );
 
-  const mergedSize = useSize((ctx) => compactSize ?? customizeSize ?? ctx);
+  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);

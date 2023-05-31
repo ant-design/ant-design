@@ -18,12 +18,12 @@ import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import useSize from '../config-provider/hooks/useSize';
 import { useCompactItemContext } from '../space/Compact';
+import IconWrapper from './IconWrapper';
 import LoadingIcon from './LoadingIcon';
 import Group, { GroupSizeContext } from './button-group';
 import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
 import useStyle from './style';
-import IconWrapper from './IconWrapper';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -209,7 +209,7 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
 
-  const sizeFullname = useSize((ctxSize) => compactSize ?? groupSize ?? customizeSize ?? ctxSize);
+  const sizeFullname = useSize((ctxSize) => customizeSize ?? compactSize ?? groupSize ?? ctxSize);
 
   const sizeCls = sizeFullname ? sizeClassNameMap[sizeFullname] || '' : '';
 
