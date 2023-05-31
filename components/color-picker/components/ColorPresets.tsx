@@ -74,7 +74,7 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
           </div>
         ),
       })),
-    [],
+    [presetsValue],
   );
 
   return (

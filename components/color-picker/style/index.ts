@@ -72,6 +72,38 @@ const genClearStyle = (token: ColorPickerToken, size: number): CSSObject => {
   };
 };
 
+const genHorizontalLayoutStyle = (token: ColorPickerToken): CSSObject => {
+  const { componentCls, colorPickerWidth, marginSM } = token;
+
+  return {
+    '&-horizontal': {
+      [`${componentCls}-panel`]: {
+        [`${componentCls}-inner-panel`]: {
+          flexDirection: 'row',
+          width: 'auto',
+          '&-body,&-foot': {
+            width: colorPickerWidth,
+          },
+          '&-body': {
+            display: 'flex',
+            flexDirection: 'column',
+            [`${componentCls}-select`]: {
+              flex: 1,
+            },
+          },
+          '&-divider': {
+            margin: `0 ${marginSM}px`,
+            height: 'auto',
+          },
+          [`${componentCls}-clear`]: {
+            marginInlineStart: 'inherit',
+          },
+        },
+      },
+    },
+  };
+};
+
 const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
   const {
     componentCls,
@@ -96,11 +128,10 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
     {
       [componentCls]: {
         [`${componentCls}-panel`]: {
-          display: 'flex',
-          flexDirection: 'column',
-          width: colorPickerWidth,
-
           [`${componentCls}-inner-panel`]: {
+            display: 'flex',
+            flexDirection: 'column',
+            width: colorPickerWidth,
             [`${componentCls}-clear`]: {
               marginInlineStart: 'auto',
               marginBottom: marginXS,
@@ -146,6 +177,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           ...genColorBlockStyle(token, controlHeightSM),
         },
         ...genRtlStyle(token),
+        ...genHorizontalLayoutStyle(token),
       },
     },
   ];

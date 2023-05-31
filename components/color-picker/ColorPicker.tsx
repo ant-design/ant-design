@@ -19,6 +19,7 @@ import useColorState from './hooks/useColorState';
 import type {
   ColorFormat,
   ColorPickerBaseProps,
+  ColorPickerLayout,
   PresetsItem,
   TriggerPlacement,
   TriggerType,
@@ -41,6 +42,7 @@ export interface ColorPickerProps
   arrow?: boolean | { pointAtCenter: boolean };
   styles?: { popup?: CSSProperties };
   rootClassName?: string;
+  layout?: ColorPickerLayout;
   onOpenChange?: (open: boolean) => void;
   onFormatChange?: (format: ColorFormat) => void;
   onChange?: (value: Color, hex: string) => void;
@@ -70,6 +72,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     className,
     rootClassName,
     styles,
+    layout = 'vertical',
     onFormatChange,
     onChange,
     onClear,
@@ -95,10 +98,13 @@ const ColorPicker: CompoundedComponent = (props) => {
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
-  const rtlCls = { [`${prefixCls}-rtl`]: direction };
+  const rtlCls = { [`${prefixCls}-rtl`]: direction === 'rtl' };
   const mergeRootCls = classNames(rootClassName, rtlCls);
   const mergeCls = classNames(mergeRootCls, className, hashId);
-  const mergePopupCls = classNames(prefixCls, rtlCls);
+  const mergePopupCls = classNames(prefixCls, {
+    ...rtlCls,
+    [`${prefixCls}-horizontal`]: layout === 'horizontal',
+  });
 
   const handleChange = (data: Color, type?: HsbaColorType) => {
     let color: Color = generateColor(data);
@@ -140,6 +146,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     disabled,
     presets,
     format,
+    layout,
     onFormatChange,
   };
 

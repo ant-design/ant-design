@@ -251,4 +251,11 @@ describe('ColorPicker', () => {
       container.querySelector('.ant-color-picker-color-block-inner')?.getAttribute('style'),
     ).toEqual('background: rgb(99, 22, 22);');
   });
+
+  it('Should horizontal layout work', async () => {
+    const { container } = render(<ColorPicker open layout="horizontal" />);
+    expect(container.querySelector('.ant-color-picker-horizontal')).toBeTruthy();
+    expect(container.querySelector('.ant-color-picker-inner-panel-foot')).toBeTruthy();
+    expect(container).toMatchSnapshot();
+  });
 });

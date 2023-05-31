@@ -15,30 +15,58 @@ interface ColorPickerPanelProps extends ColorPickerBaseProps {
 }
 
 const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
-  const { prefixCls, allowClear, presets, onChange, onClear, color, ...injectProps } = props;
+  const { prefixCls, allowClear, presets, onChange, onClear, color, layout, ...injectProps } =
+    props;
   const colorPickerPanelPrefixCls = `${prefixCls}-inner-panel`;
+
+  const clearEle = allowClear && (
+    <ColorClear
+      prefixCls={prefixCls}
+      value={color}
+      onChange={(clearColor) => {
+        onChange?.(clearColor);
+        onClear?.();
+      }}
+      {...injectProps}
+    />
+  );
+
+  const presetsEle = Array.isArray(presets) && (
+    <ColorPresets value={color} presets={presets} prefixCls={prefixCls} onChange={onChange} />
+  );
+
+  const innerPanelBodyRender = (panel: React.ReactNode) => (
+    <div className={`${colorPickerPanelPrefixCls}-body`}>
+      {panel}
+      <ColorInput value={color} onChange={onChange} prefixCls={prefixCls} {...injectProps} />
+    </div>
+  );
+
+  const defaultLayoutRender = (panel: React.ReactNode) => (
+    <>
+      {clearEle}
+      {innerPanelBodyRender(panel)}
+      {Array.isArray(presets) && <Divider className={`${colorPickerPanelPrefixCls}-divider`} />}
+      {presetsEle}
+    </>
+  );
+
+  const horizontalLayoutRender = (panel: React.ReactNode) => (
+    <>
+      <div className={`${colorPickerPanelPrefixCls}-foot`}>
+        {clearEle}
+        {presetsEle}
+      </div>
+      {(Array.isArray(presets) || allowClear) && (
+        <Divider className={`${colorPickerPanelPrefixCls}-divider`} type="vertical" />
+      )}
+      {innerPanelBodyRender(panel)}
+    </>
+  );
 
   const extraPanelRender = (panel: React.ReactNode) => (
     <div className={colorPickerPanelPrefixCls}>
-      {allowClear && (
-        <ColorClear
-          prefixCls={prefixCls}
-          value={color}
-          onChange={(clearColor) => {
-            onChange?.(clearColor);
-            onClear?.();
-          }}
-          {...injectProps}
-        />
-      )}
-      {panel}
-      <ColorInput value={color} onChange={onChange} prefixCls={prefixCls} {...injectProps} />
-      {Array.isArray(presets) && (
-        <>
-          <Divider className={`${colorPickerPanelPrefixCls}-divider`} />
-          <ColorPresets value={color} presets={presets} prefixCls={prefixCls} onChange={onChange} />
-        </>
-      )}
+      {layout === 'horizontal' ? horizontalLayoutRender(panel) : defaultLayoutRender(panel)}
     </div>
   );
   return (

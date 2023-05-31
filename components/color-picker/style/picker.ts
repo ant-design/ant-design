@@ -25,6 +25,7 @@ const genPickerStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
         minHeight: controlHeightLG * 4,
         overflow: 'hidden',
         borderRadius: borderRadiusSM,
+        height: '100%',
       },
       [`${componentCls}-saturation`]: {
         position: 'absolute',

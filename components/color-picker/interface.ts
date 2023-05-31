@@ -14,6 +14,8 @@ export interface PresetsItem {
 }
 export type TriggerType = 'click' | 'hover';
 
+export type ColorPickerLayout = 'horizontal' | 'vertical';
+
 export type TriggerPlacement =
   | 'top'
   | 'topLeft'
@@ -24,6 +26,7 @@ export type TriggerPlacement =
 export interface ColorPickerBaseProps {
   color?: Color;
   prefixCls: string;
+  layout?: ColorPickerProps['layout'];
   format?: keyof typeof ColorFormat;
   allowClear?: boolean;
   colorCleared?: boolean;
