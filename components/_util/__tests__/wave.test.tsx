@@ -54,17 +54,9 @@ describe('Wave component', () => {
     }
   });
 
-  function getWaveStyle() {
-    const styleObj: Record<string, string> = {};
+  function getWaveColor() {
     const { style } = document.querySelector<HTMLElement>('.ant-wave')!;
-    style.cssText.split(';').forEach((kv) => {
-      if (kv.trim()) {
-        const cells = kv.split(':');
-        styleObj[cells[0].trim()] = cells[1].trim();
-      }
-    });
-
-    return styleObj;
+    return style.getPropertyValue('--wave-color');
   }
 
   function waitRaf() {
@@ -122,9 +114,7 @@ describe('Wave component', () => {
     fireEvent.click(container.querySelector('button')!);
     waitRaf();
 
-    const style = getWaveStyle();
-
-    expect(style['--wave-color']).toBeFalsy();
+    expect(getWaveColor()).toBeFalsy();
 
     unmount();
   });
@@ -132,7 +122,7 @@ describe('Wave component', () => {
   it('wave color is not grey', () => {
     const { container, unmount } = render(
       <Wave>
-        <button type="button" style={{ borderColor: 'red' }}>
+        <button type="button" style={{ borderColor: 'rgb(255, 0, 0)' }}>
           button
         </button>
       </Wave>,
@@ -141,8 +131,7 @@ describe('Wave component', () => {
     fireEvent.click(container.querySelector('button')!);
     waitRaf();
 
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('red');
+    expect(getWaveColor()).toEqual('rgb(255, 0, 0)');
 
     unmount();
   });
@@ -150,15 +139,14 @@ describe('Wave component', () => {
   it('read wave color from border-top-color', () => {
     const { container, unmount } = render(
       <Wave>
-        <div style={{ borderTopColor: 'blue' }}>button</div>
+        <div style={{ borderTopColor: 'rgb(0, 0, 255)' }}>button</div>
       </Wave>,
     );
 
     fireEvent.click(getByText(container, 'button')!);
     waitRaf();
 
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('blue');
+    expect(getWaveColor()).toEqual('rgb(0, 0, 255)');
 
     unmount();
   });
@@ -166,15 +154,14 @@ describe('Wave component', () => {
   it('read wave color from background color', () => {
     const { container, unmount } = render(
       <Wave>
-        <div style={{ backgroundColor: 'green' }}>button</div>
+        <div style={{ backgroundColor: 'rgb(0, 128, 0)' }}>button</div>
       </Wave>,
     );
 
     fireEvent.click(getByText(container, 'button')!);
     waitRaf();
 
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('green');
+    expect(getWaveColor()).toEqual('rgb(0, 128, 0)');
 
     unmount();
   });
@@ -182,15 +169,14 @@ describe('Wave component', () => {
   it('read wave color from border firstly', () => {
     const { container, unmount } = render(
       <Wave>
-        <div style={{ borderColor: 'yellow', backgroundColor: 'green' }}>button</div>
+        <div style={{ borderColor: 'rgb(255, 0, 0)', backgroundColor: 'green' }}>button</div>
       </Wave>,
     );
 
     fireEvent.click(getByText(container, 'button')!);
     waitRaf();
 
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('yellow');
+    expect(getWaveColor()).toEqual('rgb(255, 0, 0)');
 
     unmount();
   });
@@ -274,7 +260,7 @@ describe('Wave component', () => {
   it('wave color should inferred if border is transparent and background is not', () => {
     const { container, unmount } = render(
       <Wave>
-        <button type="button" style={{ borderColor: 'transparent', background: 'red' }}>
+        <button type="button" style={{ borderColor: 'transparent', background: 'rgb(255, 0, 0)' }}>
           button
         </button>
       </Wave>,
@@ -282,8 +268,7 @@ describe('Wave component', () => {
     fireEvent.click(container.querySelector('button')!);
     waitRaf();
 
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('red');
+    expect(getWaveColor()).toEqual('rgb(255, 0, 0)');
 
     unmount();
   });
@@ -300,8 +285,7 @@ describe('Wave component', () => {
     fireEvent.click(container.querySelector('button')!);
     waitRaf();
 
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('red');
+    expect(getWaveColor()).toEqual('red');
 
     unmount();
   });
