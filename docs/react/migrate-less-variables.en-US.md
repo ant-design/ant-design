@@ -257,7 +257,19 @@ This document contains the correspondence between all the less variables related
 | `@popover-distance` | `marginXXS` | Global Token |
 | `@popover-padding-horizontal` | - | Deprecated for style change |
 
-<!-- ### Progress -->
+### Progress
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@progress-default-color` | - | Deprecated for style change |
+| `@progress-remaining-color` | `remainingColor` | - |
+| `@progress-info-text-color` | `infoTextColor` | - |
+| `@progress-radius` | `lineRadius` | - |
+| `@progress-steps-item-bg` | `remainingColor` | - |
+| `@progress-text-font-size` | `fontSizeSM` | Global Token |
+| `@progress-text-color` | `infoTextColor` | - |
+| `@progress-circle-text-font-size` | - | Deprecated for style change |
 
 <!-- ### Radio -->
 

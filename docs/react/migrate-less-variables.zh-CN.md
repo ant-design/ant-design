@@ -255,7 +255,19 @@ Mentions 提及
 | `@popover-distance` | `marginXXS` | 全局 Token |
 | `@popover-padding-horizontal` | - | 已废弃 |
 
-<!-- ### Progress 进度条 -->
+### Progress 进度条
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@progress-default-color` | - | 由于样式变化已废弃 |
+| `@progress-remaining-color` | `remainingColor` | - |
+| `@progress-info-text-color` | `infoTextColor` | - |
+| `@progress-radius` | `lineRadius` | - |
+| `@progress-steps-item-bg` | `remainingColor` | - |
+| `@progress-text-font-size` | `fontSizeSM` | 全局 Token |
+| `@progress-text-color` | `infoTextColor` | - |
+| `@progress-circle-text-font-size` | - | 由于样式变化已废弃 |
 
 <!-- ### Radio 单选框 -->
 

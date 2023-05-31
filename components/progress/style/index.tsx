@@ -1,16 +1,16 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
+import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent } from '../../style';
 
-export interface ComponentToken {}
+export interface ComponentToken {
+  remainingColor: string;
+  infoTextColor: string;
+  lineRadius: number;
+}
 
 interface ProgressToken extends FullToken<'Progress'> {
-  progressLineRadius: number;
-  progressInfoTextColor: string;
-  progressRemainingColor: string;
-  progressDefaultColor: string;
   progressStepMinWidth: number;
   progressStepMarginInlineEnd: number;
   progressActiveMotionDuration: string;
@@ -70,8 +70,8 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
         width: '100%',
         overflow: 'hidden',
         verticalAlign: 'middle',
-        backgroundColor: token.progressRemainingColor,
-        borderRadius: token.progressLineRadius,
+        backgroundColor: token.remainingColor,
+        borderRadius: token.lineRadius,
       },
 
       [`${progressCls}-inner:not(${progressCls}-circle-gradient)`]: {
@@ -83,7 +83,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
       [`${progressCls}-success-bg, ${progressCls}-bg`]: {
         position: 'relative',
         backgroundColor: token.colorInfo,
-        borderRadius: token.progressLineRadius,
+        borderRadius: token.lineRadius,
         transition: `all ${token.motionDurationSlow} ${token.motionEaseInOutCirc}`,
       },
 
@@ -98,7 +98,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
         display: 'inline-block',
         width: '2em',
         marginInlineStart: token.marginXS,
-        color: token.progressInfoTextColor,
+        color: token.infoTextColor,
         lineHeight: 1,
         whiteSpace: 'nowrap',
         textAlign: 'start',
@@ -114,7 +114,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
           position: 'absolute',
           inset: 0,
           backgroundColor: token.colorBgContainer,
-          borderRadius: token.progressLineRadius,
+          borderRadius: token.lineRadius,
           opacity: 0,
           animationName: antProgressActive,
           animationDuration: token.progressActiveMotionDuration,
@@ -164,7 +164,7 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token) => {
   return {
     [progressCls]: {
       [`${progressCls}-circle-trail`]: {
-        stroke: token.progressRemainingColor,
+        stroke: token.remainingColor,
       },
 
       [`&${progressCls}-circle ${progressCls}-inner`]: {
@@ -228,7 +228,7 @@ const genStepStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
           flexShrink: 0,
           minWidth: token.progressStepMinWidth,
           marginInlineEnd: token.progressStepMarginInlineEnd,
-          backgroundColor: token.progressRemainingColor,
+          backgroundColor: token.remainingColor,
           transition: `all ${token.motionDurationSlow}`,
 
           '&-active': {
@@ -253,22 +253,27 @@ const genSmallLine: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
   };
 };
 
-export default genComponentStyleHook('Progress', (token) => {
-  const progressStepMarginInlineEnd = token.marginXXS / 2;
+export default genComponentStyleHook(
+  'Progress',
+  (token) => {
+    const progressStepMarginInlineEnd = token.marginXXS / 2;
 
-  const progressToken = mergeToken<ProgressToken>(token, {
-    progressLineRadius: 100, // magic for capsule shape, should be a very large number
-    progressInfoTextColor: token.colorText,
-    progressDefaultColor: token.colorInfo,
-    progressRemainingColor: token.colorFillSecondary,
-    progressStepMarginInlineEnd,
-    progressStepMinWidth: progressStepMarginInlineEnd,
-    progressActiveMotionDuration: '2.4s',
-  });
-  return [
-    genBaseStyle(progressToken),
-    genCircleStyle(progressToken),
-    genStepStyle(progressToken),
-    genSmallLine(progressToken),
-  ];
-});
+    const progressToken = mergeToken<ProgressToken>(token, {
+      progressStepMarginInlineEnd,
+      progressStepMinWidth: progressStepMarginInlineEnd,
+      progressActiveMotionDuration: '2.4s',
+    });
+
+    return [
+      genBaseStyle(progressToken),
+      genCircleStyle(progressToken),
+      genStepStyle(progressToken),
+      genSmallLine(progressToken),
+    ];
+  },
+  (token) => ({
+    remainingColor: token.colorFillSecondary,
+    infoTextColor: token.colorText,
+    lineRadius: 100, // magic for capsule shape, should be a very large number
+  }),
+);
