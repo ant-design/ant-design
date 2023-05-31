@@ -90,7 +90,10 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     rootClassName,
   );
 
-  const itemClassName = classNames(`${prefixCls}-item`, customClassNames?.item);
+  const itemClassName = classNames(
+    `${prefixCls}-item`,
+    customClassNames?.item ?? space?.classNames?.item,
+  );
 
   const marginDirection = directionConfig === 'rtl' ? 'marginLeft' : 'marginRight';
 
@@ -112,7 +115,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
         marginDirection={marginDirection}
         split={split}
         wrap={wrap}
-        style={styles?.item}
+        style={styles?.item ?? space?.styles?.item}
       >
         {child}
       </Item>
