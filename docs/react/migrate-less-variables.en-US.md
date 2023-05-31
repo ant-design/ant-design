@@ -179,8 +179,8 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | less 变量 | Component Token | Note |
 | --- | --- | --- |
-| `@mentions-dropdown-bg` | - | Deprecated  for style change |
-| `@mentions-dropdown-menu-item-hover-bg` | - | Deprecated  for style change |
+| `@mentions-dropdown-bg` | `colorBgElevated` | GlobalToken |
+| `@mentions-dropdown-menu-item-hover-bg` | - | Deprecated |
 
 <!-- ### Menu -->
 
