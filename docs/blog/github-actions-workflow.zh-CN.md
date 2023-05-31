@@ -44,7 +44,7 @@ issue 作为 GitHub 平台上的一个功能，它像一个信息汇总中心一
 
 ![invalid-issue-preview](https://user-images.githubusercontent.com/32004925/231660945-509cf97c-43eb-4a1c-acd2-81eeedfe4a73.png)
 
-但即便有时候使用了 issue 助手，团队成员可能也无法从提供的内容中得到有效的信息，这时候会选择手动对 issue 添加 [🤔 Need Reproduce](https://github.com/ant-design/ant-design/issues?q=label%3A%22%F0%9F%A4%94+Need+Reproduce%22+) 、 [needs-more-info](https://github.com/ant-design/ant-design/issues?q=label%3A%22%F0%9F%A4%94+Need+Reproduce%22+) 或 [help wanted](https://github.com/ant-design/ant-design/issues?q=label%3A%22help+wanted%22+) 等标签进一步把控 issue 质量，在 [issue-labeled.yml](https://github.com/ant-design/ant-design/blob/da83561f9cb57b0eb03d18543d96393689f799be/.github/workflows/issue-labeled.yml) 文件中，记录了不同的标签触发对应的评论回复 Job
+但即便有时候使用了 issue 助手，团队成员可能也无法从提供的内容中得到有效的信息，这时候会选择手动对 issue 添加 [🤔 Need Reproduce](https://github.com/ant-design/ant-design/issues?q=label%3A%22%F0%9F%A4%94+Need+Reproduce%22+) 、 [needs-more-info](https://github.com/ant-design/ant-design/issues?q=label%3A%22%F0%9F%A4%94+Need+Reproduce%22+) 或 [help wanted](https://github.com/ant-design/ant-design/issues?q=label%3A%22help+wanted%22+) 等标签进一步把控 issue 质量，在 [issue-labeled.yml](https://github.com/ant-design/ant-design/blob/da83561f9cb57b0eb03d18543d96393689f799be/.github/workflows/issue-labeled.yml) 文件中，记录了不同的标签触发对应的评论回复 Job：
 
 ![need-reproduce-auto-comment-preview](https://user-images.githubusercontent.com/32004925/231673201-c7376eeb-010b-46d0-a7d0-4c115d58f58c.png)
 
@@ -109,7 +109,7 @@ Ant Design 团队非常鼓励社区参与 Pull Request (PR)，可以先阅读 [�
 
 ### 功能测试
 
-如果大家留意过 Ant Design 的 GitHub Actions，会发现每次仅运行测试相关的 Job 就有多达 30 个
+如果大家留意过 Ant Design 的 GitHub Actions，会发现每次仅运行测试相关的 Job 就有多达 30 个。
 
 ![test-jobs-preview](https://user-images.githubusercontent.com/32004925/234482326-7c1074b5-e75a-494e-b1c7-c8ccc482ba7c.png)
 
@@ -133,7 +133,7 @@ Ant Design 团队非常鼓励社区参与 Pull Request (PR)，可以先阅读 [�
 
 ## 其他
 
-上面的篇幅已经讲述了 Ant Design 利用 CI/CD 完成的大部分核心内容，但实际上还有一些 Job 没有具体介绍，这里再补充一些
+上面的篇幅已经讲述了 Ant Design 利用 CI/CD 完成的大部分核心内容，但实际上还有一些 Job 没有具体介绍，这里再补充一些。
 
 ### 接入 IM 通知
 
@@ -155,7 +155,7 @@ Ant Design 团队非常鼓励社区参与 Pull Request (PR)，可以先阅读 [�
 
 ### 配置 CI Workflow
 
-在项目根目录里 `.github/workflows` 文件夹中新建 `ci.yml` 代码如下：
+在项目根目录里 `.github/workflows` 文件夹中新建 `ci.yml` ，代码如下：
 
 ```yml
 name: CI
@@ -224,7 +224,7 @@ jobs:
 
 ### 添加缓存
 
-为了进一步优化安装依赖速度，我们可以添加 pnpm 缓存, 然后发起一个 Pull Request 验证上一个步骤
+为了进一步优化安装依赖速度，我们可以添加 pnpm 缓存, 然后发起一个 Pull Request 验证上一个步骤：
 
 ```yml
 # ...
@@ -254,7 +254,7 @@ jobs:
 
 ![restore-cache](https://user-images.githubusercontent.com/32004925/234621854-dbfc565c-26e0-4e48-862d-8dde8ab22627.png)
 
-关于上面的 `Setup pnpm cache` 步骤中，7 天内未被访问的任何缓存条目将会被删除。可以存储的缓存数没有限制，但存储库中所有缓存的总大小限制为 10 GB。更多内容 [请看缓存依赖项以加快工作流程](https://docs.github.com/zh/actions/using-workflows/caching-dependencies-to-speed-up-workflows)。
+关于上面的 `Setup pnpm cache` 步骤中，7 天内未被访问的任何缓存条目将会被删除。可以存储的缓存数没有限制，但存储库中所有缓存的总大小限制为 10 GB，更多内容请阅读 [缓存依赖项以加快工作流程](https://docs.github.com/zh/actions/using-workflows/caching-dependencies-to-speed-up-workflows)。
 
 ![cache-pnpm-store](https://user-images.githubusercontent.com/32004925/234618808-46137b0d-27a0-4b01-b1a6-6e4931f6d388.png)
 
