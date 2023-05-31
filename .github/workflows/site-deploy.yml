@@ -73,7 +73,7 @@ jobs:
       - name: build dist and bundle analyzer report
         run: npm run dist
         env:
-          CI: false
+          ANALYZER: 1
 
       - name: Get version
         id: publish-version
