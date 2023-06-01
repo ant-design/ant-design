@@ -9,7 +9,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
     style="margin-bottom: 8px;"
   >
     <div
-      class="ant-input-number-group-wrapper ant-input-number-group-wrapper"
+      class="ant-input-number-group-wrapper"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group ant-input-number-wrapper ant-input-number-group"
@@ -106,7 +106,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
     style="margin-bottom: 8px;"
   >
     <div
-      class="ant-input-number-group-wrapper ant-input-number-group-wrapper"
+      class="ant-input-number-group-wrapper"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group ant-input-number-wrapper ant-input-number-group"
@@ -519,7 +519,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
     style="margin-bottom: 8px;"
   >
     <div
-      class="ant-input-number-group-wrapper ant-input-number-group-wrapper"
+      class="ant-input-number-group-wrapper"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group ant-input-number-wrapper ant-input-number-group"
@@ -628,7 +628,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-input-number-group-wrapper ant-input-number-group-wrapper"
+      class="ant-input-number-group-wrapper"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group ant-input-number-wrapper ant-input-number-group"
@@ -1807,7 +1807,7 @@ exports[`renders components/input-number/demo/out-of-range.tsx extend context co
 exports[`renders components/input-number/demo/prefix.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper"
+    class="ant-input-number-affix-wrapper"
     style="width: 100%;"
   >
     <span
@@ -1892,7 +1892,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-input-number-group-wrapper ant-input-number-group-wrapper"
+    class="ant-input-number-group-wrapper"
     style="width: 100%;"
   >
     <div
@@ -1922,7 +1922,7 @@ Array [
         </span>
       </div>
       <div
-        class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper"
+        class="ant-input-number-affix-wrapper"
       >
         <span
           class="ant-input-number-prefix"
@@ -2008,7 +2008,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper-disabled ant-input-number-affix-wrapper ant-input-number-affix-wrapper-disabled"
+    class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper-disabled ant-input-number-affix-wrapper-disabled"
     style="width: 100%;"
   >
     <span
@@ -2592,7 +2592,7 @@ exports[`renders components/input-number/demo/status.tsx extend context correctl
     style="margin-bottom: 8px;"
   >
     <div
-      class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper ant-input-number-affix-wrapper-status-error"
+      class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper-status-error"
       style="width: 100%;"
     >
       <span
@@ -2700,7 +2700,7 @@ exports[`renders components/input-number/demo/status.tsx extend context correctl
     class="ant-space-item"
   >
     <div
-      class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper ant-input-number-affix-wrapper-status-warning"
+      class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper-status-warning"
       style="width: 100%;"
     >
       <span
