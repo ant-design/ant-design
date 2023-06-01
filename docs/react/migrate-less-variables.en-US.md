@@ -149,7 +149,22 @@ This document contains the correspondence between all the less variables related
 | --- | --- | --- |
 | `@empty-font-size` | `fontSize` | GlobalToken |
 
-<!-- ### Form -->
+### Form
+
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@label-required-color` | `colorError` | GlobalToken |
+| `@label-color` | `colorTextHeading` | GlobalToken |
+| `@form-warning-input-bg` | - | Deprecated for style change |
+| `@form-item-margin-bottom` | `marginLG` | GlobalToken |
+| `@form-item-trailing-colon` | - | Deprecated for style change |
+| `@form-vertical-label-padding` | `paddingXS` | GlobalToken，used as `0 0 ${token.paddingXS}px`, |
+| `@form-vertical-label-margin` | - | used as 0 |
+| `@form-item-label-font-size` | `fontSize` | GlobalToken |
+| `@form-item-label-height` | `controlHeight` | GlobalToken |
+| `@form-item-label-colon-margin-right` | - | Deprecated for style change |
+| `@form-item-label-colon-margin-left` | - | Deprecated for style change |
+| `@form-error-input-bg` | - | Deprecated for style change |
 
 <!-- ### Image -->
 

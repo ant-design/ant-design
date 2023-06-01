@@ -147,7 +147,22 @@ title: Less 变量迁移 Design Token
 | --- | --- | --- |
 | `@empty-font-size` | `fontSize` | 全局 Token |
 
-<!-- ### Form 表单 -->
+### Form 表单
+
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@label-required-color` | `colorError` | 全局 Token |
+| `@label-color` | `colorTextHeading` | 全局 Token |
+| `@form-warning-input-bg` | - | 由于样式变化已废弃 |
+| `@form-item-margin-bottom` | `marginLG` | 全局 Token |
+| `@form-item-trailing-colon` | - | 由于样式变化已废弃 |
+| `@form-vertical-label-padding` | `paddingXS` | 全局 Token，对应值为 `0 0 ${token.paddingXS}px`, |
+| `@form-vertical-label-margin` | - | 值为 0 |
+| `@form-item-label-font-size` | `fontSize` | 全局 Token |
+| `@form-item-label-height` | `controlHeight` | 全局 Token |
+| `@form-item-label-colon-margin-right` | - | 由于样式变化已废弃 |
+| `@form-item-label-colon-margin-left` | - | 由于样式变化已废弃 |
+| `@form-error-input-bg` | - | 由于样式变化已废弃 |
 
 <!-- ### Image 图片 -->
 
