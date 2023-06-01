@@ -54,6 +54,7 @@ import type { ComponentToken as TourComponentToken } from '../../tour/style';
 import type { ComponentToken as TransferComponentToken } from '../../transfer/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
+import type { ComponentToken as FormComponentToken } from '../../form/style';
 
 export interface ComponentTokenMap {
   Affix?: {};
@@ -77,7 +78,7 @@ export interface ComponentTokenMap {
   Dropdown?: DropdownComponentToken;
   Empty?: EmptyComponentToken;
   FloatButton?: FloatButtonComponentToken;
-  Form?: {};
+  Form?: FormComponentToken;
   Grid?: {};
   Image?: ImageComponentToken;
   Input?: {};

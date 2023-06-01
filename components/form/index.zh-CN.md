@@ -53,6 +53,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/label-debug.tsx" debug>测试 label 省略</code>
 <code src="./demo/col-24-debug.tsx" debug>测试特殊 col 24 用法</code>
 <code src="./demo/ref-item.tsx" debug>引用字段</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 

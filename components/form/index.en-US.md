@@ -52,6 +52,7 @@ High performance Form component with data scope management. Including data colle
 <code src="./demo/label-debug.tsx" debug>label ellipsis</code>
 <code src="./demo/col-24-debug.tsx" debug>Test col 24 usage</code>
 <code src="./demo/ref-item.tsx" debug>Ref item</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
