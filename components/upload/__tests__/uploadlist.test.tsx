@@ -899,7 +899,7 @@ describe('Upload List', () => {
         '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><foreignObject x="20" y="20" width="160" height="160"><div xmlns="http://www.w3.org/1999/xhtml">Test</div></foreignObject></svg>',
       ],
       'bar.svg',
-      { type: 'image/svg' },
+      { type: 'image/svg+xml' },
     );
 
     const previewFunc = vi.fn(previewImage);
@@ -918,7 +918,7 @@ describe('Upload List', () => {
       expect(dataUrl).toEqual('data:image/png;base64,');
     });
     unmount();
-  }, 10000);
+  });
 
   it("upload non image file shouldn't be converted to the base64", async () => {
     const mockFile = new File([''], 'foo.7z', {
