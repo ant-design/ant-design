@@ -66,7 +66,9 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
 
   const extraPanelRender = (panel: React.ReactNode) => (
     <div className={colorPickerPanelPrefixCls}>
-      {layout === 'horizontal' ? horizontalLayoutRender(panel) : defaultLayoutRender(panel)}
+      {layout === 'horizontal' && (allowClear || presets)
+        ? horizontalLayoutRender(panel)
+        : defaultLayoutRender(panel)}
     </div>
   );
   return (

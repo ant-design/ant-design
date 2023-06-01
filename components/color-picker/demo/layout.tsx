@@ -3,14 +3,14 @@ import type { ColorPickerProps } from 'antd/es/color-picker';
 import React, { useState } from 'react';
 
 const Demo = () => {
-  const [layout, setLayout] = useState<ColorPickerProps['layout']>('vertical');
+  const [layout, setLayout] = useState<ColorPickerProps['layout']>('horizontal');
   const [open, setOpen] = useState(false);
 
   return (
     <Space direction="vertical" size="middle">
       <Segmented
         value={layout}
-        options={['vertical', 'horizontal']}
+        options={['horizontal', 'vertical']}
         onChange={(value) => {
           setOpen(true);
           setLayout(value as ColorPickerProps['layout']);
