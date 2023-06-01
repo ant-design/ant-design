@@ -22,7 +22,7 @@ function getAlphaColor(frontColor: string, backgroundColor: string): string {
   }
 
   // fallback
-  /* c8 ignore next */
+  /*! c8 ignore next */
   return new TinyColor({ r: fR, g: fG, b: fB, a: 1 }).toRgbString();
 }
 

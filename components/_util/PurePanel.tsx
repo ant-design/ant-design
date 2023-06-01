@@ -7,7 +7,7 @@ export interface BaseProps {
   style?: React.CSSProperties;
 }
 
-/* c8 ignore next */
+/*! c8 ignore next */
 export default function genPurePanel<ComponentProps extends BaseProps>(
   Component: any,
   defaultPrefixCls?: string,

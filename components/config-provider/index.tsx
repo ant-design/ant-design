@@ -50,7 +50,7 @@ export const warnContext: (componentName: string) => void =
           `Static function can not consume context like dynamic theme. Please use 'App' component instead.`,
         );
       }
-    : /* c8 ignore next */
+    : /*! c8 ignore next */
       null!;
 
 export {

@@ -61,7 +61,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 // We don't care debug panel
-/* c8 ignore next */
+/*! c8 ignore next */
 const PurePanel = genPurePanel(TimePicker, 'picker');
 (TimePicker as MergedTimePicker)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
