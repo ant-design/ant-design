@@ -254,8 +254,25 @@ describe('ColorPicker', () => {
 
   it('Should horizontal layout work', async () => {
     const { container } = render(<ColorPicker open layout="horizontal" />);
-    expect(container.querySelector('.ant-color-picker-horizontal')).toBeTruthy();
-    expect(container.querySelector('.ant-color-picker-inner-panel-foot')).toBeTruthy();
-    expect(container).toMatchSnapshot();
+    expect(container.querySelector('.ant-color-picker-horizontal')).toBeFalsy();
+    const { container: presetsTestContainer } = render(
+      <ColorPicker
+        open
+        layout="horizontal"
+        presets={[
+          {
+            label: 'Recent',
+            colors: ['#F5222D', '#FA8C16', '#FADB14'],
+          },
+        ]}
+      />,
+    );
+    expect(presetsTestContainer.querySelector('.ant-color-picker-horizontal')).toBeTruthy();
+    expect(presetsTestContainer).toMatchSnapshot();
+    const { container: allowClearTestContainer } = render(
+      <ColorPicker open layout="horizontal" allowClear />,
+    );
+    expect(allowClearTestContainer.querySelector('.ant-color-picker-horizontal')).toBeTruthy();
+    expect(allowClearTestContainer).toMatchSnapshot();
   });
 });
