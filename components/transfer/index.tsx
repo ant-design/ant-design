@@ -159,6 +159,19 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     if (props.selectedKeys) {
       setSourceSelectedKeys(() => selectedKeys.filter((key) => !targetKeys.includes(key)));
       setTargetSelectedKeys(() => selectedKeys.filter((key) => targetKeys.includes(key)));
+      return;
+    }
+
+    // This is the calculation scheme when there are no props.selectedKeys
+    if (props.selectedKeys) {
+      setSourceSelectedKeys(() =>
+        props.targetKeys!.filter((key) => !sourceSelectedKeys.includes(key)),
+      );
+    }
+    if (props.targetKeys) {
+      setTargetSelectedKeys(() =>
+        props.targetKeys!.filter((key) => targetSelectedKeys.includes(key)),
+      );
     }
   }, [props.selectedKeys, props.targetKeys]);
 
