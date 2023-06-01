@@ -12,9 +12,7 @@ vi.mock('../dropdown', async (importOriginal) => {
   const ActualDropdown = await importOriginal<typeof import('../dropdown')>();
   const ActualDropdownComponent = ActualDropdown.default;
 
-  const MockedDropdown: React.FC<DropdownProps> & {
-    Button: typeof ActualDropdownComponent.Button;
-  } = (props) => {
+  const MockedDropdown: React.FC<DropdownProps> = (props) => {
     const clone: Record<string, any> = {};
     Object.keys(props).forEach((key: keyof typeof props) => {
       clone[key] = props[key];
@@ -24,7 +22,6 @@ vi.mock('../dropdown', async (importOriginal) => {
     const { children, ...restProps } = props;
     return h.createElement(ActualDropdownComponent, { ...restProps }, children);
   };
-  MockedDropdown.Button = ActualDropdownComponent.Button;
 
   return {
     ...ActualDropdown,
