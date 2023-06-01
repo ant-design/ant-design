@@ -19,7 +19,7 @@ describe('Directory Tree', () => {
   rtlTest(Tree);
   rtlTest(DirectoryTree);
 
-  (debounce as any).mockImplementation((fn: () => void) => fn);
+  vi.mocked(debounce).mockImplementation((fn) => fn as any);
 
   beforeAll(() => {
     vi.useFakeTimers();
@@ -27,7 +27,7 @@ describe('Directory Tree', () => {
 
   afterAll(() => {
     vi.useRealTimers();
-    (debounce as any).mockRestore();
+    vi.mocked(debounce).mockRestore();
   });
 
   function createTree(props?: TreeProps & { ref?: React.Ref<RcTree> }) {
@@ -100,14 +100,14 @@ describe('Directory Tree', () => {
         );
       };
 
-      it('click', async () => {
+      it('click', () => {
         const { container, asFragment } = render(<StateDirTree expandAction="click" />);
 
         fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper')!);
         vi.runAllTimers();
         expect(asFragment().firstChild).toMatchSnapshot();
       });
-      it('doubleClick', async () => {
+      it('doubleClick', () => {
         const { container, asFragment } = render(<StateDirTree expandAction="doubleClick" />);
 
         fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper')!);
@@ -151,7 +151,7 @@ describe('Directory Tree', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('expandedKeys update', async () => {
+  it('expandedKeys update', () => {
     const { rerender, asFragment } = render(createTree());
     rerender(createTree({ expandedKeys: ['0-1'] }));
     vi.runAllTimers();
