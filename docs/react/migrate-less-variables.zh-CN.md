@@ -73,9 +73,32 @@ title: Less 变量迁移 Design Token
 | `@calendar-full-bg` | `fullBg` | - |
 | `@calendar-full-panel-bg` | `fullPanelBg` | - |
 
-<!-- ### Card 卡片 -->
+### Card 卡片
 
-## Carousel 走马灯
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@card-head-color` | `colorTextHeading` | 全局 Token |
+| `@card-head-background` | `headerBg` | - |
+| `@card-head-font-size` | `headerFontSize` | - |
+| `@card-head-font-size-sm` | `headerFontSizeSM` | - |
+| `@card-head-padding` | - | 已废弃 |
+| `@card-head-padding-sm` | - | 已废弃 |
+| `@card-head-height` | `headerHeight` | - |
+| `@card-head-height-sm` | `headerHeightSM` | - |
+| `@card-inner-head-padding` | - | 已废弃 |
+| `@card-padding-base` | `cardPaddingBase` | - |
+| `@card-padding-base-sm` | `cardPaddingBaseSm` | - |
+| `@card-actions-background` | `actionsBackground` | - |
+| `@card-actions-li-margin` | `actionsLiMargin` | - |
+| `@card-skeleton-bg` | - | 已废弃，已改为内置 Skeleton 组件 |
+| `@card-background` | `colorBgContainer` | 全局 Token |
+| `@card-shadow` | - | 可由 `className` 或者 `style` 直接修改 |
+| `@card-radius` | `borderRadiusLG` | 全局 Token |
+| `@card-head-tabs-margin-bottom` | `tabsMarginBottom` | - |
+| `@card-head-extra-color` | `extraColor` | - |
+
+### Carousel 走马灯
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
