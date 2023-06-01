@@ -1,7 +1,7 @@
 import path from 'path';
 import React from 'react';
 import type { UserConfig } from 'vitest/config';
-import { defineConfig } from 'vitest/config';
+import { defaultExclude, defineConfig } from 'vitest/config';
 
 const resolve = (dir: string) => path.resolve(__dirname, dir);
 
@@ -45,13 +45,10 @@ export const commonConfig: UserConfig = {
 
 export default defineConfig({
   ...commonConfig,
-  esbuild: {
-    legalComments: 'inline',
-  },
   test: {
     ...commonConfig.test,
     include,
-    exclude: ['**/{node,image}.test.*', 'node_modules', 'dist'],
+    exclude: ['**/{image,node}.test.*', ...defaultExclude],
     globals: true,
     setupFiles: ['./tests/setup.ts'],
     environment: 'jsdom',
@@ -59,12 +56,11 @@ export default defineConfig({
       include: ['components/**/*.{ts,tsx}'],
       exclude: [
         '**/__tests__/**',
-        'components/*/demo/**',
+        'components/*/demo/*',
         'components/*/design/**',
-        'components/*/style/index.tsx',
-        'components/style/index.tsx',
+        'components/**/style/*.tsx',
         'components/*/locale/index.tsx',
-        'components/**/*/interface.{ts,tsx}',
+        'components/**/interface.{ts,tsx}',
       ],
     },
   },
