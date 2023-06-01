@@ -56,12 +56,12 @@ Used when the user needs to customize the color selection.
 <!-- prettier-ignore -->
 | Property | Description | Type | Default |
 | :-- | :-- | :-- | :-- |
-| toHex | Convert to `hex` format characters | `() => string` | - |
-| toHexString | Convert to `hex` format color string | `() => string` | - |
+| toHex | Convert to `hex` format characters, the return type like: `1677ff` | `() => string` | - |
+| toHexString | Convert to `hex` format color string, the return type like: `#1677ff` | `() => string` | - |
 | toHsb | Convert to `hsb` object  | `() => ({ h: number, s: number, b: number, a number })` | - |
-| toHsbString | Convert to `hsb` format color string | `() => string` | - |
+| toHsbString | Convert to `hsb` format color string, the return type like: `hsb(215, 91%, 100%)` | `() => string` | - |
 | toRgb | Convert to `rgb` object  | `() => ({ r: number, g: number, b: number, a number })` | - |
-| toRgbString | Convert to `rgb` format color string | `() => string` | - |
+| toRgbString | Convert to `rgb` format color string, the return type like: `rgb(22, 119, 255)` | `() => string` | - |
 
 ## FAQ
 
