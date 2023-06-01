@@ -72,6 +72,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           width: 0,
           margin: `${FIXED_ITEM_MARGIN}px 0`,
           lineHeight: `${selectItemHeight}px`,
+          visibility: 'hidden',
           content: '"\\a0"',
         },
       },
@@ -120,7 +121,8 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         '&-remove': {
           ...resetIcon(),
 
-          display: 'inline-block',
+          display: 'inline-flex',
+          alignItems: 'center',
           color: token.colorIcon,
           fontWeight: 'bold',
           fontSize: 10,

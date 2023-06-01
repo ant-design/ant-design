@@ -39,7 +39,7 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
       });
     }
 
-    if (!process.env.CI) {
+    if (!process.env.CI || process.env.ANALYZER) {
       config.plugins.push(
         new BundleAnalyzerPlugin({
           analyzerMode: 'static',
