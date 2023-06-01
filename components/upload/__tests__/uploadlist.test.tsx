@@ -894,6 +894,7 @@ describe('Upload List', () => {
   });
 
   it('upload svg file with <foreignObject> should not have CORS error', async () => {
+    vi.useRealTimers();
     const mockFile = new File(
       [
         '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><foreignObject x="20" y="20" width="160" height="160"><div xmlns="http://www.w3.org/1999/xhtml">Test</div></foreignObject></svg>',
