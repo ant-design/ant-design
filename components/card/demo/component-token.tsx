@@ -1,3 +1,4 @@
+import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import { Card, ConfigProvider } from 'antd';
 import React from 'react';
 
@@ -6,41 +7,41 @@ export default () => (
     theme={{
       components: {
         Card: {
-          headPadding: 20,
-          innerHeadPadding: 20,
-          cardPaddingSM: 16,
-          headHeight: 36,
-          headHeightSM: 26,
-          cardPaddingBase: 6,
-          cardPaddingBaseSm: 4,
-          cardShadow: '0 0 1px red',
-          actionsLiMargin: `14px 0`,
-          tabsMarginBottom: 20,
-          actionsIconSize: 20,
-          headColor: 'red',
-          headBackground: '#eee',
-          headFontSize: 22,
-          headFontSizeSm: 16,
-          actionsBackground: '#afb321',
-          cardBackground: '#342bab',
-          cardRadius: 6,
-          headExtraColor: '#f6f1ed',
+          headerBg: '#e6f4ff',
+          headerFontSize: 20,
+          headerFontSizeSM: 20,
+          headerHeight: 60,
+          headerHeightSM: 60,
+          actionsBg: '#e6f4ff',
+          actionsLiMargin: `2px 0`,
+          tabsMarginBottom: 0,
+          extraColor: 'rgba(0,0,0,0.25)',
         },
       },
     }}
   >
-    <Card title="Card title">
-      <Card type="inner" title="Inner Card title" extra={<a href="#">More</a>}>
-        Inner Card content
-      </Card>
-      <Card
-        style={{ marginTop: 16 }}
-        type="inner"
-        title="Inner Card title"
-        extra={<a href="#">More</a>}
-      >
-        Inner Card content
-      </Card>
+    <Card
+      title="Card title"
+      actions={[
+        <SettingOutlined key="setting" />,
+        <EditOutlined key="edit" />,
+        <EllipsisOutlined key="ellipsis" />,
+      ]}
+      extra="More"
+      tabList={[
+        {
+          key: 'tab1',
+          label: 'tab1',
+        },
+        {
+          key: 'tab2',
+          label: 'tab2',
+        },
+      ]}
+    >
+      <p>Card content</p>
+      <p>Card content</p>
+      <p>Card content</p>
     </Card>
     <Card size="small" title="Small size card" extra={<a href="#">More</a>} style={{ width: 300 }}>
       <p>Card content</p>
