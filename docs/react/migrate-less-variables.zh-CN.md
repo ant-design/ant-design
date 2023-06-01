@@ -305,7 +305,7 @@ title: Less 变量迁移 Design Token
 | --- | --- | --- |
 | `@tabs-card-head-background` | `cardBg` | - |
 | `@tabs-card-height` | `cardHeight` | - |
-| `@tabs-card-active-color` | `cardActiveColor` | - |
+| `@tabs-card-active-color` | `itemSelectedColor` | - |
 | `@tabs-card-horizontal-padding` | `cardPadding` | - |
 | `@tabs-card-horizontal-padding-sm` | `cardPaddingSM` | - |
 | `@tabs-card-horizontal-padding-lg` | `cardPaddingLG` | - |

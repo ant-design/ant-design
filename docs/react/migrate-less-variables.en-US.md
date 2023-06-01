@@ -307,7 +307,7 @@ This document contains the correspondence between all the less variables related
 | --- | --- | --- |
 | `@tabs-card-head-background` | `cardBg` | - |
 | `@tabs-card-height` | `cardHeight` | - |
-| `@tabs-card-active-color` | `cardActiveColor` | - |
+| `@tabs-card-active-color` | `itemSelectedColor` | - |
 | `@tabs-card-horizontal-padding` | `cardPadding` | - |
 | `@tabs-card-horizontal-padding-sm` | `cardPaddingSM` | - |
 | `@tabs-card-horizontal-padding-lg` | `cardPaddingLG` | - |
