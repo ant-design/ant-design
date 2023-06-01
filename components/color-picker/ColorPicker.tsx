@@ -103,7 +103,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   const mergeCls = classNames(mergeRootCls, className, hashId);
   const mergePopupCls = classNames(prefixCls, {
     ...rtlCls,
-    [`${prefixCls}-horizontal`]: layout === 'horizontal',
+    [`${prefixCls}-horizontal`]: layout === 'horizontal' && (allowClear || presets),
   });
 
   const handleChange = (data: Color, type?: HsbaColorType) => {
