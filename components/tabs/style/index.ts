@@ -6,61 +6,63 @@ import genMotionStyle from './motion';
 
 export interface ComponentToken {
   zIndexPopup: number;
-  cardActiveColor: string;
-  cardHorizontalPadding: string;
-  cardHorizontalPaddingSm: string;
-  cardHorizontalPaddingLg: string;
-  titleFontSize: number;
-  titleFontSizeLg: number;
-  titleFontSizeSm: number;
-  inkBarColor: string;
-  barMargin: string;
-  horizontalMargin: string;
-  horizontalPadding: string;
-  horizontalPaddingLG: string;
-  horizontalPaddingSM: string;
-  verticalPadding: string;
-  verticalMargin: string;
-  scrollingSize: 32; // Fixed Value
-  highlightColor: string;
-  cardActiveBorderTop: string;
-  cardGutter: number;
-  hoverColor: string;
-  activeColor: string;
-  horizontalGutter: number;
+  cardBg: string;
   cardHeight: number;
-  cardHeadBackground: string;
+  cardPadding: string;
+  cardPaddingSM: string;
+  cardPaddingLG: string;
+  titleFontSize: number;
+  titleFontSizeLG: number;
+  titleFontSizeSM: number;
+  inkBarColor: string;
+  horizontalMargin: string;
+  horizontalItemGutter: number;
+  horizontalItemMargin: string;
+  horizontalItemMarginRTL: string;
+  horizontalItemPadding: string;
+  horizontalItemPaddingLG: string;
+  horizontalItemPaddingSM: string;
+  verticalItemPadding: string;
+  verticalItemMargin: string;
+  itemActiveColor: string;
+  itemHoverColor: string;
+  itemSelectedColor: string;
+  cardGutter: number;
 }
 
 export interface TabsToken extends FullToken<'Tabs'> {
+  tabsCardPadding: string;
   dropdownEdgeChildVerticalPadding: number;
   tabsNavWrapPseudoWidth: number;
   tabsActiveTextShadow: string;
   tabsDropdownHeight: number;
   tabsDropdownWidth: number;
+  tabsHorizontalItemMargin: string;
+  tabsHorizontalItemMarginRTL: string;
 }
 
 const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
   const {
     componentCls,
-    cardHorizontalPadding,
-    cardHeadBackground,
+    tabsCardPadding,
+    cardBg,
     cardGutter,
     colorBorderSecondary,
+    itemSelectedColor,
   } = token;
   return {
     [`${componentCls}-card`]: {
       [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
         [`${componentCls}-tab`]: {
           margin: 0,
-          padding: cardHorizontalPadding,
-          background: cardHeadBackground,
+          padding: tabsCardPadding,
+          background: cardBg,
           border: `${token.lineWidth}px ${token.lineType} ${colorBorderSecondary}`,
           transition: `all ${token.motionDurationSlow} ${token.motionEaseInOut}`,
         },
 
         [`${componentCls}-tab-active`]: {
-          color: token.colorPrimary,
+          color: itemSelectedColor,
           background: token.colorBgContainer,
         },
 
@@ -154,7 +156,7 @@ const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
 };
 
 const genDropdownStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
-  const { componentCls, hoverColor, dropdownEdgeChildVerticalPadding } = token;
+  const { componentCls, itemHoverColor, dropdownEdgeChildVerticalPadding } = token;
   return {
     [`${componentCls}-dropdown`]: {
       ...resetComponent(token),
@@ -221,7 +223,7 @@ const genDropdownStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
             cursor: 'pointer',
 
             '&:hover': {
-              color: hoverColor,
+              color: itemHoverColor,
             },
           },
 
@@ -243,14 +245,21 @@ const genDropdownStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
 };
 
 const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
-  const { componentCls, margin, colorBorderSecondary } = token;
+  const {
+    componentCls,
+    margin,
+    colorBorderSecondary,
+    horizontalMargin,
+    verticalItemPadding,
+    verticalItemMargin,
+  } = token;
   return {
     // ========================== Top & Bottom ==========================
     [`${componentCls}-top, ${componentCls}-bottom`]: {
       flexDirection: 'column',
 
       [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
-        margin: `0 0 ${margin}px 0`,
+        margin: horizontalMargin,
 
         '&::before': {
           position: 'absolute',
@@ -349,12 +358,12 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
 
         // >>>>>>>>>>> Tab
         [`${componentCls}-tab`]: {
-          padding: `${token.paddingXS}px ${token.paddingLG}px`,
+          padding: verticalItemPadding,
           textAlign: 'center',
         },
 
         [`${componentCls}-tab + ${componentCls}-tab`]: {
-          margin: `${token.margin}px 0 0 0`,
+          margin: verticalItemMargin,
         },
 
         // >>>>>>>>>>> Nav
@@ -472,14 +481,20 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
 };
 
 const genSizeStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
-  const { componentCls, padding } = token;
+  const {
+    componentCls,
+    cardPaddingSM,
+    cardPaddingLG,
+    horizontalItemPaddingSM,
+    horizontalItemPaddingLG,
+  } = token;
   return {
     [componentCls]: {
       '&-small': {
         [`> ${componentCls}-nav`]: {
           [`${componentCls}-tab`]: {
-            padding: `${token.paddingXS}px 0`,
-            fontSize: token.fontSize,
+            padding: horizontalItemPaddingSM,
+            fontSize: token.titleFontSizeSM,
           },
         },
       },
@@ -487,8 +502,8 @@ const genSizeStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
       '&-large': {
         [`> ${componentCls}-nav`]: {
           [`${componentCls}-tab`]: {
-            padding: `${padding}px 0`,
-            fontSize: token.fontSizeLG,
+            padding: horizontalItemPaddingLG,
+            fontSize: token.titleFontSizeLG,
           },
         },
       },
@@ -498,7 +513,7 @@ const genSizeStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
       [`&${componentCls}-small`]: {
         [`> ${componentCls}-nav`]: {
           [`${componentCls}-tab`]: {
-            padding: `${token.paddingXXS * 1.5}px ${padding}px`,
+            padding: cardPaddingSM,
           },
         },
         [`&${componentCls}-bottom`]: {
@@ -532,7 +547,7 @@ const genSizeStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
       [`&${componentCls}-large`]: {
         [`> ${componentCls}-nav`]: {
           [`${componentCls}-tab`]: {
-            padding: `${token.paddingXS}px ${padding}px ${token.paddingXXS * 1.5}px`,
+            padding: cardPaddingLG,
           },
         },
       },
@@ -541,7 +556,15 @@ const genSizeStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
 };
 
 const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
-  const { componentCls, activeColor, hoverColor, iconCls, horizontalGutter } = token;
+  const {
+    componentCls,
+    itemActiveColor,
+    itemHoverColor,
+    iconCls,
+    tabsHorizontalItemMargin,
+    horizontalItemPadding,
+    itemSelectedColor,
+  } = token;
 
   const tabCls = `${componentCls}-tab`;
 
@@ -550,15 +573,15 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
       position: 'relative',
       display: 'inline-flex',
       alignItems: 'center',
-      padding: `${token.paddingSM}px 0`,
-      fontSize: `${token.fontSize}px`,
+      padding: horizontalItemPadding,
+      fontSize: token.titleFontSize,
       background: 'transparent',
       border: 0,
       outline: 'none',
       cursor: 'pointer',
       '&-btn, &-remove': {
         '&:focus:not(:focus-visible), &:active': {
-          color: activeColor,
+          color: itemActiveColor,
         },
         ...genFocusStyle(token),
       },
@@ -588,11 +611,11 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
         },
       },
       '&:hover': {
-        color: hoverColor,
+        color: itemHoverColor,
       },
 
       [`&${tabCls}-active ${tabCls}-btn`]: {
-        color: token.colorPrimary,
+        color: itemSelectedColor,
         textShadow: token.tabsActiveTextShadow,
       },
 
@@ -619,14 +642,14 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
     [`${tabCls} + ${tabCls}`]: {
       margin: {
         _skip_check_: true,
-        value: `0 0 0 ${horizontalGutter}px`,
+        value: tabsHorizontalItemMargin,
       },
     },
   };
 };
 
 const genRtlStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
-  const { componentCls, horizontalGutter, iconCls, cardGutter } = token;
+  const { componentCls, tabsHorizontalItemMarginRTL, iconCls, cardGutter } = token;
   const rtlCls = `${componentCls}-rtl`;
   return {
     [rtlCls]: {
@@ -636,7 +659,7 @@ const genRtlStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
         [`${componentCls}-tab`]: {
           margin: {
             _skip_check_: true,
-            value: `0 0 0 ${horizontalGutter}px`,
+            value: tabsHorizontalItemMarginRTL,
           },
 
           [`${componentCls}-tab:last-of-type`]: {
@@ -700,7 +723,7 @@ const genRtlStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
           [`${componentCls}-tab + ${componentCls}-tab`]: {
             marginRight: {
               _skip_check_: true,
-              value: `${cardGutter}px`,
+              value: cardGutter,
             },
             marginLeft: { _skip_check_: true, value: 0 },
           },
@@ -726,11 +749,11 @@ const genRtlStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
 const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
   const {
     componentCls,
-    cardHorizontalPadding,
+    tabsCardPadding,
     cardHeight,
     cardGutter,
-    hoverColor,
-    activeColor,
+    itemHoverColor,
+    itemActiveColor,
     colorBorderSecondary,
   } = token;
 
@@ -786,7 +809,7 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
 
         [`${componentCls}-nav-more`]: {
           position: 'relative',
-          padding: cardHorizontalPadding,
+          padding: tabsCardPadding,
           background: 'transparent',
           border: 0,
           color: token.colorText,
@@ -809,10 +832,10 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
         },
 
         [`${componentCls}-nav-add`]: {
-          minWidth: `${cardHeight}px`,
+          minWidth: cardHeight,
           marginLeft: {
             _skip_check_: true,
-            value: `${cardGutter}px`,
+            value: cardGutter,
           },
           padding: `0 ${token.paddingXS}px`,
           background: 'transparent',
@@ -824,11 +847,11 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           transition: `all ${token.motionDurationSlow} ${token.motionEaseInOut}`,
 
           '&:hover': {
-            color: hoverColor,
+            color: itemHoverColor,
           },
 
           '&:active, &:focus:not(:focus-visible)': {
-            color: activeColor,
+            color: itemActiveColor,
           },
 
           ...genFocusStyle(token),
@@ -842,7 +865,7 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
       // ============================ InkBar ============================
       [`${componentCls}-ink-bar`]: {
         position: 'absolute',
-        background: token.colorPrimary,
+        background: token.inkBarColor,
         pointerEvents: 'none',
       },
 
@@ -886,14 +909,18 @@ export default genComponentStyleHook(
   'Tabs',
   (token) => {
     const tabsToken = mergeToken<TabsToken>(token, {
-      cardHorizontalPadding: `${
-        (token.controlHeightLG - Math.round(token.fontSize * token.lineHeight)) / 2 -
-        token.lineWidth
-      }px ${token.padding}px`,
+      // `cardPadding` is empty by default, so we could calculate with dynamic `cardHeight`
+      tabsCardPadding:
+        token.cardPadding ||
+        `${
+          (token.cardHeight - Math.round(token.fontSize * token.lineHeight)) / 2 - token.lineWidth
+        }px ${token.padding}px`,
       dropdownEdgeChildVerticalPadding: token.paddingXXS,
       tabsActiveTextShadow: '0 0 0.25px currentcolor',
       tabsDropdownHeight: 200,
       tabsDropdownWidth: 120,
+      tabsHorizontalItemMargin: `0 0 0 ${token.horizontalItemGutter}px`,
+      tabsHorizontalItemMarginRTL: `0 0 0 ${token.horizontalItemGutter}px`,
     });
 
     return [
@@ -906,33 +933,35 @@ export default genComponentStyleHook(
       genMotionStyle(tabsToken),
     ];
   },
-  (token) => ({
-    zIndexPopup: token.zIndexPopupBase + 50,
-    cardHeadBackground: token.colorFillAlter,
-    cardHeight: token.controlHeightLG,
-    cardActiveColor: token.colorPrimary,
-    cardHorizontalPadding: `${
-      (token.controlHeightLG - Math.floor(token.fontSize * token.lineHeight)) / 2 - 1
-    } ${token.paddingMD}`,
-    cardHorizontalPaddingSm: `6px ${token.paddingMD}`, // Fixed Value
-    cardHorizontalPaddingLg: `7px ${token.paddingMD} 6px`, // Fixed Value
-    titleFontSize: token.fontSize,
-    titleFontSizeLg: token.fontSizeLG,
-    titleFontSizeSm: token.fontSizeSM,
-    inkBarColor: token.colorPrimary,
-    barMargin: `0 0 ${token.marginMD} 0`,
-    horizontalGutter: 32, // Fixed Value
-    horizontalMargin: '0 0 0 32px', // Fixed Value
-    horizontalPadding: `${token.paddingSM} 0`,
-    horizontalPaddingLG: `${token.paddingMD} 0`,
-    horizontalPaddingSM: `${token.paddingXS} 0`,
-    verticalPadding: `${token.paddingMD} ${token.paddingLG}`,
-    verticalMargin: `${token.marginMD} 0 0 0`,
-    scrollingSize: 32, // Fixed Value
-    highlightColor: token.colorPrimary,
-    hoverColor: token.colorPrimaryHover,
-    activeColor: token.colorPrimaryActive,
-    cardGutter: token.marginXXS / 2,
-    cardActiveBorderTop: '2px solid transparent',
-  }),
+  (token) => {
+    const cardHeight = token.controlHeightLG;
+
+    return {
+      zIndexPopup: token.zIndexPopupBase + 50,
+      cardBg: token.colorFillAlter,
+      cardHeight,
+      // Initialize with empty string, because cardPadding will be calculated with cardHeight by default.
+      cardPadding: ``,
+      cardPaddingSM: `${token.paddingXXS * 1.5}px ${token.padding}px`,
+      cardPaddingLG: `${token.paddingXS}px ${token.padding}px ${token.paddingXXS * 1.5}px`,
+      titleFontSize: token.fontSize,
+      titleFontSizeLG: token.fontSizeLG,
+      titleFontSizeSM: token.fontSize,
+      inkBarColor: token.colorPrimary,
+      horizontalMargin: `0 0 ${token.margin}px 0`,
+      horizontalItemGutter: 32, // Fixed Value
+      // Initialize with empty string, because horizontalItemMargin will be calculated with horizontalItemGutter by default.
+      horizontalItemMargin: ``,
+      horizontalItemMarginRTL: ``,
+      horizontalItemPadding: `${token.paddingSM}px 0`,
+      horizontalItemPaddingSM: `${token.paddingXS}px 0`,
+      horizontalItemPaddingLG: `${token.padding}px 0`,
+      verticalItemPadding: `${token.paddingXS}px ${token.paddingLG}px`,
+      verticalItemMargin: `${token.margin}px 0 0 0`,
+      itemSelectedColor: token.colorPrimary,
+      itemHoverColor: token.colorPrimaryHover,
+      itemActiveColor: token.colorPrimaryActive,
+      cardGutter: token.marginXXS / 2,
+    };
+  },
 );

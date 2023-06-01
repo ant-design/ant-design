@@ -1,59 +1,81 @@
-import { AppleOutlined } from '@ant-design/icons';
-import type { RadioChangeEvent } from 'antd';
-import { Button, ConfigProvider, Radio, Tabs } from 'antd';
-import type { SizeType } from 'antd/es/config-provider/SizeContext';
-import React, { useState } from 'react';
+import { Button, ConfigProvider, Tabs } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => {
-  const [size, setSize] = useState<SizeType>('small');
-
-  const onChange = (e: RadioChangeEvent) => {
-    setSize(e.target.value);
-  };
-
   return (
     <ConfigProvider
       theme={{
         components: {
           Tabs: {
-            cardHeadBackground: '#6f2121',
-            cardHeight: 40,
-            cardActiveColor: '#12a11d',
-            cardHorizontalPadding: `20px 30px`,
-            cardHorizontalPaddingSm: `16px 30px`,
-            cardHorizontalPaddingLg: `7px 2px 6px`,
-            titleFontSize: 22,
-            titleFontSizeLg: 28,
-            titleFontSizeSm: 16,
-            inkBarColor: '#d5b85f',
-            barMargin: `0 0 20px 0`,
-            horizontalGutter: 32,
-            horizontalMargin: '0 0 0 32px',
-            horizontalPadding: `30px 0`,
-            horizontalPaddingLG: `20px 0`,
-            horizontalPaddingSM: `10px 0`,
-            verticalPadding: `20px 18px`,
-            verticalMargin: `10px  0 0 0`,
-            scrollingSize: 32,
-            highlightColor: '#a81675',
-            hoverColor: '#508c18',
-            activeColor: '#346717',
-            cardGutter: 10,
-            cardActiveBorderTop: '2px solid transparent',
+            cardBg: '#f6ffed',
+            cardHeight: 60,
+            cardPadding: `20px`,
+            cardPaddingSM: `20px`,
+            cardPaddingLG: `20px`,
+            titleFontSize: 20,
+            titleFontSizeLG: 20,
+            titleFontSizeSM: 20,
+            inkBarColor: '#52C41A',
+            horizontalMargin: `0 0 12px 0`,
+            horizontalItemGutter: 12, // Fixed Value
+            horizontalItemPadding: `20px`,
+            horizontalItemPaddingSM: `20px`,
+            horizontalItemPaddingLG: `20px`,
+            verticalItemPadding: `8px`,
+            verticalItemMargin: `4px 0 0 0`,
+            itemSelectedColor: '#389e0d',
+            itemHoverColor: '#d9f7be',
+            itemActiveColor: '#b7eb8f',
+            cardGutter: 12,
           },
         },
       }}
     >
       <div>
-        <Radio.Group value={size} onChange={onChange} style={{ marginBottom: 16 }}>
-          <Radio.Button value="small">Small</Radio.Button>
-          <Radio.Button value="middle">Middle</Radio.Button>
-          <Radio.Button value="large">Large</Radio.Button>
-        </Radio.Group>
         <Tabs
           defaultActiveKey="1"
-          size={size}
-          tabPosition="right"
+          tabBarExtraContent={<Button>Extra Action</Button>}
+          style={{ marginBottom: 32 }}
+          items={new Array(3).fill(null).map((_, i) => {
+            const id = String(i + 1);
+            return {
+              label: `Tab ${id}`,
+              key: id,
+              children: `Content of tab ${id}`,
+            };
+          })}
+        />
+        <Tabs
+          tabPosition="left"
+          defaultActiveKey="1"
+          tabBarExtraContent={<Button>Extra Action</Button>}
+          style={{ marginBottom: 32 }}
+          items={new Array(3).fill(null).map((_, i) => {
+            const id = String(i + 1);
+            return {
+              label: `Tab ${id}`,
+              key: id,
+              children: `Content of tab ${id}`,
+            };
+          })}
+        />
+        <Tabs
+          size="small"
+          defaultActiveKey="1"
+          tabBarExtraContent={<Button>Extra Action</Button>}
+          style={{ marginBottom: 32 }}
+          items={new Array(3).fill(null).map((_, i) => {
+            const id = String(i + 1);
+            return {
+              label: `Tab ${id}`,
+              key: id,
+              children: `Content of tab ${id}`,
+            };
+          })}
+        />
+        <Tabs
+          size="large"
+          defaultActiveKey="1"
           tabBarExtraContent={<Button>Extra Action</Button>}
           style={{ marginBottom: 32 }}
           items={new Array(3).fill(null).map((_, i) => {
@@ -67,23 +89,35 @@ const App: React.FC = () => {
         />
         <Tabs
           defaultActiveKey="1"
+          centered
           type="card"
-          size={size}
-          items={new Array(30).fill(null).map((_, i) => {
+          items={new Array(3).fill(null).map((_, i) => {
             const id = String(i + 1);
             return {
-              label: (
-                <span>
-                  <AppleOutlined />
-                  Card Tab{id}
-                </span>
-              ),
+              disabled: i === 2,
+              label: `Tab ${id}`,
               key: id,
-              children: `Content of card tab ${id}`,
+              children: `Content of Tab Pane ${id}`,
             };
           })}
         />
         <Tabs
+          size="small"
+          defaultActiveKey="1"
+          centered
+          type="card"
+          items={new Array(3).fill(null).map((_, i) => {
+            const id = String(i + 1);
+            return {
+              disabled: i === 2,
+              label: `Tab ${id}`,
+              key: id,
+              children: `Content of Tab Pane ${id}`,
+            };
+          })}
+        />
+        <Tabs
+          size="large"
           defaultActiveKey="1"
           centered
           type="card"

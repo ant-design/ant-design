@@ -303,33 +303,33 @@ This document contains the correspondence between all the less variables related
 ### Tabs 标签页
 
 <!-- prettier-ignore -->
-| Less 变量 | Component Token | 备注 |
+| Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@tabs-card-head-background` | `cardBg` | - |
 | `@tabs-card-height` | `cardHeight` | - |
 | `@tabs-card-active-color` | `cardActiveColor` | - |
-| `@tabs-card-horizontal-padding` | `cardHorizontalPadding` | - |
-| `@tabs-card-horizontal-padding-sm` | `cardHorizontalPaddingSm` | - |
-| `@tabs-card-horizontal-padding-lg` | `cardHorizontalPaddingLg` | - |
+| `@tabs-card-horizontal-padding` | `cardPadding` | - |
+| `@tabs-card-horizontal-padding-sm` | `cardPaddingSM` | - |
+| `@tabs-card-horizontal-padding-lg` | `cardPaddingLG` | - |
 | `@tabs-title-font-size` | `titleFontSize` | - |
-| `@tabs-title-font-size-lg` | `titleFontSizeLg` | - |
-| `@tabs-title-font-size-sm` | `titleFontSizeSm` | - |
+| `@tabs-title-font-size-lg` | `titleFontSizeLG` | - |
+| `@tabs-title-font-size-sm` | `titleFontSizeSM` | - |
 | `@tabs-ink-bar-color` | `inkBarColor` | - |
-| `@tabs-bar-margin` | `barMargin` | - |
-| `@tabs-horizontal-gutter` | `horizontalGutter` | - |
-| `@tabs-horizontal-margin` | `horizontalMargin` | - |
-| `@tabs-horizontal-margin-rtl` | - | Deprecated |
-| `@tabs-horizontal-padding` | `horizontalPadding` | - |
-| `@tabs-horizontal-padding-lg` | `horizontalPaddingLg` | - |
-| `@tabs-horizontal-padding-sm` | `horizontalPaddingSm` | - |
-| `@tabs-vertical-padding` | `verticalPadding` | - |
-| `@tabs-vertical-margin` | `verticalMargin` | - |
-| `@tabs-scrolling-size` | `scrollingSize` | - |
-| `@tabs-highlight-color` | `highlightColor` | - |
-| `@tabs-hover-color` | `hoverColor` | - |
-| `@tabs-active-color` | `activeColor` | - |
+| `@tabs-bar-margin` | `horizontalMargin` | - |
+| `@tabs-horizontal-gutter` | `horizontalItemGutter` | - |
+| `@tabs-horizontal-margin` | `horizontalItemMargin` | - |
+| `@tabs-horizontal-margin-rtl` | `horizontalItemMarginRTL` | - |
+| `@tabs-horizontal-padding` | `horizontalItemPadding` | - |
+| `@tabs-horizontal-padding-lg` | `horizontalItemPaddingLG` | - |
+| `@tabs-horizontal-padding-sm` | `horizontalItemPaddingSM` | - |
+| `@tabs-vertical-padding` | `verticalItemPadding` | - |
+| `@tabs-vertical-margin` | `verticalItemMargin` | - |
+| `@tabs-scrolling-size` | - | Deprecated |
+| `@tabs-highlight-color` | `itemSelectedColor` | - |
+| `@tabs-hover-color` | `itemHoverColor` | - |
+| `@tabs-active-color` | `itemActiveColor` | - |
 | `@tabs-card-gutter` | `cardGutter` | - |
-| `@tabs-card-tab-active-border-top` | `cardActiveBorderTop` | - |
+| `@tabs-card-tab-active-border-top` | - | Deprecated |
 
 ## Tag
 
