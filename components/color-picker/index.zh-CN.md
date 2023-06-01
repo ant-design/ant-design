@@ -57,12 +57,12 @@ group:
 <!-- prettier-ignore -->
 | 参数 | 说明 | 类型 | 默认值 |
 | :-- | :-- | :-- | :-- |
-| toHex | 转换成 `hex` 格式字符 | `() => string` | - |
-| toHexString | 转换成 `hex` 格式颜色字符串 | `() => string` | - |
+| toHex | 转换成 `hex` 格式字符，返回格式如：`1677ff` | `() => string` | - |
+| toHexString | 转换成 `hex` 格式颜色字符串，返回格式如：`#1677ff` | `() => string` | - |
 | toHsb | 转换成 `hsb` 对象  | `() => ({ h: number, s: number, b: number, a number })` | - |
-| toHsbString | 转换成 `hsb` 格式颜色字符串 | `() => string` | - |
+| toHsbString | 转换成 `hsb` 格式颜色字符串，返回格式如：`hsb(215, 91%, 100%)` | `() => string` | - |
 | toRgb | 转换成 `rgb` 对象  | `() => ({ r: number, g: number, b: number, a number })` | - |
-| toRgbString | 转换成 `rgb` 格式颜色字符串 | `() => string` | - |
+| toRgbString | 转换成 `rgb` 格式颜色字符串，返回格式如：`rgb(22, 119, 255)` | `() => string` | - |
 
 ## FAQ
 
