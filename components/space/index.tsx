@@ -86,7 +86,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
       [`${prefixCls}-align-${mergedAlign}`]: mergedAlign,
     },
-    className,
+    className ?? space?.className,
     rootClassName,
   );
 
@@ -153,6 +153,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
       ref={ref}
       className={cn}
       style={{
+        ...space?.style,
         ...gapStyle,
         ...style,
       }}

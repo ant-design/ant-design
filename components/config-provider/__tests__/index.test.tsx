@@ -143,6 +143,22 @@ describe('ConfigProvider', () => {
     expect(container.querySelector('.ant-space-item.test-classNames')).toBeTruthy();
   });
 
+  it('Should Space className works', () => {
+    const { container } = render(
+      <ConfigProvider
+        space={{
+          className: 'test-classNames',
+        }}
+      >
+        <Space>
+          <span>Text1</span>
+          <span>Text2</span>
+        </Space>
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-space.test-classNames')).toBeTruthy();
+  });
+
   it('Should Space styles works', () => {
     const { container } = render(
       <ConfigProvider
@@ -163,5 +179,23 @@ describe('ConfigProvider', () => {
     expect(container.querySelector('.ant-space-item')?.getAttribute('style')).toEqual(
       'margin-right: 8px; color: red;',
     );
+  });
+
+  it('Should Space style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        space={{
+          style: {
+            color: 'red',
+          },
+        }}
+      >
+        <Space>
+          <span>Text1</span>
+          <span>Text2</span>
+        </Space>
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-space')?.getAttribute('style')).toEqual('color: red;');
   });
 });

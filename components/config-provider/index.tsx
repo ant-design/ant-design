@@ -124,7 +124,9 @@ export interface ConfigProviderProps {
   direction?: DirectionType;
   space?: {
     size?: SizeType | number;
+    className?: SpaceProps['className'];
     classNames?: SpaceProps['classNames'];
+    style?: SpaceProps['style'];
     styles?: SpaceProps['styles'];
   };
   virtual?: boolean;
