@@ -8,17 +8,17 @@ exports[`renders components/input-number/demo/addon.tsx correctly 1`] = `
     class="ant-space-item"
     style="margin-bottom:8px"
   >
-    <span
+    <div
       class="ant-input-number-group-wrapper ant-input-number-group-wrapper"
     >
-      <span
+      <div
         class="ant-input-number-wrapper ant-input-number-group ant-input-number-wrapper ant-input-number-group"
       >
-        <span
+        <div
           class="ant-input-number-group-addon"
         >
           +
-        </span>
+        </div>
         <div
           class="ant-input-number"
         >
@@ -93,25 +93,25 @@ exports[`renders components/input-number/demo/addon.tsx correctly 1`] = `
             />
           </div>
         </div>
-        <span
+        <div
           class="ant-input-number-group-addon"
         >
           $
-        </span>
-      </span>
-    </span>
+        </div>
+      </div>
+    </div>
   </div>
   <div
     class="ant-space-item"
     style="margin-bottom:8px"
   >
-    <span
+    <div
       class="ant-input-number-group-wrapper ant-input-number-group-wrapper"
     >
-      <span
+      <div
         class="ant-input-number-wrapper ant-input-number-group ant-input-number-wrapper ant-input-number-group"
       >
-        <span
+        <div
           class="ant-input-number-group-addon"
         >
           <div
@@ -175,7 +175,7 @@ exports[`renders components/input-number/demo/addon.tsx correctly 1`] = `
               </span>
             </span>
           </div>
-        </span>
+        </div>
         <div
           class="ant-input-number"
         >
@@ -250,7 +250,7 @@ exports[`renders components/input-number/demo/addon.tsx correctly 1`] = `
             />
           </div>
         </div>
-        <span
+        <div
           class="ant-input-number-group-addon"
         >
           <div
@@ -314,18 +314,18 @@ exports[`renders components/input-number/demo/addon.tsx correctly 1`] = `
               </span>
             </span>
           </div>
-        </span>
-      </span>
-    </span>
+        </div>
+      </div>
+    </div>
   </div>
   <div
     class="ant-space-item"
     style="margin-bottom:8px"
   >
-    <span
+    <div
       class="ant-input-number-group-wrapper ant-input-number-group-wrapper"
     >
-      <span
+      <div
         class="ant-input-number-wrapper ant-input-number-group ant-input-number-wrapper ant-input-number-group"
       >
         <div
@@ -402,7 +402,7 @@ exports[`renders components/input-number/demo/addon.tsx correctly 1`] = `
             />
           </div>
         </div>
-        <span
+        <div
           class="ant-input-number-group-addon"
         >
           <span
@@ -424,20 +424,20 @@ exports[`renders components/input-number/demo/addon.tsx correctly 1`] = `
               />
             </svg>
           </span>
-        </span>
-      </span>
-    </span>
+        </div>
+      </div>
+    </div>
   </div>
   <div
     class="ant-space-item"
   >
-    <span
+    <div
       class="ant-input-number-group-wrapper ant-input-number-group-wrapper"
     >
-      <span
+      <div
         class="ant-input-number-wrapper ant-input-number-group ant-input-number-wrapper ant-input-number-group"
       >
-        <span
+        <div
           class="ant-input-number-group-addon"
         >
           <div
@@ -499,7 +499,7 @@ exports[`renders components/input-number/demo/addon.tsx correctly 1`] = `
               </span>
             </span>
           </div>
-        </span>
+        </div>
         <div
           class="ant-input-number"
         >
@@ -574,8 +574,8 @@ exports[`renders components/input-number/demo/addon.tsx correctly 1`] = `
             />
           </div>
         </div>
-      </span>
-    </span>
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -1537,7 +1537,7 @@ exports[`renders components/input-number/demo/out-of-range.tsx correctly 1`] = `
 
 exports[`renders components/input-number/demo/prefix.tsx correctly 1`] = `
 Array [
-  <span
+  <div
     class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper"
     style="width:100%"
   >
@@ -1619,17 +1619,17 @@ Array [
         />
       </div>
     </div>
-  </span>,
+  </div>,
   <br />,
   <br />,
-  <span
+  <div
     class="ant-input-number-group-wrapper ant-input-number-group-wrapper"
     style="width:100%"
   >
-    <span
+    <div
       class="ant-input-number-wrapper ant-input-number-group ant-input-number-wrapper ant-input-number-group"
     >
-      <span
+      <div
         class="ant-input-number-group-addon"
       >
         <span
@@ -1651,8 +1651,8 @@ Array [
             />
           </svg>
         </span>
-      </span>
-      <span
+      </div>
+      <div
         class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper"
       >
         <span
@@ -1733,12 +1733,12 @@ Array [
             />
           </div>
         </div>
-      </span>
-    </span>
-  </span>,
+      </div>
+    </div>
+  </div>,
   <br />,
   <br />,
-  <span
+  <div
     class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper-disabled ant-input-number-affix-wrapper ant-input-number-affix-wrapper-disabled"
     style="width:100%"
   >
@@ -1821,7 +1821,7 @@ Array [
         />
       </div>
     </div>
-  </span>,
+  </div>,
 ]
 `;
 
@@ -2322,7 +2322,7 @@ exports[`renders components/input-number/demo/status.tsx correctly 1`] = `
     class="ant-space-item"
     style="margin-bottom:8px"
   >
-    <span
+    <div
       class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper ant-input-number-affix-wrapper-status-error"
       style="width:100%"
     >
@@ -2425,12 +2425,12 @@ exports[`renders components/input-number/demo/status.tsx correctly 1`] = `
           />
         </div>
       </div>
-    </span>
+    </div>
   </div>
   <div
     class="ant-space-item"
   >
-    <span
+    <div
       class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper ant-input-number-affix-wrapper-status-warning"
       style="width:100%"
     >
@@ -2533,7 +2533,7 @@ exports[`renders components/input-number/demo/status.tsx correctly 1`] = `
           />
         </div>
       </div>
-    </span>
+    </div>
   </div>
 </div>
 `;
