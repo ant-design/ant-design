@@ -1,6 +1,6 @@
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import type { FormProviderProps as RcFormProviderProps } from 'rc-field-form/lib/FormContext';
-import type { Meta } from 'rc-field-form/lib/interface';
+import type { Meta, ValidateMessages } from 'rc-field-form/lib/interface';
 import omit from 'rc-util/lib/omit';
 import type { FC, PropsWithChildren, ReactNode } from 'react';
 import * as React from 'react';
@@ -92,3 +92,5 @@ export const NoFormStyle: FC<NoFormStyleProps> = ({ children, status, override }
     </FormItemInputContext.Provider>
   );
 };
+
+export const ValidateMessagesContext = React.createContext<ValidateMessages | undefined>(undefined);

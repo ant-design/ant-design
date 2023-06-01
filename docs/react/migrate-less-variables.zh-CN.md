@@ -24,7 +24,23 @@ title: Less 变量迁移 Design Token
 | `@anchor-link-left` | `linkPaddingInlineStart` | - |
 | `@anchor-link-padding` | - | `${linkPaddingBlock}px ${linkPaddingInlineStart}px` |
 
-<!-- ### Avatar 头像 -->
+### Avatar 头像
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@avatar-size-base` | `containerSize` | - |
+| `@avatar-size-lg` | `containerSizeLG` | - |
+| `@avatar-size-sm` | `containerSizeSM` | - |
+| `@avatar-font-size-base` | `textFontSize` | - |
+| `@avatar-font-size-lg` | `textFontSizeLG` | - |
+| `@avatar-font-size-sm` | `textFontSizeSM` | - |
+| `@avatar-bg` | - | 可由 `className` 或 `style` 直接覆盖 |
+| `@avatar-color` | `colorTextLightSolid` | 全局 Token |
+| `@avatar-border-radius` | `borderRadius` | 全局 Token |
+| `@avatar-group-overlapping` | `groupOverlapping` | - |
+| `@avatar-group-space` | `groupSpace` | - |
+| `@avatar-group-border-color` | `colorBorderBg` | 全局 Token |
 
 <!-- ### Badge 徽标数 -->
 
@@ -57,9 +73,32 @@ title: Less 变量迁移 Design Token
 | `@calendar-full-bg` | `fullBg` | - |
 | `@calendar-full-panel-bg` | `fullPanelBg` | - |
 
-<!-- ### Card 卡片 -->
+### Card 卡片
 
-## Carousel 走马灯
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@card-head-color` | `colorTextHeading` | 全局 Token |
+| `@card-head-background` | `headerBg` | - |
+| `@card-head-font-size` | `headerFontSize` | - |
+| `@card-head-font-size-sm` | `headerFontSizeSM` | - |
+| `@card-head-padding` | - | 已废弃 |
+| `@card-head-padding-sm` | - | 已废弃 |
+| `@card-head-height` | `headerHeight` | - |
+| `@card-head-height-sm` | `headerHeightSM` | - |
+| `@card-inner-head-padding` | - | 已废弃 |
+| `@card-padding-base` | `cardPaddingBase` | - |
+| `@card-padding-base-sm` | `cardPaddingBaseSm` | - |
+| `@card-actions-background` | `actionsBackground` | - |
+| `@card-actions-li-margin` | `actionsLiMargin` | - |
+| `@card-skeleton-bg` | - | 已废弃，已改为内置 Skeleton 组件 |
+| `@card-background` | `colorBgContainer` | 全局 Token |
+| `@card-shadow` | - | 可由 `className` 或者 `style` 直接修改 |
+| `@card-radius` | `borderRadiusLG` | 全局 Token |
+| `@card-head-tabs-margin-bottom` | `tabsMarginBottom` | - |
+| `@card-head-extra-color` | `extraColor` | - |
+
+### Carousel 走马灯
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
@@ -156,7 +195,13 @@ title: Less 变量迁移 Design Token
 | `@list-customize-card-bg` | - | 由于样式变化已废弃 |
 | `@list-item-meta-description-font-size` | `descriptionFontSize` | - |
 
-<!-- ### Mentions 提及 -->
+Mentions 提及
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@mentions-dropdown-bg` | `colorBgElevated` | - |
+| `@mentions-dropdown-menu-item-hover-bg` | - | 已废弃 |
 
 <!-- ### Menu 导航菜单 -->
 
@@ -201,7 +246,22 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Notification 通知提醒框 -->
 
-<!-- ### Pagination 分页 -->
+### Pagination 分页
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@pagination-item-bg` | `itemBg` | - |
+| `@pagination-item-size` | `itemSize` | - |
+| `@pagination-item-size-sm` | `itemSizeSM` | - |
+| `@pagination-font-family` | `fontFamily` | 全局 Token |
+| `@pagination-font-weight-active` | `fontWeightStrong` | 全局 Token |
+| `@pagination-item-bg-active` | `itemActiveBg` | - |
+| `@pagination-item-link-bg` | `itemLinkBg` | - |
+| `@pagination-item-disabled-color-active` | `itemActiveColorDisabled` | - |
+| `@pagination-item-disabled-bg-active` | `itemActiveBgDisabled` | - |
+| `@pagination-item-input-bg` | `itemInputBg` | - |
+| `@pagination-mini-options-size-changer-top` | `miniOptionsSizeChangerTop` | - |
 
 ### Popover 气泡卡片
 

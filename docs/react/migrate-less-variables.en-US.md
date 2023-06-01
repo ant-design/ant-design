@@ -24,7 +24,23 @@ This document contains the correspondence between all the less variables related
 | `@anchor-link-left` | `linkPaddingInlineStart` | - |
 | `@anchor-link-padding` | - | `${linkPaddingBlock}px ${linkPaddingInlineStart}px` |
 
-<!-- ### Avatar -->
+### Avatar
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@avatar-size-base` | `containerSize` | - |
+| `@avatar-size-lg` | `containerSizeLG` | - |
+| `@avatar-size-sm` | `containerSizeSM` | - |
+| `@avatar-font-size-base` | `textFontSize` | - |
+| `@avatar-font-size-lg` | `textFontSizeLG` | - |
+| `@avatar-font-size-sm` | `textFontSizeSM` | - |
+| `@avatar-bg` | - | Can be directly overridden by `className` or `style` |
+| `@avatar-color` | `colorTextLightSolid` | Global Token |
+| `@avatar-border-radius` | `borderRadius` | Global Token |
+| `@avatar-group-overlapping` | - | Deprecated for style change |
+| `@avatar-group-space` | `groupSpace` | - |
+| `@avatar-group-border-color` | `colorBorderBg` | Global Token |
 
 <!-- ### Badge -->
 
@@ -57,7 +73,30 @@ This document contains the correspondence between all the less variables related
 | `@calendar-full-bg` | `fullBg` | - |
 | `@calendar-full-panel-bg` | `fullPanelBg` | - |
 
-<!-- ### Card -->
+### Card
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@card-head-color` | `colorTextHeading` | Global Token |
+| `@card-head-background` | `headerBg` | - |
+| `@card-head-font-size` | `headerFontSize` | - |
+| `@card-head-font-size-sm` | `headerFontSizeSM` | - |
+| `@card-head-padding` | - | Deprecated |
+| `@card-head-padding-sm` | - | Deprecated |
+| `@card-head-height` | `headerHeight` | - |
+| `@card-head-height-sm` | `headerHeightSM` | - |
+| `@card-inner-head-padding` | - | Deprecated |
+| `@card-padding-base` | `cardPaddingBase` | - |
+| `@card-padding-base-sm` | `cardPaddingBaseSm` | - |
+| `@card-actions-background` | `actionsBackground` | - |
+| `@card-actions-li-margin` | `actionsLiMargin` | - |
+| `@card-skeleton-bg` | - | Deprecated in favor of internal Skeleton |
+| `@card-background` | `colorBgContainer` | Global Token |
+| `@card-shadow` | - | Could be modified by `className` or `style` directly |
+| `@card-radius` | `borderRadiusLG` | Global Token |
+| `@card-head-tabs-margin-bottom` | `tabsMarginBottom` | - |
+| `@card-head-extra-color` | `extraColor` | - |
 
 ## Carousel
 
@@ -158,7 +197,13 @@ This document contains the correspondence between all the less variables related
 | `@list-customize-card-bg` | - | Deprecated for style change |
 | `@list-item-meta-description-font-size` | `descriptionFontSize` | - |
 
-<!-- ### Mentions -->
+### Mentions
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | Note |
+| --- | --- | --- |
+| `@mentions-dropdown-bg` | `colorBgElevated` | GlobalToken |
+| `@mentions-dropdown-menu-item-hover-bg` | - | Deprecated |
 
 <!-- ### Menu -->
 
@@ -203,7 +248,22 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Notification -->
 
-<!-- ### Pagination -->
+### Pagination
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@pagination-item-bg` | `itemBg` | - |
+| `@pagination-item-size` | `itemSize` | - |
+| `@pagination-item-size-sm` | `itemSizeSM` | - |
+| `@pagination-font-family` | `fontFamily` | GlobalToken |
+| `@pagination-font-weight-active` | `fontWeightStrong` | GlobalToken |
+| `@pagination-item-bg-active` | `itemActiveBg` | - |
+| `@pagination-item-link-bg` | `itemLinkBg` | - |
+| `@pagination-item-disabled-color-active` | `itemDisabledColorActive` | - |
+| `@pagination-item-disabled-bg-active` | `itemDisabledBgActive` | - |
+| `@pagination-item-input-bg` | `itemInputBg` | - |
+| `@pagination-mini-options-size-changer-top` | `miniOptionsSizeChangerTop` | - |
 
 ### Popover>
 

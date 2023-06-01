@@ -63,6 +63,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | iconPrefixCls | Set icon prefix className | string | `anticon` | 4.11.0 |
 | input | Set Input common props | { autoComplete?: string } | - | 4.2.0 |
 | select | Set Select common props | { showSearch?: boolean } | - |  |
+| button | Set Select common props | { className?: string, style?: React.CSSProperties, classNames?: { icon: string }, styles?: { icon: React.CSSProperties } } | - | 5.6.0 |
 | locale | Language package setting, you can find the packages in [antd/locale](http://unpkg.com/antd/locale/) | object | - |  |
 | prefixCls | Set prefix className | string | `ant` |  |
 | renderEmpty | Set empty content of components. Ref [Empty](/components/empty/) | function(componentName: string): ReactNode | - |  |
