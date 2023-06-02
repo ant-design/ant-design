@@ -95,7 +95,6 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     transferHeaderVerticalPadding,
     itemPaddingBlock,
     controlItemBgActive,
-    controlItemBgActiveHover,
     colorTextDisabled,
     listHeight,
     listWidth,
@@ -106,7 +105,11 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     lineType,
     iconCls,
     motionDurationSlow,
-    colorBgContainerDisabled,
+    itemHoverBg,
+    borderRadiusLG,
+    colorBgContainer,
+    colorText,
+    itemSelectedHoverBg,
   } = token;
 
   return {
@@ -137,10 +140,10 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       padding: `${
         transferHeaderVerticalPadding - lineWidth
       }px ${paddingSM}px ${transferHeaderVerticalPadding}px`,
-      color: token.colorText,
-      background: token.colorBgContainer,
+      color: colorText,
+      background: colorBgContainer,
       borderBottom: `${lineWidth}px ${lineType} ${colorSplit}`,
-      borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
+      borderRadius: `${borderRadiusLG}px ${borderRadiusLG}px 0 0`,
 
       '> *:not(:last-child)': {
         marginInlineEnd: 4, // This is magic and fixed number, DO NOT use token since it may change.
@@ -230,12 +233,12 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
 
         [`&:not(${componentCls}-list-content-item-disabled)`]: {
           '&:hover': {
-            backgroundColor: colorBgContainerDisabled,
+            backgroundColor: itemHoverBg,
             cursor: 'pointer',
           },
 
           [`&${componentCls}-list-content-item-checked:hover`]: {
-            backgroundColor: controlItemBgActiveHover,
+            backgroundColor: itemSelectedHoverBg,
           },
         },
 
