@@ -10,7 +10,7 @@ export interface ComponentToken {
   zIndexPopup: number;
   previewOperationSize: number;
   previewOperationColor: string;
-  previewOperationDisabledColor: string;
+  previewOperationColorDisabled: string;
 }
 
 export interface ImageToken extends FullToken<'Image'> {
@@ -109,7 +109,7 @@ export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
   const {
     modalMaskBg,
     iconCls,
-    previewOperationDisabledColor,
+    previewOperationColorDisabled,
     previewCls,
     zIndexPopup,
     motionDurationSlow,
@@ -144,7 +144,7 @@ export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
 
       [`&-disabled`]: {
         '&, &:hover': {
-          color: previewOperationDisabledColor,
+          color: previewOperationColorDisabled,
           background: 'transparent',
           cursor: 'not-allowed',
           [`> ${iconCls}`]: {
@@ -313,7 +313,7 @@ export default genComponentStyleHook(
   (token) => ({
     zIndexPopup: token.zIndexPopupBase + 80,
     previewOperationColor: new TinyColor(token.colorTextLightSolid).toRgbString(),
-    previewOperationDisabledColor: new TinyColor(token.colorTextLightSolid)
+    previewOperationColorDisabled: new TinyColor(token.colorTextLightSolid)
       .setAlpha(0.25)
       .toRgbString(),
     previewOperationSize: token.fontSizeIcon * 1.5, // FIXME: fontSizeIconLG
