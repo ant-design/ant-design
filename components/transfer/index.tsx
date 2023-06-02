@@ -155,6 +155,19 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     selectedKeys.filter((key) => targetKeys.includes(key)),
   );
 
+  const propSourceKeys = useMemo(
+    () =>
+      dataSource
+        .map((item) => {
+          if (!props.targetKeys?.includes(item.key!)) {
+            return item.key;
+          }
+          return false;
+        })
+        .filter(Boolean) as string[],
+    [dataSource],
+  );
+
   useEffect(() => {
     if (props.selectedKeys) {
       setSourceSelectedKeys(() => selectedKeys.filter((key) => !targetKeys.includes(key)));
@@ -163,17 +176,16 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     }
 
     // This is the calculation scheme when there are no props.selectedKeys
-    if (props.selectedKeys) {
-      setSourceSelectedKeys(() =>
-        props.targetKeys!.filter((key) => !sourceSelectedKeys.includes(key)),
-      );
+    if (propSourceKeys) {
+      setSourceSelectedKeys(propSourceKeys.filter((key) => sourceSelectedKeys.includes(key)));
     }
+
     if (props.targetKeys) {
       setTargetSelectedKeys(() =>
         props.targetKeys!.filter((key) => targetSelectedKeys.includes(key)),
       );
     }
-  }, [props.selectedKeys, props.targetKeys]);
+  }, [props.selectedKeys, props.targetKeys, dataSource]);
 
   if (process.env.NODE_ENV !== 'production') {
     warning(
