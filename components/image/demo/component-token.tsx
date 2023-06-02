@@ -8,7 +8,7 @@ const App: React.FC = () => (
         Image: {
           previewOperationSize: 20,
           previewOperationColor: '#222',
-          previewOperationDisabledColor: '#b20000',
+          previewOperationColorDisabled: '#b20000',
         },
       },
     }}

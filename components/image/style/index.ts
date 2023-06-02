@@ -54,7 +54,7 @@ export const genImageMaskStyle = (token: ImageToken): CSSObject => {
 };
 
 export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
-  const { previewCls, modalMaskBg, paddingSM, previewOperationDisabledColor, motionDurationSlow } =
+  const { previewCls, modalMaskBg, paddingSM, previewOperationColorDisabled, motionDurationSlow } =
     token;
 
   const operationBg = new TinyColor(modalMaskBg).setAlpha(0.1);
@@ -83,7 +83,7 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
         },
 
         '&-disabled': {
-          color: previewOperationDisabledColor,
+          color: previewOperationColorDisabled,
           pointerEvents: 'none',
         },
 
