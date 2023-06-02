@@ -57,13 +57,23 @@ const Divider: React.FC<DividerProps> = (props) => {
     rootClassName,
   );
 
-  function toNumber() {
-    return typeof orientationMargin === 'string' ? Number(orientationMargin) : orientationMargin;
+  function convertToNumberIfPureNumber(str: string) {
+    if (/^\d+$/.test(str)) {
+      return Number(str);
+    } else {
+      return str;
+    }
+  }
+
+  function convertToNumberOrReturn() {
+    return typeof orientationMargin === 'string'
+      ? convertToNumberIfPureNumber(orientationMargin)
+      : orientationMargin;
   }
 
   const innerStyle: React.CSSProperties = {
-    ...(hasCustomMarginLeft && { marginLeft: toNumber() }),
-    ...(hasCustomMarginRight && { marginRight: toNumber() }),
+    ...(hasCustomMarginLeft && { marginLeft: convertToNumberOrReturn() }),
+    ...(hasCustomMarginRight && { marginRight: convertToNumberOrReturn() }),
   };
 
   // Warning children not work in vertical mode
