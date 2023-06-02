@@ -169,7 +169,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
           !hasAddon && rootClassName,
           hashId,
         ),
-        wrapper: classNames(wrapperClassName, hashId, {
+        wrapper: classNames(hashId, {
           [`${wrapperClassName}-rtl`]: direction === 'rtl',
         }),
         group: classNames(

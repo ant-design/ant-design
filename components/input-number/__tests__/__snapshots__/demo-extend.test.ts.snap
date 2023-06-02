@@ -12,7 +12,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
       class="ant-input-number-group-wrapper"
     >
       <div
-        class="ant-input-number-wrapper ant-input-number-group ant-input-number-group"
+        class="ant-input-number-wrapper ant-input-number-group"
       >
         <div
           class="ant-input-number-group-addon"
@@ -109,7 +109,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
       class="ant-input-number-group-wrapper"
     >
       <div
-        class="ant-input-number-wrapper ant-input-number-group ant-input-number-group"
+        class="ant-input-number-wrapper ant-input-number-group"
       >
         <div
           class="ant-input-number-group-addon"
@@ -522,7 +522,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
       class="ant-input-number-group-wrapper"
     >
       <div
-        class="ant-input-number-wrapper ant-input-number-group ant-input-number-group"
+        class="ant-input-number-wrapper ant-input-number-group"
       >
         <div
           class="ant-input-number"
@@ -631,7 +631,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
       class="ant-input-number-group-wrapper"
     >
       <div
-        class="ant-input-number-wrapper ant-input-number-group ant-input-number-group"
+        class="ant-input-number-wrapper ant-input-number-group"
       >
         <div
           class="ant-input-number-group-addon"
@@ -1896,7 +1896,7 @@ Array [
     style="width: 100%;"
   >
     <div
-      class="ant-input-number-wrapper ant-input-number-group ant-input-number-group"
+      class="ant-input-number-wrapper ant-input-number-group"
     >
       <div
         class="ant-input-number-group-addon"
