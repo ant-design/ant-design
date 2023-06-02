@@ -57,6 +57,10 @@ const Divider: React.FC<DividerProps> = (props) => {
     rootClassName,
   );
 
+  function toNumber() {
+    return typeof orientationMargin === 'string' ? Number(orientationMargin) : orientationMargin;
+  }
+
   const innerStyle: React.CSSProperties = {
     ...(hasCustomMarginLeft && { marginLeft: toNumber() }),
     ...(hasCustomMarginRight && { marginRight: toNumber() }),
@@ -80,10 +84,6 @@ const Divider: React.FC<DividerProps> = (props) => {
       )}
     </div>,
   );
-
-  function toNumber() {
-    return typeof orientationMargin === 'string' ? Number(orientationMargin) : orientationMargin;
-  }
 };
 
 if (process.env.NODE_ENV !== 'production') {
