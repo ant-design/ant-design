@@ -1,6 +1,6 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import { DefaultRecordType } from 'rc-table/lib/interface';
-import React, { useEffect, useState } from 'react';
+import type { DefaultRecordType } from 'rc-table/lib/interface';
+import React, { useCallback, useEffect, useState } from 'react';
 import type { SelectAllLabel, TransferProps } from '..';
 import Transfer from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -656,17 +656,20 @@ describe('immutable data', () => {
         setTargetKeys(newTargetKeys);
       };
 
+      const ButtonRender = useCallback(
+        () => <Button onClick={getMock}>Right button reload</Button>,
+        [getMock],
+      );
+
       return (
-        <>
-          <Transfer
-            dataSource={mockData}
-            operations={['to right', 'to left']}
-            targetKeys={targetKeys}
-            onChange={handleChange}
-            render={(item) => `test-${item}`}
-            footer={() => <Button onClick={getMock}>Right button reload</Button>}
-          />
-        </>
+        <Transfer
+          dataSource={mockData}
+          operations={['to right', 'to left']}
+          targetKeys={targetKeys}
+          onChange={handleChange}
+          render={(item) => `test-${item}`}
+          footer={ButtonRender}
+        />
       );
     };
 
