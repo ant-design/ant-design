@@ -426,7 +426,18 @@ Mentions 提及
 
 <!-- ### TimePicker 时间选择 -->
 
-<!-- ### Tooltip 文字提示 -->
+### Tooltip 文字提示
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@tooltip-max-width` | - | 可由 `className` 或 `style` 直接修改 |
+| `@tooltip-color` | `colorTextLightSolid` | 全局 Token |
+| `@tooltip-bg` | `colorBgSpotlight` | 全局 token |
+| `@tooltip-arrow-width` | `sizePopupArrow` | 全局 Token |
+| `@tooltip-distance` | `marginXXS` | 全局 Token |
+| `@tooltip-arrow-color` | - | 同 `@tooltip-bg`，已废弃 |
+| `@tooltip-border-radius` | `borderRadius` | 全局 Token |
 
 Transfer 穿梭框
 

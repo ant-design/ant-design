@@ -429,7 +429,18 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### TimePicker -->
 
-<!-- ### Tooltip -->
+### Tooltip
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@tooltip-max-width` | - | Can be directly modified by `className` or `style` |
+| `@tooltip-color` | `colorTextLightSolid` | Global Token |
+| `@tooltip-bg` | `colorBgSpotlight` | Global Token |
+| `@tooltip-arrow-width` | `sizePopupArrow` | Global Token |
+| `@tooltip-distance` | `marginXXS` | Global Token |
+| `@tooltip-arrow-color` | - | same as `@tooltip-bg`，Deprecated |
+| `@tooltip-border-radius` | `borderRadius` | Global Token |
 
 ### Transfer
 
