@@ -110,12 +110,18 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     !hasPrefix && !hasAddon && rootClassName,
   );
   const wrapperClassName = `${prefixCls}-group`;
-  const mergedBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-    setFocus(false);
+
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    if (hasPrefix) {
+      setFocus(false);
+    }
     props.onBlur?.(event);
   };
-  const mergedFocus = (event: React.FocusEvent<HTMLInputElement>) => {
-    setFocus(true);
+
+  const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+    if (hasPrefix) {
+      setFocus(true);
+    }
     props.onFocus?.(event);
   };
 
@@ -129,8 +135,8 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       prefixCls={prefixCls}
       readOnly={readOnly}
       controls={controlsTemp}
-      onFocus={hasPrefix ? mergedFocus : props.onFocus}
-      onBlur={hasPrefix ? mergedBlur : props.onBlur}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
       prefix={prefix && prefix}
       suffix={hasFeedback && feedbackIcon}
       addonAfter={
