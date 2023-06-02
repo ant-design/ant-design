@@ -153,8 +153,8 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
       ref={ref}
       className={cn}
       style={{
-        ...space?.style,
         ...gapStyle,
+        ...space?.style,
         ...style,
       }}
       {...otherProps}
