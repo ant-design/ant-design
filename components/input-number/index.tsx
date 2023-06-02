@@ -129,8 +129,8 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       prefixCls={prefixCls}
       readOnly={readOnly}
       controls={controlsTemp}
-      onFocus={hasPrefix && mergedFocus}
-      onBlur={hasPrefix && mergedBlur}
+      onFocus={hasPrefix ? mergedFocus : props.onFocus}
+      onBlur={hasPrefix ? mergedBlur : props.onBlur}
       prefix={prefix && prefix}
       suffix={hasFeedback && feedbackIcon}
       addonAfter={
@@ -153,7 +153,6 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       }
       classes={{
         affixWrapper: classNames(
-          `${prefixCls}-affix-wrapper`,
           getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
           {
             [`${prefixCls}-affix-wrapper-focused`]: focused,
@@ -170,11 +169,10 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
           !hasAddon && rootClassName,
           hashId,
         ),
-        wrapper: classNames(`${prefixCls}-wrapper`, wrapperClassName, hashId, {
+        wrapper: classNames(wrapperClassName, hashId, {
           [`${wrapperClassName}-rtl`]: direction === 'rtl',
         }),
         group: classNames(
-          `${prefixCls}-group-wrapper`,
           {
             [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
