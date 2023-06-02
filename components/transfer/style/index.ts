@@ -10,8 +10,6 @@ export interface ComponentToken {
   itemHeight: number;
   itemPaddingBlock: number;
   headerHeight: number;
-  itemHoverBg: string;
-  itemSelectedHoverBg: string;
 }
 
 interface TransferToken extends FullToken<'Transfer'> {
@@ -105,11 +103,11 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     lineType,
     iconCls,
     motionDurationSlow,
-    itemHoverBg,
+    controlItemBgHover,
     borderRadiusLG,
     colorBgContainer,
     colorText,
-    itemSelectedHoverBg,
+    controlItemBgActiveHover,
   } = token;
 
   return {
@@ -233,12 +231,12 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
 
         [`&:not(${componentCls}-list-content-item-disabled)`]: {
           '&:hover': {
-            backgroundColor: itemHoverBg,
+            backgroundColor: controlItemBgHover,
             cursor: 'pointer',
           },
 
           [`&${componentCls}-list-content-item-checked:hover`]: {
-            backgroundColor: itemSelectedHoverBg,
+            backgroundColor: controlItemBgActiveHover,
           },
         },
 
@@ -365,7 +363,7 @@ export default genComponentStyleHook(
     ];
   },
   (token) => {
-    const { fontSize, lineHeight, controlHeight, controlHeightLG, controlItemBgHover } = token;
+    const { fontSize, lineHeight, controlHeight, controlHeightLG } = token;
     const fontHeight = Math.round(fontSize * lineHeight);
     return {
       listWidth: 180,
@@ -374,8 +372,6 @@ export default genComponentStyleHook(
       headerHeight: controlHeightLG,
       itemHeight: controlHeight,
       itemPaddingBlock: (controlHeight - fontHeight) / 2,
-      itemHoverBg: controlItemBgHover,
-      itemSelectedHoverBg: controlItemBgHover,
     };
   },
 );

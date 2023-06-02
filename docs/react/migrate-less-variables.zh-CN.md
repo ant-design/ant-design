@@ -377,12 +377,12 @@ Transfer 穿梭框
 | --- | --- | --- |
 | `@transfer-header-height` | `headerHeight` | - |
 | `@transfer-item-height` | `itemHeight` | - |
-| `@transfer-disabled-bg` | `colorBgContainerDisabled` | Global Token |
+| `@transfer-disabled-bg` | `colorBgContainerDisabled` | 全局 Token |
 | `@transfer-list-height` | `listHeight` | - |
-| `@transfer-item-hover-bg` | `itemHoverBg` | - |
-| `@transfer-item-selected-hover-bg` | `itemSelectedHoverBg` | - |
+| `@transfer-item-hover-bg` | `controlItemBgHover` | 全局 Token |
+| `@transfer-item-selected-hover-bg` | `controlItemBgActiveHover` | 全局 Token |
 | `@transfer-item-padding-vertical` | `itemPaddingBlock` | - |
-| `@transfer-list-search-icon-top` | - | Deprecated |
+| `@transfer-list-search-icon-top` | - | 已废弃 |
 
 <!-- ### Tree 树形控件 -->
 
