@@ -174,7 +174,18 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Form -->
 
-<!-- ### Image -->
+### Image
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@image-size-base` | - | Deprecated for not used |
+| `@image-font-size-base` | - | Deprecated for not used |
+| `@image-bg` | `colorFillTertiary` | GlobalToken |
+| `@image-color` | `colorTextLightSolid` | GlobalToken |
+| `@image-preview-operation-size` | `previewOperationSize` | - |
+| `@image-preview-operation-color` | `previewOperationColor` | - |
+| `@image-preview-operation-disabled-color` | `previewOperationColorDisabled` | - |
 
 <!-- ### Input -->
 
@@ -407,7 +418,7 @@ This document contains the correspondence between all the less variables related
 ## Tag
 
 <!-- prettier-ignore -->
-| less 变量 | Component Token | 备注 |
+| Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@tag-border-radius` | `borderRadiusSM` | Global Token |
 | `@tag-default-bg` | `defaultBg` | - |
