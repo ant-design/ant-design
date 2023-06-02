@@ -431,7 +431,19 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Tooltip -->
 
-<!-- ### Transfer -->
+### Transfer
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@transfer-header-height` | `headerHeight` | - |
+| `@transfer-item-height` | `itemHeight` | - |
+| `@transfer-disabled-bg` | `colorBgContainerDisabled` | Global Token |
+| `@transfer-list-height` | `listHeight` | - |
+| `@transfer-item-hover-bg` | `controlItemBgHover` | Global Token |
+| `@transfer-item-selected-hover-bg` | `controlItemBgActiveHover` | Global Token |
+| `@transfer-item-padding-vertical` | `itemPaddingBlock` | - |
+| `@transfer-list-search-icon-top` | - | Deprecated |
 
 <!-- ### Tree -->
 

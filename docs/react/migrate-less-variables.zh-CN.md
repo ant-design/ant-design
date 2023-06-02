@@ -428,7 +428,19 @@ Mentions 提及
 
 <!-- ### Tooltip 文字提示 -->
 
-<!-- ### Transfer 穿梭框 -->
+Transfer 穿梭框
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@transfer-header-height` | `headerHeight` | - |
+| `@transfer-item-height` | `itemHeight` | - |
+| `@transfer-disabled-bg` | `colorBgContainerDisabled` | 全局 Token |
+| `@transfer-list-height` | `listHeight` | - |
+| `@transfer-item-hover-bg` | `controlItemBgHover` | 全局 Token |
+| `@transfer-item-selected-hover-bg` | `controlItemBgActiveHover` | 全局 Token |
+| `@transfer-item-padding-vertical` | `itemPaddingBlock` | - |
+| `@transfer-list-search-icon-top` | - | 已废弃 |
 
 <!-- ### Tree 树形控件 -->
 
