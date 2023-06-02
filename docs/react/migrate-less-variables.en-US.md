@@ -262,13 +262,13 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@progress-default-color` | - | Deprecated for style change |
+| `@progress-default-color` | `defaultColor` | - |
 | `@progress-remaining-color` | `remainingColor` | - |
-| `@progress-info-text-color` | `infoTextColor` | - |
+| `@progress-info-text-color` | `textColor` | - |
+| `@progress-text-color` | `circleTextColor` | - |
 | `@progress-radius` | `lineRadius` | - |
 | `@progress-steps-item-bg` | `remainingColor` | - |
 | `@progress-text-font-size` | `fontSizeSM` | Global Token |
-| `@progress-text-color` | `infoTextColor` | - |
 | `@progress-circle-text-font-size` | - | Deprecated for style change |
 
 <!-- ### Radio -->

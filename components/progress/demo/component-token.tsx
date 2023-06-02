@@ -10,8 +10,10 @@ const App: React.FC = () => (
       },
       components: {
         Progress: {
+          defaultColor: '#bae0ff',
           remainingColor: '#f5222d',
-          infoTextColor: '#52c41a',
+          textColor: '#52c41a',
+          circleTextColor: '#52c41a',
           lineRadius: 50,
         },
       },
