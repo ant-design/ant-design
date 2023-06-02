@@ -156,7 +156,6 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
           getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
           {
             [`${prefixCls}-affix-wrapper-focused`]: focused,
-            [`${prefixCls}-affix-wrapper-disabled`]: props.disabled,
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
