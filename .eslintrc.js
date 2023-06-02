@@ -1,4 +1,8 @@
 module.exports = {
+  root: true,
+  parserOptions: {
+    project: './tsconfig.json',
+  },
   extends: [
     'airbnb',
     'prettier',
@@ -7,6 +11,12 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:import/typescript',
     'plugin:markdown/recommended',
+    'hardcore',
+    'hardcore/react',
+    'hardcore/react-testing-library',
+    'hardcore/jest',
+    'hardcore/fp',
+    'hardcore/ts',
   ],
   env: {
     browser: true,
