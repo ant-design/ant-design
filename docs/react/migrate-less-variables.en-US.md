@@ -73,7 +73,30 @@ This document contains the correspondence between all the less variables related
 | `@calendar-full-bg` | `fullBg` | - |
 | `@calendar-full-panel-bg` | `fullPanelBg` | - |
 
-<!-- ### Card -->
+### Card
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@card-head-color` | `colorTextHeading` | Global Token |
+| `@card-head-background` | `headerBg` | - |
+| `@card-head-font-size` | `headerFontSize` | - |
+| `@card-head-font-size-sm` | `headerFontSizeSM` | - |
+| `@card-head-padding` | - | Deprecated |
+| `@card-head-padding-sm` | - | Deprecated |
+| `@card-head-height` | `headerHeight` | - |
+| `@card-head-height-sm` | `headerHeightSM` | - |
+| `@card-inner-head-padding` | - | Deprecated |
+| `@card-padding-base` | `cardPaddingBase` | - |
+| `@card-padding-base-sm` | `cardPaddingBaseSm` | - |
+| `@card-actions-background` | `actionsBackground` | - |
+| `@card-actions-li-margin` | `actionsLiMargin` | - |
+| `@card-skeleton-bg` | - | Deprecated in favor of internal Skeleton |
+| `@card-background` | `colorBgContainer` | Global Token |
+| `@card-shadow` | - | Could be modified by `className` or `style` directly |
+| `@card-radius` | `borderRadiusLG` | Global Token |
+| `@card-head-tabs-margin-bottom` | `tabsMarginBottom` | - |
+| `@card-head-extra-color` | `extraColor` | - |
 
 ## Carousel
 
@@ -350,7 +373,36 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Table -->
 
-<!-- ### Tabs -->
+### Tabs 标签页
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@tabs-card-head-background` | `cardBg` | - |
+| `@tabs-card-height` | `cardHeight` | - |
+| `@tabs-card-active-color` | `itemSelectedColor` | - |
+| `@tabs-card-horizontal-padding` | `cardPadding` | - |
+| `@tabs-card-horizontal-padding-sm` | `cardPaddingSM` | - |
+| `@tabs-card-horizontal-padding-lg` | `cardPaddingLG` | - |
+| `@tabs-title-font-size` | `titleFontSize` | - |
+| `@tabs-title-font-size-lg` | `titleFontSizeLG` | - |
+| `@tabs-title-font-size-sm` | `titleFontSizeSM` | - |
+| `@tabs-ink-bar-color` | `inkBarColor` | - |
+| `@tabs-bar-margin` | `horizontalMargin` | - |
+| `@tabs-horizontal-gutter` | `horizontalItemGutter` | - |
+| `@tabs-horizontal-margin` | `horizontalItemMargin` | - |
+| `@tabs-horizontal-margin-rtl` | `horizontalItemMarginRTL` | - |
+| `@tabs-horizontal-padding` | `horizontalItemPadding` | - |
+| `@tabs-horizontal-padding-lg` | `horizontalItemPaddingLG` | - |
+| `@tabs-horizontal-padding-sm` | `horizontalItemPaddingSM` | - |
+| `@tabs-vertical-padding` | `verticalItemPadding` | - |
+| `@tabs-vertical-margin` | `verticalItemMargin` | - |
+| `@tabs-scrolling-size` | - | Deprecated |
+| `@tabs-highlight-color` | `itemSelectedColor` | - |
+| `@tabs-hover-color` | `itemHoverColor` | - |
+| `@tabs-active-color` | `itemActiveColor` | - |
+| `@tabs-card-gutter` | `cardGutter` | - |
+| `@tabs-card-tab-active-border-top` | - | Deprecated |
 
 ## Tag
 
@@ -377,9 +429,32 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### TimePicker -->
 
-<!-- ### Tooltip -->
+### Tooltip
 
-<!-- ### Transfer -->
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@tooltip-max-width` | - | Can be directly modified by `className` or `style` |
+| `@tooltip-color` | `colorTextLightSolid` | Global Token |
+| `@tooltip-bg` | `colorBgSpotlight` | Global Token |
+| `@tooltip-arrow-width` | `sizePopupArrow` | Global Token |
+| `@tooltip-distance` | `marginXXS` | Global Token |
+| `@tooltip-arrow-color` | - | same as `@tooltip-bg`，Deprecated |
+| `@tooltip-border-radius` | `borderRadius` | Global Token |
+
+### Transfer
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@transfer-header-height` | `headerHeight` | - |
+| `@transfer-item-height` | `itemHeight` | - |
+| `@transfer-disabled-bg` | `colorBgContainerDisabled` | Global Token |
+| `@transfer-list-height` | `listHeight` | - |
+| `@transfer-item-hover-bg` | `controlItemBgHover` | Global Token |
+| `@transfer-item-selected-hover-bg` | `controlItemBgActiveHover` | Global Token |
+| `@transfer-item-padding-vertical` | `itemPaddingBlock` | - |
+| `@transfer-list-search-icon-top` | - | Deprecated |
 
 <!-- ### Tree -->
 
