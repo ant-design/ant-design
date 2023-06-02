@@ -60,9 +60,8 @@ const Divider: React.FC<DividerProps> = (props) => {
   function convertToNumberIfPureNumber(str: string) {
     if (/^\d+$/.test(str)) {
       return Number(str);
-    } else {
-      return str;
     }
+    return str;
   }
 
   function convertToNumberOrReturn() {
@@ -95,9 +94,5 @@ const Divider: React.FC<DividerProps> = (props) => {
     </div>,
   );
 };
-
-if (process.env.NODE_ENV !== 'production') {
-  Divider.displayName = 'Divider';
-}
 
 export default Divider;
