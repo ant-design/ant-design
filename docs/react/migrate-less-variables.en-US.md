@@ -153,17 +153,17 @@ This document contains the correspondence between all the less variables related
 
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@label-required-color` | `colorError` | GlobalToken |
-| `@label-color` | `colorTextHeading` | GlobalToken |
+| `@label-required-color` | `labelRequiredColor` | - |
+| `@label-color` | `labelColor` | - |
 | `@form-warning-input-bg` | - | Deprecated for style change |
-| `@form-item-margin-bottom` | `marginLG` | GlobalToken |
+| `@form-item-margin-bottom` | `itemMarginBottom` | - |
 | `@form-item-trailing-colon` | - | Deprecated for style change |
 | `@form-vertical-label-padding` | `paddingXS` | GlobalToken，used as `0 0 ${token.paddingXS}px`, |
 | `@form-vertical-label-margin` | - | used as 0 |
-| `@form-item-label-font-size` | `fontSize` | GlobalToken |
-| `@form-item-label-height` | `controlHeight` | GlobalToken |
-| `@form-item-label-colon-margin-right` | - | Deprecated for style change |
-| `@form-item-label-colon-margin-left` | - | Deprecated for style change |
+| `@form-item-label-font-size` | `labelFontSize` | - |
+| `@form-item-label-height` | `labelHeight` | - |
+| `@form-item-label-colon-margin-right` | `labelColonMarginRight` | - |
+| `@form-item-label-colon-margin-left` | `labelColonMarginLeft` | - |
 | `@form-error-input-bg` | - | Deprecated for style change |
 
 <!-- ### Image -->

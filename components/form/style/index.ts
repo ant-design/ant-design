@@ -10,6 +10,8 @@ export interface ComponentToken {
   labelColor: string;
   labelFontSize: number;
   labelHeight: number;
+  labelColonMarginLeft: number;
+  labelColonMarginRight: number;
   itemMarginBottom: number;
 }
 
@@ -130,6 +132,8 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
     labelColor,
     labelFontSize,
     labelHeight,
+    labelColonMarginLeft,
+    labelColonMarginRight,
     itemMarginBottom,
   } = token;
 
@@ -235,8 +239,8 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
             content: '":"',
             position: 'relative',
             marginBlock: 0,
-            marginInlineStart: token.marginXXS / 2,
-            marginInlineEnd: token.marginXS,
+            marginInlineStart: labelColonMarginLeft,
+            marginInlineEnd: labelColonMarginRight,
           },
 
           [`&${formItemCls}-no-colon::after`]: {
@@ -518,6 +522,8 @@ export default genComponentStyleHook(
     labelColor: token.colorTextHeading,
     labelFontSize: token.fontSize,
     labelHeight: token.controlHeight,
+    labelColonMarginLeft: token.marginXXS / 2,
+    labelColonMarginRight: token.marginXS,
     itemMarginBottom: token.marginLG,
   }),
 );

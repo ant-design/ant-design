@@ -1,13 +1,5 @@
 import React from 'react';
-import { Button, Form, Input, ConfigProvider } from 'antd';
-
-const onFinish = (values: any) => {
-  console.log('Success:', values);
-};
-
-const onFinishFailed = (errorInfo: any) => {
-  console.log('Failed:', errorInfo);
-};
+import { Form, Input, ConfigProvider } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -18,6 +10,8 @@ const App: React.FC = () => (
           labelColor: 'green',
           labelFontSize: 16,
           labelHeight: 34,
+          labelColonMarginLeft: 4,
+          labelColonMarginRight: 12,
           itemMarginBottom: 18,
         },
       },
@@ -29,8 +23,6 @@ const App: React.FC = () => (
       wrapperCol={{ span: 16 }}
       style={{ maxWidth: 600 }}
       initialValues={{ remember: true }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
       <Form.Item
@@ -47,12 +39,6 @@ const App: React.FC = () => (
         rules={[{ required: true, message: 'Please input your password!' }]}
       >
         <Input.Password />
-      </Form.Item>
-
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
       </Form.Item>
     </Form>
   </ConfigProvider>
