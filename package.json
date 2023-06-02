@@ -130,7 +130,7 @@
     "rc-dropdown": "~4.1.0",
     "rc-field-form": "~1.32.0",
     "rc-image": "~5.16.0",
-    "rc-input": "^1.1.0",
+    "rc-input": "~1.1.0",
     "rc-input-number": "~7.4.0",
     "rc-mentions": "~2.4.0",
     "rc-menu": "~9.8.3",
