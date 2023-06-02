@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import type { ChangeEvent, CSSProperties } from 'react';
-import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import type { CSSProperties, ChangeEvent } from 'react';
+import React, { useCallback, useContext, useMemo, useState } from 'react';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
@@ -12,10 +12,10 @@ import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
+import type { TransferListBodyProps } from './ListBody';
 import type { PaginationType } from './interface';
 import type { TransferListProps } from './list';
 import List from './list';
-import type { TransferListBodyProps } from './ListBody';
 import Operation from './operation';
 import Search from './search';
 
@@ -165,27 +165,54 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
           return false;
         })
         .filter(Boolean) as string[],
-    [dataSource],
+    [dataSource, props.targetKeys],
   );
 
-  useEffect(() => {
-    if (props.selectedKeys) {
-      setSourceSelectedKeys(() => selectedKeys.filter((key) => !targetKeys.includes(key)));
-      setTargetSelectedKeys(() => selectedKeys.filter((key) => targetKeys.includes(key)));
-      return;
+  const getMergedKeys = (
+    currentSelectedKeys: string[],
+    currentTargetKeys: string[],
+    typeSelectedKeys: string[],
+    propTypeKeys: string[] | undefined,
+    propSelectedKeys: string[] | undefined,
+    isSource: boolean,
+  ) => {
+    const keysWithSelectedOrNoTarget = currentSelectedKeys.filter((key) =>
+      isSource ? !currentTargetKeys.includes(key) : currentTargetKeys.includes(key),
+    );
+    if (propSelectedKeys) {
+      return keysWithSelectedOrNoTarget;
     }
+    if (propTypeKeys) {
+      return propTypeKeys.filter((key) => typeSelectedKeys.includes(key));
+    }
+    return keysWithSelectedOrNoTarget;
+  };
 
-    // This is the calculation scheme when there are no props.selectedKeys
-    if (propSourceKeys) {
-      setSourceSelectedKeys(propSourceKeys.filter((key) => sourceSelectedKeys.includes(key)));
-    }
+  const mergedSourceSelectedKeys = useMemo(
+    () =>
+      getMergedKeys(
+        selectedKeys,
+        targetKeys,
+        sourceSelectedKeys,
+        propSourceKeys,
+        props.selectedKeys,
+        true,
+      ),
+    [selectedKeys, targetKeys, sourceSelectedKeys, propSourceKeys, props.selectedKeys],
+  );
 
-    if (props.targetKeys) {
-      setTargetSelectedKeys(() =>
-        props.targetKeys!.filter((key) => targetSelectedKeys.includes(key)),
-      );
-    }
-  }, [props.selectedKeys, props.targetKeys, dataSource]);
+  const mergedTargetSelectedKeys = useMemo(
+    () =>
+      getMergedKeys(
+        selectedKeys,
+        targetKeys,
+        targetSelectedKeys,
+        props.targetKeys,
+        props.selectedKeys,
+        false,
+      ),
+    [selectedKeys, targetKeys, targetSelectedKeys, props.targetKeys, props.selectedKeys],
+  );
 
   if (process.env.NODE_ENV !== 'production') {
     warning(
@@ -396,7 +423,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         dataSource={leftDataSource}
         filterOption={filterOption}
         style={handleListStyle('left')}
-        checkedKeys={sourceSelectedKeys}
+        checkedKeys={mergedSourceSelectedKeys}
         handleFilter={leftFilter}
         handleClear={handleLeftClear}
         onItemSelect={onLeftItemSelect}
@@ -432,7 +459,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         dataSource={rightDataSource}
         filterOption={filterOption}
         style={handleListStyle('right')}
-        checkedKeys={targetSelectedKeys}
+        checkedKeys={mergedTargetSelectedKeys}
         handleFilter={rightFilter}
         handleClear={handleRightClear}
         onItemSelect={onRightItemSelect}
