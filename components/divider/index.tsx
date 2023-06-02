@@ -58,8 +58,8 @@ const Divider: React.FC<DividerProps> = (props) => {
   );
 
   const innerStyle: React.CSSProperties = {
-    ...(hasCustomMarginLeft && { marginLeft: orientationMargin }),
-    ...(hasCustomMarginRight && { marginRight: orientationMargin }),
+    ...(hasCustomMarginLeft && { marginLeft: toNumber() }),
+    ...(hasCustomMarginRight && { marginRight: toNumber() }),
   };
 
   // Warning children not work in vertical mode
@@ -80,6 +80,10 @@ const Divider: React.FC<DividerProps> = (props) => {
       )}
     </div>,
   );
+
+  function toNumber() {
+    return typeof orientationMargin === 'string' ? parseInt(orientationMargin) : orientationMargin;
+  }
 };
 
 if (process.env.NODE_ENV !== 'production') {
