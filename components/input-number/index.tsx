@@ -137,7 +137,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       controls={controlsTemp}
       onFocus={handleFocus}
       onBlur={handleBlur}
-      prefix={prefix && prefix}
+      prefix={prefix}
       suffix={hasFeedback && feedbackIcon}
       addonAfter={
         addonAfter && (
