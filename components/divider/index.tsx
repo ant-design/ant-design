@@ -82,7 +82,7 @@ const Divider: React.FC<DividerProps> = (props) => {
   );
 
   function toNumber() {
-    return typeof orientationMargin === 'string' ? parseInt(orientationMargin) : orientationMargin;
+    return typeof orientationMargin === 'string' ? Number(orientationMargin) : orientationMargin;
   }
 };
 
