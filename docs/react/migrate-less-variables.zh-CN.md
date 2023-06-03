@@ -73,9 +73,32 @@ title: Less 变量迁移 Design Token
 | `@calendar-full-bg` | `fullBg` | - |
 | `@calendar-full-panel-bg` | `fullPanelBg` | - |
 
-<!-- ### Card 卡片 -->
+### Card 卡片
 
-## Carousel 走马灯
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@card-head-color` | `colorTextHeading` | 全局 Token |
+| `@card-head-background` | `headerBg` | - |
+| `@card-head-font-size` | `headerFontSize` | - |
+| `@card-head-font-size-sm` | `headerFontSizeSM` | - |
+| `@card-head-padding` | - | 已废弃 |
+| `@card-head-padding-sm` | - | 已废弃 |
+| `@card-head-height` | `headerHeight` | - |
+| `@card-head-height-sm` | `headerHeightSM` | - |
+| `@card-inner-head-padding` | - | 已废弃 |
+| `@card-padding-base` | `cardPaddingBase` | - |
+| `@card-padding-base-sm` | `cardPaddingBaseSm` | - |
+| `@card-actions-background` | `actionsBackground` | - |
+| `@card-actions-li-margin` | `actionsLiMargin` | - |
+| `@card-skeleton-bg` | - | 已废弃，已改为内置 Skeleton 组件 |
+| `@card-background` | `colorBgContainer` | 全局 Token |
+| `@card-shadow` | - | 可由 `className` 或者 `style` 直接修改 |
+| `@card-radius` | `borderRadiusLG` | 全局 Token |
+| `@card-head-tabs-margin-bottom` | `tabsMarginBottom` | - |
+| `@card-head-extra-color` | `extraColor` | - |
+
+### Carousel 走马灯
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
@@ -149,7 +172,18 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Form 表单 -->
 
-<!-- ### Image 图片 -->
+### Image 图片
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@image-size-base` | - | 未使用已废弃 |
+| `@image-font-size-base` | - | 未使用已废弃 |
+| `@image-bg` | `colorFillTertiary` | 全局 Token |
+| `@image-color` | `colorTextLightSolid` | 全局 Token |
+| `@image-preview-operation-size` | `previewOperationSize` | - |
+| `@image-preview-operation-color` | `previewOperationColor` | - |
+| `@image-preview-operation-disabled-color` | `previewOperationColorDisabled` | - |
 
 <!-- ### Input 输入框 -->
 
@@ -347,7 +381,36 @@ Mentions 提及
 
 <!-- ### Table 表格 -->
 
-<!-- ### Tabs 标签页 -->
+### Tabs 标签页
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@tabs-card-head-background` | `cardBg` | - |
+| `@tabs-card-height` | `cardHeight` | - |
+| `@tabs-card-active-color` | `itemSelectedColor` | - |
+| `@tabs-card-horizontal-padding` | `cardPadding` | - |
+| `@tabs-card-horizontal-padding-sm` | `cardPaddingSM` | - |
+| `@tabs-card-horizontal-padding-lg` | `cardPaddingLG` | - |
+| `@tabs-title-font-size` | `titleFontSize` | - |
+| `@tabs-title-font-size-lg` | `titleFontSizeLG` | - |
+| `@tabs-title-font-size-sm` | `titleFontSizeSM` | - |
+| `@tabs-ink-bar-color` | `inkBarColor` | - |
+| `@tabs-bar-margin` | `horizontalMargin` | - |
+| `@tabs-horizontal-gutter` | `horizontalItemGutter` | - |
+| `@tabs-horizontal-margin` | `horizontalItemMargin` | - |
+| `@tabs-horizontal-margin-rtl` | `horizontalItemMarginRTL` | - |
+| `@tabs-horizontal-padding` | `horizontalItemPadding` | - |
+| `@tabs-horizontal-padding-lg` | `horizontalItemPaddingLG` | - |
+| `@tabs-horizontal-padding-sm` | `horizontalItemPaddingSM` | - |
+| `@tabs-vertical-padding` | `verticalItemPadding` | - |
+| `@tabs-vertical-margin` | `verticalItemMargin` | - |
+| `@tabs-scrolling-size` | - | 已废弃 |
+| `@tabs-highlight-color` | `itemSelectedColor` | - |
+| `@tabs-hover-color` | `itemHoverColor` | - |
+| `@tabs-active-color` | `itemActiveColor` | - |
+| `@tabs-card-gutter` | `cardGutter` | - |
+| `@tabs-card-tab-active-border-top` | - | 已废弃 |
 
 ## Tag 标签
 
@@ -392,9 +455,32 @@ Mentions 提及
 | `@picker-text-height`                        | `textHeight`                   | -          |
 | `@picker-panel-without-time-cell-height`     | `panelWithoutTimeCellHeight`   | -          |
 
-<!-- ### Tooltip 文字提示 -->
+### Tooltip 文字提示
 
-<!-- ### Transfer 穿梭框 -->
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@tooltip-max-width` | - | 可由 `className` 或 `style` 直接修改 |
+| `@tooltip-color` | `colorTextLightSolid` | 全局 Token |
+| `@tooltip-bg` | `colorBgSpotlight` | 全局 token |
+| `@tooltip-arrow-width` | `sizePopupArrow` | 全局 Token |
+| `@tooltip-distance` | `marginXXS` | 全局 Token |
+| `@tooltip-arrow-color` | - | 同 `@tooltip-bg`，已废弃 |
+| `@tooltip-border-radius` | `borderRadius` | 全局 Token |
+
+Transfer 穿梭框
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@transfer-header-height` | `headerHeight` | - |
+| `@transfer-item-height` | `itemHeight` | - |
+| `@transfer-disabled-bg` | `colorBgContainerDisabled` | 全局 Token |
+| `@transfer-list-height` | `listHeight` | - |
+| `@transfer-item-hover-bg` | `controlItemBgHover` | 全局 Token |
+| `@transfer-item-selected-hover-bg` | `controlItemBgActiveHover` | 全局 Token |
+| `@transfer-item-padding-vertical` | `itemPaddingBlock` | - |
+| `@transfer-list-search-icon-top` | - | 已废弃 |
 
 <!-- ### Tree 树形控件 -->
 

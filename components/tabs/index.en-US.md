@@ -35,6 +35,7 @@ Ant Design has 3 types of Tabs for different situations.
 <code src="./demo/custom-tab-bar-node.tsx">Draggable Tabs</code>
 <code src="./demo/animated.tsx" debug>Animated</code>
 <code src="./demo/nest.tsx" debug>Nest</code>
+<code src="./demo/component-token.tsx" debug>component Token</code>
 
 ## API
 
