@@ -56,6 +56,7 @@ More layouts with navigation: [Layout](/components/layout).
 | style | Style of the root node | CSSProperties | - |  |
 | subMenuCloseDelay | Delay time to hide submenu when mouse leaves (in seconds) | number | 0.1 |  |
 | subMenuOpenDelay | Delay time to show submenu when mouse enters, (in seconds) | number | 0 |  |
+| subMenuStyle | The style of submenu | CSSProperties | - |  |
 | theme | Color theme of the menu | `light` \| `dark` | `light` |  |
 | triggerSubMenuAction | Which action can trigger submenu open/close | `hover` \| `click` | `hover` |  |
 | onClick | Called when a menu item is clicked | function({ item, key, keyPath, domEvent }) | - |  |

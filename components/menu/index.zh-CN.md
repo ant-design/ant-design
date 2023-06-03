@@ -57,6 +57,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 | style | 根节点样式 | CSSProperties | - |  |
 | subMenuCloseDelay | 用户鼠标离开子菜单后关闭延时，单位：秒 | number | 0.1 |  |
 | subMenuOpenDelay | 用户鼠标进入子菜单后开启延时，单位：秒 | number | 0 |  |
+| subMenuStyle | 子菜单的 style 属性 | CSSProperties | - |  |
 | theme | 主题颜色 | `light` \| `dark` | `light` |  |
 | triggerSubMenuAction | SubMenu 展开/关闭的触发行为 | `hover` \| `click` | `hover` |  |
 | onClick | 点击 MenuItem 调用此函数 | function({ item, key, keyPath, domEvent }) | - |  |
