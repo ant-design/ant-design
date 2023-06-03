@@ -57,9 +57,19 @@ const Divider: React.FC<DividerProps> = (props) => {
     rootClassName,
   );
 
+  const memoizedOrientationMargin = React.useMemo<string | number>(() => {
+    if (typeof orientationMargin === 'number') {
+      return orientationMargin;
+    }
+    if (/^\d+$/.test(orientationMargin!)) {
+      return Number(orientationMargin);
+    }
+    return orientationMargin!;
+  }, [orientationMargin]);
+
   const innerStyle: React.CSSProperties = {
-    ...(hasCustomMarginLeft && { marginLeft: orientationMargin }),
-    ...(hasCustomMarginRight && { marginRight: orientationMargin }),
+    ...(hasCustomMarginLeft && { marginLeft: memoizedOrientationMargin }),
+    ...(hasCustomMarginRight && { marginRight: memoizedOrientationMargin }),
   };
 
   // Warning children not work in vertical mode
