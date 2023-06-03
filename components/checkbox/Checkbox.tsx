@@ -2,11 +2,11 @@ import classNames from 'classnames';
 import type { CheckboxRef } from 'rc-checkbox';
 import RcCheckbox from 'rc-checkbox';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import { FormItemInputContext } from '../form/context';
 import warning from '../_util/warning';
-import { GroupContext } from './Group';
+import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
+import { FormItemInputContext } from '../form/context';
+import GroupContext from './GroupContext';
 
 import useStyle from './style';
 
