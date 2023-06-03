@@ -1,6 +1,3 @@
-import type { GenerateConfig } from 'rc-picker/lib/generate/index';
-import type { Locale as RcPickerLocale, PickerMode } from 'rc-picker/lib/interface';
-import type { SharedTimeProps } from 'rc-picker/lib/panels/TimePanel';
 import type {
   PickerBaseProps as RCPickerBaseProps,
   PickerDateProps as RCPickerDateProps,
@@ -11,66 +8,16 @@ import type {
   RangePickerDateProps as RCRangePickerDateProps,
   RangePickerTimeProps as RCRangePickerTimeProps,
 } from 'rc-picker/lib/RangePicker';
+import type { GenerateConfig } from 'rc-picker/lib/generate/index';
+import type { Locale as RcPickerLocale } from 'rc-picker/lib/interface';
+import type { InputStatus } from '../../_util/statusUtils';
 import type { SizeType } from '../../config-provider/SizeContext';
 import type { TimePickerLocale } from '../../time-picker';
-import type { InputStatus } from '../../_util/statusUtils';
-import PickerButton from '../PickerButton';
 import generateRangePicker from './generateRangePicker';
 import generateSinglePicker from './generateSinglePicker';
 
-export const Components = { button: PickerButton };
-
-function toArray<T>(list: T | T[]): T[] {
-  if (!list) {
-    return [];
-  }
-  return Array.isArray(list) ? list : [list];
-}
-
-export function getTimeProps<DateType, DisabledTime>(
-  props: { format?: string; picker?: PickerMode } & Omit<
-    SharedTimeProps<DateType>,
-    'disabledTime'
-  > & {
-      disabledTime?: DisabledTime;
-    },
-) {
-  const { format, picker, showHour, showMinute, showSecond, use12Hours } = props;
-
-  const firstFormat = toArray(format)[0];
-  const showTimeObj = { ...props };
-
-  if (firstFormat && typeof firstFormat === 'string') {
-    if (!firstFormat.includes('s') && showSecond === undefined) {
-      showTimeObj.showSecond = false;
-    }
-    if (!firstFormat.includes('m') && showMinute === undefined) {
-      showTimeObj.showMinute = false;
-    }
-    if (!firstFormat.includes('H') && !firstFormat.includes('h') && showHour === undefined) {
-      showTimeObj.showHour = false;
-    }
-
-    if ((firstFormat.includes('a') || firstFormat.includes('A')) && use12Hours === undefined) {
-      showTimeObj.use12Hours = true;
-    }
-  }
-
-  if (picker === 'time') {
-    return showTimeObj;
-  }
-
-  if (typeof firstFormat === 'function') {
-    // format of showTime should use default when format is custom format function
-    delete showTimeObj.format;
-  }
-
-  return {
-    showTime: showTimeObj,
-  };
-}
 const DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;
-type DataPickerPlacement = typeof DataPickerPlacements[number];
+type DataPickerPlacement = (typeof DataPickerPlacements)[number];
 
 type InjectDefaultProps<Props> = Omit<
   Props,
