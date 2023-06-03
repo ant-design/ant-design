@@ -110,7 +110,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const {
     dataSource = [],
     targetKeys = [],
-    selectedKeys = [],
+    selectedKeys,
     selectAllLabels = [],
     operations = [],
     style = {},
@@ -148,35 +148,27 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const [sourceSelectedKeys, setSourceSelectedKeys] = useState<string[]>(() =>
-    selectedKeys.filter((key) => !targetKeys.includes(key)),
+    (selectedKeys ?? []).filter((key) => !targetKeys.includes(key)),
   );
 
   const [targetSelectedKeys, setTargetSelectedKeys] = useState<string[]>(() =>
-    selectedKeys.filter((key) => targetKeys.includes(key)),
+    (selectedKeys ?? []).filter((key) => targetKeys.includes(key)),
   );
 
-  const propSourceKeys = useMemo(
+  const propSourceKeys = useMemo<string[]>(
     () =>
-      dataSource
-        .map((item) => {
-          if (!props.targetKeys?.includes(item.key!)) {
-            return item.key;
-          }
-          return false;
-        })
-        .filter(Boolean) as string[],
+      dataSource.filter((item) => !props.targetKeys?.includes(item.key!)).map((item) => item.key!),
     [dataSource, props.targetKeys],
   );
 
   const getMergedKeys = (
-    currentSelectedKeys: string[],
     currentTargetKeys: string[],
     typeSelectedKeys: string[],
     propTypeKeys: string[] | undefined,
     propSelectedKeys: string[] | undefined,
     isSource: boolean,
   ) => {
-    const keysWithSelectedOrNoTarget = currentSelectedKeys.filter((key) =>
+    const keysWithSelectedOrNoTarget = (selectedKeys ?? []).filter((key) =>
       isSource ? !currentTargetKeys.includes(key) : currentTargetKeys.includes(key),
     );
     if (propSelectedKeys) {
@@ -189,29 +181,13 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   };
 
   const mergedSourceSelectedKeys = useMemo(
-    () =>
-      getMergedKeys(
-        selectedKeys,
-        targetKeys,
-        sourceSelectedKeys,
-        propSourceKeys,
-        props.selectedKeys,
-        true,
-      ),
-    [selectedKeys, targetKeys, sourceSelectedKeys, propSourceKeys, props.selectedKeys],
+    () => getMergedKeys(targetKeys, sourceSelectedKeys, propSourceKeys, selectedKeys, true),
+    [selectedKeys, targetKeys, sourceSelectedKeys, propSourceKeys],
   );
 
   const mergedTargetSelectedKeys = useMemo(
-    () =>
-      getMergedKeys(
-        selectedKeys,
-        targetKeys,
-        targetSelectedKeys,
-        props.targetKeys,
-        props.selectedKeys,
-        false,
-      ),
-    [selectedKeys, targetKeys, targetSelectedKeys, props.targetKeys, props.selectedKeys],
+    () => getMergedKeys(targetKeys, targetSelectedKeys, targetKeys, selectedKeys, false),
+    [selectedKeys, targetKeys, targetSelectedKeys],
   );
 
   if (process.env.NODE_ENV !== 'production') {
@@ -332,7 +308,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       holder.push(selectedKey);
     }
     handleSelectChange(direction, holder);
-    if (!props.selectedKeys) {
+    if (!selectedKeys) {
       setStateKeys(direction, holder);
     }
   };
