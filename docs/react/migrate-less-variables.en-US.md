@@ -185,8 +185,8 @@ This document contains the correspondence between all the less variables related
 | `@form-vertical-label-margin` | - | used as 0 |
 | `@form-item-label-font-size` | `labelFontSize` | - |
 | `@form-item-label-height` | `labelHeight` | - |
-| `@form-item-label-colon-margin-right` | `labelColonMarginRight` | - |
-| `@form-item-label-colon-margin-left` | `labelColonMarginLeft` | - |
+| `@form-item-label-colon-margin-right` | `labelColonMarginInlineEnd` | - |
+| `@form-item-label-colon-margin-left` | `labelColonMarginInlineStart` | - |
 | `@form-error-input-bg` | - | Deprecated for style change |
 
 ### Image

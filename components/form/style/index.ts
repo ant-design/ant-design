@@ -1,8 +1,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { resetComponent } from '../../style';
 import { genCollapseMotion, zoomIn } from '../../style/motion';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent } from '../../style';
 import genFormValidateMotionStyle from './explain';
 
 export interface ComponentToken {
@@ -10,8 +10,8 @@ export interface ComponentToken {
   labelColor: string;
   labelFontSize: number;
   labelHeight: number;
-  labelColonMarginLeft: number;
-  labelColonMarginRight: number;
+  labelColonMarginInlineStart: number;
+  labelColonMarginInlineEnd: number;
   itemMarginBottom: number;
 }
 
@@ -132,8 +132,8 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
     labelColor,
     labelFontSize,
     labelHeight,
-    labelColonMarginLeft,
-    labelColonMarginRight,
+    labelColonMarginInlineStart,
+    labelColonMarginInlineEnd,
     itemMarginBottom,
   } = token;
 
@@ -239,8 +239,8 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
             content: '":"',
             position: 'relative',
             marginBlock: 0,
-            marginInlineStart: labelColonMarginLeft,
-            marginInlineEnd: labelColonMarginRight,
+            marginInlineStart: labelColonMarginInlineStart,
+            marginInlineEnd: labelColonMarginInlineEnd,
           },
 
           [`&${formItemCls}-no-colon::after`]: {
@@ -522,8 +522,8 @@ export default genComponentStyleHook(
     labelColor: token.colorTextHeading,
     labelFontSize: token.fontSize,
     labelHeight: token.controlHeight,
-    labelColonMarginLeft: token.marginXXS / 2,
-    labelColonMarginRight: token.marginXS,
+    labelColonMarginInlineStart: token.marginXXS / 2,
+    labelColonMarginInlineEnd: token.marginXS,
     itemMarginBottom: token.marginLG,
   }),
 );

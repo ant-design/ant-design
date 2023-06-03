@@ -183,8 +183,8 @@ title: Less 变量迁移 Design Token
 | `@form-vertical-label-margin` | - | 值为 0 |
 | `@form-item-label-font-size` | `labelFontSize` | - |
 | `@form-item-label-height` | `labelHeight` | - |
-| `@form-item-label-colon-margin-right` | `labelColonMarginRight` | - |
-| `@form-item-label-colon-margin-left` | `labelColonMarginLeft` | - |
+| `@form-item-label-colon-margin-right` | `labelColonMarginInlineEnd` | - |
+| `@form-item-label-colon-margin-left` | `labelColonMarginInlineStart` | - |
 | `@form-error-input-bg` | - | 由于样式变化已废弃 |
 
 ### Image 图片
