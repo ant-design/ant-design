@@ -437,23 +437,23 @@ Mentions 提及
 
 ### TimePicker 时间选择
 
-| Less 变量                                    | Component Token                | 备注       |
-| -------------------------------------------- | ------------------------------ | ---------- |
-| `@picker-bg`                                 | -                              | 已废弃     |
-| `@picker-basic-cell-hover-color`             | -                              | 已废弃     |
-| `@picker-basic-cell-active-with-range-color` | -                              | 已废弃     |
-| `@picker-basic-cell-hover-with-range-color`  | `basicCellHoverWithRangeColor` | -          |
-| `@picker-basic-cell-disabled-bg`             | `colorBgContainerDisabled`     | 全局 Token |
-| `@picker-border-color`                       | -                              | 已废弃     |
-| `@picker-date-hover-range-border-color`      | `dateHoverRangeBorderColor`    | -          |
-| `@picker-date-hover-range-color`             | -                              | 已废弃     |
-| `@picker-time-panel-column-width`            | `timePanelColumnWidth`         | -          |
-| `@picker-time-panel-column-height`           | `timePanelColumnHeight`        | -          |
-| `@picker-time-panel-cell-height`             | `timePanelCellHeight`          | -          |
-| `@picker-panel-cell-height`                  | `panelCellHeight`              | -          |
-| `@picker-panel-cell-width`                   | `panelCellWidth`               | -          |
-| `@picker-text-height`                        | `textHeight`                   | -          |
-| `@picker-panel-without-time-cell-height`     | `panelWithoutTimeCellHeight`   | -          |
+| Less 变量                                    | Component Token                 | 备注       |
+| -------------------------------------------- | ------------------------------- | ---------- |
+| `@picker-bg`                                 | `colorBgContainer`              | 全局 Token |
+| `@picker-basic-cell-hover-color`             | `basicCellHoverColor`           | -          |
+| `@picker-basic-cell-active-with-range-color` | `basicCellActiveWithRangeColor` | -          |
+| `@picker-basic-cell-hover-with-range-color`  | `basicCellHoverWithRangeColor`  | -          |
+| `@picker-basic-cell-disabled-bg`             | `colorBgContainerDisabled`      | 全局 Token |
+| `@picker-border-color`                       | `colorSplit`                    | 全局 Token |
+| `@picker-date-hover-range-border-color`      | `dateHoverRangeBorderColor`     | -          |
+| `@picker-date-hover-range-color`             | `basicCellHoverWithRangeColor`  | -          |
+| `@picker-time-panel-column-width`            | `timePanelColumnWidth`          | -          |
+| `@picker-time-panel-column-height`           | `timePanelColumnHeight`         | -          |
+| `@picker-time-panel-cell-height`             | `timePanelCellHeight`           | -          |
+| `@picker-panel-cell-height`                  | `panelCellHeight`               | -          |
+| `@picker-panel-cell-width`                   | `panelCellWidth`                | -          |
+| `@picker-text-height`                        | `textHeight`                    | -          |
+| `@picker-panel-without-time-cell-height`     | `panelWithoutTimeCellHeight`    | -          |
 
 ### Tooltip 文字提示
 

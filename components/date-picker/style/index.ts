@@ -26,6 +26,8 @@ export interface ComponentToken {
   presetsWidth: number;
   presetsMaxWidth: number;
   zIndexPopup: number;
+  basicCellHoverColor: string;
+  basicCellActiveWithRangeColor: string;
   basicCellHoverWithRangeColor: string;
   dateHoverRangeBorderColor: string;
   timePanelColumnWidth: number;
@@ -79,11 +81,11 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
     motionDurationSlow,
     borderRadiusSM,
     motionDurationMid,
-    controlItemBgHover,
+    basicCellHoverColor,
     lineWidth,
     lineType,
     colorPrimary,
-    controlItemBgActive,
+    basicCellActiveWithRangeColor,
     colorTextLightSolid,
     controlHeightSM,
     dateHoverRangeBorderColor,
@@ -124,7 +126,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
     &:hover:not(${pickerCellCls}-selected):not(${pickerCellCls}-range-start):not(${pickerCellCls}-range-end):not(${pickerCellCls}-range-hover-start):not(${pickerCellCls}-range-hover-end)`]:
       {
         [pickerCellInnerCls]: {
-          background: controlItemBgHover,
+          background: basicCellHoverColor,
         },
       },
 
@@ -148,7 +150,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       position: 'relative',
 
       '&::before': {
-        background: controlItemBgActive,
+        background: basicCellActiveWithRangeColor,
       },
     },
 
@@ -163,7 +165,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
     [`&-in-view${pickerCellCls}-range-start:not(${pickerCellCls}-range-start-single),
       &-in-view${pickerCellCls}-range-end:not(${pickerCellCls}-range-end-single)`]: {
       '&::before': {
-        background: controlItemBgActive,
+        background: basicCellActiveWithRangeColor,
       },
     },
 
@@ -325,7 +327,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
     dateHoverRangeBorderColor,
     borderRadiusSM,
     colorTextLightSolid,
-    controlItemBgHover,
+    basicCellHoverColor,
     timePanelColumnHeight,
     timePanelColumnWidth,
     timePanelCellHeight,
@@ -749,7 +751,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
           [`&:hover td`]: {
             '&:before': {
-              background: controlItemBgHover,
+              background: basicCellHoverColor,
             },
           },
 
@@ -881,7 +883,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
                 transition: `background ${motionDurationMid}`,
 
                 '&:hover': {
-                  background: controlItemBgHover,
+                  background: basicCellHoverColor,
                 },
               },
 
@@ -998,7 +1000,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     paddingXXS,
     paddingSM,
     textHeight,
-    controlItemBgActive,
+    basicCellActiveWithRangeColor,
     colorPrimaryBorder,
     sizePopupArrow,
     borderRadiusXS,
@@ -1008,7 +1010,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     boxShadowSecondary,
     borderRadiusSM,
     colorSplit,
-    controlItemBgHover,
+    basicCellHoverColor,
     presetsWidth,
     presetsMaxWidth,
     boxShadowPopoverArrow,
@@ -1302,7 +1304,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             // https://github.com/ant-design/ant-design/issues/23687
             [`${componentCls}-preset > ${antCls}-tag-blue`]: {
               color: colorPrimary,
-              background: controlItemBgActive,
+              background: basicCellActiveWithRangeColor,
               borderColor: colorPrimaryBorder,
               cursor: 'pointer',
             },
@@ -1376,7 +1378,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
                   },
 
                   '&:hover': {
-                    background: controlItemBgHover,
+                    background: basicCellHoverColor,
                   },
                 },
               },
@@ -1488,6 +1490,8 @@ export default genComponentStyleHook(
     presetsWidth: 120,
     presetsMaxWidth: 200,
     zIndexPopup: token.zIndexPopupBase + 50,
+    basicCellHoverColor: token.controlItemBgHover,
+    basicCellActiveWithRangeColor: token.controlItemBgActive,
     basicCellHoverWithRangeColor: new TinyColor(token.colorPrimary).lighten(35).toHexString(),
     dateHoverRangeBorderColor: new TinyColor(token.colorPrimary).lighten(20).toHexString(),
     timePanelColumnWidth: token.controlHeightLG * 1.4,

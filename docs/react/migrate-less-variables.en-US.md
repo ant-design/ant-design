@@ -440,23 +440,23 @@ This document contains the correspondence between all the less variables related
 
 ### TimePicker
 
-| Less variables                               | Component Token                | Note         |
-| -------------------------------------------- | ------------------------------ | ------------ |
-| `@picker-bg`                                 | -                              | Deprecated   |
-| `@picker-basic-cell-hover-color`             | -                              | Deprecated   |
-| `@picker-basic-cell-active-with-range-color` | -                              | Deprecated   |
-| `@picker-basic-cell-hover-with-range-color`  | `basicCellHoverWithRangeColor` | -            |
-| `@picker-basic-cell-disabled-bg`             | `colorBgContainerDisabled`     | Global Token |
-| `@picker-border-color`                       | -                              | Deprecated   |
-| `@picker-date-hover-range-border-color`      | `dateHoverRangeBorderColor`    | -            |
-| `@picker-date-hover-range-color`             | -                              | Deprecated   |
-| `@picker-time-panel-column-width`            | `timePanelColumnWidth`         | -            |
-| `@picker-time-panel-column-height`           | `timePanelColumnHeight`        | -            |
-| `@picker-time-panel-cell-height`             | `timePanelCellHeight`          | -            |
-| `@picker-panel-cell-height`                  | `panelCellHeight`              | -            |
-| `@picker-panel-cell-width`                   | `panelCellWidth`               | -            |
-| `@picker-text-height`                        | `textHeight`                   | -            |
-| `@picker-panel-without-time-cell-height`     | `panelWithoutTimeCellHeight`   | -            |
+| Less variables                               | Component Token                 | Note         |
+| -------------------------------------------- | ------------------------------- | ------------ |
+| `@picker-bg`                                 | `colorBgContainer`              | Global Token |
+| `@picker-basic-cell-hover-color`             | `basicCellHoverColor`           | -            |
+| `@picker-basic-cell-active-with-range-color` | `basicCellActiveWithRangeColor` | -            |
+| `@picker-basic-cell-hover-with-range-color`  | `basicCellHoverWithRangeColor`  | -            |
+| `@picker-basic-cell-disabled-bg`             | `colorBgContainerDisabled`      | Global Token |
+| `@picker-border-color`                       | `colorSplit`                    | Global Token |
+| `@picker-date-hover-range-border-color`      | `dateHoverRangeBorderColor`     | -            |
+| `@picker-date-hover-range-color`             | `basicCellHoverWithRangeColor`  | -            |
+| `@picker-time-panel-column-width`            | `timePanelColumnWidth`          | -            |
+| `@picker-time-panel-column-height`           | `timePanelColumnHeight`         | -            |
+| `@picker-time-panel-cell-height`             | `timePanelCellHeight`           | -            |
+| `@picker-panel-cell-height`                  | `panelCellHeight`               | -            |
+| `@picker-panel-cell-width`                   | `panelCellWidth`                | -            |
+| `@picker-text-height`                        | `textHeight`                    | -            |
+| `@picker-panel-without-time-cell-height`     | `panelWithoutTimeCellHeight`    | -            |
 
 ### Tooltip
 
