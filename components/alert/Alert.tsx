@@ -7,10 +7,9 @@ import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import type { ReactElement } from 'react';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 import { replaceElement } from '../_util/reactNode';
-import ErrorBoundary from './ErrorBoundary';
+import { ConfigContext } from '../config-provider';
 
 // CSSINJS
 import useStyle from './style';
@@ -92,11 +91,7 @@ const CloseIcon: React.FC<CloseIconProps> = (props) => {
   ) : null;
 };
 
-type CompoundedComponent = React.FC<AlertProps> & {
-  ErrorBoundary: typeof ErrorBoundary;
-};
-
-const Alert: CompoundedComponent = ({
+const Alert: React.FC<AlertProps> = ({
   description,
   prefixCls: customizePrefixCls,
   message,
@@ -207,8 +202,6 @@ const Alert: CompoundedComponent = ({
     </CSSMotion>,
   );
 };
-
-Alert.ErrorBoundary = ErrorBoundary;
 
 if (process.env.NODE_ENV !== 'production') {
   Alert.displayName = 'Alert';
