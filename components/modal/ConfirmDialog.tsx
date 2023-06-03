@@ -4,13 +4,13 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
 import * as React from 'react';
-import ConfigProvider from '../config-provider';
-import { useLocale } from '../locale';
 import ActionButton from '../_util/ActionButton';
 import { getTransitionName } from '../_util/motion';
 import warning from '../_util/warning';
-import type { ModalFuncProps, ModalLocale } from './Modal';
+import ConfigProvider from '../config-provider';
+import { useLocale } from '../locale';
 import Dialog from './Modal';
+import type { ModalFuncProps, ModalLocale } from './interface';
 
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;

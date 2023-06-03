@@ -3,8 +3,8 @@ import * as React from 'react';
 import warning from '../_util/warning';
 import { globalConfig, warnContext } from '../config-provider';
 import ConfirmDialog from './ConfirmDialog';
-import type { ModalFuncProps } from './Modal';
 import destroyFns from './destroyFns';
+import type { ModalFuncProps } from './interface';
 import { getConfirmLocale } from './locale';
 
 let defaultRootPrefixCls = '';
