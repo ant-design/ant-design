@@ -51,7 +51,7 @@ export interface ProgressProps extends ProgressAriaProps {
   gapDegree?: number;
   gapPosition?: 'top' | 'bottom' | 'left' | 'right';
   size?: number | [number, number] | ProgressSize;
-  steps?: number;
+  steps?: number | { count: number; space: number };
   /** @deprecated Use `success` instead */
   successPercent?: number;
   children?: React.ReactNode;
@@ -131,7 +131,12 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   // Render progress shape
   if (type === 'line') {
     progress = steps ? (
-      <Steps {...props} strokeColor={strokeColorNotGradient} prefixCls={prefixCls} steps={steps}>
+      <Steps
+        {...props}
+        strokeColor={strokeColorNotGradient}
+        prefixCls={prefixCls}
+        steps={typeof steps === 'object' ? steps.count : steps}
+      >
         {progressInfo}
       </Steps>
     ) : (
@@ -161,7 +166,9 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     prefixCls,
     {
       [`${prefixCls}-inline-circle`]: type === 'circle' && getSize(size, 'circle')[0] <= 20,
-      [`${prefixCls}-${(type === 'dashboard' && 'circle') || (steps && 'steps') || type}`]: true,
+      [`${prefixCls}-${(type === 'dashboard' && 'circle') || type}`]: type !== 'line',
+      [`${prefixCls}-line`]: !steps && type === 'line',
+      [`${prefixCls}-steps`]: steps,
       [`${prefixCls}-status-${progressStatus}`]: true,
       [`${prefixCls}-show-info`]: showInfo,
       [`${prefixCls}-${size}`]: typeof size === 'string',
