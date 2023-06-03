@@ -32,6 +32,7 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 <code src="./demo/linecap.tsx">Stroke Linecap</code>
 <code src="./demo/gradient-line.tsx">Custom line gradient</code>
 <code src="./demo/steps.tsx">Progress bar with steps</code>
+<code src="./demo/circle-steps.tsx">Circular progress bar whit steps</code>
 <code src="./demo/size.tsx">Progress size</code>
 
 ## API
@@ -64,13 +65,15 @@ Properties that shared by all types.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| steps | The total step count.When passing an object, `count` refers to the number of steps, and `space` refers to the distance between them.When passing number, the default value for `space` is 2. | number \| { count: number, space: number } | - | 5.15.4 |
 | strokeColor | The color of circular progress, render gradient when passing an object | string \| { number%: string } | - | - |
 | strokeWidth | To set the width of the circular progress, unit: percentage of the canvas width | number | 6 | - |
 
 ### `type="dashboard"`
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| steps | The total step count.When passing an object, `count` refers to the number of steps, and `space` refers to the distance between them.When passing number, the default value for `space` is 2. | number \| { count: number, space: number } | - | 5.15.4 |
 | gapDegree | The gap degree of half circle, 0 ~ 295 | number | 75 |
 | gapPosition | The gap position, options: `top` `bottom` `left` `right` | string | `bottom` |
 | strokeWidth | To set the width of the dashboard progress, unit: percentage of the canvas width | number | 6 |

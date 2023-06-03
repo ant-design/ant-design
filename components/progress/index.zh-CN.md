@@ -33,6 +33,7 @@ demo:
 <code src="./demo/linecap.tsx">边缘形状</code>
 <code src="./demo/gradient-line.tsx">自定义进度条渐变色</code>
 <code src="./demo/steps.tsx">步骤进度条</code>
+<code src="./demo/circle-steps.tsx">步骤进度圈</code>
 <code src="./demo/size.tsx">尺寸</code>
 
 ## API
@@ -65,6 +66,7 @@ demo:
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| steps | 进度条总共步数，传入 object 时，count 指步数，space 指间隔大小。传 number 类型时，space 默认为 2。 | number \| { count: number, space: number } | - | 5.15.4 |
 | strokeColor | 圆形进度条线的色彩，传入 object 时为渐变 | string \| { number%: string } | - | - |
 | strokeWidth | 圆形进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 | - |
 
@@ -72,6 +74,7 @@ demo:
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| steps | 进度条总共步数，传入 object 时，count 指步数，space 指间隔大小。传 number 类型时，space 默认为 2。 | number \| { count: number, space: number } | - | 5.15.4 |
 | gapDegree | 仪表盘进度条缺口角度，可取值 0 ~ 295 | number | 75 | - |
 | gapPosition | 仪表盘进度条缺口位置 | `top` \| `bottom` \| `left` \| `right` | `bottom` | - |
 | strokeWidth | 仪表盘进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 | - |
