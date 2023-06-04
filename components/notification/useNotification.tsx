@@ -1,18 +1,18 @@
-import * as React from 'react';
+import classNames from 'classnames';
 import { useNotification as useRcNotification } from 'rc-notification';
 import type { NotificationAPI } from 'rc-notification/lib';
-import classNames from 'classnames';
-import { ConfigContext } from '../config-provider';
-import type {
-  NotificationInstance,
-  ArgsProps,
-  NotificationPlacement,
-  NotificationConfig,
-} from './interface';
-import { getPlacementStyle, getMotion } from './util';
+import * as React from 'react';
 import warning from '../_util/warning';
+import { ConfigContext } from '../config-provider';
+import { PureContent, getCloseIcon } from './PurePanel';
+import type {
+  ArgsProps,
+  NotificationConfig,
+  NotificationInstance,
+  NotificationPlacement,
+} from './interface';
 import useStyle from './style';
-import { getCloseIcon, PureContent } from './PurePanel';
+import { getMotion, getPlacementStyle } from './util';
 
 const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;
@@ -105,7 +105,16 @@ export function useInternalNotification(
       const { open: originOpen, prefixCls, hashId } = holderRef.current;
       const noticePrefixCls = `${prefixCls}-notice`;
 
-      const { message, description, icon, type, btn, className, ...restConfig } = config;
+      const {
+        message,
+        description,
+        icon,
+        type,
+        btn,
+        className,
+        role = 'alert',
+        ...restConfig
+      } = config;
 
       return originOpen({
         placement: 'topRight',
@@ -118,6 +127,7 @@ export function useInternalNotification(
             message={message}
             description={description}
             btn={btn}
+            role={role}
           />
         ),
         className: classNames(type && `${noticePrefixCls}-${type}`, hashId, className),

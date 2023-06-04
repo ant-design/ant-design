@@ -26,6 +26,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 <code src="./demo/ellipsis-middle.tsx">省略中间</code>
 <code src="./demo/ellipsis-debug.tsx" debug>省略号 Debug</code>
 <code src="./demo/suffix.tsx">后缀</code>
+<code src="./demo/componentToken-debug.tsx" debug>组件 Token</code>
 
 ## API
 

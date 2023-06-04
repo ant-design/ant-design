@@ -1,5 +1,6 @@
-import { TinyColor } from '@ctrl/tinycolor';
 import type { CSSObject } from '@ant-design/cssinjs';
+import { TinyColor } from '@ctrl/tinycolor';
+import { clearFix, resetComponent, resetIcon } from '../../style';
 import { genCollapseMotion, initSlideMotion, initZoomMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -7,7 +8,6 @@ import getHorizontalStyle from './horizontal';
 import getRTLStyle from './rtl';
 import getThemeStyle from './theme';
 import getVerticalStyle from './vertical';
-import { clearFix, resetComponent, resetIcon } from '../../style';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -349,10 +349,13 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           '&-popup': {
             position: 'absolute',
             zIndex: zIndexPopup,
-            background: 'transparent',
             borderRadius: borderRadiusLG,
             boxShadow: 'none',
             transformOrigin: '0 0',
+
+            [`&${componentCls}-submenu`]: {
+              background: 'transparent',
+            },
 
             // https://github.com/ant-design/ant-design/issues/13955
             '&::before': {
@@ -370,6 +373,55 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           '&-placement-rightTop::before': {
             top: 0,
             insetInlineStart: menuPanelMaskInset,
+          },
+
+          [`
+          &-placement-leftTop,
+          &-placement-bottomRight,
+          `]: {
+            transformOrigin: '100% 0',
+          },
+
+          [`
+          &-placement-leftBottom,
+          &-placement-topRight,
+          `]: {
+            transformOrigin: '100% 100%',
+          },
+
+          [`
+          &-placement-rightBottom,
+          &-placement-topLeft,
+          `]: {
+            transformOrigin: '0 100%',
+          },
+
+          [`
+          &-placement-leftTop,
+          &-placement-leftBottom
+          `]: {
+            paddingInlineEnd: token.paddingXS,
+          },
+
+          [`
+          &-placement-rightTop,
+          &-placement-rightBottom
+          `]: {
+            paddingInlineStart: token.paddingXS,
+          },
+
+          [`
+          &-placement-topRight,
+          &-placement-topLeft
+          `]: {
+            paddingBottom: token.paddingXS,
+          },
+
+          [`
+          &-placement-bottomRight,
+          &-placement-bottomLeft
+          `]: {
+            paddingTop: token.paddingXS,
           },
 
           [`> ${componentCls}`]: {
