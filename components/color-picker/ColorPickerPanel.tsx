@@ -10,12 +10,22 @@ import ColorPresets from './components/ColorPresets';
 import type { ColorPickerBaseProps } from './interface';
 
 interface ColorPickerPanelProps extends ColorPickerBaseProps {
-  onChange?: (value?: Color, type?: HsbaColorType) => void;
+  onChange?: (value?: Color, type?: HsbaColorType, pickColor?: boolean) => void;
+  onChangeComplete?: (type?: HsbaColorType) => void;
   onClear?: () => void;
 }
 
 const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
-  const { prefixCls, allowClear, presets, onChange, onClear, color, ...injectProps } = props;
+  const {
+    prefixCls,
+    allowClear,
+    presets,
+    onChange,
+    onClear,
+    onChangeComplete,
+    color,
+    ...injectProps
+  } = props;
   const colorPickerPanelPrefixCls = `${prefixCls}-inner-panel`;
 
   const extraPanelRender = (panel: React.ReactNode) => (
@@ -45,8 +55,9 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
     <RcColorPicker
       prefixCls={prefixCls}
       value={color?.toHsb()}
-      onChange={onChange}
+      onChange={(colorValue, type) => onChange?.(colorValue, type, true)}
       panelRender={extraPanelRender}
+      onChangeComplete={onChangeComplete}
     />
   );
 };

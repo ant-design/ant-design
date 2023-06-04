@@ -50,10 +50,11 @@ const useStyle = () => {
     tocWrapper: css`
       position: absolute;
       top: 8px;
-      right: 0;
+      inset-inline-end: 0;
       width: 160px;
       margin: 12px 0;
-      padding: 8px 8px 8px 4px;
+      padding: 8px 0;
+      padding-inline: 4px 8px;
       backdrop-filter: blur(8px);
       border-radius: ${token.borderRadius}px;
       box-sizing: border-box;
@@ -73,11 +74,6 @@ const useStyle = () => {
         margin: 0 auto;
         overflow: auto;
         padding-inline: 4px;
-      }
-
-      &.rtl {
-        right: auto;
-        left: 20px;
       }
 
       @media only screen and (max-width: ${token.screenLG}px) {
@@ -209,7 +205,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
     <DemoContext.Provider value={contextValue}>
       <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
         <Affix>
-          <section css={styles.tocWrapper} className={classNames({ rtl: isRTL })}>
+          <section css={styles.tocWrapper}>
             <Anchor
               css={styles.toc}
               affix={false}
