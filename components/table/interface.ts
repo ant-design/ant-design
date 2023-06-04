@@ -1,17 +1,17 @@
 import type {
-  ColumnType as RcColumnType,
   FixedType,
   GetComponentProps,
+  ColumnType as RcColumnType,
   RenderedCell as RcRenderedCell,
 } from 'rc-table/lib/interface';
 import { ExpandableConfig, GetRowKey } from 'rc-table/lib/interface';
 import type * as React from 'react';
+import type { Breakpoint } from '../_util/responsiveObserver';
 import type { CheckboxProps } from '../checkbox';
 import type { PaginationProps } from '../pagination';
 import type { TooltipProps } from '../tooltip';
-import type { Breakpoint } from '../_util/responsiveObserver';
-import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 import type { InternalTableProps, TableProps } from './InternalTable';
+import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 
 export type RefTable = <RecordType extends object = any>(
   props: React.PropsWithChildren<TableProps<RecordType>> & { ref?: React.Ref<HTMLDivElement> },
@@ -56,7 +56,7 @@ export interface TableLocale {
 export type SortOrder = 'descend' | 'ascend' | null;
 
 const TableActions = ['paginate', 'sort', 'filter'] as const;
-export type TableAction = typeof TableActions[number];
+export type TableAction = (typeof TableActions)[number];
 
 export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
 
@@ -119,6 +119,7 @@ export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, '
   sortOrder?: SortOrder;
   defaultSortOrder?: SortOrder;
   sortDirections?: SortOrder[];
+  sortIcon?: (props: { sortOrder: SortOrder }) => React.ReactNode;
   showSorterTooltip?: boolean | TooltipProps;
 
   // Filter

@@ -13,6 +13,49 @@ A content area which can be collapsed and expanded.
 - Can be used to group or hide complex regions to keep the page clean.
 - `Accordion` is a special kind of `Collapse`, which allows only one panel to be expanded at a time.
 
+```tsx | pure
+// works when >= 5.6.0, recommended ✅
+const text = `
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+`;
+
+const items: CollapseProps['items'] = [
+  {
+    key: '1',
+    label: 'This is panel header 1',
+    children: <p>{text}</p>,
+  },
+  {
+    key: '2',
+    label: 'This is panel header 2',
+    children: <p>{text}</p>,
+  },
+  {
+    key: '3',
+    label: 'This is panel header 3',
+    children: <p>{text}</p>,
+  },
+];
+
+<Collapse items={items} defaultActiveKey={['1']} />;
+
+// works when <5.6.0 , deprecated when >=5.6.0  🙅🏻‍♀️
+
+<Collapse defaultActiveKey={['1']} onChange={onChange}>
+  <Panel header="This is panel header 1" key="1">
+    <p>{text}</p>
+  </Panel>
+  <Panel header="This is panel header 2" key="2">
+    <p>{text}</p>
+  </Panel>
+  <Panel header="This is panel header 3" key="3">
+    <p>{text}</p>
+  </Panel>
+</Collapse>;
+```
+
 ## Examples
 
 <!-- prettier-ignore -->
@@ -44,8 +87,11 @@ A content area which can be collapsed and expanded.
 | ghost | Make the collapse borderless and its background transparent | boolean | false | 4.4.0 |
 | size | Set the size of collapse | `large` \| `middle` \| `small` | `middle` | 5.2.0 |
 | onChange | Callback function executed when active panel is changed | function | - |  |
+| items | collapse items content | [ItemType](https://github.com/react-component/collapse/blob/27250ca5415faab16db412b9bff2c131bb4f32fc/src/interface.ts#L6) | - | 5.6.0 |
 
 ### Collapse.Panel
+
+<Alert message="&gt;= 5.6.0 configure the panel by `items`."></Alert>
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
