@@ -27,6 +27,7 @@ A long list can be divided into several pages using `Pagination`, and only one p
 <code src="./demo/all.tsx">Show All</code>
 <code src="./demo/itemRender.tsx">Prev and next</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
+<code src="./demo/component-token.tsx" debug>component Token</code>
 
 ## API
 

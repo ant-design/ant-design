@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
 import warning from '../_util/warning';
+import { ConfigContext } from '../config-provider';
 
 import useStyle from './style';
 
