@@ -1,7 +1,7 @@
 ## zh-CN
 
-信息提醒反馈。
+静态方法无法消费 Context，推荐优先使用 Hooks 版本。
 
 ## en-US
 
-Normal message for information.
+Static methods cannot consume Context. Please use hooks first.

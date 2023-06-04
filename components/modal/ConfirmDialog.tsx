@@ -4,11 +4,12 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
 import * as React from 'react';
-import ConfigProvider from '../config-provider';
-import { useLocale } from '../locale';
 import ActionButton from '../_util/ActionButton';
 import { getTransitionName } from '../_util/motion';
 import warning from '../_util/warning';
+import type { ThemeConfig } from '../config-provider';
+import ConfigProvider from '../config-provider';
+import { useLocale } from '../locale';
 import type { ModalFuncProps, ModalLocale } from './Modal';
 import Dialog from './Modal';
 
@@ -18,6 +19,7 @@ interface ConfirmDialogProps extends ModalFuncProps {
   autoFocusButton?: null | 'ok' | 'cancel';
   rootPrefixCls: string;
   iconPrefixCls?: string;
+  theme?: ThemeConfig;
 
   /** @private Internal Usage. Do not override this */
   locale?: ModalLocale;
@@ -143,6 +145,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     wrapClassName,
     rootPrefixCls,
     iconPrefixCls,
+    theme,
     bodyStyle,
     closable = false,
     closeIcon,
@@ -174,7 +177,12 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
   );
 
   return (
-    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} direction={direction}>
+    <ConfigProvider
+      prefixCls={rootPrefixCls}
+      iconPrefixCls={iconPrefixCls}
+      direction={direction}
+      theme={theme}
+    >
       <Dialog
         prefixCls={prefixCls}
         className={classString}
