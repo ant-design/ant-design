@@ -101,7 +101,7 @@ const PrevAndNext: React.FC<{ rtl?: boolean }> = ({ rtl }) => {
   const afterProps = { className: 'footer-nav-icon-after' };
 
   const before = rtl ? <LeftOutlined {...beforeProps} /> : <RightOutlined {...beforeProps} />;
-  const after = rtl ? <LeftOutlined {...afterProps} /> : <RightOutlined {...afterProps} />;
+  const after = rtl ? <RightOutlined {...afterProps} /> : <LeftOutlined {...afterProps} />;
 
   const [menuItems, selectedKey] = useMenu({ before, after });
 
