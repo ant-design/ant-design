@@ -7,8 +7,7 @@ import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
-import LTRIcon from '../../common/LTRIcon';
-import RTLIcon from '../../common/RTLIcon';
+import DirectionIcon from '../../common/DirectionIcon';
 import * as utils from '../../utils';
 import { getThemeConfig, ping } from '../../utils';
 import type { SiteContextProps } from '../SiteContext';
@@ -316,9 +315,9 @@ const Header: React.FC = () => {
       key="direction"
       onClick={onDirectionChange}
       value={direction === 'rtl' ? 2 : 1}
-      label1={<LTRIcon css={style.dataDirectionIcon} />}
+      label1={<DirectionIcon css={style.dataDirectionIcon} direction="ltr" />}
       tooltip1="LTR"
-      label2={<RTLIcon css={style.dataDirectionIcon} />}
+      label2={<DirectionIcon css={style.dataDirectionIcon} direction="rtl" />}
       tooltip2="RTL"
       pure
     />,
