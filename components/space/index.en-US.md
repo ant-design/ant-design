@@ -64,6 +64,13 @@ Use Space.Compact when child form components are compactly connected and the bor
 | direction | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | size | Set child component size | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
 
+### `styles` and `classNames` attribute
+
+<!-- prettier-ignore -->
+| Property | Description | Version |
+| -------- | ------------------------- | ------- |
+| item     | set `Space` child element | 5.6.0   |
+
 ## Design Token
 
 <ComponentTokenTable component="Space"></ComponentTokenTable>

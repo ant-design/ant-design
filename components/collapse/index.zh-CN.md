@@ -14,6 +14,49 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
 - 对复杂区域进行分组和隐藏，保持页面的整洁。
 - `手风琴` 是一种特殊的折叠面板，只允许单个内容区域展开。
 
+```tsx | pure
+// >= 5.6.0 可用，推荐的写法 ✅
+const text = `
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+`;
+
+const items: CollapseProps['items'] = [
+  {
+    key: '1',
+    label: 'This is panel header 1',
+    children: <p>{text}</p>,
+  },
+  {
+    key: '2',
+    label: 'This is panel header 2',
+    children: <p>{text}</p>,
+  },
+  {
+    key: '3',
+    label: 'This is panel header 3',
+    children: <p>{text}</p>,
+  },
+];
+
+<Collapse items={items} defaultActiveKey={['1']} />;
+
+// <5.6.0 可用，>=5.6.0 时不推荐 🙅🏻‍♀️
+
+<Collapse defaultActiveKey={['1']} onChange={onChange}>
+  <Panel header="This is panel header 1" key="1">
+    <p>{text}</p>
+  </Panel>
+  <Panel header="This is panel header 2" key="2">
+    <p>{text}</p>
+  </Panel>
+  <Panel header="This is panel header 3" key="3">
+    <p>{text}</p>
+  </Panel>
+</Collapse>;
+```
+
 ## 代码演示
 
 <!-- prettier-ignore -->
@@ -45,8 +88,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
 | ghost | 使折叠面板透明且无边框 | boolean | false | 4.4.0 |
 | size | 设置折叠面板大小 | `large` \| `middle` \| `small` | `middle` | 5.2.0 |
 | onChange | 切换面板的回调 | function | - |  |
+| items | 折叠项目内容 | [ItemType](https://github.com/react-component/collapse/blob/27250ca5415faab16db412b9bff2c131bb4f32fc/src/interface.ts#L6) | - | 5.6.0 |
 
 ### Collapse.Panel
+
+<Alert message="&gt;= 5.6.0 请使用 items 方式配置面板."></Alert>
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
