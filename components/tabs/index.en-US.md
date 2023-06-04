@@ -74,6 +74,7 @@ More option at [rc-tabs tabs](https://github.com/react-component/tabs#tabs)
 | --- | --- | --- | --- |
 | closable | Set tab closable. Only works while `type="editable-card"` | boolean | true |
 | closeIcon | Customize close icon in TabPane's head. Only works while `type="editable-card"` | ReactNode | - |
+| closable | Whether the Tab can be closed, Only works while `type="editable-card"` | boolean | true |
 | disabled | Set TabPane disabled | boolean | false |
 | forceRender | Forced render of content in tabs, not lazy render after clicking on tabs | boolean | false |
 | key | TabPane's key | string | - |
