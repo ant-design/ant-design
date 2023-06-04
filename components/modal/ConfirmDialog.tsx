@@ -18,6 +18,7 @@ interface ConfirmDialogProps extends ModalFuncProps {
   autoFocusButton?: null | 'ok' | 'cancel';
   rootPrefixCls: string;
   iconPrefixCls?: string;
+  theme?: ThemeConfig;
 
   /** @private Internal Usage. Do not override this */
   locale?: ModalLocale;
@@ -143,6 +144,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     wrapClassName,
     rootPrefixCls,
     iconPrefixCls,
+    theme,
     bodyStyle,
     closable = false,
     closeIcon,
@@ -174,7 +176,12 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
   );
 
   return (
-    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} direction={direction}>
+    <ConfigProvider
+      prefixCls={rootPrefixCls}
+      iconPrefixCls={iconPrefixCls}
+      direction={direction}
+      theme={theme}
+    >
       <Dialog
         prefixCls={prefixCls}
         className={classString}

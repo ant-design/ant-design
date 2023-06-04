@@ -1339,7 +1339,7 @@ exports[`renders components/collapse/demo/noarrow.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-collapse-item ant-collapse-no-arrow"
+    class="ant-collapse-item"
   >
     <div
       aria-disabled="false"

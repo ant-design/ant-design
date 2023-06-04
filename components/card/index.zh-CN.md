@@ -26,6 +26,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a-8zR6rrupgAAA
 <code src="./demo/inner.tsx">内部卡片</code>
 <code src="./demo/tabs.tsx">带页签的卡片</code>
 <code src="./demo/meta.tsx">支持更多内容配置</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
@@ -49,7 +50,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a-8zR6rrupgAAA
 | loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |  |
 | size | card 的尺寸 | `default` \| `small` | `default` |  |
 | tabBarExtraContent | tab bar 上额外的元素 | ReactNode | - |  |
-| tabList | 页签标题列表 | Array&lt;{key: string, tab: ReactNode}> | - |  |
+| tabList | 页签标题列表 | [TabItemType](/components/tabs#tabitemtype)[] | - |  |
 | tabProps | [Tabs](/components/tabs-cn#tabs) | - | - |  |
 | title | 卡片标题 | ReactNode | - |  |
 | type | 卡片类型，可设置为 `inner` 或 不设置 | string | - |  |
