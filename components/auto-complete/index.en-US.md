@@ -32,6 +32,7 @@ The differences with Select are:
 <code src="./demo/certain-category.tsx">Lookup-Patterns - Certain Category</code>
 <code src="./demo/uncertain-category.tsx">Lookup-Patterns - Uncertain Category</code>
 <code src="./demo/status.tsx">Status</code>
+<code src="./demo/borderless.tsx">Borderless</code>
 <code src="./demo/form-debug.tsx" debug>Debug in Form</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
@@ -42,6 +43,7 @@ The differences with Select are:
 | allowClear | Show clear button | boolean | false |  |
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | backfill | If backfill selected item the input when using keyboard | boolean | false |  |
+| bordered | Whether has border style | boolean | true |  |
 | children (for customize input element) | Customize input element | HTMLInputElement \| HTMLTextAreaElement \| React.ReactElement&lt;InputProps> | &lt;Input /> |  |
 | children (for dataSource) | Data source to auto complete | React.ReactElement&lt;OptionProps> \| Array&lt;React.ReactElement&lt;OptionProps>> | - |  |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
