@@ -349,10 +349,13 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           '&-popup': {
             position: 'absolute',
             zIndex: zIndexPopup,
-            background: 'transparent',
             borderRadius: borderRadiusLG,
             boxShadow: 'none',
             transformOrigin: '0 0',
+
+            [`&${componentCls}-submenu`]: {
+              background: 'transparent',
+            },
 
             // https://github.com/ant-design/ant-design/issues/13955
             '&::before': {
@@ -370,6 +373,55 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           '&-placement-rightTop::before': {
             top: 0,
             insetInlineStart: menuPanelMaskInset,
+          },
+
+          [`
+          &-placement-leftTop,
+          &-placement-bottomRight,
+          `]: {
+            transformOrigin: '100% 0',
+          },
+
+          [`
+          &-placement-leftBottom,
+          &-placement-topRight,
+          `]: {
+            transformOrigin: '100% 100%',
+          },
+
+          [`
+          &-placement-rightBottom,
+          &-placement-topLeft,
+          `]: {
+            transformOrigin: '0 100%',
+          },
+
+          [`
+          &-placement-leftTop,
+          &-placement-leftBottom
+          `]: {
+            paddingInlineEnd: token.paddingXS,
+          },
+
+          [`
+          &-placement-rightTop,
+          &-placement-rightBottom
+          `]: {
+            paddingInlineStart: token.paddingXS,
+          },
+
+          [`
+          &-placement-topRight,
+          &-placement-topLeft
+          `]: {
+            paddingBottom: token.paddingXS,
+          },
+
+          [`
+          &-placement-bottomRight,
+          &-placement-bottomLeft
+          `]: {
+            paddingTop: token.paddingXS,
           },
 
           [`> ${componentCls}`]: {

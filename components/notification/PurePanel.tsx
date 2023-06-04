@@ -37,6 +37,7 @@ export interface PureContentProps {
   description?: React.ReactNode;
   btn?: React.ReactNode;
   type?: IconType;
+  role?: 'alert' | 'status';
 }
 
 const typeToIcon = {
@@ -53,6 +54,7 @@ export function PureContent({
   message,
   description,
   btn,
+  role = 'alert',
 }: PureContentProps) {
   let iconNode: React.ReactNode = null;
   if (icon) {
@@ -68,7 +70,7 @@ export function PureContent({
       className={classNames({
         [`${prefixCls}-with-icon`]: iconNode,
       })}
-      role="alert"
+      role={role}
     >
       {iconNode}
       <div className={`${prefixCls}-message`}>{message}</div>

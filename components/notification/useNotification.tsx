@@ -105,7 +105,16 @@ export function useInternalNotification(
       const { open: originOpen, prefixCls, hashId } = holderRef.current;
       const noticePrefixCls = `${prefixCls}-notice`;
 
-      const { message, description, icon, type, btn, className, ...restConfig } = config;
+      const {
+        message,
+        description,
+        icon,
+        type,
+        btn,
+        className,
+        role = 'alert',
+        ...restConfig
+      } = config;
 
       return originOpen({
         placement: 'topRight',
@@ -118,6 +127,7 @@ export function useInternalNotification(
             message={message}
             description={description}
             btn={btn}
+            role={role}
           />
         ),
         className: classNames(type && `${noticePrefixCls}-${type}`, hashId, className),

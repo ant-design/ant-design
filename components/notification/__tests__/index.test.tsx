@@ -301,4 +301,16 @@ describe('notification', () => {
 
     expect(document.querySelectorAll("[data-testid='test-notification']").length).toBe(1);
   });
+
+  it('support role', async () => {
+    act(() => {
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        role: 'status',
+      });
+    });
+
+    expect(document.querySelectorAll('[role="status"]').length).toBe(1);
+  });
 });

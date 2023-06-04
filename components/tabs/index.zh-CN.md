@@ -38,6 +38,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 <code src="./demo/custom-tab-bar-node.tsx">可拖拽标签</code>
 <code src="./demo/animated.tsx" debug>动画</code>
 <code src="./demo/nest.tsx" debug>嵌套</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 

@@ -167,13 +167,20 @@ describe('CheckboxGroup', () => {
   it('should work when checkbox is wrapped by other components', () => {
     const { container } = render(
       <Checkbox.Group>
-        <Collapse bordered={false}>
-          <Collapse.Panel key="test panel" header="test panel">
-            <div>
-              <Checkbox value="1">item</Checkbox>
-            </div>
-          </Collapse.Panel>
-        </Collapse>
+        <Collapse
+          items={[
+            {
+              key: 'test panel',
+              label: 'test panel',
+              children: (
+                <div>
+                  <Checkbox value="1">item</Checkbox>
+                </div>
+              ),
+            },
+          ]}
+          bordered={false}
+        />
       </Checkbox.Group>,
     );
 

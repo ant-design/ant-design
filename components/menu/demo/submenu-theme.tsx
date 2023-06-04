@@ -63,7 +63,9 @@ const App: React.FC = () => {
         mode="vertical"
         theme="dark"
         items={items}
-        getPopupContainer={(node) => node.parentNode as HTMLElement}
+        getPopupContainer={function test(node) {
+          return node.parentNode as HTMLElement;
+        }}
       />
     </>
   );
