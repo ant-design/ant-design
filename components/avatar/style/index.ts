@@ -3,22 +3,21 @@ import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
-export interface ComponentToken {
-  containerSize: number;
-  containerSizeLG: number;
-  containerSizeSM: number;
-  textFontSize: number;
-  textFontSizeLG: number;
-  textFontSizeSM: number;
-  groupSpace: number;
-  groupOverlapping: number;
-  groupBorderColor: string;
-}
+export interface ComponentToken {}
 
 type AvatarToken = FullToken<'Avatar'> & {
-  avatarBgColor: string;
   avatarBg: string;
   avatarColor: string;
+  avatarSizeBase: number;
+  avatarSizeLG: number;
+  avatarSizeSM: number;
+  avatarFontSizeBase: number;
+  avatarFontSizeLG: number;
+  avatarFontSizeSM: number;
+  avatarGroupOverlapping: number;
+  avatarGroupSpace: number;
+  avatarGroupBorderColor: string;
+  avatarBgColor: string;
 };
 
 const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
@@ -28,12 +27,12 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
     iconCls,
     avatarBg,
     avatarColor,
-    containerSize,
-    containerSizeLG,
-    containerSizeSM,
-    textFontSize,
-    textFontSizeLG,
-    textFontSizeSM,
+    avatarSizeBase,
+    avatarSizeLG,
+    avatarSizeSM,
+    avatarFontSizeBase,
+    avatarFontSizeLG,
+    avatarFontSizeSM,
     borderRadius,
     borderRadiusLG,
     borderRadiusSM,
@@ -90,14 +89,14 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
         display: 'block',
       },
 
-      ...avatarSizeStyle(containerSize, textFontSize, borderRadius),
+      ...avatarSizeStyle(avatarSizeBase, avatarFontSizeBase, borderRadius),
 
       [`&-lg`]: {
-        ...avatarSizeStyle(containerSizeLG, textFontSizeLG, borderRadiusLG),
+        ...avatarSizeStyle(avatarSizeLG, avatarFontSizeLG, borderRadiusLG),
       },
 
       [`&-sm`]: {
-        ...avatarSizeStyle(containerSizeSM, textFontSizeSM, borderRadiusSM),
+        ...avatarSizeStyle(avatarSizeSM, avatarFontSizeSM, borderRadiusSM),
       },
 
       '> img': {
@@ -111,65 +110,55 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
 };
 
 const genGroupStyle: GenerateStyle<AvatarToken> = (token) => {
-  const { componentCls, groupBorderColor, groupOverlapping, groupSpace } = token;
+  const { componentCls, avatarGroupBorderColor, avatarGroupSpace } = token;
 
   return {
     [`${componentCls}-group`]: {
       display: 'inline-flex',
 
       [`${componentCls}`]: {
-        borderColor: groupBorderColor,
+        borderColor: avatarGroupBorderColor,
       },
 
       [`> *:not(:first-child)`]: {
-        marginInlineStart: groupOverlapping,
-      },
-    },
-    [`${componentCls}-group-popover`]: {
-      [`${componentCls} + ${componentCls}`]: {
-        marginInlineStart: groupSpace,
+        marginInlineStart: avatarGroupSpace,
       },
     },
   };
 };
 
-export default genComponentStyleHook(
-  'Avatar',
-  (token) => {
-    const { colorTextLightSolid, colorTextPlaceholder } = token;
-    const avatarToken = mergeToken<AvatarToken>(token, {
-      avatarBg: colorTextPlaceholder,
-      avatarColor: colorTextLightSolid,
-    });
-    return [genBaseStyle(avatarToken), genGroupStyle(avatarToken)];
-  },
-  (token) => {
-    const {
-      controlHeight,
-      controlHeightLG,
-      controlHeightSM,
+export default genComponentStyleHook('Avatar', (token) => {
+  const {
+    colorTextLightSolid,
 
-      fontSize,
-      fontSizeLG,
-      fontSizeXL,
-      fontSizeHeading3,
+    controlHeight,
+    controlHeightLG,
+    controlHeightSM,
 
-      marginXS,
-      marginXXS,
-      colorBorderBg,
-    } = token;
-    return {
-      containerSize: controlHeight,
-      containerSizeLG: controlHeightLG,
-      containerSizeSM: controlHeightSM,
+    fontSize,
+    fontSizeLG,
+    fontSizeXL,
+    fontSizeHeading3,
 
-      textFontSize: Math.round((fontSizeLG + fontSizeXL) / 2),
-      textFontSizeLG: fontSizeHeading3,
-      textFontSizeSM: fontSize,
+    marginXS,
+    colorBorderBg,
+    colorTextPlaceholder,
+  } = token;
 
-      groupSpace: marginXXS,
-      groupOverlapping: -marginXS,
-      groupBorderColor: colorBorderBg,
-    };
-  },
-);
+  const avatarToken = mergeToken<AvatarToken>(token, {
+    avatarBg: colorTextPlaceholder,
+    avatarColor: colorTextLightSolid,
+
+    avatarSizeBase: controlHeight,
+    avatarSizeLG: controlHeightLG,
+    avatarSizeSM: controlHeightSM,
+
+    avatarFontSizeBase: Math.round((fontSizeLG + fontSizeXL) / 2),
+    avatarFontSizeLG: fontSizeHeading3,
+    avatarFontSizeSM: fontSize,
+    avatarGroupSpace: -marginXS,
+    avatarGroupBorderColor: colorBorderBg,
+  });
+
+  return [genBaseStyle(avatarToken), genGroupStyle(avatarToken)];
+});

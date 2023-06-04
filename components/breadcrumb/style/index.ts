@@ -3,17 +3,16 @@ import { genFocusStyle, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
-export interface ComponentToken {
-  itemColor: string;
-  iconFontSize: number;
-  linkColor: string;
-  linkHoverColor: string;
-  lastItemColor: string;
-  separatorMargin: number;
-  separatorColor: string;
+interface BreadcrumbToken extends FullToken<'Breadcrumb'> {
+  breadcrumbBaseColor: string;
+  breadcrumbFontSize: number;
+  breadcrumbIconFontSize: number;
+  breadcrumbLinkColor: string;
+  breadcrumbLinkColorHover: string;
+  breadcrumbLastItemColor: string;
+  breadcrumbSeparatorMargin: number;
+  breadcrumbSeparatorColor: string;
 }
-
-interface BreadcrumbToken extends FullToken<'Breadcrumb'> {}
 
 const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) => {
   const { componentCls, iconCls } = token;
@@ -21,11 +20,11 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
   return {
     [componentCls]: {
       ...resetComponent(token),
-      color: token.itemColor,
-      fontSize: token.fontSize,
+      color: token.breadcrumbBaseColor,
+      fontSize: token.breadcrumbFontSize,
 
       [iconCls]: {
-        fontSize: token.iconFontSize,
+        fontSize: token.breadcrumbIconFontSize,
       },
 
       ol: {
@@ -37,7 +36,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
       },
 
       a: {
-        color: token.linkColor,
+        color: token.breadcrumbLinkColor,
         transition: `color ${token.motionDurationMid}`,
         padding: `0 ${token.paddingXXS}px`,
         borderRadius: token.borderRadiusSM,
@@ -46,7 +45,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
         marginInline: -token.marginXXS,
 
         '&:hover': {
-          color: token.linkHoverColor,
+          color: token.breadcrumbLinkColorHover,
           backgroundColor: token.colorBgTextHover,
         },
 
@@ -54,12 +53,12 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
       },
 
       [`li:last-child`]: {
-        color: token.lastItemColor,
+        color: token.breadcrumbLastItemColor,
       },
 
       [`${componentCls}-separator`]: {
-        marginInline: token.separatorMargin,
-        color: token.separatorColor,
+        marginInline: token.breadcrumbSeparatorMargin,
+        color: token.breadcrumbSeparatorColor,
       },
 
       [`${componentCls}-link`]: {
@@ -84,11 +83,11 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
         },
 
         '&:hover': {
-          color: token.linkHoverColor,
+          color: token.breadcrumbLinkColorHover,
           backgroundColor: token.colorBgTextHover,
 
           a: {
-            color: token.linkHoverColor,
+            color: token.breadcrumbLinkColorHover,
           },
         },
 
@@ -108,19 +107,17 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
-  'Breadcrumb',
-  (token) => {
-    const BreadcrumbToken = mergeToken<BreadcrumbToken>(token, {});
-    return [genBreadcrumbStyle(BreadcrumbToken)];
-  },
-  (token) => ({
-    itemColor: token.colorTextDescription,
-    lastItemColor: token.colorText,
-    iconFontSize: token.fontSize,
-    linkColor: token.colorTextDescription,
-    linkHoverColor: token.colorText,
-    separatorColor: token.colorTextDescription,
-    separatorMargin: token.marginXS,
-  }),
-);
+export default genComponentStyleHook('Breadcrumb', (token) => {
+  const BreadcrumbToken = mergeToken<BreadcrumbToken>(token, {
+    breadcrumbBaseColor: token.colorTextDescription,
+    breadcrumbFontSize: token.fontSize,
+    breadcrumbIconFontSize: token.fontSize,
+    breadcrumbLinkColor: token.colorTextDescription,
+    breadcrumbLinkColorHover: token.colorText,
+    breadcrumbLastItemColor: token.colorText,
+    breadcrumbSeparatorMargin: token.marginXS,
+    breadcrumbSeparatorColor: token.colorTextDescription,
+  });
+
+  return [genBreadcrumbStyle(BreadcrumbToken)];
+});

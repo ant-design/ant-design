@@ -1,3 +1,4 @@
+import type { MenuProps } from 'rc-menu';
 import { createContext } from 'react';
 import type { DirectionType } from '../config-provider';
 
@@ -7,6 +8,7 @@ export interface MenuContextProps {
   prefixCls: string;
   inlineCollapsed: boolean;
   direction?: DirectionType;
+  mode?: MenuProps['mode'];
   theme?: MenuTheme;
   firstLevel: boolean;
   /** @internal Safe to remove */

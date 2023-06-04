@@ -131,36 +131,4 @@ describe('Card', () => {
 
     expect(cardRef.current).toHaveClass('ant-card');
   });
-
-  it('correct pass tabList props', () => {
-    const { container } = render(
-      <Card
-        tabList={[
-          {
-            label: 'Basic',
-            key: 'basic',
-          },
-          {
-            tab: 'Deprecated',
-            key: 'deprecated',
-          },
-          {
-            tab: 'Disabled',
-            key: 'disabled',
-            disabled: true,
-          },
-          {
-            tab: 'NotClosable',
-            key: 'notClosable',
-            closable: false,
-          },
-        ]}
-        tabProps={{
-          type: 'editable-card',
-        }}
-      />,
-    );
-
-    expect(container.firstChild).toMatchSnapshot();
-  });
 });

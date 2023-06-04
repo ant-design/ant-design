@@ -1,10 +1,8 @@
 import type { DerivativeFunc } from '@ant-design/cssinjs';
 import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
-import type { ButtonProps } from '../button';
 import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale';
-import type { SpaceProps } from '../space';
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../theme/interface';
 import type { SizeType } from './SizeContext';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
@@ -36,15 +34,6 @@ export interface ThemeConfig {
   inherit?: boolean;
 }
 
-interface componentStyleConfig {
-  className?: string;
-  style?: React.CSSProperties;
-  classNames?: ButtonProps['classNames'];
-  styles?: ButtonProps['styles'];
-}
-
-export interface ButtonConfig extends componentStyleConfig {}
-
 export type PopupOverflow = 'viewport' | 'scroll';
 
 export interface ConfigConsumerProps {
@@ -69,10 +58,6 @@ export interface ConfigConsumerProps {
   direction?: DirectionType;
   space?: {
     size?: SizeType | number;
-    className?: SpaceProps['className'];
-    classNames?: SpaceProps['classNames'];
-    style?: SpaceProps['style'];
-    styles?: SpaceProps['styles'];
   };
   virtual?: boolean;
   popupMatchSelectWidth?: boolean;
@@ -86,7 +71,6 @@ export interface ConfigConsumerProps {
   select?: {
     showSearch?: boolean;
   };
-  button?: ButtonConfig;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {

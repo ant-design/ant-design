@@ -14,11 +14,9 @@ import LocaleProvider, { ANT_MARK } from '../locale';
 import type { LocaleContextProps } from '../locale/context';
 import LocaleContext from '../locale/context';
 import defaultLocale from '../locale/en_US';
-import type { SpaceProps } from '../space';
 import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
-  ButtonConfig,
   ConfigConsumerProps,
   CSPConfig,
   DirectionType,
@@ -88,7 +86,6 @@ const PASSED_PROPS: Exclude<keyof ConfigConsumerProps, 'rootPrefixCls' | 'getPre
   'pagination',
   'form',
   'select',
-  'button',
 ];
 
 export interface ConfigProviderProps {
@@ -124,10 +121,6 @@ export interface ConfigProviderProps {
   direction?: DirectionType;
   space?: {
     size?: SizeType | number;
-    className?: SpaceProps['className'];
-    classNames?: SpaceProps['classNames'];
-    style?: SpaceProps['style'];
-    styles?: SpaceProps['styles'];
   };
   virtual?: boolean;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
@@ -135,7 +128,6 @@ export interface ConfigProviderProps {
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
-  button?: ButtonConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -146,7 +138,6 @@ interface ProviderChildrenProps extends ConfigProviderProps {
 export const defaultPrefixCls = 'ant';
 let globalPrefixCls: string;
 let globalIconPrefixCls: string;
-let globalTheme: ThemeConfig;
 
 function getGlobalPrefixCls() {
   return globalPrefixCls || defaultPrefixCls;
@@ -156,15 +147,11 @@ function getGlobalIconPrefixCls() {
   return globalIconPrefixCls || defaultIconPrefixCls;
 }
 
-function isLegacyTheme(theme: Theme | ThemeConfig): theme is Theme {
-  return Object.keys(theme).some((key) => key.endsWith('Color'));
-}
-
 const setGlobalConfig = ({
   prefixCls,
   iconPrefixCls,
   theme,
-}: Pick<ConfigProviderProps, 'prefixCls' | 'iconPrefixCls'> & { theme?: Theme | ThemeConfig }) => {
+}: Pick<ConfigProviderProps, 'prefixCls' | 'iconPrefixCls'> & { theme?: Theme }) => {
   if (prefixCls !== undefined) {
     globalPrefixCls = prefixCls;
   }
@@ -173,16 +160,7 @@ const setGlobalConfig = ({
   }
 
   if (theme) {
-    if (isLegacyTheme(theme)) {
-      warning(
-        false,
-        'ConfigProvider',
-        '`config` of css variable theme is not work in v5. Please use new `theme` config instead.',
-      );
-      registerTheme(getGlobalPrefixCls(), theme);
-    } else {
-      globalTheme = theme;
-    }
+    registerTheme(getGlobalPrefixCls(), theme);
   }
 };
 
@@ -201,7 +179,6 @@ export const globalConfig = () => ({
     // Fallback to default prefixCls
     return getGlobalPrefixCls();
   },
-  getTheme: () => globalTheme,
 });
 
 const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {

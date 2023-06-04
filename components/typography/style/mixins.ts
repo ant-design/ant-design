@@ -21,10 +21,10 @@ const getTitleStyle = (
   color: string,
   token: TypographyToken,
 ) => {
-  const { titleMarginBottom, fontWeightStrong } = token;
+  const { sizeMarginHeadingVerticalEnd, fontWeightStrong } = token;
 
   return {
-    marginBottom: titleMarginBottom,
+    marginBottom: sizeMarginHeadingVerticalEnd,
     color,
     fontWeight: fontWeightStrong,
     fontSize,

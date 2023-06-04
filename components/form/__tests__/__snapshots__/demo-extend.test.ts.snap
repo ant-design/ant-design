@@ -20288,7 +20288,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
           >
             <ul
               class="ant-rate"
-              id="validate_other_rate"
               role="radiogroup"
               tabindex="0"
             >

@@ -11,25 +11,26 @@ export interface ComponentToken {
   yearControlWidth: number;
   monthControlWidth: number;
   miniContentHeight: number;
-  fullBg: string;
-  fullPanelBg: string;
-  itemActiveBg: string;
 }
 
 interface CalendarToken extends InputToken<FullToken<'Calendar'>>, PickerPanelToken {
   calendarCls: string;
+  calendarFullBg: string;
+  calendarFullPanelBg: string;
+  calendarItemActiveBg: string;
   dateValueHeight: number;
   weekHeight: number;
   dateContentHeight: number;
 }
 
 export const genCalendarStyles = (token: CalendarToken): CSSObject => {
-  const { calendarCls, componentCls, fullBg, fullPanelBg, itemActiveBg } = token;
+  const { calendarCls, componentCls, calendarFullBg, calendarFullPanelBg, calendarItemActiveBg } =
+    token;
   return {
     [calendarCls]: {
       ...genPanelStyle(token),
       ...resetComponent(token),
-      background: fullBg,
+      background: calendarFullBg,
       '&-rtl': {
         direction: 'rtl',
       },
@@ -51,7 +52,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
       },
     },
     [`${calendarCls} ${componentCls}-panel`]: {
-      background: fullPanelBg,
+      background: calendarFullPanelBg,
       border: 0,
       borderTop: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       borderRadius: 0,
@@ -91,7 +92,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         display: 'block',
         width: '100%',
         textAlign: 'end',
-        background: fullBg,
+        background: calendarFullBg,
         border: 0,
         [`${componentCls}-body`]: {
           'th, td': {
@@ -120,7 +121,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         // >>> Selected
         [`&-in-view${componentCls}-cell-selected`]: {
           [`${calendarCls}-date, ${calendarCls}-date-today`]: {
-            background: itemActiveBg,
+            background: calendarItemActiveBg,
           },
         },
         '&-selected, &-selected:hover': {
@@ -197,6 +198,9 @@ export default genComponentStyleHook(
       {
         calendarCls,
         pickerCellInnerCls: `${token.componentCls}-cell-inner`,
+        calendarFullBg: token.colorBgContainer,
+        calendarFullPanelBg: token.colorBgContainer,
+        calendarItemActiveBg: token.controlItemBgActive,
         dateValueHeight: token.controlHeightSM,
         weekHeight: token.controlHeightSM * 0.75,
         dateContentHeight:
@@ -206,12 +210,9 @@ export default genComponentStyleHook(
 
     return [genCalendarStyles(calendarToken)];
   },
-  (token) => ({
-    fullBg: token.colorBgContainer,
-    fullPanelBg: token.colorBgContainer,
-    itemActiveBg: token.controlItemBgActive,
+  {
     yearControlWidth: 80,
     monthControlWidth: 70,
     miniContentHeight: 256,
-  }),
+  },
 );

@@ -3,14 +3,14 @@ import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
-export type ComponentToken = {
-  starColor: string;
-  starSize: number;
-  starHoverScale: CSSObject['transform'];
-  starBg: string;
-};
+export type ComponentToken = {};
 
-interface RateToken extends FullToken<'Rate'> {}
+interface RateToken extends FullToken<'Rate'> {
+  rateStarColor: string;
+  rateStarSize: number;
+  rateStarHoverScale: CSSObject['transform'];
+  defaultColor: string;
+}
 
 const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
   const { componentCls } = token;
@@ -30,7 +30,7 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
         transition: `all ${token.motionDurationMid}, outline 0s`,
 
         '&:hover': {
-          transform: token.starHoverScale,
+          transform: token.rateStarHoverScale,
         },
 
         '&:focus': {
@@ -38,13 +38,13 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
         },
 
         '&:focus-visible': {
-          outline: `${token.lineWidth}px dashed ${token.starColor}`,
-          transform: token.starHoverScale,
+          outline: `${token.lineWidth}px dashed ${token.rateStarColor}`,
+          transform: token.rateStarHoverScale,
         },
       },
 
       '&-first, &-second': {
-        color: token.starBg,
+        color: token.defaultColor,
         transition: `all ${token.motionDurationMid}`,
         userSelect: 'none',
 
@@ -90,8 +90,8 @@ const genRateStyle: GenerateStyle<RateToken> = (token) => {
       display: 'inline-block',
       margin: 0,
       padding: 0,
-      color: token.starColor,
-      fontSize: token.starSize,
+      color: token.rateStarColor,
+      fontSize: token.rateStarSize,
       lineHeight: 'unset',
       listStyle: 'none',
       outline: 'none',
@@ -122,16 +122,14 @@ const genRateStyle: GenerateStyle<RateToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
-  'Rate',
-  (token) => {
-    const rateToken = mergeToken<RateToken>(token, {});
-    return [genRateStyle(rateToken)];
-  },
-  (token) => ({
-    starColor: token.yellow6,
-    starSize: token.controlHeightLG * 0.5,
-    starHoverScale: 'scale(1.1)',
-    starBg: token.colorFillContent,
-  }),
-);
+export default genComponentStyleHook('Rate', (token) => {
+  const { colorFillContent } = token;
+
+  const rateToken = mergeToken<RateToken>(token, {
+    rateStarColor: token.yellow6,
+    rateStarSize: token.controlHeightLG * 0.5,
+    rateStarHoverScale: 'scale(1.1)',
+    defaultColor: colorFillContent,
+  });
+  return [genRateStyle(rateToken)];
+});

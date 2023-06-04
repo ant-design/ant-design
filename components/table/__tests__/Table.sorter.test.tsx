@@ -355,39 +355,6 @@ describe('Table.sorter', () => {
     expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
   });
 
-  it('renders custome sort icon correctly', () => {
-    const sortIcon = ({ sortOrder }: { sortOrder?: SortOrder }): React.ReactNode => {
-      let text: string;
-      if (sortOrder === undefined) {
-        text = 'unsorted';
-      } else if (sortOrder === 'descend') {
-        text = 'sortDescend';
-      } else {
-        text = 'sortAscend';
-      }
-
-      return <span className="customize-icon">{text}</span>;
-    };
-
-    const { container } = render(
-      createTable({
-        columns: [
-          {
-            ...column,
-            sortIcon,
-          },
-        ],
-      }),
-    );
-
-    fireEvent.click(container.querySelector('.customize-icon')!);
-    expect(container.querySelector('.customize-icon')).toMatchSnapshot();
-    fireEvent.click(container.querySelector('.customize-icon')!);
-    expect(container.querySelector('.customize-icon')).toMatchSnapshot();
-    fireEvent.click(container.querySelector('.customize-icon')!);
-    expect(container.querySelector('.customize-icon')).toMatchSnapshot();
-  });
-
   it('works with grouping columns in controlled mode', () => {
     const columns = [
       {
@@ -889,7 +856,7 @@ describe('Table.sorter', () => {
     expect(container.querySelectorAll('th.ant-table-column-sort')).toHaveLength(1);
   });
 
-  it('surger should support sortOrder', () => {
+  it('surger should support sorterOrder', () => {
     const { container } = render(
       <Table>
         <Table.Column key="name" title="Name" dataIndex="name" sortOrder="ascend" sorter />

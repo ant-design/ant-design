@@ -1,6 +1,7 @@
-import type { CollapseProps } from 'antd';
 import { Collapse } from 'antd';
 import React from 'react';
+
+const { Panel } = Collapse;
 
 const text = `
   A dog is a type of domesticated animal.
@@ -8,26 +9,21 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-const items: CollapseProps['items'] = [
-  {
-    key: '1',
-    label: 'This is panel header with arrow icon',
-    children: <p>{text}</p>,
-  },
-  {
-    key: '2',
-    label: 'This is panel header with no arrow icon',
-    children: <p>{text}</p>,
-    showArrow: false,
-  },
-];
-
 const App: React.FC = () => {
   const onChange = (key: string | string[]) => {
     console.log(key);
   };
 
-  return <Collapse defaultActiveKey={['1']} onChange={onChange} items={items} />;
+  return (
+    <Collapse defaultActiveKey={['1']} onChange={onChange}>
+      <Panel header="This is panel header with arrow icon" key="1">
+        <p>{text}</p>
+      </Panel>
+      <Panel showArrow={false} header="This is panel header with no arrow icon" key="2">
+        <p>{text}</p>
+      </Panel>
+    </Collapse>
+  );
 };
 
 export default App;

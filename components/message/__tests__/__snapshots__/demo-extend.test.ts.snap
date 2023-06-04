@@ -112,7 +112,7 @@ exports[`renders components/message/demo/info.tsx extend context correctly 1`] =
   type="button"
 >
   <span>
-    Static Method
+    Display normal message
   </span>
 </button>
 `;

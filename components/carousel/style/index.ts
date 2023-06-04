@@ -5,9 +5,7 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 export interface ComponentToken {
   dotWidth: number;
   dotHeight: number;
-  /** @deprecated Use `dotActiveWidth` instead. */
   dotWidthActive: number;
-  dotActiveWidth: number;
 }
 
 interface CarouselToken extends FullToken<'Carousel'> {
@@ -235,7 +233,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = (token) => {
           },
 
           '&.slick-active': {
-            width: token.dotActiveWidth,
+            width: token.dotWidthActive,
 
             '& button': {
               background: token.colorBgContainer,
@@ -344,17 +342,9 @@ export default genComponentStyleHook(
       genCarouselRtlStyle(carouselToken),
     ];
   },
-  () => {
-    const dotActiveWidth = 24;
-
-    return {
-      dotWidth: 16,
-      dotHeight: 3,
-      dotWidthActive: dotActiveWidth,
-      dotActiveWidth,
-    };
-  },
   {
-    deprecatedTokens: [['dotWidthActive', 'dotActiveWidth']],
+    dotWidth: 16,
+    dotHeight: 3,
+    dotWidthActive: 24,
   },
 );

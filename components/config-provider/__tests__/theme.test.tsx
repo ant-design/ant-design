@@ -49,9 +49,7 @@ describe('ConfigProvider.Theme', () => {
     expect(canUseDom()).toBeFalsy();
 
     ConfigProvider.config({
-      theme: {
-        infoColor: 'red',
-      },
+      theme: {},
     });
 
     expect(errorSpy).toHaveBeenCalledWith(

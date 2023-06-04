@@ -26,7 +26,6 @@ demo:
 <code src="./demo/clear.tsx">清除</code>
 <code src="./demo/character.tsx">其他字符</code>
 <code src="./demo/character-function.tsx">自定义字符</code>
-<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 

@@ -9,7 +9,6 @@ export interface ItemProps {
   marginDirection: 'marginLeft' | 'marginRight';
   split?: React.ReactNode;
   wrap?: boolean;
-  style?: React.CSSProperties;
 }
 
 export default function Item({
@@ -20,7 +19,6 @@ export default function Item({
   children,
   split,
   wrap,
-  style: customStyle,
 }: ItemProps) {
   const { horizontalSize, verticalSize, latestIndex, supportFlexGap } =
     React.useContext(SpaceContext);
@@ -46,7 +44,7 @@ export default function Item({
 
   return (
     <>
-      <div className={className} style={{ ...style, ...customStyle }}>
+      <div className={className} style={style}>
         {children}
       </div>
       {index < latestIndex && split && (

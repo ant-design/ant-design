@@ -1,6 +1,7 @@
-import type { CollapseProps } from 'antd';
 import { Collapse } from 'antd';
 import React from 'react';
+
+const { Panel } = Collapse;
 
 const text = `
   A dog is a type of domesticated animal.
@@ -8,24 +9,18 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-const items: CollapseProps['items'] = [
-  {
-    key: '1',
-    label: 'This is panel header 1',
-    children: <p>{text}</p>,
-  },
-  {
-    key: '2',
-    label: 'This is panel header 2',
-    children: <p>{text}</p>,
-  },
-  {
-    key: '3',
-    label: 'This is panel header 3',
-    children: <p>{text}</p>,
-  },
-];
-
-const App: React.FC = () => <Collapse accordion items={items} />;
+const App: React.FC = () => (
+  <Collapse accordion>
+    <Panel header="This is panel header 1" key="1">
+      <p>{text}</p>
+    </Panel>
+    <Panel header="This is panel header 2" key="2">
+      <p>{text}</p>
+    </Panel>
+    <Panel header="This is panel header 3" key="3">
+      <p>{text}</p>
+    </Panel>
+  </Collapse>
+);
 
 export default App;

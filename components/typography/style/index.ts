@@ -12,15 +12,14 @@ import {
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
-  titleMarginTop: number | string;
-  titleMarginBottom: number | string;
-  fontWeightStrong: number;
+  sizeMarginHeadingVerticalStart: number | string;
+  sizeMarginHeadingVerticalEnd: number | string;
 }
 
 export type TypographyToken = FullToken<'Typography'>;
 
 const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
-  const { componentCls, titleMarginTop } = token;
+  const { componentCls, sizeMarginHeadingVerticalStart } = token;
 
   return {
     [componentCls]: {
@@ -71,7 +70,7 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
       & + h4${componentCls},
       & + h5${componentCls}
       `]: {
-        marginTop: titleMarginTop,
+        marginTop: sizeMarginHeadingVerticalStart,
       },
 
       [`
@@ -91,7 +90,7 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
         + h4,
         + h5
         `]: {
-          marginTop: titleMarginTop,
+          marginTop: sizeMarginHeadingVerticalStart,
         },
       },
 
@@ -123,12 +122,7 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
-  'Typography',
-  (token) => [genTypographyStyle(token)],
-  (token) => ({
-    titleMarginTop: '1.2em',
-    titleMarginBottom: '0.5em',
-    fontWeightStrong: token.fontWeightStrong,
-  }),
-);
+export default genComponentStyleHook('Typography', (token) => [genTypographyStyle(token)], {
+  sizeMarginHeadingVerticalStart: '1.2em',
+  sizeMarginHeadingVerticalEnd: '0.5em',
+});

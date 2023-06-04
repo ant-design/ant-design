@@ -1,24 +1,18 @@
-import { ConfigProvider, theme as antdTheme } from 'antd';
+import { theme } from 'antd';
 import type { ThemeProviderProps } from 'antd-style';
 import { ThemeProvider } from 'antd-style';
+import { ConfigContext } from 'antd/es/config-provider';
 import type { FC } from 'react';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 
-const SiteThemeProvider: FC<ThemeProviderProps> = ({ children, theme, ...rest }) => {
-  const { getPrefixCls, iconPrefixCls } = useContext(ConfigProvider.ConfigContext);
+const SiteThemeProvider: FC<ThemeProviderProps> = ({ children, ...rest }) => {
+  const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
   const rootPrefixCls = getPrefixCls();
-  const { token } = antdTheme.useToken();
-
-  React.useEffect(() => {
-    ConfigProvider.config({
-      theme,
-    });
-  }, [theme]);
+  const { token } = theme.useToken();
 
   return (
     <ThemeProvider
       {...rest}
-      theme={theme}
       customToken={{
         headerHeight: 64,
         menuItemBorder: 2,
