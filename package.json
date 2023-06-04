@@ -296,7 +296,7 @@
     "terser": "^5.16.1",
     "ts-node": "^10.8.2",
     "typedoc": "^0.24.6",
-    "typescript": "~5.0.2",
+    "typescript": "~5.1.0",
     "vanilla-jsoneditor": "^0.17.1",
     "webpack-bundle-analyzer": "^4.1.0",
     "xhr-mock": "^2.4.1"
