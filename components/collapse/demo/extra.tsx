@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
 import { SettingOutlined } from '@ant-design/icons';
+import type { CollapseProps } from 'antd';
 import { Collapse, Select } from 'antd';
+import React, { useState } from 'react';
 
-const { Panel } = Collapse;
 const { Option } = Select;
 
 const text = `
@@ -33,23 +33,35 @@ const App: React.FC = () => {
     />
   );
 
+  const items: CollapseProps['items'] = [
+    {
+      key: '1',
+      label: 'This is panel header 1',
+      children: <div>{text}</div>,
+      extra: genExtra(),
+    },
+    {
+      key: '2',
+      label: 'This is panel header 2',
+      children: <div>{text}</div>,
+      extra: genExtra(),
+    },
+    {
+      key: '3',
+      label: 'This is panel header 3',
+      children: <div>{text}</div>,
+      extra: genExtra(),
+    },
+  ];
+
   return (
     <>
       <Collapse
         defaultActiveKey={['1']}
         onChange={onChange}
         expandIconPosition={expandIconPosition}
-      >
-        <Panel header="This is panel header 1" key="1" extra={genExtra()}>
-          <div>{text}</div>
-        </Panel>
-        <Panel header="This is panel header 2" key="2" extra={genExtra()}>
-          <div>{text}</div>
-        </Panel>
-        <Panel header="This is panel header 3" key="3" extra={genExtra()}>
-          <div>{text}</div>
-        </Panel>
-      </Collapse>
+        items={items}
+      />
       <br />
       <span>Expand Icon Position: </span>
       <Select value={expandIconPosition} style={{ margin: '0 8px' }} onChange={onPositionChange}>

@@ -76,7 +76,7 @@ describe('Calendar', () => {
     const { container } = render(<Calendar onSelect={onSelect} onChange={onChange} />);
 
     fireEvent.click(container.querySelector('.ant-picker-cell')!);
-    expect(onSelect).toHaveBeenCalledWith(expect.anything());
+    expect(onSelect).toHaveBeenCalledWith(expect.anything(), { source: 'date' });
 
     const value = onSelect.mock.calls[0][0];
     expect(Dayjs.isDayjs(value)).toBe(true);
@@ -270,7 +270,7 @@ describe('Calendar', () => {
     const end = Dayjs('2019-11-01');
     const onValueChange = jest.fn();
     createWrapper(start, end, value, onValueChange);
-    expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(3));
+    expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(3), 'year');
   });
 
   it('if start.month > value.month, set value.month to start.month', () => {
@@ -279,7 +279,7 @@ describe('Calendar', () => {
     const end = Dayjs('2019-03-01');
     const onValueChange = jest.fn();
     createWrapper(start, end, value, onValueChange);
-    expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(10));
+    expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(10), 'year');
   });
 
   it('if change year and month > end month, set value.month to end.month', () => {
@@ -302,7 +302,7 @@ describe('Calendar', () => {
     fireEvent.click(
       Array.from(wrapper.container.querySelectorAll('.ant-select-item-option')).at(-1)!,
     );
-    expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(2));
+    expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(2), 'year');
   });
 
   it('onMonthChange should work correctly', () => {
@@ -324,7 +324,7 @@ describe('Calendar', () => {
     );
     openSelect(wrapper.container, '.ant-picker-calendar-month-select');
     clickSelectItem(wrapper.container);
-    expect(onValueChange).toHaveBeenCalledWith(value.month(10));
+    expect(onValueChange).toHaveBeenCalledWith(value.month(10), 'month');
   });
 
   it('onTypeChange should work correctly', () => {
