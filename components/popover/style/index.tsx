@@ -5,8 +5,9 @@ import type { FullToken, GenerateStyle, PresetColorType } from '../../theme/inte
 import { PresetColors, genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
-  zIndexPopup: number;
   width: number;
+  minWidth: number;
+  zIndexPopup: number;
 }
 
 export type PopoverToken = FullToken<'Popover'> & {
@@ -18,9 +19,8 @@ export type PopoverToken = FullToken<'Popover'> & {
 const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
   const {
     componentCls,
-    popoverBg,
     popoverColor,
-    width,
+    minWidth,
     fontWeightStrong,
     popoverPadding,
     boxShadowSecondary,
@@ -29,6 +29,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
     zIndexPopup,
     marginXS,
     colorBgElevated,
+    popoverBg,
   } = token;
 
   return [
@@ -72,7 +73,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         },
 
         [`${componentCls}-title`]: {
-          minWidth: width,
+          minWidth,
           marginBottom: marginXS,
           color: colorTextHeading,
           fontWeight: fontWeightStrong,
@@ -169,9 +170,9 @@ export default genComponentStyleHook(
     const { colorBgElevated, colorText, wireframe } = token;
 
     const popoverToken = mergeToken<PopoverToken>(token, {
+      popoverPadding: 12, // Fixed Value
       popoverBg: colorBgElevated,
       popoverColor: colorText,
-      popoverPadding: 12, // Fixed Value
     });
 
     return [
@@ -181,8 +182,12 @@ export default genComponentStyleHook(
       initZoomMotion(popoverToken, 'zoom-big'),
     ];
   },
-  ({ zIndexPopupBase }) => ({
-    zIndexPopup: zIndexPopupBase + 30,
+  (token) => ({
     width: 177,
+    minWidth: 177,
+    zIndexPopup: token.zIndexPopupBase + 30,
   }),
+  {
+    deprecatedTokens: [['width', 'minWidth']],
+  },
 );
