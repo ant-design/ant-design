@@ -38,6 +38,24 @@ exports[`renders components/mentions/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/mentions/demo/component-token.tsx correctly 1`] = `
+<div
+  style="padding-bottom:0;position:relative;min-width:0"
+>
+  <div
+    class="ant-mentions"
+    style="width:100%;margin:0"
+  >
+    <textarea
+      class="rc-textarea"
+      rows="1"
+    >
+      @
+    </textarea>
+  </div>
+</div>
+`;
+
 exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
