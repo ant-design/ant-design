@@ -44,14 +44,6 @@ enum AffixStatus {
   Prepare,
 }
 
-export interface AffixState {
-  affixStyle?: React.CSSProperties;
-  placeholderStyle?: React.CSSProperties;
-  status: AffixStatus;
-  lastAffix: boolean;
-  prevTarget: Window | HTMLElement | null;
-}
-
 interface AffixRef {
   updatePosition: ReturnType<typeof throttleByAnimationFrame>;
 }
@@ -68,6 +60,7 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
   } = props;
 
   const [lastAffix, setLastAffix] = useState<boolean>(false);
+  const [status, setStatus] = useState<AffixStatus>(AffixStatus.None);
   const [affixStyle, setAffixStyle] = useState<React.CSSProperties>();
   const [placeholderStyle, setPlaceholderStyle] = useState<React.CSSProperties>();
   const placeholderNodeRef = useRef<HTMLDivElement>(null);
@@ -89,7 +82,12 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
   );
 
   const measure = () => {
-    if (!target || !fixedNodeRef.current || !placeholderNodeRef.current) {
+    if (
+      status === AffixStatus.Prepare ||
+      !target ||
+      !fixedNodeRef.current ||
+      !placeholderNodeRef.current
+    ) {
       return;
     }
     const placeholderRect = getTargetRect(placeholderNodeRef.current);
@@ -138,21 +136,30 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
     });
   };
 
-  const updatePosition = throttleByAnimationFrame(() => {
+  const prepareMeasure = () => {
+    // event param is used before. Keep compatible ts define here.
+    setStatus(AffixStatus.Prepare);
+    setAffixStyle(undefined);
+    setPlaceholderStyle(undefined);
+  };
+
+  const updatePosition = throttleByAnimationFrame(prepareMeasure);
+
+  const lazyUpdatePosition = throttleByAnimationFrame(() => {
     // Check position change before measure to make Safari smooth
-    if (target && placeholderNodeRef.current) {
+    if (target && placeholderNodeRef.current && affixStyle) {
       const targetRect = getTargetRect(target);
       const placeholderRect = getTargetRect(placeholderNodeRef.current);
-      const fixedTop = getFixedTop(placeholderRect, targetRect, memoOffsetTop);
+      const fixedTop = getFixedTop(placeholderRect, targetRect, offsetTop);
       const fixedBottom = getFixedBottom(placeholderRect, targetRect, offsetBottom);
       if (
-        (fixedTop !== undefined && affixStyle?.top === fixedTop) ||
-        (fixedBottom !== undefined && affixStyle?.bottom === fixedBottom)
+        (fixedTop !== undefined && affixStyle.top === fixedTop) ||
+        (fixedBottom !== undefined && affixStyle.bottom === fixedBottom)
       ) {
         return;
       }
     }
-    measure();
+    prepareMeasure();
   });
 
   React.useImperativeHandle(ref, () => ({ updatePosition }));
@@ -160,8 +167,9 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
   useEffect(() => {
     timerRef.current = setTimeout(() => {
       TRIGGER_EVENTS.forEach((eventName) => {
-        target?.addEventListener(eventName, updatePosition);
+        target?.addEventListener(eventName, lazyUpdatePosition);
       });
+      // updatePosition();
       measure();
     });
     return () => {
@@ -170,12 +178,13 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
         timerRef.current = null;
       }
       TRIGGER_EVENTS.forEach((eventName) => {
-        target?.removeEventListener(eventName, updatePosition);
+        target?.removeEventListener(eventName, lazyUpdatePosition);
       });
-
       updatePosition.cancel();
+      lazyUpdatePosition.cancel();
     };
   }, [offsetTop, offsetBottom, customizeTarget, getTargetContainer]);
+
   const [wrapSSR, hashId] = useStyle(affixPrefixCls);
   const rootClassName = classNames(customizeRootClassName, hashId);
 
