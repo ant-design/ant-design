@@ -25,6 +25,8 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   align?: 'start' | 'end' | 'center' | 'baseline';
   split?: React.ReactNode;
   wrap?: boolean;
+  classNames?: { item: string };
+  styles?: { item: React.CSSProperties };
 }
 
 const spaceSize = {
@@ -51,6 +53,8 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     split,
     style,
     wrap = false,
+    classNames: customClassNames,
+    styles,
     ...otherProps
   } = props;
 
@@ -78,11 +82,14 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
       [`${prefixCls}-align-${mergedAlign}`]: mergedAlign,
     },
-    className,
+    className ?? space?.className,
     rootClassName,
   );
 
-  const itemClassName = `${prefixCls}-item`;
+  const itemClassName = classNames(
+    `${prefixCls}-item`,
+    customClassNames?.item ?? space?.classNames?.item,
+  );
 
   const marginDirection = directionConfig === 'rtl' ? 'marginLeft' : 'marginRight';
 
@@ -104,6 +111,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
         marginDirection={marginDirection}
         split={split}
         wrap={wrap}
+        style={styles?.item ?? space?.styles?.item}
       >
         {child}
       </Item>
@@ -142,6 +150,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
       className={cn}
       style={{
         ...gapStyle,
+        ...space?.style,
         ...style,
       }}
       {...otherProps}
