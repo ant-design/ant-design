@@ -293,7 +293,27 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Progress -->
 
-<!-- ### Radio -->
+### Radio
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@radio-size` | `radioSize` | - |
+| `@radio-top` | - | Deprecated |
+| `@radio-border-width` | `lineWidth` | Global Token |
+| `@radio-dot-size` | `dotSize` | - |
+| `@radio-dot-color` | - | Deprecated |
+| `@radio-dot-disabled-color` | `dotColorDisabled` | - |
+| `@radio-solid-checked-color` | `buttonSolidCheckedColor` | - |
+| `@radio-button-bg` | `buttonBg` | - |
+| `@radio-button-checked-bg` | `buttonCheckedBg` | - |
+| `@radio-button-color` | `buttonColor` | - |
+| `@radio-button-hover-color` | `colorPrimaryHover` | Global Token |
+| `@radio-button-active-color` | `colorPrimaryActive` | Global Token |
+| `@radio-button-padding-horizontal` | `buttonPaddingInline` | - |
+| `@radio-disabled-button-checked-bg` | `buttonCheckdBgDisabled` | - |
+| `@radio-disabled-button-checked-color` | `buttonCheckdColorDisabled` | - |
+| `@radio-wrapper-margin-right` | `wrapperMarginInlineEnd` | - |
 
 ## Rate
 
