@@ -19,11 +19,11 @@ timeline: true
 
 `2023-06-05`
 
-- 💄 Fix the problem of abnormal style of color selector in dark mode. [#42827](https://github.com/ant-design/ant-design/pull/42827) [@RedJue](https://github.com/RedJue)
-- 💄 Fix divider component's style error. [#42797](https://github.com/ant-design/ant-design/pull/42797) [@kongmingLatern](https://github.com/kongmingLatern)
+- 💄 Fix abnormal styles in the ColorPicker component when in dark mode. [#42827](https://github.com/ant-design/ant-design/pull/42827) [@RedJue](https://github.com/RedJue)
+- 💄 Fix orientationMargin not taking effect in the Divider component. [#42797](https://github.com/ant-design/ant-design/pull/42797) [@kongmingLatern](https://github.com/kongmingLatern)
 - 🐞 Fix Image.PreviewGroup not reset image state when switch it. [#42793](https://github.com/ant-design/ant-design/pull/42793) [@linxianxi](https://github.com/linxianxi)
 - ⌨️ Improve Progress accessibility by adding more aria props. [#42704](https://github.com/ant-design/ant-design/pull/42704) [@MehmetYararVX](https://github.com/MehmetYararVX)
-- 🆕 The Drawer panel supports event listeners and allows passing `data-*`s attributes to the wrapper element. [#42718](https://github.com/ant-design/ant-design/pull/42718) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Fix Drawer not supporting some mouse events and `data-*` attributes. [#42718](https://github.com/ant-design/ant-design/pull/42718) [@kiner-tang](https://github.com/kiner-tang)
 
 ## 5.5.2
 
