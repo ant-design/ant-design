@@ -14,7 +14,15 @@ timeline: true
 - 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+## 5.5.3
 
+`2023-06-05`
+
+- 💄 修复在暗黑模式下颜色选择器的样式异常的问题。[#42827](https://github.com/ant-design/ant-design/pull/42827) [@RedJue](https://github.com/RedJue)
+- 💄 修复Divider组件的样式问题。[#42797](https://github.com/ant-design/ant-design/pull/42797) [@kongmingLatern](https://github.com/kongmingLatern)
+- 🐞 修复 Image.PreviewGroup 预览时图片切换后状态没有重置的问题。[#42793](https://github.com/ant-design/ant-design/pull/42793) [@linxianxi](https://github.com/linxianxi)
+- ⌨️ 增强 Progress 可访问性表现。[#42704](https://github.com/ant-design/ant-design/pull/42704) [@MehmetYararVX](https://github.com/MehmetYararVX)
+- 🆕 Drawer 面板支持事件监听器，并允许将 `data-*` 属性传递给包装元素。[#42718](https://github.com/ant-design/ant-design/pull/42718) [@kiner-tang](https://github.com/kiner-tang)
 ## 5.5.2
 
 `2023-05-30`
