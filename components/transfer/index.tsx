@@ -183,16 +183,16 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const mergedSourceSelectedKeys = useMemo(
     () => getMergedKeys(targetKeys, sourceSelectedKeys, propSourceKeys, selectedKeys, true),
     [
-      selectedKeys?.join(''),
-      targetKeys.join(''),
-      sourceSelectedKeys.join(''),
-      propSourceKeys.join(''),
+      selectedKeys?.join(','),
+      targetKeys.join(','),
+      sourceSelectedKeys.join(','),
+      propSourceKeys.join(','),
     ],
   );
 
   const mergedTargetSelectedKeys = useMemo(
     () => getMergedKeys(targetKeys, targetSelectedKeys, targetKeys, selectedKeys, false),
-    [selectedKeys?.join(''), targetKeys.join(''), targetSelectedKeys.join('')],
+    [selectedKeys?.join(','), targetKeys.join(','), targetSelectedKeys.join(',')],
   );
 
   if (process.env.NODE_ENV !== 'production') {
