@@ -13,8 +13,3 @@ export const generateColor = (color: ColorGenInput<Color>): Color => {
 };
 
 export const getAlphaColor = (color: Color) => getRoundNumber(color.toHsb().a * 100);
-
-export const toHexFormat = (value?: string, alpha?: boolean) =>
-  value?.replace(/[^\w/]/gi, '').slice(0, alpha ? 8 : 6) || '';
-
-export const getHex = (value?: string, alpha?: boolean) => (value ? toHexFormat(value, alpha) : '');
