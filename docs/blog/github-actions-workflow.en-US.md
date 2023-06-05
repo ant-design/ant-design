@@ -18,7 +18,7 @@ GitHub Actions is a platform for automating software development workflows, Deve
 - **Job**: A workflow consists of one or more jobs that run in parallel by default, but can be set to run sequentially. Each job can contain multiple steps.
 - **Step**: Defines the work to be done for a particular section. Each step runs as a separate process. Each item under this section is a separate operation or shell script.
 
-Here's a visual representation from the official documentation that shows the relationship between Event, Job and Step:
+Here's a visual representation from the official documentation that shows the relationship between **Event**, **Job** and **Step**:
 
 ![overview-actions-simple](https://docs.github.com/assets/cb-25535/mw-1000/images/help/actions/overview-actions-simple.webp)
 
@@ -40,11 +40,11 @@ As a feature on the GitHub platform, issues serve as a centralized information h
 
 ### Ensuring the Quality of Issues
 
-To ensure that issues contain sufficient information to help the Ant Design team analyze and prioritize them, we provide an [issue assistant](http://new-issue.ant.design) to standardize the process of creating issues. Additionally, we use GitHub Actions to check the issues that are created. Issues that do not pass the assistant's checks will be closed, labeled as [Invalid](https://github.com/ant-design/ant-design/issues?q=label%3AInvalid), and a comment will be posted to remind the creator how to ask a question properly. Here's an example:
+Ensuring issues contain sufficient information helps us to analyze and prioritize. We provide an [issue assistant](http://new-issue.ant.design) to standardize the process of creating issues. Additionally, we use GitHub Actions to check the issues created to auto close if it not pass the assistant's checks. Which will be labeled as [Invalid](https://github.com/ant-design/ant-design/issues?q=label%3AInvalid), aand leaving comment to remind the creator how to ask a question proporly.
 
 ![invalid-issue-preview](https://user-images.githubusercontent.com/32004925/231660945-509cf97c-43eb-4a1c-acd2-81eeedfe4a73.png)
 
-However, even with the use of the issue assistant, team members may sometimes be unable to obtain effective information from the provided content. In such cases, they may choose to manually add labels such as [🤔 Need Reproduce](https://github.com/ant-design/ant-design/issues?q=label%3A%22%F0%9F%A4%94+Need+Reproduce%22+), [needs-more-info](https://github.com/ant-design/ant-design/issues?q=label%3A%22%F0%9F%A4%94+Need+Reproduce%22+), or [help wanted](https://github.com/ant-design/ant-design/issues?q=label%3A%22help+wanted%22+) to further control the quality of the issue. The [issue-labeled.yml](https://github.com/ant-design/ant-design/blob/da83561f9cb57b0eb03d18543d96393689f799be/.github/workflows/issue-labeled.yml) file records different labels triggering corresponding comment reply jobs.
+However, team members may sometimes be unable to obtain effective information from the provided content. In such cases,will add labels such as [🤔 Need Reproduce](https://github.com/ant-design/ant-design/issues?q=label%3A%22%F0%9F%A4%94+Need+Reproduce%22+), [needs-more-info](https://github.com/ant-design/ant-design/issues?q=label%3A%22%F0%9F%A4%94+Need+Reproduce%22+), or [help wanted](https://github.com/ant-design/ant-design/issues?q=label%3A%22help+wanted%22+) to notice reporter improving the issue. The [issue-labeled.yml](https://github.com/ant-design/ant-design/blob/da83561f9cb57b0eb03d18543d96393689f799be/.github/workflows/issue-labeled.yml) file records different labels triggering corresponding comment reply jobs.
 
 ![need-reproduce-auto-comment-preview](https://user-images.githubusercontent.com/32004925/231673201-c7376eeb-010b-46d0-a7d0-4c115d58f58c.png)
 
@@ -59,7 +59,7 @@ For some common issues, the team provides detailed answers to help developers so
 Using GitHub Actions scheduled tasks to help manage and close issues, these automated operations can effectively avoid excessive accumulation of unprocessed issues.
 
 - [issue-close-require.yml](https://github.com/ant-design/ant-design/blob/01a475af6d8ff4943fe4c91d04582120bf9b3a84/.github/workflows/issue-close-require.yml): Checks issues marked as `🤔 Need Reproduce` or `needs-more-info` at a scheduled time. If these tags are not removed after 3 days, the issue will be automatically commented on and closed.
-- [issue-check-inactive.yml](https://github.com/ant-design/ant-design/blob/01a475af6d8ff4943fe4c91d04582120bf9b3a84/.github/workflows/issue-check-inactive.yml): Scheduled to check issues that have had no activity within the last 30 days every 15 days and add an `Inactive` label to them, but will not close the issue. If modified or has new comments, the `Inactive` and `needs-more-info` labels will be automatically removed.
+- [issue-check-inactive.yml](https://github.com/ant-design/ant-design/blob/01a475af6d8ff4943fe4c91d04582120bf9b3a84/.github/workflows/issue-check-inactive.yml): Scheduled to check issues which have no activity within the last 30 days every 15 days and add an `Inactive` label to them, without closing. If modified or has new comments, the `Inactive` and `needs-more-info` labels will be automatically removed.
 
 ![inactive-issue-preview](https://user-images.githubusercontent.com/32004925/234459079-db813907-503d-4405-801d-38e133c85996.png)
 
@@ -73,9 +73,9 @@ When you initiate a pull request (PR), the description content, including the ch
 
 ![pr-non-changelog-comment-preview](https://user-images.githubusercontent.com/32004925/231672871-32689c30-1e0a-40fc-9237-9b9b4312f15c.png)
 
-If the issue referenced in the PR description has the `🎱 Collaborate PR only` label, the PR will also be closed and a comment will be added to notify the user.
+If the issue referenced in the PR description has the `🎱 Collaborate PR only` label, the PR will be closed and leave a notification.
 
-The [verify-files-modify.yml](https://github.com/ant-design/ant-design/blob/3d627eb475/.github/workflows/verify-files-modify.yml) job will check the changes made in a PR. If the changes include specific directories (such as `./github/` and `scripts/`) or specific files (such as `CHANGELOG.md`), community contributions will be rejected. The PR will be automatically closed and assigned to core members.
+The [verify-files-modify.yml](https://github.com/ant-design/ant-design/blob/3d627eb475/.github/workflows/verify-files-modify.yml) job will check the changes. If the changes include specific directories (such as `./github/` and `scripts/`) or specific files (such as `CHANGELOG.md`), community contributions will be rejected. The PR will be automatically closed and assigned to core members.
 
 ### Code Style Checking
 
@@ -85,9 +85,9 @@ In the [lint](https://github.com/ant-design/ant-design/blob/dedbdfddafc0134219e3
 
 ### PR deploy preview
 
-For every pull request created, GitHub Actions is used to automatically attempt to build and deploy it. This ensures that the documentation is correct and that the pull request does not affect the documentation or component demos. PR deployment is divided into multiple jobs, and the specific process is as follows:
+For every pull request created, GitHub Actions will trigger the build process to ensure the documentation is correct. And PR does not affect the documentation or component demos. PR deployment is divided into multiple jobs, and the specific process is as follows:
 
-- First, the [preview-start.yml](https://github.com/ant-design/ant-design/blob/c6a7dbc09e709a8905aaa6c073593a1fed6bea14/.github/workflows/preview-start.yml) job is triggered to create a placeholder comment on the PR, informing the developer to start the preview build. This is what is often seen as "Preview Preparing..."
+- First, the [preview-start.yml](https://github.com/ant-design/ant-design/blob/c6a7dbc09e709a8905aaa6c073593a1fed6bea14/.github/workflows/preview-start.yml)job is triggered to create a placeholder comment on the PR, informing the developer to start the preview build. This is what is often seen as "Preview Preparing..."
 
 ![preview-preparing..](https://user-images.githubusercontent.com/32004925/231686636-eef933e6-2678-4e49-9552-babc50687644.png)
 
@@ -105,15 +105,15 @@ Unit testing is one of the most important components of component library qualit
 
 ### Build Testing
 
-We want to ensure that the code can be built and packaged correctly after each update. Ant Design has added the [Dist Job](https://github.com/ant-design/ant-design/blob/master/.github/workflows/test.yml#L104-L138) and [Compile Job](https://github.com/ant-design/ant-design/blob/40fb753349c4f2be314c91dbb7e6f1a960097c19/.github/workflows/test.yml#L254-L288) in the test.yml file to ensure that the repository can be built and packaged correctly.
+The team wanted the packaged product to build properly after each code update. Ant Design has added the [Dist Job](https://github.com/ant-design/ant-design/blob/master/.github/workflows/test.yml#L104-L138) and [Compile Job](https://github.com/ant-design/ant-design/blob/40fb753349c4f2be314c91dbb7e6f1a960097c19/.github/workflows/test.yml#L254-L288) in the test.yml file to ensure the repository can be built and packaged correctly.
 
 ### Function Testing
 
-If you have paid attention to Ant Design's GitHub Actions, you will notice that there are as many as 30 jobs related to testing only each time.
+you may notice that there are as many as 30 jobs related to testing only each time.
 
 The team is very cautious about unit testing and needs to consider the running status of components on various major versions of React (usually versions 16, 17, and 18). If it is an update to the main branch, the running status of project build artifacts (usually `dist`, `es`, and `lib`) on three versions of React also needs to be considered. Currently, it is known that all components of Ant Design have over 4000 test cases. In order to further improve the efficiency of testing, we have also set up a distributed testing environment.
 
-All of these functions benefit from the [Job matrix strategy](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs) of GitHub Actions, which allows us to configure multiple jobs to perform testing tasks at one time. [Normal test](https://github.com/ant-design/ant-design/blob/40fb753349c4f2be314c91dbb7e6f1a960097c19/.github/workflows/test.yml#L141-L223) and [Module test](https://github.com/ant-design/ant-design/blob/40fb753349c4f2be314c91dbb7e6f1a960097c19/.github/workflows/test.yml#L294-L357) are the jobs that Ant Design uses the matrix strategy to test.
+With the help of the [Job matrix strategy](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs), CI can configure multiple jobs to perform testing tasks at one time. [Normal test](https://github.com/ant-design/ant-design/blob/40fb753349c4f2be314c91dbb7e6f1a960097c19/.github/workflows/test.yml#L141-L223) and [Module test](https://github.com/ant-design/ant-design/blob/40fb753349c4f2be314c91dbb7e6f1a960097c19/.github/workflows/test.yml#L294-L357) are the jobs that Ant Design uses the matrix strategy to test.
 
 ## Website Deploy
 
@@ -127,11 +127,11 @@ The [https://ant.design](https://ant.design) official website uses the free [Git
 
 As we all know, the [https://ant.design](https://ant.design) official website always maintains the latest version. However, sometimes it is still necessary to refer to the documentation of a specific version. The [Deploy to Surge](https://github.com/ant-design/ant-design/blob/5aad29d937baeba43ca8acde7f86450e9aec99f1/.github/workflows/site-deploy.yml#L80-L90) job is responsible for deploying the website to Surge after each new version is released, with the URL format `https://ant-design-{major}-{minor}-{patch}.surge.sh`, and posting the URL as a comment on each release commit.
 
-![everyone-version-preview](https://user-images.githubusercontent.com/32004925/234485713-4e93154c-d5a4-4cad-87b0-e76667ff237f.png)
+![versions-preview](https://user-images.githubusercontent.com/32004925/234485713-4e93154c-d5a4-4cad-87b0-e76667ff237f.png)
 
 ## Other
 
-The previous section has covered most of the core content on how Ant Design utilizes CI/CD. However, there are still some Jobs that haven't been specifically introduced. Here are some additional details to supplement that.
+In the previous sections, we introduced many scenarios used by Ant Design. However, there are still some Jobs that haven't been specifically introduced. Here are some additional details to supplement that.
 
 ### IM notification
 
@@ -243,7 +243,7 @@ To further optimize dependency installation speed, we can add pnpm caching. Afte
 # ...
 ```
 
-As we can see, the initiated pull request also triggered the CI job correctly, and our pnpm store has been cached. From now on, every time CI is triggered, it will check the content of the `pnpm-lock.yaml` file to determine whether to read the cache directly.
+The initiated pull request also triggered the CI job correctly, and our pnpm store has been cached. From now on, Every time CI triggered from now on, it will check the content of the `pnpm-lock.yaml` file to determine whether to read the cache directly.
 
 ![pr-CI-preview](https://user-images.githubusercontent.com/32004925/234617748-8bc4f0fd-b29a-4b01-b416-1c16eed03acb.png)
 
@@ -253,6 +253,6 @@ Regarding the `Setup pnpm cache` step above, any cached items that have not been
 
 ![cache-pnpm-store](https://user-images.githubusercontent.com/32004925/234618808-46137b0d-27a0-4b01-b1a6-6e4931f6d388.png)
 
-## End
+## After all
 
-That concludes this article. I hope it has helped you gain a deeper understanding of Ant Design. You are also welcome to participate in discussions and contribute to the project at the [Ant Design Discussion](https://github.com/ant-design/ant-design/discussions).
+I hope it has helped you gain a deeper understanding of Ant Design. You are also welcome to participate in discussions and contribute to the project at the [Ant Design Discussion](https://github.com/ant-design/ant-design/discussions).

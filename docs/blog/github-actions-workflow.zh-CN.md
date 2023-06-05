@@ -105,11 +105,11 @@ Ant Design 团队非常鼓励社区参与 Pull Request (PR)，可以先阅读 [�
 
 ### 构建测试
 
-我们希望每次代码更新后，都能正常构建打包产物， Ant Design 在 test.yml 文件中添加了 [Dist Job](https://github.com/ant-design/ant-design/blob/master/.github/workflows/test.yml#L104-L138) 和 [Compile Job](https://github.com/ant-design/ant-design/blob/40fb753349c4f2be314c91dbb7e6f1a960097c19/.github/workflows/test.yml#L254-L288) 以保证仓库可以进行正常打包构建。
+团队希望每次代码更新后，都能正常构建打包产物， Ant Design 在 test.yml 文件中添加了 [Dist Job](https://github.com/ant-design/ant-design/blob/master/.github/workflows/test.yml#L104-L138) 和 [Compile Job](https://github.com/ant-design/ant-design/blob/40fb753349c4f2be314c91dbb7e6f1a960097c19/.github/workflows/test.yml#L254-L288) 以保证仓库可以进行正常打包构建。
 
 ### 功能测试
 
-如果大家留意过 Ant Design 的 GitHub Actions，会发现每次仅运行测试相关的 Job 就有多达 30 个。
+大家可能有留意到每次仅运行测试相关的 Job 就有多达 30 个。
 
 ![test-jobs-preview](https://user-images.githubusercontent.com/32004925/234482326-7c1074b5-e75a-494e-b1c7-c8ccc482ba7c.png)
 
