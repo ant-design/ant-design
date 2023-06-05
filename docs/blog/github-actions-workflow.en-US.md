@@ -4,11 +4,11 @@ date: 2023-06-06
 author: Wxh16144
 ---
 
-Hi, I'm [Wxh16144](https://github.com/Wxh16144). Through learning Ant Design's component library and participating in community contributions, I have discovered some tools that can improve development efficiency and code quality. I would like to take this opportunity to share my experience with everyone, to help better understand Ant Design, and to apply these techniques to your own projects.
+Hi, I'm [Wxh16144](https://github.com/Wxh16144). I have discovered some tools that can improve development efficiency and code quality through learning Ant Design's component library and participating in community contributions. I'd like to take this opportunity to share my experience with you. To help better understand Ant Design, and to apply these techniques to your own projects.
 
 # Preface
 
-Ant Design is hosted on GitHub as an open-source project, making it easy to communicate and collaborate with developers around the world, as well as allowing developers to submit issues and pull requests. Additionally, by utilizing GitHub Actions and its CI/CD capabilities, we are able to better manage the code repository and automate workflows such as testing and deployment. This article will focus on the capabilities provided by GitHub Actions.
+Ant Design is hosted on GitHub as an open-source project, making it easy to communicate and collaborate with developers around the world, and allowing developers to submit issues and pull requests. Additionally, we can well manage the code repository and automate workflows such as testing and deployment through utilizing GitHub Actions and its CI/CD capabilities.
 
 ## What is GitHub Actions
 
