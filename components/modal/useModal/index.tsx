@@ -2,10 +2,10 @@ import * as React from 'react';
 import usePatchElement from '../../_util/hooks/usePatchElement';
 import type { ModalStaticFunctions } from '../confirm';
 import { withConfirm, withError, withInfo, withSuccess, withWarn } from '../confirm';
-import type { ModalFuncProps } from '../Modal';
+import destroyFns from '../destroyFns';
+import type { ModalFuncProps } from '../interface';
 import type { HookModalRef } from './HookModal';
 import HookModal from './HookModal';
-import destroyFns from '../destroyFns';
 
 let uuid = 0;
 

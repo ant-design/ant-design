@@ -3,7 +3,7 @@ import { ConfigContext } from '../../config-provider';
 import defaultLocale from '../../locale/en_US';
 import useLocale from '../../locale/useLocale';
 import ConfirmDialog from '../ConfirmDialog';
-import type { ModalFuncProps } from '../Modal';
+import type { ModalFuncProps } from '../interface';
 
 export interface HookModalProps {
   afterClose: () => void;
