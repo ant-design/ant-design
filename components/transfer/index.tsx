@@ -164,7 +164,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const getMergedKeys = (
     currentTargetKeys: string[],
     typeSelectedKeys: string[],
-    propTypeKeys: string[] | undefined,
+    propTypeKeys: string[],
     propSelectedKeys: string[] | undefined,
     isSource: boolean,
   ) => {
@@ -174,10 +174,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     if (propSelectedKeys) {
       return keysWithSelectedOrNoTarget;
     }
-    if (propTypeKeys) {
-      return propTypeKeys.filter((key) => typeSelectedKeys.includes(key));
-    }
-    return keysWithSelectedOrNoTarget;
+    return propTypeKeys.filter((key) => typeSelectedKeys.includes(key));
   };
 
   const mergedSourceSelectedKeys = useMemo(
