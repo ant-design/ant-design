@@ -7,15 +7,15 @@ version: 2.1
 jobs:
   test-argos-ci:
     docker:
-      - image: cimg/node:16.20.0-browsers
+      - image: cimg/node:16.20-browsers
     steps:
       - checkout
       - run:
           name: Install node_modules
-          command: npm i
+          command: yarn
       - run:
           name: Build dist file
-          command: npm run dist
+          command: npm run dist:esbuild
       - run:
           name: Run image screenshot tests
           command: npm run test-image
