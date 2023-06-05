@@ -147,15 +147,19 @@ const useSelection = <RecordType extends AnyObject = any>(
     if (checkStrictly) {
       return { keyEntities: null };
     }
-    const convertData = data;
+    let convertData = data;
     if (preserveSelectedRowKeys) {
-      const keys = data.map((record, index) => getRowKey(record, index));
+      const keysMap = new Map();
+      data.forEach((record, index) => {
+        const key = getRowKey(record, index);
+        keysMap.set(key, true);
+      });
       // remove preserveRecords that duplicate data
       const preserveRecords = Array.from(preserveRecordsRef.current).reduce(
-        (total: RecordType[], [key, value]) => (keys.includes(key) ? total : total.concat(value)),
+        (total: RecordType[], [key, value]) => (keysMap.has(key) ? total : total.concat(value)),
         [],
       );
-      convertData.push(...preserveRecords);
+      convertData = [...convertData, ...preserveRecords];
     }
     return convertDataToEntities(convertData as unknown as DataNode[], {
       externalGetKey: getRowKey as any,
