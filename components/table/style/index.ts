@@ -125,6 +125,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         position: 'relative',
         padding: `${paddingContentVerticalLG}px ${tablePaddingHorizontal}px`,
         overflowWrap: 'break-word',
+        wordBreak: 'break-all',
       },
 
       // ============================ Title =============================
