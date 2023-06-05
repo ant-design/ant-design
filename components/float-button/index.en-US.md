@@ -25,6 +25,7 @@ FloatButton. Available since `5.0.0`.
 <code src="./demo/tooltip.tsx" iframe="360">FloatButton with tooltip</code>
 <code src="./demo/group.tsx" iframe="360">FloatButton Group</code>
 <code src="./demo/group-menu.tsx" iframe="360">Menu mode</code>
+<code src="./demo/controlled.tsx" iframe="360">Controlled mode</code>
 <code src="./demo/back-top.tsx" iframe="360">BackTop</code>
 <code src="./demo/badge.tsx" iframe="360">badge</code>
 <code src="./demo/badge-debug.tsx" iframe="360" debug>debug dot</code>

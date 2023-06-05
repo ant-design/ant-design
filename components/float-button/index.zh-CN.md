@@ -26,6 +26,7 @@ demo:
 <code src="./demo/tooltip.tsx" iframe="360">含有气泡卡片的悬浮按钮</code>
 <code src="./demo/group.tsx" iframe="360">浮动按钮组</code>
 <code src="./demo/group-menu.tsx" iframe="360">菜单模式</code>
+<code src="./demo/controlled.tsx" iframe="360">受控模式</code>
 <code src="./demo/back-top.tsx" iframe="360">回到顶部</code>
 <code src="./demo/badge.tsx" iframe="360">徽标数</code>
 <code src="./demo/badge-debug.tsx" iframe="360" debug>调试小圆点使用</code>
