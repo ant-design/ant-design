@@ -94,13 +94,16 @@ const flattenMenu = (menuItems: MenuProps['items']): MenuProps['items'] | null =
   return null;
 };
 
-const PrevAndNext: React.FC = () => {
+const PrevAndNext: React.FC<{ rtl?: boolean }> = ({ rtl }) => {
   const { styles } = useStyle();
 
-  const [menuItems, selectedKey] = useMenu({
-    before: <LeftOutlined className="footer-nav-icon-before" />,
-    after: <RightOutlined className="footer-nav-icon-after" />,
-  });
+  const beforeProps = { className: 'footer-nav-icon-before' };
+  const afterProps = { className: 'footer-nav-icon-after' };
+
+  const before = rtl ? <LeftOutlined {...beforeProps} /> : <RightOutlined {...beforeProps} />;
+  const after = rtl ? <RightOutlined {...afterProps} /> : <LeftOutlined {...afterProps} />;
+
+  const [menuItems, selectedKey] = useMenu({ before, after });
 
   const [prev, next] = useMemo(() => {
     const flatMenu = flattenMenu(menuItems);
