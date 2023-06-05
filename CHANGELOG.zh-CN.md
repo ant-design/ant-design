@@ -23,6 +23,7 @@ timeline: true
 - 🐞 修复 Image.PreviewGroup 预览时图片切换后状态没有重置的问题。[#42793](https://github.com/ant-design/ant-design/pull/42793) [@linxianxi](https://github.com/linxianxi)
 - ⌨️ 增强 Progress 可访问性表现。[#42704](https://github.com/ant-design/ant-design/pull/42704) [@MehmetYararVX](https://github.com/MehmetYararVX)
 - 🆕 Drawer 面板支持事件监听器，并允许将 `data-*` 属性传递给包装元素。[#42718](https://github.com/ant-design/ant-design/pull/42718) [@kiner-tang](https://github.com/kiner-tang)
+
 ## 5.5.2
 
 `2023-05-30`
