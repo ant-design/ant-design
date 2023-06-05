@@ -21,17 +21,21 @@ title: FAQ
 
 不推荐。对内接口不保证兼容性，它很可能在某个版本中因重构而移除。如果你确实需要使用，需自行确保版本升级时隐藏接口仍旧可用，或者锁定版本。
 
+## 为何新增 API 请求需要严格讨论？
+
+我们在添加 API 时十分谨慎，因为一些 API 可能不够抽象从而变成历史债务。例如当需要对交互方式进行更改，这些不良抽象可能会引发 Breaking Change。为了避免诸如此类问题，我们推荐新功能优先通过 HOC 实现。
+
 ## 当我点击 `Select Dropdown DatePicker TimePicker Popover Popconfirm` 内的另一个 popup 组件时它会消失，如何解决？
 
 该问题在 `3.11.0` 后已经解决。如果你仍在使用旧版本，你可以通过 `<Select getPopupContainer={trigger => trigger.parentElement}>` 来在 Popover 中渲染组件，或者使用其他的 `getXxxxContainer` 参数。
 
-可以参考 [Select 属性](/components/select/#Select-props)
+可以参考 [Select 属性](/components/select-cn#select-props)
 
 相关 issue：[#3487](https://github.com/ant-design/ant-design/issues/3487) [#3438](https://github.com/ant-design/ant-design/issues/3438)
 
 ## `Select Dropdown DatePicker TimePicker Popover Popconfirm` 会跟随滚动条上下移动？
 
-使用 `<Select getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](/components/select/#Select-props)）来将组件渲染到滚动区域内，或者使用其他的 `getXxxxContainer` 参数。如果需要全局解决这个问题，可以使用 `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](/components/config-provider/#API)）
+使用 `<Select getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](/components/select-cn#select-props)）来将组件渲染到滚动区域内，或者使用其他的 `getXxxxContainer` 参数。如果需要全局解决这个问题，可以使用 `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](/components/config-provider-cn#api)）
 
 并且保证 parentElement 是 `position: relative` 或 `position: absolute`。
 
@@ -39,7 +43,7 @@ title: FAQ
 
 ## 如何修改 Ant Design 的默认主题？
 
-可以参考[定制主题](/docs/react/customize-theme)。
+可以参考[定制主题](/docs/react/customize-theme-cn)。
 
 ## 如何修改 Ant Design 组件的默认样式？
 
@@ -59,7 +63,7 @@ antd 在 minor 和 patch 版本迭代中会避免引入破坏性变更，遵从�
 
 ## 如何使用其他时间日期库如 Moment.js？
 
-可以参考[使用自定义日期库](/docs/react/use-custom-date-library)。
+可以参考[使用自定义日期库](/docs/react/use-custom-date-library-cn)。
 
 ## 当我动态改变 `defaultValue` 的时候它并没有生效。
 
@@ -75,11 +79,11 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 ## 多个组件放一排时没有垂直对齐怎么办？
 
-尝试使用 [Space](/components/space/) 组件来使他们对齐。
+尝试使用 [Space](/components/space-cn) 组件来使他们对齐。
 
 ## antd 覆盖了我的全局样式！
 
-是的，antd 在设计的时候就是用来开发一个完整的应用的，为了方便，我们覆盖了一些全局样式，现在还不能移除，想要了解更多请追踪 [这个 issue](https://github.com/ant-design/ant-design/issues/4331)，或者参考这个教程 [How to avoid modifying global styles?](/docs/react/customize-theme#How-to-avoid-modifying-global-styles)
+是的，antd 在设计的时候就是用来开发一个完整的应用的，为了方便，我们覆盖了一些全局样式，现在还不能移除，想要了解更多请追踪 [这个 issue](https://github.com/ant-design/ant-design/issues/4331)，或者参考这个教程 [How to avoid modifying global styles?](/docs/react/customize-theme-cn#how-to-avoid-modifying-global-styles)
 
 ## 我没法安装 `antd` 和 `antd` 的依赖，顺便提一句，我在中国大陆。
 
@@ -116,7 +120,7 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 你应该自行部署 iconfont 文件到你的网络上，参考这个[例子](https://github.com/ant-design/antd-init/tree/7c1a33cadb98f2fd8688fe527dd7f98215b9bced/examples/local-iconfont)。 [#1070](https://github.com/ant-design/ant-design/issues/1070)
 
-在 `3.9.x` 版本后，[我们会使用 svg 图标](/components/icon#svg-icons)，你就不用担心本地部署 iconfont 的问题了！
+在 `3.9.x` 版本后，[我们会使用 svg 图标](/components/icon-cn#svg-icons)，你就不用担心本地部署 iconfont 的问题了！
 
 ## 如何拓展 antd 的组件？
 
@@ -137,7 +141,7 @@ type DataSource = TableProps['dataSource'];
 
 ## 我的组件默认语言是英文的？如何切回中文的。
 
-请尝试使用 [ConfigProvider](/components/config-provider/#components-config-provider-demo-locale) 组件来包裹你的应用。
+请尝试使用 [ConfigProvider](/components/config-provider-cn#components-config-provider-demo-locale) 组件来包裹你的应用。
 
 如果日期组件的国际化仍未生效，请配置 `dayjs.locale('zh-cn')` 并**检查你本地的 `dayjs` 版本和 `antd` 依赖的 `dayjs` 版本是否一致**。
 
@@ -161,7 +165,7 @@ npm ls dayjs
 
 ## 开启了 Content Security Policy (CSP) 如何处理动态样式？
 
-你可以通过 [ConfigProvider](/components/config-provider/#Content-Security-Policy) 来配置 `nonce` 属性。
+你可以通过 [ConfigProvider](/components/config-provider-cn#content-security-policy) 来配置 `nonce` 属性。
 
 ## 当我指定了 DatePicker/RangePicker 的 `mode` 属性后，点击后无法选择年份/月份？
 
@@ -184,7 +188,7 @@ npm ls dayjs
 
 message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲染方式，是单独渲染在 `ReactDOM.render` 生成的 DOM 树节点上，无法共享 ConfigProvider 提供的 context 信息。你有两种解决方式：
 
-1. 使用官方提供的 [message.useMessage](/components/message-cn/#components-message-demo-hooks)、[notification.useNotification](/components/notification/#%E4%B8%BA%E4%BB%80%E4%B9%88-notification-%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux-%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-%E7%9A%84-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 和 [Modal.useModal](/components/modal/#%E4%B8%BA%E4%BB%80%E4%B9%88-Modal-%E6%96%B9%E6%B3%95%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux%E3%80%81%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 来调用这些方法。
+1. 使用官方提供的 [message.useMessage](/components/message-cn/#components-message-demo-hooks)、[notification.useNotification](/components/notification-cn#%E4%B8%BA%E4%BB%80%E4%B9%88-notification-%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux-%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-%E7%9A%84-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 和 [Modal.useModal](/components/modal-cn/#%E4%B8%BA%E4%BB%80%E4%B9%88-Modal-%E6%96%B9%E6%B3%95%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux%E3%80%81%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 来调用这些方法。
 
 2. 使用 `ConfigProvider.config` 方法全局设置 `prefixCls`。
 
@@ -208,9 +212,25 @@ ConfigProvider.config({
 
 请参考动态主题文档 [兼容性调整](/docs/react/customize-theme-cn#兼容性调整) 部分内容。
 
+## 如何关闭组件动画
+
+通过 SeedToken 可以很方便的实现：
+
+```jsx
+import { ConfigProvider } from 'antd';
+
+<ConfigProvider theme={{ token: { motion: false } }}>
+  <App />
+</ConfigProvider>;
+```
+
 ## CSS-in-JS 与 tailwindcss 优先级冲突？
 
 同上，你可以调整 antd 样式优先级以覆盖。相关 issue: [#38794](https://github.com/ant-design/ant-design/issues/38794)
+
+## CSS-in-JS 如何与 Shadow DOM 一同使用？
+
+请参考文档 [Shadow Dom 场景](/docs/react/customize-theme-cn#shadow-dom-场景) 内容。
 
 ## 如何支持 SSR？
 

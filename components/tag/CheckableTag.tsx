@@ -18,14 +18,15 @@ export interface CheckableTagProps {
   onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }
 
-const CheckableTag: React.FC<CheckableTagProps> = ({
-  prefixCls: customizePrefixCls,
-  className,
-  checked,
-  onChange,
-  onClick,
-  ...restProps
-}) => {
+const CheckableTag: React.FC<CheckableTagProps> = (props) => {
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    checked,
+    onChange,
+    onClick,
+    ...restProps
+  } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const handleClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {

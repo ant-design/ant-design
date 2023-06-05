@@ -1,5 +1,5 @@
+import { Button, message, Popconfirm, Switch } from 'antd';
 import React, { useState } from 'react';
-import { message, Popconfirm, Switch } from 'antd';
 
 const App: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -36,7 +36,8 @@ const App: React.FC = () => {
   return (
     <div>
       <Popconfirm
-        title="Are you sure delete this task?"
+        title="Delete the task"
+        description="Are you sure to delete this task?"
         open={open}
         onOpenChange={handleOpenChange}
         onConfirm={confirm}
@@ -44,7 +45,7 @@ const App: React.FC = () => {
         okText="Yes"
         cancelText="No"
       >
-        <a href="#">Delete a task</a>
+        <Button danger>Delete a task</Button>
       </Popconfirm>
       <br />
       <br />

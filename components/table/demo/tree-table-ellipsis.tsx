@@ -71,7 +71,7 @@ const data: DataType[] = [
     key: 2,
     name: 'Joe Black',
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
+    address: 'Sydney No. 1 Lake Park',
   },
 ];
 

@@ -1,17 +1,19 @@
-import React from 'react';
 import { Checkbox } from 'antd';
 import type { CheckboxValueType } from 'antd/es/checkbox/Group';
+import React from 'react';
 
 const onChange = (checkedValues: CheckboxValueType[]) => {
   console.log('checked = ', checkedValues);
 };
 
 const plainOptions = ['Apple', 'Pear', 'Orange'];
+
 const options = [
   { label: 'Apple', value: 'Apple' },
   { label: 'Pear', value: 'Pear' },
   { label: 'Orange', value: 'Orange' },
 ];
+
 const optionsWithDisabled = [
   { label: 'Apple', value: 'Apple' },
   { label: 'Pear', value: 'Pear' },

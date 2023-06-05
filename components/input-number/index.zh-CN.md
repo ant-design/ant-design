@@ -3,7 +3,8 @@ category: Components
 subtitle: 数字输入框
 group: 数据录入
 title: InputNumber
-cover: https://gw.alipayobjects.com/zos/alicdn/XOS8qZ0kU/InputNumber.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JvWbSYhuNlIAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1uH-R5kLAMIAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -34,9 +35,7 @@ demo:
 
 ## API
 
-属性如下
-
-| 成员 | 说明 | 类型 | 默认值 | 版本 |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | addonAfter | 带标签的 input，设置后置标签 | ReactNode | - | 4.17.0 |
 | addonBefore | 带标签的 input，设置前置标签 | ReactNode | - | 4.17.0 |
@@ -69,6 +68,10 @@ demo:
 | ------- | -------- |
 | blur()  | 移除焦点 |
 | focus() | 获取焦点 |
+
+## Design Token
+
+<ComponentTokenTable component="InputNumber"></ComponentTokenTable>
 
 ## FAQ
 

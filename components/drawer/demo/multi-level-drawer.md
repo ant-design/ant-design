@@ -5,10 +5,3 @@
 ## en-US
 
 Open a new drawer on top of an existing drawer to handle multi branch tasks.
-
-<style>
-[data-theme="dark"] .site-multi-level-drawer-footer {
-  border-top: 1px solid #303030;
-  background: #1f1f1f;
-}
-</style>

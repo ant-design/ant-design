@@ -3,7 +3,8 @@ category: Components
 subtitle: 布局
 group: 布局
 title: Layout
-cover: https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*4i58ToAcxaYAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 协助进行页面级整体布局。
@@ -60,15 +61,15 @@ cover: https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本结构</code>
-<code src="./demo/top.tsx">上中下布局</code>
-<code src="./demo/top-side-2.tsx">顶部-侧边布局-通栏</code>
-<code src="./demo/top-side.tsx">顶部-侧边布局</code>
+<code src="./demo/top.tsx" compact background="grey">上中下布局</code>
+<code src="./demo/top-side.tsx" compact background="grey">顶部-侧边布局</code>
+<code src="./demo/top-side-2.tsx" compact background="grey">顶部-侧边布局-通栏</code>
 <code src="./demo/side.tsx" iframe="360">侧边布局</code>
-<code src="./demo/custom-trigger.tsx">自定义触发器</code>
-<code src="./demo/responsive.tsx">响应式布局</code>
+<code src="./demo/custom-trigger.tsx" compact background="grey">自定义触发器</code>
+<code src="./demo/responsive.tsx" compact background="grey">响应式布局</code>
 <code src="./demo/fixed.tsx" iframe="360">固定头部</code>
 <code src="./demo/fixed-sider.tsx" iframe="360">固定侧边栏</code>
-<code src="./demo/custom-trigger-debug.tsx" debug>自定义触发器 Debug</code>
+<code src="./demo/custom-trigger-debug.tsx" compact background="grey" debug>自定义触发器 Debug</code>
 
 ## API
 
@@ -100,7 +101,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| breakpoint | 触发响应式布局的[断点](/components/grid/#Col) | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` | - |
+| breakpoint | 触发响应式布局的[断点](/components/grid-cn#col) | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` | - |
 | className | 容器 className | string | - |
 | collapsed | 当前收起状态 | boolean | - |
 | collapsedWidth | 收缩宽度，设置为 0 会出现特殊 trigger | number | 80 |
@@ -112,7 +113,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg
 | trigger | 自定义 trigger，设置为 null 时隐藏 trigger | ReactNode | - |
 | width | 宽度 | number \| string | 200 |
 | zeroWidthTriggerStyle | 指定当 `collapsedWidth` 为 0 时出现的特殊 trigger 的样式 | object | - |
-| onBreakpoint | 触发响应式布局[断点](/components/grid/#API)时的回调 | (broken) => {} | - |
+| onBreakpoint | 触发响应式布局[断点](/components/grid-cn#api)时的回调 | (broken) => {} | - |
 | onCollapse | 展开-收起时的回调函数，有点击 trigger 以及响应式反馈两种方式可以触发 | (collapsed, type) => {} | - |
 
 #### breakpoint width
@@ -128,11 +129,6 @@ cover: https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg
 }
 ```
 
-<style>
-  [data-theme="dark"] .site-layout-background {
-    background: #141414;
-  }
-  [data-theme="dark"] .site-layout-header-background {
-    background: #1f1f1f;
-  }
-</style>
+## Design Token
+
+<ComponentTokenTable component="Layout"></ComponentTokenTable>

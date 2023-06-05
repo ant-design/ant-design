@@ -1,9 +1,14 @@
+import { Button, Popconfirm } from 'antd';
 import React from 'react';
-import { Popconfirm } from 'antd';
 
 const App: React.FC = () => (
-  <Popconfirm title="Are you sure？" okText="Yes" cancelText="No">
-    <a href="#">Delete</a>
+  <Popconfirm
+    title="Delete the task"
+    description="Are you sure to delete this task?"
+    okText="Yes"
+    cancelText="No"
+  >
+    <Button danger>Delete</Button>
   </Popconfirm>
 );
 

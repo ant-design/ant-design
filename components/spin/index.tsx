@@ -1,21 +1,21 @@
 import classNames from 'classnames';
-import debounce from 'lodash/debounce';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigConsumer, ConfigContext } from '../config-provider';
+import { debounce } from 'throttle-debounce';
 import { cloneElement, isValidElement } from '../_util/reactNode';
-import { tuple } from '../_util/type';
-
+import warning from '../_util/warning';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import useStyle from './style/index';
 
-const SpinSizes = tuple('small', 'default', 'large');
+const SpinSizes = ['small', 'default', 'large'] as const;
 export type SpinSize = typeof SpinSizes[number];
 export type SpinIndicator = React.ReactElement<HTMLElement>;
 
 export interface SpinProps {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   spinning?: boolean;
   style?: React.CSSProperties;
   size?: SpinSize;
@@ -77,8 +77,9 @@ const Spin: React.FC<SpinClassProps> = (props) => {
   const {
     spinPrefixCls: prefixCls,
     spinning: customSpinning = true,
-    delay,
+    delay = 0,
     className,
+    rootClassName,
     size = 'default',
     tip,
     wrapperClassName,
@@ -93,66 +94,75 @@ const Spin: React.FC<SpinClassProps> = (props) => {
   );
 
   React.useEffect(() => {
-    const updateSpinning = debounce<() => void>(() => {
-      setSpinning(customSpinning);
-    }, delay);
-    updateSpinning();
-    return () => {
-      updateSpinning?.cancel?.();
-    };
+    if (customSpinning) {
+      const showSpinning = debounce(delay, () => {
+        setSpinning(true);
+      });
+      showSpinning();
+      return () => {
+        showSpinning?.cancel?.();
+      };
+    }
+
+    setSpinning(false);
   }, [delay, customSpinning]);
 
-  const isNestedPattern = () => typeof children !== 'undefined';
+  const isNestedPattern = React.useMemo<boolean>(() => typeof children !== 'undefined', [children]);
 
-  const renderSpin = ({ direction }: ConfigConsumerProps) => {
-    const spinClassName = classNames(
-      prefixCls,
-      {
-        [`${prefixCls}-sm`]: size === 'small',
-        [`${prefixCls}-lg`]: size === 'large',
-        [`${prefixCls}-spinning`]: spinning,
-        [`${prefixCls}-show-text`]: !!tip,
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-      },
-      className,
-      hashId,
-    );
+  if (process.env.NODE_ENV !== 'production') {
+    warning(!tip || isNestedPattern, 'Spin', '`tip` only work in nest pattern.');
+  }
 
-    // fix https://fb.me/react-unknown-prop
-    const divProps = omit(restProps, ['indicator', 'prefixCls']);
+  const { direction } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
-    const spinElement = (
+  const spinClassName = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-sm`]: size === 'small',
+      [`${prefixCls}-lg`]: size === 'large',
+      [`${prefixCls}-spinning`]: spinning,
+      [`${prefixCls}-show-text`]: !!tip,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    className,
+    rootClassName,
+    hashId,
+  );
+
+  const containerClassName = classNames(`${prefixCls}-container`, {
+    [`${prefixCls}-blur`]: spinning,
+  });
+
+  // fix https://fb.me/react-unknown-prop
+  const divProps = omit(restProps, ['indicator', 'prefixCls']);
+
+  const spinElement: React.ReactNode = (
+    <div
+      {...divProps}
+      style={style}
+      className={spinClassName}
+      aria-live="polite"
+      aria-busy={spinning}
+    >
+      {renderIndicator(prefixCls, props)}
+      {tip && isNestedPattern ? <div className={`${prefixCls}-text`}>{tip}</div> : null}
+    </div>
+  );
+
+  if (isNestedPattern) {
+    return (
       <div
         {...divProps}
-        style={style}
-        className={spinClassName}
-        aria-live="polite"
-        aria-busy={spinning}
+        className={classNames(`${prefixCls}-nested-loading`, wrapperClassName, hashId)}
       >
-        {renderIndicator(prefixCls, props)}
-        {tip ? <div className={`${prefixCls}-text`}>{tip}</div> : null}
+        {spinning && <div key="loading">{spinElement}</div>}
+        <div className={containerClassName} key="container">
+          {children}
+        </div>
       </div>
     );
-
-    if (isNestedPattern()) {
-      const containerClassName = classNames(`${prefixCls}-container`, {
-        [`${prefixCls}-blur`]: spinning,
-      });
-      return (
-        <div
-          {...divProps}
-          className={classNames(`${prefixCls}-nested-loading`, wrapperClassName, hashId)}
-        >
-          {spinning && <div key="loading">{spinElement}</div>}
-          <div className={containerClassName} key="container">
-            {children}
-          </div>
-        </div>
-      );
-    }
-    return spinElement;
-  };
-  return <ConfigConsumer>{renderSpin}</ConfigConsumer>;
+  }
+  return spinElement;
 };
 
 const SpinFC: SpinFCType = (props) => {

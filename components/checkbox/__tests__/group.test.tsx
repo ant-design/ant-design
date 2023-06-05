@@ -214,17 +214,9 @@ describe('CheckboxGroup', () => {
   });
 
   it('should get div ref', () => {
-    const refCalls: HTMLDivElement[] = [];
-    render(
-      <Checkbox.Group
-        options={['Apple', 'Pear', 'Orange']}
-        ref={(node) => {
-          refCalls.push(node!);
-        }}
-      />,
-    );
-    const [mountCall] = refCalls;
-    expect(mountCall.nodeName).toBe('DIV');
+    const ref = React.createRef<HTMLDivElement>();
+    render(<Checkbox.Group options={['Apple', 'Pear', 'Orange']} ref={ref} />);
+    expect(ref.current?.nodeName).toBe('DIV');
   });
 
   it('should support number option', () => {

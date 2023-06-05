@@ -4,13 +4,14 @@ import React from 'react';
 import ConfigProvider from '..';
 import { InputNumber } from '../..';
 import { render } from '../../../tests/utils';
-import { useToken } from '../../theme/internal';
-import theme from '../../theme';
 import { resetWarned } from '../../_util/warning';
+import theme from '../../theme';
+import { useToken } from '../../theme/internal';
 
 const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 
-let mockCanUseDom = true;
+// eslint-disable-next-line no-var
+var mockCanUseDom = true;
 
 jest.mock('rc-util/lib/Dom/canUseDom', () => () => mockCanUseDom);
 
@@ -65,11 +66,11 @@ describe('ConfigProvider.Theme', () => {
       return null;
     };
     render(
-      <ConfigProvider theme={{ token: { colorPrimary: '#1890ff' }, algorithm: darkAlgorithm }}>
+      <ConfigProvider theme={{ token: { colorPrimary: '#1677ff' }, algorithm: darkAlgorithm }}>
         <Demo />
       </ConfigProvider>,
     );
-    expect(tokenRef?.colorPrimaryText).toBe('#177ddc');
+    expect(tokenRef?.colorPrimaryText).toBe('#1668dc');
   });
 
   it('compactAlgorithm should work', () => {
@@ -108,12 +109,12 @@ describe('ConfigProvider.Theme', () => {
     };
     render(
       <ConfigProvider
-        theme={{ token: { colorPrimary: '#1890ff' }, algorithm: [defaultAlgorithm, darkAlgorithm] }}
+        theme={{ token: { colorPrimary: '#1677ff' }, algorithm: [defaultAlgorithm, darkAlgorithm] }}
       >
         <Demo />
       </ConfigProvider>,
     );
-    expect(tokenRef?.colorPrimaryText).toBe('#177ddc');
+    expect(tokenRef?.colorPrimaryText).toBe('#1668dc');
   });
 
   it('overriding component token should work', () => {
@@ -177,7 +178,7 @@ describe('ConfigProvider.Theme', () => {
     expect(tokens.a).toMatchObject(tokens.b);
   });
 
-  it('theme seperated should work', () => {
+  it('theme separated should work', () => {
     let tokenRef: any;
     const Demo = () => {
       const [, token] = useToken();
@@ -185,7 +186,7 @@ describe('ConfigProvider.Theme', () => {
       return null;
     };
     render(
-      <ConfigProvider theme={{ token: { colorPrimary: '#1890ff' } }}>
+      <ConfigProvider theme={{ token: { colorPrimary: '#1677ff' } }}>
         <ConfigProvider theme={{ inherit: false }}>
           <Demo />
         </ConfigProvider>

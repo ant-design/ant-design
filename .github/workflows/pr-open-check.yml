@@ -39,11 +39,11 @@ jobs:
               - Write with a **developer-oriented perspective** and **narrative method**, without describing the details of the repair
               - **Describing the problem and the impact on the developer**
               - **describing the user-first site problem**, not your solution
-              - Refer: https://ant.design/changelog#4.9.0
+              - Refer: https://ant.design/changelog#501
 
             - 🚨 请填写 PR 中的 changelog
               - 请用**面向开发者的角度**和**叙述方式撰写**，不描述修复细节
               - **描述问题和对开发者的影响**
               - **描述用户第一现场的问题**，而非你的解决方式
-              - 参考：https://ant.design/changelog-cn#4.9.0
+              - 参考：https://ant.design/changelog-cn#501
           skip-title-start: 'docs, chore, test, ci'

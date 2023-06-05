@@ -2,14 +2,14 @@
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
-import type { Breakpoint, ScreenMap } from '../_util/responsiveObserve';
-import ResponsiveObserve, { responsiveArray } from '../_util/responsiveObserve';
+import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
+import useResponsiveObserver, { responsiveArray } from '../_util/responsiveObserver';
 import warning from '../_util/warning';
+import { ConfigContext } from '../config-provider';
+import useSize from '../config-provider/hooks/useSize';
 import DescriptionsItem from './Item';
 import Row from './Row';
-
 import useStyle from './style';
 
 export interface DescriptionsContextProps {
@@ -47,8 +47,8 @@ function getColumn(column: DescriptionsProps['column'], screens: ScreenMap): num
 
 function getFilledItem(
   node: React.ReactElement,
-  span: number | undefined,
   rowRestCol: number,
+  span?: number,
 ): React.ReactElement {
   let clone = node;
 
@@ -74,12 +74,12 @@ function getRows(children: React.ReactNode, column: number) {
   let rowRestCol = column;
 
   childNodes.forEach((node, index) => {
-    const span: number | undefined = node.props?.span;
+    const span: number = node.props?.span;
     const mergedSpan = span || 1;
 
     // Additional handle last one
     if (index === childNodes.length - 1) {
-      tmpRow.push(getFilledItem(node, span, rowRestCol));
+      tmpRow.push(getFilledItem(node, rowRestCol, span));
       rows.push(tmpRow);
       return;
     }
@@ -88,7 +88,7 @@ function getRows(children: React.ReactNode, column: number) {
       rowRestCol -= mergedSpan;
       tmpRow.push(node);
     } else {
-      tmpRow.push(getFilledItem(node, mergedSpan, rowRestCol));
+      tmpRow.push(getFilledItem(node, rowRestCol, mergedSpan));
       rows.push(tmpRow);
       rowRestCol = column;
       tmpRow = [];
@@ -101,6 +101,7 @@ function getRows(children: React.ReactNode, column: number) {
 export interface DescriptionsProps {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   bordered?: boolean;
   size?: 'middle' | 'small' | 'default';
@@ -124,21 +125,26 @@ function Descriptions({
   layout,
   children,
   className,
+  rootClassName,
   style,
-  size,
+  size: customizeSize,
   labelStyle,
   contentStyle,
+  ...restProps
 }: DescriptionsProps) {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
   const [screens, setScreens] = React.useState<ScreenMap>({});
   const mergedColumn = getColumn(column, screens);
 
+  const mergedSize = useSize(customizeSize);
+
   const [wrapSSR, hashId] = useStyle(prefixCls);
+  const responsiveObserver = useResponsiveObserver();
 
   // Responsive
   React.useEffect(() => {
-    const token = ResponsiveObserve.subscribe((newScreens) => {
+    const token = responsiveObserver.subscribe((newScreens) => {
       if (typeof column !== 'object') {
         return;
       }
@@ -146,7 +152,7 @@ function Descriptions({
     });
 
     return () => {
-      ResponsiveObserve.unsubscribe(token);
+      responsiveObserver.unsubscribe(token);
     };
   }, []);
 
@@ -163,14 +169,16 @@ function Descriptions({
         className={classNames(
           prefixCls,
           {
-            [`${prefixCls}-${size}`]: size && size !== 'default',
+            [`${prefixCls}-${mergedSize}`]: mergedSize && mergedSize !== 'default',
             [`${prefixCls}-bordered`]: !!bordered,
             [`${prefixCls}-rtl`]: direction === 'rtl',
           },
           className,
+          rootClassName,
           hashId,
         )}
         style={style}
+        {...restProps}
       >
         {(title || extra) && (
           <div className={`${prefixCls}-header`}>
@@ -199,6 +207,10 @@ function Descriptions({
       </div>
     </DescriptionsContext.Provider>,
   );
+}
+
+if (process.env.NODE_ENV !== 'production') {
+  Descriptions.displayName = 'Descriptions';
 }
 
 Descriptions.Item = DescriptionsItem;

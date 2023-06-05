@@ -5,6 +5,7 @@ import { Divider, Select, Typography } from 'antd';
 const { Title } = Typography;
 
 const options: SelectProps['options'] = [];
+
 for (let i = 0; i < 100000; i++) {
   const value = `${i.toString(36)}${i}`;
   options.push({

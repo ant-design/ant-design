@@ -63,7 +63,7 @@ describe('Transfer.Search', () => {
     jest.useRealTimers();
   });
 
-  it('legacy props#onSearchChange doesnot work anymore', () => {
+  it('legacy props#onSearchChange does not work anymore', () => {
     const onSearchChange = jest.fn();
     const props = { onSearchChange };
     const { container } = render(<Transfer render={(item) => item.title!} {...props} showSearch />);

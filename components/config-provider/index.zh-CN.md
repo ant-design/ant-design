@@ -3,7 +3,8 @@ category: Components
 subtitle: 全局化配置
 group: 其他
 title: ConfigProvider
-cover: https://gw.alipayobjects.com/zos/alicdn/kegYxl1wj/ConfigProvider.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*NVKORa7BCVwAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YC4ERpGAddoAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 为组件提供统一的全局化配置。
@@ -12,23 +13,25 @@ cover: https://gw.alipayobjects.com/zos/alicdn/kegYxl1wj/ConfigProvider.svg
 
 ConfigProvider 使用 React 的 [context](https://facebook.github.io/react/docs/context.html) 特性，只需在应用外围包裹一次即可全局生效。
 
-```jsx
+```tsx
 import { ConfigProvider } from 'antd';
+import React from 'react';
 
 // ...
-
-export default () => (
+const Demo: React.FC = () => (
   <ConfigProvider direction="rtl">
     <App />
   </ConfigProvider>
 );
+
+export default Demo;
 ```
 
 ### Content Security Policy
 
 部分组件为了支持波纹效果，使用了动态样式。如果开启了 Content Security Policy (CSP)，你可以通过 `csp` 属性来进行配置：
 
-```jsx
+```tsx
 <ConfigProvider csp={{ nonce: 'YourNonceCode' }}>
   <Button>My Button</Button>
 </ConfigProvider>
@@ -42,6 +45,7 @@ export default () => (
 <code src="./demo/size.tsx">组件尺寸</code>
 <code src="./demo/theme.tsx">主题</code>
 <code src="./demo/prefixCls.tsx" debug>前缀</code>
+<code src="./demo/useConfig.tsx" debug>useConfig</code>
 
 ## API
 
@@ -52,16 +56,18 @@ export default () => (
 | componentSize | 设置 antd 组件大小 | `small` \| `middle` \| `large` | - |  |
 | csp | 设置 [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) 配置 | { nonce: string } | - |  |
 | direction | 设置文本展示方向。 [示例](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
-| dropdownMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。`false` 时会关闭虚拟滚动 | boolean \| number | - | 4.3.0 |
-| form | 设置 Form 组件的通用属性 | { validateMessages?: [ValidateMessages](/components/form/#validateMessages), requiredMark?: boolean \| `optional`, colon?: boolean} | - | requiredMark: 4.8.0; colon: 4.18.0 |
+| popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。`false` 时会关闭虚拟滚动 | boolean \| number | - | 5.5.0 |
+| popupOverflow | Select 类组件弹层展示逻辑，默认为可视区域滚动，可配置成滚动区域滚动 | 'viewport' \| 'scroll' <InlinePopover previewURL="https://user-images.githubusercontent.com/5378891/230344474-5b9f7e09-0a5d-49e8-bae8-7d2abed6c837.png"></InlinePopover> | 'viewport' | 5.5.0 |
+| form | 设置 Form 组件的通用属性 | { validateMessages?: [ValidateMessages](/components/form-cn#validatemessages), requiredMark?: boolean \| `optional`, colon?: boolean, scrollToFirstError?: boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)} | - | requiredMark: 4.8.0; colon: 4.18.0; scrollToFirstError: 5.2.0 |
 | getPopupContainer | 弹出框（Select, Tooltip, Menu 等等）渲染父节点，默认渲染到 body 上。 | function(triggerNode) | () => document.body |  |
 | getTargetContainer | 配置 Affix、Anchor 滚动监听容器。 | () => HTMLElement | () => window | 4.2.0 |
 | iconPrefixCls | 设置图标统一样式前缀 | string | `anticon` | 4.11.0 |
 | input | 设置 Input 组件的通用属性 | { autoComplete?: string } | - | 4.2.0 |
+| select | 设置 Select 组件的通用属性 | { showSearch?: boolean } | - |  |
 | locale | 语言包配置，语言包可到 [antd/locale](http://unpkg.com/antd/locale/) 目录下寻找 | object | - |  |
 | prefixCls | 设置统一样式前缀 | string | `ant` |  |
-| renderEmpty | 自定义组件空状态。参考 [空状态](/components/empty/) | function(componentName: string): ReactNode | - |  |
-| space | 设置 Space 的 `size`，参考 [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number` } | - | 4.1.0 |
+| renderEmpty | 自定义组件空状态。参考 [空状态](/components/empty-cn) | function(componentName: string): ReactNode | - |  |
+| space | 设置 Space 的 `size`，参考 [Space](/components/space-cn) | { size: `small` \| `middle` \| `large` \| `number` } | - | 4.1.0 |
 | theme | 设置主题，参考 [定制主题](/docs/react/customize-theme-cn) | - | - | 5.0.0 |
 | virtual | 设置 `false` 时关闭虚拟滚动 | boolean | - | 4.3.0 |
 
@@ -69,12 +75,29 @@ export default () => (
 
 设置 `Modal`、`Message`、`Notification` rootPrefixCls。
 
-```jsx
+```ts
 ConfigProvider.config({
   prefixCls: 'ant', // 4.13.0+
   iconPrefixCls: 'anticon', // 4.17.0+
 });
 ```
+
+### ConfigProvider.useConfig() `5.3.0+`
+
+`5.2.0` 版本后可用。获取父级 `Provider` 的值。如 `DisabledContextProvider`、`SizeContextProvider`。
+
+```jsx
+const {
+  componentDisabled, // 5.3.0+
+  componentSize, // 5.3.0+
+} = ConfigProvider.useConfig();
+```
+
+<!-- prettier-ignore -->
+| 返回值 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| componentDisabled | antd 组件禁用状态 | boolean | - | 5.3.0 |
+| componentSize | antd 组件大小状态 | `small` \| `middle` \| `large` | - | 5.3.0 |
 
 ## FAQ
 
@@ -84,7 +107,7 @@ ConfigProvider.config({
 
 #### 为什么时间类组件的国际化 locale 设置不生效？
 
-参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#为什么时间类组件的国际化-locale-设置不生效？)。
+参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#为什么时间类组件的国际化-locale-设置不生效)。
 
 #### 配置 `getPopupContainer` 导致 Modal 报错？
 
@@ -105,3 +128,13 @@ ConfigProvider.config({
    <App />
  </ConfigProvider>
 ```
+
+#### 为什么 message.info、notification.open 或 Modal.confirm 等方法内的 ReactNode 无法继承 ConfigProvider 的属性？比如 `prefixCls` 和 `theme`。
+
+静态方法是使用 ReactDOM.render 重新渲染一个 React 根节点上，和主应用的 React 节点是脱离的。我们建议使用 useMessage、useNotification 和 useModal 来使用相关方法。原先的静态方法在 5.0 中已被废弃。
+
+#### Vite 生产模式打包后国际化 locale 设置不生效？
+
+相关 issue：[#39045](https://github.com/ant-design/ant-design/issues/39045)
+
+由于 Vite 生产模式下打包与开发模式不同，cjs 格式的文件会多一层，需要 `zhCN.default` 来获取。推荐 Vite 用户直接从 `antd/es/locale` 目录下引入 esm 格式的 locale 文件。

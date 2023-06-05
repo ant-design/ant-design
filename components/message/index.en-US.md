@@ -3,7 +3,8 @@ category: Components
 group: Feedback
 noinstant: true
 title: Message
-cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JjZBT6N1MusAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7qMTRoq3ZGkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -27,16 +28,16 @@ Display global messages as feedback in response to user operations.
 <code src="./demo/update.tsx">Update Message Content</code>
 <code src="./demo/info.tsx">Normal prompt</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
-This components provides some static methods, with usage and arguments as following:
+This component provides some static methods, with usage and arguments as following:
 
 - `message.success(content, [duration], onClose)`
 - `message.error(content, [duration], onClose)`
 - `message.info(content, [duration], onClose)`
 - `message.warning(content, [duration], onClose)`
-- `message.warn(content, [duration], onClose)` // alias of warning
 - `message.loading(content, [duration], onClose)`
 
 | Argument | Description | Type | Default |
@@ -59,7 +60,6 @@ Supports passing parameters wrapped in an object:
 - `message.error(config)`
 - `message.info(config)`
 - `message.warning(config)`
-- `message.warn(config)` // alias of warning
 - `message.loading(config)`
 
 The properties of config are as follows:
@@ -109,9 +109,13 @@ message.config({
 | rtl | Whether to enable RTL mode | boolean | false |  |
 | top | Distance from top | number | 8 |  |
 
+## Design Token
+
+<ComponentTokenTable component="Message"></ComponentTokenTable>
+
 ## FAQ
 
-### Why I can not access context, redux, ConfigProvider `locale/prefixCls` in message?
+### Why I can not access context, redux, ConfigProvider `locale/prefixCls/theme` in message?
 
 antd will dynamic create React instance by `ReactDOM.render` when call message methods. Whose context is different with origin code located context.
 
@@ -133,6 +137,8 @@ return (
 
 **Note:** You must insert `contextHolder` into your children with hooks. You can use origin method if you do not need context connection.
 
+> [App Package Component](/components/app) can be used to simplify the problem of `useMessage` and other methods that need to manually implant contextHolder.
+
 ### How to set static methods prefixCls ？
 
-You can config with [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>)
+You can config with [`ConfigProvider.config`](/components/config-provider#configproviderconfig-4130)

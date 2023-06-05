@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { Result, Button } from 'antd';
 import { HomeOutlined } from '@ant-design/icons';
+import { Button, Result } from 'antd';
 import { Link, useLocation } from 'dumi';
+import React, { useEffect } from 'react';
 import * as utils from '../../theme/utils';
 
 export interface NotFoundProps {
@@ -29,27 +29,28 @@ const NotFoundPage: React.FC<NotFoundProps> = ({ router }) => {
         router.replace(utils.getLocalizedPathname(`/${DIRECT_MAP[matchPath]}`, isZhCN).pathname);
       }
     }
+
+    // Report if necessary
+    const { yuyanMonitor } = window as any;
+    yuyanMonitor?.log({
+      code: 11,
+      msg: `Page not found: ${location.href}; Source: ${document.referrer}`,
+    });
   }, []);
 
   return (
-    <div id="page-404">
-      <section>
-        <Result
-          status="404"
-          title="404"
-          subTitle={
-            isZhCN ? '你访问的页面貌似不存在？' : 'Sorry, the page you visited does not exist.'
-          }
-          extra={
-            <Link to={utils.getLocalizedPathname('/', isZhCN)}>
-              <Button type="primary" icon={<HomeOutlined />}>
-                {isZhCN ? '返回 Ant Design 首页' : 'Back to home page'}
-              </Button>
-            </Link>
-          }
-        />
-      </section>
-    </div>
+    <Result
+      status="404"
+      title="404"
+      subTitle={isZhCN ? '你访问的页面貌似不存在？' : 'Sorry, the page you visited does not exist.'}
+      extra={
+        <Link to={utils.getLocalizedPathname('/', isZhCN)}>
+          <Button type="primary" icon={<HomeOutlined />}>
+            {isZhCN ? '返回 Ant Design 首页' : 'Back to home page'}
+          </Button>
+        </Link>
+      }
+    />
   );
 };
 

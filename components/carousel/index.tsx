@@ -13,14 +13,12 @@ export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass'> {
   effect?: CarouselEffect;
   style?: React.CSSProperties;
   prefixCls?: string;
+  rootClassName?: string;
   slickGoTo?: number;
   dotPosition?: DotPosition;
   children?: React.ReactNode;
-  dots?:
-    | boolean
-    | {
-        className?: string;
-      };
+  dots?: boolean | { className?: string };
+  waitForAnimate?: boolean;
 }
 
 export interface CarouselRef {
@@ -37,8 +35,10 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
       dots = true,
       arrows = false,
       draggable = false,
+      waitForAnimate = false,
       dotPosition = 'bottom',
       vertical = dotPosition === 'left' || dotPosition === 'right',
+      rootClassName,
       ...props
     },
     ref,
@@ -99,6 +99,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
         [`${prefixCls}-vertical`]: newProps.vertical,
       },
       hashId,
+      rootClassName,
     );
 
     return wrapSSR(
@@ -110,10 +111,15 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
           dotsClass={dsClass}
           arrows={arrows}
           draggable={draggable}
+          waitForAnimate={waitForAnimate}
         />
       </div>,
     );
   },
 );
+
+if (process.env.NODE_ENV !== 'production') {
+  Carousel.displayName = 'Carousel';
+}
 
 export default Carousel;

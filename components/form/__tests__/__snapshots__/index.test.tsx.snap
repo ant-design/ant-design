@@ -138,7 +138,6 @@ exports[`Form form should support disabled 1`] = `
                   disabled=""
                   id="disabled"
                   type="checkbox"
-                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"

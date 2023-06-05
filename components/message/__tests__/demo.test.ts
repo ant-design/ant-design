@@ -1,3 +1,5 @@
 import demoTest from '../../../tests/shared/demoTest';
 
-demoTest('message');
+demoTest('message', {
+  testRootProps: false,
+});

@@ -1,23 +1,23 @@
-import * as React from 'react';
-import { Link, useLocation } from 'dumi';
-import * as utils from '../../utils';
 import { css } from '@emotion/react';
+import { Link, useLocation } from 'dumi';
+import * as React from 'react';
 import useSiteToken from '../../../hooks/useSiteToken';
+import * as utils from '../../utils';
 
 const useStyle = () => {
   const { token } = useSiteToken();
 
-  const { antCls, headerHeight, colorTextHeading, fontFamily, mobileMaxWidth } = token;
+  const { headerHeight, colorTextHeading, fontFamily, mobileMaxWidth } = token;
 
   return {
     logo: css`
       height: ${headerHeight}px;
-      padding-left: 40px;
+      padding-inline-start: 40px;
       overflow: hidden;
       color: ${colorTextHeading};
       font-weight: bold;
       font-size: 18px;
-      font-family: PuHuiTi, ${fontFamily}, sans-serif;
+      font-family: AlibabaPuHuiTi, ${fontFamily}, sans-serif;
       line-height: ${headerHeight}px;
       letter-spacing: -0.18px;
       white-space: nowrap;
@@ -29,27 +29,19 @@ const useStyle = () => {
         color: ${colorTextHeading};
       }
 
-      ${antCls}-row-rtl & {
-        float: right;
-        padding-right: 40px;
-        padding-left: 0;
-      }
-
       img {
         height: 32px;
-        margin-right: 12px;
         vertical-align: middle;
-
-        ${antCls}-row-rtl & {
-          margin-right: 0;
-          margin-left: 16px;
-        }
+        margin-inline-end: 12px;
       }
 
       @media only screen and (max-width: ${mobileMaxWidth}px) {
-        padding-right: 0;
-        padding-left: 0;
+        padding-inline-start: 0;
+        padding-inline-end: 0;
       }
+    `,
+    title: css`
+      line-height: 32px;
     `,
   };
 };
@@ -59,15 +51,14 @@ export interface LogoProps {
   location: any;
 }
 
-const Logo = ({ isZhCN }: LogoProps) => {
+const Logo: React.FC<LogoProps> = ({ isZhCN }) => {
   const { search } = useLocation();
-  const { logo } = useStyle();
-
+  const { logo, title } = useStyle();
   return (
     <h1>
       <Link to={utils.getLocalizedPathname('/', isZhCN, search)} css={logo}>
-        <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
-        <span style={{ lineHeight: '32px' }}>Ant Design</span>
+        <img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" alt="logo" />
+        <span css={title}>Ant Design</span>
       </Link>
     </h1>
   );

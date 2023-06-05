@@ -41,7 +41,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         `]: {
           padding: 0,
           lineHeight: `${selectHeightWithoutBorder}px`,
-          transition: `all ${token.motionDurationSlow}`,
+          transition: `all ${token.motionDurationSlow}, visibility 0s`,
 
           // Firefox inline-block position calculation is not same as Chrome & Safari. Patch this:
           '@supports (-moz-appearance: meterbar)': {
@@ -165,7 +165,6 @@ export default function genSingleStyle(token: SelectToken): CSSInterpolation {
 
           // With arrow should provides `padding-right` to show the arrow
           [`&${componentCls}-show-arrow ${componentCls}-selection-search`]: {
-            insetInlineStart: 'auto',
             insetInlineEnd: inputPaddingHorizontalSM + token.fontSize * 1.5,
           },
 

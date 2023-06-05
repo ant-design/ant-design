@@ -48,17 +48,30 @@ const App: React.FC = () => {
   );
 
   return (
-    <Upload
-      name="avatar"
-      listType="picture-card"
-      className="avatar-uploader"
-      showUploadList={false}
-      action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-      beforeUpload={beforeUpload}
-      onChange={handleChange}
-    >
-      {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
-    </Upload>
+    <>
+      <Upload
+        name="avatar"
+        listType="picture-card"
+        className="avatar-uploader"
+        showUploadList={false}
+        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+        beforeUpload={beforeUpload}
+        onChange={handleChange}
+      >
+        {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
+      </Upload>
+      <Upload
+        name="avatar"
+        listType="picture-circle"
+        className="avatar-uploader"
+        showUploadList={false}
+        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+        beforeUpload={beforeUpload}
+        onChange={handleChange}
+      >
+        {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
+      </Upload>
+    </>
   );
 };
 

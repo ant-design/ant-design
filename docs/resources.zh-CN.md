@@ -15,7 +15,7 @@ toc: false
 - Sketch 组件包
   - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
   - 桌面组件 Sketch 模板包
-  - https://gw.alipayobjects.com/os/hitu-asset/5217de80-7a3e-413f-809e-20ecede4f3f3/hitu-1669000735416-5000001.sketch
+  - https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.5.0.Beta.sketch
   - 官方
 - Mobile Components
   - https://gw.alipayobjects.com/zos/basement_prod/c0c3852c-d245-4330-886b-cb02ef49eb6d.svg
@@ -27,11 +27,6 @@ toc: false
   - 典型页面 + 通用业务模板
   - https://gw.alipayobjects.com/os/bmw-prod/22208f9d-f8c5-4d7c-b87a-fec290e96527.sketch
   - 官方
-- Ant Design Library
-  - https://gw.alipayobjects.com/zos/basement_prod/90740380-bbb7-4329-95e5-64533934c6cf.svg
-  - 一套强大的 Axure 部件库
-  - http://library.ant.design
-  - 官方
 - Kitchen
   - https://gw.alipayobjects.com/zos/basement_prod/d475d063-2754-4442-b9db-5d164e06acc9.svg
   - Sketch 工具集
@@ -41,11 +36,6 @@ toc: false
   - https://gw.alipayobjects.com/zos/basement_prod/b443f4be-5116-49b7-873f-a7c8502b8f0e.svg
   - 首页模板集
   - https://landing.ant.design/docs/download-cn
-  - 官方
-- Ant UX
-  - https://gw.alipayobjects.com/zos/basement_prod/51682163-e01a-46fe-810c-ac0062379717.svg
-  - 一套页面逻辑原型库
-  - http://ux.ant.design
   - 官方
 - Ant Design 原型 (xiaopiu)
   - https://gw.alipayobjects.com/zos/basement_prod/77e6a9ae-24a9-4be6-be42-f7fa8ee0eecf.svg

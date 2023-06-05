@@ -29,6 +29,7 @@ exports[`Table.expand click to expand 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Name
                   </th>

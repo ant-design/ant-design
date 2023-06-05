@@ -1,18 +1,22 @@
+import { TinyColor } from '@ctrl/tinycolor';
 import * as React from 'react';
 import { useMemo } from 'react';
-import { TinyColor } from '@ctrl/tinycolor';
 import { useToken } from '../theme/internal';
 
-const Simple = () => {
+const Simple: React.FC = () => {
   const [, token] = useToken();
 
   const { colorFill, colorFillTertiary, colorFillQuaternary, colorBgContainer } = token;
 
   const { borderColor, shadowColor, contentColor } = useMemo(
     () => ({
-      borderColor: new TinyColor(colorFill).onBackground(colorBgContainer).toHexString(),
-      shadowColor: new TinyColor(colorFillTertiary).onBackground(colorBgContainer).toHexString(),
-      contentColor: new TinyColor(colorFillQuaternary).onBackground(colorBgContainer).toHexString(),
+      borderColor: new TinyColor(colorFill).onBackground(colorBgContainer).toHexShortString(),
+      shadowColor: new TinyColor(colorFillTertiary)
+        .onBackground(colorBgContainer)
+        .toHexShortString(),
+      contentColor: new TinyColor(colorFillQuaternary)
+        .onBackground(colorBgContainer)
+        .toHexShortString(),
     }),
     [colorFill, colorFillTertiary, colorFillQuaternary, colorBgContainer],
   );
@@ -32,5 +36,9 @@ const Simple = () => {
     </svg>
   );
 };
+
+if (process.env.NODE_ENV !== 'production') {
+  Simple.displayName = 'SimpleImage';
+}
 
 export default Simple;

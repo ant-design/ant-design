@@ -2,7 +2,8 @@
 category: Components
 group: Layout
 title: Layout
-cover: https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*4i58ToAcxaYAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Handling the overall layout of a page.
@@ -59,15 +60,15 @@ Style of a navigation should conform to its level.
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic Structure</code>
-<code src="./demo/top.tsx">Header-Content-Footer</code>
-<code src="./demo/top-side-2.tsx">Header Sider 2</code>
-<code src="./demo/top-side.tsx">Header-Sider</code>
+<code src="./demo/top.tsx" compact background="grey">Header-Content-Footer</code>
+<code src="./demo/top-side.tsx" compact background="grey">Header-Sider</code>
+<code src="./demo/top-side-2.tsx" compact background="grey">Header Sider 2</code>
 <code src="./demo/side.tsx" iframe="360">Sider</code>
-<code src="./demo/custom-trigger.tsx">Custom trigger</code>
-<code src="./demo/responsive.tsx">Responsive</code>
+<code src="./demo/custom-trigger.tsx" compact background="grey">Custom trigger</code>
+<code src="./demo/responsive.tsx" compact background="grey">Responsive</code>
 <code src="./demo/fixed.tsx" iframe="360">Fixed Header</code>
 <code src="./demo/fixed-sider.tsx" iframe="360">Fixed Sider</code>
-<code src="./demo/custom-trigger-debug.tsx" debug>Custom trigger debug</code>
+<code src="./demo/custom-trigger-debug.tsx" compact background="grey" debug>Custom trigger debug</code>
 
 ## API
 
@@ -99,7 +100,7 @@ The sidebar.
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| breakpoint | [Breakpoints](/components/grid/#Col) of the responsive layout | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` | - |
+| breakpoint | [Breakpoints](/components/grid/#col) of the responsive layout | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` | - |
 | className | Container className | string | - |
 | collapsed | To set the current status | boolean | - |
 | collapsedWidth | Width of the collapsed sidebar, by setting to 0 a special trigger will appear | number | 80 |
@@ -111,7 +112,7 @@ The sidebar.
 | trigger | Specify the customized trigger, set to null to hide the trigger | ReactNode | - |
 | width | Width of the sidebar | number \| string | 200 |
 | zeroWidthTriggerStyle | To customize the styles of the special trigger that appears when `collapsedWidth` is 0 | object | - |
-| onBreakpoint | The callback function, executed when [breakpoints](/components/grid/#API) changed | (broken) => {} | - |
+| onBreakpoint | The callback function, executed when [breakpoints](/components/grid/#api) changed | (broken) => {} | - |
 | onCollapse | The callback function, executed by clicking the trigger or activating the responsive layout | (collapsed, type) => {} | - |
 
 #### breakpoint width
@@ -127,11 +128,6 @@ The sidebar.
 }
 ```
 
-<style>
-  [data-theme="dark"] .site-layout-background {
-    background: #141414;
-  }
-  [data-theme="dark"] .site-layout-header-background {
-    background: #1f1f1f;
-  }
-</style>
+## Design Token
+
+<ComponentTokenTable component="Layout"></ComponentTokenTable>

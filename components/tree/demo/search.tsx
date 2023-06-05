@@ -13,7 +13,7 @@ const generateData = (_level: number, _preKey?: React.Key, _tns?: DataNode[]) =>
   const preKey = _preKey || '0';
   const tns = _tns || defaultData;
 
-  const children = [];
+  const children: React.Key[] = [];
   for (let i = 0; i < x; i++) {
     const key = `${preKey}-${i}`;
     tns.push({ title: key, key });

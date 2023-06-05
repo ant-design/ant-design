@@ -1,5 +1,5 @@
+import { Button, Form, Mentions, Space } from 'antd';
 import React from 'react';
-import { Button, Form, Mentions } from 'antd';
 
 const { getMentions } = Mentions;
 
@@ -81,13 +81,14 @@ const App: React.FC = () => {
         />
       </Form.Item>
       <Form.Item wrapperCol={{ span: 14, offset: 6 }}>
-        <Button htmlType="submit" type="primary">
-          Submit
-        </Button>
-        &nbsp;&nbsp;&nbsp;
-        <Button htmlType="button" onClick={onReset}>
-          Reset
-        </Button>
+        <Space wrap>
+          <Button htmlType="submit" type="primary">
+            Submit
+          </Button>
+          <Button htmlType="button" onClick={onReset}>
+            Reset
+          </Button>
+        </Space>
       </Form.Item>
     </Form>
   );

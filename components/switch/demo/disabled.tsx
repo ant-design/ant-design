@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Switch } from 'antd';
+import { Button, Space, Switch } from 'antd';
 
 const App: React.FC = () => {
   const [disabled, setDisabled] = useState(true);
@@ -9,13 +9,12 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
+    <Space direction="vertical">
       <Switch disabled={disabled} defaultChecked />
-      <br />
       <Button type="primary" onClick={toggle}>
         Toggle disabled
       </Button>
-    </>
+    </Space>
   );
 };
 

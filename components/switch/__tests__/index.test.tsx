@@ -3,20 +3,27 @@ import Switch from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { waitFakeTimer, fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+
+jest.mock('rc-util/lib/Dom/isVisible', () => {
+  const mockFn = () => true;
+  return mockFn;
+});
 
 describe('Switch', () => {
   focusTest(Switch, { refFocus: true });
   mountTest(Switch);
   rtlTest(Switch);
 
-  it('should has click wave effect', async () => {
+  it('should has click wave effect', () => {
     jest.useFakeTimers();
     const { container } = render(<Switch />);
     fireEvent.click(container.querySelector('.ant-switch')!);
-    await waitFakeTimer();
-    expect(container.querySelector('button')!.getAttribute('ant-click-animating')).toBe('true');
+    act(() => {
+      jest.advanceTimersByTime(100);
+    });
+    expect(document.querySelector('.ant-wave')).toBeTruthy();
     jest.clearAllTimers();
     jest.useRealTimers();
   });

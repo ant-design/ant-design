@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { Button, Tabs } from 'antd';
 
+type TargetKey = React.MouseEvent | React.KeyboardEvent | string;
+
 const defaultPanes = new Array(2).fill(null).map((_, index) => {
   const id = String(index + 1);
   return { label: `Tab ${id}`, children: `Content of Tab Pane ${index + 1}`, key: id };
@@ -21,7 +23,7 @@ const App: React.FC = () => {
     setActiveKey(newActiveKey);
   };
 
-  const remove = (targetKey: string) => {
+  const remove = (targetKey: TargetKey) => {
     const targetIndex = items.findIndex((pane) => pane.key === targetKey);
     const newPanes = items.filter((pane) => pane.key !== targetKey);
     if (newPanes.length && targetKey === activeKey) {
@@ -31,7 +33,7 @@ const App: React.FC = () => {
     setItems(newPanes);
   };
 
-  const onEdit = (targetKey: string, action: 'add' | 'remove') => {
+  const onEdit = (targetKey: TargetKey, action: 'add' | 'remove') => {
     if (action === 'add') {
       add();
     } else {

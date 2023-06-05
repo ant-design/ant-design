@@ -12,7 +12,8 @@ const dateFormat = 'YYYY/MM/DD';
 const weekFormat = 'MM/DD';
 const monthFormat = 'YYYY/MM';
 
-const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
+/** Manually entering any of the following formats will perform date parsing */
+const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY', 'DD-MM-YYYY', 'DD-MM-YY'];
 
 const customFormat: DatePickerProps['format'] = (value) =>
   `custom format: ${value.format(dateFormat)}`;

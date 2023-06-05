@@ -5,9 +5,3 @@
 ## en-US
 
 The most basic usage.
-
-<style>
-.code-box-demo .ant-switch {
-  margin-bottom: 8px;
-}
-</style>

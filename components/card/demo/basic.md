@@ -5,10 +5,3 @@
 ## en-US
 
 A basic card containing a title, content and an extra corner content. Supports two sizes: `default` and `small`.
-
-<style>
-.code-box-demo p {
-  margin: 0;
-}
-#components-card-demo-basic .ant-card { margin-bottom: 30px; }
-</style>

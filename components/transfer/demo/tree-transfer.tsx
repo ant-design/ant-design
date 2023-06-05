@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Transfer, Tree } from 'antd';
+import { Transfer, Tree, theme } from 'antd';
 import type { TransferDirection, TransferItem } from 'antd/es/transfer';
 import type { DataNode } from 'antd/es/tree';
 
@@ -21,6 +21,8 @@ const generateTree = (treeNodes: DataNode[] = [], checkedKeys: string[] = []): D
   }));
 
 const TreeTransfer = ({ dataSource, targetKeys, ...restProps }: TreeTransferProps) => {
+  const { token } = theme.useToken();
+
   const transferDataSource: TransferItem[] = [];
   function flatten(list: DataNode[] = []) {
     list.forEach((item) => {
@@ -43,20 +45,22 @@ const TreeTransfer = ({ dataSource, targetKeys, ...restProps }: TreeTransferProp
         if (direction === 'left') {
           const checkedKeys = [...selectedKeys, ...targetKeys];
           return (
-            <Tree
-              blockNode
-              checkable
-              checkStrictly
-              defaultExpandAll
-              checkedKeys={checkedKeys}
-              treeData={generateTree(dataSource, targetKeys)}
-              onCheck={(_, { node: { key } }) => {
-                onItemSelect(key as string, !isChecked(checkedKeys, key));
-              }}
-              onSelect={(_, { node: { key } }) => {
-                onItemSelect(key as string, !isChecked(checkedKeys, key));
-              }}
-            />
+            <div style={{ padding: token.paddingXS }}>
+              <Tree
+                blockNode
+                checkable
+                checkStrictly
+                defaultExpandAll
+                checkedKeys={checkedKeys}
+                treeData={generateTree(dataSource, targetKeys)}
+                onCheck={(_, { node: { key } }) => {
+                  onItemSelect(key as string, !isChecked(checkedKeys, key));
+                }}
+                onSelect={(_, { node: { key } }) => {
+                  onItemSelect(key as string, !isChecked(checkedKeys, key));
+                }}
+              />
+            </div>
           );
         }
       }}
@@ -74,7 +78,9 @@ const treeData: DataNode[] = [
       { key: '0-1-1', title: '0-1-1' },
     ],
   },
-  { key: '0-2', title: '0-3' },
+  { key: '0-2', title: '0-2' },
+  { key: '0-3', title: '0-3' },
+  { key: '0-4', title: '0-4' },
 ];
 
 const App: React.FC = () => {

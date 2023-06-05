@@ -2,7 +2,8 @@
 category: Components
 group: Layout
 title: Space
-cover: https://gw.alipayobjects.com/zos/antfincdn/wc6%263gJ0Y8/Space.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZiJ3SbOH9SUAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Set components spacing.
@@ -36,7 +37,7 @@ Set components spacing.
 | --- | --- | --- | --- | --- |
 | align | Align items | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 |
 | direction | The space direction | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
-| size | The space size | [Size](#Size) \| [Size\[\]](#Size) | `small` | 4.1.0 \| Array: 4.9.0 |
+| size | The space size | [Size](#size) \| [Size\[\]](#size) | `small` | 4.1.0 \| Array: 4.9.0 |
 | split | Set split | ReactNode | - | 4.7.0 |
 | wrap | Auto wrap line, when `horizontal` effective | boolean | false | 4.9.0 |
 
@@ -62,3 +63,7 @@ Use Space.Compact when child form components are compactly connected and the bor
 | block | Option to fit width to its parent\'s width | boolean | false | 4.24.0 |
 | direction | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | size | Set child component size | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
+
+## Design Token
+
+<ComponentTokenTable component="Space"></ComponentTokenTable>

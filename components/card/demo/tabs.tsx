@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Card } from 'antd';
+import React, { useState } from 'react';
 
 const tabList = [
   {
@@ -57,9 +57,7 @@ const App: React.FC = () => {
         extra={<a href="#">More</a>}
         tabList={tabList}
         activeTabKey={activeTabKey1}
-        onTabChange={(key) => {
-          onTab1Change(key);
-        }}
+        onTabChange={onTab1Change}
       >
         {contentList[activeTabKey1]}
       </Card>
@@ -70,9 +68,7 @@ const App: React.FC = () => {
         tabList={tabListNoTitle}
         activeTabKey={activeTabKey2}
         tabBarExtraContent={<a href="#">More</a>}
-        onTabChange={(key) => {
-          onTab2Change(key);
-        }}
+        onTabChange={onTab2Change}
       >
         {contentListNoTitle[activeTabKey2]}
       </Card>

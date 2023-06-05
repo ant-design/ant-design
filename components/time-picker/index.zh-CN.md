@@ -3,7 +3,8 @@ category: Components
 subtitle: 时间选择框
 group: 数据录入
 title: TimePicker
-cover: https://gw.alipayobjects.com/zos/alicdn/h04Zsl98I/TimePicker.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*kGmGSLk_1fwAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1hDmQJIDFJQAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -11,8 +12,6 @@ demo:
 输入或选择时间的控件。
 
 ## 何时使用
-
----
 
 当用户需要输入一个时间，可以点击标准输入框，弹出时间面板进行选择。
 
@@ -51,12 +50,13 @@ dayjs.extend(customParseFormat)
 | allowClear | 是否展示清除按钮 | boolean | true |  |
 | autoFocus | 自动获取焦点 | boolean | false |  |
 | bordered | 是否有边框 | boolean | true |  |
+| changeOnBlur | 失去焦点时触发 `change` 事件，例如 datetime 下不再需要点击确认按钮 | boolean | false | 5.5.0 |
 | className | 选择器类名 | string | - |  |
 | clearIcon | 自定义的清除图标 | ReactNode | - |  |
 | clearText | 清除按钮的提示文案 | string | clear |  |
 | defaultValue | 默认时间 | [dayjs](http://day.js.org/) | - |  |
 | disabled | 禁用全部操作 | boolean | false |  |
-| disabledTime | 不可选择的时间 | [DisabledTime](#DisabledTime) | - | 4.19.0 |
+| disabledTime | 不可选择的时间 | [DisabledTime](#disabledtime) | - | 4.19.0 |
 | format | 展示的时间格式 | string | `HH:mm:ss` |  |
 | getPopupContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | - |  |
 | hideDisabledOptions | 隐藏禁止选择的选项 | boolean | false |  |
@@ -71,6 +71,7 @@ dayjs.extend(customParseFormat)
 | renderExtraFooter | 选择框底部显示自定义的内容 | () => ReactNode | - |  |
 | secondStep | 秒选项间隔 | number | 1 |  |
 | showNow | 面板是否显示“此刻”按钮 | boolean | - | 4.4.0 |
+| size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `middle` \| `small` | - |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |  |
@@ -97,11 +98,11 @@ type DisabledTime = (now: Dayjs) => {
 
 ## RangePicker
 
-属性与 DatePicker 的 [RangePicker](/components/date-picker/#RangePicker) 相同。还包含以下属性：
+属性与 DatePicker 的 [RangePicker](/components/date-picker-cn#rangepicker) 相同。还包含以下属性：
 
 | 参数         | 说明                 | 类型                                    | 默认值 | 版本   |
 | ------------ | -------------------- | --------------------------------------- | ------ | ------ |
-| disabledTime | 不可选择的时间       | [RangeDisabledTime](#RangeDisabledTime) | -      | 4.19.0 |
+| disabledTime | 不可选择的时间       | [RangeDisabledTime](#rangedisabledtime) | -      | 4.19.0 |
 | order        | 始末时间是否自动排序 | boolean                                 | true   | 4.1.0  |
 
 ### RangeDisabledTime
@@ -117,11 +118,10 @@ type RangeDisabledTime = (
 };
 ```
 
-<style>
-.code-box-demo .ant-picker { margin: 0 8px 12px 0; }
-.ant-row-rtl .code-box-demo .ant-picker { margin: 0 0 12px 8px; }
-</style>
+## Design Token
+
+<ComponentTokenTable component="DatePicker"></ComponentTokenTable>
 
 ## FAQ
 
-- [如何在 TimePicker 中使用自定义日期库（如 Moment.js ）](/docs/react/use-custom-date-library#TimePicker)
+- [如何在 TimePicker 中使用自定义日期库（如 Moment.js ）](/docs/react/use-custom-date-library#timepicker)

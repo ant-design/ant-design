@@ -2,7 +2,8 @@
 category: Components
 group: Data Display
 title: Card
-cover: https://gw.alipayobjects.com/zos/alicdn/keNB-R8Y9/Card.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VXtCTp93KPAAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a-8zR6rrupgAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Simple rectangular container.
@@ -15,10 +16,10 @@ A card can be used to display content related to a single subject. The content c
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic card</code>
-<code src="./demo/border-less.tsx">No border</code>
+<code src="./demo/border-less.tsx" background="grey">No border</code>
 <code src="./demo/simple.tsx">Simple card</code>
 <code src="./demo/flexible-content.tsx">Customized content</code>
-<code src="./demo/in-column.tsx">Card in column</code>
+<code src="./demo/in-column.tsx" background="grey">Card in column</code>
 <code src="./demo/loading.tsx">Loading card</code>
 <code src="./demo/grid-card.tsx">Grid card</code>
 <code src="./demo/inner.tsx">Inner card</code>
@@ -48,7 +49,7 @@ A card can be used to display content related to a single subject. The content c
 | size | Size of card | `default` \| `small` | `default` |  |
 | tabBarExtraContent | Extra content in tab bar | ReactNode | - |  |
 | tabList | List of TabPane's head | Array&lt;{key: string, tab: ReactNode}> | - |  |
-| tabProps | [Tabs](/components/tabs/#Tabs) | - | - |  |
+| tabProps | [Tabs](/components/tabs/#tabs) | - | - |  |
 | title | Card title | ReactNode | - |  |
 | type | Card style type, can be set to `inner` or not set | string | - |  |
 | onTabChange | Callback when tab is switched | (key) => void | - |  |
@@ -70,3 +71,7 @@ A card can be used to display content related to a single subject. The content c
 | description | Description content           | ReactNode     | -       |         |
 | style       | The style object of container | CSSProperties | -       |         |
 | title       | Title content                 | ReactNode     | -       |         |
+
+## Design Token
+
+<ComponentTokenTable component="Card"></ComponentTokenTable>

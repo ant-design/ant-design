@@ -2,7 +2,8 @@
 category: Components
 group: Data Entry
 title: TimePicker
-cover: https://gw.alipayobjects.com/zos/alicdn/h04Zsl98I/TimePicker.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*kGmGSLk_1fwAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1hDmQJIDFJQAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -10,8 +11,6 @@ demo:
 To select/input a time.
 
 ## When To Use
-
----
 
 By clicking the input box, you can select a time from a popup panel.
 
@@ -51,12 +50,13 @@ dayjs.extend(customParseFormat)
 | allowClear | Whether allow clearing text | boolean | true |  |
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | bordered | Whether has border style | boolean | true |  |
+| changeOnBlur | Trigger `change` when blur. e.g. datetime picker no need click confirm button | boolean | false | 5.5.0 |
 | className | The className of picker | string | - |  |
 | clearIcon | The custom clear icon | ReactNode | - |  |
 | clearText | The clear tooltip of icon | string | clear |  |
 | defaultValue | To set default time | [dayjs](http://day.js.org/) | - |  |
 | disabled | Determine whether the TimePicker is disabled | boolean | false |  |
-| disabledTime | To specify the time that cannot be selected | [DisabledTime](#DisabledTime) | - | 4.19.0 |
+| disabledTime | To specify the time that cannot be selected | [DisabledTime](#disabledtime) | - | 4.19.0 |
 | format | To set the time format | string | `HH:mm:ss` |  |
 | getPopupContainer | To set the container of the floating layer, while the default is to create a div element in body | function(trigger) | - |  |
 | hideDisabledOptions | Whether hide the options that can not be selected | boolean | false |  |
@@ -71,6 +71,7 @@ dayjs.extend(customParseFormat)
 | renderExtraFooter | Called from time picker panel to render some addon to its bottom | () => ReactNode | - |  |
 | secondStep | Interval between seconds in picker | number | 1 |  |
 | showNow | Whether to show `Now` button on panel | boolean | - | 4.4.0 |
+| size | To determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | `large` \| `middle` \| `small` | - |  |
 | status | Set validation status | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | use12Hours | Display as 12 hours format, with default format `h:mm:ss a` | boolean | false |  |
@@ -98,11 +99,11 @@ type DisabledTime = (now: Dayjs) => {
 
 ### RangePicker
 
-Same props from [RangePicker](/components/date-picker/#RangePicker) of DatePicker. And includes additional props:
+Same props from [RangePicker](/components/date-picker/#rangepicker) of DatePicker. And includes additional props:
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| disabledTime | To specify the time that cannot be selected | [RangeDisabledTime](#RangeDisabledTime) | - | 4.19.0 |
+| disabledTime | To specify the time that cannot be selected | [RangeDisabledTime](#rangedisabledtime) | - | 4.19.0 |
 | order | Order start and end time | boolean | true | 4.1.0 |
 
 ### RangeDisabledTime
@@ -118,11 +119,10 @@ type RangeDisabledTime = (
 };
 ```
 
-<style>
-.code-box-demo .ant-picker { margin: 0 8px 12px 0; }
-.ant-row-rtl .code-box-demo .ant-picker { margin: 0 0 12px 8px; }
-</style>
+## Design Token
+
+<ComponentTokenTable component="DatePicker"></ComponentTokenTable>
 
 ## FAQ
 
-- [How to use TimePicker with customize date library like dayjs](/docs/react/use-custom-date-library#TimePicker)
+- [How to use TimePicker with customize date library like dayjs](/docs/react/use-custom-date-library#timepicker)

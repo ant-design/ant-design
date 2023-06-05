@@ -9,10 +9,8 @@ const App: React.FC = () => {
     <Form
       form={form}
       name="debug"
-      initialValues={{
-        debug1: 'debug1',
-        debug2: 'debug2',
-      }}
+      initialValues={{ debug1: 'debug1', debug2: 'debug2' }}
+      style={{ maxWidth: 600 }}
     >
       <Form.Item noStyle dependencies={['debug1']}>
         {

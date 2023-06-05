@@ -3,7 +3,7 @@ import React from 'react';
 import type { ColumnType, TableProps } from '..';
 import Table from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
-import type { ColumnsType, SortOrder } from '../interface';
+import type { ColumnsType, SortOrder, TablePaginationConfig } from '../interface';
 
 describe('Table.sorter', () => {
   const sorterFn: ColumnType<any>['sorter'] = (a, b) =>
@@ -81,7 +81,7 @@ describe('Table.sorter', () => {
     expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
   });
 
-  it('should have aria-lable if the column is sortable and is not sorted', () => {
+  it('should have aria-label if the column is sortable and is not sorted', () => {
     const { container } = render(
       createTable(
         {
@@ -105,9 +105,7 @@ describe('Table.sorter', () => {
 
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
-    expect(getNameColumn()?.getAttribute('aria-label')).toEqual(
-      "this column's title is Name,this column is sortable",
-    );
+    expect(getNameColumn()?.getAttribute('aria-label')).toEqual('Name');
   });
 
   it('sort records', () => {
@@ -455,26 +453,21 @@ describe('Table.sorter', () => {
       { key: 2, name: 'Tom', age: 21 },
       { key: 3, name: 'Jerry', age: 22 },
     ];
-    class TableTest extends React.Component {
-      state = { pagination: {} };
-
-      onChange: TableProps<any>['onChange'] = (pagination) => {
-        this.setState({ pagination });
+    const columns = [{ title: 'name', dataIndex: 'name', sorter: true }];
+    const TableTest: React.FC = () => {
+      const [pagination, setPagination] = React.useState<TablePaginationConfig>({});
+      const onChange: TableProps<any>['onChange'] = (pag) => {
+        setPagination(pag);
       };
-
-      render() {
-        const columns = [{ title: 'name', dataIndex: 'name', sorter: true }];
-        const { pagination } = this.state;
-        return (
-          <Table
-            columns={columns}
-            pagination={pagination}
-            dataSource={testData}
-            onChange={this.onChange}
-          />
-        );
-      }
-    }
+      return (
+        <Table
+          columns={columns}
+          pagination={pagination}
+          dataSource={testData}
+          onChange={onChange}
+        />
+      );
+    };
 
     const { container } = render(<TableTest />);
 
@@ -513,36 +506,29 @@ describe('Table.sorter', () => {
       { key: 2, name: 'Tom', age: 21 },
       { key: 3, name: 'Jerry', age: 22 },
     ];
-    class TableTest extends React.Component {
-      state = {
-        pagination: {},
+    const columns = [
+      {
+        title: 'name',
+        dataIndex: 'name',
+        sorter: true,
+        array: ['1', '2', 3],
+        render: (text: string) => text,
+      },
+    ];
+    const TableTest: React.FC = () => {
+      const [pagination, setPagination] = React.useState<TablePaginationConfig>({});
+      const onChange: TableProps<any>['onChange'] = (pag) => {
+        setPagination(pag);
       };
-
-      onChange: TableProps<any>['onChange'] = (pagination) => {
-        this.setState({ pagination });
-      };
-
-      render() {
-        const columns = [
-          {
-            title: 'name',
-            dataIndex: 'name',
-            sorter: true,
-            render: (text: string) => text,
-            array: ['1', '2', 3],
-          },
-        ] as unknown as TableProps<any>['columns'];
-        const { pagination } = this.state;
-        return (
-          <Table
-            columns={columns}
-            pagination={pagination}
-            dataSource={testData}
-            onChange={this.onChange}
-          />
-        );
-      }
-    }
+      return (
+        <Table
+          columns={columns}
+          pagination={pagination}
+          dataSource={testData}
+          onChange={onChange}
+        />
+      );
+    };
 
     const { container } = render(<TableTest />);
 
@@ -580,38 +566,29 @@ describe('Table.sorter', () => {
       { key: 2, name: 'Tom', age: 21 },
       { key: 3, name: 'Jerry', age: 22 },
     ];
-    class TableTest extends React.Component {
-      state = {
-        pagination: {},
+    const columns = [
+      {
+        title: 'name',
+        dataIndex: 'name',
+        sorter: true,
+        key: 'a',
+        style: { fontSize: 18 },
+      },
+    ];
+    const TableTest: React.FC = () => {
+      const [pagination, setPagination] = React.useState<TablePaginationConfig>({});
+      const onChange: TableProps<any>['onChange'] = (pag) => {
+        setPagination(pag);
       };
-
-      onChange: TableProps<any>['onChange'] = (pagination) => {
-        this.setState({ pagination });
-      };
-
-      render() {
-        const columns = [
-          {
-            title: 'name',
-            dataIndex: 'name',
-            sorter: true,
-            key: 'a',
-            style: {
-              fontSize: 18,
-            },
-          },
-        ];
-        const { pagination } = this.state;
-        return (
-          <Table
-            columns={columns}
-            pagination={pagination}
-            dataSource={testData}
-            onChange={this.onChange}
-          />
-        );
-      }
-    }
+      return (
+        <Table
+          columns={columns}
+          pagination={pagination}
+          dataSource={testData}
+          onChange={onChange}
+        />
+      );
+    };
 
     const { container } = render(<TableTest />);
     const getNameColumn = () => container.querySelector('th');
@@ -801,20 +778,12 @@ describe('Table.sorter', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/19443
-  it('should not being inifinite loop when using Table.Column with sortOrder', () => {
-    class Demo extends React.Component {
-      componentDidMount() {
-        this.setState({});
-      }
-
-      render() {
-        return (
-          <Table dataSource={[]}>
-            <Table.Column title="Age" dataIndex="age" sorter sortOrder="ascend" key="age" />
-          </Table>
-        );
-      }
-    }
+  it('should not being infinite loop when using Table.Column with sortOrder', () => {
+    const Demo: React.FC = () => (
+      <Table dataSource={[]}>
+        <Table.Column title="Age" dataIndex="age" sorter sortOrder="ascend" key="age" />
+      </Table>
+    );
     expect(() => {
       render(<Demo />);
     }).not.toThrow();

@@ -1,8 +1,9 @@
-import fs from 'fs';
-import type { IApi, IRoute } from 'dumi';
 import { extractStyle } from '@ant-design/cssinjs';
+import type { IApi, IRoute } from 'dumi';
 import ReactTechStack from 'dumi/dist/techStacks/react';
+import fs from 'fs';
 import sylvanas from 'sylvanas';
+import localPackage from '../../package.json';
 
 /**
  * extends dumi internal tech stack, for customize previewer props
@@ -18,7 +19,9 @@ class AntdReactTechStack extends ReactTechStack {
 
       const codePath = opts.fileAbsPath!.replace(/\.\w+$/, '.tsx');
       const code = fs.existsSync(codePath) ? fs.readFileSync(codePath, 'utf-8') : '';
+      const pkgDependencyList = localPackage.dependencies;
 
+      props.pkgDependencyList = pkgDependencyList;
       props.jsx = sylvanas.parseText(code);
 
       if (md) {
@@ -26,7 +29,7 @@ class AntdReactTechStack extends ReactTechStack {
         const description = md.match(
           new RegExp(`(?:^|\\n)## ${locale}([^]+?)(\\n## [a-z]|\\n\`\`\`|\\n<style>|$)`),
         )?.[1];
-        const style = md.match(/\n(?:```css|<style>)\n([^]+?)\n(?:```|<\/style>)/)?.[1];
+        const style = md.match(/\r?\n(?:```css|<style>)\r?\n([^]+?)\r?\n(?:```|<\/style>)/)?.[1];
 
         props.description ??= description?.trim();
         props.style ??= style;
@@ -81,7 +84,7 @@ const RoutesPlugin = (api: IApi) => {
         let styles = '';
 
         // extract all emotion style tags from body
-        file.content = file.content.replace(/<style data-emotion[\s\S\n]+?<\/style>/g, (s) => {
+        file.content = file.content.replace(/<style data-emotion[\S\s]+?<\/style>/g, (s) => {
           styles += s;
 
           return '';

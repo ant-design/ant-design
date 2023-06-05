@@ -20,6 +20,7 @@ export interface CheckboxOptionType {
 export interface AbstractCheckboxGroupProps {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   options?: Array<CheckboxOptionType | string | number>;
   disabled?: boolean;
   style?: React.CSSProperties;
@@ -51,6 +52,7 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
     options = [],
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     style,
     onChange,
     ...restProps
@@ -152,6 +154,7 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
     hashId,
   );
   return wrapSSR(

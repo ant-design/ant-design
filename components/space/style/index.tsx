@@ -35,20 +35,24 @@ const genSpaceStyle: GenerateStyle<SpaceToken> = (token) => {
           alignItems: 'flex-end',
         },
         '&-baseline': {
-          alignItems: 'flex-baseline',
+          alignItems: 'baseline',
         },
       },
-      [`${componentCls}-space-item`]: {
-        '&:empty': {
-          display: 'none',
-        },
+      [`${componentCls}-item:empty`]: {
+        display: 'none',
       },
     },
   };
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Space', (token) => [
-  genSpaceStyle(token),
-  genSpaceCompactStyle(token),
-]);
+export default genComponentStyleHook(
+  'Space',
+  (token) => [genSpaceStyle(token), genSpaceCompactStyle(token)],
+  () => ({}),
+  {
+    // Space component don't apply extra font style
+    // https://github.com/ant-design/ant-design/issues/40315
+    resetStyle: false,
+  },
+);

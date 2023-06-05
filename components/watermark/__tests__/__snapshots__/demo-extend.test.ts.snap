@@ -1,0 +1,1228 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/watermark/demo/basic.tsx extend context correctly 1`] = `
+<div
+  class=""
+  style="position: relative;"
+>
+  <div
+    style="height: 500px;"
+  />
+  <div
+    style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 220px;"
+  />
+</div>
+`;
+
+exports[`renders components/watermark/demo/custom.tsx extend context correctly 1`] = `
+<div
+  style="display: flex;"
+>
+  <div
+    class=""
+    style="position: relative;"
+  >
+    <article
+      class="ant-typography"
+    >
+      <div
+        class="ant-typography"
+      >
+        The light-speed iteration of the digital world makes products more complex. However, human consciousness and attention resources are limited. Facing this design contradiction, the pursuit of natural interaction will be the consistent direction of Ant Design.
+      </div>
+      <div
+        class="ant-typography"
+      >
+        Natural user cognition: According to cognitive psychology, about 80% of external information is obtained through visual channels. The most important visual elements in the interface design, including layout, colors, illustrations, icons, etc., should fully absorb the laws of nature, thereby reducing the user's cognitive cost and bringing authentic and smooth feelings. In some scenarios, opportunely adding other sensory channels such as hearing, touch can create a richer and more natural product experience.
+      </div>
+      <div
+        class="ant-typography"
+      >
+        Natural user behavior: In the interaction with the system, the designer should fully understand the relationship between users, system roles, and task objectives, and also contextually organize system functions and services. At the same time, a series of methods such as behavior analysis, artificial intelligence and sensors could be applied to assist users to make effective decisions and reduce extra operations of users, to save users' mental and physical resources and make human-computer interaction more natural.
+      </div>
+    </article>
+    <img
+      alt="示例图片"
+      src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zx7LTI_ECSAAAAAAAAAAAABkARQnAQ"
+      style="z-index: 10; width: 100%; max-width: 800px; position: relative;"
+    />
+    <div
+      style="z-index: 11; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 220px;"
+    />
+  </div>
+  <form
+    class="ant-form ant-form-vertical"
+    style="width: 280px; flex-shrink: 0; border-left: 1px solid #eee; padding-left: 20px; margin-left: 20px;"
+  >
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="content"
+            title="Content"
+          >
+            Content
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                class="ant-input"
+                id="content"
+                placeholder="请输入"
+                type="text"
+                value="Ant Design"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="color"
+            title="Color"
+          >
+            Color
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-color-picker-trigger"
+              >
+                <div
+                  class="ant-color-picker-color-block"
+                >
+                  <div
+                    class="ant-color-picker-color-block-inner"
+                    style="background: rgba(0, 0, 0, 0.15);"
+                  />
+                </div>
+              </div>
+              <div
+                class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              >
+                <div
+                  class="ant-popover-arrow"
+                  style="position: absolute;"
+                />
+                <div
+                  class="ant-popover-content"
+                >
+                  <div
+                    class="ant-popover-inner"
+                    role="tooltip"
+                  >
+                    <div
+                      class="ant-popover-inner-content"
+                    >
+                      <div
+                        class="ant-color-picker-panel"
+                      >
+                        <div
+                          class="ant-color-picker-inner-panel"
+                        >
+                          <div
+                            class="ant-color-picker-select"
+                          >
+                            <div
+                              class="ant-color-picker-palette"
+                              style="position: relative;"
+                            >
+                              <div
+                                style="position: absolute; left: 0px; top: 0px; z-index: 1;"
+                              >
+                                <div
+                                  class="ant-color-picker-handler"
+                                  style="background-color: rgba(0, 0, 0, 0.15);"
+                                />
+                              </div>
+                              <div
+                                class="ant-color-picker-saturation"
+                                style="background-color: rgb(255, 0, 0);"
+                              />
+                            </div>
+                          </div>
+                          <div
+                            class="ant-color-picker-slider-container"
+                          >
+                            <div
+                              class="ant-color-picker-slider-group"
+                            >
+                              <div
+                                class="ant-color-picker-slider ant-color-picker-slider-hue"
+                              >
+                                <div
+                                  class="ant-color-picker-palette"
+                                  style="position: relative;"
+                                >
+                                  <div
+                                    style="position: absolute; left: 0px; top: 0px; z-index: 1;"
+                                  >
+                                    <div
+                                      class="ant-color-picker-handler ant-color-picker-handler-sm"
+                                      style="background-color: rgb(255, 0, 0);"
+                                    />
+                                  </div>
+                                  <div
+                                    class="ant-color-picker-gradient"
+                                    style="position: absolute; inset: 0;"
+                                  />
+                                </div>
+                              </div>
+                              <div
+                                class="ant-color-picker-slider ant-color-picker-slider-alpha"
+                              >
+                                <div
+                                  class="ant-color-picker-palette"
+                                  style="position: relative;"
+                                >
+                                  <div
+                                    style="position: absolute; left: 0px; top: 0px; z-index: 1;"
+                                  >
+                                    <div
+                                      class="ant-color-picker-handler ant-color-picker-handler-sm"
+                                      style="background-color: rgba(0, 0, 0, 0.15);"
+                                    />
+                                  </div>
+                                  <div
+                                    class="ant-color-picker-gradient"
+                                    style="position: absolute; inset: 0;"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="ant-color-picker-color-block"
+                            >
+                              <div
+                                class="ant-color-picker-color-block-inner"
+                                style="background: rgba(0, 0, 0, 0.15);"
+                              />
+                            </div>
+                          </div>
+                          <div
+                            class="ant-color-picker-input-container"
+                          >
+                            <div
+                              class="ant-select ant-select-sm ant-select-borderless ant-select-in-form-item ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                            >
+                              <div
+                                class="ant-select-selector"
+                              >
+                                <span
+                                  class="ant-select-selection-search"
+                                >
+                                  <input
+                                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+                                    aria-autocomplete="list"
+                                    aria-controls="rc_select_TEST_OR_SSR_list"
+                                    aria-expanded="false"
+                                    aria-haspopup="listbox"
+                                    aria-owns="rc_select_TEST_OR_SSR_list"
+                                    autocomplete="off"
+                                    class="ant-select-selection-search-input"
+                                    id="rc_select_TEST_OR_SSR"
+                                    readonly=""
+                                    role="combobox"
+                                    style="opacity: 0;"
+                                    type="search"
+                                    unselectable="on"
+                                    value=""
+                                  />
+                                </span>
+                                <span
+                                  class="ant-select-selection-item"
+                                  title="HEX"
+                                >
+                                  HEX
+                                </span>
+                              </div>
+                              <div
+                                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; width: 68px;"
+                              >
+                                <div>
+                                  <div
+                                    id="rc_select_TEST_OR_SSR_list"
+                                    role="listbox"
+                                    style="height: 0px; width: 0px; overflow: hidden;"
+                                  >
+                                    <div
+                                      aria-label="HEX"
+                                      aria-selected="true"
+                                      id="rc_select_TEST_OR_SSR_list_0"
+                                      role="option"
+                                    >
+                                      hex
+                                    </div>
+                                    <div
+                                      aria-label="HSB"
+                                      aria-selected="false"
+                                      id="rc_select_TEST_OR_SSR_list_1"
+                                      role="option"
+                                    >
+                                      hsb
+                                    </div>
+                                  </div>
+                                  <div
+                                    class="rc-virtual-list"
+                                    style="position: relative;"
+                                  >
+                                    <div
+                                      class="rc-virtual-list-holder"
+                                      style="max-height: 256px; overflow-y: auto;"
+                                    >
+                                      <div>
+                                        <div
+                                          class="rc-virtual-list-holder-inner"
+                                          style="display: flex; flex-direction: column;"
+                                        >
+                                          <div
+                                            aria-selected="true"
+                                            class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                                            title="HEX"
+                                          >
+                                            <div
+                                              class="ant-select-item-option-content"
+                                            >
+                                              HEX
+                                            </div>
+                                            <span
+                                              aria-hidden="true"
+                                              class="ant-select-item-option-state"
+                                              style="user-select: none;"
+                                              unselectable="on"
+                                            />
+                                          </div>
+                                          <div
+                                            aria-selected="false"
+                                            class="ant-select-item ant-select-item-option"
+                                            title="HSB"
+                                          >
+                                            <div
+                                              class="ant-select-item-option-content"
+                                            >
+                                              HSB
+                                            </div>
+                                            <span
+                                              aria-hidden="true"
+                                              class="ant-select-item-option-state"
+                                              style="user-select: none;"
+                                              unselectable="on"
+                                            />
+                                          </div>
+                                          <div
+                                            aria-selected="false"
+                                            class="ant-select-item ant-select-item-option"
+                                            title="RGB"
+                                          >
+                                            <div
+                                              class="ant-select-item-option-content"
+                                            >
+                                              RGB
+                                            </div>
+                                            <span
+                                              aria-hidden="true"
+                                              class="ant-select-item-option-state"
+                                              style="user-select: none;"
+                                              unselectable="on"
+                                            />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-arrow"
+                                style="user-select: none;"
+                                unselectable="on"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down ant-select-suffix"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
+                            </div>
+                            <div
+                              class="ant-color-picker-input"
+                            >
+                              <span
+                                class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm"
+                              >
+                                <span
+                                  class="ant-input-prefix"
+                                >
+                                  #
+                                </span>
+                                <input
+                                  class="ant-input ant-input-sm"
+                                  type="text"
+                                  value="000000"
+                                />
+                              </span>
+                            </div>
+                            <div
+                              class="ant-input-number ant-input-number-sm ant-input-number-in-form-item ant-color-picker-steppers ant-color-picker-alpha-input"
+                            >
+                              <div
+                                class="ant-input-number-handler-wrap"
+                              >
+                                <span
+                                  aria-disabled="false"
+                                  aria-label="Increase Value"
+                                  class="ant-input-number-handler ant-input-number-handler-up"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="up"
+                                    class="anticon anticon-up ant-input-number-handler-up-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="up"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                                <span
+                                  aria-disabled="false"
+                                  aria-label="Decrease Value"
+                                  class="ant-input-number-handler ant-input-number-handler-down"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="down"
+                                    class="anticon anticon-down ant-input-number-handler-down-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="down"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                              </div>
+                              <div
+                                class="ant-input-number-input-wrap"
+                              >
+                                <input
+                                  aria-valuemax="100"
+                                  aria-valuemin="0"
+                                  aria-valuenow="15"
+                                  autocomplete="off"
+                                  class="ant-input-number-input"
+                                  role="spinbutton"
+                                  step="1"
+                                  value="15%"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="fontSize"
+            title="FontSize"
+          >
+            FontSize
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-slider ant-slider-horizontal"
+              >
+                <div
+                  class="ant-slider-rail"
+                />
+                <div
+                  class="ant-slider-track"
+                  style="left: 0%; width: 16%;"
+                />
+                <div
+                  class="ant-slider-step"
+                />
+                <div
+                  aria-disabled="false"
+                  aria-valuemax="100"
+                  aria-valuemin="0"
+                  aria-valuenow="16"
+                  class="ant-slider-handle"
+                  role="slider"
+                  style="left: 16%; transform: translateX(-50%);"
+                  tabindex="0"
+                />
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; bottom: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    >
+                      16
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="zIndex"
+            title="zIndex"
+          >
+            zIndex
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-slider ant-slider-horizontal"
+              >
+                <div
+                  class="ant-slider-rail"
+                />
+                <div
+                  class="ant-slider-track"
+                  style="left: 0%; width: 11%;"
+                />
+                <div
+                  class="ant-slider-step"
+                />
+                <div
+                  aria-disabled="false"
+                  aria-valuemax="100"
+                  aria-valuemin="0"
+                  aria-valuenow="11"
+                  class="ant-slider-handle"
+                  role="slider"
+                  style="left: 11%; transform: translateX(-50%);"
+                  tabindex="0"
+                />
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; bottom: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    >
+                      11
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="rotate"
+            title="Rotate"
+          >
+            Rotate
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-slider ant-slider-horizontal"
+              >
+                <div
+                  class="ant-slider-rail"
+                />
+                <div
+                  class="ant-slider-track"
+                  style="left: 0%; width: 43.888888888888886%;"
+                />
+                <div
+                  class="ant-slider-step"
+                />
+                <div
+                  aria-disabled="false"
+                  aria-valuemax="180"
+                  aria-valuemin="-180"
+                  aria-valuenow="-22"
+                  class="ant-slider-handle"
+                  role="slider"
+                  style="left: 43.888888888888886%; transform: translateX(-50%);"
+                  tabindex="0"
+                />
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; bottom: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    >
+                      -22
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item"
+      style="margin-bottom: 0px;"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            title="Gap"
+          >
+            Gap
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-space ant-space-horizontal ant-space-align-baseline"
+                style="display: flex;"
+              >
+                <div
+                  class="ant-space-item"
+                  style="margin-right: 8px;"
+                >
+                  <div
+                    class="ant-form-item"
+                  >
+                    <div
+                      class="ant-row ant-form-item-row"
+                    >
+                      <div
+                        class="ant-col ant-form-item-control"
+                      >
+                        <div
+                          class="ant-form-item-control-input"
+                        >
+                          <div
+                            class="ant-form-item-control-input-content"
+                          >
+                            <div
+                              class="ant-input-number ant-input-number-in-form-item"
+                              style="width: 100%;"
+                            >
+                              <div
+                                class="ant-input-number-handler-wrap"
+                              >
+                                <span
+                                  aria-disabled="false"
+                                  aria-label="Increase Value"
+                                  class="ant-input-number-handler ant-input-number-handler-up"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="up"
+                                    class="anticon anticon-up ant-input-number-handler-up-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="up"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                                <span
+                                  aria-disabled="false"
+                                  aria-label="Decrease Value"
+                                  class="ant-input-number-handler ant-input-number-handler-down"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="down"
+                                    class="anticon anticon-down ant-input-number-handler-down-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="down"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                              </div>
+                              <div
+                                class="ant-input-number-input-wrap"
+                              >
+                                <input
+                                  aria-valuenow="100"
+                                  autocomplete="off"
+                                  class="ant-input-number-input"
+                                  id="gap_0"
+                                  placeholder="gapX"
+                                  role="spinbutton"
+                                  step="1"
+                                  value="100"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-space-item"
+                >
+                  <div
+                    class="ant-form-item"
+                  >
+                    <div
+                      class="ant-row ant-form-item-row"
+                    >
+                      <div
+                        class="ant-col ant-form-item-control"
+                      >
+                        <div
+                          class="ant-form-item-control-input"
+                        >
+                          <div
+                            class="ant-form-item-control-input-content"
+                          >
+                            <div
+                              class="ant-input-number ant-input-number-in-form-item"
+                              style="width: 100%;"
+                            >
+                              <div
+                                class="ant-input-number-handler-wrap"
+                              >
+                                <span
+                                  aria-disabled="false"
+                                  aria-label="Increase Value"
+                                  class="ant-input-number-handler ant-input-number-handler-up"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="up"
+                                    class="anticon anticon-up ant-input-number-handler-up-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="up"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                                <span
+                                  aria-disabled="false"
+                                  aria-label="Decrease Value"
+                                  class="ant-input-number-handler ant-input-number-handler-down"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="down"
+                                    class="anticon anticon-down ant-input-number-handler-down-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="down"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                              </div>
+                              <div
+                                class="ant-input-number-input-wrap"
+                              >
+                                <input
+                                  aria-valuenow="100"
+                                  autocomplete="off"
+                                  class="ant-input-number-input"
+                                  id="gap_1"
+                                  placeholder="gapY"
+                                  role="spinbutton"
+                                  step="1"
+                                  value="100"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item"
+      style="margin-bottom: 0px;"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            title="Offset"
+          >
+            Offset
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-space ant-space-horizontal ant-space-align-baseline"
+                style="display: flex;"
+              >
+                <div
+                  class="ant-space-item"
+                  style="margin-right: 8px;"
+                >
+                  <div
+                    class="ant-form-item"
+                  >
+                    <div
+                      class="ant-row ant-form-item-row"
+                    >
+                      <div
+                        class="ant-col ant-form-item-control"
+                      >
+                        <div
+                          class="ant-form-item-control-input"
+                        >
+                          <div
+                            class="ant-form-item-control-input-content"
+                          >
+                            <div
+                              class="ant-input-number ant-input-number-in-form-item"
+                              style="width: 100%;"
+                            >
+                              <div
+                                class="ant-input-number-handler-wrap"
+                              >
+                                <span
+                                  aria-disabled="false"
+                                  aria-label="Increase Value"
+                                  class="ant-input-number-handler ant-input-number-handler-up"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="up"
+                                    class="anticon anticon-up ant-input-number-handler-up-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="up"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                                <span
+                                  aria-disabled="false"
+                                  aria-label="Decrease Value"
+                                  class="ant-input-number-handler ant-input-number-handler-down"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="down"
+                                    class="anticon anticon-down ant-input-number-handler-down-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="down"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                              </div>
+                              <div
+                                class="ant-input-number-input-wrap"
+                              >
+                                <input
+                                  autocomplete="off"
+                                  class="ant-input-number-input"
+                                  id="offset_0"
+                                  placeholder="offsetLeft"
+                                  role="spinbutton"
+                                  step="1"
+                                  value=""
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-space-item"
+                >
+                  <div
+                    class="ant-form-item"
+                  >
+                    <div
+                      class="ant-row ant-form-item-row"
+                    >
+                      <div
+                        class="ant-col ant-form-item-control"
+                      >
+                        <div
+                          class="ant-form-item-control-input"
+                        >
+                          <div
+                            class="ant-form-item-control-input-content"
+                          >
+                            <div
+                              class="ant-input-number ant-input-number-in-form-item"
+                              style="width: 100%;"
+                            >
+                              <div
+                                class="ant-input-number-handler-wrap"
+                              >
+                                <span
+                                  aria-disabled="false"
+                                  aria-label="Increase Value"
+                                  class="ant-input-number-handler ant-input-number-handler-up"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="up"
+                                    class="anticon anticon-up ant-input-number-handler-up-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="up"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                                <span
+                                  aria-disabled="false"
+                                  aria-label="Decrease Value"
+                                  class="ant-input-number-handler ant-input-number-handler-down"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="down"
+                                    class="anticon anticon-down ant-input-number-handler-down-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="down"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                              </div>
+                              <div
+                                class="ant-input-number-input-wrap"
+                              >
+                                <input
+                                  autocomplete="off"
+                                  class="ant-input-number-input"
+                                  id="offset_1"
+                                  placeholder="offsetTop"
+                                  role="spinbutton"
+                                  step="1"
+                                  value=""
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`renders components/watermark/demo/image.tsx extend context correctly 1`] = `
+<div
+  class=""
+  style="position: relative;"
+>
+  <div
+    style="height: 500px;"
+  />
+</div>
+`;
+
+exports[`renders components/watermark/demo/multi-line.tsx extend context correctly 1`] = `
+<div
+  class=""
+  style="position: relative;"
+>
+  <div
+    style="height: 500px;"
+  />
+  <div
+    style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 226px;"
+  />
+</div>
+`;

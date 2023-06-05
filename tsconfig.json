@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "antd": ["components/index.tsx"],
+      "antd": ["components/index.ts"],
       "antd/es/*": ["components/*"],
       "antd/lib/*": ["components/*"],
       "antd/locale/*": ["components/locale/*"]
@@ -23,5 +23,5 @@
     "skipLibCheck": true,
     "stripInternal": true
   },
-  "exclude": ["node_modules", "lib", "es", "components/*/demo"]
+  "exclude": ["node_modules", "lib", "es"]
 }

@@ -47,7 +47,7 @@ const getGroupRadioStyle: GenerateStyle<RadioToken> = (token) => {
       fontSize: 0,
 
       // RTL
-      '&&-rtl': {
+      [`&${groupPrefixCls}-rtl`]: {
         direction: 'rtl',
       },
 
@@ -68,7 +68,6 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
     componentCls,
     radioWrapperMarginRight,
     radioCheckedColor,
-    radioTop,
     radioSize,
     motionDurationSlow,
     motionDurationMid,
@@ -100,12 +99,13 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
       cursor: 'pointer',
 
       // RTL
-      '&&-rtl': {
+      [`&${componentCls}-wrapper-rtl`]: {
         direction: 'rtl',
       },
 
       '&-disabled': {
         cursor: 'not-allowed',
+        color: token.colorTextDisabled,
       },
 
       '&::after': {
@@ -135,10 +135,10 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
       [componentCls]: {
         ...resetComponent(token),
         position: 'relative',
-        insetBlockStart: radioTop,
         display: 'inline-block',
         outline: 'none',
         cursor: 'pointer',
+        alignSelf: 'center',
       },
 
       [`${componentCls}-wrapper:hover &,
@@ -228,7 +228,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
           },
         },
 
-        '&-input': {
+        [`${componentCls}-input`]: {
           cursor: 'not-allowed',
         },
 
@@ -405,7 +405,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
         pointerEvents: 'none',
       },
 
-      '&-checked:not(&-disabled)': {
+      [`&-checked:not(${componentCls}-button-wrapper-disabled)`]: {
         zIndex: 1,
         color: radioCheckedColor,
         background: radioButtonCheckedBg,
@@ -438,7 +438,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
         },
       },
 
-      [`${componentCls}-group-solid &-checked:not(&-disabled)`]: {
+      [`${componentCls}-group-solid &-checked:not(${componentCls}-button-wrapper-disabled)`]: {
         color: radioSolidCheckedColor,
         background: radioCheckedColor,
         borderColor: radioCheckedColor,
@@ -469,7 +469,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
         },
       },
 
-      '&-disabled&-checked': {
+      [`&-disabled${componentCls}-button-wrapper-checked`]: {
         color: radioDisabledButtonCheckedColor,
         backgroundColor: radioDisabledButtonCheckedBg,
         borderColor: colorBorder,
@@ -484,11 +484,9 @@ export default genComponentStyleHook('Radio', (token) => {
   const {
     padding,
     lineWidth,
-    colorBgContainerDisabled,
+    controlItemBgActiveDisabled,
     colorTextDisabled,
     colorBgContainer,
-    fontSize,
-    lineHeight,
     fontSizeLG,
     controlOutline,
     colorPrimaryHover,
@@ -497,6 +495,7 @@ export default genComponentStyleHook('Radio', (token) => {
     colorPrimary,
     marginXS,
     controlOutlineWidth,
+    colorTextLightSolid,
     wireframe,
   } = token;
 
@@ -505,7 +504,6 @@ export default genComponentStyleHook('Radio', (token) => {
   const radioButtonFocusShadow = radioFocusShadow;
 
   const radioSize = fontSizeLG;
-  const radioTop = (Math.round(fontSize * lineHeight) - radioSize) / 2;
   const dotPadding = 4; // Fixed value
   const radioDotDisabledSize = radioSize - dotPadding * 2;
   const radioDotSize = wireframe ? radioDotDisabledSize : radioSize - (dotPadding + lineWidth) * 2;
@@ -523,19 +521,18 @@ export default genComponentStyleHook('Radio', (token) => {
     radioFocusShadow,
     radioButtonFocusShadow,
     radioSize,
-    radioTop,
     radioDotSize,
     radioDotDisabledSize,
     radioCheckedColor,
     radioDotDisabledColor: colorTextDisabled,
-    radioSolidCheckedColor: colorBgContainer,
+    radioSolidCheckedColor: colorTextLightSolid,
     radioButtonBg: colorBgContainer,
     radioButtonCheckedBg: colorBgContainer,
     radioButtonColor,
     radioButtonHoverColor,
     radioButtonActiveColor,
     radioButtonPaddingHorizontal,
-    radioDisabledButtonCheckedBg: colorBgContainerDisabled,
+    radioDisabledButtonCheckedBg: controlItemBgActiveDisabled,
     radioDisabledButtonCheckedColor,
     radioWrapperMarginRight,
   });

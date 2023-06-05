@@ -2,7 +2,8 @@
 category: Components
 group: Data Entry
 title: Rate
-cover: https://gw.alipayobjects.com/zos/alicdn/R5uiIWmxe/Rate.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*oyOcTrB12_YAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*M7_ER7GJr6wAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -52,3 +53,7 @@ Rate component.
 | ------- | ------------ |
 | blur()  | Remove focus |
 | focus() | Get focus    |
+
+## Design Token
+
+<ComponentTokenTable component="Rate"></ComponentTokenTable>

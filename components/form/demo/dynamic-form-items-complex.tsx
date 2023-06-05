@@ -28,7 +28,13 @@ const App: React.FC = () => {
   };
 
   return (
-    <Form form={form} name="dynamic_form_complex" onFinish={onFinish} autoComplete="off">
+    <Form
+      form={form}
+      name="dynamic_form_complex"
+      onFinish={onFinish}
+      style={{ maxWidth: 600 }}
+      autoComplete="off"
+    >
       <Form.Item name="area" label="Area" rules={[{ required: true, message: 'Missing area' }]}>
         <Select options={areas} onChange={handleChange} />
       </Form.Item>

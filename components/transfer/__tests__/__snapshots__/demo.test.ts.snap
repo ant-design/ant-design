@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/transfer/demo/advanced.tsx correctly 1`] = `
+exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
 <div
   class="ant-transfer"
 >
@@ -12,13 +12,14 @@ exports[`renders ./components/transfer/demo/advanced.tsx correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
           />
           <span
@@ -199,23 +200,27 @@ exports[`renders ./components/transfer/demo/advanced.tsx correctly 1`] = `
       type="button"
     >
       <span
-        aria-label="right"
-        class="anticon anticon-right"
-        role="img"
+        class="ant-btn-icon"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="right"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="right"
+          class="anticon anticon-right"
+          role="img"
         >
-          <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
       </span>
       <span>
         to right
@@ -227,23 +232,27 @@ exports[`renders ./components/transfer/demo/advanced.tsx correctly 1`] = `
       type="button"
     >
       <span
-        aria-label="left"
-        class="anticon anticon-left"
-        role="img"
+        class="ant-btn-icon"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="left"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="left"
+          class="anticon anticon-left"
+          role="img"
         >
-          <path
-            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="left"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            />
+          </svg>
+        </span>
       </span>
       <span>
         to left
@@ -258,13 +267,14 @@ exports[`renders ./components/transfer/demo/advanced.tsx correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
           />
           <span
@@ -439,7 +449,7 @@ exports[`renders ./components/transfer/demo/advanced.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/transfer/demo/basic.tsx correctly 1`] = `
+exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-transfer"
 >
@@ -790,23 +800,27 @@ exports[`renders ./components/transfer/demo/basic.tsx correctly 1`] = `
       type="button"
     >
       <span
-        aria-label="right"
-        class="anticon anticon-right"
-        role="img"
+        class="ant-btn-icon"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="right"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="right"
+          class="anticon anticon-right"
+          role="img"
         >
-          <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
       </span>
     </button>
     <button
@@ -815,23 +829,27 @@ exports[`renders ./components/transfer/demo/basic.tsx correctly 1`] = `
       type="button"
     >
       <span
-        aria-label="left"
-        class="anticon anticon-left"
-        role="img"
+        class="ant-btn-icon"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="left"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="left"
+          class="anticon anticon-left"
+          role="img"
         >
-          <path
-            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="left"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            />
+          </svg>
+        </span>
       </span>
     </button>
   </div>
@@ -1126,7 +1144,7 @@ exports[`renders ./components/transfer/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/transfer/demo/custom-item.tsx correctly 1`] = `
+exports[`renders components/transfer/demo/custom-item.tsx correctly 1`] = `
 <div
   class="ant-transfer"
 >
@@ -1138,13 +1156,14 @@ exports[`renders ./components/transfer/demo/custom-item.tsx correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
           />
           <span
@@ -1246,23 +1265,27 @@ exports[`renders ./components/transfer/demo/custom-item.tsx correctly 1`] = `
       type="button"
     >
       <span
-        aria-label="right"
-        class="anticon anticon-right"
-        role="img"
+        class="ant-btn-icon"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="right"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="right"
+          class="anticon anticon-right"
+          role="img"
         >
-          <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
       </span>
     </button>
     <button
@@ -1271,23 +1294,27 @@ exports[`renders ./components/transfer/demo/custom-item.tsx correctly 1`] = `
       type="button"
     >
       <span
-        aria-label="left"
-        class="anticon anticon-left"
-        role="img"
+        class="ant-btn-icon"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="left"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="left"
+          class="anticon anticon-left"
+          role="img"
         >
-          <path
-            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="left"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            />
+          </svg>
+        </span>
       </span>
     </button>
   </div>
@@ -1299,13 +1326,14 @@ exports[`renders ./components/transfer/demo/custom-item.tsx correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
           />
           <span
@@ -1401,7 +1429,7 @@ exports[`renders ./components/transfer/demo/custom-item.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/transfer/demo/custom-select-all-labels.tsx correctly 1`] = `
+exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly 1`] = `
 <div
   class="ant-transfer"
 >
@@ -1647,23 +1675,27 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.tsx correct
       type="button"
     >
       <span
-        aria-label="right"
-        class="anticon anticon-right"
-        role="img"
+        class="ant-btn-icon"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="right"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="right"
+          class="anticon anticon-right"
+          role="img"
         >
-          <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
       </span>
     </button>
     <button
@@ -1672,23 +1704,27 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.tsx correct
       type="button"
     >
       <span
-        aria-label="left"
-        class="anticon anticon-left"
-        role="img"
+        class="ant-btn-icon"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="left"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="left"
+          class="anticon anticon-left"
+          role="img"
         >
-          <path
-            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="left"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            />
+          </svg>
+        </span>
       </span>
     </button>
   </div>
@@ -1828,7 +1864,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.tsx correct
 </div>
 `;
 
-exports[`renders ./components/transfer/demo/large-data.tsx correctly 1`] = `
+exports[`renders components/transfer/demo/large-data.tsx correctly 1`] = `
 Array [
   <div
     class="ant-transfer"
@@ -1933,23 +1969,27 @@ Array [
         type="button"
       >
         <span
-          aria-label="right"
-          class="anticon anticon-right"
-          role="img"
+          class="ant-btn-icon"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="right"
+            class="anticon anticon-right"
+            role="img"
           >
-            <path
-              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
         </span>
       </button>
       <button
@@ -1958,23 +1998,27 @@ Array [
         type="button"
       >
         <span
-          aria-label="left"
-          class="anticon anticon-left"
-          role="img"
+          class="ant-btn-icon"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="left"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="left"
+            class="anticon anticon-left"
+            role="img"
           >
-            <path
-              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="left"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+              />
+            </svg>
+          </span>
         </span>
       </button>
     </div>
@@ -2098,7 +2142,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/transfer/demo/oneWay.tsx correctly 1`] = `
+exports[`renders components/transfer/demo/oneWay.tsx correctly 1`] = `
 Array [
   <div
     class="ant-transfer"
@@ -2533,23 +2577,27 @@ Array [
         type="button"
       >
         <span
-          aria-label="right"
-          class="anticon anticon-right"
-          role="img"
+          class="ant-btn-icon"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="right"
+            class="anticon anticon-right"
+            role="img"
           >
-            <path
-              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
         </span>
       </button>
     </div>
@@ -2851,7 +2899,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/transfer/demo/search.tsx correctly 1`] = `
+exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
 <div
   class="ant-transfer"
 >
@@ -2862,13 +2910,14 @@ exports[`renders ./components/transfer/demo/search.tsx correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
           />
           <span
@@ -3036,23 +3085,27 @@ exports[`renders ./components/transfer/demo/search.tsx correctly 1`] = `
       type="button"
     >
       <span
-        aria-label="right"
-        class="anticon anticon-right"
-        role="img"
+        class="ant-btn-icon"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="right"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="right"
+          class="anticon anticon-right"
+          role="img"
         >
-          <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
       </span>
     </button>
     <button
@@ -3061,23 +3114,27 @@ exports[`renders ./components/transfer/demo/search.tsx correctly 1`] = `
       type="button"
     >
       <span
-        aria-label="left"
-        class="anticon anticon-left"
-        role="img"
+        class="ant-btn-icon"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="left"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="left"
+          class="anticon anticon-left"
+          role="img"
         >
-          <path
-            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="left"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            />
+          </svg>
+        </span>
       </span>
     </button>
   </div>
@@ -3088,13 +3145,14 @@ exports[`renders ./components/transfer/demo/search.tsx correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
           />
           <span
@@ -3256,7 +3314,7 @@ exports[`renders ./components/transfer/demo/search.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/transfer/demo/status.tsx correctly 1`] = `
+exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -3274,13 +3332,14 @@ exports[`renders ./components/transfer/demo/status.tsx correctly 1`] = `
           class="ant-transfer-list-header"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
           >
             <span
-              class="ant-checkbox"
+              class="ant-checkbox ant-checkbox-disabled"
             >
               <input
                 class="ant-checkbox-input"
+                disabled=""
                 type="checkbox"
               />
               <span
@@ -3382,23 +3441,27 @@ exports[`renders ./components/transfer/demo/status.tsx correctly 1`] = `
           type="button"
         >
           <span
-            aria-label="right"
-            class="anticon anticon-right"
-            role="img"
+            class="ant-btn-icon"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="right"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
             >
-              <path
-                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-              />
-            </svg>
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
           </span>
         </button>
         <button
@@ -3407,23 +3470,27 @@ exports[`renders ./components/transfer/demo/status.tsx correctly 1`] = `
           type="button"
         >
           <span
-            aria-label="left"
-            class="anticon anticon-left"
-            role="img"
+            class="ant-btn-icon"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="left"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
             >
-              <path
-                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-              />
-            </svg>
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
           </span>
         </button>
       </div>
@@ -3434,13 +3501,14 @@ exports[`renders ./components/transfer/demo/status.tsx correctly 1`] = `
           class="ant-transfer-list-header"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
           >
             <span
-              class="ant-checkbox"
+              class="ant-checkbox ant-checkbox-disabled"
             >
               <input
                 class="ant-checkbox-input"
+                disabled=""
                 type="checkbox"
               />
               <span
@@ -3548,13 +3616,14 @@ exports[`renders ./components/transfer/demo/status.tsx correctly 1`] = `
           class="ant-transfer-list-header"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
           >
             <span
-              class="ant-checkbox"
+              class="ant-checkbox ant-checkbox-disabled"
             >
               <input
                 class="ant-checkbox-input"
+                disabled=""
                 type="checkbox"
               />
               <span
@@ -3722,23 +3791,27 @@ exports[`renders ./components/transfer/demo/status.tsx correctly 1`] = `
           type="button"
         >
           <span
-            aria-label="right"
-            class="anticon anticon-right"
-            role="img"
+            class="ant-btn-icon"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="right"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
             >
-              <path
-                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-              />
-            </svg>
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
           </span>
         </button>
         <button
@@ -3747,23 +3820,27 @@ exports[`renders ./components/transfer/demo/status.tsx correctly 1`] = `
           type="button"
         >
           <span
-            aria-label="left"
-            class="anticon anticon-left"
-            role="img"
+            class="ant-btn-icon"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="left"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
             >
-              <path
-                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-              />
-            </svg>
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
           </span>
         </button>
       </div>
@@ -3774,13 +3851,14 @@ exports[`renders ./components/transfer/demo/status.tsx correctly 1`] = `
           class="ant-transfer-list-header"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
           >
             <span
-              class="ant-checkbox"
+              class="ant-checkbox ant-checkbox-disabled"
             >
               <input
                 class="ant-checkbox-input"
+                disabled=""
                 type="checkbox"
               />
               <span
@@ -3944,7 +4022,7 @@ exports[`renders ./components/transfer/demo/status.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/transfer/demo/table-transfer.tsx correctly 1`] = `
+exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
 Array [
   <div
     class="ant-transfer ant-transfer-customize-list"
@@ -4039,6 +4117,7 @@ Array [
                           <tr>
                             <th
                               class="ant-table-cell ant-table-selection-column"
+                              scope="col"
                             >
                               <div
                                 class="ant-table-selection"
@@ -4063,16 +4142,19 @@ Array [
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               Name
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               Tag
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               Description
                             </th>
@@ -4624,23 +4706,27 @@ Array [
         type="button"
       >
         <span
-          aria-label="right"
-          class="anticon anticon-right"
-          role="img"
+          class="ant-btn-icon"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="right"
+            class="anticon anticon-right"
+            role="img"
           >
-            <path
-              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
         </span>
       </button>
       <button
@@ -4649,23 +4735,27 @@ Array [
         type="button"
       >
         <span
-          aria-label="left"
-          class="anticon anticon-left"
-          role="img"
+          class="ant-btn-icon"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="left"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="left"
+            class="anticon anticon-left"
+            role="img"
           >
-            <path
-              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="left"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+              />
+            </svg>
+          </span>
         </span>
       </button>
     </div>
@@ -4759,6 +4849,7 @@ Array [
                           <tr>
                             <th
                               class="ant-table-cell ant-table-selection-column"
+                              scope="col"
                             >
                               <div
                                 class="ant-table-selection"
@@ -4783,6 +4874,7 @@ Array [
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               Name
                             </th>
@@ -5057,60 +5149,72 @@ Array [
       </div>
     </div>
   </div>,
-  <button
-    aria-checked="false"
-    class="ant-switch"
-    role="switch"
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
     style="margin-top:16px"
-    type="button"
   >
     <div
-      class="ant-switch-handle"
-    />
-    <span
-      class="ant-switch-inner"
+      class="ant-space-item"
+      style="margin-right:8px"
     >
-      <span
-        class="ant-switch-inner-checked"
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
       >
-        disabled
-      </span>
-      <span
-        class="ant-switch-inner-unchecked"
-      >
-        disabled
-      </span>
-    </span>
-  </button>,
-  <button
-    aria-checked="false"
-    class="ant-switch"
-    role="switch"
-    style="margin-top:16px"
-    type="button"
-  >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          <span
+            class="ant-switch-inner-checked"
+          >
+            disabled
+          </span>
+          <span
+            class="ant-switch-inner-unchecked"
+          >
+            disabled
+          </span>
+        </span>
+      </button>
+    </div>
     <div
-      class="ant-switch-handle"
-    />
-    <span
-      class="ant-switch-inner"
+      class="ant-space-item"
     >
-      <span
-        class="ant-switch-inner-checked"
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
       >
-        showSearch
-      </span>
-      <span
-        class="ant-switch-inner-unchecked"
-      >
-        showSearch
-      </span>
-    </span>
-  </button>,
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          <span
+            class="ant-switch-inner-checked"
+          >
+            showSearch
+          </span>
+          <span
+            class="ant-switch-inner-unchecked"
+          >
+            showSearch
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>,
 ]
 `;
 
-exports[`renders ./components/transfer/demo/tree-transfer.tsx correctly 1`] = `
+exports[`renders components/transfer/demo/tree-transfer.tsx correctly 1`] = `
 <div
   class="ant-transfer ant-transfer-customize-list tree-transfer"
 >
@@ -5123,7 +5227,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.tsx correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        5
+        7
         <!-- -->
         <!-- -->
         items
@@ -5139,219 +5243,283 @@ exports[`renders ./components/transfer/demo/tree-transfer.tsx correctly 1`] = `
         class="ant-transfer-list-body-customize-wrapper"
       >
         <div
-          class="ant-tree ant-tree-icon-hide ant-tree-block-node"
-          role="tree"
+          style="padding:8px"
         >
-          <div>
-            <input
-              aria-label="for screen reader"
-              style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
-              tabindex="0"
-              value=""
-            />
-          </div>
           <div
-            aria-hidden="true"
-            class="ant-tree-treenode"
-            style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+            class="ant-tree ant-tree-icon-hide ant-tree-block-node"
+            role="tree"
           >
-            <div
-              class="ant-tree-indent"
-            >
-              <div
-                class="ant-tree-indent-unit"
+            <div>
+              <input
+                aria-label="for screen reader"
+                style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+                tabindex="0"
+                value=""
               />
             </div>
-          </div>
-          <div
-            class="ant-tree-list"
-            style="position:relative"
-          >
             <div
-              class="ant-tree-list-holder"
+              aria-hidden="true"
+              class="ant-tree-treenode"
+              style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
             >
-              <div>
+              <div
+                class="ant-tree-indent"
+              >
                 <div
-                  class="ant-tree-list-holder-inner"
-                  style="display:flex;flex-direction:column"
-                >
+                  class="ant-tree-indent-unit"
+                />
+              </div>
+            </div>
+            <div
+              class="ant-tree-list"
+              style="position:relative"
+            >
+              <div
+                class="ant-tree-list-holder"
+              >
+                <div>
                   <div
-                    aria-grabbed="false"
-                    class="ant-tree-treenode ant-tree-treenode-switcher-open"
-                    draggable="false"
+                    class="ant-tree-list-holder-inner"
+                    style="display:flex;flex-direction:column"
                   >
-                    <span
-                      aria-hidden="true"
-                      class="ant-tree-indent"
-                    />
-                    <span
-                      class="ant-tree-switcher ant-tree-switcher-noop"
-                    />
-                    <span
-                      class="ant-tree-checkbox"
+                    <div
+                      aria-grabbed="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                      draggable="false"
                     >
                       <span
-                        class="ant-tree-checkbox-inner"
+                        aria-hidden="true"
+                        class="ant-tree-indent"
                       />
-                    </span>
-                    <span
-                      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-                      title="0-0"
-                    >
                       <span
-                        class="ant-tree-title"
+                        class="ant-tree-switcher ant-tree-switcher-noop"
+                      />
+                      <span
+                        class="ant-tree-checkbox"
                       >
-                        0-0
+                        <span
+                          class="ant-tree-checkbox-inner"
+                        />
                       </span>
-                    </span>
-                  </div>
-                  <div
-                    aria-grabbed="false"
-                    class="ant-tree-treenode ant-tree-treenode-switcher-open"
-                    draggable="false"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="ant-tree-indent"
-                    />
-                    <span
-                      class="ant-tree-switcher ant-tree-switcher_open"
-                    >
                       <span
-                        aria-label="caret-down"
-                        class="anticon anticon-caret-down ant-tree-switcher-icon"
-                        role="img"
+                        class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                        title="0-0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="caret-down"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="0 0 1024 1024"
-                          width="1em"
+                        <span
+                          class="ant-tree-title"
                         >
-                          <path
-                            d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                          />
-                        </svg>
+                          0-0
+                        </span>
                       </span>
-                    </span>
-                    <span
-                      class="ant-tree-checkbox"
+                    </div>
+                    <div
+                      aria-grabbed="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                      draggable="false"
                     >
                       <span
-                        class="ant-tree-checkbox-inner"
+                        aria-hidden="true"
+                        class="ant-tree-indent"
                       />
-                    </span>
-                    <span
-                      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
-                      title="0-1"
-                    >
                       <span
-                        class="ant-tree-title"
+                        class="ant-tree-switcher ant-tree-switcher_open"
                       >
-                        0-1
+                        <span
+                          aria-label="caret-down"
+                          class="anticon anticon-caret-down ant-tree-switcher-icon"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="caret-down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                          >
+                            <path
+                              d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                            />
+                          </svg>
+                        </span>
                       </span>
-                    </span>
-                  </div>
-                  <div
-                    aria-grabbed="false"
-                    class="ant-tree-treenode ant-tree-treenode-switcher-open"
-                    draggable="false"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="ant-tree-indent"
-                    >
                       <span
-                        class="ant-tree-indent-unit"
-                      />
-                    </span>
-                    <span
-                      class="ant-tree-switcher ant-tree-switcher-noop"
-                    />
-                    <span
-                      class="ant-tree-checkbox"
-                    >
-                      <span
-                        class="ant-tree-checkbox-inner"
-                      />
-                    </span>
-                    <span
-                      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-                      title="0-1-0"
-                    >
-                      <span
-                        class="ant-tree-title"
+                        class="ant-tree-checkbox"
                       >
-                        0-1-0
+                        <span
+                          class="ant-tree-checkbox-inner"
+                        />
                       </span>
-                    </span>
-                  </div>
-                  <div
-                    aria-grabbed="false"
-                    class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
-                    draggable="false"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="ant-tree-indent"
-                    >
                       <span
-                        class="ant-tree-indent-unit"
-                      />
-                    </span>
-                    <span
-                      class="ant-tree-switcher ant-tree-switcher-noop"
-                    />
-                    <span
-                      class="ant-tree-checkbox"
-                    >
-                      <span
-                        class="ant-tree-checkbox-inner"
-                      />
-                    </span>
-                    <span
-                      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-                      title="0-1-1"
-                    >
-                      <span
-                        class="ant-tree-title"
+                        class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+                        title="0-1"
                       >
-                        0-1-1
+                        <span
+                          class="ant-tree-title"
+                        >
+                          0-1
+                        </span>
                       </span>
-                    </span>
-                  </div>
-                  <div
-                    aria-grabbed="false"
-                    class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
-                    draggable="false"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="ant-tree-indent"
-                    />
-                    <span
-                      class="ant-tree-switcher ant-tree-switcher-noop"
-                    />
-                    <span
-                      class="ant-tree-checkbox"
+                    </div>
+                    <div
+                      aria-grabbed="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                      draggable="false"
                     >
                       <span
-                        class="ant-tree-checkbox-inner"
-                      />
-                    </span>
-                    <span
-                      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-                      title="0-3"
-                    >
-                      <span
-                        class="ant-tree-title"
+                        aria-hidden="true"
+                        class="ant-tree-indent"
                       >
-                        0-3
+                        <span
+                          class="ant-tree-indent-unit"
+                        />
                       </span>
-                    </span>
+                      <span
+                        class="ant-tree-switcher ant-tree-switcher-noop"
+                      />
+                      <span
+                        class="ant-tree-checkbox"
+                      >
+                        <span
+                          class="ant-tree-checkbox-inner"
+                        />
+                      </span>
+                      <span
+                        class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                        title="0-1-0"
+                      >
+                        <span
+                          class="ant-tree-title"
+                        >
+                          0-1-0
+                        </span>
+                      </span>
+                    </div>
+                    <div
+                      aria-grabbed="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                      draggable="false"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="ant-tree-indent"
+                      >
+                        <span
+                          class="ant-tree-indent-unit"
+                        />
+                      </span>
+                      <span
+                        class="ant-tree-switcher ant-tree-switcher-noop"
+                      />
+                      <span
+                        class="ant-tree-checkbox"
+                      >
+                        <span
+                          class="ant-tree-checkbox-inner"
+                        />
+                      </span>
+                      <span
+                        class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                        title="0-1-1"
+                      >
+                        <span
+                          class="ant-tree-title"
+                        >
+                          0-1-1
+                        </span>
+                      </span>
+                    </div>
+                    <div
+                      aria-grabbed="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                      draggable="false"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="ant-tree-indent"
+                      />
+                      <span
+                        class="ant-tree-switcher ant-tree-switcher-noop"
+                      />
+                      <span
+                        class="ant-tree-checkbox"
+                      >
+                        <span
+                          class="ant-tree-checkbox-inner"
+                        />
+                      </span>
+                      <span
+                        class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                        title="0-2"
+                      >
+                        <span
+                          class="ant-tree-title"
+                        >
+                          0-2
+                        </span>
+                      </span>
+                    </div>
+                    <div
+                      aria-grabbed="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                      draggable="false"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="ant-tree-indent"
+                      />
+                      <span
+                        class="ant-tree-switcher ant-tree-switcher-noop"
+                      />
+                      <span
+                        class="ant-tree-checkbox"
+                      >
+                        <span
+                          class="ant-tree-checkbox-inner"
+                        />
+                      </span>
+                      <span
+                        class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                        title="0-3"
+                      >
+                        <span
+                          class="ant-tree-title"
+                        >
+                          0-3
+                        </span>
+                      </span>
+                    </div>
+                    <div
+                      aria-grabbed="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                      draggable="false"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="ant-tree-indent"
+                      />
+                      <span
+                        class="ant-tree-switcher ant-tree-switcher-noop"
+                      />
+                      <span
+                        class="ant-tree-checkbox"
+                      >
+                        <span
+                          class="ant-tree-checkbox-inner"
+                        />
+                      </span>
+                      <span
+                        class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                        title="0-4"
+                      >
+                        <span
+                          class="ant-tree-title"
+                        >
+                          0-4
+                        </span>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -5370,23 +5538,27 @@ exports[`renders ./components/transfer/demo/tree-transfer.tsx correctly 1`] = `
       type="button"
     >
       <span
-        aria-label="right"
-        class="anticon anticon-right"
-        role="img"
+        class="ant-btn-icon"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="right"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="right"
+          class="anticon anticon-right"
+          role="img"
         >
-          <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
       </span>
     </button>
     <button
@@ -5395,23 +5567,27 @@ exports[`renders ./components/transfer/demo/tree-transfer.tsx correctly 1`] = `
       type="button"
     >
       <span
-        aria-label="left"
-        class="anticon anticon-left"
-        role="img"
+        class="ant-btn-icon"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="left"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="left"
+          class="anticon anticon-left"
+          role="img"
         >
-          <path
-            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="left"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            />
+          </svg>
+        </span>
       </span>
     </button>
   </div>

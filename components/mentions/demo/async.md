@@ -4,7 +4,7 @@
 
 ## en-US
 
-async
+async.
 
 <style>
 .antd-demo-dynamic-option img {

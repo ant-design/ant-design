@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Select } from 'antd';
+import { Select, Space } from 'antd';
 
 const provinceData = ['Zhejiang', 'Jiangsu'];
+
 const cityData = {
   Zhejiang: ['Hangzhou', 'Ningbo', 'Wenzhou'],
   Jiangsu: ['Nanjing', 'Suzhou', 'Zhenjiang'],
@@ -23,7 +24,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
+    <Space wrap>
       <Select
         defaultValue={provinceData[0]}
         style={{ width: 120 }}
@@ -36,7 +37,7 @@ const App: React.FC = () => {
         onChange={onSecondCityChange}
         options={cities.map((city) => ({ label: city, value: city }))}
       />
-    </>
+    </Space>
   );
 };
 

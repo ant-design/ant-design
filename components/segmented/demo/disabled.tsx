@@ -1,10 +1,9 @@
 import React from 'react';
-import { Segmented } from 'antd';
+import { Segmented, Space } from 'antd';
 
-export default () => (
-  <>
+const App: React.FC = () => (
+  <Space direction="vertical">
     <Segmented options={['Map', 'Transit', 'Satellite']} disabled />
-    <br />
     <Segmented
       options={[
         'Daily',
@@ -14,5 +13,7 @@ export default () => (
         'Yearly',
       ]}
     />
-  </>
+  </Space>
 );
+
+export default App;

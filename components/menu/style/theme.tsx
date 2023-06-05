@@ -11,11 +11,9 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
     componentCls,
     colorItemText,
     colorItemTextSelected,
-    colorItemTextSelectedHorizontal,
     colorGroupTitle,
     colorItemBg,
     colorSubItemBg,
-    colorItemBgSelectedHorizontal,
     colorItemBgSelected,
     colorActiveBarHeight,
     colorActiveBarWidth,
@@ -41,10 +39,14 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
 
     colorItemBgHover,
     menuSubMenuBg,
+
+    // Horizontal
+    colorItemTextSelectedHorizontal,
+    colorItemBgSelectedHorizontal,
   } = token;
 
   return {
-    [`${componentCls}-${themeSuffix}`]: {
+    [`${componentCls}-${themeSuffix}, ${componentCls}-${themeSuffix} > ${componentCls}`]: {
       color: colorItemText,
       background: colorItemBg,
 
@@ -85,6 +87,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
             backgroundColor: colorItemBgSelected,
           },
         },
+
         [`${componentCls}-submenu-title`]: {
           '&:hover': {
             backgroundColor: colorItemBgHover,
@@ -130,7 +133,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
         },
       },
 
-      [`&:not(${componentCls}-horizontal) ${componentCls}-item-selected`]: {
+      [`& ${componentCls}-item-selected`]: {
         backgroundColor: colorItemBgSelected,
 
         // Danger
@@ -165,7 +168,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           top: colorActiveBarBorderSize,
           marginTop: -colorActiveBarBorderSize,
           marginBottom: 0,
-          borderRadius: token.radiusItem,
+          borderRadius: 0,
 
           '&::after': {
             position: 'absolute',
@@ -177,9 +180,8 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           },
 
           [`&:hover, &-active, &-open`]: {
-            color: colorItemTextSelectedHorizontal,
             '&::after': {
-              borderWidth: `${colorActiveBarHeight}px`,
+              borderBottomWidth: colorActiveBarHeight,
               borderBottomColor: colorItemTextSelectedHorizontal,
             },
           },
@@ -187,7 +189,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
             color: colorItemTextSelectedHorizontal,
             backgroundColor: colorItemBgSelectedHorizontal,
             '&::after': {
-              borderWidth: `${colorActiveBarHeight}px`,
+              borderBottomWidth: colorActiveBarHeight,
               borderBottomColor: colorItemTextSelectedHorizontal,
             },
           },

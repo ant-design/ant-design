@@ -6,8 +6,8 @@ import type { GenerateStyle } from '../../theme/internal';
 const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const {
     componentCls,
-    stepsNavContentMaxWidth,
-    stepsNavArrowColor,
+    navContentMaxWidth,
+    navArrowColor,
     stepsNavActiveColor,
     motionDurationSlow,
   } = token;
@@ -37,7 +37,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           transition: `opacity ${motionDurationSlow}`,
 
           [`${componentCls}-item-content`]: {
-            maxWidth: stepsNavContentMaxWidth,
+            maxWidth: navContentMaxWidth,
           },
 
           [`${componentCls}-item-title`]: {
@@ -76,10 +76,10 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           display: 'inline-block',
           width: token.fontSizeIcon,
           height: token.fontSizeIcon,
-          borderTop: `${token.lineWidth}px ${token.lineType} ${stepsNavArrowColor}`,
+          borderTop: `${token.lineWidth}px ${token.lineType} ${navArrowColor}`,
           borderBottom: 'none',
           borderInlineStart: 'none',
-          borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${stepsNavArrowColor}`,
+          borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${navArrowColor}`,
           transform: 'translateY(-50%) translateX(-50%) rotate(45deg)',
           content: '""',
         },

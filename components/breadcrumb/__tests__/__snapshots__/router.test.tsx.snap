@@ -6,66 +6,54 @@ exports[`react router react router 3 1`] = `
 >
   <ol>
     <li>
-      <span
+      <a
         class="ant-breadcrumb-link"
+        href="#/"
       >
-        <a
-          href="#/"
-        >
-          Home
-        </a>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
+        Home
+      </a>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
     </li>
     <li>
-      <span
+      <a
         class="ant-breadcrumb-link"
+        href="#//apps"
       >
-        <a
-          href="#/apps"
-        >
-          Application List
-        </a>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
+        Application List
+      </a>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
     </li>
     <li>
-      <span
+      <a
         class="ant-breadcrumb-link"
+        href="#//apps/1"
       >
-        <a
-          href="#/apps/1"
-        >
-          Application1
-        </a>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
+        Application1
+      </a>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
     </li>
     <li>
-      <span
+      <a
         class="ant-breadcrumb-link"
+        href="#//apps/1/detail"
       >
-        <span>
-          Detail
-        </span>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
+        Detail
+      </a>
     </li>
   </ol>
 </nav>

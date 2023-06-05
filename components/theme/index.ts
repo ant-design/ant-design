@@ -1,5 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import { defaultConfig, useToken as useInternalToken } from './internal';
+import type { GlobalToken } from './interface';
 import defaultAlgorithm from './themes/default';
 import darkAlgorithm from './themes/dark';
 import compactAlgorithm from './themes/compact';
@@ -13,6 +14,8 @@ function useToken() {
 
   return { theme, token, hashId };
 }
+
+export { type GlobalToken };
 
 export default {
   /** @private Test Usage. Do not use in production. */

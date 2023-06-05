@@ -5,13 +5,13 @@ import { Cascader, Input, Select, Space } from 'antd';
 const { Option } = Select;
 
 const selectBefore = (
-  <Select defaultValue="http://" className="select-before">
+  <Select defaultValue="http://">
     <Option value="http://">http://</Option>
     <Option value="https://">https://</Option>
   </Select>
 );
 const selectAfter = (
-  <Select defaultValue=".com" className="select-after">
+  <Select defaultValue=".com">
     <Option value=".com">.com</Option>
     <Option value=".jp">.jp</Option>
     <Option value=".cn">.cn</Option>

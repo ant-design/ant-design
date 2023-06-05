@@ -5,7 +5,7 @@ const App: React.FC = () => {
   const [current, setCurrent] = useState(0);
 
   const onChange = (value: number) => {
-    console.log('onChange:', current);
+    console.log('onChange:', value);
     setCurrent(value);
   };
   const description = 'This is a description.';

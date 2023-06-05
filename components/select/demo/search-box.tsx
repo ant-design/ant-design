@@ -32,8 +32,11 @@ const fetch = (value: string, callback: Function) => {
         }
       });
   };
-
-  timeout = setTimeout(fake, 300);
+  if (value) {
+    timeout = setTimeout(fake, 300);
+  } else {
+    callback([]);
+  }
 };
 
 const SearchInput: React.FC<{ placeholder: string; style: React.CSSProperties }> = (props) => {
@@ -41,11 +44,7 @@ const SearchInput: React.FC<{ placeholder: string; style: React.CSSProperties }>
   const [value, setValue] = useState<string>();
 
   const handleSearch = (newValue: string) => {
-    if (newValue) {
-      fetch(newValue, setData);
-    } else {
-      setData([]);
-    }
+    fetch(newValue, setData);
   };
 
   const handleChange = (newValue: string) => {

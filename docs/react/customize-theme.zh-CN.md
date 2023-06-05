@@ -21,8 +21,8 @@ Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务
 通过在 ConfigProvider 中传入 `theme`，可以配置主题。在升级 v5 后，将默认使用 v5 的主题，以下是将配置主题示例：
 
 ```tsx
+import { Button, ConfigProvider } from 'antd';
 import React from 'react';
-import { ConfigProvider, Button } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -39,7 +39,7 @@ const App: React.FC = () => (
 export default App;
 ```
 
-这将会得到一个以 <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #00b96b; vertical-align: text-bottom;"></div> `#00b96b` 为主色的主题，以 Button 组件为例可以看到相应的变化：
+这将会得到一个以 <ColorChunk color="#00b96b" /></ColorChunk> 为主色的主题，以 Button 组件为例可以看到相应的变化：
 
 ![themed button](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*CbF_RJfKEiwAAAAAAAAAAAAAARQnAQ)
 
@@ -48,8 +48,8 @@ export default App;
 通过修改算法可以快速生成风格迥异的主题，5.0 版本中默认提供三套预设算法，分别是默认算法 `theme.defaultAlgorithm`、暗色算法 `theme.darkAlgorithm` 和紧凑算法 `theme.compactAlgorithm`。你可以通过修改 ConfigProvider 中 `theme` 属性的 `algorithm` 属性来切换算法。
 
 ```tsx
+import { Button, ConfigProvider, theme } from 'antd';
 import React from 'react';
-import { ConfigProvider, Button, theme } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -69,8 +69,8 @@ export default App;
 除了整体的 Design Token，各个组件也会开放自己的 Component Token 来实现针对组件的样式定制能力，不同的组件之间不会相互影响。同样地，也可以通过这种方式来覆盖组件的其他 Design Token。
 
 ```tsx
+import { Checkbox, ConfigProvider, Radio } from 'antd';
 import React from 'react';
-import { ConfigProvider, Radio, Checkbox } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -90,9 +90,11 @@ const App: React.FC = () => (
 export default App;
 ```
 
-通过这种方式，我们可以仅将 Radio 组件的主色改为 <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #00b96b; vertical-align: text-bottom;"></div> `#00b96b`，而不会影响其他组件。
+通过这种方式，我们可以仅将 Radio 组件的主色改为 <ColorChunk color="#00b96b" /></ColorChunk> 而不会影响其他组件。
 
 ![component token](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EMY0QrHFDjsAAAAAAAAAAAAAARQnAQ)
+
+> 注意：`ConfigProvider` 对 `message.xxx`、`Modal.xxx`、`notification.xxx` 等静态方法不会生效，原因是在这些方法中，antd 会通过 `ReactDOM.render` 动态创建新的 React 实体。其 context 与当前代码所在 context 并不相同，因而无法获取 context 信息。当你需要 context 信息（例如 ConfigProvider 配置的内容）时，可以通过 `Modal.useModal` 方法会返回 modal 实体以及 contextHolder 节点。将其插入到你需要获取 context 位置即可，也可通过 [App 包裹组件](/components/app-cn) 简化 useModal 等方法需要手动植入 contextHolder 的问题。
 
 ## 动态主题的其他使用方式
 
@@ -105,8 +107,8 @@ export default App;
 可以嵌套使用 `ConfigProvider` 来实现局部主题的更换。在子主题中未被改变的 Design Token 将会继承父主题。
 
 ```tsx
+import { Button, ConfigProvider } from 'antd';
 import React from 'react';
-import { ConfigProvider, Button } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -137,8 +139,8 @@ export default App;
 如果你希望使用当前主题下的 Design Token，我们提供了 `useToken` 这个 hook 来获取 Design Token。
 
 ```tsx
-import React from 'react';
 import { Button, theme } from 'antd';
+import React from 'react';
 
 const { useToken } = theme;
 
@@ -236,40 +238,20 @@ const theme = {
 };
 ```
 
-### 兼容性调整
-
-Ant Design 的 CSS-in-JS 默认通过 `:where` 选择器降低 CSS Selector 优先级，以减少用户升级 v5 时额外调整自定义样式成本。在某些场景下你如果需要支持的旧版浏览器，你可以使用 `@ant-design/cssinjs` 取消默认的降权操作（请注意版本保持与 antd 一致）：
-
-```tsx
-import React from 'react';
-import { StyleProvider } from '@ant-design/cssinjs';
-
-export default () => (
-  <StyleProvider hashPriority="high">
-    <MyApp />
-  </StyleProvider>
-);
-```
-
-切换后，样式将从 `:where` 切换为类选择器：
-
-```diff
---  :where(.css-bAMboO).ant-btn {
-++  .css-bAMboO.ant-btn {
-      color: #fff;
-    }
-```
-
-注意：关闭 `:where` 降权后，你可能需要手动调整一些样式的优先级。
-
 ### 服务端渲染
+
+服务端渲染样式有两种方案，它们各有优缺点：
+
+- **内联方式**：在渲染时无需额外请求样式文件，好处是减少额外的网络请求，缺点则是会使得 HTML 体积增大，影响首屏渲染速度，相关讨论参考：[#39891](https://github.com/ant-design/ant-design/issues/39891)
+- **整体导出**：提前烘焙 antd 组件样式为 css 文件，在页面中时引入。好处是打开任意页面时如传统 css 方案一样都会复用同一套 css 文件以命中缓存，缺点是如果页面中存在多主题，则需要额外进行烘焙
+
+#### 内联方式
 
 使用 `@ant-design/cssinjs` 将所需样式抽离：
 
 ```tsx
-import React from 'react';
-import { renderToString } from 'react-dom/server';
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+import { renderToString } from 'react-dom/server';
 
 export default () => {
   // SSR Render
@@ -297,6 +279,314 @@ export default () => {
 </html>
 `;
 };
+```
+
+#### 整体导出
+
+如果你想要将样式文件抽离到 css 文件中，可以尝试使用以下方案：
+
+1. 安装依赖
+
+```bash
+npm install ts-node tslib cross-env --save-dev
+```
+
+2. 新增 `tsconfig.node.json` 文件
+
+```json
+{
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "module": "NodeNext",
+    "jsx": "react",
+    "esModuleInterop": true
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+}
+```
+
+3. 新增 `scripts/genAntdCss.tsx` 文件
+
+```tsx
+// scripts/genAntdCss.tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import fs from 'fs';
+
+const outputPath = './public/antd.min.css';
+
+const css = extractStyle();
+
+fs.writeFileSync(outputPath, css);
+```
+
+若你想使用混合主题或自定义主题，可采用以下脚本：
+
+```tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import { ConfigProvider } from 'antd';
+import fs from 'fs';
+import React from 'react';
+
+const outputPath = './public/antd.min.css';
+
+const testGreenColor = '#008000';
+const testRedColor = '#ff0000';
+
+const css = extractStyle((node) => (
+  <>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorBgBase: testGreenColor,
+        },
+      }}
+    >
+      {node}
+    </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: testGreenColor,
+        },
+      }}
+    >
+      <ConfigProvider
+        theme={{
+          token: {
+            colorBgBase: testRedColor,
+          },
+        }}
+      >
+        {node}
+      </ConfigProvider>
+    </ConfigProvider>
+  </>
+));
+
+fs.writeFileSync(outputPath, css);
+```
+
+你可以选择在启动开发命令或编译前执行这个脚本，运行上述脚本将会在当前项目的指定（如： public 目录）目录下直接生成一个全量的 antd.min.css 文件。
+
+以 Next.js 为例（[参考示例](https://github.com/ant-design/create-next-app-antd)）：
+
+```json
+// package.json
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "predev": "ts-node --project ./tsconfig.node.json ./scripts/genAntdCss.tsx",
+    "prebuild": "cross-env NODE_ENV=production ts-node --project ./tsconfig.node.json ./scripts/genAntdCss.tsx"
+  }
+}
+```
+
+然后，你只需要在`pages/_app.tsx`文件中引入这个文件即可：
+
+```tsx
+import { StyleProvider } from '@ant-design/cssinjs';
+import type { AppProps } from 'next/app';
+import '../public/antd.min.css';
+import '../styles/globals.css'; // 添加这行
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <StyleProvider hashPriority="high">
+      <Component {...pageProps} />
+    </StyleProvider>
+  );
+}
+```
+
+#### 自定义主题
+
+如果你的项目中使用了自定义主题，可以尝试通过以下方式进行烘焙：
+
+```tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import { ConfigProvider } from 'antd';
+
+const cssText = extractStyle((node) => (
+  <ConfigProvider
+    theme={{
+      token: {
+        colorPrimary: 'red',
+      },
+    }}
+  >
+    {node}
+  </ConfigProvider>
+));
+```
+
+#### 混合主题
+
+如果你的项目中使用了混合主题，可以尝试通过以下方式进行烘焙：
+
+```tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import { ConfigProvider } from 'antd';
+
+const cssText = extractStyle((node) => (
+  <>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorBgBase: 'green ',
+        },
+      }}
+    >
+      {node}
+    </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: 'blue',
+        },
+      }}
+    >
+      <ConfigProvider
+        theme={{
+          token: {
+            colorBgBase: 'red ',
+          },
+        }}
+      >
+        {node}
+      </ConfigProvider>
+    </ConfigProvider>
+  </>
+));
+```
+
+更多`static-style-extract`的实现细节请看：[static-style-extract](https://github.com/ant-design/static-style-extract)。
+
+#### 按需导出 css 样式文件
+
+```tsx
+// scripts/genAntdCss.tsx
+import { extractStyle } from '@ant-design/cssinjs';
+import type Entity from '@ant-design/cssinjs/lib/Cache';
+import { createHash } from 'crypto';
+import fs from 'fs';
+import path from 'path';
+
+export type DoExtraStyleOptions = {
+  cache: Entity;
+  dir?: string;
+  baseFileName?: string;
+};
+export function doExtraStyle({
+  cache,
+  dir = 'antd-output',
+  baseFileName = 'antd.min',
+}: DoExtraStyleOptions) {
+  const baseDir = path.resolve(__dirname, '../../static/css');
+
+  const outputCssPath = path.join(baseDir, dir);
+
+  if (!fs.existsSync(outputCssPath)) {
+    fs.mkdirSync(outputCssPath, { recursive: true });
+  }
+
+  const css = extractStyle(cache, true);
+  if (!css) return '';
+
+  const md5 = createHash('md5');
+  const hash = md5.update(css).digest('hex');
+  const fileName = `${baseFileName}.${hash.substring(0, 8)}.css`;
+  const fullpath = path.join(outputCssPath, fileName);
+
+  const res = `_next/static/css/${dir}/${fileName}`;
+
+  if (fs.existsSync(fullpath)) return res;
+
+  fs.writeFileSync(fullpath, css);
+
+  return res;
+}
+```
+
+在 `_document.tsx` 中使用上述工具进行按需导出：
+
+```tsx
+// _document.tsx
+import { StyleProvider, createCache } from '@ant-design/cssinjs';
+import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
+import { doExtraStyle } from '../scripts/genAntdCss';
+export default class MyDocument extends Document {
+  static async getInitialProps(ctx: DocumentContext) {
+    const cache = createCache();
+    let fileName = '';
+    const originalRenderPage = ctx.renderPage;
+    ctx.renderPage = () =>
+      originalRenderPage({
+        enhanceApp: (App) => (props) =>
+          (
+            <StyleProvider cache={cache}>
+              <App {...props} />
+            </StyleProvider>
+          ),
+      });
+
+    const initialProps = await Document.getInitialProps(ctx);
+    // 1.1 extract style which had been used
+    fileName = doExtraStyle({
+      cache,
+    });
+    return {
+      ...initialProps,
+      styles: (
+        <>
+          {initialProps.styles}
+          {/* 1.2 inject css */}
+          {fileName && <link rel="stylesheet" href={`/${fileName}`} />}
+        </>
+      ),
+    };
+  }
+
+  render() {
+    return (
+      <Html lang="en">
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
+}
+```
+
+演示示例请看：[按需抽取样式示例](https://github.com/ant-design/create-next-app-antd/tree/generate-css-on-demand)
+
+### 兼容旧版浏览器
+
+请参考文档 [样式兼容](/docs/react/compatible-style-cn)。
+
+### Shadow DOM 场景
+
+在 Shadow DOM 场景中，由于其添加 `<style />` 标签的方式与普通 DOM 不同，所以需要使用 `@ant-design/cssinjs` 的 `StyleProvider` 配置 `container` 属性用于设置插入位置：
+
+```tsx
+import { StyleProvider } from '@ant-design/cssinjs';
+import { createRoot } from 'react-dom/client';
+
+const shadowRoot = someEle.attachShadow({ mode: 'open' });
+const container = document.createElement('div');
+shadowRoot.appendChild(container);
+const root = createRoot(container);
+
+root.render(
+  <StyleProvider container={shadowRoot}>
+    <MyApp />
+  </StyleProvider>,
+);
 ```
 
 ## API
@@ -332,9 +622,13 @@ export default () => {
 
 <TokenTable type="alias"></TokenTable>
 
+### StyleProvider
+
+请参考 [`@ant-design/cssinjs`](https://github.com/ant-design/cssinjs#styleprovider)。
+
 ## 调试主题
 
-我们提供了帮助用户调试主题的工具：[主题编辑器](https://ant-design.github.io/antd-token-previewer/~demos/docs-theme-editor-simple)
+我们提供了帮助用户调试主题的工具：[主题编辑器](/theme-editor-cn)
 
 你可以使用此工具自由地修改 Design Token，以达到您对主题的期望。
 

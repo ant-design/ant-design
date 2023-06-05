@@ -3,7 +3,8 @@ category: Components
 group: Data Display
 title: Image
 cols: 2
-cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FbOCS6aFMeUAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Previewable image.
@@ -34,7 +35,7 @@ Previewable image.
 | fallback | Load failure fault-tolerant src | string | - | 4.6.0 |
 | height | Image height | string \| number | - | 4.6.0 |
 | placeholder | Load placeholder, use default placeholder when set `true` | ReactNode | - | 4.6.0 |
-| preview | preview config, disabled when `false` | boolean \| [previewType](#previewType) | true | 4.6.0 [previewType](#previewType):4.7.0 |
+| preview | preview config, disabled when `false` | boolean \| [previewType](#previewtype) | true | 4.6.0 [previewType](#previewtype):4.7.0 |
 | src | Image path | string | - | 4.6.0 |
 | width | Image width | string \| number | - | 4.6.0 |
 | onError | Load failed callback | (event: Event) => void | - | 4.12.0 |
@@ -42,18 +43,24 @@ Previewable image.
 
 ### previewType
 
-```js
+```typescript
 {
   visible?: boolean;
-  onVisibleChange?: (visible, prevVisible) => void;
+  onVisibleChange?: (visible, prevVisible, current: number) => void; // `current` only support after v5.3.0
   getContainer?: string | HTMLElement | (() => HTMLElement); // v4.8.0
   src?: string; // v4.10.0
   mask?: ReactNode; // v4.9.0
   maskClassName?: string; // v4.11.0
+  rootClassName?: string; // only support after v5.4.0
   current?: number; // v4.12.0 Only support PreviewGroup
   countRender?: (current: number, total: number) => string  // v4.20.0 Only support PreviewGroup
   scaleStep?: number;
+  onChange?: (current: number, prevCurrent: number) => void; // only support after v5.3.0
 }
 ```
 
 Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
+
+## Design Token
+
+<ComponentTokenTable component="Image"></ComponentTokenTable>

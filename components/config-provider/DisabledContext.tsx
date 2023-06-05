@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export type DisabledType = true | false | undefined;
+export type DisabledType = boolean | undefined;
 
 const DisabledContext = React.createContext<DisabledType>(false);
 

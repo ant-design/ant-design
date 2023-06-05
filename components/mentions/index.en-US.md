@@ -2,7 +2,8 @@
 category: Components
 group: Data Entry
 title: Mentions
-cover: https://gw.alipayobjects.com/zos/alicdn/0pF5j477V/Mentions.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e4bXT7Uhi9YAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*pxR2S53P_xoAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -12,6 +13,23 @@ Mention component.
 ## When To Use
 
 When you need to mention someone or something.
+
+### Usage upgrade after 5.1.0
+
+<Alert message="After version 5.1.0, we provide a simpler usage &lt;Mentions options={[...]} /&gt;  with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0."></Alert>
+
+```jsx
+// works when >=5.1.0, recommended ✅
+const options = [{ value: 'sample', label: 'sample' }];
+return <Mentions options={options} />;
+
+// works when <5.1.0, deprecated when >=5.1.0 🙅🏻‍♀️
+return (
+  <Mentions onChange={onChange}>
+    <Mentions.Option value="sample">Sample</Mentions.Option>
+  </Mentions>
+);
+```
 
 ## Examples
 
@@ -50,7 +68,7 @@ When you need to mention someone or something.
 | onResize | The callback function that is triggered when textarea resize | function({ width, height }) | - |  |
 | onSearch | Trigger when prefix hit | (text: string, prefix: string) => void | - |  |
 | onSelect | Trigger when user select the option | (option: OptionProps, prefix: string) => void | - |  |
-| options | Option Configuration | [Options](#Option) | \[] | 5.1.0 |
+| options | Option Configuration | [Options](#option) | \[] | 5.1.0 |
 
 ### Mention methods
 
@@ -61,10 +79,15 @@ When you need to mention someone or something.
 
 ### Option
 
-| Property  | Description                 | Type                | Default |
-| --------- | --------------------------- | ------------------- | ------- |
-| label     | Title of the option         | React.ReactNode     | -       |
-| key       | The key value of the option | string              | -       |
-| disabled  | Optional                    | boolean             | -       |
-| className | className                   | string              | -       |
-| style     | The style of the option     | React.CSSProperties | -       |
+<!-- prettier-ignore -->
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| label | Title of the option | React.ReactNode | - |
+| key | The key value of the option | string | - |
+| disabled | Optional | boolean | - |
+| className | className | string | - |
+| style | The style of the option | React.CSSProperties | - |
+
+## Design Token
+
+<ComponentTokenTable component="Mentions"></ComponentTokenTable>

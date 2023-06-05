@@ -14,12 +14,4 @@ Input addon debug.
 .select-after {
   width: 80px;
 }
-
-[data-theme='compact'] .select-before {
-  width: 71px;
-}
-
-[data-theme='compact'] .select-after {
-  width: 65px;
-}
 ```

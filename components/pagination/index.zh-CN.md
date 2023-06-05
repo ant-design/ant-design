@@ -3,7 +3,8 @@ category: Components
 subtitle: 分页
 group: 导航
 title: Pagination
-cover: https://gw.alipayobjects.com/zos/alicdn/1vqv2bj68/Pagination.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8y_iTJGY_aUAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 采用分页的形式分隔长列表，每次只加载一个页面。
@@ -26,6 +27,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/1vqv2bj68/Pagination.svg
 <code src="./demo/total.tsx">总数</code>
 <code src="./demo/all.tsx">全部展示</code>
 <code src="./demo/itemRender.tsx">上一步和下一步</code>
+<code src="./demo/wireframe.tsx" debug>线框风格</code>
 
 ## API
 
@@ -42,7 +44,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/1vqv2bj68/Pagination.svg
 | hideOnSinglePage | 只有一页时是否隐藏分页器 | boolean | false |  |
 | itemRender | 用于自定义页码的结构，可用于优化 SEO | (page, type: 'page' \| 'prev' \| 'next', originalElement) => React.ReactNode | - |  |
 | pageSize | 每页条数 | number | - |  |
-| pageSizeOptions | 指定每页可以显示多少条 | string\[] | \[`10`, `20`, `50`, `100`] |  |
+| pageSizeOptions | 指定每页可以显示多少条 | string\[] \| number\[] | \[`10`, `20`, `50`, `100`] |  |
 | responsive | 当 size 未指定时，根据屏幕宽度自动调整尺寸 | boolean | - |  |
 | showLessItems | 是否显示较少页面内容 | boolean | false |  |
 | showQuickJumper | 是否可以快速跳转至某页 | boolean \| { goButton: ReactNode } | false |  |
@@ -54,3 +56,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/1vqv2bj68/Pagination.svg
 | total | 数据总数 | number | 0 |  |
 | onChange | 页码或 `pageSize` 改变的回调，参数是改变后的页码及每页条数 | function(page, pageSize) | - |  |
 | onShowSizeChange | pageSize 变化的回调 | function(current, size) | - |  |
+
+## Design Token
+
+<ComponentTokenTable component="Pagination"></ComponentTokenTable>

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/checkbox/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/checkbox/demo/basic.tsx extend context correctly 1`] = `
 <label
   class="ant-checkbox-wrapper"
 >
@@ -21,7 +21,7 @@ exports[`renders ./components/checkbox/demo/basic.tsx extend context correctly 1
 </label>
 `;
 
-exports[`renders ./components/checkbox/demo/check-all.tsx extend context correctly 1`] = `
+exports[`renders components/checkbox/demo/check-all.tsx extend context correctly 1`] = `
 Array [
   <label
     class="ant-checkbox-wrapper"
@@ -112,10 +112,10 @@ Array [
 ]
 `;
 
-exports[`renders ./components/checkbox/demo/controller.tsx extend context correctly 1`] = `
+exports[`renders components/checkbox/demo/controller.tsx extend context correctly 1`] = `
 Array [
   <p
-    style="margin-bottom:20px"
+    style="margin-bottom: 20px;"
   >
     <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
@@ -148,7 +148,7 @@ Array [
     </button>
     <button
       class="ant-btn ant-btn-primary ant-btn-sm"
-      style="margin:0 10px"
+      style="margin: 0px 10px;"
       type="button"
     >
       <span>
@@ -159,15 +159,62 @@ Array [
 ]
 `;
 
-exports[`renders ./components/checkbox/demo/debug-line.tsx extend context correctly 1`] = `
+exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend context correctly 1`] = `
+<div
+  style="padding: 56px;"
+>
+  <label
+    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled"
+  >
+    <span
+      class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
+    >
+      <input
+        checked=""
+        class="ant-checkbox-input"
+        disabled=""
+        type="checkbox"
+      />
+      <span
+        class="ant-checkbox-inner"
+      />
+    </span>
+  </label>
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
+    <div
+      class="ant-popover-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    />
+    <div
+      class="ant-popover-content"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-inner-content"
+        >
+          xxxx
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/checkbox/demo/debug-line.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="border:1px solid red;margin-bottom:16px"
+    style="border: 1px solid red; margin-bottom: 16px;"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       <label
         class="ant-checkbox-wrapper"
@@ -188,7 +235,7 @@ exports[`renders ./components/checkbox/demo/debug-line.tsx extend context correc
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       <div>
         Bamboo
@@ -220,11 +267,11 @@ exports[`renders ./components/checkbox/demo/debug-line.tsx extend context correc
   </div>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="border:1px solid red;margin-bottom:16px"
+    style="border: 1px solid red; margin-bottom: 16px;"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       <label
         class="ant-radio-wrapper"
@@ -245,7 +292,7 @@ exports[`renders ./components/checkbox/demo/debug-line.tsx extend context correc
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       <div>
         Bamboo
@@ -276,7 +323,7 @@ exports[`renders ./components/checkbox/demo/debug-line.tsx extend context correc
     </div>
   </div>
   <div
-    style="border:1px solid red;margin-bottom:16px;display:flex;align-items:center"
+    style="border: 1px solid red; margin-bottom: 16px; display: flex; align-items: center;"
   >
     <label
       class="ant-checkbox-wrapper"
@@ -318,7 +365,7 @@ exports[`renders ./components/checkbox/demo/debug-line.tsx extend context correc
     </label>
   </div>
   <div
-    style="border:1px solid red;margin-bottom:16px;display:flex;align-items:center"
+    style="border: 1px solid red; margin-bottom: 16px; display: flex; align-items: center;"
   >
     <label
       class="ant-radio-wrapper"
@@ -356,13 +403,57 @@ exports[`renders ./components/checkbox/demo/debug-line.tsx extend context correc
       </span>
       <span>
         Little
+      </span>
+    </label>
+  </div>
+  <div>
+    <label
+      class="ant-checkbox-wrapper"
+    >
+      <span
+        class="ant-checkbox"
+      >
+        <input
+          class="ant-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Aligned
+      </span>
+    </label>
+  </div>
+  <div>
+    <label
+      class="ant-checkbox-wrapper"
+    >
+      <span
+        class="ant-checkbox"
+      >
+        <input
+          class="ant-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        <span
+          style="font-size: 32px;"
+        >
+          Aligned
+        </span>
       </span>
     </label>
   </div>
 </div>
 `;
 
-exports[`renders ./components/checkbox/demo/disabled.tsx extend context correctly 1`] = `
+exports[`renders components/checkbox/demo/disabled.tsx extend context correctly 1`] = `
 Array [
   <label
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
@@ -371,6 +462,24 @@ Array [
       class="ant-checkbox ant-checkbox-disabled"
     >
       <input
+        class="ant-checkbox-input"
+        disabled=""
+        type="checkbox"
+      />
+      <span
+        class="ant-checkbox-inner"
+      />
+    </span>
+  </label>,
+  <br />,
+  <label
+    class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+  >
+    <span
+      class="ant-checkbox ant-checkbox-indeterminate ant-checkbox-disabled"
+    >
+      <input
+        aria-checked="mixed"
         class="ant-checkbox-input"
         disabled=""
         type="checkbox"
@@ -401,7 +510,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/checkbox/demo/group.tsx extend context correctly 1`] = `
+exports[`renders components/checkbox/demo/group.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-checkbox-group"
@@ -599,10 +708,10 @@ Array [
 ]
 `;
 
-exports[`renders ./components/checkbox/demo/layout.tsx extend context correctly 1`] = `
+exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`] = `
 <div
   class="ant-checkbox-group"
-  style="width:100%"
+  style="width: 100%;"
 >
   <div
     class="ant-row"

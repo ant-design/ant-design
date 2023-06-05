@@ -5,9 +5,3 @@
 ## en-US
 
 Basic drawer.
-
-<style>
-[data-theme='compact'] .ant-drawer-body p {
-  margin-bottom: 0;
-}
-</style>

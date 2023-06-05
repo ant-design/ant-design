@@ -1,9 +1,9 @@
-import React, { useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import type { InputRef } from 'antd';
 import { Button, Input, Space, Table } from 'antd';
-import type { ColumnsType, ColumnType } from 'antd/es/table';
+import type { ColumnType, ColumnsType } from 'antd/es/table';
 import type { FilterConfirmProps } from 'antd/es/table/interface';
+import React, { useRef, useState } from 'react';
 import Highlighter from 'react-highlight-words';
 
 interface DataType {
@@ -32,7 +32,7 @@ const data: DataType[] = [
     key: '3',
     name: 'Jim Green',
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
+    address: 'Sydney No. 1 Lake Park',
   },
   {
     key: '4',
@@ -114,7 +114,7 @@ const App: React.FC = () => {
       </div>
     ),
     filterIcon: (filtered: boolean) => (
-      <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />
+      <SearchOutlined style={{ color: filtered ? '#1677ff' : undefined }} />
     ),
     onFilter: (value, record) =>
       record[dataIndex]

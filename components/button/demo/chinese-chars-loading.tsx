@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { PoweroffOutlined } from '@ant-design/icons';
 import { Button, Space } from 'antd';

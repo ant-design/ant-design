@@ -4,7 +4,8 @@ subtitle: 图片
 group: 数据展示
 title: Image
 cols: 2
-cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FbOCS6aFMeUAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 可预览的图片。
@@ -12,7 +13,7 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
 ## 何时使用
 
 - 需要展示图片时使用。
-- 加载大图时显示 loading 或加载失败时容错处理。
+- 加载显示大图或加载失败时容错处理。
 
 ## 代码演示
 
@@ -35,7 +36,7 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
 | fallback | 加载失败容错地址 | string | - | 4.6.0 |
 | height | 图像高度 | string \| number | - | 4.6.0 |
 | placeholder | 加载占位, 为 `true` 时使用默认占位 | ReactNode | - | 4.6.0 |
-| preview | 预览参数，为 `false` 时禁用 | boolean \| [previewType](#previewType) | true | 4.6.0 [previewType](#previewType):4.7.0 |
+| preview | 预览参数，为 `false` 时禁用 | boolean \| [previewType](#previewtype) | true | 4.6.0 [previewType](#previewtype):4.7.0 |
 | src | 图片地址 | string | - | 4.6.0 |
 | width | 图像宽度 | string \| number | - | 4.6.0 |
 | onError | 加载错误回调 | (event: Event) => void | - | 4.12.0 |
@@ -43,19 +44,25 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
 
 ### previewType
 
-```js
+```typescript
 {
   visible?: boolean;
-  onVisibleChange?: (visible, prevVisible) => void;
+  onVisibleChange?: (visible, prevVisible, current: number) => void; // current 参数 v5.3.0 后支持
   getContainer?: string | HTMLElement | (() => HTMLElement); // v4.8.0
   src?: string; // v4.10.0
   mask?: ReactNode; // v4.9.0
   maskClassName?: string; // v4.11.0
+  rootClassName?: string; // v5.4.0 后支持
   current?: number; // v4.12.0 仅支持 PreviewGroup
   countRender?: (current: number, total: number) => string  // v4.20.0 仅支持 PreviewGroup
   scaleStep?: number;
   forceRender?: boolean;
+  onChange?: (current: number, prevCurrent: number) => void; // v5.3.0 后支持
 }
 ```
 
 其他属性见 [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
+
+## Design Token
+
+<ComponentTokenTable component="Image"></ComponentTokenTable>

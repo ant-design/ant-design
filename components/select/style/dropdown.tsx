@@ -1,5 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { SelectToken } from '.';
+import { resetComponent, textEllipsis } from '../../style';
 import {
   initMoveMotion,
   initSlideMotion,
@@ -9,7 +10,6 @@ import {
   slideUpOut,
 } from '../../style/motion';
 import type { GenerateStyle } from '../../theme/internal';
-import { resetComponent, textEllipsis } from '../../style';
 
 const genItemStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const { controlPaddingHorizontal } = token;
@@ -57,39 +57,31 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
         boxShadow: token.boxShadowSecondary,
 
         [`
-            &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-bottomLeft,
-            &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-bottomLeft
+            &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-bottomLeft,
+            &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-bottomLeft
           `]: {
           animationName: slideUpIn,
         },
 
         [`
-            &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topLeft,
-            &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topLeft
+            &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-topLeft,
+            &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-topLeft
           `]: {
           animationName: slideDownIn,
         },
 
-        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-bottomLeft`]: {
-          animationName: slideUpOut,
-        },
+        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-bottomLeft`]:
+          {
+            animationName: slideUpOut,
+          },
 
-        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topLeft`]: {
-          animationName: slideDownOut,
-        },
+        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-topLeft`]:
+          {
+            animationName: slideDownOut,
+          },
 
         '&-hidden': {
           display: 'none',
-        },
-
-        '&-empty': {
-          color: token.colorTextDisabled,
-        },
-
-        // ========================= Options =========================
-        [`${selectItemCls}-empty`]: {
-          ...genItemStyle(token),
-          color: token.colorTextDisabled,
         },
 
         [`${selectItemCls}`]: {
@@ -112,10 +104,16 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
             '&-content': {
               flex: 'auto',
               ...textEllipsis,
+
+              '> *': {
+                ...textEllipsis,
+              },
             },
 
             '&-state': {
               flex: 'none',
+              display: 'flex',
+              alignItems: 'center',
             },
 
             [`&-active:not(${selectItemCls}-option-disabled)`]: {

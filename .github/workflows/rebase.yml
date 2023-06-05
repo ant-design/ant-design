@@ -20,6 +20,6 @@ jobs:
       with:
         fetch-depth: 0
     - name: Automatic Rebase
-      uses: cirrus-actions/rebase@1.7
+      uses: cirrus-actions/rebase@1.8
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,13 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Table } from 'antd';
 import type { TableProps } from 'antd';
+import { Table, theme } from 'antd';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
+import React, { useEffect, useRef, useState } from 'react';
 import { VariableSizeGrid as Grid } from 'react-window';
 
 const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) => {
   const { columns, scroll } = props;
   const [tableWidth, setTableWidth] = useState(0);
+  const { token } = theme.useToken();
 
   const widthColumnCount = columns!.filter(({ width }) => !width).length;
   const mergedColumns = columns!.map((column) => {
@@ -50,7 +51,7 @@ const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) 
 
   useEffect(() => resetVirtualGrid, [tableWidth]);
 
-  const renderVirtualList = (rawData: object[], { scrollbarSize, ref, onScroll }: any) => {
+  const renderVirtualList = (rawData: readonly object[], { scrollbarSize, ref, onScroll }: any) => {
     ref.current = connectObject;
     const totalHeight = rawData.length * 54;
 
@@ -61,7 +62,7 @@ const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) 
         columnCount={mergedColumns.length}
         columnWidth={(index: number) => {
           const { width } = mergedColumns[index];
-          return totalHeight > scroll!.y! && index === mergedColumns.length - 1
+          return totalHeight > (scroll?.y as number) && index === mergedColumns.length - 1
             ? (width as number) - scrollbarSize - 1
             : (width as number);
         }}
@@ -86,7 +87,13 @@ const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) 
             className={classNames('virtual-table-cell', {
               'virtual-table-cell-last': columnIndex === mergedColumns.length - 1,
             })}
-            style={style}
+            style={{
+              ...style,
+              boxSizing: 'border-box',
+              padding: token.padding,
+              borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+              background: token.colorBgContainer,
+            }}
           >
             {(rawData[rowIndex] as any)[(mergedColumns as any)[columnIndex].dataIndex]}
           </div>

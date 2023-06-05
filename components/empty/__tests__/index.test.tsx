@@ -4,6 +4,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import theme from '../../theme';
 
 describe('Empty', () => {
   mountTest(Empty);
@@ -26,5 +27,21 @@ describe('Empty', () => {
       </ConfigProvider>,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
+  it('dark mode compatible', () => {
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          algorithm: theme.darkAlgorithm,
+        }}
+      >
+        <Empty />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('svg')).toHaveStyle({
+      opacity: 0.65,
+    });
   });
 });

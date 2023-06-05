@@ -11,6 +11,7 @@ export interface DividerProps {
   orientation?: 'left' | 'right' | 'center';
   orientationMargin?: string | number;
   className?: string;
+  rootClassName?: string;
   children?: React.ReactNode;
   dashed?: boolean;
   style?: React.CSSProperties;
@@ -26,6 +27,7 @@ const Divider: React.FC<DividerProps> = (props) => {
     orientation = 'center',
     orientationMargin,
     className,
+    rootClassName,
     children,
     dashed,
     plain,
@@ -52,11 +54,22 @@ const Divider: React.FC<DividerProps> = (props) => {
       [`${prefixCls}-no-default-orientation-margin-right`]: hasCustomMarginRight,
     },
     className,
+    rootClassName,
   );
 
-  const innerStyle = {
-    ...(hasCustomMarginLeft && { marginLeft: orientationMargin }),
-    ...(hasCustomMarginRight && { marginRight: orientationMargin }),
+  const memoizedOrientationMargin = React.useMemo<string | number>(() => {
+    if (typeof orientationMargin === 'number') {
+      return orientationMargin;
+    }
+    if (/^\d+$/.test(orientationMargin!)) {
+      return Number(orientationMargin);
+    }
+    return orientationMargin!;
+  }, [orientationMargin]);
+
+  const innerStyle: React.CSSProperties = {
+    ...(hasCustomMarginLeft && { marginLeft: memoizedOrientationMargin }),
+    ...(hasCustomMarginRight && { marginRight: memoizedOrientationMargin }),
   };
 
   // Warning children not work in vertical mode
@@ -78,5 +91,9 @@ const Divider: React.FC<DividerProps> = (props) => {
     </div>,
   );
 };
+
+if (process.env.NODE_ENV !== 'production') {
+  Divider.displayName = 'Divider';
+}
 
 export default Divider;

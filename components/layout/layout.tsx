@@ -1,15 +1,18 @@
 import classNames from 'classnames';
+import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 
 export interface GeneratorProps {
-  suffixCls: string;
+  suffixCls?: string;
   tagName: 'header' | 'footer' | 'main' | 'section';
   displayName: string;
 }
 export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
+  suffixCls?: string;
+  rootClassName?: string;
   hasSider?: boolean;
 }
 
@@ -32,13 +35,9 @@ interface BasicPropsWithTagName extends BasicProps {
 
 function generator({ suffixCls, tagName, displayName }: GeneratorProps) {
   return (BasicComponent: any) => {
-    const Adapter = React.forwardRef<HTMLElement, BasicProps>((props, ref) => {
-      const { getPrefixCls } = React.useContext(ConfigContext);
-      const { prefixCls: customizePrefixCls } = props;
-      const prefixCls = getPrefixCls(suffixCls, customizePrefixCls);
-
-      return <BasicComponent ref={ref} prefixCls={prefixCls} tagName={tagName} {...props} />;
-    });
+    const Adapter = React.forwardRef<HTMLElement, BasicProps>((props, ref) => (
+      <BasicComponent ref={ref} suffixCls={suffixCls} tagName={tagName} {...props} />
+    ));
     if (process.env.NODE_ENV !== 'production') {
       Adapter.displayName = displayName;
     }
@@ -47,10 +46,28 @@ function generator({ suffixCls, tagName, displayName }: GeneratorProps) {
 }
 
 const Basic = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) => {
-  const { prefixCls, className, children, tagName, ...others } = props;
-  const classString = classNames(prefixCls, className);
+  const {
+    prefixCls: customizePrefixCls,
+    suffixCls,
+    className,
+    tagName: TagName,
+    ...others
+  } = props;
 
-  return React.createElement(tagName, { className: classString, ...others, ref }, children);
+  const { getPrefixCls } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('layout', customizePrefixCls);
+
+  const [wrapSSR, hashId] = useStyle(prefixCls as string);
+
+  const prefixWithSuffixCls = suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
+
+  return wrapSSR(
+    <TagName
+      className={classNames(customizePrefixCls || prefixWithSuffixCls, className, hashId)}
+      ref={ref}
+      {...others}
+    />,
+  );
 });
 
 const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) => {
@@ -58,7 +75,21 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
 
   const [siders, setSiders] = React.useState<string[]>([]);
 
-  const { prefixCls, className, children, hasSider, tagName: Tag, ...others } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    rootClassName,
+    children,
+    hasSider,
+    tagName: Tag,
+    ...others
+  } = props;
+
+  const passedProps = omit(others, ['suffixCls']);
+
+  const { getPrefixCls } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('layout', customizePrefixCls);
+
   const [wrapSSR, hashId] = useStyle(prefixCls as string);
   const classString = classNames(
     prefixCls,
@@ -67,6 +98,7 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
     hashId,
   );
 
@@ -86,7 +118,7 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
 
   return wrapSSR(
     <LayoutContext.Provider value={contextValue}>
-      <Tag ref={ref} className={classString} {...others}>
+      <Tag ref={ref} className={classString} {...passedProps}>
         {children}
       </Tag>
     </LayoutContext.Provider>,
@@ -94,25 +126,24 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
 });
 
 const Layout = generator({
-  suffixCls: 'layout',
   tagName: 'section',
   displayName: 'Layout',
 })(BasicLayout);
 
 const Header = generator({
-  suffixCls: 'layout-header',
+  suffixCls: 'header',
   tagName: 'header',
   displayName: 'Header',
 })(Basic);
 
 const Footer = generator({
-  suffixCls: 'layout-footer',
+  suffixCls: 'footer',
   tagName: 'footer',
   displayName: 'Footer',
 })(Basic);
 
 const Content = generator({
-  suffixCls: 'layout-content',
+  suffixCls: 'content',
   tagName: 'main',
   displayName: 'Content',
 })(Basic);

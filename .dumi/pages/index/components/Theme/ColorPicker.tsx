@@ -1,10 +1,11 @@
-import useSiteToken from '../../../../hooks/useSiteToken';
-import { Input, Space, Popover } from 'antd';
-import React, { FC, useEffect, useState } from 'react';
 import { css } from '@emotion/react';
-import { TinyColor } from '@ctrl/tinycolor';
+import { ColorPicker, Input, Space } from 'antd';
+import type { Color, ColorPickerProps } from 'antd/es/color-picker';
+import { generateColor } from 'antd/es/color-picker/util';
+import type { FC } from 'react';
+import React, { useEffect, useState } from 'react';
+import useSiteToken from '../../../../hooks/useSiteToken';
 import { PRESET_COLORS } from './colorUtil';
-import ColorPanel, { ColorPanelProps } from 'antd-token-previewer/es/ColorPanel';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -16,6 +17,17 @@ const useStyle = () => {
       border-radius: 100%;
       cursor: pointer;
       transition: all ${token.motionDurationFast};
+      display: inline-block;
+
+      & > input[type="radio"] {
+        width: 0;
+        height: 0;
+        opacity: 0;
+      }
+
+      &:focus-within {
+        // need ？
+      }
     `,
 
     colorActive: css`
@@ -25,7 +37,7 @@ const useStyle = () => {
   };
 };
 
-const DebouncedColorPanel: FC<ColorPanelProps> = ({ color, onChange }) => {
+const DebouncedColorPicker: FC<ColorPickerProps> = ({ value: color, onChange, children }) => {
   const [value, setValue] = useState(color);
 
   useEffect(() => {
@@ -39,23 +51,36 @@ const DebouncedColorPanel: FC<ColorPanelProps> = ({ color, onChange }) => {
     setValue(color);
   }, [color]);
 
-  return <ColorPanel color={value} onChange={setValue} />;
+  return (
+    <ColorPicker
+      value={value}
+      onChange={setValue}
+      presets={[
+        {
+          label: 'PresetColors',
+          colors: PRESET_COLORS,
+        },
+      ]}
+    >
+      {children}
+    </ColorPicker>
+  );
 };
 
 export interface RadiusPickerProps {
-  value?: string;
+  value?: string | Color;
   onChange?: (value: string) => void;
 }
 
-export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
+export default function ThemeColorPicker({ value, onChange }: RadiusPickerProps) {
   const style = useStyle();
 
   const matchColors = React.useMemo(() => {
-    const valueStr = new TinyColor(value).toRgbString();
+    const valueStr = generateColor(value).toRgbString();
     let existActive = false;
 
     const colors = PRESET_COLORS.map((color) => {
-      const colorStr = new TinyColor(color).toRgbString();
+      const colorStr = generateColor(color).toRgbString();
       const active = colorStr === valueStr;
       existActive = existActive || active;
 
@@ -79,7 +104,7 @@ export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
   return (
     <Space size="large">
       <Input
-        value={value}
+        value={typeof value === 'string' ? value : value.toHexString()}
         onChange={(event) => {
           onChange?.(event.target.value);
         }}
@@ -89,7 +114,8 @@ export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
       <Space size="middle">
         {matchColors.map(({ color, active, picker }) => {
           let colorNode = (
-            <div
+            // eslint-disable-next-line jsx-a11y/label-has-associated-control
+            <label
               key={color}
               css={[style.color, active && style.colorActive]}
               style={{
@@ -100,25 +126,21 @@ export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
                   onChange?.(color);
                 }
               }}
-            />
+            >
+              <input
+                type="radio"
+                name={picker ? 'picker' : 'color'}
+                tabIndex={picker ? -1 : 0}
+                onClick={(e) => e.stopPropagation()}
+              />
+            </label>
           );
 
           if (picker) {
             colorNode = (
-              <Popover
-                key={color}
-                overlayInnerStyle={{ padding: 0 }}
-                content={
-                  <DebouncedColorPanel
-                    color={value || ''}
-                    onChange={(color) => onChange?.(color)}
-                  />
-                }
-                trigger="click"
-                showArrow={false}
-              >
+              <DebouncedColorPicker value={value || ''} onChange={onChange}>
                 {colorNode}
-              </Popover>
+              </DebouncedColorPicker>
             );
           }
 

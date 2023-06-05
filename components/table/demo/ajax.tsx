@@ -53,7 +53,7 @@ const getRandomuserParams = (params: TableParams) => ({
 });
 
 const App: React.FC = () => {
-  const [data, setData] = useState();
+  const [data, setData] = useState<DataType[]>();
   const [loading, setLoading] = useState(false);
   const [tableParams, setTableParams] = useState<TableParams>({
     pagination: {
@@ -95,6 +95,11 @@ const App: React.FC = () => {
       filters,
       ...sorter,
     });
+
+    // `dataSource` is useless since `pageSize` changed
+    if (pagination.pageSize !== tableParams.pagination?.pageSize) {
+      setData([]);
+    }
   };
 
   return (

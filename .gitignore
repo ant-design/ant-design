@@ -47,6 +47,7 @@ server/
 
 # Docs templates
 scripts/previewEditor/index.html
+components/version/version.ts
 components/version/version.tsx
 components/version/token.json
 components/version/token-meta.json
@@ -62,3 +63,6 @@ __image_snapshots__/
 /imageDiffSnapshots
 
 .devcontainer*
+.husky/prepare-commit-msg
+
+.eslintcache

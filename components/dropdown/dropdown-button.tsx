@@ -1,16 +1,16 @@
-import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import classNames from 'classnames';
 import * as React from 'react';
-import type { ButtonProps } from '../button';
+import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import Button from '../button';
-import type { ButtonHTMLType } from '../button/button';
-import type { ButtonGroupProps } from '../button/button-group';
 import { ConfigContext } from '../config-provider';
-import { useCompactItemContext } from '../space/Compact';
-import type { DropdownProps } from './dropdown';
-import Dropdown from './dropdown';
 import Space from '../space';
+import { useCompactItemContext } from '../space/Compact';
+import Dropdown from './dropdown';
 import useStyle from './style';
+
+import type { ButtonProps, ButtonHTMLType } from '../button';
+import type { ButtonGroupProps } from '../button/button-group';
+import type { DropdownProps } from './dropdown';
 
 export type DropdownButtonType = 'default' | 'primary' | 'ghost' | 'dashed' | 'link' | 'text';
 
@@ -20,7 +20,7 @@ export interface DropdownButtonProps extends ButtonGroupProps, DropdownProps {
   danger?: boolean;
   disabled?: boolean;
   loading?: ButtonProps['loading'];
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: React.MouseEventHandler<HTMLElement>;
   icon?: React.ReactNode;
   href?: string;
   children?: React.ReactNode;
@@ -28,12 +28,12 @@ export interface DropdownButtonProps extends ButtonGroupProps, DropdownProps {
   buttonsRender?: (buttons: React.ReactNode[]) => React.ReactNode[];
 }
 
-interface DropdownButtonInterface extends React.FC<DropdownButtonProps> {
+type CompoundedComponent = React.FC<DropdownButtonProps> & {
   /** @internal */
   __ANT_BUTTON: boolean;
-}
+};
 
-const DropdownButton: DropdownButtonInterface = (props) => {
+const DropdownButton: CompoundedComponent = (props) => {
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,

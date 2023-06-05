@@ -1,15 +1,14 @@
-/* eslint-disable react/no-string-refs, react/prefer-es6-class */
-import produce from 'immer';
+import { produce } from 'immer';
 import { cloneDeep } from 'lodash';
 import type { UploadRequestOption } from 'rc-upload/lib/interface';
-import React, { createRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import type { RcFile, UploadFile, UploadProps } from '..';
 import Upload from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFakeTimer, act } from '../../../tests/utils';
-import Form from '../../form';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import Form from '../../form';
 import { getFileItem, isImageUrl, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
 
@@ -39,21 +38,17 @@ describe('Upload', () => {
   // https://github.com/react-component/upload/issues/36
   it('should get refs inside Upload in componentDidMount', () => {
     let ref: React.RefObject<HTMLInputElement>;
-    class App extends React.Component {
-      inputRef = createRef<HTMLInputElement>();
-
-      componentDidMount() {
-        ref = this.inputRef;
-      }
-
-      render() {
-        return (
-          <Upload supportServerRender={false}>
-            <input ref={this.inputRef} />
-          </Upload>
-        );
-      }
-    }
+    const App: React.FC = () => {
+      const inputRef = useRef<HTMLInputElement>(null);
+      useEffect(() => {
+        ref = inputRef;
+      }, []);
+      return (
+        <Upload supportServerRender={false}>
+          <input ref={inputRef} />
+        </Upload>
+      );
+    };
     render(<App />);
     expect(ref!).toBeDefined();
   });
@@ -949,5 +944,52 @@ describe('Upload', () => {
         ],
       }),
     );
+  });
+
+  it('prevent auto batch in control mode', async () => {
+    const mockFile1 = new File(['bamboo'], 'bamboo.png', { type: 'image/png' });
+    const mockFile2 = new File(['light'], 'light.png', { type: 'image/png' });
+
+    const customRequest = jest.fn(async (options) => {
+      // stop here to make sure new fileList has been set and passed to Upload
+      // eslint-disable-next-line no-promise-executor-return
+      await new Promise((resolve) => setTimeout(resolve, 0));
+      options.onProgress({ percent: 0 });
+      const url = Promise.resolve<string>('https://ant.design');
+      options.onProgress({ percent: 100 });
+      options.onSuccess({}, { ...options.file, url });
+    });
+
+    let fileListOut: UploadProps['fileList'] = [];
+
+    const Demo: React.FC = () => {
+      const [fileList, setFileList] = React.useState<UploadFile[]>([]);
+
+      const onChange: UploadProps['onChange'] = async (e) => {
+        const newFileList = Array.isArray(e) ? e : e.fileList;
+        setFileList(newFileList);
+
+        fileListOut = newFileList;
+      };
+
+      return (
+        <Upload customRequest={customRequest} onChange={onChange} fileList={fileList}>
+          <button type="button">Upload</button>
+        </Upload>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    fireEvent.change(container.querySelector<HTMLInputElement>('input')!, {
+      target: { files: [mockFile1, mockFile2] },
+    });
+
+    // React 18 is async now
+    await waitFakeTimer();
+
+    fileListOut.forEach((file) => {
+      expect(file.status).toBe('done');
+    });
   });
 });

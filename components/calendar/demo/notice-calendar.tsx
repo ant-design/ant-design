@@ -2,6 +2,7 @@ import React from 'react';
 import type { BadgeProps } from 'antd';
 import { Badge, Calendar } from 'antd';
 import type { Dayjs } from 'dayjs';
+import type { CellRenderInfo } from 'rc-picker/lib/interface';
 
 const getListData = (value: Dayjs) => {
   let listData;
@@ -64,7 +65,13 @@ const App: React.FC = () => {
     );
   };
 
-  return <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />;
+  const cellRender = (current: Dayjs, info: CellRenderInfo<Dayjs>) => {
+    if (info.type === 'date') return dateCellRender(current);
+    if (info.type === 'month') return monthCellRender(current);
+    return info.originNode;
+  };
+
+  return <Calendar cellRender={cellRender} />;
 };
 
 export default App;

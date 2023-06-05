@@ -35,9 +35,3 @@ Components which support rtl direction are listed here, you can toggle the direc
   margin-left: 20px;
 }
 ```
-
-<style>
-[data-theme="dark"] .head-example {
-  background: rgba(255,255,255,.12);
-}
-</style>

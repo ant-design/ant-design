@@ -1,8 +1,8 @@
 import { render } from 'rc-util/lib/React/render';
 import * as React from 'react';
-import ConfigProvider, { globalConfig } from '../config-provider';
-import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
+import ConfigProvider, { globalConfig, warnContext } from '../config-provider';
 import PurePanel from './PurePanel';
+import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
 import useNotification, { useInternalNotification } from './useNotification';
 
 let notification: GlobalNotification | null = null;
@@ -58,11 +58,11 @@ interface GlobalHolderRef {
 
 const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   const [prefixCls, setPrefixCls] = React.useState<string>();
-  const [container, setContainer] = React.useState<HTMLElement>();
-  const [maxCount, setMaxCount] = React.useState<number | undefined>();
-  const [rtl, setRTL] = React.useState<boolean | undefined>();
-  const [top, setTop] = React.useState<number | undefined>();
-  const [bottom, setBottom] = React.useState<number | undefined>();
+  const [container, setContainer] = React.useState<HTMLElement | ShadowRoot>();
+  const [maxCount, setMaxCount] = React.useState<number>();
+  const [rtl, setRTL] = React.useState<boolean>();
+  const [top, setTop] = React.useState<number>();
+  const [bottom, setBottom] = React.useState<number>();
 
   const [api, holder] = useInternalNotification({
     prefixCls,
@@ -98,9 +98,9 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   React.useEffect(sync, []);
 
   React.useImperativeHandle(ref, () => {
-    const instance: any = { ...api };
+    const instance: NotificationInstance = { ...api };
 
-    Object.keys(instance).forEach((method) => {
+    Object.keys(instance).forEach((method: keyof NotificationInstance) => {
       instance[method] = (...args: any[]) => {
         sync();
         return (api as any)[method](...args);
@@ -187,8 +187,6 @@ function flushNotice() {
 // ==============================================================================
 // ==                                  Export                                  ==
 // ==============================================================================
-const methods = ['success', 'info', 'warning', 'error'] as const;
-type MethodType = typeof methods[number];
 
 function setNotificationGlobalConfig(config: GlobalConfigProps) {
   defaultGlobalConfig = {
@@ -203,6 +201,11 @@ function setNotificationGlobalConfig(config: GlobalConfigProps) {
 }
 
 function open(config: ArgsProps) {
+  // Warning if exist theme
+  if (process.env.NODE_ENV !== 'production') {
+    warnContext('notification');
+  }
+
   taskQueue.push({
     type: 'open',
     config,
@@ -218,14 +221,27 @@ function destroy(key: React.Key) {
   flushNotice();
 }
 
-const baseStaticMethods: {
+interface BaseMethods {
   open: (config: ArgsProps) => void;
   destroy: (key?: React.Key) => void;
   config: any;
   useNotification: typeof useNotification;
   /** @private Internal Component. Do not use in your production. */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
-} = {
+}
+
+type StaticFn = (config: ArgsProps) => void;
+
+interface NoticeMethods {
+  success: StaticFn;
+  info: StaticFn;
+  warning: StaticFn;
+  error: StaticFn;
+}
+
+const methods: (keyof NoticeMethods)[] = ['success', 'info', 'warning', 'error'];
+
+const baseStaticMethods: BaseMethods = {
   open,
   destroy,
   config: setNotificationGlobalConfig,
@@ -233,15 +249,10 @@ const baseStaticMethods: {
   _InternalPanelDoNotUseOrYouWillBeFired: PurePanel,
 };
 
-const staticMethods: typeof baseStaticMethods & Record<MethodType, (config: ArgsProps) => void> =
-  baseStaticMethods as any;
+const staticMethods = baseStaticMethods as NoticeMethods & BaseMethods;
 
-methods.forEach((type) => {
-  staticMethods[type] = (config) =>
-    open({
-      ...config,
-      type,
-    });
+methods.forEach((type: keyof NoticeMethods) => {
+  staticMethods[type] = (config) => open({ ...config, type });
 });
 
 // ==============================================================================
@@ -249,7 +260,7 @@ methods.forEach((type) => {
 // ==============================================================================
 const noop = () => {};
 
-/** @private Only Work in test env */
+/** @internal Only Work in test env */
 // eslint-disable-next-line import/no-mutable-exports
 export let actWrapper: (wrapper: any) => void = noop;
 

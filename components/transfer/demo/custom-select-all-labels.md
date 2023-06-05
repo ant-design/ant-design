@@ -4,4 +4,4 @@
 
 ## en-US
 
-Custom the labels for select all checkboxs.
+Custom the labels for select all checkboxes.

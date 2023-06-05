@@ -6,7 +6,7 @@
 请确保填写以下 pull request 的信息，谢谢！~
 -->
 
-[[English Template / 英文模板](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE.md)]
+[[English Template / 英文模板](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE.md?plain=1)]
 
 ### 🤔 这个变动的性质是？
 
@@ -24,12 +24,14 @@
 - [ ] 代码风格优化
 - [ ] 测试用例
 - [ ] 分支合并
+- [ ] 工作流程
 - [ ] 其他改动（是关于什么的改动？）
 
 ### 🔗 相关 Issue
 
 <!--
 1. 描述相关需求的来源，如相关的 issue 讨论链接。
+2. 例如 close #xxxx、 fix #xxxx
 -->
 
 ### 💡 需求背景和解决方案
@@ -59,3 +61,17 @@
 - [ ] 代码演示已提供或无须提供
 - [ ] TypeScript 定义已补充或无须补充
 - [ ] Changelog 已提供或无须提供
+
+---
+
+<!--
+以下为 copilot 自动生成的 CR 结果，请勿修改
+-->
+
+### 🚀 概述
+
+copilot:summary
+
+### 🔍 实现细节
+
+copilot:walkthrough

@@ -1,34 +1,39 @@
-import * as React from 'react';
-import { css } from '@emotion/react';
-import { TinyColor } from '@ctrl/tinycolor';
 import {
-  HomeOutlined,
-  FolderOutlined,
   BellOutlined,
+  FolderOutlined,
+  HomeOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
-import useLocale from '../../../../hooks/useLocale';
-import useSiteToken from '../../../../hooks/useSiteToken';
+import { css } from '@emotion/react';
+import type { MenuProps } from 'antd';
 import {
-  Typography,
+  Breadcrumb,
+  Button,
+  Card,
+  ConfigProvider,
+  Form,
   Layout,
   Menu,
-  Breadcrumb,
-  MenuProps,
-  Space,
-  ConfigProvider,
-  Card,
-  Form,
   Radio,
+  Space,
+  Typography,
   theme,
-  Button,
 } from 'antd';
-import ThemePicker, { THEME } from './ThemePicker';
-import ColorPicker from './ColorPicker';
-import RadiusPicker from './RadiusPicker';
+import type { Color } from 'antd/es/color-picker';
+import { generateColor } from 'antd/es/color-picker/util';
+import * as React from 'react';
+import useLocale from '../../../../hooks/useLocale';
+import useSiteToken from '../../../../hooks/useSiteToken';
+import SiteContext from '../../../../theme/slots/SiteContext';
 import Group from '../Group';
+import { useCarouselStyle } from '../util';
 import BackgroundImage from './BackgroundImage';
-import { getClosetColor, DEFAULT_COLOR, getAvatarURL, PINK_COLOR } from './colorUtil';
+import ColorPicker from './ColorPicker';
+import MobileCarousel from './MobileCarousel';
+import RadiusPicker from './RadiusPicker';
+import type { THEME } from './ThemePicker';
+import ThemePicker from './ThemePicker';
+import { DEFAULT_COLOR, PINK_COLOR, getAvatarURL, getClosetColor } from './colorUtil';
 
 const { Header, Content, Sider } = Layout;
 
@@ -80,6 +85,7 @@ const locales = {
 // ============================= Style =============================
 const useStyle = () => {
   const { token } = useSiteToken();
+  const { carousel } = useCarouselStyle();
 
   return {
     demo: css`
@@ -109,7 +115,7 @@ const useStyle = () => {
     `,
 
     menu: css`
-      margin-left: auto;
+      margin-inline-start: auto;
     `,
 
     darkSideMenu: css``,
@@ -176,12 +182,9 @@ const useStyle = () => {
       width: 800px;
       margin: 0 auto;
     `,
+    carousel,
   };
 };
-
-interface PickerProps {
-  title: React.ReactNode;
-}
 
 // ========================== Menu Config ==========================
 const subMenuItems: MenuProps['items'] = [
@@ -219,12 +222,12 @@ const sideMenuItems: MenuProps['items'] = [
 
 // ============================= Theme =============================
 
-function getTitleColor(colorPrimary: string, isLight?: boolean) {
+function getTitleColor(colorPrimary: string | Color, isLight?: boolean) {
   if (!isLight) {
     return '#FFF';
   }
 
-  const color = new TinyColor(colorPrimary);
+  const color = generateColor(colorPrimary);
   const closestColor = getClosetColor(colorPrimary);
 
   switch (closestColor) {
@@ -234,13 +237,13 @@ function getTitleColor(colorPrimary: string, isLight?: boolean) {
       return undefined;
 
     default:
-      return color.toHsl().l < 0.7 ? '#FFF' : undefined;
+      return color.toHsb().b < 0.7 ? '#FFF' : undefined;
   }
 }
 
 interface ThemeData {
   themeType: THEME;
-  colorPrimary: string;
+  colorPrimary: string | Color;
   borderRadius: number;
   compact: 'default' | 'compact';
 }
@@ -278,9 +281,14 @@ export default function Theme() {
     setThemeData(nextThemeData);
   };
 
-  const { compact, themeType, ...themeToken } = themeData;
+  const { compact, themeType, colorPrimary, ...themeToken } = themeData;
   const isLight = themeType !== 'dark';
   const [form] = Form.useForm();
+  const { isMobile } = React.useContext(SiteContext);
+  const colorPrimaryValue = React.useMemo(
+    () => (typeof colorPrimary === 'string' ? colorPrimary : colorPrimary.toHexString()),
+    [colorPrimary],
+  );
 
   // const algorithmFn = isLight ? theme.defaultAlgorithm : theme.darkAlgorithm;
   const algorithmFn = React.useMemo(() => {
@@ -306,14 +314,14 @@ export default function Theme() {
   }, [themeType]);
 
   // ================================ Tokens ================================
-  const closestColor = getClosetColor(themeData.colorPrimary);
+  const closestColor = getClosetColor(colorPrimaryValue);
 
   const [backgroundColor, avatarColor] = React.useMemo(() => {
     let bgColor = 'transparent';
 
     const mapToken = theme.defaultAlgorithm({
       ...theme.defaultConfig.token,
-      colorPrimary: themeData.colorPrimary,
+      colorPrimary: colorPrimaryValue,
     });
 
     if (themeType === 'dark') {
@@ -325,14 +333,14 @@ export default function Theme() {
     }
 
     return [bgColor, mapToken.colorPrimaryBgHover];
-  }, [themeType, closestColor, themeData.colorPrimary]);
+  }, [themeType, closestColor, colorPrimaryValue]);
 
   const logoColor = React.useMemo(() => {
-    const hsl = new TinyColor(themeData.colorPrimary).toHsl();
-    hsl.l = Math.min(hsl.l, 0.7);
+    const hsb = generateColor(colorPrimaryValue).toHsb();
+    hsb.b = Math.min(hsb.b, 0.7);
 
-    return new TinyColor(hsl).toHexString();
-  }, [themeData.colorPrimary]);
+    return generateColor(hsb).toHexString();
+  }, [colorPrimaryValue]);
 
   // ================================ Render ================================
   const themeNode = (
@@ -346,6 +354,7 @@ export default function Theme() {
                 // colorBgContainer: '#474C56',
                 // colorBorderSecondary: 'rgba(255,255,255,0.06)',
               }),
+          colorPrimary: colorPrimaryValue,
         },
         hashed: true,
         algorithm: algorithmFn,
@@ -403,6 +412,7 @@ export default function Theme() {
                         ? undefined
                         : `drop-shadow(30px 0 0 ${logoColor})`,
                   }}
+                  alt=""
                 />
               </div>
               <h1>Ant Design 5.0</h1>
@@ -422,7 +432,7 @@ export default function Theme() {
               />
             </Space>
           </Header>
-          <Layout css={style.transBg}>
+          <Layout css={style.transBg} hasSider>
             <Sider css={style.transBg} width={200} className="site-layout-background">
               <Menu
                 mode="inline"
@@ -489,11 +499,25 @@ export default function Theme() {
   const posStyle: React.CSSProperties = {
     position: 'absolute',
   };
+  const leftTopImageStyle = {
+    left: '50%',
+    transform: 'translate3d(-900px, 0, 0)',
+    top: -100,
+    height: 500,
+  };
+  const rightBottomImageStyle = {
+    right: '50%',
+    transform: 'translate3d(750px, 0, 0)',
+    bottom: -100,
+    height: 287,
+  };
 
-  return (
+  return isMobile ? (
+    <MobileCarousel title={locale.themeTitle} description={locale.themeDesc} id="flexible" />
+  ) : (
     <Group
       title={locale.themeTitle}
-      titleColor={getTitleColor(themeData.colorPrimary, isLight)}
+      titleColor={getTitleColor(colorPrimaryValue, isLight)}
       description={locale.themeDesc}
       id="flexible"
       background={backgroundColor}
@@ -511,23 +535,19 @@ export default function Theme() {
             <img
               style={{
                 ...posStyle,
-                left: '50%',
-                transform: 'translate3d(-900px, 0, 0)',
-                top: -100,
-                height: 500,
+                ...leftTopImageStyle,
               }}
               src="https://gw.alipayobjects.com/zos/bmw-prod/bd71b0c6-f93a-4e52-9c8a-f01a9b8fe22b.svg"
+              alt=""
             />
             {/* Image Right Bottom */}
             <img
               style={{
                 ...posStyle,
-                right: '50%',
-                transform: 'translate3d(750px, 0, 0)',
-                bottom: -100,
-                height: 287,
+                ...rightBottomImageStyle,
               }}
               src="https://gw.alipayobjects.com/zos/bmw-prod/84ad805a-74cb-4916-b7ba-9cdc2bdec23a.svg"
+              alt=""
             />
           </div>
 
@@ -542,16 +562,18 @@ export default function Theme() {
             <img
               style={{ ...posStyle, left: 0, top: -100, height: 500 }}
               src="https://gw.alipayobjects.com/zos/bmw-prod/a213184a-f212-4afb-beec-1e8b36bb4b8a.svg"
+              alt=""
             />
             {/* Image Right Bottom */}
             <img
               style={{ ...posStyle, right: 0, bottom: -100, height: 287 }}
               src="https://gw.alipayobjects.com/zos/bmw-prod/bb74a2fb-bff1-4d0d-8c2d-2ade0cd9bb0d.svg"
+              alt=""
             />
           </div>
 
           {/* >>>>>> Background Image <<<<<< */}
-          <BackgroundImage isLight={isLight} colorPrimary={themeData.colorPrimary} />
+          <BackgroundImage isLight={isLight} colorPrimary={colorPrimaryValue} />
         </>
       }
     >

@@ -2,7 +2,8 @@
 category: Components
 group: Navigation
 title: Breadcrumb
-cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*I5a2Tpqs3y0AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Tr90QKrE_LcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -15,34 +16,20 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 - When you need to inform the user of where they are.
 - When the user may need to navigate back to a higher level.
 
-### Usage upgrade after 4.24.0
-
-<Alert message="After version 4.24.0, we provide a simpler usage &lt;Breadcrumb.Item menu={{ items: [...] }}&gt; with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0."></Alert>
-
 ```jsx
-// works when >=4.24.0, recommended ✅
-const items = [
-  { label: 'item 1', key: 'item-1' }, // remember to pass the key prop
-  { label: 'item 2', key: 'item-2' },
-];
+// works when >=5.3.0, recommended ✅
+return <Breadcrumb items={[{ title: 'sample' }]} />;
+
+// works when <5.3.0, deprecated when >=5.3.0 🙅🏻‍♀️
 return (
   <Breadcrumb>
-    <Breadcrumb.Item menu={{ items }}>Ant Design</Breadcrumb.Item>
+    <Breadcrumb.Item>sample</Breadcrumb.Item>
   </Breadcrumb>
 );
 
-// works when <4.24.0, deprecated when >=4.24.0 🙅🏻‍♀️
-const menu = (
-  <Menu>
-    <Menu.Item>item 1</Menu.Item>
-    <Menu.Item>item 2</Menu.Item>
-  </Menu>
-);
-return (
-  <Breadcrumb>
-    <Breadcrumb.Item overlay={menu}>Ant Design</Breadcrumb.Item>
-  </Breadcrumb>
-);
+// or
+
+return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
 ```
 
 ## Examples
@@ -53,7 +40,8 @@ return (
 <code src="./demo/react-router.tsx" iframe="200">react-router V6</code>
 <code src="./demo/separator.tsx">Configuring the Separator</code>
 <code src="./demo/overlay.tsx">Bread crumbs with drop down menu</code>
-<code src="./demo/separator-component.tsx">Configuring the Separator</code>
+<code src="./demo/separator-component.tsx">Configuring the Separator Independently</code>
+<code src="./demo/debug-routes.tsx">Debug Routes</code>
 
 ## API
 
@@ -63,39 +51,38 @@ return (
 | --- | --- | --- | --- | --- |
 | itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode | - |  |
 | params | Routing parameters | object | - |  |
-| routes | The routing stack information of router | [routes\[\]](#routes) | - |  |
+| items | The routing stack information of router | [items\[\]](#ItemType) | - | 5.3.0 |
 | separator | Custom separator | ReactNode | `/` |  |
 
-### Breadcrumb.Item
+### ItemType
+
+> type ItemType = [RouteItemType](#RouteItemType) | [SeparatorType](#SeparatorType)
+
+### RouteItemType
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | className | The additional css class | string | - |  |
 | dropdownProps | The dropdown props | [Dropdown](/components/dropdown) | - |  |
-| href | Target of hyperlink | string | - |  |
-| menu | The menu props | [MenuProps](/components/menu/#API) | - | 4.24.0 |
+| href | Target of hyperlink. Can not work with `path` | string | - |  |
+| path | Connected path. Each path will connect with prev one. Can not work with `href` | string | - |  |
+| menu | The menu props | [MenuProps](/components/menu/#api) | - | 4.24.0 |
 | onClick | Set the handler to handle click event | (e:MouseEvent) => void | - |  |
+| title | item name | ReactNode | - |  |
 
-### Breadcrumb.Separator
-
-| Property | Description      | Type      | Default | Version |
-| -------- | ---------------- | --------- | ------- | ------- |
-| children | Custom separator | ReactNode | `/`     |         |
-
-> When using `Breadcrumb.Separator`,its parent component must be set to `separator=""`, otherwise the default separator of the parent component will appear.
-
-### routes
+### SeparatorType
 
 ```ts
-interface Route {
-  path: string;
-  breadcrumbName: string;
-  children: Array<{
-    path: string;
-    breadcrumbName: string;
-  }>;
-}
+const item = {
+  type: 'separator', // Must have
+  separator: '/',
+};
 ```
+
+| Property  | Description       | Type        | Default | Version |
+| --------- | ----------------- | ----------- | ------- | ------- |
+| type      | Mark as separator | `separator` |         | 5.3.0   |
+| separator | Custom separator  | ReactNode   | `/`     | 5.3.0   |
 
 ### Use with browserHistory
 
@@ -104,42 +91,42 @@ The link of Breadcrumb item targets `#` by default, you can use `itemRender` to 
 ```jsx
 import { Link } from 'react-router';
 
-const routes = [
+const items = [
   {
     path: 'index',
-    breadcrumbName: 'home',
+    title: 'home',
   },
   {
     path: 'first',
-    breadcrumbName: 'first',
+    title: 'first',
     children: [
       {
         path: '/general',
-        breadcrumbName: 'General',
+        title: 'General',
       },
       {
         path: '/layout',
-        breadcrumbName: 'Layout',
+        title: 'Layout',
       },
       {
         path: '/navigation',
-        breadcrumbName: 'Navigation',
+        title: 'Navigation',
       },
     ],
   },
   {
     path: 'second',
-    breadcrumbName: 'second',
+    title: 'second',
   },
 ];
-function itemRender(route, params, routes, paths) {
-  const last = routes.indexOf(route) === routes.length - 1;
-  return last ? (
-    <span>{route.breadcrumbName}</span>
-  ) : (
-    <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
-  );
+function itemRender(route, params, items, paths) {
+  const last = items.indexOf(item) === items.length - 1;
+  return last ? <span>{item.title}</span> : <Link to={paths.join('/')}>{item.title}</Link>;
 }
 
-return <Breadcrumb itemRender={itemRender} routes={routes} />;
+return <Breadcrumb itemRender={itemRender} items={items} />;
 ```
+
+## Design Token
+
+<ComponentTokenTable component="Breadcrumb"></ComponentTokenTable>

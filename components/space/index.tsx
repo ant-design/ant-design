@@ -1,11 +1,11 @@
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';
+import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
-import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
-import Item from './Item';
 import Compact from './Compact';
+import Item from './Item';
 
 import useStyle from './style';
 
@@ -21,6 +21,7 @@ export type SpaceSize = SizeType | number;
 export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   size?: SpaceSize | [SpaceSize, SpaceSize];
   direction?: 'horizontal' | 'vertical';
@@ -40,13 +41,14 @@ function getNumberSize(size: SpaceSize) {
   return typeof size === 'string' ? spaceSize[size] : size || 0;
 }
 
-const Space: React.FC<SpaceProps> = (props) => {
+const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
   const { getPrefixCls, space, direction: directionConfig } = React.useContext(ConfigContext);
 
   const {
     size = space?.size || 'small',
     align,
     className,
+    rootClassName,
     children,
     direction = 'horizontal',
     prefixCls: customizePrefixCls,
@@ -81,6 +83,7 @@ const Space: React.FC<SpaceProps> = (props) => {
       [`${prefixCls}-align-${mergedAlign}`]: mergedAlign,
     },
     className,
+    rootClassName,
   );
 
   const itemClassName = `${prefixCls}-item`;
@@ -139,6 +142,7 @@ const Space: React.FC<SpaceProps> = (props) => {
 
   return wrapSSR(
     <div
+      ref={ref}
       className={cn}
       style={{
         ...gapStyle,
@@ -149,13 +153,20 @@ const Space: React.FC<SpaceProps> = (props) => {
       <SpaceContext.Provider value={spaceContext}>{nodes}</SpaceContext.Provider>
     </div>,
   );
-};
+});
 
-type CompoundedComponent = React.FC<SpaceProps> & {
+if (process.env.NODE_ENV !== 'production') {
+  Space.displayName = 'Space';
+}
+
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  SpaceProps & React.RefAttributes<HTMLDivElement>
+> & {
   Compact: typeof Compact;
 };
 
 const CompoundedSpace = Space as CompoundedComponent;
+
 CompoundedSpace.Compact = Compact;
 
 export default CompoundedSpace;

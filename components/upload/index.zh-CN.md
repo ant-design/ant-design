@@ -3,7 +3,8 @@ category: Components
 subtitle: 上传
 group: 数据录入
 title: Upload
-cover: https://gw.alipayobjects.com/zos/alicdn/QaeBt_ZMg/Upload.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*93ymR4RD4S0AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*l1nlSryXib8AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -25,6 +26,7 @@ demo:
 <code src="./demo/avatar.tsx">用户头像</code>
 <code src="./demo/defaultFileList.tsx">已上传的文件列表</code>
 <code src="./demo/picture-card.tsx">照片墙</code>
+<code src="./demo/picture-circle.tsx">圆形照片墙</code>
 <code src="./demo/fileList.tsx">完全控制的上传列表</code>
 <code src="./demo/drag.tsx">拖拽上传</code>
 <code src="./demo/directory.tsx">文件夹上传</code>
@@ -53,22 +55,22 @@ demo:
 | defaultFileList | 默认已经上传的文件列表 | object\[] | - |  |
 | directory | 支持上传文件夹（[caniuse](https://caniuse.com/#feat=input-file-directory)） | boolean | false |  |
 | disabled | 是否禁用 | boolean | false |  |
-| fileList | 已经上传的文件列表（受控），使用此参数时，如果遇到 `onChange` 只调用一次的问题，请参考 [#2423](https://github.com/ant-design/ant-design/issues/2423) | [UploadFile](#UploadFile)\[] | - |  |
+| fileList | 已经上传的文件列表（受控），使用此参数时，如果遇到 `onChange` 只调用一次的问题，请参考 [#2423](https://github.com/ant-design/ant-design/issues/2423) | [UploadFile](#uploadfile)\[] | - |  |
 | headers | 设置上传的请求头部，IE10 以上有效 | object | - |  |
 | iconRender | 自定义显示 icon | (file: UploadFile, listType?: UploadListType) => ReactNode | - |  |
 | isImageUrl | 自定义缩略图是否使用 &lt;img /> 标签进行显示 | (file: UploadFile) => boolean | [(内部实现)](https://github.com/ant-design/ant-design/blob/4ad5830eecfb87471cd8ac588c5d992862b70770/components/upload/utils.tsx#L47-L68) |  |
 | itemRender | 自定义上传列表项 | (originNode: ReactElement, file: UploadFile, fileList: object\[], actions: { download: function, preview: function, remove: function }) => React.ReactNode | - | 4.16.0 |
-| listType | 上传列表的内建样式，支持三种基本样式 `text`, `picture` 和 `picture-card` | string | `text` |  |
+| listType | 上传列表的内建样式，支持四种基本样式 `text`, `picture`, `picture-card` 和 `picture-circle` | string | `text` | `picture-circle`(5.2.0+) |
 | maxCount | 限制上传数量。当为 1 时，始终用最新上传的文件代替当前文件 | number | - | 4.10.0 |
 | method | 上传请求的 http method | string | `post` |  |
 | multiple | 是否支持多选文件，`ie10+` 支持。开启后按住 ctrl 可选择多个文件 | boolean | false |  |
 | name | 发到后台的文件参数名 | string | `file` |  |
 | openFileDialogOnClick | 点击打开文件对话框 | boolean | true |  |
 | previewFile | 自定义文件预览逻辑 | (file: File \| Blob) => Promise&lt;dataURL: string> | - |  |
-| progress | 自定义进度条样式 | [ProgressProps](/components/progress/#API)（仅支持 `type="line"`） | { strokeWidth: 2, showInfo: false } | 4.3.0 |
+| progress | 自定义进度条样式 | [ProgressProps](/components/progress-cn#api)（仅支持 `type="line"`） | { strokeWidth: 2, showInfo: false } | 4.3.0 |
 | showUploadList | 是否展示文件列表, 可设为一个对象，用于单独设定 `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` 和 `downloadIcon` | boolean \| { showPreviewIcon?: boolean, showRemoveIcon?: boolean, showDownloadIcon?: boolean, previewIcon?: ReactNode \| (file: UploadFile) => ReactNode, removeIcon?: ReactNode \| (file: UploadFile) => ReactNode, downloadIcon?: ReactNode \| (file: UploadFile) => ReactNode } | true | function: 4.7.0 |
 | withCredentials | 上传请求时是否携带 cookie | boolean | false |  |
-| onChange | 上传文件改变时的回调，详见 [onChange](#onChange) | function | - |  |
+| onChange | 上传文件改变时的回调，详见 [onChange](#onchange) | function | - |  |
 | onDrop | 当文件被拖入上传区域时执行的回调功能 | (event: React.DragEvent) => void | - | 4.16.0 |
 | onDownload | 点击下载文件时的回调，如果没有指定，则默认跳转到文件 url 对应的标签页 | function(file): void | (跳转新标签页) |  |
 | onPreview | 点击文件链接或预览图标时的回调 | function(file) | - |  |
@@ -107,7 +109,7 @@ demo:
    ```js
    {
       uid: 'uid',      // 文件唯一标识，建议设置为负数，防止和内部产生的 id 冲突
-      name: 'xx.png'   // 文件名
+      name: 'xx.png',   // 文件名
       status: 'done', // 状态有：uploading done error removed，被 beforeUpload 拦截的文件没有 status 属性
       response: '{"status": "success"}', // 服务端响应内容
       linkProps: '{"download": "image"}', // 下载链接额外的 HTML 属性
@@ -117,6 +119,10 @@ demo:
 2. `fileList` 当前的文件列表。
 
 3. `event` 上传中的服务端响应内容，包含了上传进度等信息，高级浏览器支持。
+
+## Design Token
+
+<ComponentTokenTable component="Upload"></ComponentTokenTable>
 
 ## FAQ
 

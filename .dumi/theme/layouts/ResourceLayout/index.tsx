@@ -1,23 +1,23 @@
-import React, { FC, PropsWithChildren } from 'react';
-import { useRouteMeta, FormattedMessage } from 'dumi';
-import Footer from 'dumi/theme/slots/Footer';
-import { Layout, Typography, ConfigProvider } from 'antd';
 import { css } from '@emotion/react';
-import AffixTabs from './AffixTabs';
-import EditButton from '../../common/EditButton';
+import { ConfigProvider, Layout, Typography } from 'antd';
+import { FormattedMessage, useRouteMeta } from 'dumi';
+import type { PropsWithChildren } from 'react';
+import React from 'react';
 import useSiteToken from '../../../hooks/useSiteToken';
 import CommonHelmet from '../../common/CommonHelmet';
+import EditButton from '../../common/EditButton';
+import Footer from '../../slots/Footer';
+import AffixTabs from './AffixTabs';
 
 export type ResourceLayoutProps = PropsWithChildren<{}>;
+
+const resourcePadding = 40;
+const articleMaxWidth = 1208;
+const resourcePaddingXS = 24;
 
 const useStyle = () => {
   const { token } = useSiteToken();
   const { antCls } = token;
-
-  const resourcePadding = 40;
-  const articleMaxWidth = 1208;
-  const resourcePaddingXS = 24;
-
   return {
     resourcePage: css`
       footer {
@@ -109,10 +109,9 @@ const useStyle = () => {
   };
 };
 
-const ResourceLayout: FC<ResourceLayoutProps> = ({ children }) => {
+const ResourceLayout: React.FC<ResourceLayoutProps> = ({ children }) => {
   const styles = useStyle();
   const meta = useRouteMeta();
-
   return (
     <ConfigProvider theme={{ token: { colorBgLayout: '#fff' } }}>
       <Layout>
@@ -121,7 +120,7 @@ const ResourceLayout: FC<ResourceLayoutProps> = ({ children }) => {
           <AffixTabs />
           <div css={styles.banner}>
             <Typography.Title style={{ fontSize: 30 }}>
-              {meta.frontmatter.title}
+              {meta.frontmatter?.title}
               <EditButton
                 title={<FormattedMessage id="app.content.edit-page" />}
                 filename={meta.frontmatter.filename}

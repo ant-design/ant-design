@@ -14,7 +14,7 @@ const App: React.FC = () => {
     setName(event.target.value);
   };
 
-  const addItem = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const addItem = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
     e.preventDefault();
     setItems([...items, name || `New item ${index++}`]);
     setName('');

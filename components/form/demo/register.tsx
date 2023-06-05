@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import type { CascaderProps } from 'antd';
 import {
   AutoComplete,
   Button,
@@ -11,10 +11,17 @@ import {
   Row,
   Select,
 } from 'antd';
+import React, { useState } from 'react';
 
 const { Option } = Select;
 
-const residences = [
+interface DataNodeType {
+  value: string;
+  label: string;
+  children?: DataNodeType[];
+}
+
+const residences: CascaderProps<DataNodeType>['options'] = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
@@ -59,6 +66,7 @@ const formItemLayout = {
     sm: { span: 16 },
   },
 };
+
 const tailFormItemLayout = {
   wrapperCol: {
     xs: {
@@ -118,10 +126,8 @@ const App: React.FC = () => {
       form={form}
       name="register"
       onFinish={onFinish}
-      initialValues={{
-        residence: ['zhejiang', 'hangzhou', 'xihu'],
-        prefix: '86',
-      }}
+      initialValues={{ residence: ['zhejiang', 'hangzhou', 'xihu'], prefix: '86' }}
+      style={{ maxWidth: 600 }}
       scrollToFirstError
     >
       <Form.Item
@@ -170,7 +176,7 @@ const App: React.FC = () => {
               if (!value || getFieldValue('password') === value) {
                 return Promise.resolve();
               }
-              return Promise.reject(new Error('The two passwords that you entered do not match!'));
+              return Promise.reject(new Error('The new password that you entered do not match!'));
             },
           }),
         ]}

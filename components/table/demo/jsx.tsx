@@ -34,7 +34,7 @@ const data: DataType[] = [
     firstName: 'Joe',
     lastName: 'Black',
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
+    address: 'Sydney No. 1 Lake Park',
     tags: ['cool', 'teacher'],
   },
 ];

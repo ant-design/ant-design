@@ -1,7 +1,7 @@
 import { TinyColor } from '@ctrl/tinycolor';
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../interface';
-import getAlphaColor from './getAlphaColor';
 import seedToken from '../themes/seed';
+import getAlphaColor from './getAlphaColor';
 
 /** Raw merge of `@ant-design/cssinjs` token. Which need additional process */
 type RawMergedToken = MapToken & OverrideToken & { override: Partial<AliasToken> };
@@ -24,7 +24,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     ...overrideTokens,
   };
 
-  const { fontSizes, lineHeights } = mergedToken;
   const screenXS = 480;
   const screenSM = 576;
   const screenMD = 768;
@@ -32,7 +31,13 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
   const screenXL = 1200;
   const screenXXL = 1600;
 
-  const fontSizeSM = fontSizes[0];
+  // Motion
+  if (mergedToken.motion === false) {
+    const fastDuration = '0s';
+    mergedToken.motionDurationFast = fastDuration;
+    mergedToken.motionDurationMid = fastDuration;
+    mergedToken.motionDurationSlow = fastDuration;
+  }
 
   // Generate alias token
   const aliasToken: AliasToken = {
@@ -70,26 +75,10 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorWarningOutline: getAlphaColor(mergedToken.colorWarningBg, mergedToken.colorBgContainer),
 
     // Font
-    fontSizeSM,
-    fontSize: fontSizes[1],
-    fontSizeLG: fontSizes[2],
-    fontSizeXL: fontSizes[3],
-    fontSizeHeading1: fontSizes[6],
-    fontSizeHeading2: fontSizes[5],
-    fontSizeHeading3: fontSizes[4],
-    fontSizeHeading4: fontSizes[3],
-    fontSizeHeading5: fontSizes[2],
-    fontSizeIcon: fontSizeSM,
+    fontSizeIcon: mergedToken.fontSizeSM,
 
-    lineHeight: lineHeights[1],
-    lineHeightLG: lineHeights[2],
-    lineHeightSM: lineHeights[0],
-
-    lineHeightHeading1: lineHeights[6],
-    lineHeightHeading2: lineHeights[5],
-    lineHeightHeading3: lineHeights[4],
-    lineHeightHeading4: lineHeights[3],
-    lineHeightHeading5: lineHeights[2],
+    // Line
+    lineWidthFocus: mergedToken.lineWidth * 4,
 
     // Control
     lineWidth: mergedToken.lineWidth,
@@ -146,37 +135,40 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     marginXXL: mergedToken.sizeXXL,
 
     boxShadow: `
-      0 1px 2px 0 rgba(0, 0, 0, 0.03),
-      0 1px 6px -1px rgba(0, 0, 0, 0.02),
-      0 2px 4px 0 rgba(0, 0, 0, 0.02)
+      0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0 9px 28px 8px rgba(0, 0, 0, 0.05)
     `,
     boxShadowSecondary: `
       0 6px 16px 0 rgba(0, 0, 0, 0.08),
       0 3px 6px -4px rgba(0, 0, 0, 0.12),
       0 9px 28px 8px rgba(0, 0, 0, 0.05)
     `,
+    boxShadowTertiary: `
+      0 1px 2px 0 rgba(0, 0, 0, 0.03),
+      0 1px 6px -1px rgba(0, 0, 0, 0.02),
+      0 2px 4px 0 rgba(0, 0, 0, 0.02)
+    `,
 
     screenXS,
     screenXSMin: screenXS,
-    screenXSMax: screenXS - 1,
+    screenXSMax: screenSM - 1,
     screenSM,
     screenSMMin: screenSM,
-    screenSMMax: screenSM - 1,
+    screenSMMax: screenMD - 1,
     screenMD,
     screenMDMin: screenMD,
-    screenMDMax: screenMD - 1,
+    screenMDMax: screenLG - 1,
     screenLG,
     screenLGMin: screenLG,
-    screenLGMax: screenLG - 1,
+    screenLGMax: screenXL - 1,
     screenXL,
     screenXLMin: screenXL,
-    screenXLMax: screenXL - 1,
+    screenXLMax: screenXXL - 1,
     screenXXL,
     screenXXLMin: screenXXL,
-    screenXXLMax: screenXXL - 1,
 
-    // FIXME: component box-shadow, should be removed
-    boxShadowPopoverArrow: `3px 3px 7px rgba(0, 0, 0, 0.1)`,
+    boxShadowPopoverArrow: '2px 2px 5px rgba(0, 0, 0, 0.05)',
     boxShadowCard: `
       0 1px 2px -2px ${new TinyColor('rgba(0, 0, 0, 0.16)').toRgbString()},
       0 3px 6px 0 ${new TinyColor('rgba(0, 0, 0, 0.12)').toRgbString()},
@@ -202,10 +194,10 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
       0 -3px 6px -4px rgba(0, 0, 0, 0.12),
       0 -9px 28px 8px rgba(0, 0, 0, 0.05)
     `,
-    boxShadowTabsOverflowLeft: `inset 10px 0 8px -8px rgba(0, 0, 0, 0.08)`,
-    boxShadowTabsOverflowRight: `inset -10px 0 8px -8px rgba(0, 0, 0, 0.08)`,
-    boxShadowTabsOverflowTop: `inset 0 10px 8px -8px rgba(0, 0, 0, 0.08)`,
-    boxShadowTabsOverflowBottom: `inset 0 -10px 8px -8px rgba(0, 0, 0, 0.08)`,
+    boxShadowTabsOverflowLeft: 'inset 10px 0 8px -8px rgba(0, 0, 0, 0.08)',
+    boxShadowTabsOverflowRight: 'inset -10px 0 8px -8px rgba(0, 0, 0, 0.08)',
+    boxShadowTabsOverflowTop: 'inset 0 10px 8px -8px rgba(0, 0, 0, 0.08)',
+    boxShadowTabsOverflowBottom: 'inset 0 -10px 8px -8px rgba(0, 0, 0, 0.08)',
 
     // Override AliasToken
     ...overrideTokens,

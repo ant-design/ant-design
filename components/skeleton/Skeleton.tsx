@@ -16,13 +16,14 @@ import Title from './Title';
 import useStyle from './style';
 
 /* This only for skeleton internal. */
-interface SkeletonAvatarProps extends Omit<AvatarProps, 'active'> {}
+type SkeletonAvatarProps = Omit<AvatarProps, 'active'>;
 
 export interface SkeletonProps {
   active?: boolean;
   loading?: boolean;
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
   avatar?: SkeletonAvatarProps | boolean;
@@ -31,7 +32,7 @@ export interface SkeletonProps {
   round?: boolean;
 }
 
-function getComponentProps<T>(prop: T | boolean | undefined): T | {} {
+function getComponentProps<T>(prop?: T | boolean): T | {} {
   if (prop && typeof prop === 'object') {
     return prop;
   }
@@ -90,6 +91,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
     prefixCls: customizePrefixCls,
     loading,
     className,
+    rootClassName,
     style,
     children,
     avatar = false,
@@ -167,6 +169,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
         [`${prefixCls}-round`]: round,
       },
       className,
+      rootClassName,
       hashId,
     );
 
@@ -185,5 +188,9 @@ Skeleton.Avatar = SkeletonAvatar;
 Skeleton.Input = SkeletonInput;
 Skeleton.Image = SkeletonImage;
 Skeleton.Node = SkeletonNode;
+
+if (process.env.NODE_ENV !== 'production') {
+  Skeleton.displayName = 'Skeleton';
+}
 
 export default Skeleton;

@@ -1,0 +1,24 @@
+name: 🤖 ChatGPT Code Review
+
+permissions:
+  contents: read
+  pull-requests: write
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.head.ref != 'feature' && github.event.pull_request.head.ref != 'master' && github.event.pull_request.head.ref != 'next' && github.event.pull_request.head.ref != 'master-merge-feature' && github.event.pull_request.head.ref != 'feature-merge-master' && github.event.pull_request.head.ref != 'next-merge-master' && github.event.pull_request.head.ref != 'next-merge-feature'
+    steps:
+      - uses: anc95/ChatGPT-CodeReview@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          # Optional
+          LANGUAGE: Chinese
+          MODEL:
+          top_p: 1
+          temperature: 1

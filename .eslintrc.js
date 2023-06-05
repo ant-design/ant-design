@@ -25,7 +25,7 @@ module.exports = {
     },
   },
   parser: '@typescript-eslint/parser',
-  plugins: ['react', 'babel', 'jest', '@typescript-eslint', 'react-hooks', 'unicorn', 'markdown'],
+  plugins: ['react', '@babel', 'jest', '@typescript-eslint', 'react-hooks', 'unicorn', 'markdown'],
   // https://github.com/typescript-eslint/typescript-eslint/issues/46#issuecomment-470486034
   overrides: [
     {
@@ -67,6 +67,11 @@ module.exports = {
       },
       rules: {
         indent: 0,
+        '@babel/new-cap': 0,
+        '@babel/no-invalid-this': 0,
+        '@babel/no-unused-expressions': 2,
+        '@babel/object-curly-spacing': 0,
+        '@babel/semi': 2,
         'default-case': 0,
         'eol-last': 0,
         'no-console': 0,
@@ -96,6 +101,22 @@ module.exports = {
         'jsx-a11y/control-has-associated-label': 0,
         'class-methods-use-this': 0,
         'react/no-access-state-in-setstate': 0,
+      },
+    },
+    {
+      files: ['.dumi/**/*.ts', '.dumi/**/*.tsx', '.dumi/**/*.js', '.dumi/**/*.jsx'],
+      rules: {
+        'import/no-extraneous-dependencies': 0,
+        'no-console': 0,
+        'compat/compat': 0,
+        'react/no-unstable-nested-components': 0,
+        'jsx-a11y/control-has-associated-label': 0,
+        'class-methods-use-this': 0,
+        'react/no-access-state-in-setstate': 0,
+        'react/no-unknown-property': ['error', { ignore: ['css'] }],
+        'react/no-array-index-key': 0,
+        'react/button-has-type': 0,
+        'react/no-danger': 0,
       },
     },
   ],
@@ -168,7 +189,7 @@ module.exports = {
     'unicorn/better-regex': 2,
     'unicorn/prefer-string-trim-start-end': 2,
     'unicorn/expiring-todo-comments': 2,
-    'unicorn/no-abusive-eslint-disable': 2,
+    'unicorn/no-abusive-eslint-disable': 0,
 
     // https://github.com/typescript-eslint/typescript-eslint/issues/2540#issuecomment-692866111
     'no-use-before-define': 0,

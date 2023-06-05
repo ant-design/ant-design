@@ -9,7 +9,7 @@ Here are the frequently asked questions about Ant Design and antd that you shoul
 
 ## Is there a difference between `undefined` and `null` in the controlled components of `antd`?
 
-**Yes. antd will treats `undefined` as uncontrolled but `null` as controlled components which means empty value of it.**
+**Yes. antd will treat `undefined` as uncontrolled but `null` as controlled component which means empty value of it.**
 
 As input element, React treats both `undefined` and `null` as uncontrolled. When the `value` is converted from a valid value to `undefined` or `null`, the component is no longer controlled, which causes some unexpected cases.
 
@@ -19,7 +19,11 @@ Note: For `options` in `Select-like` components, it is **strongly recommended no
 
 ## Can I use internal API which is not documented on the site?
 
-NOT RECOMMEND. Internal API is not guaranteed to be compatible with future versions. It may be removed or changed in some versions. If you really need to use it, you should to make sure these API is still valid when upgrading to a new version or just lock version for usage.
+NOT RECOMMENDED. Internal API is not guaranteed to be compatible with future versions. It may be removed or changed in some versions. If you really need to use it, you should make sure these APIs are still valid when upgrading to a new version or just lock version for usage.
+
+## Why API request should be strict discussion?
+
+We are cautious when adding APIs because some APIs may not be abstract enough to become historical debt. For example, when there is a need to change the way of interaction, these poor abstractions may cause breaking changes. To avoid such problems, we recommend that new features be implemented through HOCs first.
 
 ## `Select Dropdown DatePicker TimePicker Popover Popconfirm` disappears when I click another popup component inside it. How do I resolve this?
 
@@ -31,7 +35,7 @@ Related issue: [#3487](https://github.com/ant-design/ant-design/issues/3487) [#3
 
 ## How do I prevent `Select Dropdown DatePicker TimePicker Popover Popconfirm` scrolling with the page?
 
-Use `<Select getPopupContainer={trigger => trigger.parentElement}>` ([API reference](/components/select/#Select-props)) to render a component inside the scroll area. If you need to config this globally in your application, try `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>` ([API reference](/components/config-provider/#API))
+Use `<Select getPopupContainer={trigger => trigger.parentElement}>` ([API reference](/components/select/#select-props)) to render a component inside the scroll area. If you need to config this globally in your application, try `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>` ([API reference](/components/config-provider/#api))
 
 And make sure that parentElement is `position: relative` or `position: absolute`.
 
@@ -39,7 +43,7 @@ Related issue: [#3487](https://github.com/ant-design/ant-design/issues/3487) [#3
 
 ## How do I modify the default theme of Ant Design?
 
-See: https://ant.design/docs/react/customize-theme .
+See: [customize-theme](/docs/react/customize-theme).
 
 ## How do I modify `Menu`/`Button`(etc.)'s style?
 
@@ -81,7 +85,7 @@ Try [Space](https://ant.design/components/space/) component to make them aligned
 
 Yes, antd is designed to help you develop a complete background application. To do so, we override some global styles for styling convenience, and currently these cannot be removed or changed. More info at https://github.com/ant-design/ant-design/issues/4331 .
 
-Alternatively, follow the instructions in [How to avoid modifying global styles?](/docs/react/customize-theme#How-to-avoid-modifying-global-styles)
+Alternatively, follow the instructions in [How to avoid modifying global styles?](/docs/react/customize-theme#how-to-avoid-modifying-global-styles)
 
 ## I cannot install `antd` and `antd`'s dependencies in mainland China.
 
@@ -101,7 +105,7 @@ Please check [Ant Design Mobile](http://mobile.ant.design) as a possible solutio
 
 ## Does `antd` supply standalone files like 'React'?
 
-Yes, you can [import `antd` with script tag](https://ant.design/docs/react/introduce#Import-in-Browser), but we recommend using `npm` to import `antd`, as it is simple and easy to maintain.
+Yes, you can [import `antd` with script tag](https://ant.design/docs/react/introduce#import-in-browser), but we recommend using `npm` to import `antd`, as it is simple and easy to maintain.
 
 ## How do I extend antd's components?
 
@@ -122,7 +126,7 @@ type DataSource = TableProps['dataSource'];
 
 ## Date-related components locale is not working?
 
-Please check whether import dayjs locale correctly.
+Please check whether you have imported dayjs locale correctly.
 
 ```jsx
 import 'dayjs/locale/zh-cn';
@@ -130,7 +134,7 @@ import 'dayjs/locale/zh-cn';
 dayjs.locale('zh-cn');
 ```
 
-Please check whether there is two version of dayjs installed.
+Please check whether there are two versions of dayjs installed.
 
 ```jsx
 npm ls dayjs
@@ -140,7 +144,7 @@ If you are using a mismatched version of dayjs with [antd's dayjs](https://githu
 
 ## How do I fix dynamic styles while using a Content Security Policy (CSP)?
 
-You can configure `nonce` by [ConfigProvider](/components/config-provider/#Content-Security-Policy).
+You can configure `nonce` by [ConfigProvider](/components/config-provider/#content-security-policy).
 
 ## When I set `mode` to `DatePicker`/`RangePicker`, why can I not select a year or month anymore?
 
@@ -163,7 +167,7 @@ Or you can simply upgrade to [antd@4.0](https://github.com/ant-design/ant-design
 
 Static methods like message/notification/Modal.confirm are not using the same render tree as `<Button />`, but rendered to independent DOM node created by `ReactDOM.render`, which cannot access React context from ConfigProvider. Consider two solutions here:
 
-1. Replace original usages with [message.useMessage](/components/message/#components-message-demo-hooks), [notification.useNotification](/components/notification/#Why-I-can-not-access-context,-redux,-ConfigProvider-locale/prefixCls-in-notification) and [Modal.useModal](/components/modal/#Why-I-can-not-access-context,-redux,-ConfigProvider-locale/prefixCls-in-Modal.xxx).
+1. Replace original usages with [message.useMessage](/components/message/#components-message-demo-hooks), [notification.useNotification](/components/notification/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-notification) and [Modal.useModal](/components/modal/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-modalxxx).
 
 2. Use `ConfigProvider.config` to config `prefixCls` globally.
 
@@ -187,9 +191,25 @@ For historical reasons, the display names of the pop components are not uniform,
 
 Please ref dynamic theme document [Compatible Adjustment](/docs/react/customize-theme#compatible-adjustment) part.
 
+## How to disable motion?
+
+Config with SeedToken:
+
+```jsx
+import { ConfigProvider } from 'antd';
+
+<ConfigProvider theme={{ token: { motion: false } }}>
+  <App />
+</ConfigProvider>;
+```
+
 ## CSS-in-JS css priority conflict with tailwindcss?
 
 Same as above. You can adjust antd css priority to override. Related issue: [#38794](https://github.com/ant-design/ant-design/issues/38794)
+
+## How to let CSS-in-JS work with shadow DOM?
+
+Please ref document [Shadow Dom Usage](/docs/react/customize-theme#shadow-dom-usage).
 
 ## How to support SSR？
 

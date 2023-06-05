@@ -26,6 +26,7 @@ const App: React.FC = () => {
   return (
     <Popconfirm
       title="Title"
+      description="Open Popconfirm with async logic"
       open={open}
       onConfirm={handleOk}
       okButtonProps={{ loading: confirmLoading }}

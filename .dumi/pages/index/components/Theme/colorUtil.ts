@@ -1,4 +1,4 @@
-import { TinyColor } from '@ctrl/tinycolor';
+import { generateColor } from 'antd/es/color-picker/util';
 
 export const DEFAULT_COLOR = '#1677FF';
 export const PINK_COLOR = '#ED4192';
@@ -47,14 +47,14 @@ export function getClosetColor(colorPrimary?: string | null) {
     return null;
   }
 
-  const colorPrimaryRGB = new TinyColor(colorPrimary).toRgb();
+  const colorPrimaryRGB = generateColor(colorPrimary).toRgb();
 
   const distance = COLOR_IMAGES.map(({ color }) => {
-    const colorObj = new TinyColor(color).toRgb();
+    const colorObj = generateColor(color).toRgb();
     const dist = Math.sqrt(
-      Math.pow(colorObj.r - colorPrimaryRGB.r, 2) +
-        Math.pow(colorObj.g - colorPrimaryRGB.g, 2) +
-        Math.pow(colorObj.b - colorPrimaryRGB.b, 2),
+      (colorObj.r - colorPrimaryRGB.r) ** 2 +
+        (colorObj.g - colorPrimaryRGB.g) ** 2 +
+        (colorObj.b - colorPrimaryRGB.b) ** 2,
     );
 
     return { color, dist };

@@ -1,10 +1,11 @@
-import * as React from 'react';
-import classNames from 'classnames';
-import throttle from 'lodash/throttle';
+import { css } from '@emotion/react';
 import { Tabs } from 'antd';
+import throttle from 'lodash/throttle';
+import * as React from 'react';
 import scrollTo from '../../../../components/_util/scrollTo';
 import useSiteToken from '../../../hooks/useSiteToken';
-import { css } from '@emotion/react';
+
+const listenerEvents = ['scroll', 'resize'] as const;
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -46,18 +47,21 @@ const useStyle = () => {
       transform: translate3d(0, 0, 0);
       opacity: 1;
     `,
+    span: css`
+      text-transform: capitalize;
+    `,
   };
 };
 
 const VIEW_BALANCE = 32;
 
-export default () => {
+const AffixTabs: React.FC = () => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const idsRef = React.useRef<string[]>([]);
   const [loaded, setLoaded] = React.useState(false);
   const [fixedId, setFixedId] = React.useState<string | null>(null);
 
-  const styles = useStyle();
+  const { affixTabs, affixTabsFixed, span } = useStyle();
 
   function scrollToId(id: string) {
     const targetNode = document.getElementById(id);
@@ -103,28 +107,25 @@ export default () => {
   }, []);
 
   React.useEffect(() => {
-    window.addEventListener('scroll', onSyncAffix);
-    window.addEventListener('resize', onSyncAffix);
+    listenerEvents.forEach((event) => window.addEventListener(event, onSyncAffix));
     onSyncAffix();
-
     return () => {
-      window.removeEventListener('scroll', onSyncAffix);
-      window.removeEventListener('resize', onSyncAffix);
+      listenerEvents.forEach((event) => window.removeEventListener(event, onSyncAffix));
     };
   }, []);
 
   return (
-    <div css={[styles.affixTabs, fixedId && styles.affixTabsFixed]} ref={containerRef}>
+    <div css={[affixTabs, fixedId && affixTabsFixed]} ref={containerRef}>
       <Tabs
-        activeKey={fixedId || undefined}
-        onChange={(key) => {
-          scrollToId(key);
-        }}
+        activeKey={fixedId}
+        onChange={scrollToId}
         items={idsRef.current.map((id) => ({
           key: id,
-          label: <span style={{ textTransform: 'capitalize' }}>{id.replace(/-/g, ' ')}</span>,
+          label: <span css={span}>{id.replace(/-/g, ' ')}</span>,
         }))}
       />
     </div>
   );
 };
+
+export default AffixTabs;

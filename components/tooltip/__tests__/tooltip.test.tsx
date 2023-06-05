@@ -1,21 +1,31 @@
 import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import type { TooltipPlacement } from '..';
 import Tooltip from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFakeTimer, waitFor, act } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import DatePicker from '../../date-picker';
 import Input from '../../input';
 import Group from '../../input/Group';
-import Switch from '../../switch';
 import Radio from '../../radio';
+import Switch from '../../switch';
+import getPlacements from '../../_util/placements';
 import { resetWarned } from '../../_util/warning';
+import { isTooltipOpen } from './util';
 
 describe('Tooltip', () => {
   mountTest(Tooltip);
   rtlTest(Tooltip);
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+  afterEach(() => {
+    jest.useRealTimers();
+    jest.clearAllTimers();
+  });
 
   beforeAll(() => {
     spyElementPrototype(HTMLElement, 'offsetParent', {
@@ -23,7 +33,7 @@ describe('Tooltip', () => {
     });
   });
 
-  it('check `onOpenChange` arguments', () => {
+  it('check `onOpenChange` arguments', async () => {
     const onOpenChange = jest.fn();
     const ref = React.createRef<any>();
 
@@ -42,13 +52,15 @@ describe('Tooltip', () => {
     // `title` is empty.
     const divElement = container.querySelector('#hello');
     fireEvent.mouseEnter(divElement!);
+    await waitFakeTimer();
     expect(onOpenChange).not.toHaveBeenCalled();
-    expect(ref.current.props.visible).toBe(false);
+    expect(isTooltipOpen()).toBeFalsy();
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
 
     fireEvent.mouseLeave(divElement!);
+    await waitFakeTimer();
     expect(onOpenChange).not.toHaveBeenCalled();
-    expect(ref.current.props.visible).toBe(false);
+    expect(isTooltipOpen()).toBeFalsy();
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
 
     // update `title` value.
@@ -64,13 +76,15 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
     fireEvent.mouseEnter(divElement!);
+    await waitFakeTimer();
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
-    expect(ref.current.props.visible).toBe(true);
+    expect(isTooltipOpen()).toBeTruthy();
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(divElement!);
+    await waitFakeTimer();
     expect(onOpenChange).toHaveBeenLastCalledWith(false);
-    expect(ref.current.props.visible).toBe(false);
+    expect(isTooltipOpen()).toBeFalsy();
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
 
     // add `open` props.
@@ -87,19 +101,21 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
     fireEvent.mouseEnter(divElement!);
+    await waitFakeTimer();
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
     const lastCount = onOpenChange.mock.calls.length;
-    expect(ref.current.props.visible).toBe(false);
+    expect(isTooltipOpen()).toBeFalsy();
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
 
     // always trigger onOpenChange
     fireEvent.mouseLeave(divElement!);
+    await waitFakeTimer();
     expect(onOpenChange.mock.calls.length).toBe(lastCount); // no change with lastCount
-    expect(ref.current.props.visible).toBe(false);
+    expect(isTooltipOpen()).toBeFalsy();
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 
-  it('should hide when mouse leave native disabled button', () => {
+  it('should hide when mouse leave native disabled button', async () => {
     const onOpenChange = jest.fn();
     const ref = React.createRef<any>();
 
@@ -121,19 +137,21 @@ describe('Tooltip', () => {
     const button = container.getElementsByTagName('span')[0];
 
     fireEvent.mouseEnter(button);
+    await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(true);
-    expect(ref.current?.props.visible).toBe(true);
+    expect(isTooltipOpen()).toBeTruthy();
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(button);
+    await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(false);
-    expect(ref.current?.props.visible).toBe(false);
+    expect(isTooltipOpen()).toBeFalsy();
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 
   describe('should hide when mouse leave antd disabled component', () => {
     function testComponent(name: string, Component: typeof Button | typeof Switch) {
-      it(name, () => {
+      it(name, async () => {
         const onOpenChange = jest.fn();
         const ref = React.createRef<any>();
         const { container } = render(
@@ -152,13 +170,15 @@ describe('Tooltip', () => {
         const button = container.getElementsByTagName('span')[0];
 
         fireEvent.mouseEnter(button);
+        await waitFakeTimer();
         expect(onOpenChange).toHaveBeenCalledWith(true);
-        expect(ref.current.props.visible).toBe(true);
+        expect(isTooltipOpen()).toBeTruthy();
         expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
         fireEvent.mouseLeave(button);
+        await waitFakeTimer();
         expect(onOpenChange).toHaveBeenCalledWith(false);
-        expect(ref.current.props.visible).toBe(false);
+        expect(isTooltipOpen()).toBeFalsy();
         expect(container.querySelector('.ant-tooltip-open')).toBeNull();
       });
     }
@@ -184,63 +204,45 @@ describe('Tooltip', () => {
     expect(containerBlock.getElementsByTagName('span')[0].style.display).toBe('block');
   });
 
-  it('should works for arrowPointAtCenter', () => {
-    const arrowWidth = 5;
-    const horizontalArrowShift = 16;
-    const triggerWidth = 200;
+  it('should warn for arrowPointAtCenter', async () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    const suit = () => {
-      const { container } = render(
-        <Tooltip
-          title="xxxxx"
-          trigger="click"
-          mouseEnterDelay={0}
-          mouseLeaveDelay={0}
-          placement="bottomLeft"
-          overlayClassName="default-element"
-        >
-          <button type="button" style={{ width: triggerWidth }}>
-            Hello world!
-          </button>
-        </Tooltip>,
-      );
-      fireEvent.click(container.getElementsByTagName('button')[0]);
-      const popupLeftDefault = parseInt(
-        container.querySelector<HTMLDivElement>('.default-element')?.style?.left!,
-        10,
-      );
+    render(
+      <Tooltip
+        title="xxxxx"
+        trigger="click"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        placement="bottomLeft"
+        arrowPointAtCenter
+        overlayClassName="point-center-element"
+      >
+        <button type="button">Hello world!</button>
+      </Tooltip>,
+    );
+    expect(warnSpy).toHaveBeenLastCalledWith(
+      expect.stringContaining('`arrowPointAtCenter` is deprecated'),
+    );
 
-      const { container: container2 } = render(
-        <Tooltip
-          title="xxxxx"
-          trigger="click"
-          mouseEnterDelay={0}
-          mouseLeaveDelay={0}
-          placement="bottomLeft"
-          arrowPointAtCenter
-          overlayClassName="point-center-element"
-        >
-          <button type="button" style={{ width: triggerWidth }}>
-            Hello world!
-          </button>
-        </Tooltip>,
-      );
-      fireEvent.click(container2.getElementsByTagName('button')[0]);
-      const popupLeftArrowPointAtCenter = parseInt(
-        container.querySelector<HTMLDivElement>('.point-center-element')?.style?.left!,
-        10,
-      );
-
-      expect(popupLeftArrowPointAtCenter - popupLeftDefault).toBe(
-        triggerWidth / 2 - horizontalArrowShift - arrowWidth,
-      );
-    };
-
-    (jest.dontMock as any)('rc-trigger', suit);
+    render(
+      <Tooltip
+        title="xxxxx"
+        trigger="click"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        placement="bottomLeft"
+        arrow={{ arrowPointAtCenter: true }}
+        overlayClassName="point-center-element"
+      >
+        <button type="button">Hello world!</button>
+      </Tooltip>,
+    );
+    expect(warnSpy).toHaveBeenCalledWith(
+      expect.stringContaining('`arrowPointAtCenter` in `arrow` is deprecated'),
+    );
   });
 
   it('should works for date picker', async () => {
-    jest.useFakeTimers();
     const onOpenChange = jest.fn();
     const ref = React.createRef<any>();
 
@@ -256,20 +258,17 @@ describe('Tooltip', () => {
     fireEvent.mouseEnter(picker);
     await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(true);
-    expect(ref.current?.props.visible).toBe(true);
+    expect(isTooltipOpen()).toBeTruthy();
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(picker);
     await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(false);
-    expect(ref.current?.props.visible).toBe(false);
+    expect(isTooltipOpen()).toBeFalsy();
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
-    jest.clearAllTimers();
-    jest.useRealTimers();
   });
 
   it('should works for input group', async () => {
-    jest.useFakeTimers();
     const onOpenChange = jest.fn();
     const ref = React.createRef<any>();
     const { container } = render(
@@ -286,16 +285,14 @@ describe('Tooltip', () => {
     fireEvent.mouseEnter(inputGroup);
     await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(true);
-    expect(ref.current.props.visible).toBe(true);
+    expect(isTooltipOpen()).toBeTruthy();
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(inputGroup);
     await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(false);
-    expect(ref.current.props.visible).toBe(false);
+    expect(isTooltipOpen()).toBeFalsy();
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
-    jest.clearAllTimers();
-    jest.useRealTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/20891
@@ -327,17 +324,6 @@ describe('Tooltip', () => {
   });
 
   describe('support other placement when mouse enter', () => {
-    beforeAll(() => {
-      jest.useFakeTimers();
-    });
-
-    afterAll(() => {
-      jest.useRealTimers();
-    });
-
-    afterEach(() => {
-      jest.clearAllTimers();
-    });
     const placementList = [
       'top',
       'left',
@@ -352,10 +338,17 @@ describe('Tooltip', () => {
       'rightTop',
       'rightBottom',
     ] as const;
+
     const testPlacement = (name: string, placement: TooltipPlacement) => {
       it(name, async () => {
         const { container } = render(
-          <Tooltip title="xxxxx" transitionName="" mouseEnterDelay={0} placement={placement}>
+          <Tooltip
+            title="xxxxx"
+            transitionName=""
+            mouseEnterDelay={0}
+            placement={placement}
+            autoAdjustOverflow={false}
+          >
             <span>Hello world!</span>
           </Tooltip>,
         );
@@ -363,9 +356,28 @@ describe('Tooltip', () => {
         const element = container.getElementsByTagName('span')[0];
         fireEvent.mouseEnter(element);
         await waitFakeTimer();
-        await waitFor(() => {
-          expect(document.querySelector(`.ant-tooltip-placement-${placement}`)).not.toBeNull();
+        expect(document.querySelector(`.ant-tooltip-placement-${placement}`)).toBeTruthy();
+      });
+
+      it(`${name} with arrowPointAtCenter`, async () => {
+        const placementInfo: Record<string, any> = getPlacements({
+          arrowPointAtCenter: true,
+          autoAdjustOverflow: false,
+          arrowWidth: 0,
+          borderRadius: 10,
+          offset: 0,
         });
+
+        // Safe to rewrite follow all check
+        const { offset } = placementInfo[placement];
+
+        const existO = offset[0] !== 0 || offset[1] !== 0;
+
+        if (['left', 'right', 'top', 'bottom'].includes(placement)) {
+          expect(existO).toBeFalsy();
+        } else {
+          expect(existO).toBeTruthy();
+        }
       });
     };
 
@@ -437,7 +449,7 @@ describe('Tooltip', () => {
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
   });
 
-  it('should work with Fragment children', () => {
+  it('should work with Fragment children', async () => {
     const onOpenChange = jest.fn();
     const ref = React.createRef<any>();
 
@@ -459,18 +471,19 @@ describe('Tooltip', () => {
     const divElement = container.querySelector('.hello');
     fireEvent.mouseEnter(divElement!);
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
-    expect(ref.current.props.visible).toBe(true);
+    await waitFakeTimer();
+    expect(isTooltipOpen()).toBeTruthy();
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(divElement!);
     expect(onOpenChange).toHaveBeenLastCalledWith(false);
-    expect(ref.current.props.visible).toBe(false);
+    await waitFakeTimer();
+    expect(isTooltipOpen()).toBeFalsy();
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 
-  it('deprecated warning', () => {
+  it('deprecated warning', async () => {
     resetWarned();
-    jest.useFakeTimers();
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     // defaultVisible
@@ -479,14 +492,12 @@ describe('Tooltip', () => {
         <a />
       </Tooltip>,
     );
-    act(() => {
-      jest.runAllTimers();
-    });
+    await waitFakeTimer();
 
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: Tooltip] `defaultVisible` is deprecated, please use `defaultOpen` instead.',
     );
-    expect(document.querySelector('.ant-tooltip')).toBeTruthy();
+    expect(isTooltipOpen()).toBeTruthy();
 
     // visible
     rerender(
@@ -503,13 +514,11 @@ describe('Tooltip', () => {
         <a />
       </Tooltip>,
     );
-    act(() => {
-      jest.runAllTimers();
-    });
+    await waitFakeTimer();
     if (container.querySelector('.ant-zoom-big-fast-leave-active')) {
       fireEvent.animationEnd(container.querySelector('.ant-zoom-big-fast-leave-active')!);
     }
-    expect(document.querySelector('.ant-tooltip-hidden')).toBeTruthy();
+    expect(isTooltipOpen()).toBeFalsy();
 
     // onVisibleChange
     rerender(
@@ -546,13 +555,10 @@ describe('Tooltip', () => {
     );
 
     fireEvent.mouseLeave(container.querySelector('a')!);
-    act(() => {
-      jest.runAllTimers();
-    });
+    await waitFakeTimer();
     expect(onVisibleChange).toHaveBeenCalled();
     expect(afterVisibleChange).toHaveBeenCalled();
 
-    jest.useRealTimers();
     errSpy.mockRestore();
   });
 
@@ -566,5 +572,35 @@ describe('Tooltip', () => {
 
     expect(container.querySelector('.bamboo')).toBeTruthy();
     expect(container.querySelector('.ant-tooltip')).toBeTruthy();
+  });
+
+  it('support arrow props pass false to hide arrow', () => {
+    const { container } = render(
+      <Tooltip open arrow={false}>
+        <div className="target">target</div>
+      </Tooltip>,
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it('support arrow props by default', () => {
+    const { container } = render(
+      <Tooltip open>
+        <div className="target">target</div>
+      </Tooltip>,
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it('use ref.current.forcePopupAlign', async () => {
+    const ref = React.createRef<any>();
+    const error = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Tooltip open ref={ref} />);
+    act(() => {
+      ref.current.forcePopupAlign();
+      jest.runAllTimers();
+    });
+    expect(error).toHaveBeenCalled();
+    error.mockRestore();
   });
 });

@@ -1,14 +1,13 @@
-import React, { ReactElement, useMemo } from 'react';
-import { ClassNames, css } from '@emotion/react';
-import useSiteToken from '../../hooks/useSiteToken';
-import { Menu, MenuProps, Typography } from 'antd';
-import useMenu from '../../hooks/useMenu';
-import { MenuItemType } from 'antd/es/menu/hooks/useItems';
+import type { ReactElement } from 'react';
+import React, { useMemo } from 'react';
+import type { MenuProps } from 'antd';
+import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import { createStyles, css } from 'antd-style';
+import classNames from 'classnames';
+import useMenu from '../../hooks/useMenu';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-
+const useStyle = createStyles(({ token }) => {
   const { colorSplit, iconCls, fontSizeIcon } = token;
 
   return {
@@ -21,7 +20,7 @@ const useStyle = () => {
       border-top: 1px solid ${colorSplit};
       display: flex;
     `,
-    pageNav: `
+    pageNav: css`
       flex: 1;
       height: 72px;
       line-height: 72px;
@@ -36,7 +35,7 @@ const useStyle = () => {
         margin-inline-start: 4px;
       }
     `,
-    prevNav: `
+    prevNav: css`
       text-align: start;
 
       .footer-nav-icon-after {
@@ -56,7 +55,7 @@ const useStyle = () => {
         right: 0.2em;
       }
     `,
-    nextNav: `
+    nextNav: css`
       text-align: end;
 
       .footer-nav-icon-before {
@@ -78,7 +77,7 @@ const useStyle = () => {
       }
     `,
   };
-};
+});
 
 const flattenMenu = (menuItems: MenuProps['items']): MenuProps['items'] | null => {
   if (Array.isArray(menuItems)) {
@@ -95,13 +94,16 @@ const flattenMenu = (menuItems: MenuProps['items']): MenuProps['items'] | null =
   return null;
 };
 
-const PrevAndNext = () => {
-  const styles = useStyle();
+const PrevAndNext: React.FC<{ rtl?: boolean }> = ({ rtl }) => {
+  const { styles } = useStyle();
 
-  const [menuItems, selectedKey] = useMenu({
-    before: <LeftOutlined className="footer-nav-icon-before" />,
-    after: <RightOutlined className="footer-nav-icon-after" />,
-  });
+  const beforeProps = { className: 'footer-nav-icon-before' };
+  const afterProps = { className: 'footer-nav-icon-after' };
+
+  const before = rtl ? <LeftOutlined {...beforeProps} /> : <RightOutlined {...beforeProps} />;
+  const after = rtl ? <RightOutlined {...afterProps} /> : <LeftOutlined {...afterProps} />;
+
+  const [menuItems, selectedKey] = useMenu({ before, after });
 
   const [prev, next] = useMemo(() => {
     const flatMenu = flattenMenu(menuItems);
@@ -114,27 +116,22 @@ const PrevAndNext = () => {
         activeMenuItemIndex = i;
       }
     });
-    const prev = flatMenu[activeMenuItemIndex - 1];
-    const next = flatMenu[activeMenuItemIndex + 1];
-    return [prev as MenuItemType, next as MenuItemType];
+    return [
+      flatMenu[activeMenuItemIndex - 1] as MenuItemType,
+      flatMenu[activeMenuItemIndex + 1] as MenuItemType,
+    ];
   }, [menuItems, selectedKey]);
 
   return (
-    <section css={styles.prevNextNav}>
-      <ClassNames>
-        {({ css: classCss, cx }) => (
-          <>
-            {prev &&
-              React.cloneElement(prev.label as ReactElement, {
-                className: cx(classCss(styles.pageNav), classCss(styles.prevNav)),
-              })}
-            {next &&
-              React.cloneElement(next.label as ReactElement, {
-                className: cx(classCss(styles.pageNav), classCss(styles.nextNav)),
-              })}
-          </>
-        )}
-      </ClassNames>
+    <section className={styles.prevNextNav}>
+      {prev &&
+        React.cloneElement(prev.label as ReactElement, {
+          className: classNames(styles.pageNav, styles.prevNav),
+        })}
+      {next &&
+        React.cloneElement(next.label as ReactElement, {
+          className: classNames(styles.pageNav, styles.nextNav),
+        })}
     </section>
   );
 };

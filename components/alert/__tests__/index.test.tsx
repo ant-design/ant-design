@@ -1,9 +1,9 @@
-import React from 'react';
 import userEvent from '@testing-library/user-event';
+import React from 'react';
 import Alert from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, act, screen } from '../../../tests/utils';
+import { act, render, screen } from '../../../tests/utils';
 import Button from '../../button';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
@@ -105,6 +105,10 @@ describe('Alert', () => {
 
     await userEvent.hover(screen.getByRole('alert'));
 
+    act(() => {
+      jest.runAllTimers();
+    });
+
     expect(screen.getByRole('tooltip')).toBeInTheDocument();
   });
 
@@ -118,6 +122,10 @@ describe('Alert', () => {
       </Popconfirm>,
     );
     await userEvent.click(screen.getByRole('alert'));
+
+    act(() => {
+      jest.runAllTimers();
+    });
 
     expect(screen.getByRole('tooltip')).toBeInTheDocument();
   });

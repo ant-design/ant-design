@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Input, InputNumber, Typography } from 'antd';
 
-const Demo = () => {
+const Demo: React.FC = () => {
   const [form] = Form.useForm<{ name: string; age: number }>();
   const nameValue = Form.useWatch('name', form);
 

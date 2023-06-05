@@ -11,9 +11,3 @@ Searchable Tree.
   color: #f50;
 }
 ```
-
-<style>
-[data-theme="dark"] .site-tree-search-value {
-  color: #d84a1b;
-}
-</style>

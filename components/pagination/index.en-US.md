@@ -2,7 +2,8 @@
 category: Components
 group: Navigation
 title: Pagination
-cover: https://gw.alipayobjects.com/zos/alicdn/1vqv2bj68/Pagination.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8y_iTJGY_aUAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 A long list can be divided into several pages using `Pagination`, and only one page will be loaded at a time.
@@ -25,6 +26,7 @@ A long list can be divided into several pages using `Pagination`, and only one p
 <code src="./demo/total.tsx">Total number</code>
 <code src="./demo/all.tsx">Show All</code>
 <code src="./demo/itemRender.tsx">Prev and next</code>
+<code src="./demo/wireframe.tsx" debug>Wireframe</code>
 
 ## API
 
@@ -41,7 +43,7 @@ A long list can be divided into several pages using `Pagination`, and only one p
 | hideOnSinglePage | Whether to hide pager on single page | boolean | false |  |
 | itemRender | To customize item's innerHTML | (page, type: 'page' \| 'prev' \| 'next', originalElement) => React.ReactNode | - |  |
 | pageSize | Number of data items per page | number | - |  |
-| pageSizeOptions | Specify the sizeChanger options | string\[] | \[`10`, `20`, `50`, `100`] |  |
+| pageSizeOptions | Specify the sizeChanger options | string\[] \| number\[] | \[`10`, `20`, `50`, `100`] |  |
 | responsive | If `size` is not specified, `Pagination` would resize according to the width of the window | boolean | - |  |
 | showLessItems | Show less page items | boolean | false |  |
 | showQuickJumper | Determine whether you can jump to pages directly | boolean \| { goButton: ReactNode } | false |  |
@@ -53,3 +55,7 @@ A long list can be divided into several pages using `Pagination`, and only one p
 | total | Total number of data items | number | 0 |  |
 | onChange | Called when the page number or `pageSize` is changed, and it takes the resulting page number and pageSize as its arguments | function(page, pageSize) | - |  |
 | onShowSizeChange | Called when `pageSize` is changed | function(current, size) | - |  |
+
+## Design Token
+
+<ComponentTokenTable component="Pagination"></ComponentTokenTable>

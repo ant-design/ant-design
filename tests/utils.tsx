@@ -6,7 +6,7 @@ import { render, act } from '@testing-library/react';
 import { _rs as onLibResize } from 'rc-resize-observer/lib/utils/observerUtil';
 import { _rs as onEsResize } from 'rc-resize-observer/es/utils/observerUtil';
 
-export function assertsExist<T>(item: T | null | undefined): asserts item is T {
+export function assertsExist<T>(item?: T): asserts item is T {
   expect(item).not.toBeUndefined();
   expect(item).not.toBeNull();
 }
@@ -32,12 +32,10 @@ export const sleep = async (timeout = 0) => {
 const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>
   render(ui, { wrapper: StrictMode, ...options });
 
-export * from '@testing-library/react';
-
 export function renderHook<T>(func: () => T): { result: React.RefObject<T> } {
   const result = React.createRef<T>();
 
-  const Demo = () => {
+  const Demo: React.FC = () => {
     (result as any).current = func();
 
     return null;

@@ -11,6 +11,7 @@ import useStyle from './style';
 
 export interface GroupProps {
   className?: string;
+  rootClassName?: string;
   children?: React.ReactNode;
   style?: React.CSSProperties;
   prefixCls?: string;
@@ -27,7 +28,14 @@ export interface GroupProps {
 
 const Group: React.FC<GroupProps> = (props) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const { prefixCls: customizePrefixCls, className = '', maxCount, maxStyle, size } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    rootClassName,
+    maxCount,
+    maxStyle,
+    size,
+  } = props;
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
@@ -39,6 +47,7 @@ const Group: React.FC<GroupProps> = (props) => {
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
     hashId,
   );
 

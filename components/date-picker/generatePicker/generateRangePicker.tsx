@@ -9,19 +9,18 @@ import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
 import type { RangePickerProps } from '.';
 import { Components, getTimeProps } from '.';
+import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
+import warning from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
-import SizeContext from '../../config-provider/SizeContext';
+import useSize from '../../config-provider/hooks/useSize';
 import { FormItemInputContext } from '../../form/context';
+import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
-import LocaleReceiver from '../../locale-provider/LocaleReceiver';
-import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import enUS from '../locale/en_US';
+import useStyle from '../style';
 import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
 import type { CommonPickerMethods, PickerComponentClass } from './interface';
-import warning from '../../_util/warning';
-
-import useStyle from '../style';
 
 export default function generateRangePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type InternalRangePickerProps = RangePickerProps<DateType> & {};
@@ -79,8 +78,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
     }
 
     // ===================== Size =====================
-    const size = React.useContext(SizeContext);
-    const mergedSize = compactSize || customizeSize || size;
+    const mergedSize = useSize((ctx) => compactSize ?? customizeSize ?? ctx);
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
@@ -102,57 +100,49 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
       blur: () => innerRef.current?.blur(),
     }));
 
-    return wrapSSR(
-      <LocaleReceiver componentName="DatePicker" defaultLocale={enUS}>
-        {(contextLocale) => {
-          const locale = { ...contextLocale, ...props.locale };
+    const [contextLocale] = useLocale('Calendar', enUS);
 
-          return (
-            <RCRangePicker<DateType>
-              separator={
-                <span aria-label="to" className={`${prefixCls}-separator`}>
-                  <SwapRightOutlined />
-                </span>
-              }
-              disabled={mergedDisabled}
-              ref={innerRef}
-              dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
-              placeholder={getRangePlaceholder(picker, locale, placeholder)}
-              suffixIcon={suffixNode}
-              clearIcon={<CloseCircleFilled />}
-              prevIcon={<span className={`${prefixCls}-prev-icon`} />}
-              nextIcon={<span className={`${prefixCls}-next-icon`} />}
-              superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
-              superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-              allowClear
-              transitionName={`${rootPrefixCls}-slide-up`}
-              {...restProps}
-              {...additionalOverrideProps}
-              className={classNames(
-                {
-                  [`${prefixCls}-${mergedSize}`]: mergedSize,
-                  [`${prefixCls}-borderless`]: !bordered,
-                },
-                getStatusClassNames(
-                  prefixCls as string,
-                  getMergedStatus(contextStatus, customStatus),
-                  hasFeedback,
-                ),
-                hashId,
-                compactItemClassnames,
-                className,
-              )}
-              locale={locale!.lang}
-              prefixCls={prefixCls}
-              getPopupContainer={customGetPopupContainer || getPopupContainer}
-              generateConfig={generateConfig}
-              components={Components}
-              direction={direction}
-              dropdownClassName={classNames(hashId, popupClassName || dropdownClassName)}
-            />
-          );
-        }}
-      </LocaleReceiver>,
+    const locale = { ...contextLocale, ...props.locale! };
+
+    return wrapSSR(
+      <RCRangePicker<DateType>
+        separator={
+          <span aria-label="to" className={`${prefixCls}-separator`}>
+            <SwapRightOutlined />
+          </span>
+        }
+        disabled={mergedDisabled}
+        ref={innerRef}
+        dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
+        placeholder={getRangePlaceholder(locale, picker, placeholder)}
+        suffixIcon={suffixNode}
+        clearIcon={<CloseCircleFilled />}
+        prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+        nextIcon={<span className={`${prefixCls}-next-icon`} />}
+        superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+        superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
+        allowClear
+        transitionName={`${rootPrefixCls}-slide-up`}
+        {...restProps}
+        {...additionalOverrideProps}
+        className={classNames(
+          {
+            [`${prefixCls}-${mergedSize}`]: mergedSize,
+            [`${prefixCls}-borderless`]: !bordered,
+          },
+          getStatusClassNames(prefixCls, getMergedStatus(contextStatus, customStatus), hasFeedback),
+          hashId,
+          compactItemClassnames,
+          className,
+        )}
+        locale={locale.lang}
+        prefixCls={prefixCls}
+        getPopupContainer={customGetPopupContainer || getPopupContainer}
+        generateConfig={generateConfig}
+        components={Components}
+        direction={direction}
+        dropdownClassName={classNames(hashId, popupClassName || dropdownClassName)}
+      />,
     );
   });
 

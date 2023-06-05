@@ -1,7 +1,8 @@
 ---
 category: Components
 title: Badge
-cover: https://gw.alipayobjects.com/zos/antfincdn/6%26GF9WHwvY/Badge.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e0qITYqF394AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*v8EQT7KoGbcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group: Data Display
@@ -56,3 +57,7 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 | color | Customize Ribbon color | string | - |  |
 | placement | The placement of the Ribbon, `start` and `end` follow text direction (RTL or LTR) | `start` \| `end` | `end` |  |
 | text | Content inside the Ribbon | ReactNode | - |  |
+
+## Design Token
+
+<ComponentTokenTable component="Badge"></ComponentTokenTable>

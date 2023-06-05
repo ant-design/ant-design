@@ -25,6 +25,24 @@ describe('Badge', () => {
     jest.useRealTimers();
   });
 
+  it('no strict warning', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { rerender } = render(
+      <Badge dot>
+        <span />
+      </Badge>,
+    );
+
+    rerender(
+      <Badge>
+        <span />
+      </Badge>,
+    );
+
+    expect(errSpy).not.toHaveBeenCalled();
+    errSpy.mockRestore();
+  });
+
   it('badge dot not scaling count > 9', () => {
     const { container } = render(<Badge count={10} dot />);
     expect(container.querySelectorAll('.ant-card-multiple-words').length).toBe(0);
@@ -47,7 +65,7 @@ describe('Badge', () => {
     expect(container.querySelectorAll('.ant-badge-dot').length).toBe(0);
   });
 
-  it('should have an overriden title attribute', () => {
+  it('should have an overridden title attribute', () => {
     const { container } = render(<Badge count={10} title="Custom title" />);
     expect((container.querySelector('.ant-scroll-number')! as HTMLElement).title).toEqual(
       'Custom title',
@@ -67,7 +85,7 @@ describe('Badge', () => {
       fireEvent.mouseEnter(container.querySelector('.ant-badge')!);
       jest.runAllTimers();
     });
-    expect((container.firstChild! as HTMLElement).classList).toContain('ant-tooltip-open');
+    expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
   });
 
   it('should render when count is changed', () => {
@@ -193,7 +211,7 @@ describe('Badge', () => {
         <Badge count={0} showZero color="#ff0" />
         <Badge count={0} showZero color="blue" />
         <Badge count={0} showZero />
-        <Badge count={0} showZero color='green'>
+        <Badge count={0} showZero color="green">
           <div />
         </Badge>
       </>,

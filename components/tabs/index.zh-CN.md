@@ -3,7 +3,8 @@ category: Components
 subtitle: 标签页
 group: 数据展示
 title: Tabs
-cover: https://gw.alipayobjects.com/zos/antfincdn/lkI2hNEDr2V/Tabs.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*72NDQqXkyOEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8HMoTZUoSGoAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 选项卡切换组件。
@@ -16,35 +17,11 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 
 - 卡片式的页签，提供可关闭的样式，常用于容器顶部。
 - 既可用于容器顶部，也可用于容器内部，是最通用的 Tabs。
-- [Radio.Button](/components/radio/#components-radio-demo-radiobutton) 可作为更次级的页签来使用。
-
-### 4.23.0 用法升级
-
-<Alert message="在 4.23.0 版本后，我们提供了 &lt;Tabs items={[...]} /&gt; 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。同时我们废弃了原先的写法，你还是可以在 4.x 继续使用，但会在控制台看到警告，并会在 5.0 后移除。"></Alert>
-
-```jsx
-// >=4.23.0 可用，推荐的写法 ✅
-const items = [
-  { label: '项目 1', key: 'item-1', children: '内容 1' }, // 务必填写 key
-  { label: '项目 2', key: 'item-2', children: '内容 2' },
-];
-return <Tabs items={items} />;
-
-// <4.23.0 可用，>=4.23.0 时不推荐 🙅🏻‍♀️
-<Tabs>
-  <Tabs.TabPane tab="项目 1" key="item-1">
-    内容 1
-  </Tabs.TabPane>
-  <Tabs.TabPane tab="项目 2" key="item-2">
-    内容 2
-  </Tabs.TabPane>
-</Tabs>;
-```
+- [Radio.Button](/components/radio-cn/#components-radio-demo-radiobutton) 可作为更次级的页签来使用。
 
 ## 代码演示
 
 <!-- prettier-ignore -->
-<code src="./demo/deprecated.tsx">基础用法（废弃的语法糖）</code>
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/disabled.tsx">禁用</code>
 <code src="./demo/centered.tsx">居中</code>
@@ -55,7 +32,7 @@ return <Tabs items={items} />;
 <code src="./demo/position.tsx">位置</code>
 <code src="./demo/card.tsx">卡片式页签</code>
 <code src="./demo/editable-card.tsx">新增和关闭页签</code>
-<code src="./demo/card-top.tsx">卡片式页签容器</code>
+<code src="./demo/card-top.tsx" compact background="grey" debug>卡片式页签容器</code>
 <code src="./demo/custom-add-trigger.tsx">自定义新增页签触发器</code>
 <code src="./demo/custom-tab-bar.tsx">自定义页签头</code>
 <code src="./demo/custom-tab-bar-node.tsx">可拖拽标签</code>
@@ -74,7 +51,7 @@ return <Tabs items={items} />;
 | centered | 标签居中展示 | boolean | false | 4.4.0 |
 | defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | string | `第一个面板` |  |
 | hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | boolean | false |  |
-| items | 配置选项卡内容 | [TabItemType](#TabItemType) | [] | 4.23.0 |
+| items | 配置选项卡内容 | [TabItemType](#tabitemtype) | [] | 4.23.0 |
 | moreIcon | 自定义折叠 icon | ReactNode | &lt;EllipsisOutlined /> | 4.14.0 |
 | popupClassName | 更多菜单的 `className` | string | - | 4.21.0 |
 | renderTabBar | 替换 TabBar，用于二次封装标签头 | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
@@ -94,11 +71,16 @@ return <Tabs items={items} />;
 
 ### TabItemType
 
-| 参数        | 说明                                            | 类型      | 默认值 |
-| ----------- | ----------------------------------------------- | --------- | ------ |
-| closeIcon   | 自定义关闭图标，`在 type="editable-card"`时有效 | ReactNode | -      |
-| disabled    | 禁用某一项                                      | boolean   | false  |
-| forceRender | 被隐藏时是否渲染 DOM 结构                       | boolean   | false  |
-| key         | 对应 activeKey                                  | string    | -      |
-| label       | 选项卡头显示文字                                | ReactNode | -      |
-| children    | 选项卡头显示内容                                | ReactNode | -      |
+| 参数        | 说明                                                    | 类型      | 默认值 |
+| ----------- | ------------------------------------------------------- | --------- | ------ |
+| closeIcon   | 自定义关闭图标，在 `type="editable-card"` 时有效         | ReactNode | -      |
+| closable    | 当前选项卡是否可被关闭，在 `type="editable-card"` 时有效 | boolean | true |
+| disabled    | 禁用某一项                                              | boolean   | false  |
+| forceRender | 被隐藏时是否渲染 DOM 结构                               | boolean   | false  |
+| key         | 对应 activeKey                                          | string    | -      |
+| label       | 选项卡头显示文字                                        | ReactNode | -      |
+| children    | 选项卡头显示内容                                        | ReactNode | -      |
+
+## Design Token
+
+<ComponentTokenTable component="Tabs"></ComponentTokenTable>

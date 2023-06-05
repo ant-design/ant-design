@@ -5,10 +5,10 @@ import {
   TwitterOutlined,
   YoutubeOutlined,
 } from '@ant-design/icons';
-import { Tag } from 'antd';
+import { Space, Tag } from 'antd';
 
 const App: React.FC = () => (
-  <>
+  <Space size={[0, 8]} wrap>
     <Tag icon={<TwitterOutlined />} color="#55acee">
       Twitter
     </Tag>
@@ -21,7 +21,7 @@ const App: React.FC = () => (
     <Tag icon={<LinkedinOutlined />} color="#55acee">
       LinkedIn
     </Tag>
-  </>
+  </Space>
 );
 
 export default App;

@@ -1,10 +1,8 @@
 /* eslint-disable class-methods-use-this */
 import KeyCode from 'rc-util/lib/KeyCode';
-import raf from 'rc-util/lib/raf';
 import React from 'react';
 import { waitFakeTimer, render, fireEvent } from '../../../tests/utils';
 import getDataOrAriaProps from '../getDataOrAriaProps';
-import delayRaf from '../raf';
 import { isStyleSupport } from '../styleChecker';
 import throttleByAnimationFrame from '../throttleByAnimationFrame';
 import TransButton from '../transButton';
@@ -96,38 +94,6 @@ describe('Test utils function', () => {
       };
       const results = getDataOrAriaProps(props);
       expect(results).toEqual({ role: 'search' });
-    });
-  });
-
-  it('delayRaf', (done) => {
-    jest.useRealTimers();
-
-    let bamboo = false;
-    delayRaf(() => {
-      bamboo = true;
-    }, 3);
-
-    // Do nothing, but insert in the frame
-    // https://github.com/ant-design/ant-design/issues/16290
-    delayRaf(() => {}, 3);
-
-    // Variable bamboo should be false in frame 2 but true in frame 4
-    raf(() => {
-      expect(bamboo).toBe(false);
-
-      // Frame 2
-      raf(() => {
-        expect(bamboo).toBe(false);
-
-        // Frame 3
-        raf(() => {
-          // Frame 4
-          raf(() => {
-            expect(bamboo).toBe(true);
-            done();
-          });
-        });
-      });
     });
   });
 

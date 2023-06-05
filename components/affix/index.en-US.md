@@ -1,11 +1,12 @@
 ---
 category: Components
 title: Affix
-cover: https://gw.alipayobjects.com/zos/alicdn/tX6-md4H6/Affix.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YSm4RI3iOJ8AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*03dxS64LxeQAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group:
-  title: 其他
+  title: Other
   order: 7
 ---
 
@@ -44,7 +45,7 @@ Please note that Affix should not cover other content on the page, especially wh
 
 ### When binding container with `target` in Affix, elements sometimes move out of the container.
 
-We only listen to container scroll events for performance consideration. You can add custom listeners if you still want to: <https://codesandbox.io/s/2xyj5zr85p>
+We only listen to container scroll events for performance consideration. You can add custom listeners if you still want to: <https://codesandbox.io/s/stupefied-maxwell-ophqnm?file=/index.js>
 
 Related issues：[#3938](https://github.com/ant-design/ant-design/issues/3938) [#5642](https://github.com/ant-design/ant-design/issues/5642) [#16120](https://github.com/ant-design/ant-design/issues/16120)
 

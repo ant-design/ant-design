@@ -24,9 +24,3 @@ You can use an array to set vertical spacing, `[horizontal, vertical]` `[16, { x
   background: #00a0e9;
 }
 ```
-
-<style>
-[data-theme="dark"] .gutter-box {
-  background: #028ac8;
-}
-</style>

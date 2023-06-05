@@ -2,7 +2,6 @@ import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import React from 'react';
 import { fireEvent, render } from '../../../tests/utils';
 import Base from '../Base';
-// eslint-disable-next-line no-unused-vars
 
 jest.mock('copy-to-clipboard');
 

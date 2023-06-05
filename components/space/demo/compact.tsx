@@ -45,7 +45,7 @@ const App: React.FC = () => (
     </Space.Compact>
     <br />
     <Space.Compact block>
-      <Select defaultValue="Zhejiang">
+      <Select defaultValue="Zhejiang" allowClear>
         <Option value="Zhejiang">Zhejiang</Option>
         <Option value="Jiangsu">Jiangsu</Option>
       </Select>
@@ -53,7 +53,7 @@ const App: React.FC = () => (
     </Space.Compact>
     <br />
     <Space.Compact block>
-      <Select mode="multiple" defaultValue="Zhejianggggg" style={{ width: '50%' }}>
+      <Select allowClear mode="multiple" defaultValue="Zhejianggggg" style={{ width: '50%' }}>
         <Option value="Zhejianggggg">Zhejianggggg</Option>
         <Option value="Jiangsu">Jiangsu</Option>
       </Select>

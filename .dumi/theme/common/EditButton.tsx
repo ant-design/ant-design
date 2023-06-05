@@ -19,12 +19,12 @@ const useStyle = () => {
   return {
     editButton: css`
       a& {
-        display: inline-block;
-        text-decoration: none;
-        margin-inline-start: 6px;
-        vertical-align: middle;
         position: relative;
         top: -2px;
+        display: inline-block;
+        text-decoration: none;
+        vertical-align: middle;
+        margin-inline-start: 6px;
 
         ${iconCls} {
           display: block;

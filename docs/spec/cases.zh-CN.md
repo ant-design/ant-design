@@ -22,7 +22,7 @@ Ant Design 目前在外部也有许多产品实践，如果你的公司和产品
 
 OceanBase 是一款真正意义上的云端分布式关系型数据库，而 OceanBase Cloud Platform（云平台）是以 OceanBase 数据库为基础的云服务，可以帮助用户快速创建、使用 OB 服务。
 
-[立即访问](https://www.oceanbase.com/docs/enterprise/oceanbase-ocp-cn/V3.3.3/10000000000636101)
+[立即访问](https://www.oceanbase.com/docs/)
 
 ![OceanBase 云平台](https://gw.alipayobjects.com/zos/rmsportal/OYGCAlMwSWkdaKfxIDtz.png)
 

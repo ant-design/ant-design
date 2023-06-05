@@ -1,15 +1,14 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import { Link, useLocation, FormattedMessage, useFullSidebarData } from 'dumi';
-import { MenuProps, Tooltip } from 'antd';
-import { MenuOutlined } from '@ant-design/icons';
+import { FormattedMessage, Link, useFullSidebarData, useLocation } from 'dumi';
+import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
+import { MenuOutlined } from '@ant-design/icons';
+import { css } from '@emotion/react';
 import { getEcosystemGroup } from './More';
 import * as utils from '../../utils';
 import type { SharedProps } from './interface';
 import useSiteToken from '../../../hooks/useSiteToken';
 import useLocale from '../../../hooks/useLocale';
-import { css } from '@emotion/react';
 
 // ============================= Theme =============================
 const locales = {
@@ -46,7 +45,7 @@ const useStyle = () => {
         border-bottom: none;
 
         & > ${antCls}-menu-item, & > ${antCls}-menu-submenu {
-          min-width: (40px + 12px * 2);
+          min-width: ${40 + 12 * 2}px;
           height: ${headerHeight}px;
           padding-right: 12px;
           padding-left: 12px;
@@ -103,7 +102,6 @@ export interface NavigationProps extends SharedProps {
   isClient: boolean;
   responsive: null | 'narrow' | 'crowded';
   directionText: string;
-  showTechUIButton: boolean;
   onLangChange: () => void;
   onDirectionChange: () => void;
 }
@@ -114,7 +112,6 @@ export default ({
   isMobile,
   responsive,
   directionText,
-  showTechUIButton,
   onLangChange,
   onDirectionChange,
 }: NavigationProps) => {
@@ -150,7 +147,7 @@ export default ({
           target="_blank"
           rel="noopener noreferrer"
         >
-          Github
+          GitHub
         </a>
       ),
       key: 'github',
@@ -208,7 +205,13 @@ export default ({
     blogList.length
       ? {
           label: (
-            <Link to={utils.getLocalizedPathname(blogList[0].link, isZhCN, search)}>
+            <Link
+              to={utils.getLocalizedPathname(
+                blogList.sort((a, b) => (a.frontmatter.date > b.frontmatter.date ? -1 : 1))[0].link,
+                isZhCN,
+                search,
+              )}
+            >
               {locale.blog}
             </Link>
           ),
@@ -223,21 +226,6 @@ export default ({
       ),
       key: 'docs/resources',
     },
-    showTechUIButton
-      ? {
-          label: (
-            <Tooltip title="TechUI">
-              <a href="https://techui.alipay.com" target="__blank" rel="noopener noreferrer">
-                <img
-                  style={{ width: '1em', height: '1em', transform: `scale(1.8) translateY(-5%)` }}
-                  src="https://gw.alipayobjects.com/zos/hitu-asset/562e1bb6-edd1-4c87-8e5c-fa01b768b7c8/hitu-1617851234091-image.png"
-                />
-              </a>
-            </Tooltip>
-          ),
-          key: 'tech-ui',
-        }
-      : null,
     isZhCN &&
     isClient &&
     window.location.host !== 'ant-design.antgroup.com' &&
@@ -278,12 +266,12 @@ export default ({
 
   return (
     <Menu
-      className={classNames('menu-site')}
       mode={menuMode}
       selectedKeys={[activeMenuItem]}
       css={style.nav}
       disabledOverflow
       items={items}
+      style={{ borderRight: 0 }}
     />
   );
 };

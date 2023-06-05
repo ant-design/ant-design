@@ -61,7 +61,7 @@ describe('Card', () => {
   it('should not render when actions is number', () => {
     const numberStub = 11;
     render(
-      // @ts-ignore ingnore for the wrong action value
+      // @ts-ignore ignore for the wrong action value
       <Card title="Card title" actions={numberStub}>
         <p>Card content</p>
       </Card>,
@@ -80,6 +80,39 @@ describe('Card', () => {
           },
         ]}
         tabProps={{ size: 'small' }}
+      >
+        <p>Card content</p>
+      </Card>,
+    );
+    expect(container.querySelectorAll('.ant-tabs-small').length === 0).toBeFalsy();
+  });
+
+  it('tab size extend card size', () => {
+    const { container: largeContainer } = render(
+      <Card
+        title="Card title"
+        tabList={[
+          {
+            key: 'key',
+            tab: 'tab',
+          },
+        ]}
+      >
+        <p>Card content</p>
+      </Card>,
+    );
+    expect(largeContainer.querySelectorAll('.ant-tabs-large').length === 0).toBeFalsy();
+
+    const { container } = render(
+      <Card
+        title="Card title"
+        tabList={[
+          {
+            key: 'key',
+            tab: 'tab',
+          },
+        ]}
+        size='small'
       >
         <p>Card content</p>
       </Card>,

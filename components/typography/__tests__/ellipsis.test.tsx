@@ -4,7 +4,6 @@ import { act } from 'react-dom/test-utils';
 import { fireEvent, render, waitFakeTimer, triggerResize, waitFor } from '../../../tests/utils';
 import type { EllipsisConfig } from '../Base';
 import Base from '../Base';
-// eslint-disable-next-line no-unused-vars
 
 jest.mock('copy-to-clipboard');
 

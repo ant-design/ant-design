@@ -3,7 +3,8 @@ category: Components
 group: 布局
 subtitle: 间距
 title: Space
-cover: https://gw.alipayobjects.com/zos/antfincdn/wc6%263gJ0Y8/Space.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZiJ3SbOH9SUAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAAAAAAAAAAAADrJ8AQ/original
 ---
 
 设置组件之间的间距。
@@ -42,7 +43,7 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/wc6%263gJ0Y8/Space.svg
 | --- | --- | --- | --- | --- |
 | align | 对齐方式 | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 |
 | direction | 间距方向 | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
-| size | 间距大小 | [Size](#Size) \| [Size\[\]](#Size) | `small` | 4.1.0 \| Array: 4.9.0 |
+| size | 间距大小 | [Size](#size) \| [Size\[\]](#size) | `small` | 4.1.0 \| Array: 4.9.0 |
 | split | 设置拆分 | ReactNode | - | 4.7.0 |
 | wrap | 是否自动换行，仅在 `horizontal` 时有效 | boolean | false | 4.9.0 |
 
@@ -70,3 +71,7 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/wc6%263gJ0Y8/Space.svg
 | block | 将宽度调整为父元素宽度的选项 | boolean | false | 4.24.0 |
 | direction | 指定排列方向 | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | size | 子组件大小 | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
+
+## Design Token
+
+<ComponentTokenTable component="Space"></ComponentTokenTable>

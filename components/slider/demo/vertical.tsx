@@ -13,9 +13,7 @@ const marks: SliderMarks = {
   26: '26°C',
   37: '37°C',
   100: {
-    style: {
-      color: '#f50',
-    },
+    style: { color: '#f50' },
     label: <strong>100°C</strong>,
   },
 };

@@ -2,17 +2,18 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import classNames from 'classnames';
-import * as React from 'react';
-import omit from 'rc-util/lib/omit';
 import type { Meta } from 'rc-field-form/lib/interface';
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
+import isVisible from 'rc-util/lib/Dom/isVisible';
+import omit from 'rc-util/lib/omit';
+import * as React from 'react';
+import type { FormItemProps, ValidateStatus } from '.';
 import { Row } from '../../grid';
-import FormItemLabel from '../FormItemLabel';
 import FormItemInput from '../FormItemInput';
+import FormItemLabel from '../FormItemLabel';
 import type { FormItemStatusContextProps, ReportMetaChange } from '../context';
 import { FormContext, FormItemInputContext, NoStyleItemContext } from '../context';
-import type { FormItemProps, ValidateStatus } from '.';
 import useDebounce from '../hooks/useDebounce';
 
 const iconMap = {
@@ -25,6 +26,7 @@ const iconMap = {
 export interface ItemHolderProps extends FormItemProps {
   prefixCls: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   errors: React.ReactNode[];
   warnings: React.ReactNode[];
@@ -39,6 +41,7 @@ export default function ItemHolder(props: ItemHolderProps) {
   const {
     prefixCls,
     className,
+    rootClassName,
     style,
     help,
     errors,
@@ -49,6 +52,7 @@ export default function ItemHolder(props: ItemHolderProps) {
     hidden,
     children,
     fieldId,
+    required,
     isRequired,
     onSubItemMetaChange,
     ...restProps
@@ -63,14 +67,17 @@ export default function ItemHolder(props: ItemHolderProps) {
   const debounceWarnings = useDebounce(warnings);
   const hasHelp = help !== undefined && help !== null;
   const hasError = !!(hasHelp || errors.length || warnings.length);
+  const isOnScreen = !!itemRef.current && isVisible(itemRef.current);
   const [marginBottom, setMarginBottom] = React.useState<number | null>(null);
 
   useLayoutEffect(() => {
     if (hasError && itemRef.current) {
+      // The element must be part of the DOMTree to use getComputedStyle
+      // https://stackoverflow.com/questions/35360711/getcomputedstyle-returns-a-cssstyledeclaration-but-all-properties-are-empty-on-a
       const itemStyle = getComputedStyle(itemRef.current);
       setMarginBottom(parseInt(itemStyle.marginBottom, 10));
     }
-  }, [hasError]);
+  }, [hasError, isOnScreen]);
 
   const onErrorVisibleChanged = (nextVisible: boolean) => {
     if (!nextVisible) {
@@ -79,18 +86,27 @@ export default function ItemHolder(props: ItemHolderProps) {
   };
 
   // ======================== Status ========================
-  let mergedValidateStatus: ValidateStatus = '';
-  if (validateStatus !== undefined) {
-    mergedValidateStatus = validateStatus;
-  } else if (meta.validating) {
-    mergedValidateStatus = 'validating';
-  } else if (debounceErrors.length) {
-    mergedValidateStatus = 'error';
-  } else if (debounceWarnings.length) {
-    mergedValidateStatus = 'warning';
-  } else if (meta.touched) {
-    mergedValidateStatus = 'success';
-  }
+
+  const getValidateState = (isDebounce = false) => {
+    let status: ValidateStatus = '';
+    const _errors = isDebounce ? debounceErrors : meta.errors;
+    const _warnings = isDebounce ? debounceWarnings : meta.warnings;
+    if (validateStatus !== undefined) {
+      status = validateStatus;
+    } else if (meta.validating) {
+      status = 'validating';
+    } else if (_errors.length) {
+      status = 'error';
+    } else if (_warnings.length) {
+      status = 'warning';
+    } else if (meta.touched || (hasFeedback && meta.validated)) {
+      // success feedback should display when pass hasFeedback prop and current value is valid value
+      status = 'success';
+    }
+    return status;
+  };
+
+  const mergedValidateStatus = getValidateState();
 
   const formItemStatusContext = React.useMemo<FormItemStatusContextProps>(() => {
     let feedbackIcon: React.ReactNode;
@@ -110,6 +126,8 @@ export default function ItemHolder(props: ItemHolderProps) {
 
     return {
       status: mergedValidateStatus,
+      errors,
+      warnings,
       hasFeedback,
       feedbackIcon,
       isFormItemInput: true,
@@ -117,10 +135,8 @@ export default function ItemHolder(props: ItemHolderProps) {
   }, [mergedValidateStatus, hasFeedback]);
 
   // ======================== Render ========================
-  const itemClassName = {
-    [itemPrefixCls]: true,
+  const itemClassName = classNames(itemPrefixCls, className, rootClassName, {
     [`${itemPrefixCls}-with-help`]: hasHelp || debounceErrors.length || debounceWarnings.length,
-    [`${className}`]: !!className,
 
     // Status
     [`${itemPrefixCls}-has-feedback`]: mergedValidateStatus && hasFeedback,
@@ -129,10 +145,10 @@ export default function ItemHolder(props: ItemHolderProps) {
     [`${itemPrefixCls}-has-error`]: mergedValidateStatus === 'error',
     [`${itemPrefixCls}-is-validating`]: mergedValidateStatus === 'validating',
     [`${itemPrefixCls}-hidden`]: hidden,
-  };
+  });
 
   return (
-    <div className={classNames(itemClassName)} style={style} ref={itemRef}>
+    <div className={itemClassName} style={style} ref={itemRef}>
       <Row
         className={`${itemPrefixCls}-row`}
         {...omit(restProps, [
@@ -156,7 +172,6 @@ export default function ItemHolder(props: ItemHolderProps) {
           'normalize',
           'noStyle',
           'preserve',
-          'required',
           'requiredMark',
           'rules',
           'shouldUpdate',
@@ -171,9 +186,9 @@ export default function ItemHolder(props: ItemHolderProps) {
         {/* Label */}
         <FormItemLabel
           htmlFor={fieldId}
-          required={isRequired}
-          requiredMark={requiredMark}
           {...props}
+          requiredMark={requiredMark}
+          required={required ?? isRequired}
           prefixCls={prefixCls}
         />
         {/* Input Group */}

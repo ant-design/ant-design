@@ -3,7 +3,8 @@ group: Feedback
 category: Components
 subtitle:
 title: Drawer
-cover: https://img.alicdn.com/imgextra/i4/O1CN019djdZP1OHwXSRGCOW_!!6000000001681-55-tps-161-117.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*v3TvSq2E0HAAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*4wzwRIBLuqEAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -28,11 +29,12 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 <code src="./demo/form-in-drawer.tsx">Submit form in drawer</code>
 <code src="./demo/user-profile.tsx">Preview drawer</code>
 <code src="./demo/multi-level-drawer.tsx">Multi-level drawer</code>
-<code src="./demo/size.tsx">Presetted size</code>
+<code src="./demo/size.tsx">Preset size</code>
 <code src="./demo/config-provider.tsx" debug>ConfigProvider</code>
 <code src="./demo/no-mask.tsx" debug>No mask</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/scroll-debug.tsx" debug>Scroll Debug</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
@@ -64,9 +66,13 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | rootClassName | The class name of the container of the Drawer dialog | string | - |  |
 | rootStyle | Style of wrapper element which **contains mask** compare to `style` | CSSProperties | - |  |
 | style | Style of Drawer panel. Use `bodyStyle` if want to config body only | CSSProperties | - |  |
-| size | presetted size of drawer, default `378px` and large `736px` | 'default' \| 'large' | 'default' | 4.17.0 |
+| size | preset size of drawer, default `378px` and large `736px` | 'default' \| 'large' | 'default' | 4.17.0 |
 | title | The title for Drawer | ReactNode | - |  |
 | open | Whether the Drawer dialog is visible or not | boolean | false |  |
 | width | Width of the Drawer dialog | string \| number | 378 |  |
 | zIndex | The `z-index` of the Drawer | number | 1000 |  |
 | onClose | Specify a callback that will be called when a user clicks mask, close button or Cancel button | function(e) | - |  |
+
+## Design Token
+
+<ComponentTokenTable component="Drawer"></ComponentTokenTable>
