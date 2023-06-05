@@ -1,6 +1,6 @@
 ---
 title: Hi, GitHub Actions
-date: 2023-06-01
+date: 2023-06-06
 author: Wxh16144
 ---
 
