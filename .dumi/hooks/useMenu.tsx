@@ -145,7 +145,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
         return result;
       }, []) ?? []
     );
-  }, [sidebarData, fullData, pathname, search, before, after]);
+  }, [sidebarData, fullData, pathname, search, options]);
 
   return [menuItems, pathname];
 };
