@@ -5,7 +5,7 @@
     "esm": true
   },
   "compilerOptions": {
-    "module": "ESNext",
+    "module": "CommonJS",
     "types": ["node"],
     "resolveJsonModule": true
   }
