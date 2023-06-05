@@ -12,7 +12,7 @@ jobs:
       - checkout
       - run:
           name: Install node_modules
-          command: npm i
+          command: yarn
       - run:
           name: Build dist file
           command: npm run dist:esbuild
