@@ -1,10 +1,11 @@
-import { ColorBlock } from '@rc-component/color-picker';
+import { ColorBlock, Color as RcColor } from '@rc-component/color-picker';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { FC } from 'react';
 import React, { useMemo } from 'react';
 import Collapse from '../../collapse';
 import { useLocale } from '../../locale';
+import theme from '../../theme';
 import type { Color } from '../color';
 import type { ColorPickerBaseProps, PresetsItem } from '../interface';
 import { generateColor } from '../util';
@@ -23,16 +24,21 @@ const genPresetColor = (list: PresetsItem[]) =>
     return value;
   });
 
-const isBright = (value: Color) => {
+const isBright = (value: Color, bgColorToken: string) => {
   const { r, g, b, a } = value.toRgb();
+  const hsv = new RcColor(value.toRgbString()).onBackground(bgColorToken).toHsv();
   if (a <= 0.5) {
-    return true;
+    // Adapted to dark mode
+    return hsv.v > 0.5;
   }
   return r * 0.299 + g * 0.587 + b * 0.114 > 192;
 };
 
 const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color, onChange }) => {
   const [locale] = useLocale('ColorPicker');
+  const {
+    token: { colorBgElevated },
+  } = theme.useToken();
   const [presetsValue] = useMergedState(genPresetColor(presets), {
     value: genPresetColor(presets),
     postState: genPresetColor,
@@ -66,7 +72,10 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
                     className={classNames(`${colorPresetsPrefixCls}-color`, {
                       [`${colorPresetsPrefixCls}-color-checked`]:
                         presetColor.toHexString() === color?.toHexString(),
-                      [`${colorPresetsPrefixCls}-color-bright`]: isBright(presetColor),
+                      [`${colorPresetsPrefixCls}-color-bright`]: isBright(
+                        presetColor,
+                        colorBgElevated,
+                      ),
                     })}
                     onClick={() => handleClick(presetColor)}
                   />
