@@ -142,21 +142,21 @@ title: Less 变量迁移 Design Token
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
 | `@radio-size` | `radioSize` | - |
-| `@radio-top` | - | 由于样式变化已废弃 |
-| `@radio-border-width` | `radioBorderWidth` | - |
-| `@radio-dot-size` | `radioDotSize` | - |
-| `@radio-dot-color` | - | 由于样式变化已废弃 |
-| `@radio-dot-disabled-color` | `radioDotDisabledColor` | - |
-| `@radio-solid-checked-color` | `radioSolidCheckedColor` | - |
-| `@radio-button-bg` | `radioButtonBg` | - |
-| `@radio-button-checked-bg` | `radioButtonCheckedBg` | - |
-| `@radio-button-color` | `radioButtonColor` | - |
-| `@radio-button-hover-color` | `radioButtonHoverColor` | - |
-| `@radio-button-active-color` | `radioButtonActiveColor` | - |
-| `@radio-button-padding-horizontal` | `radioButtonPaddingHorizontal` | - |
-| `@radio-disabled-button-checked-bg` | `radioDisabledButtonCheckedBg` | - |
-| `@radio-disabled-button-checked-color` | `radioDisabledButtonCheckedColor` | - |
-| `@radio-wrapper-margin-right` | `radioWrapperMarginRight` | - |
+| `@radio-top` | - | 已废弃 |
+| `@radio-border-width` | `lineWidth` | 全局 Token |
+| `@radio-dot-size` | `dotSize` | - |
+| `@radio-dot-color` | - | 已废弃 |
+| `@radio-dot-disabled-color` | `dotColorDisabled` | - |
+| `@radio-solid-checked-color` | `buttonSolidCheckedColor` | - |
+| `@radio-button-bg` | `buttonBg` | - |
+| `@radio-button-checked-bg` | `buttonCheckedBg` | - |
+| `@radio-button-color` | `buttonColor` | - |
+| `@radio-button-hover-color` | `colorPrimaryHover` | 全局 Token |
+| `@radio-button-active-color` | `colorPrimaryActive` | 全局 Token |
+| `@radio-button-padding-horizontal` | `buttonPaddingInline` | - |
+| `@radio-disabled-button-checked-bg` | `buttonCheckdBgDisabled` | - |
+| `@radio-disabled-button-checked-color` | `buttonCheckdColorDisabled` | - |
+| `@radio-wrapper-margin-right` | `wrapperMarginInlineEnd` | - |
 
 <!-- ### Rate 评分 -->
 

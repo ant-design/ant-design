@@ -140,22 +140,23 @@ This document contains the correspondence between all the less variables related
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
+| --- | --- | --- |
 | `@radio-size` | `radioSize` | - |
-| `@radio-top` | - | Deprecated for style change |
-| `@radio-border-width` | `radioBorderWidth` | - |
-| `@radio-dot-size` | `radioDotSize` | - |
-| `@radio-dot-color` | - | Deprecated for style change |
-| `@radio-dot-disabled-color` | `radioDotDisabledColor` | - |
-| `@radio-solid-checked-color` | `radioSolidCheckedColor` | - |
-| `@radio-button-bg` | `radioButtonBg` | - |
-| `@radio-button-checked-bg` | `radioButtonCheckedBg` | - |
-| `@radio-button-color` | `radioButtonColor` | - |
-| `@radio-button-hover-color` | `radioButtonHoverColor` | - |
-| `@radio-button-active-color` | `radioButtonActiveColor` | - |
-| `@radio-button-padding-horizontal` | `radioButtonPaddingHorizontal` | - |
-| `@radio-disabled-button-checked-bg` | `radioDisabledButtonCheckedBg` | - |
-| `@radio-disabled-button-checked-color` | `radioDisabledButtonCheckedColor` | - |
-| `@radio-wrapper-margin-right` | `radioWrapperMarginRight` | - |
+| `@radio-top` | - | Deprecated |
+| `@radio-border-width` | `lineWidth` | Global Token |
+| `@radio-dot-size` | `dotSize` | - |
+| `@radio-dot-color` | - | Deprecated |
+| `@radio-dot-disabled-color` | `dotColorDisabled` | - |
+| `@radio-solid-checked-color` | `buttonSolidCheckedColor` | - |
+| `@radio-button-bg` | `buttonBg` | - |
+| `@radio-button-checked-bg` | `buttonCheckedBg` | - |
+| `@radio-button-color` | `buttonColor` | - |
+| `@radio-button-hover-color` | `colorPrimaryHover` | Global Token |
+| `@radio-button-active-color` | `colorPrimaryActive` | Global Token |
+| `@radio-button-padding-horizontal` | `buttonPaddingInline` | - |
+| `@radio-disabled-button-checked-bg` | `buttonCheckdBgDisabled` | - |
+| `@radio-disabled-button-checked-color` | `buttonCheckdColorDisabled` | - |
+| `@radio-wrapper-margin-right` | `wrapperMarginInlineEnd` | - |
 
 <!-- ### Rate -->
 
