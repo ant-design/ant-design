@@ -12,7 +12,7 @@ Ant Design is hosted on GitHub as an open-source project, making it easy to comm
 
 ## What is GitHub Actions
 
-GitHub Actions is a platform for automating software development workflows, from idea to production. Developers can easily customize and configure their own workflows by adding YAML format files to the `.github/workflows` directory to define the workflow and implement CI (continuous integration). By [Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions), we can grasp some concepts within workflows.
+GitHub Actions is a platform for automating software development workflows, Developers can easily customize and configure their own workflows by adding YAML format files to the `.github/workflows` directory to define the workflow and implement CI (continuous integration). By Understanding GitHub Actions.We can grasp some concepts within workflows through [understanding GitHub actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions).
 
 - **Event**: Triggers a workflow run, such as when someone creates an issue, a pull request, or pushes code to a branch.
 - **Job**: A workflow consists of one or more jobs that run in parallel by default, but can be set to run sequentially. Each job can contain multiple steps.
