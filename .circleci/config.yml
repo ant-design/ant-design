@@ -15,7 +15,7 @@ jobs:
           command: npm i
       - run:
           name: Build dist file
-          command: npm run dist
+          command: npm run dist:esbuild
       - run:
           name: Run image screenshot tests
           command: npm run test-image
