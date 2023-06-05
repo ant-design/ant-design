@@ -58,7 +58,7 @@ const genPickerStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
         borderRadius: colorPickerSliderHeight / 2,
         boxShadow: colorPickerInsetShadow,
       },
-      '&-alpha': getTransBg(`${colorPickerSliderHeight}px`),
+      '&-alpha': getTransBg(`${colorPickerSliderHeight}px`, token.colorFillSecondary),
       marginBottom: marginSM,
     },
 
