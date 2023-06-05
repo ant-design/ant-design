@@ -172,39 +172,39 @@ jobs:
   CI:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code (检出代码)
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js (设置 node 版本)
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 16
 
-      - name: Install pnpm (安装 pnpm)
+      - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 7.0.0
 
-      - name: Install dependencies (安装依赖)
+      - name: Install dependencies
         run: pnpm install
 
-      - name: lint (代码检查)
+      - name: lint
         run: pnpm run lint
 
       # The template does not contain test cases. If you need to use test cases, you can uncomment it
-      # - name: Test (测试)
+      # - name: Test
       #   run: pnpm run test
 
-      - name: Build (构建)
+      - name: Build
         run: pnpm run build
 
-      - name: Upload build artifacts (上传构建产物)
+      - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
           name: dist
           path: ./dist
 
-      - name: Deploy to GitHub Pages (部署到 GitHub Pages)
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         # Only deploy when the push event of the master branch is triggered
         if: github.ref == 'refs/heads/master'
@@ -223,16 +223,16 @@ To further optimize dependency installation speed, we can add pnpm caching. Afte
 
 ```yml
 # ...
-- name: create pnpm-lock.yaml (创建 pnpm-lock.yaml)
+- name: create pnpm-lock.yaml
   run: pnpm install --frozen-lockfile --ignore-scripts
 
-- name: Get pnpm store directory (获取 pnpm store 目录)
+- name: Get pnpm store directory
   id: pnpm-cache
   shell: bash
   run: |
     echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-- name: Setup pnpm cache (设置 pnpm 缓存)
+- name: Setup pnpm cache
   uses: actions/cache@v3
   with:
     path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
