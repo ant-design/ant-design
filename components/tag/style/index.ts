@@ -5,13 +5,14 @@ import { resetComponent } from '../../style';
 import type { FullToken } from '../../theme/internal';
 import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/internal';
 
-export interface ComponentToken {}
+export interface ComponentToken {
+  defaultBg: string;
+  defaultColor: string;
+}
 
 interface TagToken extends FullToken<'Tag'> {
   tagFontSize: number;
   tagLineHeight: React.CSSProperties['lineHeight'];
-  tagDefaultBg: string;
-  tagDefaultColor: string;
   tagIconSize: number;
   tagPaddingHorizontal: number;
   tagBorderlessBg: string;
@@ -32,6 +33,9 @@ const genTagStatusStyle = (
       color: token[`color${cssVariableType}`],
       background: token[`color${capitalizedCssVariableType}Bg`],
       borderColor: token[`color${capitalizedCssVariableType}Border`],
+      [`&${token.componentCls}-borderless`]: {
+        borderColor: 'transparent',
+      },
     },
   };
 };
@@ -68,9 +72,9 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       marginInlineEnd: token.marginXS,
       paddingInline,
       fontSize: token.tagFontSize,
-      lineHeight: `${token.tagLineHeight}px`,
+      lineHeight: token.tagLineHeight,
       whiteSpace: 'nowrap',
-      background: token.tagDefaultBg,
+      background: token.defaultBg,
       border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
       borderRadius: token.borderRadiusSM,
       opacity: 1,
@@ -83,7 +87,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       },
 
       '&, a, a:hover': {
-        color: token.tagDefaultColor,
+        color: token.defaultColor,
       },
 
       [`${componentCls}-close-icon`]: {
@@ -149,31 +153,33 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Tag', (token) => {
-  const { fontSize, lineHeight, lineWidth, fontSizeIcon } = token;
-  const tagHeight = Math.round(fontSize * lineHeight);
+export default genComponentStyleHook(
+  'Tag',
+  (token) => {
+    const { lineWidth, fontSizeIcon } = token;
 
-  const tagFontSize = token.fontSizeSM;
-  const tagLineHeight = tagHeight - lineWidth * 2;
-  const tagDefaultBg = token.colorFillQuaternary;
-  const tagDefaultColor = token.colorText;
+    const tagFontSize = token.fontSizeSM;
+    const tagLineHeight = `${token.lineHeightSM * tagFontSize}px`;
 
-  const tagToken = mergeToken<TagToken>(token, {
-    tagFontSize,
-    tagLineHeight,
-    tagDefaultBg,
-    tagDefaultColor,
-    tagIconSize: fontSizeIcon - 2 * lineWidth, // Tag icon is much more smaller
-    tagPaddingHorizontal: 8, // Fixed padding.
-    tagBorderlessBg: token.colorFillTertiary,
-  });
+    const tagToken = mergeToken<TagToken>(token, {
+      tagFontSize,
+      tagLineHeight,
+      tagIconSize: fontSizeIcon - 2 * lineWidth, // Tag icon is much smaller
+      tagPaddingHorizontal: 8, // Fixed padding.
+      tagBorderlessBg: token.colorFillTertiary,
+    });
 
-  return [
-    genBaseStyle(tagToken),
-    genPresetStyle(tagToken),
-    genTagStatusStyle(tagToken, 'success', 'Success'),
-    genTagStatusStyle(tagToken, 'processing', 'Info'),
-    genTagStatusStyle(tagToken, 'error', 'Error'),
-    genTagStatusStyle(tagToken, 'warning', 'Warning'),
-  ];
-});
+    return [
+      genBaseStyle(tagToken),
+      genPresetStyle(tagToken),
+      genTagStatusStyle(tagToken, 'success', 'Success'),
+      genTagStatusStyle(tagToken, 'processing', 'Info'),
+      genTagStatusStyle(tagToken, 'error', 'Error'),
+      genTagStatusStyle(tagToken, 'warning', 'Warning'),
+    ];
+  },
+  (token) => ({
+    defaultBg: token.colorFillQuaternary,
+    defaultColor: token.colorText,
+  }),
+);

@@ -9,8 +9,8 @@ import { convertLegacyProps } from '../button/button';
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import { ConfirmContent } from './ConfirmDialog';
+import type { ModalFuncProps, ModalProps } from './interface';
 import { getConfirmLocale } from './locale';
-import type { ModalFuncProps, ModalProps } from './Modal';
 import useStyle from './style';
 
 export interface PurePanelProps

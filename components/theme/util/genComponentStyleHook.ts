@@ -1,10 +1,11 @@
 /* eslint-disable no-redeclare */
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
+import { warning } from 'rc-util';
 import { useContext } from 'react';
 import { ConfigContext } from '../../config-provider/context';
 import { genCommonStyle, genLinkStyle } from '../../style';
-import type { ComponentTokenMap, GlobalToken } from '../interface';
+import type { ComponentTokenMap, GlobalToken, OverrideToken } from '../interface';
 import type { UseComponentStyleResult } from '../internal';
 import { mergeToken, statisticToken, useToken } from '../internal';
 
@@ -12,6 +13,13 @@ export type OverrideTokenWithoutDerivative = ComponentTokenMap;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
 export type GlobalTokenWithComponent<ComponentName extends OverrideComponent> = GlobalToken &
   ComponentTokenMap[ComponentName];
+
+type ComponentToken<ComponentName extends OverrideComponent> = Exclude<
+  OverrideToken[ComponentName],
+  undefined
+>;
+type ComponentTokenKey<ComponentName extends OverrideComponent> =
+  keyof ComponentToken<ComponentName>;
 
 export interface StyleInfo<ComponentName extends OverrideComponent> {
   hashId: string;
@@ -43,6 +51,8 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
     | ((token: GlobalToken) => OverrideTokenWithoutDerivative[ComponentName]),
   options?: {
     resetStyle?: boolean;
+    // Deprecated token key map [["oldTokenKey", "newTokenKey"], ["oldTokenKey", "newTokenKey"]]
+    deprecatedTokens?: [ComponentTokenKey<ComponentName>, ComponentTokenKey<ComponentName>][];
   },
 ) {
   return (prefixCls: string): UseComponentStyleResult => {
@@ -70,9 +80,31 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
       useStyleRegister({ ...sharedConfig, path: [component, prefixCls, iconPrefixCls] }, () => {
         const { token: proxyToken, flush } = statisticToken(token);
 
+        const customComponentToken = token[component] as ComponentToken<ComponentName>;
         const defaultComponentToken =
-          typeof getDefaultToken === 'function' ? getDefaultToken(proxyToken) : getDefaultToken;
-        const mergedComponentToken = { ...defaultComponentToken, ...token[component] };
+          typeof getDefaultToken === 'function'
+            ? getDefaultToken(mergeToken(proxyToken, customComponentToken ?? {}))
+            : getDefaultToken;
+        const mergedComponentToken = { ...defaultComponentToken, ...customComponentToken };
+
+        if (options?.deprecatedTokens) {
+          const { deprecatedTokens } = options;
+          deprecatedTokens.forEach(([oldTokenKey, newTokenKey]) => {
+            if (process.env.NODE_ENV !== 'production') {
+              warning(
+                !customComponentToken?.[oldTokenKey],
+                `The token '${String(oldTokenKey)}' of ${component} had deprecated, use '${String(
+                  newTokenKey,
+                )}' instead.`,
+              );
+            }
+
+            mergedComponentToken[newTokenKey] =
+              customComponentToken?.[newTokenKey] ||
+              customComponentToken?.[oldTokenKey] ||
+              defaultComponentToken[newTokenKey];
+          });
+        }
 
         const componentCls = `.${prefixCls}`;
         const mergedToken = mergeToken<

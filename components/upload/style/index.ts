@@ -8,7 +8,9 @@ import genRtlStyle from './rtl';
 import { resetComponent } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
 
-export interface ComponentToken {}
+export interface ComponentToken {
+  actionsColor: string;
+}
 
 export interface UploadToken extends FullToken<'Upload'> {
   uploadThumbnailSize: number;
@@ -43,24 +45,30 @@ const genBaseStyle: GenerateStyle<UploadToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Upload', (token) => {
-  const { fontSizeHeading3, fontSize, lineHeight, lineWidth, controlHeightLG } = token;
-  const listItemHeightSM = Math.round(fontSize * lineHeight);
+export default genComponentStyleHook(
+  'Upload',
+  (token) => {
+    const { fontSizeHeading3, fontSize, lineHeight, lineWidth, controlHeightLG } = token;
+    const listItemHeightSM = Math.round(fontSize * lineHeight);
 
-  const uploadToken = mergeToken<UploadToken>(token, {
-    uploadThumbnailSize: fontSizeHeading3 * 2,
-    uploadProgressOffset: listItemHeightSM / 2 + lineWidth,
-    uploadPicCardSize: controlHeightLG * 2.55,
-  });
+    const uploadToken = mergeToken<UploadToken>(token, {
+      uploadThumbnailSize: fontSizeHeading3 * 2,
+      uploadProgressOffset: listItemHeightSM / 2 + lineWidth,
+      uploadPicCardSize: controlHeightLG * 2.55,
+    });
 
-  return [
-    genBaseStyle(uploadToken),
-    genDraggerStyle(uploadToken),
-    genPictureStyle(uploadToken),
-    genPictureCardStyle(uploadToken),
-    genListStyle(uploadToken),
-    genMotionStyle(uploadToken),
-    genRtlStyle(uploadToken),
-    genCollapseMotion(uploadToken),
-  ];
-});
+    return [
+      genBaseStyle(uploadToken),
+      genDraggerStyle(uploadToken),
+      genPictureStyle(uploadToken),
+      genPictureCardStyle(uploadToken),
+      genListStyle(uploadToken),
+      genMotionStyle(uploadToken),
+      genRtlStyle(uploadToken),
+      genCollapseMotion(uploadToken),
+    ];
+  },
+  (token) => ({
+    actionsColor: token.colorTextDescription,
+  }),
+);

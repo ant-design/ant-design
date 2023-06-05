@@ -4,6 +4,7 @@ import type { ComponentToken as AnchorComponentToken } from '../../anchor/style'
 import type { ComponentToken as AppComponentToken } from '../../app/style';
 import type { ComponentToken as AvatarComponentToken } from '../../avatar/style';
 import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
+import type { ComponentToken as BreadcrumbComponentToken } from '../../breadcrumb/style';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 import type { ComponentToken as CalendarComponentToken } from '../../calendar/style';
 import type { ComponentToken as CardComponentToken } from '../../card/style';
@@ -28,6 +29,7 @@ import type { ComponentToken as MenuComponentToken } from '../../menu/style';
 import type { ComponentToken as MessageComponentToken } from '../../message/style';
 import type { ComponentToken as ModalComponentToken } from '../../modal/style';
 import type { ComponentToken as NotificationComponentToken } from '../../notification/style';
+import type { ComponentToken as PaginationComponentToken } from '../../pagination/style';
 import type { ComponentToken as PopconfirmComponentToken } from '../../popconfirm/style';
 import type { ComponentToken as PopoverComponentToken } from '../../popover/style';
 import type { ComponentToken as ProgressComponentToken } from '../../progress/style';
@@ -61,7 +63,7 @@ export interface ComponentTokenMap {
   BackTop?: BackTopComponentToken;
   Badge?: {};
   Button?: ButtonComponentToken;
-  Breadcrumb?: {};
+  Breadcrumb?: BreadcrumbComponentToken;
   Card?: CardComponentToken;
   Carousel?: CarouselComponentToken;
   Cascader?: CascaderComponentToken;
@@ -84,7 +86,7 @@ export interface ComponentTokenMap {
   List?: ListComponentToken;
   Mentions?: MentionsComponentToken;
   Notification?: NotificationComponentToken;
-  Pagination?: {};
+  Pagination?: PaginationComponentToken;
   Popover?: PopoverComponentToken;
   Popconfirm?: PopconfirmComponentToken;
   Rate?: RateComponentToken;

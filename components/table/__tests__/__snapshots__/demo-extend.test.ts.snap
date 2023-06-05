@@ -4814,9 +4814,13 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                                     </span>
                                   </span>
                                   <div
-                                    class="ant-popconfirm-message-title"
+                                    class="ant-popconfirm-message-text"
                                   >
-                                    Sure to delete?
+                                    <div
+                                      class="ant-popconfirm-title"
+                                    >
+                                      Sure to delete?
+                                    </div>
                                   </div>
                                 </div>
                                 <div
@@ -4924,9 +4928,13 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                                     </span>
                                   </span>
                                   <div
-                                    class="ant-popconfirm-message-title"
+                                    class="ant-popconfirm-message-text"
                                   >
-                                    Sure to delete?
+                                    <div
+                                      class="ant-popconfirm-title"
+                                    >
+                                      Sure to delete?
+                                    </div>
                                   </div>
                                 </div>
                                 <div
@@ -5583,7 +5591,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
         >
           <div
             aria-label="Page Size"
-            class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+            class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-selector"
@@ -5602,11 +5610,8 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                   autocomplete="off"
                   class="ant-select-selection-search-input"
                   id="rc_select_TEST_OR_SSR"
-                  readonly=""
                   role="combobox"
-                  style="opacity: 0;"
                   type="search"
-                  unselectable="on"
                   value=""
                 />
               </span>
@@ -10223,7 +10228,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx extend context c
         >
           <div
             aria-label="Page Size"
-            class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+            class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-selector"
@@ -10242,11 +10247,8 @@ exports[`renders components/table/demo/fixed-columns-header.tsx extend context c
                   autocomplete="off"
                   class="ant-select-selection-search-input"
                   id="rc_select_TEST_OR_SSR"
-                  readonly=""
                   role="combobox"
-                  style="opacity: 0;"
                   type="search"
-                  unselectable="on"
                   value=""
                 />
               </span>
@@ -11590,7 +11592,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
         >
           <div
             aria-label="Page Size"
-            class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+            class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-selector"
@@ -11609,11 +11611,8 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                   autocomplete="off"
                   class="ant-select-selection-search-input"
                   id="rc_select_TEST_OR_SSR"
-                  readonly=""
                   role="combobox"
-                  style="opacity: 0;"
                   type="search"
-                  unselectable="on"
                   value=""
                 />
               </span>
@@ -12914,7 +12913,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
         >
           <div
             aria-label="Page Size"
-            class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-selector"
@@ -12933,11 +12932,8 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                   autocomplete="off"
                   class="ant-select-selection-search-input"
                   id="rc_select_TEST_OR_SSR"
-                  readonly=""
                   role="combobox"
-                  style="opacity: 0;"
                   type="search"
-                  unselectable="on"
                   value=""
                 />
               </span>
@@ -13352,111 +13348,109 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                                   </span>
                                 </span>
                               </div>
-                              <div>
-                                <div
-                                  class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-table-filter-dropdown-submenu ant-dropdown-menu-light ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
-                                  style="opacity: 0;"
+                              <div
+                                class="ant-dropdown-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-table-filter-dropdown-submenu ant-dropdown-menu-light ant-dropdown-menu-submenu-placement-rightTop"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                              >
+                                <ul
+                                  class="ant-dropdown-menu ant-dropdown-menu-sub ant-dropdown-menu-vertical"
+                                  data-menu-list="true"
+                                  id="rc-menu-uuid-test-Submenu-popup"
+                                  role="menu"
                                 >
-                                  <ul
-                                    class="ant-dropdown-menu ant-dropdown-menu-sub ant-dropdown-menu-vertical"
-                                    data-menu-list="true"
-                                    id="rc-menu-uuid-test-Submenu-popup"
-                                    role="menu"
+                                  <li
+                                    class="ant-dropdown-menu-item"
+                                    data-menu-id="rc-menu-uuid-test-Green"
+                                    role="menuitem"
+                                    tabindex="-1"
                                   >
-                                    <li
-                                      class="ant-dropdown-menu-item"
-                                      data-menu-id="rc-menu-uuid-test-Green"
-                                      role="menuitem"
-                                      tabindex="-1"
+                                    <span
+                                      class="ant-dropdown-menu-title-content"
                                     >
-                                      <span
-                                        class="ant-dropdown-menu-title-content"
+                                      <label
+                                        class="ant-checkbox-wrapper"
                                       >
-                                        <label
-                                          class="ant-checkbox-wrapper"
+                                        <span
+                                          class="ant-checkbox"
                                         >
+                                          <input
+                                            class="ant-checkbox-input"
+                                            type="checkbox"
+                                          />
                                           <span
-                                            class="ant-checkbox"
-                                          >
-                                            <input
-                                              class="ant-checkbox-input"
-                                              type="checkbox"
-                                            />
-                                            <span
-                                              class="ant-checkbox-inner"
-                                            />
-                                          </span>
-                                        </label>
-                                        <span>
-                                          Green
+                                            class="ant-checkbox-inner"
+                                          />
                                         </span>
+                                      </label>
+                                      <span>
+                                        Green
                                       </span>
-                                    </li>
+                                    </span>
+                                  </li>
+                                  <div
+                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                                  >
                                     <div
-                                      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                                      class="ant-tooltip-arrow"
+                                      style="position: absolute; top: 0px; left: 0px;"
+                                    />
+                                    <div
+                                      class="ant-tooltip-content"
                                     >
                                       <div
-                                        class="ant-tooltip-arrow"
-                                        style="position: absolute; top: 0px; left: 0px;"
+                                        class="ant-tooltip-inner"
+                                        role="tooltip"
                                       />
-                                      <div
-                                        class="ant-tooltip-content"
-                                      >
-                                        <div
-                                          class="ant-tooltip-inner"
-                                          role="tooltip"
-                                        />
-                                      </div>
                                     </div>
-                                    <li
-                                      class="ant-dropdown-menu-item"
-                                      data-menu-id="rc-menu-uuid-test-Black"
-                                      role="menuitem"
-                                      tabindex="-1"
+                                  </div>
+                                  <li
+                                    class="ant-dropdown-menu-item"
+                                    data-menu-id="rc-menu-uuid-test-Black"
+                                    role="menuitem"
+                                    tabindex="-1"
+                                  >
+                                    <span
+                                      class="ant-dropdown-menu-title-content"
                                     >
-                                      <span
-                                        class="ant-dropdown-menu-title-content"
+                                      <label
+                                        class="ant-checkbox-wrapper"
                                       >
-                                        <label
-                                          class="ant-checkbox-wrapper"
+                                        <span
+                                          class="ant-checkbox"
                                         >
+                                          <input
+                                            class="ant-checkbox-input"
+                                            type="checkbox"
+                                          />
                                           <span
-                                            class="ant-checkbox"
-                                          >
-                                            <input
-                                              class="ant-checkbox-input"
-                                              type="checkbox"
-                                            />
-                                            <span
-                                              class="ant-checkbox-inner"
-                                            />
-                                          </span>
-                                        </label>
-                                        <span>
-                                          Black
+                                            class="ant-checkbox-inner"
+                                          />
                                         </span>
+                                      </label>
+                                      <span>
+                                        Black
                                       </span>
-                                    </li>
+                                    </span>
+                                  </li>
+                                  <div
+                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                                  >
                                     <div
-                                      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                                      class="ant-tooltip-arrow"
+                                      style="position: absolute; top: 0px; left: 0px;"
+                                    />
+                                    <div
+                                      class="ant-tooltip-content"
                                     >
                                       <div
-                                        class="ant-tooltip-arrow"
-                                        style="position: absolute; top: 0px; left: 0px;"
+                                        class="ant-tooltip-inner"
+                                        role="tooltip"
                                       />
-                                      <div
-                                        class="ant-tooltip-content"
-                                      >
-                                        <div
-                                          class="ant-tooltip-inner"
-                                          role="tooltip"
-                                        />
-                                      </div>
                                     </div>
-                                  </ul>
-                                </div>
+                                  </div>
+                                </ul>
                               </div>
                             </li>
                           </ul>
@@ -15328,7 +15322,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
           >
             <div
               aria-label="Page Size"
-              class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
             >
               <div
                 class="ant-select-selector"
@@ -15347,11 +15341,8 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                     autocomplete="off"
                     class="ant-select-selection-search-input"
                     id="rc_select_TEST_OR_SSR"
-                    readonly=""
                     role="combobox"
-                    style="opacity: 0;"
                     type="search"
-                    unselectable="on"
                     value=""
                   />
                 </span>
@@ -27830,7 +27821,7 @@ exports[`renders components/table/demo/sticky.tsx extend context correctly 1`] =
         >
           <div
             aria-label="Page Size"
-            class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+            class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-selector"
@@ -27849,11 +27840,8 @@ exports[`renders components/table/demo/sticky.tsx extend context correctly 1`] =
                   autocomplete="off"
                   class="ant-select-selection-search-input"
                   id="rc_select_TEST_OR_SSR"
-                  readonly=""
                   role="combobox"
-                  style="opacity: 0;"
                   type="search"
-                  unselectable="on"
                   value=""
                 />
               </span>

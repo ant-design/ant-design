@@ -15,11 +15,58 @@ timeline: true
 
 ---
 
+## 5.5.2
+
+`2023-05-30`
+
+- 🐞 修复 ColorPicker 组件悬停边界问题。[#42669](https://github.com/ant-design/ant-design/pull/42669) [@RedJue](https://github.com/RedJue)
+- 🐞 修复 Menu 组件 `overflowedIndicatorClassName` 覆盖了原本的 class 的问题。[#42692](https://github.com/ant-design/ant-design/pull/42692) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Select 组件在某些情况下显示乱码问题。[#42651](https://github.com/ant-design/ant-design/pull/42651) [@895433995](https://github.com/895433995)
+- 🐞 修复 Card 组件，当 Image 设置 `cover` 属性时，悬停蒙版没有圆角属性，导致 UI 异常。[#42642](https://github.com/ant-design/ant-design/pull/42642) [@iNeedToCopy](https://github.com/iNeedToCopy)
+- 🐞 修复 Checkbox 和 label 不对齐的问题。[#42590](https://github.com/ant-design/ant-design/pull/42590) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复使用 ConfigProvider 会导致未使用的 Form 组件也被打包的问题。[#42604](https://github.com/ant-design/ant-design/pull/42604)
+- 🐞 修复 InputNumber 和其他组件无法基线对齐的问题。[#42580](https://github.com/ant-design/ant-design/pull/42580)
+- 🐞 修复 Badge 组件中旋转的 `icon` 动画。[#42575](https://github.com/ant-design/ant-design/pull/42575) [@MadCcc](https://github.com/MadCcc)
+- 📦 优化 Form `setFieldsValue` 相关代码以降低打包尺寸。[#42635](https://github.com/ant-design/ant-design/pull/42635)
+- 💄 优化 Image 组件预览组样式。[#42675](https://github.com/ant-design/ant-design/pull/42675) [@kiner-tang](https://github.com/kiner-tang)
+- 💄 修复 Tag 无边框样式在 `error` 等状态下不生效的问题。[#42619](https://github.com/ant-design/ant-design/pull/42619) [@li-jia-nan](https://github.com/li-jia-nan)
+- 💄 修复 Table `rowSpan` 悬浮高亮背景颜色丢失的问题。[#42572](https://github.com/ant-design/ant-design/pull/42572)
+- 💄 修复 Pagination 在禁用状态下 link 图标和 ellipsis hover 时的样式。[#42541](https://github.com/ant-design/ant-design/pull/42541) [@qmhc](https://github.com/qmhc)
+- 💄 修复部分全局 Token 无法覆盖组件样式的问题。[#42535](https://github.com/ant-design/ant-design/pull/42535) [@MadCcc](https://github.com/MadCcc)
+- 🇱🇹 为 `lt_LT` 添加缺失的部分文案。[#42664](https://github.com/ant-design/ant-design/pull/42664) [@Digital-512](https://github.com/Digital-512)
+- RTL
+  - 💄 修复 ColorPicker 组件 RTL 模式样式。[#42716](https://github.com/ant-design/ant-design/pull/42716) [@RedJue](https://github.com/RedJue)
+  - 💄 修复 Anchor RTL 模式下轨道的位置。[#42706](https://github.com/ant-design/ant-design/pull/42706) [@qmhc](https://github.com/qmhc)
+
+## 5.5.1
+
+`2023-05-22`
+
+- 🐞 修复 Button 组件 icon 尺寸和间距问题。[#42516](https://github.com/ant-design/ant-design/pull/42516) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Select 移除和选中按钮不居中的问题。[#42513](https://github.com/ant-design/ant-design/pull/42513)
+- 🐞 重构 Popconfirm DOM 结构以解决 `icon={null}` 时 `title` 和 `description` 的多余 margin 问题。[#42433](https://github.com/ant-design/ant-design/pull/42433)
+- 🐞 修复 Menu 图标在 `itemMarginInline` 为 0 时不居中的问题。[#42426](https://github.com/ant-design/ant-design/pull/42426) [@zzwgh](https://github.com/zzwgh)
+- 🐞 修复 Tag 被 Tooltip 包裹时，hover 会导致 `font-size` 错误的问题。[#42414](https://github.com/ant-design/ant-design/pull/42414)
+- 🐞 修复 Popconfirm 的 `onVisibleChange` 会重复触发的问题。[#42393](https://github.com/ant-design/ant-design/pull/42393)
+- 🐞 调整 Tooltip 和 Popover 展示逻辑，现在会优先保证不会被 `overflow: hidden` 裁剪，其次保证尽可能在可见屏幕范围内展示。[#42394](https://github.com/ant-design/ant-design/pull/42394)
+- ColorPicker
+  - 🐞 优化 ColorPicker `allowClear` 交互逻辑，重新打开面板选择颜色会默认 100% 透明度，而不是 0%。[#42439](https://github.com/ant-design/ant-design/pull/42439) [@RedJue](https://github.com/RedJue)
+  - 🐞 优化 ColorPicker 交互，点击清除按钮时隐藏面板。[#42406](https://github.com/ant-design/ant-design/pull/42406) [@kiner-tang](https://github.com/kiner-tang)
+- 💄 修改 Table 筛选下拉菜单的圆角。[#42451](https://github.com/ant-design/ant-design/pull/42451) [@Yuiai01](https://github.com/Yuiai01)
+- 🛠 全局移除 `rc-util/lib/Dom/addEventListener` 引入的 `addEventListener` 方法，用原生代替。[#42464](https://github.com/ant-design/ant-design/pull/42464) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛠 优化 @ant-design/icons 的 bundle 体积大小。修复 TwoTone 类的图标色为 5.0 的新主色。[#42443](https://github.com/ant-design/ant-design/pull/42443)
+- 🌐 添加 `mn_MN` 中缺失的翻译。[#42512](https://github.com/ant-design/ant-design/pull/42512) [@ariunbatb](https://github.com/ariunbatb)
+- RTL
+  - 💄 修复 Select `direction` 为 `rtl` 时 scrollbar 的位置。[#42508](https://github.com/ant-design/ant-design/pull/42508) [@BoyYangzai](https://github.com/BoyYangzai)
+- TypeScript
+  - 🤖 优化 Slider ref 类型，移除 `unknown` 和 `any` 类型，用 `SliderRef` 代替。[#42420](https://github.com/ant-design/ant-design/pull/42420) [@li-jia-nan](https://github.com/li-jia-nan)
+
 ## 5.5.0
 
 `2023-05-15`
 
 - 🔥 新增颜色选择器组件。[#41990](https://github.com/ant-design/ant-design/pull/41990) [@RedJue](https://github.com/RedJue)
+- 🆕 新增 `DatePicker.generateCalendar` 与 `Calendar.generateCalendar` 自定义日期库组件方法，不再需要通过路径引入使用。[#41773](https://github.com/ant-design/ant-design/pull/41773)
 - 💄 优化 Select、TreeSelect、Cascader 多选模式下的样式，去除标签的边框。[#41480](https://github.com/ant-design/ant-design/pull/41480)
 - 🆕 Form `validateFields` 支持 `validateOnly` 配置仅做校验而不改变 UI 状态。[#42273](https://github.com/ant-design/ant-design/pull/42273)
 - 🆕 DatePicker 支持 `changeOnBlur` 以允许不点击确认按钮，在失去焦点时也能触发 change 事件。[#42168](https://github.com/ant-design/ant-design/pull/42168)
