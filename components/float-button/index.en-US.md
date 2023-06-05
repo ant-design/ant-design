@@ -54,8 +54,8 @@ FloatButton. Available since `5.0.0`.
 | --- | --- | --- | --- | --- |
 | shape | Setting button shape of children | `circle` \| `square` | `circle` |  |
 | trigger | Which action can trigger menu open/close | `click` \| `hover` | - |  |
-| open | Whether the menu is visible or not | boolean | - |  |
-| onOpenChange | Callback executed when active menu is changed | (open: boolean) => void | - |  |
+| open | Whether the menu is visible or not, use it with trigger | boolean | - |  |
+| onOpenChange | Callback executed when active menu is changed, use it with trigger | (open: boolean) => void | - |  |
 
 ### FloatButton.BackTop
 

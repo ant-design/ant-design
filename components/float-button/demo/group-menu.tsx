@@ -1,28 +1,48 @@
-import React from 'react';
+import {
+  CommentOutlined,
+  CustomerServiceOutlined,
+  QuestionCircleOutlined,
+} from '@ant-design/icons';
 import { FloatButton } from 'antd';
-import { CustomerServiceOutlined, CommentOutlined } from '@ant-design/icons';
+import React, { useState } from 'react';
 
-const App: React.FC = () => (
-  <>
-    <FloatButton.Group
-      trigger="click"
-      type="primary"
-      style={{ right: 24 }}
-      icon={<CustomerServiceOutlined />}
-    >
-      <FloatButton />
-      <FloatButton icon={<CommentOutlined />} />
-    </FloatButton.Group>
-    <FloatButton.Group
-      trigger="hover"
-      type="primary"
-      style={{ right: 94 }}
-      icon={<CustomerServiceOutlined />}
-    >
-      <FloatButton />
-      <FloatButton icon={<CommentOutlined />} />
-    </FloatButton.Group>
-  </>
-);
+const App: React.FC = () => {
+  const [open, setOpen] = useState(true);
+
+  return (
+    <>
+      <FloatButton.Group
+        trigger="click"
+        type="primary"
+        style={{ right: 74 }}
+        icon={<CustomerServiceOutlined />}
+      >
+        <FloatButton />
+        <FloatButton icon={<CommentOutlined />} />
+      </FloatButton.Group>
+      <FloatButton.Group
+        trigger="hover"
+        type="primary"
+        style={{ right: 164 }}
+        icon={<CustomerServiceOutlined />}
+      >
+        <FloatButton />
+        <FloatButton icon={<CommentOutlined />} />
+      </FloatButton.Group>
+
+      <FloatButton.Group
+        trigger="click"
+        type="primary"
+        style={{ right: 24 }}
+        open={open}
+        onOpenChange={(opened) => setOpen(opened)}
+        icon={<QuestionCircleOutlined />}
+      >
+        <FloatButton />
+        <FloatButton icon={<CommentOutlined />} />
+      </FloatButton.Group>
+    </>
+  );
+};
 
 export default App;
