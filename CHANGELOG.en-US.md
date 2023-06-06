@@ -42,6 +42,12 @@ timeline: true
 - 🐞 Rate could accept `id` `data-*` `aria-*` `role` `onMouseEnter` `onMouseLeave` attributes now, so that it can be wrapped by Tooltip component. [#42676](https://github.com/ant-design/ant-design/pull/42676)
 - 🐞 Fix Menu.Submenu not aligned in horizontal mode. [#42648](https://github.com/ant-design/ant-design/pull/42648) [@MadCcc](https://github.com/MadCcc)
 - 🐞 Align Card `tabList` API with Tab `items`. [#42413](https://github.com/ant-design/ant-design/pull/42413)
+- 🐞 Fix circular dependencies.
+  - 🐞 Fix Modal circular dependency issue. [#42841](https://github.com/ant-design/ant-design/pull/42841) [@kiner-tang](https://github.com/kiner-tang)
+  - 🐞 Fix Space circular dependency issue. [#42811](https://github.com/ant-design/ant-design/pull/42811) [@kiner-tang](https://github.com/kiner-tang)
+  - 🐞 Fix Statistic circular dependency issue. [#42814](https://github.com/ant-design/ant-design/pull/42814) [@kiner-tang](https://github.com/kiner-tang)
+  - 🐞 Fix List circular dependency issue. [#42806](https://github.com/ant-design/ant-design/pull/42806) [@kiner-tang](https://github.com/kiner-tang)
+  - 🐞 Fix Dropdown circular dependency issue. [#42764](https://github.com/ant-design/ant-design/pull/42764) [@Dunqing](https://github.com/Dunqing)
 - ⌨️ Improve Progress accessibility by adding more `aria` props. [#42704](https://github.com/ant-design/ant-design/pull/42704) [@MehmetYararVX](https://github.com/MehmetYararVX)
 - ⌨️ Notification add role `props`. [#42484](https://github.com/ant-design/ant-design/pull/42484) [@guan404ming](https://github.com/guan404ming)
 - 🛠 Collapse use `onKeyDown` instead of `onKeyPress` to change collapse panel active state. [#42592](https://github.com/ant-design/ant-design/pull/42592) [@kiner-tang](https://github.com/kiner-tang)

@@ -42,6 +42,12 @@ timeline: true
 - 🐞 Rate 组件支持传入 `id` `data-*` `aria-*` `role` `onMouseEnter` `onMouseLeave` 等属性，修复不支持 Tooltip 包裹的问题。[#42676](https://github.com/ant-design/ant-design/pull/42676)
 - 🐞 修复 Menu 组件横向模式下子菜单没有对齐的问题。[#42648](https://github.com/ant-design/ant-design/pull/42648) [@MadCcc](https://github.com/MadCcc)
 - 🐞 将 Card `tabList` 的 API 与 Tab `items` 对齐。[#42413](https://github.com/ant-design/ant-design/pull/42413)
+- 🐞 修复循环依赖问题。
+  - 🐞 修复 Modal 组件循环依赖问题。[#42841](https://github.com/ant-design/ant-design/pull/42841) [@kiner-tang](https://github.com/kiner-tang)
+  - 🐞 修复 Space 组件循环依赖问题。[#42811](https://github.com/ant-design/ant-design/pull/42811) [@kiner-tang](https://github.com/kiner-tang)
+  - 🐞 修复 Statistic 组件循环依赖问题。[#42814](https://github.com/ant-design/ant-design/pull/42814) [@kiner-tang](https://github.com/kiner-tang)
+  - 🐞 修复 List 组件循环依赖问题。[#42806](https://github.com/ant-design/ant-design/pull/42806) [@kiner-tang](https://github.com/kiner-tang)
+  - 🐞 修复 Dropdown 组件循环依赖问题。[#42764](https://github.com/ant-design/ant-design/pull/42764) [@Dunqing](https://github.com/Dunqing)
 - ⌨️ 增强 Progress 可访问性表现，添加 `aria` 属性。[#42704](https://github.com/ant-design/ant-design/pull/42704) [@MehmetYararVX](https://github.com/MehmetYararVX)
 - ⌨️ Notification 添加 `role` 属性。[#42484](https://github.com/ant-design/ant-design/pull/42484) [@guan404ming](https://github.com/guan404ming)
 - 🛠 Collapse 使用 `onKeyDown` 替代 `onKeyPress` 来改变折叠面板的激活状态。[#42592](https://github.com/ant-design/ant-design/pull/42592) [@kiner-tang](https://github.com/kiner-tang)
