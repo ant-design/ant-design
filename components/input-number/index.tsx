@@ -87,9 +87,6 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
 
   const mergedSize = useSize((ctx) => compactSize ?? customizeSize ?? ctx);
 
-  const hasPrefix = prefix != null || hasFeedback;
-  const hasAddon = !!(addonBefore || addonAfter);
-
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
@@ -103,10 +100,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus),
-    compactItemClassnames,
     hashId,
-    className,
-    !hasPrefix && !hasAddon && rootClassName,
   );
   const wrapperClassName = `${prefixCls}-group`;
 
@@ -114,7 +108,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     <RcInputNumber
       ref={inputRef}
       disabled={mergedDisabled}
-      className={inputNumberClass}
+      className={classNames(className, rootClassName, compactItemClassnames)}
       upHandler={upIcon}
       downHandler={downIcon}
       prefixCls={prefixCls}
@@ -140,6 +134,9 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
           </NoCompactStyle>
         )
       }
+      classNames={{
+        input: inputNumberClass,
+      }}
       classes={{
         affixWrapper: classNames(
           getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
@@ -149,10 +146,6 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
             [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
           },
-
-          // className will go to addon wrapper
-          !hasAddon && className,
-          !hasAddon && rootClassName,
           hashId,
         ),
         wrapper: classNames(
@@ -169,8 +162,6 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
           },
           getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
           hashId,
-          className,
-          rootClassName,
         ),
       }}
       {...others}
