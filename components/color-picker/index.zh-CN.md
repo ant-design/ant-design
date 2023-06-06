@@ -28,6 +28,7 @@ group:
 <code src="./demo/trigger-event.tsx">自定义触发事件</code>
 <code src="./demo/format.tsx">颜色编码</code>
 <code src="./demo/presets.tsx">预设颜色</code>
+<code src="./demo/showValue.tsx">展示颜色</code>
 <code src="./demo/pure-panel.tsx" debug>Pure Render</code>
 
 ## API
@@ -48,6 +49,7 @@ group:
 | disabled | 禁用颜色选择器 | boolean | - |
 | placement | 弹出窗口的位置 | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` |
 | arrow | 配置弹出的箭头 | `boolean \| { pointAtCenter: boolean }` | `true` | - |
+| showValue | 是否显示选定的颜色 | `boolean` | - |
 | onChange | 颜色变化的回调 | `(value: Color, hex: string) => void` | - |
 | onFormatChange | 颜色格式变化的回调 | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - |
 | onOpenChange | 当 `open` 被改变时的回调 | `(open: boolean) => void` | - |

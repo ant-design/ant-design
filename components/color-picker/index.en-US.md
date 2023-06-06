@@ -27,6 +27,7 @@ Used when the user needs to customize the color selection.
 <code src="./demo/trigger-event.tsx">Custom Trigger Event</code>
 <code src="./demo/format.tsx">Color Format</code>
 <code src="./demo/presets.tsx">Preset Colors</code>
+<code src="./demo/showValue.tsx">Show Color</code>
 <code src="./demo/pure-panel.tsx" debug>Pure Render</code>
 
 ## API
@@ -47,6 +48,7 @@ Used when the user needs to customize the color selection.
 | disabled | Disable ColorPicker | boolean | - |
 | placement | Placement of popup | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` |
 | arrow | Configuration for popup arrow | `boolean \| { pointAtCenter: boolean }` | `true` | - |
+| showValue | Whether to show selected color | `boolean` | - |
 | onChange | Callback when `value` is changed | `(value: Color, hex: string) => void` | - |
 | onFormatChange | Callback when `format` is changed | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - |
 | onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - |

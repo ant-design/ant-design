@@ -329,4 +329,27 @@ describe('ColorPicker', () => {
 
     expect(container.querySelector('.ant-color-picker-presets-color-bright')).toBeFalsy();
   });
+
+  it('Should showValue work', async () => {
+    const { container } = render(<ColorPicker open showValue />);
+    const targetEle = container.querySelector('.ant-color-picker-trigger-color-show');
+    expect(targetEle).toBeTruthy();
+    expect(targetEle?.innerHTML).toEqual('#1677FF');
+
+    fireEvent.mouseDown(
+      container.querySelector('.ant-color-picker-format-select .ant-select-selector')!,
+    );
+    await waitFakeTimer();
+    fireEvent.click(container.querySelector('.ant-select-item[title="HSB"]')!);
+    await waitFakeTimer();
+    expect(targetEle?.innerHTML).toEqual('hsb(215, 91%, 100%)');
+
+    fireEvent.mouseDown(
+      container.querySelector('.ant-color-picker-format-select .ant-select-selector')!,
+    );
+    await waitFakeTimer();
+    fireEvent.click(container.querySelector('.ant-select-item[title="RGB"]')!);
+    await waitFakeTimer();
+    expect(targetEle?.innerHTML).toEqual('rgb(22, 119, 255)');
+  });
 });

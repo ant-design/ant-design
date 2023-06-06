@@ -39,6 +39,7 @@ export interface ColorPickerProps
   allowClear?: boolean;
   presets?: PresetsItem[];
   arrow?: boolean | { pointAtCenter: boolean };
+  showValue?: boolean;
   styles?: { popup?: CSSProperties };
   rootClassName?: string;
   onOpenChange?: (open: boolean) => void;
@@ -66,6 +67,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     disabled,
     placement = 'bottomLeft',
     arrow = true,
+    showValue,
     style,
     className,
     rootClassName,
@@ -90,6 +92,11 @@ const ColorPicker: CompoundedComponent = (props) => {
     postState: (openData) => !disabled && openData,
     onChange: onOpenChange,
   });
+  const [formatValue, setFormatValue] = useMergedState(format, {
+    value: format,
+    onChange: onFormatChange,
+  });
+
   const [colorCleared, setColorCleared] = useState(false);
 
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
@@ -149,8 +156,8 @@ const ColorPicker: CompoundedComponent = (props) => {
     colorCleared,
     disabled,
     presets,
-    format,
-    onFormatChange,
+    format: formatValue,
+    onFormatChange: setFormatValue,
   };
 
   return wrapSSR(
@@ -181,6 +188,8 @@ const ColorPicker: CompoundedComponent = (props) => {
           prefixCls={prefixCls}
           disabled={disabled}
           colorCleared={colorCleared}
+          showValue={showValue}
+          format={formatValue}
         />
       )}
     </Popover>,
