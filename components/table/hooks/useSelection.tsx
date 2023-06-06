@@ -149,14 +149,10 @@ const useSelection = <RecordType extends AnyObject = any>(
     }
     let convertData = data;
     if (preserveSelectedRowKeys) {
-      const keysMap = new Map();
-      data.forEach((record, index) => {
-        const key = getRowKey(record, index);
-        keysMap.set(key, true);
-      });
+      const keysSet = new Set(data.map((record, index) => getRowKey(record, index)));
       // remove preserveRecords that duplicate data
       const preserveRecords = Array.from(preserveRecordsRef.current).reduce(
-        (total: RecordType[], [key, value]) => (keysMap.has(key) ? total : total.concat(value)),
+        (total: RecordType[], [key, value]) => (keysSet.has(key) ? total : total.concat(value)),
         [],
       );
       convertData = [...convertData, ...preserveRecords];
