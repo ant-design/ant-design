@@ -45,6 +45,7 @@ const App: React.FC = () => (
       },
     }}
   >
+    <Slider defaultValue={30} disabled />
     <Slider range={{ draggableTrack: true }} defaultValue={[20, 50]} />
     <div style={style}>
       <Slider vertical defaultValue={30} />
