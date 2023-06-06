@@ -16,7 +16,6 @@ const genPresetsStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
     borderRadius,
     colorFill,
     colorWhite,
-    colorTextTertiary,
     marginXXS,
     paddingXS,
   } = token;
@@ -74,7 +73,7 @@ const genPresetsStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
             boxSizing: 'border-box',
             position: 'absolute',
             top: '50%',
-            insetInlineStart: '21.5%',
+            insetInlineStart: '22.5%',
             display: 'table',
             width: (colorPickerPresetColorSize / 13) * 5,
             height: (colorPickerPresetColorSize / 13) * 8,
@@ -96,7 +95,7 @@ const genPresetsStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
             },
             [`&${componentCls}-presets-color-bright`]: {
               '&::after': {
-                borderColor: colorTextTertiary,
+                borderColor: 'rgba(0, 0, 0, 0.45)',
               },
             },
           },

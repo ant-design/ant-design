@@ -19,6 +19,7 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
     marginXS,
     fontSize,
     fontWeightStrong,
+    colorTextHeading,
   } = token;
 
   return {
@@ -41,6 +42,7 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
 
         [`${componentCls}-title`]: {
           fontWeight: fontWeightStrong,
+          color: colorTextHeading,
 
           '&:only-child': {
             fontWeight: 'normal',
