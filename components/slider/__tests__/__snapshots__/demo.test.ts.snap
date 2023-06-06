@@ -121,6 +121,30 @@ Array [
     />
   </div>,
   <div
+    class="ant-slider ant-slider-vertical"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <div
+      class="ant-slider-track"
+      style="bottom:0%;height:30%"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="30"
+      class="ant-slider-handle"
+      role="slider"
+      style="bottom:30%;transform:translateY(50%)"
+      tabindex="0"
+    />
+  </div>,
+  <div
     class="ant-slider ant-slider-horizontal"
   >
     <div
@@ -153,49 +177,6 @@ Array [
       style="left:50%;transform:translateX(-50%)"
       tabindex="0"
     />
-  </div>,
-  <div
-    class="ant-slider ant-slider-horizontal"
-  >
-    <div
-      class="ant-slider-rail"
-    />
-    <div
-      class="ant-slider-track"
-      style="left:0%;width:30%"
-    />
-    <div
-      class="ant-slider-step"
-    />
-    <div
-      aria-disabled="false"
-      aria-valuemax="100"
-      aria-valuemin="0"
-      aria-valuenow="30"
-      class="ant-slider-handle ant-tooltip-open"
-      role="slider"
-      style="left:30%;transform:translateX(-50%)"
-      tabindex="0"
-    />
-    <div
-      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;box-sizing:border-box"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
-      />
-      <div
-        class="ant-tooltip-content"
-      >
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          30
-        </div>
-      </div>
-    </div>
   </div>,
 ]
 `;
