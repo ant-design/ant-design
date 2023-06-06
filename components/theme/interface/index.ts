@@ -1,4 +1,4 @@
-import { CSSInterpolation } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
 import type { AliasToken } from './alias';
 import type { ComponentTokenMap } from './components';
 
