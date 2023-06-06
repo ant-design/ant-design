@@ -19,7 +19,6 @@ export interface ComponentToken {
   handleLineWidth: number;
   handleLineWidthHover: number;
   dotSize: number;
-  sliderMargin: string;
   railBg: string;
   railHoverBg: string;
   trackBg: string;
@@ -352,11 +351,10 @@ export default genComponentStyleHook(
       dotSize: 8,
       handleLineWidth,
       handleLineWidthHover,
-      sliderMargin: '10px 6px 10px', // FIX ME
       railBg: token.colorBgBase,
-      railHoverBg: '#e1e1e1', // FIX ME
-      trackBg: '@primary-3', // FIX ME
-      trackHoverBg: '@primary-4', // FIX ME
+      railHoverBg: token.colorFillSecondary,
+      trackBg: token.colorPrimaryBorder,
+      trackHoverBg: token.colorPrimaryBorderHover,
       handleColor: token.colorPrimary,
       handleHoverColor: token.colorPrimaryHover,
       handleColorTooltipOpen: token.colorPrimary,
