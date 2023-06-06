@@ -121,30 +121,6 @@ Array [
     />
   </div>,
   <div
-    class="ant-slider ant-slider-vertical"
-  >
-    <div
-      class="ant-slider-rail"
-    />
-    <div
-      class="ant-slider-track"
-      style="bottom:0%;height:30%"
-    />
-    <div
-      class="ant-slider-step"
-    />
-    <div
-      aria-disabled="false"
-      aria-valuemax="100"
-      aria-valuemin="0"
-      aria-valuenow="30"
-      class="ant-slider-handle"
-      role="slider"
-      style="bottom:30%;transform:translateY(50%)"
-      tabindex="0"
-    />
-  </div>,
-  <div
     class="ant-slider ant-slider-horizontal"
   >
     <div
