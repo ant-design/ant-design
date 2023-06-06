@@ -125,7 +125,7 @@ describe('Collapse', () => {
   });
 
   it('should not trigger warning when using items instead of children', () => {
-    const { container } = render(
+    render(
       <Collapse
         items={[
           {
