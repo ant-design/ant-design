@@ -13,7 +13,6 @@ const App: React.FC = () => (
           dotSize: 8,
           handleLineWidth: 6,
           handleLineWidthHover: 2,
-          sliderMargin: '20px 16px 10px',
           railBg: '#9f3434',
           railHoverBg: '#8d2424',
           trackBg: '#b0b0ef',
