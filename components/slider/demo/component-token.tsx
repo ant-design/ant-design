@@ -30,8 +30,6 @@ const App: React.FC = () => (
     }}
   >
     <Slider range defaultValue={[20, 50]} />
-    <Slider vertical defaultValue={30} />
-
     <Slider range={{ draggableTrack: true }} defaultValue={[20, 50]} />
   </ConfigProvider>
 );
