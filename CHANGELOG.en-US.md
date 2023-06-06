@@ -25,7 +25,7 @@ timeline: true
 - 🆕 ConfigProvider support configure Space `classNames` and `styles` properties. [#42748](https://github.com/ant-design/ant-design/pull/42748) [@RedJue](https://github.com/RedJue)
 - 🆕 Space support `classNames` and `styles` properties. [#42743](https://github.com/ant-design/ant-design/pull/42743) [@RedJue](https://github.com/RedJue)
 - 🆕 Drawer panel support event listener. Wrapper support passing `data-*` props. [#42718](https://github.com/ant-design/ant-design/pull/42718) [@kiner-tang](https://github.com/kiner-tang)
-- 🆕 ConfigProvider support configuring Button `style`/`className`/`styles`/`classNames`. [#42623](https://github.com/ant-design/ant-design/pull/42623) [@LuZhenJie1999](https://github.com/LuZhenJie1999)
+- 🆕 ConfigProvider support configuring Button `style` / `className` / `styles` / `classNames`. [#42623](https://github.com/ant-design/ant-design/pull/42623) [@LuZhenJie1999](https://github.com/LuZhenJie1999)
 - 🆕 Pagination size change select component is searchable now. [#42608](https://github.com/ant-design/ant-design/pull/42608)
 - 🆕 QRCode support render svg. [#42570](https://github.com/ant-design/ant-design/pull/42570) [@sy296565890](https://github.com/sy296565890)
 - 🆕 Calendar support passing `panelMode` as the select source type to the internal select trigger callback to use the correct source type when called. [#42459](https://github.com/ant-design/ant-design/pull/42459) [@bombillazo](https://github.com/bombillazo)
