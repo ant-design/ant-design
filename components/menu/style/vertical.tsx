@@ -19,6 +19,7 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
   return {
     [`${componentCls}-item`]: {
       position: 'relative',
+      overflow: 'hidden',
     },
 
     [`${componentCls}-item, ${componentCls}-submenu-title`]: {
@@ -27,15 +28,9 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
       paddingInline: padding,
       overflow: 'hidden',
       textOverflow: 'ellipsis',
-
       marginInline: itemMarginInline,
       marginBlock: marginXXS,
       width: `calc(100% - ${itemMarginInline * 2}px)`,
-    },
-
-    // disable margin collapsed
-    [`${componentCls}-submenu`]: {
-      paddingBottom: 0.02,
     },
 
     [`> ${componentCls}-item,
