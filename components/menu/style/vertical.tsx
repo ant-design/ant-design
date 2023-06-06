@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { textEllipsis } from '../../style';
 import type { MenuToken } from '.';
+import { textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 
 const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
@@ -19,11 +19,6 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
   return {
     [`${componentCls}-item`]: {
       position: 'relative',
-
-      // https://github.com/ant-design/ant-design/blob/5e52057671f9781ad2b957b0ff9adfcd1eb1eb88/components/menu/style/index.less#L487-L489
-      [`&:not(:last-child)`]: {
-        marginBottom: marginXS,
-      },
     },
 
     [`${componentCls}-item, ${componentCls}-submenu-title`]: {

@@ -100,8 +100,8 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
             }
 
             mergedComponentToken[newTokenKey] =
-              customComponentToken?.[newTokenKey] ||
-              customComponentToken?.[oldTokenKey] ||
+              customComponentToken?.[newTokenKey] ??
+              customComponentToken?.[oldTokenKey] ??
               defaultComponentToken[newTokenKey];
           });
         }
