@@ -124,21 +124,23 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     leavedClassName: `${prefixCls}-content-hidden`,
   };
 
-  const items = React.useMemo<React.ReactNode[]>(
+  const items = React.useMemo<React.ReactNode[] | null>(
     () =>
-      toArray(children).map<React.ReactNode>((child, index) => {
-        if (child.props?.disabled) {
-          const key = child.key ?? String(index);
-          const { disabled, collapsible } = child.props;
-          const childProps: Omit<CollapseProps, 'items'> & { key: React.Key } = {
-            ...omit(child.props, ['disabled']),
-            key,
-            collapsible: collapsible ?? (disabled ? 'disabled' : undefined),
-          };
-          return cloneElement(child, childProps);
-        }
-        return child;
-      }),
+      children
+        ? toArray(children).map<React.ReactNode>((child, index) => {
+            if (child.props?.disabled) {
+              const key = child.key ?? String(index);
+              const { disabled, collapsible } = child.props;
+              const childProps: Omit<CollapseProps, 'items'> & { key: React.Key } = {
+                ...omit(child.props, ['disabled']),
+                key,
+                collapsible: collapsible ?? (disabled ? 'disabled' : undefined),
+              };
+              return cloneElement(child, childProps);
+            }
+            return child;
+          })
+        : null,
     [children],
   );
 
