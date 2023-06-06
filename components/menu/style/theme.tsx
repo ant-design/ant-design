@@ -1,6 +1,6 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
-import { genFocusOutline } from '../../style';
 import type { MenuToken } from '.';
+import { genFocusOutline } from '../../style';
 
 const accessibilityFocus = (token: MenuToken) => ({
   ...genFocusOutline(token),
@@ -9,46 +9,48 @@ const accessibilityFocus = (token: MenuToken) => ({
 const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation => {
   const {
     componentCls,
-    colorItemText,
-    colorItemTextSelected,
-    colorGroupTitle,
-    colorItemBg,
-    colorSubItemBg,
-    colorItemBgSelected,
-    colorActiveBarHeight,
-    colorActiveBarWidth,
-    colorActiveBarBorderSize,
+    itemColor,
+    itemSelectedColor,
+    groupTitleColor,
+    itemBg,
+    subMenuItemBg,
+    itemSelectedBg,
+    activeBarHeight,
+    activeBarWidth,
+    activeBarBorderWidth,
     motionDurationSlow,
     motionEaseInOut,
     motionEaseOut,
     menuItemPaddingInline,
     motionDurationMid,
-    colorItemTextHover,
+    itemHoverColor,
     lineType,
     colorSplit,
 
     // Disabled
-    colorItemTextDisabled,
+    itemDisabledColor,
 
     // Danger
-    colorDangerItemText,
-    colorDangerItemTextHover,
-    colorDangerItemTextSelected,
-    colorDangerItemBgActive,
-    colorDangerItemBgSelected,
+    dangerItemColor,
+    dangerItemHoverColor,
+    dangerItemSelectedColor,
+    dangerItemActiveBg,
+    dangerItemSelectedBg,
 
-    colorItemBgHover,
+    itemHoverBg,
     menuSubMenuBg,
 
     // Horizontal
-    colorItemTextSelectedHorizontal,
-    colorItemBgSelectedHorizontal,
+    horizontalItemSelectedColor,
+    horizontalItemSelectedBg,
+    horizontalItemBorderRadius,
+    horizontalItemHoverBg,
   } = token;
 
   return {
     [`${componentCls}-${themeSuffix}, ${componentCls}-${themeSuffix} > ${componentCls}`]: {
-      color: colorItemText,
-      background: colorItemBg,
+      color: itemColor,
+      background: itemBg,
 
       [`&${componentCls}-root:focus-visible`]: {
         ...accessibilityFocus(token),
@@ -56,61 +58,61 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
 
       // ======================== Item ========================
       [`${componentCls}-item-group-title`]: {
-        color: colorGroupTitle,
+        color: groupTitleColor,
       },
 
       [`${componentCls}-submenu-selected`]: {
         [`> ${componentCls}-submenu-title`]: {
-          color: colorItemTextSelected,
+          color: itemSelectedColor,
         },
       },
 
       // Disabled
       [`${componentCls}-item-disabled, ${componentCls}-submenu-disabled`]: {
-        color: `${colorItemTextDisabled} !important`,
+        color: `${itemDisabledColor} !important`,
       },
 
       // Hover
       [`${componentCls}-item:hover, ${componentCls}-submenu-title:hover`]: {
         [`&:not(${componentCls}-item-selected):not(${componentCls}-submenu-selected)`]: {
-          color: colorItemTextHover,
+          color: itemHoverColor,
         },
       },
 
       [`&:not(${componentCls}-horizontal)`]: {
         [`${componentCls}-item:not(${componentCls}-item-selected)`]: {
           '&:hover': {
-            backgroundColor: colorItemBgHover,
+            backgroundColor: itemHoverBg,
           },
 
           '&:active': {
-            backgroundColor: colorItemBgSelected,
+            backgroundColor: itemSelectedBg,
           },
         },
 
         [`${componentCls}-submenu-title`]: {
           '&:hover': {
-            backgroundColor: colorItemBgHover,
+            backgroundColor: itemHoverBg,
           },
 
           '&:active': {
-            backgroundColor: colorItemBgSelected,
+            backgroundColor: itemSelectedBg,
           },
         },
       },
 
       // Danger - only Item has
       [`${componentCls}-item-danger`]: {
-        color: colorDangerItemText,
+        color: dangerItemColor,
 
         [`&${componentCls}-item:hover`]: {
           [`&:not(${componentCls}-item-selected):not(${componentCls}-submenu-selected)`]: {
-            color: colorDangerItemTextHover,
+            color: dangerItemHoverColor,
           },
         },
 
         [`&${componentCls}-item:active`]: {
-          background: colorDangerItemBgActive,
+          background: dangerItemActiveBg,
         },
       },
 
@@ -121,11 +123,11 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
       },
 
       [`${componentCls}-item-selected`]: {
-        color: colorItemTextSelected,
+        color: itemSelectedColor,
 
         // Danger
         [`&${componentCls}-item-danger`]: {
-          color: colorDangerItemTextSelected,
+          color: dangerItemSelectedColor,
         },
 
         [`a, a:hover`]: {
@@ -134,11 +136,11 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
       },
 
       [`& ${componentCls}-item-selected`]: {
-        backgroundColor: colorItemBgSelected,
+        backgroundColor: itemSelectedBg,
 
         // Danger
         [`&${componentCls}-item-danger`]: {
-          backgroundColor: colorDangerItemBgSelected,
+          backgroundColor: dangerItemSelectedBg,
         },
       },
 
@@ -153,7 +155,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
       },
 
       [`&${componentCls}-popup > ${componentCls}`]: {
-        backgroundColor: colorItemBg,
+        backgroundColor: itemBg,
       },
 
       // ====================== Horizontal ======================
@@ -165,32 +167,33 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           : {}),
 
         [`> ${componentCls}-item, > ${componentCls}-submenu`]: {
-          top: colorActiveBarBorderSize,
-          marginTop: -colorActiveBarBorderSize,
+          top: activeBarBorderWidth,
+          marginTop: -activeBarBorderWidth,
           marginBottom: 0,
-          borderRadius: 0,
+          borderRadius: horizontalItemBorderRadius,
 
           '&::after': {
             position: 'absolute',
             insetInline: menuItemPaddingInline,
             bottom: 0,
-            borderBottom: `${colorActiveBarHeight}px solid transparent`,
+            borderBottom: `${activeBarHeight}px solid transparent`,
             transition: `border-color ${motionDurationSlow} ${motionEaseInOut}`,
             content: '""',
           },
 
           [`&:hover, &-active, &-open`]: {
+            background: horizontalItemHoverBg,
             '&::after': {
-              borderBottomWidth: colorActiveBarHeight,
-              borderBottomColor: colorItemTextSelectedHorizontal,
+              borderBottomWidth: activeBarHeight,
+              borderBottomColor: horizontalItemSelectedColor,
             },
           },
           [`&-selected`]: {
-            color: colorItemTextSelectedHorizontal,
-            backgroundColor: colorItemBgSelectedHorizontal,
+            color: horizontalItemSelectedColor,
+            backgroundColor: horizontalItemSelectedBg,
             '&::after': {
-              borderBottomWidth: colorActiveBarHeight,
-              borderBottomColor: colorItemTextSelectedHorizontal,
+              borderBottomWidth: activeBarHeight,
+              borderBottomColor: horizontalItemSelectedColor,
             },
           },
         },
@@ -200,7 +203,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
       //
       [`&${componentCls}-root`]: {
         [`&${componentCls}-inline, &${componentCls}-vertical`]: {
-          borderInlineEnd: `${colorActiveBarBorderSize}px ${lineType} ${colorSplit}`,
+          borderInlineEnd: `${activeBarBorderWidth}px ${lineType} ${colorSplit}`,
         },
       },
 
@@ -208,14 +211,14 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
       [`&${componentCls}-inline`]: {
         // Sub
         [`${componentCls}-sub${componentCls}-inline`]: {
-          background: colorSubItemBg,
+          background: subMenuItemBg,
         },
 
         // Item
         [`${componentCls}-item, ${componentCls}-submenu-title`]:
-          colorActiveBarBorderSize && colorActiveBarWidth
+          activeBarBorderWidth && activeBarWidth
             ? {
-                width: `calc(100% + ${colorActiveBarBorderSize}px)`,
+                width: `calc(100% + ${activeBarBorderWidth}px)`,
               }
             : {},
 
@@ -226,7 +229,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
             position: 'absolute',
             insetBlock: 0,
             insetInlineEnd: 0,
-            borderInlineEnd: `${colorActiveBarWidth}px solid ${colorItemTextSelected}`,
+            borderInlineEnd: `${activeBarWidth}px solid ${itemSelectedColor}`,
             transform: 'scaleY(0.0001)',
             opacity: 0,
             transition: [
@@ -239,7 +242,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           // Danger
           [`&${componentCls}-item-danger`]: {
             '&::after': {
-              borderInlineEndColor: colorDangerItemTextSelected,
+              borderInlineEndColor: dangerItemSelectedColor,
             },
           },
         },
