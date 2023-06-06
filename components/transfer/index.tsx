@@ -148,11 +148,11 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const [sourceSelectedKeys, setSourceSelectedKeys] = useState<string[]>(() =>
-    (selectedKeys ?? []).filter((key) => !targetKeys.includes(key)),
+    (selectedKeys || []).filter((key) => !targetKeys.includes(key)),
   );
 
   const [targetSelectedKeys, setTargetSelectedKeys] = useState<string[]>(() =>
-    (selectedKeys ?? []).filter((key) => targetKeys.includes(key)),
+    (selectedKeys || []).filter((key) => targetKeys.includes(key)),
   );
 
   const propSourceKeys = useMemo<string[]>(
@@ -161,7 +161,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     [dataSource, props.targetKeys],
   );
 
-  const getMergedKeys = (
+  const getMergedSelectedKeys = (
     currentTargetKeys: string[],
     typeSelectedKeys: string[],
     propTypeKeys: string[],
@@ -178,7 +178,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   };
 
   const mergedSourceSelectedKeys = useMemo(
-    () => getMergedKeys(targetKeys, sourceSelectedKeys, propSourceKeys, selectedKeys, true),
+    () => getMergedSelectedKeys(targetKeys, sourceSelectedKeys, propSourceKeys, selectedKeys, true),
     [
       selectedKeys?.join(','),
       targetKeys.join(','),
@@ -188,7 +188,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   );
 
   const mergedTargetSelectedKeys = useMemo(
-    () => getMergedKeys(targetKeys, targetSelectedKeys, targetKeys, selectedKeys, false),
+    () => getMergedSelectedKeys(targetKeys, targetSelectedKeys, targetKeys, selectedKeys, false),
     [selectedKeys?.join(','), targetKeys.join(','), targetSelectedKeys.join(',')],
   );
 
