@@ -42,7 +42,21 @@ title: Less 变量迁移 Design Token
 | `@avatar-group-space` | `groupSpace` | - |
 | `@avatar-group-border-color` | `colorBorderBg` | 全局 Token |
 
-<!-- ### Badge 徽标数 -->
+### Badge 徽标数
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@zindex-badge` | `zIndexPopup` | - |
+| `@badge-height` | `height` | - |
+| `@badge-height-sm` | `fontSize` | 全局 Token |
+| `@badge-dot-size` | `dotSize` | - |
+| `@badge-font-size` | `fontSizeSM` | 全局 Token |
+| `@badge-font-size-sm` | `fontSizeSM` | 全局 Token |
+| `@badge-font-weight` | `textFontWeight` | - |
+| `@badge-status-size` | `statusSize` | - |
+| `@badge-text-color` | `colorBgContainer` | 全局 Token |
+| `@badge-color` | `colorError` | 全局 Token |
 
 ### BreadCrumb 面包屑
 

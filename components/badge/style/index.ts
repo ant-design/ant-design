@@ -4,19 +4,24 @@ import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/internal';
 
+/** Component only token. Which will handle additional calculation of alias token */
+export interface ComponentToken {
+  // Component token here
+  zIndexPopup: number | string;
+  height: number;
+  dotSize: number;
+  textFontWeight: string;
+  statusSize: number;
+}
+
 interface BadgeToken extends FullToken<'Badge'> {
   badgeFontHeight: number;
-  badgeZIndex: number | string;
-  badgeHeight: number;
   badgeHeightSm: number;
   badgeTextColor: string;
-  badgeFontWeight: string;
   badgeFontSize: number;
   badgeColor: string;
   badgeColorHover: string;
-  badgeDotSize: number;
   badgeFontSizeSm: number;
-  badgeStatusSize: number;
   badgeShadowSize: number;
   badgeShadowColor: string;
   badgeProcessingDuration: string;
@@ -65,7 +70,10 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
     badgeShadowSize,
     badgeHeightSm,
     motionDurationSlow,
-    badgeStatusSize,
+    statusSize: badgeStatusSize,
+    dotSize: badgeDotSize,
+    textFontWeight: badgeFontWeight,
+    height: badgeHeight,
     marginXS,
     badgeRibbonOffset,
   } = token;
@@ -95,17 +103,17 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       lineHeight: 1,
 
       [`${componentCls}-count`]: {
-        zIndex: token.badgeZIndex,
-        minWidth: token.badgeHeight,
-        height: token.badgeHeight,
+        zIndex: token.zIndexPopup,
+        minWidth: badgeHeight,
+        height: badgeHeight,
         color: token.badgeTextColor,
-        fontWeight: token.badgeFontWeight,
+        fontWeight: badgeFontWeight,
         fontSize: token.badgeFontSize,
-        lineHeight: `${token.badgeHeight}px`,
+        lineHeight: `${badgeHeight}px`,
         whiteSpace: 'nowrap',
         textAlign: 'center',
         background: token.badgeColor,
-        borderRadius: token.badgeHeight / 2,
+        borderRadius: badgeHeight / 2,
         boxShadow: `0 0 0 ${badgeShadowSize}px ${token.badgeShadowColor}`,
         transition: `background ${token.motionDurationMid}`,
 
@@ -133,10 +141,10 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       },
 
       [`${componentCls}-dot`]: {
-        zIndex: token.badgeZIndex,
-        width: token.badgeDotSize,
-        minWidth: token.badgeDotSize,
-        height: token.badgeDotSize,
+        zIndex: token.zIndexPopup,
+        width: badgeDotSize,
+        minWidth: badgeDotSize,
+        height: badgeDotSize,
         background: token.badgeColor,
         borderRadius: '100%',
         boxShadow: `0 0 0 ${badgeShadowSize}px ${token.badgeShadowColor}`,
@@ -256,12 +264,12 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         [`${numberPrefixCls}-only`]: {
           position: 'relative',
           display: 'inline-block',
-          height: token.badgeHeight,
+          height: badgeHeight,
           transition: `all ${token.motionDurationSlow} ${token.motionEaseOutBack}`,
           WebkitTransformStyle: 'preserve-3d',
           WebkitBackfaceVisibility: 'hidden',
           [`> p${numberPrefixCls}-only-unit`]: {
-            height: token.badgeHeight,
+            height: badgeHeight,
             margin: 0,
             WebkitTransformStyle: 'preserve-3d',
             WebkitBackfaceVisibility: 'hidden',
@@ -331,45 +339,53 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Badge', (token) => {
-  const { fontSize, lineHeight, fontSizeSM, lineWidth, marginXS, colorBorderBg } = token;
+export default genComponentStyleHook(
+  'Badge',
+  (token) => {
+    const { fontSize, lineHeight, fontSizeSM, lineWidth, marginXS, colorBorderBg } = token;
 
-  const badgeFontHeight = Math.round(fontSize * lineHeight);
-  const badgeShadowSize = lineWidth;
-  const badgeZIndex = 'auto';
-  const badgeHeight = badgeFontHeight - 2 * badgeShadowSize;
-  const badgeTextColor = token.colorBgContainer;
-  const badgeFontWeight = 'normal';
-  const badgeFontSize = fontSizeSM;
-  const badgeColor = token.colorError;
-  const badgeColorHover = token.colorErrorHover;
-  const badgeHeightSm = fontSize;
-  const badgeDotSize = fontSizeSM / 2;
-  const badgeFontSizeSm = fontSizeSM;
-  const badgeStatusSize = fontSizeSM / 2;
+    const badgeFontHeight = Math.round(fontSize * lineHeight);
+    const badgeShadowSize = lineWidth;
+    const badgeTextColor = token.colorBgContainer;
+    const badgeFontSize = fontSizeSM;
+    const badgeColor = token.colorError;
+    const badgeColorHover = token.colorErrorHover;
+    const badgeHeightSm = fontSize;
+    const badgeFontSizeSm = fontSizeSM;
 
-  const badgeToken = mergeToken<BadgeToken>(token, {
-    badgeFontHeight,
-    badgeShadowSize,
-    badgeZIndex,
-    badgeHeight,
-    badgeTextColor,
-    badgeFontWeight,
-    badgeFontSize,
-    badgeColor,
-    badgeColorHover,
-    badgeShadowColor: colorBorderBg,
-    badgeHeightSm,
-    badgeDotSize,
-    badgeFontSizeSm,
-    badgeStatusSize,
-    badgeProcessingDuration: '1.2s',
-    badgeRibbonOffset: marginXS,
+    const badgeToken = mergeToken<BadgeToken>(token, {
+      badgeFontHeight,
+      badgeShadowSize,
+      badgeTextColor,
+      badgeFontSize,
+      badgeColor,
+      badgeColorHover,
+      badgeShadowColor: colorBorderBg,
+      badgeHeightSm,
+      badgeFontSizeSm,
+      badgeProcessingDuration: '1.2s',
+      badgeRibbonOffset: marginXS,
 
-    // Follow token just by Design. Not related with token
-    badgeRibbonCornerTransform: 'scaleY(0.75)',
-    badgeRibbonCornerFilter: `brightness(75%)`,
-  });
+      // Follow token just by Design. Not related with token
+      badgeRibbonCornerTransform: 'scaleY(0.75)',
+      badgeRibbonCornerFilter: `brightness(75%)`,
+    });
 
-  return [genSharedBadgeStyle(badgeToken)];
-});
+    return [genSharedBadgeStyle(badgeToken)];
+  },
+  (token) => {
+    const { fontSize, lineHeight, fontSizeSM, lineWidth } = token;
+
+    const badgeFontHeight = Math.round(fontSize * lineHeight);
+    const badgeShadowSize = lineWidth;
+    const badgeHeight = badgeFontHeight - 2 * badgeShadowSize;
+
+    return {
+      zIndexPopup: 'auto',
+      height: badgeHeight,
+      dotSize: fontSizeSM / 2,
+      textFontWeight: 'normal',
+      statusSize: fontSizeSM / 2,
+    };
+  },
+);
