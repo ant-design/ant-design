@@ -3,6 +3,7 @@ import * as React from 'react';
 import theme from '..';
 import { render, renderHook } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import type { ThemeConfig } from '../../config-provider/context';
 import Row from '../../row';
 import genRadius from '../themes/shared/genRadius';
 
@@ -220,5 +221,59 @@ describe('Theme', () => {
     );
 
     expect(container.querySelector('.duration')?.textContent).toEqual('0s');
+  });
+
+  describe('getDesignToken', () => {
+    const getHookToken = (config?: ThemeConfig) => {
+      let token: any;
+      const Demo = () => {
+        const { token: hookToken } = useToken();
+        token = hookToken;
+        return null;
+      };
+      render(
+        <ConfigProvider theme={config}>
+          <Demo />
+        </ConfigProvider>,
+      );
+      delete token._hashId;
+      delete token._tokenKey;
+      return token;
+    };
+
+    it('default', () => {
+      const token = theme.getDesignToken();
+      const hookToken = getHookToken();
+      expect(token).toEqual(hookToken);
+    });
+
+    it('with custom token', () => {
+      const config: ThemeConfig = {
+        token: {
+          colorPrimary: '#189cff',
+          borderRadius: 8,
+          fontSizeLG: 20,
+        },
+      };
+      const token = theme.getDesignToken(config);
+      const hookToken = getHookToken(config);
+      expect(token).toEqual(hookToken);
+      expect(token.colorPrimary).toEqual('#189cff');
+    });
+
+    it('with custom algorithm', () => {
+      const config: ThemeConfig = {
+        token: {
+          colorPrimary: '#1677ff',
+          borderRadius: 8,
+          fontSizeLG: 20,
+        },
+        algorithm: [theme.darkAlgorithm, theme.compactAlgorithm],
+      };
+      const token = theme.getDesignToken(config);
+      const hookToken = getHookToken(config);
+      expect(token).toEqual(hookToken);
+      expect(token.colorPrimary).toEqual('#1668dc');
+    });
   });
 });
