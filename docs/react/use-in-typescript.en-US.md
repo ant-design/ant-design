@@ -43,9 +43,10 @@ $ yarn add antd
 Modify `src/App.tsx`, import Button component from `antd`.
 
 ```tsx
+import React from 'react';
+import type { FC } from 'react';
 import { Button } from 'antd';
 import 'antd/dist/reset.css';
-import type { FC } from 'react';
 import './App.css';
 
 const App: FC = () => (
