@@ -48,8 +48,8 @@ title: Less 变量迁移 Design Token
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
 | `@zindex-badge` | `zIndexPopup` | - |
-| `@badge-height` | `height` | - |
-| `@badge-height-sm` | `fontSize` | 全局 Token |
+| `@badge-height` | `containerHeight` | - |
+| `@badge-height-sm` | `containerHeightSM` | - |
 | `@badge-dot-size` | `dotSize` | - |
 | `@badge-font-size` | `fontSizeSM` | 全局 Token |
 | `@badge-font-size-sm` | `fontSizeSM` | 全局 Token |

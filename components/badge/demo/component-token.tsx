@@ -1,9 +1,6 @@
-import { ConfigProvider, Space } from 'antd';
+import { NotificationOutlined } from '@ant-design/icons';
+import { Avatar, Badge, ConfigProvider, Space } from 'antd';
 import React from 'react';
-import BasicExample from './basic';
-import DotExample from './dot';
-import NoWrapperExample from './no-wrapper';
-import StatusExample from './status';
 
 /** Test usage. Do not use in your production. */
 export default () => (
@@ -11,20 +8,25 @@ export default () => (
     theme={{
       components: {
         Badge: {
-          height: 24,
+          containerHeight: 24,
+          containerHeightSM: 18,
           dotSize: 4,
           textFontWeight: 'bold',
           statusSize: 8,
-          colorError: '#f56c6c', // Global token
         },
       },
     }}
   >
     <Space direction="vertical">
-      <BasicExample />
-      <NoWrapperExample />
-      <DotExample />
-      <StatusExample />
+      <Badge count={5}>
+        <Avatar shape="square" size="large" />
+      </Badge>
+      <Badge count={26} />
+      <Badge dot>
+        <NotificationOutlined />
+      </Badge>
+      <Badge status="success" text="Success" />
+      <Badge size="small" count={0} showZero />
     </Space>
   </ConfigProvider>
 );

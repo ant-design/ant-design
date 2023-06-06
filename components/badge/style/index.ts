@@ -8,15 +8,15 @@ import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/i
 export interface ComponentToken {
   // Component token here
   zIndexPopup: number | string;
-  height: number;
+  containerHeight: number;
+  containerHeightSM: number;
   dotSize: number;
-  textFontWeight: string;
+  textFontWeight: number | string;
   statusSize: number;
 }
 
 interface BadgeToken extends FullToken<'Badge'> {
   badgeFontHeight: number;
-  badgeHeightSm: number;
   badgeTextColor: string;
   badgeFontSize: number;
   badgeColor: string;
@@ -68,12 +68,12 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
     antCls,
     badgeFontHeight,
     badgeShadowSize,
-    badgeHeightSm,
     motionDurationSlow,
     statusSize: badgeStatusSize,
     dotSize: badgeDotSize,
     textFontWeight: badgeFontWeight,
-    height: badgeHeight,
+    containerHeight: badgeHeight,
+    containerHeightSM: badgeHeightSm,
     marginXS,
     badgeRibbonOffset,
   } = token;
@@ -350,7 +350,6 @@ export default genComponentStyleHook(
     const badgeFontSize = fontSizeSM;
     const badgeColor = token.colorError;
     const badgeColorHover = token.colorErrorHover;
-    const badgeHeightSm = fontSize;
     const badgeFontSizeSm = fontSizeSM;
 
     const badgeToken = mergeToken<BadgeToken>(token, {
@@ -361,7 +360,6 @@ export default genComponentStyleHook(
       badgeColor,
       badgeColorHover,
       badgeShadowColor: colorBorderBg,
-      badgeHeightSm,
       badgeFontSizeSm,
       badgeProcessingDuration: '1.2s',
       badgeRibbonOffset: marginXS,
@@ -376,13 +374,10 @@ export default genComponentStyleHook(
   (token) => {
     const { fontSize, lineHeight, fontSizeSM, lineWidth } = token;
 
-    const badgeFontHeight = Math.round(fontSize * lineHeight);
-    const badgeShadowSize = lineWidth;
-    const badgeHeight = badgeFontHeight - 2 * badgeShadowSize;
-
     return {
       zIndexPopup: 'auto',
-      height: badgeHeight,
+      containerHeight: Math.round(fontSize * lineHeight) - 2 * lineWidth,
+      containerHeightSM: fontSize,
       dotSize: fontSizeSM / 2,
       textFontWeight: 'normal',
       statusSize: fontSizeSM / 2,
