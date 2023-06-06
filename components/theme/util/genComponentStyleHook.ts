@@ -6,8 +6,6 @@ import { useContext } from 'react';
 import { ConfigContext } from '../../config-provider/context';
 import { genCommonStyle, genLinkStyle } from '../../style';
 import type { ComponentTokenMap, GlobalToken, OverrideToken } from '../interface';
-import type { UseComponentStyleResult } from '../internal';
-import { mergeToken, statisticToken, useToken } from '../internal';
 
 export type OverrideTokenWithoutDerivative = ComponentTokenMap;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
