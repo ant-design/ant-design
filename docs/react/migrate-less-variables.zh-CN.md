@@ -399,20 +399,20 @@ Mentions 提及
 | `@slider-track-background-color` | `trackBg` | - |
 | `@slider-track-background-color-hover` | `trackHoverBg` | - |
 | `@slider-handle-border-width` | `handleLineWidth` | - |
-| `@slider-handle-background-color` | - | 样式变化已废弃 |
+| `@slider-handle-background-color` | - | 已废弃 |
 | `@slider-handle-color` | `handleColor` | - |
-| `@slider-handle-color-hover` | - | 样式变化已废弃 |
-| `@slider-handle-color-focus` | - | 样式变化已废弃 |
-| `@slider-handle-color-focus-shadow` | - | 样式变化已废弃 |
+| `@slider-handle-color-hover` | - | 已废弃 |
+| `@slider-handle-color-focus` | - | 已废弃 |
+| `@slider-handle-color-focus-shadow` | - | 已废弃 |
 | `@slider-handle-color-tooltip-open` | `handleActiveColor` | - |
 | `@slider-handle-size` | `handleSize` | - |
 | `@slider-handle-margin-top` | `handleMarginTop` | - |
 | `@slider-handle-margin-left` | `handleMarginLeft` | - |
-| `@slider-handle-shadow` | - | 样式变化已废弃 |
+| `@slider-handle-shadow` | - | 已废弃 |
 | `@slider-dot-border-color` | `dotBorderColor` | - |
 | `@slider-dot-border-color-active` | `dotActiveBorderColor` | - |
 | `@slider-disabled-color` | `trackBgDisabled` | - |
-| `@slider-disabled-background-color` | - | 样式变化已废弃 |
+| `@slider-disabled-background-color` | - | 已废弃 |
 
 ### Statistic 统计数值
 

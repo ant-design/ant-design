@@ -402,20 +402,20 @@ export default App;
 | `@slider-track-background-color` | `trackBg` | - |
 | `@slider-track-background-color-hover` | `trackHoverBg` | - |
 | `@slider-handle-border-width` | `handleLineWidth` | - |
-| `@slider-handle-background-color` | - | Deprecated for style change |
+| `@slider-handle-background-color` | - | Deprecated |
 | `@slider-handle-color` | `handleColor` | - |
-| `@slider-handle-color-hover` | - | Deprecated for style change |
-| `@slider-handle-color-focus` | - | Deprecated for style change |
-| `@slider-handle-color-focus-shadow` | - Deprecated for style change |
+| `@slider-handle-color-hover` | - | Deprecated |
+| `@slider-handle-color-focus` | - | Deprecated |
+| `@slider-handle-color-focus-shadow` | - Deprecated |
 | `@slider-handle-color-tooltip-open` | `handleActiveColor` | - |
 | `@slider-handle-size` | `handleSize` | - |
 | `@slider-handle-margin-top` | `handleMarginTop` | - |
 | `@slider-handle-margin-left` | `handleMarginLeft` | - |
-| `@slider-handle-shadow` | - | Deprecated for style change |
+| `@slider-handle-shadow` | - | Deprecated |
 | `@slider-dot-border-color` | `dotBorderColor` | - |
 | `@slider-dot-border-color-active` | `dotActiveBorderColor` | - |
 | `@slider-disabled-color` | `trackBgDisabled` | - |
-| `@slider-disabled-background-color` | - | Deprecated for style change |
+| `@slider-disabled-background-color` | - | Deprecated |
 
 ### Statistic
 
