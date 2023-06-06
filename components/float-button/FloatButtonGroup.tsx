@@ -90,11 +90,13 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
   }, [trigger]);
 
   // =================== Warning =====================
-  warning(
-    !('open' in props && !('trigger' in props)),
-    'FloatButton.Group',
-    '`open` need to be used together with `trigger`',
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      typeof props.open !== 'boolean' || !!trigger,
+      'FloatButton.Group',
+      '`open` need to be used together with `trigger`',
+    );
+  }
 
   return wrapSSR(
     <FloatButtonGroupProvider value={shape}>
