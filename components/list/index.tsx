@@ -1,6 +1,9 @@
 import classNames from 'classnames';
 // eslint-disable-next-line import/no-named-as-default
 import * as React from 'react';
+import extendsObject from '../_util/extendsObject';
+import type { Breakpoint } from '../_util/responsiveObserver';
+import { responsiveArray } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { Row } from '../grid';
@@ -9,15 +12,14 @@ import type { PaginationConfig } from '../pagination';
 import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
-import type { Breakpoint } from '../_util/responsiveObserver';
-import { responsiveArray } from '../_util/responsiveObserver';
-import extendsObject from '../_util/extendsObject';
 import Item from './Item';
 
 // CSSINJS
+import { ListContext } from './context';
 import useStyle from './style';
 
 export type { ListItemMetaProps, ListItemProps } from './Item';
+export type { ListConsumerProps } from './context';
 
 export type ColumnCount = number;
 
@@ -65,15 +67,6 @@ export interface ListProps<T> {
 export interface ListLocale {
   emptyText: React.ReactNode;
 }
-
-export interface ListConsumerProps {
-  grid?: any;
-  itemLayout?: string;
-}
-
-export const ListContext = React.createContext<ListConsumerProps>({});
-
-export const ListConsumer = ListContext.Consumer;
 
 function List<T>({
   pagination = false as ListProps<any>['pagination'],

@@ -104,28 +104,22 @@ describe('ColorPicker', () => {
     expect(container.querySelector('.ant-color-picker')).toBeFalsy();
   });
 
-  it('Should allowClear work', async () => {
-    const { container } = render(<ColorPicker allowClear />);
+  it('Should allowClear and onClear work', async () => {
+    const onClear = jest.fn();
+    const { container } = render(<ColorPicker allowClear onClear={onClear} />);
     fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
-    expect(container.querySelector('.ant-popover-hidden')).toBeFalsy();
     expect(container.querySelector('.ant-color-picker-clear')).toBeTruthy();
     fireEvent.click(container.querySelector('.ant-color-picker-clear')!);
+    expect(onClear).toHaveBeenCalledTimes(1);
 
     await waitFakeTimer();
-    expect(container.querySelector('.ant-popover-hidden')).toBeTruthy();
     expect(
       container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
     ).toEqual('0%');
     expect(
       container.querySelector('.ant-color-picker-trigger .ant-color-picker-clear'),
     ).toBeTruthy();
-
-    fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
-    await waitFakeTimer();
-    expect(
-      container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
-    ).toEqual('0%');
 
     fireEvent.change(container.querySelector('.ant-color-picker-hex-input input')!, {
       target: { value: '#273B57' },

@@ -1,6 +1,7 @@
 /* eslint-disable no-redeclare */
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
+import { warning } from 'rc-util';
 import { useContext } from 'react';
 import { ConfigContext } from '../../config-provider/context';
 import { genCommonStyle, genLinkStyle } from '../../style';
@@ -17,6 +18,8 @@ type ComponentToken<ComponentName extends OverrideComponent> = Exclude<
   OverrideToken[ComponentName],
   undefined
 >;
+type ComponentTokenKey<ComponentName extends OverrideComponent> =
+  keyof ComponentToken<ComponentName>;
 
 export interface StyleInfo<ComponentName extends OverrideComponent> {
   hashId: string;
@@ -48,6 +51,8 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
     | ((token: GlobalToken) => OverrideTokenWithoutDerivative[ComponentName]),
   options?: {
     resetStyle?: boolean;
+    // Deprecated token key map [["oldTokenKey", "newTokenKey"], ["oldTokenKey", "newTokenKey"]]
+    deprecatedTokens?: [ComponentTokenKey<ComponentName>, ComponentTokenKey<ComponentName>][];
   },
 ) {
   return (prefixCls: string): UseComponentStyleResult => {
@@ -75,11 +80,30 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
       useStyleRegister({ ...sharedConfig, path: [component, prefixCls, iconPrefixCls] }, () => {
         const { token: proxyToken, flush } = statisticToken(token);
 
-        const customComponentToken = token[component] as ComponentToken<ComponentName>;
+        const customComponentToken = { ...(token[component] as ComponentToken<ComponentName>) };
+        if (options?.deprecatedTokens) {
+          const { deprecatedTokens } = options;
+          deprecatedTokens.forEach(([oldTokenKey, newTokenKey]) => {
+            if (process.env.NODE_ENV !== 'production') {
+              warning(
+                !customComponentToken?.[oldTokenKey],
+                `The token '${String(oldTokenKey)}' of ${component} had deprecated, use '${String(
+                  newTokenKey,
+                )}' instead.`,
+              );
+            }
+
+            // Should wrap with `if` clause, or there will be `undefined` in object.
+            if (customComponentToken?.[oldTokenKey] || customComponentToken?.[newTokenKey]) {
+              customComponentToken[newTokenKey] ??= customComponentToken?.[oldTokenKey];
+            }
+          });
+        }
         const defaultComponentToken =
           typeof getDefaultToken === 'function'
             ? getDefaultToken(mergeToken(proxyToken, customComponentToken ?? {}))
             : getDefaultToken;
+
         const mergedComponentToken = { ...defaultComponentToken, ...customComponentToken };
 
         const componentCls = `.${prefixCls}`;
@@ -101,7 +125,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
           prefixCls,
           rootPrefixCls,
           iconPrefixCls,
-          overrideComponentToken: token[component],
+          overrideComponentToken: customComponentToken as any,
         });
         flush(component, mergedComponentToken);
         return [

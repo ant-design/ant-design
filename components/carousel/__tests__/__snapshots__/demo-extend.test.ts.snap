@@ -468,6 +468,240 @@ exports[`renders components/carousel/demo/basic.tsx extend context correctly 1`]
 </div>
 `;
 
+exports[`renders components/carousel/demo/component-token.tsx extend context correctly 1`] = `
+<div
+  class="ant-carousel"
+>
+  <div
+    class="slick-slider slick-initialized"
+    dir="ltr"
+  >
+    <div
+      class="slick-list"
+    >
+      <div
+        class="slick-track"
+        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+      >
+        <div
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="-1"
+          style="width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            >
+              <h3
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+              >
+                4
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden="false"
+          class="slick-slide slick-active slick-current"
+          data-index="0"
+          style="outline: none; width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            >
+              <h3
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+              >
+                1
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="slick-slide"
+          data-index="1"
+          style="outline: none; width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            >
+              <h3
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+              >
+                2
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="slick-slide"
+          data-index="2"
+          style="outline: none; width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            >
+              <h3
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+              >
+                3
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="slick-slide"
+          data-index="3"
+          style="outline: none; width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            >
+              <h3
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+              >
+                4
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="4"
+          style="width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            >
+              <h3
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+              >
+                1
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="5"
+          style="width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            >
+              <h3
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+              >
+                2
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="6"
+          style="width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            >
+              <h3
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+              >
+                3
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="7"
+          style="width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            >
+              <h3
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+              >
+                4
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul
+      class="slick-dots slick-dots-bottom"
+      style="display: block;"
+    >
+      <li
+        class="slick-active"
+      >
+        <button>
+          1
+        </button>
+      </li>
+      <li
+        class=""
+      >
+        <button>
+          2
+        </button>
+      </li>
+      <li
+        class=""
+      >
+        <button>
+          3
+        </button>
+      </li>
+      <li
+        class=""
+      >
+        <button>
+          4
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
 exports[`renders components/carousel/demo/fade.tsx extend context correctly 1`] = `
 <div
   class="ant-carousel"

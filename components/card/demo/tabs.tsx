@@ -20,15 +20,15 @@ const contentList: Record<string, React.ReactNode> = {
 const tabListNoTitle = [
   {
     key: 'article',
-    tab: 'article',
+    label: 'article',
   },
   {
     key: 'app',
-    tab: 'app',
+    label: 'app',
   },
   {
     key: 'project',
-    tab: 'project',
+    label: 'project',
   },
 ];
 
