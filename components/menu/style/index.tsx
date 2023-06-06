@@ -460,6 +460,13 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           },
 
           [`
+          &-placement-bottomLeft,
+          &-placement-rightTop,
+          `]: {
+            transformOrigin: '0 0',
+          },
+
+          [`
           &-placement-leftTop,
           &-placement-leftBottom
           `]: {
