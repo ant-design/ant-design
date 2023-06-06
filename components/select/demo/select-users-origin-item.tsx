@@ -7,7 +7,7 @@ const initData = [
   {
     deptName: "雪山之王",
     extProperty: {
-      deptName: "大猫"
+      deptName: "大猫",
     },
     id: "0111111",
     outUserNo: "111111",
@@ -15,12 +15,12 @@ const initData = [
     tntInstId: "",
     userChannel: "motain",
     label: " 雪豹",
-    value: "snow lepoard"
+    value: "snow lepoard",
   },
   {
     deptName: "森林之王",
     extProperty: {
-      deptName: "大猫"
+      deptName: "大猫",
     },
     id: "0111114",
     outUserNo: "111114",
@@ -28,12 +28,12 @@ const initData = [
     tntInstId: "",
     userChannel: "forest",
     label: "辛巴",
-    value: "senba"
-  }
+    value: "senba",
+  },
 ].map((v) => ({
   ...v,
   label: `${v.realName}(${v.deptName})${v.realName}`,
-  value: v.outUserNo
+  value: v.outUserNo,
 }));
 
 function DebounceSelect({ fetchOptions, debounceTimeout = 800, ...props }) {
@@ -79,7 +79,7 @@ async function fetchUserList(username) {
         {
           deptName: "天空之王",
           extProperty: {
-            deptName: "鸟"
+            deptName: "鸟",
           },
           id: "0111112",
           outUserNo: "111112",
@@ -87,12 +87,12 @@ async function fetchUserList(username) {
           tntInstId: "",
           userChannel: "sky",
           label: "火烈鸟",
-          value: "fire bird"
+          value: "fire bird",
         },
         {
           deptName: "深海之王",
           extProperty: {
-            deptName: "大鱼"
+            deptName: "大鱼",
           },
           id: "0111113",
           outUserNo: "111113",
@@ -100,44 +100,38 @@ async function fetchUserList(username) {
           tntInstId: "",
           userChannel: "sea",
           label: "大美人鱼",
-          value: "beauty fish"
-        }
+          value: "beauty fish",
+        },
       ].map((v) => ({
         ...v,
         label: `${v.realName}(${v.deptName})${v.realName}`,
-        value: v.outUserNo
+        value: v.outUserNo,
       }))
     )
   );
 }
-const SelectUsers = ({ selectUserCallback, value, setValue }) => {
-  // const [value, setValue] = useState([]);
-  console.log(value, 111);
+const SelectUsers = ({ selectUserCallback, value }) => (
+  <>
+    当前选中的值为: {JSON.stringify(value)}
+    <DebounceSelect
+      mode="multiple"
+      value={value}
+      placeholder="Select users"
+      fetchOptions={fetchUserList}
+      onChange={(newValue, selectedList) => {
+        selectUserCallback?.({ newValue, selectedList });
+      }}
+      style={{
+        width: "100%",
+      }}
+    />
+  </>
+);
 
-  return (
-    <>
-      当前选中的值为: {JSON.stringify(value)}
-      <DebounceSelect
-        mode="multiple"
-        value={value}
-        placeholder="Select users"
-        fetchOptions={fetchUserList}
-        onChange={(newValue, selectedList) => {
-          // console.log(newValue, 8888);
-          // setValue(arr);
-          selectUserCallback?.({ newValue, selectedList });
-        }}
-        style={{
-          width: "100%"
-        }}
-      />
-    </>
-  );
-};
-const AddSelectedOriginOptionsDemo = ({ initData }) => {
+const AddSelectedOriginOptionsDemo = ({ initData = [] }) => {
   const [value, setValue] = useState([]);
+
   const selectUserCallback = ({ newValue, selectedList }) => {
-    console.log(newValue, selectedList, 8888);
     const values = newValue.map((v) => v.value);
     const newArr = [...selectedList, ...initData].filter((k) =>
       values.includes(k.value)
@@ -146,10 +140,10 @@ const AddSelectedOriginOptionsDemo = ({ initData }) => {
   };
   useEffect(() => {
     if (initData?.length) {
-      console.log("initData: ", initData);
       setValue(initData);
     }
   }, [initData]);
+
   return (
     <SelectUsers
       value={value}
