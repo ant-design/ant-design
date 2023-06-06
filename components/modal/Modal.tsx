@@ -7,8 +7,8 @@ import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
 import { NoCompactStyle } from '../space/Compact';
-import { Footer, renderCloseIcon } from './PurePanel';
 import type { ModalProps, MousePosition } from './interface';
+import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
 
 let mousePosition: MousePosition;
