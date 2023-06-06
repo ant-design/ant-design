@@ -5,7 +5,7 @@ title: Use in TypeScript
 
 Let's create a TypeScript project by using `create-react-app`, then import `antd` step by step.
 
-> We build `antd` based on latest stable version of TypeScript (`>=4.0.0`), please make sure your project dependency matches it.
+> We build `antd` based on latest stable version of TypeScript (`>=5.0.0`), please make sure your project dependency matches it.
 
 ---
 
@@ -43,10 +43,9 @@ $ yarn add antd
 Modify `src/App.tsx`, import Button component from `antd`.
 
 ```tsx
-import React from 'react';
-import type { FC } from 'react';
 import { Button } from 'antd';
 import 'antd/dist/reset.css';
+import type { FC } from 'react';
 import './App.css';
 
 const App: FC = () => (
@@ -102,7 +101,6 @@ module.exports = {
 Ref to the [Customize Theme documentation](/docs/react/customize-theme). Modify theme with ConfigProvider:
 
 ```tsx
-import React from 'react';
 import { ConfigProvider } from 'antd';
 
 export default () => (
