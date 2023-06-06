@@ -413,7 +413,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                               </span>
                             </div>
                             <div
-                              class="ant-input-number ant-input-number-sm ant-input-number-in-form-item ant-color-picker-steppers ant-color-picker-alpha-input"
+                              class="ant-input-number ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-sm ant-input-number-in-form-item"
                             >
                               <div
                                 class="ant-input-number-handler-wrap"
