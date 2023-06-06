@@ -32,7 +32,6 @@ export interface InputNumberProps<T extends ValueType = ValueType>
 const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-  const [focused, setFocus] = React.useState(false);
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   React.useImperativeHandle(ref, () => inputRef.current!);
@@ -111,20 +110,6 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   );
   const wrapperClassName = `${prefixCls}-group`;
 
-  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-    if (hasPrefix) {
-      setFocus(false);
-    }
-    props.onBlur?.(event);
-  };
-
-  const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
-    if (hasPrefix) {
-      setFocus(true);
-    }
-    props.onFocus?.(event);
-  };
-
   const element = (
     <RcInputNumber
       ref={inputRef}
@@ -135,8 +120,6 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       prefixCls={prefixCls}
       readOnly={readOnly}
       controls={controlsTemp}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
       prefix={prefix}
       suffix={hasFeedback && feedbackIcon}
       addonAfter={
@@ -161,11 +144,9 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
         affixWrapper: classNames(
           getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
           {
-            [`${prefixCls}-affix-wrapper-focused`]: focused,
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-affix-wrapper-readonly`]: readOnly,
             [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
           },
 
@@ -174,9 +155,12 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
           !hasAddon && rootClassName,
           hashId,
         ),
-        wrapper: classNames(hashId, {
-          [`${wrapperClassName}-rtl`]: direction === 'rtl',
-        }),
+        wrapper: classNames(
+          {
+            [`${wrapperClassName}-rtl`]: direction === 'rtl',
+          },
+          hashId,
+        ),
         group: classNames(
           {
             [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
