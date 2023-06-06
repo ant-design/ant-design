@@ -102,6 +102,7 @@ module.exports = {
 Ref to the [Customize Theme documentation](/docs/react/customize-theme). Modify theme with ConfigProvider:
 
 ```tsx
+import React from 'react';
 import { ConfigProvider } from 'antd';
 
 export default () => (
