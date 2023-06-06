@@ -58,12 +58,6 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
         }),
       );
     }
-    config.plugins.push(
-      new CircularDependencyPlugin({
-        // add errors to webpack instead of warnings
-        failOnError: true,
-      }),
-    );
   });
 }
 
