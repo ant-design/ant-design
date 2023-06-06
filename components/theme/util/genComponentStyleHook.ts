@@ -80,13 +80,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
       useStyleRegister({ ...sharedConfig, path: [component, prefixCls, iconPrefixCls] }, () => {
         const { token: proxyToken, flush } = statisticToken(token);
 
-        const customComponentToken = token[component] as ComponentToken<ComponentName>;
-        const defaultComponentToken =
-          typeof getDefaultToken === 'function'
-            ? getDefaultToken(mergeToken(proxyToken, customComponentToken ?? {}))
-            : getDefaultToken;
-        const mergedComponentToken = { ...defaultComponentToken, ...customComponentToken };
-
+        const customComponentToken = { ...(token[component] as ComponentToken<ComponentName>) };
         if (options?.deprecatedTokens) {
           const { deprecatedTokens } = options;
           deprecatedTokens.forEach(([oldTokenKey, newTokenKey]) => {
@@ -99,12 +93,18 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
               );
             }
 
-            mergedComponentToken[newTokenKey] =
-              customComponentToken?.[newTokenKey] ||
-              customComponentToken?.[oldTokenKey] ||
-              defaultComponentToken[newTokenKey];
+            // Should wrap with `if` clause, or there will be `undefined` in object.
+            if (customComponentToken?.[oldTokenKey] || customComponentToken?.[newTokenKey]) {
+              customComponentToken[newTokenKey] ??= customComponentToken?.[oldTokenKey];
+            }
           });
         }
+        const defaultComponentToken =
+          typeof getDefaultToken === 'function'
+            ? getDefaultToken(mergeToken(proxyToken, customComponentToken ?? {}))
+            : getDefaultToken;
+
+        const mergedComponentToken = { ...defaultComponentToken, ...customComponentToken };
 
         const componentCls = `.${prefixCls}`;
         const mergedToken = mergeToken<
@@ -125,7 +125,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
           prefixCls,
           rootPrefixCls,
           iconPrefixCls,
-          overrideComponentToken: token[component],
+          overrideComponentToken: customComponentToken as any,
         });
         flush(component, mergedComponentToken);
         return [
