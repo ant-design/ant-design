@@ -9,19 +9,20 @@ import Select from '../../select';
 import TreeSelect from '../../tree-select';
 
 dayjs.extend(customParseFormat);
-jest.mock('rc-util/lib/Portal');
 
 function triggerProps(): TriggerProps {
-  return (global as any).triggerProps;
+  return globalThis.triggerProps;
 }
 
-jest.mock('@rc-component/trigger', () => {
-  const R = jest.requireActual('react');
-  const Trigger = jest.requireActual('@rc-component/trigger').default;
-  return R.forwardRef((props: any, ref: any) => {
-    (global as any).triggerProps = props;
-    return <Trigger {...props} ref={ref} />;
-  });
+vi.mock('@rc-component/trigger', async (importOriginal) => {
+  const R = await vi.importActual<typeof import('react')>('react');
+  const { default: Trigger } = await importOriginal<typeof import('@rc-component/trigger')>();
+  return {
+    default: R.forwardRef((props: any, ref: any) => {
+      (globalThis as any).triggerProps = props;
+      return <Trigger {...props} ref={ref} />;
+    }),
+  };
 });
 
 describe('ConfigProvider.Popup', () => {
@@ -55,7 +56,7 @@ describe('ConfigProvider.Popup', () => {
   });
 
   it('disable virtual if dropdownMatchSelectWidth is false', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(
       <ConfigProvider dropdownMatchSelectWidth={false}>{selectLikeNodes}</ConfigProvider>,

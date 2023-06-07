@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
+exports[`TreeSelect > TreeSelect Custom Icons > should \`treeIcon\` work 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-show-arrow ant-select-open"
 >
@@ -68,7 +68,7 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
           >
             <div
               class="ant-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -142,7 +142,7 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
 </div>
 `;
 
-exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] = `
+exports[`TreeSelect > TreeSelect Custom Icons > should support customized icons 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
 >
@@ -274,7 +274,7 @@ exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] 
 </div>
 `;
 
-exports[`TreeSelect rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`TreeSelect > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-rtl ant-select-single ant-select-show-arrow"
 >

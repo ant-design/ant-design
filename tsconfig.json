@@ -18,10 +18,11 @@
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "noImplicitAny": true,
-    "target": "es6",
+    "target": "es2017",
     "lib": ["dom", "es2017"],
     "skipLibCheck": true,
-    "stripInternal": true
+    "stripInternal": true,
+    "types": ["vitest/globals"]
   },
   "exclude": ["node_modules", "lib", "es"]
 }

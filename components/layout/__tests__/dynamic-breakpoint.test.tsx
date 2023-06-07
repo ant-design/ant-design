@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { fireEvent, render } from '../../../tests/utils';
 import Sider from '../Sider';
-import { render, fireEvent } from '../../../tests/utils';
 
 const Content = () => {
   const [breakpoint, setBreakpoint] = useState('sm');
@@ -21,9 +21,9 @@ const Content = () => {
 };
 
 it('Dynamic breakpoint in Sider component', () => {
-  const add = jest.fn();
-  const remove = jest.fn();
-  const newMatch = jest.spyOn(window, 'matchMedia').mockReturnValue({
+  const add = vi.fn();
+  const remove = vi.fn();
+  const newMatch = vi.spyOn(window, 'matchMedia').mockReturnValue({
     matches: true,
     addEventListener: add,
     removeEventListener: remove,
@@ -45,5 +45,5 @@ it('Dynamic breakpoint in Sider component', () => {
   expect(add.mock.calls).toHaveLength(originCallTimes + 1);
   expect(remove.mock.calls).toHaveLength(originCallTimes);
 
-  jest.restoreAllMocks();
+  vi.restoreAllMocks();
 });

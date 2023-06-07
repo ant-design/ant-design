@@ -1,10 +1,11 @@
+import type { RenderOptions } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import MockDate from 'mockdate';
+import { _rs as onEsResize } from 'rc-resize-observer/es/utils/observerUtil';
+import { _rs as onLibResize } from 'rc-resize-observer/lib/utils/observerUtil';
 import type { ReactElement } from 'react';
 import React, { StrictMode } from 'react';
-import type { RenderOptions } from '@testing-library/react';
-import { render, act } from '@testing-library/react';
-import { _rs as onLibResize } from 'rc-resize-observer/lib/utils/observerUtil';
-import { _rs as onEsResize } from 'rc-resize-observer/es/utils/observerUtil';
+import { vi } from 'vitest';
 
 export function assertsExist<T>(item?: T): asserts item is T {
   expect(item).not.toBeUndefined();
@@ -53,12 +54,13 @@ export function renderHook<T>(func: () => T): { result: React.RefObject<T> } {
  */
 const pureRender = render;
 
+export * from '@testing-library/react';
 export { customRender as render, pureRender };
 
 export const triggerResize = (target: Element) => {
   const originGetBoundingClientRect = target.getBoundingClientRect;
 
-  target.getBoundingClientRect = () => ({ width: 510, height: 903 }) as DOMRect;
+  target.getBoundingClientRect = () => ({ width: 510, height: 903 } as DOMRect);
 
   act(() => {
     onLibResize([{ target } as ResizeObserverEntry]);
@@ -81,12 +83,10 @@ export async function waitFakeTimer(advanceTime = 1000, times = 20) {
       await Promise.resolve();
 
       if (advanceTime > 0) {
-        jest.advanceTimersByTime(advanceTime);
+        vi.advanceTimersByTime(advanceTime);
       } else {
-        jest.runAllTimers();
+        vi.runAllTimers();
       }
     });
   }
 }
-
-export * from '@testing-library/react';

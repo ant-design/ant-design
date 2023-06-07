@@ -2,6 +2,7 @@ import { resetWarned } from 'rc-util/lib/warning';
 import React, { useState } from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
+import type { SpyInstance } from 'vitest';
 import Anchor from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
@@ -9,8 +10,9 @@ import type { AnchorDirection } from '../Anchor';
 
 const { Link } = Anchor;
 
-function createDiv() {
+function createRootDiv() {
   const root = document.createElement('div');
+  root.className = 'root';
   document.body.appendChild(root);
   return root;
 }
@@ -18,18 +20,16 @@ function createDiv() {
 let idCounter = 0;
 const getHashUrl = () => `Anchor-API-${idCounter++}`;
 
-jest.mock('scroll-into-view-if-needed', () => jest.fn());
+vi.mock('scroll-into-view-if-needed', () => ({
+  default: vi.fn(),
+}));
 
 describe('Anchor Render', () => {
-  const getBoundingClientRectMock = jest.spyOn(
-    HTMLHeadingElement.prototype,
-    'getBoundingClientRect',
-  );
-  const getClientRectsMock = jest.spyOn(HTMLHeadingElement.prototype, 'getClientRects');
-  const scrollIntoViewMock = jest.createMockFromModule<any>('scroll-into-view-if-needed');
+  const getBoundingClientRectMock = vi.spyOn(HTMLHeadingElement.prototype, 'getBoundingClientRect');
+  const getClientRectsMock = vi.spyOn(HTMLHeadingElement.prototype, 'getClientRects');
 
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     getBoundingClientRectMock.mockReturnValue({
       width: 100,
       height: 100,
@@ -39,18 +39,18 @@ describe('Anchor Render', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
-    scrollIntoViewMock.mockReset();
+    vi.useFakeTimers();
+    vi.mocked(scrollIntoView).mockReset();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   afterAll(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
     getBoundingClientRectMock.mockRestore();
     getClientRectsMock.mockRestore();
   });
@@ -186,12 +186,12 @@ describe('Anchor Render', () => {
     const link = container.querySelector(`a[href="http://www.example.com/#${hash}"]`)!;
     fireEvent.click(link);
     await waitFakeTimer();
-    expect(link.classList).toContain('ant-anchor-link-title-active');
+    expect(link.classList.contains('ant-anchor-link-title-active')).toBeTruthy();
   });
 
   it('scrolls the page when clicking a link', async () => {
-    const root = createDiv();
-    const scrollToSpy = jest.spyOn(window, 'scrollTo');
+    const root = createRootDiv();
+    const scrollToSpy = vi.spyOn(window, 'scrollTo');
     render(<div id="/faq?locale=en#Q1">Q1</div>, { container: root });
     const { container } = render(
       <Anchor items={[{ key: 'Q1', title: 'Q1', href: '/#/faq?locale=en#Q1' }]} />,
@@ -200,13 +200,14 @@ describe('Anchor Render', () => {
     fireEvent.click(link);
     await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenCalled();
+    scrollToSpy.mockRestore();
   });
 
   it('handleScroll should not be triggered when scrolling caused by clicking a link', async () => {
     const hash1 = getHashUrl();
     const hash2 = getHashUrl();
-    const root = createDiv();
-    const onChange = jest.fn();
+    const root = createRootDiv();
+    const onChange = vi.fn();
     render(
       <div>
         <div id={hash1}>Hello</div>
@@ -265,8 +266,8 @@ describe('Anchor Render', () => {
   it('targetOffset prop', async () => {
     const hash = getHashUrl();
 
-    const scrollToSpy = jest.spyOn(window, 'scrollTo');
-    const root = createDiv();
+    const scrollToSpy = vi.spyOn(window, 'scrollTo');
+    const root = createRootDiv();
     render(<h1 id={hash}>Hello</h1>, { container: root });
     const { container, rerender } = render(
       <Anchor items={[{ key: hash, href: `#${hash}`, title: hash }]} />,
@@ -290,14 +291,16 @@ describe('Anchor Render', () => {
     fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
     await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
+
+    scrollToSpy.mockRestore();
   });
 
   // https://github.com/ant-design/ant-design/issues/31941
   it('targetOffset prop when contain spaces', async () => {
     const hash = `${getHashUrl()} s p a c e s`;
 
-    const scrollToSpy = jest.spyOn(window, 'scrollTo');
-    const root = createDiv();
+    const scrollToSpy = vi.spyOn(window, 'scrollTo');
+    const root = createRootDiv();
     render(<h1 id={hash}>Hello</h1>, { container: root });
     const { container, rerender } = render(
       <Anchor items={[{ key: hash, href: `#${hash}`, title: hash }]} />,
@@ -319,6 +322,8 @@ describe('Anchor Render', () => {
     fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
     await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
+
+    scrollToSpy.mockRestore();
   });
 
   it('onClick event', () => {
@@ -347,7 +352,7 @@ describe('Anchor Render', () => {
   it('onChange event', () => {
     const hash1 = getHashUrl();
     const hash2 = getHashUrl();
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(
       <Anchor
         onChange={onChange}
@@ -378,8 +383,8 @@ describe('Anchor Render', () => {
     const hash1 = getHashUrl();
     const hash2 = getHashUrl();
 
-    const beforeFn = jest.fn();
-    const afterFn = jest.fn();
+    const beforeFn = vi.fn();
+    const afterFn = vi.fn();
 
     const Demo: React.FC = () => {
       const [trigger, setTrigger] = useState(false);
@@ -435,8 +440,8 @@ describe('Anchor Render', () => {
     getBoundingClientRectMock.mockReturnValue({ width: 0, height: 0, top: 1000 } as DOMRect);
     const hash = getHashUrl();
 
-    const scrollToSpy = jest.spyOn(window, 'scrollTo');
-    const root = createDiv();
+    const scrollToSpy = vi.spyOn(window, 'scrollTo');
+    const root = createRootDiv();
     render(<h1 id={hash}>Hello</h1>, { container: root });
     const { container, rerender } = render(
       <Anchor>
@@ -470,13 +475,14 @@ describe('Anchor Render', () => {
       height: 100,
       top: 1000,
     } as DOMRect);
+
+    scrollToSpy.mockRestore();
   });
 
   it('test edge case when container is not windows', async () => {
     const hash = getHashUrl();
 
-    const scrollToSpy = jest.spyOn(window, 'scrollTo');
-    const root = createDiv();
+    const root = createRootDiv();
     render(<h1 id={hash}>Hello</h1>, { container: root });
 
     const { container, rerender } = render(
@@ -492,19 +498,23 @@ describe('Anchor Render', () => {
         </Anchor>,
       );
 
+    // Since it's mock rect pos here. We need always reset the `scrollTop` for test
+    document.body.scrollTop = 0;
     fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
     await waitFakeTimer();
-    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
+    expect(document.body.scrollTop).toEqual(1000);
 
+    document.body.scrollTop = 0;
     setProps({ offsetTop: 100 });
     fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
     await waitFakeTimer();
-    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
+    expect(document.body.scrollTop).toEqual(900);
 
+    document.body.scrollTop = 0;
     setProps({ targetOffset: 200 });
     fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
     await waitFakeTimer();
-    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
+    expect(document.body.scrollTop).toEqual(800);
   });
 
   describe('getCurrentAnchor', () => {
@@ -529,7 +539,7 @@ describe('Anchor Render', () => {
     it('should trigger onChange when have getCurrentAnchor', () => {
       const hash1 = getHashUrl();
       const hash2 = getHashUrl();
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const { container } = render(
         <Anchor
           onChange={onChange}
@@ -553,7 +563,7 @@ describe('Anchor Render', () => {
     it('getCurrentAnchor have default link as argument', () => {
       const hash1 = getHashUrl();
       const hash2 = getHashUrl();
-      const getCurrentAnchor = jest.fn();
+      const getCurrentAnchor = vi.fn();
       const { container } = render(
         <Anchor
           getCurrentAnchor={getCurrentAnchor}
@@ -603,8 +613,8 @@ describe('Anchor Render', () => {
     describe('scroll x', () => {
       it('targetOffset horizontal', async () => {
         const hash = getHashUrl();
-        const scrollToSpy = jest.spyOn(window, 'scrollTo');
-        const root = createDiv();
+        const scrollToSpy = vi.spyOn(window, 'scrollTo');
+        const root = createRootDiv();
         render(<h1 id={hash}>Hello</h1>, { container: root });
         const { container, rerender } = render(
           <Anchor
@@ -648,6 +658,8 @@ describe('Anchor Render', () => {
         fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
         await waitFakeTimer();
         expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
+
+        scrollToSpy.mockRestore();
       });
     });
 
@@ -756,12 +768,12 @@ describe('Anchor Render', () => {
       const link = container.querySelector(`a[href="http://www.example.com/#${hash}"]`)!;
       fireEvent.click(link);
       await waitFakeTimer();
-      expect(link.classList).toContain('ant-anchor-link-title-active');
+      expect(link.classList.contains('ant-anchor-link-title-active')).toBeTruthy();
     });
 
     it('scrolls the page when clicking a link', async () => {
-      const root = createDiv();
-      const scrollToSpy = jest.spyOn(window, 'scrollTo');
+      const root = createRootDiv();
+      const scrollToSpy = vi.spyOn(window, 'scrollTo');
       render(<div id="/faq?locale=en#Q1">Q1</div>, { container: root });
       const { container } = render(
         <Anchor>
@@ -772,13 +784,15 @@ describe('Anchor Render', () => {
       fireEvent.click(link);
       await waitFakeTimer();
       expect(scrollToSpy).toHaveBeenCalled();
+
+      scrollToSpy.mockRestore();
     });
 
     it('handleScroll should not be triggered when scrolling caused by clicking a link', async () => {
       const hash1 = getHashUrl();
       const hash2 = getHashUrl();
-      const root = createDiv();
-      const onChange = jest.fn();
+      const root = createRootDiv();
+      const onChange = vi.fn();
       render(
         <div>
           <div id={hash1}>Hello</div>
@@ -851,10 +865,10 @@ describe('Anchor Render', () => {
   });
 
   describe('warning', () => {
-    let errSpy: jest.SpyInstance;
+    let errSpy: SpyInstance;
     beforeEach(() => {
       resetWarned();
-      errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     });
 
     afterEach(() => {
@@ -971,14 +985,14 @@ describe('Anchor Render', () => {
       const toggleButton = wrapper.container.querySelector('button')!;
 
       fireEvent.click(toggleButton);
-      act(() => jest.runAllTimers());
+      act(() => vi.runAllTimers());
       expect(!!ink.style.left).toBe(true);
       expect(!!ink.style.width).toBe(true);
       expect(ink.style.top).toBe('');
       expect(ink.style.height).toBe('');
 
       fireEvent.click(toggleButton);
-      act(() => jest.runAllTimers());
+      act(() => vi.runAllTimers());
       expect(!!ink.style.top).toBe(true);
       expect(!!ink.style.height).toBe(true);
       expect(ink.style.left).toBe('');

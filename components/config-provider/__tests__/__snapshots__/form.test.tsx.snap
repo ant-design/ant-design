@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ConfigProvider.Form form requiredMark set requiredMark optional 1`] = `
+exports[`ConfigProvider.Form > form requiredMark > set requiredMark optional 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >
