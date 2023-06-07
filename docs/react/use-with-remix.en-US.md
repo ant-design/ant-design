@@ -1,4 +1,4 @@
 ---
 order: 4
-title: Usage with remix
+title: Usage with Remix
 ---

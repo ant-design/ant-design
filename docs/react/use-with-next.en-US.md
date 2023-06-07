@@ -1,4 +1,4 @@
 ---
 order: 4
-title: Usage with next
+title: Usage with Next.js
 ---
