@@ -58,13 +58,11 @@ $ yarn add antd
 
 Modify `src/App.js`, import Button component from `antd`.
 
-```tsx
+```jsx
 import { Button } from 'antd';
-import 'antd/dist/reset.css';
 import React from 'react';
-import './App.css';
 
-const App: React.FC = () => (
+const App = () => (
   <div className="App">
     <Button type="primary">Button</Button>
   </div>

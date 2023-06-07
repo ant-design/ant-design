@@ -58,13 +58,11 @@ $ yarn add antd
 
 修改 `src/App.js`，引入 antd 的按钮组件。
 
-```tsx
+```jsx
 import { Button } from 'antd';
-import 'antd/dist/reset.css';
 import React from 'react';
-import './App.css';
 
-const App: React.FC = () => (
+const App = () => (
   <div className="App">
     <Button type="primary">Button</Button>
   </div>
