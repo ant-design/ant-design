@@ -5,8 +5,6 @@ title: 在 vite 中使用
 
 [vite](https://cn.vitejs.dev/) 是业界最优秀的 React 应用开发工具之一，本文会尝试在 vite 创建的工程中使用 `antd` 组件，并自定义 vite 的配置以满足各类工程化需求。
 
----
-
 ## 安装和初始化
 
 在开始之前，你可能需要安装 [yarn](https://github.com/yarnpkg/yarn/) 或者 [pnpm](https://pnpm.io/zh/)。

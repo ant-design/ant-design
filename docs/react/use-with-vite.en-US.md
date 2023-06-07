@@ -5,8 +5,6 @@ title: Usage with vite
 
 [vite](https://vitejs.dev/) is one of the best React application development tools. We are going to use `antd` within it and modify the vite config for some customized needs.
 
----
-
 ## Install and Initialization
 
 Before all start, you may need install [yarn](https://github.com/yarnpkg/yarn/) or [pnpm](https://pnpm.io/).
