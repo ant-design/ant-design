@@ -3,32 +3,32 @@ order: 4
 title: Usage with create-react-app
 ---
 
-[create-react-app](https://github.com/facebookincubator/create-react-app) is one of the best React application development tools. We are going to use `antd` within it and modify the webpack config for some customized needs.
+[create-react-app](https://github.com/facebookincubator/create-react-app) is one of the best React application development tools, This article will try to use `create-react-app` to create a `TypeScript` project step by step, and introduce antd.
 
----
+> We build `antd` based on latest stable version of TypeScript (`>=5.0.0`), please make sure your project dependency matches it.
 
 ## Install and Initialization
 
-Before all start, you may need install [yarn](https://github.com/yarnpkg/yarn/).
+Before all start, you may need install [yarn](https://github.com/yarnpkg/yarn/) or [pnpm](https://pnpm.io/).
 
 ```bash
-$ yarn create react-app antd-demo
+$ yarn create react-app antd-demo-ts --template typescript
 
 # or
 
-$ npx create-react-app antd-demo
+$ npx create-react-app antd-demo-ts --template typescript
 ```
 
 The tool will create and initialize environment and dependencies automatically, please try config your proxy setting or use another npm registry if any network errors happen during it.
 
-Then we go inside `antd-demo` and start it.
+Then we go inside project and start it.
 
 ```bash
-$ cd antd-demo
+$ cd antd-demo-ts
 $ yarn start
 ```
 
-Open the browser at http://localhost:3000/. It renders a header saying "Welcome to React" on the page.
+Open the browser at http://localhost:3000/. It renders a header saying `Welcome to React` on the page.
 
 ## Import antd
 
@@ -58,13 +58,13 @@ $ yarn add antd
 
 Modify `src/App.js`, import Button component from `antd`.
 
-```jsx
-import React from 'react';
+```tsx
 import { Button } from 'antd';
 import 'antd/dist/reset.css';
+import React from 'react';
 import './App.css';
 
-const App = () => (
+const App: React.FC = () => (
   <div className="App">
     <Button type="primary">Button</Button>
   </div>
@@ -74,5 +74,9 @@ export default App;
 ```
 
 OK, you should now see a blue primary button displayed on the page. Next you can choose any components of `antd` to develop your application. Visit other workflows of `create-react-app` at its [User Guide](https://create-react-app.dev/docs/getting-started).
+
+`antd` is written in TypeScript with complete definitions, try out and enjoy the property suggestion and typing check.
+
+> Don't install `@types/antd`.
 
 We are successfully running antd components now, go build your own application!
