@@ -136,6 +136,10 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         },
       },
 
+      [`&-overflow`]: {
+        display: 'flex',
+      },
+
       [`&-hidden`]: {
         display: 'none',
       },

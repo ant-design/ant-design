@@ -136,6 +136,7 @@
     "rc-menu": "~9.9.2",
     "rc-motion": "^2.7.3",
     "rc-notification": "~5.0.4",
+    "rc-overflow": "^1.3.0",
     "rc-pagination": "~3.5.0",
     "rc-picker": "~3.8.0",
     "rc-progress": "~3.4.1",

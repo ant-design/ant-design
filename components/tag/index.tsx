@@ -8,11 +8,13 @@ import warning from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import CheckableTag from './CheckableTag';
+import Group, { TagsGroupData } from './Group';
 import useStyle from './style';
 
 export type { CheckableTagProps } from './CheckableTag';
 
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
+  key?: number;
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -21,7 +23,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   closeIcon?: React.ReactNode;
   /** @deprecated `visible` will be removed in next major version. */
   visible?: boolean;
-  onClose?: (e: React.MouseEvent<HTMLElement>) => void;
+  onClose?: (e: React.MouseEvent<HTMLElement> | TagsGroupData) => void;
   style?: React.CSSProperties;
   icon?: React.ReactNode;
   bordered?: boolean;
@@ -30,6 +32,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
 export interface TagType
   extends React.ForwardRefExoticComponent<TagProps & React.RefAttributes<HTMLElement>> {
   CheckableTag: typeof CheckableTag;
+  Group: typeof Group;
 }
 
 const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (tagProps, ref) => {
@@ -145,5 +148,5 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 Tag.CheckableTag = CheckableTag;
-
+Tag.Group = Group;
 export default Tag;
