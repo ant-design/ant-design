@@ -12,7 +12,7 @@ title: 在 vite 中使用
 在开始之前，你可能需要安装 [yarn](https://github.com/yarnpkg/yarn/) 或者 [pnpm](https://pnpm.io/zh/)。
 
 ```bash
-$ npm create vite@latest antd-demo
+$ npm create vite antd-demo
 
 # or
 

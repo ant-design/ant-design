@@ -12,7 +12,7 @@ title: Usage with vite
 Before all start, you may need install [yarn](https://github.com/yarnpkg/yarn/) or [pnpm](https://pnpm.io/).
 
 ```bash
-$ npm create vite@latest antd-demo
+$ npm create vite antd-demo
 
 # or
 
