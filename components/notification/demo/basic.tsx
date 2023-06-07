@@ -1,5 +1,5 @@
-import React from 'react';
 import { Button, notification } from 'antd';
+import React from 'react';
 
 const openNotification = () => {
   notification.open({

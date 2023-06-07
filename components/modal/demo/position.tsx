@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Button, Modal } from 'antd';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [modal1Open, setModal1Open] = useState(false);

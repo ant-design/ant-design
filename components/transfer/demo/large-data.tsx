@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
 import { Switch, Transfer } from 'antd';
 import type { TransferDirection } from 'antd/es/transfer';
+import React, { useEffect, useState } from 'react';
 
 interface RecordType {
   key: string;

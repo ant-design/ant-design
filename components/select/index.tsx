@@ -26,7 +26,7 @@ import getIcons from './utils/iconUtil';
 
 type RawValue = string | number;
 
-export type { OptionProps, BaseSelectRef as RefSelectProps, BaseOptionType, DefaultOptionType };
+export type { BaseOptionType, DefaultOptionType, OptionProps, BaseSelectRef as RefSelectProps };
 
 export interface LabeledValue {
   key?: string;

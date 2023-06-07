@@ -1,6 +1,6 @@
-import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import { Alert, Space } from 'antd';
+import React from 'react';
 
 const icon = <SmileOutlined />;
 

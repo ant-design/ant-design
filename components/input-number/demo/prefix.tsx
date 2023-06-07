@@ -1,6 +1,6 @@
-import React from 'react';
 import { UserOutlined } from '@ant-design/icons';
 import { InputNumber } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <>

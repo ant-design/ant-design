@@ -1,5 +1,5 @@
+import { Space, Switch, Tabs } from 'antd';
 import React from 'react';
-import { Tabs, Switch, Space } from 'antd';
 
 const App: React.FC = () => {
   const [inkBar, setInkBar] = React.useState(true);

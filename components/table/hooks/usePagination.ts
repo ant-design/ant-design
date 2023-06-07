@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import type { PaginationProps } from '../../pagination';
 import extendsObject from '../../_util/extendsObject';
+import type { PaginationProps } from '../../pagination';
 import type { TablePaginationConfig } from '../interface';
 
 export const DEFAULT_PAGE_SIZE = 10;

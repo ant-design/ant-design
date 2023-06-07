@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Col, InputNumber, Row, Slider, Space } from 'antd';
+import React, { useState } from 'react';
 
 const IntegerStep: React.FC = () => {
   const [inputValue, setInputValue] = useState(1);

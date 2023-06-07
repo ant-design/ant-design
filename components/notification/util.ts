@@ -1,5 +1,5 @@
-import type * as React from 'react';
 import type { CSSMotionProps } from 'rc-motion';
+import type * as React from 'react';
 import type { NotificationPlacement } from './interface';
 
 export function getPlacementStyle(placement: NotificationPlacement, top: number, bottom: number) {

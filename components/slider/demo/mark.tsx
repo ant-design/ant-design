@@ -1,6 +1,6 @@
-import React from 'react';
 import { Slider } from 'antd';
 import type { SliderMarks } from 'antd/es/slider';
+import React from 'react';
 
 const marks: SliderMarks = {
   0: '0°C',

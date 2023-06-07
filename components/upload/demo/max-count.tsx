@@ -1,6 +1,6 @@
-import React from 'react';
 import { UploadOutlined } from '@ant-design/icons';
 import { Button, Space, Upload } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Space direction="vertical" style={{ width: '100%' }} size="large">

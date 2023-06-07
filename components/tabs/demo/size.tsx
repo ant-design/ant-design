@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
 import type { RadioChangeEvent } from 'antd';
 import { Radio, Tabs } from 'antd';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [size, setSize] = useState<SizeType>('small');

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
 import type { RadioChangeEvent } from 'antd';
 import { Carousel, Radio } from 'antd';
 import type { DotPosition } from 'antd/es/carousel';
+import React, { useState } from 'react';
 
 const contentStyle: React.CSSProperties = {
   height: '160px',

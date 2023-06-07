@@ -1,6 +1,6 @@
-import React from 'react';
 import { ClockCircleOutlined } from '@ant-design/icons';
 import { Timeline } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Timeline

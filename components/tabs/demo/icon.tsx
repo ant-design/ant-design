@@ -1,6 +1,6 @@
-import React from 'react';
 import { AndroidOutlined, AppleOutlined } from '@ant-design/icons';
 import { Tabs } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Tabs

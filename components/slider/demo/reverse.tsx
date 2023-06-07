@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Slider, Switch } from 'antd';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [reverse, setReverse] = useState(true);

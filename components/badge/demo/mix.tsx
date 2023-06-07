@@ -1,5 +1,5 @@
-import React from 'react';
 import { Avatar, Badge, Space } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Space size="middle" wrap>
@@ -32,12 +32,12 @@ const App: React.FC = () => (
 
     <Space size="middle" wrap>
       <Badge count={0} showZero />
-      <Badge count={0} showZero color='blue' />
-      <Badge count={0} showZero color='#f0f' />
+      <Badge count={0} showZero color="blue" />
+      <Badge count={0} showZero color="#f0f" />
       <Badge count={0} showZero>
         <Avatar shape="square" size="large" />
       </Badge>
-      <Badge count={0} showZero color='blue'>
+      <Badge count={0} showZero color="blue">
         <Avatar shape="square" size="large" />
       </Badge>
     </Space>

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
-import { QRCode, Button } from 'antd';
+import { Button, QRCode } from 'antd';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [size, setSize] = useState<number>(160);

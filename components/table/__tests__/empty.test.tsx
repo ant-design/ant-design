@@ -1,5 +1,5 @@
-import React from 'react';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
+import React from 'react';
 import type { ColumnsType } from '..';
 import Table from '..';
 import { render, triggerResize, waitFor } from '../../../tests/utils';

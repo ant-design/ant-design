@@ -3,12 +3,12 @@ import useEvent from 'rc-util/lib/hooks/useEvent';
 import * as React from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
-import Affix from '../affix';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
 import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';
 import warning from '../_util/warning';
+import Affix from '../affix';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import type { AnchorLinkBaseProps } from './AnchorLink';
 import AnchorLink from './AnchorLink';
 import AnchorContext from './context';

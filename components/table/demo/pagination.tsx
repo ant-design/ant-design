@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import { Radio, Space, Table, Tag } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+import React, { useState } from 'react';
 
 interface DataType {
   key: string;

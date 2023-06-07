@@ -5,10 +5,7 @@ import { roundedArrow } from './roundedArrow';
 
 export const MAX_VERTICAL_CONTENT_RADIUS = 8;
 
-export function getArrowOffset(options: {
-  contentRadius: number;
-  limitVerticalRadius?: boolean;
-}) {
+export function getArrowOffset(options: { contentRadius: number; limitVerticalRadius?: boolean }) {
   const maxVerticalContentRadius = MAX_VERTICAL_CONTENT_RADIUS;
   const { contentRadius, limitVerticalRadius } = options;
   const dropdownArrowOffset = contentRadius > 12 ? contentRadius + 2 : 12;

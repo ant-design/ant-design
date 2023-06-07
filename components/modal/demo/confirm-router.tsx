@@ -1,6 +1,6 @@
-import React from 'react';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { Button, Modal } from 'antd';
+import React from 'react';
 
 const { confirm } = Modal;
 

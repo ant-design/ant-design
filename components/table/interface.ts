@@ -23,7 +23,7 @@ export type RefInternalTable = <RecordType extends object = any>(
   },
 ) => React.ReactElement;
 
-export { GetRowKey, ExpandableConfig };
+export { ExpandableConfig, GetRowKey };
 
 export type Key = React.Key;
 

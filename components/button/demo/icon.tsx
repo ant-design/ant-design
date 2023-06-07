@@ -1,6 +1,6 @@
-import React from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import { Button, Tooltip, Space } from 'antd';
+import { Button, Space, Tooltip } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Space direction="vertical">

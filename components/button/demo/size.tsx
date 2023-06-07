@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
 import { DownloadOutlined } from '@ant-design/icons';
-import { Button, Radio, Space, Divider } from 'antd';
+import { Button, Divider, Radio, Space } from 'antd';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [size, setSize] = useState<SizeType>('large'); // default is 'middle'

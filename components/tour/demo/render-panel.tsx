@@ -1,5 +1,5 @@
-import React from 'react';
 import { Tour } from 'antd';
+import React from 'react';
 
 /** Test usage. Do not use in your production. */
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanel } = Tour;

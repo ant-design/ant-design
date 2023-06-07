@@ -1,5 +1,5 @@
-import React from 'react';
 import { Anchor } from 'antd';
+import React from 'react';
 
 const onChange = (link: string) => {
   console.log('Anchor:OnChange', link);

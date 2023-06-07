@@ -1,13 +1,13 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import type { KeyWiseTransferItem } from '.';
-import type { PaginationType } from './interface';
-import type { RenderedItem, TransferListProps } from './list';
 import Pagination from '../pagination';
 import ListItem from './ListItem';
+import type { PaginationType } from './interface';
+import type { RenderedItem, TransferListProps } from './list';
 
 export const OmitProps = ['handleFilter', 'handleClear', 'checkedKeys'] as const;
-export type OmitProp = typeof OmitProps[number];
+export type OmitProp = (typeof OmitProps)[number];
 type PartialTransferListProps<RecordType> = Omit<TransferListProps<RecordType>, OmitProp>;
 
 export interface TransferListBodyProps<RecordType> extends PartialTransferListProps<RecordType> {

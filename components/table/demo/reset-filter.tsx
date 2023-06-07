@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
 import type { TableProps } from 'antd';
 import { Button, Space, Table } from 'antd';
 import type { ColumnsType, FilterValue, SorterResult } from 'antd/es/table/interface';
+import React, { useState } from 'react';
 
 interface DataType {
   key: string;

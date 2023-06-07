@@ -1,7 +1,7 @@
 import React from 'react';
 import type { KeyWiseTransferItem } from '..';
-import type { TransferListProps } from '../list';
 import { render } from '../../../tests/utils';
+import type { TransferListProps } from '../list';
 import List from '../list';
 
 const listCommonProps: TransferListProps<KeyWiseTransferItem> = {

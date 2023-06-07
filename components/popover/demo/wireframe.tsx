@@ -1,5 +1,5 @@
-import React from 'react';
 import { ConfigProvider, Popover } from 'antd';
+import React from 'react';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPopover } = Popover;
 

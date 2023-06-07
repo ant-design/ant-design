@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
 import { Button, Transfer } from 'antd';
 import type { TransferDirection, TransferListProps } from 'antd/es/transfer';
+import React, { useEffect, useState } from 'react';
 
 interface RecordType {
   key: string;
@@ -42,7 +42,9 @@ const App: React.FC = () => {
 
   const renderFooter = (
     _: TransferListProps<any>,
-    { direction }: {
+    {
+      direction,
+    }: {
       direction: TransferDirection;
     },
   ) => {

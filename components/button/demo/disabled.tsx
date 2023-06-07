@@ -1,5 +1,5 @@
-import React from 'react';
 import { Button, Space } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Space direction="vertical">
@@ -32,10 +32,10 @@ const App: React.FC = () => (
       </Button>
     </Space>
     <Space>
-      <Button type="primary" href='https://ant.design/index-cn'>
+      <Button type="primary" href="https://ant.design/index-cn">
         Href Primary
       </Button>
-      <Button type="primary" href='https://ant.design/index-cn' disabled>
+      <Button type="primary" href="https://ant.design/index-cn" disabled>
         Href Primary(disabled)
       </Button>
     </Space>

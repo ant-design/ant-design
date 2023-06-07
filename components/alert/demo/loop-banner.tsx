@@ -1,5 +1,5 @@
-import React from 'react';
 import { Alert } from 'antd';
+import React from 'react';
 import Marquee from 'react-fast-marquee';
 
 const App: React.FC = () => (

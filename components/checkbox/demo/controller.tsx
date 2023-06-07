@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import { Button, Checkbox } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [checked, setChecked] = useState(true);

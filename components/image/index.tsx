@@ -2,9 +2,9 @@ import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import classNames from 'classnames';
 import RcImage, { type ImageProps } from 'rc-image';
 import * as React from 'react';
+import { getTransitionName } from '../_util/motion';
 import { ConfigContext } from '../config-provider';
 import defaultLocale from '../locale/en_US';
-import { getTransitionName } from '../_util/motion';
 // CSSINJS
 import PreviewGroup, { icons } from './PreviewGroup';
 import useStyle from './style';

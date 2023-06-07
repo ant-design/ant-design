@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   HomeOutlined,
   LoadingOutlined,
@@ -7,6 +6,7 @@ import {
   SyncOutlined,
 } from '@ant-design/icons';
 import { Space } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Space>

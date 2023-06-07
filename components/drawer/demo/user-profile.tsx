@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Avatar, Col, Divider, Drawer, List, Row } from 'antd';
+import React, { useState } from 'react';
 
 interface DescriptionItemProps {
   title: string;

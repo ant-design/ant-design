@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Avatar, Button } from 'antd';
+import React, { useState } from 'react';
 
 const UserList = ['U', 'Lucy', 'Tom', 'Edward'];
 const ColorList = ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'];

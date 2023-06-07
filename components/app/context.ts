@@ -1,7 +1,7 @@
 import React from 'react';
-import type { MessageInstance, ConfigOptions as MessageConfig } from '../message/interface';
-import type { NotificationInstance, NotificationConfig } from '../notification/interface';
+import type { ConfigOptions as MessageConfig, MessageInstance } from '../message/interface';
 import type { ModalStaticFunctions } from '../modal/confirm';
+import type { NotificationConfig, NotificationInstance } from '../notification/interface';
 
 export type AppConfig = {
   message?: MessageConfig;

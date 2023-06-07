@@ -1,6 +1,6 @@
-import React from 'react';
-import { Avatar, Segmented, Space } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
+import { Avatar, Segmented, Space } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Space direction="vertical">

@@ -56,15 +56,15 @@ export const warnContext: (componentName: string) => void =
       null!;
 
 export {
-  type RenderEmptyHandler,
-  ConfigContext,
   ConfigConsumer,
+  ConfigContext,
+  defaultIconPrefixCls,
+  type ConfigConsumerProps,
   type CSPConfig,
   type DirectionType,
-  type ConfigConsumerProps,
+  type RenderEmptyHandler,
   type ThemeConfig,
 };
-export { defaultIconPrefixCls };
 
 export const configConsumerProps = [
   'getTargetContainer',

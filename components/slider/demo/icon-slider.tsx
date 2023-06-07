@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import { FrownOutlined, SmileOutlined } from '@ant-design/icons';
 import { Slider } from 'antd';
+import React, { useState } from 'react';
 
 interface IconSliderProps {
   max: number;

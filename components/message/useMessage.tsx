@@ -1,21 +1,21 @@
-import * as React from 'react';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import classNames from 'classnames';
 import { useNotification as useRcNotification } from 'rc-notification';
 import type { NotificationAPI } from 'rc-notification/lib';
-import classNames from 'classnames';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import * as React from 'react';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import useStyle from './style';
+import { PureContent } from './PurePanel';
 import type {
-  MessageInstance,
   ArgsProps,
-  MessageType,
   ConfigOptions,
+  MessageInstance,
+  MessageType,
   NoticeType,
   TypeOpen,
 } from './interface';
+import useStyle from './style';
 import { getMotion, wrapPromiseFn } from './util';
-import warning from '../_util/warning';
-import { PureContent } from './PurePanel';
 
 const DEFAULT_OFFSET = 8;
 const DEFAULT_DURATION = 3;

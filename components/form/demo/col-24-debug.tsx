@@ -1,5 +1,5 @@
+import { Button, Divider, Form, Input, Select } from 'antd';
 import React from 'react';
-import { Button, Select, Form, Input, Divider } from 'antd';
 
 const sharedItem = (
   <Form.Item

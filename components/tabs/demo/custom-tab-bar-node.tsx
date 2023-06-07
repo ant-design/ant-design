@@ -1,9 +1,9 @@
 import type { DragEndEvent } from '@dnd-kit/core';
 import { DndContext, PointerSensor, useSensor } from '@dnd-kit/core';
 import {
+  SortableContext,
   arrayMove,
   horizontalListSortingStrategy,
-  SortableContext,
   useSortable,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';

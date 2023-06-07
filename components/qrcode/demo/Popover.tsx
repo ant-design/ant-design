@@ -1,5 +1,5 @@
+import { Popover, QRCode } from 'antd';
 import React from 'react';
-import { QRCode, Popover } from 'antd';
 
 const src = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
 

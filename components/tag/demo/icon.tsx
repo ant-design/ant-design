@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   FacebookOutlined,
   LinkedinOutlined,
@@ -6,6 +5,7 @@ import {
   YoutubeOutlined,
 } from '@ant-design/icons';
 import { Space, Tag } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Space size={[0, 8]} wrap>

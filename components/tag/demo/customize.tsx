@@ -1,6 +1,6 @@
-import React from 'react';
 import { CloseCircleOutlined } from '@ant-design/icons';
 import { Tag } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <>

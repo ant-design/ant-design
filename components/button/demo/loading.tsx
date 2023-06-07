@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import { PoweroffOutlined } from '@ant-design/icons';
 import { Button, Space } from 'antd';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [loadings, setLoadings] = useState<boolean[]>([]);

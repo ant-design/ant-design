@@ -14,9 +14,10 @@ import type { CheckboxProps } from '../../checkbox';
 import Checkbox from '../../checkbox';
 import Dropdown from '../../dropdown';
 import Radio from '../../radio';
+import type { AnyObject } from '../Table';
 import type {
-  ColumnsType,
   ColumnType,
+  ColumnsType,
   ExpandType,
   GetPopupContainer,
   GetRowKey,
@@ -27,7 +28,6 @@ import type {
   TableRowSelection,
   TransformColumns,
 } from '../interface';
-import type { AnyObject } from '../Table';
 
 // TODO: warning if use ajax!!!
 

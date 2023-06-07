@@ -1,9 +1,9 @@
 import * as React from 'react';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { TimelineItemProps } from './TimelineItem';
-import TimelineItemList from './TimelineItemList';
 import TimelineItem from './TimelineItem';
-import warning from '../_util/warning';
+import TimelineItemList from './TimelineItemList';
 import useItems from './useItems';
 
 // CSSINJS

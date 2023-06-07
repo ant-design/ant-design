@@ -1,5 +1,5 @@
-import React from 'react';
 import { Segmented, Space } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Space direction="vertical">

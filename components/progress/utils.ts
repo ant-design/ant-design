@@ -1,7 +1,7 @@
 import { presetPrimaryColors } from '@ant-design/colors';
+import warning from '../_util/warning';
 import type { CircleProps } from './Circle';
 import type { ProgressProps } from './progress';
-import warning from '../_util/warning';
 
 export function validProgress(progress?: number) {
   if (!progress || progress < 0) {
@@ -35,10 +35,10 @@ export const getPercentage = ({ percent, success, successPercent }: ProgressProp
   return [realSuccessPercent, validProgress(validProgress(percent) - realSuccessPercent)];
 };
 
-export const getStrokeColor = ({ success = {}, strokeColor }: Partial<CircleProps>): (
-  | string
-  | Record<PropertyKey, string>
-)[] => {
+export const getStrokeColor = ({
+  success = {},
+  strokeColor,
+}: Partial<CircleProps>): (string | Record<PropertyKey, string>)[] => {
   const { strokeColor: successColor } = success;
   return [successColor || presetPrimaryColors.green, strokeColor || null!];
 };

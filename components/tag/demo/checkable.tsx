@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Space, Tag } from 'antd';
+import React, { useState } from 'react';
 
 const { CheckableTag } = Tag;
 

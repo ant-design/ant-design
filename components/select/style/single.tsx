@@ -1,6 +1,6 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
-import { resetComponent } from '../../style';
 import type { SelectToken } from '.';
+import { resetComponent } from '../../style';
 import { mergeToken } from '../../theme/internal';
 
 function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {

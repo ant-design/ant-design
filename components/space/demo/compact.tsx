@@ -1,4 +1,3 @@
-import React from 'react';
 import { CopyOutlined } from '@ant-design/icons';
 import {
   AutoComplete,
@@ -13,6 +12,7 @@ import {
   Tooltip,
   TreeSelect,
 } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 const { TreeNode } = TreeSelect;

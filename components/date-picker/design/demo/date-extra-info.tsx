@@ -1,9 +1,9 @@
-import type { FC } from 'react';
-import React from 'react';
 import { DatePicker } from 'antd';
-import type { Dayjs } from 'dayjs';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
+import type { Dayjs } from 'dayjs';
+import type { FC } from 'react';
+import React from 'react';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: PureDatePicker } = DatePicker;
 
@@ -48,9 +48,9 @@ const useStyle = createStyles(({ token }) => ({
     }
   `,
   minus: css`
-    color: #52C41A80;
+    color: #52c41a80;
     .ant-picker-cell-in-view & {
-      color: #52C41A;
+      color: #52c41a;
     }
     .ant-picker-cell-selected & {
       color: #fff;

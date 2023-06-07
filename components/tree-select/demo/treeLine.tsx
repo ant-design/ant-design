@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Space, Switch, TreeSelect } from 'antd';
+import React, { useState } from 'react';
 
 const treeData = [
   {

@@ -1,6 +1,6 @@
-import React from 'react';
 import { LikeOutlined } from '@ant-design/icons';
 import { Col, Row, Statistic } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Row gutter={16}>

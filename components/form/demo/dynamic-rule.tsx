@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
+import React, { useEffect, useState } from 'react';
 
 const formItemLayout = {
   labelCol: { span: 4 },

@@ -1,5 +1,5 @@
+import { Drawer, Modal, Space, Switch } from 'antd';
 import React, { useState } from 'react';
-import { Switch, Space, Drawer, Modal } from 'antd';
 
 const App: React.FC = () => {
   const [drawer, setDrawer] = useState(false);

@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   CheckCircleOutlined,
   ClockCircleOutlined,
@@ -8,6 +7,7 @@ import {
   SyncOutlined,
 } from '@ant-design/icons';
 import { Divider, Space, Tag } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <>

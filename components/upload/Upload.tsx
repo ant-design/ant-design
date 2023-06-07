@@ -4,11 +4,12 @@ import RcUpload from 'rc-upload';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import { flushSync } from 'react-dom';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
-import defaultLocale from '../locale/en_US';
 import { useLocale } from '../locale';
-import warning from '../_util/warning';
+import defaultLocale from '../locale/en_US';
+import UploadList from './UploadList';
 import type {
   RcFile,
   ShowUploadListInterface,
@@ -16,7 +17,6 @@ import type {
   UploadFile,
   UploadProps,
 } from './interface';
-import UploadList from './UploadList';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
 
 import useStyle from './style';

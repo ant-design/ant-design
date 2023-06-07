@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   BorderBottomOutlined,
   BorderTopOutlined,
@@ -7,8 +6,9 @@ import {
   RadiusUpleftOutlined,
   RadiusUprightOutlined,
 } from '@ant-design/icons';
-import { Button, Divider, notification, Space } from 'antd';
+import { Button, Divider, Space, notification } from 'antd';
 import type { NotificationPlacement } from 'antd/es/notification/interface';
+import React from 'react';
 
 const App: React.FC = () => {
   const [api, contextHolder] = notification.useNotification();

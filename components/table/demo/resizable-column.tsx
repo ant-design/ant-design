@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+import React, { useState } from 'react';
 import type { ResizeCallbackData } from 'react-resizable';
 import { Resizable } from 'react-resizable';
 
@@ -98,7 +98,8 @@ const App: React.FC = () => {
   ];
 
   const handleResize: Function =
-    (index: number) => (_: React.SyntheticEvent<Element>, { size }: ResizeCallbackData) => {
+    (index: number) =>
+    (_: React.SyntheticEvent<Element>, { size }: ResizeCallbackData) => {
       const newColumns = [...columns];
       newColumns[index] = {
         ...newColumns[index],

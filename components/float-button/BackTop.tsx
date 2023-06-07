@@ -2,12 +2,12 @@ import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import React, { memo, useContext, useEffect, useRef, useState } from 'react';
-import FloatButton, { floatButtonPrefixCls } from './FloatButton';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
 import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
+import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import FloatButtonGroupContext from './context';
 import type { BackTopProps, FloatButtonProps, FloatButtonShape } from './interface';
 import useStyle from './style';

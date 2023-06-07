@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
 import { UploadOutlined } from '@ant-design/icons';
 import type { UploadProps } from 'antd';
 import { Button, Upload } from 'antd';
 import type { UploadFile } from 'antd/es/upload/interface';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([

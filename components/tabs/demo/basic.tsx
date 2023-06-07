@@ -1,6 +1,6 @@
-import React from 'react';
-import { Tabs } from 'antd';
 import type { TabsProps } from 'antd';
+import { Tabs } from 'antd';
+import React from 'react';
 
 const onChange = (key: string) => {
   console.log(key);

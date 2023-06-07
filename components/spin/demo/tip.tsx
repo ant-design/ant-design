@@ -1,5 +1,5 @@
-import React from 'react';
 import { Alert, Space, Spin } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Space direction="vertical" style={{ width: '100%' }}>

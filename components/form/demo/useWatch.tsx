@@ -1,5 +1,5 @@
-import React from 'react';
 import { Form, Input, InputNumber, Typography } from 'antd';
+import React from 'react';
 
 const Demo: React.FC = () => {
   const [form] = Form.useForm<{ name: string; age: number }>();

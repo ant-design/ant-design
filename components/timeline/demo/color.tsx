@@ -1,6 +1,6 @@
-import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import { Timeline } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Timeline

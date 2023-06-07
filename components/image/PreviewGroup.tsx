@@ -6,12 +6,12 @@ import RotateRightOutlined from '@ant-design/icons/RotateRightOutlined';
 import SwapOutlined from '@ant-design/icons/SwapOutlined';
 import ZoomInOutlined from '@ant-design/icons/ZoomInOutlined';
 import ZoomOutOutlined from '@ant-design/icons/ZoomOutOutlined';
+import classNames from 'classnames';
 import RcImage from 'rc-image';
 import type { GroupConsumerProps } from 'rc-image/lib/PreviewGroup';
 import * as React from 'react';
-import classNames from 'classnames';
-import { ConfigContext } from '../config-provider';
 import { getTransitionName } from '../_util/motion';
+import { ConfigContext } from '../config-provider';
 
 // CSSINJS
 import useStyle from './style';

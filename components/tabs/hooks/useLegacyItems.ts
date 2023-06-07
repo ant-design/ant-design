@@ -1,7 +1,7 @@
-import * as React from 'react';
-import toArray from 'rc-util/lib/Children/toArray';
 import type { Tab } from 'rc-tabs/lib/interface';
-import type { TabsProps, TabPaneProps } from '..';
+import toArray from 'rc-util/lib/Children/toArray';
+import * as React from 'react';
+import type { TabPaneProps, TabsProps } from '..';
 import warning from '../../_util/warning';
 
 function filter<T>(items: (T | null)[]): T[] {

@@ -1,5 +1,5 @@
-import * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
+import * as React from 'react';
 import type { StepProps } from '.';
 import warning from '../_util/warning';
 

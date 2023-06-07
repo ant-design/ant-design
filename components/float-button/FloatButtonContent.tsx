@@ -1,6 +1,6 @@
-import React, { memo } from 'react';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import classNames from 'classnames';
+import React, { memo } from 'react';
 import type { FloatButtonContentProps } from './interface';
 
 const FloatButtonContent: React.FC<FloatButtonContentProps> = (props) => {

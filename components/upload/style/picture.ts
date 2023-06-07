@@ -247,4 +247,4 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
   };
 };
 
-export { genPictureStyle, genPictureCardStyle };
+export { genPictureCardStyle, genPictureStyle };

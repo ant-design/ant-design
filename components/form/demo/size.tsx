@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import {
   Button,
   Cascader,
@@ -11,6 +10,7 @@ import {
   Switch,
   TreeSelect,
 } from 'antd';
+import React, { useState } from 'react';
 
 type SizeType = Parameters<typeof Form>[0]['size'];
 

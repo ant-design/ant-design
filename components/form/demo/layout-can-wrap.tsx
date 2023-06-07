@@ -1,5 +1,5 @@
-import React from 'react';
 import { Button, Form, Input } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Form

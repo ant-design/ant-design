@@ -1,5 +1,5 @@
-import React from 'react';
 import { ConfigProvider, Timeline } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <ConfigProvider theme={{ token: { wireframe: true } }}>

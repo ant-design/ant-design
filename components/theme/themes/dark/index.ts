@@ -7,10 +7,10 @@ import type {
   PresetColorType,
   SeedToken,
 } from '../../interface';
+import defaultAlgorithm from '../default';
 import { defaultPresetColors } from '../seed';
 import genColorMapToken from '../shared/genColorMapToken';
 import { generateColorPalettes, generateNeutralColorPalettes } from './colors';
-import defaultAlgorithm from '../default';
 
 const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
   const colorPalettes = Object.keys(defaultPresetColors)

@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   DownOutlined,
   FrownFilled,
@@ -8,6 +7,7 @@ import {
 } from '@ant-design/icons';
 import { Tree } from 'antd';
 import type { DataNode } from 'antd/es/tree';
+import React from 'react';
 
 const treeData: DataNode[] = [
   {

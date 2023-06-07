@@ -1,5 +1,5 @@
-import React from 'react';
 import { DatePicker } from 'antd';
+import React from 'react';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalDatePicker } = DatePicker;
 

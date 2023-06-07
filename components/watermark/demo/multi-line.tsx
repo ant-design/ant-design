@@ -1,5 +1,5 @@
-import React from 'react';
 import { Watermark } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Watermark content={['Ant Design', 'Happy Working']}>

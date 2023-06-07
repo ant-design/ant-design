@@ -1,6 +1,6 @@
-import React from 'react';
 import type { TabsProps } from 'antd';
 import { Tabs, theme } from 'antd';
+import React from 'react';
 import StickyBox from 'react-sticky-box';
 
 const items = new Array(3).fill(null).map((_, i) => {

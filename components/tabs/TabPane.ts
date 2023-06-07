@@ -1,5 +1,5 @@
-import type * as React from 'react';
 import type { TabPaneProps } from 'rc-tabs/lib/TabPanelList/TabPane';
+import type * as React from 'react';
 
 const TabPane: React.FC<TabPaneProps> = () => null;
 

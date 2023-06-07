@@ -1,7 +1,7 @@
-import React from 'react';
 import { TimePicker } from 'antd';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import React from 'react';
 
 dayjs.extend(customParseFormat);
 

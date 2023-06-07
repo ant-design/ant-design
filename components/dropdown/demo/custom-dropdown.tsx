@@ -1,7 +1,7 @@
-import React from 'react';
 import { DownOutlined } from '@ant-design/icons';
-import { Dropdown, Space, Divider, Button, theme } from 'antd';
 import type { MenuProps } from 'antd';
+import { Button, Divider, Dropdown, Space, theme } from 'antd';
+import React from 'react';
 
 const { useToken } = theme;
 

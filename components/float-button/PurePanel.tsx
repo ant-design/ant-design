@@ -1,11 +1,11 @@
 /* eslint-disable react/no-array-index-key */
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
+import { ConfigContext } from '../config-provider';
+import BackTop from './BackTop';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import FloatButtonGroup from './FloatButtonGroup';
-import BackTop from './BackTop';
-import type { FloatButtonProps, FloatButtonGroupProps } from './interface';
-import { ConfigContext } from '../config-provider';
+import type { FloatButtonGroupProps, FloatButtonProps } from './interface';
 
 export interface PureFloatButtonProps extends Omit<FloatButtonProps, 'target'> {
   backTop?: boolean;

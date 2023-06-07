@@ -1,5 +1,5 @@
-import React from 'react';
 import { Divider, Space, Typography } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Space split={<Divider type="vertical" />}>

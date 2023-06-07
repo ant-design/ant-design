@@ -1,5 +1,5 @@
 import React from 'react';
-import { isValidElement, cloneElement, isFragment, replaceElement } from '../reactNode';
+import { cloneElement, isFragment, isValidElement, replaceElement } from '../reactNode';
 
 describe('reactNode test', () => {
   it('isValidElement', () => {

@@ -148,6 +148,6 @@ const Content = generator({
   displayName: 'Content',
 })(Basic);
 
-export { Header, Footer, Content };
+export { Content, Footer, Header };
 
 export default Layout;

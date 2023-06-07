@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Segmented } from 'antd';
+import React, { useState } from 'react';
 
 const Demo: React.FC = () => {
   const [value, setValue] = useState<string | number>('Map');

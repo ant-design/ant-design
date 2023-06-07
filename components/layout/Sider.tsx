@@ -6,8 +6,8 @@ import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import { useContext, useEffect, useRef, useState } from 'react';
 
-import { ConfigContext } from '../config-provider';
 import isNumeric from '../_util/isNumeric';
+import { ConfigContext } from '../config-provider';
 import { LayoutContext } from './layout';
 
 const dimensionMaxMap = {

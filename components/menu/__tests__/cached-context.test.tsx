@@ -1,7 +1,7 @@
 import React, { memo, useContext } from 'react';
-import Menu from '../index';
-import MenuContext from '../MenuContext';
 import { fireEvent, pureRender } from '../../../tests/utils';
+import MenuContext from '../MenuContext';
+import Menu from '../index';
 
 let innerCount = 0;
 let outerCount = 0;

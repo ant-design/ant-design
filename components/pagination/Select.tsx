@@ -12,4 +12,4 @@ const MiddleSelect: CompoundedComponent = (props) => <Select {...props} showSear
 MiniSelect.Option = Select.Option;
 MiddleSelect.Option = Select.Option;
 
-export { MiniSelect, MiddleSelect };
+export { MiddleSelect, MiniSelect };

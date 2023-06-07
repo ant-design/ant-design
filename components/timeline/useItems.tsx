@@ -1,5 +1,5 @@
-import type * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
+import type * as React from 'react';
 import type { TimelineItemProps } from './TimelineItem';
 
 function useItems(items?: TimelineItemProps[], children?: React.ReactNode): TimelineItemProps[] {

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Button, Image, Space } from 'antd';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [random, setRandom] = useState<number>();

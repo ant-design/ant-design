@@ -55,7 +55,7 @@ export function renderHook<T>(func: () => T): { result: React.RefObject<T> } {
 const pureRender = render;
 
 export * from '@testing-library/react';
-export { customRender as render, pureRender };
+export { pureRender, customRender as render };
 
 export const triggerResize = (target: Element) => {
   const originGetBoundingClientRect = target.getBoundingClientRect;

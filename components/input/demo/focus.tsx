@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
 import type { InputRef } from 'antd';
+import React, { useRef, useState } from 'react';
 
 import { Button, Input, Space, Switch } from 'antd';
 

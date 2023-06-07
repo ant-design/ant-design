@@ -1,8 +1,8 @@
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import isEqual from 'rc-util/lib/isEqual';
 import type { OverrideToken } from '../../theme/interface';
-import type { ThemeConfig } from '../context';
 import { defaultConfig } from '../../theme/internal';
+import type { ThemeConfig } from '../context';
 
 export default function useTheme(
   theme?: ThemeConfig,

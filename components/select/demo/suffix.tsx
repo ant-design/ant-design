@@ -1,6 +1,6 @@
-import React from 'react';
 import { MehOutlined, SmileOutlined } from '@ant-design/icons';
 import { Select, Space } from 'antd';
+import React from 'react';
 
 const smileIcon = <SmileOutlined />;
 const mehIcon = <MehOutlined />;

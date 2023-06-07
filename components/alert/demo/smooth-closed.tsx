@@ -1,5 +1,5 @@
+import { Alert, Space, Switch } from 'antd';
 import React, { useState } from 'react';
-import { Alert, Switch, Space } from 'antd';
 
 const App: React.FC = () => {
   const [visible, setVisible] = useState(true);

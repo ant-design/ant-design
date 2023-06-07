@@ -1,6 +1,6 @@
-import React from 'react';
 import { Tree } from 'antd';
 import type { DataNode, DirectoryTreeProps } from 'antd/es/tree';
+import React from 'react';
 
 const { DirectoryTree } = Tree;
 

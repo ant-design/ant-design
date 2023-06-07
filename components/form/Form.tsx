@@ -186,6 +186,6 @@ const Form = React.forwardRef<FormInstance, FormProps>(InternalForm) as <Values 
   props: React.PropsWithChildren<FormProps<Values>> & { ref?: React.Ref<FormInstance<Values>> },
 ) => React.ReactElement;
 
-export { useForm, List, type FormInstance, useWatch };
+export { List, useForm, useWatch, type FormInstance };
 
 export default Form;

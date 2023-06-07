@@ -1,12 +1,12 @@
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';
+import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import Popover from '../popover';
-import { cloneElement } from '../_util/reactNode';
-import Avatar from './avatar';
 import type { AvatarSize } from './SizeContext';
 import { SizeContextProvider } from './SizeContext';
+import Avatar from './avatar';
 import useStyle from './style';
 
 export interface GroupProps {

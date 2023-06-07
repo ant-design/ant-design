@@ -7,8 +7,8 @@ import type {
   GlobalToken,
   MapToken,
   OverrideToken,
-  PresetColorType,
   PresetColorKey,
+  PresetColorType,
   SeedToken,
 } from './interface';
 import { PresetColors } from './interface';
@@ -17,29 +17,28 @@ import defaultSeedToken from './themes/seed';
 import formatToken from './util/alias';
 import type { FullToken } from './util/genComponentStyleHook';
 import genComponentStyleHook from './util/genComponentStyleHook';
-import statisticToken, { merge as mergeToken } from './util/statistic';
 import genPresetColor from './util/genPresetColor';
+import statisticToken, { merge as mergeToken } from './util/statistic';
 
 const defaultTheme = createTheme(defaultDerivative);
 
 export {
-  // colors
   PresetColors,
-  statisticToken,
-  mergeToken,
-  // hooks
-  useStyleRegister,
   genComponentStyleHook,
   genPresetColor,
+  mergeToken,
+  statisticToken,
+  // hooks
+  useStyleRegister,
 };
 export type {
-  SeedToken,
   AliasToken,
-  PresetColorType,
-  PresetColorKey,
   // FIXME: Remove this type
   AliasToken as DerivativeToken,
   FullToken,
+  PresetColorKey,
+  PresetColorType,
+  SeedToken,
 };
 
 // ================================ Context =================================

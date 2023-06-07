@@ -1,5 +1,5 @@
-import React from 'react';
 import { Checkbox, Popover } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <div style={{ padding: 56 }}>

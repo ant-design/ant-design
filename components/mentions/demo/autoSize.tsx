@@ -1,5 +1,5 @@
-import React from 'react';
 import { Mentions } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Mentions

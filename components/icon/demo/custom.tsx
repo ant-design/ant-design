@@ -1,7 +1,7 @@
-import React from 'react';
 import Icon, { HomeOutlined } from '@ant-design/icons';
 import type { CustomIconComponentProps } from '@ant-design/icons/lib/components/Icon';
 import { Space } from 'antd';
+import React from 'react';
 
 const HeartSvg = () => (
   <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">

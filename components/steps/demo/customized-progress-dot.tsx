@@ -1,6 +1,6 @@
-import React from 'react';
 import type { StepsProps } from 'antd';
 import { Popover, Steps } from 'antd';
+import React from 'react';
 
 const customDot: StepsProps['progressDot'] = (dot, { status, index }) => (
   <Popover

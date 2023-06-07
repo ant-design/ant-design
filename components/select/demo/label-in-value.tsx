@@ -1,5 +1,5 @@
-import React from 'react';
 import { Select } from 'antd';
+import React from 'react';
 
 const handleChange = (value: { value: string; label: React.ReactNode }) => {
   console.log(value); // { value: "lucy", key: "lucy", label: "Lucy (101)" }

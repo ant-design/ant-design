@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   AutoComplete,
   Button,
@@ -13,6 +12,7 @@ import {
   TreeSelect,
   Typography,
 } from 'antd';
+import React from 'react';
 
 const { Text } = Typography;
 const { Option } = Select;

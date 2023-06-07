@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Alert, Spin, Switch } from 'antd';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);

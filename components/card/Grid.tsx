@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 
 export interface CardGridProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;

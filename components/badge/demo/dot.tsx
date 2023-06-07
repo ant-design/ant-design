@@ -1,6 +1,6 @@
-import React from 'react';
 import { NotificationOutlined } from '@ant-design/icons';
 import { Badge, Space } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Space>

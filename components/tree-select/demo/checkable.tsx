@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { TreeSelect } from 'antd';
+import React, { useState } from 'react';
 
 const { SHOW_PARENT } = TreeSelect;
 

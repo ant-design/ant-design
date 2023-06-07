@@ -1,6 +1,6 @@
-import React from 'react';
+import { green, red } from '@ant-design/colors';
 import { Progress } from 'antd';
-import { red, green } from '@ant-design/colors';
+import React from 'react';
 
 const App: React.FC = () => (
   <>

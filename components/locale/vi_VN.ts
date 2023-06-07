@@ -1,7 +1,7 @@
 import Pagination from 'rc-pagination/lib/locale/vi_VN';
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/vi_VN';
 import DatePicker from '../date-picker/locale/vi_VN';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/vi_VN';
 
 const typeTemplate = '${label} không phải kiểu ${type} hợp lệ';

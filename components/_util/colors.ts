@@ -14,7 +14,7 @@ export const PresetStatusColorTypes = [
 
 export type PresetColorType = PresetColorKey | InverseColor;
 
-export type PresetStatusColorType = typeof PresetStatusColorTypes[number];
+export type PresetStatusColorType = (typeof PresetStatusColorTypes)[number];
 
 /**
  * determine if the color keyword belongs to the `Ant Design` {@link PresetColors}.

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { ColumnProps } from '..';
-import type { TreeColumnFilterItem } from '../hooks/useFilter/FilterDropdown';
 import Table from '..';
+import type { TreeColumnFilterItem } from '../hooks/useFilter/FilterDropdown';
 
 const { Column, ColumnGroup } = Table;
 
