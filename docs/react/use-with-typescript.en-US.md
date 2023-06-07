@@ -1,13 +1,11 @@
 ---
 order: 5
-title: Use in TypeScript
+title: Usage with TypeScript
 ---
 
-Let's create a TypeScript project by using `create-react-app`, then import `antd` step by step.
+Let's create a `TypeScript` project by using `create-react-app`, then import `antd` step by step.
 
 > We build `antd` based on latest stable version of TypeScript (`>=5.0.0`), please make sure your project dependency matches it.
-
----
 
 ## Install and Initialization
 
@@ -44,12 +42,9 @@ Modify `src/App.tsx`, import Button component from `antd`.
 
 ```tsx
 import { Button } from 'antd';
-import 'antd/dist/reset.css';
-import type { FC } from 'react';
 import React from 'react';
-import './App.css';
 
-const App: FC = () => (
+const App: React.FC = () => (
   <div className="App">
     <Button type="primary">Button</Button>
   </div>
@@ -66,37 +61,6 @@ OK, reboot with `yarn start`, you should now see a blue primary button displayed
 
 > Don't install `@types/antd`.
 
-## Advanced Guides
-
-In the real world, we usually have to modify default webpack config for custom needs such as themes. We can achieve that by using [craco](https://github.com/gsoft-inc/craco) which is one of create-react-app's custom config solutions.
-
-Install craco and modify the `scripts` field in `package.json`.
-
-```bash
-$ yarn add @craco/craco
-```
-
-```diff
-/* package.json */
-"scripts": {
--   "start": "react-scripts start",
--   "build": "react-scripts build",
--   "test": "react-scripts test",
-+   "start": "craco start",
-+   "build": "craco build",
-+   "test": "craco test",
-}
-```
-
-Then create a `craco.config.js` at root directory of your project for further overriding.
-
-```js
-/* craco.config.js */
-module.exports = {
-  // ...
-};
-```
-
 ### Customize Theme
 
 Ref to the [Customize Theme documentation](/docs/react/customize-theme). Modify theme with ConfigProvider:
@@ -105,24 +69,11 @@ Ref to the [Customize Theme documentation](/docs/react/customize-theme). Modify 
 import { ConfigProvider } from 'antd';
 import React from 'react';
 
-export default () => (
-  <ConfigProvider
-    theme={{
-      token: {
-        colorPrimary: '#00b96b',
-      },
-    }}
-  >
+const App: React.FC = () => (
+  <ConfigProvider theme={{ token: { colorPrimary: '#00b96b' } }}>
     <MyApp />
   </ConfigProvider>
 );
+
+export default App;
 ```
-
-## Alternative ways
-
-Follow manual in [Adding TypeScript](https://create-react-app.dev/docs/adding-typescript) to setup TypeScript development environment if you already create a project by [Use in create-react-app](/docs/react/use-with-create-react-app).
-
-- [Create React apps (with Typescript and antd) with no build configuration](https://github.com/SZzzzz/react-scripts-ts-antd)
-- [react-app-rewire-typescript](https://github.com/lwd-technology/react-app-rewire-typescript)
-- [ts-import-plugin](https://github.com/Brooooooklyn/ts-import-plugin)
-- [Migrating from create-react-app-typescript to Create React App](https://vincenttunru.com/migrate-create-react-app-typescript-to-create-react-app/)
