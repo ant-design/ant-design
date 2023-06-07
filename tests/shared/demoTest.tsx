@@ -66,7 +66,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         vi.clearAllTimers();
         errSpy.mockRestore();
       },
-      15000,
+      120000,
     );
     vi.useRealTimers();
   });

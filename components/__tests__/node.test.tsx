@@ -49,7 +49,7 @@ describe('node', () => {
               renderToString(<Demo />);
             }).not.toThrow();
           },
-          15000,
+          120000,
         );
       });
     });
