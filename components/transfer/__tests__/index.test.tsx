@@ -7,7 +7,13 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Button from '../../button';
 
-const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+// const oriError = console.error;
+// console.error = (str) => {
+//   if (str.includes('Maximum')) {
+//     throw new Error('2333');
+//   }
+//   return oriError(str);
+// };
 
 const listCommonProps: {
   dataSource: { key: string; title: string; disabled?: boolean }[];
@@ -266,6 +272,8 @@ describe('Transfer', () => {
   });
 
   it('should display the correct locale and ignore old API', () => {
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
     const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
     const locale = { notFoundContent: 'old1', searchPlaceholder: 'old2' };
     const newLocalProp = { notFoundContent: 'new1', searchPlaceholder: 'new2' };
