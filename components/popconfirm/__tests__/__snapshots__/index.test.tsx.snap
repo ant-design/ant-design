@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Popconfirm rtl render component should be rendered correctly in RTL direction 1`] = `<span />`;
+exports[`Popconfirm > rtl render > component should be rendered correctly in RTL direction 1`] = `<span />`;
 
-exports[`Popconfirm should show overlay when trigger is clicked 1`] = `
+exports[`Popconfirm > should show overlay when trigger is clicked 1`] = `
 <div
   class="ant-popover ant-popconfirm ant-popover-placement-top"
   style="--arrow-x: 0px; --arrow-y: 6px; left: 0px; top: -12px; box-sizing: border-box;"
@@ -87,7 +87,7 @@ exports[`Popconfirm should show overlay when trigger is clicked 1`] = `
 </div>
 `;
 
-exports[`Popconfirm shows content for render functions 1`] = `
+exports[`Popconfirm > shows content for render functions 1`] = `
 <div
   class="ant-popover ant-popconfirm ant-popover-placement-bottom"
   style="--arrow-x: 0px; --arrow-y: -6px; left: 0px; top: 12px; box-sizing: border-box;"

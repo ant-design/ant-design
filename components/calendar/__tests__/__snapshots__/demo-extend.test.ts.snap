@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`] = `
 <div
@@ -74,7 +74,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -521,7 +521,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -1659,7 +1659,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -2106,7 +2106,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -3243,7 +3243,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -3690,7 +3690,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -4823,7 +4823,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -5270,7 +5270,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -6448,7 +6448,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                 >
                   <div
                     class="rc-virtual-list-holder"
-                    style="max-height: 256px; overflow-y: auto;"
+                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                   >
                     <div>
                       <div
@@ -6920,7 +6920,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                 >
                   <div
                     class="rc-virtual-list-holder"
-                    style="max-height: 256px; overflow-y: auto;"
+                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                   >
                     <div>
                       <div
@@ -8041,7 +8041,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -8488,7 +8488,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -10036,7 +10036,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -10483,7 +10483,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div

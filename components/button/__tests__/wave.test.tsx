@@ -3,28 +3,26 @@ import React from 'react';
 import Button from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
 
-jest.mock('rc-util/lib/Dom/isVisible', () => {
-  const mockFn = () => true;
-  return mockFn;
-});
+vi.mock('rc-util/es/Dom/isVisible', () => ({ default: () => true }));
 
 describe('click wave effect', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
-  afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+  afterEach(async () => {
+    await vi.runAllTimersAsync();
+    vi.clearAllTimers();
+    vi.useRealTimers();
     document.body.innerHTML = '';
   });
 
   async function clickButton(container: HTMLElement) {
     const element = container.firstChild;
     // https://github.com/testing-library/user-event/issues/833
-    await userEvent.setup({ advanceTimers: jest.advanceTimersByTime }).click(element as Element);
+    await userEvent.setup({ advanceTimers: vi.advanceTimersByTime }).click(element as Element);
     act(() => {
-      jest.advanceTimersByTime(100);
+      vi.advanceTimersByTime(100);
     });
 
     fireEvent(element!, new Event('transitionstart'));

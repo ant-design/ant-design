@@ -1,10 +1,10 @@
-import type { TriggerProps } from '@rc-component/trigger';
 import dayjs from 'dayjs';
 import 'dayjs/locale/mk'; // to test local in 'prop locale should works' test case
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import MockDate from 'mockdate';
 import dayJsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import React from 'react';
+import { vi } from 'vitest';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import { fireEvent, render } from '../../../tests/utils';
@@ -13,24 +13,8 @@ import type { PickerLocale } from '../generatePicker';
 
 dayjs.extend(customParseFormat);
 
-let triggerProps: TriggerProps;
-
-jest.mock('@rc-component/trigger', () => {
-  let Trigger = jest.requireActual('@rc-component/trigger/lib/mock');
-  Trigger = Trigger.default || Trigger;
-  const h: typeof React = jest.requireActual('react');
-
-  return {
-    default: h.forwardRef<unknown, TriggerProps>((props, ref) => {
-      triggerProps = props;
-      return h.createElement(Trigger, { ref, ...props });
-    }),
-    __esModule: true,
-  };
-});
-
 describe('DatePicker', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   focusTest(DatePicker, { refFocus: true });
 
@@ -249,28 +233,28 @@ describe('DatePicker', () => {
 
   it('placement api work correctly', () => {
     const { rerender } = render(<DatePicker.RangePicker open placement="topLeft" />);
-    expect(triggerProps?.builtinPlacements).toEqual(
+    expect(globalThis.triggerProps?.builtinPlacements).toEqual(
       expect.objectContaining({
         topLeft: expect.objectContaining({ offset: [0, -4], points: ['bl', 'tl'] }),
       }),
     );
 
     rerender(<DatePicker.RangePicker open placement="topRight" />);
-    expect(triggerProps?.builtinPlacements).toEqual(
+    expect(globalThis.triggerProps?.builtinPlacements).toEqual(
       expect.objectContaining({
         topRight: expect.objectContaining({ offset: [0, -4], points: ['br', 'tr'] }),
       }),
     );
 
     rerender(<DatePicker.RangePicker open placement="bottomLeft" />);
-    expect(triggerProps?.builtinPlacements).toEqual(
+    expect(globalThis.triggerProps?.builtinPlacements).toEqual(
       expect.objectContaining({
         bottomLeft: expect.objectContaining({ offset: [0, 4], points: ['tl', 'bl'] }),
       }),
     );
 
     rerender(<DatePicker.RangePicker open placement="bottomRight" />);
-    expect(triggerProps?.builtinPlacements).toEqual(
+    expect(globalThis.triggerProps?.builtinPlacements).toEqual(
       expect.objectContaining({
         bottomRight: expect.objectContaining({ offset: [0, 4], points: ['tr', 'br'] }),
       }),
@@ -280,7 +264,7 @@ describe('DatePicker', () => {
   it('legacy dropdownClassName', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(<DatePicker dropdownClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',

@@ -43,10 +43,10 @@ $ yarn add antd
 Modify `src/App.tsx`, import Button component from `antd`.
 
 ```tsx
-import React from 'react';
-import type { FC } from 'react';
 import { Button } from 'antd';
 import 'antd/dist/reset.css';
+import type { FC } from 'react';
+import React from 'react';
 import './App.css';
 
 const App: FC = () => (
@@ -102,8 +102,8 @@ module.exports = {
 Ref to the [Customize Theme documentation](/docs/react/customize-theme). Modify theme with ConfigProvider:
 
 ```tsx
-import React from 'react';
 import { ConfigProvider } from 'antd';
+import React from 'react';
 
 export default () => (
   <ConfigProvider

@@ -191,7 +191,7 @@ jobs:
       # dom test
       - name: dom test
         if: ${{ matrix.module == 'dom' }}
-        run: npm test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
+        run: npm test -- --shard=${{matrix.shard}} --coverage
 
       - name: persist coverages
         if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
@@ -347,7 +347,7 @@ jobs:
       - name: test
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        run: npm test -- --maxWorkers=2 --shard=${{matrix.shard}}
+        run: npm test -- --shard=${{matrix.shard}}
         env:
           LIB_DIR: ${{ matrix.module }}
     needs: compile

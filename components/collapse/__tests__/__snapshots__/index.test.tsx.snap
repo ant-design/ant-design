@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Collapse Collapse.Panel usage 1`] = `
+exports[`Collapse > Collapse.Panel usage 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless"
 >
@@ -87,7 +87,7 @@ exports[`Collapse Collapse.Panel usage 1`] = `
 </div>
 `;
 
-exports[`Collapse could override default openMotion 1`] = `
+exports[`Collapse > could override default openMotion 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
 >
@@ -144,7 +144,7 @@ exports[`Collapse could override default openMotion 1`] = `
 </div>
 `;
 
-exports[`Collapse should render extra node of panel 1`] = `
+exports[`Collapse > should render extra node of panel 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
 >
@@ -249,7 +249,7 @@ exports[`Collapse should render extra node of panel 1`] = `
 </div>
 `;
 
-exports[`Collapse should support remove expandIcon 1`] = `
+exports[`Collapse > should support remove expandIcon 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
 >

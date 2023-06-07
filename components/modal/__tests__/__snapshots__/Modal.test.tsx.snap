@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Modal render correctly 1`] = `
+exports[`Modal > render correctly 1`] = `
 <div>
   <div>
     <div
@@ -94,7 +94,7 @@ exports[`Modal render correctly 1`] = `
 </div>
 `;
 
-exports[`Modal render without footer 1`] = `
+exports[`Modal > render without footer 1`] = `
 <div>
   <div>
     <div
@@ -168,9 +168,9 @@ exports[`Modal render without footer 1`] = `
 </div>
 `;
 
-exports[`Modal rtl render component should be rendered correctly in RTL direction 1`] = `null`;
+exports[`Modal > rtl render > component should be rendered correctly in RTL direction 1`] = `null`;
 
-exports[`Modal support closeIcon 1`] = `
+exports[`Modal > support closeIcon 1`] = `
 <div
   class="ant-modal-root"
 >

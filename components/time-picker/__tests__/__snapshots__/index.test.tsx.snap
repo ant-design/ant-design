@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TimePicker not render clean icon when allowClear is false 1`] = `
+exports[`TimePicker > not render clean icon when allowClear is false 1`] = `
 <div
   class="ant-picker"
 >
@@ -45,7 +45,7 @@ exports[`TimePicker not render clean icon when allowClear is false 1`] = `
 </div>
 `;
 
-exports[`TimePicker prop locale should works 1`] = `
+exports[`TimePicker > prop locale should works 1`] = `
 Array [
   <div
     class="ant-picker"
@@ -1482,7 +1482,7 @@ Array [
 ]
 `;
 
-exports[`TimePicker rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`TimePicker > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-picker ant-picker-rtl"
 >
@@ -1527,7 +1527,7 @@ exports[`TimePicker rtl render component should be rendered correctly in RTL dir
 </div>
 `;
 
-exports[`TimePicker should support bordered 1`] = `
+exports[`TimePicker > should support bordered 1`] = `
 <div
   class="ant-picker ant-picker-borderless custom-class"
 >

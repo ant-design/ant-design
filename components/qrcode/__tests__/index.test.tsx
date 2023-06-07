@@ -20,7 +20,7 @@ describe('QRCode test', () => {
   });
 
   it('should render `null` and console Error when value not exist', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(<QRCode value={undefined as unknown as string} />);
     expect(container.firstChild).toBe(null);
     expect(container.firstChild).toMatchSnapshot();
@@ -45,7 +45,7 @@ describe('QRCode test', () => {
   });
 
   it('support refresh', () => {
-    const refresh = jest.fn();
+    const refresh = vi.fn();
     const { container } = render(<QRCode value="test" status="expired" onRefresh={refresh} />);
     fireEvent.click(
       container
@@ -81,7 +81,7 @@ describe('QRCode test', () => {
   });
 
   it('should console Error when icon exist && errorLevel is `L`', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<QRCode value="test" icon="test" errorLevel="L" />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: QRCode] ErrorLevel `L` is not recommended to be used with `icon`, for scanning result would be affected by low level.',

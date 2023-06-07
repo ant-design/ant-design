@@ -1,11 +1,11 @@
 import React from 'react';
 import Radio, { Button, Group } from '..';
-import Form from '../../form';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import Form from '../../form';
 
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 
 describe('Radio', () => {
   focusTest(Radio, { refFocus: true });
@@ -23,8 +23,8 @@ describe('Radio', () => {
   });
 
   it('responses hover events', () => {
-    const onMouseEnter = jest.fn();
-    const onMouseLeave = jest.fn();
+    const onMouseEnter = vi.fn();
+    const onMouseLeave = vi.fn();
 
     const { container } = render(<Radio onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />);
 

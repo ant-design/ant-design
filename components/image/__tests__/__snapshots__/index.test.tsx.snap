@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Image Default Group preview props 1`] = `
+exports[`Image > Default Group preview props 1`] = `
 <body>
   <div>
     <div
@@ -277,7 +277,7 @@ exports[`Image Default Group preview props 1`] = `
 </body>
 `;
 
-exports[`Image rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`Image > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-image"
 >

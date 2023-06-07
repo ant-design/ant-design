@@ -5,8 +5,8 @@ import Drawer from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
 import { resetWarned } from '../../_util/warning';
+import ConfigProvider from '../../config-provider';
 
 const DrawerTest: React.FC<DrawerProps> = ({ getContainer }) => (
   <div>
@@ -21,16 +21,16 @@ describe('Drawer', () => {
   rtlTest(Drawer);
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   function triggerMotion() {
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     const mask = document.querySelector('.ant-drawer-mask');
@@ -44,7 +44,7 @@ describe('Drawer', () => {
     }
 
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
   }
 
@@ -190,7 +190,7 @@ describe('Drawer', () => {
   });
 
   it('ConfigProvider should not warning', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     render(
       <ConfigProvider virtual>
@@ -212,7 +212,7 @@ describe('Drawer', () => {
 
   describe('style migrate', () => {
     it('not warning with getContainer', () => {
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       resetWarned();
 
       render(<Drawer getContainer={() => document.body} />);
@@ -222,7 +222,7 @@ describe('Drawer', () => {
     });
 
     it('not warning with getContainer false', () => {
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       resetWarned();
 
       render(<Drawer getContainer={false} />);
@@ -232,7 +232,7 @@ describe('Drawer', () => {
     });
 
     it('warning with getContainer & style', () => {
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       resetWarned();
 
       render(<Drawer getContainer={false} style={{ position: 'absolute' }} />);

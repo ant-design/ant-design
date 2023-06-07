@@ -9,19 +9,19 @@ import TransButton from '../transButton';
 describe('Test utils function', () => {
   describe('throttle', () => {
     beforeAll(() => {
-      jest.useFakeTimers();
+      vi.useFakeTimers();
     });
 
     afterAll(() => {
-      jest.useRealTimers();
+      vi.useRealTimers();
     });
 
     afterEach(() => {
-      jest.clearAllTimers();
+      vi.clearAllTimers();
     });
 
     it('throttle function should work', async () => {
-      const callback = jest.fn();
+      const callback = vi.fn();
       const throttled = throttleByAnimationFrame(callback);
       expect(callback).not.toHaveBeenCalled();
 
@@ -34,7 +34,7 @@ describe('Test utils function', () => {
     });
 
     it('throttle function should be canceled', async () => {
-      const callback = jest.fn();
+      const callback = vi.fn();
       const throttled = throttleByAnimationFrame(callback);
 
       throttled();
@@ -54,7 +54,7 @@ describe('Test utils function', () => {
     });
 
     it('should trigger onClick when press enter', () => {
-      const onClick = jest.fn();
+      const onClick = vi.fn();
 
       const { container } = render(<TransButton onClick={onClick}>TransButton</TransButton>);
 
@@ -75,7 +75,7 @@ describe('Test utils function', () => {
     });
 
     it('isStyleSupport return false in service side', () => {
-      const spy = jest
+      const spy = vi
         .spyOn(window.document, 'documentElement', 'get')
         .mockImplementation(() => undefined as unknown as HTMLElement);
       expect(isStyleSupport('color')).toBe(false);

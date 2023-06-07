@@ -1,12 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`App rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`App > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-app"
 />
 `;
 
-exports[`App single 1`] = `
+exports[`App > single 1`] = `
 <div
   class="ant-app"
 >

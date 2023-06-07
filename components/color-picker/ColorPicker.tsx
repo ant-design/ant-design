@@ -194,7 +194,7 @@ if (process.env.NODE_ENV !== 'production') {
 const PurePanel = genPurePanel(
   ColorPicker,
   'color-picker',
-  /* istanbul ignore next */
+  /* c8 ignore next */
   (prefixCls) => prefixCls,
   (props: ColorPickerProps) => ({
     ...props,
