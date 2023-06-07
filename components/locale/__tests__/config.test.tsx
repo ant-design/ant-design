@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Modal } from '../..';
-import { waitFakeTimer, render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import zhCN from '../zh_CN';
 
@@ -15,7 +15,7 @@ const Demo: React.FC<{ type: string }> = ({ type }) => {
 
 describe('Locale Provider demo', () => {
   it('change type', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
     const BasicExample: React.FC = () => {
       const [type, setType] = React.useState<string>('');
@@ -52,6 +52,6 @@ describe('Locale Provider demo', () => {
 
     expect(document.body.querySelectorAll('.ant-btn-primary span')[0]?.textContent).toBe('确 定');
     Modal.destroyAll();
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 });

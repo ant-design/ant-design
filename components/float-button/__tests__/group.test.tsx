@@ -34,7 +34,7 @@ describe('FloatButtonGroup', () => {
     expect(container.querySelectorAll(`.ant-float-btn-${squareShape}`)).toHaveLength(3);
   });
   it('support onOpenChange for click', () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const { container } = render(
       <FloatButton.Group trigger="click" onOpenChange={onOpenChange}>
         <FloatButton />
@@ -46,7 +46,7 @@ describe('FloatButtonGroup', () => {
     expect(onOpenChange).toHaveBeenCalled();
   });
   it('support onOpenChange for hover', () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const { container } = render(
       <FloatButton.Group trigger="hover" onOpenChange={onOpenChange}>
         <FloatButton />
@@ -59,7 +59,7 @@ describe('FloatButtonGroup', () => {
     expect(onOpenChange).toHaveBeenCalled();
   });
   it('support click floatButtonGroup not close', () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const { container } = render(
       <FloatButton.Group trigger="click" onOpenChange={onOpenChange}>
         <FloatButton />
@@ -72,7 +72,7 @@ describe('FloatButtonGroup', () => {
     expect(onOpenChange).toHaveBeenCalledTimes(1);
   });
   it('support click out auto close', () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const { container } = render(
       <FloatButton.Group trigger="click" onOpenChange={onOpenChange}>
         <FloatButton />

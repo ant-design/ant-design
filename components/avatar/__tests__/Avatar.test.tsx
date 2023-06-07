@@ -7,7 +7,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import useBreakpoint from '../../grid/hooks/useBreakpoint';
 
-jest.mock('../../grid/hooks/useBreakpoint');
+vi.mock('../../grid/hooks/useBreakpoint');
 
 describe('Avatar Render', () => {
   mountTest(Avatar);
@@ -122,7 +122,7 @@ describe('Avatar Render', () => {
   });
 
   it('should warning when pass a string as icon props', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<Avatar size={64} icon="aa" />);
     expect(warnSpy).not.toHaveBeenCalled();
 
@@ -152,7 +152,7 @@ describe('Avatar Render', () => {
   });
 
   it('support onMouseEnter', () => {
-    const onMouseEnter = jest.fn();
+    const onMouseEnter = vi.fn();
     const { container } = render(<Avatar {...{ onMouseEnter }}>TestString</Avatar>);
     fireEvent.mouseEnter(container.firstChild!);
     expect(onMouseEnter).toHaveBeenCalled();
@@ -191,7 +191,7 @@ describe('Avatar Render', () => {
   });
 
   it('clickable', () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     const { container } = render(<Avatar onClick={onClick}>TestString</Avatar>);
     fireEvent.click(container.querySelector('.ant-avatar-string')!);
     expect(onClick).toHaveBeenCalled();

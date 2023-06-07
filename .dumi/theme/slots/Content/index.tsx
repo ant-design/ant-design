@@ -303,7 +303,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
             />
           )}
         </article>
-        <PrevAndNext />
+        <PrevAndNext rtl={isRTL} />
         <Footer />
       </Col>
     </DemoContext.Provider>

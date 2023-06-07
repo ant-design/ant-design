@@ -1,4 +1,5 @@
-import { act, fireEvent } from '../../../tests/utils';
+import { vi } from 'vitest';
+import { fireEvent } from '../../../tests/utils';
 
 export async function awaitPromise() {
   for (let i = 0; i < 10; i += 1) {
@@ -9,13 +10,7 @@ export async function awaitPromise() {
 
 export async function triggerMotionEnd(selector: string = '.ant-message-move-up-leave') {
   await awaitPromise();
-
-  // Flush css motion state update
-  for (let i = 0; i < 5; i += 1) {
-    act(() => {
-      jest.runAllTimers();
-    });
-  }
+  await vi.runAllTimersAsync();
 
   document.querySelectorAll(selector).forEach((ele) => {
     fireEvent.animationEnd(ele);

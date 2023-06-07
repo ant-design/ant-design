@@ -7,6 +7,35 @@ This document contains the correspondence between all the less variables related
 
 <Alert message="Note: There are still some less variables that do not have a corresponding Component Token, and these variables have been deprecated in version 5.x."></Alert>
 
+## How to use Component Token
+
+We could configure global token and component token for each component through the `theme` property of ConfigProvider.
+
+```tsx
+import { Checkbox, ConfigProvider, Radio } from 'antd';
+import React from 'react';
+
+const App: React.FC = () => (
+  <ConfigProvider
+    theme={{
+      components: {
+        Radio: {
+          colorPrimary: '#00b96b',
+        },
+        Checkbox: {
+          colorPrimary: '#ff4d4f',
+        },
+      },
+    }}
+  >
+    <Radio>Radio</Radio>
+    <Checkbox>Checkbox</Checkbox>
+  </ConfigProvider>
+);
+
+export default App;
+```
+
 <!-- ## 全局变量 -->
 
 ## Component Token

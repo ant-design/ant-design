@@ -9,8 +9,8 @@ import type { SegmentedValue } from '../index';
 import Segmented from '../index';
 
 // Make CSSMotion working without transition
-jest.mock('rc-motion/lib/util/motion', () => ({
-  ...jest.requireActual('rc-motion/lib/util/motion'),
+vi.mock('rc-motion/es/util/motion', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('rc-motion/es/util/motion')>()),
   supportTransition: false,
 }));
 
@@ -34,11 +34,11 @@ describe('Segmented', () => {
   rtlTest(Segmented);
 
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterAll(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('render empty segmented', () => {
@@ -87,7 +87,7 @@ describe('Segmented', () => {
   });
 
   it('render segmented with string options', () => {
-    const handleValueChange = jest.fn();
+    const handleValueChange = vi.fn();
     const { asFragment, container } = render(
       <Segmented options={['Daily', 'Weekly', 'Monthly']} onChange={handleValueChange} />,
     );
@@ -107,7 +107,7 @@ describe('Segmented', () => {
   });
 
   it('render segmented with numeric options', () => {
-    const handleValueChange = jest.fn();
+    const handleValueChange = vi.fn();
     const { asFragment, container } = render(
       <Segmented options={[1, 2, 3, 4, 5]} onChange={(value) => handleValueChange(value)} />,
     );
@@ -121,7 +121,7 @@ describe('Segmented', () => {
   });
 
   it('render segmented with mixed options', () => {
-    const handleValueChange = jest.fn();
+    const handleValueChange = vi.fn();
     const { asFragment, container } = render(
       <Segmented
         options={['Daily', { label: 'Weekly', value: 'Weekly' }, 'Monthly']}
@@ -138,7 +138,7 @@ describe('Segmented', () => {
   });
 
   it('render segmented with options: disabled', () => {
-    const handleValueChange = jest.fn();
+    const handleValueChange = vi.fn();
     const { asFragment, container } = render(
       <Segmented
         options={['Daily', { label: 'Weekly', value: 'Weekly', disabled: true }, 'Monthly']}
@@ -166,7 +166,7 @@ describe('Segmented', () => {
   });
 
   it('render segmented: disabled', () => {
-    const handleValueChange = jest.fn();
+    const handleValueChange = vi.fn();
     const { asFragment, container } = render(
       <Segmented
         disabled
@@ -238,7 +238,7 @@ describe('Segmented', () => {
   });
 
   it('render segmented with options null/undefined', () => {
-    const handleValueChange = jest.fn();
+    const handleValueChange = vi.fn();
     const { asFragment, container } = render(
       <Segmented
         options={[null, undefined, ''] as any}
@@ -253,7 +253,7 @@ describe('Segmented', () => {
   });
 
   it('render segmented with thumb', () => {
-    const handleValueChange = jest.fn();
+    const handleValueChange = vi.fn();
     const { asFragment, container } = render(
       <Segmented
         options={['Map', 'Transit', 'Satellite']}

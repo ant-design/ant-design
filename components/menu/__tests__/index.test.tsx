@@ -6,12 +6,13 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import React, { useMemo, useState } from 'react';
+import { vi } from 'vitest';
 import type { MenuProps, MenuRef } from '..';
 import Menu from '..';
 import { TriggerMockContext } from '../../../tests/shared/demoTestContext';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render, waitFor } from '../../../tests/utils';
 import initCollapseMotion from '../../_util/motion';
 import { noop } from '../../_util/warning';
 import Layout from '../../layout';
@@ -29,7 +30,7 @@ describe('Menu', () => {
   function triggerAllTimer() {
     for (let i = 0; i < 10; i += 1) {
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
     }
   }
@@ -87,12 +88,13 @@ describe('Menu', () => {
   // window.cancelAnimationFrame = window.clearTimeout;
 
   beforeEach(() => {
-    jest.useFakeTimers();
-    jest.clearAllTimers();
+    vi.useFakeTimers();
   });
 
-  afterEach(() => {
-    jest.useRealTimers();
+  afterEach(async () => {
+    await vi.runAllTimersAsync();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   mountTest(() => (
@@ -236,50 +238,28 @@ describe('Menu', () => {
     expect(container.querySelector('.ant-menu-sub')).toBeFalsy();
   });
 
-  it('should accept openKeys in mode horizontal', () => {
-    const { container } = render(
-      <Menu openKeys={['1']} mode="horizontal">
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="submenu1">Option 1</Menu.Item>
-          <Menu.Item key="submenu2">Option 2</Menu.Item>
-        </SubMenu>
-        <Menu.Item key="2">menu2</Menu.Item>
-      </Menu>,
-    );
-    triggerAllTimer();
-    expect(container.querySelector('div.ant-menu-submenu-popup')).not.toHaveClass(
-      'ant-menu-submenu-hidden',
-    );
-  });
-
-  it('should accept openKeys in mode inline', () => {
-    const { container } = render(
-      <Menu openKeys={['1']} mode="inline">
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="submenu1">Option 1</Menu.Item>
-          <Menu.Item key="submenu2">Option 2</Menu.Item>
-        </SubMenu>
-        <Menu.Item key="2">menu2</Menu.Item>
-      </Menu>,
-    );
-    expect(container.querySelector('ul.ant-menu-sub')).not.toHaveClass('ant-menu-hidden');
-  });
-
-  it('should accept openKeys in mode vertical', () => {
-    const { container } = render(
-      <Menu openKeys={['1']} mode="vertical">
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="submenu1">Option 1</Menu.Item>
-          <Menu.Item key="submenu2">Option 2</Menu.Item>
-        </SubMenu>
-        <Menu.Item key="2">menu2</Menu.Item>
-      </Menu>,
-    );
-    triggerAllTimer();
-    expect(container.querySelector('div.ant-menu-submenu-popup')).not.toHaveClass(
-      'ant-menu-submenu-hidden',
-    );
-  });
+  it.each(['inline', 'horizontal', 'vertical'] as MenuProps['mode'][])(
+    'should accept openKeys in mode %s',
+    (mode) => {
+      const { container } = render(
+        <Menu openKeys={['1']} mode={mode}>
+          <SubMenu key="1" title="submenu1">
+            <Menu.Item key={`submenu1 ${mode}`}>Option 1</Menu.Item>
+            <Menu.Item key={`submenu2 ${mode}`}>Option 2</Menu.Item>
+          </SubMenu>
+          <Menu.Item key="2">menu2</Menu.Item>
+        </Menu>,
+      );
+      triggerAllTimer();
+      if (mode === 'inline') {
+        expect(container.querySelector('ul.ant-menu-sub')).not.toHaveClass('ant-menu-hidden');
+      } else {
+        expect(container.querySelector('div.ant-menu-submenu-popup')).not.toHaveClass(
+          'ant-menu-submenu-hidden',
+        );
+      }
+    },
+  );
 
   it('test submenu in mode horizontal', async () => {
     const defaultTestProps: MenuProps = { mode: 'horizontal' };
@@ -348,26 +328,21 @@ describe('Menu', () => {
   });
 
   describe('allows the overriding of theme at the popup submenu level', () => {
-    const menuModesWithPopupSubMenu: MenuProps['mode'][] = ['horizontal', 'vertical'];
-    menuModesWithPopupSubMenu.forEach((menuMode) => {
-      it(`when menu is mode ${menuMode}`, () => {
-        const { container } = render(
-          <Menu mode={menuMode} openKeys={['1']} theme="dark">
-            <SubMenu key="1" title="submenu1" theme="light">
-              <Menu.Item key="submenu1">Option 1</Menu.Item>
-              <Menu.Item key="submenu2">Option 2</Menu.Item>
-            </SubMenu>
-            <Menu.Item key="2">menu2</Menu.Item>
-          </Menu>,
-        );
+    it.each(['horizontal', 'vertical'] as const)('when menu is mode %s', (menuMode) => {
+      const { container } = render(
+        <Menu mode={menuMode} openKeys={['1']} theme="dark">
+          <SubMenu key="1" title="submenu1" theme="light">
+            <Menu.Item key="submenu1">Option 1</Menu.Item>
+            <Menu.Item key="submenu2">Option 2</Menu.Item>
+          </SubMenu>
+          <Menu.Item key="2">menu2</Menu.Item>
+        </Menu>,
+      );
 
-        act(() => {
-          jest.runAllTimers();
-        });
+      triggerAllTimer();
 
-        expect(container.querySelector('ul.ant-menu-root')).toHaveClass('ant-menu-dark');
-        expect(container.querySelector('div.ant-menu-submenu-popup')).toHaveClass('ant-menu-light');
-      });
+      expect(container.querySelector('ul.ant-menu-root')).toHaveClass('ant-menu-dark');
+      expect(container.querySelector('div.ant-menu-submenu-popup')).toHaveClass('ant-menu-light');
     });
   });
 
@@ -385,7 +360,7 @@ describe('Menu', () => {
     );
 
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     // just expect no error emit
   });
@@ -432,7 +407,7 @@ describe('Menu', () => {
     rerender(<Demo inlineCollapsed />);
 
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     expect(container.querySelector('ul.ant-menu-root')).toHaveClass('ant-menu-vertical');
@@ -442,7 +417,7 @@ describe('Menu', () => {
     rerender(<Demo inlineCollapsed={false} />);
 
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     expect(container.querySelector('ul.ant-menu-sub')).toHaveClass('ant-menu-inline');
@@ -469,13 +444,13 @@ describe('Menu', () => {
 
     rerender(<Demo inlineCollapsed />);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     const transitionEndEvent = new Event('transitionend');
     fireEvent(container.querySelector('ul')!, transitionEndEvent);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     fireEvent.mouseEnter(container.querySelector('.ant-menu-submenu-title')!);
@@ -566,8 +541,8 @@ describe('Menu', () => {
         motionDeadline: 1,
       };
 
-      const onOpenChange = jest.fn();
-      const onEnterEnd = jest.spyOn(cloneMotion, 'onEnterEnd');
+      const onOpenChange = vi.fn();
+      const onEnterEnd = vi.spyOn(cloneMotion, 'onEnterEnd');
 
       const { container } = render(
         <Menu mode="inline" motion={cloneMotion} onOpenChange={onOpenChange}>
@@ -584,7 +559,9 @@ describe('Menu', () => {
       triggerAllTimer();
 
       expect(onOpenChange).toHaveBeenCalled();
-      expect(onEnterEnd).toHaveBeenCalledTimes(1);
+      await waitFor(() => {
+        expect(onEnterEnd).toHaveBeenCalledTimes(1);
+      });
     });
 
     it('vertical with hover(default)', () => {
@@ -732,7 +709,7 @@ describe('Menu', () => {
   });
 
   it('onMouseEnter should work', () => {
-    const onMouseEnter = jest.fn();
+    const onMouseEnter = vi.fn();
     const { container } = render(
       <Menu onMouseEnter={onMouseEnter} defaultSelectedKeys={['test1']}>
         <Menu.Item key="test1">Navigation One</Menu.Item>
@@ -762,7 +739,7 @@ describe('Menu', () => {
 
     fireEvent.mouseEnter(container.querySelector('li.ant-menu-item')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     expect(container.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
@@ -802,7 +779,7 @@ describe('Menu', () => {
   });
 
   it('not title if not collapsed', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container } = render(
       <Menu mode="inline" inlineCollapsed={false}>
         <Menu.Item key="1" icon={<PieChartOutlined />}>
@@ -812,18 +789,16 @@ describe('Menu', () => {
     );
     fireEvent.mouseEnter(container.querySelector('.ant-menu-item')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     expect(container.querySelectorAll('.ant-tooltip-inner').length).toBeFalsy();
-
-    jest.useRealTimers();
   });
 
   it('props#onOpen and props#onClose do not warn anymore', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const onOpen = jest.fn();
-    const onClose = jest.fn();
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const onOpen = vi.fn();
+    const onClose = vi.fn();
     const Demo: React.FC = () => {
       const menuProps = useMemo<MenuProps>(() => ({ onOpen, onClose } as MenuProps), []);
       return (
@@ -858,7 +833,6 @@ describe('Menu', () => {
   // https://github.com/ant-design/ant-design/issues/18825
   // https://github.com/ant-design/ant-design/issues/8587
   it('should keep selectedKeys in state when collapsed to 0px', () => {
-    jest.useFakeTimers();
     const Demo: React.FC<MenuProps> = (props) => {
       const menuProps = useMemo<MenuProps>(() => ({ collapsedWidth: 0 } as MenuProps), []);
       return (
@@ -886,14 +860,13 @@ describe('Menu', () => {
 
     rerender(<Demo inlineCollapsed />);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(container.querySelector('li.ant-menu-item-selected')?.textContent).toBe('O');
 
     rerender(<Demo inlineCollapsed={false} />);
 
     expect(container.querySelector('li.ant-menu-item-selected')?.textContent).toBe('Option 2');
-    jest.useRealTimers();
   });
 
   it('Menu.Item with icon children auto wrap span', () => {
@@ -914,7 +887,7 @@ describe('Menu', () => {
 
   // https://github.com/ant-design/ant-design/issues/23755
   it('should trigger onOpenChange when collapse inline menu', () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     function App() {
       const [inlineCollapsed, setInlineCollapsed] = useState(false);
       return (
@@ -1041,7 +1014,7 @@ describe('Menu', () => {
   });
 
   it('should not warning deprecated message when items={undefined}', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<Menu items={undefined} />);
     expect(errorSpy).not.toHaveBeenCalledWith(
       expect.stringContaining('`children` will be removed in next major version'),

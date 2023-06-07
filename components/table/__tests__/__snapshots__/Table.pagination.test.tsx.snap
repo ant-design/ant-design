@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Table.pagination Accepts pagination as true 1`] = `
+exports[`Table.pagination > Accepts pagination as true 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -167,7 +167,7 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
 </div>
 `;
 
-exports[`Table.pagination renders pagination correctly 1`] = `
+exports[`Table.pagination > renders pagination correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -325,7 +325,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
 </div>
 `;
 
-exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
+exports[`Table.pagination > renders pagination topLeft and bottomRight 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -492,7 +492,7 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
 </div>
 `;
 
-exports[`Table.pagination should not crash when trigger onChange in render 1`] = `
+exports[`Table.pagination > should not crash when trigger onChange in render 1`] = `
 <div
   class="ant-table-wrapper"
 >

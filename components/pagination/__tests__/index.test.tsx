@@ -1,5 +1,5 @@
-import React from 'react';
 import type { OptionFC } from 'rc-select/lib/Option';
+import React from 'react';
 import type { PaginationProps } from '..';
 import Pagination from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -36,8 +36,8 @@ describe('Pagination', () => {
   // https://github.com/ant-design/ant-design/issues/24913
   // https://github.com/ant-design/ant-design/issues/24501
   it('should onChange called when pageSize change', () => {
-    const onChange = jest.fn();
-    const onShowSizeChange = jest.fn();
+    const onChange = vi.fn();
+    const onShowSizeChange = vi.fn();
     const { container } = render(
       <Pagination
         defaultCurrent={1}

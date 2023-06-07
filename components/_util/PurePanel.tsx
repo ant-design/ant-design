@@ -7,7 +7,7 @@ export interface BaseProps {
   style?: React.CSSProperties;
 }
 
-/* istanbul ignore next */
+/* c8 ignore start */
 export default function genPurePanel<ComponentProps extends BaseProps>(
   Component: any,
   defaultPrefixCls?: string,
@@ -96,3 +96,4 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
     );
   } as typeof Component;
 }
+/* c8 ignore stop */

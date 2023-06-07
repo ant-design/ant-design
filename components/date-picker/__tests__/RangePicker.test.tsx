@@ -1,11 +1,11 @@
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import React, { useState } from 'react';
 import type { RangeValue } from 'rc-picker/lib/interface';
-import { resetWarned } from '../../_util/warning';
+import React, { useState } from 'react';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import { render, resetMockDate, setMockDate } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 import enUS from '../locale/en_US';
 
 import { closePicker, openPicker, selectCell } from './utils';
@@ -118,7 +118,7 @@ describe('RangePicker', () => {
   it('legacy dropdownClassName', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(<DatePicker.RangePicker dropdownClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker.RangePicker] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',

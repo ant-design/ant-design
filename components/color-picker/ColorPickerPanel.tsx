@@ -24,6 +24,7 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
     onClear,
     onChangeComplete,
     color,
+    colorCleared,
     ...injectProps
   } = props;
   const colorPickerPanelPrefixCls = `${prefixCls}-inner-panel`;
@@ -34,6 +35,7 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
         <ColorClear
           prefixCls={prefixCls}
           value={color}
+          colorCleared={colorCleared}
           onChange={(clearColor) => {
             onChange?.(clearColor);
             onClear?.();

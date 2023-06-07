@@ -21,4 +21,3 @@ coverage
 **/*.d.ts
 # Scripts
 scripts/previewEditor/**/*
-jest-stare

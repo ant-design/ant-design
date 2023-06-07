@@ -1,13 +1,13 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import Form from '..';
-import { render, fireEvent, waitFakeTimer } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Input from '../../input';
 import type { FormListOperation } from '../FormList';
 
 describe('Form.List.NoStyle', () => {
   it('nest error should clean up', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
     let operation: FormListOperation;
 
@@ -60,7 +60,7 @@ describe('Form.List.NoStyle', () => {
       "'users.1.first' is required",
     );
 
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 });

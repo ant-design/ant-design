@@ -46,7 +46,7 @@ demo:
 config 参数如下：
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | btn | 自定义关闭按钮 | ReactNode | - | - |
 | className | 自定义 CSS class | string | - | - |
 | closeIcon | 自定义关闭图标 | ReactNode | - | - |
