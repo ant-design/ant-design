@@ -22,7 +22,6 @@ const themes = {
   compact: theme.compactAlgorithm,
 };
 
-// eslint-disable-next-line jest/no-export
 export default function imageTest(component: React.ReactElement) {
   it(`component image screenshot should correct`, async () => {
     await resetPage();
@@ -86,7 +85,6 @@ type Options = {
   skip?: boolean | string[];
 };
 
-// eslint-disable-next-line jest/no-export
 export function imageDemoTest(component: string, options: Options = {}) {
   let describeMethod = options.skip === true ? describe.skip : describe;
   const files = globSync(`./components/${component}/demo/*.tsx`);

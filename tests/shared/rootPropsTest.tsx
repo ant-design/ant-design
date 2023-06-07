@@ -1,4 +1,3 @@
-/* eslint-disable global-require, import/no-dynamic-require, jest/no-export */
 import React from 'react';
 import ConfigProvider from '../../components/config-provider';
 import { render, waitFakeTimer } from '../utils';

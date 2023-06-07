@@ -116,5 +116,4 @@ const focusTest = (
   });
 };
 
-// eslint-disable-next-line jest/no-export
 export default focusTest;

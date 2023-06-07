@@ -3,11 +3,11 @@ import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 import type { Options } from '../../tests/shared/demoTest';
 
-(global as any).testConfig = {};
+globalThis.testConfig = {};
 
 vi.mock('../../tests/shared/demoTest', () => {
   function fakeDemoTest(name: string, option: Options = {}) {
-    (global as any).testConfig[name] = option;
+    globalThis.testConfig[name] = option;
   }
 
   fakeDemoTest.rootPropsTest = () => {};
@@ -30,15 +30,14 @@ describe('node', () => {
     const componentName = componentTestFile.match(/components\/([^/]*)\//)![1];
 
     // Test for ssr
-    // eslint-disable-next-line jest/valid-describe-callback
+    // eslint-disable-next-line vitest/valid-describe-callback
     describe(componentName, async () => {
       const demoList = globSync(`./components/${componentName}/demo/*.tsx`);
 
       // Use mock to get config
       await import(`../../${componentTestFile}`);
-      const option = (global as any).testConfig?.[componentName];
-
       demoList.forEach((demoFile) => {
+        const option = globalThis.testConfig?.[componentName];
         const skip: string[] = option?.skip || [];
         const test = skip.some((skipMarkdown) => demoFile.includes(skipMarkdown)) ? it.skip : it;
 
