@@ -1,6 +1,6 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { waitFakeTimer, render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
 describe('Collapse', () => {
@@ -122,6 +122,34 @@ describe('Collapse', () => {
 
     fireEvent.click(container.querySelector('.ant-collapse-header')!);
     expect(container.querySelectorAll('.ant-collapse-item-active').length).toBe(0);
+  });
+
+  it('should not trigger warning when using items instead of children', () => {
+    render(
+      <Collapse
+        items={[
+          {
+            key: '1',
+            label: 'This is panel header 1',
+            children: <p>aaa</p>,
+          },
+          {
+            key: '2',
+            label: 'This is panel header 2',
+            children: <p>bbb</p>,
+          },
+          {
+            key: '3',
+            label: 'This is panel header 3',
+            children: <p>ccc</p>,
+          },
+        ]}
+      />,
+    );
+
+    expect(errorSpy).not.toHaveBeenCalledWith(
+      'Warning: `children` will be removed in next major version. Please use `items` instead.',
+    );
   });
 
   it('should end motion when set activeKey while hiding', async () => {
