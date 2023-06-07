@@ -1,16 +1,13 @@
 /* eslint-disable react/jsx-no-useless-fragment */
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
+
 import classNames from 'classnames';
 import { Panel } from 'rc-dialog';
 import type { PanelProps } from 'rc-dialog/lib/Dialog/Content/Panel';
 import * as React from 'react';
-import Button from '../button';
-import { convertLegacyProps } from '../button/button';
 import { ConfigContext } from '../config-provider';
-import { useLocale } from '../locale';
 import { ConfirmContent } from './ConfirmDialog';
-import { getConfirmLocale } from './locale';
-import type { ModalFuncProps, ModalProps } from './Modal';
+import type { ModalFuncProps } from './interface';
+import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
 
 export interface PurePanelProps
@@ -19,62 +16,6 @@ export interface PurePanelProps
   prefixCls?: string;
   style?: React.CSSProperties;
 }
-
-export function renderCloseIcon(prefixCls: string, closeIcon?: React.ReactNode) {
-  return (
-    <span className={`${prefixCls}-close-x`}>
-      {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
-    </span>
-  );
-}
-
-interface FooterProps {
-  onOk?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
-  onCancel?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
-}
-
-export const Footer: React.FC<
-  FooterProps &
-    Pick<
-      ModalProps,
-      | 'footer'
-      | 'okText'
-      | 'okType'
-      | 'cancelText'
-      | 'confirmLoading'
-      | 'okButtonProps'
-      | 'cancelButtonProps'
-    >
-> = (props) => {
-  const {
-    okText,
-    okType = 'primary',
-    cancelText,
-    confirmLoading,
-    onOk,
-    onCancel,
-    okButtonProps,
-    cancelButtonProps,
-  } = props;
-
-  const [locale] = useLocale('Modal', getConfirmLocale());
-
-  return (
-    <>
-      <Button onClick={onCancel} {...cancelButtonProps}>
-        {cancelText || locale?.cancelText}
-      </Button>
-      <Button
-        {...convertLegacyProps(okType)}
-        loading={confirmLoading}
-        onClick={onOk}
-        {...okButtonProps}
-      >
-        {okText || locale?.okText}
-      </Button>
-    </>
-  );
-};
 
 const PurePanel: React.FC<PurePanelProps> = (props) => {
   const {

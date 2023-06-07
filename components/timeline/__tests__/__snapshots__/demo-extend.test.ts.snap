@@ -379,6 +379,73 @@ exports[`renders components/timeline/demo/color.tsx extend context correctly 1`]
 </ul>
 `;
 
+exports[`renders components/timeline/demo/component-token.tsx extend context correctly 1`] = `
+<ul
+  class="ant-timeline"
+>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Create a services site 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Solve initial network problems 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Technical testing 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-last"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Network problems being solved 2015-09-01
+    </div>
+  </li>
+</ul>
+`;
+
 exports[`renders components/timeline/demo/custom.tsx extend context correctly 1`] = `
 <ul
   class="ant-timeline"

@@ -24,6 +24,7 @@ Used when the text needs to be converted into a QR Code.
 <code src="./demo/base.tsx">base</code>
 <code src="./demo/icon.tsx">With Icon</code>
 <code src="./demo/status.tsx">other status</code>
+<code src="./demo/type.tsx">Custom Render Type</code>
 <code src="./demo/customSize.tsx">Custom Size</code>
 <code src="./demo/customColor.tsx">Custom Color</code>
 <code src="./demo/download.tsx">Download QRCode</code>
@@ -37,6 +38,7 @@ Used when the text needs to be converted into a QR Code.
 | Property | Description | Type | Default | Version |
 | :-- | :-- | :-- | :-- | :-- |
 | value | scanned text | string | - |
+| type | render type | `canvas \| svg ` | `canvas` | 5.6.0 |
 | icon | include image url (only image link are supported) | string | - |
 | size | QRCode size | number | 128 |
 | iconSize | include image size | number | 32 |
