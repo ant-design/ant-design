@@ -196,6 +196,9 @@ describe('ColorPicker', () => {
     expect(
       container.querySelector('.ant-color-picker-hex-input input')?.getAttribute('value'),
     ).toEqual('000000');
+    expect(container.querySelectorAll('.ant-color-picker-presets-color')[0]).toHaveClass(
+      'ant-color-picker-presets-color-checked',
+    );
 
     fireEvent.click(presetsColors[9]);
     expect(
@@ -207,6 +210,9 @@ describe('ColorPicker', () => {
     expect(
       container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
     ).toEqual('2%');
+    expect(container.querySelectorAll('.ant-color-picker-presets-color')[9]).toHaveClass(
+      'ant-color-picker-presets-color-checked',
+    );
 
     expect(handleColorChange).toHaveBeenCalledTimes(2);
   });
