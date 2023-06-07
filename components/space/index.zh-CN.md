@@ -72,6 +72,13 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 | direction | 指定排列方向 | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | size | 子组件大小 | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
 
+### `styles` 和 `classNames` 属性
+
+<!-- prettier-ignore -->
+| 名称 | 说明  | 版本  |
+| ---- | --------------------- | ----- |
+| item | 设置 `Space` 包裹的子组件 | 5.6.0 |
+
 ## Design Token
 
 <ComponentTokenTable component="Space"></ComponentTokenTable>

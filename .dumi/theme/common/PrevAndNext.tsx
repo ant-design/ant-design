@@ -1,10 +1,10 @@
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
+import { createStyles, css } from 'antd-style';
+import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
+import classNames from 'classnames';
 import type { ReactElement } from 'react';
 import React, { useMemo } from 'react';
-import type { MenuProps } from 'antd';
-import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import { createStyles, css } from 'antd-style';
-import classNames from 'classnames';
 import useMenu from '../../hooks/useMenu';
 
 const useStyle = createStyles(({ token }) => {
@@ -44,15 +44,15 @@ const useStyle = createStyles(({ token }) => {
 
       .footer-nav-icon-before {
         position: relative;
-        margin-inline-end: 1em;
-        vertical-align: middle;
         line-height: 0;
-        right: 0;
-        transition: right 0.3s;
+        vertical-align: middle;
+        transition: inset-inline-end 0.3s;
+        margin-inline-end: 1em;
+        inset-inline-end: 0;
       }
 
       &:hover .footer-nav-icon-before {
-        right: 0.2em;
+        inset-inline-end: 0.2em;
       }
     `,
     nextNav: css`
@@ -64,16 +64,16 @@ const useStyle = createStyles(({ token }) => {
 
       .footer-nav-icon-after {
         position: relative;
-        margin-inline-start: 1em;
         margin-bottom: 1px;
-        vertical-align: middle;
         line-height: 0;
-        left: 0;
-        transition: left 0.3s;
+        vertical-align: middle;
+        transition: inset-inline-start 0.3s;
+        margin-inline-start: 1em;
+        inset-inline-start: 0;
       }
 
       &:hover .footer-nav-icon-after {
-        left: 0.2em;
+        inset-inline-start: 0.2em;
       }
     `,
   };
@@ -100,8 +100,8 @@ const PrevAndNext: React.FC<{ rtl?: boolean }> = ({ rtl }) => {
   const beforeProps = { className: 'footer-nav-icon-before' };
   const afterProps = { className: 'footer-nav-icon-after' };
 
-  const before = rtl ? <LeftOutlined {...beforeProps} /> : <RightOutlined {...beforeProps} />;
-  const after = rtl ? <RightOutlined {...afterProps} /> : <LeftOutlined {...afterProps} />;
+  const before = rtl ? <RightOutlined {...beforeProps} /> : <LeftOutlined {...beforeProps} />;
+  const after = rtl ? <LeftOutlined {...afterProps} /> : <RightOutlined {...afterProps} />;
 
   const [menuItems, selectedKey] = useMenu({ before, after });
 

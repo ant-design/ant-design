@@ -5,8 +5,8 @@ import Drawer from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
 import { resetWarned } from '../../_util/warning';
+import ConfigProvider from '../../config-provider';
 
 const DrawerTest: React.FC<DrawerProps> = ({ getContainer }) => (
   <div>

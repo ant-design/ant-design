@@ -27,6 +27,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 <code src="./demo/controlled-preview.tsx">受控的预览</code>
 <code src="./demo/preview-mask.tsx" debug>自定义预览文本</code>
 <code src="./demo/preview-group-top-progress.tsx" debug>多图预览时顶部进度自定义</code>
+<code src="./demo/component-token.tsx" debug>自定义组件 Token</code>
 
 ## API
 
@@ -48,7 +49,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 {
   visible?: boolean;
   onVisibleChange?: (visible, prevVisible, current: number) => void; // current 参数 v5.3.0 后支持
-  getContainer?: string | HTMLElement | (() => HTMLElement); // v4.8.0
+  getContainer?: string | HTMLElement | (() => HTMLElement); // v4.8.0 指定预览窗口挂载的节点，但依旧为全屏展示
   src?: string; // v4.10.0
   mask?: ReactNode; // v4.9.0
   maskClassName?: string; // v4.11.0

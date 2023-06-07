@@ -1579,7 +1579,7 @@ describe('Form', () => {
   it('item customize margin', async () => {
     const computeSpy = jest
       .spyOn(window, 'getComputedStyle')
-      .mockImplementation(() => ({ marginBottom: 24 }) as unknown as CSSStyleDeclaration);
+      .mockImplementation(() => ({ marginBottom: 24 } as unknown as CSSStyleDeclaration));
 
     const { container } = render(
       <Form>

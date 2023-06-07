@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, fireEvent, pureRender } from '../../../tests/utils';
 import notification from '..';
+import { fireEvent, pureRender, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('notification.hooks', () => {
