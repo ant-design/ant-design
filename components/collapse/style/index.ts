@@ -1,7 +1,7 @@
+import { resetComponent, resetIcon } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent, resetIcon } from '../../style';
 
 export interface ComponentToken {}
 
@@ -39,6 +39,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
     marginSM,
     paddingSM,
     paddingLG,
+    paddingXS,
     motionDurationSlow,
     fontSizeIcon,
   } = token;
@@ -73,6 +74,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           flexWrap: 'nowrap',
           alignItems: 'flex-start',
           padding: collapseHeaderPadding,
+          paddingInlineStart: paddingSM,
           color: colorTextHeading,
           lineHeight,
           cursor: 'pointer',
@@ -92,6 +94,8 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
             display: 'flex',
             alignItems: 'center',
             paddingInlineEnd: marginSM,
+            // Arrow offset
+            marginInlineStart: padding - paddingSM,
           },
 
           [`${componentCls}-arrow`]: {
@@ -125,12 +129,6 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
             cursor: 'pointer',
           },
         },
-
-        [`&${componentCls}-no-arrow`]: {
-          [`> ${componentCls}-header`]: {
-            paddingInlineStart: paddingSM,
-          },
-        },
       },
 
       [`${componentCls}-content`]: {
@@ -151,6 +149,12 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
         [`> ${componentCls}-item`]: {
           [`> ${componentCls}-header`]: {
             padding: collapseHeaderPaddingSM,
+            paddingInlineStart: paddingXS,
+
+            [`> ${componentCls}-expand-icon`]: {
+              // Arrow offset
+              marginInlineStart: paddingSM - paddingXS,
+            },
           },
           [`> ${componentCls}-content > ${componentCls}-content-box`]: {
             padding: paddingSM,
@@ -164,9 +168,12 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
 
           [`> ${componentCls}-header`]: {
             padding: collapseHeaderPaddingLG,
+            paddingInlineStart: padding,
 
             [`> ${componentCls}-expand-icon`]: {
               height: fontSizeLG * lineHeight,
+              // Arrow offset
+              marginInlineStart: paddingLG - padding,
             },
           },
           [`> ${componentCls}-content > ${componentCls}-content-box`]: {

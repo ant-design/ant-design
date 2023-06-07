@@ -1,6 +1,7 @@
 import { MenuOutlined } from '@ant-design/icons';
 import type { DragEndEvent } from '@dnd-kit/core';
 import { DndContext } from '@dnd-kit/core';
+import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import {
   arrayMove,
   SortableContext,
@@ -56,10 +57,7 @@ const Row = ({ children, ...props }: RowProps) => {
 
   const style: React.CSSProperties = {
     ...props.style,
-    transform: CSS.Transform.toString(transform && { ...transform, scaleY: 1 })?.replace(
-      /translate3d\(([^,]+),/,
-      'translate3d(0,',
-    ),
+    transform: CSS.Transform.toString(transform && { ...transform, scaleY: 1 }),
     transition,
     ...(isDragging ? { position: 'relative', zIndex: 9999 } : {}),
   };
@@ -118,7 +116,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <DndContext onDragEnd={onDragEnd}>
+    <DndContext modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd}>
       <SortableContext
         // rowKey array
         items={dataSource.map((i) => i.key)}

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
 import { MailOutlined } from '@ant-design/icons';
 import type { MenuProps, MenuTheme } from 'antd';
 import { Menu, Switch } from 'antd';
+import React, { useState } from 'react';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -63,7 +63,9 @@ const App: React.FC = () => {
         mode="vertical"
         theme="dark"
         items={items}
-        getPopupContainer={(node) => node.parentNode as HTMLElement}
+        getPopupContainer={function test(node) {
+          return node.parentNode as HTMLElement;
+        }}
       />
     </>
   );
