@@ -53,38 +53,31 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
     onChange?.(colorValue);
   };
 
-  const items: CollapseProps['items'] = useMemo(
-    () =>
-      presetsValue.map((preset) => ({
-        key: `panel-${preset.label}`,
-        label: <div className={`${colorPresetsPrefixCls}-label`}>{preset?.label}</div>,
-        children: (
-          <div className={`${colorPresetsPrefixCls}-items`}>
-            {Array.isArray(preset?.colors) && preset.colors?.length > 0 ? (
-              preset.colors.map((presetColor: Color) => (
-                <ColorBlock
-                  key={`preset-${presetColor.toHexString()}`}
-                  color={generateColor(presetColor).toRgbString()}
-                  prefixCls={prefixCls}
-                  className={classNames(`${colorPresetsPrefixCls}-color`, {
-                    [`${colorPresetsPrefixCls}-color-checked`]:
-                      presetColor.toHexString() === color?.toHexString(),
-                    [`${colorPresetsPrefixCls}-color-bright`]: isBright(
-                      presetColor,
-                      colorBgElevated,
-                    ),
-                  })}
-                  onClick={() => handleClick(presetColor)}
-                />
-              ))
-            ) : (
-              <span className={`${colorPresetsPrefixCls}-empty`}>{locale.presetEmpty}</span>
-            )}
-          </div>
-        ),
-      })),
-    [],
-  );
+  const items: CollapseProps['items'] = presetsValue.map((preset) => ({
+    key: `panel-${preset.label}`,
+    label: <div className={`${colorPresetsPrefixCls}-label`}>{preset?.label}</div>,
+    children: (
+      <div className={`${colorPresetsPrefixCls}-items`}>
+        {Array.isArray(preset?.colors) && preset.colors?.length > 0 ? (
+          preset.colors.map((presetColor: Color) => (
+            <ColorBlock
+              key={`preset-${presetColor.toHexString()}`}
+              color={generateColor(presetColor).toRgbString()}
+              prefixCls={prefixCls}
+              className={classNames(`${colorPresetsPrefixCls}-color`, {
+                [`${colorPresetsPrefixCls}-color-checked`]:
+                  presetColor.toHexString() === color?.toHexString(),
+                [`${colorPresetsPrefixCls}-color-bright`]: isBright(presetColor, colorBgElevated),
+              })}
+              onClick={() => handleClick(presetColor)}
+            />
+          ))
+        ) : (
+          <span className={`${colorPresetsPrefixCls}-empty`}>{locale.presetEmpty}</span>
+        )}
+      </div>
+    ),
+  }));
 
   return (
     <div className={colorPresetsPrefixCls}>
