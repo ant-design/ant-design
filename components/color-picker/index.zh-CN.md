@@ -36,24 +36,24 @@ group:
 > 自 `antd@5.5.0` 版本开始提供该组件。
 
 <!-- prettier-ignore -->
-| 参数 | 说明 | 类型 | 默认值 |
-| :-- | :-- | :-- | :-- |
-| format | 颜色格式 | `rgb` \| `hex` \| `hsb` | `hex` |
-| value | 颜色的值 | string \| `Color` | - |
-| defaultValue | 颜色默认的值 | string \| `Color` | - |
-| allowClear | 允许清除选择的颜色 | boolean | false |
-| presets | 预设的颜色 | `{ label: ReactNode, colors: Array<string \| Color> }[]` | - |
-| children | 颜色选择器的触发器 | React.ReactNode | - |
-| trigger | 颜色选择器的触发模式 | `hover` \| `click` | `click` |
-| open | 是否显示弹出窗口 | boolean | - |
-| disabled | 禁用颜色选择器 | boolean | - |
-| placement | 弹出窗口的位置 | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` |
-| arrow | 配置弹出的箭头 | `boolean \| { pointAtCenter: boolean }` | `true` | - |
-| showValue | 是否显示选定的颜色 | `boolean` | - |
-| onChange | 颜色变化的回调 | `(value: Color, hex: string) => void` | - |
-| onFormatChange | 颜色格式变化的回调 | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - |
-| onOpenChange | 当 `open` 被改变时的回调 | `(open: boolean) => void` | - |
-| onClear | 清除的回调 | `() => void` | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| :-- | :-- | :-- | :-- | :-- |
+| format | 颜色格式 | `rgb` \| `hex` \| `hsb` | `hex` | |
+| value | 颜色的值 | string \| `Color` | - | |
+| defaultValue | 颜色默认的值 | string \| `Color` | - | |
+| allowClear | 允许清除选择的颜色 | boolean | false | |
+| presets | 预设的颜色 | `{ label: ReactNode, colors: Array<string \| Color> }[]` | - | |
+| children | 颜色选择器的触发器 | React.ReactNode | - | |
+| trigger | 颜色选择器的触发模式 | `hover` \| `click` | `click` | |
+| open | 是否显示弹出窗口 | boolean | - | |
+| disabled | 禁用颜色选择器 | boolean | - | |
+| placement | 弹出窗口的位置 | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` | |
+| arrow | 配置弹出的箭头 | `boolean \| { pointAtCenter: boolean }` | true | |
+| showValue | 是否显示选定的颜色 | `boolean` | - | 5.7.0 |
+| onChange | 颜色变化的回调 | `(value: Color, hex: string) => void` | - | |
+| onFormatChange | 颜色格式变化的回调 | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - | |
+| onOpenChange | 当 `open` 被改变时的回调 | `(open: boolean) => void` | - | |
+| onClear | 清除的回调 | `() => void` | - | 5.6.0 |
 
 ### Color
 
