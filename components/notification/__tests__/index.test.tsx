@@ -1,8 +1,8 @@
-import React from 'react';
 import { UserOutlined } from '@ant-design/icons';
+import React from 'react';
 import notification, { actWrapper } from '..';
-import ConfigProvider from '../../config-provider';
 import { act, fireEvent } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
 
 describe('notification', () => {

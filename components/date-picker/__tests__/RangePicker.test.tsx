@@ -1,11 +1,11 @@
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import React, { useState } from 'react';
 import type { RangeValue } from 'rc-picker/lib/interface';
-import { resetWarned } from '../../_util/warning';
+import React, { useState } from 'react';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import { render, resetMockDate, setMockDate } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 import enUS from '../locale/en_US';
 
 import { closePicker, openPicker, selectCell } from './utils';

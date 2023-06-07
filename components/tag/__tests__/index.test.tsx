@@ -6,7 +6,7 @@ import { resetWarned } from '../../_util/warning';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, render, fireEvent } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 
 (global as any).isVisible = true;
 
