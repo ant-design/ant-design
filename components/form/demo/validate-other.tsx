@@ -3,6 +3,7 @@ import {
   Button,
   Checkbox,
   Col,
+  ColorPicker,
   Form,
   InputNumber,
   Radio,
@@ -168,7 +169,6 @@ const App: React.FC = () => (
         <Button icon={<UploadOutlined />}>Click to upload</Button>
       </Upload>
     </Form.Item>
-
     <Form.Item label="Dragger">
       <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
         <Upload.Dragger name="files" action="/upload.do">
@@ -179,6 +179,9 @@ const App: React.FC = () => (
           <p className="ant-upload-hint">Support for a single or bulk upload.</p>
         </Upload.Dragger>
       </Form.Item>
+    </Form.Item>
+    <Form.Item name="color-picker" label="ColorPicker">
+      <ColorPicker />
     </Form.Item>
 
     <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
