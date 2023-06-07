@@ -1,4 +1,4 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders components/slider/demo/basic.tsx extend context correctly 1`] = `
 Array [

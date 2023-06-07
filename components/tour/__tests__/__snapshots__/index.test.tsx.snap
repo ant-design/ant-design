@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tour > Primary 1`] = `
+exports[`Tour Primary 1`] = `
 <body>
   <div>
     <button
@@ -159,7 +159,7 @@ exports[`Tour > Primary 1`] = `
 </body>
 `;
 
-exports[`Tour > basic 1`] = `
+exports[`Tour basic 1`] = `
 <body>
   <div>
     <div>
@@ -185,7 +185,7 @@ exports[`Tour > basic 1`] = `
 </body>
 `;
 
-exports[`Tour > button props onClick 1`] = `
+exports[`Tour button props onClick 1`] = `
 <body>
   <div>
     <span
@@ -203,7 +203,7 @@ exports[`Tour > button props onClick 1`] = `
 </body>
 `;
 
-exports[`Tour > controlled current 1`] = `
+exports[`Tour controlled current 1`] = `
 <body>
   <div>
     <div>
@@ -336,7 +336,7 @@ exports[`Tour > controlled current 1`] = `
 </body>
 `;
 
-exports[`Tour > custom step pre btn & next btn className & style 1`] = `
+exports[`Tour custom step pre btn & next btn className & style 1`] = `
 <div
   class="ant-tour ant-tour-placement-bottom"
   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
@@ -413,9 +413,9 @@ exports[`Tour > custom step pre btn & next btn className & style 1`] = `
 </div>
 `;
 
-exports[`Tour > rtl render > component should be rendered correctly in RTL direction 1`] = `null`;
+exports[`Tour rtl render component should be rendered correctly in RTL direction 1`] = `null`;
 
-exports[`Tour > single 1`] = `
+exports[`Tour single 1`] = `
 <body>
   <div>
     <button
@@ -574,7 +574,7 @@ exports[`Tour > single 1`] = `
 </body>
 `;
 
-exports[`Tour > step support Primary 1`] = `
+exports[`Tour step support Primary 1`] = `
 <body>
   <div>
     <button
@@ -751,7 +751,7 @@ exports[`Tour > step support Primary 1`] = `
 </body>
 `;
 
-exports[`Tour > steps is empty 1`] = `
+exports[`Tour steps is empty 1`] = `
 <body>
   <div>
     <button
@@ -764,7 +764,7 @@ exports[`Tour > steps is empty 1`] = `
 </body>
 `;
 
-exports[`Tour > steps props indicatorsRender 1`] = `
+exports[`Tour steps props indicatorsRender 1`] = `
 <body>
   <div>
     <button

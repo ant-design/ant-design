@@ -300,7 +300,7 @@ type CompoundedComponent = InternalTreeSelectType & {
 const TreeSelect = TreeSelectRef as CompoundedComponent;
 
 // We don't care debug panel
-/* c8 ignore next */
+/* istanbul ignore next */
 const PurePanel = genPurePanel(TreeSelect);
 
 TreeSelect.TreeNode = TreeNode;

@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tree > icon and switcherIcon of Tree with showLine should render correctly 1`] = `
+exports[`Tree icon and switcherIcon of Tree with showLine should render correctly 1`] = `
 <div
   class="ant-tree ant-tree-show-line"
   role="tree"
@@ -152,7 +152,7 @@ exports[`Tree > icon and switcherIcon of Tree with showLine should render correc
 </div>
 `;
 
-exports[`Tree > showLine is object type should render correctly 1`] = `
+exports[`Tree showLine is object type should render correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide ant-tree-show-line"
   role="tree"
@@ -495,7 +495,7 @@ exports[`Tree > showLine is object type should render correctly 1`] = `
 </div>
 `;
 
-exports[`Tree > switcherIcon in Tree could be string 1`] = `
+exports[`Tree switcherIcon in Tree could be string 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
   role="tree"
@@ -619,7 +619,7 @@ exports[`Tree > switcherIcon in Tree could be string 1`] = `
 </div>
 `;
 
-exports[`Tree > switcherIcon should be loading icon when loadData 1`] = `
+exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
   role="tree"

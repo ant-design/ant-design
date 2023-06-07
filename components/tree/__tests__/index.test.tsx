@@ -174,13 +174,13 @@ describe('Tree', () => {
     });
 
     it('nodeDraggable', () => {
-      const nodeDraggable = vi.fn(() => false);
+      const nodeDraggable = jest.fn(() => false);
       render(<Tree treeData={dragTreeData} draggable={{ nodeDraggable }} />);
       expect(nodeDraggable).toHaveBeenCalledWith(dragTreeData[0]);
     });
 
     it('nodeDraggable func', () => {
-      const nodeDraggable = vi.fn(() => false);
+      const nodeDraggable = jest.fn(() => false);
       render(<Tree treeData={dragTreeData} draggable={nodeDraggable} />);
       expect(nodeDraggable).toHaveBeenCalledWith(dragTreeData[0]);
     });

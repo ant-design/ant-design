@@ -9,9 +9,9 @@ import { TriggerMockContext } from './demoTestContext';
 import { excludeWarning } from './excludeWarning';
 import rootPropsTest from './rootPropsTest';
 
-import 'isomorphic-fetch';
-
 export { rootPropsTest };
+
+require('isomorphic-fetch');
 
 export type Options = {
   skip?: boolean | string[];
@@ -33,13 +33,13 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
     // function doTest(name: string, openTrigger = false) {
     testMethod(
       doInject ? `renders ${file} extend context correctly` : `renders ${file} correctly`,
-      async () => {
+      () => {
         const errSpy = excludeWarning();
 
-        Date.now = vi.fn(() => new Date('2016-11-22').getTime());
-        vi.useFakeTimers().setSystemTime(new Date('2016-11-22'));
+        Date.now = jest.fn(() => new Date('2016-11-22').getTime());
+        jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
 
-        let { default: Demo } = await import(`../../${file}`);
+        let Demo = require(`../../${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
         // Inject Trigger status unless skipped
         Demo = typeof Demo === 'function' ? <Demo /> : Demo;
         if (doInject) {
@@ -63,12 +63,11 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
           expect({ type: 'demo', html }).toMatchSnapshot();
         }
 
-        vi.clearAllTimers();
+        jest.clearAllTimers();
         errSpy.mockRestore();
       },
-      120000,
     );
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 }
 

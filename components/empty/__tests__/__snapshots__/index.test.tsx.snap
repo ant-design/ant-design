@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Empty > rtl render > component should be rendered correctly in RTL direction 1`] = `
+exports[`Empty rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-empty ant-empty-rtl"
 >
@@ -75,7 +75,7 @@ exports[`Empty > rtl render > component should be rendered correctly in RTL dire
 </div>
 `;
 
-exports[`Empty > should render in RTL direction 1`] = `
+exports[`Empty should render in RTL direction 1`] = `
 <div
   class="ant-empty ant-empty-rtl"
 >

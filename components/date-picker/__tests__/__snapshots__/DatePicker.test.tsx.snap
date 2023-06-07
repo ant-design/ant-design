@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DatePicker > disabled date 1`] = `
+exports[`DatePicker disabled date 1`] = `
 Array [
   <div
     class="ant-picker"
@@ -601,7 +601,7 @@ Array [
 ]
 `;
 
-exports[`DatePicker > prop locale should works 1`] = `
+exports[`DatePicker prop locale should works 1`] = `
 Array [
   <div
     class="ant-picker"
@@ -1225,7 +1225,7 @@ Array [
 ]
 `;
 
-exports[`DatePicker > support DatePicker.generatePicker 1`] = `
+exports[`DatePicker support DatePicker.generatePicker 1`] = `
 <div
   class="ant-picker"
 >

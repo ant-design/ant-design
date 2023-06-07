@@ -10,12 +10,12 @@ const { TextArea } = Input;
 describe('Input.Focus', () => {
   let inputSpy: ReturnType<typeof spyElementPrototypes>;
   let textareaSpy: ReturnType<typeof spyElementPrototypes>;
-  let focus: ReturnType<typeof vi.fn>;
-  let setSelectionRange: ReturnType<typeof vi.fn>;
+  let focus: ReturnType<typeof jest.fn>;
+  let setSelectionRange: ReturnType<typeof jest.fn>;
 
   beforeEach(() => {
-    focus = vi.fn();
-    setSelectionRange = vi.fn();
+    focus = jest.fn();
+    setSelectionRange = jest.fn();
     inputSpy = spyElementPrototypes(HTMLInputElement, {
       focus,
       setSelectionRange,

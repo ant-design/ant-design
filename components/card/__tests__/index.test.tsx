@@ -12,11 +12,11 @@ describe('Card', () => {
   rtlTest(Card);
 
   beforeAll(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterAll(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('should still have padding when card which set padding to 0 is loading', () => {
@@ -48,7 +48,7 @@ describe('Card', () => {
         tab: 'tab2',
       },
     ];
-    const onTabChange = vi.fn();
+    const onTabChange = jest.fn();
     render(
       <Card onTabChange={onTabChange} tabList={tabList}>
         xxx

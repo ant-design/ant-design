@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Menu > Menu.Item with icon children auto wrap span 1`] = `
+exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
 <DocumentFragment>
   <ul
     class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light"
@@ -162,7 +162,7 @@ exports[`Menu > Menu.Item with icon children auto wrap span 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Menu > all types must be available in the "items" syntax 1`] = `
+exports[`Menu all types must be available in the "items" syntax 1`] = `
 <DocumentFragment>
   <ul
     class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
@@ -328,7 +328,7 @@ exports[`Menu > all types must be available in the "items" syntax 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Menu > rtl render > component should be rendered correctly in RTL direction 1`] = `
+exports[`Menu rtl render component should be rendered correctly in RTL direction 1`] = `
 <ul
   class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-menu-rtl"
   data-menu-list="true"
@@ -383,7 +383,7 @@ exports[`Menu > rtl render > component should be rendered correctly in RTL direc
 </ul>
 `;
 
-exports[`Menu > should controlled collapse work 1`] = `
+exports[`Menu should controlled collapse work 1`] = `
 <DocumentFragment>
   <ul
     class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
@@ -431,7 +431,7 @@ exports[`Menu > should controlled collapse work 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Menu > should controlled collapse work 2`] = `
+exports[`Menu should controlled collapse work 2`] = `
 <DocumentFragment>
   <ul
     class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-menu-inline-collapsed"

@@ -11,7 +11,7 @@ import { resetWarned } from '../../_util/warning';
 dayjs.extend(customParseFormat);
 
 describe('TimePicker', () => {
-  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     errorSpy.mockReset();

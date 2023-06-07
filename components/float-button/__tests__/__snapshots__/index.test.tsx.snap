@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FloatButton > rtl render > component should be rendered correctly in RTL direction 1`] = `
+exports[`FloatButton rtl render component should be rendered correctly in RTL direction 1`] = `
 <button
   class="ant-float-btn ant-float-btn-default ant-float-btn-circle ant-float-btn-rtl"
   type="button"
@@ -43,7 +43,7 @@ exports[`FloatButton > rtl render > component should be rendered correctly in RT
 </button>
 `;
 
-exports[`FloatButton > should correct render 1`] = `
+exports[`FloatButton should correct render 1`] = `
 <button
   class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
   type="button"

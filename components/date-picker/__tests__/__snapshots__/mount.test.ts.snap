@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`mount > rtl render > component should be rendered correctly in RTL direction 1`] = `
+exports[`mount rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-picker ant-picker-rtl"
 >
@@ -42,7 +42,7 @@ exports[`mount > rtl render > component should be rendered correctly in RTL dire
 </div>
 `;
 
-exports[`mount > rtl render > component should be rendered correctly in RTL direction 2`] = `
+exports[`mount rtl render component should be rendered correctly in RTL direction 2`] = `
 <div
   class="ant-picker ant-picker-rtl"
 >
@@ -84,7 +84,7 @@ exports[`mount > rtl render > component should be rendered correctly in RTL dire
 </div>
 `;
 
-exports[`mount > rtl render > component should be rendered correctly in RTL direction 3`] = `
+exports[`mount rtl render component should be rendered correctly in RTL direction 3`] = `
 <div
   class="ant-picker ant-picker-rtl"
 >
@@ -126,7 +126,7 @@ exports[`mount > rtl render > component should be rendered correctly in RTL dire
 </div>
 `;
 
-exports[`mount > rtl render > component should be rendered correctly in RTL direction 4`] = `
+exports[`mount rtl render component should be rendered correctly in RTL direction 4`] = `
 <div
   class="ant-picker ant-picker-range ant-picker-rtl"
 >

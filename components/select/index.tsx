@@ -26,7 +26,7 @@ import getIcons from './utils/iconUtil';
 
 type RawValue = string | number;
 
-export type { OptionProps, BaseSelectRef as RefSelectProps, BaseOptionType, DefaultOptionType };
+export type { BaseOptionType, DefaultOptionType, OptionProps, BaseSelectRef as RefSelectProps };
 
 export interface LabeledValue {
   key?: string;
@@ -271,7 +271,7 @@ const Select = React.forwardRef(InternalSelect) as unknown as (<
 };
 
 // We don't care debug panel
-/* c8 ignore next */
+/* istanbul ignore next */
 const PurePanel = genPurePanel(Select);
 
 Select.SECRET_COMBOBOX_MODE_DO_NOT_USE = SECRET_COMBOBOX_MODE_DO_NOT_USE;

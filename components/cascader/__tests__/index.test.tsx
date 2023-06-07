@@ -90,7 +90,7 @@ describe('Cascader', () => {
   });
 
   it('popup correctly when panel is open', () => {
-    const onPopupVisibleChange = vi.fn();
+    const onPopupVisibleChange = jest.fn();
     const { container } = render(
       <Cascader options={options} onPopupVisibleChange={onPopupVisibleChange} />,
     );
@@ -123,7 +123,7 @@ describe('Cascader', () => {
   });
 
   it('can be selected', () => {
-    const onChange = vi.fn();
+    const onChange = jest.fn();
     const { container } = render(<Cascader open options={options} onChange={onChange} />);
 
     clickOption(container, 0, 0);
@@ -284,7 +284,7 @@ describe('Cascader', () => {
       },
     ];
 
-    const onChange = vi.fn();
+    const onChange = jest.fn();
 
     const { container } = render(
       <Cascader
@@ -320,7 +320,7 @@ describe('Cascader', () => {
   });
 
   describe('limit filtered item count', () => {
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     afterAll(() => {
       errorSpy.mockRestore();
@@ -353,8 +353,9 @@ describe('Cascader', () => {
   });
 
   // FIXME: Move to `rc-tree-select` instead
+  // eslint-disable-next-line jest/no-disabled-tests
   it.skip('should warning if not find `value` in `options`', () => {
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Cascader options={[{ label: 'a', value: 'a', children: [{ label: 'b' }] }]} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Cascader] Not found `value` in `options`.',
@@ -409,7 +410,8 @@ describe('Cascader', () => {
     const { container } = render(<Cascader options={customOptions} placement="topRight" />);
     toggleOpen(container);
 
-    expect(globalThis.triggerProps.popupPlacement).toEqual('topRight');
+    // Inject in tests/__mocks__/rc-trigger.js
+    expect((global as any)?.triggerProps.popupPlacement).toEqual('topRight');
   });
 
   it('popup correctly with defaultValue RTL', () => {
@@ -456,7 +458,7 @@ describe('Cascader', () => {
         ],
       },
     ];
-    const onChange = vi.fn();
+    const onChange = jest.fn();
     const { container } = render(
       <ConfigProvider direction="rtl">
         <Cascader
@@ -492,7 +494,7 @@ describe('Cascader', () => {
   });
 
   it('can be selected when showSearch', () => {
-    const onChange = vi.fn();
+    const onChange = jest.fn();
     const { container } = render(<Cascader options={options} onChange={onChange} showSearch />);
     fireEvent.change(container.querySelector('input')!, { target: { value: 'Zh' } });
 
@@ -512,7 +514,7 @@ describe('Cascader', () => {
   });
 
   it('onChange works correctly when the label of fieldNames is the same as value', () => {
-    const onChange = vi.fn();
+    const onChange = jest.fn();
     const sameNames = { label: 'label', value: 'label' };
     const { container } = render(
       <Cascader options={options} onChange={onChange} showSearch fieldNames={sameNames} />,
@@ -526,20 +528,21 @@ describe('Cascader', () => {
     const { container } = render(<Cascader options={options} direction="rtl" />);
     toggleOpen(container);
 
-    expect(globalThis.triggerProps.popupPlacement).toEqual('bottomRight');
+    // Inject in tests/__mocks__/rc-trigger.js
+    expect((global as any).triggerProps.popupPlacement).toEqual('bottomRight');
   });
 
   describe('legacy props', () => {
     it('popupPlacement', () => {
       render(<Cascader open popupPlacement="bottomLeft" />);
-      // Inject in __mocks__/@rc-component/trigger.tsx
+      // Inject in tests/__mocks__/rc-trigger.js
       expect((global as any).triggerProps.popupPlacement).toEqual('bottomLeft');
     });
 
     it('legacy dropdownClassName', () => {
       resetWarned();
 
-      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Cascader dropdownClassName="legacy" open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Cascader] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',

@@ -51,7 +51,7 @@ describe('ConfigProvider.useConfig', () => {
       return <div>{ctx}</div>;
     };
 
-    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     render(<App />);
 

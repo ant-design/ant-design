@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pagination > ConfigProvider > should be rendered correctly in RTL 1`] = `
+exports[`Pagination ConfigProvider should be rendered correctly in RTL 1`] = `
 <ul
   class="ant-pagination ant-pagination-rtl"
 >
@@ -126,7 +126,7 @@ exports[`Pagination > ConfigProvider > should be rendered correctly in RTL 1`] =
 </ul>
 `;
 
-exports[`Pagination > ConfigProvider > should be rendered correctly when componentSize is large 1`] = `
+exports[`Pagination ConfigProvider should be rendered correctly when componentSize is large 1`] = `
 <ul
   class="ant-pagination"
 >
@@ -316,7 +316,7 @@ exports[`Pagination > ConfigProvider > should be rendered correctly when compone
 </ul>
 `;
 
-exports[`Pagination > rtl render > component should be rendered correctly in RTL direction 1`] = `
+exports[`Pagination rtl render component should be rendered correctly in RTL direction 1`] = `
 <ul
   class="ant-pagination ant-pagination-rtl"
 >

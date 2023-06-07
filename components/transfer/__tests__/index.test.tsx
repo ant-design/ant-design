@@ -5,7 +5,7 @@ import Transfer from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
-const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
 const listCommonProps: {
   dataSource: { key: string; title: string; disabled?: boolean }[];
@@ -83,14 +83,14 @@ describe('Transfer', () => {
   });
 
   it('should move selected keys to corresponding list', () => {
-    const handleChange = vi.fn();
+    const handleChange = jest.fn();
     const { container } = render(<Transfer {...listCommonProps} onChange={handleChange} />);
     fireEvent.click(container.querySelector('.ant-transfer-operation')?.querySelector('button')!); // move selected keys to right list
     expect(handleChange).toHaveBeenCalledWith(['a', 'b'], 'right', ['a']);
   });
 
   it('should move selected keys to left list', () => {
-    const handleChange = vi.fn();
+    const handleChange = jest.fn();
     const { container } = render(
       <Transfer
         {...listCommonProps}
@@ -106,14 +106,14 @@ describe('Transfer', () => {
   });
 
   it('should move selected keys expect disabled to corresponding list', () => {
-    const handleChange = vi.fn();
+    const handleChange = jest.fn();
     const { container } = render(<Transfer {...listDisabledProps} onChange={handleChange} />);
     fireEvent.click(container.querySelector('.ant-transfer-operation')?.querySelector('button')!); // move selected keys to right list
     expect(handleChange).toHaveBeenCalledWith(['b'], 'right', ['b']);
   });
 
   it('should uncheck checkbox when click on checked item', () => {
-    const handleSelectChange = vi.fn();
+    const handleSelectChange = jest.fn();
     const { getByTitle } = render(
       <Transfer
         {...listCommonProps}
@@ -126,7 +126,7 @@ describe('Transfer', () => {
   });
 
   it('should check checkbox when click on unchecked item', () => {
-    const handleSelectChange = vi.fn();
+    const handleSelectChange = jest.fn();
     const { getByText } = render(
       <Transfer
         {...listCommonProps}
@@ -139,7 +139,7 @@ describe('Transfer', () => {
   });
 
   it('should not check checkbox when component disabled', () => {
-    const handleSelectChange = vi.fn();
+    const handleSelectChange = jest.fn();
     const { getByText } = render(
       <Transfer
         {...listCommonProps}
@@ -153,7 +153,7 @@ describe('Transfer', () => {
   });
 
   it('should not check checkbox when click on disabled item', () => {
-    const handleSelectChange = vi.fn();
+    const handleSelectChange = jest.fn();
     const { getByText } = render(
       <Transfer
         {...listCommonProps}
@@ -167,7 +167,7 @@ describe('Transfer', () => {
   });
 
   it('should check all item when click on check all', () => {
-    const handleSelectChange = vi.fn();
+    const handleSelectChange = jest.fn();
     const { container } = render(
       <Transfer {...listCommonProps} onSelectChange={handleSelectChange} />,
     );
@@ -183,7 +183,7 @@ describe('Transfer', () => {
   });
 
   it('should uncheck all item when click on uncheck all', () => {
-    const handleSelectChange = vi.fn();
+    const handleSelectChange = jest.fn();
     const { container } = render(
       <Transfer {...listCommonProps} onSelectChange={handleSelectChange} />,
     );
@@ -308,7 +308,7 @@ describe('Transfer', () => {
     const filterOption: TransferProps<any>['filterOption'] = (inputValue, option) =>
       option.description.includes(inputValue);
     const renderFunc: TransferProps<any>['render'] = (item) => item.title;
-    const handleSelectChange = vi.fn();
+    const handleSelectChange = jest.fn();
     const { container, getByTitle } = render(
       <Transfer
         {...searchTransferProps}
@@ -333,7 +333,7 @@ describe('Transfer', () => {
     const filterOption: TransferProps<any>['filterOption'] = (inputValue, option) =>
       option.description.includes(inputValue);
     const renderFunc: TransferProps<any>['render'] = (item) => item.title;
-    const handleChange = vi.fn();
+    const handleChange = jest.fn();
     const TransferDemo = () => {
       const [selectedKeys, setSelectedKeys] = useState<string[]>(searchTransferProps.selectedKeys);
       const handleSelectChange: TransferProps<any>['onSelectChange'] = (
@@ -373,7 +373,7 @@ describe('Transfer', () => {
     const newProps = { ...listCommonProps };
     delete newProps.targetKeys;
     delete newProps.selectedKeys;
-    const handleSelectChange = vi.fn();
+    const handleSelectChange = jest.fn();
     const { container, getByText } = render(
       <Transfer
         {...newProps}
@@ -472,7 +472,7 @@ describe('Transfer', () => {
   });
 
   it('should support onScroll', () => {
-    const onScroll = vi.fn();
+    const onScroll = jest.fn();
     const { container } = render(<Transfer {...listCommonProps} onScroll={onScroll} />);
 
     fireEvent.scroll(
@@ -574,14 +574,14 @@ describe('Transfer', () => {
   });
 
   it('remove by click icon', () => {
-    const onChange = vi.fn();
+    const onChange = jest.fn();
     const { container } = render(<Transfer {...listCommonProps} onChange={onChange} oneWay />);
     fireEvent.click(container.querySelectorAll('.ant-transfer-list-content-item-remove')[0]);
     expect(onChange).toHaveBeenCalledWith([], 'left', ['b']);
   });
 
   it('control mode select all should not throw warning', () => {
-    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const App = () => {
       const [selectedKeys, setSelectedKeys] = useState<string[]>([]);

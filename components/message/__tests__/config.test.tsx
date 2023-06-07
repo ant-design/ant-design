@@ -9,7 +9,7 @@ describe('message.config', () => {
   });
 
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -17,7 +17,7 @@ describe('message.config', () => {
     message.destroy();
     await triggerMotionEnd();
 
-    vi.useRealTimers();
+    jest.useRealTimers();
 
     await awaitPromise();
   });
@@ -104,13 +104,13 @@ describe('message.config', () => {
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
 
     act(() => {
-      vi.advanceTimersByTime(4000);
+      jest.advanceTimersByTime(4000);
     });
 
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
 
     act(() => {
-      vi.advanceTimersByTime(2000);
+      jest.advanceTimersByTime(2000);
     });
 
     await triggerMotionEnd('.ant-message-notice');

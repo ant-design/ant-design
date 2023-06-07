@@ -1,10 +1,8 @@
-import type { SpyInstance } from 'vitest';
-
 describe('Test warning', () => {
-  let spy: SpyInstance;
+  let spy: jest.SpyInstance;
 
   beforeAll(() => {
-    spy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    spy = jest.spyOn(console, 'error').mockImplementation(() => {});
   });
 
   afterAll(() => {
@@ -12,7 +10,7 @@ describe('Test warning', () => {
   });
 
   beforeEach(() => {
-    vi.resetModules();
+    jest.resetModules();
   });
 
   afterEach(() => {

@@ -17,7 +17,7 @@ describe('prefix', () => {
   it('should trigger focus when prefix is clicked', () => {
     const { container } = render(<InputNumber prefix={<i>123</i>} />);
 
-    const mockFocus = vi.spyOn(container.querySelector('input')!, 'focus');
+    const mockFocus = jest.spyOn(container.querySelector('input')!, 'focus');
     fireEvent.mouseUp(container.querySelector('i')!);
     expect(mockFocus).toHaveBeenCalled();
   });

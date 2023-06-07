@@ -41,12 +41,12 @@ describe('Form.List', () => {
 
   beforeEach(() => {
     document.body.innerHTML = '';
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterAll(() => {
-    vi.clearAllTimers();
-    vi.useRealTimers();
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   const testList = (
@@ -119,7 +119,7 @@ describe('Form.List', () => {
       fireEvent.click(wrapper.querySelector(className)!);
     }
 
-    const onFinish = vi.fn().mockImplementation(() => {});
+    const onFinish = jest.fn().mockImplementation(() => {});
 
     const { container } = render(
       <Form
@@ -216,7 +216,7 @@ describe('Form.List', () => {
   });
 
   it('no warning when reset in validate', async () => {
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const Demo = () => {
       const [form] = Form.useForm();
