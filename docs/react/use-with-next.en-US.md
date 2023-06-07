@@ -10,11 +10,11 @@ title: Usage with Next.js
 Before all start, you may need install [yarn](https://github.com/yarnpkg/yarn/) or [pnpm](https://pnpm.io/).
 
 ```bash
-$ yarn create next-app antd-demo --typescript
+$ yarn create next-app antd-demo
 
 # or
 
-$ npx create-next-app antd-demo --typescript
+$ npx create-next-app antd-demo
 ```
 
 The tool will create and initialize environment and dependencies automatically, please try config your proxy setting, or use another npm registry if any network errors happen during it.

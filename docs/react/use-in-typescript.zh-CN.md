@@ -3,7 +3,7 @@ order: 5
 title: 在 TypeScript 中使用
 ---
 
-使用 `create-react-app` 一步步地创建一个 TypeScript 项目，并引入 antd。
+使用 `create-react-app` 一步步地创建一个 `TypeScript` 项目，并引入 antd。
 
 > `antd` 基于最新稳定版本的 TypeScript（`>=5.0.0`），请确保项目中使用匹配的版本。
 

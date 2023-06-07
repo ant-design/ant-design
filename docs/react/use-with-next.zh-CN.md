@@ -10,11 +10,11 @@ title: 在 Next.js 中使用
 在开始之前，你可能需要安装 [yarn](https://github.com/yarnpkg/yarn/) 或者 [pnpm](https://pnpm.io/zh/)。
 
 ```bash
-$ yarn create next-app antd-demo --typescript
+$ yarn create next-app antd-demo
 
 # or
 
-$ npx create-next-app antd-demo --typescript
+$ npx create-next-app antd-demo
 ```
 
 工具会自动初始化一个脚手架并安装项目的各种必要依赖，在安装过程中，有一些配置项需要自行选择，如果在过程中出现网络问题，请尝试配置代理，或使用其他 npm registry。
