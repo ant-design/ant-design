@@ -7,14 +7,6 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Button from '../../button';
 
-// const oriError = console.error;
-// console.error = (str) => {
-//   if (str.includes('Maximum')) {
-//     throw new Error('2333');
-//   }
-//   return oriError(str);
-// };
-
 const listCommonProps: {
   dataSource: { key: string; title: string; disabled?: boolean }[];
   selectedKeys?: string[];
