@@ -1,6 +1,6 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { waitFakeTimer, render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
 describe('Collapse', () => {
@@ -208,5 +208,19 @@ describe('Collapse', () => {
         expect(container.querySelector('.ant-collapse-icon-position-end')).toBeTruthy();
       });
     });
+  });
+
+  it('Collapse.Panel usage', () => {
+    const { container } = render(
+      <Collapse bordered={false}>
+        <Collapse.Panel key="test panel1" header="test panel1">
+          test1
+        </Collapse.Panel>
+        <Collapse.Panel key="test panel2" header="test panel2">
+          test2
+        </Collapse.Panel>
+      </Collapse>,
+    );
+    expect(container.firstChild).toMatchSnapshot();
   });
 });
