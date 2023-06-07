@@ -49,7 +49,7 @@ Emphasis on presentation. The grid layout has no specific browsing order, and ea
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*pEyLSJsDgYIAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-选择适合的搜寻组件。
+Select the appropriate search component.
 
 **1）Identify the main search patterns of users.**
 
