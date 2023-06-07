@@ -205,7 +205,7 @@
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
-    "@vitest/coverage-c8": "^0.31.1",
+    "@vitest/coverage-c8": "^0.32.0",
     "antd-img-crop": "^4.9.0",
     "antd-style": "^3.0.0",
     "antd-token-previewer": "^1.1.0-21",
