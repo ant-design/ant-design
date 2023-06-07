@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Progress render dashboard 295 gapDegree 1`] = `
+exports[`Progress > render dashboard 295 gapDegree 1`] = `
 <div
   aria-valuenow="0"
   class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -55,7 +55,7 @@ exports[`Progress render dashboard 295 gapDegree 1`] = `
 </div>
 `;
 
-exports[`Progress render dashboard 296 gapDegree 1`] = `
+exports[`Progress > render dashboard 296 gapDegree 1`] = `
 <div
   aria-valuenow="0"
   class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -110,7 +110,7 @@ exports[`Progress render dashboard 296 gapDegree 1`] = `
 </div>
 `;
 
-exports[`Progress render dashboard zero gapDegree 1`] = `
+exports[`Progress > render dashboard zero gapDegree 1`] = `
 <div
   aria-valuenow="0"
   class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -165,7 +165,7 @@ exports[`Progress render dashboard zero gapDegree 1`] = `
 </div>
 `;
 
-exports[`Progress render format 1`] = `
+exports[`Progress > render format 1`] = `
 <div
   aria-valuenow="10"
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -197,7 +197,7 @@ exports[`Progress render format 1`] = `
 </div>
 `;
 
-exports[`Progress render negative progress 1`] = `
+exports[`Progress > render negative progress 1`] = `
 <div
   aria-valuenow="-20"
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -225,7 +225,7 @@ exports[`Progress render negative progress 1`] = `
 </div>
 `;
 
-exports[`Progress render negative successPercent 1`] = `
+exports[`Progress > render negative successPercent 1`] = `
 <div
   aria-valuenow="-20"
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -257,7 +257,7 @@ exports[`Progress render negative successPercent 1`] = `
 </div>
 `;
 
-exports[`Progress render normal progress 1`] = `
+exports[`Progress > render normal progress 1`] = `
 <div
   aria-valuenow="0"
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -285,7 +285,7 @@ exports[`Progress render normal progress 1`] = `
 </div>
 `;
 
-exports[`Progress render out-of-range progress 1`] = `
+exports[`Progress > render out-of-range progress 1`] = `
 <div
   aria-valuenow="120"
   class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-default"
@@ -330,7 +330,7 @@ exports[`Progress render out-of-range progress 1`] = `
 </div>
 `;
 
-exports[`Progress render out-of-range progress with info 1`] = `
+exports[`Progress > render out-of-range progress with info 1`] = `
 <div
   aria-valuenow="120"
   class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-default"
@@ -375,7 +375,7 @@ exports[`Progress render out-of-range progress with info 1`] = `
 </div>
 `;
 
-exports[`Progress render strokeColor 1`] = `
+exports[`Progress > render strokeColor 1`] = `
 <div
   aria-valuenow="50"
   class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -430,7 +430,7 @@ exports[`Progress render strokeColor 1`] = `
 </div>
 `;
 
-exports[`Progress render strokeColor 2`] = `
+exports[`Progress > render strokeColor 2`] = `
 <div
   aria-valuenow="50"
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -458,7 +458,7 @@ exports[`Progress render strokeColor 2`] = `
 </div>
 `;
 
-exports[`Progress render strokeColor 3`] = `
+exports[`Progress > render strokeColor 3`] = `
 <div
   aria-valuenow="50"
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -486,7 +486,7 @@ exports[`Progress render strokeColor 3`] = `
 </div>
 `;
 
-exports[`Progress render strokeWidth of progress 1`] = `
+exports[`Progress > render strokeWidth of progress 1`] = `
 <div>
   <div
     aria-valuenow="30"
@@ -543,7 +543,7 @@ exports[`Progress render strokeWidth of progress 1`] = `
 </div>
 `;
 
-exports[`Progress render successColor progress 1`] = `
+exports[`Progress > render successColor progress 1`] = `
 <div
   aria-valuenow="30"
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -575,7 +575,7 @@ exports[`Progress render successColor progress 1`] = `
 </div>
 `;
 
-exports[`Progress render successColor progress type="circle" 1`] = `
+exports[`Progress > render successColor progress type="circle" 1`] = `
 <div
   aria-valuenow="30"
   class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -630,7 +630,7 @@ exports[`Progress render successColor progress type="circle" 1`] = `
 </div>
 `;
 
-exports[`Progress render successColor progress type="dashboard" 1`] = `
+exports[`Progress > render successColor progress type="dashboard" 1`] = `
 <div
   aria-valuenow="30"
   class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -685,7 +685,7 @@ exports[`Progress render successColor progress type="dashboard" 1`] = `
 </div>
 `;
 
-exports[`Progress render trailColor progress 1`] = `
+exports[`Progress > render trailColor progress 1`] = `
 <div
   aria-valuenow="0"
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -714,7 +714,7 @@ exports[`Progress render trailColor progress 1`] = `
 </div>
 `;
 
-exports[`Progress rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`Progress > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   aria-valuenow="0"
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-rtl"
@@ -742,7 +742,7 @@ exports[`Progress rtl render component should be rendered correctly in RTL direc
 </div>
 `;
 
-exports[`Progress should support steps 1`] = `
+exports[`Progress > should support steps 1`] = `
 <div
   aria-valuenow="0"
   class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -773,7 +773,7 @@ exports[`Progress should support steps 1`] = `
 </div>
 `;
 
-exports[`Progress steps should have default percent 0 1`] = `
+exports[`Progress > steps should have default percent 0 1`] = `
 <div
   class="undefined-steps-outer"
 />

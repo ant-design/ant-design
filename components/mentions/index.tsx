@@ -196,7 +196,7 @@ if (process.env.NODE_ENV !== 'production') {
 Mentions.Option = Option;
 
 // We don't care debug panel
-/* istanbul ignore next */
+/* c8 ignore next */
 const PurePanel = genPurePanel(Mentions, 'mentions');
 Mentions._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 

@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Space.Compact rtl render component should be rendered correctly in RTL direction 1`] = `null`;
+exports[`Space.Compact > rtl render > component should be rendered correctly in RTL direction 1`] = `null`;
 
-exports[`Space.Compact rtl render component should be rendered correctly in RTL direction 2`] = `
+exports[`Space.Compact > rtl render > component should be rendered correctly in RTL direction 2`] = `
 <div
   class="ant-space-compact ant-space-compact-rtl"
 >

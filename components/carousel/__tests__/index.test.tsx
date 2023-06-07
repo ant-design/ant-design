@@ -3,18 +3,18 @@ import type { CarouselRef } from '..';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { waitFakeTimer, render } from '../../../tests/utils';
+import { render, waitFakeTimer } from '../../../tests/utils';
 
 describe('Carousel', () => {
   mountTest(Carousel);
   rtlTest(Carousel);
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should has innerSlider', () => {
@@ -65,7 +65,7 @@ describe('Carousel', () => {
         <div>3</div>
       </Carousel>,
     );
-    const spy = jest.spyOn(ref.current?.innerSlider, 'autoPlay');
+    const spy = vi.spyOn(ref.current?.innerSlider, 'autoPlay');
     window.resizeTo(1000, window.outerHeight);
     expect(spy).not.toHaveBeenCalled();
     await waitFakeTimer();
@@ -80,14 +80,13 @@ describe('Carousel', () => {
         <div>3</div>
       </Carousel>,
     );
-    const spy = jest.spyOn(window, 'removeEventListener');
+    const spy = vi.spyOn(window, 'removeEventListener');
     unmount();
     expect(spy).toHaveBeenCalled();
   });
 
   describe('should works for dotPosition', () => {
     (['left', 'right', 'top', 'bottom'] as const).forEach((dotPosition) => {
-      // eslint-disable-next-line jest/valid-title
       it(dotPosition, () => {
         const { container } = render(
           <Carousel dotPosition={dotPosition}>

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`QuarterPicker should support style prop 1`] = `
+exports[`QuarterPicker > should support style prop 1`] = `
 <div
   class="ant-picker"
   style="width: 400px;"

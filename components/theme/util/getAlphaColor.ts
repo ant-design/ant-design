@@ -20,10 +20,10 @@ function getAlphaColor(frontColor: string, backgroundColor: string): string {
       return new TinyColor({ r, g, b, a: Math.round(fA * 100) / 100 }).toRgbString();
     }
   }
-
+  /* c8 ignore start */
   // fallback
-  /* istanbul ignore next */
   return new TinyColor({ r: fR, g: fG, b: fB, a: 1 }).toRgbString();
 }
+/* c8 ignore stop */
 
 export default getAlphaColor;

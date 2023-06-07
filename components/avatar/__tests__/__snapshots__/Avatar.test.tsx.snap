@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Avatar Render adjusts component size to 24 when window size is xs 1`] = `
+exports[`Avatar Render > adjusts component size to 24 when window size is xs 1`] = `
 <div>
   <span
     class="ant-avatar ant-avatar-circle"
@@ -14,7 +14,7 @@ exports[`Avatar Render adjusts component size to 24 when window size is xs 1`] =
 </div>
 `;
 
-exports[`Avatar Render adjusts component size to 32 when window size is sm 1`] = `
+exports[`Avatar Render > adjusts component size to 32 when window size is sm 1`] = `
 <div>
   <span
     class="ant-avatar ant-avatar-circle"
@@ -28,7 +28,7 @@ exports[`Avatar Render adjusts component size to 32 when window size is sm 1`] =
 </div>
 `;
 
-exports[`Avatar Render adjusts component size to 40 when window size is md 1`] = `
+exports[`Avatar Render > adjusts component size to 40 when window size is md 1`] = `
 <div>
   <span
     class="ant-avatar ant-avatar-circle"
@@ -42,7 +42,7 @@ exports[`Avatar Render adjusts component size to 40 when window size is md 1`] =
 </div>
 `;
 
-exports[`Avatar Render adjusts component size to 64 when window size is lg 1`] = `
+exports[`Avatar Render > adjusts component size to 64 when window size is lg 1`] = `
 <div>
   <span
     class="ant-avatar ant-avatar-circle"
@@ -56,7 +56,7 @@ exports[`Avatar Render adjusts component size to 64 when window size is lg 1`] =
 </div>
 `;
 
-exports[`Avatar Render adjusts component size to 80 when window size is xl 1`] = `
+exports[`Avatar Render > adjusts component size to 80 when window size is xl 1`] = `
 <div>
   <span
     class="ant-avatar ant-avatar-circle"
@@ -70,7 +70,7 @@ exports[`Avatar Render adjusts component size to 80 when window size is xl 1`] =
 </div>
 `;
 
-exports[`Avatar Render adjusts component size to 100 when window size is xxl 1`] = `
+exports[`Avatar Render > adjusts component size to 100 when window size is xxl 1`] = `
 <div>
   <span
     class="ant-avatar ant-avatar-circle"
@@ -84,7 +84,7 @@ exports[`Avatar Render adjusts component size to 100 when window size is xxl 1`]
 </div>
 `;
 
-exports[`Avatar Render fallback 1`] = `
+exports[`Avatar Render > fallback 1`] = `
 <span
   class="ant-avatar ant-avatar-circle"
 >
@@ -97,7 +97,7 @@ exports[`Avatar Render fallback 1`] = `
 </span>
 `;
 
-exports[`Avatar Render rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`Avatar Render > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <span
   class="ant-avatar ant-avatar-circle"
 >
@@ -108,7 +108,7 @@ exports[`Avatar Render rtl render component should be rendered correctly in RTL 
 </span>
 `;
 
-exports[`Avatar Render should calculate scale of avatar children correctly 1`] = `
+exports[`Avatar Render > should calculate scale of avatar children correctly 1`] = `
 <span
   class="ant-avatar-string"
   style="transform: scale(0.72) translateX(-50%);"
@@ -117,7 +117,7 @@ exports[`Avatar Render should calculate scale of avatar children correctly 1`] =
 </span>
 `;
 
-exports[`Avatar Render should calculate scale of avatar children correctly 2`] = `
+exports[`Avatar Render > should calculate scale of avatar children correctly 2`] = `
 <span
   class="ant-avatar-string"
   style="transform: scale(0.72) translateX(-50%);"
@@ -126,7 +126,7 @@ exports[`Avatar Render should calculate scale of avatar children correctly 2`] =
 </span>
 `;
 
-exports[`Avatar Render should calculate scale of avatar children correctly with gap 1`] = `
+exports[`Avatar Render > should calculate scale of avatar children correctly with gap 1`] = `
 <span
   class="ant-avatar-string"
   style="transform: scale(0.36) translateX(-50%);"
@@ -135,7 +135,7 @@ exports[`Avatar Render should calculate scale of avatar children correctly with 
 </span>
 `;
 
-exports[`Avatar Render should handle onError correctly 1`] = `
+exports[`Avatar Render > should handle onError correctly 1`] = `
 <span
   class="ant-avatar ant-avatar-circle ant-avatar-image"
 >
@@ -145,7 +145,7 @@ exports[`Avatar Render should handle onError correctly 1`] = `
 </span>
 `;
 
-exports[`Avatar Render should show image on success after a failure state 1`] = `
+exports[`Avatar Render > should show image on success after a failure state 1`] = `
 <span
   class="ant-avatar ant-avatar-circle"
 >
@@ -158,7 +158,7 @@ exports[`Avatar Render should show image on success after a failure state 1`] = 
 </span>
 `;
 
-exports[`Avatar Render should show image on success after a failure state 2`] = `
+exports[`Avatar Render > should show image on success after a failure state 2`] = `
 <span
   class="ant-avatar ant-avatar-circle ant-avatar-image"
 >
@@ -168,7 +168,7 @@ exports[`Avatar Render should show image on success after a failure state 2`] = 
 </span>
 `;
 
-exports[`Avatar Render support size is number 1`] = `
+exports[`Avatar Render > support size is number 1`] = `
 <span
   class="ant-avatar ant-avatar-circle"
   style="width: 100px; height: 100px; line-height: 100px; font-size: 18px;"

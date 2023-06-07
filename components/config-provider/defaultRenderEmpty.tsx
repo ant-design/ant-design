@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { ConfigContext } from '.';
 import type { ConfigConsumerProps } from '.';
+import { ConfigContext } from '.';
 import Empty from '../empty';
 
 interface EmptyProps {
@@ -21,7 +21,7 @@ const DefaultRenderEmpty: React.FC<EmptyProps> = (props) => {
     case 'Transfer':
     case 'Mentions':
       return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} className={`${prefix}-small`} />;
-    /* istanbul ignore next */
+    /* c8 ignore next 3 */
     default:
       // Should never hit if we take all the component into consider.
       return <Empty />;

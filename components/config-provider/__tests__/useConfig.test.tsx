@@ -1,8 +1,8 @@
 import React from 'react';
 import ConfigProvider from '..';
-import Form from '../../form';
 import { render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import Form from '../../form';
 
 describe('ConfigProvider.useConfig', () => {
   it('useConfig - componentSize', () => {
@@ -16,7 +16,7 @@ describe('ConfigProvider.useConfig', () => {
     };
 
     render(
-      <ConfigProvider componentSize='small'>
+      <ConfigProvider componentSize="small">
         <App />
       </ConfigProvider>,
     );
@@ -51,7 +51,7 @@ describe('ConfigProvider.useConfig', () => {
       return <div>{ctx}</div>;
     };
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     render(<App />);
 

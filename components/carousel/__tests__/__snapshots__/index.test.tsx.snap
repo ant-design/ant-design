@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Carousel rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`Carousel > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-carousel ant-carousel-rtl"
 >
@@ -19,7 +19,7 @@ exports[`Carousel rtl render component should be rendered correctly in RTL direc
 </div>
 `;
 
-exports[`Carousel should works for dotPosition bottom 1`] = `
+exports[`Carousel > should works for dotPosition > bottom 1`] = `
 <div
   class="ant-carousel"
 >
@@ -53,7 +53,7 @@ exports[`Carousel should works for dotPosition bottom 1`] = `
 </div>
 `;
 
-exports[`Carousel should works for dotPosition left 1`] = `
+exports[`Carousel > should works for dotPosition > left 1`] = `
 <div
   class="ant-carousel ant-carousel-vertical"
 >
@@ -87,7 +87,7 @@ exports[`Carousel should works for dotPosition left 1`] = `
 </div>
 `;
 
-exports[`Carousel should works for dotPosition right 1`] = `
+exports[`Carousel > should works for dotPosition > right 1`] = `
 <div
   class="ant-carousel ant-carousel-vertical"
 >
@@ -121,7 +121,7 @@ exports[`Carousel should works for dotPosition right 1`] = `
 </div>
 `;
 
-exports[`Carousel should works for dotPosition top 1`] = `
+exports[`Carousel > should works for dotPosition > top 1`] = `
 <div
   class="ant-carousel"
 >

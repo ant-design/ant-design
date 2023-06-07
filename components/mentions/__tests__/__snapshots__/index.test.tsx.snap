@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Mentions rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`Mentions > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-mentions ant-mentions-rtl"
 >

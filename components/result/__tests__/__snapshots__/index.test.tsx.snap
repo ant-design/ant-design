@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Result rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`Result > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-result ant-result-info ant-result-rtl"
 >
