@@ -70,7 +70,7 @@ config 参数如下：
 | --- | --- | --- | --- | --- |
 | bottom | 消息从底部弹出时，距离底部的位置，单位像素 | number | 24 |  |
 | closeIcon | 自定义关闭图标 | ReactNode | - |  |
-| getContainer | 配置渲染节点的输出位置 | () => HTMLNode | () => document.body |  |
+| getContainer | 配置渲染节点的输出位置，但依旧为全屏展示 | () => HTMLNode | () => document.body |  |
 | placement | 弹出位置，可选 `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | string | `topRight` |  |
 | rtl | 是否开启 RTL 模式 | boolean | false |  |
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素 | number | 24 |  |
@@ -102,7 +102,7 @@ notification.config({
 | bottom | 消息从底部弹出时，距离底部的位置，单位像素 | number | 24 |  |
 | closeIcon | 自定义关闭图标 | ReactNode | - |  |
 | duration | 默认自动关闭延时，单位秒 | number | 4.5 |  |
-| getContainer | 配置渲染节点的输出位置 | () => HTMLNode | () => document.body |  |
+| getContainer | 配置渲染节点的输出位置，但依旧为全屏展示 | () => HTMLNode | () => document.body |  |
 | placement | 弹出位置，可选 `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | string | `topRight` |  |
 | rtl | 是否开启 RTL 模式 | boolean | false |  |
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素 | number | 24 |  |
