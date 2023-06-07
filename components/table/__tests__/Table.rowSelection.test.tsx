@@ -1606,6 +1606,34 @@ describe('Table.rowSelection', () => {
       );
     });
 
+    it('cache with preserveSelectedRowKeys and checkStrictly false', () => {
+      const onChange = jest.fn();
+      const { container, rerender } = render(
+        <Table
+          dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
+          rowSelection={{ onChange, preserveSelectedRowKeys: true, checkStrictly: false }}
+          rowKey="name"
+        />,
+      );
+
+      fireEvent.click(container.querySelector('tbody input')!);
+      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }], { type: 'single' });
+
+      rerender(
+        <Table
+          dataSource={[{ name: 'bamboo' }]}
+          rowSelection={{ onChange, preserveSelectedRowKeys: true, checkStrictly: false }}
+          rowKey="name"
+        />,
+      );
+      fireEvent.click(container.querySelector('tbody input')!);
+      expect(onChange).toHaveBeenCalledWith(
+        ['light', 'bamboo'],
+        [{ name: 'light' }, { name: 'bamboo' }],
+        { type: 'single' },
+      );
+    });
+
     it('works with receive selectedRowKeys from [] to undefined', () => {
       const onChange = jest.fn();
       const dataSource = [{ name: 'Jack' }];
