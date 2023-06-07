@@ -237,4 +237,18 @@ describe('Collapse', () => {
       });
     });
   });
+
+  it('Collapse.Panel usage', () => {
+    const { container } = render(
+      <Collapse bordered={false}>
+        <Collapse.Panel key="test panel1" header="test panel1">
+          test1
+        </Collapse.Panel>
+        <Collapse.Panel key="test panel2" header="test panel2">
+          test2
+        </Collapse.Panel>
+      </Collapse>,
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
