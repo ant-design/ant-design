@@ -4,13 +4,13 @@ import type { Key } from 'react';
 import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import type { TreeProps } from '../index';
 import Tree from '../index';
 
 const { DirectoryTree, TreeNode } = Tree;
 
-vi.mock('lodash/debounce');
+jest.mock('lodash/debounce');
 
 describe('Directory Tree', () => {
   mountTest(Tree);
@@ -19,15 +19,15 @@ describe('Directory Tree', () => {
   rtlTest(Tree);
   rtlTest(DirectoryTree);
 
-  vi.mocked(debounce).mockImplementation((fn) => fn as any);
+  (debounce as any).mockImplementation((fn: () => void) => fn);
 
   beforeAll(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterAll(() => {
-    vi.useRealTimers();
-    vi.mocked(debounce).mockRestore();
+    jest.useRealTimers();
+    (debounce as any).mockRestore();
   });
 
   function createTree(props?: TreeProps & { ref?: React.Ref<RcTree> }) {
@@ -47,43 +47,43 @@ describe('Directory Tree', () => {
 
   describe('expand', () => {
     it('click', () => {
-      const onExpand = vi.fn();
+      const onExpand = jest.fn();
       const { container } = render(createTree({ onExpand }));
 
       fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper')!);
       act(() => {
-        vi.runAllTimers();
+        jest.runAllTimers();
       });
       expect(onExpand).toHaveBeenCalledWith(['0-0'], expect.anything());
       onExpand.mockReset();
 
       act(() => {
-        vi.runAllTimers();
+        jest.runAllTimers();
       });
       fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper')!);
       act(() => {
-        vi.runAllTimers();
+        jest.runAllTimers();
       });
       expect(onExpand).toHaveBeenCalledWith([], expect.anything());
     });
 
     it('double click', () => {
-      const onExpand = vi.fn();
+      const onExpand = jest.fn();
       const { container } = render(createTree({ expandAction: 'doubleClick', onExpand }));
 
       fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper')!);
       act(() => {
-        vi.runAllTimers();
+        jest.runAllTimers();
       });
       expect(onExpand).toHaveBeenCalledWith(['0-0'], expect.anything());
       onExpand.mockReset();
 
       act(() => {
-        vi.runAllTimers();
+        jest.runAllTimers();
       });
       fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper')!);
       act(() => {
-        vi.runAllTimers();
+        jest.runAllTimers();
       });
       expect(onExpand).toHaveBeenCalledWith([], expect.anything());
     });
@@ -104,15 +104,14 @@ describe('Directory Tree', () => {
         const { container, asFragment } = render(<StateDirTree expandAction="click" />);
 
         fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper')!);
-        await vi.runAllTimersAsync();
+        await waitFakeTimer();
         expect(asFragment().firstChild).toMatchSnapshot();
       });
-
       it('doubleClick', async () => {
         const { container, asFragment } = render(<StateDirTree expandAction="doubleClick" />);
 
         fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper')!);
-        await vi.runAllTimersAsync();
+        await waitFakeTimer();
         expect(asFragment().firstChild).toMatchSnapshot();
       });
     });
@@ -155,7 +154,7 @@ describe('Directory Tree', () => {
   it('expandedKeys update', async () => {
     const { rerender, asFragment } = render(createTree());
     rerender(createTree({ expandedKeys: ['0-1'] }));
-    await vi.runAllTimersAsync();
+    await waitFakeTimer();
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
@@ -166,7 +165,7 @@ describe('Directory Tree', () => {
   });
 
   it('group select', () => {
-    const onSelect = vi.fn();
+    const onSelect = jest.fn();
     const { container, asFragment } = render(
       createTree({
         defaultExpandAll: true,
@@ -204,15 +203,15 @@ describe('Directory Tree', () => {
   });
 
   it('onDoubleClick', () => {
-    const onDoubleClick = vi.fn();
+    const onDoubleClick = jest.fn();
     const { container } = render(createTree({ onDoubleClick }));
     fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper')!);
     expect(onDoubleClick).toHaveBeenCalled();
   });
 
   it('should not expand tree now when pressing ctrl', () => {
-    const onExpand = vi.fn();
-    const onSelect = vi.fn();
+    const onExpand = jest.fn();
+    const onSelect = jest.fn();
     const { container } = render(createTree({ onExpand, onSelect }));
     fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper')!, { ctrlKey: true });
     expect(onExpand).not.toHaveBeenCalled();
@@ -223,8 +222,8 @@ describe('Directory Tree', () => {
   });
 
   it('should not expand tree now when click leaf node', () => {
-    const onExpand = vi.fn();
-    const onSelect = vi.fn();
+    const onExpand = jest.fn();
+    const onSelect = jest.fn();
     const { container } = render(
       createTree({
         onExpand,

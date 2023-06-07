@@ -3,7 +3,7 @@ const originError = console.error;
 
 /** This function will remove `useLayoutEffect` server side warning. Since it's useless. */
 export function excludeWarning() {
-  const errorSpy = vi.spyOn(console, 'error').mockImplementation((msg, ...rest) => {
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation((msg, ...rest) => {
     if (String(msg).includes('useLayoutEffect does nothing on the server')) {
       return;
     }

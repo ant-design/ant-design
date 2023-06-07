@@ -4,7 +4,7 @@ import type { TransferProps } from '../index';
 import Transfer from '../index';
 
 describe('Transfer.Customize', () => {
-  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     errorSpy.mockReset();
@@ -15,7 +15,7 @@ describe('Transfer.Customize', () => {
   });
 
   it('props#body does not work anymore', () => {
-    const body = vi.fn();
+    const body = jest.fn();
     const props = { body } as TransferProps<any>;
     render(<Transfer {...props} />);
     expect(errorSpy).not.toHaveBeenCalled();

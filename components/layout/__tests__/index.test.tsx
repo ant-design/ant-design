@@ -132,7 +132,7 @@ describe('Layout', () => {
 
     describe('should collapsible', () => {
       it('uncontrolled', () => {
-        const onCollapse = vi.fn();
+        const onCollapse = jest.fn();
 
         const { container } = render(
           <Layout>
@@ -214,7 +214,7 @@ describe('Layout', () => {
   });
 
   it('render correct with Tooltip', () => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
     const { container, rerender } = render(
       <Sider collapsible collapsed={false}>
         <Menu mode="inline">
@@ -228,7 +228,7 @@ describe('Layout', () => {
 
     fireEvent.mouseEnter(container.querySelector('.ant-menu-item')!);
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
     expect(container.querySelectorAll('.ant-tooltip-inner').length).toBeFalsy();
     rerender(
@@ -243,16 +243,16 @@ describe('Layout', () => {
     );
     fireEvent.mouseEnter(container.querySelector('.ant-menu-item')!);
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
     expect(container.querySelectorAll('.ant-tooltip-inner').length).toBeTruthy();
 
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 });
 
 describe('Sider', () => {
-  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     errorSpy.mockReset();
@@ -263,7 +263,7 @@ describe('Sider', () => {
   });
 
   it('should trigger onBreakpoint', async () => {
-    const onBreakpoint = vi.fn();
+    const onBreakpoint = jest.fn();
 
     render(
       <Sider breakpoint="md" onBreakpoint={onBreakpoint}>
@@ -322,7 +322,7 @@ describe('Sider', () => {
 
     it(`should get ${tag} element from ref`, () => {
       const ref = React.createRef<HTMLDivElement>();
-      const onSelect = vi.fn();
+      const onSelect = jest.fn();
       const Component = ComponentMap[tag];
       render(
         <Component onSelect={onSelect} ref={ref}>

@@ -1,18 +1,19 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { vi } from 'vitest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
-import Collapse from '../Collapse';
 
 describe('Collapse', () => {
-  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+  // eslint-disable-next-line global-require
+  const Collapse = require('..').default;
+
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   // fix React concurrent
   function triggerAllTimer() {
     for (let i = 0; i < 10; i += 1) {
       act(() => {
-        vi.runAllTimers();
+        jest.runAllTimers();
       });
     }
   }
@@ -32,7 +33,7 @@ describe('Collapse', () => {
   it('should support remove expandIcon', () => {
     const { asFragment } = render(
       <Collapse expandIcon={() => null}>
-        <Collapse.Panel key={1} header="header" />
+        <Collapse.Panel header="header" />
       </Collapse>,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -55,7 +56,7 @@ describe('Collapse', () => {
           </button>
         )}
       >
-        <Collapse.Panel key={1} header="header" />
+        <Collapse.Panel header="header" />
       </Collapse>,
     );
 
@@ -65,15 +66,15 @@ describe('Collapse', () => {
   it('should render extra node of panel', () => {
     const { asFragment } = render(
       <Collapse>
-        <Collapse.Panel header="header" key={1} extra={<button type="button">action</button>} />
-        <Collapse.Panel header="header" key={2} extra={<button type="button">action</button>} />
+        <Collapse.Panel header="header" extra={<button type="button">action</button>} />
+        <Collapse.Panel header="header" extra={<button type="button">action</button>} />
       </Collapse>,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('could be expand and collapse', async () => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
     const { container } = render(
       <Collapse>
         <Collapse.Panel header="This is panel header 1" key="1">
@@ -89,13 +90,12 @@ describe('Collapse', () => {
     expect(
       container.querySelector('.ant-collapse-item')?.classList.contains('ant-collapse-item-active'),
     ).toBe(true);
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('could override default openMotion', () => {
-    const props = { openMotion: {} };
     const { container, asFragment } = render(
-      <Collapse {...props}>
+      <Collapse openMotion={{}}>
         <Collapse.Panel header="This is panel header 1" key="1">
           content
         </Collapse.Panel>
@@ -153,8 +153,8 @@ describe('Collapse', () => {
   });
 
   it('should end motion when set activeKey while hiding', async () => {
-    vi.useFakeTimers();
-    const spiedRAF = vi
+    jest.useFakeTimers();
+    const spiedRAF = jest
       .spyOn(window, 'requestAnimationFrame')
       .mockImplementation((cb) => setTimeout(cb, 16.66));
 
@@ -185,7 +185,7 @@ describe('Collapse', () => {
     expect(container.querySelectorAll('.ant-motion-collapse').length).toBe(0);
 
     spiedRAF.mockRestore();
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('ref should work', () => {
@@ -213,26 +213,28 @@ describe('Collapse', () => {
   });
 
   describe('expandIconPosition', () => {
-    it.each(['left', 'right'] as const)(`warning for legacy %s'`, (pos) => {
-      render(
-        <Collapse expandIconPosition={pos}>
-          <Collapse.Panel header="header" key="1" />
-        </Collapse>,
-      );
+    ['left', 'right'].forEach((pos) => {
+      it(`warning for legacy '${pos}'`, () => {
+        render(
+          <Collapse expandIconPosition={pos}>
+            <Collapse.Panel header="header" key="1" />
+          </Collapse>,
+        );
 
-      expect(errorSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Collapse] `expandIconPosition` with `left` or `right` is deprecated. Please use `start` or `end` instead.',
-      );
-    });
+        expect(errorSpy).toHaveBeenCalledWith(
+          'Warning: [antd: Collapse] `expandIconPosition` with `left` or `right` is deprecated. Please use `start` or `end` instead.',
+        );
+      });
 
-    it('position end', () => {
-      const { container } = render(
-        <Collapse expandIconPosition="end">
-          <Collapse.Panel header="header" key="1" />
-        </Collapse>,
-      );
+      it('position end', () => {
+        const { container } = render(
+          <Collapse expandIconPosition="end">
+            <Collapse.Panel header="header" key="1" />
+          </Collapse>,
+        );
 
-      expect(container.querySelector('.ant-collapse-icon-position-end')).toBeTruthy();
+        expect(container.querySelector('.ant-collapse-icon-position-end')).toBeTruthy();
+      });
     });
   });
 

@@ -1,69 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input > rtl render > component should be rendered correctly in RTL direction 1`] = `
-<input
-  class="ant-input ant-input-rtl"
-  type="text"
-  value=""
-/>
-`;
-
-exports[`Input > rtl render > component should be rendered correctly in RTL direction 2`] = `
-<span
-  class="ant-input-group ant-input-group-rtl"
-/>
-`;
-
-exports[`Input > should support maxLength 1`] = `
-<input
-  class="ant-input"
-  maxlength="3"
-  type="text"
-  value=""
-/>
-`;
-
-exports[`Input > should support size 1`] = `
-<input
-  class="ant-input ant-input-lg"
-  type="text"
-  value=""
-/>
-`;
-
-exports[`Input > should support size in form 1`] = `
-<form
-  class="ant-form ant-form-horizontal ant-form-large"
->
-  <div
-    class="ant-form-item"
-  >
-    <div
-      class="ant-row ant-form-item-row"
-    >
-      <div
-        class="ant-col ant-form-item-control"
-      >
-        <div
-          class="ant-form-item-control-input"
-        >
-          <div
-            class="ant-form-item-control-input-content"
-          >
-            <input
-              class="ant-input ant-input-lg"
-              type="text"
-              value=""
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
-`;
-
-exports[`Input allowClear > should change type when click 1`] = `
+exports[`Input allowClear should change type when click 1`] = `
 <span
   class="ant-input-affix-wrapper"
 >
@@ -104,7 +41,7 @@ exports[`Input allowClear > should change type when click 1`] = `
 </span>
 `;
 
-exports[`Input allowClear > should change type when click 2`] = `
+exports[`Input allowClear should change type when click 2`] = `
 <span
   class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
 >
@@ -145,7 +82,7 @@ exports[`Input allowClear > should change type when click 2`] = `
 </span>
 `;
 
-exports[`Input allowClear > should not show icon if defaultValue is undefined, null or empty string 1`] = `
+exports[`Input allowClear should not show icon if defaultValue is undefined, null or empty string 1`] = `
 <span
   class="ant-input-affix-wrapper"
 >
@@ -186,7 +123,7 @@ exports[`Input allowClear > should not show icon if defaultValue is undefined, n
 </span>
 `;
 
-exports[`Input allowClear > should not show icon if defaultValue is undefined, null or empty string 2`] = `
+exports[`Input allowClear should not show icon if defaultValue is undefined, null or empty string 2`] = `
 <span
   class="ant-input-affix-wrapper"
 >
@@ -227,7 +164,7 @@ exports[`Input allowClear > should not show icon if defaultValue is undefined, n
 </span>
 `;
 
-exports[`Input allowClear > should not show icon if defaultValue is undefined, null or empty string 3`] = `
+exports[`Input allowClear should not show icon if defaultValue is undefined, null or empty string 3`] = `
 <span
   class="ant-input-affix-wrapper"
 >
@@ -268,7 +205,7 @@ exports[`Input allowClear > should not show icon if defaultValue is undefined, n
 </span>
 `;
 
-exports[`Input allowClear > should not show icon if value is undefined, null or empty string 1`] = `
+exports[`Input allowClear should not show icon if value is undefined, null or empty string 1`] = `
 <span
   class="ant-input-affix-wrapper"
 >
@@ -309,7 +246,7 @@ exports[`Input allowClear > should not show icon if value is undefined, null or 
 </span>
 `;
 
-exports[`Input allowClear > should not show icon if value is undefined, null or empty string 2`] = `
+exports[`Input allowClear should not show icon if value is undefined, null or empty string 2`] = `
 <span
   class="ant-input-affix-wrapper"
 >
@@ -350,7 +287,7 @@ exports[`Input allowClear > should not show icon if value is undefined, null or 
 </span>
 `;
 
-exports[`Input allowClear > should not show icon if value is undefined, null or empty string 3`] = `
+exports[`Input allowClear should not show icon if value is undefined, null or empty string 3`] = `
 <span
   class="ant-input-affix-wrapper"
 >
@@ -391,7 +328,7 @@ exports[`Input allowClear > should not show icon if value is undefined, null or 
 </span>
 `;
 
-exports[`Input allowClear > should support classNames and styles 1`] = `
+exports[`Input allowClear should support classNames and styles 1`] = `
 <div>
   <span
     class="rc-input-affix-wrapper custom-class"
@@ -491,4 +428,67 @@ exports[`Input allowClear > should support classNames and styles 1`] = `
     </span>
   </span>
 </div>
+`;
+
+exports[`Input rtl render component should be rendered correctly in RTL direction 1`] = `
+<input
+  class="ant-input ant-input-rtl"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`Input rtl render component should be rendered correctly in RTL direction 2`] = `
+<span
+  class="ant-input-group ant-input-group-rtl"
+/>
+`;
+
+exports[`Input should support maxLength 1`] = `
+<input
+  class="ant-input"
+  maxlength="3"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`Input should support size 1`] = `
+<input
+  class="ant-input ant-input-lg"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`Input should support size in form 1`] = `
+<form
+  class="ant-form ant-form-horizontal ant-form-large"
+>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              class="ant-input ant-input-lg"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 `;

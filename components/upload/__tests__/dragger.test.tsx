@@ -2,7 +2,7 @@
 import React from 'react';
 import Upload from '..';
 import mountTest from '../../../tests/shared/mountTest';
-import { act, fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render, waitFor } from '../../../tests/utils';
 import { setup, teardown } from './mock';
 
 describe('Upload.Dragger', () => {
@@ -12,7 +12,7 @@ describe('Upload.Dragger', () => {
   afterEach(() => teardown());
 
   it('support drag file with over style', async () => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
     const { container: wrapper } = render(
       <Upload.Dragger action="http://upload.com">
         <div />
@@ -26,16 +26,18 @@ describe('Upload.Dragger', () => {
     });
 
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
 
-    expect(wrapper.querySelector('.ant-upload-drag')).toHaveClass('ant-upload-drag-hover');
+    await waitFor(() => {
+      expect(wrapper.querySelector('.ant-upload-drag')).toHaveClass('ant-upload-drag-hover');
+    });
 
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('support onDrop when files are dropped onto upload area', async () => {
-    const onDrop = vi.fn();
+    const onDrop = jest.fn();
     const { container: wrapper } = render(
       <Upload.Dragger onDrop={onDrop}>
         <div />
@@ -48,6 +50,8 @@ describe('Upload.Dragger', () => {
       },
     });
 
-    expect(onDrop).toHaveBeenCalled();
+    await waitFor(() => {
+      expect(onDrop).toHaveBeenCalled();
+    });
   });
 });

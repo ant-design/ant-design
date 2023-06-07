@@ -1,4 +1,4 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = `
 <div
@@ -5633,7 +5633,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                 >
                   <div
                     class="rc-virtual-list-holder"
-                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                    style="max-height: 256px; overflow-y: auto;"
                   >
                     <div>
                       <div
@@ -10270,7 +10270,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx extend context c
                 >
                   <div
                     class="rc-virtual-list-holder"
-                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                    style="max-height: 256px; overflow-y: auto;"
                   >
                     <div>
                       <div
@@ -11634,7 +11634,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                 >
                   <div
                     class="rc-virtual-list-holder"
-                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                    style="max-height: 256px; overflow-y: auto;"
                   >
                     <div>
                       <div
@@ -12955,7 +12955,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                 >
                   <div
                     class="rc-virtual-list-holder"
-                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                    style="max-height: 256px; overflow-y: auto;"
                   >
                     <div>
                       <div
@@ -15364,7 +15364,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                   >
                     <div
                       class="rc-virtual-list-holder"
-                      style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                      style="max-height: 256px; overflow-y: auto;"
                     >
                       <div>
                         <div
@@ -27863,7 +27863,7 @@ exports[`renders components/table/demo/sticky.tsx extend context correctly 1`] =
                 >
                   <div
                     class="rc-virtual-list-holder"
-                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                    style="max-height: 256px; overflow-y: auto;"
                   >
                     <div>
                       <div

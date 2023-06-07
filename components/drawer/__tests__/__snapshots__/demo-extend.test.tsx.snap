@@ -1,4 +1,4 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders components/drawer/demo/basic-right.tsx extend context correctly 1`] = `
 Array [
@@ -847,7 +847,7 @@ Array [
                                   >
                                     <div
                                       class="rc-virtual-list-holder"
-                                      style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                                      style="max-height: 256px; overflow-y: auto;"
                                     >
                                       <div>
                                         <div
@@ -1025,7 +1025,7 @@ Array [
                                   >
                                     <div
                                       class="rc-virtual-list-holder"
-                                      style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                                      style="max-height: 256px; overflow-y: auto;"
                                     >
                                       <div>
                                         <div
@@ -1208,7 +1208,7 @@ Array [
                                   >
                                     <div
                                       class="rc-virtual-list-holder"
-                                      style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                                      style="max-height: 256px; overflow-y: auto;"
                                     >
                                       <div>
                                         <div

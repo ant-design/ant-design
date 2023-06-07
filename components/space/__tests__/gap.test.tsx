@@ -2,7 +2,7 @@ import React from 'react';
 import Space from '..';
 import { render } from '../../../tests/utils';
 
-vi.mock('../../_util/styleChecker', () => ({
+jest.mock('../../_util/styleChecker', () => ({
   canUseDocElement: () => true,
   isStyleSupport: () => true,
   detectFlexGapSupported: () => true,

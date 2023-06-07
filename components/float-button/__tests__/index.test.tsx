@@ -39,13 +39,13 @@ describe('FloatButton', () => {
     expect(container.querySelector(`.ant-float-btn-${squareShape}`)).toBeTruthy();
   });
   it('support onClick', () => {
-    const onClick = vi.fn();
+    const onClick = jest.fn();
     const { container } = render(<FloatButton onClick={onClick} />);
     fireEvent.click(container.querySelector('.ant-float-btn')!);
     expect(onClick).toHaveBeenCalled();
   });
   it('should console Error', () => {
-    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<FloatButton description="test" shape="circle" />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: FloatButton] supported only when `shape` is `square`. Due to narrow space for text, short sentence is recommended.',
@@ -54,14 +54,14 @@ describe('FloatButton', () => {
   });
 
   it('tooltip should support number `0`', async () => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
     const { container } = render(<FloatButton tooltip={0} />);
     fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn-body')!);
     await waitFakeTimer();
     const element = container.querySelector('.ant-tooltip')?.querySelector('.ant-tooltip-inner');
     expect(element?.textContent).toBe('0');
-    vi.clearAllTimers();
-    vi.useRealTimers();
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('getOffset should return 0 when radius is 0', () => {

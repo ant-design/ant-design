@@ -13,17 +13,14 @@ function tooltipProps(): TooltipProps {
   return (global as any).tooltipProps;
 }
 
-vi.mock('../../tooltip', async (importOriginal) => {
-  const ReactReal = await vi.importActual<typeof import('react')>('react');
-  const Tooltip = await importOriginal<typeof import('../../tooltip')>();
-
+jest.mock('../../tooltip', () => {
+  const ReactReal = jest.requireActual('react');
+  const Tooltip = jest.requireActual('../../tooltip');
   const TooltipComponent = Tooltip.default;
-  return {
-    default: ReactReal.forwardRef((props: TooltipProps, ref: any) => {
-      (global as any).tooltipProps = props;
-      return <TooltipComponent {...props} ref={ref} />;
-    }),
-  };
+  return ReactReal.forwardRef((props: TooltipProps, ref: any) => {
+    (global as any).tooltipProps = props;
+    return <TooltipComponent {...props} ref={ref} />;
+  });
 });
 
 describe('Slider', () => {
@@ -32,12 +29,12 @@ describe('Slider', () => {
   focusTest(Slider);
 
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterEach(() => {
-    vi.clearAllTimers();
-    vi.useRealTimers();
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('should show tooltip when hovering slider handler', () => {
@@ -139,9 +136,9 @@ describe('Slider', () => {
   it('should keepAlign by calling forceAlign', async () => {
     const ref = React.createRef<any>();
     render(<SliderTooltip title="30" open ref={ref} />);
-    ref.current.forceAlign = vi.fn();
+    ref.current.forceAlign = jest.fn();
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
     expect(ref.current.forceAlign).toHaveBeenCalled();
   });
@@ -161,7 +158,7 @@ describe('Slider', () => {
 
     const TSSlider = Slider as any;
 
-    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container, rerender } = render(<TSSlider tooltipPrefixCls="xxx" />);
     expect(errSpy).toHaveBeenCalledWith(
@@ -193,7 +190,7 @@ describe('Slider', () => {
     holder.id = 'holder';
     document.body.appendChild(holder);
 
-    const getTooltipPopupContainer = vi.fn(() => container);
+    const getTooltipPopupContainer = jest.fn(() => container);
 
     rerender(
       <TSSlider
@@ -206,7 +203,7 @@ describe('Slider', () => {
     );
 
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
 
     expect(getTooltipPopupContainer).toHaveBeenCalled();

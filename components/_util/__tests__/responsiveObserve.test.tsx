@@ -11,7 +11,7 @@ describe('Test ResponsiveObserve', () => {
       return null;
     };
     render(<Demo />);
-    const subscribeFunc = vi.fn();
+    const subscribeFunc = jest.fn();
     const token = responsiveObserveRef.subscribe(subscribeFunc);
     expect(
       responsiveObserveRef.matchHandlers[responsiveObserveRef.responsiveMap.xs].mql.matches,

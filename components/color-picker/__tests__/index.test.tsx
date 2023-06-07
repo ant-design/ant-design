@@ -35,11 +35,11 @@ describe('ColorPicker', () => {
   mountTest(ColorPicker);
   rtlTest(ColorPicker);
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterEach(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('Should component render correct', () => {
@@ -146,7 +146,7 @@ describe('ColorPicker', () => {
   });
 
   it('Should preset color work', async () => {
-    const handleColorChange = vi.fn();
+    const handleColorChange = jest.fn();
 
     const { container } = render(
       <ColorPicker

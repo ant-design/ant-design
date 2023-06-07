@@ -318,7 +318,7 @@ function postPureProps(props: DropdownProps) {
 // We don't care debug panel
 const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls, postPureProps);
 
-/* c8 ignore next 5 */
+/* istanbul ignore next */
 const WrapPurePanel = (props: DropdownProps) => (
   <PurePanel {...props}>
     <span />

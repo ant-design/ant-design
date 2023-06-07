@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Radio > rtl render > component should be rendered correctly in RTL direction 1`] = `
+exports[`Radio rtl render component should be rendered correctly in RTL direction 1`] = `
 <label
   class="ant-radio-wrapper ant-radio-wrapper-rtl"
 >
@@ -18,13 +18,13 @@ exports[`Radio > rtl render > component should be rendered correctly in RTL dire
 </label>
 `;
 
-exports[`Radio > rtl render > component should be rendered correctly in RTL direction 2`] = `
+exports[`Radio rtl render component should be rendered correctly in RTL direction 2`] = `
 <div
   class="ant-radio-group ant-radio-group-outline ant-radio-group-rtl"
 />
 `;
 
-exports[`Radio > rtl render > component should be rendered correctly in RTL direction 3`] = `
+exports[`Radio rtl render component should be rendered correctly in RTL direction 3`] = `
 <label
   class="ant-radio-button-wrapper ant-radio-button-wrapper-rtl"
 >
@@ -42,7 +42,7 @@ exports[`Radio > rtl render > component should be rendered correctly in RTL dire
 </label>
 `;
 
-exports[`Radio > should render correctly 1`] = `
+exports[`Radio should render correctly 1`] = `
 <label
   class="ant-radio-wrapper customized"
 >

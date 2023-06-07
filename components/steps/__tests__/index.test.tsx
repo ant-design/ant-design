@@ -92,7 +92,7 @@ describe('Steps', () => {
 
   it('deprecated warning', () => {
     resetWarned();
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(
       <Steps>

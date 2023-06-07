@@ -66,9 +66,9 @@ describe('Popover', () => {
   });
 
   it('props#overlay do not warn anymore', () => {
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    const overlay = vi.fn();
+    const overlay = jest.fn();
     render(
       <Popover content="console.log('hello world')" title="code" trigger="click">
         <span>show me your code</span>

@@ -6,6 +6,8 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
+jest.mock('rc-util/lib/Portal');
+
 const ModalTester: React.FC<ModalProps> = (props) => {
   const [open, setOpen] = React.useState(false);
   const container = React.useRef<HTMLDivElement>(null);
@@ -42,14 +44,14 @@ describe('Modal', () => {
   });
 
   it('onCancel should be called', () => {
-    const onCancel = vi.fn();
+    const onCancel = jest.fn();
     render(<Modal open onCancel={onCancel} />);
     fireEvent.click(document.body.querySelectorAll('.ant-btn')[0]);
     expect(onCancel).toHaveBeenCalled();
   });
 
   it('onOk should be called', () => {
-    const onOk = vi.fn();
+    const onOk = jest.fn();
     render(<Modal open onOk={onOk} />);
     const btns = document.body.querySelectorAll('.ant-btn');
     fireEvent.click(btns[btns.length - 1]);
@@ -103,7 +105,7 @@ describe('Modal', () => {
 
   it('deprecated warning', () => {
     resetWarned();
-    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     render(<Modal visible />);
     expect(errSpy).toHaveBeenCalledWith(

@@ -8,7 +8,7 @@ const { QuarterPicker } = DatePicker;
 describe('QuarterPicker', () => {
   it('should support style prop', () => {
     resetWarned();
-    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(<QuarterPicker style={{ width: 400 }} />);
     expect(container.firstChild).toMatchSnapshot();

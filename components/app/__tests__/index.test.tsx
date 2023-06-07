@@ -11,12 +11,12 @@ describe('App', () => {
   rtlTest(App);
 
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterEach(() => {
-    vi.clearAllTimers();
-    vi.useRealTimers();
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('single', () => {
@@ -134,12 +134,10 @@ describe('App', () => {
 
   it('support style', () => {
     const { container } = render(
-      <App style={{ color: 'rgb(255, 0, 0)' }}>
+      <App style={{ color: 'blue' }}>
         <div>test</div>
       </App>,
     );
-    expect(container.querySelector<HTMLDivElement>('.ant-app')).toHaveStyle(
-      'color: rgb(255, 0, 0);',
-    );
+    expect(container.querySelector<HTMLDivElement>('.ant-app')).toHaveStyle('color: blue;');
   });
 });

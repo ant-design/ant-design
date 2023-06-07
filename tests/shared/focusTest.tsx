@@ -8,8 +8,8 @@ const focusTest = (
   describe('focus and blur', () => {
     let focused = false;
     let blurred = false;
-    const mockFocus = vi.spyOn(HTMLElement.prototype, 'focus');
-    const mockBlur = vi.spyOn(HTMLElement.prototype, 'blur');
+    const mockFocus = jest.spyOn(HTMLElement.prototype, 'focus');
+    const mockBlur = jest.spyOn(HTMLElement.prototype, 'blur');
 
     beforeAll(() => {
       if (refFocus) {
@@ -47,7 +47,7 @@ const focusTest = (
 
     if (refFocus) {
       it('Ref: focus() and onFocus', () => {
-        const onFocus = vi.fn();
+        const onFocus = jest.fn();
         const ref = React.createRef<any>();
         const { container } = render(
           <div>
@@ -62,8 +62,8 @@ const focusTest = (
       });
 
       it('Ref: blur() and onBlur', async () => {
-        vi.useRealTimers();
-        const onBlur = vi.fn();
+        jest.useRealTimers();
+        const onBlur = jest.fn();
         const ref = React.createRef<any>();
         const { container } = render(
           <div>
@@ -80,7 +80,7 @@ const focusTest = (
       });
 
       it('Ref: autoFocus', () => {
-        const onFocus = vi.fn();
+        const onFocus = jest.fn();
         const { container } = render(<Component autoFocus onFocus={onFocus} />);
 
         expect(focused).toBeTruthy();
@@ -90,15 +90,15 @@ const focusTest = (
       });
     } else {
       it('focus() and onFocus', () => {
-        const handleFocus = vi.fn();
+        const handleFocus = jest.fn();
         const { container } = render(<Component onFocus={handleFocus} />);
         fireEvent.focus(getElement(container)!);
         expect(handleFocus).toHaveBeenCalled();
       });
 
       it('blur() and onBlur', async () => {
-        vi.useRealTimers();
-        const handleBlur = vi.fn();
+        jest.useRealTimers();
+        const handleBlur = jest.fn();
         const { container } = render(<Component onBlur={handleBlur} />);
         fireEvent.focus(getElement(container)!);
         await sleep(0);
@@ -108,7 +108,7 @@ const focusTest = (
       });
 
       it('autoFocus', () => {
-        const handleFocus = vi.fn();
+        const handleFocus = jest.fn();
         render(<Component autoFocus onFocus={handleFocus} />);
         expect(handleFocus).toHaveBeenCalled();
       });
@@ -116,4 +116,5 @@ const focusTest = (
   });
 };
 
+// eslint-disable-next-line jest/no-export
 export default focusTest;

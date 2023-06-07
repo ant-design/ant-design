@@ -89,7 +89,7 @@ describe('Image', () => {
     expect(baseElement.querySelector('.container')?.children.length).not.toBe(0);
   });
   it('Preview forceRender props', async () => {
-    const onLoadCb = vi.fn();
+    const onLoadCb = jest.fn();
     const PreviewImage: React.FC = () => (
       <Image
         preview={{

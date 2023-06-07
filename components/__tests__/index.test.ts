@@ -1,7 +1,6 @@
-import * as antd from '..';
-
 const OLD_NODE_ENV = process.env.NODE_ENV;
 process.env.NODE_ENV = 'development';
+const antd = require('..');
 
 describe('antd', () => {
   afterAll(() => {
