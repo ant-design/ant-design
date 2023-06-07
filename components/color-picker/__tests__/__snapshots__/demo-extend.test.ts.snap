@@ -300,7 +300,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-sm"
+                  class="ant-input-number ant-input-number-sm ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -682,7 +682,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-sm"
+                  class="ant-input-number ant-input-number-sm ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -1064,7 +1064,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-sm"
+                  class="ant-input-number ant-input-number-sm ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -1446,7 +1446,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-sm"
+                  class="ant-input-number ant-input-number-sm ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -1848,7 +1848,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             </span>
                           </div>
                           <div
-                            class="ant-input-number ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-sm"
+                            class="ant-input-number ant-input-number-sm ant-color-picker-steppers ant-color-picker-alpha-input"
                           >
                             <div
                               class="ant-input-number-handler-wrap"
@@ -2247,7 +2247,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                               class="ant-color-picker-hsb-input"
                             >
                               <div
-                                class="ant-input-number ant-color-picker-steppers ant-color-picker-hsb-input ant-input-number-sm"
+                                class="ant-input-number ant-input-number-sm ant-color-picker-steppers ant-color-picker-hsb-input"
                               >
                                 <div
                                   class="ant-input-number-handler-wrap"
@@ -2323,7 +2323,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                 </div>
                               </div>
                               <div
-                                class="ant-input-number ant-color-picker-steppers ant-color-picker-hsb-input ant-input-number-sm"
+                                class="ant-input-number ant-input-number-sm ant-color-picker-steppers ant-color-picker-hsb-input"
                               >
                                 <div
                                   class="ant-input-number-handler-wrap"
@@ -2399,7 +2399,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                 </div>
                               </div>
                               <div
-                                class="ant-input-number ant-color-picker-steppers ant-color-picker-hsb-input ant-input-number-sm"
+                                class="ant-input-number ant-input-number-sm ant-color-picker-steppers ant-color-picker-hsb-input"
                               >
                                 <div
                                   class="ant-input-number-handler-wrap"
@@ -2477,7 +2477,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             </div>
                           </div>
                           <div
-                            class="ant-input-number ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-sm"
+                            class="ant-input-number ant-input-number-sm ant-color-picker-steppers ant-color-picker-alpha-input"
                           >
                             <div
                               class="ant-input-number-handler-wrap"
@@ -2875,7 +2875,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                               class="ant-color-picker-rgb-input"
                             >
                               <div
-                                class="ant-input-number ant-color-picker-steppers ant-color-picker-rgb-input ant-input-number-sm"
+                                class="ant-input-number ant-input-number-sm ant-color-picker-steppers ant-color-picker-rgb-input"
                               >
                                 <div
                                   class="ant-input-number-handler-wrap"
@@ -2951,7 +2951,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                 </div>
                               </div>
                               <div
-                                class="ant-input-number ant-color-picker-steppers ant-color-picker-rgb-input ant-input-number-sm"
+                                class="ant-input-number ant-input-number-sm ant-color-picker-steppers ant-color-picker-rgb-input"
                               >
                                 <div
                                   class="ant-input-number-handler-wrap"
@@ -3027,7 +3027,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                 </div>
                               </div>
                               <div
-                                class="ant-input-number ant-color-picker-steppers ant-color-picker-rgb-input ant-input-number-sm"
+                                class="ant-input-number ant-input-number-sm ant-color-picker-steppers ant-color-picker-rgb-input"
                               >
                                 <div
                                   class="ant-input-number-handler-wrap"
@@ -3105,7 +3105,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             </div>
                           </div>
                           <div
-                            class="ant-input-number ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-sm"
+                            class="ant-input-number ant-input-number-sm ant-color-picker-steppers ant-color-picker-alpha-input"
                           >
                             <div
                               class="ant-input-number-handler-wrap"
@@ -3504,7 +3504,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-sm"
+                  class="ant-input-number ant-input-number-sm ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -4263,7 +4263,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                     </span>
                   </div>
                   <div
-                    class="ant-input-number ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-sm"
+                    class="ant-input-number ant-input-number-sm ant-color-picker-steppers ant-color-picker-alpha-input"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -4643,7 +4643,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-sm"
+                  class="ant-input-number ant-input-number-sm ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -5025,7 +5025,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-sm"
+                  class="ant-input-number ant-input-number-sm ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
                   <div
                     class="ant-input-number-handler-wrap"

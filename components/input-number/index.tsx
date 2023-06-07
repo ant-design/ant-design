@@ -108,7 +108,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     <RcInputNumber
       ref={inputRef}
       disabled={mergedDisabled}
-      className={inputNumberClass}
+      className={classNames(className, rootClassName, compactItemClassnames)}
       upHandler={upIcon}
       downHandler={downIcon}
       prefixCls={prefixCls}
@@ -135,7 +135,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
         )
       }
       classNames={{
-        input: classNames(className, rootClassName, compactItemClassnames),
+        input: inputNumberClass,
       }}
       classes={{
         affixWrapper: classNames(
