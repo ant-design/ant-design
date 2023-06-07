@@ -31,7 +31,7 @@ describe('TimeLine', () => {
 
   describe('render TimeLine.Item', () => {
     it('TimeLine.Item  should correctly', () => {
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
       const { container } = render(
         <TimeLine reverse>

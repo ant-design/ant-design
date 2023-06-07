@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Checkbox rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`Checkbox > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <label
   class="ant-checkbox-wrapper ant-checkbox-rtl"
 >

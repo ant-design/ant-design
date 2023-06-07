@@ -1,6 +1,6 @@
 import React from 'react';
 import Switch from '..';
-import { waitFakeTimer, render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 describe('click wave effect', () => {
   async function click(container: HTMLElement) {
@@ -12,7 +12,7 @@ describe('click wave effect', () => {
   }
 
   it('should have click wave effect', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container } = render(<Switch />);
     await click(container);
     await click(container);
@@ -24,7 +24,7 @@ describe('click wave effect', () => {
     const event = new Event('animationend');
     Object.assign(event, { animationName: 'fadeEffect' });
     container.querySelector('.ant-switch')!.dispatchEvent(event);
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 });

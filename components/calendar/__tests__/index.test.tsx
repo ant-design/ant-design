@@ -20,17 +20,19 @@ const ref: {
   calendarHeaderProps?: CalendarHeaderProps<unknown>;
 } = {};
 
-jest.mock('../Header', () => {
-  const HeaderModule = jest.requireActual('../Header');
+vi.mock('../Header', async (importOriginal) => {
+  const HeaderModule = await importOriginal<typeof import('../Header')>();
   const HeaderComponent = HeaderModule.default;
-  return (props: CalendarHeaderProps<any>) => {
-    ref.calendarHeaderProps = props;
-    return <HeaderComponent {...props} />;
+  return {
+    default: (props: CalendarHeaderProps<any>) => {
+      ref.calendarHeaderProps = props;
+      return <HeaderComponent {...props} />;
+    },
   };
 });
 
-jest.mock('rc-picker', () => {
-  const RcPicker = jest.requireActual('rc-picker');
+vi.mock('rc-picker', async () => {
+  const RcPicker = await vi.importActual<typeof import('rc-picker')>('rc-picker');
   const PickerPanelComponent = RcPicker.PickerPanel;
   return {
     ...RcPicker,
@@ -71,8 +73,8 @@ describe('Calendar', () => {
   it('Calendar should be selectable', () => {
     MockDate.set(Dayjs('2000-01-01').valueOf());
 
-    const onSelect = jest.fn();
-    const onChange = jest.fn();
+    const onSelect = vi.fn();
+    const onChange = vi.fn();
     const { container } = render(<Calendar onSelect={onSelect} onChange={onChange} />);
 
     fireEvent.click(container.querySelector('.ant-picker-cell')!);
@@ -87,7 +89,7 @@ describe('Calendar', () => {
   });
 
   it('only Valid range should be selectable', () => {
-    const onSelect = jest.fn();
+    const onSelect = vi.fn();
     const validRange: [Dayjs.Dayjs, Dayjs.Dayjs] = [Dayjs('2018-02-02'), Dayjs('2018-02-18')];
     const wrapper = render(
       <Calendar onSelect={onSelect} validRange={validRange} defaultValue={Dayjs('2018-02-02')} />,
@@ -98,7 +100,7 @@ describe('Calendar', () => {
   });
 
   it('dates other than in valid range should be disabled', () => {
-    const onSelect = jest.fn();
+    const onSelect = vi.fn();
     const validRange: [Dayjs.Dayjs, Dayjs.Dayjs] = [Dayjs('2018-02-02'), Dayjs('2018-02-18')];
     const { container } = render(
       <Calendar onSelect={onSelect} validRange={validRange} defaultValue={Dayjs('2018-02-02')} />,
@@ -112,7 +114,7 @@ describe('Calendar', () => {
   });
 
   it('months other than in valid range should be disabled', () => {
-    const onSelect = jest.fn();
+    const onSelect = vi.fn();
     const validRange: [Dayjs.Dayjs, Dayjs.Dayjs] = [Dayjs('2018-02-02'), Dayjs('2018-05-18')];
     const { container } = render(
       <Calendar
@@ -187,7 +189,7 @@ describe('Calendar', () => {
   it('Calendar should switch mode', () => {
     const monthMode = 'month';
     const yearMode = 'year';
-    const onPanelChangeStub = jest.fn();
+    const onPanelChangeStub = vi.fn();
     const wrapper = render(<Calendar mode={yearMode} onPanelChange={onPanelChangeStub} />);
     expect(ref.calendarHeaderProps?.mode).toEqual(yearMode);
     wrapper.rerender(<Calendar mode={monthMode} onPanelChange={onPanelChangeStub} />);
@@ -195,10 +197,10 @@ describe('Calendar', () => {
     expect(onPanelChangeStub).toHaveBeenCalledTimes(0);
   });
 
-  it('Calendar should support locale', () => {
+  it('Calendar should support locale', async () => {
     MockDate.set(Dayjs('2018-10-19').valueOf());
     // eslint-disable-next-line global-require
-    const zhCN = require('../locale/zh_CN').default;
+    const zhCN = (await import('../locale/zh_CN')).default;
     const wrapper = render(<Calendar locale={zhCN} />);
     expect(wrapper.container.children[0]).toMatchSnapshot();
     MockDate.reset();
@@ -206,7 +208,7 @@ describe('Calendar', () => {
 
   describe('onPanelChange', () => {
     it('trigger when click last month of date', () => {
-      const onPanelChange = jest.fn();
+      const onPanelChange = vi.fn();
       const date = Dayjs('1990-09-03');
       const wrapper = render(<Calendar onPanelChange={onPanelChange} value={date} />);
 
@@ -217,7 +219,7 @@ describe('Calendar', () => {
     });
 
     it('not trigger when in same month', () => {
-      const onPanelChange = jest.fn();
+      const onPanelChange = vi.fn();
       const date = Dayjs('1990-09-03');
       const wrapper = render(<Calendar onPanelChange={onPanelChange} value={date} />);
 
@@ -228,7 +230,7 @@ describe('Calendar', () => {
   });
 
   it('switch should work correctly without prop mode', async () => {
-    const onPanelChange = jest.fn();
+    const onPanelChange = vi.fn();
     const date = Dayjs(new Date(Date.UTC(2017, 7, 9, 8)));
     const wrapper = render(<Calendar onPanelChange={onPanelChange} value={date} />);
 
@@ -268,7 +270,7 @@ describe('Calendar', () => {
     const value = Dayjs('1990-01-03');
     const start = Dayjs('2019-04-01');
     const end = Dayjs('2019-11-01');
-    const onValueChange = jest.fn();
+    const onValueChange = vi.fn();
     createWrapper(start, end, value, onValueChange);
     expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(3), 'year');
   });
@@ -277,7 +279,7 @@ describe('Calendar', () => {
     const value = Dayjs('1990-01-03');
     const start = Dayjs('2019-11-01');
     const end = Dayjs('2019-03-01');
-    const onValueChange = jest.fn();
+    const onValueChange = vi.fn();
     createWrapper(start, end, value, onValueChange);
     expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(10), 'year');
   });
@@ -286,7 +288,7 @@ describe('Calendar', () => {
     const value = Dayjs('2018-11-03');
     const start = Dayjs('2000-01-01');
     const end = Dayjs('2019-03-01');
-    const onValueChange = jest.fn();
+    const onValueChange = vi.fn();
     const wrapper = render(
       <Header
         prefixCls="ant-picker-calendar"
@@ -309,7 +311,7 @@ describe('Calendar', () => {
     const start = Dayjs('2018-11-01');
     const end = Dayjs('2019-03-01');
     const value = Dayjs('2018-12-03');
-    const onValueChange = jest.fn();
+    const onValueChange = vi.fn();
     const wrapper = render(
       <Header
         prefixCls="ant-picker-calendar"
@@ -328,7 +330,7 @@ describe('Calendar', () => {
   });
 
   it('onTypeChange should work correctly', () => {
-    const onTypeChange = jest.fn();
+    const onTypeChange = vi.fn();
     const value = Dayjs('2018-12-03');
     const wrapper = render(
       <Header
@@ -348,12 +350,12 @@ describe('Calendar', () => {
   });
 
   it('headerRender should work correctly', () => {
-    const onMonthChange = jest.fn();
-    const onYearChange = jest.fn();
-    const onTypeChange = jest.fn();
+    const onMonthChange = vi.fn();
+    const onYearChange = vi.fn();
+    const onTypeChange = vi.fn();
 
     // Year
-    const headerRender = jest.fn(({ value }) => {
+    const headerRender = vi.fn(({ value }) => {
       const year = value.year();
       const options = [];
       for (let i = year - 100; i < year + 100; i += 1) {
@@ -387,7 +389,7 @@ describe('Calendar', () => {
     expect(onYearChange).toHaveBeenCalled();
 
     // Month
-    const headerRenderWithMonth = jest.fn(({ value }) => {
+    const headerRenderWithMonth = vi.fn(({ value }) => {
       const start = 0;
       const end = 12;
       const monthOptions = [];
@@ -430,7 +432,7 @@ describe('Calendar', () => {
     expect(onMonthChange).toHaveBeenCalled();
 
     // Type
-    const headerRenderWithTypeChange = jest.fn(({ type }) => (
+    const headerRenderWithTypeChange = vi.fn(({ type }) => (
       <Group size="small" onChange={onTypeChange} value={type}>
         <Button value="month">Month</Button>
         <Button value="year">Year</Button>
@@ -478,7 +480,7 @@ describe('Calendar', () => {
   });
 
   it('when fullscreen is false, the element returned by dateFullCellRender should be interactive', () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     const { container } = render(
       <Calendar
         fullscreen={false}
@@ -496,7 +498,7 @@ describe('Calendar', () => {
   it('deprecated dateCellRender and monthCellRender', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       <Calendar
         dateCellRender={() => <div className="bamboo">Light</div>}
@@ -520,7 +522,7 @@ describe('Calendar', () => {
   it('deprecated dateFullCellRender and monthFullCellRender', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       <Calendar
         dateFullCellRender={() => <div className="bamboo">Light</div>}
@@ -540,12 +542,12 @@ describe('Calendar', () => {
   });
 
   it('support Calendar.generateCalendar', () => {
-    jest.useFakeTimers().setSystemTime(new Date('2000-01-01'));
+    vi.useFakeTimers().setSystemTime(new Date('2000-01-01'));
 
     const MyCalendar = Calendar.generateCalendar(dayjsGenerateConfig);
     const { container } = render(<MyCalendar />);
     expect(container.firstChild).toMatchSnapshot();
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 });

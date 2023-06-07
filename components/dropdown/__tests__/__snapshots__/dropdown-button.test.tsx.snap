@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`DropdownButton rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`DropdownButton > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-space-compact ant-space-compact-rtl ant-space-compact-block ant-dropdown-button"
 >
@@ -39,7 +39,7 @@ exports[`DropdownButton rtl render component should be rendered correctly in RTL
 </div>
 `;
 
-exports[`DropdownButton should support href like Button 1`] = `
+exports[`DropdownButton > should support href like Button 1`] = `
 <div
   class="ant-space-compact ant-space-compact-block ant-dropdown-button"
 >

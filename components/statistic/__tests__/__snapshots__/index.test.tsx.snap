@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Statistic rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`Statistic > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-statistic ant-statistic-rtl"
 >
@@ -20,7 +20,7 @@ exports[`Statistic rtl render component should be rendered correctly in RTL dire
 </div>
 `;
 
-exports[`Statistic support negative number 1`] = `
+exports[`Statistic > support negative number 1`] = `
 <div
   class="ant-statistic"
 >

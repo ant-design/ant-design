@@ -19,7 +19,7 @@ const AffixMounter: React.FC<AffixProps> = (props) => {
   const container = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (container.current) {
-      container.current.addEventListener = jest
+      container.current.addEventListener = vi
         .fn()
         .mockImplementation((event: keyof HTMLElementEventMap, cb: (ev: Event) => void) => {
           events[event] = cb;
@@ -39,12 +39,12 @@ describe('Affix Render', () => {
   rtlTest(Affix);
   accessibilityTest(Affix);
 
-  const domMock = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
+  const domMock = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
 
   const classRect: Record<string, DOMRect> = { container: { top: 0, bottom: 100 } as DOMRect };
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   beforeAll(() => {
@@ -54,8 +54,8 @@ describe('Affix Render', () => {
   });
 
   afterEach(() => {
-    jest.useRealTimers();
-    jest.clearAllTimers();
+    vi.useRealTimers();
+    vi.clearAllTimers();
   });
 
   afterAll(() => {
@@ -86,7 +86,11 @@ describe('Affix Render', () => {
   });
 
   it('Anchor correct render when target is null', async () => {
-    render(<Affix target={() => null}>test</Affix>);
+    render(
+      <Affix target={() => null}>
+        <span>test</span>
+      </Affix>,
+    );
     await waitFakeTimer();
   });
 
@@ -106,7 +110,7 @@ describe('Affix Render', () => {
   });
 
   it('updatePosition when offsetTop changed', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const { container, rerender } = render(<AffixMounter offsetTop={0} onChange={onChange} />);
     await waitFakeTimer();

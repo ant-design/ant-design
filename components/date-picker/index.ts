@@ -35,7 +35,7 @@ function postPureProps(props: DatePickerProps) {
 }
 
 // We don't care debug panel
-/* istanbul ignore next */
+/* c8 ignore next */
 const PurePanel = genPurePanel(DatePicker, 'picker', null, postPureProps);
 (DatePicker as DatePickerType)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 const PureRangePanel = genPurePanel(DatePicker.RangePicker, 'picker', null, postPureProps);

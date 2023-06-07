@@ -30,7 +30,7 @@ import * as Util from '../util';
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
-jest.mock('scroll-into-view-if-needed');
+vi.mock('scroll-into-view-if-needed');
 
 describe('Form', () => {
   mountTest(Form);
@@ -40,8 +40,8 @@ describe('Form', () => {
   rtlTest(Form.Item);
 
   (scrollIntoView as any).mockImplementation(() => {});
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-  const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+  const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
 
   const changeValue = async (
     input: HTMLElement | null | number,
@@ -69,7 +69,7 @@ describe('Form', () => {
 
   beforeEach(() => {
     document.body.innerHTML = '';
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     (scrollIntoView as any).mockReset();
   });
 
@@ -78,8 +78,8 @@ describe('Form', () => {
   });
 
   afterAll(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
     errorSpy.mockRestore();
     warnSpy.mockRestore();
     (scrollIntoView as any).mockRestore();
@@ -87,7 +87,7 @@ describe('Form', () => {
 
   describe('noStyle Form.Item', () => {
     it('should show alert when form field is required but empty', async () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
 
       const { container } = render(
         <Form>
@@ -445,7 +445,7 @@ describe('Form', () => {
   });
 
   it('scrollToFirstError', async () => {
-    const onFinishFailed = jest.fn();
+    const onFinishFailed = vi.fn();
 
     const { container } = render(
       <Form scrollToFirstError={{ block: 'center' }} onFinishFailed={onFinishFailed}>
@@ -644,7 +644,7 @@ describe('Form', () => {
 
   // https://github.com/ant-design/ant-design/issues/20948
   it('not repeat render when Form.Item is not a real Field', async () => {
-    const shouldNotRender = jest.fn();
+    const shouldNotRender = vi.fn();
     const StaticInput: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = ({
       id,
       value = '',
@@ -653,7 +653,7 @@ describe('Form', () => {
       return <input id={id} value={value} />;
     };
 
-    const shouldRender = jest.fn();
+    const shouldRender = vi.fn();
     const DynamicInput: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = ({
       value = '',
       id,
@@ -1193,7 +1193,7 @@ describe('Form', () => {
   });
 
   it('Form Item element id will auto add form_item prefix if form name is empty and item name is in the black list', async () => {
-    const mockFn = jest.spyOn(Util, 'getFieldId');
+    const mockFn = vi.spyOn(Util, 'getFieldId');
     const itemName = 'parentNode';
     // mock getFieldId old logic,if form name is empty ,and item name is parentNode,will get parentNode
     mockFn.mockImplementation(() => itemName);
@@ -1302,7 +1302,7 @@ describe('Form', () => {
   });
 
   it('not warning when remove on validate', async () => {
-    let rejectFn: (reason?: any) => void = jest.fn();
+    let rejectFn: (reason?: any) => void = vi.fn();
 
     const { unmount } = render(
       <Form>
@@ -1510,13 +1510,23 @@ describe('Form', () => {
     expect(container.querySelector('.custom-input-required')?.className).toContain(
       'custom-input-status-',
     );
-    expect(container.querySelector('.custom-input-warning')?.classList).toContain(
-      'custom-input-status-warning',
-    );
+    expect(container.querySelector('.custom-input-warning')?.classList).toMatchInlineSnapshot(`
+      DOMTokenList {
+        "0": "custom-input-warning",
+        "1": "custom-input-status-warning",
+      }
+    `);
+    expect(
+      container
+        .querySelector('.custom-input-warning')
+        ?.classList.contains('custom-input-status-warning'),
+    ).toBeTruthy();
     expect(container.querySelector('.custom-input')?.className).toContain('custom-input-status-');
-    expect(container.querySelector('.custom-input-wrong')?.classList).toContain(
-      'custom-input-status-undefined',
-    );
+    expect(
+      container
+        .querySelector('.custom-input-wrong')
+        ?.classList.contains('custom-input-status-undefined'),
+    ).toBeTruthy();
     expect(errorSpy).toHaveBeenCalledWith(
       expect.stringContaining('Form.Item.useStatus should be used under Form.Item component.'),
     );
@@ -1524,9 +1534,11 @@ describe('Form', () => {
     fireEvent.click(container.querySelector('.submit-button')!);
     await waitFakeTimer();
 
-    expect(container.querySelector('.custom-input-required')?.classList).toContain(
-      'custom-input-status-error',
-    );
+    expect(
+      container
+        .querySelector('.custom-input-required')
+        ?.classList.contains('custom-input-status-error'),
+    ).toBeTruthy();
   });
 
   it('Form.Item.useStatus should supports get error messages and warning messages', async () => {
@@ -1577,9 +1589,9 @@ describe('Form', () => {
   });
 
   it('item customize margin', async () => {
-    const computeSpy = jest
+    const computeSpy = vi
       .spyOn(window, 'getComputedStyle')
-      .mockImplementation(() => ({ marginBottom: 24 }) as unknown as CSSStyleDeclaration);
+      .mockImplementation(() => ({ marginBottom: 24 } as unknown as CSSStyleDeclaration));
 
     const { container } = render(
       <Form>
@@ -1789,7 +1801,7 @@ describe('Form', () => {
   });
 
   it('validate status should be change in order', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const CustomInput = (props: any) => {
       const { status } = Form.Item.useStatus();

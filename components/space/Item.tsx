@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SpaceContext } from '.';
+import { SpaceContext } from './context';
 
 export interface ItemProps {
   className: string;

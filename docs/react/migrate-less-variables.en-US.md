@@ -7,6 +7,35 @@ This document contains the correspondence between all the less variables related
 
 <Alert message="Note: There are still some less variables that do not have a corresponding Component Token, and these variables have been deprecated in version 5.x."></Alert>
 
+## How to use Component Token
+
+We could configure global token and component token for each component through the `theme` property of ConfigProvider.
+
+```tsx
+import { Checkbox, ConfigProvider, Radio } from 'antd';
+import React from 'react';
+
+const App: React.FC = () => (
+  <ConfigProvider
+    theme={{
+      components: {
+        Radio: {
+          colorPrimary: '#00b96b',
+        },
+        Checkbox: {
+          colorPrimary: '#ff4d4f',
+        },
+      },
+    }}
+  >
+    <Radio>Radio</Radio>
+    <Checkbox>Checkbox</Checkbox>
+  </ConfigProvider>
+);
+
+export default App;
+```
+
 <!-- ## 全局变量 -->
 
 ## Component Token
@@ -293,7 +322,27 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Progress -->
 
-<!-- ### Radio -->
+### Radio
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@radio-size` | `radioSize` | - |
+| `@radio-top` | - | Deprecated |
+| `@radio-border-width` | `lineWidth` | Global Token |
+| `@radio-dot-size` | `dotSize` | - |
+| `@radio-dot-color` | - | Deprecated |
+| `@radio-dot-disabled-color` | `dotColorDisabled` | - |
+| `@radio-solid-checked-color` | `buttonSolidCheckedColor` | - |
+| `@radio-button-bg` | `buttonBg` | - |
+| `@radio-button-checked-bg` | `buttonCheckedBg` | - |
+| `@radio-button-color` | `buttonColor` | - |
+| `@radio-button-hover-color` | `colorPrimaryHover` | Global Token |
+| `@radio-button-active-color` | `colorPrimaryActive` | Global Token |
+| `@radio-button-padding-horizontal` | `buttonPaddingInline` | - |
+| `@radio-disabled-button-checked-bg` | `buttonCheckdBgDisabled` | - |
+| `@radio-disabled-button-checked-color` | `buttonCheckdColorDisabled` | - |
+| `@radio-wrapper-margin-right` | `wrapperMarginInlineEnd` | - |
 
 ## Rate
 

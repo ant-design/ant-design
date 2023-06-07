@@ -4,6 +4,8 @@ import React, { useMemo, useState } from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import theme from '../../theme';
 import ColorPicker from '../ColorPicker';
 import type { Color } from '../color';
 
@@ -33,11 +35,11 @@ describe('ColorPicker', () => {
   mountTest(ColorPicker);
   rtlTest(ColorPicker);
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('Should component render correct', () => {
@@ -144,7 +146,7 @@ describe('ColorPicker', () => {
   });
 
   it('Should preset color work', async () => {
-    const handleColorChange = jest.fn();
+    const handleColorChange = vi.fn();
 
     const { container } = render(
       <ColorPicker
@@ -275,6 +277,16 @@ describe('ColorPicker', () => {
     ).toEqual('background: rgb(99, 22, 22);');
   });
 
+  it('Should not trigger onChange when click clear after clearing', async () => {
+    const onChange = jest.fn();
+    const { container } = render(<ColorPicker allowClear onChange={onChange} />);
+    fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
+    fireEvent.click(container.querySelector('.ant-color-picker-clear')!);
+    expect(onChange).toHaveBeenCalledTimes(1);
+    fireEvent.click(container.querySelector('.ant-popover .ant-color-picker-clear')!);
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
   it('Should fix hover boundary issues', async () => {
     spyElementPrototypes(HTMLElement, {
       getBoundingClientRect: () => ({
@@ -292,5 +304,23 @@ describe('ColorPicker', () => {
     fireEvent.mouseLeave(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-popover-hidden')).toBeTruthy();
+  });
+
+  it('Should work at dark mode', async () => {
+    const { container } = render(
+      <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
+        <ColorPicker
+          open
+          presets={[
+            {
+              label: 'test',
+              colors: ['#0000001A'],
+            },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-color-picker-presets-color-bright')).toBeFalsy();
   });
 });

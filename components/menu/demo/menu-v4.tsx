@@ -64,14 +64,14 @@ const App: React.FC = () => {
         theme={{
           components: {
             Menu: {
-              radiusItem: 0,
-              radiusSubMenuItem: 0,
-              colorItemTextHover: '#1890ff',
-              colorItemTextSelected: '#1890ff',
-              colorItemBgSelected: '#e6f7ff',
-              colorActiveBarWidth: 3,
+              itemBorderRadius: 0,
+              subMenuItemBorderRadius: 0,
+              itemHoverColor: '#1890ff',
+              itemSelectedColor: '#1890ff',
+              itemSelectedBg: '#e6f7ff',
+              activeBarWidth: 3,
               itemMarginInline: 0,
-              colorItemBgHover: 'transparent',
+              itemHoverBg: 'transparent',
             },
           },
         }}

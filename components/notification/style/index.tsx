@@ -45,6 +45,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
     lineHeight,
     width,
     notificationIconSize,
+    colorText,
   } = token;
 
   const noticeCls = `${componentCls}-notice`;
@@ -111,6 +112,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 
     [`${noticeCls}-description`]: {
       fontSize,
+      color: colorText,
     },
 
     [`&${noticeCls}-closable ${noticeCls}-message`]: {

@@ -7,14 +7,10 @@ import type { SizeType } from '../config-provider/SizeContext';
 import Compact from './Compact';
 import Item from './Item';
 
+import { SpaceContextProvider } from './context';
 import useStyle from './style';
 
-export const SpaceContext = React.createContext({
-  latestIndex: 0,
-  horizontalSize: 0,
-  verticalSize: 0,
-  supportFlexGap: false,
-});
+export type { SpaceContext } from './context';
 
 export type SpaceSize = SizeType | number;
 
@@ -159,7 +155,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
       }}
       {...otherProps}
     >
-      <SpaceContext.Provider value={spaceContext}>{nodes}</SpaceContext.Provider>
+      <SpaceContextProvider value={spaceContext}>{nodes}</SpaceContextProvider>
     </div>,
   );
 });

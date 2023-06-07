@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Tabs renderTabBar custom-tab-bar 1`] = `
+exports[`Tabs > renderTabBar > custom-tab-bar 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -28,7 +28,7 @@ exports[`Tabs renderTabBar custom-tab-bar 1`] = `
 </div>
 `;
 
-exports[`Tabs rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`Tabs > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-rtl"
 >
@@ -118,7 +118,7 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
 </div>
 `;
 
-exports[`Tabs tabBarGutter should work 1`] = `
+exports[`Tabs > tabBarGutter should work 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -250,7 +250,7 @@ exports[`Tabs tabBarGutter should work 1`] = `
 </div>
 `;
 
-exports[`Tabs tabBarGutter should work 2`] = `
+exports[`Tabs > tabBarGutter should work 2`] = `
 <div
   class="ant-tabs ant-tabs-left"
 >
@@ -382,7 +382,7 @@ exports[`Tabs tabBarGutter should work 2`] = `
 </div>
 `;
 
-exports[`Tabs tabPosition remove card 1`] = `
+exports[`Tabs > tabPosition > remove card 1`] = `
 <div
   class="ant-tabs ant-tabs-left"
 >

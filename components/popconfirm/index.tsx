@@ -137,7 +137,7 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
 };
 
 // We don't care debug panel
-/* istanbul ignore next */
+/* c8 ignore next */
 Popconfirm._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 if (process.env.NODE_ENV !== 'production') {

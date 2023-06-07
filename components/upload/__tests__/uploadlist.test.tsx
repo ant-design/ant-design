@@ -1,7 +1,8 @@
 import React from 'react';
+import type { Mock, MockInstance } from 'vitest';
 import type { UploadFile, UploadProps } from '..';
 import Upload from '..';
-import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import type { FormInstance } from '../../form';
 import Form from '../../form';
 import UploadList from '../UploadList';
@@ -34,40 +35,40 @@ describe('Upload List', () => {
 
   // jsdom not support `createObjectURL` yet. Let's handle this.
   const originCreateObjectURL = window.URL.createObjectURL;
-  window.URL.createObjectURL = jest.fn(() => '');
+  window.URL.createObjectURL = vi.fn(() => '');
 
   // Mock dom
   let size = { width: 0, height: 0 };
   function setSize(width: number, height: number) {
     size = { width, height };
   }
-  const mockWidthGet = jest.spyOn(Image.prototype, 'width', 'get');
-  const mockHeightGet = jest.spyOn(Image.prototype, 'height', 'get');
-  const mockSrcSet = jest.spyOn(Image.prototype, 'src', 'set');
+  const mockWidthGet = vi.spyOn(Image.prototype, 'width', 'get');
+  const mockHeightGet = vi.spyOn(Image.prototype, 'height', 'get');
+  const mockSrcSet = vi.spyOn(Image.prototype, 'src', 'set');
 
-  let drawImageCallback: jest.Mock | null = null;
-  function hookDrawImageCall(callback: jest.Mock) {
+  let drawImageCallback: Mock | null = null;
+  function hookDrawImageCall(callback: Mock) {
     drawImageCallback = callback;
   }
-  const mockGetCanvasContext = jest.spyOn(HTMLCanvasElement.prototype, 'getContext');
-  const mockToDataURL = jest.spyOn(HTMLCanvasElement.prototype, 'toDataURL');
+  const mockGetCanvasContext = vi.spyOn(HTMLCanvasElement.prototype, 'getContext');
+  const mockToDataURL = vi.spyOn(HTMLCanvasElement.prototype, 'toDataURL');
 
   // HTMLCanvasElement.prototype
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     return setup();
   });
   afterEach(() => {
     teardown();
     drawImageCallback = null;
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
-  let open: jest.MockInstance<any, any[]>;
+  let open: MockInstance<any, Window | null>;
   beforeAll(() => {
-    open = jest.spyOn(window, 'open').mockImplementation(() => null);
+    open = vi.spyOn(window, 'open').mockImplementation(() => null);
     mockWidthGet.mockImplementation(() => size.width);
     mockHeightGet.mockImplementation(() => size.height);
     mockSrcSet.mockImplementation(function fn() {
@@ -157,7 +158,7 @@ describe('Upload List', () => {
   });
 
   it('should be uploading when upload a file', async () => {
-    const done = jest.fn();
+    const done = vi.fn();
     let wrapper: ReturnType<typeof render>;
     let latestFileList: UploadFile<any>[] | null = null;
     const onChange: UploadProps['onChange'] = async ({ file, fileList: eventFileList }) => {
@@ -192,7 +193,7 @@ describe('Upload List', () => {
   });
 
   it('handle error', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const {
       container: wrapper,
@@ -237,7 +238,7 @@ describe('Upload List', () => {
   });
 
   it('does concat fileList when beforeUpload returns false', async () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     const ref = React.createRef<any>();
     const { container: wrapper, unmount } = render(
       <Upload
@@ -319,7 +320,7 @@ describe('Upload List', () => {
   });
 
   it('should support onPreview', () => {
-    const handlePreview = jest.fn();
+    const handlePreview = vi.fn();
     const { container: wrapper, unmount } = render(
       <Upload listType="picture-card" defaultFileList={fileList} onPreview={handlePreview}>
         <button type="button">upload</button>
@@ -334,8 +335,8 @@ describe('Upload List', () => {
   });
 
   it('should support onRemove', async () => {
-    const handleRemove = jest.fn();
-    const handleChange = jest.fn();
+    const handleRemove = vi.fn();
+    const handleChange = vi.fn();
     const { container: wrapper, unmount } = render(
       <Upload
         listType="picture-card"
@@ -357,7 +358,7 @@ describe('Upload List', () => {
   });
 
   it('should support onDownload', async () => {
-    const handleDownload = jest.fn();
+    const handleDownload = vi.fn();
     const { container: wrapper, unmount } = render(
       <Upload
         listType="picture-card"
@@ -414,10 +415,10 @@ describe('Upload List', () => {
     ].forEach(({ width, height, name }) => {
       it(name, async () => {
         setSize(width, height);
-        const onDrawImage = jest.fn();
+        const onDrawImage = vi.fn();
         hookDrawImageCall(onDrawImage);
 
-        const handlePreview = jest.fn();
+        const handlePreview = vi.fn();
         const newFileList: UploadProps['fileList'] = [...fileList];
         const newFile = {
           ...fileList[0],
@@ -577,9 +578,9 @@ describe('Upload List', () => {
   });
 
   it('should support custom onClick in custom icon', async () => {
-    const handleRemove = jest.fn();
-    const handleChange = jest.fn();
-    const myClick = jest.fn();
+    const handleRemove = vi.fn();
+    const handleChange = vi.fn();
+    const myClick = vi.fn();
     const { container: wrapper, unmount } = render(
       <Upload
         listType="picture-card"
@@ -743,7 +744,7 @@ describe('Upload List', () => {
 
   it('previewFile should work correctly', async () => {
     const items = [{ uid: 'upload-list-item', url: '' }];
-    const previewFunc = jest.fn(previewImage);
+    const previewFunc = vi.fn(previewImage);
     const { container: wrapper, unmount } = render(
       <Upload
         fileList={items as UploadProps['fileList']}
@@ -767,7 +768,7 @@ describe('Upload List', () => {
   });
 
   it('downloadFile should work correctly', async () => {
-    const downloadFunc = jest.fn();
+    const downloadFunc = vi.fn();
     const items = [{ uid: 'upload-list-item', name: 'test', url: '', status: 'done' }];
     const { container: wrapper, unmount } = render(
       <UploadList
@@ -801,22 +802,24 @@ describe('Upload List', () => {
     unmount();
   });
 
-  it('extname should work correctly when url exists', (done) => {
+  it('extname should work correctly when url exists', () => {
     const items = [{ status: 'done', uid: 'upload-list-item', url: '/example' }];
-    const { container: wrapper, unmount } = render(
-      <UploadList
-        listType="picture"
-        onDownload={(file) => {
-          expect(file.url).toBe('/example');
-          unmount();
-          done();
-        }}
-        items={items as UploadListProps['items']}
-        locale={{ downloadFile: '' }}
-        showDownloadIcon
-      />,
-    );
-    fireEvent.click(wrapper.querySelector('div.ant-upload-list-item .anticon-download')!);
+    return new Promise<void>((resolve) => {
+      const { container: wrapper, unmount } = render(
+        <UploadList
+          listType="picture"
+          onDownload={(file) => {
+            expect(file.url).toBe('/example');
+            unmount();
+            resolve();
+          }}
+          items={items as UploadListProps['items']}
+          locale={{ downloadFile: '' }}
+          showDownloadIcon
+        />,
+      );
+      fireEvent.click(wrapper.querySelector('div.ant-upload-list-item .anticon-download')!);
+    });
   });
 
   it('when picture-card is loading, icon should render correctly', () => {
@@ -835,7 +838,7 @@ describe('Upload List', () => {
   });
 
   it('onPreview should be called, when url exists', () => {
-    const onPreview = jest.fn();
+    const onPreview = vi.fn();
     const items = [{ thumbUrl: 'thumbUrl', url: 'url', uid: 'upload-list-item' }];
     const {
       container: wrapper,
@@ -872,7 +875,7 @@ describe('Upload List', () => {
       type: 'image/png',
     });
 
-    const previewFunc = jest.fn(previewImage);
+    const previewFunc = vi.fn(previewImage);
 
     const { unmount } = render(
       <Upload
@@ -883,9 +886,7 @@ describe('Upload List', () => {
       />,
     );
 
-    await waitFor(() => {
-      expect(previewFunc).toHaveBeenCalled();
-    });
+    expect(previewFunc).toHaveBeenCalled();
     await previewFunc(mockFile).then((dataUrl) => {
       expect(dataUrl).toEqual('data:image/png;base64,');
     });
@@ -893,6 +894,7 @@ describe('Upload List', () => {
   });
 
   it('upload svg file with <foreignObject> should not have CORS error', async () => {
+    vi.useRealTimers();
     const mockFile = new File(
       [
         '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><foreignObject x="20" y="20" width="160" height="160"><div xmlns="http://www.w3.org/1999/xhtml">Test</div></foreignObject></svg>',
@@ -901,7 +903,7 @@ describe('Upload List', () => {
       { type: 'image/svg+xml' },
     );
 
-    const previewFunc = jest.fn(previewImage);
+    const previewFunc = vi.fn(previewImage);
 
     const { unmount } = render(
       <Upload
@@ -912,9 +914,7 @@ describe('Upload List', () => {
       />,
     );
 
-    await waitFor(() => {
-      expect(previewFunc).toHaveBeenCalled();
-    });
+    expect(previewFunc).toHaveBeenCalled();
     await previewFunc(mockFile).then((dataUrl) => {
       expect(dataUrl).toEqual('data:image/png;base64,');
     });
@@ -925,7 +925,7 @@ describe('Upload List', () => {
     const mockFile = new File([''], 'foo.7z', {
       type: 'application/x-7z-compressed',
     });
-    const previewFunc = jest.fn(previewImage);
+    const previewFunc = vi.fn(previewImage);
 
     const { unmount } = render(
       <Upload
@@ -936,9 +936,7 @@ describe('Upload List', () => {
       />,
     );
 
-    await waitFor(() => {
-      expect(previewFunc).toHaveBeenCalled();
-    });
+    expect(previewFunc).toHaveBeenCalled();
     await previewFunc(mockFile).then((dataUrl) => {
       expect(dataUrl).toBe('');
     });
@@ -950,7 +948,7 @@ describe('Upload List', () => {
     function test(name: string, renderInstance: () => File | Blob) {
       it(name, async () => {
         const mockThumbnail = 'mock-image';
-        const previewFile = jest.fn(() => Promise.resolve(mockThumbnail));
+        const previewFile = vi.fn(() => Promise.resolve(mockThumbnail));
         const file = {
           ...fileList?.[0],
           originFileObj: renderInstance(),
@@ -1005,7 +1003,7 @@ describe('Upload List', () => {
       unmount();
     });
     it('should render <img /> when custom imageUrl return true', () => {
-      const isImageUrl = jest.fn(() => true);
+      const isImageUrl = vi.fn(() => true);
       const { container: wrapper, unmount } = render(
         <Upload
           listType="picture-card"
@@ -1021,7 +1019,7 @@ describe('Upload List', () => {
       unmount();
     });
     it('should not render <img /> when custom imageUrl return false', () => {
-      const isImageUrl = jest.fn(() => false);
+      const isImageUrl = vi.fn(() => false);
       const { container: wrapper, unmount } = render(
         <Upload
           listType="picture-card"
@@ -1043,7 +1041,7 @@ describe('Upload List', () => {
       const thumbUrl =
         'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
       let wrapper: ReturnType<typeof render>;
-      const onChange = jest.fn<void, Record<'fileList', UploadProps['fileList']>[]>(
+      const onChange = vi.fn<Record<'fileList', UploadProps['fileList']>[]>(
         ({ fileList: files }) => {
           const newFileList = files?.map<UploadFile<any>>((item) => ({ ...item, thumbUrl }));
 
@@ -1099,7 +1097,7 @@ describe('Upload List', () => {
       (global as any).testName =
         'should not render <img /> when upload non-image file without thumbUrl in onChange';
       let wrapper: ReturnType<typeof render>;
-      const onChange = jest.fn<void, Record<'fileList', UploadProps['fileList']>[]>(
+      const onChange = vi.fn<Record<'fileList', UploadProps['fileList']>[]>(
         ({ fileList: files }) => {
           wrapper.rerender(
             <Upload
@@ -1139,36 +1137,37 @@ describe('Upload List', () => {
     });
   });
 
-  it('[deprecated] should support transformFile', (done) => {
-    jest.useRealTimers();
-    let wrapper: ReturnType<typeof render>;
-    let lastFile: UploadFile;
+  it('[deprecated] should support transformFile', () =>
+    new Promise<void>((resolve) => {
+      vi.useRealTimers();
+      let wrapper: ReturnType<typeof render>;
+      let lastFile: UploadFile;
 
-    const handleTransformFile = jest.fn();
-    const onChange: UploadProps['onChange'] = ({ file }) => {
-      if (file.status === 'done') {
-        expect(file).not.toBe(lastFile);
-        expect(handleTransformFile).toHaveBeenCalled();
-        wrapper.unmount();
-        done();
-      }
+      const handleTransformFile = vi.fn();
+      const onChange: UploadProps['onChange'] = ({ file }) => {
+        if (file.status === 'done') {
+          expect(file).not.toBe(lastFile);
+          expect(handleTransformFile).toHaveBeenCalled();
+          wrapper.unmount();
+          resolve();
+        }
 
-      lastFile = file;
-    };
-    wrapper = render(
-      <Upload
-        action="http://jsonplaceholder.typicode.com/posts/"
-        transformFile={handleTransformFile}
-        onChange={onChange}
-        customRequest={successRequest}
-      >
-        <button type="button">upload</button>
-      </Upload>,
-    );
-    fireEvent.change(wrapper.container.querySelector('input')!, {
-      target: { files: [{ name: 'foo.png' }] },
-    });
-  });
+        lastFile = file;
+      };
+      wrapper = render(
+        <Upload
+          action="http://jsonplaceholder.typicode.com/posts/"
+          transformFile={handleTransformFile}
+          onChange={onChange}
+          customRequest={successRequest}
+        >
+          <button type="button">upload</button>
+        </Upload>,
+      );
+      fireEvent.change(wrapper.container.querySelector('input')!, {
+        target: { files: [{ name: 'foo.png' }] },
+      });
+    }));
 
   it('should render button inside UploadList when listStyle is picture-card', () => {
     const {
@@ -1261,9 +1260,9 @@ describe('Upload List', () => {
   });
 
   it('itemRender', () => {
-    const onDownload = jest.fn();
-    const onRemove = jest.fn();
-    const onPreview = jest.fn();
+    const onDownload = vi.fn();
+    const onRemove = vi.fn();
+    const onPreview = vi.fn();
     const itemRender: UploadListProps['itemRender'] = (_, file, currFileList, actions) => {
       const { name, status, uid, url } = file;
       const index = currFileList.indexOf(file);
@@ -1311,7 +1310,7 @@ describe('Upload List', () => {
   });
 
   it('LIST_IGNORE should not add in list', async () => {
-    const beforeUpload = jest.fn(() => Upload.LIST_IGNORE);
+    const beforeUpload = vi.fn(() => Upload.LIST_IGNORE);
     const { container: wrapper, unmount } = render(<Upload beforeUpload={beforeUpload} />);
 
     fireEvent.change(wrapper.querySelector('input')!, {
@@ -1513,7 +1512,7 @@ describe('Upload List', () => {
 
   // https://github.com/ant-design/ant-design/issues/36286
   it('remove should keep origin className', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const list = [
       {
         uid: '0',
