@@ -14,7 +14,7 @@ describe('Input.Password', () => {
 
   it('should get input element from ref', () => {
     const ref = React.createRef<InputRef>();
-    const onSelect = vi.fn();
+    const onSelect = jest.fn();
 
     const { container } = render(<Input.Password onSelect={onSelect} ref={ref} />);
     expect(ref.current?.input instanceof HTMLInputElement).toBe(true);
@@ -71,17 +71,17 @@ describe('Input.Password', () => {
 
   // https://github.com/ant-design/ant-design/issues/20541
   it('should not show value attribute in input element', async () => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
     const { container } = render(<Input.Password />);
     fireEvent.change(container.querySelector('input')!, { target: { value: 'value' } });
-    vi.runAllTimers();
+    jest.runAllTimers();
     expect(container.querySelector('input')?.getAttribute('value')).toBeFalsy();
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/24526
   it('should not show value attribute in input element after blur it', async () => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
     const { container } = render(<Input.Password />);
     fireEvent.change(container.querySelector('input')!, { target: { value: 'value' } });
     await waitFakeTimer();
@@ -92,8 +92,8 @@ describe('Input.Password', () => {
     fireEvent.focus(container.querySelector('input')!);
     await waitFakeTimer();
     expect(container.querySelector('input')?.getAttribute('value')).toBeFalsy();
-    vi.clearAllTimers();
-    vi.useRealTimers();
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/20541
@@ -107,16 +107,16 @@ describe('Input.Password', () => {
 
   // https://github.com/ant-design/ant-design/pull/20544#issuecomment-569861679
   it('should not contain value attribute in input element with defaultValue', async () => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
     const { container } = render(<Input.Password defaultValue="value" />);
     await waitFakeTimer();
     expect(container.querySelector('input')?.getAttribute('value')).toBeFalsy();
-    vi.clearAllTimers();
-    vi.useRealTimers();
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('should not show value attribute in input element after toggle visibility', async () => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
     const { container } = render(<Input.Password />);
     fireEvent.change(container.querySelector('input')!, { target: { value: 'value' } });
     await waitFakeTimer();
@@ -127,8 +127,8 @@ describe('Input.Password', () => {
     fireEvent.click(container.querySelector('.ant-input-password-icon')!);
     await waitFakeTimer();
     expect(container.querySelector('input')?.getAttribute('value')).toBeFalsy();
-    vi.clearAllTimers();
-    vi.useRealTimers();
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('should control password visible', () => {
@@ -139,7 +139,7 @@ describe('Input.Password', () => {
   });
 
   it('should call onPasswordVisibleChange when visible is changed', () => {
-    const handlePasswordVisibleChange = vi.fn();
+    const handlePasswordVisibleChange = jest.fn();
     const { container, rerender } = render(
       <Input.Password visibilityToggle={{ onVisibleChange: handlePasswordVisibleChange }} />,
     );

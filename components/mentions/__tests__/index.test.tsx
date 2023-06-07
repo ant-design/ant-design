@@ -36,11 +36,11 @@ function simulateInput(wrapper: ReturnType<typeof render>, text: string, keyEven
 
 describe('Mentions', () => {
   beforeAll(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterAll(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('getMentions', () => {
@@ -52,8 +52,8 @@ describe('Mentions', () => {
   });
 
   it('focus', () => {
-    const onFocus = vi.fn();
-    const onBlur = vi.fn();
+    const onFocus = jest.fn();
+    const onBlur = jest.fn();
 
     const { container } = render(<Mentions onFocus={onFocus} onBlur={onBlur} />);
     fireEvent.focus(container.querySelector('textarea')!);
@@ -61,7 +61,7 @@ describe('Mentions', () => {
     expect(onFocus).toHaveBeenCalled();
     fireEvent.blur(container.querySelector('textarea')!);
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
     expect(container.querySelector('.ant-mentions')).not.toHaveClass('ant-mentions-focused');
     expect(onBlur).toHaveBeenCalled();
@@ -86,7 +86,7 @@ describe('Mentions', () => {
   });
 
   it('warning if use Mentions.Option', () => {
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <Mentions style={{ width: '100%' }} defaultValue="@afc163">
         <Option value="afc163">afc163</Option>
@@ -111,6 +111,9 @@ describe('Mentions', () => {
     const { container } = wrapper;
     fireEvent.mouseEnter(container.querySelector('li.ant-mentions-dropdown-menu-item:last-child')!);
     fireEvent.focus(container.querySelector('textarea')!);
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(
       wrapper.container.querySelector('.ant-mentions-dropdown-menu-item-active')?.textContent,
     ).toBe('Yesmeck');

@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Form > Form item hidden > noStyle should not work when hidden 1`] = `
+exports[`Form Form item hidden noStyle should not work when hidden 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >
@@ -33,7 +33,7 @@ exports[`Form > Form item hidden > noStyle should not work when hidden 1`] = `
 </form>
 `;
 
-exports[`Form > Form item hidden > should work 1`] = `
+exports[`Form Form item hidden should work 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >
@@ -66,7 +66,7 @@ exports[`Form > Form item hidden > should work 1`] = `
 </form>
 `;
 
-exports[`Form > Form.Item should support data-*、aria-* and custom attribute 1`] = `
+exports[`Form Form.Item should support data-*、aria-* and custom attribute 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >
@@ -97,7 +97,7 @@ exports[`Form > Form.Item should support data-*、aria-* and custom attribute 1`
 </form>
 `;
 
-exports[`Form > form should support disabled 1`] = `
+exports[`Form form should support disabled 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >
@@ -994,13 +994,13 @@ exports[`Form > form should support disabled 1`] = `
 </form>
 `;
 
-exports[`Form > rtl render > component should be rendered correctly in RTL direction 1`] = `
+exports[`Form rtl render component should be rendered correctly in RTL direction 1`] = `
 <form
   class="ant-form ant-form-horizontal ant-form-rtl"
 />
 `;
 
-exports[`Form > rtl render > component should be rendered correctly in RTL direction 2`] = `
+exports[`Form rtl render component should be rendered correctly in RTL direction 2`] = `
 <div
   class="ant-form-item"
 >

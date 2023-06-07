@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Watermark > Image watermark snapshot 1`] = `
+exports[`Watermark Image watermark snapshot 1`] = `
 <div>
   <div
     class=""
@@ -13,7 +13,7 @@ exports[`Watermark > Image watermark snapshot 1`] = `
 </div>
 `;
 
-exports[`Watermark > Interleaved watermark backgroundSize is correct 1`] = `
+exports[`Watermark Interleaved watermark backgroundSize is correct 1`] = `
 <div>
   <div
     class="watermark"
@@ -26,7 +26,7 @@ exports[`Watermark > Interleaved watermark backgroundSize is correct 1`] = `
 </div>
 `;
 
-exports[`Watermark > Invalid image watermark 1`] = `
+exports[`Watermark Invalid image watermark 1`] = `
 <div>
   <div
     class="watermark"
@@ -39,7 +39,7 @@ exports[`Watermark > Invalid image watermark 1`] = `
 </div>
 `;
 
-exports[`Watermark > MutationObserver should work properly 1`] = `
+exports[`Watermark MutationObserver should work properly 1`] = `
 <div>
   <div
     class="watermark"
@@ -52,7 +52,7 @@ exports[`Watermark > MutationObserver should work properly 1`] = `
 </div>
 `;
 
-exports[`Watermark > Observe the modification of style 1`] = `
+exports[`Watermark Observe the modification of style 1`] = `
 <div>
   <div
     class="watermark"
@@ -65,7 +65,7 @@ exports[`Watermark > Observe the modification of style 1`] = `
 </div>
 `;
 
-exports[`Watermark > The offset should be correct 1`] = `
+exports[`Watermark The offset should be correct 1`] = `
 <div>
   <div
     class="watermark"
@@ -78,7 +78,7 @@ exports[`Watermark > The offset should be correct 1`] = `
 </div>
 `;
 
-exports[`Watermark > The watermark should render successfully 1`] = `
+exports[`Watermark The watermark should render successfully 1`] = `
 <div>
   <div
     class="watermark"
@@ -91,7 +91,7 @@ exports[`Watermark > The watermark should render successfully 1`] = `
 </div>
 `;
 
-exports[`Watermark > rtl render > component should be rendered correctly in RTL direction 1`] = `
+exports[`Watermark rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class=""
   style="position: relative;"

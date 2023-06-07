@@ -1,4 +1,4 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders components/tree-select/demo/async.tsx extend context correctly 1`] = `
 <div
@@ -71,7 +71,7 @@ exports[`renders components/tree-select/demo/async.tsx extend context correctly 
           >
             <div
               class="ant-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
@@ -292,7 +292,7 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
           >
             <div
               class="ant-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
@@ -689,7 +689,7 @@ exports[`renders components/tree-select/demo/checkable.tsx extend context correc
           >
             <div
               class="ant-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
@@ -919,7 +919,7 @@ exports[`renders components/tree-select/demo/multiple.tsx extend context correct
           >
             <div
               class="ant-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
@@ -1345,7 +1345,7 @@ Array [
             >
               <div
                 class="ant-select-tree-list-holder"
-                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                style="max-height: 256px; overflow-y: auto;"
               >
                 <div>
                   <div
@@ -1696,7 +1696,7 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
             >
               <div
                 class="ant-select-tree-list-holder"
-                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                style="max-height: 256px; overflow-y: auto;"
               >
                 <div>
                   <div
@@ -2141,7 +2141,7 @@ exports[`renders components/tree-select/demo/suffix.tsx extend context correctly
           >
             <div
               class="ant-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
@@ -2487,7 +2487,7 @@ exports[`renders components/tree-select/demo/treeData.tsx extend context correct
           >
             <div
               class="ant-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
@@ -2784,7 +2784,7 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
               >
                 <div
                   class="ant-select-tree-list-holder"
-                  style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                  style="max-height: 256px; overflow-y: auto;"
                 >
                   <div>
                     <div

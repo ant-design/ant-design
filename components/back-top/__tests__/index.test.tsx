@@ -6,17 +6,17 @@ import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 describe('BackTop', () => {
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
   afterEach(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
   mountTest(BackTop);
   rtlTest(BackTop);
 
   it('should scroll to top after click it', async () => {
     const { container } = render(<BackTop />);
-    const scrollToSpy = vi.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
+    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
       window.scrollY = y;
       window.pageYOffset = y;
       document.documentElement.scrollTop = y;
@@ -31,20 +31,20 @@ describe('BackTop', () => {
   });
 
   it('support onClick', () => {
-    const onClick = vi.fn();
+    const onClick = jest.fn();
     const { container } = render(<BackTop onClick={onClick} visibilityHeight={0} />);
     fireEvent.click(container.querySelector<HTMLDivElement>('.ant-back-top')!);
     expect(onClick).toHaveBeenCalled();
   });
 
   it('invalid target', () => {
-    const onClick = vi.fn();
+    const onClick = jest.fn();
     const { container } = render(<BackTop onClick={onClick} target={undefined} />);
     fireEvent.click(container.querySelector<HTMLDivElement>('.ant-back-top')!);
     expect(onClick).toHaveBeenCalled();
   });
   it('should console Error', () => {
-    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<BackTop />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: BackTop] `BackTop` is deprecated, please use `FloatButton.BackTop` instead.',

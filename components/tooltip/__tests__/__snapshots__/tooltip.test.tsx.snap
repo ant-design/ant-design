@@ -1,8 +1,8 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tooltip > rtl render > component should be rendered correctly in RTL direction 1`] = `<span />`;
+exports[`Tooltip rtl render component should be rendered correctly in RTL direction 1`] = `<span />`;
 
-exports[`Tooltip > should hide when mouse leave antd disabled component > Button 1`] = `
+exports[`Tooltip should hide when mouse leave antd disabled component Button 1`] = `
 <span
   class="ant-tooltip-disabled-compatible-wrapper"
   style="display: inline-block; cursor: not-allowed;"
@@ -16,7 +16,7 @@ exports[`Tooltip > should hide when mouse leave antd disabled component > Button
 </span>
 `;
 
-exports[`Tooltip > should hide when mouse leave antd disabled component > Switch 1`] = `
+exports[`Tooltip should hide when mouse leave antd disabled component Switch 1`] = `
 <span
   class="ant-tooltip-disabled-compatible-wrapper"
   style="display: inline-block; cursor: not-allowed;"
@@ -46,7 +46,7 @@ exports[`Tooltip > should hide when mouse leave antd disabled component > Switch
 </span>
 `;
 
-exports[`Tooltip > support arrow props by default 1`] = `
+exports[`Tooltip support arrow props by default 1`] = `
 <div>
   <div
     class="target ant-tooltip-open"
@@ -73,7 +73,7 @@ exports[`Tooltip > support arrow props by default 1`] = `
 </div>
 `;
 
-exports[`Tooltip > support arrow props pass false to hide arrow 1`] = `
+exports[`Tooltip support arrow props pass false to hide arrow 1`] = `
 <div>
   <div
     class="target ant-tooltip-open"

@@ -1,17 +1,16 @@
 import type { TriggerProps } from '@rc-component/trigger';
-import MockTrigger from '@rc-component/trigger/es/mock';
+import MockTrigger from '@rc-component/trigger/lib/mock';
 import * as React from 'react';
-import { TriggerMockContext } from '../../tests/shared/demoTestContext';
+import { TriggerMockContext } from '../../shared/demoTestContext';
 
-const { default: OriginTrigger } = await vi.importActual<typeof import('@rc-component/trigger')>(
-  '@rc-component/trigger',
-);
+let OriginTrigger = jest.requireActual('@rc-component/trigger');
+OriginTrigger = OriginTrigger.default ?? OriginTrigger;
 
 const ForwardTrigger = React.forwardRef<any, TriggerProps>((props, ref) => {
   const context = React.useContext(TriggerMockContext);
 
   const mergedPopupVisible = context?.popupVisible ?? props.popupVisible;
-  globalThis.triggerProps = props;
+  (global as any).triggerProps = props;
 
   const mergedProps = {
     ...props,

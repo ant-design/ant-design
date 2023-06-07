@@ -1,4 +1,4 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders components/form/demo/advanced-search.tsx extend context correctly 1`] = `
 Array [
@@ -154,7 +154,7 @@ Array [
                         >
                           <div
                             class="rc-virtual-list-holder"
-                            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                            style="max-height: 256px; overflow-y: auto;"
                           >
                             <div>
                               <div
@@ -421,7 +421,7 @@ Array [
                         >
                           <div
                             class="rc-virtual-list-holder"
-                            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                            style="max-height: 256px; overflow-y: auto;"
                           >
                             <div>
                               <div
@@ -1066,7 +1066,7 @@ Array [
                     >
                       <div
                         class="rc-virtual-list-holder"
-                        style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                        style="max-height: 256px; overflow-y: auto;"
                       >
                         <div>
                           <div
@@ -1496,7 +1496,7 @@ Array [
                     >
                       <div
                         class="rc-virtual-list-holder"
-                        style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                        style="max-height: 256px; overflow-y: auto;"
                       >
                         <div>
                           <div
@@ -1779,7 +1779,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                   >
                     <div
                       class="rc-virtual-list-holder"
-                      style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                      style="max-height: 256px; overflow-y: auto;"
                     >
                       <div>
                         <div
@@ -2060,7 +2060,7 @@ exports[`renders components/form/demo/control-ref.tsx extend context correctly 1
                   >
                     <div
                       class="rc-virtual-list-holder"
-                      style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                      style="max-height: 256px; overflow-y: auto;"
                     >
                       <div>
                         <div
@@ -2309,7 +2309,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                     >
                       <div
                         class="rc-virtual-list-holder"
-                        style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                        style="max-height: 256px; overflow-y: auto;"
                       >
                         <div>
                           <div
@@ -2688,7 +2688,7 @@ Array [
                     >
                       <div
                         class="rc-virtual-list-holder"
-                        style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                        style="max-height: 256px; overflow-y: auto;"
                       >
                         <div>
                           <div
@@ -2843,7 +2843,7 @@ Array [
                         >
                           <div
                             class="ant-select-tree-list-holder"
-                            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                            style="max-height: 256px; overflow-y: auto;"
                           >
                             <div>
                               <div
@@ -6243,7 +6243,7 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend cont
                   >
                     <div
                       class="rc-virtual-list-holder"
-                      style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                      style="max-height: 256px; overflow-y: auto;"
                     >
                       <div>
                         <div
@@ -8775,7 +8775,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                         >
                           <div
                             class="rc-virtual-list-holder"
-                            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                            style="max-height: 256px; overflow-y: auto;"
                           >
                             <div>
                               <div
@@ -9040,7 +9040,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                         >
                           <div
                             class="rc-virtual-list-holder"
-                            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                            style="max-height: 256px; overflow-y: auto;"
                           >
                             <div>
                               <div
@@ -9342,7 +9342,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                   >
                     <div
                       class="rc-virtual-list-holder"
-                      style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                      style="max-height: 256px; overflow-y: auto;"
                     >
                       <div>
                         <div
@@ -10090,7 +10090,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   >
                     <div
                       class="rc-virtual-list-holder"
-                      style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                      style="max-height: 256px; overflow-y: auto;"
                     >
                       <div>
                         <div
@@ -10244,7 +10244,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                       >
                         <div
                           class="ant-select-tree-list-holder"
-                          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                          style="max-height: 256px; overflow-y: auto;"
                         >
                           <div>
                             <div
@@ -19316,7 +19316,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                   >
                     <div
                       class="rc-virtual-list-holder"
-                      style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                      style="max-height: 256px; overflow-y: auto;"
                     >
                       <div>
                         <div
@@ -19504,7 +19504,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                   >
                     <div
                       class="rc-virtual-list-holder"
-                      style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                      style="max-height: 256px; overflow-y: auto;"
                     >
                       <div>
                         <div
@@ -24705,7 +24705,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   >
                     <div
                       class="rc-virtual-list-holder"
-                      style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                      style="max-height: 256px; overflow-y: auto;"
                     >
                       <div>
                         <div
@@ -25081,7 +25081,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       >
                         <div
                           class="ant-select-tree-list-holder"
-                          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                          style="max-height: 256px; overflow-y: auto;"
                         >
                           <div>
                             <div

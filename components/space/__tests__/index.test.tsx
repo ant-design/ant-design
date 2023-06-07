@@ -181,7 +181,7 @@ describe('Space', () => {
 
   // https://github.com/ant-design/ant-design/issues/35305
   it('should not throw duplicated key warning', () => {
-    const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <Space>
         <div key="1" />

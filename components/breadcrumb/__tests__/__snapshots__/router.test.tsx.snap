@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`react router > react router 3 1`] = `
+exports[`react router react router 3 1`] = `
 <nav
   class="ant-breadcrumb"
 >

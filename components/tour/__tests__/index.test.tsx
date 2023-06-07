@@ -54,8 +54,8 @@ describe('Tour', () => {
   });
 
   it('steps props indicatorsRender', () => {
-    const onClickMock = vi.fn();
-    const indicatorsRenderMock = vi.fn();
+    const onClickMock = jest.fn();
+    const indicatorsRenderMock = jest.fn();
     const App: React.FC = () => {
       const coverBtnRef = useRef<HTMLButtonElement>(null);
       return (

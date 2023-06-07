@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Radio Button > rtl render > component should be rendered correctly in RTL direction 1`] = `
+exports[`Radio Button rtl render component should be rendered correctly in RTL direction 1`] = `
 <label
   class="ant-radio-button-wrapper ant-radio-button-wrapper-rtl"
 >
@@ -18,7 +18,7 @@ exports[`Radio Button > rtl render > component should be rendered correctly in R
 </label>
 `;
 
-exports[`Radio Button > should render correctly 1`] = `
+exports[`Radio Button should render correctly 1`] = `
 <label
   class="ant-radio-button-wrapper customized"
 >
@@ -39,7 +39,7 @@ exports[`Radio Button > should render correctly 1`] = `
 </label>
 `;
 
-exports[`Radio Group > passes prefixCls down to radio 1`] = `
+exports[`Radio Group passes prefixCls down to radio 1`] = `
 <div
   class="my-radio-group my-radio-group-outline"
 >

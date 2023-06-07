@@ -27,7 +27,7 @@ describe('Notification.placement', () => {
   });
 
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -40,7 +40,7 @@ describe('Notification.placement', () => {
       getContainer: null,
     });
 
-    vi.useRealTimers();
+    jest.useRealTimers();
 
     await awaitPromise();
   });
@@ -150,7 +150,7 @@ describe('Notification.placement', () => {
 
       // Leave motion
       act(() => {
-        vi.runAllTimers();
+        jest.runAllTimers();
       });
       document.querySelectorAll('.ant-notification-notice').forEach((ele) => {
         fireEvent.animationEnd(ele);

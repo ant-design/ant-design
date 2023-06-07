@@ -25,11 +25,11 @@ const breadcrumbNameMap = {
 
 describe('react router', () => {
   beforeAll(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterAll(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('react router 6', () => {

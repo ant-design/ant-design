@@ -6,7 +6,7 @@ import ConfigProvider from '../../config-provider';
 
 describe('Modal.confirm warning', () => {
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
     resetWarned();
   });
 
@@ -15,12 +15,12 @@ describe('Modal.confirm warning', () => {
 
     await waitFakeTimer();
     document.body.innerHTML = '';
-    vi.clearAllTimers();
+    jest.clearAllTimers();
   });
 
   // Follow test need keep order
   it('no warning', async () => {
-    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     Modal.confirm({
       content: <div className="bamboo" />,
     });
@@ -32,7 +32,7 @@ describe('Modal.confirm warning', () => {
   });
 
   it('warning if use theme', async () => {
-    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<ConfigProvider theme={{}} />);
 
     Modal.confirm({

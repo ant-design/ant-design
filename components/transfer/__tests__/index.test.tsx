@@ -1,11 +1,11 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import React, { useState } from 'react';
+import type { DefaultRecordType } from 'rc-table/lib/interface';
+import React, { useCallback, useEffect, useState } from 'react';
 import type { SelectAllLabel, TransferProps } from '..';
 import Transfer from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-
-const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+import Button from '../../button';
 
 const listCommonProps: {
   dataSource: { key: string; title: string; disabled?: boolean }[];
@@ -83,14 +83,14 @@ describe('Transfer', () => {
   });
 
   it('should move selected keys to corresponding list', () => {
-    const handleChange = vi.fn();
+    const handleChange = jest.fn();
     const { container } = render(<Transfer {...listCommonProps} onChange={handleChange} />);
     fireEvent.click(container.querySelector('.ant-transfer-operation')?.querySelector('button')!); // move selected keys to right list
     expect(handleChange).toHaveBeenCalledWith(['a', 'b'], 'right', ['a']);
   });
 
   it('should move selected keys to left list', () => {
-    const handleChange = vi.fn();
+    const handleChange = jest.fn();
     const { container } = render(
       <Transfer
         {...listCommonProps}
@@ -106,14 +106,14 @@ describe('Transfer', () => {
   });
 
   it('should move selected keys expect disabled to corresponding list', () => {
-    const handleChange = vi.fn();
+    const handleChange = jest.fn();
     const { container } = render(<Transfer {...listDisabledProps} onChange={handleChange} />);
     fireEvent.click(container.querySelector('.ant-transfer-operation')?.querySelector('button')!); // move selected keys to right list
     expect(handleChange).toHaveBeenCalledWith(['b'], 'right', ['b']);
   });
 
   it('should uncheck checkbox when click on checked item', () => {
-    const handleSelectChange = vi.fn();
+    const handleSelectChange = jest.fn();
     const { getByTitle } = render(
       <Transfer
         {...listCommonProps}
@@ -126,7 +126,7 @@ describe('Transfer', () => {
   });
 
   it('should check checkbox when click on unchecked item', () => {
-    const handleSelectChange = vi.fn();
+    const handleSelectChange = jest.fn();
     const { getByText } = render(
       <Transfer
         {...listCommonProps}
@@ -139,7 +139,7 @@ describe('Transfer', () => {
   });
 
   it('should not check checkbox when component disabled', () => {
-    const handleSelectChange = vi.fn();
+    const handleSelectChange = jest.fn();
     const { getByText } = render(
       <Transfer
         {...listCommonProps}
@@ -153,7 +153,7 @@ describe('Transfer', () => {
   });
 
   it('should not check checkbox when click on disabled item', () => {
-    const handleSelectChange = vi.fn();
+    const handleSelectChange = jest.fn();
     const { getByText } = render(
       <Transfer
         {...listCommonProps}
@@ -167,7 +167,7 @@ describe('Transfer', () => {
   });
 
   it('should check all item when click on check all', () => {
-    const handleSelectChange = vi.fn();
+    const handleSelectChange = jest.fn();
     const { container } = render(
       <Transfer {...listCommonProps} onSelectChange={handleSelectChange} />,
     );
@@ -183,7 +183,7 @@ describe('Transfer', () => {
   });
 
   it('should uncheck all item when click on uncheck all', () => {
-    const handleSelectChange = vi.fn();
+    const handleSelectChange = jest.fn();
     const { container } = render(
       <Transfer {...listCommonProps} onSelectChange={handleSelectChange} />,
     );
@@ -264,6 +264,8 @@ describe('Transfer', () => {
   });
 
   it('should display the correct locale and ignore old API', () => {
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
     const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
     const locale = { notFoundContent: 'old1', searchPlaceholder: 'old2' };
     const newLocalProp = { notFoundContent: 'new1', searchPlaceholder: 'new2' };
@@ -308,7 +310,7 @@ describe('Transfer', () => {
     const filterOption: TransferProps<any>['filterOption'] = (inputValue, option) =>
       option.description.includes(inputValue);
     const renderFunc: TransferProps<any>['render'] = (item) => item.title;
-    const handleSelectChange = vi.fn();
+    const handleSelectChange = jest.fn();
     const { container, getByTitle } = render(
       <Transfer
         {...searchTransferProps}
@@ -333,7 +335,7 @@ describe('Transfer', () => {
     const filterOption: TransferProps<any>['filterOption'] = (inputValue, option) =>
       option.description.includes(inputValue);
     const renderFunc: TransferProps<any>['render'] = (item) => item.title;
-    const handleChange = vi.fn();
+    const handleChange = jest.fn();
     const TransferDemo = () => {
       const [selectedKeys, setSelectedKeys] = useState<string[]>(searchTransferProps.selectedKeys);
       const handleSelectChange: TransferProps<any>['onSelectChange'] = (
@@ -373,7 +375,7 @@ describe('Transfer', () => {
     const newProps = { ...listCommonProps };
     delete newProps.targetKeys;
     delete newProps.selectedKeys;
-    const handleSelectChange = vi.fn();
+    const handleSelectChange = jest.fn();
     const { container, getByText } = render(
       <Transfer
         {...newProps}
@@ -472,7 +474,7 @@ describe('Transfer', () => {
   });
 
   it('should support onScroll', () => {
-    const onScroll = vi.fn();
+    const onScroll = jest.fn();
     const { container } = render(<Transfer {...listCommonProps} onScroll={onScroll} />);
 
     fireEvent.scroll(
@@ -574,14 +576,14 @@ describe('Transfer', () => {
   });
 
   it('remove by click icon', () => {
-    const onChange = vi.fn();
+    const onChange = jest.fn();
     const { container } = render(<Transfer {...listCommonProps} onChange={onChange} oneWay />);
     fireEvent.click(container.querySelectorAll('.ant-transfer-list-content-item-remove')[0]);
     expect(onChange).toHaveBeenCalledWith([], 'left', ['b']);
   });
 
   it('control mode select all should not throw warning', () => {
-    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const App = () => {
       const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
@@ -620,5 +622,76 @@ describe('immutable data', () => {
     const mockData = [Object.freeze({ id: '0', title: `title`, description: `description` })];
     const { container } = render(<Transfer rowKey={(item) => item.id} dataSource={mockData} />);
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('prevent error when reset data in some cases', () => {
+    const App = () => {
+      const [mockData, setMockData] = useState<DefaultRecordType[]>([]);
+      const [targetKeys, setTargetKeys] = useState<string[]>([]);
+
+      const getMock = () => {
+        const tempTargetKeys = [];
+        const tempMockData = [];
+        for (let i = 0; i < 2; i++) {
+          const data = {
+            key: i.toString(),
+            title: `content${i + 1}`,
+            description: `description of content${i + 1}`,
+            chosen: i % 2 === 0,
+          };
+          if (data.chosen) {
+            tempTargetKeys.push(data.key);
+          }
+          tempMockData.push(data);
+        }
+        setMockData(tempMockData);
+        setTargetKeys(tempTargetKeys);
+      };
+
+      useEffect(() => {
+        getMock();
+      }, []);
+
+      const handleChange = (newTargetKeys: string[]) => {
+        setTargetKeys(newTargetKeys);
+      };
+
+      const ButtonRender = useCallback(
+        () => <Button onClick={getMock}>Right button reload</Button>,
+        [getMock],
+      );
+
+      return (
+        <Transfer
+          dataSource={mockData}
+          operations={['to right', 'to left']}
+          targetKeys={targetKeys}
+          onChange={handleChange}
+          render={(item) => `test-${item}`}
+          footer={ButtonRender}
+        />
+      );
+    };
+
+    const { container } = render(<App />);
+    fireEvent.click(container.querySelector('.ant-transfer-list-header input[type="checkbox"]')!);
+    fireEvent.click(container.querySelector('.ant-transfer-operation .ant-btn')!);
+    expect(container.querySelectorAll('.ant-transfer-list')[1]).toBeTruthy();
+    expect(
+      container
+        .querySelectorAll('.ant-transfer-list')[1]
+        .querySelectorAll('.ant-transfer-list-content-item').length,
+    ).toBe(2);
+
+    fireEvent.click(
+      container.querySelectorAll('.ant-transfer-list-header input[type="checkbox"]')![1],
+    );
+    expect(container.querySelectorAll('.ant-transfer-list-header-selected')[1]).toContainHTML(
+      '2/2',
+    );
+    fireEvent.click(container.querySelector('.ant-transfer-list-footer .ant-btn')!);
+    expect(container.querySelectorAll('.ant-transfer-list-header-selected')[1]).toContainHTML(
+      '1/1',
+    );
   });
 });

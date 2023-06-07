@@ -12,7 +12,7 @@ describe('Table', () => {
   mountTest(Table);
   rtlTest(Table);
 
-  const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+  const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   afterAll(() => {
     warnSpy.mockRestore();
@@ -71,7 +71,7 @@ describe('Table', () => {
   });
 
   it('loading with Spin', async () => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
     const loading = {
       spinning: false,
       delay: 500,
@@ -86,21 +86,21 @@ describe('Table', () => {
     await waitFakeTimer();
     rerender(<Table loading />);
     expect(container.querySelectorAll('.ant-spin')).toHaveLength(1);
-    vi.clearAllTimers();
-    vi.useRealTimers();
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/22733
   it('support loading tip', async () => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
     const { container, rerender } = render(<Table loading={{ tip: 'loading...' }} />);
     await waitFakeTimer();
     rerender(
       <Table loading={{ tip: 'loading...', loading: true } as TableProps<any>['loading']} />,
     );
     expect(container.querySelectorAll('.ant-spin')).toHaveLength(1);
-    vi.clearAllTimers();
-    vi.useRealTimers();
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('props#columnsPageRange and props#columnsPageSize do not warn anymore', () => {
@@ -109,8 +109,8 @@ describe('Table', () => {
       { key: '2', age: 42 },
     ];
 
-    const columnsPageRange = vi.fn();
-    const columnsPageSize = vi.fn();
+    const columnsPageRange = jest.fn();
+    const columnsPageSize = jest.fn();
     const props = { columnsPageRange, columnsPageSize };
     render(
       <Table dataSource={data} rowKey="key" {...props}>
@@ -127,7 +127,7 @@ describe('Table', () => {
   });
 
   it('support onHeaderCell', () => {
-    const onClick = vi.fn();
+    const onClick = jest.fn();
     const { container } = render(
       <Table columns={[{ title: 'title', onHeaderCell: () => ({ onClick }) }]} />,
     );
@@ -164,7 +164,7 @@ describe('Table', () => {
 
   it('prevent touch event', () => {
     // prevent touch event, 原来的用例感觉是少了 touchmove 调用判断
-    const touchmove = vi.fn();
+    const touchmove = jest.fn();
     const { container } = render(
       <Table
         columns={[
@@ -398,6 +398,7 @@ describe('Table', () => {
     const { container } = render(<Demo />);
 
     fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
+    await waitFakeTimer();
     expect(container.querySelector('.ant-dropdown')).toBeTruthy();
   });
 });
