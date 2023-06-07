@@ -41,7 +41,7 @@ describe('Calendar.onSelect', () => {
     fireEvent.mouseDown(container.querySelectorAll('.ant-select-selector')[1]!);
     await waitFakeTimer();
 
-    fireEvent.click(container.querySelector('.ant-select-item-option')!);
+    fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]!);
     await waitFakeTimer();
 
     expect(onSelect).toHaveBeenCalledWith(expect.anything(), { source: 'month' });

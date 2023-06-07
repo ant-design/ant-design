@@ -36,15 +36,15 @@ console.error = (...args) => {
 };
 
 if (typeof window !== 'undefined') {
-  global.window.resizeTo = (width, height) => {
-    global.window.innerWidth = width || global.window.innerWidth;
-    global.window.innerHeight = height || global.window.innerHeight;
-    global.window.dispatchEvent(new Event('resize'));
+  globalThis.window.resizeTo = (width, height) => {
+    globalThis.window.innerWidth = width || globalThis.window.innerWidth;
+    globalThis.window.innerHeight = height || globalThis.window.innerHeight;
+    globalThis.window.dispatchEvent(new Event('resize'));
   };
-  global.window.scrollTo = () => {};
+  globalThis.window.scrollTo = () => {};
   // ref: https://github.com/ant-design/ant-design/issues/18774
   if (!window.matchMedia) {
-    Object.defineProperty(global.window, 'matchMedia', {
+    Object.defineProperty(globalThis.window, 'matchMedia', {
       writable: true,
       configurable: true,
       value: vi.fn((query) => ({
@@ -75,7 +75,6 @@ if (typeof window !== 'undefined') {
 
 vi.mock('@rc-component/trigger');
 vi.mock('rc-util/es/Portal');
-vi.mock('rc-trigger');
 vi.mock('rc-virtual-list');
 vi.mock('copy-to-clipboard');
 
@@ -185,5 +184,5 @@ expect.addSnapshotSerializer({
 expect.extend(toHaveNoViolations);
 
 // with jest-canvas-mock
-(global as any).jest = vi;
+(globalThis as any).jest = vi;
 await import('jest-canvas-mock');
