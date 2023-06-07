@@ -40,6 +40,12 @@ export const commonConfig: UserConfig = {
   },
   test: {
     testTimeout: 5000,
+    deps: {
+      experimentalOptimizer: {
+        enabled: true,
+        include: ['countup.js'],
+      },
+    },
   },
 };
 
