@@ -64,8 +64,6 @@ Modify `src/App.js`, import Button component from `antd`.
 ```jsx
 import React from 'react';
 import { Button } from 'antd';
-import 'antd/dist/reset.css';
-import './App.css';
 
 const App = () => (
   <div className="App">
