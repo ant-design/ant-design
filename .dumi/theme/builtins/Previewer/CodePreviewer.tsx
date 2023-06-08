@@ -392,7 +392,6 @@ createRoot(document.getElementById('container')).render(<Demo />);
         <ErrorBoundary>
           <React.StrictMode>{liveDemo.current}</React.StrictMode>
         </ErrorBoundary>
-        {style ? <style dangerouslySetInnerHTML={{ __html: style }} /> : null}
       </section>
       <section className="code-box-meta markdown">
         <div className="code-box-title">
@@ -547,6 +546,24 @@ createRoot(document.getElementById('container')).render(<Demo />);
       </section>
     </section>
   );
+
+  useEffect(() => {
+    // In Safari, if style tag be inserted into non-head tag among them,
+    // it will affect the rendering ability of the browser,
+    // resulting in some response delays like following issue:
+    // https://github.com/ant-design/ant-design/issues/39995
+    // So we insert style tag into head tag.
+    if (!style) return;
+    const oldStyleTag = document.querySelector(`style[data-demo-url="${demoUrl}"]`);
+    if (oldStyleTag) {
+      oldStyleTag.parentNode.removeChild(oldStyleTag);
+    }
+    const styleTag = document.createElement('style');
+    styleTag.type = 'text/css';
+    styleTag.innerHTML = style;
+    styleTag['data-demo-url'] = demoUrl;
+    document.body.appendChild(styleTag);
+  }, [style, demoUrl]);
 
   if (version) {
     return (
