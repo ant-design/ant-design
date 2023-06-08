@@ -562,8 +562,8 @@ createRoot(document.getElementById('container')).render(<Demo />);
     styleTag.type = 'text/css';
     styleTag.innerHTML = style;
     styleTag['data-demo-url'] = demoUrl;
-    document.body.appendChild(styleTag);
-  }, [style, demoUrl]);
+    document.head.appendChild(styleTag);
+  }, [style]);
 
   if (version) {
     return (
