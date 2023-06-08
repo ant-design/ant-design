@@ -82,15 +82,12 @@ const ListItem = React.forwardRef(
 
     // Delay to show the progress bar
     const [showProgress, setShowProgress] = React.useState(false);
-    const progressRafRef = React.useRef<NodeJS.Timer | null>(null);
     React.useEffect(() => {
-      progressRafRef.current = setTimeout(() => {
+      const timer = setTimeout(() => {
         setShowProgress(true);
       }, 300);
       return () => {
-        if (progressRafRef.current) {
-          clearTimeout(progressRafRef.current);
-        }
+        clearTimeout(timer);
       };
     }, []);
 
