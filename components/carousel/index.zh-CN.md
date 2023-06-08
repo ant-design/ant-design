@@ -24,6 +24,7 @@ demo:
 <code src="./demo/position.tsx">位置</code>
 <code src="./demo/autoplay.tsx">自动切换</code>
 <code src="./demo/fade.tsx">渐显</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 

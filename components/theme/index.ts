@@ -1,9 +1,10 @@
 /* eslint-disable import/prefer-default-export */
-import { defaultConfig, useToken as useInternalToken } from './internal';
+import getDesignToken from './getDesignToken';
 import type { GlobalToken } from './interface';
-import defaultAlgorithm from './themes/default';
-import darkAlgorithm from './themes/dark';
+import { defaultConfig, useToken as useInternalToken } from './internal';
 import compactAlgorithm from './themes/compact';
+import darkAlgorithm from './themes/dark';
+import defaultAlgorithm from './themes/default';
 
 // ZombieJ: We export as object to user but array in internal.
 // This is used to minimize the bundle size for antd package but safe to refactor as object also.
@@ -28,4 +29,5 @@ export default {
   defaultAlgorithm,
   darkAlgorithm,
   compactAlgorithm,
+  getDesignToken,
 };

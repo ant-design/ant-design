@@ -573,18 +573,16 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
             class="ant-menu-submenu-arrow"
           />
         </div>
-        <div>
-          <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-            style="opacity: 0;"
-          >
-            <ul
-              class="ant-menu ant-menu-sub ant-menu-vertical"
-              data-menu-list="true"
-              id="rc-menu-uuid-test-rc-menu-more-popup"
-              role="menu"
-            />
-          </div>
+        <div
+          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-submenu-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-vertical"
+            data-menu-list="true"
+            id="rc-menu-uuid-test-rc-menu-more-popup"
+            role="menu"
+          />
         </div>
       </li>
     </ul>
@@ -2009,109 +2007,107 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
               class="ant-menu-submenu-arrow"
             />
           </div>
-          <div>
-            <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
-              style="opacity: 0;"
+          <div
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          >
+            <ul
+              class="ant-menu ant-menu-sub ant-menu-inline"
+              data-menu-list="true"
+              id="rc-menu-uuid-test-sub1-popup"
+              role="menu"
             >
-              <ul
-                class="ant-menu ant-menu-sub ant-menu-inline"
-                data-menu-list="true"
-                id="rc-menu-uuid-test-sub1-popup"
-                role="menu"
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-3"
+                role="menuitem"
+                style="padding-left: 48px;"
+                tabindex="-1"
               >
-                <li
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-test-3"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
+                <span
+                  class="ant-menu-title-content"
                 >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    Tom
-                  </span>
-                </li>
+                  Tom
+                </span>
+              </li>
+              <div
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              >
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  />
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
-                </div>
-                <li
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-test-4"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    Bill
-                  </span>
-                </li>
+                  class="ant-tooltip-arrow"
+                  style="position: absolute; top: 0px; left: 0px;"
+                />
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  class="ant-tooltip-content"
                 >
                   <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
+                    class="ant-tooltip-inner"
+                    role="tooltip"
                   />
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
                 </div>
-                <li
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-test-5"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
+              </div>
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-4"
+                role="menuitem"
+                style="padding-left: 48px;"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
                 >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    Alex
-                  </span>
-                </li>
+                  Bill
+                </span>
+              </li>
+              <div
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              >
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  class="ant-tooltip-arrow"
+                  style="position: absolute; top: 0px; left: 0px;"
+                />
+                <div
+                  class="ant-tooltip-content"
                 >
                   <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
+                    class="ant-tooltip-inner"
+                    role="tooltip"
                   />
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
                 </div>
-              </ul>
-            </div>
+              </div>
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-5"
+                role="menuitem"
+                style="padding-left: 48px;"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Alex
+                </span>
+              </li>
+              <div
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position: absolute; top: 0px; left: 0px;"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </ul>
           </div>
         </li>
         <li
@@ -2156,79 +2152,77 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
               class="ant-menu-submenu-arrow"
             />
           </div>
-          <div>
-            <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
-              style="opacity: 0;"
+          <div
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          >
+            <ul
+              class="ant-menu ant-menu-sub ant-menu-inline"
+              data-menu-list="true"
+              id="rc-menu-uuid-test-sub2-popup"
+              role="menu"
             >
-              <ul
-                class="ant-menu ant-menu-sub ant-menu-inline"
-                data-menu-list="true"
-                id="rc-menu-uuid-test-sub2-popup"
-                role="menu"
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-6"
+                role="menuitem"
+                style="padding-left: 48px;"
+                tabindex="-1"
               >
-                <li
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-test-6"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
+                <span
+                  class="ant-menu-title-content"
                 >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    Team 1
-                  </span>
-                </li>
+                  Team 1
+                </span>
+              </li>
+              <div
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              >
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  />
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
-                </div>
-                <li
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-test-8"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    Team 2
-                  </span>
-                </li>
+                  class="ant-tooltip-arrow"
+                  style="position: absolute; top: 0px; left: 0px;"
+                />
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  class="ant-tooltip-content"
                 >
                   <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
+                    class="ant-tooltip-inner"
+                    role="tooltip"
                   />
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
                 </div>
-              </ul>
-            </div>
+              </div>
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-8"
+                role="menuitem"
+                style="padding-left: 48px;"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Team 2
+                </span>
+              </li>
+              <div
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position: absolute; top: 0px; left: 0px;"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+            </ul>
           </div>
         </li>
         <li
@@ -2993,18 +2987,16 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
             class="ant-menu-submenu-arrow"
           />
         </div>
-        <div>
-          <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-            style="opacity: 0;"
-          >
-            <ul
-              class="ant-menu ant-menu-sub ant-menu-vertical"
-              data-menu-list="true"
-              id="rc-menu-uuid-test-rc-menu-more-popup"
-              role="menu"
-            />
-          </div>
+        <div
+          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-submenu-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-vertical"
+            data-menu-list="true"
+            id="rc-menu-uuid-test-rc-menu-more-popup"
+            role="menu"
+          />
         </div>
       </li>
     </ul>
@@ -3472,18 +3464,16 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
             class="ant-menu-submenu-arrow"
           />
         </div>
-        <div>
-          <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-            style="opacity: 0;"
-          >
-            <ul
-              class="ant-menu ant-menu-sub ant-menu-vertical"
-              data-menu-list="true"
-              id="rc-menu-uuid-test-rc-menu-more-popup"
-              role="menu"
-            />
-          </div>
+        <div
+          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-submenu-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-vertical"
+            data-menu-list="true"
+            id="rc-menu-uuid-test-rc-menu-more-popup"
+            role="menu"
+          />
         </div>
       </li>
     </ul>
@@ -3648,139 +3638,137 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                   class="ant-menu-submenu-arrow"
                 />
               </div>
-              <div>
-                <div
-                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
-                  style="opacity: 0;"
+              <div
+                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              >
+                <ul
+                  class="ant-menu ant-menu-sub ant-menu-inline"
+                  data-menu-list="true"
+                  id="rc-menu-uuid-test-sub1-popup"
+                  role="menu"
                 >
-                  <ul
-                    class="ant-menu ant-menu-sub ant-menu-inline"
-                    data-menu-list="true"
-                    id="rc-menu-uuid-test-sub1-popup"
-                    role="menu"
+                  <li
+                    class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-1"
+                    role="menuitem"
+                    style="padding-left: 48px;"
+                    tabindex="-1"
                   >
-                    <li
-                      class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
-                      data-menu-id="rc-menu-uuid-test-1"
-                      role="menuitem"
-                      style="padding-left: 48px;"
-                      tabindex="-1"
+                    <span
+                      class="ant-menu-title-content"
                     >
-                      <span
-                        class="ant-menu-title-content"
-                      >
-                        option1
-                      </span>
-                    </li>
+                      option1
+                    </span>
+                  </li>
+                  <div
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  >
                     <div
-                      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                    >
-                      <div
-                        class="ant-tooltip-arrow"
-                        style="position: absolute; top: 0px; left: 0px;"
-                      />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        />
-                      </div>
-                    </div>
-                    <li
-                      class="ant-menu-item ant-menu-item-only-child"
-                      data-menu-id="rc-menu-uuid-test-2"
-                      role="menuitem"
-                      style="padding-left: 48px;"
-                      tabindex="-1"
-                    >
-                      <span
-                        class="ant-menu-title-content"
-                      >
-                        option2
-                      </span>
-                    </li>
+                      class="ant-tooltip-arrow"
+                      style="position: absolute; top: 0px; left: 0px;"
+                    />
                     <div
-                      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                      class="ant-tooltip-content"
                     >
                       <div
-                        class="ant-tooltip-arrow"
-                        style="position: absolute; top: 0px; left: 0px;"
+                        class="ant-tooltip-inner"
+                        role="tooltip"
                       />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        />
-                      </div>
                     </div>
-                    <li
-                      class="ant-menu-item ant-menu-item-only-child"
-                      data-menu-id="rc-menu-uuid-test-3"
-                      role="menuitem"
-                      style="padding-left: 48px;"
-                      tabindex="-1"
+                  </div>
+                  <li
+                    class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-2"
+                    role="menuitem"
+                    style="padding-left: 48px;"
+                    tabindex="-1"
+                  >
+                    <span
+                      class="ant-menu-title-content"
                     >
-                      <span
-                        class="ant-menu-title-content"
-                      >
-                        option3
-                      </span>
-                    </li>
+                      option2
+                    </span>
+                  </li>
+                  <div
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  >
                     <div
-                      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                    >
-                      <div
-                        class="ant-tooltip-arrow"
-                        style="position: absolute; top: 0px; left: 0px;"
-                      />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        />
-                      </div>
-                    </div>
-                    <li
-                      class="ant-menu-item ant-menu-item-only-child"
-                      data-menu-id="rc-menu-uuid-test-4"
-                      role="menuitem"
-                      style="padding-left: 48px;"
-                      tabindex="-1"
-                    >
-                      <span
-                        class="ant-menu-title-content"
-                      >
-                        option4
-                      </span>
-                    </li>
+                      class="ant-tooltip-arrow"
+                      style="position: absolute; top: 0px; left: 0px;"
+                    />
                     <div
-                      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                      class="ant-tooltip-content"
                     >
                       <div
-                        class="ant-tooltip-arrow"
-                        style="position: absolute; top: 0px; left: 0px;"
+                        class="ant-tooltip-inner"
+                        role="tooltip"
                       />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        />
-                      </div>
                     </div>
-                  </ul>
-                </div>
+                  </div>
+                  <li
+                    class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-3"
+                    role="menuitem"
+                    style="padding-left: 48px;"
+                    tabindex="-1"
+                  >
+                    <span
+                      class="ant-menu-title-content"
+                    >
+                      option3
+                    </span>
+                  </li>
+                  <div
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  >
+                    <div
+                      class="ant-tooltip-arrow"
+                      style="position: absolute; top: 0px; left: 0px;"
+                    />
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                  <li
+                    class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-4"
+                    role="menuitem"
+                    style="padding-left: 48px;"
+                    tabindex="-1"
+                  >
+                    <span
+                      class="ant-menu-title-content"
+                    >
+                      option4
+                    </span>
+                  </li>
+                  <div
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  >
+                    <div
+                      class="ant-tooltip-arrow"
+                      style="position: absolute; top: 0px; left: 0px;"
+                    />
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </ul>
               </div>
               <ul
                 class="ant-menu ant-menu-sub ant-menu-inline"
@@ -3952,139 +3940,137 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                   class="ant-menu-submenu-arrow"
                 />
               </div>
-              <div>
-                <div
-                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
-                  style="opacity: 0;"
+              <div
+                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              >
+                <ul
+                  class="ant-menu ant-menu-sub ant-menu-inline"
+                  data-menu-list="true"
+                  id="rc-menu-uuid-test-sub2-popup"
+                  role="menu"
                 >
-                  <ul
-                    class="ant-menu ant-menu-sub ant-menu-inline"
-                    data-menu-list="true"
-                    id="rc-menu-uuid-test-sub2-popup"
-                    role="menu"
+                  <li
+                    class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-5"
+                    role="menuitem"
+                    style="padding-left: 48px;"
+                    tabindex="-1"
                   >
-                    <li
-                      class="ant-menu-item ant-menu-item-only-child"
-                      data-menu-id="rc-menu-uuid-test-5"
-                      role="menuitem"
-                      style="padding-left: 48px;"
-                      tabindex="-1"
+                    <span
+                      class="ant-menu-title-content"
                     >
-                      <span
-                        class="ant-menu-title-content"
-                      >
-                        option5
-                      </span>
-                    </li>
+                      option5
+                    </span>
+                  </li>
+                  <div
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  >
                     <div
-                      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                    >
-                      <div
-                        class="ant-tooltip-arrow"
-                        style="position: absolute; top: 0px; left: 0px;"
-                      />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        />
-                      </div>
-                    </div>
-                    <li
-                      class="ant-menu-item ant-menu-item-only-child"
-                      data-menu-id="rc-menu-uuid-test-6"
-                      role="menuitem"
-                      style="padding-left: 48px;"
-                      tabindex="-1"
-                    >
-                      <span
-                        class="ant-menu-title-content"
-                      >
-                        option6
-                      </span>
-                    </li>
+                      class="ant-tooltip-arrow"
+                      style="position: absolute; top: 0px; left: 0px;"
+                    />
                     <div
-                      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                      class="ant-tooltip-content"
                     >
                       <div
-                        class="ant-tooltip-arrow"
-                        style="position: absolute; top: 0px; left: 0px;"
+                        class="ant-tooltip-inner"
+                        role="tooltip"
                       />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        />
-                      </div>
                     </div>
-                    <li
-                      class="ant-menu-item ant-menu-item-only-child"
-                      data-menu-id="rc-menu-uuid-test-7"
-                      role="menuitem"
-                      style="padding-left: 48px;"
-                      tabindex="-1"
+                  </div>
+                  <li
+                    class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-6"
+                    role="menuitem"
+                    style="padding-left: 48px;"
+                    tabindex="-1"
+                  >
+                    <span
+                      class="ant-menu-title-content"
                     >
-                      <span
-                        class="ant-menu-title-content"
-                      >
-                        option7
-                      </span>
-                    </li>
+                      option6
+                    </span>
+                  </li>
+                  <div
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  >
                     <div
-                      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                    >
-                      <div
-                        class="ant-tooltip-arrow"
-                        style="position: absolute; top: 0px; left: 0px;"
-                      />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        />
-                      </div>
-                    </div>
-                    <li
-                      class="ant-menu-item ant-menu-item-only-child"
-                      data-menu-id="rc-menu-uuid-test-8"
-                      role="menuitem"
-                      style="padding-left: 48px;"
-                      tabindex="-1"
-                    >
-                      <span
-                        class="ant-menu-title-content"
-                      >
-                        option8
-                      </span>
-                    </li>
+                      class="ant-tooltip-arrow"
+                      style="position: absolute; top: 0px; left: 0px;"
+                    />
                     <div
-                      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                      class="ant-tooltip-content"
                     >
                       <div
-                        class="ant-tooltip-arrow"
-                        style="position: absolute; top: 0px; left: 0px;"
+                        class="ant-tooltip-inner"
+                        role="tooltip"
                       />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        />
-                      </div>
                     </div>
-                  </ul>
-                </div>
+                  </div>
+                  <li
+                    class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-7"
+                    role="menuitem"
+                    style="padding-left: 48px;"
+                    tabindex="-1"
+                  >
+                    <span
+                      class="ant-menu-title-content"
+                    >
+                      option7
+                    </span>
+                  </li>
+                  <div
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  >
+                    <div
+                      class="ant-tooltip-arrow"
+                      style="position: absolute; top: 0px; left: 0px;"
+                    />
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                  <li
+                    class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-8"
+                    role="menuitem"
+                    style="padding-left: 48px;"
+                    tabindex="-1"
+                  >
+                    <span
+                      class="ant-menu-title-content"
+                    >
+                      option8
+                    </span>
+                  </li>
+                  <div
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  >
+                    <div
+                      class="ant-tooltip-arrow"
+                      style="position: absolute; top: 0px; left: 0px;"
+                    />
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </ul>
               </div>
             </li>
             <li
@@ -4129,139 +4115,137 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                   class="ant-menu-submenu-arrow"
                 />
               </div>
-              <div>
-                <div
-                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
-                  style="opacity: 0;"
+              <div
+                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              >
+                <ul
+                  class="ant-menu ant-menu-sub ant-menu-inline"
+                  data-menu-list="true"
+                  id="rc-menu-uuid-test-sub3-popup"
+                  role="menu"
                 >
-                  <ul
-                    class="ant-menu ant-menu-sub ant-menu-inline"
-                    data-menu-list="true"
-                    id="rc-menu-uuid-test-sub3-popup"
-                    role="menu"
+                  <li
+                    class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-9"
+                    role="menuitem"
+                    style="padding-left: 48px;"
+                    tabindex="-1"
                   >
-                    <li
-                      class="ant-menu-item ant-menu-item-only-child"
-                      data-menu-id="rc-menu-uuid-test-9"
-                      role="menuitem"
-                      style="padding-left: 48px;"
-                      tabindex="-1"
+                    <span
+                      class="ant-menu-title-content"
                     >
-                      <span
-                        class="ant-menu-title-content"
-                      >
-                        option9
-                      </span>
-                    </li>
+                      option9
+                    </span>
+                  </li>
+                  <div
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  >
                     <div
-                      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                    >
-                      <div
-                        class="ant-tooltip-arrow"
-                        style="position: absolute; top: 0px; left: 0px;"
-                      />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        />
-                      </div>
-                    </div>
-                    <li
-                      class="ant-menu-item ant-menu-item-only-child"
-                      data-menu-id="rc-menu-uuid-test-10"
-                      role="menuitem"
-                      style="padding-left: 48px;"
-                      tabindex="-1"
-                    >
-                      <span
-                        class="ant-menu-title-content"
-                      >
-                        option10
-                      </span>
-                    </li>
+                      class="ant-tooltip-arrow"
+                      style="position: absolute; top: 0px; left: 0px;"
+                    />
                     <div
-                      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                      class="ant-tooltip-content"
                     >
                       <div
-                        class="ant-tooltip-arrow"
-                        style="position: absolute; top: 0px; left: 0px;"
+                        class="ant-tooltip-inner"
+                        role="tooltip"
                       />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        />
-                      </div>
                     </div>
-                    <li
-                      class="ant-menu-item ant-menu-item-only-child"
-                      data-menu-id="rc-menu-uuid-test-11"
-                      role="menuitem"
-                      style="padding-left: 48px;"
-                      tabindex="-1"
+                  </div>
+                  <li
+                    class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-10"
+                    role="menuitem"
+                    style="padding-left: 48px;"
+                    tabindex="-1"
+                  >
+                    <span
+                      class="ant-menu-title-content"
                     >
-                      <span
-                        class="ant-menu-title-content"
-                      >
-                        option11
-                      </span>
-                    </li>
+                      option10
+                    </span>
+                  </li>
+                  <div
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  >
                     <div
-                      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                    >
-                      <div
-                        class="ant-tooltip-arrow"
-                        style="position: absolute; top: 0px; left: 0px;"
-                      />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        />
-                      </div>
-                    </div>
-                    <li
-                      class="ant-menu-item ant-menu-item-only-child"
-                      data-menu-id="rc-menu-uuid-test-12"
-                      role="menuitem"
-                      style="padding-left: 48px;"
-                      tabindex="-1"
-                    >
-                      <span
-                        class="ant-menu-title-content"
-                      >
-                        option12
-                      </span>
-                    </li>
+                      class="ant-tooltip-arrow"
+                      style="position: absolute; top: 0px; left: 0px;"
+                    />
                     <div
-                      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                      class="ant-tooltip-content"
                     >
                       <div
-                        class="ant-tooltip-arrow"
-                        style="position: absolute; top: 0px; left: 0px;"
+                        class="ant-tooltip-inner"
+                        role="tooltip"
                       />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        />
-                      </div>
                     </div>
-                  </ul>
-                </div>
+                  </div>
+                  <li
+                    class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-11"
+                    role="menuitem"
+                    style="padding-left: 48px;"
+                    tabindex="-1"
+                  >
+                    <span
+                      class="ant-menu-title-content"
+                    >
+                      option11
+                    </span>
+                  </li>
+                  <div
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  >
+                    <div
+                      class="ant-tooltip-arrow"
+                      style="position: absolute; top: 0px; left: 0px;"
+                    />
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                  <li
+                    class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-12"
+                    role="menuitem"
+                    style="padding-left: 48px;"
+                    tabindex="-1"
+                  >
+                    <span
+                      class="ant-menu-title-content"
+                    >
+                      option12
+                    </span>
+                  </li>
+                  <div
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  >
+                    <div
+                      class="ant-tooltip-arrow"
+                      style="position: absolute; top: 0px; left: 0px;"
+                    />
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </ul>
               </div>
             </li>
           </ul>
@@ -4636,18 +4620,16 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
             class="ant-menu-submenu-arrow"
           />
         </div>
-        <div>
-          <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-            style="opacity: 0;"
-          >
-            <ul
-              class="ant-menu ant-menu-sub ant-menu-vertical"
-              data-menu-list="true"
-              id="rc-menu-uuid-test-rc-menu-more-popup"
-              role="menu"
-            />
-          </div>
+        <div
+          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-submenu-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        >
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-vertical"
+            data-menu-list="true"
+            id="rc-menu-uuid-test-rc-menu-more-popup"
+            role="menu"
+          />
         </div>
       </li>
     </ul>
@@ -4767,139 +4749,137 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                 class="ant-menu-submenu-arrow"
               />
             </div>
-            <div>
-              <div
-                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
-                style="opacity: 0;"
+            <div
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <ul
+                class="ant-menu ant-menu-sub ant-menu-inline"
+                data-menu-list="true"
+                id="rc-menu-uuid-test-sub1-popup"
+                role="menu"
               >
-                <ul
-                  class="ant-menu ant-menu-sub ant-menu-inline"
-                  data-menu-list="true"
-                  id="rc-menu-uuid-test-sub1-popup"
-                  role="menu"
+                <li
+                  class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-1"
+                  role="menuitem"
+                  style="padding-left: 48px;"
+                  tabindex="-1"
                 >
-                  <li
-                    class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-test-1"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
+                  <span
+                    class="ant-menu-title-content"
                   >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option1
-                    </span>
-                  </li>
+                    option1
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
-                  </div>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-test-2"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option2
-                    </span>
-                  </li>
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                    class="ant-tooltip-content"
                   >
                     <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
+                      class="ant-tooltip-inner"
+                      role="tooltip"
                     />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
                   </div>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-test-3"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
+                </div>
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-2"
+                  role="menuitem"
+                  style="padding-left: 48px;"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
                   >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option3
-                    </span>
-                  </li>
+                    option2
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
-                  </div>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-test-4"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option4
-                    </span>
-                  </li>
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                    class="ant-tooltip-content"
                   >
                     <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
+                      class="ant-tooltip-inner"
+                      role="tooltip"
                     />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
                   </div>
-                </ul>
-              </div>
+                </div>
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-3"
+                  role="menuitem"
+                  style="padding-left: 48px;"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option3
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-4"
+                  role="menuitem"
+                  style="padding-left: 48px;"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option4
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
+              </ul>
             </div>
             <ul
               class="ant-menu ant-menu-sub ant-menu-inline"
@@ -5071,139 +5051,137 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                 class="ant-menu-submenu-arrow"
               />
             </div>
-            <div>
-              <div
-                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
-                style="opacity: 0;"
+            <div
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <ul
+                class="ant-menu ant-menu-sub ant-menu-inline"
+                data-menu-list="true"
+                id="rc-menu-uuid-test-sub2-popup"
+                role="menu"
               >
-                <ul
-                  class="ant-menu ant-menu-sub ant-menu-inline"
-                  data-menu-list="true"
-                  id="rc-menu-uuid-test-sub2-popup"
-                  role="menu"
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-5"
+                  role="menuitem"
+                  style="padding-left: 48px;"
+                  tabindex="-1"
                 >
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-test-5"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
+                  <span
+                    class="ant-menu-title-content"
                   >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option5
-                    </span>
-                  </li>
+                    option5
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
-                  </div>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-test-6"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option6
-                    </span>
-                  </li>
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                    class="ant-tooltip-content"
                   >
                     <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
+                      class="ant-tooltip-inner"
+                      role="tooltip"
                     />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
                   </div>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-test-7"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
+                </div>
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-6"
+                  role="menuitem"
+                  style="padding-left: 48px;"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
                   >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option7
-                    </span>
-                  </li>
+                    option6
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
-                  </div>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-test-8"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option8
-                    </span>
-                  </li>
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                    class="ant-tooltip-content"
                   >
                     <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
+                      class="ant-tooltip-inner"
+                      role="tooltip"
                     />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
                   </div>
-                </ul>
-              </div>
+                </div>
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-7"
+                  role="menuitem"
+                  style="padding-left: 48px;"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option7
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-8"
+                  role="menuitem"
+                  style="padding-left: 48px;"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option8
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
+              </ul>
             </div>
           </li>
           <li
@@ -5248,139 +5226,137 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                 class="ant-menu-submenu-arrow"
               />
             </div>
-            <div>
-              <div
-                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
-                style="opacity: 0;"
+            <div
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <ul
+                class="ant-menu ant-menu-sub ant-menu-inline"
+                data-menu-list="true"
+                id="rc-menu-uuid-test-sub3-popup"
+                role="menu"
               >
-                <ul
-                  class="ant-menu ant-menu-sub ant-menu-inline"
-                  data-menu-list="true"
-                  id="rc-menu-uuid-test-sub3-popup"
-                  role="menu"
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-9"
+                  role="menuitem"
+                  style="padding-left: 48px;"
+                  tabindex="-1"
                 >
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-test-9"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
+                  <span
+                    class="ant-menu-title-content"
                   >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option9
-                    </span>
-                  </li>
+                    option9
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
-                  </div>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-test-10"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option10
-                    </span>
-                  </li>
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                    class="ant-tooltip-content"
                   >
                     <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
+                      class="ant-tooltip-inner"
+                      role="tooltip"
                     />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
                   </div>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-test-11"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
+                </div>
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-10"
+                  role="menuitem"
+                  style="padding-left: 48px;"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
                   >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option11
-                    </span>
-                  </li>
+                    option10
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
-                  </div>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-test-12"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option12
-                    </span>
-                  </li>
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                    class="ant-tooltip-content"
                   >
                     <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
+                      class="ant-tooltip-inner"
+                      role="tooltip"
                     />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
                   </div>
-                </ul>
-              </div>
+                </div>
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-11"
+                  role="menuitem"
+                  style="padding-left: 48px;"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option11
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-12"
+                  role="menuitem"
+                  style="padding-left: 48px;"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option12
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
+              </ul>
             </div>
           </li>
         </ul>
