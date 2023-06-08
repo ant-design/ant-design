@@ -548,7 +548,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
   );
 
   useEffect(() => {
-    // In Safari, if style tag be inserted into non-head tag among them,
+    // In Safari, if style tag be inserted into non-head tag,
     // it will affect the rendering ability of the browser,
     // resulting in some response delays like following issue:
     // https://github.com/ant-design/ant-design/issues/39995
