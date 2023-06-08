@@ -41,7 +41,6 @@ $ npm install antd --save
 ```jsx
 import React from 'react';
 import { Button } from 'antd';
-import 'antd/dist/reset.css';
 
 const Home = () => (
   <div className="App">

@@ -41,7 +41,6 @@ Modify `src/app/page.tsx`, import Button component from `antd`.
 ```jsx
 import React from 'react';
 import { Button } from 'antd';
-import 'antd/dist/reset.css';
 
 const Home = () => (
   <div className="App">
