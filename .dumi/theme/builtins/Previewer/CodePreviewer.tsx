@@ -563,7 +563,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
     styleTag.innerHTML = style;
     styleTag['data-demo-url'] = demoUrl;
     document.head.appendChild(styleTag);
-  }, [style]);
+  }, [style, demoUrl]);
 
   if (version) {
     return (
