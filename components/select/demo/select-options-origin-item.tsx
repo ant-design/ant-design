@@ -69,23 +69,18 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
   
   const notFoundContent = fetching ? <Spin size="small" /> : null;
   return (
-    <Card>,
-      <Row>
-        当前选中的值为: <div>{JSON.stringify(value)}</div>
-      </Row>
-      <Select
-        labelInValue
-        filterOption={false}
-        mode="multiple"
-        showSearch
-        showArrow
-        onSearch={onSearch}
-        value={valueWidthAllAttrs}
-        notFoundContent={notFoundContent}
-        options={options}
-        onChange={selectCallback}
-      />
-    </Card>
+    <Select
+      labelInValue
+      filterOption={false}
+      mode="multiple"
+      showSearch
+      showArrow
+      onSearch={onSearch}
+      value={valueWidthAllAttrs}
+      notFoundContent={notFoundContent}
+      options={options}
+      onChange={selectCallback}
+    />
   );
 }
 
