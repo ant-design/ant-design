@@ -67,10 +67,12 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
     label: `${v.label}(${v.customAttr})${v.value}`,
   }));
   
+  const notFoundContent = fetching ? <Spin size="small" /> : null;
+  
   return (
-    <div style={{ padding: 40, }}>
-      <div style={{ marginBottom: 24, }}>
-        当前选中的值为: {JSON.stringify(value)}
+    <div style={{ padding: 40 }}>
+      <div style={{ marginBottom: 24}}>
+        当前选中的值为: <div>{JSON.stringify(value)}</div>
       </div>
       <Select
         labelInValue
@@ -80,7 +82,7 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
         showArrow
         onSearch={onSearch}
         value={valueWidthAllAttrs}
-        notFoundContent={fetching ? <Spin size="small" /> : null}
+        notFoundContent={notFoundContent}
         options={options}
         onChange={selectCallback}
         style={{ width: 600 }}
@@ -94,7 +96,7 @@ const SelectOriginOptions = () => {
   return (
     <WrappedSelect initValues={initData} value={value} setValue={setValue} />
   );
-};
+}
 
 export default SelectOriginOptions;
 
