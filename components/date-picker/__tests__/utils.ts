@@ -1,5 +1,5 @@
-import { fireEvent } from '../../../tests/utils';
 import type { render } from '../../../tests/utils';
+import { fireEvent } from '../../../tests/utils';
 
 export function openPicker(wrapper: ReturnType<typeof render>, index = 0) {
   fireEvent.mouseDown(wrapper.container?.querySelectorAll('input')?.[index]!);

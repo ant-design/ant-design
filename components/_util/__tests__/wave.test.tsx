@@ -1,6 +1,6 @@
 import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
-import { render, fireEvent, getByText, waitFakeTimer, act } from '../../../tests/utils';
+import { act, fireEvent, getByText, render, waitFakeTimer } from '../../../tests/utils';
 import Wave from '../wave';
 
 (global as any).isVisible = true;

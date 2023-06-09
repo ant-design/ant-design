@@ -5,7 +5,7 @@ title: 在 TypeScript 中使用
 
 使用 `create-react-app` 一步步地创建一个 TypeScript 项目，并引入 antd。
 
-> `antd` 基于最新稳定版本的 TypeScript（`>=4.0.0`），请确保项目中使用匹配的版本。
+> `antd` 基于最新稳定版本的 TypeScript（`>=5.0.0`），请确保项目中使用匹配的版本。
 
 ---
 
@@ -43,10 +43,10 @@ $ yarn add antd
 修改 `src/App.tsx`，引入 antd 的按钮组件。
 
 ```tsx
-import React from 'react';
-import type { FC } from 'react';
 import { Button } from 'antd';
 import 'antd/dist/reset.css';
+import type { FC } from 'react';
+import React from 'react';
 import './App.css';
 
 const App: FC = () => (
@@ -104,8 +104,8 @@ module.exports = {
 参考 [配置主题](/docs/react/customize-theme)，通过 ConfigProvider 进行主题配置：
 
 ```tsx
-import React from 'react';
 import { ConfigProvider } from 'antd';
+import React from 'react';
 
 export default () => (
   <ConfigProvider

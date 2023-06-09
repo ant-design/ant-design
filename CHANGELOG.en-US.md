@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 5.6.1
+
+`2023-06-07`
+
+- ColorPicker
+  - 🐞 Fix ColorPicker preset cannot be selected. [#42882](https://github.com/ant-design/ant-design/pull/42882) [@RedJue](https://github.com/RedJue)
+  - 🐞 Fix ColorPicker that should not trigger `onChange` when click clear after clearing. [#42643](https://github.com/ant-design/ant-design/pull/42643) [@linxianxi](https://github.com/linxianxi)
+- 🐞 Fix Collapse that displayed unexpected deprecated warning. [#42876](https://github.com/ant-design/ant-design/pull/42876) [@kiner-tang](https://github.com/kiner-tang)
+- TypeScript
+  - 🤖 Fix Collapse's `items` type should be optional. [#42877](https://github.com/ant-design/ant-design/pull/42877) [@Dunqing](https://github.com/Dunqing)
+
 ## 5.6.0
 
 `2023-06-06`

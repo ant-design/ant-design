@@ -196,6 +196,9 @@ describe('ColorPicker', () => {
     expect(
       container.querySelector('.ant-color-picker-hex-input input')?.getAttribute('value'),
     ).toEqual('000000');
+    expect(container.querySelectorAll('.ant-color-picker-presets-color')[0]).toHaveClass(
+      'ant-color-picker-presets-color-checked',
+    );
 
     fireEvent.click(presetsColors[9]);
     expect(
@@ -207,6 +210,9 @@ describe('ColorPicker', () => {
     expect(
       container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
     ).toEqual('2%');
+    expect(container.querySelectorAll('.ant-color-picker-presets-color')[9]).toHaveClass(
+      'ant-color-picker-presets-color-checked',
+    );
 
     expect(handleColorChange).toHaveBeenCalledTimes(2);
   });
@@ -275,6 +281,16 @@ describe('ColorPicker', () => {
     expect(
       container.querySelector('.ant-color-picker-color-block-inner')?.getAttribute('style'),
     ).toEqual('background: rgb(99, 22, 22);');
+  });
+
+  it('Should not trigger onChange when click clear after clearing', async () => {
+    const onChange = jest.fn();
+    const { container } = render(<ColorPicker allowClear onChange={onChange} />);
+    fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
+    fireEvent.click(container.querySelector('.ant-color-picker-clear')!);
+    expect(onChange).toHaveBeenCalledTimes(1);
+    fireEvent.click(container.querySelector('.ant-popover .ant-color-picker-clear')!);
+    expect(onChange).toHaveBeenCalledTimes(1);
   });
 
   it('Should fix hover boundary issues', async () => {
