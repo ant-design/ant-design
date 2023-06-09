@@ -56,7 +56,7 @@ describe('TreeSelect', () => {
   it('legacy dropdownClassName', () => {
     resetWarned();
 
-    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(<TreeSelect dropdownClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: TreeSelect] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
@@ -69,7 +69,7 @@ describe('TreeSelect', () => {
   it('warning for legacy dropdownMatchSelectWidth', () => {
     resetWarned();
 
-    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<TreeSelect dropdownMatchSelectWidth open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: Select] `dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',

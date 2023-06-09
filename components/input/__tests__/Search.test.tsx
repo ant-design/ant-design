@@ -39,7 +39,7 @@ describe('Input.Search', () => {
   });
 
   it('should disable search icon when disabled prop is true', () => {
-    const onSearch = vi.fn();
+    const onSearch = jest.fn();
     const { container } = render(
       <Search defaultValue="search text" onSearch={onSearch} disabled />,
     );
@@ -48,7 +48,7 @@ describe('Input.Search', () => {
   });
 
   it('should trigger onSearch when click search icon', () => {
-    const onSearch = vi.fn();
+    const onSearch = jest.fn();
     const { container } = render(<Search defaultValue="search text" onSearch={onSearch} />);
     fireEvent.click(container.querySelector('button')!);
     expect(onSearch).toHaveBeenCalledTimes(1);
@@ -56,7 +56,7 @@ describe('Input.Search', () => {
   });
 
   it('should trigger onSearch when click search button', () => {
-    const onSearch = vi.fn();
+    const onSearch = jest.fn();
     const { container } = render(
       <Search defaultValue="search text" enterButton onSearch={onSearch} />,
     );
@@ -66,7 +66,7 @@ describe('Input.Search', () => {
   });
 
   it('should trigger onSearch when click search button with text', () => {
-    const onSearch = vi.fn();
+    const onSearch = jest.fn();
     const { container } = render(
       <Search defaultValue="search text" enterButton="button text" onSearch={onSearch} />,
     );
@@ -76,7 +76,7 @@ describe('Input.Search', () => {
   });
 
   it('should trigger onSearch when click search button with customize button', () => {
-    const onSearch = vi.fn();
+    const onSearch = jest.fn();
     const { container } = render(
       <Search
         defaultValue="search text"
@@ -90,8 +90,8 @@ describe('Input.Search', () => {
   });
 
   it('should trigger onSearch when click search button of native', () => {
-    const onSearch = vi.fn();
-    const onButtonClick = vi.fn();
+    const onSearch = jest.fn();
+    const onButtonClick = jest.fn();
     const { container } = render(
       <Search
         defaultValue="search text"
@@ -110,7 +110,7 @@ describe('Input.Search', () => {
   });
 
   it('should trigger onSearch when press enter', () => {
-    const onSearch = vi.fn();
+    const onSearch = jest.fn();
     const { container } = render(<Search defaultValue="search text" onSearch={onSearch} />);
     fireEvent.keyDown(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
     expect(onSearch).toHaveBeenCalledTimes(1);
@@ -119,7 +119,7 @@ describe('Input.Search', () => {
 
   // https://github.com/ant-design/ant-design/issues/34844
   it('should not trigger onSearch when press enter using chinese inputting method', () => {
-    const onSearch = vi.fn();
+    const onSearch = jest.fn();
     const { container } = render(<Search defaultValue="search text" onSearch={onSearch} />);
     fireEvent.compositionStart(container.querySelector('input')!);
     fireEvent.keyDown(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
@@ -144,8 +144,8 @@ describe('Input.Search', () => {
 
   // https://github.com/ant-design/ant-design/issues/18729
   it('should trigger onSearch when click clear icon', () => {
-    const onSearch = vi.fn();
-    const onChange = vi.fn();
+    const onSearch = jest.fn();
+    const onChange = jest.fn();
     const { container } = render(
       <Search allowClear defaultValue="value" onSearch={onSearch} onChange={onChange} />,
     );
@@ -162,7 +162,7 @@ describe('Input.Search', () => {
   });
 
   it('should not trigger onSearch when press enter while loading', () => {
-    const onSearch = vi.fn();
+    const onSearch = jest.fn();
     const { container } = render(<Search loading onSearch={onSearch} />);
     fireEvent.keyDown(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
     expect(onSearch).not.toHaveBeenCalled();
@@ -199,7 +199,7 @@ describe('Input.Search', () => {
   });
 
   it('not crash when use function ref', () => {
-    const ref = vi.fn();
+    const ref = jest.fn();
     const { container } = render(<Search ref={ref} enterButton />);
     expect(() => {
       fireEvent.mouseDown(container.querySelector('button')!);

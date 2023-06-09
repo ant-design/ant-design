@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Segmented > render empty segmented 1`] = `
+exports[`Segmented render empty segmented 1`] = `
 <div
   class="ant-segmented"
 >
@@ -10,7 +10,7 @@ exports[`Segmented > render empty segmented 1`] = `
 </div>
 `;
 
-exports[`Segmented > render label with ReactNode 1`] = `
+exports[`Segmented render label with ReactNode 1`] = `
 <div
   class="ant-segmented"
 >
@@ -68,7 +68,7 @@ exports[`Segmented > render label with ReactNode 1`] = `
 </div>
 `;
 
-exports[`Segmented > render segmented ok 1`] = `
+exports[`Segmented render segmented ok 1`] = `
 <div
   class="ant-segmented"
 >
@@ -122,7 +122,7 @@ exports[`Segmented > render segmented ok 1`] = `
 </div>
 `;
 
-exports[`Segmented > render segmented with \`block\` 1`] = `
+exports[`Segmented render segmented with \`block\` 1`] = `
 <div
   class="ant-segmented ant-segmented-block"
 >
@@ -176,7 +176,7 @@ exports[`Segmented > render segmented with \`block\` 1`] = `
 </div>
 `;
 
-exports[`Segmented > render segmented with \`size#large\` 1`] = `
+exports[`Segmented render segmented with \`size#large\` 1`] = `
 <div
   class="ant-segmented ant-segmented-lg"
 >
@@ -230,7 +230,7 @@ exports[`Segmented > render segmented with \`size#large\` 1`] = `
 </div>
 `;
 
-exports[`Segmented > render segmented with \`size#small\` 1`] = `
+exports[`Segmented render segmented with \`size#small\` 1`] = `
 <div
   class="ant-segmented ant-segmented-sm"
 >
@@ -284,7 +284,7 @@ exports[`Segmented > render segmented with \`size#small\` 1`] = `
 </div>
 `;
 
-exports[`Segmented > render segmented with mixed options 1`] = `
+exports[`Segmented render segmented with mixed options 1`] = `
 <div
   class="ant-segmented"
 >
@@ -338,7 +338,7 @@ exports[`Segmented > render segmented with mixed options 1`] = `
 </div>
 `;
 
-exports[`Segmented > render segmented with numeric options 1`] = `
+exports[`Segmented render segmented with numeric options 1`] = `
 <div
   class="ant-segmented"
 >
@@ -420,7 +420,7 @@ exports[`Segmented > render segmented with numeric options 1`] = `
 </div>
 `;
 
-exports[`Segmented > render segmented with options null/undefined 1`] = `
+exports[`Segmented render segmented with options null/undefined 1`] = `
 <div
   class="ant-segmented ant-segmented-disabled"
 >
@@ -469,7 +469,7 @@ exports[`Segmented > render segmented with options null/undefined 1`] = `
 </div>
 `;
 
-exports[`Segmented > render segmented with options: disabled 1`] = `
+exports[`Segmented render segmented with options: disabled 1`] = `
 <div
   class="ant-segmented"
 >
@@ -524,7 +524,7 @@ exports[`Segmented > render segmented with options: disabled 1`] = `
 </div>
 `;
 
-exports[`Segmented > render segmented with string options 1`] = `
+exports[`Segmented render segmented with string options 1`] = `
 <div
   class="ant-segmented"
 >
@@ -578,7 +578,7 @@ exports[`Segmented > render segmented with string options 1`] = `
 </div>
 `;
 
-exports[`Segmented > render segmented with thumb 1`] = `
+exports[`Segmented render segmented with thumb 1`] = `
 <div
   class="ant-segmented"
 >
@@ -632,7 +632,7 @@ exports[`Segmented > render segmented with thumb 1`] = `
 </div>
 `;
 
-exports[`Segmented > render segmented: disabled 1`] = `
+exports[`Segmented render segmented: disabled 1`] = `
 <div
   class="ant-segmented ant-segmented-disabled"
 >
@@ -689,7 +689,7 @@ exports[`Segmented > render segmented: disabled 1`] = `
 </div>
 `;
 
-exports[`Segmented > render with icons 1`] = `
+exports[`Segmented render with icons 1`] = `
 <div
   class="ant-segmented"
 >
@@ -774,7 +774,7 @@ exports[`Segmented > render with icons 1`] = `
 </div>
 `;
 
-exports[`Segmented > rtl render > component should be rendered correctly in RTL direction 1`] = `
+exports[`Segmented rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-segmented ant-segmented-rtl"
 >

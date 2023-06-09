@@ -9,7 +9,7 @@ import ConfigProvider from '../../config-provider';
 describe('Descriptions', () => {
   mountTest(Descriptions);
 
-  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     MockDate.reset();
@@ -163,7 +163,7 @@ describe('Descriptions', () => {
         <Descriptions.Item key="bamboo">1</Descriptions.Item>
       </Descriptions>,
     );
-    expect(vi.spyOn(document, 'createElement')).not.toHaveBeenCalled();
+    expect(jest.spyOn(document, 'createElement')).not.toHaveBeenCalled();
   });
 
   // https://github.com/ant-design/ant-design/issues/19887

@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RangePicker > customize separator 1`] = `
+exports[`RangePicker customize separator 1`] = `
 <div
   class="ant-picker ant-picker-range"
 >
@@ -61,7 +61,7 @@ exports[`RangePicker > customize separator 1`] = `
 </div>
 `;
 
-exports[`RangePicker > ranges > RangePicker support preset ranges with Tags 1`] = `
+exports[`RangePicker ranges RangePicker support preset ranges with Tags 1`] = `
 Array [
   <div
     class="ant-picker ant-picker-range"

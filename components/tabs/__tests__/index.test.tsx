@@ -1,5 +1,4 @@
 import React from 'react';
-import type { Mock } from 'vitest';
 import Tabs from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -21,11 +20,11 @@ describe('Tabs', () => {
   ));
 
   describe('editable-card', () => {
-    let handleEdit: Mock;
+    let handleEdit: jest.Mock;
     let wrapper: ReturnType<typeof render>['container'];
 
     beforeEach(() => {
-      handleEdit = vi.fn();
+      handleEdit = jest.fn();
       const { container } = render(
         <Tabs type="editable-card" onEdit={handleEdit}>
           <TabPane tab="foo" key="1">
@@ -81,7 +80,7 @@ describe('Tabs', () => {
   });
 
   it('warning for onNextClick', () => {
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const onNextClick = { onNextClick() {} } as any;
     render(<Tabs {...onNextClick} />);
     expect(errorSpy).toHaveBeenCalledWith(
@@ -111,7 +110,7 @@ describe('Tabs', () => {
 
   it('deprecated warning', () => {
     resetWarned();
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(
       <Tabs>

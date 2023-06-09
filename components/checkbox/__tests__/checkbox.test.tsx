@@ -12,8 +12,8 @@ describe('Checkbox', () => {
   rtlTest(Checkbox);
 
   it('responses hover events', () => {
-    const onMouseEnter = vi.fn();
-    const onMouseLeave = vi.fn();
+    const onMouseEnter = jest.fn();
+    const onMouseLeave = jest.fn();
 
     const { container } = render(
       <Checkbox onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
@@ -29,7 +29,7 @@ describe('Checkbox', () => {
   it('warning if set `value`', () => {
     resetWarned();
 
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Checkbox value />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Checkbox] `value` is not a valid prop, do you mean `checked`?',

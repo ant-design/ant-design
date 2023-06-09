@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ConfigProvider.Popup > disable virtual if dropdownMatchSelectWidth is false 1`] = `
+exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is false 1`] = `
 <div>
   <div
     class="ant-select ant-select-single ant-select-show-arrow ant-select-open"
@@ -177,7 +177,7 @@ exports[`ConfigProvider.Popup > disable virtual if dropdownMatchSelectWidth is f
 </div>
 `;
 
-exports[`ConfigProvider.Popup > disable virtual if is false 1`] = `
+exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
 <div>
   <div
     class="ant-select ant-select-single ant-select-show-arrow ant-select-open"
@@ -354,7 +354,7 @@ exports[`ConfigProvider.Popup > disable virtual if is false 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider.Popup > disable virtual if popupMatchSelectWidth is false 1`] = `
+exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 1`] = `
 <div>
   <div
     class="ant-select ant-select-single ant-select-show-arrow ant-select-open"

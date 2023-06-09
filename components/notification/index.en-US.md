@@ -69,7 +69,7 @@ The properties of config are as follows:
 | --- | --- | --- | --- | --- |
 | bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels) | number | 24 |  |
 | closeIcon | Custom close icon | ReactNode | - |  |
-| getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |  |
+| getContainer | Return the mount node for Notification, but still display at fullScreen | () => HTMLNode | () => document.body |  |
 | placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |  |
 | rtl | Whether to enable RTL mode | boolean | false |  |
 | top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels) | number | 24 |  |
@@ -101,7 +101,7 @@ notification.config({
 | bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels) | number | 24 |  |
 | closeIcon | Custom close icon | ReactNode | - |  |
 | duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 |  |
-| getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |  |
+| getContainer | Return the mount node for Notification, but still display at fullScreen | () => HTMLNode | () => document.body |  |
 | placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |  |
 | rtl | Whether to enable RTL mode | boolean | false |  |
 | top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels) | number | 24 |  |

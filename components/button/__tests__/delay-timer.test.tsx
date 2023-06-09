@@ -30,16 +30,16 @@ const Content = () => {
 
 it('Delay loading timer in Button component', () => {
   const otherTimer = 9528;
-  vi.spyOn<Window, 'setTimeout'>(window, 'setTimeout').mockReturnValue(otherTimer);
-  vi.restoreAllMocks();
+  jest.spyOn<Window, 'setTimeout'>(window, 'setTimeout').mockReturnValue(otherTimer);
+  jest.restoreAllMocks();
 
   const wrapper = render(<Content />);
 
   const btnTimer = 9527;
-  const setTimeoutMock = vi
+  const setTimeoutMock = jest
     .spyOn<Window, 'setTimeout'>(window, 'setTimeout')
     .mockReturnValue(btnTimer);
-  const clearTimeoutMock = vi.spyOn<Window, 'clearTimeout'>(window, 'clearTimeout');
+  const clearTimeoutMock = jest.spyOn<Window, 'clearTimeout'>(window, 'clearTimeout');
 
   // other component may call setTimeout or clearTimeout
   const setTimeoutCount = () => {
@@ -89,7 +89,7 @@ it('Delay loading timer in Button component', () => {
   expect(setTimeoutCount()).toBe(3);
   expect(clearTimeoutCount()).toBe(2);
 
-  vi.restoreAllMocks();
+  jest.restoreAllMocks();
 });
 it('Delay loading while use loading delay at first time', () => {
   const Demo = () => <Button loading={{ delay: specialDelay }} />;

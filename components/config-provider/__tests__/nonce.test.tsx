@@ -8,6 +8,7 @@ import Button from '../../button';
 
 describe('ConfigProvider.Icon', () => {
   beforeEach(() => {
+    // eslint-disable-next-line jest/no-standalone-expect
     expect(document.querySelectorAll('style')).toHaveLength(0);
   });
 

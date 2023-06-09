@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 5.6.1
+
+`2023-06-07`
+
+- ColorPicker
+  - 🐞 修复 ColorPicker 预设颜色没法选中的问题。[#42882](https://github.com/ant-design/ant-design/pull/42882) [@RedJue](https://github.com/RedJue)
+  - 🐞 修复 ColorPicker 组件清除后再点击清除仍然触发 `onChange` 的问题。[#42643](https://github.com/ant-design/ant-design/pull/42643) [@linxianxi](https://github.com/linxianxi)
+- 🐞 修复 Collapse 组件废弃警告异常显示问题。[#42876](https://github.com/ant-design/ant-design/pull/42876) [@kiner-tang](https://github.com/kiner-tang)
+- TypeScript
+  - 🤖 修复 Collapse 组件 `items` 类型应该为可选。[#42877](https://github.com/ant-design/ant-design/pull/42877) [@Dunqing](https://github.com/Dunqing)
+
 ## 5.6.0
 
 `2023-06-06`

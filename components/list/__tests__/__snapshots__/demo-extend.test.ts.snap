@@ -1,4 +1,4 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
 <div
@@ -3403,6 +3403,37 @@ exports[`renders components/list/demo/vertical.tsx extend context correctly 1`] 
         </button>
       </li>
     </ul>
+  </div>
+</div>
+`;
+
+exports[`renders components/list/demo/virtual-list.tsx extend context correctly 1`] = `
+<div
+  class="ant-list ant-list-split"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="rc-virtual-list"
+        style="position: relative;"
+      >
+        <div
+          class="rc-virtual-list-holder"
+          style="height: 400px; overflow-y: auto;"
+        >
+          <div>
+            <div
+              class="rc-virtual-list-holder-inner"
+              style="display: flex; flex-direction: column;"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;

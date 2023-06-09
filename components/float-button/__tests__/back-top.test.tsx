@@ -7,17 +7,17 @@ import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 const { BackTop } = FloatButton;
 describe('BackTop', () => {
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
   afterEach(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
   mountTest(BackTop);
   rtlTest(BackTop);
 
   it('should scroll to top after click it', async () => {
     const { container } = render(<BackTop />);
-    const scrollToSpy = vi.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
+    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
       window.scrollY = y;
       window.pageYOffset = y;
       document.documentElement.scrollTop = y;
@@ -32,14 +32,14 @@ describe('BackTop', () => {
   });
 
   it('support onClick', () => {
-    const onClick = vi.fn();
+    const onClick = jest.fn();
     const { container } = render(<BackTop onClick={onClick} visibilityHeight={0} />);
     fireEvent.click(container.querySelector<HTMLButtonElement>('.ant-float-btn')!);
     expect(onClick).toHaveBeenCalled();
   });
 
   it('support invalid target', () => {
-    const onClick = vi.fn();
+    const onClick = jest.fn();
     const { container } = render(
       <BackTop onClick={onClick} visibilityHeight={0} target={undefined} />,
     );

@@ -8,11 +8,11 @@ import { triggerMotionEnd } from './util';
 
 describe('message.hooks', () => {
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterEach(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('should work', () => {
@@ -108,6 +108,8 @@ describe('message.hooks', () => {
 
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('button')!);
+
+    triggerMotionEnd();
   });
 
   it('should work with close promise', (done) => {
@@ -132,6 +134,8 @@ describe('message.hooks', () => {
 
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('button')!);
+
+    triggerMotionEnd();
   });
 
   it('should work with hide', async () => {
@@ -226,7 +230,7 @@ describe('message.hooks', () => {
   });
 
   it('warning if user call update in render', () => {
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const Demo = () => {
       const [api, holder] = message.useMessage();

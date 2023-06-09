@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`List > renders empty list 1`] = `
+exports[`List renders empty list 1`] = `
 <div
   class="ant-list ant-list-split"
 >

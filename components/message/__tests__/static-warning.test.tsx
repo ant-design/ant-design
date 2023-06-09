@@ -10,7 +10,7 @@ describe('message static warning', () => {
   });
 
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -18,14 +18,14 @@ describe('message static warning', () => {
     message.destroy();
     await triggerMotionEnd();
 
-    vi.useRealTimers();
+    jest.useRealTimers();
 
     await awaitPromise();
   });
 
   // Follow test need keep order
   it('no warning', async () => {
-    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     message.success({
       content: <div className="bamboo" />,
@@ -39,7 +39,7 @@ describe('message static warning', () => {
   });
 
   it('warning if use theme', async () => {
-    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<ConfigProvider theme={{}} />);
 
     message.success({

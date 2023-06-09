@@ -5,7 +5,6 @@ import { _rs as onEsResize } from 'rc-resize-observer/es/utils/observerUtil';
 import { _rs as onLibResize } from 'rc-resize-observer/lib/utils/observerUtil';
 import type { ReactElement } from 'react';
 import React, { StrictMode } from 'react';
-import { vi } from 'vitest';
 
 export function assertsExist<T>(item?: T): asserts item is T {
   expect(item).not.toBeUndefined();
@@ -54,8 +53,7 @@ export function renderHook<T>(func: () => T): { result: React.RefObject<T> } {
  */
 const pureRender = render;
 
-export * from '@testing-library/react';
-export { customRender as render, pureRender };
+export { pureRender, customRender as render };
 
 export const triggerResize = (target: Element) => {
   const originGetBoundingClientRect = target.getBoundingClientRect;
@@ -83,10 +81,12 @@ export async function waitFakeTimer(advanceTime = 1000, times = 20) {
       await Promise.resolve();
 
       if (advanceTime > 0) {
-        vi.advanceTimersByTime(advanceTime);
+        jest.advanceTimersByTime(advanceTime);
       } else {
-        vi.runAllTimers();
+        jest.runAllTimers();
       }
     });
   }
 }
+
+export * from '@testing-library/react';

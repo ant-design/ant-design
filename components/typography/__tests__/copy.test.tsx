@@ -1,12 +1,12 @@
 import { LikeOutlined, SmileOutlined } from '@ant-design/icons';
 import * as copyObj from 'copy-to-clipboard';
 import React from 'react';
-import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFor } from '../../../tests/utils';
 
 import Base from '../Base';
 
 describe('Typography copy', () => {
-  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     errorSpy.mockReset();
@@ -32,7 +32,7 @@ describe('Typography copy', () => {
         tooltipLength?: number;
       }) {
         it(name, async () => {
-          vi.useFakeTimers();
+          jest.useFakeTimers();
           const { container: wrapper, unmount } = render(
             <Base component="p" copyable={{ icon, tooltips }}>
               test copy
@@ -48,18 +48,24 @@ describe('Typography copy', () => {
           }
 
           fireEvent.mouseEnter(wrapper.querySelectorAll('.ant-typography-copy')[0]);
-          await waitFakeTimer();
+          jest.runAllTimers();
 
           if (tooltipTexts[0] !== undefined) {
-            expect(wrapper.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltipTexts[0]);
+            await waitFor(() => {
+              expect(wrapper.querySelector('.ant-tooltip-inner')?.textContent).toBe(
+                tooltipTexts[0],
+              );
+            });
           }
 
           if (tooltipLength !== undefined) {
-            expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(tooltipLength);
+            await waitFor(() => {
+              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(tooltipLength);
+            });
           }
 
           fireEvent.click(wrapper.querySelectorAll('.ant-typography-copy')[0]);
-          vi.useRealTimers();
+          jest.useRealTimers();
           if (iconClassNames[1] !== undefined) {
             expect(wrapper.querySelector(iconClassNames[1])).not.toBeNull();
           }
@@ -69,7 +75,9 @@ describe('Typography copy', () => {
 
           if (tooltipTexts[1] !== undefined) {
             const expectedInner = tooltipTexts[1] === '' ? tooltipTexts[0] : tooltipTexts[1];
-            expect(wrapper.querySelector('.ant-tooltip-inner')?.textContent).toBe(expectedInner);
+            await waitFor(() => {
+              expect(wrapper.querySelector('.ant-tooltip-inner')?.textContent).toBe(expectedInner);
+            });
           }
 
           if (iconTexts[1] !== undefined) {
@@ -78,14 +86,14 @@ describe('Typography copy', () => {
             );
           }
 
-          vi.useFakeTimers();
+          jest.useFakeTimers();
           fireEvent.click(wrapper.querySelectorAll('.ant-typography-copy')[0]);
           act(() => {
-            vi.runAllTimers();
+            jest.runAllTimers();
           });
 
           unmount();
-          vi.useRealTimers();
+          jest.useRealTimers();
         });
       }
 
@@ -201,7 +209,7 @@ describe('Typography copy', () => {
     });
 
     it('copy click event stopPropagation', () => {
-      const onDivClick = vi.fn();
+      const onDivClick = jest.fn();
       const { container: wrapper } = render(
         <div onClick={onDivClick}>
           <Base component="p" copyable>
@@ -227,8 +235,8 @@ describe('Typography copy', () => {
     });
 
     it('copy to clipboard', () => {
-      vi.useFakeTimers();
-      const spy = vi.spyOn(copyObj, 'default');
+      jest.useFakeTimers();
+      const spy = jest.spyOn(copyObj, 'default');
       const originText = 'origin text.';
       const nextText = 'next text.';
       const Test = () => {
@@ -249,12 +257,12 @@ describe('Typography copy', () => {
       fireEvent.click(copyBtn);
       expect(spy.mock.calls[0][0]).toEqual(originText);
       act(() => {
-        vi.runAllTimers();
+        jest.runAllTimers();
       });
       spy.mockReset();
       fireEvent.click(copyBtn);
       expect(spy.mock.calls[0][0]).toEqual(nextText);
-      vi.useRealTimers();
+      jest.useRealTimers();
     });
   });
 });

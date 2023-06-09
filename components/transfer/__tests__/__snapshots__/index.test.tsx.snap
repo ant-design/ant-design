@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Transfer > rtl render > component should be rendered correctly in RTL direction 1`] = `
+exports[`Transfer rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-transfer ant-transfer-rtl"
 >
@@ -279,7 +279,7 @@ exports[`Transfer > rtl render > component should be rendered correctly in RTL d
 </div>
 `;
 
-exports[`Transfer > should render correctly 1`] = `
+exports[`Transfer should render correctly 1`] = `
 <div
   class="ant-transfer"
 >
@@ -534,7 +534,7 @@ exports[`Transfer > should render correctly 1`] = `
 </div>
 `;
 
-exports[`Transfer > should show sorted targetKey 1`] = `
+exports[`Transfer should show sorted targetKey 1`] = `
 <div
   class="ant-transfer"
 >
@@ -796,7 +796,7 @@ exports[`Transfer > should show sorted targetKey 1`] = `
 </div>
 `;
 
-exports[`Transfer > should support render value and label in item 1`] = `
+exports[`Transfer should support render value and label in item 1`] = `
 <div
   class="ant-transfer"
 >
@@ -1054,7 +1054,7 @@ exports[`Transfer > should support render value and label in item 1`] = `
 </div>
 `;
 
-exports[`immutable data > dataSource is frozen 1`] = `
+exports[`immutable data dataSource is frozen 1`] = `
 <div
   class="ant-transfer"
 >

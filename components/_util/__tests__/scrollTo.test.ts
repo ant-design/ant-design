@@ -2,10 +2,10 @@ import { waitFakeTimer } from '../../../tests/utils';
 import scrollTo from '../scrollTo';
 
 describe('Test ScrollTo function', () => {
-  const dateNowMock = vi.spyOn(Date, 'now');
+  const dateNowMock = jest.spyOn(Date, 'now');
 
   beforeAll(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   beforeEach(() => {
@@ -13,16 +13,16 @@ describe('Test ScrollTo function', () => {
   });
 
   afterAll(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   afterEach(() => {
-    vi.clearAllTimers();
+    jest.clearAllTimers();
     dateNowMock.mockClear();
   });
 
   it('test scrollTo', async () => {
-    const scrollToSpy = vi.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
+    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
       window.scrollY = y;
       window.pageYOffset = y;
     });
@@ -36,7 +36,7 @@ describe('Test ScrollTo function', () => {
   });
 
   it('test callback - option', async () => {
-    const cbMock = vi.fn();
+    const cbMock = jest.fn();
     scrollTo(1000, {
       callback: cbMock,
     });

@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InputNumber > renders correctly when controls has custom upIcon and downIcon 1`] = `
+exports[`InputNumber renders correctly when controls has custom upIcon and downIcon 1`] = `
 <div
   class="ant-input-number"
 >
@@ -84,7 +84,7 @@ exports[`InputNumber > renders correctly when controls has custom upIcon and dow
 </div>
 `;
 
-exports[`InputNumber > renders correctly when controls is {} 1`] = `
+exports[`InputNumber renders correctly when controls is {} 1`] = `
 <div
   class="ant-input-number"
 >
@@ -160,7 +160,7 @@ exports[`InputNumber > renders correctly when controls is {} 1`] = `
 </div>
 `;
 
-exports[`InputNumber > renders correctly when controls is boolean 1`] = `
+exports[`InputNumber renders correctly when controls is boolean 1`] = `
 <div
   class="ant-input-number"
 >
@@ -178,7 +178,7 @@ exports[`InputNumber > renders correctly when controls is boolean 1`] = `
 </div>
 `;
 
-exports[`InputNumber > rtl render > component should be rendered correctly in RTL direction 1`] = `
+exports[`InputNumber rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-input-number ant-input-number-rtl"
 >

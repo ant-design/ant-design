@@ -8,7 +8,7 @@ describe('Watermark', () => {
   mountTest(Watermark);
   rtlTest(Watermark);
 
-  const mockSrcSet = vi.spyOn(Image.prototype, 'src', 'set');
+  const mockSrcSet = jest.spyOn(Image.prototype, 'src', 'set');
 
   beforeAll(() => {
     mockSrcSet.mockImplementation(function fn() {
@@ -76,24 +76,22 @@ describe('Watermark', () => {
   });
 
   it('MutationObserver should work properly', async () => {
-    vi.useFakeTimers();
     const { container } = render(<Watermark className="watermark" content="MutationObserver" />);
-    const getTarget = () => container.querySelector<HTMLDivElement>('.watermark div');
+    const target = container.querySelector<HTMLDivElement>('.watermark div');
     await waitFakeTimer();
-    getTarget()?.remove();
-    await waitFor(() => expect(getTarget()).toBeTruthy());
+    target?.remove();
+    await waitFor(() => expect(target).toBeTruthy());
     expect(container).toMatchSnapshot();
   });
 
   it('Observe the modification of style', async () => {
-    vi.useFakeTimers();
     const { container } = render(
       <Watermark offset={[-200, -200]} className="watermark" content="MutationObserver" />,
     );
-    const getTarget = () => container.querySelector<HTMLDivElement>('.watermark div');
+    const target = container.querySelector<HTMLDivElement>('.watermark div');
     await waitFakeTimer();
-    getTarget()?.setAttribute('style', '');
-    await waitFor(() => expect(getTarget()).toBeTruthy());
+    target?.setAttribute('style', '');
+    await waitFor(() => expect(target).toBeTruthy());
     expect(container).toMatchSnapshot();
   });
 });

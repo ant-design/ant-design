@@ -8,18 +8,16 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 
-const isVisible = vi.hoisted(() => true);
+(global as any).isVisible = true;
 
-vi.mock('rc-util/es/Dom/isVisible', () => {
-  const mockFn = () => isVisible;
-  return {
-    default: mockFn,
-  };
+jest.mock('rc-util/lib/Dom/isVisible', () => {
+  const mockFn = () => (global as any).isVisible;
+  return mockFn;
 });
 
 function waitRaf() {
   act(() => {
-    vi.advanceTimersByTime(100);
+    jest.advanceTimersByTime(100);
   });
 }
 
@@ -30,22 +28,22 @@ describe('Tag', () => {
   rtlTest(Tag.CheckableTag);
 
   beforeAll(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterAll(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('should be closable', () => {
-    const onClose = vi.fn();
+    const onClose = jest.fn();
     const { container } = render(<Tag closable onClose={onClose} />);
     expect(container.querySelectorAll('.anticon-close').length).toBe(1);
     expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
     fireEvent.click(container.querySelectorAll('.anticon-close')[0]);
     expect(onClose).toHaveBeenCalled();
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
     expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(0);
   });
@@ -59,13 +57,13 @@ describe('Tag', () => {
     expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
     fireEvent.click(container.querySelectorAll('.anticon-close')[0]);
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
     expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
   });
 
   it('should trigger onClick', () => {
-    const onClick = vi.fn();
+    const onClick = jest.fn();
     const { container } = render(<Tag onClick={onClick} />);
     const target = container.querySelectorAll('.ant-tag')[0];
     Simulate.click(target);
@@ -83,7 +81,7 @@ describe('Tag', () => {
   });
 
   it('should trigger onClick on CheckableTag', () => {
-    const onClick = vi.fn();
+    const onClick = jest.fn();
     const { container } = render(<Tag.CheckableTag checked={false} onClick={onClick} />);
     const target = container.querySelectorAll('.ant-tag')[0];
     Simulate.click(target);
@@ -102,8 +100,8 @@ describe('Tag', () => {
 
   // https://github.com/ant-design/ant-design/issues/20344
   it('should not trigger onClick when click close icon', () => {
-    const onClose = vi.fn();
-    const onClick = vi.fn();
+    const onClose = jest.fn();
+    const onClick = jest.fn();
     const { container } = render(<Tag closable onClose={onClose} onClick={onClick} />);
     fireEvent.click(container.querySelectorAll('.anticon-close')[0]);
     expect(onClose).toHaveBeenCalled();
@@ -112,7 +110,7 @@ describe('Tag', () => {
 
   it('deprecated warning', () => {
     resetWarned();
-    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(<Tag visible={false} />);
     expect(errSpy).toHaveBeenCalledWith(
@@ -130,13 +128,13 @@ describe('Tag', () => {
 
       rerender(<Tag visible={false} />);
       act(() => {
-        vi.runAllTimers();
+        jest.runAllTimers();
       });
       expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
 
       rerender(<Tag visible />);
       act(() => {
-        vi.runAllTimers();
+        jest.runAllTimers();
       });
       expect(container.querySelector('.ant-tag-hidden')).toBeFalsy();
     });
@@ -147,13 +145,13 @@ describe('Tag', () => {
 
       rerender(<Tag visible />);
       act(() => {
-        vi.runAllTimers();
+        jest.runAllTimers();
       });
       expect(container.querySelector('.ant-tag-hidden')).toBeFalsy();
 
       rerender(<Tag visible={false} />);
       act(() => {
-        vi.runAllTimers();
+        jest.runAllTimers();
       });
       expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
     });
@@ -161,7 +159,7 @@ describe('Tag', () => {
 
   describe('CheckableTag', () => {
     it('support onChange', () => {
-      const onChange = vi.fn();
+      const onChange = jest.fn();
       const { container } = render(<Tag.CheckableTag checked={false} onChange={onChange} />);
       fireEvent.click(container.querySelectorAll('.ant-tag')[0]);
       expect(onChange).toHaveBeenCalledWith(true);

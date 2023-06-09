@@ -3,13 +3,11 @@ import mountTest from '../../../tests/shared/mountTest';
 import { act, fireEvent, getByText, render, waitFakeTimer } from '../../../tests/utils';
 import Wave from '../wave';
 
-let isVisible = vi.hoisted(() => true);
+(global as any).isVisible = true;
 
-vi.mock('rc-util/es/Dom/isVisible', () => {
-  const mockFn = () => isVisible;
-  return {
-    default: mockFn,
-  };
+jest.mock('rc-util/lib/Dom/isVisible', () => {
+  const mockFn = () => (global as any).isVisible;
+  return mockFn;
 });
 
 describe('Wave component', () => {
@@ -31,37 +29,44 @@ describe('Wave component', () => {
     }
 
     (window as any).ResizeObserver = FakeResizeObserver;
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterAll(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
     expect(obCnt).not.toBe(0);
     expect(disCnt).not.toBe(0);
   });
 
   beforeEach(() => {
-    isVisible = true;
+    (global as any).isVisible = true;
     document.body.innerHTML = '';
   });
 
-  afterEach(async () => {
-    await vi.runAllTimersAsync();
-    vi.clearAllTimers();
+  afterEach(() => {
+    jest.clearAllTimers();
     const styles = document.getElementsByTagName('style');
     for (let i = 0; i < styles.length; i += 1) {
       styles[i].remove();
     }
   });
 
-  function getWaveColor() {
+  function getWaveStyle() {
+    const styleObj: Record<string, string> = {};
     const { style } = document.querySelector<HTMLElement>('.ant-wave')!;
-    return style.getPropertyValue('--wave-color');
+    style.cssText.split(';').forEach((kv) => {
+      if (kv.trim()) {
+        const cells = kv.split(':');
+        styleObj[cells[0].trim()] = cells[1].trim();
+      }
+    });
+
+    return styleObj;
   }
 
   function waitRaf() {
     act(() => {
-      vi.advanceTimersByTime(100);
+      jest.advanceTimersByTime(100);
     });
   }
 
@@ -85,7 +90,7 @@ describe('Wave component', () => {
   });
 
   it('invisible in screen', () => {
-    isVisible = false;
+    (global as any).isVisible = false;
     const { container, unmount } = render(
       <Wave>
         <button type="button">button</button>
@@ -114,7 +119,9 @@ describe('Wave component', () => {
     fireEvent.click(container.querySelector('button')!);
     waitRaf();
 
-    expect(getWaveColor()).toBeFalsy();
+    const style = getWaveStyle();
+
+    expect(style['--wave-color']).toBeFalsy();
 
     unmount();
   });
@@ -122,7 +129,7 @@ describe('Wave component', () => {
   it('wave color is not grey', () => {
     const { container, unmount } = render(
       <Wave>
-        <button type="button" style={{ borderColor: 'rgb(255, 0, 0)' }}>
+        <button type="button" style={{ borderColor: 'red' }}>
           button
         </button>
       </Wave>,
@@ -131,7 +138,8 @@ describe('Wave component', () => {
     fireEvent.click(container.querySelector('button')!);
     waitRaf();
 
-    expect(getWaveColor()).toEqual('rgb(255, 0, 0)');
+    const style = getWaveStyle();
+    expect(style['--wave-color']).toEqual('red');
 
     unmount();
   });
@@ -139,14 +147,15 @@ describe('Wave component', () => {
   it('read wave color from border-top-color', () => {
     const { container, unmount } = render(
       <Wave>
-        <div style={{ borderTopColor: 'rgb(0, 0, 255)' }}>button</div>
+        <div style={{ borderTopColor: 'blue' }}>button</div>
       </Wave>,
     );
 
     fireEvent.click(getByText(container, 'button')!);
     waitRaf();
 
-    expect(getWaveColor()).toEqual('rgb(0, 0, 255)');
+    const style = getWaveStyle();
+    expect(style['--wave-color']).toEqual('blue');
 
     unmount();
   });
@@ -154,14 +163,15 @@ describe('Wave component', () => {
   it('read wave color from background color', () => {
     const { container, unmount } = render(
       <Wave>
-        <div style={{ backgroundColor: 'rgb(0, 128, 0)' }}>button</div>
+        <div style={{ backgroundColor: 'green' }}>button</div>
       </Wave>,
     );
 
     fireEvent.click(getByText(container, 'button')!);
     waitRaf();
 
-    expect(getWaveColor()).toEqual('rgb(0, 128, 0)');
+    const style = getWaveStyle();
+    expect(style['--wave-color']).toEqual('green');
 
     unmount();
   });
@@ -169,14 +179,15 @@ describe('Wave component', () => {
   it('read wave color from border firstly', () => {
     const { container, unmount } = render(
       <Wave>
-        <div style={{ borderColor: 'rgb(255, 0, 0)', backgroundColor: 'green' }}>button</div>
+        <div style={{ borderColor: 'yellow', backgroundColor: 'green' }}>button</div>
       </Wave>,
     );
 
     fireEvent.click(getByText(container, 'button')!);
     waitRaf();
 
-    expect(getWaveColor()).toEqual('rgb(255, 0, 0)');
+    const style = getWaveStyle();
+    expect(style['--wave-color']).toEqual('yellow');
 
     unmount();
   });
@@ -211,7 +222,7 @@ describe('Wave component', () => {
   });
 
   it('not show when hidden', () => {
-    isVisible = false;
+    (global as any).isVisible = false;
 
     const { container } = render(
       <Wave>
@@ -260,7 +271,7 @@ describe('Wave component', () => {
   it('wave color should inferred if border is transparent and background is not', () => {
     const { container, unmount } = render(
       <Wave>
-        <button type="button" style={{ borderColor: 'transparent', background: 'rgb(255, 0, 0)' }}>
+        <button type="button" style={{ borderColor: 'transparent', background: 'red' }}>
           button
         </button>
       </Wave>,
@@ -268,7 +279,8 @@ describe('Wave component', () => {
     fireEvent.click(container.querySelector('button')!);
     waitRaf();
 
-    expect(getWaveColor()).toEqual('rgb(255, 0, 0)');
+    const style = getWaveStyle();
+    expect(style['--wave-color']).toEqual('red');
 
     unmount();
   });
@@ -285,7 +297,8 @@ describe('Wave component', () => {
     fireEvent.click(container.querySelector('button')!);
     waitRaf();
 
-    expect(getWaveColor()).toEqual('red');
+    const style = getWaveStyle();
+    expect(style['--wave-color']).toEqual('red');
 
     unmount();
   });

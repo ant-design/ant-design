@@ -10,7 +10,7 @@ describe('message', () => {
   });
 
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -19,10 +19,10 @@ describe('message', () => {
     await triggerMotionEnd();
 
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
 
-    vi.useRealTimers();
+    jest.useRealTimers();
 
     await awaitPromise();
   });
@@ -81,7 +81,7 @@ describe('message', () => {
   });
 
   it('should not need to use duration argument when using the onClose arguments', async () => {
-    const onClose = vi.fn();
+    const onClose = jest.fn();
     const close = message.info('whatever', onClose);
 
     await awaitPromise();
@@ -93,25 +93,25 @@ describe('message', () => {
   });
 
   it('should have the default duration when using the onClose arguments', async () => {
-    const onClose = vi.fn();
+    const onClose = jest.fn();
 
     message.info('whatever', onClose);
     await awaitPromise();
 
     act(() => {
-      vi.advanceTimersByTime(2500);
+      jest.advanceTimersByTime(2500);
     });
 
     expect(document.querySelector('.ant-message-move-up-leave')).toBeFalsy();
 
     act(() => {
-      vi.advanceTimersByTime(1000);
+      jest.advanceTimersByTime(1000);
     });
     expect(document.querySelector('.ant-message-move-up-leave')).toBeTruthy();
   });
 
   it('trigger onClick method', async () => {
-    const onClick = vi.fn();
+    const onClick = jest.fn();
     message.info({
       onClick,
       duration: 0,
@@ -127,17 +127,17 @@ describe('message', () => {
   });
 
   it('should be called like promise', async () => {
-    const onClose = vi.fn();
+    const onClose = jest.fn();
     message.info('whatever').then(onClose);
     await awaitPromise();
 
     act(() => {
-      vi.advanceTimersByTime(2500);
+      jest.advanceTimersByTime(2500);
     });
     expect(onClose).not.toHaveBeenCalled();
 
     act(() => {
-      vi.advanceTimersByTime(1000);
+      jest.advanceTimersByTime(1000);
     });
     await waitFakeTimer(); // Wait to let event loop run
     expect(onClose).toHaveBeenCalled();
@@ -200,7 +200,7 @@ describe('message', () => {
 
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
     act(() => {
-      vi.advanceTimersByTime(1500);
+      jest.advanceTimersByTime(1500);
     });
 
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
@@ -225,7 +225,7 @@ describe('message', () => {
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
 
     act(() => {
-      vi.advanceTimersByTime(1500);
+      jest.advanceTimersByTime(1500);
     });
     expect(document.querySelectorAll('.ant-message-move-up-leave')).toHaveLength(1);
   });

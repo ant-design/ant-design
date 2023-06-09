@@ -22,16 +22,16 @@ describe('Popconfirm', () => {
   });
 
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterEach(() => {
-    vi.clearAllTimers();
-    vi.useRealTimers();
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('should popup Popconfirm dialog', () => {
-    const onOpenChange = vi.fn();
+    const onOpenChange = jest.fn();
 
     const wrapper = render(
       <Popconfirm
@@ -97,7 +97,7 @@ describe('Popconfirm', () => {
   });
 
   it('should be controlled by open', () => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
     const popconfirm = render(
       <Popconfirm title="code">
         <span>show me your code</span>
@@ -122,16 +122,16 @@ describe('Popconfirm', () => {
       </Popconfirm>,
     );
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
     expect(popconfirm.container.querySelector('.ant-popover')).not.toBe(null);
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('should trigger onConfirm and onCancel', async () => {
-    const confirm = vi.fn();
-    const cancel = vi.fn();
-    const onOpenChange = vi.fn((_, e) => {
+    const confirm = jest.fn();
+    const cancel = jest.fn();
+    const onOpenChange = jest.fn((_, e) => {
       e?.persist?.();
     });
     const popconfirm = render(
@@ -160,7 +160,7 @@ describe('Popconfirm', () => {
       new Promise((res) => {
         setTimeout(res, 300);
       });
-    const onOpenChange = vi.fn((_, e) => {
+    const onOpenChange = jest.fn((_, e) => {
       e?.persist?.();
     });
     const popconfirm = render(
@@ -229,7 +229,7 @@ describe('Popconfirm', () => {
   });
 
   it('should be closed by pressing ESC', () => {
-    const onOpenChange = vi.fn((_, e) => {
+    const onOpenChange = jest.fn((_, e) => {
       e?.persist?.();
     });
     const wrapper = render(
@@ -245,7 +245,7 @@ describe('Popconfirm', () => {
   });
 
   it('should not warn memory leaking if setState in async callback', async () => {
-    const error = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const error = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const Test = () => {
       const [show, setShow] = React.useState(true);
@@ -287,7 +287,7 @@ describe('Popconfirm', () => {
   });
 
   it('should trigger onPopupClick', async () => {
-    const onPopupClick = vi.fn();
+    const onPopupClick = jest.fn();
 
     const popconfirm = render(
       <Popconfirm title="pop test" onPopupClick={onPopupClick}>
@@ -303,8 +303,8 @@ describe('Popconfirm', () => {
 
   // https://github.com/ant-design/ant-design/issues/42314
   it('legacy onVisibleChange should only trigger once', async () => {
-    const onOpenChange = vi.fn();
-    const onVisibleChange = vi.fn();
+    const onOpenChange = jest.fn();
+    const onVisibleChange = jest.fn();
 
     const { container } = render(
       <Popconfirm

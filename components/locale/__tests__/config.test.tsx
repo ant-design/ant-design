@@ -15,7 +15,7 @@ const Demo: React.FC<{ type: string }> = ({ type }) => {
 
 describe('Locale Provider demo', () => {
   it('change type', async () => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
 
     const BasicExample: React.FC = () => {
       const [type, setType] = React.useState<string>('');
@@ -52,6 +52,6 @@ describe('Locale Provider demo', () => {
 
     expect(document.body.querySelectorAll('.ant-btn-primary span')[0]?.textContent).toBe('确 定');
     Modal.destroyAll();
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 });

@@ -33,12 +33,12 @@ describe('ConfigProvider.Locale', () => {
         setShowButton(true);
       }, []);
       const openConfirm = () => {
-        vi.useFakeTimers();
+        jest.useFakeTimers();
         Modal.confirm({ title: 'title', content: 'Some descriptions' });
         act(() => {
-          vi.runAllTimers();
+          jest.runAllTimers();
         });
-        vi.useRealTimers();
+        jest.useRealTimers();
       };
       return (
         <ConfigProvider locale={zhCN}>

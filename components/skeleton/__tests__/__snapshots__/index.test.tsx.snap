@@ -1,6 +1,77 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Skeleton > avatar > shape 1`] = `
+exports[`Skeleton avatar element active 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-circle"
+  />
+</div>
+`;
+
+exports[`Skeleton avatar element shape 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-circle"
+  />
+</div>
+`;
+
+exports[`Skeleton avatar element shape 2`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-square"
+  />
+</div>
+`;
+
+exports[`Skeleton avatar element size 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-sm ant-skeleton-avatar-circle"
+  />
+</div>
+`;
+
+exports[`Skeleton avatar element size 2`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-circle"
+  />
+</div>
+`;
+
+exports[`Skeleton avatar element size 3`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+  />
+</div>
+`;
+
+exports[`Skeleton avatar element size 4`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-circle"
+    style="width: 20px; height: 20px; line-height: 20px;"
+  />
+</div>
+`;
+
+exports[`Skeleton avatar shape 1`] = `
 <div
   class="ant-skeleton ant-skeleton-with-avatar"
 >
@@ -28,7 +99,7 @@ exports[`Skeleton > avatar > shape 1`] = `
 </div>
 `;
 
-exports[`Skeleton > avatar > shape 2`] = `
+exports[`Skeleton avatar shape 2`] = `
 <div
   class="ant-skeleton ant-skeleton-with-avatar"
 >
@@ -56,7 +127,7 @@ exports[`Skeleton > avatar > shape 2`] = `
 </div>
 `;
 
-exports[`Skeleton > avatar > size 1`] = `
+exports[`Skeleton avatar size 1`] = `
 <div
   class="ant-skeleton ant-skeleton-with-avatar"
 >
@@ -84,7 +155,7 @@ exports[`Skeleton > avatar > size 1`] = `
 </div>
 `;
 
-exports[`Skeleton > avatar > size 2`] = `
+exports[`Skeleton avatar size 2`] = `
 <div
   class="ant-skeleton ant-skeleton-with-avatar"
 >
@@ -112,7 +183,7 @@ exports[`Skeleton > avatar > size 2`] = `
 </div>
 `;
 
-exports[`Skeleton > avatar > size 3`] = `
+exports[`Skeleton avatar size 3`] = `
 <div
   class="ant-skeleton ant-skeleton-with-avatar"
 >
@@ -140,7 +211,7 @@ exports[`Skeleton > avatar > size 3`] = `
 </div>
 `;
 
-exports[`Skeleton > avatar > size 4`] = `
+exports[`Skeleton avatar size 4`] = `
 <div
   class="ant-skeleton ant-skeleton-with-avatar"
 >
@@ -169,78 +240,7 @@ exports[`Skeleton > avatar > size 4`] = `
 </div>
 `;
 
-exports[`Skeleton > avatar element > active 1`] = `
-<div
-  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
->
-  <span
-    class="ant-skeleton-avatar ant-skeleton-avatar-circle"
-  />
-</div>
-`;
-
-exports[`Skeleton > avatar element > shape 1`] = `
-<div
-  class="ant-skeleton ant-skeleton-element"
->
-  <span
-    class="ant-skeleton-avatar ant-skeleton-avatar-circle"
-  />
-</div>
-`;
-
-exports[`Skeleton > avatar element > shape 2`] = `
-<div
-  class="ant-skeleton ant-skeleton-element"
->
-  <span
-    class="ant-skeleton-avatar ant-skeleton-avatar-square"
-  />
-</div>
-`;
-
-exports[`Skeleton > avatar element > size 1`] = `
-<div
-  class="ant-skeleton ant-skeleton-element"
->
-  <span
-    class="ant-skeleton-avatar ant-skeleton-avatar-sm ant-skeleton-avatar-circle"
-  />
-</div>
-`;
-
-exports[`Skeleton > avatar element > size 2`] = `
-<div
-  class="ant-skeleton ant-skeleton-element"
->
-  <span
-    class="ant-skeleton-avatar ant-skeleton-avatar-circle"
-  />
-</div>
-`;
-
-exports[`Skeleton > avatar element > size 3`] = `
-<div
-  class="ant-skeleton ant-skeleton-element"
->
-  <span
-    class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
-  />
-</div>
-`;
-
-exports[`Skeleton > avatar element > size 4`] = `
-<div
-  class="ant-skeleton ant-skeleton-element"
->
-  <span
-    class="ant-skeleton-avatar ant-skeleton-avatar-circle"
-    style="width: 20px; height: 20px; line-height: 20px;"
-  />
-</div>
-`;
-
-exports[`Skeleton > button element > active 1`] = `
+exports[`Skeleton button element active 1`] = `
 <div
   class="ant-skeleton ant-skeleton-element ant-skeleton-active"
 >
@@ -250,7 +250,7 @@ exports[`Skeleton > button element > active 1`] = `
 </div>
 `;
 
-exports[`Skeleton > button element > block 1`] = `
+exports[`Skeleton button element block 1`] = `
 <div
   class="ant-skeleton ant-skeleton-element ant-skeleton-block"
 >
@@ -260,7 +260,7 @@ exports[`Skeleton > button element > block 1`] = `
 </div>
 `;
 
-exports[`Skeleton > button element > shape 1`] = `
+exports[`Skeleton button element shape 1`] = `
 <div
   class="ant-skeleton ant-skeleton-element"
 >
@@ -270,7 +270,7 @@ exports[`Skeleton > button element > shape 1`] = `
 </div>
 `;
 
-exports[`Skeleton > button element > shape 2`] = `
+exports[`Skeleton button element shape 2`] = `
 <div
   class="ant-skeleton ant-skeleton-element"
 >
@@ -280,7 +280,7 @@ exports[`Skeleton > button element > shape 2`] = `
 </div>
 `;
 
-exports[`Skeleton > button element > shape 3`] = `
+exports[`Skeleton button element shape 3`] = `
 <div
   class="ant-skeleton ant-skeleton-element"
 >
@@ -290,7 +290,7 @@ exports[`Skeleton > button element > shape 3`] = `
 </div>
 `;
 
-exports[`Skeleton > button element > size 1`] = `
+exports[`Skeleton button element size 1`] = `
 <div
   class="ant-skeleton ant-skeleton-element"
 >
@@ -300,7 +300,7 @@ exports[`Skeleton > button element > size 1`] = `
 </div>
 `;
 
-exports[`Skeleton > button element > size 2`] = `
+exports[`Skeleton button element size 2`] = `
 <div
   class="ant-skeleton ant-skeleton-element"
 >
@@ -310,7 +310,7 @@ exports[`Skeleton > button element > size 2`] = `
 </div>
 `;
 
-exports[`Skeleton > button element > size 3`] = `
+exports[`Skeleton button element size 3`] = `
 <div
   class="ant-skeleton ant-skeleton-element"
 >
@@ -320,7 +320,7 @@ exports[`Skeleton > button element > size 3`] = `
 </div>
 `;
 
-exports[`Skeleton > custom node element > should render normal 1`] = `
+exports[`Skeleton custom node element should render normal 1`] = `
 <div
   class="ant-skeleton ant-skeleton-element"
 >
@@ -350,7 +350,7 @@ exports[`Skeleton > custom node element > should render normal 1`] = `
 </div>
 `;
 
-exports[`Skeleton > custom node element > should render normal 2`] = `
+exports[`Skeleton custom node element should render normal 2`] = `
 <div
   class="ant-skeleton ant-skeleton-element"
 >
@@ -364,7 +364,7 @@ exports[`Skeleton > custom node element > should render normal 2`] = `
 </div>
 `;
 
-exports[`Skeleton > image element > should render normal 1`] = `
+exports[`Skeleton image element should render normal 1`] = `
 <div
   class="ant-skeleton ant-skeleton-element"
 >
@@ -385,7 +385,7 @@ exports[`Skeleton > image element > should render normal 1`] = `
 </div>
 `;
 
-exports[`Skeleton > input element > active 1`] = `
+exports[`Skeleton input element active 1`] = `
 <div
   class="ant-skeleton ant-skeleton-element ant-skeleton-active"
 >
@@ -395,7 +395,7 @@ exports[`Skeleton > input element > active 1`] = `
 </div>
 `;
 
-exports[`Skeleton > input element > size 1`] = `
+exports[`Skeleton input element size 1`] = `
 <div
   class="ant-skeleton ant-skeleton-element"
 >
@@ -405,7 +405,7 @@ exports[`Skeleton > input element > size 1`] = `
 </div>
 `;
 
-exports[`Skeleton > input element > size 2`] = `
+exports[`Skeleton input element size 2`] = `
 <div
   class="ant-skeleton ant-skeleton-element"
 >
@@ -415,7 +415,7 @@ exports[`Skeleton > input element > size 2`] = `
 </div>
 `;
 
-exports[`Skeleton > input element > size 3`] = `
+exports[`Skeleton input element size 3`] = `
 <div
   class="ant-skeleton ant-skeleton-element"
 >
@@ -425,7 +425,7 @@ exports[`Skeleton > input element > size 3`] = `
 </div>
 `;
 
-exports[`Skeleton > paragraph > rows 1`] = `
+exports[`Skeleton paragraph rows 1`] = `
 <div
   class="ant-skeleton"
 >
@@ -451,7 +451,7 @@ exports[`Skeleton > paragraph > rows 1`] = `
 </div>
 `;
 
-exports[`Skeleton > paragraph > width 1`] = `
+exports[`Skeleton paragraph width 1`] = `
 <div
   class="ant-skeleton"
 >
@@ -475,7 +475,7 @@ exports[`Skeleton > paragraph > width 1`] = `
 </div>
 `;
 
-exports[`Skeleton > paragraph > width 2`] = `
+exports[`Skeleton paragraph width 2`] = `
 <div
   class="ant-skeleton"
 >
@@ -501,7 +501,7 @@ exports[`Skeleton > paragraph > width 2`] = `
 </div>
 `;
 
-exports[`Skeleton > rtl render > component should be rendered correctly in RTL direction 1`] = `
+exports[`Skeleton rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-skeleton ant-skeleton-rtl"
 >
@@ -525,9 +525,9 @@ exports[`Skeleton > rtl render > component should be rendered correctly in RTL d
 </div>
 `;
 
-exports[`Skeleton > should display without children and falsy loading props 1`] = `null`;
+exports[`Skeleton should display without children and falsy loading props 1`] = `null`;
 
-exports[`Skeleton > should round title and paragraph 1`] = `
+exports[`Skeleton should round title and paragraph 1`] = `
 <div
   class="ant-skeleton ant-skeleton-round"
 >
@@ -551,7 +551,7 @@ exports[`Skeleton > should round title and paragraph 1`] = `
 </div>
 `;
 
-exports[`Skeleton > should square avatar 1`] = `
+exports[`Skeleton should square avatar 1`] = `
 <div
   class="ant-skeleton ant-skeleton-with-avatar"
 >
@@ -572,7 +572,7 @@ exports[`Skeleton > should square avatar 1`] = `
 </div>
 `;
 
-exports[`Skeleton > should support style 1`] = `
+exports[`Skeleton should support style 1`] = `
 <div
   class="ant-skeleton"
   style="background: blue;"
@@ -597,7 +597,7 @@ exports[`Skeleton > should support style 1`] = `
 </div>
 `;
 
-exports[`Skeleton > should without avatar and paragraph 1`] = `
+exports[`Skeleton should without avatar and paragraph 1`] = `
 <div
   class="ant-skeleton"
 >
@@ -611,7 +611,7 @@ exports[`Skeleton > should without avatar and paragraph 1`] = `
 </div>
 `;
 
-exports[`Skeleton > title > width 1`] = `
+exports[`Skeleton title width 1`] = `
 <div
   class="ant-skeleton"
 >

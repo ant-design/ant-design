@@ -13,16 +13,16 @@ describe('Calendar.onSelect', () => {
 
   beforeEach(() => {
     resetWarned();
-    vi.useFakeTimers();
-    vi.clearAllTimers();
+    jest.useFakeTimers();
+    jest.clearAllTimers();
   });
 
   afterEach(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('source of year select', async () => {
-    const onSelect = vi.fn();
+    const onSelect = jest.fn();
     const { container } = render(<Calendar onSelect={onSelect} />);
 
     fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
@@ -35,20 +35,20 @@ describe('Calendar.onSelect', () => {
   });
 
   it('source of month select', async () => {
-    const onSelect = vi.fn();
+    const onSelect = jest.fn();
     const { container } = render(<Calendar onSelect={onSelect} />);
 
     fireEvent.mouseDown(container.querySelectorAll('.ant-select-selector')[1]!);
     await waitFakeTimer();
 
-    fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]!);
+    fireEvent.click(container.querySelector('.ant-select-item-option')!);
     await waitFakeTimer();
 
     expect(onSelect).toHaveBeenCalledWith(expect.anything(), { source: 'month' });
   });
 
   it('source of customize', async () => {
-    const onSelect = vi.fn();
+    const onSelect = jest.fn();
     const { container } = render(
       <Calendar
         onSelect={onSelect}
@@ -73,7 +73,7 @@ describe('Calendar.onSelect', () => {
   });
 
   it('source of date', () => {
-    const onSelect = vi.fn();
+    const onSelect = jest.fn();
     const { container } = render(<Calendar onSelect={onSelect} />);
 
     fireEvent.click(container.querySelector('.ant-picker-cell')!);
@@ -81,8 +81,8 @@ describe('Calendar.onSelect', () => {
   });
 
   it('source of date with month panel', async () => {
-    const onSelect = vi.fn();
-    const onPanelChange = vi.fn();
+    const onSelect = jest.fn();
+    const onPanelChange = jest.fn();
     const { container } = render(<Calendar onSelect={onSelect} onPanelChange={onPanelChange} />);
 
     // Default is month radio

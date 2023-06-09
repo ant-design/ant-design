@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button > fixbug renders {0} , 0 and {false} 1`] = `
+exports[`Button fixbug renders {0} , 0 and {false} 1`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
@@ -9,7 +9,7 @@ exports[`Button > fixbug renders {0} , 0 and {false} 1`] = `
 </button>
 `;
 
-exports[`Button > fixbug renders {0} , 0 and {false} 2`] = `
+exports[`Button fixbug renders {0} , 0 and {false} 2`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
@@ -20,14 +20,14 @@ exports[`Button > fixbug renders {0} , 0 and {false} 2`] = `
 </button>
 `;
 
-exports[`Button > fixbug renders {0} , 0 and {false} 3`] = `
+exports[`Button fixbug renders {0} , 0 and {false} 3`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
 />
 `;
 
-exports[`Button > renders Chinese characters correctly 1`] = `
+exports[`Button renders Chinese characters correctly 1`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
@@ -38,7 +38,7 @@ exports[`Button > renders Chinese characters correctly 1`] = `
 </button>
 `;
 
-exports[`Button > renders Chinese characters correctly 2`] = `
+exports[`Button renders Chinese characters correctly 2`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
@@ -72,7 +72,7 @@ exports[`Button > renders Chinese characters correctly 2`] = `
 </button>
 `;
 
-exports[`Button > renders Chinese characters correctly 3`] = `
+exports[`Button renders Chinese characters correctly 3`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
@@ -102,7 +102,7 @@ exports[`Button > renders Chinese characters correctly 3`] = `
 </button>
 `;
 
-exports[`Button > renders Chinese characters correctly 4`] = `
+exports[`Button renders Chinese characters correctly 4`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
@@ -136,7 +136,7 @@ exports[`Button > renders Chinese characters correctly 4`] = `
 </button>
 `;
 
-exports[`Button > renders Chinese characters correctly 5`] = `
+exports[`Button renders Chinese characters correctly 5`] = `
 <button
   class="ant-btn ant-btn-default ant-btn-loading"
   type="button"
@@ -170,7 +170,7 @@ exports[`Button > renders Chinese characters correctly 5`] = `
 </button>
 `;
 
-exports[`Button > renders Chinese characters correctly 6`] = `
+exports[`Button renders Chinese characters correctly 6`] = `
 <button
   class="ant-btn ant-btn-default ant-btn-loading"
   type="button"
@@ -205,7 +205,7 @@ exports[`Button > renders Chinese characters correctly 6`] = `
 </button>
 `;
 
-exports[`Button > renders Chinese characters correctly 7`] = `
+exports[`Button renders Chinese characters correctly 7`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
@@ -216,7 +216,7 @@ exports[`Button > renders Chinese characters correctly 7`] = `
 </button>
 `;
 
-exports[`Button > renders correctly 1`] = `
+exports[`Button renders correctly 1`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
@@ -227,52 +227,52 @@ exports[`Button > renders correctly 1`] = `
 </button>
 `;
 
-exports[`Button > rtl render > component should be rendered correctly in RTL direction 1`] = `
+exports[`Button rtl render component should be rendered correctly in RTL direction 1`] = `
 <button
   class="ant-btn ant-btn-default ant-btn-rtl"
   type="button"
 />
 `;
 
-exports[`Button > rtl render > component should be rendered correctly in RTL direction 2`] = `
+exports[`Button rtl render component should be rendered correctly in RTL direction 2`] = `
 <button
   class="ant-btn ant-btn-default ant-btn-lg ant-btn-rtl"
   type="button"
 />
 `;
 
-exports[`Button > rtl render > component should be rendered correctly in RTL direction 3`] = `
+exports[`Button rtl render component should be rendered correctly in RTL direction 3`] = `
 <button
   class="ant-btn ant-btn-default ant-btn-sm ant-btn-rtl"
   type="button"
 />
 `;
 
-exports[`Button > rtl render > component should be rendered correctly in RTL direction 4`] = `
+exports[`Button rtl render component should be rendered correctly in RTL direction 4`] = `
 <div
   class="ant-btn-group ant-btn-group-rtl"
 />
 `;
 
-exports[`Button > rtl render > component should be rendered correctly in RTL direction 5`] = `
+exports[`Button rtl render component should be rendered correctly in RTL direction 5`] = `
 <div
   class="ant-btn-group ant-btn-group-lg ant-btn-group-rtl"
 />
 `;
 
-exports[`Button > rtl render > component should be rendered correctly in RTL direction 6`] = `
+exports[`Button rtl render component should be rendered correctly in RTL direction 6`] = `
 <div
   class="ant-btn-group ant-btn-group-sm ant-btn-group-rtl"
 />
 `;
 
-exports[`Button > rtl render > component should be rendered correctly in RTL direction 7`] = `
+exports[`Button rtl render component should be rendered correctly in RTL direction 7`] = `
 <div
   class="ant-btn-group ant-btn-group-rtl"
 />
 `;
 
-exports[`Button > should handle fragment as children 1`] = `
+exports[`Button should handle fragment as children 1`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
@@ -283,7 +283,7 @@ exports[`Button > should handle fragment as children 1`] = `
 </button>
 `;
 
-exports[`Button > should merge text if children using variable 1`] = `
+exports[`Button should merge text if children using variable 1`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
@@ -294,7 +294,7 @@ exports[`Button > should merge text if children using variable 1`] = `
 </button>
 `;
 
-exports[`Button > should not render as link button when href is undefined 1`] = `
+exports[`Button should not render as link button when href is undefined 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -305,14 +305,14 @@ exports[`Button > should not render as link button when href is undefined 1`] = 
 </button>
 `;
 
-exports[`Button > should render empty button without errors 1`] = `
+exports[`Button should render empty button without errors 1`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
 />
 `;
 
-exports[`Button > should support custom icon className 1`] = `
+exports[`Button should support custom icon className 1`] = `
 <div>
   <button
     class="ant-btn ant-btn-primary ant-btn-icon-only"
@@ -345,7 +345,7 @@ exports[`Button > should support custom icon className 1`] = `
 </div>
 `;
 
-exports[`Button > should support custom icon styles 1`] = `
+exports[`Button should support custom icon styles 1`] = `
 <div>
   <button
     class="ant-btn ant-btn-primary ant-btn-icon-only"
@@ -379,7 +379,7 @@ exports[`Button > should support custom icon styles 1`] = `
 </div>
 `;
 
-exports[`Button > should support link button 1`] = `
+exports[`Button should support link button 1`] = `
 <a
   class="ant-btn ant-btn-default"
   href="https://ant.design"

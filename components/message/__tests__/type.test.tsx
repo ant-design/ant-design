@@ -8,7 +8,7 @@ describe('message.typescript', () => {
   });
 
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -16,7 +16,7 @@ describe('message.typescript', () => {
     message.destroy();
     await triggerMotionEnd();
 
-    vi.useRealTimers();
+    jest.useRealTimers();
 
     await awaitPromise();
   });
@@ -27,7 +27,7 @@ describe('message.typescript', () => {
   });
 
   it('promise with one arguments', async () => {
-    const filled = vi.fn();
+    const filled = jest.fn();
 
     message.success('yes!!!').then(filled);
 
@@ -37,8 +37,8 @@ describe('message.typescript', () => {
   });
 
   it('promise two arguments', async () => {
-    const filled = vi.fn();
-    const rejected = vi.fn();
+    const filled = jest.fn();
+    const rejected = jest.fn();
 
     message.success('yes!!!').then(filled, rejected);
 
