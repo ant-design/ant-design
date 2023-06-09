@@ -68,26 +68,27 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
   }));
   
   const notFoundContent = fetching ? <Spin size="small" /> : null;
-  return <Select
-    labelInValue
-    filterOption={false}
-    mode="multiple"
-    showSearch
-    showArrow
-    onSearch={onSearch}
-    value={valueWidthAllAttrs}
-    notFoundContent={notFoundContent}
-    options={options}
-    onChange={selectCallback}
-  />;
-}
+  return (
+    <Select
+      labelInValue
+      filterOption={false}
+      mode={"multiple"}
+      showSearch
+      showArrow
+      onSearch={onSearch}
+      value={valueWidthAllAttrs}
+      notFoundContent={notFoundContent}
+      options={options}
+      onChange={selectCallback}
+    />);
+};
 
 const SelectOriginOptions = () => {
   const [value, setValue] = useState([]);
   return (
     <WrappedSelect initValues={initData} value={value} setValue={setValue} />
   );
-}
+};
 
 export default SelectOriginOptions;
 
