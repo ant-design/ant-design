@@ -1,77 +1,86 @@
-import { Select, Spin } from 'antd';
-import React, { useCallback, useEffect, useState } from 'react';
+import { Select, Spin } from "antd";
+import React, { useCallback, useEffect, useState } from "react";
 
-interface PropTypes { 
-  initData?: Record<string, string>[]; 
+interface PropTypes {
+  initValues?: Record<string, string>[];
   value: Record<string, string>[];
-  setValue: Function 
+  setValue: Function;
 }
 
 const initData = [
   {
-    customAttr: '雪山之王',
-    label: ' 雪豹',
-    value: 'snow lepoard',
+    customAttr: "雪山之王",
+    label: " 雪豹",
+    value: "snow lepoard"
   },
   {
-    customAttr: '森林之王',
-    label: '辛巴',
-    value: 'senba',
-  },
+    customAttr: "森林之王",
+    label: "辛巴",
+    value: "senba"
+  }
 ];
 
 async function fetchList(username: string) {
   return new Promise((res) =>
     res([
       {
-        customAttr: '天空之王',
-        label: '火烈鸟',
-        value: 'fire bird',
+        customAttr: "天空之王",
+        label: "火烈鸟",
+        value: "fire bird"
       },
       {
-        customAttr: '深海之王',
-        label: '美人鱼',
-        value: 'beauty fish',
+        customAttr: "深海之王",
+        label: "美人鱼",
+        value: "beauty fish"
       },
-    ]),
+      {
+        customAttr: "自定义",
+        label: `${username}`,
+        value: "userName"
+      }
+    ])
   );
 }
-const WrappedSelect = ({ initData = [], value = [], setValue }: PropTypes) => {
-  const [options, setOptions] = useState<Record<string, string>>([]);
+const WrappedSelect = ({
+  initValues = [],
+  value = [],
+  setValue
+}: PropTypes) => {
+  const [options, setOptions] = useState<Record<string, string>[]>([]);
   const [fetching, setFetching] = useState<boolean>(false);
 
   useEffect(() => {
-    if (initData?.length) {
-      setValue(initData);
+    if (initValues?.length) {
+      setValue(initValues);
     }
-  }, [initData, setValue]);
+  }, [initValues, setValue]);
 
-  const onSearch = useCallback(
-    (name: string) => {
-      setFetching(true);
-      return fetchList(name).then((list) => {
-        setOptions(list as Record<string, string>[]);
-        setFetching(false);
-      });
-    },
-    [fetchList],
-  );
+  const onSearch = useCallback((name: string) => {
+    setFetching(true);
+    return fetchList(name).then((list) => {
+      setOptions(list as Record<string, string>[]);
+      setFetching(false);
+    });
+  }, []);
 
-  const selectCallback = (newValue: Record<string, string>[], selectedList: Record<string, string>[]) => {
+  const selectCallback = (
+    newValue: Record<string, string>[],
+    selectedList: Record<string, string>[]
+  ) => {
     const values = newValue?.map((v) => v.value);
-    const newArr = [...selectedList, ...initData].filter((k) =>
-      values.includes(k.value),
+    const newArr = [...selectedList, ...initValues].filter((k) =>
+      values.includes(k.value)
     );
     setValue(newArr);
   };
 
   const valueWidthAllAttrs = value.map((v: any) => ({
     ...v,
-    label: `${v.label}(${v.customAttr})${v.value}`,
+    label: `${v.label}(${v.customAttr})${v.value}`
   }));
   const optionsWidthAllAttrs = options.map((v) => ({
     ...v,
-    label: `${v.label}(${v.customAttr})${v.value}`,
+    label: `${v.label}(${v.customAttr})${v.value}`
   }));
 
   return (
@@ -98,9 +107,8 @@ const WrappedSelect = ({ initData = [], value = [], setValue }: PropTypes) => {
 const SelectOriginOptions = () => {
   const [value, setValue] = useState([]);
   return (
-    <WrappedSelect initData={initData} value={value} setValue={setValue} />
+    <WrappedSelect initValues={initData} value={value} setValue={setValue} />
   );
 };
 
 export default SelectOriginOptions;
-
