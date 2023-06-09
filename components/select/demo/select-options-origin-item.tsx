@@ -69,10 +69,10 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
   
   const notFoundContent = fetching ? <Spin size="small" /> : null;
   return (
-    <Card>
+    <Card>,
       <Row>
         当前选中的值为: <div>{JSON.stringify(value)}</div>
-      </Row>,
+      </Row>
       <Select
         labelInValue
         filterOption={false}
