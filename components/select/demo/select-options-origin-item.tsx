@@ -16,25 +16,23 @@ const initData = [
 ];
 
 async function fetchList(username: string) {
-  return new Promise((res) =>
-    res([
-      {
-        customAttr: "天空之王",
-        label: "火烈鸟",
-        value: "fire bird",
-      },
-      {
-        customAttr: "深海之王",
-        label: "美人鱼",
-        value: "beauty fish",
-      },
-      {
-        customAttr: "自定义",
-        label: `${username}`,
-        value: "userName",
-      },
-    ])
-  );
+  return Promise.resolve([
+    {
+      customAttr: "天空之王",
+      label: "火烈鸟",
+      value: "fire bird",
+    },
+    {
+      customAttr: "深海之王",
+      label: "美人鱼",
+      value: "beauty fish",
+    },
+    {
+      customAttr: "自定义",
+      label: `${username}`,
+      value: "userName",
+    },
+  ]);
 }
 const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
   const [options, setOptions] = useState<Record<string, string>[]>([]);
