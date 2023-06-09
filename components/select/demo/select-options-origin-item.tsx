@@ -68,8 +68,8 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
   }));
   
   return (
-    <div style={{ padding: 40 }}>
-      <div style={{ marginBottom: 24 }}>
+    <div style={{ padding: 40, }}>
+      <div style={{ marginBottom: 24, }}>
         当前选中的值为: {JSON.stringify(value)}
       </div>
       <Select
