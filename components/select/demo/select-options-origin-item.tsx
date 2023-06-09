@@ -1,4 +1,4 @@
-import { Select, Spin } from "antd";
+import { Select, Spin, Card, Row } from "antd";
 import PropTypes from "prop-types";
 import React, { useCallback, useEffect, useState } from "react";
 
@@ -70,10 +70,10 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
   const notFoundContent = fetching ? <Spin size="small" /> : null;
   
   return (
-    <div style={{ padding: 40 }}>
-      <div style={{ marginBottom: 24}}>
+    <Card>
+      <Row>
         当前选中的值为: <div>{JSON.stringify(value)}</div>
-      </div>
+      </Row>
       <Select
         labelInValue
         filterOption={false}
@@ -87,7 +87,7 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
         onChange={selectCallback}
         style={{ width: 600 }}
       />
-    </div>
+    </Card>
   );
 }
 
