@@ -1,4 +1,4 @@
-import { Select, Spin, Card, Row } from "antd";
+import { Select, Spin } from "antd";
 import PropTypes from "prop-types";
 import React, { useCallback, useEffect, useState } from "react";
 
@@ -68,20 +68,18 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
   }));
   
   const notFoundContent = fetching ? <Spin size="small" /> : null;
-  return (
-    <Select
-      labelInValue
-      filterOption={false}
-      mode="multiple"
-      showSearch
-      showArrow
-      onSearch={onSearch}
-      value={valueWidthAllAttrs}
-      notFoundContent={notFoundContent}
-      options={options}
-      onChange={selectCallback}
-    />
-  );
+  return <Select
+    labelInValue
+    filterOption={false}
+    mode="multiple"
+    showSearch
+    showArrow
+    onSearch={onSearch}
+    value={valueWidthAllAttrs}
+    notFoundContent={notFoundContent}
+    options={options}
+    onChange={selectCallback}
+  />;
 }
 
 const SelectOriginOptions = () => {
