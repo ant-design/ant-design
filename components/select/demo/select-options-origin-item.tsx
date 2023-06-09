@@ -36,10 +36,9 @@ async function fetchList(username: string) {
     ])
   );
 }
-const WrappedSelect = ({ initValues = [], value = [], setValue, }) => {
+const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
   const [options, setOptions] = useState<Record<string, string>[]>([]);
   const [fetching, setFetching] = useState<boolean>(false);
-
   useEffect(() => {
     if (initValues?.length) {
       setValue(initValues);
@@ -73,7 +72,6 @@ const WrappedSelect = ({ initValues = [], value = [], setValue, }) => {
     ...v,
     label: `${v.label}(${v.customAttr})${v.value}`,
   }));
-
   return (
     <div style={{ padding: 40 }}>
       <div style={{ marginBottom: 24 }}>
