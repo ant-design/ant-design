@@ -9,7 +9,7 @@ let recording = true;
  * pass all value access in development. To support statistic field usage with alias token.
  */
 export function merge<T extends object>(...objs: Partial<T>[]): T {
-  /* c8 ignore next 3 */
+  /* istanbul ignore next */
   if (!enableStatistic) {
     return Object.assign({}, ...objs);
   }
@@ -44,7 +44,7 @@ export const statistic: Record<
 // eslint-disable-next-line camelcase
 export const _statistic_build_: typeof statistic = {};
 
-/* c8 ignore next */
+/* istanbul ignore next */
 function noop() {}
 
 /** Statistic token usage case. Should use `merge` function if you do not want spread record. */

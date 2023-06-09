@@ -6,8 +6,8 @@ import Anchor from '../../anchor';
 
 describe('ConfigProvider.getTargetContainer', () => {
   it('Affix', () => {
-    vi.useFakeTimers();
-    const getTargetContainer = vi.fn(() => window);
+    jest.useFakeTimers();
+    const getTargetContainer = jest.fn(() => window);
     render(
       <ConfigProvider getTargetContainer={getTargetContainer}>
         <Affix>
@@ -17,16 +17,16 @@ describe('ConfigProvider.getTargetContainer', () => {
     );
 
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
 
     expect(getTargetContainer).toHaveBeenCalled();
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('Anchor', () => {
-    vi.useFakeTimers();
-    const getTargetContainer = vi.fn(() => window);
+    jest.useFakeTimers();
+    const getTargetContainer = jest.fn(() => window);
     render(
       <ConfigProvider getTargetContainer={getTargetContainer}>
         <Anchor>
@@ -36,10 +36,10 @@ describe('ConfigProvider.getTargetContainer', () => {
     );
 
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
 
     expect(getTargetContainer).toHaveBeenCalled();
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 });

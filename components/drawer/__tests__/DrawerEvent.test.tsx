@@ -11,11 +11,11 @@ const DrawerTest: React.FC<DrawerProps> = (props) => (
 
 describe('Drawer', () => {
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterEach(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('render correctly', () => {
@@ -32,7 +32,7 @@ describe('Drawer', () => {
   });
 
   it('mask trigger onClose', () => {
-    const onClose = vi.fn();
+    const onClose = jest.fn();
     const { container } = render(<DrawerTest onClose={onClose} />);
 
     fireEvent.click(container.querySelector('.ant-drawer-mask')!);
@@ -40,7 +40,7 @@ describe('Drawer', () => {
   });
 
   it('close button trigger onClose', () => {
-    const onClose = vi.fn();
+    const onClose = jest.fn();
     const { container } = render(<DrawerTest onClose={onClose} />);
 
     fireEvent.click(container.querySelector('.ant-drawer-close')!);
@@ -48,7 +48,7 @@ describe('Drawer', () => {
   });
 
   it('maskClosable no trigger onClose', () => {
-    const onClose = vi.fn();
+    const onClose = jest.fn();
     const { container } = render(<DrawerTest onClose={onClose} maskClosable={false} />);
 
     fireEvent.click(container.querySelector('.ant-drawer-mask')!);
@@ -61,7 +61,7 @@ describe('Drawer', () => {
 
     rerender(<DrawerTest destroyOnClose open={false} />);
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
 
     expect(container.querySelector('.ant-drawer')).toBeFalsy();
@@ -73,7 +73,7 @@ describe('Drawer', () => {
 
     rerender(<DrawerTest open={false} />);
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
     fireEvent.animationEnd(container.querySelector('.ant-drawer-content')!);
 
@@ -87,7 +87,7 @@ describe('Drawer', () => {
     // Hide
     rerender(<DrawerTest open={false} getContainer={false} />);
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
     fireEvent.animationEnd(container.querySelector('.ant-drawer-content-wrapper')!);
     expect(container.querySelector('.ant-drawer-content-wrapper-hidden')).toBeTruthy();
@@ -100,19 +100,19 @@ describe('Drawer', () => {
     // Hide
     rerender(<DrawerTest open={false} getContainer={false} />);
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
     fireEvent.animationEnd(container.querySelector('.ant-drawer-content-wrapper')!);
     expect(container.querySelector('.ant-drawer-content-wrapper-hidden')).toBeTruthy();
   });
 
   it('test afterOpenChange', async () => {
-    const afterOpenChange = vi.fn();
+    const afterOpenChange = jest.fn();
     const { container, rerender } = render(<DrawerTest open afterOpenChange={afterOpenChange} />);
     rerender(<DrawerTest open={false} afterOpenChange={afterOpenChange} />);
 
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
     fireEvent.animationEnd(container.querySelector('.ant-drawer-content-wrapper')!);
 
@@ -120,16 +120,16 @@ describe('Drawer', () => {
   });
 
   it('test legacy afterVisibleChange', async () => {
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    const afterVisibleChange = vi.fn();
+    const afterVisibleChange = jest.fn();
     const { container, rerender } = render(
       <DrawerTest open afterVisibleChange={afterVisibleChange} />,
     );
     rerender(<DrawerTest visible={false} afterVisibleChange={afterVisibleChange} />);
 
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
     fireEvent.animationEnd(container.querySelector('.ant-drawer-content-wrapper')!);
 
@@ -145,7 +145,7 @@ describe('Drawer', () => {
   });
 
   it('should support children ref', () => {
-    const fn = vi.fn();
+    const fn = jest.fn();
 
     const refCallback = (ref: HTMLDivElement | null) => {
       expect(typeof ref).toBe('object');

@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Table.filter > clearFilters should support params 1`] = `
+exports[`Table.filter clearFilters should support params 1`] = `
 <div
   class="ant-dropdown-custom-view"
   id="customFilter"
@@ -48,7 +48,7 @@ exports[`Table.filter > clearFilters should support params 1`] = `
 </div>
 `;
 
-exports[`Table.filter > override custom filter correctly 1`] = `
+exports[`Table.filter override custom filter correctly 1`] = `
 <div
   class="ant-dropdown-custom-view"
   id="customFilter"
@@ -76,7 +76,7 @@ exports[`Table.filter > override custom filter correctly 1`] = `
 </div>
 `;
 
-exports[`Table.filter > renders custom content correctly 1`] = `
+exports[`Table.filter renders custom content correctly 1`] = `
 <div
   class="ant-table-filter-dropdown"
 >
@@ -88,7 +88,7 @@ exports[`Table.filter > renders custom content correctly 1`] = `
 </div>
 `;
 
-exports[`Table.filter > renders custom filter icon as ReactNode 1`] = `
+exports[`Table.filter renders custom filter icon as ReactNode 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -193,7 +193,7 @@ exports[`Table.filter > renders custom filter icon as ReactNode 1`] = `
 </div>
 `;
 
-exports[`Table.filter > renders custom filter icon as string correctly 1`] = `
+exports[`Table.filter renders custom filter icon as string correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -296,7 +296,7 @@ exports[`Table.filter > renders custom filter icon as string correctly 1`] = `
 </div>
 `;
 
-exports[`Table.filter > renders custom filter icon correctly 1`] = `
+exports[`Table.filter renders custom filter icon correctly 1`] = `
 <span
   class="customize-icon"
 >
@@ -304,7 +304,7 @@ exports[`Table.filter > renders custom filter icon correctly 1`] = `
 </span>
 `;
 
-exports[`Table.filter > renders custom filter icon with right Tooltip title 1`] = `
+exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -430,7 +430,7 @@ exports[`Table.filter > renders custom filter icon with right Tooltip title 1`] 
 </div>
 `;
 
-exports[`Table.filter > renders filter correctly 1`] = `
+exports[`Table.filter renders filter correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -551,7 +551,7 @@ exports[`Table.filter > renders filter correctly 1`] = `
 </div>
 `;
 
-exports[`Table.filter > renders menu correctly 1`] = `
+exports[`Table.filter renders menu correctly 1`] = `
 <div
   class="ant-table-filter-dropdown"
 >
@@ -691,7 +691,7 @@ exports[`Table.filter > renders menu correctly 1`] = `
 </div>
 `;
 
-exports[`Table.filter > renders radio filter correctly 1`] = `
+exports[`Table.filter renders radio filter correctly 1`] = `
 <div
   class="ant-table-filter-dropdown"
 >

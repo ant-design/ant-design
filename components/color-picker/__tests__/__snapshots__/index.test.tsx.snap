@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ColorPicker > Should disabled work 1`] = `
+exports[`ColorPicker Should disabled work 1`] = `
 <div>
   <div
     class="ant-color-picker-trigger ant-color-picker-trigger-disabled"
@@ -17,7 +17,7 @@ exports[`ColorPicker > Should disabled work 1`] = `
 </div>
 `;
 
-exports[`ColorPicker > Should render trigger work 1`] = `
+exports[`ColorPicker Should render trigger work 1`] = `
 <div>
   <div
     class="trigger"
@@ -25,7 +25,7 @@ exports[`ColorPicker > Should render trigger work 1`] = `
 </div>
 `;
 
-exports[`ColorPicker > rtl render > component should be rendered correctly in RTL direction 1`] = `
+exports[`ColorPicker rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-color-picker-trigger ant-color-picker-rtl"
 >

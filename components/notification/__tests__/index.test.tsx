@@ -11,7 +11,7 @@ describe('notification', () => {
   });
 
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -24,7 +24,7 @@ describe('notification', () => {
       getContainer: null,
     });
 
-    vi.useRealTimers();
+    jest.useRealTimers();
 
     await awaitPromise();
   });
@@ -44,7 +44,7 @@ describe('notification', () => {
     await awaitPromise();
 
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
 
     expect(document.querySelectorAll('.additional-holder')).toHaveLength(1);
@@ -195,7 +195,7 @@ describe('notification', () => {
   });
 
   it('trigger onClick', async () => {
-    const onClick = vi.fn();
+    const onClick = jest.fn();
 
     notification.open({
       message: 'Notification Title',

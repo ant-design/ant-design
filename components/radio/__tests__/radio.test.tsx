@@ -23,8 +23,8 @@ describe('Radio', () => {
   });
 
   it('responses hover events', () => {
-    const onMouseEnter = vi.fn();
-    const onMouseLeave = vi.fn();
+    const onMouseEnter = jest.fn();
+    const onMouseLeave = jest.fn();
 
     const { container } = render(<Radio onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />);
 

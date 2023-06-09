@@ -26,14 +26,14 @@ describe('Spin', () => {
   });
 
   it('should be controlled by spinning', async () => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
     const { container, rerender } = render(<Spin spinning={false} />);
     expect(container.querySelector('.ant-spin-spinning')).toBeFalsy();
     rerender(<Spin spinning />);
     await waitFakeTimer();
     expect(container.querySelector('.ant-spin-spinning')).toBeTruthy();
-    vi.clearAllTimers();
-    vi.useRealTimers();
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('if indicator set null should not be render default indicator', () => {
@@ -54,7 +54,7 @@ describe('Spin', () => {
   });
 
   it('warning tip without nest', () => {
-    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(<Spin tip="Not Show" />);
     expect(container.querySelector('.ant-spin-text')).toBeFalsy();

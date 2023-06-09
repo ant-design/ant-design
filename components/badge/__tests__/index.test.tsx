@@ -18,15 +18,15 @@ describe('Badge', () => {
   ));
 
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterEach(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('no strict warning', () => {
-    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { rerender } = render(
       <Badge dot>
         <span />
@@ -83,7 +83,7 @@ describe('Badge', () => {
 
     act(() => {
       fireEvent.mouseEnter(container.querySelector('.ant-badge')!);
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
     expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
   });
@@ -95,7 +95,7 @@ describe('Badge', () => {
       rerender(<Badge count={count} />);
 
       act(() => {
-        vi.runAllTimers();
+        jest.runAllTimers();
         expect(asFragment().firstChild).toMatchSnapshot();
       });
     }

@@ -36,8 +36,8 @@ describe('Pagination', () => {
   // https://github.com/ant-design/ant-design/issues/24913
   // https://github.com/ant-design/ant-design/issues/24501
   it('should onChange called when pageSize change', () => {
-    const onChange = vi.fn();
-    const onShowSizeChange = vi.fn();
+    const onChange = jest.fn();
+    const onShowSizeChange = jest.fn();
     const { container } = render(
       <Pagination
         defaultCurrent={1}

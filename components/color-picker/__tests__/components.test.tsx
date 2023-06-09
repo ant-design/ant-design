@@ -8,15 +8,15 @@ import ColorSteppers from '../components/ColorSteppers';
 
 describe('ColorPicker Components test', () => {
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterEach(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('Should ColorSteppers work correct', () => {
-    const handleAlphaChange = vi.fn();
+    const handleAlphaChange = jest.fn();
     const { container } = render(<ColorSteppers prefixCls="test" onChange={handleAlphaChange} />);
     expect(container.querySelector('.test-steppers')).toBeTruthy();
     fireEvent.change(container.querySelector('.test-steppers input')!, {
@@ -27,7 +27,7 @@ describe('ColorPicker Components test', () => {
   });
 
   it('Should ColorAlphaInput work correct', () => {
-    const handleAlphaChange = vi.fn();
+    const handleAlphaChange = jest.fn();
     const { container } = render(<ColorAlphaInput prefixCls="test" onChange={handleAlphaChange} />);
     expect(container.querySelector('.test-alpha-input')).toBeTruthy();
     fireEvent.change(container.querySelector('.test-alpha-input input')!, {
@@ -38,7 +38,7 @@ describe('ColorPicker Components test', () => {
   });
 
   it('Should ColorHexInput work correct', () => {
-    const handleAlphaChange = vi.fn();
+    const handleAlphaChange = jest.fn();
     const { container } = render(<ColorHexInput prefixCls="test" onChange={handleAlphaChange} />);
     expect(container.querySelector('.test-hex-input')).toBeTruthy();
     fireEvent.change(container.querySelector('.test-hex-input input')!, {
@@ -51,7 +51,7 @@ describe('ColorPicker Components test', () => {
   });
 
   it('Should ColorHsbInput work correct', () => {
-    const handleAlphaChange = vi.fn();
+    const handleAlphaChange = jest.fn();
     const { container } = render(<ColorHsbInput prefixCls="test" onChange={handleAlphaChange} />);
     expect(container.querySelector('.test-hsb-input')).toBeTruthy();
     const hsbInputEls = container.querySelectorAll('.test-hsb-input input');
@@ -73,7 +73,7 @@ describe('ColorPicker Components test', () => {
   });
 
   it('Should ColorRgbInput work correct', () => {
-    const handleAlphaChange = vi.fn();
+    const handleAlphaChange = jest.fn();
     const { container } = render(<ColorRgbInput prefixCls="test" onChange={handleAlphaChange} />);
     expect(container.querySelector('.test-rgb-input')).toBeTruthy();
     const rgbInputEls = container.querySelectorAll('.test-rgb-input input');

@@ -21,16 +21,16 @@ describe('Drawer', () => {
   rtlTest(Drawer);
 
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterEach(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   function triggerMotion() {
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
 
     const mask = document.querySelector('.ant-drawer-mask');
@@ -44,7 +44,7 @@ describe('Drawer', () => {
     }
 
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
   }
 
@@ -190,7 +190,7 @@ describe('Drawer', () => {
   });
 
   it('ConfigProvider should not warning', () => {
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     render(
       <ConfigProvider virtual>
@@ -212,7 +212,7 @@ describe('Drawer', () => {
 
   describe('style migrate', () => {
     it('not warning with getContainer', () => {
-      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       resetWarned();
 
       render(<Drawer getContainer={() => document.body} />);
@@ -222,7 +222,7 @@ describe('Drawer', () => {
     });
 
     it('not warning with getContainer false', () => {
-      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       resetWarned();
 
       render(<Drawer getContainer={false} />);
@@ -232,7 +232,7 @@ describe('Drawer', () => {
     });
 
     it('warning with getContainer & style', () => {
-      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       resetWarned();
 
       render(<Drawer getContainer={false} style={{ position: 'absolute' }} />);

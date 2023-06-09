@@ -19,14 +19,14 @@ describe('Upload', () => {
   rtlTest(Upload);
 
   beforeAll(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
   beforeEach(() => setup());
   afterAll(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
   afterEach(() => {
-    vi.clearAllTimers();
+    jest.clearAllTimers();
     return teardown();
   });
 
@@ -54,8 +54,8 @@ describe('Upload', () => {
   });
 
   it('return promise in beforeUpload', async () => {
-    const data = vi.fn();
-    const done = vi.fn();
+    const data = jest.fn();
+    const done = jest.fn();
     const props: UploadProps = {
       action: 'http://upload.com',
       beforeUpload: () =>
@@ -84,7 +84,7 @@ describe('Upload', () => {
   });
 
   it('beforeUpload can be falsy', async () => {
-    const done = vi.fn();
+    const done = jest.fn();
     const props: UploadProps = {
       action: 'http://upload.com',
       beforeUpload: () => false,
@@ -109,8 +109,8 @@ describe('Upload', () => {
   });
 
   it('upload promise return file in beforeUpload', async () => {
-    const done = vi.fn();
-    const data = vi.fn();
+    const done = jest.fn();
+    const data = jest.fn();
     const props: UploadProps = {
       action: 'http://upload.com',
       beforeUpload: (file) =>
@@ -145,7 +145,7 @@ describe('Upload', () => {
     expect(done).toHaveBeenCalled();
   });
 
-  it('should not stop upload when return value of beforeUpload is false', () => {
+  it('should not stop upload when return value of beforeUpload is false', (done) => {
     const fileList = [
       {
         uid: 'bar',
@@ -155,59 +155,55 @@ describe('Upload', () => {
     const mockFile = new File(['foo'], 'foo.png', {
       type: 'image/png',
     });
-    const data = vi.fn();
+    const data = jest.fn();
+    const props: UploadProps = {
+      action: 'http://upload.com',
+      fileList,
+      beforeUpload: () => false,
+      data,
+      onChange: ({ file, fileList: updatedFileList }) => {
+        expect(file instanceof File).toBe(true);
+        expect(updatedFileList.map((f) => f.name)).toEqual(['bar.png', 'foo.png']);
+        expect(data).not.toHaveBeenCalled();
+        done();
+      },
+    };
 
-    return new Promise<void>((resolve) => {
-      const props: UploadProps = {
-        action: 'http://upload.com',
-        fileList,
-        beforeUpload: () => false,
-        data,
-        onChange: ({ file, fileList: updatedFileList }) => {
-          expect(file instanceof File).toBe(true);
-          expect(updatedFileList.map((f) => f.name)).toEqual(['bar.png', 'foo.png']);
-          expect(data).not.toHaveBeenCalled();
-          resolve();
-        },
-      };
+    const { container: wrapper } = render(
+      <Upload {...props}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
 
-      const { container: wrapper } = render(
-        <Upload {...props}>
-          <button type="button">upload</button>
-        </Upload>,
-      );
-
-      fireEvent.change(wrapper.querySelector('input')!, {
-        target: { files: [mockFile] },
-      });
+    fireEvent.change(wrapper.querySelector('input')!, {
+      target: { files: [mockFile] },
     });
   });
 
-  it('should not stop upload when return value of beforeUpload is not false', () =>
-    new Promise<void>((resolve) => {
-      const data = vi.fn();
-      const props = {
-        action: 'http://upload.com',
-        beforeUpload() {},
-        data,
-        onChange: () => {
-          expect(data).toHaveBeenCalled();
-          resolve();
-        },
-      };
+  it('should not stop upload when return value of beforeUpload is not false', (done) => {
+    const data = jest.fn();
+    const props = {
+      action: 'http://upload.com',
+      beforeUpload() {},
+      data,
+      onChange: () => {
+        expect(data).toHaveBeenCalled();
+        done();
+      },
+    };
 
-      const { container: wrapper } = render(
-        <Upload {...props}>
-          <button type="button">upload</button>
-        </Upload>,
-      );
+    const { container: wrapper } = render(
+      <Upload {...props}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
 
-      fireEvent.change(wrapper.querySelector('input')!, {
-        target: {
-          files: [{ file: 'foo.png' }],
-        },
-      });
-    }));
+    fireEvent.change(wrapper.querySelector('input')!, {
+      target: {
+        files: [{ file: 'foo.png' }],
+      },
+    });
+  });
 
   // https://github.com/ant-design/ant-design/issues/14779
   it('should contain input file control if upload button is hidden', () => {
@@ -430,7 +426,7 @@ describe('Upload', () => {
   });
 
   it('should stop remove when return value of onRemove is false', async () => {
-    const mockRemove = vi.fn(() => false);
+    const mockRemove = jest.fn(() => false);
     const props: UploadProps = {
       onRemove: mockRemove,
       fileList: [
@@ -470,7 +466,7 @@ describe('Upload', () => {
         expect(file.status).toBe('uploading');
         removePromise = resolve;
       });
-    const onChange = vi.fn();
+    const onChange = jest.fn();
 
     const { container } = render(
       <Upload
@@ -492,7 +488,7 @@ describe('Upload', () => {
   });
 
   it('should not stop download when return use onDownload', async () => {
-    const mockRemove = vi.fn(() => false);
+    const mockRemove = jest.fn(() => false);
     const props: UploadProps = {
       onRemove: mockRemove,
       showUploadList: {
@@ -586,7 +582,7 @@ describe('Upload', () => {
   it('warning if set `value`', () => {
     resetWarned();
     const value = { value: [] } as any;
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Upload {...value} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Upload] `value` is not a valid prop, do you mean `fileList`?',
@@ -609,9 +605,9 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/25077
   it('should support events', () => {
-    const onClick = vi.fn();
-    const onMouseEnter = vi.fn();
-    const onMouseLeave = vi.fn();
+    const onClick = jest.fn();
+    const onMouseEnter = jest.fn();
+    const onMouseLeave = jest.fn();
     const props = { onClick, onMouseEnter, onMouseLeave };
     const { container: wrapper } = render(
       <Upload {...props}>
@@ -628,10 +624,10 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/26427
   it('should sync file list with control mode', async () => {
-    const done = vi.fn();
+    const done = jest.fn();
     let callTimes = 0;
 
-    const customRequest = vi.fn(async (options) => {
+    const customRequest = jest.fn(async (options) => {
       // stop here to make sure new fileList has been set and passed to Upload
       // eslint-disable-next-line no-promise-executor-return
       await new Promise((resolve) => setTimeout(resolve, 0));
@@ -694,7 +690,7 @@ describe('Upload', () => {
 
   describe('maxCount', () => {
     it('replace when only 1', async () => {
-      const onChange = vi.fn();
+      const onChange = jest.fn();
       const fileList = [
         {
           uid: 'bar',
@@ -732,7 +728,7 @@ describe('Upload', () => {
     });
 
     it('maxCount > 1', async () => {
-      const onChange = vi.fn();
+      const onChange = jest.fn();
       const fileList = [
         {
           uid: 'bar',
@@ -793,7 +789,7 @@ describe('Upload', () => {
   });
 
   it('Proxy should support deepClone', async () => {
-    const onChange = vi.fn();
+    const onChange = jest.fn();
 
     const { container: wrapper } = render(
       <Upload onChange={onChange}>
@@ -850,7 +846,7 @@ describe('Upload', () => {
   // https://github.com/ant-design/ant-design/issues/30390
   // IE11 Does not support the File constructor
   it('should not break in IE if beforeUpload returns false', async () => {
-    const onChange = vi.fn();
+    const onChange = jest.fn();
     const { container } = render(
       <Upload beforeUpload={() => false} fileList={[]} onChange={onChange} />,
     );
@@ -858,7 +854,7 @@ describe('Upload', () => {
       throw new TypeError("Object doesn't support this action");
     };
 
-    const spyIE = vi.spyOn(global, 'File').mockImplementationOnce(fileConstructor);
+    const spyIE = jest.spyOn(global, 'File').mockImplementationOnce(fileConstructor);
     fireEvent.change(container.querySelector('input')!, {
       target: { files: [{ file: 'foo.png' }] },
     });
@@ -911,7 +907,7 @@ describe('Upload', () => {
     let info1: UploadRequestOption;
     let info2: UploadRequestOption;
 
-    const onChange = vi.fn();
+    const onChange = jest.fn();
     const { container } = render(
       <Upload
         customRequest={(info) => {
@@ -954,7 +950,7 @@ describe('Upload', () => {
     const mockFile1 = new File(['bamboo'], 'bamboo.png', { type: 'image/png' });
     const mockFile2 = new File(['light'], 'light.png', { type: 'image/png' });
 
-    const customRequest = vi.fn(async (options) => {
+    const customRequest = jest.fn(async (options) => {
       // stop here to make sure new fileList has been set and passed to Upload
       // eslint-disable-next-line no-promise-executor-return
       await new Promise((resolve) => setTimeout(resolve, 0));

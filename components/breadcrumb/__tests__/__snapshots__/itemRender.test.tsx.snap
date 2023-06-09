@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Breadcrumb.ItemRender > render as expect 1`] = `
+exports[`Breadcrumb.ItemRender render as expect 1`] = `
 <div>
   <nav
     class="ant-breadcrumb"

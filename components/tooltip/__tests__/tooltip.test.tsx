@@ -20,11 +20,11 @@ describe('Tooltip', () => {
   mountTest(Tooltip);
   rtlTest(Tooltip);
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
   afterEach(() => {
-    vi.useRealTimers();
-    vi.clearAllTimers();
+    jest.useRealTimers();
+    jest.clearAllTimers();
   });
 
   beforeAll(() => {
@@ -34,7 +34,7 @@ describe('Tooltip', () => {
   });
 
   it('check `onOpenChange` arguments', async () => {
-    const onOpenChange = vi.fn();
+    const onOpenChange = jest.fn();
     const ref = React.createRef<any>();
 
     const { container, rerender } = render(
@@ -116,7 +116,7 @@ describe('Tooltip', () => {
   });
 
   it('should hide when mouse leave native disabled button', async () => {
-    const onOpenChange = vi.fn();
+    const onOpenChange = jest.fn();
     const ref = React.createRef<any>();
 
     const { container } = render(
@@ -152,7 +152,7 @@ describe('Tooltip', () => {
   describe('should hide when mouse leave antd disabled component', () => {
     function testComponent(name: string, Component: typeof Button | typeof Switch) {
       it(name, async () => {
-        const onOpenChange = vi.fn();
+        const onOpenChange = jest.fn();
         const ref = React.createRef<any>();
         const { container } = render(
           <Tooltip
@@ -205,7 +205,7 @@ describe('Tooltip', () => {
   });
 
   it('should warn for arrowPointAtCenter', async () => {
-    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     render(
       <Tooltip
@@ -243,7 +243,7 @@ describe('Tooltip', () => {
   });
 
   it('should works for date picker', async () => {
-    const onOpenChange = vi.fn();
+    const onOpenChange = jest.fn();
     const ref = React.createRef<any>();
 
     const { container } = render(
@@ -269,7 +269,7 @@ describe('Tooltip', () => {
   });
 
   it('should works for input group', async () => {
-    const onOpenChange = vi.fn();
+    const onOpenChange = jest.fn();
     const ref = React.createRef<any>();
     const { container } = render(
       <Tooltip title="hello" onOpenChange={onOpenChange} ref={ref}>
@@ -412,7 +412,7 @@ describe('Tooltip', () => {
   });
 
   it('should work with loading switch', () => {
-    const onOpenChange = vi.fn();
+    const onOpenChange = jest.fn();
     const { container } = render(
       <Tooltip
         title="loading tips"
@@ -431,7 +431,7 @@ describe('Tooltip', () => {
   });
 
   it('should work with disabled Radio', () => {
-    const onOpenChange = vi.fn();
+    const onOpenChange = jest.fn();
     const { container } = render(
       <Tooltip
         title="loading tips"
@@ -450,7 +450,7 @@ describe('Tooltip', () => {
   });
 
   it('should work with Fragment children', async () => {
-    const onOpenChange = vi.fn();
+    const onOpenChange = jest.fn();
     const ref = React.createRef<any>();
 
     const { container } = render(
@@ -484,7 +484,7 @@ describe('Tooltip', () => {
 
   it('deprecated warning', async () => {
     resetWarned();
-    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     // defaultVisible
     const { container, rerender } = render(
@@ -541,8 +541,8 @@ describe('Tooltip', () => {
     );
 
     // Event Trigger
-    const onVisibleChange = vi.fn();
-    const afterVisibleChange = vi.fn();
+    const onVisibleChange = jest.fn();
+    const afterVisibleChange = jest.fn();
     rerender(
       <Tooltip
         visible
@@ -594,11 +594,11 @@ describe('Tooltip', () => {
 
   it('use ref.current.forcePopupAlign', async () => {
     const ref = React.createRef<any>();
-    const error = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const error = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Tooltip open ref={ref} />);
     act(() => {
       ref.current.forcePopupAlign();
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
     expect(error).toHaveBeenCalled();
     error.mockRestore();

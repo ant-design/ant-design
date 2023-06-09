@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Upload List > handle error 1`] = `
+exports[`Upload List handle error 1`] = `
 <span
   class="ant-upload-wrapper"
 >
@@ -103,7 +103,7 @@ exports[`Upload List > handle error 1`] = `
 </span>
 `;
 
-exports[`Upload List > itemRender 1`] = `
+exports[`Upload List itemRender 1`] = `
 <div
   class="ant-upload-list ant-upload-list-text"
 >
@@ -162,7 +162,7 @@ exports[`Upload List > itemRender 1`] = `
 </div>
 `;
 
-exports[`Upload List > should be uploading when upload a file 1`] = `
+exports[`Upload List should be uploading when upload a file 1`] = `
 <span
   class="ant-upload-wrapper"
 >
@@ -265,7 +265,7 @@ exports[`Upload List > should be uploading when upload a file 1`] = `
 </span>
 `;
 
-exports[`Upload List > should non-image format file preview 1`] = `
+exports[`Upload List should non-image format file preview 1`] = `
 <span
   class="ant-upload-wrapper"
 >
@@ -983,7 +983,7 @@ exports[`Upload List > should non-image format file preview 1`] = `
 </span>
 `;
 
-exports[`Upload List > should support removeIcon and downloadIcon 1`] = `
+exports[`Upload List should support removeIcon and downloadIcon 1`] = `
 <span
   class="ant-upload-wrapper"
 >
@@ -1130,7 +1130,7 @@ exports[`Upload List > should support removeIcon and downloadIcon 1`] = `
 </span>
 `;
 
-exports[`Upload List > should support removeIcon and downloadIcon 2`] = `
+exports[`Upload List should support removeIcon and downloadIcon 2`] = `
 <span
   class="ant-upload-wrapper"
 >
@@ -1277,7 +1277,7 @@ exports[`Upload List > should support removeIcon and downloadIcon 2`] = `
 </span>
 `;
 
-exports[`Upload List > should support showRemoveIcon and showPreviewIcon 1`] = `
+exports[`Upload List should support showRemoveIcon and showPreviewIcon 1`] = `
 <span
   class="ant-upload-wrapper"
 >

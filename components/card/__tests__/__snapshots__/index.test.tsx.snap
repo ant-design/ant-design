@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card > correct pass tabList props 1`] = `
+exports[`Card correct pass tabList props 1`] = `
 <div
   class="ant-card ant-card-bordered ant-card-contain-tabs"
 >
@@ -263,7 +263,7 @@ exports[`Card > correct pass tabList props 1`] = `
 </div>
 `;
 
-exports[`Card > rtl render > component should be rendered correctly in RTL direction 1`] = `
+exports[`Card rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-card ant-card-bordered ant-card-rtl"
 >
@@ -273,7 +273,7 @@ exports[`Card > rtl render > component should be rendered correctly in RTL direc
 </div>
 `;
 
-exports[`Card > should still have padding when card which set padding to 0 is loading 1`] = `
+exports[`Card should still have padding when card which set padding to 0 is loading 1`] = `
 <div
   class="ant-card ant-card-loading ant-card-bordered"
 >
@@ -303,7 +303,7 @@ exports[`Card > should still have padding when card which set padding to 0 is lo
 </div>
 `;
 
-exports[`Card > title should be vertically aligned 1`] = `
+exports[`Card title should be vertically aligned 1`] = `
 <div
   class="ant-card ant-card-bordered"
   style="width: 300px;"

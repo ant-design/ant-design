@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input.Search > rtl render > component should be rendered correctly in RTL direction 1`] = `
+exports[`Input.Search rtl render component should be rendered correctly in RTL direction 1`] = `
 <span
   class="ant-input-group-wrapper ant-input-search ant-input-search-rtl ant-input-group-wrapper-rtl"
 >
@@ -48,7 +48,7 @@ exports[`Input.Search > rtl render > component should be rendered correctly in R
 </span>
 `;
 
-exports[`Input.Search > should support ReactNode suffix without error 1`] = `
+exports[`Input.Search should support ReactNode suffix without error 1`] = `
 <span
   class="ant-input-group-wrapper ant-input-search"
 >
@@ -107,7 +107,7 @@ exports[`Input.Search > should support ReactNode suffix without error 1`] = `
 </span>
 `;
 
-exports[`Input.Search > should support addonAfter 1`] = `
+exports[`Input.Search should support addonAfter 1`] = `
 <span
   class="ant-input-group-wrapper ant-input-search"
 >
@@ -158,7 +158,7 @@ exports[`Input.Search > should support addonAfter 1`] = `
 </span>
 `;
 
-exports[`Input.Search > should support addonAfter 2`] = `
+exports[`Input.Search should support addonAfter 2`] = `
 <span
   class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
 >
@@ -209,7 +209,7 @@ exports[`Input.Search > should support addonAfter 2`] = `
 </span>
 `;
 
-exports[`Input.Search > should support addonAfter and suffix for loading 1`] = `
+exports[`Input.Search should support addonAfter and suffix for loading 1`] = `
 <span
   class="ant-input-group-wrapper ant-input-search"
 >
@@ -267,7 +267,7 @@ exports[`Input.Search > should support addonAfter and suffix for loading 1`] = `
 </span>
 `;
 
-exports[`Input.Search > should support addonAfter and suffix for loading 2`] = `
+exports[`Input.Search should support addonAfter and suffix for loading 2`] = `
 <span
   class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
 >
@@ -325,7 +325,7 @@ exports[`Input.Search > should support addonAfter and suffix for loading 2`] = `
 </span>
 `;
 
-exports[`Input.Search > should support custom Button 1`] = `
+exports[`Input.Search should support custom Button 1`] = `
 <span
   class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
 >
@@ -353,7 +353,7 @@ exports[`Input.Search > should support custom Button 1`] = `
 </span>
 `;
 
-exports[`Input.Search > should support custom button 1`] = `
+exports[`Input.Search should support custom button 1`] = `
 <span
   class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
 >
@@ -378,7 +378,7 @@ exports[`Input.Search > should support custom button 1`] = `
 </span>
 `;
 
-exports[`Input.Search > should support invalid addonAfter 1`] = `
+exports[`Input.Search should support invalid addonAfter 1`] = `
 <span
   class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
 >
@@ -426,7 +426,7 @@ exports[`Input.Search > should support invalid addonAfter 1`] = `
 </span>
 `;
 
-exports[`Input.Search > should support invalid suffix 1`] = `
+exports[`Input.Search should support invalid suffix 1`] = `
 <span
   class="ant-input-group-wrapper ant-input-search"
 >
@@ -481,7 +481,7 @@ exports[`Input.Search > should support invalid suffix 1`] = `
 </span>
 `;
 
-exports[`Input.Search > should support loading 1`] = `
+exports[`Input.Search should support loading 1`] = `
 <span
   class="ant-input-group-wrapper ant-input-search"
 >
@@ -529,7 +529,7 @@ exports[`Input.Search > should support loading 1`] = `
 </span>
 `;
 
-exports[`Input.Search > should support loading 2`] = `
+exports[`Input.Search should support loading 2`] = `
 <span
   class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
 >

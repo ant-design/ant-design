@@ -1,3 +1,4 @@
+/* eslint-disable global-require, import/no-dynamic-require, jest/no-export */
 import React from 'react';
 import ConfigProvider from '../../components/config-provider';
 import { render, waitFakeTimer } from '../utils';
@@ -18,7 +19,7 @@ function isSingleNode(node: any): node is Element {
   return node && node instanceof HTMLElement;
 }
 
-export default async function rootPropsTest(
+export default function rootPropsTest(
   component: string,
   customizeRender?: (
     component: React.ComponentType<any> & Record<string, any>,
@@ -26,7 +27,7 @@ export default async function rootPropsTest(
   ) => React.ReactNode,
   options?: Options,
 ) {
-  const { default: Component } = await import(`../../components/${component}`);
+  const Component = require(`../../components/${component}`).default as any;
   const name = options?.name ? `(${options.name})` : '';
 
   describe(`RootProps${name}`, () => {
@@ -34,7 +35,7 @@ export default async function rootPropsTest(
 
     beforeEach(() => {
       passed = false;
-      vi.useFakeTimers();
+      jest.useFakeTimers();
     });
 
     afterEach(() => {
@@ -42,7 +43,7 @@ export default async function rootPropsTest(
         // eslint-disable-next-line no-console
         console.log(document.body.innerHTML);
       }
-      vi.useRealTimers();
+      jest.useRealTimers();
     });
 
     it('rootClassName', async () => {

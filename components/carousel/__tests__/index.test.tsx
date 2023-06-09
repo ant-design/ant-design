@@ -10,11 +10,11 @@ describe('Carousel', () => {
   rtlTest(Carousel);
 
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterEach(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('should has innerSlider', () => {
@@ -65,7 +65,7 @@ describe('Carousel', () => {
         <div>3</div>
       </Carousel>,
     );
-    const spy = vi.spyOn(ref.current?.innerSlider, 'autoPlay');
+    const spy = jest.spyOn(ref.current?.innerSlider, 'autoPlay');
     window.resizeTo(1000, window.outerHeight);
     expect(spy).not.toHaveBeenCalled();
     await waitFakeTimer();
@@ -80,13 +80,14 @@ describe('Carousel', () => {
         <div>3</div>
       </Carousel>,
     );
-    const spy = vi.spyOn(window, 'removeEventListener');
+    const spy = jest.spyOn(window, 'removeEventListener');
     unmount();
     expect(spy).toHaveBeenCalled();
   });
 
   describe('should works for dotPosition', () => {
     (['left', 'right', 'top', 'bottom'] as const).forEach((dotPosition) => {
+      // eslint-disable-next-line jest/valid-title
       it(dotPosition, () => {
         const { container } = render(
           <Carousel dotPosition={dotPosition}>

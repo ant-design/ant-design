@@ -8,7 +8,7 @@ export interface ColumnGroupProps<RecordType> extends Omit<ColumnType<RecordType
     | React.ReactElement<ColumnProps<RecordType>>[];
 }
 
-/* c8 ignore start */
+/* istanbul ignore next */
 /** This is a syntactic sugar for `columns` prop. So HOC will not work on this. */
 // eslint-disable-next-line no-unused-vars
 function ColumnGroup<RecordType>(_: ColumnGroupProps<RecordType>) {
@@ -16,4 +16,3 @@ function ColumnGroup<RecordType>(_: ColumnGroupProps<RecordType>) {
 }
 
 export default ColumnGroup;
-/* c8 ignore stop */

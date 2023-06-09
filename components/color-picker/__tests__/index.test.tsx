@@ -35,11 +35,11 @@ describe('ColorPicker', () => {
   mountTest(ColorPicker);
   rtlTest(ColorPicker);
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterEach(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('Should component render correct', () => {
@@ -146,7 +146,7 @@ describe('ColorPicker', () => {
   });
 
   it('Should preset color work', async () => {
-    const handleColorChange = vi.fn();
+    const handleColorChange = jest.fn();
 
     const { container } = render(
       <ColorPicker
@@ -196,6 +196,9 @@ describe('ColorPicker', () => {
     expect(
       container.querySelector('.ant-color-picker-hex-input input')?.getAttribute('value'),
     ).toEqual('000000');
+    expect(container.querySelectorAll('.ant-color-picker-presets-color')[0]).toHaveClass(
+      'ant-color-picker-presets-color-checked',
+    );
 
     fireEvent.click(presetsColors[9]);
     expect(
@@ -207,6 +210,9 @@ describe('ColorPicker', () => {
     expect(
       container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
     ).toEqual('2%');
+    expect(container.querySelectorAll('.ant-color-picker-presets-color')[9]).toHaveClass(
+      'ant-color-picker-presets-color-checked',
+    );
 
     expect(handleColorChange).toHaveBeenCalledTimes(2);
   });

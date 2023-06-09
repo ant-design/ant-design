@@ -7,7 +7,7 @@ import type { FormListOperation } from '../FormList';
 
 describe('Form.List.NoStyle', () => {
   it('nest error should clean up', async () => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
 
     let operation: FormListOperation;
 
@@ -60,7 +60,7 @@ describe('Form.List.NoStyle', () => {
       "'users.1.first' is required",
     );
 
-    vi.clearAllTimers();
-    vi.useRealTimers();
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 });
