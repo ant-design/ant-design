@@ -16,7 +16,7 @@ const initData = [
 ];
 
 async function fetchList(username: string) {
-  return Promise.resolve([
+  Promise.resolve([
     {
       customAttr: "天空之王",
       label: "火烈鸟",
