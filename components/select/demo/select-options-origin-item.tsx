@@ -67,11 +67,6 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
     label: `${v.label}(${v.customAttr})${v.value}`,
   }));
   
-  const optionsWidthAllAttrs = options.map((v) => ({
-    ...v,
-    label: `${v.label}(${v.customAttr})${v.value}`,
-  }));
-  
   return (
     <div style={{ padding: 40 }}>
       <div style={{ marginBottom: 24 }}>
@@ -86,7 +81,7 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
         onSearch={onSearch}
         value={valueWidthAllAttrs}
         notFoundContent={fetching ? <Spin size="small" /> : null}
-        options={optionsWidthAllAttrs}
+        options={options}
         onChange={selectCallback}
         style={{ width: 600 }}
       />
