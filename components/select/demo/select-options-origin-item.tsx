@@ -68,7 +68,6 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
   }));
   
   const notFoundContent = fetching ? <Spin size="small" /> : null;
-  
   return (
     <Card>
       <Row>
