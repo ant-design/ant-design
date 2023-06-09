@@ -36,7 +36,7 @@ async function fetchList(username: string) {
     ])
   );
 }
-const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
+const WrappedSelect = ({ initValues = [], value = [], setValue, }) => {
   const [options, setOptions] = useState<Record<string, string>[]>([]);
   const [fetching, setFetching] = useState<boolean>(false);
 
@@ -56,7 +56,7 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
 
   const selectCallback = (
     newValue: Record<string, string>[],
-    selectedList: Record<string, string>[]
+    selectedList: Record<string, string>[],
   ) => {
     const values = newValue?.map((v) => v.value);
     const newArr = [...selectedList, ...initValues].filter((k) =>
@@ -67,11 +67,11 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
 
   const valueWidthAllAttrs = value.map((v: any) => ({
     ...v,
-    label: `${v.label}(${v.customAttr})${v.value}`
+    label: `${v.label}(${v.customAttr})${v.value}`,
   }));
   const optionsWidthAllAttrs = options.map((v) => ({
     ...v,
-    label: `${v.label}(${v.customAttr})${v.value}`
+    label: `${v.label}(${v.customAttr})${v.value}`,
   }));
 
   return (
@@ -107,5 +107,5 @@ export default SelectOriginOptions;
 WrappedSelect.propTypes = {
   initValues: PropTypes.array,
   value: PropTypes.array.isRequired,
-  setValue: PropTypes.func.isRequired
+  setValue: PropTypes.func.isRequired,
 };
