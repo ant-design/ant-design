@@ -72,7 +72,7 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
     <Card>
       <Row>
         当前选中的值为: <div>{JSON.stringify(value)}</div>
-      </Row>
+      </Row>,
       <Select
         labelInValue
         filterOption={false}
