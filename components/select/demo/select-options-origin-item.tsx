@@ -85,7 +85,6 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
         notFoundContent={notFoundContent}
         options={options}
         onChange={selectCallback}
-        style={{ width: 600 }}
       />
     </Card>
   );
