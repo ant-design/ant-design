@@ -47,7 +47,7 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
 
   const onSearch = useCallback((name: string) => {
     setFetching(true);
-    return fetchList(name).then((list) => {
+    fetchList(name).then((list) => {
       setOptions(list as Record<string, string>[]);
       setFetching(false);
     });
