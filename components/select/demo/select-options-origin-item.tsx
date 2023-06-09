@@ -1,36 +1,36 @@
-import { Select, Spin } from "antd";
-import PropTypes from "prop-types";
-import React, { useCallback, useEffect, useState } from "react";
+import { Card, Row, Select, Spin } from 'antd';
+import PropTypes from 'prop-types';
+import { useCallback, useEffect, useState } from 'react';
 
 const initData = [
   {
-    customAttr: "雪山之王",
-    label: " 雪豹",
-    value: "snow lepoard",
+    customAttr: '雪山之王',
+    label: ' 雪豹',
+    value: 'snow lepoard',
   },
   {
-    customAttr: "森林之王",
-    label: "辛巴",
-    value: "senba",
+    customAttr: '森林之王',
+    label: '辛巴',
+    value: 'senba',
   },
 ];
 
 async function fetchList(username: string) {
   Promise.resolve([
     {
-      customAttr: "天空之王",
-      label: "火烈鸟",
-      value: "fire bird",
+      customAttr: '天空之王',
+      label: '火烈鸟',
+      value: 'fire bird',
     },
     {
-      customAttr: "深海之王",
-      label: "美人鱼",
-      value: "beauty fish",
+      customAttr: '深海之王',
+      label: '美人鱼',
+      value: 'beauty fish',
     },
     {
-      customAttr: "自定义",
+      customAttr: '自定义',
       label: `${username}`,
-      value: "userName",
+      value: 'userName',
     },
   ]);
 }
@@ -57,7 +57,7 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
   ) => {
     const values = newValue?.map((v) => v.value);
     const newArr = [...selectedList, ...initValues].filter((k) =>
-      values.includes(k.value)
+      values.includes(k.value),
     );
     setValue(newArr);
   };
@@ -66,23 +66,25 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
     ...v,
     label: `${v.label}(${v.customAttr})${v.value}`,
   }));
-  
+
   const notFoundContent = fetching ? <Spin size="small" /> : null;
-  const props = {
-    labelInValue: true,
-    mode: "multiple",
-    showSearch: true,
-    showArrow: true,
-    value: valueWidthAllAttrs,
-    notFoundContent: notFoundContent,
-    options: options,
-  };
+
   return (
-    <Select
-      {...props}
-      onSearch={onSearch}
-      onChange={selectCallback}
-    />);
+    <Card>
+      {JSON.stringify(value)}
+      <Select
+        mode="multiple"
+        showSearch
+        showArrow
+        onSearch={onSearch}
+        value={valueWidthAllAttrs}
+        notFoundContent={notFoundContent}
+        options={options}
+        onChange={selectCallback}
+        style={{ width: 600 }}
+      />
+    </Card>
+  );
 };
 
 const SelectOriginOptions = () => {
