@@ -1,23 +1,18 @@
 import { Select, Spin } from "antd";
+import PropTypes from "prop-types";
 import React, { useCallback, useEffect, useState } from "react";
-
-interface PropTypes {
-  initValues?: Record<string, string>[];
-  value: Record<string, string>[];
-  setValue: Function;
-}
 
 const initData = [
   {
     customAttr: "雪山之王",
     label: " 雪豹",
-    value: "snow lepoard"
+    value: "snow lepoard",
   },
   {
     customAttr: "森林之王",
     label: "辛巴",
-    value: "senba"
-  }
+    value: "senba",
+  },
 ];
 
 async function fetchList(username: string) {
@@ -26,26 +21,22 @@ async function fetchList(username: string) {
       {
         customAttr: "天空之王",
         label: "火烈鸟",
-        value: "fire bird"
+        value: "fire bird",
       },
       {
         customAttr: "深海之王",
         label: "美人鱼",
-        value: "beauty fish"
+        value: "beauty fish",
       },
       {
         customAttr: "自定义",
         label: `${username}`,
-        value: "userName"
-      }
+        value: "userName",
+      },
     ])
   );
 }
-const WrappedSelect = ({
-  initValues = [],
-  value = [],
-  setValue
-}: PropTypes) => {
+const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
   const [options, setOptions] = useState<Record<string, string>[]>([]);
   const [fetching, setFetching] = useState<boolean>(false);
 
@@ -53,7 +44,7 @@ const WrappedSelect = ({
     if (initValues?.length) {
       setValue(initValues);
     }
-  }, [initValues, setValue]);
+  }, [initValues]);
 
   const onSearch = useCallback((name: string) => {
     setFetching(true);
@@ -112,3 +103,9 @@ const SelectOriginOptions = () => {
 };
 
 export default SelectOriginOptions;
+
+WrappedSelect.propTypes = {
+  initValues: PropTypes.array,
+  value: PropTypes.array.isRequired,
+  setValue: PropTypes.func.isRequired
+};
