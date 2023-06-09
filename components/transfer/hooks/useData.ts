@@ -2,10 +2,10 @@ import * as React from 'react';
 import type { KeyWise, TransferProps } from '..';
 import { groupKeysMap } from '../../_util/transKeys';
 
-export default function useData<RecordType extends object>(
+function useData<RecordType extends object>(
   dataSource?: RecordType[],
   rowKey?: TransferProps<RecordType>['rowKey'],
-  targetKeys: string[] = [],
+  targetKeys?: string[],
 ) {
   const mergedDataSource = React.useMemo(
     () =>
@@ -20,8 +20,8 @@ export default function useData<RecordType extends object>(
 
   const [leftDataSource, rightDataSource] = React.useMemo(() => {
     const leftData: KeyWise<RecordType>[] = [];
-    const rightData: KeyWise<RecordType>[] = new Array(targetKeys.length);
-    const targetKeysMap = groupKeysMap(targetKeys);
+    const rightData: KeyWise<RecordType>[] = new Array((targetKeys || []).length);
+    const targetKeysMap = groupKeysMap(targetKeys || []);
     mergedDataSource.forEach((record: KeyWise<RecordType>) => {
       // rightData should be ordered by targetKeys
       // leftData should be ordered by dataSource
@@ -36,3 +36,5 @@ export default function useData<RecordType extends object>(
 
   return [mergedDataSource, leftDataSource, rightDataSource];
 }
+
+export default useData;
