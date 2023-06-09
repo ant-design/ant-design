@@ -70,7 +70,6 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
   const notFoundContent = fetching ? <Spin size="small" /> : null;
   const props = {
     labelInValue: true,
-    filterOption: false,
     mode: "multiple",
     showSearch: true,
     showArrow: true,
