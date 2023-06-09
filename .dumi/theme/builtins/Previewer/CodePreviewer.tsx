@@ -554,15 +554,14 @@ createRoot(document.getElementById('container')).render(<Demo />);
     // https://github.com/ant-design/ant-design/issues/39995
     // So we insert style tag into head tag.
     if (!style) return;
-    const oldStyleTag = document.querySelector(`style[data-demo-url="${demoUrl}"]`);
-    if (oldStyleTag) {
-      oldStyleTag.parentNode.removeChild(oldStyleTag);
-    }
     const styleTag = document.createElement('style');
     styleTag.type = 'text/css';
     styleTag.innerHTML = style;
     styleTag['data-demo-url'] = demoUrl;
     document.head.appendChild(styleTag);
+    return () => {
+      document.head.removeChild(styleTag);
+    };
   }, [style, demoUrl]);
 
   if (version) {
