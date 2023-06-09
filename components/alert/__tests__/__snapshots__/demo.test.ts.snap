@@ -596,11 +596,7 @@ exports[`renders components/alert/demo/close-text.tsx correctly 1`] = `
     tabindex="0"
     type="button"
   >
-    <span
-      class="ant-alert-close-text"
-    >
-      Close Now
-    </span>
+    Close Now
   </button>
 </div>
 `;

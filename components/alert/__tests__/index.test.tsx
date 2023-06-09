@@ -141,4 +141,27 @@ describe('Alert', () => {
     const { container } = render(<Alert description="description" />);
     expect(!!container.querySelector('.ant-alert-message')).toBe(false);
   });
+
+  it('close button should be hidden when closeIcon setting to null or false', () => {
+    const { container, rerender } = render(<Alert closeIcon={null} />);
+    expect(container.querySelectorAll('.ant-alert-close-icon').length).toBe(0);
+    rerender(<Alert closeIcon={false} />);
+    expect(container.querySelectorAll('.ant-alert-close-icon').length).toBe(0);
+    rerender(<Alert closeIcon />);
+    expect(container.querySelectorAll('.ant-alert-close-icon').length).toBe(1);
+    rerender(<Alert />);
+    expect(container.querySelectorAll('.ant-alert-close-icon').length).toBe(0);
+  });
+
+  it('should warning when using closeText', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(<Alert closeText="close" />);
+
+    expect(warnSpy).toHaveBeenCalledWith(
+      `Warning: [antd: Alert] \`closeText\` is deprecated. Please use \`closeIcon\` instead.`,
+    );
+
+    warnSpy.mockRestore();
+  });
 });

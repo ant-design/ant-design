@@ -9,6 +9,7 @@ import pickAttrs from 'rc-util/lib/pickAttrs';
 import type { ReactElement } from 'react';
 import * as React from 'react';
 import { replaceElement } from '../_util/reactNode';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import ErrorBoundary from './ErrorBoundary';
 
@@ -20,7 +21,10 @@ export interface AlertProps {
   type?: 'success' | 'info' | 'warning' | 'error';
   /** Whether Alert can be closed */
   closable?: boolean;
-  /** Close text to show */
+  /**
+   * @deprecated please use `closeIcon` instead.
+   * Close text to show
+   */
   closeText?: React.ReactNode;
   /** Content of Alert */
   message?: React.ReactNode;
@@ -41,7 +45,7 @@ export interface AlertProps {
   banner?: boolean;
   icon?: React.ReactNode;
   /** Custom closeIcon */
-  closeIcon?: React.ReactNode;
+  closeIcon?: boolean | React.ReactNode;
   action?: React.ReactNode;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
@@ -78,16 +82,15 @@ const IconNode: React.FC<IconNodeProps> = (props) => {
 interface CloseIconProps {
   isClosable: boolean;
   prefixCls: AlertProps['prefixCls'];
-  closeText: AlertProps['closeText'];
   closeIcon: AlertProps['closeIcon'];
   handleClose: AlertProps['onClose'];
 }
 
 const CloseIcon: React.FC<CloseIconProps> = (props) => {
-  const { isClosable, closeText, prefixCls, closeIcon, handleClose } = props;
+  const { isClosable, prefixCls, closeIcon = <CloseOutlined />, handleClose } = props;
   return isClosable ? (
     <button type="button" onClick={handleClose} className={`${prefixCls}-close-icon`} tabIndex={0}>
-      {closeText ? <span className={`${prefixCls}-close-text`}>{closeText}</span> : closeIcon}
+      {closeIcon === true ? <CloseOutlined /> : closeIcon}
     </button>
   ) : null;
 };
@@ -111,12 +114,12 @@ const Alert: CompoundedComponent = ({
   showIcon,
   closable,
   closeText,
-  closeIcon = <CloseOutlined />,
+  closeIcon: oriCloseIcon,
   action,
   ...props
 }) => {
   const [closed, setClosed] = React.useState(false);
-
+  warning(!closeText, 'Alert', '`closeText` is deprecated. Please use `closeIcon` instead.');
   const ref = React.useRef<HTMLDivElement>(null);
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
@@ -136,8 +139,10 @@ const Alert: CompoundedComponent = ({
     return banner ? 'warning' : 'info';
   };
 
-  // closeable when closeText is assigned
-  const isClosable = closeText ? true : closable;
+  const closeIcon = oriCloseIcon !== null && oriCloseIcon !== false ? oriCloseIcon : null;
+
+  // closeable when closeText or closeIcon is assigned
+  const isClosable = closeIcon || closeText || closable;
   const type = getType();
 
   // banner mode defaults to Icon
@@ -200,9 +205,8 @@ const Alert: CompoundedComponent = ({
           {action ? <div className={`${prefixCls}-action`}>{action}</div> : null}
           <CloseIcon
             isClosable={!!isClosable}
-            closeText={closeText}
             prefixCls={prefixCls}
-            closeIcon={closeIcon}
+            closeIcon={closeIcon ?? closeText}
             handleClose={handleClose}
           />
         </div>

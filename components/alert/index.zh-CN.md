@@ -41,9 +41,8 @@ group:
 | action | 自定义操作项 | ReactNode | - | 4.9.0 |
 | afterClose | 关闭动画结束后触发的回调函数 | () => void | - |  |
 | banner | 是否用作顶部公告 | boolean | false |  |
-| closable | 默认不显示关闭按钮 | boolean | - |  |
-| closeText | 自定义关闭按钮 | ReactNode | - |  |
-| closeIcon | 自定义关闭 Icon | ReactNode | `<CloseOutlined />` | 4.18.0 |
+| closeText | 自定义关闭按钮，>= 5.7.0 废弃，请使用 `closeIcon` 代替 | ReactNode | - |  |
+| closeIcon | 自定义关闭 Icon | boolean \| ReactNode | `<CloseOutlined />` | 5.7.0: 设置为 null 或 false 时隐藏关闭按钮 |
 | description | 警告提示的辅助性文字介绍 | ReactNode | - |  |
 | icon | 自定义图标，`showIcon` 为 true 时有效 | ReactNode | - |  |
 | message | 警告提示内容 | ReactNode | - |  |

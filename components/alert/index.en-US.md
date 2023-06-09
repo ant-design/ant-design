@@ -40,9 +40,8 @@ Alert component for feedback.
 | action | The action of Alert | ReactNode | - | 4.9.0 |
 | afterClose | Called when close animation is finished | () => void | - |  |
 | banner | Whether to show as banner | boolean | false |  |
-| closable | Whether Alert can be closed | boolean | - |  |
-| closeText | Close text to show | ReactNode | - |  |
-| closeIcon | Custom close icon | ReactNode | `<CloseOutlined />` | 4.18.0 |
+| closeText | Close text to show, deprecated when >= 5.7.0 | ReactNode | - |  |
+| closeIcon | Custom close icon | boolean \| ReactNode | `<CloseOutlined />` | 5.7.0: close button will be hidden when setting to null or false |
 | description | Additional content of Alert | ReactNode | - |  |
 | icon | Custom icon, effective when `showIcon` is true | ReactNode | - |  |
 | message | Content of Alert | ReactNode | - |  |
