@@ -66,6 +66,7 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
     ...v,
     label: `${v.label}(${v.customAttr})${v.value}`,
   }));
+  
   const optionsWidthAllAttrs = options.map((v) => ({
     ...v,
     label: `${v.label}(${v.customAttr})${v.value}`,
