@@ -87,7 +87,8 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
       />
     </div>
   );
-};
+}
+
 const SelectOriginOptions = () => {
   const [value, setValue] = useState([]);
   return (
