@@ -68,17 +68,20 @@ const WrappedSelect = ({ initValues = [], value = [], setValue }) => {
   }));
   
   const notFoundContent = fetching ? <Spin size="small" /> : null;
+  const props = {
+    labelInValue: true,
+    filterOption: false,
+    mode: "multiple",
+    showSearch: true,
+    showArrow: true,
+    value: valueWidthAllAttrs,
+    notFoundContent: notFoundContent,
+    options: options,
+  };
   return (
     <Select
-      labelInValue
-      filterOption={false}
-      mode={"multiple"}
-      showSearch
-      showArrow
+      {...props}
       onSearch={onSearch}
-      value={valueWidthAllAttrs}
-      notFoundContent={notFoundContent}
-      options={options}
       onChange={selectCallback}
     />);
 };
