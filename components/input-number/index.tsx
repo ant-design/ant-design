@@ -34,7 +34,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   const [focused, setFocus] = React.useState(false);
-  const inputRef = React.useRef<HTMLInputElement>(null);
+  const inputRef = React.useRef<HTMLInputElement>(null as HTMLInputElement);
 
   React.useImperativeHandle(ref, () => inputRef.current!);
 
@@ -120,7 +120,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       downHandler={downIcon}
       prefixCls={prefixCls}
       readOnly={readOnly}
-      controls={controlsTemp}
+      controls={!!controlsTemp}
       {...others}
     />
   );
@@ -131,7 +131,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
       {
         [`${prefixCls}-affix-wrapper-focused`]: focused,
-        [`${prefixCls}-affix-wrapper-disabled`]: props.disabled,
+        [`${prefixCls}-affix-wrapper-disabled`]: mergedDisabled,
         [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
         [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
         [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
@@ -172,10 +172,25 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   if (hasAddon) {
     const wrapperClassName = `${prefixCls}-group`;
     const addonClassName = `${wrapperClassName}-addon`;
+    const addonDisabledClassName = `${addonClassName}-disabled`;
     const addonBeforeNode = addonBefore ? (
-      <div className={addonClassName}>{addonBefore}</div>
+      <div
+        className={classNames(addonClassName, {
+          [addonDisabledClassName]: mergedDisabled,
+        })}
+      >
+        {addonBefore}
+      </div>
     ) : null;
-    const addonAfterNode = addonAfter ? <div className={addonClassName}>{addonAfter}</div> : null;
+    const addonAfterNode = addonAfter ? (
+      <div
+        className={classNames(addonClassName, {
+          [addonDisabledClassName]: mergedDisabled,
+        })}
+      >
+        {addonAfter}
+      </div>
+    ) : null;
 
     const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, wrapperClassName, hashId, {
       [`${wrapperClassName}-rtl`]: direction === 'rtl',

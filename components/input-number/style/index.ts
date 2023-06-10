@@ -129,6 +129,10 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
               width: '100%',
             },
 
+            [`${componentCls}-group-addon-disabled`]: {
+              ...genDisabledStyle(token),
+            },
+
             // Size
             '&-lg': {
               [`${componentCls}-group-addon`]: {
