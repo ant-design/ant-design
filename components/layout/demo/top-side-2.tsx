@@ -1,7 +1,7 @@
-import React from 'react';
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import React from 'react';
 
 const { Header, Content, Sider } = Layout;
 
@@ -37,8 +37,8 @@ const App: React.FC = () => {
 
   return (
     <Layout>
-      <Header className="header">
-        <div className="logo" />
+      <Header style={{ display: 'flex', alignItems: 'center' }}>
+        <div className="demo-logo" />
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} items={items1} />
       </Header>
       <Layout>

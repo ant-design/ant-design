@@ -9,6 +9,10 @@ import genNotificationPlacementStyle from './placement';
 export interface ComponentToken {
   zIndexPopup: number;
   width: number;
+}
+
+export interface NotificationToken extends FullToken<'Notification'> {
+  animationMaxHeight: number;
   notificationBg: string;
   notificationPadding: string;
   notificationPaddingVertical: number;
@@ -17,10 +21,6 @@ export interface ComponentToken {
   notificationCloseButtonSize: number;
   notificationMarginBottom: number;
   notificationMarginEdge: number;
-}
-
-export interface NotificationToken extends FullToken<'Notification'> {
-  animationMaxHeight: number;
 }
 
 const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
@@ -45,6 +45,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
     lineHeight,
     width,
     notificationIconSize,
+    colorText,
   } = token;
 
   const noticeCls = `${componentCls}-notice`;
@@ -111,6 +112,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 
     [`${noticeCls}-description`]: {
       fontSize,
+      color: colorText,
     },
 
     [`&${noticeCls}-closable ${noticeCls}-message`]: {
@@ -269,19 +271,10 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 export default genComponentStyleHook(
   'Notification',
   (token) => {
-    const notificationToken = mergeToken<NotificationToken>(token, {
-      // index.less variables
-      animationMaxHeight: 150,
-    });
-
-    return [genNotificationStyle(notificationToken)];
-  },
-  (token) => {
     const notificationPaddingVertical = token.paddingMD;
     const notificationPaddingHorizontal = token.paddingLG;
-    return {
-      zIndexPopup: token.zIndexPopupBase + 50,
-      width: 384,
+    const notificationToken = mergeToken<NotificationToken>(token, {
+      // index.less variables
       notificationBg: token.colorBgElevated,
       notificationPaddingVertical,
       notificationPaddingHorizontal,
@@ -290,6 +283,13 @@ export default genComponentStyleHook(
       notificationMarginBottom: token.margin,
       notificationPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
       notificationMarginEdge: token.marginLG,
-    };
+      animationMaxHeight: 150,
+    });
+
+    return [genNotificationStyle(notificationToken)];
   },
+  (token) => ({
+    zIndexPopup: token.zIndexPopupBase + 50,
+    width: 384,
+  }),
 );

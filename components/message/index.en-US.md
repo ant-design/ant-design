@@ -26,12 +26,13 @@ Display global messages as feedback in response to user operations.
 <code src="./demo/thenable.tsx">Promise interface</code>
 <code src="./demo/custom-style.tsx">Customized style</code>
 <code src="./demo/update.tsx">Update Message Content</code>
-<code src="./demo/info.tsx">Normal prompt</code>
+<code src="./demo/info.tsx">Static method (deprecated)</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
-This components provides some static methods, with usage and arguments as following:
+This component provides some static methods, with usage and arguments as following:
 
 - `message.success(content, [duration], onClose)`
 - `message.error(content, [duration], onClose)`
@@ -102,7 +103,7 @@ message.config({
 | Argument | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | duration | Time before auto-dismiss, in seconds | number | 3 |  |
-| getContainer | Return the mount node for Message | () => HTMLElement | () => document.body |  |
+| getContainer | Return the mount node for Message, but still display at fullScreen | () => HTMLElement | () => document.body |  |
 | maxCount | Max message show, drop oldest if exceed limit | number | - |  |
 | prefixCls | The prefix className of message node | string | `ant-message` | 4.5.0 |
 | rtl | Whether to enable RTL mode | boolean | false |  |

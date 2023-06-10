@@ -4,21 +4,26 @@ import RcUpload from 'rc-upload';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import { flushSync } from 'react-dom';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
-import defaultLocale from '../locale/en_US';
 import { useLocale } from '../locale';
-import warning from '../_util/warning';
-import type { RcFile, ShowUploadListInterface, UploadChangeParam, UploadFile } from './interface';
-import { UploadProps } from './interface';
+import defaultLocale from '../locale/en_US';
 import UploadList from './UploadList';
+import type {
+  RcFile,
+  ShowUploadListInterface,
+  UploadChangeParam,
+  UploadFile,
+  UploadProps,
+} from './interface';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
 
 import useStyle from './style';
 
 export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
-export { UploadProps };
+export type { UploadProps };
 
 const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (props, ref) => {
   const {
@@ -378,6 +383,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         appendAction={button}
         appendActionVisible={buttonVisible}
         itemRender={itemRender}
+        disabled={mergedDisabled}
       />
     );
   };

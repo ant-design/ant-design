@@ -1,10 +1,10 @@
 import type {
   RcFile as OriRcFile,
-  UploadProps as RcUploadProps,
   UploadRequestOption as RcCustomRequestOptions,
+  UploadProps as RcUploadProps,
 } from 'rc-upload/lib/interface';
 import type * as React from 'react';
-import type { ProgressProps } from '../progress';
+import type { ProgressAriaProps, ProgressProps } from '../progress';
 
 export interface RcFile extends OriRcFile {
   readonly lastModifiedDate: Date;
@@ -16,7 +16,7 @@ export interface HttpRequestHeader {
   [key: string]: string;
 }
 
-export interface UploadFile<T = any> {
+export interface UploadFile<T = any> extends ProgressAriaProps {
   uid: string;
   size?: number;
   name: string;
@@ -160,4 +160,8 @@ export interface UploadListProps<T = any> {
   appendAction?: React.ReactNode;
   appendActionVisible?: boolean;
   itemRender?: ItemRender<T>;
+  /**
+   * @internal Only the internal remove button is provided for use
+   */
+  disabled?: boolean;
 }

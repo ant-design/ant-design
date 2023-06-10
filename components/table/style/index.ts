@@ -209,7 +209,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           [`
             &${componentCls}-row:hover > th,
             &${componentCls}-row:hover > td,
-            > th${componentCls}-cell-row-hover
+            > th${componentCls}-cell-row-hover,
             > td${componentCls}-cell-row-hover
           `]: {
             background: tableRowHoverBg,

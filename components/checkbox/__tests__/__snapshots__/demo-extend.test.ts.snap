@@ -182,7 +182,7 @@ exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend conte
   </label>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
@@ -406,24 +406,50 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
       </span>
     </label>
   </div>
-  <label
-    class="ant-checkbox-wrapper"
-  >
-    <span
-      class="ant-checkbox"
+  <div>
+    <label
+      class="ant-checkbox-wrapper"
     >
-      <input
-        class="ant-checkbox-input"
-        type="checkbox"
-      />
       <span
-        class="ant-checkbox-inner"
-      />
-    </span>
-    <span>
-      Aligned
-    </span>
-  </label>
+        class="ant-checkbox"
+      >
+        <input
+          class="ant-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Aligned
+      </span>
+    </label>
+  </div>
+  <div>
+    <label
+      class="ant-checkbox-wrapper"
+    >
+      <span
+        class="ant-checkbox"
+      >
+        <input
+          class="ant-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        <span
+          style="font-size: 32px;"
+        >
+          Aligned
+        </span>
+      </span>
+    </label>
+  </div>
 </div>
 `;
 

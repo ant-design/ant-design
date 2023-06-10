@@ -4,11 +4,11 @@ import warning from '../_util/warning';
 import type { PickerLocale as DatePickerLocale } from '../date-picker/generatePicker';
 import type { TransferLocale as TransferLocaleForEmpty } from '../empty';
 import type { ModalLocale } from '../modal/locale';
-import type { TourLocale } from '../tour/interface';
 import { changeConfirmLocale } from '../modal/locale';
 import type { PaginationLocale } from '../pagination/Pagination';
 import type { PopconfirmLocale } from '../popconfirm/PurePanel';
 import type { TableLocale } from '../table/interface';
+import type { TourLocale } from '../tour/interface';
 import type { TransferLocale } from '../transfer';
 import type { UploadLocale } from '../upload/interface';
 import type { LocaleContextProps } from './context';
@@ -51,6 +51,9 @@ export interface Locale {
   QRCode?: {
     expired: string;
     refresh: string;
+  };
+  ColorPicker?: {
+    presetEmpty: string;
   };
 }
 

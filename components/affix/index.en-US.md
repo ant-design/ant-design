@@ -45,7 +45,7 @@ Please note that Affix should not cover other content on the page, especially wh
 
 ### When binding container with `target` in Affix, elements sometimes move out of the container.
 
-We only listen to container scroll events for performance consideration. You can add custom listeners if you still want to: <https://codesandbox.io/s/2xyj5zr85p>
+We only listen to container scroll events for performance consideration. You can add custom listeners if you still want to: <https://codesandbox.io/s/stupefied-maxwell-ophqnm?file=/index.js>
 
 Related issues：[#3938](https://github.com/ant-design/ant-design/issues/3938) [#5642](https://github.com/ant-design/ant-design/issues/5642) [#16120](https://github.com/ant-design/ant-design/issues/16120)
 

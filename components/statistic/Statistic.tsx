@@ -4,9 +4,8 @@ import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import Skeleton from '../skeleton';
 import StatisticNumber from './Number';
-import type { FormatConfig, valueType } from './utils';
 import useStyle from './style';
-import Countdown from './Countdown';
+import type { FormatConfig, valueType } from './utils';
 
 export interface StatisticProps extends FormatConfig {
   prefixCls?: string;
@@ -24,11 +23,7 @@ export interface StatisticProps extends FormatConfig {
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-type CompoundedComponent = {
-  Countdown: typeof Countdown;
-};
-
-const Statistic: React.FC<StatisticProps> & CompoundedComponent = (props) => {
+const Statistic: React.FC<StatisticProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -90,7 +85,5 @@ const Statistic: React.FC<StatisticProps> & CompoundedComponent = (props) => {
 if (process.env.NODE_ENV !== 'production') {
   Statistic.displayName = 'Statistic';
 }
-
-Statistic.Countdown = Countdown;
 
 export default Statistic;

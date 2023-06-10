@@ -27,8 +27,9 @@ demo:
 <code src="./demo/thenable.tsx">Promise 接口</code>
 <code src="./demo/custom-style.tsx">自定义样式</code>
 <code src="./demo/update.tsx">更新消息内容</code>
-<code src="./demo/info.tsx">普通提示</code>
+<code src="./demo/info.tsx">静态方法（不推荐）</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
@@ -103,7 +104,7 @@ message.config({
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | duration | 默认自动关闭延时，单位秒 | number | 3 |  |
-| getContainer | 配置渲染节点的输出位置 | () => HTMLElement | () => document.body |  |
+| getContainer | 配置渲染节点的输出位置，但依旧为全屏展示 | () => HTMLElement | () => document.body |  |
 | maxCount | 最大显示数, 超过限制时，最早的消息会被自动关闭 | number | - |  |
 | prefixCls | 消息节点的 className 前缀 | string | `ant-message` | 4.5.0 |
 | rtl | 是否开启 RTL 模式 | boolean | false |  |

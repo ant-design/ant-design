@@ -1,5 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { SelectToken } from '.';
+import { resetComponent, textEllipsis } from '../../style';
 import {
   initMoveMotion,
   initSlideMotion,
@@ -9,7 +10,6 @@ import {
   slideUpOut,
 } from '../../style/motion';
 import type { GenerateStyle } from '../../theme/internal';
-import { resetComponent, textEllipsis } from '../../style';
 
 const genItemStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const { controlPaddingHorizontal } = token;
@@ -112,6 +112,8 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
 
             '&-state': {
               flex: 'none',
+              display: 'flex',
+              alignItems: 'center',
             },
 
             [`&-active:not(${selectItemCls}-option-disabled)`]: {

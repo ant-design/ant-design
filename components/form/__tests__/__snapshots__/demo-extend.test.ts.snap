@@ -123,7 +123,7 @@ Array [
                     </div>
                     <div
                       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div>
                         <div
@@ -390,7 +390,7 @@ Array [
                     </div>
                     <div
                       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div>
                         <div
@@ -1035,7 +1035,7 @@ Array [
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                  style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div>
                     <div
@@ -1465,7 +1465,7 @@ Array [
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                  style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div>
                     <div
@@ -1748,7 +1748,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div>
                   <div
@@ -2029,7 +2029,7 @@ exports[`renders components/form/demo/control-ref.tsx extend context correctly 1
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div>
                   <div
@@ -2278,7 +2278,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                  style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div>
                     <div
@@ -2665,7 +2665,7 @@ Array [
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                  style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div>
                     <div
@@ -2808,7 +2808,7 @@ Array [
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
-                  style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div>
                     <div>
@@ -2991,7 +2991,7 @@ Array [
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-                  style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
                 >
                   <div>
                     <div
@@ -3140,7 +3140,7 @@ Array [
               </div>
               <div
                 class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-                style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
                   class="ant-picker-panel-container"
@@ -3809,7 +3809,7 @@ Array [
               </div>
               <div
                 class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-                style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
                   class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -3931,7 +3931,7 @@ Array [
                                   <tbody>
                                     <tr>
                                       <td
-                                        class="ant-picker-cell"
+                                        class="ant-picker-cell ant-picker-cell-disabled"
                                         title="2016-10-30"
                                       >
                                         <div
@@ -3941,7 +3941,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-end"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-end"
                                         title="2016-10-31"
                                       >
                                         <div
@@ -3951,7 +3951,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-start ant-picker-cell-in-view"
                                         title="2016-11-01"
                                       >
                                         <div
@@ -3961,7 +3961,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-02"
                                       >
                                         <div
@@ -3971,7 +3971,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-03"
                                       >
                                         <div
@@ -3981,7 +3981,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-04"
                                       >
                                         <div
@@ -3991,7 +3991,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-05"
                                       >
                                         <div
@@ -4003,7 +4003,7 @@ Array [
                                     </tr>
                                     <tr>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-06"
                                       >
                                         <div
@@ -4013,7 +4013,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-07"
                                       >
                                         <div
@@ -4023,7 +4023,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-08"
                                       >
                                         <div
@@ -4033,7 +4033,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-09"
                                       >
                                         <div
@@ -4043,7 +4043,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-10"
                                       >
                                         <div
@@ -4053,7 +4053,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-11"
                                       >
                                         <div
@@ -4063,7 +4063,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-12"
                                       >
                                         <div
@@ -4075,7 +4075,7 @@ Array [
                                     </tr>
                                     <tr>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-13"
                                       >
                                         <div
@@ -4085,7 +4085,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-14"
                                       >
                                         <div
@@ -4095,7 +4095,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-15"
                                       >
                                         <div
@@ -4105,7 +4105,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-16"
                                       >
                                         <div
@@ -4115,7 +4115,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-17"
                                       >
                                         <div
@@ -4125,7 +4125,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-18"
                                       >
                                         <div
@@ -4135,7 +4135,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-19"
                                       >
                                         <div
@@ -4147,7 +4147,7 @@ Array [
                                     </tr>
                                     <tr>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-20"
                                       >
                                         <div
@@ -4157,7 +4157,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-21"
                                       >
                                         <div
@@ -4167,7 +4167,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view ant-picker-cell-today"
                                         title="2016-11-22"
                                       >
                                         <div
@@ -4177,7 +4177,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-23"
                                       >
                                         <div
@@ -4187,7 +4187,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-24"
                                       >
                                         <div
@@ -4197,7 +4197,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-25"
                                       >
                                         <div
@@ -4207,7 +4207,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-26"
                                       >
                                         <div
@@ -4219,7 +4219,7 @@ Array [
                                     </tr>
                                     <tr>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-27"
                                       >
                                         <div
@@ -4229,7 +4229,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-28"
                                       >
                                         <div
@@ -4239,7 +4239,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-11-29"
                                       >
                                         <div
@@ -4249,7 +4249,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-end ant-picker-cell-in-view"
                                         title="2016-11-30"
                                       >
                                         <div
@@ -4259,7 +4259,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-start"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-start"
                                         title="2016-12-01"
                                       >
                                         <div
@@ -4269,7 +4269,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell"
+                                        class="ant-picker-cell ant-picker-cell-disabled"
                                         title="2016-12-02"
                                       >
                                         <div
@@ -4279,7 +4279,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell"
+                                        class="ant-picker-cell ant-picker-cell-disabled"
                                         title="2016-12-03"
                                       >
                                         <div
@@ -4291,7 +4291,7 @@ Array [
                                     </tr>
                                     <tr>
                                       <td
-                                        class="ant-picker-cell"
+                                        class="ant-picker-cell ant-picker-cell-disabled"
                                         title="2016-12-04"
                                       >
                                         <div
@@ -4301,7 +4301,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell"
+                                        class="ant-picker-cell ant-picker-cell-disabled"
                                         title="2016-12-05"
                                       >
                                         <div
@@ -4311,7 +4311,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell"
+                                        class="ant-picker-cell ant-picker-cell-disabled"
                                         title="2016-12-06"
                                       >
                                         <div
@@ -4321,7 +4321,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell"
+                                        class="ant-picker-cell ant-picker-cell-disabled"
                                         title="2016-12-07"
                                       >
                                         <div
@@ -4331,7 +4331,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell"
+                                        class="ant-picker-cell ant-picker-cell-disabled"
                                         title="2016-12-08"
                                       >
                                         <div
@@ -4341,7 +4341,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell"
+                                        class="ant-picker-cell ant-picker-cell-disabled"
                                         title="2016-12-09"
                                       >
                                         <div
@@ -4351,7 +4351,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell"
+                                        class="ant-picker-cell ant-picker-cell-disabled"
                                         title="2016-12-10"
                                       >
                                         <div
@@ -4467,7 +4467,7 @@ Array [
                                   <tbody>
                                     <tr>
                                       <td
-                                        class="ant-picker-cell"
+                                        class="ant-picker-cell ant-picker-cell-disabled"
                                         title="2016-11-27"
                                       >
                                         <div
@@ -4477,7 +4477,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell"
+                                        class="ant-picker-cell ant-picker-cell-disabled"
                                         title="2016-11-28"
                                       >
                                         <div
@@ -4487,7 +4487,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell"
+                                        class="ant-picker-cell ant-picker-cell-disabled"
                                         title="2016-11-29"
                                       >
                                         <div
@@ -4497,7 +4497,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-end"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-end"
                                         title="2016-11-30"
                                       >
                                         <div
@@ -4507,7 +4507,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-start ant-picker-cell-in-view"
                                         title="2016-12-01"
                                       >
                                         <div
@@ -4517,7 +4517,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-02"
                                       >
                                         <div
@@ -4527,7 +4527,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-03"
                                       >
                                         <div
@@ -4539,7 +4539,7 @@ Array [
                                     </tr>
                                     <tr>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-04"
                                       >
                                         <div
@@ -4549,7 +4549,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-05"
                                       >
                                         <div
@@ -4559,7 +4559,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-06"
                                       >
                                         <div
@@ -4569,7 +4569,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-07"
                                       >
                                         <div
@@ -4579,7 +4579,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-08"
                                       >
                                         <div
@@ -4589,7 +4589,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-09"
                                       >
                                         <div
@@ -4599,7 +4599,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-10"
                                       >
                                         <div
@@ -4611,7 +4611,7 @@ Array [
                                     </tr>
                                     <tr>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-11"
                                       >
                                         <div
@@ -4621,7 +4621,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-12"
                                       >
                                         <div
@@ -4631,7 +4631,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-13"
                                       >
                                         <div
@@ -4641,7 +4641,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-14"
                                       >
                                         <div
@@ -4651,7 +4651,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-15"
                                       >
                                         <div
@@ -4661,7 +4661,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-16"
                                       >
                                         <div
@@ -4671,7 +4671,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-17"
                                       >
                                         <div
@@ -4683,7 +4683,7 @@ Array [
                                     </tr>
                                     <tr>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-18"
                                       >
                                         <div
@@ -4693,7 +4693,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-19"
                                       >
                                         <div
@@ -4703,7 +4703,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-20"
                                       >
                                         <div
@@ -4713,7 +4713,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-21"
                                       >
                                         <div
@@ -4723,7 +4723,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-22"
                                       >
                                         <div
@@ -4733,7 +4733,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-23"
                                       >
                                         <div
@@ -4743,7 +4743,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-24"
                                       >
                                         <div
@@ -4755,7 +4755,7 @@ Array [
                                     </tr>
                                     <tr>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-25"
                                       >
                                         <div
@@ -4765,7 +4765,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-26"
                                       >
                                         <div
@@ -4775,7 +4775,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-27"
                                       >
                                         <div
@@ -4785,7 +4785,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-28"
                                       >
                                         <div
@@ -4795,7 +4795,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-29"
                                       >
                                         <div
@@ -4805,7 +4805,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                                         title="2016-12-30"
                                       >
                                         <div
@@ -4815,7 +4815,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-end ant-picker-cell-in-view"
                                         title="2016-12-31"
                                       >
                                         <div
@@ -4827,7 +4827,7 @@ Array [
                                     </tr>
                                     <tr>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-start"
+                                        class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-start"
                                         title="2017-01-01"
                                       >
                                         <div
@@ -4837,7 +4837,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell"
+                                        class="ant-picker-cell ant-picker-cell-disabled"
                                         title="2017-01-02"
                                       >
                                         <div
@@ -4847,7 +4847,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell"
+                                        class="ant-picker-cell ant-picker-cell-disabled"
                                         title="2017-01-03"
                                       >
                                         <div
@@ -4857,7 +4857,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell"
+                                        class="ant-picker-cell ant-picker-cell-disabled"
                                         title="2017-01-04"
                                       >
                                         <div
@@ -4867,7 +4867,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell"
+                                        class="ant-picker-cell ant-picker-cell-disabled"
                                         title="2017-01-05"
                                       >
                                         <div
@@ -4877,7 +4877,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell"
+                                        class="ant-picker-cell ant-picker-cell-disabled"
                                         title="2017-01-06"
                                       >
                                         <div
@@ -4887,7 +4887,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell"
+                                        class="ant-picker-cell ant-picker-cell-disabled"
                                         title="2017-01-07"
                                       >
                                         <div
@@ -6212,7 +6212,7 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend cont
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div>
                   <div
@@ -8424,7 +8424,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
           </span>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-            style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -8527,7 +8527,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-                style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
               >
                 <div>
                   <div
@@ -8744,7 +8744,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                     </div>
                     <div
                       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div>
                         <div
@@ -9009,7 +9009,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                     </div>
                     <div
                       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div>
                         <div
@@ -9182,7 +9182,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div>
                   <div
@@ -9311,7 +9311,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div>
                   <div
@@ -9721,7 +9721,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
           </span>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-            style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -9799,7 +9799,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
           </span>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-            style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -10067,7 +10067,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div>
                   <div
@@ -10209,7 +10209,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
-                style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div>
                   <div>
@@ -10391,7 +10391,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-                style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
               >
                 <div>
                   <div
@@ -10539,7 +10539,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             </div>
             <div
               class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-picker-panel-container"
@@ -11367,7 +11367,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
             </div>
             <div
               class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-picker-panel-container"
@@ -11995,7 +11995,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
             </div>
             <div
               class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-picker-panel-container"
@@ -13975,7 +13975,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
             </div>
             <div
               class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-picker-panel-container"
@@ -14281,7 +14281,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
             </div>
             <div
               class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -15496,7 +15496,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
             </div>
             <div
               class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -17486,7 +17486,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
             </div>
             <div
               class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-picker-panel-container"
@@ -19046,6 +19046,141 @@ Array [
 ]
 `;
 
+exports[`renders components/form/demo/validate-only.tsx extend context correctly 1`] = `
+<form
+  autocomplete="off"
+  class="ant-form ant-form-vertical"
+  id="validateOnly"
+>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="validateOnly_name"
+          title="Name"
+        >
+          Name
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              aria-required="true"
+              class="ant-input"
+              id="validateOnly_name"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="validateOnly_age"
+          title="Age"
+        >
+          Age
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              aria-required="true"
+              class="ant-input"
+              id="validateOnly_age"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center"
+            >
+              <div
+                class="ant-space-item"
+                style="margin-right: 8px;"
+              >
+                <button
+                  class="ant-btn ant-btn-primary"
+                  disabled=""
+                  type="submit"
+                >
+                  <span>
+                    Submit
+                  </span>
+                </button>
+              </div>
+              <div
+                class="ant-space-item"
+              >
+                <button
+                  class="ant-btn ant-btn-default"
+                  type="reset"
+                >
+                  <span>
+                    Reset
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`renders components/form/demo/validate-other.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -19150,7 +19285,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div>
                   <div
@@ -19338,7 +19473,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div>
                   <div
@@ -19688,7 +19823,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               />
               <div
                 class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-                style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
                   class="ant-tooltip-arrow"
@@ -20153,6 +20288,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
           >
             <ul
               class="ant-rate"
+              id="validate_other_rate"
               role="radiogroup"
               tabindex="0"
             >
@@ -21220,7 +21356,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             </div>
             <div
               class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-picker-panel-container"
@@ -21872,7 +22008,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             </div>
             <div
               class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-picker-panel-container"
@@ -23374,7 +23510,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             </div>
             <div
               class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -24538,7 +24674,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div>
                   <div
@@ -24747,7 +24883,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-                style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
               >
                 <div>
                   <div
@@ -24910,7 +25046,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
-                style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div>
                   <div>
@@ -25143,7 +25279,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       </div>
                       <div
                         class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-                        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-picker-panel-container"
@@ -25786,7 +25922,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       </div>
                       <div
                         class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-                        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-picker-panel-container"

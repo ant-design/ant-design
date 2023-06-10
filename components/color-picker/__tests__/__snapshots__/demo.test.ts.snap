@@ -1,0 +1,272 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/color-picker/demo/allowClear.tsx correctly 1`] = `
+<div
+  class="ant-color-picker-trigger"
+>
+  <div
+    class="ant-color-picker-color-block"
+  >
+    <div
+      class="ant-color-picker-color-block-inner"
+      style="background:rgb(22, 119, 255)"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders components/color-picker/demo/base.tsx correctly 1`] = `
+<div
+  class="ant-color-picker-trigger"
+>
+  <div
+    class="ant-color-picker-color-block"
+  >
+    <div
+      class="ant-color-picker-color-block-inner"
+      style="background:rgb(22, 119, 255)"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders components/color-picker/demo/controlled.tsx correctly 1`] = `
+<div
+  class="ant-color-picker-trigger"
+>
+  <div
+    class="ant-color-picker-color-block"
+  >
+    <div
+      class="ant-color-picker-color-block-inner"
+      style="background:rgb(22, 119, 255)"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders components/color-picker/demo/disabled.tsx correctly 1`] = `
+<div
+  class="ant-color-picker-trigger ant-color-picker-trigger-disabled"
+>
+  <div
+    class="ant-color-picker-color-block"
+  >
+    <div
+      class="ant-color-picker-color-block-inner"
+      style="background:rgb(22, 119, 255)"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+  style="display:flex"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:16px"
+  >
+    <div
+      class="ant-row ant-row-middle"
+    >
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center"
+      >
+        <div
+          class="ant-space-item"
+          style="margin-right:8px"
+        >
+          <div
+            class="ant-col"
+          >
+            <div
+              class="ant-color-picker-trigger"
+            >
+              <div
+                class="ant-color-picker-color-block"
+              >
+                <div
+                  class="ant-color-picker-color-block-inner"
+                  style="background:rgb(22, 119, 255)"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <div
+            class="ant-col"
+          >
+            HEX:
+            <span>
+              #1677ff
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:16px"
+  >
+    <div
+      class="ant-row ant-row-middle"
+    >
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center"
+      >
+        <div
+          class="ant-space-item"
+          style="margin-right:8px"
+        >
+          <div
+            class="ant-col"
+          >
+            <div
+              class="ant-color-picker-trigger"
+            >
+              <div
+                class="ant-color-picker-color-block"
+              >
+                <div
+                  class="ant-color-picker-color-block-inner"
+                  style="background:rgb(23, 120, 255)"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <div
+            class="ant-col"
+          >
+            HSB:
+            <span>
+              hsb(215, 91%, 100%)
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-row ant-row-middle"
+    >
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center"
+      >
+        <div
+          class="ant-space-item"
+          style="margin-right:8px"
+        >
+          <div
+            class="ant-col"
+          >
+            <div
+              class="ant-color-picker-trigger"
+            >
+              <div
+                class="ant-color-picker-color-block"
+              >
+                <div
+                  class="ant-color-picker-color-block-inner"
+                  style="background:rgb(22, 119, 255)"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <div
+            class="ant-col"
+          >
+            RGB:
+            <span>
+              rgb(22, 119, 255)
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/color-picker/demo/presets.tsx correctly 1`] = `
+<div
+  class="ant-color-picker-trigger"
+>
+  <div
+    class="ant-color-picker-color-block"
+  >
+    <div
+      class="ant-color-picker-color-block-inner"
+      style="background:rgb(22, 119, 255)"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders components/color-picker/demo/pure-panel.tsx correctly 1`] = `
+<div
+  style="padding-left:100px"
+>
+  <div
+    style="padding-bottom:0;position:relative;min-width:0"
+  >
+    <div
+      class="ant-color-picker-trigger"
+      style="margin:0"
+    >
+      <div
+        class="ant-color-picker-color-block"
+      >
+        <div
+          class="ant-color-picker-color-block-inner"
+          style="background:rgb(22, 119, 255)"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/color-picker/demo/trigger.tsx correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  style="background-color:#1677ff"
+  type="button"
+>
+  <span>
+    open
+  </span>
+</button>
+`;
+
+exports[`renders components/color-picker/demo/trigger-event.tsx correctly 1`] = `
+<div
+  class="ant-color-picker-trigger"
+>
+  <div
+    class="ant-color-picker-color-block"
+  >
+    <div
+      class="ant-color-picker-color-block-inner"
+      style="background:rgb(22, 119, 255)"
+    />
+  </div>
+</div>
+`;

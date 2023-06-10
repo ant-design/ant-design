@@ -136,6 +136,88 @@ exports[`renders components/segmented/demo/block.tsx extend context correctly 1`
 </div>
 `;
 
+exports[`renders components/segmented/demo/componentToken.tsx extend context correctly 1`] = `
+<div
+  class="ant-segmented"
+>
+  <div
+    class="ant-segmented-group"
+  >
+    <label
+      class="ant-segmented-item ant-segmented-item-selected"
+    >
+      <input
+        checked=""
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+        title="Daily"
+      >
+        Daily
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+        title="Weekly"
+      >
+        Weekly
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+        title="Monthly"
+      >
+        Monthly
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+        title="Quarterly"
+      >
+        Quarterly
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+        title="Yearly"
+      >
+        Yearly
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
 exports[`renders components/segmented/demo/controlled.tsx extend context correctly 1`] = `
 <div
   class="ant-segmented"
@@ -1315,7 +1397,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
             <div

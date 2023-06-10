@@ -43,7 +43,7 @@ Related issue: [#3487](https://github.com/ant-design/ant-design/issues/3487) [#3
 
 ## How do I modify the default theme of Ant Design?
 
-See: https://ant.design/docs/react/customize-theme .
+See: [customize-theme](/docs/react/customize-theme).
 
 ## How do I modify `Menu`/`Button`(etc.)'s style?
 

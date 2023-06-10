@@ -1,20 +1,16 @@
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';
+import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
-import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
 import Compact from './Compact';
 import Item from './Item';
 
+import { SpaceContextProvider } from './context';
 import useStyle from './style';
 
-export const SpaceContext = React.createContext({
-  latestIndex: 0,
-  horizontalSize: 0,
-  verticalSize: 0,
-  supportFlexGap: false,
-});
+export type { SpaceContext } from './context';
 
 export type SpaceSize = SizeType | number;
 
@@ -29,6 +25,8 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   align?: 'start' | 'end' | 'center' | 'baseline';
   split?: React.ReactNode;
   wrap?: boolean;
+  classNames?: { item: string };
+  styles?: { item: React.CSSProperties };
 }
 
 const spaceSize = {
@@ -41,7 +39,7 @@ function getNumberSize(size: SpaceSize) {
   return typeof size === 'string' ? spaceSize[size] : size || 0;
 }
 
-const Space: React.FC<SpaceProps> = (props) => {
+const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
   const { getPrefixCls, space, direction: directionConfig } = React.useContext(ConfigContext);
 
   const {
@@ -55,6 +53,8 @@ const Space: React.FC<SpaceProps> = (props) => {
     split,
     style,
     wrap = false,
+    classNames: customClassNames,
+    styles,
     ...otherProps
   } = props;
 
@@ -82,11 +82,14 @@ const Space: React.FC<SpaceProps> = (props) => {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
       [`${prefixCls}-align-${mergedAlign}`]: mergedAlign,
     },
-    className,
+    className ?? space?.className,
     rootClassName,
   );
 
-  const itemClassName = `${prefixCls}-item`;
+  const itemClassName = classNames(
+    `${prefixCls}-item`,
+    customClassNames?.item ?? space?.classNames?.item,
+  );
 
   const marginDirection = directionConfig === 'rtl' ? 'marginLeft' : 'marginRight';
 
@@ -108,6 +111,7 @@ const Space: React.FC<SpaceProps> = (props) => {
         marginDirection={marginDirection}
         split={split}
         wrap={wrap}
+        style={styles?.item ?? space?.styles?.item}
       >
         {child}
       </Item>
@@ -142,23 +146,27 @@ const Space: React.FC<SpaceProps> = (props) => {
 
   return wrapSSR(
     <div
+      ref={ref}
       className={cn}
       style={{
         ...gapStyle,
+        ...space?.style,
         ...style,
       }}
       {...otherProps}
     >
-      <SpaceContext.Provider value={spaceContext}>{nodes}</SpaceContext.Provider>
+      <SpaceContextProvider value={spaceContext}>{nodes}</SpaceContextProvider>
     </div>,
   );
-};
+});
 
 if (process.env.NODE_ENV !== 'production') {
   Space.displayName = 'Space';
 }
 
-type CompoundedComponent = React.FC<SpaceProps> & {
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  SpaceProps & React.RefAttributes<HTMLDivElement>
+> & {
   Compact: typeof Compact;
 };
 

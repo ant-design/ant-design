@@ -49,7 +49,7 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -649,7 +649,7 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -1309,7 +1309,7 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -1545,7 +1545,7 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -1694,7 +1694,7 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -1937,7 +1937,7 @@ exports[`renders components/date-picker/demo/bordered.tsx extend context correct
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -2537,7 +2537,7 @@ exports[`renders components/date-picker/demo/bordered.tsx extend context correct
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -3197,7 +3197,7 @@ exports[`renders components/date-picker/demo/bordered.tsx extend context correct
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -3433,7 +3433,7 @@ exports[`renders components/date-picker/demo/bordered.tsx extend context correct
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -3711,7 +3711,7 @@ exports[`renders components/date-picker/demo/bordered.tsx extend context correct
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -4898,7 +4898,7 @@ exports[`renders components/date-picker/demo/bordered.tsx extend context correct
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-week-range-wrapper"
@@ -6223,7 +6223,7 @@ exports[`renders components/date-picker/demo/bordered.tsx extend context correct
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-month-range-wrapper"
@@ -6697,7 +6697,7 @@ exports[`renders components/date-picker/demo/bordered.tsx extend context correct
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-year-range-wrapper"
@@ -7137,7 +7137,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -7269,7 +7269,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
                       >
                         <div
                           class="ant-picker-cell-inner"
-                          style="border: 1px solid #1890ff; border-radius: 50%;"
+                          style="border: 1px solid #1677ff; border-radius: 50%;"
                         >
                           1
                         </div>
@@ -7578,7 +7578,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
                       >
                         <div
                           class="ant-picker-cell-inner"
-                          style="border: 1px solid #1890ff; border-radius: 50%;"
+                          style="border: 1px solid #1677ff; border-radius: 50%;"
                         >
                           1
                         </div>
@@ -7780,7 +7780,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -7927,7 +7927,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
                             >
                               <div
                                 class="ant-picker-cell-inner"
-                                style="border: 1px solid #1890ff; border-radius: 50%;"
+                                style="border: 1px solid #1677ff; border-radius: 50%;"
                               >
                                 1
                               </div>
@@ -8236,7 +8236,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
                             >
                               <div
                                 class="ant-picker-cell-inner"
-                                style="border: 1px solid #1890ff; border-radius: 50%;"
+                                style="border: 1px solid #1677ff; border-radius: 50%;"
                               >
                                 1
                               </div>
@@ -8485,7 +8485,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
                             >
                               <div
                                 class="ant-picker-cell-inner"
-                                style="border: 1px solid #1890ff; border-radius: 50%;"
+                                style="border: 1px solid #1677ff; border-radius: 50%;"
                               >
                                 1
                               </div>
@@ -8806,7 +8806,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
                             >
                               <div
                                 class="ant-picker-cell-inner"
-                                style="border: 1px solid #1890ff; border-radius: 50%;"
+                                style="border: 1px solid #1677ff; border-radius: 50%;"
                               >
                                 1
                               </div>
@@ -8937,7 +8937,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -9538,7 +9538,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -9818,7 +9818,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -9940,7 +9940,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
                         <tbody>
                           <tr>
                             <td
-                              class="ant-picker-cell ant-picker-cell-end"
+                              class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-end"
                               title="2015-05-31"
                             >
                               <div
@@ -9950,7 +9950,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-start ant-picker-cell-in-view"
                               title="2015-06-01"
                             >
                               <div
@@ -9960,7 +9960,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                               title="2015-06-02"
                             >
                               <div
@@ -9970,7 +9970,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                               title="2015-06-03"
                             >
                               <div
@@ -9980,7 +9980,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                               title="2015-06-04"
                             >
                               <div
@@ -9990,7 +9990,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                               title="2015-06-05"
                             >
                               <div
@@ -10000,7 +10000,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-range-start ant-picker-cell-range-end ant-picker-cell-selected"
+                              class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view ant-picker-cell-range-start ant-picker-cell-range-end ant-picker-cell-selected"
                               title="2015-06-06"
                             >
                               <div
@@ -11028,7 +11028,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -12180,7 +12180,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -14132,7 +14132,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -14410,7 +14410,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -15596,7 +15596,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -17094,7 +17094,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -17699,7 +17699,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -19698,7 +19698,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -20894,7 +20894,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -22857,7 +22857,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -23133,7 +23133,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -23757,7 +23757,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -24381,7 +24381,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -24641,7 +24641,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -25366,7 +25366,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -26534,7 +26534,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -27141,7 +27141,7 @@ exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -28601,7 +28601,7 @@ exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -28937,7 +28937,7 @@ Array [
   </div>,
   <div
     class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-picker-panel-container"
@@ -29576,7 +29576,7 @@ Array [
   </div>,
   <div
     class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -30727,7 +30727,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -31384,7 +31384,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -32588,7 +32588,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -34614,7 +34614,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -35801,7 +35801,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -37802,7 +37802,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-week-range-wrapper"
@@ -39127,7 +39127,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-month-range-wrapper"
@@ -39602,7 +39602,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-quarter-range-wrapper"
@@ -39904,7 +39904,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-year-range-wrapper"
@@ -40341,7 +40341,7 @@ exports[`renders components/date-picker/demo/render-panel.tsx extend context cor
   </div>
   <div
     class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-picker-panel-container"
@@ -40983,7 +40983,7 @@ Array [
   </div>,
   <div
     class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -42201,7 +42201,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -42801,7 +42801,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -43079,7 +43079,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -44223,7 +44223,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -44890,7 +44890,7 @@ exports[`renders components/date-picker/demo/start-end.tsx extend context correc
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -46841,7 +46841,7 @@ exports[`renders components/date-picker/demo/start-end.tsx extend context correc
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -48802,7 +48802,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -49403,7 +49403,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -50046,7 +50046,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -51233,7 +51233,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -52385,7 +52385,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -52985,7 +52985,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -53263,7 +53263,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -54408,7 +54408,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -55050,7 +55050,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -55632,7 +55632,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -55892,7 +55892,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -57018,7 +57018,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -57680,7 +57680,7 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
           <div
@@ -57901,7 +57901,7 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -59319,7 +59319,7 @@ exports[`renders components/date-picker/demo/time.tsx extend context correctly 1
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container"
@@ -61312,7 +61312,7 @@ exports[`renders components/date-picker/demo/time.tsx extend context correctly 1
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"

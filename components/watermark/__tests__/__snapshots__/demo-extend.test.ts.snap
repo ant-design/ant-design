@@ -119,15 +119,20 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <div
-                style="padding: 4px; background: rgb(255, 255, 255); border-radius: 2px; border: 1px solid #dedede; display: inline-block; cursor: pointer;"
+                class="ant-color-picker-trigger"
               >
                 <div
-                  style="width: 36px; height: 14px; border-radius: 2px; background: rgba(0, 0, 0, 0.15);"
-                />
+                  class="ant-color-picker-color-block"
+                >
+                  <div
+                    class="ant-color-picker-color-block-inner"
+                    style="background: rgba(0, 0, 0, 0.15);"
+                  />
+                </div>
               </div>
               <div
-                class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottomLeft"
-                style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
                   class="ant-popover-arrow"
@@ -139,405 +144,350 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   <div
                     class="ant-popover-inner"
                     role="tooltip"
-                    style="padding: 0px;"
                   >
                     <div
                       class="ant-popover-inner-content"
                     >
                       <div
-                        class="sketch-picker "
-                        style="width: 200px; padding: 10px 10px 0px; box-sizing: initial; background: rgb(255, 255, 255); border-radius: 4px; box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15);"
+                        class="ant-color-picker-panel"
                       >
                         <div
-                          style="width: 100%; padding-bottom: 75%; position: relative; overflow: hidden;"
+                          class="ant-color-picker-inner-panel"
                         >
                           <div
-                            style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background: rgb(255, 0, 0);"
+                            class="ant-color-picker-select"
                           >
-                            <style>
-          .saturation-white {
-            background: -webkit-linear-gradient(to right, #fff, rgba(255,255,255,0));
-            background: linear-gradient(to right, #fff, rgba(255,255,255,0));
-          }
-          .saturation-black {
-            background: -webkit-linear-gradient(to top, #000, rgba(0,0,0,0));
-            background: linear-gradient(to top, #000, rgba(0,0,0,0));
-          }
-                            </style>
                             <div
-                              class="saturation-white"
-                              style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px;"
+                              class="ant-color-picker-palette"
+                              style="position: relative;"
                             >
                               <div
-                                class="saturation-black"
-                                style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px;"
-                              />
-                              <div
-                                style="position: absolute; top: 100%; left: 0%; cursor: default;"
+                                style="position: absolute; left: 0px; top: 0px; z-index: 1;"
                               >
                                 <div
-                                  style="width: 4px; height: 4px; box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
-            0 0 1px 2px rgba(0,0,0,.4); border-radius: 50%; cursor: hand; transform: translate(-2px, -2px);"
+                                  class="ant-color-picker-handler"
+                                  style="background-color: rgba(0, 0, 0, 0.15);"
                                 />
                               </div>
+                              <div
+                                class="ant-color-picker-saturation"
+                                style="background-color: rgb(255, 0, 0);"
+                              />
                             </div>
                           </div>
-                        </div>
-                        <div
-                          class="flexbox-fix"
-                          style="display: flex;"
-                        >
                           <div
-                            style="padding: 4px 0px; flex: 1;"
+                            class="ant-color-picker-slider-container"
                           >
                             <div
-                              style="position: relative; height: 10px; overflow: hidden;"
+                              class="ant-color-picker-slider-group"
                             >
                               <div
-                                style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px;"
+                                class="ant-color-picker-slider ant-color-picker-slider-hue"
                               >
                                 <div
-                                  class="hue-horizontal"
-                                  style="padding: 0px 2px; position: relative; height: 100%;"
+                                  class="ant-color-picker-palette"
+                                  style="position: relative;"
                                 >
-                                  <style>
-            .hue-horizontal {
-              background: linear-gradient(to right, #f00 0%, #ff0 17%, #0f0
-                33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
-              background: -webkit-linear-gradient(to right, #f00 0%, #ff0
-                17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
-            }
-            .hue-vertical {
-              background: linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%,
-                #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
-              background: -webkit-linear-gradient(to top, #f00 0%, #ff0 17%,
-                #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
-            }
-                                  </style>
                                   <div
-                                    style="position: absolute; left: 0%;"
+                                    style="position: absolute; left: 0px; top: 0px; z-index: 1;"
                                   >
                                     <div
-                                      style="margin-top: 1px; width: 4px; border-radius: 1px; height: 8px; box-shadow: 0 0 2px rgba(0, 0, 0, .6); background: rgb(255, 255, 255); transform: translateX(-2px);"
+                                      class="ant-color-picker-handler ant-color-picker-handler-sm"
+                                      style="background-color: rgb(255, 0, 0);"
                                     />
                                   </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div
-                              style="position: relative; height: 10px; margin-top: 4px; overflow: hidden;"
-                            >
-                              <div
-                                style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px;"
-                              >
-                                <div
-                                  style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; overflow: hidden;"
-                                >
                                   <div
-                                    style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background: url(data:image/png;base64,00) left;"
+                                    class="ant-color-picker-gradient"
+                                    style="position: absolute; inset: 0;"
                                   />
                                 </div>
+                              </div>
+                              <div
+                                class="ant-color-picker-slider ant-color-picker-slider-alpha"
+                              >
                                 <div
-                                  style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px;"
-                                />
-                                <div
-                                  style="position: relative; height: 100%; margin: 0px 3px;"
+                                  class="ant-color-picker-palette"
+                                  style="position: relative;"
                                 >
                                   <div
-                                    style="position: absolute; left: 15%;"
+                                    style="position: absolute; left: 0px; top: 0px; z-index: 1;"
                                   >
                                     <div
-                                      style="width: 4px; border-radius: 1px; height: 8px; box-shadow: 0 0 2px rgba(0, 0, 0, .6); background: rgb(255, 255, 255); margin-top: 1px; transform: translateX(-2px);"
+                                      class="ant-color-picker-handler ant-color-picker-handler-sm"
+                                      style="background-color: rgba(0, 0, 0, 0.15);"
                                     />
                                   </div>
+                                  <div
+                                    class="ant-color-picker-gradient"
+                                    style="position: absolute; inset: 0;"
+                                  />
                                 </div>
                               </div>
                             </div>
-                          </div>
-                          <div
-                            style="width: 24px; height: 24px; position: relative; margin-top: 4px; margin-left: 4px; border-radius: 3px;"
-                          >
                             <div
-                              style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background: url(data:image/png;base64,00) left;"
-                            />
-                            <div
-                              style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; border-radius: 2px; background: rgba(0, 0, 0, 0.15); box-shadow: inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          class="flexbox-fix"
-                          style="display: flex; padding-top: 4px;"
-                        >
-                          <div
-                            style="flex: 2;"
-                          >
-                            <div
-                              style="position: relative;"
+                              class="ant-color-picker-color-block"
                             >
-                              <input
-                                id="rc-editable-input-2"
-                                spellcheck="false"
-                                style="width: 80%; padding: 4px 10% 3px; box-shadow: inset 0 0 0 1px #ccc; font-size: 11px;"
-                                value="000000"
+                              <div
+                                class="ant-color-picker-color-block-inner"
+                                style="background: rgba(0, 0, 0, 0.15);"
                               />
-                              <label
-                                for="rc-editable-input-2"
-                                style="display: block; text-align: center; font-size: 11px; color: rgb(34, 34, 34); padding-top: 3px; padding-bottom: 4px; text-transform: capitalize;"
-                              >
-                                hex
-                              </label>
                             </div>
                           </div>
                           <div
-                            style="flex: 1; padding-left: 6px;"
+                            class="ant-color-picker-input-container"
                           >
                             <div
-                              style="position: relative;"
+                              class="ant-select ant-select-sm ant-select-borderless ant-select-in-form-item ant-color-picker-format-select ant-select-single ant-select-show-arrow"
                             >
-                              <input
-                                id="rc-editable-input-4"
-                                spellcheck="false"
-                                style="width: 80%; padding: 4px 10% 3px; box-shadow: inset 0 0 0 1px #ccc; font-size: 11px;"
-                                value="0"
-                              />
-                              <label
-                                for="rc-editable-input-4"
-                                style="display: block; text-align: center; font-size: 11px; color: rgb(34, 34, 34); padding-top: 3px; padding-bottom: 4px; text-transform: capitalize; cursor: ew-resize;"
+                              <div
+                                class="ant-select-selector"
                               >
-                                r
-                              </label>
+                                <span
+                                  class="ant-select-selection-search"
+                                >
+                                  <input
+                                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+                                    aria-autocomplete="list"
+                                    aria-controls="rc_select_TEST_OR_SSR_list"
+                                    aria-expanded="false"
+                                    aria-haspopup="listbox"
+                                    aria-owns="rc_select_TEST_OR_SSR_list"
+                                    autocomplete="off"
+                                    class="ant-select-selection-search-input"
+                                    id="rc_select_TEST_OR_SSR"
+                                    readonly=""
+                                    role="combobox"
+                                    style="opacity: 0;"
+                                    type="search"
+                                    unselectable="on"
+                                    value=""
+                                  />
+                                </span>
+                                <span
+                                  class="ant-select-selection-item"
+                                  title="HEX"
+                                >
+                                  HEX
+                                </span>
+                              </div>
+                              <div
+                                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; width: 68px;"
+                              >
+                                <div>
+                                  <div
+                                    id="rc_select_TEST_OR_SSR_list"
+                                    role="listbox"
+                                    style="height: 0px; width: 0px; overflow: hidden;"
+                                  >
+                                    <div
+                                      aria-label="HEX"
+                                      aria-selected="true"
+                                      id="rc_select_TEST_OR_SSR_list_0"
+                                      role="option"
+                                    >
+                                      hex
+                                    </div>
+                                    <div
+                                      aria-label="HSB"
+                                      aria-selected="false"
+                                      id="rc_select_TEST_OR_SSR_list_1"
+                                      role="option"
+                                    >
+                                      hsb
+                                    </div>
+                                  </div>
+                                  <div
+                                    class="rc-virtual-list"
+                                    style="position: relative;"
+                                  >
+                                    <div
+                                      class="rc-virtual-list-holder"
+                                      style="max-height: 256px; overflow-y: auto;"
+                                    >
+                                      <div>
+                                        <div
+                                          class="rc-virtual-list-holder-inner"
+                                          style="display: flex; flex-direction: column;"
+                                        >
+                                          <div
+                                            aria-selected="true"
+                                            class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                                            title="HEX"
+                                          >
+                                            <div
+                                              class="ant-select-item-option-content"
+                                            >
+                                              HEX
+                                            </div>
+                                            <span
+                                              aria-hidden="true"
+                                              class="ant-select-item-option-state"
+                                              style="user-select: none;"
+                                              unselectable="on"
+                                            />
+                                          </div>
+                                          <div
+                                            aria-selected="false"
+                                            class="ant-select-item ant-select-item-option"
+                                            title="HSB"
+                                          >
+                                            <div
+                                              class="ant-select-item-option-content"
+                                            >
+                                              HSB
+                                            </div>
+                                            <span
+                                              aria-hidden="true"
+                                              class="ant-select-item-option-state"
+                                              style="user-select: none;"
+                                              unselectable="on"
+                                            />
+                                          </div>
+                                          <div
+                                            aria-selected="false"
+                                            class="ant-select-item ant-select-item-option"
+                                            title="RGB"
+                                          >
+                                            <div
+                                              class="ant-select-item-option-content"
+                                            >
+                                              RGB
+                                            </div>
+                                            <span
+                                              aria-hidden="true"
+                                              class="ant-select-item-option-state"
+                                              style="user-select: none;"
+                                              unselectable="on"
+                                            />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-arrow"
+                                style="user-select: none;"
+                                unselectable="on"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down ant-select-suffix"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
                             </div>
-                          </div>
-                          <div
-                            style="flex: 1; padding-left: 6px;"
-                          >
                             <div
-                              style="position: relative;"
+                              class="ant-color-picker-input"
                             >
-                              <input
-                                id="rc-editable-input-6"
-                                spellcheck="false"
-                                style="width: 80%; padding: 4px 10% 3px; box-shadow: inset 0 0 0 1px #ccc; font-size: 11px;"
-                                value="0"
-                              />
-                              <label
-                                for="rc-editable-input-6"
-                                style="display: block; text-align: center; font-size: 11px; color: rgb(34, 34, 34); padding-top: 3px; padding-bottom: 4px; text-transform: capitalize; cursor: ew-resize;"
+                              <span
+                                class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm"
                               >
-                                g
-                              </label>
+                                <span
+                                  class="ant-input-prefix"
+                                >
+                                  #
+                                </span>
+                                <input
+                                  class="ant-input ant-input-sm"
+                                  type="text"
+                                  value="000000"
+                                />
+                              </span>
                             </div>
-                          </div>
-                          <div
-                            style="flex: 1; padding-left: 6px;"
-                          >
                             <div
-                              style="position: relative;"
+                              class="ant-input-number ant-input-number-sm ant-input-number-in-form-item ant-color-picker-steppers ant-color-picker-alpha-input"
                             >
-                              <input
-                                id="rc-editable-input-8"
-                                spellcheck="false"
-                                style="width: 80%; padding: 4px 10% 3px; box-shadow: inset 0 0 0 1px #ccc; font-size: 11px;"
-                                value="0"
-                              />
-                              <label
-                                for="rc-editable-input-8"
-                                style="display: block; text-align: center; font-size: 11px; color: rgb(34, 34, 34); padding-top: 3px; padding-bottom: 4px; text-transform: capitalize; cursor: ew-resize;"
+                              <div
+                                class="ant-input-number-handler-wrap"
                               >
-                                b
-                              </label>
-                            </div>
-                          </div>
-                          <div
-                            style="flex: 1; padding-left: 6px;"
-                          >
-                            <div
-                              style="position: relative;"
-                            >
-                              <input
-                                id="rc-editable-input-10"
-                                spellcheck="false"
-                                style="width: 80%; padding: 4px 10% 3px; box-shadow: inset 0 0 0 1px #ccc; font-size: 11px;"
-                                value="15"
-                              />
-                              <label
-                                for="rc-editable-input-10"
-                                style="display: block; text-align: center; font-size: 11px; color: rgb(34, 34, 34); padding-top: 3px; padding-bottom: 4px; text-transform: capitalize; cursor: ew-resize;"
+                                <span
+                                  aria-disabled="false"
+                                  aria-label="Increase Value"
+                                  class="ant-input-number-handler ant-input-number-handler-up"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="up"
+                                    class="anticon anticon-up ant-input-number-handler-up-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="up"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                                <span
+                                  aria-disabled="false"
+                                  aria-label="Decrease Value"
+                                  class="ant-input-number-handler ant-input-number-handler-down"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="down"
+                                    class="anticon anticon-down ant-input-number-handler-down-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="down"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                              </div>
+                              <div
+                                class="ant-input-number-input-wrap"
                               >
-                                a
-                              </label>
+                                <input
+                                  aria-valuemax="100"
+                                  aria-valuemin="0"
+                                  aria-valuenow="15"
+                                  autocomplete="off"
+                                  class="ant-input-number-input"
+                                  role="spinbutton"
+                                  step="1"
+                                  value="15%"
+                                />
+                              </div>
                             </div>
-                          </div>
-                        </div>
-                        <div
-                          class="flexbox-fix"
-                          style="margin: 0px -10px; padding: 10px 0px 0px 10px; border-top: 1px solid #eee; display: flex; flex-wrap: wrap; position: relative;"
-                        >
-                          <div
-                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
-                          >
-                            <span>
-                              <div
-                                style="background: rgb(208, 2, 27); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
-                                tabindex="0"
-                                title="#D0021B"
-                              />
-                            </span>
-                          </div>
-                          <div
-                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
-                          >
-                            <span>
-                              <div
-                                style="background: rgb(245, 166, 35); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
-                                tabindex="0"
-                                title="#F5A623"
-                              />
-                            </span>
-                          </div>
-                          <div
-                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
-                          >
-                            <span>
-                              <div
-                                style="background: rgb(248, 231, 28); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
-                                tabindex="0"
-                                title="#F8E71C"
-                              />
-                            </span>
-                          </div>
-                          <div
-                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
-                          >
-                            <span>
-                              <div
-                                style="background: rgb(139, 87, 42); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
-                                tabindex="0"
-                                title="#8B572A"
-                              />
-                            </span>
-                          </div>
-                          <div
-                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
-                          >
-                            <span>
-                              <div
-                                style="background: rgb(126, 211, 33); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
-                                tabindex="0"
-                                title="#7ED321"
-                              />
-                            </span>
-                          </div>
-                          <div
-                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
-                          >
-                            <span>
-                              <div
-                                style="background: rgb(65, 117, 5); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
-                                tabindex="0"
-                                title="#417505"
-                              />
-                            </span>
-                          </div>
-                          <div
-                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
-                          >
-                            <span>
-                              <div
-                                style="background: rgb(189, 16, 224); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
-                                tabindex="0"
-                                title="#BD10E0"
-                              />
-                            </span>
-                          </div>
-                          <div
-                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
-                          >
-                            <span>
-                              <div
-                                style="background: rgb(144, 19, 254); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
-                                tabindex="0"
-                                title="#9013FE"
-                              />
-                            </span>
-                          </div>
-                          <div
-                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
-                          >
-                            <span>
-                              <div
-                                style="background: rgb(74, 144, 226); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
-                                tabindex="0"
-                                title="#4A90E2"
-                              />
-                            </span>
-                          </div>
-                          <div
-                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
-                          >
-                            <span>
-                              <div
-                                style="background: rgb(80, 227, 194); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
-                                tabindex="0"
-                                title="#50E3C2"
-                              />
-                            </span>
-                          </div>
-                          <div
-                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
-                          >
-                            <span>
-                              <div
-                                style="background: rgb(184, 233, 134); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
-                                tabindex="0"
-                                title="#B8E986"
-                              />
-                            </span>
-                          </div>
-                          <div
-                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
-                          >
-                            <span>
-                              <div
-                                style="background: rgb(0, 0, 0); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
-                                tabindex="0"
-                                title="#000000"
-                              />
-                            </span>
-                          </div>
-                          <div
-                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
-                          >
-                            <span>
-                              <div
-                                style="background: rgb(74, 74, 74); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
-                                tabindex="0"
-                                title="#4A4A4A"
-                              />
-                            </span>
-                          </div>
-                          <div
-                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
-                          >
-                            <span>
-                              <div
-                                style="background: rgb(155, 155, 155); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
-                                tabindex="0"
-                                title="#9B9B9B"
-                              />
-                            </span>
-                          </div>
-                          <div
-                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
-                          >
-                            <span>
-                              <div
-                                style="background: rgb(255, 255, 255); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
-                                tabindex="0"
-                                title="#FFFFFF"
-                              />
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -601,7 +551,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 />
                 <div
                   class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-                  style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
                     class="ant-tooltip-arrow"
@@ -675,7 +625,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 />
                 <div
                   class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-                  style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
                     class="ant-tooltip-arrow"
@@ -749,7 +699,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 />
                 <div
                   class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-                  style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
                     class="ant-tooltip-arrow"

@@ -23,22 +23,24 @@ console.error = (msg: any) => {
   }
 };
 
-generateCssinjs({
-  key: 'check',
-  render(Component: any) {
-    ReactDOMServer.renderToString(
-      React.createElement(
-        StyleProvider,
-        { linters: [logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter] },
-        React.createElement(Component),
-      ),
-    );
-  },
-});
+(async () => {
+  await generateCssinjs({
+    key: 'check',
+    render(Component: any) {
+      ReactDOMServer.renderToString(
+        React.createElement(
+          StyleProvider,
+          { linters: [logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter] },
+          React.createElement(Component),
+        ),
+      );
+    },
+  });
 
-if (errorCount > 0) {
-  console.log(chalk.red(`❌  CSS-in-JS check failed with ${errorCount} errors.`));
-  process.exit(1);
-} else {
-  console.log(chalk.green(`✅  CSS-in-JS check passed.`));
-}
+  if (errorCount > 0) {
+    console.log(chalk.red(`❌  CSS-in-JS check failed with ${errorCount} errors.`));
+    process.exit(1);
+  } else {
+    console.log(chalk.green(`✅  CSS-in-JS check passed.`));
+  }
+})();

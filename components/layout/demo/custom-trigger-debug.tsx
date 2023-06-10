@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import {
   DesktopOutlined,
   FileOutlined,
@@ -9,7 +8,8 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Layout, Menu, Button, theme } from 'antd';
+import { Button, Layout, Menu, theme } from 'antd';
+import React, { useState } from 'react';
 
 const { Header, Sider, Content } = Layout;
 
@@ -73,7 +73,7 @@ const App: React.FC = () => {
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="logo" />
+        <div className="demo-logo-vertical" />
         <Menu
           theme="dark"
           mode="inline"

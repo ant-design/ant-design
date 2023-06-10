@@ -155,14 +155,46 @@ export default App;
 
 ### 静态消费（如 less）
 
-当你需要非 React 生命周期消费 Token 变量时，可以通过静态方法将其导出：
+当你需要非 React 生命周期消费 Token 变量时，可以通过静态方法 `getDesignToken` 将其导出：
 
 ```jsx
 import { theme } from 'antd';
 
-const { defaultAlgorithm, defaultSeed } = theme;
+const { getDesignToken } = theme;
 
-const mapToken = defaultAlgorithm(defaultSeed);
+const globalToken = getDesignToken();
+```
+
+`getDesignToken` 和 ConfigProvider 一样，支持传入 `theme` 属性，用于获取指定主题的 Design Token。
+
+```tsx
+import type { ThemeConfig } from 'antd';
+import { theme } from 'antd';
+import { createRoot } from 'react-dom/client';
+
+const { getDesignToken, useToken } = theme;
+
+const config: ThemeConfig = {
+  token: {
+    colorPrimary: '#1890ff',
+  },
+};
+
+// 通过静态方法获取
+const globalToken = getDesignToken(config);
+
+// 通过 hook 获取
+const App = () => {
+  const { token } = useToken();
+  return null;
+};
+
+// 渲染示意
+createRoot(document.getElementById('#app')).render(
+  <ConfigProvider theme={config}>
+    <App />
+  </ConfigProvider>,
+);
 ```
 
 如果需要将其应用到静态样式编译框架，如 less 可以通过 less-loader 注入：

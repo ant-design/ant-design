@@ -1579,7 +1579,7 @@ describe('Form', () => {
   it('item customize margin', async () => {
     const computeSpy = jest
       .spyOn(window, 'getComputedStyle')
-      .mockImplementation(() => ({ marginBottom: 24 }) as unknown as CSSStyleDeclaration);
+      .mockImplementation(() => ({ marginBottom: 24 } as unknown as CSSStyleDeclaration));
 
     const { container } = render(
       <Form>
@@ -1877,5 +1877,20 @@ describe('Form', () => {
     expect(container.querySelectorAll('input')[0].value).toEqual('bamboo');
     expect(container.querySelectorAll('input')[1].value).toEqual('14');
     expect(errorSpy).not.toHaveBeenCalled();
+  });
+
+  it('duplicated form name', () => {
+    resetWarned();
+
+    render(
+      <>
+        <Form name="same" />
+        <Form name="same" />
+      </>,
+    );
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form] There exist multiple Form with same `name`.',
+    );
   });
 });

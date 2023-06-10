@@ -28,6 +28,7 @@ group:
 <code src="./demo/toggle-debug.tsx" debug>隐藏情况下计算字符对齐</code>
 <code src="./demo/responsive.tsx">响应式尺寸</code>
 <code src="./demo/fallback.tsx" debug>图片不存在时</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 

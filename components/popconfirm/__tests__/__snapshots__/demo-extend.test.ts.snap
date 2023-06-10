@@ -12,7 +12,7 @@ Array [
   </button>,
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
@@ -58,15 +58,19 @@ Array [
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                class="ant-popconfirm-message-text"
               >
-                Title
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Title
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Open Popconfirm with async logic
+                </div>
               </div>
-            </div>
-            <div
-              class="ant-popconfirm-description"
-            >
-              Open Popconfirm with async logic
             </div>
             <div
               class="ant-popconfirm-buttons"
@@ -99,7 +103,7 @@ Array [
 exports[`renders components/popconfirm/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-link"
+    class="ant-btn ant-btn-default ant-btn-dangerous"
     type="button"
   >
     <span>
@@ -108,7 +112,7 @@ Array [
   </button>,
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
@@ -154,15 +158,19 @@ Array [
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                class="ant-popconfirm-message-text"
               >
-                Delete the task
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Delete the task
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Are you sure to delete this task?
+                </div>
               </div>
-            </div>
-            <div
-              class="ant-popconfirm-description"
-            >
-              Are you sure to delete this task?
             </div>
             <div
               class="ant-popconfirm-buttons"
@@ -195,7 +203,7 @@ Array [
 exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context correctly 1`] = `
 <div>
   <button
-    class="ant-btn ant-btn-link"
+    class="ant-btn ant-btn-default ant-btn-dangerous"
     type="button"
   >
     <span>
@@ -204,7 +212,7 @@ exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context c
   </button>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
@@ -250,15 +258,19 @@ exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context c
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                class="ant-popconfirm-message-text"
               >
-                Delete the task
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Delete the task
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Are you sure to delete this task?
+                </div>
               </div>
-            </div>
-            <div
-              class="ant-popconfirm-description"
-            >
-              Are you sure to delete this task?
             </div>
             <div
               class="ant-popconfirm-buttons"
@@ -314,7 +326,7 @@ exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context c
 exports[`renders components/popconfirm/demo/icon.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-link"
+    class="ant-btn ant-btn-default ant-btn-dangerous"
     type="button"
   >
     <span>
@@ -323,7 +335,7 @@ Array [
   </button>,
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
@@ -373,15 +385,19 @@ Array [
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                class="ant-popconfirm-message-text"
               >
-                Delete the task
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Delete the task
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Are you sure to delete this task?
+                </div>
               </div>
-            </div>
-            <div
-              class="ant-popconfirm-description"
-            >
-              Are you sure to delete this task?
             </div>
             <div
               class="ant-popconfirm-buttons"
@@ -414,7 +430,7 @@ Array [
 exports[`renders components/popconfirm/demo/locale.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-link"
+    class="ant-btn ant-btn-default ant-btn-dangerous"
     type="button"
   >
     <span>
@@ -423,7 +439,7 @@ Array [
   </button>,
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
@@ -469,15 +485,19 @@ Array [
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                class="ant-popconfirm-message-text"
               >
-                Delete the task
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Delete the task
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Are you sure to delete this task?
+                </div>
               </div>
-            </div>
-            <div
-              class="ant-popconfirm-description"
-            >
-              Are you sure to delete this task?
             </div>
             <div
               class="ant-popconfirm-buttons"
@@ -522,7 +542,7 @@ Array [
     </button>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-topLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -568,15 +588,19 @@ Array [
                   </span>
                 </span>
                 <div
-                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                  class="ant-popconfirm-message-text"
                 >
-                  Are you sure to delete this task?
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
                 </div>
-              </div>
-              <div
-                class="ant-popconfirm-description"
-              >
-                Delete the task
               </div>
               <div
                 class="ant-popconfirm-buttons"
@@ -613,7 +637,7 @@ Array [
     </button>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -659,15 +683,19 @@ Array [
                   </span>
                 </span>
                 <div
-                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                  class="ant-popconfirm-message-text"
                 >
-                  Are you sure to delete this task?
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
                 </div>
-              </div>
-              <div
-                class="ant-popconfirm-description"
-              >
-                Delete the task
               </div>
               <div
                 class="ant-popconfirm-buttons"
@@ -704,7 +732,7 @@ Array [
     </button>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-topRight"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -750,15 +778,19 @@ Array [
                   </span>
                 </span>
                 <div
-                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                  class="ant-popconfirm-message-text"
                 >
-                  Are you sure to delete this task?
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
                 </div>
-              </div>
-              <div
-                class="ant-popconfirm-description"
-              >
-                Delete the task
               </div>
               <div
                 class="ant-popconfirm-buttons"
@@ -799,7 +831,7 @@ Array [
     </button>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-leftTop"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -845,15 +877,19 @@ Array [
                   </span>
                 </span>
                 <div
-                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                  class="ant-popconfirm-message-text"
                 >
-                  Are you sure to delete this task?
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
                 </div>
-              </div>
-              <div
-                class="ant-popconfirm-description"
-              >
-                Delete the task
               </div>
               <div
                 class="ant-popconfirm-buttons"
@@ -890,7 +926,7 @@ Array [
     </button>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-left"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -936,15 +972,19 @@ Array [
                   </span>
                 </span>
                 <div
-                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                  class="ant-popconfirm-message-text"
                 >
-                  Are you sure to delete this task?
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
                 </div>
-              </div>
-              <div
-                class="ant-popconfirm-description"
-              >
-                Delete the task
               </div>
               <div
                 class="ant-popconfirm-buttons"
@@ -981,7 +1021,7 @@ Array [
     </button>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-leftBottom"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -1027,15 +1067,19 @@ Array [
                   </span>
                 </span>
                 <div
-                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                  class="ant-popconfirm-message-text"
                 >
-                  Are you sure to delete this task?
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
                 </div>
-              </div>
-              <div
-                class="ant-popconfirm-description"
-              >
-                Delete the task
               </div>
               <div
                 class="ant-popconfirm-buttons"
@@ -1076,7 +1120,7 @@ Array [
     </button>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-rightTop"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -1122,15 +1166,19 @@ Array [
                   </span>
                 </span>
                 <div
-                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                  class="ant-popconfirm-message-text"
                 >
-                  Are you sure to delete this task?
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
                 </div>
-              </div>
-              <div
-                class="ant-popconfirm-description"
-              >
-                Delete the task
               </div>
               <div
                 class="ant-popconfirm-buttons"
@@ -1167,7 +1215,7 @@ Array [
     </button>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-right"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -1213,15 +1261,19 @@ Array [
                   </span>
                 </span>
                 <div
-                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                  class="ant-popconfirm-message-text"
                 >
-                  Are you sure to delete this task?
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
                 </div>
-              </div>
-              <div
-                class="ant-popconfirm-description"
-              >
-                Delete the task
               </div>
               <div
                 class="ant-popconfirm-buttons"
@@ -1258,7 +1310,7 @@ Array [
     </button>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-rightBottom"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -1304,15 +1356,19 @@ Array [
                   </span>
                 </span>
                 <div
-                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                  class="ant-popconfirm-message-text"
                 >
-                  Are you sure to delete this task?
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
                 </div>
-              </div>
-              <div
-                class="ant-popconfirm-description"
-              >
-                Delete the task
               </div>
               <div
                 class="ant-popconfirm-buttons"
@@ -1353,7 +1409,7 @@ Array [
     </button>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -1399,15 +1455,19 @@ Array [
                   </span>
                 </span>
                 <div
-                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                  class="ant-popconfirm-message-text"
                 >
-                  Are you sure to delete this task?
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
                 </div>
-              </div>
-              <div
-                class="ant-popconfirm-description"
-              >
-                Delete the task
               </div>
               <div
                 class="ant-popconfirm-buttons"
@@ -1444,7 +1504,7 @@ Array [
     </button>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-bottom"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -1490,15 +1550,19 @@ Array [
                   </span>
                 </span>
                 <div
-                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                  class="ant-popconfirm-message-text"
                 >
-                  Are you sure to delete this task?
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
                 </div>
-              </div>
-              <div
-                class="ant-popconfirm-description"
-              >
-                Delete the task
               </div>
               <div
                 class="ant-popconfirm-buttons"
@@ -1535,7 +1599,7 @@ Array [
     </button>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-bottomRight"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -1581,15 +1645,19 @@ Array [
                   </span>
                 </span>
                 <div
-                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                  class="ant-popconfirm-message-text"
                 >
-                  Are you sure to delete this task?
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
                 </div>
-              </div>
-              <div
-                class="ant-popconfirm-description"
-              >
-                Delete the task
               </div>
               <div
                 class="ant-popconfirm-buttons"
@@ -1632,7 +1700,7 @@ Array [
   </button>,
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
@@ -1678,15 +1746,19 @@ Array [
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                class="ant-popconfirm-message-text"
               >
-                Title
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Title
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Open Popconfirm with Promise
+                </div>
               </div>
-            </div>
-            <div
-              class="ant-popconfirm-description"
-            >
-              Open Popconfirm with Promise
             </div>
             <div
               class="ant-popconfirm-buttons"
@@ -1764,15 +1836,19 @@ Array [
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                class="ant-popconfirm-message-text"
               >
-                Are you OK?
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Are you OK?
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Does this look good?
+                </div>
               </div>
-            </div>
-            <div
-              class="ant-popconfirm-description"
-            >
-              Does this look good?
             </div>
             <div
               class="ant-popconfirm-buttons"
@@ -1847,15 +1923,138 @@ Array [
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                class="ant-popconfirm-message-text"
               >
-                Are you OK?
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Are you OK?
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Does this look good?
+                </div>
               </div>
             </div>
             <div
-              class="ant-popconfirm-description"
+              class="ant-popconfirm-buttons"
             >
-              Does this look good?
+              <button
+                class="ant-btn ant-btn-default ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  Cancel
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-top ant-popconfirm"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-content"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-inner-content"
+        >
+          <div
+            class="ant-popconfirm-inner-content"
+          >
+            <div
+              class="ant-popconfirm-message"
+            >
+              <div
+                class="ant-popconfirm-message-text"
+              >
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Are you OK?
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-popconfirm-buttons"
+            >
+              <button
+                class="ant-btn ant-btn-default ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  Cancel
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-top ant-popconfirm"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-content"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-inner-content"
+        >
+          <div
+            class="ant-popconfirm-inner-content"
+          >
+            <div
+              class="ant-popconfirm-message"
+            >
+              <div
+                class="ant-popconfirm-message-text"
+              >
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Are you OK?
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Does this look good?
+                </div>
+              </div>
             </div>
             <div
               class="ant-popconfirm-buttons"
@@ -1933,9 +2132,13 @@ Array [
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title"
+                class="ant-popconfirm-message-text"
               >
-                Are you OK?
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Are you OK?
+                </div>
               </div>
             </div>
             <div
@@ -2011,9 +2214,13 @@ Array [
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title"
+                class="ant-popconfirm-message-text"
               >
-                Are you OK?
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Are you OK?
+                </div>
               </div>
             </div>
             <div

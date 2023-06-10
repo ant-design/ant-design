@@ -15,8 +15,8 @@ import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import useSize from '../config-provider/hooks/useSize';
 import { FormItemInputContext } from '../form/context';
 import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
@@ -26,7 +26,7 @@ import getIcons from './utils/iconUtil';
 
 type RawValue = string | number;
 
-export type { OptionProps, BaseSelectRef as RefSelectProps, BaseOptionType, DefaultOptionType };
+export type { BaseOptionType, DefaultOptionType, OptionProps, BaseSelectRef as RefSelectProps };
 
 export interface LabeledValue {
   key?: string;
@@ -68,7 +68,10 @@ export interface SelectProps<
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
 
-const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType>(
+const InternalSelect = <
+  ValueType = any,
+  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+>(
   {
     prefixCls: customizePrefixCls,
     bordered = true,
@@ -88,24 +91,26 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     builtinPlacements,
     dropdownMatchSelectWidth,
     popupMatchSelectWidth,
+    direction: propDirection,
     ...props
-  }: SelectProps<OptionType>,
+  }: SelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
 ) => {
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     renderEmpty,
-    direction,
+    direction: contextDirection,
     virtual,
     popupMatchSelectWidth: contextPopupMatchSelectWidth,
     popupOverflow,
     select,
   } = React.useContext(ConfigContext);
-  const size = React.useContext(SizeContext);
 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
+  const direction = propDirection ?? contextDirection;
+
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
@@ -170,7 +175,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     hashId,
   );
 
-  const mergedSize = compactSize || customizeSize || size;
+  const mergedSize = useSize((ctx) => compactSize ?? customizeSize ?? ctx);
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
@@ -218,7 +223,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
 
   // ====================== Render =======================
   return wrapSSR(
-    <RcSelect<any, any>
+    <RcSelect<ValueType, OptionType>
       ref={ref}
       virtual={virtual}
       showSearch={select?.showSearch}

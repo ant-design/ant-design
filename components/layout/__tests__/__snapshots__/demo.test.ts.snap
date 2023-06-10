@@ -46,7 +46,7 @@ exports[`renders components/layout/demo/basic.tsx correctly 1`] = `
         Header
       </header>
       <section
-        class="ant-layout"
+        class="ant-layout ant-layout-has-sider"
       >
         <aside
           class="ant-layout-sider ant-layout-sider-dark"
@@ -87,7 +87,7 @@ exports[`renders components/layout/demo/basic.tsx correctly 1`] = `
         Header
       </header>
       <section
-        class="ant-layout"
+        class="ant-layout ant-layout-has-sider"
       >
         <main
           class="ant-layout-content"
@@ -169,7 +169,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
       class="ant-layout-sider-children"
     >
       <div
-        class="logo"
+        class="demo-logo-vertical"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
@@ -330,10 +330,10 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
 >
   <header
     class="ant-layout-header"
-    style="position:sticky;top:0;z-index:1;width:100%"
+    style="position:sticky;top:0;z-index:1;width:100%;display:flex;align-items:center"
   >
     <div
-      style="float:left;width:120px;height:31px;margin:16px 24px 16px 0;background:rgba(255, 255, 255, 0.2)"
+      class="demo-logo"
     />
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
@@ -491,7 +491,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
       class="ant-layout-sider-children"
     >
       <div
-        style="height:32px;margin:16px;background:rgba(255, 255, 255, 0.2)"
+        class="demo-logo-vertical"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
@@ -996,7 +996,7 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
       class="ant-layout-sider-children"
     >
       <div
-        class="logo"
+        class="demo-logo-vertical"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
@@ -1175,7 +1175,7 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
       class="ant-layout-sider-children"
     >
       <div
-        style="height:32px;margin:16px;background:rgba(255, 255, 255, 0.2)"
+        class="demo-logo-vertical"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
@@ -1390,7 +1390,7 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
     </div>
   </aside>
   <section
-    class="ant-layout site-layout"
+    class="ant-layout"
   >
     <header
       class="ant-layout-header"
@@ -1449,9 +1449,10 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
 >
   <header
     class="ant-layout-header"
+    style="display:flex;align-items:center"
   >
     <div
-      class="logo"
+      class="demo-logo"
     />
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
@@ -1747,10 +1748,11 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
   class="ant-layout"
 >
   <header
-    class="ant-layout-header header"
+    class="ant-layout-header"
+    style="display:flex;align-items:center"
   >
     <div
-      class="logo"
+      class="demo-logo"
     />
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
@@ -2105,10 +2107,11 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
   class="ant-layout"
 >
   <header
-    class="ant-layout-header header"
+    class="ant-layout-header"
+    style="display:flex;align-items:center"
   >
     <div
-      class="logo"
+      class="demo-logo"
     />
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"

@@ -35,7 +35,7 @@ export default defineConfig({
   },
   extraRehypePlugins: [rehypeAntd],
   extraRemarkPlugins: [remarkAntd],
-  extraBabelPresets: ['@emotion/babel-preset-css-prop'],
+  extraBabelPresets: [require.resolve('@emotion/babel-preset-css-prop')],
   mfsu: false,
   metas: [{ name: 'theme-color', content: '#1677ff' }],
   analytics: {

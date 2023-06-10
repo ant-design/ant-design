@@ -31,12 +31,13 @@ group:
 <code src="./demo/targetOffset.tsx" iframe="200">设置锚点滚动偏移量</code>
 <code src="./demo/onChange.tsx">监听锚点链接改变</code>
 <code src="./demo/legacy-anchor.tsx" debug>废弃的 JSX 示例</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
 ### Anchor Props
 
-| 成员 | 说明 | 类型 | 默认值 | 版本 |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | affix | 固定模式 | boolean | true |  |
 | bounds | 锚点区域边界 | number | 5 |  |
@@ -52,7 +53,7 @@ group:
 
 ### AnchorItem
 
-| 成员 | 说明 | 类型 | 默认值 | 版本 |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | key | 唯一标志 | string \| number | - |  |
 | href | 锚点链接 | string | - |  |
@@ -64,7 +65,7 @@ group:
 
 建议使用 items 形式。
 
-| 成员   | 说明                           | 类型      | 默认值 | 版本 |
+| 参数   | 说明                           | 类型      | 默认值 | 版本 |
 | ------ | ------------------------------ | --------- | ------ | ---- |
 | href   | 锚点链接                       | string    | -      |      |
 | target | 该属性指定在何处显示链接的资源 | string    | -      |      |

@@ -1,19 +1,21 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent, textEllipsis } from '../../style';
 
-export interface ComponentToken {}
+export interface ComponentToken {
+  itemColor: string;
+  itemHoverColor: string;
+  itemHoverBg: string;
+  itemActiveBg: string;
+  itemSelectedBg: string;
+}
 
 interface SegmentedToken extends FullToken<'Segmented'> {
+  segmentedPadding: number;
+  segmentedBgColor: string;
   segmentedPaddingHorizontal: number;
   segmentedPaddingHorizontalSM: number;
-  segmentedContainerPadding: number;
-  labelColor: string;
-  labelColorHover: string;
-  bgColor: string;
-  bgColorHover: string;
-  bgColorSelected: string;
 }
 
 // ============================== Mixins ==============================
@@ -28,7 +30,7 @@ function getItemDisabledStyle(cls: string, token: SegmentedToken): CSSObject {
 
 function getItemSelectedStyle(token: SegmentedToken): CSSObject {
   return {
-    backgroundColor: token.bgColorSelected,
+    backgroundColor: token.itemSelectedBg,
     boxShadow: token.boxShadowTertiary,
   };
 }
@@ -48,9 +50,9 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       ...resetComponent(token),
 
       display: 'inline-block',
-      padding: token.segmentedContainerPadding,
-      color: token.labelColor,
-      backgroundColor: token.bgColor,
+      padding: token.segmentedPadding,
+      color: token.itemColor,
+      backgroundColor: token.segmentedBgColor,
       borderRadius: token.borderRadius,
       transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
 
@@ -87,7 +89,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
         '&-selected': {
           ...getItemSelectedStyle(token),
-          color: token.labelColorHover,
+          color: token.itemHoverColor,
         },
 
         '&::after': {
@@ -105,16 +107,21 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         },
 
         [`&:hover:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
-          color: token.labelColorHover,
-
+          color: token.itemHoverColor,
           '&::after': {
-            backgroundColor: token.bgColorHover,
+            backgroundColor: token.itemHoverBg,
+          },
+        },
+        [`&:active:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
+          color: token.itemHoverColor,
+          '&::after': {
+            backgroundColor: token.itemActiveBg,
           },
         },
 
         '&-label': {
-          minHeight: token.controlHeight - token.segmentedContainerPadding * 2,
-          lineHeight: `${token.controlHeight - token.segmentedContainerPadding * 2}px`,
+          minHeight: token.controlHeight - token.segmentedPadding * 2,
+          lineHeight: `${token.controlHeight - token.segmentedPadding * 2}px`,
           padding: `0 ${token.segmentedPaddingHorizontal}px`,
           ...segmentedTextEllipsisCss,
         },
@@ -157,8 +164,8 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       [`&${componentCls}-lg`]: {
         borderRadius: token.borderRadiusLG,
         [`${componentCls}-item-label`]: {
-          minHeight: token.controlHeightLG - token.segmentedContainerPadding * 2,
-          lineHeight: `${token.controlHeightLG - token.segmentedContainerPadding * 2}px`,
+          minHeight: token.controlHeightLG - token.segmentedPadding * 2,
+          lineHeight: `${token.controlHeightLG - token.segmentedPadding * 2}px`,
           padding: `0 ${token.segmentedPaddingHorizontal}px`,
           fontSize: token.fontSizeLG,
         },
@@ -170,8 +177,8 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       [`&${componentCls}-sm`]: {
         borderRadius: token.borderRadiusSM,
         [`${componentCls}-item-label`]: {
-          minHeight: token.controlHeightSM - token.segmentedContainerPadding * 2,
-          lineHeight: `${token.controlHeightSM - token.segmentedContainerPadding * 2}px`,
+          minHeight: token.controlHeightSM - token.segmentedPadding * 2,
+          lineHeight: `${token.controlHeightSM - token.segmentedPadding * 2}px`,
           padding: `0 ${token.segmentedPaddingHorizontalSM}px`,
         },
         [`${componentCls}-item, ${componentCls}-thumb`]: {
@@ -193,26 +200,27 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Segmented', (token) => {
-  const {
-    lineWidthBold,
-    lineWidth,
-    colorTextLabel,
-    colorText,
-    colorFillSecondary,
-    colorBgLayout,
-    colorBgElevated,
-  } = token;
+export default genComponentStyleHook(
+  'Segmented',
+  (token) => {
+    const { lineWidth, lineWidthBold, colorBgLayout } = token;
 
-  const segmentedToken = mergeToken<SegmentedToken>(token, {
-    segmentedPaddingHorizontal: token.controlPaddingHorizontal - lineWidth,
-    segmentedPaddingHorizontalSM: token.controlPaddingHorizontalSM - lineWidth,
-    segmentedContainerPadding: lineWidthBold,
-    labelColor: colorTextLabel,
-    labelColorHover: colorText,
-    bgColor: colorBgLayout,
-    bgColorHover: colorFillSecondary,
-    bgColorSelected: colorBgElevated,
-  });
-  return [genSegmentedStyle(segmentedToken)];
-});
+    const segmentedToken = mergeToken<SegmentedToken>(token, {
+      segmentedPadding: lineWidthBold,
+      segmentedBgColor: colorBgLayout,
+      segmentedPaddingHorizontal: token.controlPaddingHorizontal - lineWidth,
+      segmentedPaddingHorizontalSM: token.controlPaddingHorizontalSM - lineWidth,
+    });
+    return [genSegmentedStyle(segmentedToken)];
+  },
+  (token) => {
+    const { colorTextLabel, colorText, colorFillSecondary, colorBgElevated, colorFill } = token;
+    return {
+      itemColor: colorTextLabel,
+      itemHoverColor: colorText,
+      itemHoverBg: colorFillSecondary,
+      itemSelectedBg: colorBgElevated,
+      itemActiveBg: colorFill,
+    };
+  },
+);

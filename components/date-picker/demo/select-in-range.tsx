@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import { DatePicker } from 'antd';
 import type { Dayjs } from 'dayjs';
+import React, { useState } from 'react';
 
 const { RangePicker } = DatePicker;
 
@@ -31,9 +31,14 @@ const App: React.FC = () => {
     <RangePicker
       value={dates || value}
       disabledDate={disabledDate}
-      onCalendarChange={(val) => setDates(val)}
-      onChange={(val) => setValue(val)}
+      onCalendarChange={(val) => {
+        setDates(val);
+      }}
+      onChange={(val) => {
+        setValue(val);
+      }}
       onOpenChange={onOpenChange}
+      changeOnBlur
     />
   );
 };

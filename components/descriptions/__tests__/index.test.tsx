@@ -2,8 +2,9 @@ import MockDate from 'mockdate';
 import React from 'react';
 import Descriptions from '..';
 import mountTest from '../../../tests/shared/mountTest';
-import { resetWarned } from '../../_util/warning';
 import { render } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
+import ConfigProvider from '../../config-provider';
 
 describe('Descriptions', () => {
   mountTest(Descriptions);
@@ -266,5 +267,16 @@ describe('Descriptions', () => {
     const container = getByTestId('test-id');
     expect(container).toHaveAttribute('data-id', '12345');
     expect(container).toHaveAttribute('aria-describedby', 'some-label');
+  });
+
+  it('Descriptions should inherit the size from ConfigProvider if the componentSize is set ', () => {
+    const { container } = render(
+      <ConfigProvider componentSize="small">
+        <Descriptions bordered>
+          <Descriptions.Item label="small">small</Descriptions.Item>
+        </Descriptions>
+      </ConfigProvider>,
+    );
+    expect(container.querySelectorAll('.ant-descriptions-small')).toHaveLength(1);
   });
 });

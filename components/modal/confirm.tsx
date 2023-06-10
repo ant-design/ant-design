@@ -1,11 +1,11 @@
 import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
 import * as React from 'react';
-import { globalConfig, warnContext } from '../config-provider';
 import warning from '../_util/warning';
+import { globalConfig, warnContext } from '../config-provider';
 import ConfirmDialog from './ConfirmDialog';
 import destroyFns from './destroyFns';
+import type { ModalFuncProps } from './interface';
 import { getConfirmLocale } from './locale';
-import type { ModalFuncProps } from './Modal';
 
 let defaultRootPrefixCls = '';
 
@@ -50,7 +50,13 @@ export default function confirm(config: ModalFuncProps) {
     reactUnmount(container);
   }
 
-  function render({ okText, cancelText, prefixCls: customizePrefixCls, ...props }: any) {
+  function render({
+    okText,
+    cancelText,
+    prefixCls: customizePrefixCls,
+    getContainer,
+    ...props
+  }: any) {
     clearTimeout(timeoutId);
 
     /**
@@ -60,20 +66,36 @@ export default function confirm(config: ModalFuncProps) {
      */
     timeoutId = setTimeout(() => {
       const runtimeLocale = getConfirmLocale();
-      const { getPrefixCls, getIconPrefixCls } = globalConfig();
+      const { getPrefixCls, getIconPrefixCls, getTheme } = globalConfig();
       // because Modal.config  set rootPrefixCls, which is different from other components
       const rootPrefixCls = getPrefixCls(undefined, getRootPrefixCls());
       const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
       const iconPrefixCls = getIconPrefixCls();
+      const theme = getTheme();
+
+      let mergedGetContainer = getContainer;
+      if (mergedGetContainer === false) {
+        mergedGetContainer = undefined;
+
+        if (process.env.NODE_ENV !== 'production') {
+          warning(
+            false,
+            'Modal',
+            'Static method not support `getContainer` to be `false` since it do not have context env.',
+          );
+        }
+      }
 
       reactRender(
         <ConfirmDialog
           {...props}
+          getContainer={mergedGetContainer}
           prefixCls={prefixCls}
           rootPrefixCls={rootPrefixCls}
           iconPrefixCls={iconPrefixCls}
           okText={okText}
           locale={runtimeLocale}
+          theme={theme}
           cancelText={cancelText || runtimeLocale.cancelText}
         />,
         container,

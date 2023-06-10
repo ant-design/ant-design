@@ -1,5 +1,5 @@
-import React from 'react';
 import { Layout, Space } from 'antd';
+import React from 'react';
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -42,7 +42,7 @@ const App: React.FC = () => (
     </Layout>
     <Layout>
       <Header style={headerStyle}>Header</Header>
-      <Layout>
+      <Layout hasSider>
         <Sider style={siderStyle}>Sider</Sider>
         <Content style={contentStyle}>Content</Content>
       </Layout>
@@ -50,7 +50,7 @@ const App: React.FC = () => (
     </Layout>
     <Layout>
       <Header style={headerStyle}>Header</Header>
-      <Layout>
+      <Layout hasSider>
         <Content style={contentStyle}>Content</Content>
         <Sider style={siderStyle}>Sider</Sider>
       </Layout>

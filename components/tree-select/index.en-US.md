@@ -48,7 +48,7 @@ Tree selection control.
 | getPopupContainer | To set the container of the dropdown menu. The default is to create a `div` element in `body`, you can reset it to the scrolling area and make a relative reposition. [example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () => document.body |  |
 | labelInValue | Whether to embed label in value, turn the format of value from `string` to {value: string, label: ReactNode, halfChecked: string\[]} | boolean | false |  |
 | listHeight | Config popup height | number | 256 |  |
-| loadData | Load data asynchronously | function(node) | - |  |
+| loadData | Load data asynchronously. Will not load when filtering. Check FAQ for more info | function(node) | - |  |
 | maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| `responsive` | - | responsive: 4.10 |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode \| function(omittedValues) | - |  |
 | maxTagTextLength | Max tag text length to show | number | - |  |
@@ -116,8 +116,26 @@ Tree selection control.
 
 ### How to get parent node in onChange?
 
-We don't provide this since performance consideration. You can get by this way: <https://codesandbox.io/s/wk080nn81k>
+We don't provide this since performance consideration. You can get by this way: <https://codesandbox.io/s/get-parent-node-in-onchange-eb1608>
 
 ### Why sometime customize Option cause scroll break?
 
 You can ref Select [FAQ](/components/select).
+
+### Why `loadData` not trigger when searching?
+
+In earlier version, `loadData` will be triggered when searching. But we got feedback that it will block network when inputting. So we change it to not trigger `loadData` when searching. But you can still handle async logic by `filterTreeNode`:
+
+```tsx
+<TreeSelect
+  filterTreeNode={(input, treeNode) => {
+    const match = YOUR_LOGIC_HERE;
+
+    if (match && !treeNode.isLeaf && !treeNode.children) {
+      // Do some loading logic
+    }
+
+    return match;
+  }}
+/>
+```

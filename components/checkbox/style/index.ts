@@ -36,6 +36,13 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         ...resetComponent(token),
 
         display: 'inline-flex',
+        flexWrap: 'wrap',
+        columnGap: token.marginXS,
+
+        // Group > Grid
+        [`> ${token.antCls}-row`]: {
+          flex: 1,
+        },
       },
 
       // Wrapper
@@ -56,7 +63,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
 
         // Checkbox near checkbox
         [`& + ${wrapperCls}`]: {
-          marginInlineStart: token.marginXS,
+          marginInlineStart: 0,
         },
 
         [`&${wrapperCls}-in-form-item`]: {
@@ -76,13 +83,9 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         lineHeight: 1,
         cursor: 'pointer',
 
-        alignSelf: 'start',
-        // https://github.com/ant-design/ant-design/issues/41564
-        // Since `checkboxSize` is dynamic which should align with the text box,
-        // We need do calculation here for offset.
-        transform: `translate(0, ${
-          (token.lineHeight * token.fontSize) / 2 - token.checkboxSize / 2
-        }px)`,
+        // To make alignment right when `controlHeight` is changed
+        // Ref: https://github.com/ant-design/ant-design/issues/41564
+        alignSelf: 'center',
 
         // Wrapper > Checkbox > input
         [`${checkboxCls}-input`]: {

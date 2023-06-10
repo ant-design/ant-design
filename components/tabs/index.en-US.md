@@ -35,6 +35,7 @@ Ant Design has 3 types of Tabs for different situations.
 <code src="./demo/custom-tab-bar-node.tsx">Draggable Tabs</code>
 <code src="./demo/animated.tsx" debug>Animated</code>
 <code src="./demo/nest.tsx" debug>Nest</code>
+<code src="./demo/component-token.tsx" debug>component Token</code>
 
 ## API
 
@@ -71,7 +72,9 @@ More option at [rc-tabs tabs](https://github.com/react-component/tabs#tabs)
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
+| closable | Set tab closable. Only works while `type="editable-card"` | boolean | true |
 | closeIcon | Customize close icon in TabPane's head. Only works while `type="editable-card"` | ReactNode | - |
+| closable | Whether the Tab can be closed, Only works while `type="editable-card"` | boolean | true |
 | disabled | Set TabPane disabled | boolean | false |
 | forceRender | Forced render of content in tabs, not lazy render after clicking on tabs | boolean | false |
 | key | TabPane's key | string | - |

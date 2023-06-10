@@ -33,6 +33,7 @@ When a given task is complicated or has a certain sequence in the series of subt
 <code src="./demo/steps-in-steps.tsx" debug>Steps inside Steps</code>
 <code src="./demo/inline.tsx">Inline Steps</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 

@@ -1,3 +1,4 @@
+import { SearchOutlined } from '@ant-design/icons';
 import { Button, Input, Select, Space } from 'antd';
 import React from 'react';
 
@@ -33,6 +34,10 @@ const App: React.FC = () => (
     <Space.Compact>
       <Select defaultValue="Zhejiang" options={options} />
       <Input defaultValue="Xihu District, Hangzhou" />
+    </Space.Compact>
+    <Space.Compact size="large">
+      <Input addonBefore={<SearchOutlined />} placeholder="large size" />
+      <Input placeholder="another input" />
     </Space.Compact>
   </Space>
 );

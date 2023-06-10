@@ -304,7 +304,7 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
                 class="ant-tree-title"
               >
                 <span
-                  style="color: rgb(24, 144, 255);"
+                  style="color: rgb(22, 119, 255);"
                 >
                   sss
                 </span>
@@ -3306,7 +3306,7 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
           <div

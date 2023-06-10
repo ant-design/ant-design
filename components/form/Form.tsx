@@ -8,13 +8,14 @@ import type { Options } from 'scroll-into-view-if-needed';
 import { ConfigContext } from '../config-provider';
 import DisabledContext, { DisabledContextProvider } from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext, { SizeContextProvider } from '../config-provider/SizeContext';
+import { SizeContextProvider } from '../config-provider/SizeContext';
+import useSize from '../config-provider/hooks/useSize';
 import type { ColProps } from '../grid/col';
 import type { FormContextProps } from './context';
-import { FormContext } from './context';
+import { FormContext, FormProvider, ValidateMessagesContext } from './context';
 import useForm, { type FormInstance } from './hooks/useForm';
+import useFormWarning from './hooks/useFormWarning';
 import type { FormLabelAlign } from './interface';
-
 import useStyle from './style';
 
 export type RequiredMark = boolean | 'optional';
@@ -40,7 +41,6 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
 }
 
 const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (props, ref) => {
-  const contextSize = React.useContext(SizeContext);
   const contextDisabled = React.useContext(DisabledContext);
   const { getPrefixCls, direction, form: contextForm } = React.useContext(ConfigContext);
 
@@ -48,7 +48,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
-    size = contextSize,
+    size,
     disabled = contextDisabled,
     form,
     colon,
@@ -64,6 +64,15 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     name,
     ...restFormProps
   } = props;
+
+  const mergedSize = useSize(size);
+
+  const contextValidateMessages = React.useContext(ValidateMessagesContext);
+
+  if (process.env.NODE_ENV !== 'production') {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useFormWarning(props);
+  }
 
   const mergedRequiredMark = useMemo(() => {
     if (requiredMark !== undefined) {
@@ -94,7 +103,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
       [`${prefixCls}-${layout}`]: true,
       [`${prefixCls}-hide-required-mark`]: mergedRequiredMark === false,
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-${size}`]: size,
+      [`${prefixCls}-${mergedSize}`]: mergedSize,
     },
     hashId,
     className,
@@ -150,17 +159,24 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
 
   return wrapSSR(
     <DisabledContextProvider disabled={disabled}>
-      <SizeContextProvider size={size}>
-        <FormContext.Provider value={formContextValue}>
-          <FieldForm
-            id={name}
-            {...restFormProps}
-            name={name}
-            onFinishFailed={onInternalFinishFailed}
-            form={wrapForm}
-            className={formClassName}
-          />
-        </FormContext.Provider>
+      <SizeContextProvider size={mergedSize}>
+        <FormProvider
+          {...{
+            // This is not list in API, we pass with spread
+            validateMessages: contextValidateMessages,
+          }}
+        >
+          <FormContext.Provider value={formContextValue}>
+            <FieldForm
+              id={name}
+              {...restFormProps}
+              name={name}
+              onFinishFailed={onInternalFinishFailed}
+              form={wrapForm}
+              className={formClassName}
+            />
+          </FormContext.Provider>
+        </FormProvider>
       </SizeContextProvider>
     </DisabledContextProvider>,
   );

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Button, message, Popconfirm, Switch } from 'antd';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -45,7 +45,7 @@ const App: React.FC = () => {
         okText="Yes"
         cancelText="No"
       >
-        <Button type="link">Delete a task</Button>
+        <Button danger>Delete a task</Button>
       </Popconfirm>
       <br />
       <br />

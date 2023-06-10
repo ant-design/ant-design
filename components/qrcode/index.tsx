@@ -1,7 +1,7 @@
 import { ReloadOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
-import { QRCodeCanvas } from 'qrcode.react';
-import React, { useContext, useMemo } from 'react';
+import { QRCodeCanvas, QRCodeSVG } from 'qrcode.react';
+import React, { useContext } from 'react';
 import warning from '../_util/warning';
 import Button from '../button';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -9,7 +9,7 @@ import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import Spin from '../spin';
 import theme from '../theme';
-import type { QRCodeProps, QRPropsCanvas } from './interface';
+import type { QRCodeProps, QRProps } from './interface';
 import useStyle from './style/index';
 
 const { useToken } = theme;
@@ -17,6 +17,7 @@ const { useToken } = theme;
 const QRCode: React.FC<QRCodeProps> = (props) => {
   const {
     value,
+    type = 'canvas',
     icon = '',
     size = 160,
     iconSize = 40,
@@ -29,29 +30,30 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     className,
     rootClassName,
     prefixCls: customizePrefixCls,
+    bgColor = 'transparent',
   } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const { token } = useToken();
-  const qrCodeProps = useMemo<QRPropsCanvas>(() => {
-    const imageSettings: QRCodeProps['imageSettings'] = {
-      src: icon,
-      x: undefined,
-      y: undefined,
-      height: iconSize,
-      width: iconSize,
-      excavate: true,
-    };
-    return {
-      value,
-      size: size - (token.paddingSM + token.lineWidth) * 2,
-      level: errorLevel,
-      bgColor: 'transparent',
-      fgColor: color,
-      imageSettings: icon ? imageSettings : undefined,
-    };
-  }, [errorLevel, color, icon, iconSize, size, value]);
+
+  const imageSettings: QRProps['imageSettings'] = {
+    src: icon,
+    x: undefined,
+    y: undefined,
+    height: iconSize,
+    width: iconSize,
+    excavate: true,
+  };
+
+  const qrCodeProps = {
+    value,
+    size: size - (token.paddingSM + token.lineWidth) * 2,
+    level: errorLevel,
+    bgColor,
+    fgColor: color,
+    imageSettings: icon ? imageSettings : undefined,
+  };
 
   const [locale] = useLocale('QRCode');
 
@@ -75,7 +77,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   });
 
   return wrapSSR(
-    <div style={{ ...style, width: size, height: size }} className={cls}>
+    <div style={{ ...style, width: size, height: size, backgroundColor: bgColor }} className={cls}>
       {status !== 'active' && (
         <div className={`${prefixCls}-mask`}>
           {status === 'loading' && <Spin />}
@@ -91,7 +93,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
           )}
         </div>
       )}
-      <QRCodeCanvas {...qrCodeProps} />
+      {type === 'canvas' ? <QRCodeCanvas {...qrCodeProps} /> : <QRCodeSVG {...qrCodeProps} />}
     </div>,
   );
 };

@@ -1,17 +1,17 @@
-import React, { useCallback, useMemo, useState } from 'react';
-import type { CSSProperties } from 'react';
 import Icon, * as AntdIcons from '@ant-design/icons';
-import type { SegmentedProps } from 'antd';
-import type { IntlShape } from 'react-intl';
-import { Segmented, Input, Empty, Affix } from 'antd';
 import { css } from '@emotion/react';
+import type { SegmentedProps } from 'antd';
+import { Affix, Empty, Input, Segmented } from 'antd';
 import { useIntl } from 'dumi';
 import debounce from 'lodash/debounce';
+import type { CSSProperties } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
+import type { IntlShape } from 'react-intl';
+import useSiteToken from '../../../hooks/useSiteToken';
 import Category from './Category';
-import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import type { CategoriesKeys } from './fields';
 import { categories } from './fields';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 
 export enum ThemeType {
   Filled = 'Filled',
@@ -85,8 +85,11 @@ const IconSearch: React.FC = () => {
           iconList = iconList.filter((iconName) => iconName.toLowerCase().includes(matchKey));
         }
 
-        // CopyrightCircle is same as Copyright, don't show it
-        iconList = iconList.filter((icon) => icon !== 'CopyrightCircle');
+        const ignore = [
+          'CopyrightCircle', // same as Copyright
+          'DollarCircle', // same as Dollar
+        ];
+        iconList = iconList.filter((icon) => !ignore.includes(icon));
 
         return {
           category: key,

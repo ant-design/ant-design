@@ -78,7 +78,7 @@ Array [
   </div>,
   <div
     class="ant-tour ant-tour-placement-bottom"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
   >
     <div
       class="ant-tour-arrow"
@@ -245,7 +245,7 @@ Array [
   </div>,
   <div
     class="ant-tour ant-tour-placement-bottom"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
   >
     <div
       class="ant-tour-arrow"
@@ -398,7 +398,7 @@ Array [
   </div>,
   <div
     class="ant-tour ant-tour-placement-bottom"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
   >
     <div
       class="ant-tour-arrow"
@@ -565,7 +565,7 @@ Array [
   </div>,
   <div
     class="ant-tour ant-tour-primary ant-tour-placement-bottom"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
   >
     <div
       class="ant-tour-arrow"
@@ -666,7 +666,7 @@ Array [
   </button>,
   <div
     class="ant-tour ant-tour-placement-bottom"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
   >
     <div
       class="ant-tour-content"
