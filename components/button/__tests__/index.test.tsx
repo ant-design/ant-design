@@ -334,4 +334,16 @@ describe('Button', () => {
     );
     expect(wrapper.container.firstChild).toMatchSnapshot();
   });
+
+  it("should prevent children's event when button is disabled", () => {
+    const onClick = jest.fn();
+    const { container } = render(
+      <Button disabled>
+        <a id="link" onClick={onClick}>
+          test
+        </a>
+      </Button>,
+    );
+    expect(window.getComputedStyle(container.querySelector('#link')!).pointerEvents).toBe('none');
+  });
 });
