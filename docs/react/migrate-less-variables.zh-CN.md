@@ -45,9 +45,30 @@ export default App;
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@alert-with-description-icon-size` | `alertIconSizeLG` | - |
-| `@alert-padding-horizontal` | - | 可由 `className` 和 `style` 直接修改 |
+| `@alert-with-description-icon-size` | `iconSizeLG` | - |
+| `@alert-success-bg-color` | `colorSuccessBg` | 全局 token |
+| `@alert-success-border-color` | `colorSuccessBorder` | 全局 token |
+| `@alert-success-icon-color` | `colorSuccess` | 全局 token |
+| `@alert-info-bg-color` | `colorInfoBg` | 全局 token |
+| `@alert-info-border-color` | `colorInfoBorder` | 全局 token |
+| `@alert-info-icon-color` | `colorInfo` | 全局 token |
+| `@alert-warning-bg-color` | `colorWarningBg` | 全局 token |
+| `@alert-warning-border-color` | `colorWarningBorder` | 全局 token |
+| `@alert-warning-icon-color` | `colorWarning` | 全局 token |
+| `@alert-error-bg-color` | `colorErrorBg` | 全局 token |
+| `@alert-error-border-color` | `colorErrorBorder` | 全局 token |
+| `@alert-error-icon-color` | `colorError` | 全局 token |
+| `@alert-message-color` | `colorText` | 全局 token |
+| `@alert-close-color` | `colorIcon` | 全局 token |
+| `@alert-close-hover-color` | `colorIconHover` | 全局 token |
+| `@alert-with-description-padding-vertical` | `marginSM` | 全局 token |
 | `@alert-padding-vertical` | - | 可由 `className` 和 `style` 直接修改 |
+| `@alert-padding-horizontal` | - | 可由 `className` 和 `style` 直接修改 |
+| `@alert-with-description-padding` | - | 可由 `className` 和 `style` 直接修改 |
+| `@alert-text-color` | - | 由于样式变化已废弃 |
+| `@alert-icon-top` | - | 由于样式变化已废弃 |
+| `@alert-no-icon-padding-vertical` | - | 由于样式变化已废弃 |
+| `@alert-with-description-no-icon-padding-vertical` | - | 由于样式变化已废弃 |
 
 ## Anchor 锚点
 

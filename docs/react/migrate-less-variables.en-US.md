@@ -45,9 +45,30 @@ export default App;
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@alert-with-description-icon-size` | `alertIconSizeLG` | - |
-| `@alert-padding-horizontal` | `alertPaddingHorizontal` | - |
-| `@alert-padding-vertical` | `alertPaddingVertical` | - |
+| `@alert-with-description-icon-size` | `iconSizeLG` | - |
+| `@alert-success-bg-color` | `colorSuccessBg` | Global Token |
+| `@alert-success-border-color` | `colorSuccessBorder` | Global Token |
+| `@alert-success-icon-color` | `colorSuccess` | Global Token |
+| `@alert-info-bg-color` | `colorInfoBg` | Global Token |
+| `@alert-info-border-color` | `colorInfoBorder` | Global Token |
+| `@alert-info-icon-color` | `colorInfo` | Global Token |
+| `@alert-warning-bg-color` | `colorWarningBg` | Global Token |
+| `@alert-warning-border-color` | `colorWarningBorder` | Global Token |
+| `@alert-warning-icon-color` | `colorWarning` | Global Token |
+| `@alert-error-bg-color` | `colorErrorBg` | Global Token |
+| `@alert-error-border-color` | `colorErrorBorder` | Global Token |
+| `@alert-error-icon-color` | `colorError` | Global Token |
+| `@alert-message-color` | `colorText` | Global Token |
+| `@alert-close-color` | `colorIcon` | Global Token |
+| `@alert-close-hover-color` | `colorIconHover` | Global Token |
+| `@alert-with-description-padding-vertical` | `marginSM` | Global Token |
+| `@alert-padding-vertical` | - | Could be customized with `className` or `style` |
+| `@alert-padding-horizontal` | - | Could be customized with `className` or `style` |
+| `@alert-with-description-padding` | - | Could be customized with `className` or `style` |
+| `@alert-text-color` | - | Deprecated for style change |
+| `@alert-icon-top` | - | Deprecated for style change |
+| `@alert-no-icon-padding-vertical` | - | Deprecated for style change |
+| `@alert-with-description-no-icon-padding-vertical` | - | Deprecated for style change |
 
 ## Anchor
 
@@ -396,7 +417,7 @@ export default App;
 | `@skeleton-to-color` | `gradientToColor` | - |
 | `@skeleton-paragraph-margin-top` | `paragraphMarginTop` | - |
 | `@skeleton-paragraph-li-height` | `paragraphLiHeight` | - |
-| `@skeleton-paragraph-li-margin-top` | - | 由于样式变化已废弃 |
+| `@skeleton-paragraph-li-margin-top` | - | Deprecated for style change |
 
 <!-- ### Slider -->
 
