@@ -143,8 +143,9 @@ title: 数据格式
 
 #### 数据加载
 
+<ImagePreview>
 <img class="preview-img" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*E6pGTJYEh-gAAAAAAAAAAABkARQnAQ">
-
+</ImagePreview>
 数据加载用「骨架屏」表示。
 
 ## 参考文档
