@@ -242,5 +242,49 @@ describe('Drawer', () => {
 
       errorSpy.mockRestore();
     });
+
+    it('should hide close button when closeIcon is null or false', async () => {
+      const { baseElement, rerender } = render(
+        <Drawer open closeIcon={null}>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.ant-drawer-close')).toBeNull();
+
+      rerender(
+        <Drawer open closeIcon={false}>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.ant-drawer-close')).toBeNull();
+
+      rerender(
+        <Drawer open closeIcon={<span className="custom-close">Close</span>}>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.custom-close')).not.toBeNull();
+
+      rerender(
+        <Drawer open closable={false} closeIcon={<span className="custom-close2">Close</span>}>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.custom-close2')).toBeNull();
+
+      rerender(
+        <Drawer open closable closeIcon={<span className="custom-close3">Close</span>}>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.custom-close3')).not.toBeNull();
+
+      rerender(
+        <Drawer open closable>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.anticon-close')).not.toBeNull();
+    });
   });
 });

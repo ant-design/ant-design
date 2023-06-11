@@ -28,8 +28,8 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     title,
     footer,
     extra,
-    closable = true,
-    closeIcon = <CloseOutlined />,
+    closeIcon,
+    closable = closeIcon !== null && closeIcon !== false,
     onClose,
     headerStyle,
     drawerStyle,
@@ -38,9 +38,19 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     children,
   } = props;
 
-  const closeIconNode = (closeIcon || closable) && (
+  const mergedCloseIcon = React.useMemo(() => {
+    if (!closable) {
+      return null;
+    }
+    if (closeIcon === true) {
+      return <CloseOutlined />;
+    }
+    return closeIcon || <CloseOutlined />;
+  }, [closeIcon, closable]);
+
+  const closeIconNode = closable && (
     <button type="button" onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
-      {closeIcon}
+      {mergedCloseIcon}
     </button>
   );
 
