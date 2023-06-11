@@ -1,6 +1,6 @@
-import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
-import { ConfigProvider, Alert, Space } from 'antd';
+import { Alert, ConfigProvider } from 'antd';
+import React from 'react';
 
 const icon = <SmileOutlined />;
 
@@ -9,23 +9,18 @@ const App: React.FC = () => (
     theme={{
       components: {
         Alert: {
-          alertIconSizeLG: 32,
-          alertPaddingHorizontal: 18,
-          alertPaddingVertical: 18,
+          iconSizeLG: 32,
         },
       },
     }}
   >
-    <Space direction='vertical'>
-      <Alert message="Success Tips" type="success" showIcon />
-      <Alert
-        icon={icon}
-        message="Success Tips"
-        description="Detailed description and advices about successful copywriting."
-        type="success"
-        showIcon
-      />
-    </Space>
+    <Alert
+      icon={icon}
+      message="Success Tips"
+      description="Detailed description and advices about successful copywriting."
+      type="success"
+      showIcon
+    />
   </ConfigProvider>
 );
 
