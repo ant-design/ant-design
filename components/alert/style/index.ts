@@ -5,13 +5,12 @@ import { genComponentStyleHook } from '../../theme/internal';
 
 export interface ComponentToken {
   // Component token here
-  alertIconSizeLG: number;
-  alertPaddingHorizontal: number;
-  alertPaddingVertical: number;
+  iconSizeLG: number;
 }
 
 type AlertToken = FullToken<'Alert'> & {
   // Custom token here
+  paddingHorizontal: number;
 };
 
 const genAlertTypeStyle = (
@@ -39,13 +38,12 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
     lineHeight,
     borderRadiusLG: borderRadius,
     motionEaseInOutCirc,
-    alertIconSizeLG,
+    iconSizeLG,
     colorText,
-    alertPaddingVertical,
-    alertPaddingHorizontal,
+    paddingContentVerticalSM,
+    paddingHorizontal,
     paddingMD,
     paddingContentHorizontalLG,
-    colorTextHeading,
   } = token;
 
   return {
@@ -54,7 +52,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       position: 'relative',
       display: 'flex',
       alignItems: 'center',
-      padding: `${alertPaddingVertical}px ${alertPaddingHorizontal}px`, // Fixed horizontal padding here.
+      padding: `${paddingContentVerticalSM}px ${paddingHorizontal}px`, // Fixed horizontal padding here.
       wordWrap: 'break-word',
       borderRadius,
 
@@ -106,14 +104,14 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
 
       [`${componentCls}-icon`]: {
         marginInlineEnd: marginSM,
-        fontSize: alertIconSizeLG,
+        fontSize: iconSizeLG,
         lineHeight: 0,
       },
 
       [`${componentCls}-message`]: {
         display: 'block',
         marginBottom: marginXS,
-        color: colorTextHeading,
+        color: colorText,
         fontSize: fontSizeLG,
       },
 
@@ -235,10 +233,13 @@ export const genAlertStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSS
 
 export default genComponentStyleHook(
   'Alert',
-  (token) => [genAlertStyle(token)],
+  (token) => [
+    genAlertStyle({
+      ...token,
+      paddingHorizontal: 12, // Fixed value here.
+    }),
+  ],
   (token) => ({
-    alertIconSizeLG: token.fontSizeHeading3,
-    alertPaddingVertical: token.paddingContentVerticalSM,
-    alertPaddingHorizontal: 12, // Fixed value here.
+    iconSizeLG: token.fontSizeHeading3,
   }),
 );
