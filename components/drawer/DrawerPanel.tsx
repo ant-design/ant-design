@@ -11,7 +11,7 @@ export interface DrawerPanelProps {
   extra?: React.ReactNode;
 
   closable?: boolean;
-  closeIcon?: React.ReactNode;
+  closeIcon?: boolean | React.ReactNode;
   onClose?: RCDrawerProps['onClose'];
 
   /** Wrapper dom node style of header and body */
@@ -38,7 +38,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     children,
   } = props;
 
-  const closeIconNode = closable && (
+  const closeIconNode = (closeIcon || closable) && (
     <button type="button" onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
       {closeIcon}
     </button>
