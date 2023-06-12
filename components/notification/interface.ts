@@ -27,7 +27,7 @@ export interface ArgsProps {
   className?: string;
   readonly type?: IconType;
   onClick?: () => void;
-  closeIcon?: React.ReactNode;
+  closeIcon?: boolean | React.ReactNode;
   props?: DivProps;
   role?: 'alert' | 'status';
 }
