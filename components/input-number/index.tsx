@@ -100,6 +100,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus),
+    compactItemClassnames,
     hashId,
   );
   const wrapperClassName = `${prefixCls}-group`;
@@ -108,7 +109,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     <RcInputNumber
       ref={inputRef}
       disabled={mergedDisabled}
-      className={classNames(className, rootClassName, compactItemClassnames)}
+      className={classNames(className, rootClassName)}
       upHandler={upIcon}
       downHandler={downIcon}
       prefixCls={prefixCls}
