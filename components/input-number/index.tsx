@@ -131,7 +131,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
       {
         [`${prefixCls}-affix-wrapper-focused`]: focused,
-        [`${prefixCls}-affix-wrapper-disabled`]: mergedDisabled,
+        [`${prefixCls}-affix-wrapper-disabled`]: props.disabled,
         [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
         [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
         [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
@@ -172,28 +172,14 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   if (hasAddon) {
     const wrapperClassName = `${prefixCls}-group`;
     const addonClassName = `${wrapperClassName}-addon`;
-    const addonDisabledClassName = `${addonClassName}-disabled`;
     const addonBeforeNode = addonBefore ? (
-      <div
-        className={classNames(addonClassName, {
-          [addonDisabledClassName]: mergedDisabled,
-        })}
-      >
-        {addonBefore}
-      </div>
+      <div className={addonClassName}>{addonBefore}</div>
     ) : null;
-    const addonAfterNode = addonAfter ? (
-      <div
-        className={classNames(addonClassName, {
-          [addonDisabledClassName]: mergedDisabled,
-        })}
-      >
-        {addonAfter}
-      </div>
-    ) : null;
+    const addonAfterNode = addonAfter ? <div className={addonClassName}>{addonAfter}</div> : null;
 
     const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, wrapperClassName, hashId, {
       [`${wrapperClassName}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-wrapper-disabled`]: mergedDisabled,
     });
 
     const mergedGroupClassName = classNames(
