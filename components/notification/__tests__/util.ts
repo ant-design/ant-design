@@ -1,4 +1,3 @@
-import { vi } from 'vitest';
 import { act, fireEvent } from '../../../tests/utils';
 
 export async function awaitPromise() {
@@ -15,7 +14,7 @@ export async function triggerMotionEnd(runAllTimers: boolean = true) {
     // Flush css motion state update
     for (let i = 0; i < 5; i += 1) {
       act(() => {
-        vi.runAllTimers();
+        jest.runAllTimers();
       });
     }
   }

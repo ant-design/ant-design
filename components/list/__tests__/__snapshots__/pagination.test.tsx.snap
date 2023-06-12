@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`List.pagination > pagination button should be displayed normally, when the paginator total is not defined 1`] = `
+exports[`List.pagination pagination button should be displayed normally, when the paginator total is not defined 1`] = `
 <ul
   class="ant-pagination"
 >
@@ -93,7 +93,7 @@ exports[`List.pagination > pagination button should be displayed normally, when 
 </ul>
 `;
 
-exports[`List.pagination > renders pagination correctly 1`] = `
+exports[`List.pagination renders pagination correctly 1`] = `
 <div
   class="ant-list ant-list-vertical ant-list-split ant-list-something-after-last-item"
 >
@@ -216,7 +216,7 @@ exports[`List.pagination > renders pagination correctly 1`] = `
 </div>
 `;
 
-exports[`List.pagination > should change page size work 1`] = `
+exports[`List.pagination should change page size work 1`] = `
 <ul
   class="ant-pagination"
 >
@@ -362,7 +362,7 @@ exports[`List.pagination > should change page size work 1`] = `
 </ul>
 `;
 
-exports[`List.pagination > should change page size work 2`] = `
+exports[`List.pagination should change page size work 2`] = `
 <ul
   class="ant-pagination"
 >
@@ -488,7 +488,7 @@ exports[`List.pagination > should change page size work 2`] = `
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
@@ -610,7 +610,7 @@ exports[`List.pagination > should change page size work 2`] = `
 </ul>
 `;
 
-exports[`List.pagination > should default work 1`] = `
+exports[`List.pagination should default work 1`] = `
 <ul
   class="ant-pagination"
 >

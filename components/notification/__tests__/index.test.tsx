@@ -11,7 +11,7 @@ describe('notification', () => {
   });
 
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -24,7 +24,7 @@ describe('notification', () => {
       getContainer: null,
     });
 
-    vi.useRealTimers();
+    jest.useRealTimers();
 
     await awaitPromise();
   });
@@ -44,7 +44,7 @@ describe('notification', () => {
     await awaitPromise();
 
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
 
     expect(document.querySelectorAll('.additional-holder')).toHaveLength(1);
@@ -195,7 +195,7 @@ describe('notification', () => {
   });
 
   it('trigger onClick', async () => {
-    const onClick = vi.fn();
+    const onClick = jest.fn();
 
     notification.open({
       message: 'Notification Title',
@@ -312,5 +312,40 @@ describe('notification', () => {
     });
 
     expect(document.querySelectorAll('[role="status"]').length).toBe(1);
+  });
+  it('should hide close btn when closeIcon setting to null or false', async () => {
+    notification.config({
+      closeIcon: undefined,
+    });
+    act(() => {
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        className: 'normal',
+      });
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        className: 'custom',
+        closeIcon: <span className="custom-close-icon">Close</span>,
+      });
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        closeIcon: null,
+        className: 'with-null',
+      });
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        closeIcon: false,
+        className: 'with-false',
+      });
+    });
+    await awaitPromise();
+    expect(document.querySelectorAll('.normal .ant-notification-notice-close').length).toBe(1);
+    expect(document.querySelectorAll('.custom .custom-close-icon').length).toBe(1);
+    expect(document.querySelectorAll('.with-null .ant-notification-notice-close').length).toBe(0);
+    expect(document.querySelectorAll('.with-false .ant-notification-notice-close').length).toBe(0);
   });
 });

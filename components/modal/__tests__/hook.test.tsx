@@ -3,6 +3,7 @@ import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import KeyCode from 'rc-util/lib/KeyCode';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
+
 import Modal from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
@@ -10,7 +11,8 @@ import ConfigProvider from '../../config-provider';
 import Input from '../../input';
 import type { ModalFunc } from '../confirm';
 
-vi.mock('rc-motion');
+jest.mock('rc-util/lib/Portal');
+jest.mock('rc-motion');
 
 describe('Modal.hook', () => {
   // Inject CSSMotion to replace with No transition support
@@ -21,7 +23,7 @@ describe('Modal.hook', () => {
   });
 
   it('hooks support context', () => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
     const Context = React.createContext('light');
     let instance: ReturnType<ModalFunc>;
 
@@ -63,11 +65,11 @@ describe('Modal.hook', () => {
     // Destroy
     act(() => {
       instance.destroy();
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
     expect(document.body.querySelectorAll('Modal')).toHaveLength(0);
 
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('destroyAll works with contextHolder', () => {
@@ -108,7 +110,7 @@ describe('Modal.hook', () => {
   });
 
   it('context support config direction', () => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
     const Demo = () => {
       const [modal, contextHolder] = Modal.useModal();
       return (
@@ -232,9 +234,9 @@ describe('Modal.hook', () => {
   });
 
   it('the callback close should be a method when onCancel has a close parameter', async () => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
 
-    const mockFn = vi.fn();
+    const mockFn = jest.fn();
 
     const Demo = () => {
       const [modal, contextHolder] = Modal.useModal();
@@ -328,7 +330,7 @@ describe('Modal.hook', () => {
 
     expect(mockFn.mock.calls).toEqual(Array.from({ length: 5 }, () => [expect.any(Function)]));
 
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('not block origin ConfigProvider config', () => {
@@ -349,8 +351,8 @@ describe('Modal.hook', () => {
     expect(document.body.querySelector('.bamboo')?.textContent).toEqual('好的');
   });
 
-  it('it should call forwarded afterClose', async () => {
-    const afterClose = vi.fn();
+  it('it should call forwarded afterClose', () => {
+    const afterClose = jest.fn();
     const Demo = () => {
       const [modal, contextHolder] = Modal.useModal();
       React.useEffect(() => {

@@ -168,7 +168,7 @@ describe('Progress', () => {
 
   // https://github.com/ant-design/ant-design/pull/15951#discussion_r273062969
   it('should show success status when status is invalid', () => {
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container: wrapper } = render(
       <Progress percent={100} status={'invalid' as ProgressProps['status']} />,
     );
@@ -226,14 +226,14 @@ describe('Progress', () => {
   });
 
   it('should warning if use `progress` in success', () => {
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress percent={60} success={{ progress: 30 }} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
     );
   });
   it('should warnning if use `width` prop', () => {
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress percent={60} width={100} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] `width` is deprecated. Please use `size` instead.',
@@ -241,7 +241,7 @@ describe('Progress', () => {
   });
 
   it('should warnning if use `strokeWidth` prop in type Line', () => {
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress percent={60} strokeWidth={10} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] `strokeWidth` is deprecated. Please use `size` instead.',
@@ -249,7 +249,7 @@ describe('Progress', () => {
   });
 
   it('should warning if use `progress` in success in type Circle', () => {
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress percent={60} success={{ progress: 30 }} type="circle" />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
@@ -257,7 +257,7 @@ describe('Progress', () => {
   });
 
   it('should warnning if pass number[] into `size` in type Circle', () => {
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress size={[60, 20]} type="circle" />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] Type "circle" and "dashbord" do not accept array as `size`, please use number or preset size instead.',
@@ -265,14 +265,14 @@ describe('Progress', () => {
   });
 
   it('should not warning if not pass the `size` prop in type Circle', () => {
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     errorSpy.mockClear();
     render(<Progress type="circle" />);
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
   it('should warnning if pass number[] into `size` in type dashboard', () => {
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress size={[60, 20]} type="dashboard" />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] Type "circle" and "dashbord" do not accept array as `size`, please use number or preset size instead.',
@@ -321,7 +321,7 @@ describe('Progress', () => {
     });
   });
 
-  it('progress size', () => {
+  describe('progress size', () => {
     const App = (props: { size: ProgressProps['size'] }) => (
       <>
         <Progress size={props.size} />
@@ -369,7 +369,7 @@ describe('Progress', () => {
   });
 
   it('no strict warning', () => {
-    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { rerender } = render(
       <Tooltip title="当前已使用60%">
         <Progress percent={60} type="circle" />

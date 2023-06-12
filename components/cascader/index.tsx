@@ -335,7 +335,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 // We don't care debug panel
-/* c8 ignore next */
+/* istanbul ignore next */
 const PurePanel = genPurePanel(Cascader);
 
 Cascader.SHOW_PARENT = SHOW_PARENT;

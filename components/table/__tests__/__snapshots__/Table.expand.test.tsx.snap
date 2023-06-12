@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Table.expand > click to expand 1`] = `
+exports[`Table.expand click to expand 1`] = `
 <div
   class="ant-table-wrapper"
 >

@@ -3,7 +3,7 @@ module.exports = {
     'airbnb',
     'prettier',
     'plugin:compat/recommended',
-    'plugin:vitest/recommended',
+    'plugin:jest/recommended',
     'plugin:react/recommended',
     'plugin:import/typescript',
     'plugin:markdown/recommended',
@@ -12,6 +12,7 @@ module.exports = {
     browser: true,
     node: true,
     jasmine: true,
+    jest: true,
     es6: true,
   },
   settings: {
@@ -24,15 +25,7 @@ module.exports = {
     },
   },
   parser: '@typescript-eslint/parser',
-  plugins: [
-    'react',
-    '@babel',
-    'vitest',
-    '@typescript-eslint',
-    'react-hooks',
-    'unicorn',
-    'markdown',
-  ],
+  plugins: ['react', '@babel', 'jest', '@typescript-eslint', 'react-hooks', 'unicorn', 'markdown'],
   // https://github.com/typescript-eslint/typescript-eslint/issues/46#issuecomment-470486034
   overrides: [
     {
@@ -159,10 +152,8 @@ module.exports = {
           'scripts/**',
           '**/*.test.js',
           '**/__tests__/*',
-          '__mocks__/**',
           '*.config.js',
           '**/*.md',
-          'vitest*config.ts',
         ],
       },
     ],
@@ -188,12 +179,12 @@ module.exports = {
     'no-restricted-globals': 0,
     'max-classes-per-file': 0,
 
-    'vitest/prefer-to-be': 0,
-    'vitest/expect-expect': 0,
-    'vitest/no-done-callback': 0,
-    'vitest/valid-title': 0,
-    'vitest/no-conditional-expect': 0,
-    'vitest/no-standalone-expect': 0,
+    'jest/no-test-callback': 0,
+    'jest/expect-expect': 0,
+    'jest/no-done-callback': 0,
+    'jest/valid-title': 0,
+    'jest/no-conditional-expect': 0,
+    'jest/no-standalone-expect': 0,
 
     'unicorn/better-regex': 2,
     'unicorn/prefer-string-trim-start-end': 2,

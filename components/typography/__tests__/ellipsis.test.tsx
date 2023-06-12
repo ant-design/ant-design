@@ -1,24 +1,25 @@
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import type { SpyInstance } from 'vitest';
-import { fireEvent, render, triggerResize, waitFakeTimer } from '../../../tests/utils';
+import { fireEvent, render, triggerResize, waitFakeTimer, waitFor } from '../../../tests/utils';
 import type { EllipsisConfig } from '../Base';
 import Base from '../Base';
 
-vi.mock('../../_util/styleChecker', () => ({
+jest.mock('copy-to-clipboard');
+
+jest.mock('../../_util/styleChecker', () => ({
   isStyleSupport: () => true,
 }));
 
 describe('Typography.Ellipsis', () => {
   const LINE_STR_COUNT = 20;
-  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   let mockRectSpy: ReturnType<typeof spyElementPrototypes>;
   let getWidthTimes = 0;
-  let computeSpy: SpyInstance<any[], CSSStyleDeclaration>;
+  let computeSpy: jest.SpyInstance<CSSStyleDeclaration>;
 
   beforeAll(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
     mockRectSpy = spyElementPrototypes(HTMLElement, {
       offsetHeight: {
         get() {
@@ -42,7 +43,7 @@ describe('Typography.Ellipsis', () => {
       },
     });
 
-    computeSpy = vi
+    computeSpy = jest
       .spyOn(window, 'getComputedStyle')
       .mockImplementation(() => ({ fontSize: 12 } as unknown as CSSStyleDeclaration));
   });
@@ -53,7 +54,7 @@ describe('Typography.Ellipsis', () => {
   });
 
   afterAll(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
     errorSpy.mockRestore();
     mockRectSpy.mockRestore();
     computeSpy.mockRestore();
@@ -64,7 +65,7 @@ describe('Typography.Ellipsis', () => {
 
   it('should trigger update', async () => {
     const ref = React.createRef<HTMLElement>();
-    const onEllipsis = vi.fn();
+    const onEllipsis = jest.fn();
     const { container, rerender, unmount } = render(
       <Base ellipsis={{ onEllipsis }} component="p" editable ref={ref}>
         {fullStr}
@@ -127,7 +128,7 @@ describe('Typography.Ellipsis', () => {
         Ant Design, a design language for background applications, is refined by
         Ant UED Team.`;
     const ref = React.createRef<HTMLElement>();
-    const onEllipsis = vi.fn();
+    const onEllipsis = jest.fn();
     const { container: wrapper, unmount } = render(
       <Base ellipsis={{ onEllipsis }} component="p" editable ref={ref}>
         {parenthesesStr}
@@ -221,7 +222,7 @@ describe('Typography.Ellipsis', () => {
   });
 
   it('should expandable work', async () => {
-    const onExpand = vi.fn();
+    const onExpand = jest.fn();
     const { container: wrapper } = render(
       <Base ellipsis={{ expandable: true, onExpand }} component="p" copyable editable>
         {fullStr}
@@ -254,8 +255,8 @@ describe('Typography.Ellipsis', () => {
       const originIntersectionObserver = global.IntersectionObserver;
 
       let elementChangeCallback: () => void;
-      const observeFn = vi.fn();
-      const disconnectFn = vi.fn();
+      const observeFn = jest.fn();
+      const disconnectFn = jest.fn();
 
       (global as any).IntersectionObserver = class MockIntersectionObserver {
         constructor(callback: () => IntersectionObserverCallback) {
@@ -334,15 +335,17 @@ describe('Typography.Ellipsis', () => {
     it('boolean', async () => {
       const { container, baseElement } = await getWrapper(true);
       fireEvent.mouseEnter(container.firstChild!);
-      await waitFakeTimer();
-      expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      await waitFor(() => {
+        expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      });
     });
 
     it('customize', async () => {
       const { container, baseElement } = await getWrapper('Bamboo is Light');
       fireEvent.mouseEnter(container.firstChild!);
-      await waitFakeTimer();
-      expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      await waitFor(() => {
+        expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      });
     });
     it('tooltip props', async () => {
       const { container, baseElement } = await getWrapper({
@@ -350,9 +353,10 @@ describe('Typography.Ellipsis', () => {
         className: 'tooltip-class-name',
       });
       fireEvent.mouseEnter(container.firstChild!);
-      await waitFakeTimer();
-      expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
-      expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      await waitFor(() => {
+        expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
+        expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      });
     });
     it('tooltip title true', async () => {
       const { container, baseElement } = await getWrapper({
@@ -360,18 +364,20 @@ describe('Typography.Ellipsis', () => {
         className: 'tooltip-class-name',
       });
       fireEvent.mouseEnter(container.firstChild!);
-      await waitFakeTimer();
-      expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
-      expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      await waitFor(() => {
+        expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
+        expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      });
     });
     it('tooltip element', async () => {
       const { container, baseElement } = await getWrapper(
         <div className="tooltip-class-name">title</div>,
       );
       fireEvent.mouseEnter(container.firstChild!);
-      await waitFakeTimer();
-      expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
-      expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      await waitFor(() => {
+        expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
+        expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      });
     });
   });
 
@@ -422,8 +428,9 @@ describe('Typography.Ellipsis', () => {
     await waitFakeTimer();
 
     fireEvent.mouseEnter(container.firstChild!);
-    await waitFakeTimer();
-    expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+    await waitFor(() => {
+      expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+    });
     mockRectSpy.mockRestore();
   });
 });

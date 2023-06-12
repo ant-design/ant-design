@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FloatButtonGroup > should correct render 1`] = `
+exports[`FloatButtonGroup should correct render 1`] = `
 <div
   class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-circle-shadow"
 >

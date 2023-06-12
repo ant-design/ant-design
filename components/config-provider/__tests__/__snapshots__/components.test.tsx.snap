@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ConfigProvider > components > Alert > configProvider 1`] = `
+exports[`ConfigProvider components Alert configProvider 1`] = `
 <div
   class="config-alert config-alert-success config-alert-no-icon"
   data-show="true"
@@ -18,7 +18,7 @@ exports[`ConfigProvider > components > Alert > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Alert > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Alert configProvider componentDisabled 1`] = `
 <div
   class="config-alert config-alert-success config-alert-no-icon"
   data-show="true"
@@ -36,7 +36,7 @@ exports[`ConfigProvider > components > Alert > configProvider componentDisabled 
 </div>
 `;
 
-exports[`ConfigProvider > components > Alert > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Alert configProvider componentSize large 1`] = `
 <div
   class="config-alert config-alert-success config-alert-no-icon"
   data-show="true"
@@ -54,7 +54,7 @@ exports[`ConfigProvider > components > Alert > configProvider componentSize larg
 </div>
 `;
 
-exports[`ConfigProvider > components > Alert > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Alert configProvider componentSize middle 1`] = `
 <div
   class="config-alert config-alert-success config-alert-no-icon"
   data-show="true"
@@ -72,7 +72,7 @@ exports[`ConfigProvider > components > Alert > configProvider componentSize midd
 </div>
 `;
 
-exports[`ConfigProvider > components > Alert > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Alert configProvider componentSize small 1`] = `
 <div
   class="config-alert config-alert-success config-alert-no-icon"
   data-show="true"
@@ -90,7 +90,7 @@ exports[`ConfigProvider > components > Alert > configProvider componentSize smal
 </div>
 `;
 
-exports[`ConfigProvider > components > Alert > normal 1`] = `
+exports[`ConfigProvider components Alert normal 1`] = `
 <div
   class="ant-alert ant-alert-success ant-alert-no-icon"
   data-show="true"
@@ -108,7 +108,7 @@ exports[`ConfigProvider > components > Alert > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Alert > prefixCls 1`] = `
+exports[`ConfigProvider components Alert prefixCls 1`] = `
 <div
   class="prefix-Alert prefix-Alert-success prefix-Alert-no-icon"
   data-show="true"
@@ -126,7 +126,7 @@ exports[`ConfigProvider > components > Alert > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Anchor > configProvider 1`] = `
+exports[`ConfigProvider components Anchor configProvider 1`] = `
 <div>
   <div
     class=""
@@ -158,7 +158,7 @@ exports[`ConfigProvider > components > Anchor > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Anchor > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Anchor configProvider componentDisabled 1`] = `
 <div>
   <div
     class=""
@@ -190,7 +190,7 @@ exports[`ConfigProvider > components > Anchor > configProvider componentDisabled
 </div>
 `;
 
-exports[`ConfigProvider > components > Anchor > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Anchor configProvider componentSize large 1`] = `
 <div>
   <div
     class=""
@@ -222,7 +222,7 @@ exports[`ConfigProvider > components > Anchor > configProvider componentSize lar
 </div>
 `;
 
-exports[`ConfigProvider > components > Anchor > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Anchor configProvider componentSize middle 1`] = `
 <div>
   <div
     class=""
@@ -254,7 +254,7 @@ exports[`ConfigProvider > components > Anchor > configProvider componentSize mid
 </div>
 `;
 
-exports[`ConfigProvider > components > Anchor > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Anchor configProvider componentSize small 1`] = `
 <div>
   <div
     class=""
@@ -286,7 +286,7 @@ exports[`ConfigProvider > components > Anchor > configProvider componentSize sma
 </div>
 `;
 
-exports[`ConfigProvider > components > Anchor > normal 1`] = `
+exports[`ConfigProvider components Anchor normal 1`] = `
 <div>
   <div
     class=""
@@ -318,7 +318,7 @@ exports[`ConfigProvider > components > Anchor > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Anchor > prefixCls 1`] = `
+exports[`ConfigProvider components Anchor prefixCls 1`] = `
 <div>
   <div
     class=""
@@ -350,7 +350,7 @@ exports[`ConfigProvider > components > Anchor > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > AutoComplete > configProvider 1`] = `
+exports[`ConfigProvider components AutoComplete configProvider 1`] = `
 <div
   class="config-select config-select-auto-complete config-select-single config-select-show-search"
 >
@@ -382,7 +382,7 @@ exports[`ConfigProvider > components > AutoComplete > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > AutoComplete > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components AutoComplete configProvider componentDisabled 1`] = `
 <div
   class="config-select config-select-auto-complete config-select-single config-select-disabled config-select-show-search"
 >
@@ -415,7 +415,7 @@ exports[`ConfigProvider > components > AutoComplete > configProvider componentDi
 </div>
 `;
 
-exports[`ConfigProvider > components > AutoComplete > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components AutoComplete configProvider componentSize large 1`] = `
 <div
   class="config-select config-select-lg config-select-auto-complete config-select-single config-select-show-search"
 >
@@ -447,7 +447,7 @@ exports[`ConfigProvider > components > AutoComplete > configProvider componentSi
 </div>
 `;
 
-exports[`ConfigProvider > components > AutoComplete > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components AutoComplete configProvider componentSize middle 1`] = `
 <div
   class="config-select config-select-auto-complete config-select-single config-select-show-search"
 >
@@ -479,7 +479,7 @@ exports[`ConfigProvider > components > AutoComplete > configProvider componentSi
 </div>
 `;
 
-exports[`ConfigProvider > components > AutoComplete > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components AutoComplete configProvider componentSize small 1`] = `
 <div
   class="config-select config-select-sm config-select-auto-complete config-select-single config-select-show-search"
 >
@@ -511,7 +511,7 @@ exports[`ConfigProvider > components > AutoComplete > configProvider componentSi
 </div>
 `;
 
-exports[`ConfigProvider > components > AutoComplete > normal 1`] = `
+exports[`ConfigProvider components AutoComplete normal 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
 >
@@ -543,7 +543,7 @@ exports[`ConfigProvider > components > AutoComplete > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > AutoComplete > prefixCls 1`] = `
+exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
 <div
   class="prefix-AutoComplete prefix-AutoComplete-auto-complete prefix-AutoComplete-single prefix-AutoComplete-show-search"
 >
@@ -575,7 +575,7 @@ exports[`ConfigProvider > components > AutoComplete > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Avatar > configProvider 1`] = `
+exports[`ConfigProvider components Avatar configProvider 1`] = `
 <span
   class="config-avatar config-avatar-circle"
 >
@@ -586,7 +586,7 @@ exports[`ConfigProvider > components > Avatar > configProvider 1`] = `
 </span>
 `;
 
-exports[`ConfigProvider > components > Avatar > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Avatar configProvider componentDisabled 1`] = `
 <span
   class="config-avatar config-avatar-circle"
 >
@@ -597,7 +597,7 @@ exports[`ConfigProvider > components > Avatar > configProvider componentDisabled
 </span>
 `;
 
-exports[`ConfigProvider > components > Avatar > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Avatar configProvider componentSize large 1`] = `
 <span
   class="config-avatar config-avatar-circle"
 >
@@ -608,7 +608,7 @@ exports[`ConfigProvider > components > Avatar > configProvider componentSize lar
 </span>
 `;
 
-exports[`ConfigProvider > components > Avatar > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Avatar configProvider componentSize middle 1`] = `
 <span
   class="config-avatar config-avatar-circle"
 >
@@ -619,7 +619,7 @@ exports[`ConfigProvider > components > Avatar > configProvider componentSize mid
 </span>
 `;
 
-exports[`ConfigProvider > components > Avatar > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Avatar configProvider componentSize small 1`] = `
 <span
   class="config-avatar config-avatar-circle"
 >
@@ -630,7 +630,7 @@ exports[`ConfigProvider > components > Avatar > configProvider componentSize sma
 </span>
 `;
 
-exports[`ConfigProvider > components > Avatar > normal 1`] = `
+exports[`ConfigProvider components Avatar normal 1`] = `
 <span
   class="ant-avatar ant-avatar-circle"
 >
@@ -641,7 +641,7 @@ exports[`ConfigProvider > components > Avatar > normal 1`] = `
 </span>
 `;
 
-exports[`ConfigProvider > components > Avatar > prefixCls 1`] = `
+exports[`ConfigProvider components Avatar prefixCls 1`] = `
 <span
   class="prefix-Avatar prefix-Avatar-circle"
 >
@@ -652,7 +652,7 @@ exports[`ConfigProvider > components > Avatar > prefixCls 1`] = `
 </span>
 `;
 
-exports[`ConfigProvider > components > BackTop > configProvider 1`] = `
+exports[`ConfigProvider components BackTop configProvider 1`] = `
 <div
   class="config-back-top"
 >
@@ -686,7 +686,7 @@ exports[`ConfigProvider > components > BackTop > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > BackTop > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components BackTop configProvider componentDisabled 1`] = `
 <div
   class="config-back-top"
 >
@@ -720,7 +720,7 @@ exports[`ConfigProvider > components > BackTop > configProvider componentDisable
 </div>
 `;
 
-exports[`ConfigProvider > components > BackTop > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components BackTop configProvider componentSize large 1`] = `
 <div
   class="config-back-top"
 >
@@ -754,7 +754,7 @@ exports[`ConfigProvider > components > BackTop > configProvider componentSize la
 </div>
 `;
 
-exports[`ConfigProvider > components > BackTop > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components BackTop configProvider componentSize middle 1`] = `
 <div
   class="config-back-top"
 >
@@ -788,7 +788,7 @@ exports[`ConfigProvider > components > BackTop > configProvider componentSize mi
 </div>
 `;
 
-exports[`ConfigProvider > components > BackTop > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components BackTop configProvider componentSize small 1`] = `
 <div
   class="config-back-top"
 >
@@ -822,7 +822,7 @@ exports[`ConfigProvider > components > BackTop > configProvider componentSize sm
 </div>
 `;
 
-exports[`ConfigProvider > components > BackTop > normal 1`] = `
+exports[`ConfigProvider components BackTop normal 1`] = `
 <div
   class="ant-back-top"
 >
@@ -856,7 +856,7 @@ exports[`ConfigProvider > components > BackTop > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > BackTop > prefixCls 1`] = `
+exports[`ConfigProvider components BackTop prefixCls 1`] = `
 <div
   class="prefix-BackTop"
 >
@@ -890,7 +890,7 @@ exports[`ConfigProvider > components > BackTop > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Badge > configProvider 1`] = `
+exports[`ConfigProvider components Badge configProvider 1`] = `
 <div>
   <span
     class="config-badge"
@@ -925,7 +925,7 @@ exports[`ConfigProvider > components > Badge > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Badge > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Badge configProvider componentDisabled 1`] = `
 <div>
   <span
     class="config-badge"
@@ -960,7 +960,7 @@ exports[`ConfigProvider > components > Badge > configProvider componentDisabled 
 </div>
 `;
 
-exports[`ConfigProvider > components > Badge > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Badge configProvider componentSize large 1`] = `
 <div>
   <span
     class="config-badge"
@@ -995,7 +995,7 @@ exports[`ConfigProvider > components > Badge > configProvider componentSize larg
 </div>
 `;
 
-exports[`ConfigProvider > components > Badge > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Badge configProvider componentSize middle 1`] = `
 <div>
   <span
     class="config-badge"
@@ -1030,7 +1030,7 @@ exports[`ConfigProvider > components > Badge > configProvider componentSize midd
 </div>
 `;
 
-exports[`ConfigProvider > components > Badge > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Badge configProvider componentSize small 1`] = `
 <div>
   <span
     class="config-badge"
@@ -1065,7 +1065,7 @@ exports[`ConfigProvider > components > Badge > configProvider componentSize smal
 </div>
 `;
 
-exports[`ConfigProvider > components > Badge > normal 1`] = `
+exports[`ConfigProvider components Badge normal 1`] = `
 <div>
   <span
     class="ant-badge"
@@ -1100,7 +1100,7 @@ exports[`ConfigProvider > components > Badge > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Badge > prefixCls 1`] = `
+exports[`ConfigProvider components Badge prefixCls 1`] = `
 <div>
   <span
     class="prefix-Badge"
@@ -1135,7 +1135,7 @@ exports[`ConfigProvider > components > Badge > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Breadcrumb > configProvider 1`] = `
+exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
 <nav
   class="config-breadcrumb"
 >
@@ -1164,7 +1164,7 @@ exports[`ConfigProvider > components > Breadcrumb > configProvider 1`] = `
 </nav>
 `;
 
-exports[`ConfigProvider > components > Breadcrumb > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Breadcrumb configProvider componentDisabled 1`] = `
 <nav
   class="config-breadcrumb"
 >
@@ -1193,7 +1193,7 @@ exports[`ConfigProvider > components > Breadcrumb > configProvider componentDisa
 </nav>
 `;
 
-exports[`ConfigProvider > components > Breadcrumb > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Breadcrumb configProvider componentSize large 1`] = `
 <nav
   class="config-breadcrumb"
 >
@@ -1222,7 +1222,7 @@ exports[`ConfigProvider > components > Breadcrumb > configProvider componentSize
 </nav>
 `;
 
-exports[`ConfigProvider > components > Breadcrumb > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Breadcrumb configProvider componentSize middle 1`] = `
 <nav
   class="config-breadcrumb"
 >
@@ -1251,7 +1251,7 @@ exports[`ConfigProvider > components > Breadcrumb > configProvider componentSize
 </nav>
 `;
 
-exports[`ConfigProvider > components > Breadcrumb > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Breadcrumb configProvider componentSize small 1`] = `
 <nav
   class="config-breadcrumb"
 >
@@ -1280,7 +1280,7 @@ exports[`ConfigProvider > components > Breadcrumb > configProvider componentSize
 </nav>
 `;
 
-exports[`ConfigProvider > components > Breadcrumb > normal 1`] = `
+exports[`ConfigProvider components Breadcrumb normal 1`] = `
 <nav
   class="ant-breadcrumb"
 >
@@ -1309,7 +1309,7 @@ exports[`ConfigProvider > components > Breadcrumb > normal 1`] = `
 </nav>
 `;
 
-exports[`ConfigProvider > components > Breadcrumb > prefixCls 1`] = `
+exports[`ConfigProvider components Breadcrumb prefixCls 1`] = `
 <nav
   class="prefix-Breadcrumb"
 >
@@ -1338,7 +1338,7 @@ exports[`ConfigProvider > components > Breadcrumb > prefixCls 1`] = `
 </nav>
 `;
 
-exports[`ConfigProvider > components > Button > configProvider 1`] = `
+exports[`ConfigProvider components Button configProvider 1`] = `
 <div>
   <button
     class="config-btn config-btn-default"
@@ -1371,7 +1371,7 @@ exports[`ConfigProvider > components > Button > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Button > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Button configProvider componentDisabled 1`] = `
 <div>
   <button
     class="config-btn config-btn-default"
@@ -1407,7 +1407,7 @@ exports[`ConfigProvider > components > Button > configProvider componentDisabled
 </div>
 `;
 
-exports[`ConfigProvider > components > Button > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Button configProvider componentSize large 1`] = `
 <div>
   <button
     class="config-btn config-btn-default config-btn-lg"
@@ -1440,7 +1440,7 @@ exports[`ConfigProvider > components > Button > configProvider componentSize lar
 </div>
 `;
 
-exports[`ConfigProvider > components > Button > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Button configProvider componentSize middle 1`] = `
 <div>
   <button
     class="config-btn config-btn-default"
@@ -1473,7 +1473,7 @@ exports[`ConfigProvider > components > Button > configProvider componentSize mid
 </div>
 `;
 
-exports[`ConfigProvider > components > Button > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Button configProvider componentSize small 1`] = `
 <div>
   <button
     class="config-btn config-btn-default config-btn-sm"
@@ -1506,7 +1506,7 @@ exports[`ConfigProvider > components > Button > configProvider componentSize sma
 </div>
 `;
 
-exports[`ConfigProvider > components > Button > normal 1`] = `
+exports[`ConfigProvider components Button normal 1`] = `
 <div>
   <button
     class="ant-btn ant-btn-default"
@@ -1539,7 +1539,7 @@ exports[`ConfigProvider > components > Button > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Button > prefixCls 1`] = `
+exports[`ConfigProvider components Button prefixCls 1`] = `
 <div>
   <button
     class="prefix-Button prefix-Button-default"
@@ -1572,7 +1572,7 @@ exports[`ConfigProvider > components > Button > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Calendar > configProvider 1`] = `
+exports[`ConfigProvider components Calendar configProvider 1`] = `
 <div>
   <div
     class="config-picker-calendar config-picker-calendar-full"
@@ -2863,7 +2863,7 @@ exports[`ConfigProvider > components > Calendar > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Calendar > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Calendar configProvider componentDisabled 1`] = `
 <div>
   <div
     class="config-picker-calendar config-picker-calendar-full"
@@ -4161,7 +4161,7 @@ exports[`ConfigProvider > components > Calendar > configProvider componentDisabl
 </div>
 `;
 
-exports[`ConfigProvider > components > Calendar > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Calendar configProvider componentSize large 1`] = `
 <div>
   <div
     class="config-picker-calendar config-picker-calendar-full"
@@ -5452,7 +5452,7 @@ exports[`ConfigProvider > components > Calendar > configProvider componentSize l
 </div>
 `;
 
-exports[`ConfigProvider > components > Calendar > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Calendar configProvider componentSize middle 1`] = `
 <div>
   <div
     class="config-picker-calendar config-picker-calendar-full"
@@ -6743,7 +6743,7 @@ exports[`ConfigProvider > components > Calendar > configProvider componentSize m
 </div>
 `;
 
-exports[`ConfigProvider > components > Calendar > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Calendar configProvider componentSize small 1`] = `
 <div>
   <div
     class="config-picker-calendar config-picker-calendar-full"
@@ -8034,7 +8034,7 @@ exports[`ConfigProvider > components > Calendar > configProvider componentSize s
 </div>
 `;
 
-exports[`ConfigProvider > components > Calendar > normal 1`] = `
+exports[`ConfigProvider components Calendar normal 1`] = `
 <div>
   <div
     class="ant-picker-calendar ant-picker-calendar-full"
@@ -9325,7 +9325,7 @@ exports[`ConfigProvider > components > Calendar > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Calendar > prefixCls 1`] = `
+exports[`ConfigProvider components Calendar prefixCls 1`] = `
 <div>
   <div
     class="prefix-Calendar-calendar prefix-Calendar-calendar-full"
@@ -10616,7 +10616,7 @@ exports[`ConfigProvider > components > Calendar > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Card > configProvider 1`] = `
+exports[`ConfigProvider components Card configProvider 1`] = `
 <div
   class="config-card config-card-bordered config-card-contain-grid"
 >
@@ -10634,7 +10634,7 @@ exports[`ConfigProvider > components > Card > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Card > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Card configProvider componentDisabled 1`] = `
 <div
   class="config-card config-card-bordered config-card-contain-grid"
 >
@@ -10652,7 +10652,7 @@ exports[`ConfigProvider > components > Card > configProvider componentDisabled 1
 </div>
 `;
 
-exports[`ConfigProvider > components > Card > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Card configProvider componentSize large 1`] = `
 <div
   class="config-card config-card-bordered config-card-contain-grid config-card-large"
 >
@@ -10670,7 +10670,7 @@ exports[`ConfigProvider > components > Card > configProvider componentSize large
 </div>
 `;
 
-exports[`ConfigProvider > components > Card > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Card configProvider componentSize middle 1`] = `
 <div
   class="config-card config-card-bordered config-card-contain-grid config-card-middle"
 >
@@ -10688,7 +10688,7 @@ exports[`ConfigProvider > components > Card > configProvider componentSize middl
 </div>
 `;
 
-exports[`ConfigProvider > components > Card > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Card configProvider componentSize small 1`] = `
 <div
   class="config-card config-card-bordered config-card-contain-grid config-card-small"
 >
@@ -10706,7 +10706,7 @@ exports[`ConfigProvider > components > Card > configProvider componentSize small
 </div>
 `;
 
-exports[`ConfigProvider > components > Card > normal 1`] = `
+exports[`ConfigProvider components Card normal 1`] = `
 <div
   class="ant-card ant-card-bordered ant-card-contain-grid"
 >
@@ -10724,7 +10724,7 @@ exports[`ConfigProvider > components > Card > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Card > prefixCls 1`] = `
+exports[`ConfigProvider components Card prefixCls 1`] = `
 <div
   class="prefix-Card prefix-Card-bordered prefix-Card-contain-grid"
 >
@@ -10742,7 +10742,7 @@ exports[`ConfigProvider > components > Card > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Carousel > configProvider 1`] = `
+exports[`ConfigProvider components Carousel configProvider 1`] = `
 <div
   class="config-carousel"
 >
@@ -10872,7 +10872,7 @@ exports[`ConfigProvider > components > Carousel > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Carousel > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Carousel configProvider componentDisabled 1`] = `
 <div
   class="config-carousel"
 >
@@ -11002,7 +11002,7 @@ exports[`ConfigProvider > components > Carousel > configProvider componentDisabl
 </div>
 `;
 
-exports[`ConfigProvider > components > Carousel > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Carousel configProvider componentSize large 1`] = `
 <div
   class="config-carousel"
 >
@@ -11132,7 +11132,7 @@ exports[`ConfigProvider > components > Carousel > configProvider componentSize l
 </div>
 `;
 
-exports[`ConfigProvider > components > Carousel > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Carousel configProvider componentSize middle 1`] = `
 <div
   class="config-carousel"
 >
@@ -11262,7 +11262,7 @@ exports[`ConfigProvider > components > Carousel > configProvider componentSize m
 </div>
 `;
 
-exports[`ConfigProvider > components > Carousel > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Carousel configProvider componentSize small 1`] = `
 <div
   class="config-carousel"
 >
@@ -11392,7 +11392,7 @@ exports[`ConfigProvider > components > Carousel > configProvider componentSize s
 </div>
 `;
 
-exports[`ConfigProvider > components > Carousel > normal 1`] = `
+exports[`ConfigProvider components Carousel normal 1`] = `
 <div
   class="ant-carousel"
 >
@@ -11522,7 +11522,7 @@ exports[`ConfigProvider > components > Carousel > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Carousel > prefixCls 1`] = `
+exports[`ConfigProvider components Carousel prefixCls 1`] = `
 <div
   class="prefix-Carousel"
 >
@@ -11652,7 +11652,7 @@ exports[`ConfigProvider > components > Carousel > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Cascader > configProvider 1`] = `
+exports[`ConfigProvider components Cascader configProvider 1`] = `
 <div
   class="config-select config-cascader config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
 >
@@ -11709,7 +11709,7 @@ exports[`ConfigProvider > components > Cascader > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Cascader > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Cascader configProvider componentDisabled 1`] = `
 <div
   class="config-select config-cascader config-select-single config-select-allow-clear config-select-show-arrow config-select-disabled config-select-show-search"
 >
@@ -11767,7 +11767,7 @@ exports[`ConfigProvider > components > Cascader > configProvider componentDisabl
 </div>
 `;
 
-exports[`ConfigProvider > components > Cascader > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Cascader configProvider componentSize large 1`] = `
 <div
   class="config-select config-cascader config-select-lg config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
 >
@@ -11824,7 +11824,7 @@ exports[`ConfigProvider > components > Cascader > configProvider componentSize l
 </div>
 `;
 
-exports[`ConfigProvider > components > Cascader > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Cascader configProvider componentSize middle 1`] = `
 <div
   class="config-select config-cascader config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
 >
@@ -11881,7 +11881,7 @@ exports[`ConfigProvider > components > Cascader > configProvider componentSize m
 </div>
 `;
 
-exports[`ConfigProvider > components > Cascader > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Cascader configProvider componentSize small 1`] = `
 <div
   class="config-select config-cascader config-select-sm config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
 >
@@ -11938,7 +11938,7 @@ exports[`ConfigProvider > components > Cascader > configProvider componentSize s
 </div>
 `;
 
-exports[`ConfigProvider > components > Cascader > normal 1`] = `
+exports[`ConfigProvider components Cascader normal 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
 >
@@ -11995,7 +11995,7 @@ exports[`ConfigProvider > components > Cascader > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Cascader > prefixCls 1`] = `
+exports[`ConfigProvider components Cascader prefixCls 1`] = `
 <div
   class="prefix-Cascader prefix-Cascader-single prefix-Cascader-allow-clear prefix-Cascader-show-arrow prefix-Cascader-show-search"
 >
@@ -12052,7 +12052,7 @@ exports[`ConfigProvider > components > Cascader > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Checkbox > configProvider 1`] = `
+exports[`ConfigProvider components Checkbox configProvider 1`] = `
 <div
   class="config-checkbox-group"
 >
@@ -12077,7 +12077,7 @@ exports[`ConfigProvider > components > Checkbox > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Checkbox > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Checkbox configProvider componentDisabled 1`] = `
 <div
   class="config-checkbox-group"
 >
@@ -12103,7 +12103,7 @@ exports[`ConfigProvider > components > Checkbox > configProvider componentDisabl
 </div>
 `;
 
-exports[`ConfigProvider > components > Checkbox > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Checkbox configProvider componentSize large 1`] = `
 <div
   class="config-checkbox-group"
 >
@@ -12128,7 +12128,7 @@ exports[`ConfigProvider > components > Checkbox > configProvider componentSize l
 </div>
 `;
 
-exports[`ConfigProvider > components > Checkbox > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Checkbox configProvider componentSize middle 1`] = `
 <div
   class="config-checkbox-group"
 >
@@ -12153,7 +12153,7 @@ exports[`ConfigProvider > components > Checkbox > configProvider componentSize m
 </div>
 `;
 
-exports[`ConfigProvider > components > Checkbox > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Checkbox configProvider componentSize small 1`] = `
 <div
   class="config-checkbox-group"
 >
@@ -12178,7 +12178,7 @@ exports[`ConfigProvider > components > Checkbox > configProvider componentSize s
 </div>
 `;
 
-exports[`ConfigProvider > components > Checkbox > normal 1`] = `
+exports[`ConfigProvider components Checkbox normal 1`] = `
 <div
   class="ant-checkbox-group"
 >
@@ -12203,7 +12203,7 @@ exports[`ConfigProvider > components > Checkbox > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Checkbox > prefixCls 1`] = `
+exports[`ConfigProvider components Checkbox prefixCls 1`] = `
 <div
   class="prefix-Checkbox-group"
 >
@@ -12228,7 +12228,7 @@ exports[`ConfigProvider > components > Checkbox > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Collapse > configProvider 1`] = `
+exports[`ConfigProvider components Collapse configProvider 1`] = `
 <div
   class="config-collapse config-collapse-icon-position-start"
 >
@@ -12275,7 +12275,7 @@ exports[`ConfigProvider > components > Collapse > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Collapse > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Collapse configProvider componentDisabled 1`] = `
 <div
   class="config-collapse config-collapse-icon-position-start"
 >
@@ -12322,7 +12322,7 @@ exports[`ConfigProvider > components > Collapse > configProvider componentDisabl
 </div>
 `;
 
-exports[`ConfigProvider > components > Collapse > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Collapse configProvider componentSize large 1`] = `
 <div
   class="config-collapse config-collapse-icon-position-start config-collapse-large"
 >
@@ -12369,7 +12369,7 @@ exports[`ConfigProvider > components > Collapse > configProvider componentSize l
 </div>
 `;
 
-exports[`ConfigProvider > components > Collapse > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Collapse configProvider componentSize middle 1`] = `
 <div
   class="config-collapse config-collapse-icon-position-start"
 >
@@ -12416,7 +12416,7 @@ exports[`ConfigProvider > components > Collapse > configProvider componentSize m
 </div>
 `;
 
-exports[`ConfigProvider > components > Collapse > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Collapse configProvider componentSize small 1`] = `
 <div
   class="config-collapse config-collapse-icon-position-start config-collapse-small"
 >
@@ -12463,7 +12463,7 @@ exports[`ConfigProvider > components > Collapse > configProvider componentSize s
 </div>
 `;
 
-exports[`ConfigProvider > components > Collapse > normal 1`] = `
+exports[`ConfigProvider components Collapse normal 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
 >
@@ -12510,7 +12510,7 @@ exports[`ConfigProvider > components > Collapse > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Collapse > prefixCls 1`] = `
+exports[`ConfigProvider components Collapse prefixCls 1`] = `
 <div
   class="prefix-Collapse prefix-Collapse-icon-position-start"
 >
@@ -12557,7 +12557,7 @@ exports[`ConfigProvider > components > Collapse > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > DatePicker > configProvider 1`] = `
+exports[`ConfigProvider components DatePicker DatePicker configProvider 1`] = `
 <div>
   <div
     class="config-picker"
@@ -12601,7 +12601,7 @@ exports[`ConfigProvider > components > DatePicker > DatePicker > configProvider 
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > DatePicker > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components DatePicker DatePicker configProvider componentDisabled 1`] = `
 <div>
   <div
     class="config-picker config-picker-disabled"
@@ -12646,7 +12646,7 @@ exports[`ConfigProvider > components > DatePicker > DatePicker > configProvider 
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > DatePicker > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components DatePicker DatePicker configProvider componentSize large 1`] = `
 <div>
   <div
     class="config-picker config-picker-large"
@@ -12690,7 +12690,7 @@ exports[`ConfigProvider > components > DatePicker > DatePicker > configProvider 
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > DatePicker > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components DatePicker DatePicker configProvider componentSize middle 1`] = `
 <div>
   <div
     class="config-picker config-picker-middle"
@@ -12734,7 +12734,7 @@ exports[`ConfigProvider > components > DatePicker > DatePicker > configProvider 
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > DatePicker > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components DatePicker DatePicker configProvider componentSize small 1`] = `
 <div>
   <div
     class="config-picker config-picker-small"
@@ -12778,7 +12778,7 @@ exports[`ConfigProvider > components > DatePicker > DatePicker > configProvider 
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > DatePicker > normal 1`] = `
+exports[`ConfigProvider components DatePicker DatePicker normal 1`] = `
 <div>
   <div
     class="ant-picker"
@@ -12822,7 +12822,7 @@ exports[`ConfigProvider > components > DatePicker > DatePicker > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > DatePicker > prefixCls 1`] = `
+exports[`ConfigProvider components DatePicker DatePicker prefixCls 1`] = `
 <div>
   <div
     class="prefix-DatePicker"
@@ -12866,7 +12866,7 @@ exports[`ConfigProvider > components > DatePicker > DatePicker > prefixCls 1`] =
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > MonthPicker > configProvider 1`] = `
+exports[`ConfigProvider components DatePicker MonthPicker configProvider 1`] = `
 <div>
   <div
     class="config-picker"
@@ -12910,7 +12910,7 @@ exports[`ConfigProvider > components > DatePicker > MonthPicker > configProvider
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > MonthPicker > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components DatePicker MonthPicker configProvider componentDisabled 1`] = `
 <div>
   <div
     class="config-picker config-picker-disabled"
@@ -12955,7 +12955,7 @@ exports[`ConfigProvider > components > DatePicker > MonthPicker > configProvider
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > MonthPicker > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components DatePicker MonthPicker configProvider componentSize large 1`] = `
 <div>
   <div
     class="config-picker config-picker-large"
@@ -12999,7 +12999,7 @@ exports[`ConfigProvider > components > DatePicker > MonthPicker > configProvider
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > MonthPicker > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components DatePicker MonthPicker configProvider componentSize middle 1`] = `
 <div>
   <div
     class="config-picker config-picker-middle"
@@ -13043,7 +13043,7 @@ exports[`ConfigProvider > components > DatePicker > MonthPicker > configProvider
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > MonthPicker > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components DatePicker MonthPicker configProvider componentSize small 1`] = `
 <div>
   <div
     class="config-picker config-picker-small"
@@ -13087,7 +13087,7 @@ exports[`ConfigProvider > components > DatePicker > MonthPicker > configProvider
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > MonthPicker > normal 1`] = `
+exports[`ConfigProvider components DatePicker MonthPicker normal 1`] = `
 <div>
   <div
     class="ant-picker"
@@ -13131,7 +13131,7 @@ exports[`ConfigProvider > components > DatePicker > MonthPicker > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > MonthPicker > prefixCls 1`] = `
+exports[`ConfigProvider components DatePicker MonthPicker prefixCls 1`] = `
 <div>
   <div
     class="prefix-MonthPicker"
@@ -13175,7 +13175,7 @@ exports[`ConfigProvider > components > DatePicker > MonthPicker > prefixCls 1`] 
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > RangePicker > configProvider 1`] = `
+exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
 <div>
   <div
     class="config-picker config-picker-range"
@@ -13261,7 +13261,7 @@ exports[`ConfigProvider > components > DatePicker > RangePicker > configProvider
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > RangePicker > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components DatePicker RangePicker configProvider componentDisabled 1`] = `
 <div>
   <div
     class="config-picker config-picker-range config-picker-disabled"
@@ -13349,7 +13349,7 @@ exports[`ConfigProvider > components > DatePicker > RangePicker > configProvider
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > RangePicker > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components DatePicker RangePicker configProvider componentSize large 1`] = `
 <div>
   <div
     class="config-picker config-picker-range config-picker-large"
@@ -13435,7 +13435,7 @@ exports[`ConfigProvider > components > DatePicker > RangePicker > configProvider
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > RangePicker > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components DatePicker RangePicker configProvider componentSize middle 1`] = `
 <div>
   <div
     class="config-picker config-picker-range config-picker-middle"
@@ -13521,7 +13521,7 @@ exports[`ConfigProvider > components > DatePicker > RangePicker > configProvider
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > RangePicker > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components DatePicker RangePicker configProvider componentSize small 1`] = `
 <div>
   <div
     class="config-picker config-picker-range config-picker-small"
@@ -13607,7 +13607,7 @@ exports[`ConfigProvider > components > DatePicker > RangePicker > configProvider
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > RangePicker > normal 1`] = `
+exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
 <div>
   <div
     class="ant-picker ant-picker-range"
@@ -13693,7 +13693,7 @@ exports[`ConfigProvider > components > DatePicker > RangePicker > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > RangePicker > prefixCls 1`] = `
+exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
 <div>
   <div
     class="prefix-RangePicker prefix-RangePicker-range"
@@ -13779,7 +13779,7 @@ exports[`ConfigProvider > components > DatePicker > RangePicker > prefixCls 1`] 
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > WeekPicker > configProvider 1`] = `
+exports[`ConfigProvider components DatePicker WeekPicker configProvider 1`] = `
 <div>
   <div
     class="config-picker"
@@ -13823,7 +13823,7 @@ exports[`ConfigProvider > components > DatePicker > WeekPicker > configProvider 
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > WeekPicker > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components DatePicker WeekPicker configProvider componentDisabled 1`] = `
 <div>
   <div
     class="config-picker config-picker-disabled"
@@ -13868,7 +13868,7 @@ exports[`ConfigProvider > components > DatePicker > WeekPicker > configProvider 
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > WeekPicker > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components DatePicker WeekPicker configProvider componentSize large 1`] = `
 <div>
   <div
     class="config-picker config-picker-large"
@@ -13912,7 +13912,7 @@ exports[`ConfigProvider > components > DatePicker > WeekPicker > configProvider 
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > WeekPicker > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components DatePicker WeekPicker configProvider componentSize middle 1`] = `
 <div>
   <div
     class="config-picker config-picker-middle"
@@ -13956,7 +13956,7 @@ exports[`ConfigProvider > components > DatePicker > WeekPicker > configProvider 
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > WeekPicker > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components DatePicker WeekPicker configProvider componentSize small 1`] = `
 <div>
   <div
     class="config-picker config-picker-small"
@@ -14000,7 +14000,7 @@ exports[`ConfigProvider > components > DatePicker > WeekPicker > configProvider 
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > WeekPicker > normal 1`] = `
+exports[`ConfigProvider components DatePicker WeekPicker normal 1`] = `
 <div>
   <div
     class="ant-picker"
@@ -14044,7 +14044,7 @@ exports[`ConfigProvider > components > DatePicker > WeekPicker > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > DatePicker > WeekPicker > prefixCls 1`] = `
+exports[`ConfigProvider components DatePicker WeekPicker prefixCls 1`] = `
 <div>
   <div
     class="prefix-WeekPicker"
@@ -14088,56 +14088,56 @@ exports[`ConfigProvider > components > DatePicker > WeekPicker > prefixCls 1`] =
 </div>
 `;
 
-exports[`ConfigProvider > components > Divider > configProvider 1`] = `
+exports[`ConfigProvider components Divider configProvider 1`] = `
 <div
   class="config-divider config-divider-horizontal"
   role="separator"
 />
 `;
 
-exports[`ConfigProvider > components > Divider > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Divider configProvider componentDisabled 1`] = `
 <div
   class="config-divider config-divider-horizontal"
   role="separator"
 />
 `;
 
-exports[`ConfigProvider > components > Divider > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Divider configProvider componentSize large 1`] = `
 <div
   class="config-divider config-divider-horizontal"
   role="separator"
 />
 `;
 
-exports[`ConfigProvider > components > Divider > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Divider configProvider componentSize middle 1`] = `
 <div
   class="config-divider config-divider-horizontal"
   role="separator"
 />
 `;
 
-exports[`ConfigProvider > components > Divider > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Divider configProvider componentSize small 1`] = `
 <div
   class="config-divider config-divider-horizontal"
   role="separator"
 />
 `;
 
-exports[`ConfigProvider > components > Divider > normal 1`] = `
+exports[`ConfigProvider components Divider normal 1`] = `
 <div
   class="ant-divider ant-divider-horizontal"
   role="separator"
 />
 `;
 
-exports[`ConfigProvider > components > Divider > prefixCls 1`] = `
+exports[`ConfigProvider components Divider prefixCls 1`] = `
 <div
   class="prefix-Divider prefix-Divider-horizontal"
   role="separator"
 />
 `;
 
-exports[`ConfigProvider > components > Drawer > configProvider 1`] = `
+exports[`ConfigProvider components Drawer configProvider 1`] = `
 <div
   class="config-drawer config-drawer-right config-drawer-open config-drawer-inline"
   tabindex="-1"
@@ -14211,7 +14211,7 @@ exports[`ConfigProvider > components > Drawer > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Drawer > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Drawer configProvider componentDisabled 1`] = `
 <div
   class="config-drawer config-drawer-right config-drawer-open config-drawer-inline"
   tabindex="-1"
@@ -14285,7 +14285,7 @@ exports[`ConfigProvider > components > Drawer > configProvider componentDisabled
 </div>
 `;
 
-exports[`ConfigProvider > components > Drawer > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Drawer configProvider componentSize large 1`] = `
 <div
   class="config-drawer config-drawer-right config-drawer-open config-drawer-inline"
   tabindex="-1"
@@ -14359,7 +14359,7 @@ exports[`ConfigProvider > components > Drawer > configProvider componentSize lar
 </div>
 `;
 
-exports[`ConfigProvider > components > Drawer > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Drawer configProvider componentSize middle 1`] = `
 <div
   class="config-drawer config-drawer-right config-drawer-open config-drawer-inline"
   tabindex="-1"
@@ -14433,7 +14433,7 @@ exports[`ConfigProvider > components > Drawer > configProvider componentSize mid
 </div>
 `;
 
-exports[`ConfigProvider > components > Drawer > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Drawer configProvider componentSize small 1`] = `
 <div
   class="config-drawer config-drawer-right config-drawer-open config-drawer-inline"
   tabindex="-1"
@@ -14507,7 +14507,7 @@ exports[`ConfigProvider > components > Drawer > configProvider componentSize sma
 </div>
 `;
 
-exports[`ConfigProvider > components > Drawer > normal 1`] = `
+exports[`ConfigProvider components Drawer normal 1`] = `
 <div
   class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
   tabindex="-1"
@@ -14581,7 +14581,7 @@ exports[`ConfigProvider > components > Drawer > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Drawer > prefixCls 1`] = `
+exports[`ConfigProvider components Drawer prefixCls 1`] = `
 <div
   class="prefix-Drawer prefix-Drawer-right prefix-Drawer-open prefix-Drawer-inline"
   tabindex="-1"
@@ -14655,7 +14655,7 @@ exports[`ConfigProvider > components > Drawer > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Dropdown > configProvider 1`] = `
+exports[`ConfigProvider components Dropdown configProvider 1`] = `
 <div
   class="config-space-compact config-space-compact-block config-dropdown-button"
 >
@@ -14698,7 +14698,7 @@ exports[`ConfigProvider > components > Dropdown > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Dropdown > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Dropdown configProvider componentDisabled 1`] = `
 <div
   class="config-space-compact config-space-compact-block config-dropdown-button"
 >
@@ -14743,7 +14743,7 @@ exports[`ConfigProvider > components > Dropdown > configProvider componentDisabl
 </div>
 `;
 
-exports[`ConfigProvider > components > Dropdown > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Dropdown configProvider componentSize large 1`] = `
 <div
   class="config-space-compact config-space-compact-block config-dropdown-button"
 >
@@ -14786,7 +14786,7 @@ exports[`ConfigProvider > components > Dropdown > configProvider componentSize l
 </div>
 `;
 
-exports[`ConfigProvider > components > Dropdown > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Dropdown configProvider componentSize middle 1`] = `
 <div
   class="config-space-compact config-space-compact-block config-dropdown-button"
 >
@@ -14829,7 +14829,7 @@ exports[`ConfigProvider > components > Dropdown > configProvider componentSize m
 </div>
 `;
 
-exports[`ConfigProvider > components > Dropdown > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Dropdown configProvider componentSize small 1`] = `
 <div
   class="config-space-compact config-space-compact-block config-dropdown-button"
 >
@@ -14872,7 +14872,7 @@ exports[`ConfigProvider > components > Dropdown > configProvider componentSize s
 </div>
 `;
 
-exports[`ConfigProvider > components > Dropdown > normal 1`] = `
+exports[`ConfigProvider components Dropdown normal 1`] = `
 <div
   class="ant-space-compact ant-space-compact-block ant-dropdown-button"
 >
@@ -14915,7 +14915,7 @@ exports[`ConfigProvider > components > Dropdown > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Dropdown > prefixCls 1`] = `
+exports[`ConfigProvider components Dropdown prefixCls 1`] = `
 <div
   class="ant-space-compact ant-space-compact-block prefix-Dropdown-button"
 >
@@ -14958,7 +14958,7 @@ exports[`ConfigProvider > components > Dropdown > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Empty > configProvider 1`] = `
+exports[`ConfigProvider components Empty configProvider 1`] = `
 <div
   class="config-empty"
 >
@@ -15033,7 +15033,7 @@ exports[`ConfigProvider > components > Empty > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Empty > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Empty configProvider componentDisabled 1`] = `
 <div
   class="config-empty"
 >
@@ -15108,7 +15108,7 @@ exports[`ConfigProvider > components > Empty > configProvider componentDisabled 
 </div>
 `;
 
-exports[`ConfigProvider > components > Empty > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Empty configProvider componentSize large 1`] = `
 <div
   class="config-empty"
 >
@@ -15183,7 +15183,7 @@ exports[`ConfigProvider > components > Empty > configProvider componentSize larg
 </div>
 `;
 
-exports[`ConfigProvider > components > Empty > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Empty configProvider componentSize middle 1`] = `
 <div
   class="config-empty"
 >
@@ -15258,7 +15258,7 @@ exports[`ConfigProvider > components > Empty > configProvider componentSize midd
 </div>
 `;
 
-exports[`ConfigProvider > components > Empty > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Empty configProvider componentSize small 1`] = `
 <div
   class="config-empty"
 >
@@ -15333,7 +15333,7 @@ exports[`ConfigProvider > components > Empty > configProvider componentSize smal
 </div>
 `;
 
-exports[`ConfigProvider > components > Empty > normal 1`] = `
+exports[`ConfigProvider components Empty normal 1`] = `
 <div
   class="ant-empty"
 >
@@ -15408,7 +15408,7 @@ exports[`ConfigProvider > components > Empty > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Empty > prefixCls 1`] = `
+exports[`ConfigProvider components Empty prefixCls 1`] = `
 <div
   class="prefix-Empty"
 >
@@ -15483,7 +15483,7 @@ exports[`ConfigProvider > components > Empty > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Form > configProvider 1`] = `
+exports[`ConfigProvider components Form configProvider 1`] = `
 <form
   class="config-form config-form-horizontal"
 >
@@ -15537,7 +15537,7 @@ exports[`ConfigProvider > components > Form > configProvider 1`] = `
 </form>
 `;
 
-exports[`ConfigProvider > components > Form > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Form configProvider componentDisabled 1`] = `
 <form
   class="config-form config-form-horizontal"
 >
@@ -15592,7 +15592,7 @@ exports[`ConfigProvider > components > Form > configProvider componentDisabled 1
 </form>
 `;
 
-exports[`ConfigProvider > components > Form > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Form configProvider componentSize large 1`] = `
 <form
   class="config-form config-form-horizontal config-form-large"
 >
@@ -15646,7 +15646,7 @@ exports[`ConfigProvider > components > Form > configProvider componentSize large
 </form>
 `;
 
-exports[`ConfigProvider > components > Form > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Form configProvider componentSize middle 1`] = `
 <form
   class="config-form config-form-horizontal config-form-middle"
 >
@@ -15700,7 +15700,7 @@ exports[`ConfigProvider > components > Form > configProvider componentSize middl
 </form>
 `;
 
-exports[`ConfigProvider > components > Form > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Form configProvider componentSize small 1`] = `
 <form
   class="config-form config-form-horizontal config-form-small"
 >
@@ -15754,7 +15754,7 @@ exports[`ConfigProvider > components > Form > configProvider componentSize small
 </form>
 `;
 
-exports[`ConfigProvider > components > Form > normal 1`] = `
+exports[`ConfigProvider components Form normal 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >
@@ -15808,7 +15808,7 @@ exports[`ConfigProvider > components > Form > normal 1`] = `
 </form>
 `;
 
-exports[`ConfigProvider > components > Form > prefixCls 1`] = `
+exports[`ConfigProvider components Form prefixCls 1`] = `
 <form
   class="prefix-Form prefix-Form-horizontal"
 >
@@ -15862,7 +15862,7 @@ exports[`ConfigProvider > components > Form > prefixCls 1`] = `
 </form>
 `;
 
-exports[`ConfigProvider > components > Grid > configProvider 1`] = `
+exports[`ConfigProvider components Grid configProvider 1`] = `
 <div
   class="config-row"
 >
@@ -15872,7 +15872,7 @@ exports[`ConfigProvider > components > Grid > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Grid > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Grid configProvider componentDisabled 1`] = `
 <div
   class="config-row"
 >
@@ -15882,7 +15882,7 @@ exports[`ConfigProvider > components > Grid > configProvider componentDisabled 1
 </div>
 `;
 
-exports[`ConfigProvider > components > Grid > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Grid configProvider componentSize large 1`] = `
 <div
   class="config-row"
 >
@@ -15892,7 +15892,7 @@ exports[`ConfigProvider > components > Grid > configProvider componentSize large
 </div>
 `;
 
-exports[`ConfigProvider > components > Grid > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Grid configProvider componentSize middle 1`] = `
 <div
   class="config-row"
 >
@@ -15902,7 +15902,7 @@ exports[`ConfigProvider > components > Grid > configProvider componentSize middl
 </div>
 `;
 
-exports[`ConfigProvider > components > Grid > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Grid configProvider componentSize small 1`] = `
 <div
   class="config-row"
 >
@@ -15912,7 +15912,7 @@ exports[`ConfigProvider > components > Grid > configProvider componentSize small
 </div>
 `;
 
-exports[`ConfigProvider > components > Grid > normal 1`] = `
+exports[`ConfigProvider components Grid normal 1`] = `
 <div
   class="ant-row"
 >
@@ -15922,7 +15922,7 @@ exports[`ConfigProvider > components > Grid > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Grid > prefixCls 1`] = `
+exports[`ConfigProvider components Grid prefixCls 1`] = `
 <div
   class="prefix-row"
 >
@@ -15932,7 +15932,7 @@ exports[`ConfigProvider > components > Grid > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Input > configProvider 1`] = `
+exports[`ConfigProvider components Input configProvider 1`] = `
 <div>
   <span
     class="config-input-group"
@@ -16030,7 +16030,7 @@ exports[`ConfigProvider > components > Input > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Input > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Input configProvider componentDisabled 1`] = `
 <div>
   <span
     class="config-input-group"
@@ -16133,7 +16133,7 @@ exports[`ConfigProvider > components > Input > configProvider componentDisabled 
 </div>
 `;
 
-exports[`ConfigProvider > components > Input > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Input configProvider componentSize large 1`] = `
 <div>
   <span
     class="config-input-group"
@@ -16231,7 +16231,7 @@ exports[`ConfigProvider > components > Input > configProvider componentSize larg
 </div>
 `;
 
-exports[`ConfigProvider > components > Input > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Input configProvider componentSize middle 1`] = `
 <div>
   <span
     class="config-input-group"
@@ -16329,7 +16329,7 @@ exports[`ConfigProvider > components > Input > configProvider componentSize midd
 </div>
 `;
 
-exports[`ConfigProvider > components > Input > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Input configProvider componentSize small 1`] = `
 <div>
   <span
     class="config-input-group"
@@ -16427,7 +16427,7 @@ exports[`ConfigProvider > components > Input > configProvider componentSize smal
 </div>
 `;
 
-exports[`ConfigProvider > components > Input > normal 1`] = `
+exports[`ConfigProvider components Input normal 1`] = `
 <div>
   <span
     class="ant-input-group"
@@ -16525,7 +16525,7 @@ exports[`ConfigProvider > components > Input > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Input > prefixCls 1`] = `
+exports[`ConfigProvider components Input prefixCls 1`] = `
 <div>
   <span
     class="prefix-Input"
@@ -16623,7 +16623,7 @@ exports[`ConfigProvider > components > Input > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > InputNumber > configProvider 1`] = `
+exports[`ConfigProvider components InputNumber configProvider 1`] = `
 <div
   class="config-input-number"
 >
@@ -16699,7 +16699,7 @@ exports[`ConfigProvider > components > InputNumber > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > InputNumber > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components InputNumber configProvider componentDisabled 1`] = `
 <div
   class="config-input-number config-input-number-disabled"
 >
@@ -16776,7 +16776,7 @@ exports[`ConfigProvider > components > InputNumber > configProvider componentDis
 </div>
 `;
 
-exports[`ConfigProvider > components > InputNumber > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components InputNumber configProvider componentSize large 1`] = `
 <div
   class="config-input-number config-input-number-lg"
 >
@@ -16852,7 +16852,7 @@ exports[`ConfigProvider > components > InputNumber > configProvider componentSiz
 </div>
 `;
 
-exports[`ConfigProvider > components > InputNumber > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components InputNumber configProvider componentSize middle 1`] = `
 <div
   class="config-input-number"
 >
@@ -16928,7 +16928,7 @@ exports[`ConfigProvider > components > InputNumber > configProvider componentSiz
 </div>
 `;
 
-exports[`ConfigProvider > components > InputNumber > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components InputNumber configProvider componentSize small 1`] = `
 <div
   class="config-input-number config-input-number-sm"
 >
@@ -17004,7 +17004,7 @@ exports[`ConfigProvider > components > InputNumber > configProvider componentSiz
 </div>
 `;
 
-exports[`ConfigProvider > components > InputNumber > normal 1`] = `
+exports[`ConfigProvider components InputNumber normal 1`] = `
 <div
   class="ant-input-number"
 >
@@ -17080,7 +17080,7 @@ exports[`ConfigProvider > components > InputNumber > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > InputNumber > prefixCls 1`] = `
+exports[`ConfigProvider components InputNumber prefixCls 1`] = `
 <div
   class="prefix-InputNumber"
 >
@@ -17156,7 +17156,7 @@ exports[`ConfigProvider > components > InputNumber > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Layout > configProvider 1`] = `
+exports[`ConfigProvider components Layout configProvider 1`] = `
 <section
   class="config-layout config-layout-has-sider"
 >
@@ -17184,7 +17184,7 @@ exports[`ConfigProvider > components > Layout > configProvider 1`] = `
 </section>
 `;
 
-exports[`ConfigProvider > components > Layout > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Layout configProvider componentDisabled 1`] = `
 <section
   class="config-layout config-layout-has-sider"
 >
@@ -17212,7 +17212,7 @@ exports[`ConfigProvider > components > Layout > configProvider componentDisabled
 </section>
 `;
 
-exports[`ConfigProvider > components > Layout > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Layout configProvider componentSize large 1`] = `
 <section
   class="config-layout config-layout-has-sider"
 >
@@ -17240,7 +17240,7 @@ exports[`ConfigProvider > components > Layout > configProvider componentSize lar
 </section>
 `;
 
-exports[`ConfigProvider > components > Layout > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Layout configProvider componentSize middle 1`] = `
 <section
   class="config-layout config-layout-has-sider"
 >
@@ -17268,7 +17268,7 @@ exports[`ConfigProvider > components > Layout > configProvider componentSize mid
 </section>
 `;
 
-exports[`ConfigProvider > components > Layout > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Layout configProvider componentSize small 1`] = `
 <section
   class="config-layout config-layout-has-sider"
 >
@@ -17296,7 +17296,7 @@ exports[`ConfigProvider > components > Layout > configProvider componentSize sma
 </section>
 `;
 
-exports[`ConfigProvider > components > Layout > normal 1`] = `
+exports[`ConfigProvider components Layout normal 1`] = `
 <section
   class="ant-layout ant-layout-has-sider"
 >
@@ -17324,7 +17324,7 @@ exports[`ConfigProvider > components > Layout > normal 1`] = `
 </section>
 `;
 
-exports[`ConfigProvider > components > Layout > prefixCls 1`] = `
+exports[`ConfigProvider components Layout prefixCls 1`] = `
 <section
   class="prefix-Layout prefix-Layout-has-sider"
 >
@@ -17352,7 +17352,7 @@ exports[`ConfigProvider > components > Layout > prefixCls 1`] = `
 </section>
 `;
 
-exports[`ConfigProvider > components > List > configProvider 1`] = `
+exports[`ConfigProvider components List configProvider 1`] = `
 <div
   class="config-list config-list-split"
 >
@@ -17404,7 +17404,7 @@ exports[`ConfigProvider > components > List > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > List > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components List configProvider componentDisabled 1`] = `
 <div
   class="config-list config-list-split"
 >
@@ -17456,7 +17456,7 @@ exports[`ConfigProvider > components > List > configProvider componentDisabled 1
 </div>
 `;
 
-exports[`ConfigProvider > components > List > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components List configProvider componentSize large 1`] = `
 <div
   class="config-list config-list-split"
 >
@@ -17508,7 +17508,7 @@ exports[`ConfigProvider > components > List > configProvider componentSize large
 </div>
 `;
 
-exports[`ConfigProvider > components > List > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components List configProvider componentSize middle 1`] = `
 <div
   class="config-list config-list-split"
 >
@@ -17560,7 +17560,7 @@ exports[`ConfigProvider > components > List > configProvider componentSize middl
 </div>
 `;
 
-exports[`ConfigProvider > components > List > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components List configProvider componentSize small 1`] = `
 <div
   class="config-list config-list-split"
 >
@@ -17612,7 +17612,7 @@ exports[`ConfigProvider > components > List > configProvider componentSize small
 </div>
 `;
 
-exports[`ConfigProvider > components > List > normal 1`] = `
+exports[`ConfigProvider components List normal 1`] = `
 <div
   class="ant-list ant-list-split"
 >
@@ -17664,7 +17664,7 @@ exports[`ConfigProvider > components > List > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > List > prefixCls 1`] = `
+exports[`ConfigProvider components List prefixCls 1`] = `
 <div
   class="prefix-List prefix-List-split"
 >
@@ -17716,7 +17716,7 @@ exports[`ConfigProvider > components > List > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Menu > configProvider 1`] = `
+exports[`ConfigProvider components Menu configProvider 1`] = `
 Array [
   <ul
     class="config-menu config-menu-root config-menu-inline config-menu-light"
@@ -17793,7 +17793,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider > components > Menu > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Menu configProvider componentDisabled 1`] = `
 Array [
   <ul
     class="config-menu config-menu-root config-menu-inline config-menu-light"
@@ -17870,7 +17870,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider > components > Menu > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Menu configProvider componentSize large 1`] = `
 Array [
   <ul
     class="config-menu config-menu-root config-menu-inline config-menu-light"
@@ -17947,7 +17947,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider > components > Menu > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Menu configProvider componentSize middle 1`] = `
 Array [
   <ul
     class="config-menu config-menu-root config-menu-inline config-menu-light"
@@ -18024,7 +18024,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider > components > Menu > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Menu configProvider componentSize small 1`] = `
 Array [
   <ul
     class="config-menu config-menu-root config-menu-inline config-menu-light"
@@ -18101,7 +18101,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider > components > Menu > normal 1`] = `
+exports[`ConfigProvider components Menu normal 1`] = `
 Array [
   <ul
     class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
@@ -18178,7 +18178,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider > components > Menu > prefixCls 1`] = `
+exports[`ConfigProvider components Menu prefixCls 1`] = `
 Array [
   <ul
     class="prefix-Menu prefix-Menu-root prefix-Menu-inline prefix-Menu-light"
@@ -18257,7 +18257,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider > components > Modal > configProvider 1`] = `
+exports[`ConfigProvider components Modal configProvider 1`] = `
 <div>
   <div
     class="config-modal-root"
@@ -18349,7 +18349,7 @@ exports[`ConfigProvider > components > Modal > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Modal > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Modal configProvider componentDisabled 1`] = `
 <div>
   <div
     class="config-modal-root"
@@ -18443,7 +18443,7 @@ exports[`ConfigProvider > components > Modal > configProvider componentDisabled 
 </div>
 `;
 
-exports[`ConfigProvider > components > Modal > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Modal configProvider componentSize large 1`] = `
 <div>
   <div
     class="config-modal-root"
@@ -18535,7 +18535,7 @@ exports[`ConfigProvider > components > Modal > configProvider componentSize larg
 </div>
 `;
 
-exports[`ConfigProvider > components > Modal > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Modal configProvider componentSize middle 1`] = `
 <div>
   <div
     class="config-modal-root"
@@ -18627,7 +18627,7 @@ exports[`ConfigProvider > components > Modal > configProvider componentSize midd
 </div>
 `;
 
-exports[`ConfigProvider > components > Modal > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Modal configProvider componentSize small 1`] = `
 <div>
   <div
     class="config-modal-root"
@@ -18719,7 +18719,7 @@ exports[`ConfigProvider > components > Modal > configProvider componentSize smal
 </div>
 `;
 
-exports[`ConfigProvider > components > Modal > normal 1`] = `
+exports[`ConfigProvider components Modal normal 1`] = `
 <div>
   <div
     class="ant-modal-root"
@@ -18811,7 +18811,7 @@ exports[`ConfigProvider > components > Modal > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Modal > prefixCls 1`] = `
+exports[`ConfigProvider components Modal prefixCls 1`] = `
 <div>
   <div
     class="prefix-Modal-root"
@@ -18903,7 +18903,7 @@ exports[`ConfigProvider > components > Modal > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Pagination > configProvider 1`] = `
+exports[`ConfigProvider components Pagination configProvider 1`] = `
 <div>
   <ul
     class="config-pagination"
@@ -19194,7 +19194,7 @@ exports[`ConfigProvider > components > Pagination > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Pagination > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Pagination configProvider componentDisabled 1`] = `
 <div>
   <ul
     class="config-pagination"
@@ -19487,7 +19487,7 @@ exports[`ConfigProvider > components > Pagination > configProvider componentDisa
 </div>
 `;
 
-exports[`ConfigProvider > components > Pagination > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Pagination configProvider componentSize large 1`] = `
 <div>
   <ul
     class="config-pagination"
@@ -19778,7 +19778,7 @@ exports[`ConfigProvider > components > Pagination > configProvider componentSize
 </div>
 `;
 
-exports[`ConfigProvider > components > Pagination > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Pagination configProvider componentSize middle 1`] = `
 <div>
   <ul
     class="config-pagination"
@@ -20069,7 +20069,7 @@ exports[`ConfigProvider > components > Pagination > configProvider componentSize
 </div>
 `;
 
-exports[`ConfigProvider > components > Pagination > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Pagination configProvider componentSize small 1`] = `
 <div>
   <ul
     class="config-pagination config-pagination-mini"
@@ -20360,7 +20360,7 @@ exports[`ConfigProvider > components > Pagination > configProvider componentSize
 </div>
 `;
 
-exports[`ConfigProvider > components > Pagination > normal 1`] = `
+exports[`ConfigProvider components Pagination normal 1`] = `
 <div>
   <ul
     class="ant-pagination"
@@ -20651,7 +20651,7 @@ exports[`ConfigProvider > components > Pagination > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Pagination > prefixCls 1`] = `
+exports[`ConfigProvider components Pagination prefixCls 1`] = `
 <div>
   <ul
     class="prefix-Pagination"
@@ -20942,7 +20942,7 @@ exports[`ConfigProvider > components > Pagination > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Popconfirm > configProvider 1`] = `
+exports[`ConfigProvider components Popconfirm configProvider 1`] = `
 <div>
   <span
     class="config-popover-open"
@@ -21028,7 +21028,7 @@ exports[`ConfigProvider > components > Popconfirm > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Popconfirm > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Popconfirm configProvider componentDisabled 1`] = `
 <div>
   <span
     class="config-popover-open"
@@ -21116,7 +21116,7 @@ exports[`ConfigProvider > components > Popconfirm > configProvider componentDisa
 </div>
 `;
 
-exports[`ConfigProvider > components > Popconfirm > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Popconfirm configProvider componentSize large 1`] = `
 <div>
   <span
     class="config-popover-open"
@@ -21202,7 +21202,7 @@ exports[`ConfigProvider > components > Popconfirm > configProvider componentSize
 </div>
 `;
 
-exports[`ConfigProvider > components > Popconfirm > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Popconfirm configProvider componentSize middle 1`] = `
 <div>
   <span
     class="config-popover-open"
@@ -21288,7 +21288,7 @@ exports[`ConfigProvider > components > Popconfirm > configProvider componentSize
 </div>
 `;
 
-exports[`ConfigProvider > components > Popconfirm > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Popconfirm configProvider componentSize small 1`] = `
 <div>
   <span
     class="config-popover-open"
@@ -21374,7 +21374,7 @@ exports[`ConfigProvider > components > Popconfirm > configProvider componentSize
 </div>
 `;
 
-exports[`ConfigProvider > components > Popconfirm > normal 1`] = `
+exports[`ConfigProvider components Popconfirm normal 1`] = `
 <div>
   <span
     class="ant-popover-open"
@@ -21460,7 +21460,7 @@ exports[`ConfigProvider > components > Popconfirm > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Popconfirm > prefixCls 1`] = `
+exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
 <div>
   <span
     class="ant-popover-open"
@@ -21546,7 +21546,7 @@ exports[`ConfigProvider > components > Popconfirm > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Popover > configProvider 1`] = `
+exports[`ConfigProvider components Popover configProvider 1`] = `
 <div>
   <span
     class="config-popover-open"
@@ -21573,7 +21573,7 @@ exports[`ConfigProvider > components > Popover > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Popover > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Popover configProvider componentDisabled 1`] = `
 <div>
   <span
     class="config-popover-open"
@@ -21600,7 +21600,7 @@ exports[`ConfigProvider > components > Popover > configProvider componentDisable
 </div>
 `;
 
-exports[`ConfigProvider > components > Popover > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Popover configProvider componentSize large 1`] = `
 <div>
   <span
     class="config-popover-open"
@@ -21627,7 +21627,7 @@ exports[`ConfigProvider > components > Popover > configProvider componentSize la
 </div>
 `;
 
-exports[`ConfigProvider > components > Popover > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Popover configProvider componentSize middle 1`] = `
 <div>
   <span
     class="config-popover-open"
@@ -21654,7 +21654,7 @@ exports[`ConfigProvider > components > Popover > configProvider componentSize mi
 </div>
 `;
 
-exports[`ConfigProvider > components > Popover > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Popover configProvider componentSize small 1`] = `
 <div>
   <span
     class="config-popover-open"
@@ -21681,7 +21681,7 @@ exports[`ConfigProvider > components > Popover > configProvider componentSize sm
 </div>
 `;
 
-exports[`ConfigProvider > components > Popover > normal 1`] = `
+exports[`ConfigProvider components Popover normal 1`] = `
 <div>
   <span
     class="ant-popover-open"
@@ -21708,7 +21708,7 @@ exports[`ConfigProvider > components > Popover > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Popover > prefixCls 1`] = `
+exports[`ConfigProvider components Popover prefixCls 1`] = `
 <div>
   <span
     class="prefix-Popover-open"
@@ -21735,7 +21735,7 @@ exports[`ConfigProvider > components > Popover > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Progress > configProvider 1`] = `
+exports[`ConfigProvider components Progress configProvider 1`] = `
 <div
   aria-valuenow="0"
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
@@ -21763,7 +21763,7 @@ exports[`ConfigProvider > components > Progress > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Progress > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Progress configProvider componentDisabled 1`] = `
 <div
   aria-valuenow="0"
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
@@ -21791,7 +21791,7 @@ exports[`ConfigProvider > components > Progress > configProvider componentDisabl
 </div>
 `;
 
-exports[`ConfigProvider > components > Progress > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Progress configProvider componentSize large 1`] = `
 <div
   aria-valuenow="0"
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
@@ -21819,7 +21819,7 @@ exports[`ConfigProvider > components > Progress > configProvider componentSize l
 </div>
 `;
 
-exports[`ConfigProvider > components > Progress > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Progress configProvider componentSize middle 1`] = `
 <div
   aria-valuenow="0"
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
@@ -21847,7 +21847,7 @@ exports[`ConfigProvider > components > Progress > configProvider componentSize m
 </div>
 `;
 
-exports[`ConfigProvider > components > Progress > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Progress configProvider componentSize small 1`] = `
 <div
   aria-valuenow="0"
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
@@ -21875,7 +21875,7 @@ exports[`ConfigProvider > components > Progress > configProvider componentSize s
 </div>
 `;
 
-exports[`ConfigProvider > components > Progress > normal 1`] = `
+exports[`ConfigProvider components Progress normal 1`] = `
 <div
   aria-valuenow="0"
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -21903,7 +21903,7 @@ exports[`ConfigProvider > components > Progress > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Progress > prefixCls 1`] = `
+exports[`ConfigProvider components Progress prefixCls 1`] = `
 <div
   aria-valuenow="0"
   class="prefix-Progress prefix-Progress-line prefix-Progress-status-normal prefix-Progress-show-info prefix-Progress-default"
@@ -21931,7 +21931,7 @@ exports[`ConfigProvider > components > Progress > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Radio > configProvider 1`] = `
+exports[`ConfigProvider components Radio configProvider 1`] = `
 <div>
   <div
     class="config-radio-group config-radio-group-outline"
@@ -21982,7 +21982,7 @@ exports[`ConfigProvider > components > Radio > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Radio > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = `
 <div>
   <div
     class="config-radio-group config-radio-group-outline"
@@ -22035,7 +22035,7 @@ exports[`ConfigProvider > components > Radio > configProvider componentDisabled 
 </div>
 `;
 
-exports[`ConfigProvider > components > Radio > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Radio configProvider componentSize large 1`] = `
 <div>
   <div
     class="config-radio-group config-radio-group-outline config-radio-group-large"
@@ -22086,7 +22086,7 @@ exports[`ConfigProvider > components > Radio > configProvider componentSize larg
 </div>
 `;
 
-exports[`ConfigProvider > components > Radio > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Radio configProvider componentSize middle 1`] = `
 <div>
   <div
     class="config-radio-group config-radio-group-outline config-radio-group-middle"
@@ -22137,7 +22137,7 @@ exports[`ConfigProvider > components > Radio > configProvider componentSize midd
 </div>
 `;
 
-exports[`ConfigProvider > components > Radio > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Radio configProvider componentSize small 1`] = `
 <div>
   <div
     class="config-radio-group config-radio-group-outline config-radio-group-small"
@@ -22188,7 +22188,7 @@ exports[`ConfigProvider > components > Radio > configProvider componentSize smal
 </div>
 `;
 
-exports[`ConfigProvider > components > Radio > normal 1`] = `
+exports[`ConfigProvider components Radio normal 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -22239,7 +22239,7 @@ exports[`ConfigProvider > components > Radio > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Radio > prefixCls 1`] = `
+exports[`ConfigProvider components Radio prefixCls 1`] = `
 <div>
   <div
     class="prefix-Radio-group prefix-Radio-group-outline"
@@ -22290,7 +22290,7 @@ exports[`ConfigProvider > components > Radio > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Rate > configProvider 1`] = `
+exports[`ConfigProvider components Rate configProvider 1`] = `
 <ul
   class="config-rate"
   role="radiogroup"
@@ -22589,7 +22589,7 @@ exports[`ConfigProvider > components > Rate > configProvider 1`] = `
 </ul>
 `;
 
-exports[`ConfigProvider > components > Rate > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Rate configProvider componentDisabled 1`] = `
 <ul
   class="config-rate"
   role="radiogroup"
@@ -22888,7 +22888,7 @@ exports[`ConfigProvider > components > Rate > configProvider componentDisabled 1
 </ul>
 `;
 
-exports[`ConfigProvider > components > Rate > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Rate configProvider componentSize large 1`] = `
 <ul
   class="config-rate"
   role="radiogroup"
@@ -23187,7 +23187,7 @@ exports[`ConfigProvider > components > Rate > configProvider componentSize large
 </ul>
 `;
 
-exports[`ConfigProvider > components > Rate > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Rate configProvider componentSize middle 1`] = `
 <ul
   class="config-rate"
   role="radiogroup"
@@ -23486,7 +23486,7 @@ exports[`ConfigProvider > components > Rate > configProvider componentSize middl
 </ul>
 `;
 
-exports[`ConfigProvider > components > Rate > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Rate configProvider componentSize small 1`] = `
 <ul
   class="config-rate"
   role="radiogroup"
@@ -23785,7 +23785,7 @@ exports[`ConfigProvider > components > Rate > configProvider componentSize small
 </ul>
 `;
 
-exports[`ConfigProvider > components > Rate > normal 1`] = `
+exports[`ConfigProvider components Rate normal 1`] = `
 <ul
   class="ant-rate"
   role="radiogroup"
@@ -24084,7 +24084,7 @@ exports[`ConfigProvider > components > Rate > normal 1`] = `
 </ul>
 `;
 
-exports[`ConfigProvider > components > Rate > prefixCls 1`] = `
+exports[`ConfigProvider components Rate prefixCls 1`] = `
 <ul
   class="prefix-Rate"
   role="radiogroup"
@@ -24383,7 +24383,7 @@ exports[`ConfigProvider > components > Rate > prefixCls 1`] = `
 </ul>
 `;
 
-exports[`ConfigProvider > components > Select > configProvider 1`] = `
+exports[`ConfigProvider components Select configProvider 1`] = `
 <div
   class="config-select config-select-single config-select-show-arrow config-select-open"
 >
@@ -24445,7 +24445,7 @@ exports[`ConfigProvider > components > Select > configProvider 1`] = `
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto;"
         >
           <div>
             <div
@@ -24510,7 +24510,7 @@ exports[`ConfigProvider > components > Select > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Select > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Select configProvider componentDisabled 1`] = `
 <div
   class="config-select config-select-single config-select-show-arrow config-select-disabled"
 >
@@ -24572,7 +24572,7 @@ exports[`ConfigProvider > components > Select > configProvider componentDisabled
 </div>
 `;
 
-exports[`ConfigProvider > components > Select > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Select configProvider componentSize large 1`] = `
 <div
   class="config-select config-select-lg config-select-single config-select-show-arrow config-select-open"
 >
@@ -24634,7 +24634,7 @@ exports[`ConfigProvider > components > Select > configProvider componentSize lar
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto;"
         >
           <div>
             <div
@@ -24699,7 +24699,7 @@ exports[`ConfigProvider > components > Select > configProvider componentSize lar
 </div>
 `;
 
-exports[`ConfigProvider > components > Select > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Select configProvider componentSize middle 1`] = `
 <div
   class="config-select config-select-single config-select-show-arrow config-select-open"
 >
@@ -24761,7 +24761,7 @@ exports[`ConfigProvider > components > Select > configProvider componentSize mid
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto;"
         >
           <div>
             <div
@@ -24826,7 +24826,7 @@ exports[`ConfigProvider > components > Select > configProvider componentSize mid
 </div>
 `;
 
-exports[`ConfigProvider > components > Select > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Select configProvider componentSize small 1`] = `
 <div
   class="config-select config-select-sm config-select-single config-select-show-arrow config-select-open"
 >
@@ -24888,7 +24888,7 @@ exports[`ConfigProvider > components > Select > configProvider componentSize sma
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto;"
         >
           <div>
             <div
@@ -24953,7 +24953,7 @@ exports[`ConfigProvider > components > Select > configProvider componentSize sma
 </div>
 `;
 
-exports[`ConfigProvider > components > Select > normal 1`] = `
+exports[`ConfigProvider components Select normal 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow ant-select-open"
 >
@@ -25015,7 +25015,7 @@ exports[`ConfigProvider > components > Select > normal 1`] = `
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto;"
         >
           <div>
             <div
@@ -25080,7 +25080,7 @@ exports[`ConfigProvider > components > Select > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Select > prefixCls 1`] = `
+exports[`ConfigProvider components Select prefixCls 1`] = `
 <div
   class="prefix-Select prefix-Select-single prefix-Select-show-arrow prefix-Select-open"
 >
@@ -25142,7 +25142,7 @@ exports[`ConfigProvider > components > Select > prefixCls 1`] = `
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto;"
         >
           <div>
             <div
@@ -25207,7 +25207,7 @@ exports[`ConfigProvider > components > Select > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Skeleton > configProvider 1`] = `
+exports[`ConfigProvider components Skeleton configProvider 1`] = `
 <div
   class="config-skeleton config-skeleton-with-avatar"
 >
@@ -25235,7 +25235,7 @@ exports[`ConfigProvider > components > Skeleton > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Skeleton > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Skeleton configProvider componentDisabled 1`] = `
 <div
   class="config-skeleton config-skeleton-with-avatar"
 >
@@ -25263,7 +25263,7 @@ exports[`ConfigProvider > components > Skeleton > configProvider componentDisabl
 </div>
 `;
 
-exports[`ConfigProvider > components > Skeleton > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Skeleton configProvider componentSize large 1`] = `
 <div
   class="config-skeleton config-skeleton-with-avatar"
 >
@@ -25291,7 +25291,7 @@ exports[`ConfigProvider > components > Skeleton > configProvider componentSize l
 </div>
 `;
 
-exports[`ConfigProvider > components > Skeleton > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Skeleton configProvider componentSize middle 1`] = `
 <div
   class="config-skeleton config-skeleton-with-avatar"
 >
@@ -25319,7 +25319,7 @@ exports[`ConfigProvider > components > Skeleton > configProvider componentSize m
 </div>
 `;
 
-exports[`ConfigProvider > components > Skeleton > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Skeleton configProvider componentSize small 1`] = `
 <div
   class="config-skeleton config-skeleton-with-avatar"
 >
@@ -25347,7 +25347,7 @@ exports[`ConfigProvider > components > Skeleton > configProvider componentSize s
 </div>
 `;
 
-exports[`ConfigProvider > components > Skeleton > normal 1`] = `
+exports[`ConfigProvider components Skeleton normal 1`] = `
 <div
   class="ant-skeleton ant-skeleton-with-avatar"
 >
@@ -25375,7 +25375,7 @@ exports[`ConfigProvider > components > Skeleton > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Skeleton > prefixCls 1`] = `
+exports[`ConfigProvider components Skeleton prefixCls 1`] = `
 <div
   class="prefix-Skeleton prefix-Skeleton-with-avatar"
 >
@@ -25403,7 +25403,7 @@ exports[`ConfigProvider > components > Skeleton > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Slider > configProvider 1`] = `
+exports[`ConfigProvider components Slider configProvider 1`] = `
 <div
   class="config-slider config-slider-horizontal"
 >
@@ -25449,7 +25449,7 @@ exports[`ConfigProvider > components > Slider > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Slider > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Slider configProvider componentDisabled 1`] = `
 <div
   class="config-slider config-slider-horizontal"
 >
@@ -25495,7 +25495,7 @@ exports[`ConfigProvider > components > Slider > configProvider componentDisabled
 </div>
 `;
 
-exports[`ConfigProvider > components > Slider > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Slider configProvider componentSize large 1`] = `
 <div
   class="config-slider config-slider-horizontal"
 >
@@ -25541,7 +25541,7 @@ exports[`ConfigProvider > components > Slider > configProvider componentSize lar
 </div>
 `;
 
-exports[`ConfigProvider > components > Slider > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Slider configProvider componentSize middle 1`] = `
 <div
   class="config-slider config-slider-horizontal"
 >
@@ -25587,7 +25587,7 @@ exports[`ConfigProvider > components > Slider > configProvider componentSize mid
 </div>
 `;
 
-exports[`ConfigProvider > components > Slider > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Slider configProvider componentSize small 1`] = `
 <div
   class="config-slider config-slider-horizontal"
 >
@@ -25633,7 +25633,7 @@ exports[`ConfigProvider > components > Slider > configProvider componentSize sma
 </div>
 `;
 
-exports[`ConfigProvider > components > Slider > normal 1`] = `
+exports[`ConfigProvider components Slider normal 1`] = `
 <div
   class="ant-slider ant-slider-horizontal"
 >
@@ -25679,7 +25679,7 @@ exports[`ConfigProvider > components > Slider > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Slider > prefixCls 1`] = `
+exports[`ConfigProvider components Slider prefixCls 1`] = `
 <div
   class="prefix-Slider prefix-Slider-horizontal"
 >
@@ -25725,7 +25725,7 @@ exports[`ConfigProvider > components > Slider > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Spin > configProvider 1`] = `
+exports[`ConfigProvider components Spin configProvider 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
@@ -25750,7 +25750,7 @@ exports[`ConfigProvider > components > Spin > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Spin > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Spin configProvider componentDisabled 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
@@ -25775,7 +25775,7 @@ exports[`ConfigProvider > components > Spin > configProvider componentDisabled 1
 </div>
 `;
 
-exports[`ConfigProvider > components > Spin > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Spin configProvider componentSize large 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
@@ -25800,7 +25800,7 @@ exports[`ConfigProvider > components > Spin > configProvider componentSize large
 </div>
 `;
 
-exports[`ConfigProvider > components > Spin > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Spin configProvider componentSize middle 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
@@ -25825,7 +25825,7 @@ exports[`ConfigProvider > components > Spin > configProvider componentSize middl
 </div>
 `;
 
-exports[`ConfigProvider > components > Spin > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Spin configProvider componentSize small 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
@@ -25850,7 +25850,7 @@ exports[`ConfigProvider > components > Spin > configProvider componentSize small
 </div>
 `;
 
-exports[`ConfigProvider > components > Spin > normal 1`] = `
+exports[`ConfigProvider components Spin normal 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
@@ -25875,7 +25875,7 @@ exports[`ConfigProvider > components > Spin > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Spin > prefixCls 1`] = `
+exports[`ConfigProvider components Spin prefixCls 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
@@ -25900,7 +25900,7 @@ exports[`ConfigProvider > components > Spin > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Statistic > configProvider 1`] = `
+exports[`ConfigProvider components Statistic configProvider 1`] = `
 <div
   class="config-statistic"
 >
@@ -25920,7 +25920,7 @@ exports[`ConfigProvider > components > Statistic > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Statistic > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Statistic configProvider componentDisabled 1`] = `
 <div
   class="config-statistic"
 >
@@ -25940,7 +25940,7 @@ exports[`ConfigProvider > components > Statistic > configProvider componentDisab
 </div>
 `;
 
-exports[`ConfigProvider > components > Statistic > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Statistic configProvider componentSize large 1`] = `
 <div
   class="config-statistic"
 >
@@ -25960,7 +25960,7 @@ exports[`ConfigProvider > components > Statistic > configProvider componentSize 
 </div>
 `;
 
-exports[`ConfigProvider > components > Statistic > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Statistic configProvider componentSize middle 1`] = `
 <div
   class="config-statistic"
 >
@@ -25980,7 +25980,7 @@ exports[`ConfigProvider > components > Statistic > configProvider componentSize 
 </div>
 `;
 
-exports[`ConfigProvider > components > Statistic > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Statistic configProvider componentSize small 1`] = `
 <div
   class="config-statistic"
 >
@@ -26000,7 +26000,7 @@ exports[`ConfigProvider > components > Statistic > configProvider componentSize 
 </div>
 `;
 
-exports[`ConfigProvider > components > Statistic > normal 1`] = `
+exports[`ConfigProvider components Statistic normal 1`] = `
 <div
   class="ant-statistic"
 >
@@ -26020,7 +26020,7 @@ exports[`ConfigProvider > components > Statistic > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Statistic > prefixCls 1`] = `
+exports[`ConfigProvider components Statistic prefixCls 1`] = `
 <div
   class="prefix-Statistic"
 >
@@ -26040,7 +26040,7 @@ exports[`ConfigProvider > components > Statistic > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Steps > configProvider 1`] = `
+exports[`ConfigProvider components Steps configProvider 1`] = `
 <div
   class="config-steps config-steps-vertical"
 >
@@ -26081,7 +26081,7 @@ exports[`ConfigProvider > components > Steps > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Steps > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Steps configProvider componentDisabled 1`] = `
 <div
   class="config-steps config-steps-vertical"
 >
@@ -26122,7 +26122,7 @@ exports[`ConfigProvider > components > Steps > configProvider componentDisabled 
 </div>
 `;
 
-exports[`ConfigProvider > components > Steps > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Steps configProvider componentSize large 1`] = `
 <div
   class="config-steps config-steps-vertical config-steps-large"
 >
@@ -26163,7 +26163,7 @@ exports[`ConfigProvider > components > Steps > configProvider componentSize larg
 </div>
 `;
 
-exports[`ConfigProvider > components > Steps > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Steps configProvider componentSize middle 1`] = `
 <div
   class="config-steps config-steps-vertical config-steps-middle"
 >
@@ -26204,7 +26204,7 @@ exports[`ConfigProvider > components > Steps > configProvider componentSize midd
 </div>
 `;
 
-exports[`ConfigProvider > components > Steps > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Steps configProvider componentSize small 1`] = `
 <div
   class="config-steps config-steps-vertical config-steps-small"
 >
@@ -26245,7 +26245,7 @@ exports[`ConfigProvider > components > Steps > configProvider componentSize smal
 </div>
 `;
 
-exports[`ConfigProvider > components > Steps > normal 1`] = `
+exports[`ConfigProvider components Steps normal 1`] = `
 <div
   class="ant-steps ant-steps-vertical"
 >
@@ -26286,7 +26286,7 @@ exports[`ConfigProvider > components > Steps > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Steps > prefixCls 1`] = `
+exports[`ConfigProvider components Steps prefixCls 1`] = `
 <div
   class="prefix-Steps prefix-Steps-vertical"
 >
@@ -26327,7 +26327,7 @@ exports[`ConfigProvider > components > Steps > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Switch > configProvider 1`] = `
+exports[`ConfigProvider components Switch configProvider 1`] = `
 <button
   aria-checked="false"
   class="config-switch"
@@ -26350,7 +26350,7 @@ exports[`ConfigProvider > components > Switch > configProvider 1`] = `
 </button>
 `;
 
-exports[`ConfigProvider > components > Switch > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Switch configProvider componentDisabled 1`] = `
 <button
   aria-checked="false"
   class="config-switch config-switch-disabled"
@@ -26374,7 +26374,7 @@ exports[`ConfigProvider > components > Switch > configProvider componentDisabled
 </button>
 `;
 
-exports[`ConfigProvider > components > Switch > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Switch configProvider componentSize large 1`] = `
 <button
   aria-checked="false"
   class="config-switch"
@@ -26397,7 +26397,7 @@ exports[`ConfigProvider > components > Switch > configProvider componentSize lar
 </button>
 `;
 
-exports[`ConfigProvider > components > Switch > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Switch configProvider componentSize middle 1`] = `
 <button
   aria-checked="false"
   class="config-switch"
@@ -26420,7 +26420,7 @@ exports[`ConfigProvider > components > Switch > configProvider componentSize mid
 </button>
 `;
 
-exports[`ConfigProvider > components > Switch > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Switch configProvider componentSize small 1`] = `
 <button
   aria-checked="false"
   class="config-switch config-switch-small"
@@ -26443,7 +26443,7 @@ exports[`ConfigProvider > components > Switch > configProvider componentSize sma
 </button>
 `;
 
-exports[`ConfigProvider > components > Switch > normal 1`] = `
+exports[`ConfigProvider components Switch normal 1`] = `
 <button
   aria-checked="false"
   class="ant-switch"
@@ -26466,7 +26466,7 @@ exports[`ConfigProvider > components > Switch > normal 1`] = `
 </button>
 `;
 
-exports[`ConfigProvider > components > Switch > prefixCls 1`] = `
+exports[`ConfigProvider components Switch prefixCls 1`] = `
 <button
   aria-checked="false"
   class="prefix-Switch"
@@ -26489,7 +26489,7 @@ exports[`ConfigProvider > components > Switch > prefixCls 1`] = `
 </button>
 `;
 
-exports[`ConfigProvider > components > Table > configProvider 1`] = `
+exports[`ConfigProvider components Table configProvider 1`] = `
 <div
   class="config-table-wrapper"
 >
@@ -26793,7 +26793,7 @@ exports[`ConfigProvider > components > Table > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Table > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Table configProvider componentDisabled 1`] = `
 <div
   class="config-table-wrapper"
 >
@@ -27099,7 +27099,7 @@ exports[`ConfigProvider > components > Table > configProvider componentDisabled 
 </div>
 `;
 
-exports[`ConfigProvider > components > Table > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Table configProvider componentSize large 1`] = `
 <div
   class="config-table-wrapper"
 >
@@ -27403,7 +27403,7 @@ exports[`ConfigProvider > components > Table > configProvider componentSize larg
 </div>
 `;
 
-exports[`ConfigProvider > components > Table > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Table configProvider componentSize middle 1`] = `
 <div
   class="config-table-wrapper"
 >
@@ -27707,7 +27707,7 @@ exports[`ConfigProvider > components > Table > configProvider componentSize midd
 </div>
 `;
 
-exports[`ConfigProvider > components > Table > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Table configProvider componentSize small 1`] = `
 <div
   class="config-table-wrapper"
 >
@@ -28011,7 +28011,7 @@ exports[`ConfigProvider > components > Table > configProvider componentSize smal
 </div>
 `;
 
-exports[`ConfigProvider > components > Table > normal 1`] = `
+exports[`ConfigProvider components Table normal 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -28315,7 +28315,7 @@ exports[`ConfigProvider > components > Table > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Table > prefixCls 1`] = `
+exports[`ConfigProvider components Table prefixCls 1`] = `
 <div
   class="prefix-Table-wrapper"
 >
@@ -28619,7 +28619,7 @@ exports[`ConfigProvider > components > Table > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Tabs > configProvider 1`] = `
+exports[`ConfigProvider components Tabs configProvider 1`] = `
 <div
   class="config-tabs config-tabs-top"
 >
@@ -28709,7 +28709,7 @@ exports[`ConfigProvider > components > Tabs > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Tabs > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
 <div
   class="config-tabs config-tabs-top"
 >
@@ -28799,7 +28799,7 @@ exports[`ConfigProvider > components > Tabs > configProvider componentDisabled 1
 </div>
 `;
 
-exports[`ConfigProvider > components > Tabs > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Tabs configProvider componentSize large 1`] = `
 <div
   class="config-tabs config-tabs-top config-tabs-large"
 >
@@ -28889,7 +28889,7 @@ exports[`ConfigProvider > components > Tabs > configProvider componentSize large
 </div>
 `;
 
-exports[`ConfigProvider > components > Tabs > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] = `
 <div
   class="config-tabs config-tabs-top config-tabs-middle"
 >
@@ -28979,7 +28979,7 @@ exports[`ConfigProvider > components > Tabs > configProvider componentSize middl
 </div>
 `;
 
-exports[`ConfigProvider > components > Tabs > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Tabs configProvider componentSize small 1`] = `
 <div
   class="config-tabs config-tabs-top config-tabs-small"
 >
@@ -29069,7 +29069,7 @@ exports[`ConfigProvider > components > Tabs > configProvider componentSize small
 </div>
 `;
 
-exports[`ConfigProvider > components > Tabs > normal 1`] = `
+exports[`ConfigProvider components Tabs normal 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -29159,7 +29159,7 @@ exports[`ConfigProvider > components > Tabs > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Tabs > prefixCls 1`] = `
+exports[`ConfigProvider components Tabs prefixCls 1`] = `
 <div
   class="prefix-Tabs prefix-Tabs-top"
 >
@@ -29249,7 +29249,7 @@ exports[`ConfigProvider > components > Tabs > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Tags > configProvider 1`] = `
+exports[`ConfigProvider components Tags configProvider 1`] = `
 <div>
   <span
     class="config-tag"
@@ -29264,7 +29264,7 @@ exports[`ConfigProvider > components > Tags > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Tags > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Tags configProvider componentDisabled 1`] = `
 <div>
   <span
     class="config-tag"
@@ -29279,7 +29279,7 @@ exports[`ConfigProvider > components > Tags > configProvider componentDisabled 1
 </div>
 `;
 
-exports[`ConfigProvider > components > Tags > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Tags configProvider componentSize large 1`] = `
 <div>
   <span
     class="config-tag"
@@ -29294,7 +29294,7 @@ exports[`ConfigProvider > components > Tags > configProvider componentSize large
 </div>
 `;
 
-exports[`ConfigProvider > components > Tags > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Tags configProvider componentSize middle 1`] = `
 <div>
   <span
     class="config-tag"
@@ -29309,7 +29309,7 @@ exports[`ConfigProvider > components > Tags > configProvider componentSize middl
 </div>
 `;
 
-exports[`ConfigProvider > components > Tags > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Tags configProvider componentSize small 1`] = `
 <div>
   <span
     class="config-tag"
@@ -29324,7 +29324,7 @@ exports[`ConfigProvider > components > Tags > configProvider componentSize small
 </div>
 `;
 
-exports[`ConfigProvider > components > Tags > normal 1`] = `
+exports[`ConfigProvider components Tags normal 1`] = `
 <div>
   <span
     class="ant-tag"
@@ -29339,7 +29339,7 @@ exports[`ConfigProvider > components > Tags > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Tags > prefixCls 1`] = `
+exports[`ConfigProvider components Tags prefixCls 1`] = `
 <div>
   <span
     class="prefix-Tags"
@@ -29354,7 +29354,7 @@ exports[`ConfigProvider > components > Tags > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > TimePicker > configProvider 1`] = `
+exports[`ConfigProvider components TimePicker configProvider 1`] = `
 Array [
   <div
     class="config-picker"
@@ -30767,7 +30767,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider > components > TimePicker > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components TimePicker configProvider componentDisabled 1`] = `
 Array [
   <div
     class="config-picker config-picker-disabled"
@@ -30815,7 +30815,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider > components > TimePicker > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components TimePicker configProvider componentSize large 1`] = `
 Array [
   <div
     class="config-picker config-picker-large"
@@ -32228,7 +32228,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider > components > TimePicker > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components TimePicker configProvider componentSize middle 1`] = `
 Array [
   <div
     class="config-picker config-picker-middle"
@@ -33641,7 +33641,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider > components > TimePicker > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components TimePicker configProvider componentSize small 1`] = `
 Array [
   <div
     class="config-picker config-picker-small"
@@ -35054,7 +35054,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider > components > TimePicker > normal 1`] = `
+exports[`ConfigProvider components TimePicker normal 1`] = `
 Array [
   <div
     class="ant-picker"
@@ -36467,7 +36467,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider > components > TimePicker > prefixCls 1`] = `
+exports[`ConfigProvider components TimePicker prefixCls 1`] = `
 Array [
   <div
     class="prefix-TimePicker"
@@ -37880,7 +37880,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider > components > Timeline > configProvider 1`] = `
+exports[`ConfigProvider components Timeline configProvider 1`] = `
 <ul
   class="config-timeline"
 >
@@ -37902,7 +37902,7 @@ exports[`ConfigProvider > components > Timeline > configProvider 1`] = `
 </ul>
 `;
 
-exports[`ConfigProvider > components > Timeline > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Timeline configProvider componentDisabled 1`] = `
 <ul
   class="config-timeline"
 >
@@ -37924,7 +37924,7 @@ exports[`ConfigProvider > components > Timeline > configProvider componentDisabl
 </ul>
 `;
 
-exports[`ConfigProvider > components > Timeline > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Timeline configProvider componentSize large 1`] = `
 <ul
   class="config-timeline"
 >
@@ -37946,7 +37946,7 @@ exports[`ConfigProvider > components > Timeline > configProvider componentSize l
 </ul>
 `;
 
-exports[`ConfigProvider > components > Timeline > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Timeline configProvider componentSize middle 1`] = `
 <ul
   class="config-timeline"
 >
@@ -37968,7 +37968,7 @@ exports[`ConfigProvider > components > Timeline > configProvider componentSize m
 </ul>
 `;
 
-exports[`ConfigProvider > components > Timeline > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Timeline configProvider componentSize small 1`] = `
 <ul
   class="config-timeline"
 >
@@ -37990,7 +37990,7 @@ exports[`ConfigProvider > components > Timeline > configProvider componentSize s
 </ul>
 `;
 
-exports[`ConfigProvider > components > Timeline > normal 1`] = `
+exports[`ConfigProvider components Timeline normal 1`] = `
 <ul
   class="ant-timeline"
 >
@@ -38012,7 +38012,7 @@ exports[`ConfigProvider > components > Timeline > normal 1`] = `
 </ul>
 `;
 
-exports[`ConfigProvider > components > Timeline > prefixCls 1`] = `
+exports[`ConfigProvider components Timeline prefixCls 1`] = `
 <ul
   class="prefix-Timeline"
 >
@@ -38034,7 +38034,7 @@ exports[`ConfigProvider > components > Timeline > prefixCls 1`] = `
 </ul>
 `;
 
-exports[`ConfigProvider > components > Tooltip > configProvider 1`] = `
+exports[`ConfigProvider components Tooltip configProvider 1`] = `
 Array [
   <span
     class="config-tooltip-open"
@@ -38063,7 +38063,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider > components > Tooltip > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Tooltip configProvider componentDisabled 1`] = `
 Array [
   <span
     class="config-tooltip-open"
@@ -38092,7 +38092,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider > components > Tooltip > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Tooltip configProvider componentSize large 1`] = `
 Array [
   <span
     class="config-tooltip-open"
@@ -38121,7 +38121,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider > components > Tooltip > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Tooltip configProvider componentSize middle 1`] = `
 Array [
   <span
     class="config-tooltip-open"
@@ -38150,7 +38150,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider > components > Tooltip > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Tooltip configProvider componentSize small 1`] = `
 Array [
   <span
     class="config-tooltip-open"
@@ -38179,7 +38179,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider > components > Tooltip > normal 1`] = `
+exports[`ConfigProvider components Tooltip normal 1`] = `
 Array [
   <span
     class="ant-tooltip-open"
@@ -38208,7 +38208,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider > components > Tooltip > prefixCls 1`] = `
+exports[`ConfigProvider components Tooltip prefixCls 1`] = `
 Array [
   <span
     class="prefix-Tooltip-open"
@@ -38237,7 +38237,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider > components > Transfer > configProvider 1`] = `
+exports[`ConfigProvider components Transfer configProvider 1`] = `
 <div
   class="config-transfer"
 >
@@ -38516,7 +38516,7 @@ exports[`ConfigProvider > components > Transfer > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Transfer > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Transfer configProvider componentDisabled 1`] = `
 <div
   class="config-transfer"
 >
@@ -38795,7 +38795,7 @@ exports[`ConfigProvider > components > Transfer > configProvider componentDisabl
 </div>
 `;
 
-exports[`ConfigProvider > components > Transfer > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Transfer configProvider componentSize large 1`] = `
 <div
   class="config-transfer"
 >
@@ -39074,7 +39074,7 @@ exports[`ConfigProvider > components > Transfer > configProvider componentSize l
 </div>
 `;
 
-exports[`ConfigProvider > components > Transfer > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Transfer configProvider componentSize middle 1`] = `
 <div
   class="config-transfer"
 >
@@ -39353,7 +39353,7 @@ exports[`ConfigProvider > components > Transfer > configProvider componentSize m
 </div>
 `;
 
-exports[`ConfigProvider > components > Transfer > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Transfer configProvider componentSize small 1`] = `
 <div
   class="config-transfer"
 >
@@ -39632,7 +39632,7 @@ exports[`ConfigProvider > components > Transfer > configProvider componentSize s
 </div>
 `;
 
-exports[`ConfigProvider > components > Transfer > normal 1`] = `
+exports[`ConfigProvider components Transfer normal 1`] = `
 <div
   class="ant-transfer"
 >
@@ -39911,7 +39911,7 @@ exports[`ConfigProvider > components > Transfer > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Transfer > prefixCls 1`] = `
+exports[`ConfigProvider components Transfer prefixCls 1`] = `
 <div
   class="prefix-Transfer"
 >
@@ -40190,7 +40190,7 @@ exports[`ConfigProvider > components > Transfer > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Tree > configProvider 1`] = `
+exports[`ConfigProvider components Tree configProvider 1`] = `
 <div>
   <div
     class="config-tree config-tree-icon-hide"
@@ -40348,7 +40348,7 @@ exports[`ConfigProvider > components > Tree > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Tree > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Tree configProvider componentDisabled 1`] = `
 <div>
   <div
     class="config-tree config-tree-icon-hide"
@@ -40506,7 +40506,7 @@ exports[`ConfigProvider > components > Tree > configProvider componentDisabled 1
 </div>
 `;
 
-exports[`ConfigProvider > components > Tree > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Tree configProvider componentSize large 1`] = `
 <div>
   <div
     class="config-tree config-tree-icon-hide"
@@ -40664,7 +40664,7 @@ exports[`ConfigProvider > components > Tree > configProvider componentSize large
 </div>
 `;
 
-exports[`ConfigProvider > components > Tree > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Tree configProvider componentSize middle 1`] = `
 <div>
   <div
     class="config-tree config-tree-icon-hide"
@@ -40822,7 +40822,7 @@ exports[`ConfigProvider > components > Tree > configProvider componentSize middl
 </div>
 `;
 
-exports[`ConfigProvider > components > Tree > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Tree configProvider componentSize small 1`] = `
 <div>
   <div
     class="config-tree config-tree-icon-hide"
@@ -40980,7 +40980,7 @@ exports[`ConfigProvider > components > Tree > configProvider componentSize small
 </div>
 `;
 
-exports[`ConfigProvider > components > Tree > normal 1`] = `
+exports[`ConfigProvider components Tree normal 1`] = `
 <div>
   <div
     class="ant-tree ant-tree-icon-hide"
@@ -41138,7 +41138,7 @@ exports[`ConfigProvider > components > Tree > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Tree > prefixCls 1`] = `
+exports[`ConfigProvider components Tree prefixCls 1`] = `
 <div>
   <div
     class="prefix-Tree prefix-Tree-icon-hide"
@@ -41296,7 +41296,7 @@ exports[`ConfigProvider > components > Tree > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > TreeSelect > configProvider 1`] = `
+exports[`ConfigProvider components TreeSelect configProvider 1`] = `
 <div
   class="config-select config-tree-select config-select-single config-select-show-arrow config-select-open"
 >
@@ -41364,7 +41364,7 @@ exports[`ConfigProvider > components > TreeSelect > configProvider 1`] = `
           >
             <div
               class="config-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
@@ -41431,7 +41431,7 @@ exports[`ConfigProvider > components > TreeSelect > configProvider 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > TreeSelect > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components TreeSelect configProvider componentDisabled 1`] = `
 <div
   class="config-select config-tree-select config-select-single config-select-show-arrow config-select-disabled"
 >
@@ -41492,7 +41492,7 @@ exports[`ConfigProvider > components > TreeSelect > configProvider componentDisa
 </div>
 `;
 
-exports[`ConfigProvider > components > TreeSelect > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components TreeSelect configProvider componentSize large 1`] = `
 <div
   class="config-select config-tree-select config-select-lg config-select-single config-select-show-arrow config-select-open"
 >
@@ -41560,7 +41560,7 @@ exports[`ConfigProvider > components > TreeSelect > configProvider componentSize
           >
             <div
               class="config-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
@@ -41627,7 +41627,7 @@ exports[`ConfigProvider > components > TreeSelect > configProvider componentSize
 </div>
 `;
 
-exports[`ConfigProvider > components > TreeSelect > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components TreeSelect configProvider componentSize middle 1`] = `
 <div
   class="config-select config-tree-select config-select-single config-select-show-arrow config-select-open"
 >
@@ -41695,7 +41695,7 @@ exports[`ConfigProvider > components > TreeSelect > configProvider componentSize
           >
             <div
               class="config-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
@@ -41762,7 +41762,7 @@ exports[`ConfigProvider > components > TreeSelect > configProvider componentSize
 </div>
 `;
 
-exports[`ConfigProvider > components > TreeSelect > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components TreeSelect configProvider componentSize small 1`] = `
 <div
   class="config-select config-tree-select config-select-sm config-select-single config-select-show-arrow config-select-open"
 >
@@ -41830,7 +41830,7 @@ exports[`ConfigProvider > components > TreeSelect > configProvider componentSize
           >
             <div
               class="config-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
@@ -41897,7 +41897,7 @@ exports[`ConfigProvider > components > TreeSelect > configProvider componentSize
 </div>
 `;
 
-exports[`ConfigProvider > components > TreeSelect > normal 1`] = `
+exports[`ConfigProvider components TreeSelect normal 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-show-arrow ant-select-open"
 >
@@ -41965,7 +41965,7 @@ exports[`ConfigProvider > components > TreeSelect > normal 1`] = `
           >
             <div
               class="ant-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
@@ -42032,7 +42032,7 @@ exports[`ConfigProvider > components > TreeSelect > normal 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > TreeSelect > prefixCls 1`] = `
+exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
 <div
   class="prefix-TreeSelect prefix-TreeSelect-single prefix-TreeSelect-show-arrow prefix-TreeSelect-open"
 >
@@ -42100,7 +42100,7 @@ exports[`ConfigProvider > components > TreeSelect > prefixCls 1`] = `
           >
             <div
               class="prefix-TreeSelect-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
@@ -42167,7 +42167,7 @@ exports[`ConfigProvider > components > TreeSelect > prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider > components > Upload > configProvider 1`] = `
+exports[`ConfigProvider components Upload configProvider 1`] = `
 <span
   class="config-upload-wrapper"
 >
@@ -42265,7 +42265,7 @@ exports[`ConfigProvider > components > Upload > configProvider 1`] = `
 </span>
 `;
 
-exports[`ConfigProvider > components > Upload > configProvider componentDisabled 1`] = `
+exports[`ConfigProvider components Upload configProvider componentDisabled 1`] = `
 <span
   class="config-upload-wrapper"
 >
@@ -42331,7 +42331,7 @@ exports[`ConfigProvider > components > Upload > configProvider componentDisabled
 </span>
 `;
 
-exports[`ConfigProvider > components > Upload > configProvider componentSize large 1`] = `
+exports[`ConfigProvider components Upload configProvider componentSize large 1`] = `
 <span
   class="config-upload-wrapper"
 >
@@ -42429,7 +42429,7 @@ exports[`ConfigProvider > components > Upload > configProvider componentSize lar
 </span>
 `;
 
-exports[`ConfigProvider > components > Upload > configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Upload configProvider componentSize middle 1`] = `
 <span
   class="config-upload-wrapper"
 >
@@ -42527,7 +42527,7 @@ exports[`ConfigProvider > components > Upload > configProvider componentSize mid
 </span>
 `;
 
-exports[`ConfigProvider > components > Upload > configProvider componentSize small 1`] = `
+exports[`ConfigProvider components Upload configProvider componentSize small 1`] = `
 <span
   class="config-upload-wrapper"
 >
@@ -42625,7 +42625,7 @@ exports[`ConfigProvider > components > Upload > configProvider componentSize sma
 </span>
 `;
 
-exports[`ConfigProvider > components > Upload > normal 1`] = `
+exports[`ConfigProvider components Upload normal 1`] = `
 <span
   class="ant-upload-wrapper"
 >
@@ -42723,7 +42723,7 @@ exports[`ConfigProvider > components > Upload > normal 1`] = `
 </span>
 `;
 
-exports[`ConfigProvider > components > Upload > prefixCls 1`] = `
+exports[`ConfigProvider components Upload prefixCls 1`] = `
 <span
   class="prefix-Upload-wrapper"
 >

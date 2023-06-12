@@ -21,7 +21,7 @@ const DefaultRenderEmpty: React.FC<EmptyProps> = (props) => {
     case 'Transfer':
     case 'Mentions':
       return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} className={`${prefix}-small`} />;
-    /* c8 ignore next 3 */
+    /* istanbul ignore next */
     default:
       // Should never hit if we take all the component into consider.
       return <Empty />;

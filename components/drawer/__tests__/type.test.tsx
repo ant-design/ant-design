@@ -3,7 +3,7 @@ import Drawer from '..';
 
 describe('Drawer.typescript', () => {
   it('Drawer', () => {
-    const onClose = vi.fn();
+    const onClose = jest.fn();
     const wrapper = (
       <Drawer
         title="Basic Drawer"

@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Spin > if indicator set null should not be render default indicator 1`] = `
+exports[`Spin if indicator set null should not be render default indicator 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
@@ -8,7 +8,7 @@ exports[`Spin > if indicator set null should not be render default indicator 1`]
 />
 `;
 
-exports[`Spin > rtl render > component should be rendered correctly in RTL direction 1`] = `
+exports[`Spin rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
@@ -33,7 +33,7 @@ exports[`Spin > rtl render > component should be rendered correctly in RTL direc
 </div>
 `;
 
-exports[`Spin > should render custom indicator when it's set 1`] = `
+exports[`Spin should render custom indicator when it's set 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
@@ -45,7 +45,7 @@ exports[`Spin > should render custom indicator when it's set 1`] = `
 </div>
 `;
 
-exports[`Spin > should support static method Spin.setDefaultIndicator 1`] = `
+exports[`Spin should support static method Spin.setDefaultIndicator 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"

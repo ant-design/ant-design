@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dropdown > overlay is function and has custom transitionName 1`] = `
+exports[`Dropdown overlay is function and has custom transitionName 1`] = `
 Array [
   <button
     class="ant-dropdown-trigger ant-dropdown-open"
@@ -19,7 +19,7 @@ Array [
 ]
 `;
 
-exports[`Dropdown > overlay is string 1`] = `
+exports[`Dropdown overlay is string 1`] = `
 Array [
   <button
     class="ant-dropdown-trigger ant-dropdown-open"
@@ -38,13 +38,13 @@ Array [
 ]
 `;
 
-exports[`Dropdown > rtl render > component should be rendered correctly in RTL direction 1`] = `
+exports[`Dropdown rtl render component should be rendered correctly in RTL direction 1`] = `
 <span
   class="ant-dropdown-trigger ant-dropdown-rtl"
 />
 `;
 
-exports[`Dropdown > should render custom dropdown correctly 1`] = `
+exports[`Dropdown should render custom dropdown correctly 1`] = `
 Array [
   <button
     class="ant-dropdown-trigger ant-dropdown-open"

@@ -12,7 +12,7 @@ describe('click wave effect', () => {
   }
 
   it('should have click wave effect', async () => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
     const { container } = render(<Switch />);
     await click(container);
     await click(container);
@@ -24,7 +24,7 @@ describe('click wave effect', () => {
     const event = new Event('animationend');
     Object.assign(event, { animationName: 'fadeEffect' });
     container.querySelector('.ant-switch')!.dispatchEvent(event);
-    vi.clearAllTimers();
-    vi.useRealTimers();
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 });

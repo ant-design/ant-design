@@ -5,11 +5,11 @@ import ConfigProvider from '../../config-provider';
 
 describe('notification.hooks', () => {
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterEach(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('should work', () => {
@@ -127,7 +127,7 @@ describe('notification.hooks', () => {
     });
 
     it('warning if user call update in render', () => {
-      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
       const Demo = () => {
         const [api, holder] = notification.useNotification();

@@ -1,5 +1,5 @@
 /* eslint-disable import/first */
-vi.mock('../../_util/scrollTo');
+jest.mock('../../_util/scrollTo');
 
 import React from 'react';
 import type { TablePaginationConfig, TableProps } from '..';
@@ -154,8 +154,8 @@ describe('Table.pagination', () => {
   });
 
   it('fires change event', () => {
-    const handleChange = vi.fn();
-    const handlePaginationChange = vi.fn();
+    const handleChange = jest.fn();
+    const handlePaginationChange = jest.fn();
     const noop = () => {};
     const { container } = render(
       createTable({
@@ -233,8 +233,8 @@ describe('Table.pagination', () => {
 
   // https://github.com/ant-design/ant-design/issues/24913
   it('should called onChange when pageSize change', () => {
-    const onChange = vi.fn();
-    const onShowSizeChange = vi.fn();
+    const onChange = jest.fn();
+    const onShowSizeChange = jest.fn();
     const { container } = render(
       createTable({
         pagination: { current: 1, pageSize: 10, total: 200, onChange, onShowSizeChange },
@@ -265,8 +265,8 @@ describe('Table.pagination', () => {
 
   // https://github.com/ant-design/ant-design/issues/29175
   it('should change page to max page count when pageSize change without pagination.total', () => {
-    const onChange = vi.fn();
-    const onShowSizeChange = vi.fn();
+    const onChange = jest.fn();
+    const onShowSizeChange = jest.fn();
     const { container } = render(
       createTable({
         pagination: {
@@ -289,8 +289,8 @@ describe('Table.pagination', () => {
   });
 
   it('should change page to max page count when pageSize change with pagination.total', () => {
-    const onChange = vi.fn();
-    const onShowSizeChange = vi.fn();
+    const onChange = jest.fn();
+    const onShowSizeChange = jest.fn();
     const total = 20000;
     const { container } = render(
       createTable({
@@ -317,8 +317,8 @@ describe('Table.pagination', () => {
 
   // https://github.com/ant-design/ant-design/issues/29175
   it('should not change page to max page if current is not greater max page when pageSize change', () => {
-    const onChange = vi.fn();
-    const onShowSizeChange = vi.fn();
+    const onChange = jest.fn();
+    const onShowSizeChange = jest.fn();
     const { container } = render(
       createTable({
         pagination: {
@@ -337,7 +337,7 @@ describe('Table.pagination', () => {
   });
 
   it('should reset current to max page when data length is cut', () => {
-    const onChange = vi.fn();
+    const onChange = jest.fn();
     const { container, rerender } = render(
       createTable({
         pagination: {
@@ -423,8 +423,8 @@ describe('Table.pagination', () => {
   });
 
   it('ajax render should keep display by the dataSource', () => {
-    const onChange = vi.fn();
-    const onPaginationChange = vi.fn();
+    const onChange = jest.fn();
+    const onPaginationChange = jest.fn();
 
     const { container } = render(
       createTable({
@@ -464,9 +464,9 @@ describe('Table.pagination', () => {
   });
 
   it('onShowSizeChange should trigger once', () => {
-    vi.useFakeTimers();
-    const onShowSizeChange = vi.fn();
-    const onChange = vi.fn();
+    jest.useFakeTimers();
+    const onShowSizeChange = jest.fn();
+    const onChange = jest.fn();
     const { container } = render(
       createTable({
         pagination: {
@@ -481,14 +481,14 @@ describe('Table.pagination', () => {
     fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
     //  resolve Warning: An update to Align ran an effect, but was not wrapped in act(...)
     act(() => {
-      vi.runAllTimers();
+      jest.runAllTimers();
     });
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[3]);
     expect(onShowSizeChange).toHaveBeenCalledTimes(1);
     expect(onShowSizeChange).toHaveBeenLastCalledWith(1, 100);
     expect(onChange).toHaveBeenCalled();
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('should support current in pagination', () => {
@@ -537,7 +537,7 @@ describe('Table.pagination', () => {
   });
 
   it('should call onChange when change pagination size', () => {
-    const onChange = vi.fn();
+    const onChange = jest.fn();
     const { container } = render(
       createTable({
         pagination: {
@@ -554,7 +554,7 @@ describe('Table.pagination', () => {
 
   it('dynamic warning', () => {
     resetWarned();
-    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const dynamicData = [];
     for (let i = 0; i < 15; i += 1) {

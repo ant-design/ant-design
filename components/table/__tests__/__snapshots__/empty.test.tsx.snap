@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Table > renders empty table 1`] = `
+exports[`Table renders empty table 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -144,7 +144,7 @@ exports[`Table > renders empty table 1`] = `
 </div>
 `;
 
-exports[`Table > renders empty table with custom emptyText 1`] = `
+exports[`Table renders empty table with custom emptyText 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -244,7 +244,7 @@ exports[`Table > renders empty table with custom emptyText 1`] = `
 </div>
 `;
 
-exports[`Table > renders empty table with fixed columns > should work 1`] = `
+exports[`Table renders empty table with fixed columns should work 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -527,7 +527,7 @@ exports[`Table > renders empty table with fixed columns > should work 1`] = `
 </div>
 `;
 
-exports[`Table > renders empty table without emptyText when loading 1`] = `
+exports[`Table renders empty table without emptyText when loading 1`] = `
 <div
   class="ant-table-wrapper"
 >

@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Select > Deprecated > should ignore mode="combobox" 1`] = `
+exports[`Select Deprecated should ignore mode="combobox" 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow"
 >
@@ -61,7 +61,7 @@ exports[`Select > Deprecated > should ignore mode="combobox" 1`] = `
 </div>
 `;
 
-exports[`Select > Select Custom Icons > should support customized icons 1`] = `
+exports[`Select Select Custom Icons should support customized icons 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow"
 >
@@ -122,7 +122,7 @@ exports[`Select > Select Custom Icons > should support customized icons 1`] = `
 </div>
 `;
 
-exports[`Select > rtl render > component should be rendered correctly in RTL direction 1`] = `
+exports[`Select rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-select ant-select-rtl ant-select-single ant-select-show-arrow"
 >
