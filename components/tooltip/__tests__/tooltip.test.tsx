@@ -6,14 +6,14 @@ import Tooltip from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import getPlacements from '../../_util/placements';
+import { resetWarned } from '../../_util/warning';
 import Button from '../../button';
 import DatePicker from '../../date-picker';
 import Input from '../../input';
 import Group from '../../input/Group';
 import Radio from '../../radio';
 import Switch from '../../switch';
-import getPlacements from '../../_util/placements';
-import { resetWarned } from '../../_util/warning';
 import { isTooltipOpen } from './util';
 
 describe('Tooltip', () => {

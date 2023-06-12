@@ -32,6 +32,7 @@ One or more elements can be selected from either column, one click on the proper
 <code src="./demo/tree-transfer.tsx">Tree Transfer</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/custom-select-all-labels.tsx" debug>Custom Select All Labels</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 

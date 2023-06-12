@@ -4,6 +4,8 @@ import React, { useMemo, useState } from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import theme from '../../theme';
 import ColorPicker from '../ColorPicker';
 import type { Color } from '../color';
 
@@ -102,28 +104,22 @@ describe('ColorPicker', () => {
     expect(container.querySelector('.ant-color-picker')).toBeFalsy();
   });
 
-  it('Should allowClear work', async () => {
-    const { container } = render(<ColorPicker allowClear />);
+  it('Should allowClear and onClear work', async () => {
+    const onClear = jest.fn();
+    const { container } = render(<ColorPicker allowClear onClear={onClear} />);
     fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
-    expect(container.querySelector('.ant-popover-hidden')).toBeFalsy();
     expect(container.querySelector('.ant-color-picker-clear')).toBeTruthy();
     fireEvent.click(container.querySelector('.ant-color-picker-clear')!);
+    expect(onClear).toHaveBeenCalledTimes(1);
 
     await waitFakeTimer();
-    expect(container.querySelector('.ant-popover-hidden')).toBeTruthy();
     expect(
       container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
     ).toEqual('0%');
     expect(
       container.querySelector('.ant-color-picker-trigger .ant-color-picker-clear'),
     ).toBeTruthy();
-
-    fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
-    await waitFakeTimer();
-    expect(
-      container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
-    ).toEqual('0%');
 
     fireEvent.change(container.querySelector('.ant-color-picker-hex-input input')!, {
       target: { value: '#273B57' },
@@ -200,6 +196,9 @@ describe('ColorPicker', () => {
     expect(
       container.querySelector('.ant-color-picker-hex-input input')?.getAttribute('value'),
     ).toEqual('000000');
+    expect(container.querySelectorAll('.ant-color-picker-presets-color')[0]).toHaveClass(
+      'ant-color-picker-presets-color-checked',
+    );
 
     fireEvent.click(presetsColors[9]);
     expect(
@@ -211,6 +210,9 @@ describe('ColorPicker', () => {
     expect(
       container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
     ).toEqual('2%');
+    expect(container.querySelectorAll('.ant-color-picker-presets-color')[9]).toHaveClass(
+      'ant-color-picker-presets-color-checked',
+    );
 
     expect(handleColorChange).toHaveBeenCalledTimes(2);
   });
@@ -281,6 +283,16 @@ describe('ColorPicker', () => {
     ).toEqual('background: rgb(99, 22, 22);');
   });
 
+  it('Should not trigger onChange when click clear after clearing', async () => {
+    const onChange = jest.fn();
+    const { container } = render(<ColorPicker allowClear onChange={onChange} />);
+    fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
+    fireEvent.click(container.querySelector('.ant-color-picker-clear')!);
+    expect(onChange).toHaveBeenCalledTimes(1);
+    fireEvent.click(container.querySelector('.ant-popover .ant-color-picker-clear')!);
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
   it('Should fix hover boundary issues', async () => {
     spyElementPrototypes(HTMLElement, {
       getBoundingClientRect: () => ({
@@ -298,5 +310,23 @@ describe('ColorPicker', () => {
     fireEvent.mouseLeave(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-popover-hidden')).toBeTruthy();
+  });
+
+  it('Should work at dark mode', async () => {
+    const { container } = render(
+      <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
+        <ColorPicker
+          open
+          presets={[
+            {
+              label: 'test',
+              colors: ['#0000001A'],
+            },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-color-picker-presets-color-bright')).toBeFalsy();
   });
 });

@@ -6,8 +6,8 @@ import type { InputProps, InputRef } from '..';
 import Input from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import Form from '../../form';
 import { resetWarned } from '../../_util/warning';
+import Form from '../../form';
 import { triggerFocus } from '../Input';
 
 describe('Input', () => {

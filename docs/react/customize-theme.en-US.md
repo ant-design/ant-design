@@ -160,9 +160,41 @@ When you need token out of React life cycle, you can use static function to get 
 ```jsx
 import { theme } from 'antd';
 
-const { defaultAlgorithm, defaultSeed } = theme;
+const { getDesignToken } = theme;
 
-const mapToken = defaultAlgorithm(defaultSeed);
+const globalToken = getDesignToken();
+```
+
+Same as ConfigProvider, `getDesignToken` could also accept a config object as `theme`:
+
+```tsx
+import type { ThemeConfig } from 'antd';
+import { theme } from 'antd';
+import { createRoot } from 'react-dom/client';
+
+const { getDesignToken, useToken } = theme;
+
+const config: ThemeConfig = {
+  token: {
+    colorPrimary: '#1890ff',
+  },
+};
+
+// By static function
+const globalToken = getDesignToken(config);
+
+// By hook
+const App = () => {
+  const { token } = useToken();
+  return null;
+};
+
+// Example for rendering
+createRoot(document.getElementById('#app')).render(
+  <ConfigProvider theme={config}>
+    <App />
+  </ConfigProvider>,
+);
 ```
 
 If you want to use in preprocess style framework like less, use less-loader for injection:
