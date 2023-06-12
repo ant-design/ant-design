@@ -15,7 +15,9 @@ Create a new [cra-template-typescript](https://github.com/facebook/create-react-
 
 <InstallDependencies npm='$ npx create-react-app antd-demo-ts --template typescript' yarn='$ yarn create react-app antd-demo-ts --template typescript' pnpm='$ pnpm create react-app antd-demo-ts --template typescript'></InstallDependencies>
 
-> If you are using `vite`, there will be an option during build where you can choose the `typescript` template.
+If you are using `vite`, there will be an option during build where you can choose the `typescript` template.
+
+![](https://github-production-user-asset-6210df.s3.amazonaws.com/49217418/245092600-9af66ed4-f44d-4793-9d7a-179ff39fc284.png)
 
 Then we go inside `antd-demo-ts` and start it.
 

@@ -15,7 +15,9 @@ title: 在 TypeScript 中使用
 
 <InstallDependencies npm='$ npx create-react-app antd-demo-ts --template typescript' yarn='$ yarn create react-app antd-demo-ts --template typescript' pnpm='$ pnpm create react-app antd-demo-ts --template typescript'></InstallDependencies>
 
-> 如果你使用的是 `vite` 作为脚手架，那么在创建过程中会有一个选项，你可以选择 `typescript` 模板。
+如果你使用的是 `vite` 作为脚手架，那么在创建过程中会有一个选项，你可以选择 `typescript` 模板。
+
+![](https://github-production-user-asset-6210df.s3.amazonaws.com/49217418/245092600-9af66ed4-f44d-4793-9d7a-179ff39fc284.png)
 
 然后我们进入项目并启动。
 
