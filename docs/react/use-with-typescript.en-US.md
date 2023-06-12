@@ -11,17 +11,11 @@ Let's create a `TypeScript` project by using `create-react-app`, then import `an
 
 Ensure your system has installed latest version of [yarn](https://yarnpkg.com) or [npm](https://www.npmjs.com/).
 
-Create a new [cra-template-typescript](https://github.com/facebook/create-react-app/tree/master/packages/cra-template-typescript) project named `antd-demo-ts` using yarn.
+Create a new [cra-template-typescript](https://github.com/facebook/create-react-app/tree/main/packages/cra-template-typescript) project named `antd-demo-ts`.
 
-```bash
-$ yarn create react-app antd-demo-ts --template typescript
-```
+<InstallDependencies npm='$ npx create-react-app antd-demo-ts --template typescript' yarn='$ yarn create react-app antd-demo-ts --template typescript' pnpm='$ pnpm create react-app antd-demo-ts --template typescript'></InstallDependencies>
 
-If you are using npm (we will use yarn in the following instructions, it's ok to replace yarn with npm)
-
-```bash
-$ npx create-react-app antd-demo-ts --template typescript
-```
+> If you are using `vite`, there will be an option during build where you can choose the `typescript` template.
 
 Then we go inside `antd-demo-ts` and start it.
 

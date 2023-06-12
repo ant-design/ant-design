@@ -11,17 +11,11 @@ title: 在 TypeScript 中使用
 
 请确保电脑上已经安装了最新版的 [yarn](https://yarnpkg.com) 或者 [npm](https://www.npmjs.com/)。
 
-使用 yarn 创建 [cra-template-typescript](https://github.com/facebook/create-react-app/tree/master/packages/cra-template-typescript) 项目。
+创建 [cra-template-typescript](https://github.com/facebook/create-react-app/tree/main/packages/cra-template-typescript) 项目。
 
-```bash
-$ yarn create react-app antd-demo-ts --template typescript
-```
+<InstallDependencies npm='$ npx create-react-app antd-demo-ts --template typescript' yarn='$ yarn create react-app antd-demo-ts --template typescript' pnpm='$ pnpm create react-app antd-demo-ts --template typescript'></InstallDependencies>
 
-如果你使用的是 npm（接下来我们都会用 yarn 作为例子，如果你习惯用 npm 也没问题）。
-
-```bash
-$ npx create-react-app antd-demo-ts --template typescript
-```
+> 如果你使用的是 `vite` 作为脚手架，那么在创建过程中会有一个选项，你可以选择 `typescript` 模板。
 
 然后我们进入项目并启动。
 
