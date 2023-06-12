@@ -3,19 +3,13 @@ order: 4
 title: 在 create-react-app 中使用
 ---
 
-[create-react-app](https://github.com/facebookincubator/create-react-app) 是业界最优秀的 React 应用开发工具之一，本文会尝试使用 `create-react-app` 创建一个项目，并引入 antd。
+[create-react-app](https://create-react-app.dev/) 是业界最优秀的 React 应用开发工具之一，本文会尝试使用 `create-react-app` 创建一个项目，并引入 antd。
 
 ## 安装和初始化
 
 在开始之前，你可能需要安装 [yarn](https://github.com/yarnpkg/yarn/) 或者 [pnpm](https://pnpm.io/zh/)。
 
-```bash
-$ yarn create react-app antd-demo
-
-# or
-
-$ npx create-react-app antd-demo
-```
+<InstallDependencies npm='$ npx create-react-app antd-demo' yarn='$ yarn create react-app antd-demo' pnpm='$ pnpm create react-app antd-demo'></InstallDependencies>
 
 工具会自动初始化一个脚手架并安装 React 项目的各种必要依赖，如果在过程中出现网络问题，请尝试配置代理或使用其他 npm registry。
 

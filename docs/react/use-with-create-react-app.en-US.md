@@ -3,19 +3,13 @@ order: 4
 title: Usage with create-react-app
 ---
 
-[create-react-app](https://github.com/facebookincubator/create-react-app) is one of the best React application development tools, This article will try to use `create-react-app` to create a project, and introduce antd.
+[create-react-app](https://create-react-app.dev/) is one of the best React application development tools, This article will try to use `create-react-app` to create a project, and introduce antd.
 
 ## Install and Initialization
 
 Before all start, you may need install [yarn](https://github.com/yarnpkg/yarn/) or [pnpm](https://pnpm.io/).
 
-```bash
-$ yarn create react-app antd-demo
-
-# or
-
-$ npx create-react-app antd-demo
-```
+<InstallDependencies npm='$ npx create-react-app antd-demo' yarn='$ yarn create react-app antd-demo' pnpm='$ pnpm create react-app antd-demo'></InstallDependencies>
 
 The tool will create and initialize environment and dependencies automatically, please try config your proxy setting or use another npm registry if any network errors happen during it.
 
