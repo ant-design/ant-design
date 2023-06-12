@@ -38,6 +38,10 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       lineHeight: token.lineHeight,
       color: token.colorText,
 
+      '&:disabled > *': {
+        pointerEvents: 'none',
+      },
+
       '> span': {
         display: 'inline-block',
       },
