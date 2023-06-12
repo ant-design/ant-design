@@ -221,7 +221,7 @@ Select 虚拟滚动会模拟无障碍绑定元素。如果需要读屏器完整�
 解决思路: 
 > 给下拉选择组件select包裹一层,用户使用这个包裹后的组件WrappedSelect通过传入初始值initValues,及value和setValue
 > 在WrappedSelect处理业务逻辑,使用useEffect监听initValues的值,如果有值,则通过setValue设置下拉组件的value
-> 在WrappedSelect监听onChange事件,在事件中拿到最新的选择数据
+> 在WrappedSelect监听onChange事件,在事件中拿到最新的选择数据结合initialValues拿到你想要的数据结构的数据,然后setValue最新的数据
 
 [解决方案demo:](https://codesandbox.io/s/selectallitemattrs-jt992g?file=/demo.tsx)。
 
