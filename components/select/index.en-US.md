@@ -218,7 +218,7 @@ If you directly select to choose, select the above option, expect the final resu
 ```
 
 Solution:
-> Wrap the drop-down selection component select with one layer. The user uses this wrapped component WrappedSelect to pass in the initial value initValues, value and setValue.
-> In WrappedSelect, handle the business logic, use useEffect to monitor the value of initValues, if there is a value, use setValue to set the value of the drop-down component.
-> In WrappedSelect, monitor the onChange event, get the latest selected data in the event, and combine it with initialValues to get the result you want.
+> Wrap the drop-down selection component select with one layer. The user uses this wrapped component WrappedSelect to pass in the initial value initValues, value and setValue.   
+> In WrappedSelect, handle the business logic, use useEffect to monitor the value of initValues, if there is a value, use setValue to set the value of the drop-down component.    
+> In WrappedSelect, monitor the onChange event, get the latest selected data in the event, and combine it with initialValues to get the result you want.    
 [Solution Demo:](https://codesandbox.io/s/selectallitemattrs-jt992g?file=/demo.tsx) 
