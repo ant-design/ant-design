@@ -188,7 +188,7 @@ const GlobalStyle: React.FC = () => {
               align-items: center;
               justify-content: center;
               span {
-                margin-left: 8px;
+                margin-inline-start: 8px;
               }
             }
           }
