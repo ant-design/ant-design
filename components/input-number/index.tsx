@@ -184,6 +184,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     const mergedGroupClassName = classNames(
       `${prefixCls}-group-wrapper`,
       {
+        [`${prefixCls}-affix-wrapper-disabled`]: props.disabled,
         [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
         [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
         [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
