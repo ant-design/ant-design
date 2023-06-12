@@ -1,12 +1,13 @@
-import React, { useRef, memo, useContext, useEffect, useCallback, useMemo } from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import FloatButton, { floatButtonPrefixCls } from './FloatButton';
+import React, { memo, useCallback, useContext, useEffect, useMemo, useRef } from 'react';
+import warning from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
+import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import { FloatButtonGroupProvider } from './context';
 import type { FloatButtonGroupProps } from './interface';
 import useStyle from './style';
@@ -87,6 +88,15 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
       };
     }
   }, [trigger]);
+
+  // =================== Warning =====================
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      typeof props.open !== 'boolean' || !!trigger,
+      'FloatButton.Group',
+      '`open` need to be used together with `trigger`',
+    );
+  }
 
   return wrapSSR(
     <FloatButtonGroupProvider value={shape}>
