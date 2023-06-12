@@ -188,7 +188,7 @@ Select only create a11y auxiliary node when operating on. Please open Select and
 Default virtual scrolling will create a mock element to simulate an accessible binding. If a screen reader needs to fully access the entire list, you can set `virtual={false}` to disable virtual scrolling and the accessibility option will be bound to the actual element.
 
 ### Get the original data of the selected options
-Problem description: If each of my options has not only label and value, but also other fields, such as:
+If each of my options has not only label and value, but also other fields, such as:
 
 ```tsx
 [{
@@ -199,7 +199,7 @@ Problem description: If each of my options has not only label and value, but als
   }]
 ```
 
-If you  select to choose by labelInValue, you will find that the final result only gets
+If you  select to choose by `labelInValue`, you will find that the final result only gets
 
 ```tsx
    [{ label: "Snow Leopard", value: "snow lepoard"}]
