@@ -188,8 +188,8 @@ Select 无障碍辅助元素仅在弹窗展开时创建，因而当你在进行�
 
 Select 虚拟滚动会模拟无障碍绑定元素。如果需要读屏器完整获取全部列表，你可以设置 `virtual={false}` 关闭虚拟滚动，无障碍选项将会绑定到真实元素上。
 
-### 和远程搜索结合时,下拉选中options选项的原始数据 
-问题描述: 如果我的options的每一项不止有label和value,还有其他字段,比如:如下
+### 异步 options 在切换时，选中项如何保留移除的 options 数据
+问题描述: 通过 labelInValue 保留 value 和 label 信息，但是 Select 不会保留此外的 option 信息。如options数据结构如下:
 
 ```tsx
 [{
@@ -206,23 +206,8 @@ Select 虚拟滚动会模拟无障碍绑定元素。如果需要读屏器完整�
    [{ label: " 雪豹", value: "snow lepoard"}]
 ```
 
-自己想要拿到原始值,却发现除了value和label其他都丢失了, [问题复现demo:](https://codesandbox.io/s/ji-ben-yong-fa-antd-5-5-2-forked-wkk0w8?file=/demo.tsx)。
-如果直接select去选择,选中上面的选项,期望最终的结果拿到是原始值,如
-
-```tsx
-  [{
-    id: "0111111",
-    hero: "雪山之王",
-    label: " 雪豹",
-    value: "snow lepoard"
-  }]
-```
-
-解决思路:    
-- 给下拉选择组件select包裹一层,用户使用这个包裹后的组件WrappedSelect通过传入初始值initValues,及value和setValue. 
-- 在WrappedSelect处理业务逻辑,使用useEffect监听initValues的值,如果有值,则通过setValue设置下拉组件的value. 
-- 在WrappedSelect监听onChange事件,在事件中拿到最新的选择数据结合initialValues拿到你想要的数据结构的数据,然后setValue最新的数据. 
-[解决方案demo:](https://codesandbox.io/s/selectallitemattrs-jt992g?file=/demo.tsx)。
+如需要保留全量信息，可以通过 HOC 形式
+[example:](https://codesandbox.io/s/selectallitemattrs-jt992g?file=/demo.tsx)。
 
 
 
