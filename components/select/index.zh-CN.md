@@ -194,8 +194,8 @@ Select 虚拟滚动会模拟无障碍绑定元素。如果需要读屏器完整�
 ```tsx
 [{
     id: "0111111",
-    hero: "雪山之王",
-    label: " 雪豹",
+    hero: "mountain king",
+    label: "big cat",
     value: "snow lepoard"
   }]
 ```
@@ -203,11 +203,11 @@ Select 虚拟滚动会模拟无障碍绑定元素。如果需要读屏器完整�
 如果直接select去选择,选中上面的选项会发现最终的结果只拿到了
 
 ```tsx
-   [{ label: " 雪豹", value: "snow lepoard"}]
+   [{ label: "big cat", value: "snow lepoard"}]
 ```
 
 如需要保留全量信息，可以通过 HOC 形式
-[example:](https://codesandbox.io/s/selectallitemattrs-jt992g?file=/demo.tsx)。
+example: (https://codesandbox.io/s/selectallitemattrs-jt992g?file=/demo.tsx)。
 
 
 
