@@ -206,4 +206,4 @@ If you  select to choose by labelInValue, you will find that the final result on
 ```
 
 Solution:  
-[example](https://codesandbox.io/s/selectallitemattrs-jt992g?file=/demo.tsx)
+example: (https://codesandbox.io/s/selectallitemattrs-jt992g?file=/demo.tsx)
