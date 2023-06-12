@@ -477,6 +477,48 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
   };
 };
 
+// Styles from ratio in high contract mode
+const getRadioHighContractStyle: GenerateStyle<RadioToken> = (token) => {
+  const { componentCls } = token;
+  const radioInnerPrefixCls = `${componentCls}-inner`;
+
+  return {
+    '@media (forced-colors: active)': {
+      [`${componentCls}-wrapper`]: {
+        [`${componentCls}-inner`]: {
+          '&::after': {
+            transition: 'none',
+          },
+
+          transition: 'none',
+        },
+
+        [`${componentCls}-checked`]: {
+          [radioInnerPrefixCls]: {
+            borderColor: 'Highlight',
+            backgroundColor: 'Highlight',
+
+            '&::after': {
+              transition: 'none',
+            },
+          },
+        },
+
+        [`${componentCls}-disabled`]: {
+          [radioInnerPrefixCls]: {
+            backgroundColor: 'Background',
+            borderColor: 'GrayText',
+
+            '&::after': {
+              backgroundColor: 'GrayText',
+            },
+          },
+        },
+      },
+    },
+  };
+};
+
 const getDotSize = (radioSize: number): number => {
   const dotPadding = 4; // Fixed Value
   return radioSize - dotPadding * 2;
@@ -502,6 +544,7 @@ export default genComponentStyleHook(
       getGroupRadioStyle(radioToken),
       getRadioBasicStyle(radioToken),
       getRadioButtonStyle(radioToken),
+      getRadioHighContractStyle(radioToken),
     ];
   },
   (token) => {
