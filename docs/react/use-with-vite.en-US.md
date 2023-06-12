@@ -9,17 +9,7 @@ title: Usage with vite
 
 Before all start, you may need install [yarn](https://github.com/yarnpkg/yarn/) or [pnpm](https://pnpm.io/).
 
-```bash
-$ npm create vite antd-demo
-
-# or
-
-$ yarn create vite antd-demo
-
-# or
-
-$ pnpm create vite antd-demo
-```
+<InstallDependencies npm='$ npm create vite antd-demo' yarn='$ yarn create vite antd-demo' pnpm='$ pnpm create vite antd-demo'></InstallDependencies>
 
 The tool will create and initialize environment and dependencies automatically, please try config your proxy setting, or use another npm registry if any network errors happen during it.
 

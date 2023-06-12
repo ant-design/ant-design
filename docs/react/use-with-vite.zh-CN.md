@@ -9,17 +9,7 @@ title: 在 vite 中使用
 
 在开始之前，你可能需要安装 [yarn](https://github.com/yarnpkg/yarn/) 或者 [pnpm](https://pnpm.io/zh/)。
 
-```bash
-$ npm create vite antd-demo
-
-# or
-
-$ yarn create vite antd-demo
-
-# or
-
-$ pnpm create vite antd-demo
-```
+<InstallDependencies npm='$ npm create vite antd-demo' yarn='$ yarn create vite antd-demo' pnpm='$ pnpm create vite antd-demo'></InstallDependencies>
 
 工具会自动初始化一个脚手架并安装 React 项目的各种必要依赖，如果在过程中出现网络问题，请尝试配置代理，或使用其他 npm registry。
 
