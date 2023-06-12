@@ -187,7 +187,7 @@ Select only create a11y auxiliary node when operating on. Please open Select and
 
 Default virtual scrolling will create a mock element to simulate an accessible binding. If a screen reader needs to fully access the entire list, you can set `virtual={false}` to disable virtual scrolling and the accessibility option will be bound to the actual element.
 
-### Get the original data of the selected options when combined with remote search
+### Get the original data of the selected options
 Problem description: If each of my options has not only label and value, but also other fields, such as:
 
 ```tsx
@@ -199,26 +199,11 @@ Problem description: If each of my options has not only label and value, but als
   }]
 ```
 
-If you directly select to choose, you will find that the final result only gets
+If you  select to choose by labelInValue, you will find that the final result only gets
 
 ```tsx
    [{ label: "Snow Leopard", value: "snow lepoard"}]
 ```
 
-I want to get the original value, but find that everything else is lost except value and label. [Problem reproduction demo:](https://codesandbox.io/s/ji-ben-yong-fa-antd-5-5-2-forked-wkk0w8?file=/demo.tsx)
-If you directly select to choose, select the above option, expect the final result to get the original value, such as
-
-```tsx
-  [{
-    id: "0111111",
-    hero: "Snow King", 
-    label: "Snow Leopard",
-    value: "snow lepoard"
-  }]
-```
-
-Solution:
-- Wrap the drop-down selection component select with one layer. The user uses this wrapped component WrappedSelect to pass in the initial value initValues, value and setValue.  
-- In WrappedSelect, handle the business logic, use useEffect to monitor the value of initValues, if there is a value, use setValue to set the value of the drop-down component.  
-- In WrappedSelect, monitor the onChange event, get the latest selected data in the event, and combine it with initialValues to get the result you want.  
-example: [Solution Demo](https://codesandbox.io/s/selectallitemattrs-jt992g?file=/demo.tsx)
+Solution:  
+[example](https://codesandbox.io/s/selectallitemattrs-jt992g?file=/demo.tsx)
