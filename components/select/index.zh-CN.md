@@ -189,7 +189,7 @@ Select 无障碍辅助元素仅在弹窗展开时创建，因而当你在进行�
 Select 虚拟滚动会模拟无障碍绑定元素。如果需要读屏器完整获取全部列表，你可以设置 `virtual={false}` 关闭虚拟滚动，无障碍选项将会绑定到真实元素上。
 
 ### 异步 options 在切换时，选中项如何保留移除的 options 数据
-问题描述: 通过 labelInValue 保留 value 和 label 信息，但是 Select 不会保留此外的 option 信息。如options数据结构如下:
+通过 `labelInValue` 保留 value 和 label 信息，但是 Select 不会保留此外的 option 信息。如options数据结构如下:
 
 ```tsx
 [{
