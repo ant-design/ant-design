@@ -24,7 +24,7 @@ export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
 export type { UploadProps };
 
-interface UploadRef<T = any> {
+export interface UploadRef<T = any> {
   onBatchStart: RcUploadProps['onBatchStart'];
   onSuccess: (response: any, file: RcFile, xhr: any) => void;
   onProgress: (e: { percent: number }, file: RcFile) => void;
