@@ -47,7 +47,7 @@ Select component to select value from options.
 
 ## API
 
-```tsx
+```jsx
 <Select>
   <Option value="lucy">lucy</Option>
 </Select>
@@ -156,7 +156,7 @@ You can control it by `open` prop: [codesandbox](https://codesandbox.io/s/ji-ben
 
 Select will close when it lose focus. You can prevent event to handle this:
 
-```tsx
+```jsx
 <Select
   dropdownRender={() => (
     <div
@@ -175,7 +175,7 @@ Select will close when it lose focus. You can prevent event to handle this:
 
 Virtual scroll internal set item height as `24px`. You need to adjust `listItemHeight` when your option height is less and `listHeight` config list container height:
 
-```tsx
+```jsx
 <Select listItemHeight={10} listHeight={250} />
 ```
 
@@ -187,23 +187,30 @@ Select only create a11y auxiliary node when operating on. Please open Select and
 
 Default virtual scrolling will create a mock element to simulate an accessible binding. If a screen reader needs to fully access the entire list, you can set `virtual={false}` to disable virtual scrolling and the accessibility option will be bound to the actual element.
 
-### Get the original data of the selected options
-If each of my options has not only label and value, but also other fields, such as:
+### When switching asynchronous options, how does the selected item retain the removed options data?
 
-```tsx
-[{
-    id: "0111111",
-    hero: "Snow King",
-    label: "Snow Leopard",
-    value: "snow lepoard"
-  }]
+The `value` and `label` information is retained by `labelInValue`, but Select does not retain the additional `option` information. For example, the `options` data structure is as follows:
+
+```js
+[
+  {
+    id: '0111111',
+    hero: 'Snow King',
+    label: 'Snow Leopard',
+    value: 'snow lepoard',
+  },
+];
 ```
 
-If you  select to choose by `labelInValue`, you will find that the final result only gets
+If you directly select to select, select the above options, you will find that the final result is only:
 
-```tsx
-   [{ label: "Snow Leopard", value: "snow lepoard"}]
+```js
+[
+  {
+    label: 'Snow Leopard',
+    value: 'snow lepoard',
+  },
+];
 ```
 
-Solution:  
-example: (https://codesandbox.io/s/selectallitemattrs-jt992g?file=/demo.tsx)
+If you need to keep the full amount of information, you can use the form of HOC, [click here](https://codesandbox.io/s/selectallitemattrs-jt992g?file=/demo.tsx) to view the example.
