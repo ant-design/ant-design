@@ -134,24 +134,14 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
               },
             },
 
-            [`${componentCls}-wrapper`]: {
-              '&-disabled': {
-                // ...genDisabledStyle(token),
-                [`${componentCls}-input`]: {
-                  cursor: 'not-allowed',
-                },
-                [`& > ${componentCls}-group-addon`]: {
-                  ...genDisabledStyle(token),
-                },
-              },
+            [`${componentCls}-wrapper-disabled > ${componentCls}-group-addon`]: {
+              ...genDisabledStyle(token),
             },
           },
         },
 
-        '&-disabled': {
-          [`${componentCls}-input`]: {
-            cursor: 'not-allowed',
-          },
+        [`&-disabled ${componentCls}-input`]: {
+          cursor: 'not-allowed',
         },
 
         [componentCls]: {
@@ -349,16 +339,8 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
         zIndex: 1,
       },
 
-      '&-disabled': {
-        [`${componentCls}[disabled]`]: {
-          background: 'transparent',
-        },
-        [`${componentCls}-input`]: {
-          cursor: 'not-allowed',
-        },
-        [`> ${componentCls}-disabled`]: {
-          background: 'transparent',
-        },
+      [`&-disabled > ${componentCls}-disabled`]: {
+        background: 'transparent',
       },
 
       [`> div${componentCls}`]: {
