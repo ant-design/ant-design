@@ -121,7 +121,9 @@ const Alert: CompoundedComponent = ({
   ...props
 }) => {
   const [closed, setClosed] = React.useState(false);
-  warning(!closeText, 'Alert', '`closeText` is deprecated. Please use `closeIcon` instead.');
+  if (process.env.NODE_ENV !== 'production') {
+    warning(!closeText, 'Alert', '`closeText` is deprecated. Please use `closeIcon` instead.');
+  }
   const ref = React.useRef<HTMLDivElement>(null);
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
@@ -144,7 +146,16 @@ const Alert: CompoundedComponent = ({
   const closeIcon = oriCloseIcon !== null && oriCloseIcon !== false ? oriCloseIcon : null;
 
   // closeable when closeText or closeIcon is assigned
-  const isClosable = closeText || closeIcon || closable;
+  const isClosable = React.useMemo(() => {
+    if (closeText) {
+      return true;
+    }
+    if (closable) {
+      return true;
+    }
+    return !!closeIcon;
+  }, [closeText, closeIcon, closable]);
+
   const type = getType();
 
   // banner mode defaults to Icon
