@@ -280,6 +280,13 @@ describe('Drawer', () => {
       expect(baseElement.querySelector('.custom-close3')).not.toBeNull();
 
       rerender(
+        <Drawer open closeIcon className="custom-drawer">
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.custom-drawer .anticon-close')).not.toBeNull();
+
+      rerender(
         <Drawer open closable>
           Here is content of Drawer
         </Drawer>,
