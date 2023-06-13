@@ -45,7 +45,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     if (closeIcon === true) {
       return <CloseOutlined />;
     }
-    return closeIcon || <CloseOutlined />;
+    return closeIcon ?? <CloseOutlined />;
   }, [closeIcon, closable]);
 
   const closeIconNode = closable && (

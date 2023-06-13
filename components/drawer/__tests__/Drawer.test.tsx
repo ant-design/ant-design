@@ -280,11 +280,27 @@ describe('Drawer', () => {
       expect(baseElement.querySelector('.custom-close3')).not.toBeNull();
 
       rerender(
-        <Drawer open closeIcon className="custom-drawer">
+        <Drawer open closeIcon={0} className="custom-drawer1">
           Here is content of Drawer
         </Drawer>,
       );
-      expect(baseElement.querySelector('.custom-drawer .anticon-close')).not.toBeNull();
+      expect(baseElement.querySelector('.custom-drawer1 .ant-drawer-close')).not.toBeNull();
+      expect(baseElement.querySelector('.custom-drawer1 .anticon-close')).toBeNull();
+
+      rerender(
+        <Drawer open closeIcon="" className="custom-drawer2">
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.custom-drawer2 .ant-drawer-close')).not.toBeNull();
+      expect(baseElement.querySelector('.custom-drawer2 .anticon-close')).toBeNull();
+
+      rerender(
+        <Drawer open closeIcon className="custom-drawer3">
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.custom-drawer3 .anticon-close')).not.toBeNull();
 
       rerender(
         <Drawer open closable>
