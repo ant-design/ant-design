@@ -1,4 +1,5 @@
 import userEvent from '@testing-library/user-event';
+import { resetWarned } from 'rc-util/lib/warning';
 import React from 'react';
 import Alert from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
@@ -144,16 +145,17 @@ describe('Alert', () => {
 
   it('close button should be hidden when closeIcon setting to null or false', () => {
     const { container, rerender } = render(<Alert closeIcon={null} />);
-    expect(container.querySelectorAll('.ant-alert-close-icon').length).toBe(0);
+    expect(container.querySelector('.ant-alert-close-icon')).toBeFalsy();
     rerender(<Alert closeIcon={false} />);
-    expect(container.querySelectorAll('.ant-alert-close-icon').length).toBe(0);
+    expect(container.querySelector('.ant-alert-close-icon')).toBeFalsy();
     rerender(<Alert closeIcon />);
-    expect(container.querySelectorAll('.ant-alert-close-icon').length).toBe(1);
+    expect(container.querySelector('.ant-alert-close-icon')).toBeTruthy();
     rerender(<Alert />);
-    expect(container.querySelectorAll('.ant-alert-close-icon').length).toBe(0);
+    expect(container.querySelector('.ant-alert-close-icon')).toBeFalsy();
   });
 
   it('should warning when using closeText', () => {
+    resetWarned();
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(<Alert closeText="close" />);
