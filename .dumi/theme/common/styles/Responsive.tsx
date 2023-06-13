@@ -1,4 +1,5 @@
 import { css, Global } from '@emotion/react';
+import React from 'react';
 import useSiteToken from '../../../hooks/useSiteToken';
 
 export default () => {
@@ -86,7 +87,7 @@ export default () => {
           }
 
           .prev-next-nav {
-            width: 'calc(100% - 32px)';
+            width: calc(100% - 32px);
             margin-left: 16px;
 
             .ant-row-rtl & {

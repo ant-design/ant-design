@@ -1,4 +1,5 @@
 import { css, Global } from '@emotion/react';
+import React from 'react';
 
 export default () => (
   <Global
@@ -46,7 +47,7 @@ export default () => (
         top: -1.6em;
         left: 5.5em;
         display: block;
-        width: 'calc(100% - 6em)';
+        width: calc(100% - 6em);
         height: 1.2em;
         background-color: white;
         border-radius: 2px;
