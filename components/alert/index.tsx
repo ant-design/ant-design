@@ -87,10 +87,12 @@ interface CloseIconProps {
 }
 
 const CloseIcon: React.FC<CloseIconProps> = (props) => {
-  const { isClosable, prefixCls, closeIcon = <CloseOutlined />, handleClose } = props;
+  const { isClosable, prefixCls, closeIcon, handleClose } = props;
+  const mergedCloseIcon =
+    closeIcon === true || closeIcon === undefined ? <CloseOutlined /> : closeIcon;
   return isClosable ? (
     <button type="button" onClick={handleClose} className={`${prefixCls}-close-icon`} tabIndex={0}>
-      {closeIcon === true ? <CloseOutlined /> : closeIcon}
+      {mergedCloseIcon}
     </button>
   ) : null;
 };
@@ -142,7 +144,7 @@ const Alert: CompoundedComponent = ({
   const closeIcon = oriCloseIcon !== null && oriCloseIcon !== false ? oriCloseIcon : null;
 
   // closeable when closeText or closeIcon is assigned
-  const isClosable = closeIcon || closeText || closable;
+  const isClosable = closeText || closeIcon || closable;
   const type = getType();
 
   // banner mode defaults to Icon
