@@ -42,7 +42,7 @@ export default App;
 
 <!-- ### Alert -->
 
-## Anchor
+### Anchor
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -89,7 +89,7 @@ export default App;
 
 <!-- ### Button -->
 
-## Calendar
+### Calendar
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -127,7 +127,7 @@ export default App;
 | `@card-head-tabs-margin-bottom` | `tabsMarginBottom` | - |
 | `@card-head-extra-color` | `extraColor` | - |
 
-## Carousel
+### Carousel
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -140,7 +140,7 @@ export default App;
 
 <!-- ### Checkbox -->
 
-## Checkbox
+### Checkbox
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -344,7 +344,7 @@ export default App;
 | `@radio-disabled-button-checked-color` | `buttonCheckdColorDisabled` | - |
 | `@radio-wrapper-margin-right` | `wrapperMarginInlineEnd` | - |
 
-## Rate
+### Rate
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -464,7 +464,7 @@ export default App;
 | `@tabs-card-gutter` | `cardGutter` | - |
 | `@tabs-card-tab-active-border-top` | - | Deprecated |
 
-## Tag
+### Tag
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
