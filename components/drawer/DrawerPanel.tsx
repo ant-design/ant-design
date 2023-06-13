@@ -9,7 +9,13 @@ export interface DrawerPanelProps {
   title?: React.ReactNode;
   footer?: React.ReactNode;
   extra?: React.ReactNode;
-
+  /**
+   * advised to use closeIcon instead
+   *
+   * e.g.
+   *
+   * `<Drawer closeIcon={false} />`
+   */
   closable?: boolean;
   closeIcon?: boolean | React.ReactNode;
   onClose?: RCDrawerProps['onClose'];
@@ -28,7 +34,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     title,
     footer,
     extra,
-    closeIcon = <CloseOutlined />,
+    closeIcon,
     closable = true,
     onClose,
     headerStyle,
@@ -42,7 +48,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     if (!closable) {
       return null;
     }
-    if (closeIcon === true) {
+    if (closeIcon === undefined || closeIcon === true) {
       return <CloseOutlined />;
     }
     return closeIcon === null || closeIcon === false ? null : closeIcon;
