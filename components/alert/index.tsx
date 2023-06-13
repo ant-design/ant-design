@@ -150,8 +150,8 @@ const Alert: CompoundedComponent = ({
     if (closeText) {
       return true;
     }
-    if (closable) {
-      return true;
+    if (typeof closable === 'boolean') {
+      return closable;
     }
     return !!closeIcon;
   }, [closeText, closeIcon, closable]);
