@@ -217,7 +217,7 @@ const Alert: CompoundedComponent = ({
           </div>
           {action ? <div className={`${prefixCls}-action`}>{action}</div> : null}
           <CloseIcon
-            isClosable={!!isClosable}
+            isClosable={isClosable}
             prefixCls={prefixCls}
             closeIcon={closeText || closeIcon}
             handleClose={handleClose}
