@@ -69,6 +69,8 @@ jobs:
 
       - name: build site
         run: npm run predeploy
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
 
       - name: build dist and bundle analyzer report
         run: npm run dist
