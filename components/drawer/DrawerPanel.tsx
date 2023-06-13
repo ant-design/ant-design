@@ -48,22 +48,23 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     return closeIcon === null || closeIcon === false ? null : closeIcon;
   }, [closeIcon, closable]);
 
-  const closeIconNode = (mergedCloseIcon ||
-    ['string', 'number'].includes(typeof mergedCloseIcon)) && (
+  const mergedClosable = mergedCloseIcon || ['string', 'number'].includes(typeof mergedCloseIcon);
+
+  const closeIconNode = mergedClosable && (
     <button type="button" onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
       {mergedCloseIcon}
     </button>
   );
 
   const headerNode = React.useMemo<React.ReactNode>(() => {
-    if (!title && !closable) {
+    if (!title && !mergedClosable) {
       return null;
     }
     return (
       <div
         style={headerStyle}
         className={classNames(`${prefixCls}-header`, {
-          [`${prefixCls}-header-close-only`]: closable && !title && !extra,
+          [`${prefixCls}-header-close-only`]: mergedClosable && !title && !extra,
         })}
       >
         <div className={`${prefixCls}-header-title`}>
@@ -73,7 +74,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
       </div>
     );
-  }, [closable, closeIconNode, extra, headerStyle, prefixCls, title]);
+  }, [mergedClosable, closeIconNode, extra, headerStyle, prefixCls, title]);
 
   const footerNode = React.useMemo<React.ReactNode>(() => {
     if (!footer) {
