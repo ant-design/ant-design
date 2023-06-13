@@ -18,7 +18,7 @@ describe('prefix', () => {
     const { container } = render(<InputNumber prefix={<i>123</i>} />);
 
     const mockFocus = jest.spyOn(container.querySelector('input')!, 'focus');
-    fireEvent.click(container.querySelector('i')!);
+    fireEvent.mouseUp(container.querySelector('i')!);
     expect(mockFocus).toHaveBeenCalled();
   });
 });
