@@ -37,8 +37,8 @@ Used when the user needs to customize the color selection.
 | Property | Description | Type | Default |
 | :-- | :-- | :-- | :-- |
 | format | Format of color | `rgb` \| `hex` \| `hsb` | `hex` |
-| value | Value of color | string \| `Color` | - |
-| defaultValue | Default value of color | string \| `Color` | - |
+| value | Value of color | string \| `Color` \| null | - |
+| defaultValue | Default value of color | string \| `Color` \| null | - |
 | allowClear | 	Allow clearing color selected | boolean | false |
 | presets | 	Preset colors | `{ label: ReactNode, colors: Array<string \| Color> }[]` | - |
 | children | Trigger of ColorPicker | React.ReactNode | - |

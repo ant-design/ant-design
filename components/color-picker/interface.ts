@@ -31,3 +31,5 @@ export interface ColorPickerBaseProps {
   presets?: PresetsItem[];
   onFormatChange?: ColorPickerProps['onFormatChange'];
 }
+
+export type ColorValueType = Color | string | null;

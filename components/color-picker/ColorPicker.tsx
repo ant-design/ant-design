@@ -9,6 +9,7 @@ import React, { useContext, useRef, useState } from 'react';
 import genPurePanel from '../_util/PurePanel';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
+import { FormItemInputContext } from '../form/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import theme from '../theme';
@@ -19,6 +20,7 @@ import useColorState from './hooks/useColorState';
 import type {
   ColorFormat,
   ColorPickerBaseProps,
+  ColorValueType,
   PresetsItem,
   TriggerPlacement,
   TriggerType,
@@ -28,8 +30,8 @@ import { customizePrefixCls, generateColor } from './util';
 
 export interface ColorPickerProps
   extends Omit<RcColorPickerProps, 'onChange' | 'value' | 'defaultValue' | 'panelRender'> {
-  value?: Color | string;
-  defaultValue?: Color | string;
+  value?: ColorValueType;
+  defaultValue?: ColorValueType;
   children?: React.ReactNode;
   open?: boolean;
   disabled?: boolean;
@@ -94,10 +96,21 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
+  // ===================== Form Status =====================
+  const { status: contextStatus } = React.useContext(FormItemInputContext);
+
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
   const mergeRootCls = classNames(rootClassName, rtlCls);
-  const mergeCls = classNames(mergeRootCls, className, hashId);
+  const mergeCls = classNames(
+    {
+      [`${prefixCls}-status-warning`]: contextStatus === 'warning',
+      [`${prefixCls}-status-error`]: contextStatus === 'error',
+    },
+    mergeRootCls,
+    className,
+    hashId,
+  );
   const mergePopupCls = classNames(prefixCls, rtlCls);
 
   const popupAllowCloseRef = useRef(true);

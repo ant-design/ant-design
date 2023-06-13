@@ -38,8 +38,8 @@ group:
 | 参数 | 说明 | 类型 | 默认值 |
 | :-- | :-- | :-- | :-- |
 | format | 颜色格式 | `rgb` \| `hex` \| `hsb` | `hex` |
-| value | 颜色的值 | string \| `Color` | - |
-| defaultValue | 颜色默认的值 | string \| `Color` | - |
+| value | 颜色的值 | string \| `Color` \| null | - |
+| defaultValue | 颜色默认的值 | string \| `Color` \| null | - |
 | allowClear | 允许清除选择的颜色 | boolean | false |
 | presets | 预设的颜色 | `{ label: ReactNode, colors: Array<string \| Color> }[]` | - |
 | children | 颜色选择器的触发器 | React.ReactNode | - |

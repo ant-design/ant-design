@@ -329,4 +329,14 @@ describe('ColorPicker', () => {
 
     expect(container.querySelector('.ant-color-picker-presets-color-bright')).toBeFalsy();
   });
+
+  it('Should null work as expect', async () => {
+    const { container } = render(<ColorPicker value={null} open />);
+    expect(
+      container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
+    ).toEqual('0%');
+    expect(
+      container.querySelector('.ant-color-picker-hex-input input')?.getAttribute('value'),
+    ).toEqual('000000');
+  });
 });
