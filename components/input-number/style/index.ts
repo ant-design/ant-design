@@ -356,6 +356,9 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
         [`${componentCls}-input`]: {
           cursor: 'not-allowed',
         },
+        [`> ${componentCls}-disabled`]: {
+          background: 'transparent',
+        },
       },
 
       [`> div${componentCls}`]: {
