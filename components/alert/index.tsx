@@ -116,7 +116,7 @@ const Alert: CompoundedComponent = ({
   showIcon,
   closable,
   closeText,
-  closeIcon: oriCloseIcon,
+  closeIcon,
   action,
   ...props
 }) => {
@@ -143,8 +143,6 @@ const Alert: CompoundedComponent = ({
     return banner ? 'warning' : 'info';
   };
 
-  const closeIcon = oriCloseIcon !== null && oriCloseIcon !== false ? oriCloseIcon : null;
-
   // closeable when closeText or closeIcon is assigned
   const isClosable = React.useMemo(() => {
     if (closeText) {
@@ -153,7 +151,8 @@ const Alert: CompoundedComponent = ({
     if (typeof closable === 'boolean') {
       return closable;
     }
-    return closeIcon !== null && closeIcon !== undefined;
+    // should be true when closeIcon is 0 or ''
+    return closeIcon !== false && closeIcon !== null && closeIcon !== undefined;
   }, [closeText, closeIcon, closable]);
 
   const type = getType();
