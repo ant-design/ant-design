@@ -73,13 +73,41 @@ const genClearStyle = (token: ColorPickerToken, size: number): CSSObject => {
 };
 
 const genStatusStyle = (token: ColorPickerToken): CSSObject => {
-  const { componentCls, colorError, colorWarning } = token;
+  const {
+    componentCls,
+    colorError,
+    colorWarning,
+    colorErrorBorderHover,
+    colorWarningBorderHover,
+    colorErrorOutline,
+    colorWarningOutline,
+  } = token;
   return {
     [`&${componentCls}-status-error`]: {
       borderColor: colorError,
+      '&:hover': {
+        borderColor: colorErrorBorderHover,
+      },
+      [`&${componentCls}-trigger-active`]: {
+        ...genActiveStyle(
+          mergeToken<ColorPickerToken>(token, {
+            controlOutline: colorErrorOutline,
+          }),
+        ),
+      },
     },
     [`&${componentCls}-status-warning`]: {
       borderColor: colorWarning,
+      '&:hover': {
+        borderColor: colorWarningBorderHover,
+      },
+      [`&${componentCls}-trigger-active`]: {
+        ...genActiveStyle(
+          mergeToken<ColorPickerToken>(token, {
+            controlOutline: colorWarningOutline,
+          }),
+        ),
+      },
     },
   };
 };

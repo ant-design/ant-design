@@ -7,6 +7,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties } from 'react';
 import React, { useContext, useRef, useState } from 'react';
 import genPurePanel from '../_util/PurePanel';
+import { getStatusClassNames } from '../_util/statusUtils';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
@@ -103,10 +104,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
   const mergeRootCls = classNames(rootClassName, rtlCls);
   const mergeCls = classNames(
-    {
-      [`${prefixCls}-status-warning`]: contextStatus === 'warning',
-      [`${prefixCls}-status-error`]: contextStatus === 'error',
-    },
+    getStatusClassNames(prefixCls, contextStatus),
     mergeRootCls,
     className,
     hashId,
@@ -117,7 +115,8 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const handleChange = (data: Color, type?: HsbaColorType, pickColor?: boolean) => {
     let color: Color = generateColor(data);
-    if (colorCleared || value === null || defaultValue === null) {
+    const isNull = value === null || (!value && defaultValue === null);
+    if (colorCleared || isNull) {
       setColorCleared(false);
       const hsba = color.toHsb();
       // ignore alpha slider
