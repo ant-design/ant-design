@@ -1,11 +1,11 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import React, { useState } from 'react';
+import type { DefaultRecordType } from 'rc-table/lib/interface';
+import React, { useCallback, useEffect, useState } from 'react';
 import type { SelectAllLabel, TransferProps } from '..';
 import Transfer from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-
-const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+import Button from '../../button';
 
 const listCommonProps: {
   dataSource: { key: string; title: string; disabled?: boolean }[];
@@ -264,6 +264,8 @@ describe('Transfer', () => {
   });
 
   it('should display the correct locale and ignore old API', () => {
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
     const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
     const locale = { notFoundContent: 'old1', searchPlaceholder: 'old2' };
     const newLocalProp = { notFoundContent: 'new1', searchPlaceholder: 'new2' };
@@ -620,5 +622,76 @@ describe('immutable data', () => {
     const mockData = [Object.freeze({ id: '0', title: `title`, description: `description` })];
     const { container } = render(<Transfer rowKey={(item) => item.id} dataSource={mockData} />);
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('prevent error when reset data in some cases', () => {
+    const App = () => {
+      const [mockData, setMockData] = useState<DefaultRecordType[]>([]);
+      const [targetKeys, setTargetKeys] = useState<string[]>([]);
+
+      const getMock = () => {
+        const tempTargetKeys = [];
+        const tempMockData = [];
+        for (let i = 0; i < 2; i++) {
+          const data = {
+            key: i.toString(),
+            title: `content${i + 1}`,
+            description: `description of content${i + 1}`,
+            chosen: i % 2 === 0,
+          };
+          if (data.chosen) {
+            tempTargetKeys.push(data.key);
+          }
+          tempMockData.push(data);
+        }
+        setMockData(tempMockData);
+        setTargetKeys(tempTargetKeys);
+      };
+
+      useEffect(() => {
+        getMock();
+      }, []);
+
+      const handleChange = (newTargetKeys: string[]) => {
+        setTargetKeys(newTargetKeys);
+      };
+
+      const ButtonRender = useCallback(
+        () => <Button onClick={getMock}>Right button reload</Button>,
+        [getMock],
+      );
+
+      return (
+        <Transfer
+          dataSource={mockData}
+          operations={['to right', 'to left']}
+          targetKeys={targetKeys}
+          onChange={handleChange}
+          render={(item) => `test-${item}`}
+          footer={ButtonRender}
+        />
+      );
+    };
+
+    const { container } = render(<App />);
+    fireEvent.click(container.querySelector('.ant-transfer-list-header input[type="checkbox"]')!);
+    fireEvent.click(container.querySelector('.ant-transfer-operation .ant-btn')!);
+    expect(container.querySelectorAll('.ant-transfer-list')[1]).toBeTruthy();
+    expect(
+      container
+        .querySelectorAll('.ant-transfer-list')[1]
+        .querySelectorAll('.ant-transfer-list-content-item').length,
+    ).toBe(2);
+
+    fireEvent.click(
+      container.querySelectorAll('.ant-transfer-list-header input[type="checkbox"]')![1],
+    );
+    expect(container.querySelectorAll('.ant-transfer-list-header-selected')[1]).toContainHTML(
+      '2/2',
+    );
+    fireEvent.click(container.querySelector('.ant-transfer-list-footer .ant-btn')!);
+    expect(container.querySelectorAll('.ant-transfer-list-header-selected')[1]).toContainHTML(
+      '1/1',
+    );
   });
 });
