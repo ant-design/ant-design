@@ -219,7 +219,7 @@ const Alert: CompoundedComponent = ({
           <CloseIcon
             isClosable={!!isClosable}
             prefixCls={prefixCls}
-            closeIcon={closeIcon ?? closeText}
+            closeIcon={closeText || closeIcon}
             handleClose={handleClose}
           />
         </div>
