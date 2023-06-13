@@ -131,7 +131,7 @@
     "rc-field-form": "~1.32.0",
     "rc-image": "~5.17.1",
     "rc-input": "~1.0.4",
-    "rc-input-number": "~7.4.0",
+    "rc-input-number": "~8.0.0",
     "rc-mentions": "~2.3.0",
     "rc-menu": "~9.9.2",
     "rc-motion": "^2.7.3",
