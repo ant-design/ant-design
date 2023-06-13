@@ -20780,7 +20780,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
         class="ant-col ant-col-6 ant-form-item-label"
       >
         <label
-          class=""
+          class="ant-form-item-required"
           for="validate_other_color-picker"
           title="ColorPicker"
         >
@@ -20804,7 +20804,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               >
                 <div
                   class="ant-color-picker-color-block-inner"
-                  style="background: rgb(22, 119, 255);"
+                  style="background: rgba(0, 0, 0, 0);"
                 />
               </div>
             </div>
@@ -20844,12 +20844,12 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                             >
                               <div
                                 class="ant-color-picker-handler"
-                                style="background-color: rgb(22, 119, 255);"
+                                style="background-color: rgba(0, 0, 0, 0);"
                               />
                             </div>
                             <div
                               class="ant-color-picker-saturation"
-                              style="background-color: rgb(0, 0, 0);"
+                              style="background-color: rgb(255, 0, 0);"
                             />
                           </div>
                         </div>
@@ -20871,7 +20871,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                                 >
                                   <div
                                     class="ant-color-picker-handler ant-color-picker-handler-sm"
-                                    style="background-color: rgb(0, 0, 0);"
+                                    style="background-color: rgb(255, 0, 0);"
                                   />
                                 </div>
                                 <div
@@ -20892,7 +20892,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                                 >
                                   <div
                                     class="ant-color-picker-handler ant-color-picker-handler-sm"
-                                    style="background-color: rgb(22, 119, 255);"
+                                    style="background-color: rgba(0, 0, 0, 0);"
                                   />
                                 </div>
                                 <div
@@ -20907,7 +20907,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                           >
                             <div
                               class="ant-color-picker-color-block-inner"
-                              style="background: rgb(22, 119, 255);"
+                              style="background: rgba(0, 0, 0, 0);"
                             />
                           </div>
                         </div>
@@ -20915,7 +20915,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                           class="ant-color-picker-input-container"
                         >
                           <div
-                            class="ant-select ant-select-sm ant-select-borderless ant-select-in-form-item ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                            class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
                           >
                             <div
                               class="ant-select-selector"
@@ -21086,20 +21086,20 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                               <input
                                 class="ant-input ant-input-sm"
                                 type="text"
-                                value="1677FF"
+                                value="000000"
                               />
                             </span>
                           </div>
                           <div
-                            class="ant-input-number ant-input-number-sm ant-input-number-in-form-item ant-color-picker-steppers ant-color-picker-alpha-input"
+                            class="ant-input-number ant-input-number-sm ant-color-picker-steppers ant-color-picker-alpha-input"
                           >
                             <div
                               class="ant-input-number-handler-wrap"
                             >
                               <span
-                                aria-disabled="true"
+                                aria-disabled="false"
                                 aria-label="Increase Value"
-                                class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                                class="ant-input-number-handler ant-input-number-handler-up"
                                 role="button"
                                 unselectable="on"
                               >
@@ -21124,9 +21124,9 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                                 </span>
                               </span>
                               <span
-                                aria-disabled="false"
+                                aria-disabled="true"
                                 aria-label="Decrease Value"
-                                class="ant-input-number-handler ant-input-number-handler-down"
+                                class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
                                 role="button"
                                 unselectable="on"
                               >
@@ -21157,12 +21157,12 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                               <input
                                 aria-valuemax="100"
                                 aria-valuemin="0"
-                                aria-valuenow="100"
+                                aria-valuenow="0"
                                 autocomplete="off"
                                 class="ant-input-number-input"
                                 role="spinbutton"
                                 step="1"
-                                value="100%"
+                                value="0%"
                               />
                             </div>
                           </div>

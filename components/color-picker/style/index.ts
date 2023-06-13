@@ -73,12 +73,12 @@ const genClearStyle = (token: ColorPickerToken, size: number): CSSObject => {
 };
 
 const genStatusStyle = (token: ColorPickerToken): CSSObject => {
-  const { colorError, colorWarning } = token;
+  const { componentCls, colorError, colorWarning } = token;
   return {
-    '&-status-error': {
+    [`&${componentCls}-status-error`]: {
       borderColor: colorError,
     },
-    '&-status-warning': {
+    [`&${componentCls}-status-warning`]: {
       borderColor: colorWarning,
     },
   };

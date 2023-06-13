@@ -9,7 +9,7 @@ import React, { useContext, useRef, useState } from 'react';
 import genPurePanel from '../_util/PurePanel';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
-import { FormItemInputContext } from '../form/context';
+import { FormItemInputContext, NoFormStyle } from '../form/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import theme from '../theme';
@@ -117,7 +117,7 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const handleChange = (data: Color, type?: HsbaColorType, pickColor?: boolean) => {
     let color: Color = generateColor(data);
-    if (colorCleared) {
+    if (colorCleared || value === null || defaultValue === null) {
       setColorCleared(false);
       const hsba = color.toHsb();
       // ignore alpha slider
@@ -175,12 +175,14 @@ const ColorPicker: CompoundedComponent = (props) => {
         }
       }}
       content={
-        <ColorPickerPanel
-          {...colorBaseProps}
-          onChange={handleChange}
-          onChangeComplete={handleChangeComplete}
-          onClear={handleClear}
-        />
+        <NoFormStyle override status>
+          <ColorPickerPanel
+            {...colorBaseProps}
+            onChange={handleChange}
+            onChangeComplete={handleChangeComplete}
+            onClear={handleClear}
+          />
+        </NoFormStyle>
       }
       overlayClassName={mergePopupCls}
       {...popoverProps}

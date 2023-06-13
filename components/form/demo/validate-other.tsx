@@ -41,7 +41,12 @@ const App: React.FC = () => (
     name="validate_other"
     {...formItemLayout}
     onFinish={onFinish}
-    initialValues={{ 'input-number': 3, 'checkbox-group': ['A', 'B'], rate: 3.5 }}
+    initialValues={{
+      'input-number': 3,
+      'checkbox-group': ['A', 'B'],
+      rate: 3.5,
+      'color-picker': null,
+    }}
     style={{ maxWidth: 600 }}
   >
     <Form.Item label="Plain Text">
@@ -180,7 +185,11 @@ const App: React.FC = () => (
         </Upload.Dragger>
       </Form.Item>
     </Form.Item>
-    <Form.Item name="color-picker" label="ColorPicker">
+    <Form.Item
+      name="color-picker"
+      label="ColorPicker"
+      rules={[{ required: true, message: 'color is required!' }]}
+    >
       <ColorPicker />
     </Form.Item>
 
