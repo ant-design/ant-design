@@ -48,7 +48,7 @@ demo:
 
 ## API
 
-```tsx
+```jsx
 <Select>
   <Option value="lucy">lucy</Option>
 </Select>
@@ -157,7 +157,7 @@ demo:
 
 Select 当失去焦点时会关闭下拉框，如果你可以通过阻止默认行为避免丢失焦点导致的关闭：
 
-```tsx
+```jsx
 <Select
   dropdownRender={() => (
     <div
@@ -176,7 +176,7 @@ Select 当失去焦点时会关闭下拉框，如果你可以通过阻止默认�
 
 这是由于虚拟滚动默认选项高度为 `24px`，如果你的选项高度小于该值则需要通过 `listItemHeight` 属性调整，而 `listHeight` 用于设置滚动容器高度：
 
-```tsx
+```jsx
 <Select listItemHeight={10} listHeight={250} />
 ```
 
@@ -188,29 +188,30 @@ Select 无障碍辅助元素仅在弹窗展开时创建，因而当你在进行�
 
 Select 虚拟滚动会模拟无障碍绑定元素。如果需要读屏器完整获取全部列表，你可以设置 `virtual={false}` 关闭虚拟滚动，无障碍选项将会绑定到真实元素上。
 
-### 异步 options 在切换时，选中项如何保留移除的 options 数据
-通过 `labelInValue` 保留 value 和 label 信息，但是 Select 不会保留此外的 option 信息。如options数据结构如下:
+### 异步 options 在切换时，选中项如何保留移除的 options 数据？
 
-```tsx
-[{
-    id: "0111111",
-    hero: "mountain king",
-    label: "big cat",
-    value: "snow lepoard"
-  }]
+通过 `labelInValue` 保留 `value` 和 `label` 信息，但是 Select 不会保留此外的 `option` 信息。如 `options` 数据结构如下：
+
+```js
+[
+  {
+    id: '0111111',
+    hero: 'mountain king',
+    label: 'big cat',
+    value: 'snow lepoard',
+  },
+];
 ```
 
-如果直接select去选择,选中上面的选项会发现最终的结果只拿到了
+如果直接 select 去选择，选中上面的选项会发现最终的结果只拿到了：
 
-```tsx
-   [{ label: "big cat", value: "snow lepoard"}]
+```js
+[
+  {
+    label: 'big cat',
+    value: 'snow lepoard',
+  },
+];
 ```
 
-如需要保留全量信息，可以通过 HOC 形式
-example: (https://codesandbox.io/s/selectallitemattrs-jt992g?file=/demo.tsx)。
-
-
-
-
-
-
+如需要保留全量信息，可以通过 HOC 形式，[点击此处](https://codesandbox.io/s/selectallitemattrs-jt992g?file=/demo.tsx)查看示例。
