@@ -20,7 +20,7 @@ const App: React.FC = () => {
         <FloatButton />
         <FloatButton icon={<CommentOutlined />} />
       </FloatButton.Group>
-      <Switch onChange={onChange} checked={open} />
+      <Switch onChange={onChange} checked={open} style={{ margin: 16 }} />
     </>
   );
 };
