@@ -406,8 +406,8 @@ Mentions 提及
 | `@slider-handle-color-focus-shadow` | - | 已废弃 |
 | `@slider-handle-color-tooltip-open` | `handleActiveColor` | - |
 | `@slider-handle-size` | `handleSize` | - |
-| `@slider-handle-margin-top` | `handleMarginTop` | - |
-| `@slider-handle-margin-left` | `handleMarginLeft` | - |
+| `@slider-handle-margin-top` | - | 已废弃 |
+| `@slider-handle-margin-left` | - | 已废弃 |
 | `@slider-handle-shadow` | - | 已废弃 |
 | `@slider-dot-border-color` | `dotBorderColor` | - |
 | `@slider-dot-border-color-active` | `dotActiveBorderColor` | - |

@@ -409,8 +409,8 @@ export default App;
 | `@slider-handle-color-focus-shadow` | - Deprecated |
 | `@slider-handle-color-tooltip-open` | `handleActiveColor` | - |
 | `@slider-handle-size` | `handleSize` | - |
-| `@slider-handle-margin-top` | `handleMarginTop` | - |
-| `@slider-handle-margin-left` | `handleMarginLeft` | - |
+| `@slider-handle-margin-top` | - | Deprecated |
+| `@slider-handle-margin-left` | - | Deprecated |
 | `@slider-handle-shadow` | - | Deprecated |
 | `@slider-dot-border-color` | `dotBorderColor` | - |
 | `@slider-dot-border-color-active` | `dotActiveBorderColor` | - |
