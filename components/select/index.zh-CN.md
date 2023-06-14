@@ -48,7 +48,7 @@ demo:
 
 ## API
 
-```jsx
+```tsx
 <Select>
   <Option value="lucy">lucy</Option>
 </Select>
@@ -157,7 +157,7 @@ demo:
 
 Select 当失去焦点时会关闭下拉框，如果你可以通过阻止默认行为避免丢失焦点导致的关闭：
 
-```jsx
+```tsx
 <Select
   dropdownRender={() => (
     <div
@@ -176,7 +176,7 @@ Select 当失去焦点时会关闭下拉框，如果你可以通过阻止默认�
 
 这是由于虚拟滚动默认选项高度为 `24px`，如果你的选项高度小于该值则需要通过 `listItemHeight` 属性调整，而 `listHeight` 用于设置滚动容器高度：
 
-```jsx
+```tsx
 <Select listItemHeight={10} listHeight={250} />
 ```
 
@@ -190,25 +190,25 @@ Select 虚拟滚动会模拟无障碍绑定元素。如果需要读屏器完整�
 
 ### 异步 options 在切换时，选中项如何保留移除的 options 数据？
 
-通过 `labelInValue` 保留 `value` 和 `label` 信息，但是 Select 不会保留此外的 `option` 信息。如 `options` 数据结构如下：
+> 通过 `labelInValue` 保留 `value` 和 `label` 信息，但是 Select 不会保留此外的 `option` 信息。如 `options` 数据结构如下：
 
 ```js
 [
   {
     id: '0111111',
-    hero: 'mountain king',
-    label: 'big cat',
+    customData: 'Snow King',
+    label: 'Snow Leopard',
     value: 'snow lepoard',
   },
 ];
 ```
 
-如果直接 select 去选择，选中上面的选项会发现最终的结果只拿到了：
+当你选择值后切换 `options`，再次选择其他选项触发 `onChange` 时，你会发现不在当前 `options` 中的选项 `customData` 不见了：
 
 ```js
 [
   {
-    label: 'big cat',
+    label: 'Snow Leopard',
     value: 'snow lepoard',
   },
 ];
