@@ -62,7 +62,7 @@ group:
 | target | 该属性指定在何处显示链接的资源 | string | - |  |
 | title | 文字内容 | ReactNode | - |  |
 | children | 嵌套的 Anchor Link，`注意：水平方向该属性不支持` | [AnchorItem](#anchoritem)\[] | - |  |
-| replace | 替换浏览器历史记录中的项目 href 而不是推送它 | boolean | false |  |
+| replace | 替换浏览器历史记录中的项目 href 而不是推送它 | boolean | false | 5.7.0 |
 
 ### Link Props
 
