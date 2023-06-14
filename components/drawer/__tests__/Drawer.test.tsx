@@ -242,5 +242,72 @@ describe('Drawer', () => {
 
       errorSpy.mockRestore();
     });
+
+    it('should hide close button when closeIcon is null or false', async () => {
+      const { baseElement, rerender } = render(
+        <Drawer open closeIcon={null}>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.ant-drawer-close')).toBeNull();
+
+      rerender(
+        <Drawer open closeIcon={false}>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.ant-drawer-close')).toBeNull();
+
+      rerender(
+        <Drawer open closeIcon={<span className="custom-close">Close</span>}>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.custom-close')).not.toBeNull();
+
+      rerender(
+        <Drawer open closable={false} closeIcon={<span className="custom-close2">Close</span>}>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.custom-close2')).toBeNull();
+
+      rerender(
+        <Drawer open closable closeIcon={<span className="custom-close3">Close</span>}>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.custom-close3')).not.toBeNull();
+
+      rerender(
+        <Drawer open closeIcon={0} className="custom-drawer1">
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.custom-drawer1 .ant-drawer-close')).not.toBeNull();
+      expect(baseElement.querySelector('.custom-drawer1 .anticon-close')).toBeNull();
+
+      rerender(
+        <Drawer open closeIcon="" className="custom-drawer2">
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.custom-drawer2 .ant-drawer-close')).not.toBeNull();
+      expect(baseElement.querySelector('.custom-drawer2 .anticon-close')).toBeNull();
+
+      rerender(
+        <Drawer open closeIcon className="custom-drawer3">
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.custom-drawer3 .anticon-close')).not.toBeNull();
+
+      rerender(
+        <Drawer open closable>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.anticon-close')).not.toBeNull();
+    });
   });
 });
