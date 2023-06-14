@@ -2,11 +2,11 @@ import classNames from 'classnames';
 import type { CheckboxRef } from 'rc-checkbox';
 import RcCheckbox from 'rc-checkbox';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import { FormItemInputContext } from '../form/context';
 import warning from '../_util/warning';
-import { GroupContext } from './Group';
+import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
+import { FormItemInputContext } from '../form/context';
+import { GroupContext } from './Group';
 
 import useStyle from './style';
 
@@ -16,6 +16,7 @@ export interface AbstractCheckboxProps<T> {
   rootClassName?: string;
   defaultChecked?: boolean;
   checked?: boolean;
+  title?: string;
   style?: React.CSSProperties;
   disabled?: boolean;
   onChange?: (e: T) => void;
@@ -61,6 +62,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     onMouseLeave,
     skipGroup = false,
     disabled,
+    title,
     ...restProps
   },
   ref,
@@ -134,6 +136,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     <label
       className={classString}
       style={style}
+      title={title}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >

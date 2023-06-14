@@ -13,6 +13,7 @@ export interface CheckboxOptionType {
   label: React.ReactNode;
   value: CheckboxValueType;
   style?: React.CSSProperties;
+  title?: string;
   disabled?: boolean;
   onChange?: (e: CheckboxChangeEvent) => void;
 }

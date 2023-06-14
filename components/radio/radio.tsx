@@ -3,10 +3,10 @@ import type { CheckboxRef } from 'rc-checkbox';
 import RcCheckbox from 'rc-checkbox';
 import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import { FormItemInputContext } from '../form/context';
-import warning from '../_util/warning';
 import RadioGroupContext, { RadioOptionTypeContext } from './context';
 import type { RadioChangeEvent, RadioProps } from './interface';
 
@@ -78,6 +78,7 @@ const InternalRadio: React.ForwardRefRenderFunction<CheckboxRef, RadioProps> = (
       style={style}
       onMouseEnter={props.onMouseEnter}
       onMouseLeave={props.onMouseLeave}
+      title={radioProps.title}
     >
       <RcCheckbox {...radioProps} type="radio" prefixCls={prefixCls} ref={mergedRef} />
       {children !== undefined ? <span>{children}</span> : null}

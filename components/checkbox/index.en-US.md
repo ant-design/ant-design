@@ -32,12 +32,13 @@ Checkbox component.
 #### Checkbox
 
 | Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | checked | Specifies whether the checkbox is selected | boolean | false |  |
 | defaultChecked | Specifies the initial state: whether or not the checkbox is selected | boolean | false |  |
 | disabled | If disable checkbox | boolean | false |  |
 | indeterminate | The indeterminate checked state of checkbox | boolean | false |  |
+| title | `title` attribute | string | - | 5.7.0 |  |
 | onChange | The callback function that is triggered when the state changes | (e: CheckboxChangeEvent) => void | - |  |
 
 #### Checkbox Group

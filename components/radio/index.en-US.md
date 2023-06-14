@@ -37,12 +37,13 @@ Radio.
 ### Radio/Radio.Button
 
 | Property | Description | Type | Default |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | autoFocus | Whether get focus when component mounted | boolean | false |
 | checked | Specifies whether the radio is selected | boolean | false |
 | defaultChecked | Specifies the initial state: whether or not the radio is selected | boolean | false |
 | disabled | Disable radio | boolean | false |
 | value | According to value for comparison, to determine whether the selected | any | - |
+| title | `title` attribute | string | - | 5.7.0 |  |
 
 ### RadioGroup
 

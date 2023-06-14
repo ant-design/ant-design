@@ -45,6 +45,7 @@ demo:
 | defaultChecked | 初始是否选中 | boolean | false |
 | disabled | 禁用 Radio | boolean | false |
 | value | 根据 value 进行比较，判断是否选中 | any | - |
+| title | 原生 `title` 提示 | string | - | 5.7.0 |  |
 
 ### Radio.Group
 
