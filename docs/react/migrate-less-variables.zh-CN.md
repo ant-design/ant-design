@@ -401,7 +401,7 @@ Mentions 提及
 | `@slider-handle-border-width` | `handleLineWidth` | - |
 | `@slider-handle-background-color` | - | 已废弃 |
 | `@slider-handle-color` | `handleColor` | - |
-| `@slider-handle-color-hover` | - | 已废弃 |
+| `@slider-handle-color-hover` | `handleActiveColor` | - |
 | `@slider-handle-color-focus` | - | 已废弃 |
 | `@slider-handle-color-focus-shadow` | - | 已废弃 |
 | `@slider-handle-color-tooltip-open` | `handleActiveColor` | - |
