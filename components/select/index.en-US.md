@@ -47,7 +47,7 @@ Select component to select value from options.
 
 ## API
 
-```jsx
+```tsx
 <Select>
   <Option value="lucy">lucy</Option>
 </Select>
@@ -156,7 +156,7 @@ You can control it by `open` prop: [codesandbox](https://codesandbox.io/s/ji-ben
 
 Select will close when it lose focus. You can prevent event to handle this:
 
-```jsx
+```tsx
 <Select
   dropdownRender={() => (
     <div
@@ -175,7 +175,7 @@ Select will close when it lose focus. You can prevent event to handle this:
 
 Virtual scroll internal set item height as `24px`. You need to adjust `listItemHeight` when your option height is less and `listHeight` config list container height:
 
-```jsx
+```tsx
 <Select listItemHeight={10} listHeight={250} />
 ```
 
@@ -189,20 +189,20 @@ Default virtual scrolling will create a mock element to simulate an accessible b
 
 ### When switching asynchronous options, how does the selected item retain the removed options data?
 
-The `value` and `label` information is retained by `labelInValue`, but Select does not retain the additional `option` information. For example, the `options` data structure is as follows:
+> You can use `labelInValue` to keep `value` and `label`, but Select does not keep the additional `option` information. For example, follow `options` provide some customize data:
 
 ```js
 [
   {
     id: '0111111',
-    hero: 'Snow King',
+    customData: 'Snow King',
     label: 'Snow Leopard',
     value: 'snow lepoard',
   },
 ];
 ```
 
-If you directly select to select, select the above options, you will find that the final result is only:
+When you switch `options` after selecting a value, and select another option to trigger `onChange` again, you will find that the option `customData` that is not in the current `options` is gone:
 
 ```js
 [
