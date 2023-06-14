@@ -64,6 +64,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     centered,
     getContainer,
     closeIcon,
+    closable,
     focusTriggerAfterClose = true,
 
     // Deprecated
@@ -91,6 +92,13 @@ const Modal: React.FC<ModalProps> = (props) => {
   const dialogFooter =
     footer === undefined ? <Footer {...props} onOk={handleOk} onCancel={handleCancel} /> : footer;
 
+  const mergedClosable = React.useMemo(() => {
+    if (typeof closable === 'boolean') {
+      return closable;
+    }
+    return closeIcon !== null && closeIcon !== false;
+  }, [closable, closeIcon]);
+
   return wrapSSR(
     <NoCompactStyle>
       <NoFormStyle status override>
@@ -105,7 +113,8 @@ const Modal: React.FC<ModalProps> = (props) => {
           visible={open ?? visible}
           mousePosition={restProps.mousePosition ?? mousePosition}
           onClose={handleCancel}
-          closeIcon={renderCloseIcon(prefixCls, closeIcon)}
+          closable={mergedClosable}
+          closeIcon={mergedClosable ? renderCloseIcon(prefixCls, closeIcon) : null}
           focusTriggerAfterClose={focusTriggerAfterClose}
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
