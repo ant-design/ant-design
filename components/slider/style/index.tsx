@@ -25,9 +25,7 @@ export interface ComponentToken {
   trackHoverBg: string;
   handleColor: string;
   handleHoverColor: string;
-  handleColorTooltipOpen: string;
-  handleMarginTop: number;
-  handleMarginLeft: number;
+  handleActiveColor: string;
   dotBorderColor: string;
   dotActiveBorderColor: string;
   trackBgDisabled: string;
@@ -124,7 +122,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
           width: token.handleSize,
           height: token.handleSize,
           backgroundColor: token.colorBgElevated,
-          boxShadow: `0 0 0 ${token.handleLineWidth}px ${token.colorPrimaryBorder}`,
+          boxShadow: `0 0 0 ${token.handleLineWidth}px ${token.handleColor}`,
           borderRadius: '50%',
           cursor: 'pointer',
           transition: `
@@ -151,7 +149,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
           },
 
           '&::after': {
-            boxShadow: `0 0 0 ${token.handleLineWidthHover}px ${token.colorPrimary}`,
+            boxShadow: `0 0 0 ${token.handleLineWidthHover}px ${token.handleHoverColor}`,
             width: token.handleSizeHover,
             height: token.handleSizeHover,
             insetInlineStart: (token.handleSize - token.handleSizeHover) / 2,
@@ -222,7 +220,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         },
 
         [`${componentCls}-handle::after`]: {
-          backgroundColor: token.colorBgElevated,
+          backgroundColor: token.handleActiveColor,
           cursor: 'not-allowed',
           width: token.handleSize,
           height: token.handleSize,
@@ -351,15 +349,13 @@ export default genComponentStyleHook(
       dotSize: 8,
       handleLineWidth,
       handleLineWidthHover,
-      railBg: token.colorBgBase,
+      railBg: token.colorFillTertiary,
       railHoverBg: token.colorFillSecondary,
       trackBg: token.colorPrimaryBorder,
       trackHoverBg: token.colorPrimaryBorderHover,
-      handleColor: token.colorPrimary,
+      handleColor: token.colorPrimaryBorder,
       handleHoverColor: token.colorPrimaryHover,
-      handleColorTooltipOpen: token.colorPrimary,
-      handleMarginTop: -5,
-      handleMarginLeft: -5,
+      handleActiveColor: token.colorPrimary,
       dotBorderColor: '#303030',
       dotActiveBorderColor: 'tint(@primary-color, 50%)', // FIX ME
       trackBgDisabled: token.colorBgContainerDisabled,
