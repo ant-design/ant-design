@@ -50,7 +50,7 @@ For displaying anchor hyperlinks on page and jumping between them.
 | onClick | Set the handler to handle `click` event | (e: MouseEvent, link: object) => void | - |  |
 | items | Data configuration option content, support nesting through children | { key, href, title, target, children }\[] [see](#anchoritem) | - | 5.1.0 |
 | direction | Set Anchor direction | `vertical` \| `horizontal` | `vertical` | 5.2.0 |
-| replace | Replace items' href in browser history instead of pushing it | boolean | false |  |
+| replace | Replace items' href in browser history instead of pushing it | boolean | false | 5.7.0 |
 
 ### AnchorItem
 
