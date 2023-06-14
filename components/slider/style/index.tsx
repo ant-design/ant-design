@@ -24,7 +24,6 @@ export interface ComponentToken {
   trackBg: string;
   trackHoverBg: string;
   handleColor: string;
-  handleHoverColor: string;
   handleActiveColor: string;
   dotBorderColor: string;
   dotActiveBorderColor: string;
@@ -149,7 +148,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
           },
 
           '&::after': {
-            boxShadow: `0 0 0 ${token.handleLineWidthHover}px ${token.handleHoverColor}`,
+            boxShadow: `0 0 0 ${token.handleLineWidthHover}px ${token.handleActiveColor}`,
             width: token.handleSizeHover,
             height: token.handleSizeHover,
             insetInlineStart: (token.handleSize - token.handleSizeHover) / 2,
@@ -224,7 +223,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
           cursor: 'not-allowed',
           width: token.handleSize,
           height: token.handleSize,
-          boxShadow: `0 0 0 ${token.handleLineWidth}px ${new TinyColor(token.handleActiveColor)
+          boxShadow: `0 0 0 ${token.handleLineWidth}px ${new TinyColor(token.colorTextDisabled)
             .onBackground(token.colorBgContainer)
             .toHexShortString()}`,
           insetInlineStart: 0,
@@ -354,10 +353,9 @@ export default genComponentStyleHook(
       trackBg: token.colorPrimaryBorder,
       trackHoverBg: token.colorPrimaryBorderHover,
       handleColor: token.colorPrimaryBorder,
-      handleHoverColor: token.colorPrimaryHover,
-      handleActiveColor: token.colorTextDisabled,
+      handleActiveColor: token.colorPrimary,
       dotBorderColor: token.colorPrimaryBorder,
-      dotActiveBorderColor: token.colorPrimary,
+      dotActiveBorderColor: token.colorPrimaryBorder,
       trackBgDisabled: token.colorBgContainerDisabled,
     };
   },
