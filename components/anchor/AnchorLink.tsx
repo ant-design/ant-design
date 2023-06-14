@@ -20,7 +20,7 @@ export interface AnchorLinkProps extends AnchorLinkBaseProps {
 
 const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
   const {
-    href = '#',
+    href,
     title,
     prefixCls: customizePrefixCls,
     children,
