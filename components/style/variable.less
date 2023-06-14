@@ -2,3 +2,64 @@
 
 @import './themes/variable.less';
 @import './core/index';
+
+@{html-selector} {
+    @base-primary: @blue-6;
+  
+    // ========= Primary Color =========
+    --@{ant-prefix}-primary-color: @base-primary;
+    --@{ant-prefix}-primary-color-hover: color(~`colorPalette('@{base-primary}', 5) `);
+    --@{ant-prefix}-primary-color-active: color(~`colorPalette('@{base-primary}', 7) `);
+    --@{ant-prefix}-primary-color-outline: fade(@base-primary, @outline-fade);
+  
+    // Legacy
+    @legacy-primary-1: color(~`colorPalette('@{base-primary}', 1) `);
+  
+    --@{ant-prefix}-primary-1: @legacy-primary-1;
+    --@{ant-prefix}-primary-2: color(~`colorPalette('@{base-primary}', 2) `);
+    --@{ant-prefix}-primary-3: color(~`colorPalette('@{base-primary}', 3) `);
+    --@{ant-prefix}-primary-4: color(~`colorPalette('@{base-primary}', 4) `);
+    --@{ant-prefix}-primary-5: color(~`colorPalette('@{base-primary}', 5) `);
+    --@{ant-prefix}-primary-6: @base-primary;
+    --@{ant-prefix}-primary-7: color(~`colorPalette('@{base-primary}', 7) `);
+  
+    // Deprecated
+    --@{ant-prefix}-primary-color-deprecated-pure: ~'';
+    --@{ant-prefix}-primary-color-deprecated-l-35: lighten(@base-primary, 35%);
+    --@{ant-prefix}-primary-color-deprecated-l-20: lighten(@base-primary, 20%);
+    --@{ant-prefix}-primary-color-deprecated-t-20: tint(@base-primary, 20%);
+    --@{ant-prefix}-primary-color-deprecated-t-50: tint(@base-primary, 50%);
+    --@{ant-prefix}-primary-color-deprecated-f-12: fade(@base-primary, 12%);
+    --@{ant-prefix}-primary-color-active-deprecated-f-30: fade(@legacy-primary-1, 30%);
+    --@{ant-prefix}-primary-color-active-deprecated-d-02: darken(@legacy-primary-1, 2%);
+  
+    // ========= Success Color =========
+    --@{ant-prefix}-success-color: @green-6;
+    --@{ant-prefix}-success-color-hover: color(~`colorPalette('@{green-6}', 5) `);
+    --@{ant-prefix}-success-color-active: color(~`colorPalette('@{green-6}', 7) `);
+    --@{ant-prefix}-success-color-outline: fade(@green-6, @outline-fade);
+    --@{ant-prefix}-success-color-deprecated-bg: ~`colorPalette('@{green-6}', 1) `;
+    --@{ant-prefix}-success-color-deprecated-border: ~`colorPalette('@{green-6}', 3) `;
+  
+    // ========== Error Color ==========
+    --@{ant-prefix}-error-color: @red-5;
+    --@{ant-prefix}-error-color-hover: color(~`colorPalette('@{red-5}', 5) `);
+    --@{ant-prefix}-error-color-active: color(~`colorPalette('@{red-5}', 7) `);
+    --@{ant-prefix}-error-color-outline: fade(@red-5, @outline-fade);
+    --@{ant-prefix}-error-color-deprecated-bg: ~`colorPalette('@{red-5}', 1) `;
+    --@{ant-prefix}-error-color-deprecated-border: ~`colorPalette('@{red-5}', 3) `;
+  
+    // ========= Warning Color =========
+    --@{ant-prefix}-warning-color: @gold-6;
+    --@{ant-prefix}-warning-color-hover: color(~`colorPalette('@{gold-6}', 5) `);
+    --@{ant-prefix}-warning-color-active: color(~`colorPalette('@{gold-6}', 7) `);
+    --@{ant-prefix}-warning-color-outline: fade(@gold-6, @outline-fade);
+    --@{ant-prefix}-warning-color-deprecated-bg: ~`colorPalette('@{gold-6}', 1) `;
+    --@{ant-prefix}-warning-color-deprecated-border: ~`colorPalette('@{gold-6}', 3) `;
+  
+    // ========== Info Color ===========
+    --@{ant-prefix}-info-color: @base-primary;
+    --@{ant-prefix}-info-color-deprecated-bg: ~`colorPalette('@{base-primary}', 1) `;
+    --@{ant-prefix}-info-color-deprecated-border: ~`colorPalette('@{base-primary}', 3) `;
+  }
+  
