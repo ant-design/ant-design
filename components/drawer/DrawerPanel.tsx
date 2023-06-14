@@ -9,9 +9,15 @@ export interface DrawerPanelProps {
   title?: React.ReactNode;
   footer?: React.ReactNode;
   extra?: React.ReactNode;
-
+  /**
+   * advised to use closeIcon instead
+   *
+   * e.g.
+   *
+   * `<Drawer closeIcon={false} />`
+   */
   closable?: boolean;
-  closeIcon?: React.ReactNode;
+  closeIcon?: boolean | React.ReactNode;
   onClose?: RCDrawerProps['onClose'];
 
   /** Wrapper dom node style of header and body */
@@ -28,8 +34,8 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     title,
     footer,
     extra,
-    closable = true,
-    closeIcon = <CloseOutlined />,
+    closeIcon,
+    closable,
     onClose,
     headerStyle,
     drawerStyle,
@@ -38,21 +44,39 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     children,
   } = props;
 
-  const closeIconNode = closable && (
+  const mergedClosable = React.useMemo(() => {
+    if (typeof closable === 'boolean') {
+      return closable;
+    }
+
+    return closeIcon !== null && closeIcon !== false;
+  }, [closable, closeIcon]);
+
+  const mergedCloseIcon = React.useMemo(() => {
+    if (!mergedClosable) {
+      return null;
+    }
+    if (closeIcon === undefined || closeIcon === true) {
+      return <CloseOutlined />;
+    }
+    return closeIcon;
+  }, [closeIcon, mergedClosable]);
+
+  const closeIconNode = mergedClosable && (
     <button type="button" onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
-      {closeIcon}
+      {mergedCloseIcon}
     </button>
   );
 
   const headerNode = React.useMemo<React.ReactNode>(() => {
-    if (!title && !closable) {
+    if (!title && !mergedClosable) {
       return null;
     }
     return (
       <div
         style={headerStyle}
         className={classNames(`${prefixCls}-header`, {
-          [`${prefixCls}-header-close-only`]: closable && !title && !extra,
+          [`${prefixCls}-header-close-only`]: mergedClosable && !title && !extra,
         })}
       >
         <div className={`${prefixCls}-header-title`}>
@@ -62,7 +86,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
       </div>
     );
-  }, [closable, closeIconNode, extra, headerStyle, prefixCls, title]);
+  }, [mergedClosable, closeIconNode, extra, headerStyle, prefixCls, title]);
 
   const footerNode = React.useMemo<React.ReactNode>(() => {
     if (!footer) {
