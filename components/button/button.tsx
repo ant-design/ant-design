@@ -218,16 +218,15 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
 
-  const hrefAndDisabled = linkButtonRestProps.href !== undefined && mergedDisabled;
-  const isDisabledClass = mergedDisabled && type !== 'link';
-  const isTypeClass = type && !hrefAndDisabled;
+  const hrefAndDisabled = linkButtonRestProps.href && mergedDisabled;
+  const isDisabledClass = hrefAndDisabled && type !== 'link';
 
   const classes = classNames(
     prefixCls,
     hashId,
     {
       [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
-      [`${prefixCls}-${type}`]: isTypeClass,
+      [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
       [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(type),

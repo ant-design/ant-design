@@ -116,7 +116,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
 };
 
 const genHoverActiveButtonStyle = (hoverStyle: CSSObject, activeStyle: CSSObject): CSSObject => ({
-  '&:not(:disabled)': {
+  '&:not([disabled])': {
     '&:hover': hoverStyle,
     '&:active': activeStyle,
   },
