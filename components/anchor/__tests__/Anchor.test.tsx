@@ -358,7 +358,7 @@ describe('Anchor Render', () => {
     const { container } = render(<Anchor replace items={[{ key: hash, href, title }]} />);
 
     fireEvent.click(container.querySelector(`a[href="${href}"]`)!);
-    expect(window.location.replace).toHaveBeenCalledTimes(1);
+    expect(window.location.replace).toHaveBeenCalledWith(href);
   });
 
   it('onChange event', () => {
