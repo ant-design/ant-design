@@ -187,7 +187,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         position: 'absolute',
         width: dotSize,
         height: dotSize,
-        backgroundColor: token.colorBgElevated,
+        backgroundColor: token.dotBorderColor,
         border: `${token.handleLineWidth}px solid ${token.colorBorderSecondary}`,
         borderRadius: '50%',
         cursor: 'pointer',
@@ -356,8 +356,8 @@ export default genComponentStyleHook(
       handleColor: token.colorPrimaryBorder,
       handleHoverColor: token.colorPrimaryHover,
       handleActiveColor: token.colorPrimary,
-      dotBorderColor: '#303030',
-      dotActiveBorderColor: 'tint(@primary-color, 50%)', // FIX ME
+      dotBorderColor: token.colorBgElevated,
+      dotActiveBorderColor: token.colorPrimary,
       trackBgDisabled: token.colorBgContainerDisabled,
     };
   },
