@@ -11,7 +11,7 @@ Umi，中文发音为「乌米」，是可扩展的企业级前端应用框架�
 
 ## 初始化项目
 
-推荐使用 [pnpm](https://pnpm.io/) 创建 Umi 脚手架，执行以下命令。
+推荐使用 [pnpm](https://pnpm.io/zh/) 创建 Umi 脚手架，执行以下命令。
 
 ```bash
 $ mkdir myapp && cd myapp
@@ -298,7 +298,7 @@ export default function Layout() {
     <ProLayout
       route={clientRoutes[0]}
       location={location}
-      title={'Umi x Ant Design'}
+      title="Umi x Ant Design"
       menuItemRender={(menuItemProps, defaultDom) => {
         if (menuItemProps.isUrl || menuItemProps.children) {
           return defaultDom;
