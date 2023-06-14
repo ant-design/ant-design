@@ -3,11 +3,11 @@ order: 2
 title: Getting Started
 ---
 
-Ant Design React is dedicated to providing a **good development experience** for programmers. Before starting, it is recommended to learn [React](https://reactjs.org) and [ES2015](http://babeljs.io/docs/learn-es2015/) first, and correctly install and configure [Node.js](https://nodejs.org/) v8 or above.
+Ant Design React is dedicated to providing a **good development experience** for programmers. Before starting, it is recommended to learn [React](https://react.dev) first, and correctly install and configure [Node.js](https://nodejs.org/) v16 or above.
 
 The official guide also assumes that you have intermediate knowledge about HTML, CSS, and JavaScript, and React. If you are just starting to learn front-end or React, it may not be the best idea to use the UI framework as your first step.
 
-Finally, if you are working in a local development environment, please refer to [Install and Initialization](/docs/react/use-with-create-react-app#install-and-initialization) section of "Use in create-react-app".
+Finally, if you are working in a local development environment, please refer to [Use with create-react-app](/docs/react/use-with-create-react-app).
 
 ---
 
@@ -27,25 +27,25 @@ Follow the steps below to play around with Ant Design yourself:
 
 ### 1. Create a codesandbox
 
-Visit http://u.ant.design/codesandbox-repro to create a codesandbox -- don't forget to press the save button as well to create a new instance.
+Visit https://u.ant.design/codesandbox-repro to create a codesandbox -- don't forget to press the save button as well to create a new instance.
 
 ### 2. Use and modify an antd component
 
 Replace the contents of `index.js` with the following code. As you can see, there is no difference between antd's components and typical React components.
 
-If you have already set things up by following the [Install and Initialization](/docs/react/use-with-create-react-app#install-and-initialization) section of "Use in create-react-app", replace the content of `/src/index.js` as follows:
+If you have already set things up by following the [Use with create-react-app](/docs/react/use-with-create-react-app), replace the content of `/src/index.js` as follows:
 
 ```jsx
 import React, { useState } from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { DatePicker, message } from 'antd';
-import 'antd/dist/reset.css';
 import './index.css';
 
 const App = () => {
   const [date, setDate] = useState(null);
+  const [messageApi, contextHolder] = message.useMessage();
   const handleChange = (value) => {
-    message.info(`Selected Date: ${value ? value.format('YYYY-MM-DD') : 'None'}`);
+    messageApi.info(`Selected Date: ${value ? value.format('YYYY-MM-DD') : 'None'}`);
     setDate(value);
   };
   return (
@@ -54,11 +54,12 @@ const App = () => {
       <div style={{ marginTop: 16 }}>
         Selected Date: {date ? date.format('YYYY-MM-DD') : 'None'}
       </div>
+      {contextHolder}
     </div>
   );
 };
 
-render(<App />, document.getElementById('root'));
+createRoot(document.getElementById('root')).render(<App />);
 ```
 
 ### 3. Explore more components
@@ -92,15 +93,13 @@ OK! Now that you know the basics of using antd components, you are welcome to ex
 
 During actual real-world project development, you will most likely need a development workflow consisting of `compile/build/deploy/lint/debug/` deployment. You can read the following documents on the subject or use the following scaffolds and examples provided below:
 
-- [Ant Design Pro](http://pro.ant.design/)
-- [antd-admin](https://github.com/zuiidea/antd-admin)
-- [d2-admin](https://github.com/d2-projects/d2-admin)
-- [Use in Next](https://github.com/ant-design/create-next-app-antd)
-- More scaffolds at [Scaffold Market](http://scaffold.ant.design/)
+- [Ant Design Pro](https://pro.ant.design/)
+- [create-next-app](https://github.com/ant-design/create-next-app-antd)
+- More scaffolds at [Scaffold Market](https://scaffold.ant.design/)
 
 ## Test with Jest
 
-If you use `create-react-app` follow the instructions [here](/docs/react/use-with-create-react-app#test-with-jest) instead.
+If you use `create-react-app` follow the instructions [here](/docs/react/use-with-create-react-app) instead.
 
 Jest does not support `esm` modules, and Ant Design uses them. In order to test your Ant Design application with Jest you have to add the following to your Jest config :
 
@@ -114,6 +113,6 @@ Jest does not support `esm` modules, and Ant Design uses them. In order to test 
 
 ## Customize your Workflow
 
-If you want to customize your workflow, we recommend using [webpack](http://webpack.github.io/) to build and debug code. You can try out plenty of [boilerplates](https://github.com/enaqx/awesome-react#react-tools) available in the React ecosystem.
+If you want to customize your workflow, we recommend using [webpack](https://webpack.js.org) to build and debug code. You can try out plenty of [boilerplates](https://github.com/enaqx/awesome-react#react-tools) available in the React ecosystem.
 
-There are also some [scaffolds](http://scaffold.ant.design/) which have already been integrated into antd, so you can try and start with one of these and even contribute.
+There are also some [scaffolds](https://scaffold.ant.design/) which have already been integrated into antd, so you can try and start with one of these and even contribute.
