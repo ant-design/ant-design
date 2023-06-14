@@ -61,6 +61,13 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         transition: `background-color ${token.motionDurationMid}`,
       },
 
+      [`${componentCls}-track-draggable`]: {
+        zIndex: 1,
+        boxSizing: 'content-box',
+        backgroundClip: 'content-box',
+        border: 'solid rgba(0,0,0,0)',
+      },
+
       '&:hover': {
         [`${componentCls}-rail`]: {
           backgroundColor: token.colorFillSecondary,
@@ -85,6 +92,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
 
       [`${componentCls}-handle`]: {
         position: 'absolute',
+        zIndex: 1,
         width: token.handleSize,
         height: token.handleSize,
         outline: 'none',
@@ -236,9 +244,22 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
 const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject => {
   const { componentCls, railSize, handleSize, dotSize } = token;
 
+  const handlePosSize = (railSize * 3 - handleSize) / 2;
+  const draggableBorderSize = (handleSize - railSize) / 2;
+
   const railPadding: keyof React.CSSProperties = horizontal ? 'paddingBlock' : 'paddingInline';
   const full: keyof React.CSSProperties = horizontal ? 'width' : 'height';
   const part: keyof React.CSSProperties = horizontal ? 'height' : 'width';
+  const draggableBorder: React.CSSProperties = horizontal
+    ? {
+        borderWidth: `${draggableBorderSize}px 0`,
+        transform: `translateY(-${draggableBorderSize}px)`,
+      }
+    : {
+        borderWidth: `0 ${draggableBorderSize}px`,
+        transform: `translateX(-${draggableBorderSize}px)`,
+      };
+
   const handlePos: keyof React.CSSProperties = horizontal ? 'insetBlockStart' : 'insetInlineStart';
   const markInset: keyof React.CSSProperties = horizontal ? 'top' : 'insetInlineStart';
 
@@ -254,9 +275,12 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
     [`${componentCls}-track`]: {
       [part]: railSize,
     },
+    [`${componentCls}-track-draggable`]: {
+      ...draggableBorder,
+    },
 
     [`${componentCls}-handle`]: {
-      [handlePos]: (railSize * 3 - handleSize) / 2,
+      [handlePos]: handlePosSize,
     },
 
     [`${componentCls}-mark`]: {
