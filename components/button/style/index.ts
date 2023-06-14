@@ -193,6 +193,9 @@ const genPureDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token
   '&:disabled': {
     cursor: 'not-allowed',
     color: token.colorTextDisabled,
+    '&:hover': {
+      color: token.colorTextDisabled,
+    },
   },
 });
 
