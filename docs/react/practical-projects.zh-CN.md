@@ -221,6 +221,7 @@ export default defineConfig({
 ```tsx
 import ProductList from '@/components/ProductList';
 import axios from 'axios';
+import React from 'react';
 import { useMutation, useQuery, useQueryClient } from 'umi';
 import styles from './products.less';
 
