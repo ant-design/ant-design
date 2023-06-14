@@ -22,30 +22,30 @@ const InstallDependencies: React.FC<InstallProps> = (props) => {
           key: 'npm',
           children: <SourceCode lang="bash">{npm}</SourceCode>,
           label: (
-            <div className="snippet-label">
+            <span className="snippet-label">
               <NpmLogo />
-              <span>npm</span>
-            </div>
+              npm
+            </span>
           ),
         },
         {
           key: 'yarn',
           children: <SourceCode lang="bash">{yarn}</SourceCode>,
           label: (
-            <div className="snippet-label">
+            <span className="snippet-label">
               <YarnLogo />
-              <span>yarn</span>
-            </div>
+              yarn
+            </span>
           ),
         },
         {
           key: 'pnpm',
           children: <SourceCode lang="bash">{pnpm}</SourceCode>,
           label: (
-            <div className="snippet-label">
+            <span className="snippet-label">
               <PnpmLogo />
-              <span>pnpm</span>
-            </div>
+              pnpm
+            </span>
           ),
         },
       ]}
