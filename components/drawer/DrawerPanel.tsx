@@ -49,7 +49,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
       return closable;
     }
 
-    return ['string', 'number', 'undefined'].includes(typeof closeIcon) || !!closeIcon;
+    return closeIcon !== null && closeIcon !== false;
   }, [closable, closeIcon]);
 
   const mergedCloseIcon = React.useMemo(() => {
