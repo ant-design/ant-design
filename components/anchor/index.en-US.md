@@ -61,7 +61,7 @@ For displaying anchor hyperlinks on page and jumping between them.
 | target | Specifies where to display the linked URL | string |  |  |
 | title | The content of hyperlink | ReactNode |  |  |
 | children | Nested Anchor Link, `Attention: This attribute does not support horizontal orientation` | [AnchorItem](#anchoritem)\[] | - |  |
-| replace | Replace item href in browser history instead of pushing it | boolean | false |  |
+| replace | Replace item href in browser history instead of pushing it | boolean | false | 5.7.0 |
 
 ### Link Props
 
