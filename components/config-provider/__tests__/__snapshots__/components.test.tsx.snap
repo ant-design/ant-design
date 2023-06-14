@@ -25419,6 +25419,7 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
   />
   <div
     aria-disabled="false"
+    aria-orientation="horizontal"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="0"
@@ -25465,6 +25466,7 @@ exports[`ConfigProvider components Slider configProvider componentDisabled 1`] =
   />
   <div
     aria-disabled="false"
+    aria-orientation="horizontal"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="0"
@@ -25511,6 +25513,7 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
   />
   <div
     aria-disabled="false"
+    aria-orientation="horizontal"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="0"
@@ -25557,6 +25560,7 @@ exports[`ConfigProvider components Slider configProvider componentSize middle 1`
   />
   <div
     aria-disabled="false"
+    aria-orientation="horizontal"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="0"
@@ -25603,6 +25607,7 @@ exports[`ConfigProvider components Slider configProvider componentSize small 1`]
   />
   <div
     aria-disabled="false"
+    aria-orientation="horizontal"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="0"
@@ -25649,6 +25654,7 @@ exports[`ConfigProvider components Slider normal 1`] = `
   />
   <div
     aria-disabled="false"
+    aria-orientation="horizontal"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="0"
@@ -25695,6 +25701,7 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
   />
   <div
     aria-disabled="false"
+    aria-orientation="horizontal"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="0"
