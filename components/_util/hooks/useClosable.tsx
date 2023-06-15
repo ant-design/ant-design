@@ -5,13 +5,13 @@ import React from 'react';
 function useInnerClosable(
   closable?: boolean,
   closeIcon?: boolean | ReactNode,
-  defaultClosable = false,
+  defaultClosable?: boolean,
 ): boolean {
   if (typeof closable === 'boolean') {
     return closable;
   }
   if (closeIcon === undefined) {
-    return defaultClosable;
+    return !!defaultClosable;
   }
   return closeIcon !== false && closeIcon !== null;
 }
