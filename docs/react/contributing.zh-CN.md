@@ -62,19 +62,41 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 
 ## 开发流程
 
-在开始之前，请先执行下面的命令启用 [corepack](https://nodejs.org/api/corepack.html)。
+推荐使用 `npm` 或 `yarn` 作为包管理工具
 
-```bash
-corepack enable
-```
+在你 clone 了 antd 的代码并且使用
 
-在你 clone 了 antd 的代码并且使用 `npm install` 安装完依赖后，你还可以运行下面几个常用的命令：
+<InstallDependencies npm='$ npm install' yarn='$ yarn'></InstallDependencies>
 
-1. `npm start` 在本地运行 Ant Design 的网站。
-2. `npm run lint` 检查代码风格。
-3. `npm test` 运行测试。(在运行测试前请确保 `NODE_ENV` 环境变量没有被设定，否则可能会引发一些问题)
-4. `npm run compile` 编译 TypeScript 代码到 lib 和 es 目录。
-5. `npm run dist` 构建 antd 的 UMD 版本到 dist 目录。
+安装完依赖后，你还可以运行下面几个常用的命令：
+
+### 本地运行
+
+在本地运行 Ant Design 的网站。
+
+<InstallDependencies npm='$ npm start' yarn='$ yarn start'></InstallDependencies>
+
+### 代码风格检测
+
+<InstallDependencies npm='$ npm run lint' yarn='$ yarn lint'></InstallDependencies>
+
+### 运行测试用例
+
+运行测试。(在运行测试前请确保 `NODE_ENV` 环境变量没有被设定，否则可能会引发一些问题)
+
+<InstallDependencies npm='$ npm test' yarn='$ yarn test'></InstallDependencies>
+
+### 编译
+
+编译 TypeScript 代码到 lib 和 es 目录。
+
+<InstallDependencies npm='$ npm run compile' yarn='$ yarn compile'></InstallDependencies>
+
+## 构建
+
+构建 antd 的 UMD 版本到 dist 目录。
+
+<InstallDependencies npm='$ npm run dist' yarn='$ yarn dist'></InstallDependencies>
 
 ## 配套开发工具
 
