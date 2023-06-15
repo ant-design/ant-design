@@ -405,7 +405,7 @@ export default App;
 | `@slider-handle-background-color` | - | Deprecated |
 | `@slider-handle-color` | `handleColor` | - |
 | `@slider-handle-color-hover` | `handleActiveColor` | - |
-| `@slider-handle-color-focus` | - | Deprecated |
+| `@slider-handle-color-focus` | `handleActiveColor` | - |
 | `@slider-handle-color-focus-shadow` | - Deprecated |
 | `@slider-handle-color-tooltip-open` | `handleActiveColor` | - |
 | `@slider-handle-size` | `handleSize` | - |
