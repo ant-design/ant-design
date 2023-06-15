@@ -120,7 +120,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       downHandler={downIcon}
       prefixCls={prefixCls}
       readOnly={readOnly}
-      controls={!!controlsTemp}
+      controls={controlsTemp}
       {...others}
     />
   );
