@@ -126,11 +126,13 @@ describe('hooks test', () => {
       React.isValidElement(params[1]) ? 'element' : params[1]
     },defaultClosable=${params[2]}. the result should be ${res}`, () => {
       const App = () => {
-        const [closable, closeIcon] = useClosable({
-          closable: params[0],
-          closeIcon: params[1],
-          defaultClosable: params[2],
-        });
+        const [closable, closeIcon] = useClosable(
+          params[0],
+          params[1],
+          undefined,
+          undefined,
+          params[2],
+        );
         useEffect(() => {
           expect(closable).toBe(res[0]);
         }, [closable]);
@@ -147,10 +149,12 @@ describe('hooks test', () => {
 
   it('useClosable with defaultCloseIcon', () => {
     const App = () => {
-      const [closable, closeIcon] = useClosable({
-        closable: true,
-        defaultCloseIcon: <CloseOutlined className="custom-close-icon" />,
-      });
+      const [closable, closeIcon] = useClosable(
+        true,
+        undefined,
+        undefined,
+        <CloseOutlined className="custom-close-icon" />,
+      );
       useEffect(() => {
         expect(closable).toBe(true);
       }, [closable]);
@@ -165,10 +169,7 @@ describe('hooks test', () => {
       const customCloseIconRender = (icon: React.ReactNode) => (
         <span className="custom-close-wrapper">{icon}</span>
       );
-      const [closable, closeIcon] = useClosable({
-        closable: true,
-        customCloseIconRender,
-      });
+      const [closable, closeIcon] = useClosable(true, undefined, customCloseIconRender);
       useEffect(() => {
         expect(closable).toBe(true);
       }, [closable]);

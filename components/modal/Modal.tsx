@@ -94,13 +94,13 @@ const Modal: React.FC<ModalProps> = (props) => {
   const dialogFooter =
     footer === undefined ? <Footer {...props} onOk={handleOk} onCancel={handleCancel} /> : footer;
 
-  const [mergedClosable, mergedCloseIcon] = useClosable({
+  const [mergedClosable, mergedCloseIcon] = useClosable(
     closable,
     closeIcon,
-    defaultClosable: true,
-    defaultCloseIcon: <CloseOutlined className={`${prefixCls}-close-icon`} />,
-    customCloseIconRender: (icon) => renderCloseIcon(prefixCls, icon),
-  });
+    (icon) => renderCloseIcon(prefixCls, icon),
+    <CloseOutlined className={`${prefixCls}-close-icon`} />,
+    true,
+  );
 
   return wrapSSR(
     <NoCompactStyle>

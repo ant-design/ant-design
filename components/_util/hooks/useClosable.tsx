@@ -24,13 +24,13 @@ export type UseClosableParams = {
   customCloseIconRender?: (closeIcon: ReactNode) => ReactNode;
 };
 
-export default function useClosable({
-  closable,
-  closeIcon,
+export default function useClosable(
+  closable?: boolean,
+  closeIcon?: boolean | ReactNode,
+  customCloseIconRender?: (closeIcon: ReactNode) => ReactNode,
+  defaultCloseIcon: ReactNode = <CloseOutlined />,
   defaultClosable = false,
-  defaultCloseIcon = <CloseOutlined />,
-  customCloseIconRender,
-}: UseClosableParams): [boolean, React.ReactNode | null] {
+): [boolean, React.ReactNode | null] {
   const mergedClosable = useInnerClosable(closable, closeIcon, defaultClosable);
   if (!mergedClosable || closeIcon === null || closeIcon === false) {
     return [false, null];
