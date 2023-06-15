@@ -2,6 +2,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
 import * as React from 'react';
+import useClosable from '../_util/hooks/useClosable';
 
 export interface DrawerPanelProps {
   prefixCls: string;
@@ -44,13 +45,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     children,
   } = props;
 
-  const mergedClosable = React.useMemo(() => {
-    if (typeof closable === 'boolean') {
-      return closable;
-    }
-
-    return closeIcon !== null && closeIcon !== false;
-  }, [closable, closeIcon]);
+  const mergedClosable = useClosable(closable, closeIcon, true);
 
   const mergedCloseIcon = React.useMemo(() => {
     if (!mergedClosable) {
