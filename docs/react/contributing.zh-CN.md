@@ -92,7 +92,7 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 
 <InstallDependencies npm='$ npm run compile' yarn='$ yarn compile'></InstallDependencies>
 
-## 构建
+### 构建
 
 构建 antd 的 UMD 版本到 dist 目录。
 

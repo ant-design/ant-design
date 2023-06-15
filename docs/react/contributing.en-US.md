@@ -92,7 +92,7 @@ compiles TypeScript code to the `lib` and `es` directory.
 
 <InstallDependencies npm='$ npm run compile' yarn='$ yarn compile'></InstallDependencies>
 
-## Build
+### Build
 
 creates UMD build of antd.
 
