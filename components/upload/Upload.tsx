@@ -135,7 +135,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     if (
       !exceedMaxCount ||
       // We should ignore event if current file is exceed `maxCount`
-      cloneList.map((f) => f.uid).includes(file.uid)
+      cloneList.find((f) => f.uid === file.uid)
     ) {
       flushSync(() => {
         onChange?.(changeInfo);
