@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import Dialog from 'rc-dialog';
 import * as React from 'react';
+import useClosable from '../_util/hooks/useClosable';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
 import warning from '../_util/warning';
@@ -92,12 +93,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   const dialogFooter =
     footer === undefined ? <Footer {...props} onOk={handleOk} onCancel={handleCancel} /> : footer;
 
-  const mergedClosable = React.useMemo(() => {
-    if (typeof closable === 'boolean') {
-      return closable;
-    }
-    return closeIcon !== null && closeIcon !== false;
-  }, [closable, closeIcon]);
+  const mergedClosable = useClosable(closable, closeIcon, true);
 
   return wrapSSR(
     <NoCompactStyle>
