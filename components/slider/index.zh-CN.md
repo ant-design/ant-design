@@ -28,6 +28,7 @@ demo:
 <code src="./demo/show-tooltip.tsx">控制 ToolTip 的显示</code>
 <code src="./demo/reverse.tsx">反向</code>
 <code src="./demo/draggableTrack.tsx">范围可拖拽</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
