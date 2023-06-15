@@ -11,17 +11,17 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
+import { isStyleSupport } from '../../_util/styleChecker';
+import TransButton from '../../_util/transButton';
 import { ConfigContext } from '../../config-provider';
 import useLocale from '../../locale/useLocale';
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
-import { isStyleSupport } from '../../_util/styleChecker';
-import TransButton from '../../_util/transButton';
 import Editable from '../Editable';
-import useMergedConfig from '../hooks/useMergedConfig';
-import useUpdatedEffect from '../hooks/useUpdatedEffect';
 import type { TypographyProps } from '../Typography';
 import Typography from '../Typography';
+import useMergedConfig from '../hooks/useMergedConfig';
+import useUpdatedEffect from '../hooks/useUpdatedEffect';
 import Ellipsis from './Ellipsis';
 import EllipsisTooltip from './EllipsisTooltip';
 
@@ -77,6 +77,32 @@ export interface BlockProps<C extends keyof JSX.IntrinsicElements = keyof JSX.In
   keyboard?: boolean;
   italic?: boolean;
 }
+
+/** return a function to check the width get from onResize whether is repeat in a short time */
+const getHistoryWidthsMapChecker = () => {
+  const historyWidthsMap: Set<number> = new Set();
+  let clearTimer: NodeJS.Timeout;
+  let times = 0;
+
+  return (width: number): boolean => {
+    historyWidthsMap.add(width);
+    times++;
+    // if times is larger, means width is repeat, then ignore the larger width and use smaller width
+    if (times > historyWidthsMap.size + 1 && width === Math.max(...historyWidthsMap.values())) {
+      return true;
+    }
+
+    if (clearTimer) clearTimeout(clearTimer);
+
+    clearTimer = setTimeout(() => {
+      historyWidthsMap.clear();
+      times = 0;
+    }, 50);
+
+    return false;
+  };
+};
+const checkHistoryWidthsMapRepeat = getHistoryWidthsMapChecker();
 
 function wrapperDecorations(
   { mark, code, underline, delete: del, strong, keyboard, italic }: BlockProps,
@@ -287,6 +313,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const [ellipsisWidth, setEllipsisWidth] = React.useState(0);
   const [ellipsisFontSize, setEllipsisFontSize] = React.useState(0);
   const onResize = ({ offsetWidth }: { offsetWidth: number }, element: HTMLElement) => {
+    if (checkHistoryWidthsMapRepeat(offsetWidth)) return;
     setEllipsisWidth(offsetWidth);
     setEllipsisFontSize(parseInt(window.getComputedStyle?.(element).fontSize, 10) || 0);
   };
