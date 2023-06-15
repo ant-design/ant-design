@@ -218,9 +218,6 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
 
-  const hrefAndDisabled = linkButtonRestProps.href && mergedDisabled;
-  const isDisabledClass = hrefAndDisabled && type !== 'link';
-
   const classes = classNames(
     prefixCls,
     hashId,
@@ -235,7 +232,6 @@ const InternalButton: React.ForwardRefRenderFunction<
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-dangerous`]: !!danger,
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-disabled`]: isDisabledClass,
     },
     compactItemClassnames,
     className,
@@ -263,9 +259,10 @@ const InternalButton: React.ForwardRefRenderFunction<
   if (linkButtonRestProps.href !== undefined) {
     return wrapSSR(
       <a
-        disabled={mergedDisabled}
         {...linkButtonRestProps}
-        className={classes}
+        className={classNames(classes, {
+          [`${prefixCls}-disabled`]: mergedDisabled,
+        })}
         style={fullStyle}
         onClick={handleClick}
         ref={buttonRef as React.Ref<HTMLAnchorElement>}

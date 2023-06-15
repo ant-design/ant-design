@@ -116,7 +116,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
 };
 
 const genHoverActiveButtonStyle = (hoverStyle: CSSObject, activeStyle: CSSObject): CSSObject => ({
-  '&:not([disabled])': {
+  '&:not(:disabled)': {
     '&:hover': hoverStyle,
     '&:active': activeStyle,
   },
@@ -190,12 +190,9 @@ const genSolidButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
 });
 
 const genPureDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
-  '&:disabled': {
+  [`&:disabled, &${token.componentCls}-disabled`]: {
     cursor: 'not-allowed',
     color: token.colorTextDisabled,
-    '&:hover': {
-      color: token.colorTextDisabled,
-    },
   },
 });
 
@@ -390,14 +387,6 @@ const genTextButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   },
 });
 
-// Href and Disabled
-const genDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
-  ...genDisabledStyle(token),
-  [`&${token.componentCls}:hover`]: {
-    ...genDisabledStyle(token),
-  },
-});
-
 const genTypeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const { componentCls } = token;
 
@@ -407,7 +396,6 @@ const genTypeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     [`${componentCls}-dashed`]: genDashedButtonStyle(token),
     [`${componentCls}-link`]: genLinkButtonStyle(token),
     [`${componentCls}-text`]: genTextButtonStyle(token),
-    [`${componentCls}-disabled`]: genDisabledButtonStyle(token),
   };
 };
 
