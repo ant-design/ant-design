@@ -5,6 +5,7 @@ import ConfigProvider, { ConfigContext } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
+import Divider from '../../divider';
 import Input from '../../input';
 import Select from '../../select';
 import Space from '../../space';
@@ -197,5 +198,36 @@ describe('ConfigProvider', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('.ant-space')?.getAttribute('style')).toEqual('color: red;');
+  });
+
+  it('Should Divider className works', () => {
+    const { container } = render(
+      <ConfigProvider
+        divider={{
+          className: 'config-provider-className',
+        }}
+      >
+        <Divider />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-divider.config-provider-className')).toBeTruthy();
+  });
+
+  it('Should Divider style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        divider={{
+          style: {
+            color: 'red',
+            height: 80,
+          },
+        }}
+      >
+        <Divider />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-divider')?.getAttribute('style')).toEqual(
+      'color: red; height: 80px;',
+    );
   });
 });
