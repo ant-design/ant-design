@@ -1,3 +1,4 @@
+import { CloseOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import Dialog from 'rc-dialog';
 import * as React from 'react';
@@ -93,7 +94,13 @@ const Modal: React.FC<ModalProps> = (props) => {
   const dialogFooter =
     footer === undefined ? <Footer {...props} onOk={handleOk} onCancel={handleCancel} /> : footer;
 
-  const mergedClosable = useClosable(closable, closeIcon, true);
+  const [mergedClosable, mergedCloseIcon] = useClosable({
+    closable,
+    closeIcon,
+    defaultClosable: true,
+    defaultCloseIcon: <CloseOutlined className={`${prefixCls}-close-icon`} />,
+    customCloseIconRender: (icon) => renderCloseIcon(prefixCls, icon),
+  });
 
   return wrapSSR(
     <NoCompactStyle>
@@ -110,7 +117,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           mousePosition={restProps.mousePosition ?? mousePosition}
           onClose={handleCancel}
           closable={mergedClosable}
-          closeIcon={mergedClosable ? renderCloseIcon(prefixCls, closeIcon) : null}
+          closeIcon={mergedCloseIcon}
           focusTriggerAfterClose={focusTriggerAfterClose}
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
