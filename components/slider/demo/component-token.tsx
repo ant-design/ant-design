@@ -34,7 +34,6 @@ const App: React.FC = () => (
           trackBg: '#b0b0ef',
           trackHoverBg: '#c77195',
           handleColor: '#e6f6a2',
-          handleHoverColor: '#229a24',
           handleActiveColor: '#d22bc4',
           dotBorderColor: '#303030',
           dotActiveBorderColor: '#918542',
