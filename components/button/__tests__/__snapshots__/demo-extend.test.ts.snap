@@ -1249,7 +1249,6 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       >
         <a
           class="ant-btn ant-btn-primary ant-btn-disabled"
-          disabled=""
           href="https://ant.design/index-cn"
         >
           <span>
