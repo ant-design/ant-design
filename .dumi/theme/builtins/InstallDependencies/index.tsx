@@ -1,3 +1,4 @@
+import type { TabsProps } from 'antd';
 import { Tabs } from 'antd';
 import SourceCode from 'dumi/theme-default/builtins/SourceCode';
 import React from 'react';
@@ -11,46 +12,51 @@ interface InstallProps {
   pnpm?: string;
 }
 
+const npmLabel = (
+  <span className="snippet-label">
+    <NpmLogo />
+    npm
+  </span>
+);
+
+const pnpmLabel = (
+  <span className="snippet-label">
+    <PnpmLogo />
+    pnpm
+  </span>
+);
+
+const yarnLabel = (
+  <span className="snippet-label">
+    <YarnLogo />
+    yarn
+  </span>
+);
+
 const InstallDependencies: React.FC<InstallProps> = (props) => {
   const { npm, yarn, pnpm } = props;
-  return (
-    <Tabs
-      className="antd-site-snippet"
-      defaultActiveKey="npm"
-      items={[
+  const items = React.useMemo<TabsProps['items']>(
+    () =>
+      [
         {
           key: 'npm',
-          children: <SourceCode lang="bash">{npm}</SourceCode>,
-          label: (
-            <span className="snippet-label">
-              <NpmLogo />
-              npm
-            </span>
-          ),
+          children: npm ? <SourceCode lang="bash">{npm}</SourceCode> : null,
+          label: npmLabel,
         },
         {
           key: 'yarn',
-          children: <SourceCode lang="bash">{yarn}</SourceCode>,
-          label: (
-            <span className="snippet-label">
-              <YarnLogo />
-              yarn
-            </span>
-          ),
+          children: yarn ? <SourceCode lang="bash">{yarn}</SourceCode> : null,
+          label: yarnLabel,
         },
         {
           key: 'pnpm',
-          children: <SourceCode lang="bash">{pnpm}</SourceCode>,
-          label: (
-            <span className="snippet-label">
-              <PnpmLogo />
-              pnpm
-            </span>
-          ),
+          children: pnpm ? <SourceCode lang="bash">{pnpm}</SourceCode> : null,
+          label: pnpmLabel,
         },
-      ]}
-    />
+      ].filter((item) => item.children),
+    [npm, yarn, pnpm],
   );
+  return <Tabs className="antd-site-snippet" defaultActiveKey="npm" items={items} />;
 };
 
 export default InstallDependencies;
