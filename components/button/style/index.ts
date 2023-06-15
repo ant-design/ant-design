@@ -519,7 +519,7 @@ export default genComponentStyleHook('Button', (token) => {
     // Block
     genBlockButtonStyle(buttonToken),
 
-    // Group (type, ghost, danger, disabled, loading)
+    // Group (type, ghost, danger, loading)
     genTypeButtonStyle(buttonToken),
 
     // Button Group
