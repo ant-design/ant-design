@@ -14,6 +14,7 @@ export interface CheckboxOptionType {
   value: CheckboxValueType;
   style?: React.CSSProperties;
   disabled?: boolean;
+  title?: string;
   onChange?: (e: CheckboxChangeEvent) => void;
 }
 
@@ -132,6 +133,7 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
         onChange={option.onChange}
         className={`${groupPrefixCls}-item`}
         style={option.style}
+        title={option.title}
       >
         {option.label}
       </Checkbox>
