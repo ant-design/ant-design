@@ -11,38 +11,51 @@ interface InstallProps {
   pnpm?: string;
 }
 
-const InstallDependencies: React.FC<InstallProps> = ({ npm, yarn, pnpm }) => {
-  const options = [
-    { key: 'npm', value: npm, label: 'npm', icon: <NpmLogo /> },
-    { key: 'yarn', value: yarn, label: 'yarn', icon: <YarnLogo /> },
-    { key: 'pnpm', value: pnpm, label: 'pnpm', icon: <PnpmLogo /> },
-  ];
+const npmLabel = (
+  <span className="snippet-label">
+    <NpmLogo />
+    npm
+  </span>
+);
 
-  const filteredOptions = options.filter((option) => option.value);
+const pnpmLabel = (
+  <span className="snippet-label">
+    <PnpmLogo />
+    pnpm
+  </span>
+);
 
-  if (filteredOptions.length === 0) return null;
+const yarnLabel = (
+  <span className="snippet-label">
+    <YarnLogo />
+    yarn
+  </span>
+);
 
-  const renderTabPane = (option) => (
-    <Tabs.TabPane
-      key={option.key}
-      tab={
-        <span className="snippet-label">
-          {option.icon}
-          {option.label}
-        </span>
-      }
-    >
-      <SourceCode lang="bash">{option.value}</SourceCode>
-    </Tabs.TabPane>
+const InstallDependencies: React.FC<InstallProps> = (props) => {
+  const { npm, yarn, pnpm } = props;
+  const items = React.useMemo<TabsProps['items']>(
+    () =>
+      [
+        {
+          key: 'npm',
+          children: npm ? <SourceCode lang="bash">{npm}</SourceCode> : null,
+          label: npmLabel,
+        },
+        {
+          key: 'yarn',
+          children: yarn ? <SourceCode lang="bash">{yarn}</SourceCode> : null,
+          label: yarnLabel,
+        },
+        {
+          key: 'pnpm',
+          children: pnpm ? <SourceCode lang="bash">{pnpm}</SourceCode> : null,
+          label: pnpmLabel,
+        },
+      ].filter((item) => item.children),
+    [npm, yarn, pnpm],
   );
-
-  const tabPanes = filteredOptions.map(renderTabPane);
-
-  return (
-    <Tabs className="antd-site-snippet" defaultActiveKey={filteredOptions[0].key}>
-      {tabPanes}
-    </Tabs>
-  );
+  return <Tabs className="antd-site-snippet" defaultActiveKey="npm" items={items} />;
 };
 
 export default InstallDependencies;
