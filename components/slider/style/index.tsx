@@ -354,7 +354,7 @@ export default genComponentStyleHook(
       trackHoverBg: token.colorPrimaryBorderHover,
       handleColor: token.colorPrimaryBorder,
       handleActiveColor: token.colorPrimary,
-      dotBorderColor: token.colorPrimaryBorder,
+      dotBorderColor: token.colorBorderSecondary,
       dotActiveBorderColor: token.colorPrimaryBorder,
       trackBgDisabled: token.colorBgContainerDisabled,
     };
