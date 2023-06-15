@@ -107,10 +107,13 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   ) => {
     let cloneList = [...changedFileList];
 
+    let exceedMaxCount = false;
+
     // Cut to match count
     if (maxCount === 1) {
       cloneList = cloneList.slice(-1);
     } else if (maxCount) {
+      exceedMaxCount = true;
       cloneList = cloneList.slice(0, maxCount);
     }
 
@@ -129,9 +132,15 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       changeInfo.event = event;
     }
 
-    flushSync(() => {
-      onChange?.(changeInfo);
-    });
+    if (
+      !exceedMaxCount ||
+      // We should ignore event if current file is exceed `maxCount`
+      cloneList.some((f) => f.uid === file.uid)
+    ) {
+      flushSync(() => {
+        onChange?.(changeInfo);
+      });
+    }
   };
 
   const mergedBeforeUpload = async (file: RcFile, fileListArgs: RcFile[]) => {
