@@ -99,13 +99,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           ...genActiveStyle(token),
         },
 
-        '&-disabled': {
-          ...genDisabledStyle(token),
-          [`${componentCls}-input`]: {
-            cursor: 'not-allowed',
-          },
-        },
-
         // ===================== Out Of Range =====================
         '&-out-of-range': {
           [`${componentCls}-input-wrap`]: {
@@ -140,7 +133,15 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
                 borderRadius: borderRadiusSM,
               },
             },
+
+            [`${componentCls}-wrapper-disabled > ${componentCls}-group-addon`]: {
+              ...genDisabledStyle(token),
+            },
           },
+        },
+
+        [`&-disabled ${componentCls}-input`]: {
+          cursor: 'not-allowed',
         },
 
         [componentCls]: {
@@ -338,10 +339,8 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
         zIndex: 1,
       },
 
-      '&-disabled': {
-        [`${componentCls}[disabled]`]: {
-          background: 'transparent',
-        },
+      [`&-disabled > ${componentCls}-disabled`]: {
+        background: 'transparent',
       },
 
       [`> div${componentCls}`]: {
