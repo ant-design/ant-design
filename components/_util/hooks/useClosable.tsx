@@ -30,7 +30,7 @@ export default function useClosable(
   customCloseIconRender?: (closeIcon: ReactNode) => ReactNode,
   defaultCloseIcon: ReactNode = <CloseOutlined />,
   defaultClosable = false,
-): [boolean, React.ReactNode | null] {
+): [closable: boolean, closeIcon: React.ReactNode | null] {
   const mergedClosable = useInnerClosable(closable, closeIcon, defaultClosable);
   if (!mergedClosable || closeIcon === null || closeIcon === false) {
     return [false, null];
