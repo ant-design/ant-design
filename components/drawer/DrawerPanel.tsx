@@ -1,7 +1,7 @@
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
 import * as React from 'react';
+import useClosable from '../_util/hooks/useClosable';
 
 export interface DrawerPanelProps {
   prefixCls: string;
@@ -44,28 +44,20 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     children,
   } = props;
 
-  const mergedClosable = React.useMemo(() => {
-    if (typeof closable === 'boolean') {
-      return closable;
-    }
-
-    return closeIcon !== null && closeIcon !== false;
-  }, [closable, closeIcon]);
-
-  const mergedCloseIcon = React.useMemo(() => {
-    if (!mergedClosable) {
-      return null;
-    }
-    if (closeIcon === undefined || closeIcon === true) {
-      return <CloseOutlined />;
-    }
-    return closeIcon;
-  }, [closeIcon, mergedClosable]);
-
-  const closeIconNode = mergedClosable && (
-    <button type="button" onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
-      {mergedCloseIcon}
-    </button>
+  const customCloseIconRender = React.useCallback(
+    (icon: React.ReactNode) => (
+      <button type="button" onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
+        {icon}
+      </button>
+    ),
+    [onClose],
+  );
+  const [mergedClosable, mergedCloseIcon] = useClosable(
+    closable,
+    closeIcon,
+    customCloseIconRender,
+    undefined,
+    true,
   );
 
   const headerNode = React.useMemo<React.ReactNode>(() => {
@@ -80,13 +72,13 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         })}
       >
         <div className={`${prefixCls}-header-title`}>
-          {closeIconNode}
+          {mergedCloseIcon}
           {title && <div className={`${prefixCls}-title`}>{title}</div>}
         </div>
         {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
       </div>
     );
-  }, [mergedClosable, closeIconNode, extra, headerStyle, prefixCls, title]);
+  }, [mergedClosable, mergedCloseIcon, extra, headerStyle, prefixCls, title]);
 
   const footerNode = React.useMemo<React.ReactNode>(() => {
     if (!footer) {

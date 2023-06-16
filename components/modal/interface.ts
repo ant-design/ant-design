@@ -8,7 +8,7 @@ export interface ModalProps {
   confirmLoading?: boolean;
   /** The modal dialog's title */
   title?: React.ReactNode;
-  /** Whether a close (x) button is visible on top right of the modal dialog or not */
+  /** Whether a close (x) button is visible on top right of the modal dialog or not. Advised to use closeIcon instead. */
   closable?: boolean;
   /** Specify a function that will be called when a user clicks the OK button */
   onOk?: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -50,7 +50,7 @@ export interface ModalProps {
   keyboard?: boolean;
   wrapProps?: any;
   prefixCls?: string;
-  closeIcon?: React.ReactNode;
+  closeIcon?: boolean | React.ReactNode;
   modalRender?: (node: React.ReactNode) => React.ReactNode;
   focusTriggerAfterClose?: boolean;
   children?: React.ReactNode;
