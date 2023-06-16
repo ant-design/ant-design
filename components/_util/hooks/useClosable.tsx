@@ -32,10 +32,12 @@ export default function useClosable(
   defaultClosable = false,
 ): [closable: boolean, closeIcon: React.ReactNode | null] {
   const mergedClosable = useInnerClosable(closable, closeIcon, defaultClosable);
-  if (!mergedClosable || closeIcon === null || closeIcon === false) {
+  if (!mergedClosable) {
     return [false, null];
   }
   const mergedCloseIcon =
-    closeIcon === undefined || closeIcon === true ? defaultCloseIcon : closeIcon;
+    typeof closeIcon === 'boolean' || closeIcon === undefined || closeIcon === null
+      ? defaultCloseIcon
+      : closeIcon;
   return [true, customCloseIconRender ? customCloseIconRender(mergedCloseIcon) : mergedCloseIcon];
 }

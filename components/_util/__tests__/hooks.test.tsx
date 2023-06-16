@@ -51,19 +51,19 @@ describe('hooks test', () => {
     },
     {
       params: [true, null, true],
-      res: [false, ''],
+      res: [true, 'anticon-close'],
     },
     {
       params: [true, false, true],
-      res: [false, ''],
+      res: [true, 'anticon-close'],
     },
     {
       params: [true, null, false],
-      res: [false, ''],
+      res: [true, 'anticon-close'],
     },
     {
       params: [true, false, false],
-      res: [false, ''],
+      res: [true, 'anticon-close'],
     },
     {
       params: [
