@@ -358,6 +358,7 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
       },
 
       '&::before': {
+        display: 'inline-block',
         width: 0,
         visibility: 'hidden',
         content: '"\\a0"',
