@@ -43,6 +43,7 @@ const Divider: React.FC<DividerProps> = (props) => {
   const hasCustomMarginRight = orientation === 'right' && orientationMargin != null;
   const classString = classNames(
     prefixCls,
+    divider?.className,
     hashId,
     `${prefixCls}-${type}`,
     {
@@ -54,7 +55,7 @@ const Divider: React.FC<DividerProps> = (props) => {
       [`${prefixCls}-no-default-orientation-margin-left`]: hasCustomMarginLeft,
       [`${prefixCls}-no-default-orientation-margin-right`]: hasCustomMarginRight,
     },
-    className ?? divider?.className,
+    className,
     rootClassName,
   );
 
@@ -83,7 +84,12 @@ const Divider: React.FC<DividerProps> = (props) => {
   }
 
   return wrapSSR(
-    <div className={classString} style={style ?? divider?.style} {...restProps} role="separator">
+    <div
+      className={classString}
+      style={{ ...divider?.style, ...style }}
+      {...restProps}
+      role="separator"
+    >
       {children && type !== 'vertical' && (
         <span className={`${prefixCls}-inner-text`} style={innerStyle}>
           {children}
