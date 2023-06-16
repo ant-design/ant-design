@@ -2,7 +2,6 @@ import type { DerivativeFunc } from '@ant-design/cssinjs';
 import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
 import type { ButtonProps } from '../button';
-import type { DividerProps } from '../divider';
 import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale';
 import type { SpaceProps } from '../space';
@@ -89,8 +88,8 @@ export interface ConfigConsumerProps {
   };
   button?: ButtonConfig;
   divider?: {
-    className?: DividerProps['className'];
-    style?: DividerProps['style'];
+    className?: string;
+    style?: React.CSSProperties;
   };
 }
 

@@ -7,7 +7,6 @@ import type { ReactElement } from 'react';
 import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
 import warning from '../_util/warning';
-import type { DividerProps } from '../divider';
 import { ValidateMessagesContext } from '../form/context';
 import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale';
@@ -138,8 +137,8 @@ export interface ConfigProviderProps {
   theme?: ThemeConfig;
   button?: ButtonConfig;
   divider?: {
-    className?: DividerProps['className'];
-    style?: DividerProps['style'];
+    className?: string;
+    style?: React.CSSProperties;
   };
 }
 
