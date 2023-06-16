@@ -5,6 +5,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import Form, { FormProps } from '../../form';
 
 jest.mock('rc-util/lib/Portal');
 
@@ -125,5 +126,28 @@ describe('Modal', () => {
   it('should render custom footer', () => {
     render(<Modal open footer={<div className="custom-footer">footer</div>} />);
     expect(document.querySelector('.custom-footer')).toBeTruthy();
+  });
+
+  describe('in Form', () => {
+    const FormDemo = (opt: { formProps?: FormProps; modalProps?: ModalProps }) => (
+      <Form {...(opt.formProps ?? {})}>
+        <Form.Item label="label">
+          <Modal {...(opt.modalProps ?? {})} />
+        </Form.Item>
+      </Form>
+    );
+
+    it('should not pass disabled to footer', () => {
+      const { getAllByRole } = render(
+        <FormDemo formProps={{ disabled: true }} modalProps={{ open: true }} />,
+      );
+
+      const footerBts = getAllByRole('button');
+      expect(footerBts).toBeTruthy();
+
+      footerBts.forEach((bt) => {
+        expect(bt).not.toHaveAttribute('disabled');
+      });
+    });
   });
 });
