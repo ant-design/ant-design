@@ -168,6 +168,7 @@ export interface ConfigProviderProps {
   tabs?: ComponentStyleConfig;
   upload?: ComponentStyleConfig;
   notification?: ComponentStyleConfig;
+  tree?: ComponentStyleConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -288,6 +289,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tabs,
     upload,
     notification,
+    tree,
   } = props;
 
   // =================================== Warning ===================================
@@ -370,6 +372,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tabs,
     upload,
     notification,
+    tree,
   };
 
   const config = {

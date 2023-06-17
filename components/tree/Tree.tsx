@@ -156,7 +156,7 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
 }
 
 const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
-  const { getPrefixCls, direction, virtual } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, virtual, tree } = React.useContext(ConfigContext);
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -169,6 +169,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     selectable = true,
     draggable,
     motion: customMotion,
+    style,
   } = props;
 
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
@@ -232,6 +233,8 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       ref={ref}
       virtual={virtual}
       {...newProps}
+      // newProps may contain style so declare style below it
+      style={{ ...tree?.style, ...style }}
       prefixCls={prefixCls}
       className={classNames(
         {
@@ -240,6 +243,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
           [`${prefixCls}-unselectable`]: !selectable,
           [`${prefixCls}-rtl`]: direction === 'rtl',
         },
+        tree?.className,
         className,
         hashId,
       )}
