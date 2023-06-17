@@ -36,14 +36,15 @@ export interface ThemeConfig {
   inherit?: boolean;
 }
 
-interface componentStyleConfig {
+export interface componentStyleConfig {
   className?: string;
   style?: React.CSSProperties;
+}
+
+export interface ButtonConfig extends componentStyleConfig {
   classNames?: ButtonProps['classNames'];
   styles?: ButtonProps['styles'];
 }
-
-export interface ButtonConfig extends componentStyleConfig {}
 
 export type PopupOverflow = 'viewport' | 'scroll';
 
@@ -87,10 +88,7 @@ export interface ConfigConsumerProps {
     showSearch?: boolean;
   };
   button?: ButtonConfig;
-  divider?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
+  empty?: componentStyleConfig;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
