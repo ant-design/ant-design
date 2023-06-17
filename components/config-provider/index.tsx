@@ -19,6 +19,7 @@ import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
   ButtonConfig,
+  componentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
   DirectionType,
@@ -136,10 +137,7 @@ export interface ConfigProviderProps {
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
   button?: ButtonConfig;
-  divider?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
+  divider?: componentStyleConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
