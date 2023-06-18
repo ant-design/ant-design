@@ -6,6 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
 import Input from '../../input';
+import Segmented from '../../segmented';
 import Select from '../../select';
 import Space from '../../space';
 import Table from '../../table';
@@ -197,5 +198,17 @@ describe('ConfigProvider', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('.ant-space')?.getAttribute('style')).toEqual('color: red;');
+  });
+  it('Should Segmented className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        segmented={{ className: 'config-provider-segmented', style: { backgroundColor: 'red' } }}
+      >
+        <Segmented options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-segmented');
+    expect(element).toHaveClass('config-provider-segmented');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });

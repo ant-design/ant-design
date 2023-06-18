@@ -70,6 +70,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | space | Set Space common props, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: { item: string }, styles?: { item: React.CSSProperties } } | - | 5.6.0 |
 | theme | Set theme, ref [Customize Theme](/docs/react/customize-theme) | - | - | 5.0.0 |
 | virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
+| segmented | Set Segmented common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 
 ### ConfigProvider.config()
 
