@@ -87,11 +87,16 @@ export interface ConfigConsumerProps {
     showSearch?: boolean;
   };
   button?: ButtonConfig;
+  typography?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
-  if (customizePrefixCls) return customizePrefixCls;
-
+  if (customizePrefixCls) {
+    return customizePrefixCls;
+  }
   return suffixCls ? `ant-${suffixCls}` : 'ant';
 };
 

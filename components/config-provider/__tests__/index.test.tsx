@@ -9,6 +9,7 @@ import Input from '../../input';
 import Select from '../../select';
 import Space from '../../space';
 import Table from '../../table';
+import Typography from '../../typography';
 
 describe('ConfigProvider', () => {
   mountTest(() => (
@@ -197,5 +198,17 @@ describe('ConfigProvider', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('.ant-space')?.getAttribute('style')).toEqual('color: red;');
+  });
+  it('Should Typography className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        typography={{ className: 'config-provider-typography', style: { backgroundColor: 'red' } }}
+      >
+        <Typography>test</Typography>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLElement>('.ant-typography');
+    expect(element).toHaveClass('config-provider-typography');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });

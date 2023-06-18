@@ -136,6 +136,10 @@ export interface ConfigProviderProps {
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
   button?: ButtonConfig;
+  typography?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -223,6 +227,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     iconPrefixCls: customIconPrefixCls,
     theme,
     componentDisabled,
+    typography,
   } = props;
 
   // =================================== Warning ===================================
@@ -239,7 +244,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     (suffixCls: string, customizePrefixCls?: string) => {
       const { prefixCls } = props;
 
-      if (customizePrefixCls) return customizePrefixCls;
+      if (customizePrefixCls) {
+        return customizePrefixCls;
+      }
 
       const mergedPrefixCls = prefixCls || parentContext.getPrefixCls('');
 
@@ -272,6 +279,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     getPrefixCls,
     iconPrefixCls,
     theme: mergedTheme,
+    typography,
   };
 
   const config = {
