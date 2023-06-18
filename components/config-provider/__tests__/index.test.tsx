@@ -202,12 +202,16 @@ describe('ConfigProvider', () => {
 
   it('Should Image className & style works', () => {
     const { container } = render(
-      <ConfigProvider image={{ className: 'config-provider-image', style: { color: 'red' } }}>
+      <ConfigProvider
+        image={{ className: 'config-provider-image', style: { backgroundColor: 'red' } }}
+      >
         <Image src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
       </ConfigProvider>,
     );
-    const element = container.querySelector<HTMLDivElement>('.ant-image');
+    const element = container
+      ?.querySelector<HTMLDivElement>('.ant-image')
+      ?.querySelector<HTMLImageElement>('img');
     expect(element).toHaveClass('config-provider-image');
-    expect(element).toHaveStyle('color: red');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });
