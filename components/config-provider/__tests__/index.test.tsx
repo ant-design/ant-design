@@ -8,6 +8,7 @@ import Button from '../../button';
 import Input from '../../input';
 import Select from '../../select';
 import Space from '../../space';
+import Steps from '../../steps';
 import Table from '../../table';
 
 describe('ConfigProvider', () => {
@@ -197,5 +198,17 @@ describe('ConfigProvider', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('.ant-space')?.getAttribute('style')).toEqual('color: red;');
+  });
+  it('Should Steps className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        steps={{ className: 'config-provider-steps', style: { backgroundColor: 'red' } }}
+      >
+        <Steps items={[{ title: 'title', description: 'description' }]} />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-steps');
+    expect(element).toHaveClass('config-provider-steps');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });
