@@ -4,4 +4,4 @@
 
 ## en-US
 
-Replace path in browser history, so back button returns user to previous page instead of previous anchor item.
+Replace path in browser history, so back button returns to previous page instead of previous anchor item.
