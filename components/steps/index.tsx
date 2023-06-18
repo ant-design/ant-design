@@ -92,7 +92,7 @@ const Steps: CompoundedComponent = (props) => {
   );
 
   const stepsClassName = classNames(
-    steps.className,
+    steps?.className,
     {
       [`${prefixCls}-rtl`]: rtlDirection === 'rtl',
       [`${prefixCls}-with-progress`]: mergedPercent !== undefined,
