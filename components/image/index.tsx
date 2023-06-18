@@ -16,7 +16,6 @@ export interface CompositionImage<P> extends React.FC<P> {
 const Image: CompositionImage<ImageProps> = ({
   prefixCls: customizePrefixCls,
   preview,
-  className,
   rootClassName,
   style,
   ...otherProps
@@ -35,9 +34,7 @@ const Image: CompositionImage<ImageProps> = ({
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const mergedRootClassName = classNames(rootClassName, hashId);
-
-  const mergedClassName = classNames(className, image?.className, hashId);
+  const mergedRootClassName = classNames(rootClassName, hashId, image?.className);
 
   const mergedPreview = React.useMemo(() => {
     if (preview === false) {
@@ -69,7 +66,6 @@ const Image: CompositionImage<ImageProps> = ({
     <RcImage
       prefixCls={`${prefixCls}`}
       preview={mergedPreview}
-      className={mergedClassName}
       rootClassName={mergedRootClassName}
       style={mergeStyle}
       {...otherProps}
