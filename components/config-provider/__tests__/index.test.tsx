@@ -8,6 +8,7 @@ import Button from '../../button';
 import Input from '../../input';
 import Select from '../../select';
 import Space from '../../space';
+import Spin from '../../spin';
 import Table from '../../table';
 
 describe('ConfigProvider', () => {
@@ -197,5 +198,17 @@ describe('ConfigProvider', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('.ant-space')?.getAttribute('style')).toEqual('color: red;');
+  });
+  it('Should Spin className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        spin={{ className: 'config-provider-spin', style: { backgroundColor: 'red' } }}
+      >
+        <Spin />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-spin');
+    expect(element).toHaveClass('config-provider-spin');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });
