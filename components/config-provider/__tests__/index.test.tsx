@@ -5,6 +5,7 @@ import ConfigProvider, { ConfigContext } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
+import Image from '../../image';
 import Input from '../../input';
 import Select from '../../select';
 import Space from '../../space';
@@ -197,5 +198,18 @@ describe('ConfigProvider', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('.ant-space')?.getAttribute('style')).toEqual('color: red;');
+  });
+
+  it('Should Image className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        image={{ className: 'config-provider-image', style: { backgroundColor: 'red' } }}
+      >
+        <Image src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-image');
+    expect(element).toHaveClass('config-provider-image');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });
