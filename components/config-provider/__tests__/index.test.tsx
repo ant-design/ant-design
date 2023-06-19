@@ -7,6 +7,7 @@ import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
 import Input from '../../input';
 import Select from '../../select';
+import Slider from '../../slider';
 import Space from '../../space';
 import Table from '../../table';
 
@@ -197,5 +198,16 @@ describe('ConfigProvider', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('.ant-space')?.getAttribute('style')).toEqual('color: red;');
+  });
+
+  it('Should Slider className & style works', () => {
+    const { container } = render(
+      <ConfigProvider slider={{ className: 'cp-slider', style: { backgroundColor: 'red' } }}>
+        <Slider />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-slider');
+    expect(element).toHaveClass('cp-slider');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });

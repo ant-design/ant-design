@@ -103,6 +103,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     range,
     className,
     rootClassName,
+    style,
     // Deprecated Props
     tooltipPrefixCls: legacyTooltipPrefixCls,
     tipFormatter: legacyTipFormatter,
@@ -113,7 +114,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     ...restProps
   } = props;
 
-  const { getPrefixCls, direction, getPopupContainer } = React.useContext(ConfigContext);
+  const { direction, slider, getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
   const [opens, setOpens] = React.useState<Opens>({});
 
   const toggleTooltipOpen = (index: number, open: boolean) => {
@@ -136,6 +137,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   const cls = classNames(
     className,
+    slider?.className,
     rootClassName,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -231,6 +233,8 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     );
   };
 
+  const mergeStyle: React.CSSProperties = { ...slider?.style, ...style };
+
   return wrapSSR(
     <RcSlider
       {...restProps}
@@ -238,6 +242,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
       range={mergedRange}
       draggableTrack={draggableTrack}
       className={cls}
+      style={mergeStyle}
       ref={ref}
       prefixCls={prefixCls}
       handleRender={handleRender}
