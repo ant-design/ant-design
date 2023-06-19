@@ -20,6 +20,12 @@ const getHashUrl = () => `Anchor-API-${idCounter++}`;
 
 jest.mock('scroll-into-view-if-needed', () => jest.fn());
 
+Object.defineProperty(window, 'location', {
+  value: {
+    replace: jest.fn(),
+  },
+});
+
 describe('Anchor Render', () => {
   const getBoundingClientRectMock = jest.spyOn(
     HTMLHeadingElement.prototype,
@@ -342,6 +348,17 @@ describe('Anchor Render', () => {
     fireEvent.click(container.querySelector(`a[href="${href}"]`)!);
     expect(event).not.toBe(undefined);
     expect(link).toEqual({ href, title });
+  });
+
+  it('replaces item href in browser history', () => {
+    const hash = getHashUrl();
+
+    const href = `#${hash}`;
+    const title = hash;
+    const { container } = render(<Anchor replace items={[{ key: hash, href, title }]} />);
+
+    fireEvent.click(container.querySelector(`a[href="${href}"]`)!);
+    expect(window.location.replace).toHaveBeenCalledWith(href);
   });
 
   it('onChange event', () => {
