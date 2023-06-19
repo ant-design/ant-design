@@ -86,10 +86,7 @@ const Steps: CompoundedComponent = (props) => {
   const mergedItems = useLegacyItems(items, children);
   const mergedPercent = isInline ? undefined : percent;
 
-  const mergeStyle = React.useMemo<React.CSSProperties>(
-    () => ({ ...steps?.style, ...style }),
-    [steps?.style, style],
-  );
+  const mergeStyle: React.CSSProperties = { ...steps?.style, ...style };
 
   const stepsClassName = classNames(
     steps?.className,
