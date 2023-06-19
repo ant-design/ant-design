@@ -26,8 +26,10 @@ import type {
 import useStyle from './style/index';
 import { customizePrefixCls, generateColor } from './util';
 
-export interface ColorPickerProps
-  extends Omit<RcColorPickerProps, 'onChange' | 'value' | 'defaultValue' | 'panelRender'> {
+export type ColorPickerProps = Omit<
+  RcColorPickerProps,
+  'onChange' | 'value' | 'defaultValue' | 'panelRender'
+> & {
   value?: Color | string;
   defaultValue?: Color | string;
   children?: React.ReactNode;
@@ -47,9 +49,7 @@ export interface ColorPickerProps
   onFormatChange?: (format: ColorFormat) => void;
   onChange?: (value: Color, hex: string) => void;
   onClear?: () => void;
-  getPopupContainer?: PopoverProps['getPopupContainer'];
-  autoAdjustOverflow?: PopoverProps['autoAdjustOverflow'];
-}
+} & Pick<PopoverProps, 'getPopupContainer' | 'autoAdjustOverflow' | 'destroyTooltipOnHide'>;
 
 type CompoundedComponent = React.FC<ColorPickerProps> & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
@@ -80,6 +80,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     onOpenChange,
     getPopupContainer,
     autoAdjustOverflow = true,
+    destroyTooltipOnHide,
   } = props;
 
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -149,6 +150,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     rootClassName,
     getPopupContainer,
     autoAdjustOverflow,
+    destroyTooltipOnHide,
   };
 
   const colorBaseProps: ColorPickerBaseProps = {

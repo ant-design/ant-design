@@ -49,6 +49,7 @@ group:
 | disabled | 禁用颜色选择器 | boolean | - | |
 | placement | 弹出窗口的位置 | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` | |
 | arrow | 配置弹出的箭头 | `boolean \| { pointAtCenter: boolean }` | true | |
+| destroyTooltipOnHide | 关闭后是否销毁弹窗 | `boolean` | false | 5.7.0 |
 | showText | 是否显示选定的颜色文本 | boolean | - | 5.7.0 |
 | textRender | 渲染触发器文本 | `(color: Color) => React.ReactNode` | - | 5.7.0 |
 | onChange | 颜色变化的回调 | `(value: Color, hex: string) => void` | - | |
