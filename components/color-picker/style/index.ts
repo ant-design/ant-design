@@ -131,6 +131,12 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           transition: `all ${motionDurationMid}`,
           background: colorBgElevated,
           padding: paddingXXS - lineWidth,
+          [`${componentCls}-trigger-text`]: {
+            marginInlineStart: marginXS,
+            marginInlineEnd: marginXS - (paddingXXS - lineWidth),
+            fontSize: fontSizeSM,
+            color: colorText,
+          },
           '&-active': {
             ...genActiveStyle(token),
             borderColor: colorPrimary,
@@ -145,12 +151,9 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
             '&:hover': {
               borderColor: colorBgTextActive,
             },
-          },
-          [`${componentCls}-trigger-text`]: {
-            marginInlineStart: marginXS,
-            marginInlineEnd: marginXS - lineWidth * 2,
-            fontSize: fontSizeSM,
-            color: colorText,
+            [`${componentCls}-trigger-text`]: {
+              color: colorTextDisabled,
+            },
           },
           ...genClearStyle(token, controlHeightSM),
           ...genColorBlockStyle(token, controlHeightSM),

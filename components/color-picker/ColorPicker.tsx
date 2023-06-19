@@ -39,6 +39,7 @@ export interface ColorPickerProps
   allowClear?: boolean;
   presets?: PresetsItem[];
   arrow?: boolean | { pointAtCenter: boolean };
+  showText?: boolean;
   textRender?: (color: Color) => React.ReactNode;
   styles?: { popup?: CSSProperties };
   rootClassName?: string;
@@ -68,6 +69,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     placement = 'bottomLeft',
     arrow = true,
     textRender,
+    showText,
     style,
     className,
     rootClassName,
@@ -91,6 +93,10 @@ const ColorPicker: CompoundedComponent = (props) => {
     value: open,
     postState: (openData) => !disabled && openData,
     onChange: onOpenChange,
+  });
+  const [formatValue, setFormatValue] = useMergedState(format, {
+    value: format,
+    onChange: onFormatChange,
   });
 
   const [colorCleared, setColorCleared] = useState(false);
@@ -152,8 +158,8 @@ const ColorPicker: CompoundedComponent = (props) => {
     colorCleared,
     disabled,
     presets,
-    format,
-    onFormatChange,
+    format: formatValue,
+    onFormatChange: setFormatValue,
   };
 
   return wrapSSR(
@@ -185,6 +191,8 @@ const ColorPicker: CompoundedComponent = (props) => {
           disabled={disabled}
           colorCleared={colorCleared}
           textRender={textRender}
+          showText={showText}
+          format={formatValue}
         />
       )}
     </Popover>,

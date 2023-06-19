@@ -22,13 +22,13 @@ group:
 <!-- prettier-ignore -->
 <code src="./demo/base.tsx">基本使用</code>
 <code src="./demo/controlled.tsx">受控模式</code>
-<code src="./demo/disabled.tsx" debug>禁用</code>
+<code src="./demo/text-render.tsx">渲染触发器文本</code>
+<code src="./demo/disabled.tsx">禁用</code>
 <code src="./demo/allowClear.tsx">清除颜色</code>
 <code src="./demo/trigger.tsx">自定义触发器</code>
 <code src="./demo/trigger-event.tsx">自定义触发事件</code>
 <code src="./demo/format.tsx">颜色编码</code>
 <code src="./demo/presets.tsx">预设颜色</code>
-<code src="./demo/text-render.tsx">自定义触发器文本</code>
 <code src="./demo/pure-panel.tsx" debug>Pure Render</code>
 
 ## API
@@ -49,6 +49,7 @@ group:
 | disabled | 禁用颜色选择器 | boolean | - | |
 | placement | 弹出窗口的位置 | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` | |
 | arrow | 配置弹出的箭头 | `boolean \| { pointAtCenter: boolean }` | true | |
+| showText | 是否显示选定的颜色文本 | boolean | - | 5.7.0 |
 | textRender | 渲染触发器文本 | `(color: Color) => React.ReactNode` | - | 5.7.0 |
 | onChange | 颜色变化的回调 | `(value: Color, hex: string) => void` | - | |
 | onFormatChange | 颜色格式变化的回调 | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - | |
