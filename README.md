@@ -34,10 +34,10 @@ An enterprise-class UI design language and React UI library.
 [twitter-url]: https://twitter.com/AntDesignUI
 [discussions-image]: https://img.shields.io/badge/discussions-on%20github-blue?style=flat-square
 [discussions-url]: https://github.com/ant-design/ant-design/discussions
-[bundlesize-js-image]: https://img.badgesize.io/https:/unpkg.com/antd/dist/antd.min.js?label=antd.min.js&compression=gzip&style=flat-square
-[bundlesize-css-image]: https://img.badgesize.io/https:/unpkg.com/antd/dist/antd.min.css?label=antd.min.css&compression=gzip&style=flat-square
-[unpkg-js-url]: https://unpkg.com/browse/antd/dist/antd.min.js
-[unpkg-css-url]: https://unpkg.com/browse/antd/dist/antd.min.css
+[bundlesize-js-image]: https://img.badgesize.io/https:/unpkg.com/antd@4.x/dist/antd.min.js?label=antd.min.js&compression=gzip&style=flat-square
+[bundlesize-css-image]: https://img.badgesize.io/https:/unpkg.com/antd@4.x/dist/antd.min.css?label=antd.min.css&compression=gzip&style=flat-square
+[unpkg-js-url]: https://unpkg.com/browse/antd@4.x/dist/antd.min.js
+[unpkg-css-url]: https://unpkg.com/browse/antd@4.x/dist/antd.min.css
 [issues-helper-image]: https://img.shields.io/badge/using-issues--helper-orange?style=flat-square
 [issues-helper-url]: https://github.com/actions-cool/issues-helper
 [renovate-image]: https://img.shields.io/badge/renovate-enabled-brightgreen.svg?style=flat-square
