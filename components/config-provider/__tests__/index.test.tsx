@@ -210,7 +210,7 @@ describe('ConfigProvider', () => {
         <Divider />
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-divider.config-provider-className')).toBeTruthy();
+    expect(container.querySelector('.ant-divider')).toHaveClass('config-provider-className');
   });
 
   it('Should Divider style works', () => {
@@ -226,8 +226,6 @@ describe('ConfigProvider', () => {
         <Divider />
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-divider')?.getAttribute('style')).toEqual(
-      'color: red; height: 80px;',
-    );
+    expect(container.querySelector('.ant-divider'))?.toHaveStyle({ color: 'red', height: '80px' });
   });
 });
