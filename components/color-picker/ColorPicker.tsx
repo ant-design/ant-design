@@ -67,7 +67,6 @@ const ColorPicker: CompoundedComponent = (props) => {
     disabled,
     placement = 'bottomLeft',
     arrow = true,
-    textRender,
     showText,
     style,
     className,
