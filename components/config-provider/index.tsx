@@ -19,7 +19,7 @@ import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
   ButtonConfig,
-  componentStyleConfig,
+  ComponentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
   DirectionType,
@@ -137,7 +137,8 @@ export interface ConfigProviderProps {
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
   button?: ButtonConfig;
-  divider?: componentStyleConfig;
+  descriptions?: ComponentStyleConfig;
+  divider?: ComponentStyleConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -225,6 +226,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     iconPrefixCls: customIconPrefixCls,
     theme,
     componentDisabled,
+    descriptions,
     divider,
   } = props;
 
@@ -275,6 +277,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     getPrefixCls,
     iconPrefixCls,
     theme: mergedTheme,
+    descriptions,
     divider,
   };
 

@@ -132,7 +132,7 @@ function Descriptions({
   contentStyle,
   ...restProps
 }: DescriptionsProps) {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, descriptions } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
   const [screens, setScreens] = React.useState<ScreenMap>({});
   const mergedColumn = getColumn(column, screens);
@@ -168,6 +168,7 @@ function Descriptions({
       <div
         className={classNames(
           prefixCls,
+          descriptions?.className,
           {
             [`${prefixCls}-${mergedSize}`]: mergedSize && mergedSize !== 'default',
             [`${prefixCls}-bordered`]: !!bordered,
@@ -177,7 +178,7 @@ function Descriptions({
           rootClassName,
           hashId,
         )}
-        style={style}
+        style={{ ...descriptions?.style, ...style }}
         {...restProps}
       >
         {(title || extra) && (

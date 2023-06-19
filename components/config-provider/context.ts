@@ -36,12 +36,12 @@ export interface ThemeConfig {
   inherit?: boolean;
 }
 
-export interface componentStyleConfig {
+export interface ComponentStyleConfig {
   className?: string;
   style?: React.CSSProperties;
 }
 
-export interface ButtonConfig extends componentStyleConfig {
+export interface ButtonConfig extends ComponentStyleConfig {
   classNames?: ButtonProps['classNames'];
   styles?: ButtonProps['styles'];
 }
@@ -88,7 +88,8 @@ export interface ConfigConsumerProps {
     showSearch?: boolean;
   };
   button?: ButtonConfig;
-  divider?: componentStyleConfig;
+  descriptions?: ComponentStyleConfig;
+  divider?: ComponentStyleConfig;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
