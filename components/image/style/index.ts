@@ -64,7 +64,7 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
     [`${previewCls}-operations`]: {
       ...resetComponent(token),
       display: 'flex',
-      flexDirection: 'row-reverse',
+      justifyContent: 'flex-end',
       alignItems: 'center',
       color: token.previewOperationColor,
       listStyle: 'none',
@@ -87,7 +87,7 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
           pointerEvents: 'none',
         },
 
-        '&:last-of-type': {
+        '&:first-of-type': {
           marginInlineStart: 0,
         },
       },
@@ -182,6 +182,9 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
         [`${previewCls}-body`]: {
           ...genBoxStyle(),
           overflow: 'hidden',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
         },
 
         [`${previewCls}-img`]: {
@@ -192,36 +195,15 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
           cursor: 'grab',
           transition: `transform ${motionDurationSlow} ${motionEaseOut} 0s`,
           userSelect: 'none',
-          pointerEvents: 'auto',
 
           '&-wrapper': {
-            ...genBoxStyle(),
-            transition: `transform ${motionDurationSlow} ${motionEaseOut} 0s`,
-
-            // https://github.com/ant-design/ant-design/issues/39913
-            // TailwindCSS will reset img default style.
-            // Let's set back.
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-
-            '&::before': {
-              display: 'inline-block',
-              width: 1,
-              height: '50%',
-              marginInlineEnd: -1,
-              content: '""',
-            },
+            pointerEvents: 'auto',
           },
         },
 
         [`${previewCls}-moving`]: {
           [`${previewCls}-preview-img`]: {
             cursor: 'grabbing',
-
-            '&-wrapper': {
-              transitionDuration: '0s',
-            },
           },
         },
       },
