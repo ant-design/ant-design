@@ -2,11 +2,11 @@ import classNames from 'classnames';
 import type { CheckboxRef } from 'rc-checkbox';
 import RcCheckbox from 'rc-checkbox';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import { FormItemInputContext } from '../form/context';
 import warning from '../_util/warning';
-import { GroupContext } from './Group';
+import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
+import { FormItemInputContext } from '../form/context';
+import { GroupContext } from './Group';
 
 import useStyle from './style';
 
@@ -65,7 +65,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   },
   ref,
 ) => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, checkbox } = React.useContext(ConfigContext);
   const checkboxGroup = React.useContext(GroupContext);
   const { isFormItemInput } = React.useContext(FormItemInputContext);
   const contextDisabled = React.useContext(DisabledContext);
@@ -118,6 +118,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
       [`${prefixCls}-wrapper-disabled`]: mergedDisabled,
       [`${prefixCls}-wrapper-in-form-item`]: isFormItemInput,
     },
+    checkbox?.className,
     className,
     rootClassName,
     hashId,
@@ -133,7 +134,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label
       className={classString}
-      style={style}
+      style={{ ...checkbox?.style, ...style }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
