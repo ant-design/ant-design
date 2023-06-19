@@ -21,7 +21,8 @@ Used when the user needs to customize the color selection.
 <!-- prettier-ignore -->
 <code src="./demo/base.tsx">Basic Usage</code>
 <code src="./demo/controlled.tsx">controlled mode</code>
-<code src="./demo/disabled.tsx" debug>Disable</code>
+<code src="./demo/text-render.tsx">Rendering Trigger Text</code>
+<code src="./demo/disabled.tsx">Disable</code>
 <code src="./demo/allowClear.tsx">Clear Color</code>
 <code src="./demo/trigger.tsx">Custom Trigger</code>
 <code src="./demo/trigger-event.tsx">Custom Trigger Event</code>
@@ -34,24 +35,25 @@ Used when the user needs to customize the color selection.
 > This component is available since `antd@5.5.0`.
 
 <!-- prettier-ignore -->
-| Property | Description | Type | Default |
-| :-- | :-- | :-- | :-- |
-| format | Format of color | `rgb` \| `hex` \| `hsb` | `hex` |
-| value | Value of color | string \| `Color` | - |
-| defaultValue | Default value of color | string \| `Color` | - |
-| allowClear | 	Allow clearing color selected | boolean | false |
-| presets | 	Preset colors | `{ label: ReactNode, colors: Array<string \| Color> }[]` | - |
-| children | Trigger of ColorPicker | React.ReactNode | - |
-| trigger | ColorPicker trigger mode | `hover` \| `click` | `click` |
-| open | Whether to show popup | boolean | - |
-| disabled | Disable ColorPicker | boolean | - |
-| placement | Placement of popup | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` |
-| arrow | Configuration for popup arrow | `boolean \| { pointAtCenter: boolean }` | `true` | - |
-| destroyTooltipOnHide | Whether destroy popover when hidden | `boolean` | `false` |
-| onChange | Callback when `value` is changed | `(value: Color, hex: string) => void` | - |
-| onFormatChange | Callback when `format` is changed | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - |
-| onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - |
-| onClear | Called when clear | `() => void` | - |
+| Property | Description | Type | Default | Version |
+| :-- | :-- | :-- | :-- | :-- |
+| format | Format of color | `rgb` \| `hex` \| `hsb` | `hex` | |
+| value | Value of color | string \| `Color` | - | |
+| defaultValue | Default value of color | string \| `Color` | - | |
+| allowClear | 	Allow clearing color selected | boolean | false | |
+| presets | 	Preset colors | `{ label: ReactNode, colors: Array<string \| Color> }[]` | - | |
+| children | Trigger of ColorPicker | React.ReactNode | - | |
+| trigger | ColorPicker trigger mode | `hover` \| `click` | `click` | |
+| open | Whether to show popup | boolean | - | |
+| disabled | Disable ColorPicker | boolean | - | |
+| placement | Placement of popup | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` | |
+| arrow | Configuration for popup arrow | `boolean \| { pointAtCenter: boolean }` | true | |
+| destroyTooltipOnHide | Whether destroy popover when hidden | `boolean` | false | 5.7.0 |
+| showText | show color text | boolean \| `(color: Color) => React.ReactNode` | - | 5.7.0 |
+| onChange | Callback when `value` is changed | `(value: Color, hex: string) => void` | - | |
+| onFormatChange | Callback when `format` is changed | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - | |
+| onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - | |
+| onClear | Called when clear | `() => void` | - | 5.6.0 |
 
 ### Color
 
