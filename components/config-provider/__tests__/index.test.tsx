@@ -6,6 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
 import Input from '../../input';
+import Result from '../../result';
 import Select from '../../select';
 import Space from '../../space';
 import Table from '../../table';
@@ -197,5 +198,16 @@ describe('ConfigProvider', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('.ant-space')?.getAttribute('style')).toEqual('color: red;');
+  });
+
+  it('Should Steps className & style works', () => {
+    const { container } = render(
+      <ConfigProvider result={{ className: 'cp-result', style: { backgroundColor: 'red' } }}>
+        <Result />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-result');
+    expect(element).toHaveClass('cp-result');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });

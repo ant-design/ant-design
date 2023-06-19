@@ -27,13 +27,14 @@ Use when important operations need to inform the user to process the results and
 
 ## API
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
 | extra | Operating area | ReactNode | - |
 | icon | Custom back icon | ReactNode | - |
 | status | Result status, decide icons and colors | `success` \| `error` \| `info` \| `warning` \| `404` \| `403` \| `500` | `info` |
 | subTitle | The subTitle | ReactNode | - |
 | title | The title | ReactNode | - |
+| result | Set Result common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 
 ## Design Token
 
