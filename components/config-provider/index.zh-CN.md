@@ -99,7 +99,7 @@ const {
 | componentDisabled | antd 组件禁用状态 | boolean | - | 5.3.0 |
 | componentSize | antd 组件大小状态 | `small` \| `middle` \| `large` | - | 5.3.0 |
 
-### ComponentConfig
+### 组件配置
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |

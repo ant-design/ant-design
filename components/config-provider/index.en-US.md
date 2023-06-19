@@ -97,7 +97,7 @@ const {
 | componentDisabled | antd component disabled state | boolean | - | 5.3.0 |
 | componentSize | antd component size state | `small` \| `middle` \| `large` | - | 5.3.0 |
 
-### ComponentConfig
+### Component Config
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
