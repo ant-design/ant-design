@@ -135,10 +135,7 @@ const Result: ResultType = ({
     hashId,
   );
 
-  const mergeStyle = React.useMemo<React.CSSProperties>(
-    () => ({ ...result?.style, ...style }),
-    [result?.style, style],
-  );
+  const mergeStyle: React.CSSProperties = { ...result?.style, ...style };
 
   return wrapSSR(
     <div className={className} style={mergeStyle}>
