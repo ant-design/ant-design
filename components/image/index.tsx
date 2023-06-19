@@ -60,10 +60,7 @@ const Image: CompositionImage<ImageProps> = ({
     };
   }, [preview, imageLocale]);
 
-  const mergeStyle = React.useMemo<React.CSSProperties>(
-    () => ({ ...image?.style, ...style }),
-    [image?.style, style],
-  );
+  const mergeStyle: React.CSSProperties = { ...image?.style, ...style };
 
   return wrapSSR(
     <RcImage
