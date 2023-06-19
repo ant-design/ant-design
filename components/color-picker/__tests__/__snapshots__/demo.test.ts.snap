@@ -244,7 +244,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/color-picker/demo/showValue.tsx correctly 1`] = `
+exports[`renders components/color-picker/demo/text-render.tsx correctly 1`] = `
 <div
   class="ant-color-picker-trigger"
 >
@@ -257,9 +257,9 @@ exports[`renders components/color-picker/demo/showValue.tsx correctly 1`] = `
     />
   </div>
   <div
-    class="ant-color-picker-trigger-color-show"
+    class="ant-color-picker-trigger-text"
   >
-    #1677FF
+    #1677ff
   </div>
 </div>
 `;

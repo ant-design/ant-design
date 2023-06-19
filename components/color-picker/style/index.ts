@@ -146,7 +146,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
               borderColor: colorBgTextActive,
             },
           },
-          [`${componentCls}-trigger-color-show`]: {
+          [`${componentCls}-trigger-text`]: {
             marginInlineStart: marginXS,
             marginInlineEnd: marginXS - 2,
             fontSize: fontSizeSM,
