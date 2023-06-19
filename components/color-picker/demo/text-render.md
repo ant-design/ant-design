@@ -1,7 +1,7 @@
 ## zh-CN
 
-提供两种方式：1.`showText` 显示默认触发器的文本 2. `textRender` 自定义渲染触发器的文本。
+渲染触发器的默认文本, `showText` 为 `true` 时生效。自定义文本时，可以使用 `showText` 为函数的方式，返回自定义的文本。
 
 ## en-US
 
-Provide two ways: 1. `showText` Show the text of the default trigger 2. `textRender` Customize the rendering of the trigger's text.
+Renders the default text of the trigger, effective when `showText` is `true`. When customizing text, you can use `showText` as a function to return custom text.

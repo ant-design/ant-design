@@ -4,7 +4,7 @@ import React from 'react';
 const Demo = () => (
   <Space direction="vertical">
     <ColorPicker showText />
-    <ColorPicker textRender={(color) => <span>Custom Text ({color.toHexString()})</span>} />
+    <ColorPicker showText={(color) => <span>Custom Text ({color.toHexString()})</span>} />
   </Space>
 );
 

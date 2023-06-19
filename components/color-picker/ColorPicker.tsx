@@ -41,8 +41,7 @@ export type ColorPickerProps = Omit<
   allowClear?: boolean;
   presets?: PresetsItem[];
   arrow?: boolean | { pointAtCenter: boolean };
-  showText?: boolean;
-  textRender?: (color: Color) => React.ReactNode;
+  showText?: boolean | ((color: Color) => React.ReactNode);
   styles?: { popup?: CSSProperties };
   rootClassName?: string;
   onOpenChange?: (open: boolean) => void;
@@ -192,7 +191,6 @@ const ColorPicker: CompoundedComponent = (props) => {
           prefixCls={prefixCls}
           disabled={disabled}
           colorCleared={colorCleared}
-          textRender={textRender}
           showText={showText}
           format={formatValue}
         />

@@ -330,8 +330,8 @@ describe('ColorPicker', () => {
     expect(container.querySelector('.ant-color-picker-presets-color-bright')).toBeFalsy();
   });
 
-  it('Should textRender work', async () => {
-    const { container } = render(<ColorPicker textRender={(color) => color.toHexString()} />);
+  it('Should showText as render function work', async () => {
+    const { container } = render(<ColorPicker showText={(color) => color.toHexString()} />);
     const targetEle = container.querySelector('.ant-color-picker-trigger-text');
     expect(targetEle).toBeTruthy();
     expect(targetEle?.innerHTML).toBe('#1677ff');

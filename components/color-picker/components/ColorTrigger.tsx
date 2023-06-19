@@ -11,7 +11,6 @@ interface colorTriggerProps
   extends Pick<ColorPickerBaseProps, 'prefixCls' | 'colorCleared' | 'disabled' | 'format'> {
   color: Exclude<ColorPickerBaseProps['color'], undefined>;
   open?: boolean;
-  textRender?: ColorPickerProps['textRender'];
   showText?: ColorPickerProps['showText'];
   className?: string;
   style?: CSSProperties;
@@ -21,18 +20,8 @@ interface colorTriggerProps
 }
 
 const ColorTrigger = forwardRef<HTMLDivElement, colorTriggerProps>((props, ref) => {
-  const {
-    color,
-    prefixCls,
-    open,
-    colorCleared,
-    disabled,
-    format,
-    className,
-    textRender,
-    showText,
-    ...rest
-  } = props;
+  const { color, prefixCls, open, colorCleared, disabled, format, className, showText, ...rest } =
+    props;
   const colorTriggerPrefixCls = `${prefixCls}-trigger`;
 
   const containerNode = useMemo<React.ReactNode>(
@@ -60,8 +49,8 @@ const ColorTrigger = forwardRef<HTMLDivElement, colorTriggerProps>((props, ref) 
   };
 
   const renderText = () => {
-    if (typeof textRender === 'function') {
-      return textRender(color);
+    if (typeof showText === 'function') {
+      return showText(color);
     }
     if (showText) {
       return genColorString();
@@ -78,9 +67,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, colorTriggerProps>((props, ref) 
       {...rest}
     >
       {containerNode}
-      {(textRender || showText) && (
-        <div className={`${colorTriggerPrefixCls}-text`}>{renderText()}</div>
-      )}
+      {showText && <div className={`${colorTriggerPrefixCls}-text`}>{renderText()}</div>}
     </div>
   );
 });
