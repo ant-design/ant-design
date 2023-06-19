@@ -20,6 +20,7 @@ Used when the user needs to customize the color selection.
 
 <!-- prettier-ignore -->
 <code src="./demo/base.tsx">Basic Usage</code>
+<code src="./demo/size.tsx">Trigger size</code>
 <code src="./demo/controlled.tsx">controlled mode</code>
 <code src="./demo/text-render.tsx">Rendering Trigger Text</code>
 <code src="./demo/disabled.tsx">Disable</code>

@@ -21,6 +21,7 @@ group:
 
 <!-- prettier-ignore -->
 <code src="./demo/base.tsx">基本使用</code>
+<code src="./demo/size.tsx">触发器尺寸大小</code>
 <code src="./demo/controlled.tsx">受控模式</code>
 <code src="./demo/text-render.tsx">渲染触发器文本</code>
 <code src="./demo/disabled.tsx">禁用</code>

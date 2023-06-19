@@ -72,6 +72,42 @@ const genClearStyle = (token: ColorPickerToken, size: number): CSSObject => {
   };
 };
 
+const genSizeStyle = (token: ColorPickerToken): CSSObject => {
+  const {
+    componentCls,
+    controlHeightLG,
+    controlHeightSM,
+    controlHeight,
+    controlHeightXS,
+    borderRadius,
+    borderRadiusSM,
+    borderRadiusXS,
+    borderRadiusLG,
+  } = token;
+  return {
+    [`&${componentCls}-lg`]: {
+      width: controlHeightLG,
+      height: controlHeightLG,
+      borderRadius: borderRadiusLG,
+      [`${componentCls}-color-block`]: {
+        width: controlHeight,
+        height: controlHeight,
+        borderRadius,
+      },
+    },
+    [`&${componentCls}-sm`]: {
+      width: controlHeightSM,
+      height: controlHeightSM,
+      borderRadius: borderRadiusSM,
+      [`${componentCls}-color-block`]: {
+        width: controlHeightXS,
+        height: controlHeightXS,
+        borderRadius: borderRadiusXS,
+      },
+    },
+  };
+};
+
 const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
   const {
     componentCls,
@@ -157,6 +193,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           },
           ...genClearStyle(token, controlHeightSM),
           ...genColorBlockStyle(token, controlHeightSM),
+          ...genSizeStyle(token),
         },
         ...genRtlStyle(token),
       },
