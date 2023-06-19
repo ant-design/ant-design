@@ -136,6 +136,10 @@ export interface ConfigProviderProps {
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
   button?: ButtonConfig;
+  breadcrumb?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -223,6 +227,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     iconPrefixCls: customIconPrefixCls,
     theme,
     componentDisabled,
+    breadcrumb,
   } = props;
 
   // =================================== Warning ===================================
@@ -272,6 +277,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     getPrefixCls,
     iconPrefixCls,
     theme: mergedTheme,
+    breadcrumb,
   };
 
   const config = {

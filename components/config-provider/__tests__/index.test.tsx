@@ -4,6 +4,7 @@ import type { ConfigConsumerProps } from '..';
 import ConfigProvider, { ConfigContext } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { fireEvent, render } from '../../../tests/utils';
+import Breadcrumb from '../../breadcrumb';
 import Button from '../../button';
 import Input from '../../input';
 import Select from '../../select';
@@ -197,5 +198,18 @@ describe('ConfigProvider', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('.ant-space')?.getAttribute('style')).toEqual('color: red;');
+  });
+
+  it('Should Breadcrumb className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        breadcrumb={{ className: 'cp-breadcrumb', style: { backgroundColor: 'red' } }}
+      >
+        <Breadcrumb />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLElement>('.ant-breadcrumb');
+    expect(element).toHaveClass('cp-breadcrumb');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });
