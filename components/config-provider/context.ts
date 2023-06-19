@@ -88,7 +88,7 @@ export interface ConfigConsumerProps {
     showSearch?: boolean;
   };
   button?: ButtonConfig;
-  empty?: componentStyleConfig;
+  divider?: componentStyleConfig;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
