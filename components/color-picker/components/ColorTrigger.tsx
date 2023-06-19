@@ -43,7 +43,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, colorTriggerProps>((props, ref) 
     >
       {containerNode}
       {typeof textRender === 'function' && (
-        <div className={`${colorTriggerPrefixCls}-text`}>{textRender?.(color)}</div>
+        <div className={`${colorTriggerPrefixCls}-text`}>{textRender(color)}</div>
       )}
     </div>
   );
