@@ -12,6 +12,7 @@ import DatePicker from '../../date-picker';
 import Drawer from '../../drawer';
 import Dropdown from '../../dropdown';
 import Input from '../../input';
+import InputNumber from '../../input-number';
 import Modal from '../../modal';
 import Select from '../../select';
 import TimePicker from '../../time-picker';
@@ -155,6 +156,42 @@ describe('Space.Compact', () => {
     );
     expect(container.querySelector('.ant-input')?.classList.contains('ant-input-sm')).toBe(true);
     expect(container.querySelector('.ant-btn')?.classList.contains('ant-btn-sm')).toBe(true);
+  });
+  it('component size has a higher priority than Compact', () => {
+    const { container } = render(
+      <Space.Compact size="middle">
+        <Input size="small" />
+        <Select size="small" />
+        <Button size="small">Submit</Button>
+        <InputNumber size="small" />
+        <DatePicker size="small" />
+        <DatePicker.RangePicker size="small" />
+        <Cascader size="small" />
+        <TreeSelect size="small" />
+        <Input.Search size="small" />
+      </Space.Compact>,
+    );
+    expect(container.querySelector('.ant-input')?.classList.contains('ant-input-sm')).toBe(true);
+    expect(container.querySelector('.ant-select')?.classList.contains('ant-select-sm')).toBe(true);
+    expect(container.querySelector('.ant-btn')?.classList.contains('ant-btn-sm')).toBe(true);
+    expect(
+      container.querySelector('.ant-input-number')?.classList.contains('ant-input-number-sm'),
+    ).toBe(true);
+    expect(container.querySelector('.ant-picker')?.classList.contains('ant-picker-small')).toBe(
+      true,
+    );
+    expect(
+      container.querySelector('.ant-picker-range')?.classList.contains('ant-picker-small'),
+    ).toBe(true);
+    expect(container.querySelector('.ant-cascader')?.classList.contains('ant-select-sm')).toBe(
+      true,
+    );
+    expect(container.querySelector('.ant-tree-select')?.classList.contains('ant-select-sm')).toBe(
+      true,
+    );
+    expect(
+      container.querySelector('.ant-input-search')?.classList.contains('ant-input-search-small'),
+    ).toBe(true);
   });
 
   it('direction=vertical', () => {
