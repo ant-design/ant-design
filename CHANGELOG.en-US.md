@@ -15,6 +15,23 @@ timeline: true
 
 ---
 
+## 5.6.2
+
+`2023-06-19`
+
+- 🐞 Fix Dropdown with `autoFocus` not work as expect. [#43002](https://github.com/ant-design/ant-design/pull/43002) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 Fix InputNumber with `prefix` abnormal height under Form.Item of `hasFeedBack`. [#43049](https://github.com/ant-design/ant-design/pull/43049)
+- 💄 Fix Input and InputNumber disabled style with addons. [#42974](https://github.com/ant-design/ant-design/pull/42974) [@kampiu](https://github.com/kampiu)
+- 🐞 Fix Upload trigger extra `onChange` event when upload the file exceeds `maxCount`. [#43034](https://github.com/ant-design/ant-design/pull/43034)
+- 🐞 Fix export bundle size always contain `rc-field-form` even not use it. [#43023](https://github.com/ant-design/ant-design/pull/43023)
+- 🐞 Fix DatePicker `disabledTime` sometime can select disabled option. [#42991](https://github.com/ant-design/ant-design/pull/42991) [@linxianxi](https://github.com/linxianxi)
+- 📖 Add FloatButton controlled demo and patch related warning info. [#42835](https://github.com/ant-design/ant-design/pull/42835) [@poyiding](https://github.com/poyiding)
+- 🐞 Fix Button with `disabled` still can interactive with sub component. [#42949](https://github.com/ant-design/ant-design/pull/42949) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Drawer add max width to avoid exceed in small screen. [#42914](https://github.com/ant-design/ant-design/pull/42914) [@amir2mi](https://github.com/amir2mi)
+- 🐞 Fix Table `preserveSelectedRowKeys` not working when `checkStrictly` configured. [#42784](https://github.com/ant-design/ant-design/pull/42784) [@linxianxi](https://github.com/linxianxi)
+- 🐞 Fix Transfer select count not sync when dynamic update data. [#42785](https://github.com/ant-design/ant-design/pull/42785) [@BoyYangzai](https://github.com/BoyYangzai)
+- 🐞 Fix Radio.Button `title` not work and update typescript definition. [#43012](https://github.com/ant-design/ant-design/pull/43012) [@linxianxi](https://github.com/linxianxi)
+
 ## 5.6.1
 
 `2023-06-07`
