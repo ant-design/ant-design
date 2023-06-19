@@ -48,24 +48,6 @@ Previewable image.
 
 Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
 
-### previewType
-
-```typescript
-{
-  visible?: boolean;
-  onVisibleChange?: (visible, prevVisible, current: number) => void; // `current` only support after v5.3.0
-  getContainer?: string | HTMLElement | (() => HTMLElement); // v4.8.0 The mounted node for preview dialog but still display at fullScreen
-  src?: string; // v4.10.0
-  mask?: ReactNode; // v4.9.0
-  maskClassName?: string; // v4.11.0
-  rootClassName?: string; // only support after v5.4.0
-  current?: number; // v4.12.0 Only support PreviewGroup
-  countRender?: (current: number, total: number) => string  // v4.20.0 Only support PreviewGroup
-  scaleStep?: number;
-  onChange?: (current: number, prevCurrent: number) => void; // only support after v5.3.0
-}
-```
-
 ### PreviewType
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -76,7 +58,7 @@ Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 | mask | Thumbnail mask | ReactNode | - | 4.9.0 |
 | maskClassName | The className of the mask | string | - | 4.11.0 |
 | rootClassName | The classname of the preview root DOM | string | - | 5.4.0 |
-| scaleStep | The number to which the scale is increased or decreased | number | - | - |
+| scaleStep | The number to which the scale is increased or decreased | number | 0.5 | - |
 | minScale | Min scale | number | 1 | 5.7.0 |
 | maxScale | Max scale | number | 50 | 5.7.0 |
 | forceRender | Force render preview dialog | boolean | - | - |
@@ -102,7 +84,7 @@ Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 | mask | Thumbnail mask | ReactNode | - | 4.9.0 |
 | maskClassName | The className of the mask | string | - | 4.11.0 |
 | rootClassName | The classname of the preview root DOM | string | - | 5.4.0 |
-| scaleStep | The number to which the scale is increased or decreased | number | - | - |
+| scaleStep | The number to which the scale is increased or decreased | number | 0.5 | - |
 | minScale | Min scale | number | 1 | 5.7.0 |
 | maxScale | Max scale | number | 50 | 5.7.0 |
 | forceRender | Force render preview dialog | boolean | - | - |
