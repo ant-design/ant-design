@@ -5,6 +5,7 @@ import Breadcrumb from '../../breadcrumb';
 import Checkbox from '../../checkbox';
 import Descriptions from '../../descriptions';
 import Divider from '../../divider';
+import Empty from '../../empty';
 import Image from '../../image';
 import Pagination from '../../pagination';
 import Result from '../../result';
@@ -270,5 +271,23 @@ describe('ConfigProvider support style and className props', () => {
 
     expect(container.querySelector('.ant-descriptions')).toHaveClass('cp-className');
     expect(container.querySelector('.ant-descriptions')).toHaveStyle({ background: 'red' });
+  });
+
+  it('Should Empty className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        empty={{
+          className: 'cp-className',
+          style: {
+            background: 'red',
+          },
+        }}
+      >
+        <Empty />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-empty')).toHaveClass('cp-className');
+    expect(container.querySelector('.ant-empty')).toHaveStyle({ background: 'red' });
   });
 });
