@@ -34,36 +34,36 @@ Used when the user needs to customize the color selection.
 > This component is available since `antd@5.5.0`.
 
 <!-- prettier-ignore -->
-| Property | Description | Type | Default |
-| :-- | :-- | :-- | :-- |
-| format | Format of color | `rgb` \| `hex` \| `hsb` | `hex` |
-| value | Value of color | string \| `Color` | - |
-| defaultValue | Default value of color | string \| `Color` | - |
-| allowClear | 	Allow clearing color selected | boolean | false |
-| presets | 	Preset colors | `{ label: ReactNode, colors: Array<string \| Color> }[]` | - |
-| children | Trigger of ColorPicker | React.ReactNode | - |
-| trigger | ColorPicker trigger mode | `hover` \| `click` | `click` |
-| open | Whether to show popup | boolean | - |
-| disabled | Disable ColorPicker | boolean | - |
-| placement | Placement of popup | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` |
-| arrow | Configuration for popup arrow | `boolean \| { pointAtCenter: boolean }` | `true` | - |
-| destroyTooltipOnHide | Whether destroy popover when hidden | `boolean` | `false` |
-| onChange | Callback when `value` is changed | `(value: Color, hex: string) => void` | - |
-| onFormatChange | Callback when `format` is changed | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - |
-| onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - |
-| onClear | Called when clear | `() => void` | - |
+| Property | Description | Type | Default | Version |
+| :-- | :-- | :-- | :-- | :-- |
+| format | Format of color | `rgb` \| `hex` \| `hsb` | `hex` | - |
+| value | Value of color | string \| `Color` | - | - |
+| defaultValue | Default value of color | string \| `Color` | - | - |
+| allowClear | 	Allow clearing color selected | boolean | false | - |
+| presets | 	Preset colors | `{ label: ReactNode, colors: Array<string \| Color> }[]` | - | - |
+| children | Trigger of ColorPicker | React.ReactNode | - | - |
+| trigger | ColorPicker trigger mode | `hover` \| `click` | `click` | - |
+| open | Whether to show popup | boolean | - | - |
+| disabled | Disable ColorPicker | boolean | - | - |
+| placement | Placement of popup | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` | - |
+| arrow | Configuration for popup arrow | `boolean \| { pointAtCenter: boolean }` | `true` | - | - |
+| destroyTooltipOnHide | Whether destroy popover when hidden | `boolean` | `false` | 5.7.0 |
+| onChange | Callback when `value` is changed | `(value: Color, hex: string) => void` | - | - |
+| onFormatChange | Callback when `format` is changed | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - | - |
+| onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - | - |
+| onClear | Called when clear | `() => void` | - | 5.6.0 |
 
 ### Color
 
 <!-- prettier-ignore -->
-| Property | Description | Type | Default |
-| :-- | :-- | :-- | :-- |
-| toHex | Convert to `hex` format characters, the return type like: `1677ff` | `() => string` | - |
-| toHexString | Convert to `hex` format color string, the return type like: `#1677ff` | `() => string` | - |
-| toHsb | Convert to `hsb` object  | `() => ({ h: number, s: number, b: number, a number })` | - |
-| toHsbString | Convert to `hsb` format color string, the return type like: `hsb(215, 91%, 100%)` | `() => string` | - |
-| toRgb | Convert to `rgb` object  | `() => ({ r: number, g: number, b: number, a number })` | - |
-| toRgbString | Convert to `rgb` format color string, the return type like: `rgb(22, 119, 255)` | `() => string` | - |
+| Property | Description | Type | Default | Version |
+| :-- | :-- | :-- | :-- | :-- |
+| toHex | Convert to `hex` format characters, the return type like: `1677ff` | `() => string` | - | - |
+| toHexString | Convert to `hex` format color string, the return type like: `#1677ff` | `() => string` | - | - |
+| toHsb | Convert to `hsb` object  | `() => ({ h: number, s: number, b: number, a number })` | - | - |
+| toHsbString | Convert to `hsb` format color string, the return type like: `hsb(215, 91%, 100%)` | `() => string` | - | - |
+| toRgb | Convert to `rgb` object  | `() => ({ r: number, g: number, b: number, a number })` | - | - |
+| toRgbString | Convert to `rgb` format color string, the return type like: `rgb(22, 119, 255)` | `() => string` | - | - |
 
 ## FAQ
 
