@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
 import warning from '../_util/warning';
+import { ConfigContext } from '../config-provider';
 
 import useStyle from './style';
 
@@ -57,9 +57,19 @@ const Divider: React.FC<DividerProps> = (props) => {
     rootClassName,
   );
 
+  const memoizedOrientationMargin = React.useMemo<string | number>(() => {
+    if (typeof orientationMargin === 'number') {
+      return orientationMargin;
+    }
+    if (/^\d+$/.test(orientationMargin!)) {
+      return Number(orientationMargin);
+    }
+    return orientationMargin!;
+  }, [orientationMargin]);
+
   const innerStyle: React.CSSProperties = {
-    ...(hasCustomMarginLeft && { marginLeft: orientationMargin }),
-    ...(hasCustomMarginRight && { marginRight: orientationMargin }),
+    ...(hasCustomMarginLeft && { marginLeft: memoizedOrientationMargin }),
+    ...(hasCustomMarginRight && { marginRight: memoizedOrientationMargin }),
   };
 
   // Warning children not work in vertical mode

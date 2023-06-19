@@ -7,6 +7,35 @@ title: Less 变量迁移 Design Token
 
 <Alert message="注意：仍有部分变量没有对应的 Component Token，这些变量在 5.x 版本中已被废弃。"></Alert>
 
+## 如何配置 Component Token
+
+通过 ConfigProvider 的 `theme` 属性，我们可以对每一个组件单独配置全局 Token 和组件 Token
+
+```tsx
+import { Checkbox, ConfigProvider, Radio } from 'antd';
+import React from 'react';
+
+const App: React.FC = () => (
+  <ConfigProvider
+    theme={{
+      components: {
+        Radio: {
+          colorPrimary: '#00b96b',
+        },
+        Checkbox: {
+          colorPrimary: '#ff4d4f',
+        },
+      },
+    }}
+  >
+    <Radio>Radio</Radio>
+    <Checkbox>Checkbox</Checkbox>
+  </ConfigProvider>
+);
+
+export default App;
+```
+
 <!-- ## 全局变量 -->
 
 ## 组件变量
@@ -172,7 +201,18 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Form 表单 -->
 
-<!-- ### Image 图片 -->
+### Image 图片
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@image-size-base` | - | 未使用已废弃 |
+| `@image-font-size-base` | - | 未使用已废弃 |
+| `@image-bg` | `colorFillTertiary` | 全局 Token |
+| `@image-color` | `colorTextLightSolid` | 全局 Token |
+| `@image-preview-operation-size` | `previewOperationSize` | - |
+| `@image-preview-operation-color` | `previewOperationColor` | - |
+| `@image-preview-operation-disabled-color` | `previewOperationColorDisabled` | - |
 
 <!-- ### Input 输入框 -->
 
@@ -280,7 +320,27 @@ Mentions 提及
 
 <!-- ### Progress 进度条 -->
 
-<!-- ### Radio 单选框 -->
+## Radio 单选框
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@radio-size` | `radioSize` | - |
+| `@radio-top` | - | 已废弃 |
+| `@radio-border-width` | `lineWidth` | 全局 Token |
+| `@radio-dot-size` | `dotSize` | - |
+| `@radio-dot-color` | - | 已废弃 |
+| `@radio-dot-disabled-color` | `dotColorDisabled` | - |
+| `@radio-solid-checked-color` | `buttonSolidCheckedColor` | - |
+| `@radio-button-bg` | `buttonBg` | - |
+| `@radio-button-checked-bg` | `buttonCheckedBg` | - |
+| `@radio-button-color` | `buttonColor` | - |
+| `@radio-button-hover-color` | `colorPrimaryHover` | 全局 Token |
+| `@radio-button-active-color` | `colorPrimaryActive` | 全局 Token |
+| `@radio-button-padding-horizontal` | `buttonPaddingInline` | - |
+| `@radio-disabled-button-checked-bg` | `buttonCheckdBgDisabled` | - |
+| `@radio-disabled-button-checked-color` | `buttonCheckdColorDisabled` | - |
+| `@radio-wrapper-margin-right` | `wrapperMarginInlineEnd` | - |
 
 ## Rate 评分
 
@@ -328,7 +388,31 @@ Mentions 提及
 | `@skeleton-paragraph-li-height` | `paragraphLiHeight` | - |
 | `@skeleton-paragraph-li-margin-top` | - | 由于样式变化已废弃 |
 
-<!-- ### Slider 滑动输入条 -->
+### Slider 滑动输入条
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@slider-margin` | - | 可由 `className` 或 `style` 直接修改 |
+| `@slider-rail-background-color` | `railBg` | - |
+| `@slider-rail-background-color-hover` | `railHoverBg` | - |
+| `@slider-track-background-color` | `trackBg` | - |
+| `@slider-track-background-color-hover` | `trackHoverBg` | - |
+| `@slider-handle-border-width` | `handleLineWidth` | - |
+| `@slider-handle-background-color` | - | 已废弃 |
+| `@slider-handle-color` | `handleColor` | - |
+| `@slider-handle-color-hover` | `handleActiveColor` | - |
+| `@slider-handle-color-focus` | `handleActiveColor` | - |
+| `@slider-handle-color-focus-shadow` | - | 已废弃 |
+| `@slider-handle-color-tooltip-open` | `handleActiveColor` | - |
+| `@slider-handle-size` | `handleSize` | - |
+| `@slider-handle-margin-top` | - | 已废弃 |
+| `@slider-handle-margin-left` | - | 已废弃 |
+| `@slider-handle-shadow` | - | 已废弃 |
+| `@slider-dot-border-color` | `dotBorderColor` | - |
+| `@slider-dot-border-color-active` | `dotActiveBorderColor` | - |
+| `@slider-disabled-color` | `trackBgDisabled` | - |
+| `@slider-disabled-background-color` | - | 已废弃 |
 
 ### Statistic 统计数值
 
@@ -370,7 +454,36 @@ Mentions 提及
 
 <!-- ### Table 表格 -->
 
-<!-- ### Tabs 标签页 -->
+### Tabs 标签页
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@tabs-card-head-background` | `cardBg` | - |
+| `@tabs-card-height` | `cardHeight` | - |
+| `@tabs-card-active-color` | `itemSelectedColor` | - |
+| `@tabs-card-horizontal-padding` | `cardPadding` | - |
+| `@tabs-card-horizontal-padding-sm` | `cardPaddingSM` | - |
+| `@tabs-card-horizontal-padding-lg` | `cardPaddingLG` | - |
+| `@tabs-title-font-size` | `titleFontSize` | - |
+| `@tabs-title-font-size-lg` | `titleFontSizeLG` | - |
+| `@tabs-title-font-size-sm` | `titleFontSizeSM` | - |
+| `@tabs-ink-bar-color` | `inkBarColor` | - |
+| `@tabs-bar-margin` | `horizontalMargin` | - |
+| `@tabs-horizontal-gutter` | `horizontalItemGutter` | - |
+| `@tabs-horizontal-margin` | `horizontalItemMargin` | - |
+| `@tabs-horizontal-margin-rtl` | `horizontalItemMarginRTL` | - |
+| `@tabs-horizontal-padding` | `horizontalItemPadding` | - |
+| `@tabs-horizontal-padding-lg` | `horizontalItemPaddingLG` | - |
+| `@tabs-horizontal-padding-sm` | `horizontalItemPaddingSM` | - |
+| `@tabs-vertical-padding` | `verticalItemPadding` | - |
+| `@tabs-vertical-margin` | `verticalItemMargin` | - |
+| `@tabs-scrolling-size` | - | 已废弃 |
+| `@tabs-highlight-color` | `itemSelectedColor` | - |
+| `@tabs-hover-color` | `itemHoverColor` | - |
+| `@tabs-active-color` | `itemActiveColor` | - |
+| `@tabs-card-gutter` | `cardGutter` | - |
+| `@tabs-card-tab-active-border-top` | - | 已废弃 |
 
 ## Tag 标签
 
@@ -397,9 +510,32 @@ Mentions 提及
 
 <!-- ### TimePicker 时间选择 -->
 
-<!-- ### Tooltip 文字提示 -->
+### Tooltip 文字提示
 
-<!-- ### Transfer 穿梭框 -->
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@tooltip-max-width` | - | 可由 `className` 或 `style` 直接修改 |
+| `@tooltip-color` | `colorTextLightSolid` | 全局 Token |
+| `@tooltip-bg` | `colorBgSpotlight` | 全局 token |
+| `@tooltip-arrow-width` | `sizePopupArrow` | 全局 Token |
+| `@tooltip-distance` | `marginXXS` | 全局 Token |
+| `@tooltip-arrow-color` | - | 同 `@tooltip-bg`，已废弃 |
+| `@tooltip-border-radius` | `borderRadius` | 全局 Token |
+
+Transfer 穿梭框
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@transfer-header-height` | `headerHeight` | - |
+| `@transfer-item-height` | `itemHeight` | - |
+| `@transfer-disabled-bg` | `colorBgContainerDisabled` | 全局 Token |
+| `@transfer-list-height` | `listHeight` | - |
+| `@transfer-item-hover-bg` | `controlItemBgHover` | 全局 Token |
+| `@transfer-item-selected-hover-bg` | `controlItemBgActiveHover` | 全局 Token |
+| `@transfer-item-padding-vertical` | `itemPaddingBlock` | - |
+| `@transfer-list-search-icon-top` | - | 已废弃 |
 
 <!-- ### Tree 树形控件 -->
 

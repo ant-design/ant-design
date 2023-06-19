@@ -15,7 +15,7 @@ import useStyle from './style';
 import { getSize, getSuccessPercent, validProgress } from './utils';
 
 export const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
-export type ProgressType = typeof ProgressTypes[number];
+export type ProgressType = (typeof ProgressTypes)[number];
 const ProgressStatuses = ['normal', 'exception', 'active', 'success'] as const;
 export type ProgressSize = 'default' | 'small';
 export type StringGradients = { [percentage: string]: string };
@@ -29,14 +29,16 @@ export interface SuccessProps {
   strokeColor?: string;
 }
 
-export interface ProgressProps {
+export type ProgressAriaProps = Pick<React.AriaAttributes, 'aria-label' | 'aria-labelledby'>;
+
+export interface ProgressProps extends ProgressAriaProps {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
   type?: ProgressType;
   percent?: number;
   format?: (percent?: number, successPercent?: number) => React.ReactNode;
-  status?: typeof ProgressStatuses[number];
+  status?: (typeof ProgressStatuses)[number];
   showInfo?: boolean;
   strokeWidth?: number;
   strokeLinecap?: 'butt' | 'square' | 'round';
@@ -79,7 +81,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     );
   }, [percent, props.success, props.successPercent]);
 
-  const progressStatus = React.useMemo<typeof ProgressStatuses[number]>(() => {
+  const progressStatus = React.useMemo<(typeof ProgressStatuses)[number]>(() => {
     if (!ProgressStatuses.includes(status!) && percentNumber >= 100) {
       return 'success';
     }
@@ -175,6 +177,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
       ref={ref}
       className={classString}
       role="progressbar"
+      aria-valuenow={percentNumber}
       {...omit(restProps, [
         'trailColor',
         'strokeWidth',

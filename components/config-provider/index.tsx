@@ -14,6 +14,7 @@ import LocaleProvider, { ANT_MARK } from '../locale';
 import type { LocaleContextProps } from '../locale/context';
 import LocaleContext from '../locale/context';
 import defaultLocale from '../locale/en_US';
+import type { SpaceProps } from '../space';
 import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
@@ -55,15 +56,15 @@ export const warnContext: (componentName: string) => void =
       null!;
 
 export {
-  type RenderEmptyHandler,
-  ConfigContext,
   ConfigConsumer,
+  ConfigContext,
+  defaultIconPrefixCls,
+  type ConfigConsumerProps,
   type CSPConfig,
   type DirectionType,
-  type ConfigConsumerProps,
+  type RenderEmptyHandler,
   type ThemeConfig,
 };
-export { defaultIconPrefixCls };
 
 export const configConsumerProps = [
   'getTargetContainer',
@@ -123,6 +124,10 @@ export interface ConfigProviderProps {
   direction?: DirectionType;
   space?: {
     size?: SizeType | number;
+    className?: SpaceProps['className'];
+    classNames?: SpaceProps['classNames'];
+    style?: SpaceProps['style'];
+    styles?: SpaceProps['styles'];
   };
   virtual?: boolean;
   /** @deprecated Please use `popupMatchSelectWidth` instead */

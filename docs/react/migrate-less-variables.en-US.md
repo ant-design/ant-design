@@ -7,6 +7,35 @@ This document contains the correspondence between all the less variables related
 
 <Alert message="Note: There are still some less variables that do not have a corresponding Component Token, and these variables have been deprecated in version 5.x."></Alert>
 
+## How to use Component Token
+
+We could configure global token and component token for each component through the `theme` property of ConfigProvider.
+
+```tsx
+import { Checkbox, ConfigProvider, Radio } from 'antd';
+import React from 'react';
+
+const App: React.FC = () => (
+  <ConfigProvider
+    theme={{
+      components: {
+        Radio: {
+          colorPrimary: '#00b96b',
+        },
+        Checkbox: {
+          colorPrimary: '#ff4d4f',
+        },
+      },
+    }}
+  >
+    <Radio>Radio</Radio>
+    <Checkbox>Checkbox</Checkbox>
+  </ConfigProvider>
+);
+
+export default App;
+```
+
 <!-- ## 全局变量 -->
 
 ## Component Token
@@ -174,7 +203,18 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Form -->
 
-<!-- ### Image -->
+### Image
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@image-size-base` | - | Deprecated for not used |
+| `@image-font-size-base` | - | Deprecated for not used |
+| `@image-bg` | `colorFillTertiary` | GlobalToken |
+| `@image-color` | `colorTextLightSolid` | GlobalToken |
+| `@image-preview-operation-size` | `previewOperationSize` | - |
+| `@image-preview-operation-color` | `previewOperationColor` | - |
+| `@image-preview-operation-disabled-color` | `previewOperationColorDisabled` | - |
 
 <!-- ### Input -->
 
@@ -282,7 +322,27 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Progress -->
 
-<!-- ### Radio -->
+### Radio
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@radio-size` | `radioSize` | - |
+| `@radio-top` | - | Deprecated |
+| `@radio-border-width` | `lineWidth` | Global Token |
+| `@radio-dot-size` | `dotSize` | - |
+| `@radio-dot-color` | - | Deprecated |
+| `@radio-dot-disabled-color` | `dotColorDisabled` | - |
+| `@radio-solid-checked-color` | `buttonSolidCheckedColor` | - |
+| `@radio-button-bg` | `buttonBg` | - |
+| `@radio-button-checked-bg` | `buttonCheckedBg` | - |
+| `@radio-button-color` | `buttonColor` | - |
+| `@radio-button-hover-color` | `colorPrimaryHover` | Global Token |
+| `@radio-button-active-color` | `colorPrimaryActive` | Global Token |
+| `@radio-button-padding-horizontal` | `buttonPaddingInline` | - |
+| `@radio-disabled-button-checked-bg` | `buttonCheckdBgDisabled` | - |
+| `@radio-disabled-button-checked-color` | `buttonCheckdColorDisabled` | - |
+| `@radio-wrapper-margin-right` | `wrapperMarginInlineEnd` | - |
 
 ## Rate
 
@@ -329,9 +389,33 @@ This document contains the correspondence between all the less variables related
 | `@skeleton-to-color` | `gradientToColor` | - |
 | `@skeleton-paragraph-margin-top` | `paragraphMarginTop` | - |
 | `@skeleton-paragraph-li-height` | `paragraphLiHeight` | - |
-| `@skeleton-paragraph-li-margin-top` | - | 由于样式变化已废弃 |
+| `@skeleton-paragraph-li-margin-top` | - | Deprecated for style change |
 
-<!-- ### Slider -->
+### Slider
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@slider-margin` | - | Could be customized with `className` or `style` |
+| `@slider-rail-background-color` | `railBg` | - |
+| `@slider-rail-background-color-hover` | `railHoverBg` | - |
+| `@slider-track-background-color` | `trackBg` | - |
+| `@slider-track-background-color-hover` | `trackHoverBg` | - |
+| `@slider-handle-border-width` | `handleLineWidth` | - |
+| `@slider-handle-background-color` | - | Deprecated |
+| `@slider-handle-color` | `handleColor` | - |
+| `@slider-handle-color-hover` | `handleActiveColor` | - |
+| `@slider-handle-color-focus` | `handleActiveColor` | - |
+| `@slider-handle-color-focus-shadow` | - Deprecated |
+| `@slider-handle-color-tooltip-open` | `handleActiveColor` | - |
+| `@slider-handle-size` | `handleSize` | - |
+| `@slider-handle-margin-top` | - | Deprecated |
+| `@slider-handle-margin-left` | - | Deprecated |
+| `@slider-handle-shadow` | - | Deprecated |
+| `@slider-dot-border-color` | `dotBorderColor` | - |
+| `@slider-dot-border-color-active` | `dotActiveBorderColor` | - |
+| `@slider-disabled-color` | `trackBgDisabled` | - |
+| `@slider-disabled-background-color` | - | Deprecated |
 
 ### Statistic
 
@@ -373,12 +457,41 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Table -->
 
-<!-- ### Tabs -->
+### Tabs 标签页
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@tabs-card-head-background` | `cardBg` | - |
+| `@tabs-card-height` | `cardHeight` | - |
+| `@tabs-card-active-color` | `itemSelectedColor` | - |
+| `@tabs-card-horizontal-padding` | `cardPadding` | - |
+| `@tabs-card-horizontal-padding-sm` | `cardPaddingSM` | - |
+| `@tabs-card-horizontal-padding-lg` | `cardPaddingLG` | - |
+| `@tabs-title-font-size` | `titleFontSize` | - |
+| `@tabs-title-font-size-lg` | `titleFontSizeLG` | - |
+| `@tabs-title-font-size-sm` | `titleFontSizeSM` | - |
+| `@tabs-ink-bar-color` | `inkBarColor` | - |
+| `@tabs-bar-margin` | `horizontalMargin` | - |
+| `@tabs-horizontal-gutter` | `horizontalItemGutter` | - |
+| `@tabs-horizontal-margin` | `horizontalItemMargin` | - |
+| `@tabs-horizontal-margin-rtl` | `horizontalItemMarginRTL` | - |
+| `@tabs-horizontal-padding` | `horizontalItemPadding` | - |
+| `@tabs-horizontal-padding-lg` | `horizontalItemPaddingLG` | - |
+| `@tabs-horizontal-padding-sm` | `horizontalItemPaddingSM` | - |
+| `@tabs-vertical-padding` | `verticalItemPadding` | - |
+| `@tabs-vertical-margin` | `verticalItemMargin` | - |
+| `@tabs-scrolling-size` | - | Deprecated |
+| `@tabs-highlight-color` | `itemSelectedColor` | - |
+| `@tabs-hover-color` | `itemHoverColor` | - |
+| `@tabs-active-color` | `itemActiveColor` | - |
+| `@tabs-card-gutter` | `cardGutter` | - |
+| `@tabs-card-tab-active-border-top` | - | Deprecated |
 
 ## Tag
 
 <!-- prettier-ignore -->
-| less 变量 | Component Token | 备注 |
+| Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@tag-border-radius` | `borderRadiusSM` | Global Token |
 | `@tag-default-bg` | `defaultBg` | - |
@@ -400,9 +513,32 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### TimePicker -->
 
-<!-- ### Tooltip -->
+### Tooltip
 
-<!-- ### Transfer -->
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@tooltip-max-width` | - | Can be directly modified by `className` or `style` |
+| `@tooltip-color` | `colorTextLightSolid` | Global Token |
+| `@tooltip-bg` | `colorBgSpotlight` | Global Token |
+| `@tooltip-arrow-width` | `sizePopupArrow` | Global Token |
+| `@tooltip-distance` | `marginXXS` | Global Token |
+| `@tooltip-arrow-color` | - | same as `@tooltip-bg`，Deprecated |
+| `@tooltip-border-radius` | `borderRadius` | Global Token |
+
+### Transfer
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@transfer-header-height` | `headerHeight` | - |
+| `@transfer-item-height` | `itemHeight` | - |
+| `@transfer-disabled-bg` | `colorBgContainerDisabled` | Global Token |
+| `@transfer-list-height` | `listHeight` | - |
+| `@transfer-item-hover-bg` | `controlItemBgHover` | Global Token |
+| `@transfer-item-selected-hover-bg` | `controlItemBgActiveHover` | Global Token |
+| `@transfer-item-padding-vertical` | `itemPaddingBlock` | - |
+| `@transfer-list-search-icon-top` | - | Deprecated |
 
 <!-- ### Tree -->
 

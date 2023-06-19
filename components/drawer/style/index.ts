@@ -79,6 +79,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
       [wrapperCls]: {
         position: 'absolute',
         zIndex: zIndexPopup,
+        maxWidth: '100vw',
         transition: `all ${motionDurationSlow}`,
 
         '&-hidden': {
