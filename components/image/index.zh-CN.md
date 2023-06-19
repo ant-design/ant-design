@@ -59,7 +59,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | mask | 缩略图遮罩 | ReactNode | - | 4.9.0 |
 | maskClassName | 缩略图遮罩类名 | string | - | 4.11.0 |
 | rootClassName | 预览图的根 DOM 类名 | string | - | 5.4.0 |
-| scaleStep | 缩放放大的每步倍数 | number | 0.5 | - |
+| scaleStep | `1 + scaleStep` 为缩放放大的每步倍数 | number | 0.5 | - |
 | minScale | 最小缩放倍数 | number | 1 | 5.7.0 |
 | maxScale | 最大放大倍数 | number | 50 | 5.7.0 |
 | forceRender | 强制渲染预览图 | boolean | - | - |
@@ -85,7 +85,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | mask | 缩略图遮罩 | ReactNode | - | 4.9.0 |
 | maskClassName | 缩略图遮罩类名 | string | - | 4.11.0 |
 | rootClassName | 预览图的根 DOM 类名 | string | - | 5.4.0 |
-| scaleStep | 缩放放大的每步倍数 | number | 0.5 | - |
+| scaleStep | `1 + scaleStep` 为缩放放大的每步倍数 | number | 0.5 | - |
 | minScale | 最小缩放倍数 | number | 1 | 5.7.0 |
 | maxScale | 最大放大倍数 | number | 50 | 5.7.0 |
 | forceRender | 强制渲染预览图 | boolean | - | - |

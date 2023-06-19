@@ -58,7 +58,7 @@ Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 | mask | Thumbnail mask | ReactNode | - | 4.9.0 |
 | maskClassName | The className of the mask | string | - | 4.11.0 |
 | rootClassName | The classname of the preview root DOM | string | - | 5.4.0 |
-| scaleStep | The number to which the scale is increased or decreased | number | 0.5 | - |
+| scaleStep | `1 + scaleStep` is the step to increase or decrease the scale | number | 0.5 | - |
 | minScale | Min scale | number | 1 | 5.7.0 |
 | maxScale | Max scale | number | 50 | 5.7.0 |
 | forceRender | Force render preview dialog | boolean | - | - |
@@ -84,7 +84,7 @@ Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 | mask | Thumbnail mask | ReactNode | - | 4.9.0 |
 | maskClassName | The className of the mask | string | - | 4.11.0 |
 | rootClassName | The classname of the preview root DOM | string | - | 5.4.0 |
-| scaleStep | The number to which the scale is increased or decreased | number | 0.5 | - |
+| scaleStep | `1 + scaleStep` is the step to increase or decrease the scale | number | 0.5 | - |
 | minScale | Min scale | number | 1 | 5.7.0 |
 | maxScale | Max scale | number | 50 | 5.7.0 |
 | forceRender | Force render preview dialog | boolean | - | - |
