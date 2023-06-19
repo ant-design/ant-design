@@ -114,6 +114,8 @@ export interface ConfigProviderProps {
   };
   pagination?: {
     showSizeChanger?: boolean;
+    className?: string;
+    style?: React.CSSProperties;
   };
   locale?: Locale;
   pageHeader?: {
@@ -223,6 +225,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     iconPrefixCls: customIconPrefixCls,
     theme,
     componentDisabled,
+    pagination,
   } = props;
 
   // =================================== Warning ===================================
@@ -272,6 +275,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     getPrefixCls,
     iconPrefixCls,
     theme: mergedTheme,
+    pagination,
   };
 
   const config = {

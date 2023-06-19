@@ -6,6 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
 import Input from '../../input';
+import Pagination from '../../pagination';
 import Select from '../../select';
 import Space from '../../space';
 import Table from '../../table';
@@ -197,5 +198,18 @@ describe('ConfigProvider', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('.ant-space')?.getAttribute('style')).toEqual('color: red;');
+  });
+
+  it('Should Pagination className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        pagination={{ className: 'cp-pagination', style: { backgroundColor: 'blue' } }}
+      >
+        <Pagination />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLUListElement>('.ant-pagination');
+    expect(element).toHaveClass('cp-pagination');
+    expect(element).toHaveStyle({ backgroundColor: 'blue' });
   });
 });

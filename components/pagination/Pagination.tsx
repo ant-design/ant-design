@@ -39,6 +39,7 @@ const Pagination: React.FC<PaginationProps> = ({
   selectPrefixCls: customizeSelectPrefixCls,
   className,
   rootClassName,
+  style,
   size: customizeSize,
   locale: customLocale,
   selectComponentClass,
@@ -104,20 +105,25 @@ const Pagination: React.FC<PaginationProps> = ({
   const isSmall = mergedSize === 'small' || !!(xs && !mergedSize && responsive);
 
   const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
+
   const extendedClassName = classNames(
     {
       [`${prefixCls}-mini`]: isSmall,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
+    pagination?.className,
     className,
     rootClassName,
     hashId,
   );
 
+  const mergeStyle: React.CSSProperties = { ...pagination?.style, ...style };
+
   return wrapSSR(
     <RcPagination
       {...iconsProps}
       {...restProps}
+      style={mergeStyle}
       prefixCls={prefixCls}
       selectPrefixCls={selectPrefixCls}
       className={extendedClassName}

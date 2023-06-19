@@ -61,6 +61,8 @@ export interface ConfigConsumerProps {
   };
   pagination?: {
     showSizeChanger?: boolean;
+    className?: string;
+    style?: React.CSSProperties;
   };
   locale?: Locale;
   pageHeader?: {
