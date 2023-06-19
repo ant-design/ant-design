@@ -15,6 +15,7 @@ import LZString from 'lz-string';
 import Prism from 'prismjs';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import type { AntdPreviewerProps } from '.';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
@@ -27,7 +28,6 @@ import RiddleIcon from '../../common/RiddleIcon';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import { ping } from '../../utils';
-import type { AntdPreviewerProps } from '.';
 
 const { ErrorBoundary } = Alert;
 
@@ -105,6 +105,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     filename,
     version,
     clientOnly,
+    pkgDependencyList,
   } = props;
 
   const { pkg } = useSiteData();
@@ -331,6 +332,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
     main: 'index.js',
     dependencies: {
       ...dependencies,
+      'rc-util': pkgDependencyList['rc-util'],
       react: '^18.0.0',
       'react-dom': '^18.0.0',
       'react-scripts': '^5.0.0',
@@ -390,7 +392,6 @@ createRoot(document.getElementById('container')).render(<Demo />);
         <ErrorBoundary>
           <React.StrictMode>{liveDemo.current}</React.StrictMode>
         </ErrorBoundary>
-        {style ? <style dangerouslySetInnerHTML={{ __html: style }} /> : null}
       </section>
       <section className="code-box-meta markdown">
         <div className="code-box-title">
@@ -545,6 +546,23 @@ createRoot(document.getElementById('container')).render(<Demo />);
       </section>
     </section>
   );
+
+  useEffect(() => {
+    // In Safari, if style tag be inserted into non-head tag,
+    // it will affect the rendering ability of the browser,
+    // resulting in some response delays like following issue:
+    // https://github.com/ant-design/ant-design/issues/39995
+    // So we insert style tag into head tag.
+    if (!style) return;
+    const styleTag = document.createElement('style');
+    styleTag.type = 'text/css';
+    styleTag.innerHTML = style;
+    styleTag['data-demo-url'] = demoUrl;
+    document.head.appendChild(styleTag);
+    return () => {
+      document.head.removeChild(styleTag);
+    };
+  }, [style, demoUrl]);
 
   if (version) {
     return (

@@ -1,9 +1,9 @@
+import { TinyColor } from '@ctrl/tinycolor';
 import { css, Global } from '@emotion/react';
 import React from 'react';
-import { TinyColor } from '@ctrl/tinycolor';
 import useSiteToken from '../../../hooks/useSiteToken';
 
-export default () => {
+const GlobalStyle: React.FC = () => {
   const { token } = useSiteToken();
 
   const { antCls } = token;
@@ -178,6 +178,39 @@ export default () => {
             padding: 12px 20px;
             font-size: 13px;
             line-height: 2;
+          }
+        }
+        .pic-plus {
+          & > * {
+            display: inline-block !important;
+            vertical-align: middle;
+          }
+          span {
+            margin: 0 20px;
+            color: #aaa;
+            font-size: 30px;
+          }
+        }
+        .antd-site-snippet {
+          .ant-tabs-tab {
+            .snippet-label {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              svg {
+                margin-inline-end: 8px;
+              }
+            }
+          }
+          .dumi-default-source-code {
+            margin: 0 auto;
+            background-color: ${token.siteMarkdownCodeBg};
+            border-radius: ${token.borderRadius}px;
+            > pre.prism-code {
+              padding: 12px 20px;
+              font-size: 13px;
+              line-height: 2;
+            }
           }
         }
 
@@ -455,3 +488,5 @@ export default () => {
     />
   );
 };
+
+export default GlobalStyle;

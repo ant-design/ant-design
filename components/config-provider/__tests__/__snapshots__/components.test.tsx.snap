@@ -18988,7 +18988,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     >
       <div
         aria-label="Page Size"
-        class="config-select config-pagination-options-size-changer config-select-single config-select-show-arrow"
+        class="config-select config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -19007,11 +19007,8 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
               autocomplete="off"
               class="config-select-selection-search-input"
               id="rc_select_TEST_OR_SSR"
-              readonly=""
               role="combobox"
-              style="opacity: 0;"
               type="search"
-              unselectable="on"
               value=""
             />
           </span>
@@ -19134,7 +19131,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     >
       <div
         aria-label="Page Size"
-        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow"
+        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -19153,11 +19150,8 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
               autocomplete="off"
               class="config-select-selection-search-input"
               id="rc_select_TEST_OR_SSR"
-              readonly=""
               role="combobox"
-              style="opacity: 0;"
               type="search"
-              unselectable="on"
               value=""
             />
           </span>
@@ -19285,7 +19279,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
     >
       <div
         aria-label="Page Size"
-        class="config-select config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-disabled"
+        class="config-select config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -19305,11 +19299,8 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
               class="config-select-selection-search-input"
               disabled=""
               id="rc_select_TEST_OR_SSR"
-              readonly=""
               role="combobox"
-              style="opacity: 0;"
               type="search"
-              unselectable="on"
               value=""
             />
           </span>
@@ -19432,7 +19423,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
     >
       <div
         aria-label="Page Size"
-        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-disabled"
+        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -19452,11 +19443,8 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
               class="config-select-selection-search-input"
               disabled=""
               id="rc_select_TEST_OR_SSR"
-              readonly=""
               role="combobox"
-              style="opacity: 0;"
               type="search"
-              unselectable="on"
               value=""
             />
           </span>
@@ -19584,7 +19572,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
     >
       <div
         aria-label="Page Size"
-        class="config-select config-pagination-options-size-changer config-select-single config-select-show-arrow"
+        class="config-select config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -19603,11 +19591,8 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
               autocomplete="off"
               class="config-select-selection-search-input"
               id="rc_select_TEST_OR_SSR"
-              readonly=""
               role="combobox"
-              style="opacity: 0;"
               type="search"
-              unselectable="on"
               value=""
             />
           </span>
@@ -19730,7 +19715,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
     >
       <div
         aria-label="Page Size"
-        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow"
+        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -19749,11 +19734,8 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
               autocomplete="off"
               class="config-select-selection-search-input"
               id="rc_select_TEST_OR_SSR"
-              readonly=""
               role="combobox"
-              style="opacity: 0;"
               type="search"
-              unselectable="on"
               value=""
             />
           </span>
@@ -19881,7 +19863,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
     >
       <div
         aria-label="Page Size"
-        class="config-select config-pagination-options-size-changer config-select-single config-select-show-arrow"
+        class="config-select config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -19900,11 +19882,8 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
               autocomplete="off"
               class="config-select-selection-search-input"
               id="rc_select_TEST_OR_SSR"
-              readonly=""
               role="combobox"
-              style="opacity: 0;"
               type="search"
-              unselectable="on"
               value=""
             />
           </span>
@@ -20027,7 +20006,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
     >
       <div
         aria-label="Page Size"
-        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow"
+        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -20046,11 +20025,8 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
               autocomplete="off"
               class="config-select-selection-search-input"
               id="rc_select_TEST_OR_SSR"
-              readonly=""
               role="combobox"
-              style="opacity: 0;"
               type="search"
-              unselectable="on"
               value=""
             />
           </span>
@@ -20178,7 +20154,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
     >
       <div
         aria-label="Page Size"
-        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow"
+        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -20197,11 +20173,8 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
               autocomplete="off"
               class="config-select-selection-search-input"
               id="rc_select_TEST_OR_SSR"
-              readonly=""
               role="combobox"
-              style="opacity: 0;"
               type="search"
-              unselectable="on"
               value=""
             />
           </span>
@@ -20324,7 +20297,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
     >
       <div
         aria-label="Page Size"
-        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow"
+        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -20343,11 +20316,8 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
               autocomplete="off"
               class="config-select-selection-search-input"
               id="rc_select_TEST_OR_SSR"
-              readonly=""
               role="combobox"
-              style="opacity: 0;"
               type="search"
-              unselectable="on"
               value=""
             />
           </span>
@@ -20475,7 +20445,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+        class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -20494,11 +20464,8 @@ exports[`ConfigProvider components Pagination normal 1`] = `
               autocomplete="off"
               class="ant-select-selection-search-input"
               id="rc_select_TEST_OR_SSR"
-              readonly=""
               role="combobox"
-              style="opacity: 0;"
               type="search"
-              unselectable="on"
               value=""
             />
           </span>
@@ -20621,7 +20588,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -20640,11 +20607,8 @@ exports[`ConfigProvider components Pagination normal 1`] = `
               autocomplete="off"
               class="ant-select-selection-search-input"
               id="rc_select_TEST_OR_SSR"
-              readonly=""
               role="combobox"
-              style="opacity: 0;"
               type="search"
-              unselectable="on"
               value=""
             />
           </span>
@@ -20772,7 +20736,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     >
       <div
         aria-label="Page Size"
-        class="ant-select prefix-Pagination-options-size-changer ant-select-single ant-select-show-arrow"
+        class="ant-select prefix-Pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -20791,11 +20755,8 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
               autocomplete="off"
               class="ant-select-selection-search-input"
               id="rc_select_TEST_OR_SSR"
-              readonly=""
               role="combobox"
-              style="opacity: 0;"
               type="search"
-              unselectable="on"
               value=""
             />
           </span>
@@ -20918,7 +20879,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-sm prefix-Pagination-options-size-changer ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm prefix-Pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -20937,11 +20898,8 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
               autocomplete="off"
               class="ant-select-selection-search-input"
               id="rc_select_TEST_OR_SSR"
-              readonly=""
               role="combobox"
-              style="opacity: 0;"
               type="search"
-              unselectable="on"
               value=""
             />
           </span>
@@ -21779,6 +21737,7 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
 
 exports[`ConfigProvider components Progress configProvider 1`] = `
 <div
+  aria-valuenow="0"
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
   role="progressbar"
 >
@@ -21806,6 +21765,7 @@ exports[`ConfigProvider components Progress configProvider 1`] = `
 
 exports[`ConfigProvider components Progress configProvider componentDisabled 1`] = `
 <div
+  aria-valuenow="0"
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
   role="progressbar"
 >
@@ -21833,6 +21793,7 @@ exports[`ConfigProvider components Progress configProvider componentDisabled 1`]
 
 exports[`ConfigProvider components Progress configProvider componentSize large 1`] = `
 <div
+  aria-valuenow="0"
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
   role="progressbar"
 >
@@ -21860,6 +21821,7 @@ exports[`ConfigProvider components Progress configProvider componentSize large 1
 
 exports[`ConfigProvider components Progress configProvider componentSize middle 1`] = `
 <div
+  aria-valuenow="0"
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
   role="progressbar"
 >
@@ -21887,6 +21849,7 @@ exports[`ConfigProvider components Progress configProvider componentSize middle 
 
 exports[`ConfigProvider components Progress configProvider componentSize small 1`] = `
 <div
+  aria-valuenow="0"
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
   role="progressbar"
 >
@@ -21914,6 +21877,7 @@ exports[`ConfigProvider components Progress configProvider componentSize small 1
 
 exports[`ConfigProvider components Progress normal 1`] = `
 <div
+  aria-valuenow="0"
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
@@ -21941,6 +21905,7 @@ exports[`ConfigProvider components Progress normal 1`] = `
 
 exports[`ConfigProvider components Progress prefixCls 1`] = `
 <div
+  aria-valuenow="0"
   class="prefix-Progress prefix-Progress-line prefix-Progress-status-normal prefix-Progress-show-info prefix-Progress-default"
   role="progressbar"
 >

@@ -5,7 +5,7 @@ import type {
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties } from 'react';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import genPurePanel from '../_util/PurePanel';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
@@ -44,6 +44,7 @@ export interface ColorPickerProps
   onOpenChange?: (open: boolean) => void;
   onFormatChange?: (format: ColorFormat) => void;
   onChange?: (value: Color, hex: string) => void;
+  onClear?: () => void;
   getPopupContainer?: PopoverProps['getPopupContainer'];
   autoAdjustOverflow?: PopoverProps['autoAdjustOverflow'];
 }
@@ -71,6 +72,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     styles,
     onFormatChange,
     onChange,
+    onClear,
     onOpenChange,
     getPopupContainer,
     autoAdjustOverflow = true,
@@ -93,12 +95,14 @@ const ColorPicker: CompoundedComponent = (props) => {
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
-  const mergeRootCls = classNames(rootClassName, {
-    [`${prefixCls}-rtl`]: direction,
-  });
+  const rtlCls = { [`${prefixCls}-rtl`]: direction };
+  const mergeRootCls = classNames(rootClassName, rtlCls);
   const mergeCls = classNames(mergeRootCls, className, hashId);
+  const mergePopupCls = classNames(prefixCls, rtlCls);
 
-  const handleChange = (data: Color, type?: HsbaColorType) => {
+  const popupAllowCloseRef = useRef(true);
+
+  const handleChange = (data: Color, type?: HsbaColorType, pickColor?: boolean) => {
     let color: Color = generateColor(data);
     if (colorCleared) {
       setColorCleared(false);
@@ -112,11 +116,20 @@ const ColorPicker: CompoundedComponent = (props) => {
     if (!value) {
       setColorValue(color);
     }
+    // Only for drag-and-drop color picking
+    if (pickColor) {
+      popupAllowCloseRef.current = false;
+    }
     onChange?.(color, color.toHexString());
   };
 
-  const handleClear = (clear: boolean) => {
-    setColorCleared(clear);
+  const handleClear = () => {
+    setColorCleared(true);
+    onClear?.();
+  };
+
+  const handleChangeComplete = () => {
+    popupAllowCloseRef.current = true;
   };
 
   const popoverProps: PopoverProps = {
@@ -140,20 +153,23 @@ const ColorPicker: CompoundedComponent = (props) => {
     onFormatChange,
   };
 
-  useEffect(() => {
-    if (colorCleared) {
-      setPopupOpen(false);
-    }
-  }, [colorCleared]);
-
   return wrapSSR(
     <Popover
       style={styles?.popup}
-      onOpenChange={setPopupOpen}
+      onOpenChange={(visible) => {
+        if (popupAllowCloseRef.current) {
+          setPopupOpen(visible);
+        }
+      }}
       content={
-        <ColorPickerPanel {...colorBaseProps} onChange={handleChange} onClear={handleClear} />
+        <ColorPickerPanel
+          {...colorBaseProps}
+          onChange={handleChange}
+          onChangeComplete={handleChangeComplete}
+          onClear={handleClear}
+        />
       }
-      overlayClassName={prefixCls}
+      overlayClassName={mergePopupCls}
       {...popoverProps}
     >
       {children || (

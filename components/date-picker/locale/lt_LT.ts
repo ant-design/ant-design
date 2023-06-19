@@ -12,6 +12,7 @@ const locale: PickerLocale = {
     weekPlaceholder: 'Pasirinkite savaitę',
     rangePlaceholder: ['Pradžios data', 'Pabaigos data'],
     rangeYearPlaceholder: ['Pradžios metai', 'Pabaigos metai'],
+    rangeQuarterPlaceholder: ['Pradžios ketvirtis', 'Pabaigos ketvirtis'],
     rangeMonthPlaceholder: ['Pradžios mėnesis', 'Pabaigos mėnesis'],
     rangeWeekPlaceholder: ['Pradžios savaitė', 'Pabaigos savaitė'],
     ...CalendarLocale,

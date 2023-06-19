@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { ConfigContext } from '.';
 import type { ConfigConsumerProps } from '.';
+import { ConfigContext } from '.';
 import Empty from '../empty';
 
 interface EmptyProps {

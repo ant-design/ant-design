@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Modal } from '../..';
-import { waitFakeTimer, render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import zhCN from '../zh_CN';
 
