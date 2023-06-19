@@ -1,5 +1,5 @@
 import { createTheme } from '@ant-design/cssinjs';
-import IconContext from '@ant-design/icons/lib/components/Context';
+import { IconProvider } from '@ant-design/icons';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import { merge } from 'rc-util/lib/utils/set';
@@ -341,9 +341,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   }
 
   if (iconPrefixCls || csp) {
-    childNode = (
-      <IconContext.Provider value={memoIconContextValue}>{childNode}</IconContext.Provider>
-    );
+    childNode = <IconProvider value={memoIconContextValue}>{childNode}</IconProvider>;
   }
 
   if (componentSize) {
