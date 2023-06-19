@@ -1,7 +1,7 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent } from '../../style';
 
 export interface ComponentToken {}
 
@@ -41,6 +41,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
     alertPaddingHorizontal,
     paddingMD,
     paddingContentHorizontalLG,
+    colorTextHeading,
   } = token;
 
   return {
@@ -108,7 +109,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       [`${componentCls}-message`]: {
         display: 'block',
         marginBottom: marginXS,
-        color: colorText,
+        color: colorTextHeading,
         fontSize: fontSizeLG,
       },
 

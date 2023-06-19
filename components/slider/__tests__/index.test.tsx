@@ -4,9 +4,9 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 import ConfigProvider from '../../config-provider';
 import type { TooltipProps } from '../../tooltip';
-import { resetWarned } from '../../_util/warning';
 import SliderTooltip from '../SliderTooltip';
 
 function tooltipProps(): TooltipProps {

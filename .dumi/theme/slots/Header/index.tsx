@@ -7,15 +7,16 @@ import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
+import DirectionIcon from '../../common/DirectionIcon';
 import * as utils from '../../utils';
 import { getThemeConfig, ping } from '../../utils';
 import type { SiteContextProps } from '../SiteContext';
 import SiteContext from '../SiteContext';
-import type { SharedProps } from './interface';
 import Logo from './Logo';
 import More from './More';
 import Navigation from './Navigation';
 import SwitchBtn from './SwitchBtn';
+import type { SharedProps } from './interface';
 
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
@@ -94,6 +95,9 @@ const useStyle = () => {
           margin-inline-end: 40px;
         }
       }
+    `,
+    dataDirectionIcon: css`
+      width: 16px;
     `,
     popoverMenu: {
       width: 300,
@@ -311,19 +315,9 @@ const Header: React.FC = () => {
       key="direction"
       onClick={onDirectionChange}
       value={direction === 'rtl' ? 2 : 1}
-      label1={
-        <img
-          src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*6k0CTJA-HxUAAAAAAAAAAAAADrJ8AQ/original"
-          alt="direction"
-        />
-      }
+      label1={<DirectionIcon css={style.dataDirectionIcon} direction="ltr" />}
       tooltip1="LTR"
-      label2={
-        <img
-          src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*SZoaQqm2hwsAAAAAAAAAAAAADrJ8AQ/original"
-          alt="LTR"
-        />
-      }
+      label2={<DirectionIcon css={style.dataDirectionIcon} direction="rtl" />}
       tooltip2="RTL"
       pure
     />,

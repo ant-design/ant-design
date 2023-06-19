@@ -26,6 +26,7 @@ Previewable image.
 <code src="./demo/controlled-preview.tsx">Controlled Preview</code>
 <code src="./demo/preview-mask.tsx" debug>Custom preview mask</code>
 <code src="./demo/preview-group-top-progress.tsx" debug>Top progress customization when previewing multiple images</code>
+<code src="./demo/component-token.tsx" debug>Custom component token</code>
 
 ## API
 
@@ -47,7 +48,7 @@ Previewable image.
 {
   visible?: boolean;
   onVisibleChange?: (visible, prevVisible, current: number) => void; // `current` only support after v5.3.0
-  getContainer?: string | HTMLElement | (() => HTMLElement); // v4.8.0
+  getContainer?: string | HTMLElement | (() => HTMLElement); // v4.8.0 The mounted node for preview dialog but still display at fullScreen
   src?: string; // v4.10.0
   mask?: ReactNode; // v4.9.0
   maskClassName?: string; // v4.11.0

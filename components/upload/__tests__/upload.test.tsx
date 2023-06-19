@@ -480,7 +480,7 @@ describe('Upload', () => {
     // Delay return true for remove
     await waitFakeTimer();
     await act(async () => {
-      await removePromise(true);
+      removePromise(true);
     });
 
     expect(onChange).toHaveBeenCalled();
@@ -771,6 +771,11 @@ describe('Upload', () => {
           name: 'foo.png',
         }),
       ]);
+
+      // Only trigger for file in `maxCount`
+      onChange.mock.calls.forEach((args) => {
+        expect(args[0].file.name).toBe('foo.png');
+      });
     });
   });
 

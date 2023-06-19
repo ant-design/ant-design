@@ -25,6 +25,7 @@ Basic text writing, including headings, body text, lists, and more.
 <code src="./demo/ellipsis-middle.tsx">Ellipsis from middle</code>
 <code src="./demo/ellipsis-debug.tsx" debug>Ellipsis Debug</code>
 <code src="./demo/suffix.tsx">suffix</code>
+<code src="./demo/componentToken-debug.tsx" debug>Component Token</code>
 
 ## API
 

@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { triggerMotionEnd } from './util';
 import message from '..';
-import ConfigProvider from '../../config-provider';
 import { fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import { triggerMotionEnd } from './util';
 
 describe('message.hooks', () => {
   beforeEach(() => {

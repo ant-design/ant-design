@@ -2,8 +2,8 @@ import MockDate from 'mockdate';
 import React from 'react';
 import Descriptions from '..';
 import mountTest from '../../../tests/shared/mountTest';
-import { resetWarned } from '../../_util/warning';
 import { render } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 import ConfigProvider from '../../config-provider';
 
 describe('Descriptions', () => {

@@ -72,6 +72,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           width: 0,
           margin: `${FIXED_ITEM_MARGIN}px 0`,
           lineHeight: `${selectItemHeight}px`,
+          visibility: 'hidden',
           content: '"\\a0"',
         },
       },

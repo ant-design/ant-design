@@ -14,9 +14,7 @@ import { ConfigContext } from '../config-provider';
 import type { MenuProps } from '../menu';
 import Menu from '../menu';
 import { OverrideProvider } from '../menu/OverrideContext';
-import { NoCompactStyle } from '../space/Compact';
 import theme from '../theme';
-import DropdownButton from './dropdown-button';
 import useStyle from './style';
 
 const Placements = [
@@ -30,7 +28,7 @@ const Placements = [
   'bottom',
 ] as const;
 
-type Placement = typeof Placements[number];
+type Placement = (typeof Placements)[number];
 type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
 type OverlayFunc = () => React.ReactElement;
@@ -88,7 +86,6 @@ export interface DropdownProps {
 }
 
 type CompoundedComponent = React.FC<DropdownProps> & {
-  Button: typeof DropdownButton;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof WrapPurePanel;
 };
 
@@ -276,7 +273,7 @@ const Dropdown: CompoundedComponent = (props) => {
           );
         }}
       >
-        <NoCompactStyle>{overlayNode}</NoCompactStyle>
+        {overlayNode}
       </OverrideProvider>
     );
   };
@@ -304,8 +301,6 @@ const Dropdown: CompoundedComponent = (props) => {
     </RcDropdown>,
   );
 };
-
-Dropdown.Button = DropdownButton;
 
 function postPureProps(props: DropdownProps) {
   return {

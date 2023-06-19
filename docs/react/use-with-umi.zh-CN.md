@@ -1,6 +1,6 @@
 ---
 order: 3
-title: 项目实战
+title: 在 Umi 中使用
 ---
 
 在真实项目开发中，除了 Ant Design 这样的 UI 库，你可能会还会需要构建工具、路由方案、CSS 方案、数据流方案、请求库和请求方案、国际化方案、权限方案、Icons 方案，等等，才能完成一个完整的项目。我们基于业务场景的场景，推出了基于 React 的企业级应用框架 [Umi](https://umijs.org/)，推荐你在项目中使用。
@@ -11,7 +11,7 @@ Umi，中文发音为「乌米」，是可扩展的企业级前端应用框架�
 
 ## 初始化项目
 
-推荐使用 [pnpm](https://pnpm.io/) 创建 Umi 脚手架，执行以下命令。
+推荐使用 [pnpm](https://pnpm.io/zh/) 创建 Umi 脚手架，执行以下命令。
 
 ```bash
 $ mkdir myapp && cd myapp
@@ -298,7 +298,7 @@ export default function Layout() {
     <ProLayout
       route={clientRoutes[0]}
       location={location}
-      title={'Umi x Ant Design'}
+      title="Umi x Ant Design"
       menuItemRender={(menuItemProps, defaultDom) => {
         if (menuItemProps.isUrl || menuItemProps.children) {
           return defaultDom;
