@@ -47,6 +47,7 @@ Used when the user needs to customize the color selection.
 | disabled | Disable ColorPicker | boolean | - |
 | placement | Placement of popup | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` |
 | arrow | Configuration for popup arrow | `boolean \| { pointAtCenter: boolean }` | `true` | - |
+| destroyTooltipOnHide | Whether destroy popover when hidden | `boolean` | `false` |
 | onChange | Callback when `value` is changed | `(value: Color, hex: string) => void` | - |
 | onFormatChange | Callback when `format` is changed | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - |
 | onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - |
