@@ -200,7 +200,7 @@ describe('ConfigProvider', () => {
     expect(container.querySelector('.ant-space')?.getAttribute('style')).toEqual('color: red;');
   });
 
-  it('Should Steps className & style works', () => {
+  it('Should Result className & style works', () => {
     const { container } = render(
       <ConfigProvider result={{ className: 'cp-result', style: { backgroundColor: 'red' } }}>
         <Result />
