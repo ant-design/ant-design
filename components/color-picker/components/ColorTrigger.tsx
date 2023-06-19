@@ -66,7 +66,6 @@ const ColorTrigger = forwardRef<HTMLDivElement, colorTriggerProps>((props, ref) 
     if (showText) {
       return genColorString();
     }
-    return null;
   };
 
   return (
