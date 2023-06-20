@@ -71,11 +71,11 @@ const Typography = React.forwardRef<
     hashId,
   );
 
-  const mergeStyle: React.CSSProperties = { ...typography?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...typography?.style, ...style };
 
   return wrapSSR(
     // @ts-expect-error: Expression produces a union type that is too complex to represent.
-    <Component className={componentClassName} style={mergeStyle} ref={mergedRef} {...restProps}>
+    <Component className={componentClassName} style={mergedStyle} ref={mergedRef} {...restProps}>
       {children}
     </Component>,
   );

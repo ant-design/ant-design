@@ -64,7 +64,6 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | prefixCls | Set prefix className | string | `ant` |  |
 | renderEmpty | Set empty content of components. Ref [Empty](/components/empty/) | function(componentName: string): ReactNode | - |  |
 | theme | Set theme, ref [Customize Theme](/docs/react/customize-theme) | - | - | 5.0.0 |
-| typography | Set Typography common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
 
 ### ConfigProvider.config()
@@ -107,6 +106,7 @@ const {
 | form | Set Form common props | { validateMessages?: [ValidateMessages](/components/form/#validatemessages), requiredMark?: boolean \| `optional`, scrollToFirstError?: boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) } | - | requiredMark: 4.8.0; colon: 4.18.0; scrollToFirstError: 5.2.0 |
 | input | Set Input common props | { autoComplete?: string } | - | 4.2.0 |
 | select | Set Select common props | { showSearch?: boolean } | - |  |
+| typography | Set Typography common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | space | Set Space common props, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: { item: string }, styles?: { item: React.CSSProperties } } | - | 5.6.0 |
 
 ## FAQ

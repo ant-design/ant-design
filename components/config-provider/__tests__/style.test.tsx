@@ -3,6 +3,7 @@ import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import Divider from '../../divider';
 import Space from '../../space';
+import Typography from '../../typography';
 
 describe('ConfigProvider support style and className props', () => {
   it('Should Space classNames works', () => {
@@ -20,7 +21,7 @@ describe('ConfigProvider support style and className props', () => {
         </Space>
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-space-item.test-classNames')).toBeTruthy();
+    expect(container.querySelector('.ant-space-item')).toHaveClass('test-classNames');
   });
 
   it('Should Space className works', () => {
@@ -36,7 +37,7 @@ describe('ConfigProvider support style and className props', () => {
         </Space>
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-space.test-classNames')).toBeTruthy();
+    expect(container.querySelector('.ant-space')).toHaveClass('test-classNames');
   });
 
   it('Should Space styles works', () => {
@@ -56,7 +57,7 @@ describe('ConfigProvider support style and className props', () => {
         </Space>
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-space-item')?.getAttribute('style')).toEqual(
+    expect(container.querySelector('.ant-space-item')).toHaveStyle(
       'margin-right: 8px; color: red;',
     );
   });
@@ -76,7 +77,7 @@ describe('ConfigProvider support style and className props', () => {
         </Space>
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-space')?.getAttribute('style')).toEqual('color: red;');
+    expect(container.querySelector('.ant-space')).toHaveStyle('color: red;');
   });
 
   it('Should Divider className works', () => {
@@ -106,5 +107,18 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('.ant-divider'))?.toHaveStyle({ color: 'red', height: '80px' });
+  });
+
+  it('Should Typography className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        typography={{ className: 'cp-typography', style: { backgroundColor: 'red' } }}
+      >
+        <Typography>test</Typography>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLElement>('.ant-typography');
+    expect(element).toHaveClass('cp-typography');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });
