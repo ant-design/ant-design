@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import { Button, Card } from 'antd';
 import React from 'react';
+import useLocale from '../../../hooks/useLocale';
 
 const ANTD_IMG_URL =
   'https://picx.zhimg.com/v2-3b2bca09c2771e7a82a81562e806be4d_200x0.jpg?source=d16d100b';
@@ -10,6 +11,7 @@ const useStyle = () => ({
     width: 100%;
     margin: 40px 0;
     transition: all 0.2s;
+    background-color: rgba(0, 0, 0, 0.01);
     &:hover {
       border-color: transparent;
       box-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12),
@@ -51,28 +53,42 @@ const useStyle = () => ({
   `,
 });
 
+const locales = {
+  cn: {
+    bigTitle: '文章被收录于专栏：',
+    subTitle: '一个 UI 设计体系',
+    buttonText: '去专栏参与讨论',
+  },
+  en: {
+    bigTitle: 'Articles are included in the column:',
+    subTitle: 'A UI design system',
+    buttonText: 'go to the column to discuss',
+  },
+};
+
 interface Props {
   link?: string;
 }
 
 const ZhihuCard: React.FC<Props> = ({ link }) => {
+  const [locale] = useLocale(locales);
   const { card, bigTitle, cardBody, left, title, subTitle } = useStyle();
   if (!link) {
     return null;
   }
   return (
     <Card css={card}>
-      <h3 css={bigTitle}>文章被收录于专栏：</h3>
+      <h3 css={bigTitle}>{locale.bigTitle}</h3>
       <div css={cardBody}>
         <div css={left}>
           <img src={ANTD_IMG_URL} alt="antd" />
           <div>
             <p css={title}>Ant Design</p>
-            <p css={subTitle}>一个 UI 设计体系</p>
+            <p css={subTitle}>{locale.subTitle}</p>
           </div>
         </div>
         <Button type="primary" href={link}>
-          去专栏参与讨论
+          {locale.buttonText}
         </Button>
       </div>
     </Card>
