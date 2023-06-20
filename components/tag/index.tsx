@@ -105,12 +105,12 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   const [, mergedCloseIcon] = useClosable(
     closable,
     closeIcon,
-    (_closeIcon: React.ReactNode) =>
-      _closeIcon === null ? (
+    (iconNode: React.ReactNode) =>
+      iconNode === null ? (
         <CloseOutlined className={`${prefixCls}-close-icon`} onClick={handleCloseClick} />
       ) : (
         <span className={`${prefixCls}-close-icon`} onClick={handleCloseClick}>
-          {_closeIcon}
+          {iconNode}
         </span>
       ),
     null,

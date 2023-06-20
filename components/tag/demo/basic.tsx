@@ -17,14 +17,11 @@ const App: React.FC = () => (
     <Tag>
       <a href="https://github.com/ant-design/ant-design/issues/1862">Link</a>
     </Tag>
-    <Tag closeIcon={<CloseCircleOutlined />} onClose={log}>
-      Tag 2
-    </Tag>
-    <Tag closeIcon={false} onClose={log}>
-      Tag 3
-    </Tag>
     <Tag closeIcon onClose={preventDefault}>
       Prevent Default
+    </Tag>
+    <Tag closeIcon={<CloseCircleOutlined />} onClose={log}>
+      Tag 2
     </Tag>
   </Space>
 );
