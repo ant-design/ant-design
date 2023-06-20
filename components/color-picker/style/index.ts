@@ -139,11 +139,10 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
     {
       [componentCls]: {
         [`${componentCls}-panel`]: {
-          display: 'flex',
-          flexDirection: 'column',
-          width: colorPickerWidth,
-
           [`${componentCls}-inner-panel`]: {
+            display: 'flex',
+            flexDirection: 'column',
+            width: colorPickerWidth,
             [`${componentCls}-clear`]: {
               marginInlineStart: 'auto',
               marginBottom: marginXS,

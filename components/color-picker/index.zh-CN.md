@@ -30,6 +30,7 @@ group:
 <code src="./demo/trigger-event.tsx">自定义触发事件</code>
 <code src="./demo/format.tsx">颜色编码</code>
 <code src="./demo/presets.tsx">预设颜色</code>
+<code src="./demo/panel-render.tsx">自定义面板</code>
 <code src="./demo/pure-panel.tsx" debug>Pure Render</code>
 
 ## API
