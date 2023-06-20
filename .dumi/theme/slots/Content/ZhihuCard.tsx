@@ -23,7 +23,7 @@ const useStyle = () => {
       font-size: 16px;
       color: #121212;
       margin-bottom: 24px;
-      font-weight: 500;
+      font-weight: 600;
     `,
     cardBody: css`
       display: flex;
@@ -59,7 +59,7 @@ const locales = {
   cn: {
     bigTitle: '文章被收录于知乎专栏：',
     subTitle: '一个 UI 设计体系',
-    buttonText: '我有想法，去专栏参与讨论',
+    buttonText: '我有想法，去参与讨论',
   },
   en: {
     bigTitle: 'Articles are included in the column:',
@@ -89,7 +89,7 @@ const ZhihuCard: React.FC<Props> = ({ link }) => {
             <p css={subTitle}>{locale.subTitle}</p>
           </div>
         </div>
-        <Button type="primary" href={link}>
+        <Button type="primary" target="_blank" href={link}>
           {locale.buttonText}
         </Button>
       </div>

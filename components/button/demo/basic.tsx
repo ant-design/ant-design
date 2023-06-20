@@ -1,9 +1,14 @@
-import React from 'react';
 import { Button, Space } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Space wrap>
-    <Button type="primary">Primary Button</Button>
+    <a href="ss" target="_blank">
+      123
+    </a>
+    <Button type="primary" target="b">
+      Primary Button
+    </Button>
     <Button>Default Button</Button>
     <Button type="dashed">Dashed Button</Button>
     <Button type="text">Text Button</Button>
