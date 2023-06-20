@@ -59,7 +59,7 @@ const locales = {
   cn: {
     bigTitle: '文章被收录于知乎专栏：',
     subTitle: '一个 UI 设计体系',
-    buttonText: '参与讨论',
+    buttonText: '我有想法，去专栏参与讨论',
   },
   en: {
     bigTitle: 'Articles are included in the column:',
