@@ -86,7 +86,7 @@ const genSizeStyle = (token: ColorPickerToken): CSSObject => {
   } = token;
   return {
     [`&${componentCls}-lg`]: {
-      width: controlHeightLG,
+      minWidth: controlHeightLG,
       height: controlHeightLG,
       borderRadius: borderRadiusLG,
       [`${componentCls}-color-block`]: {
@@ -96,7 +96,7 @@ const genSizeStyle = (token: ColorPickerToken): CSSObject => {
       },
     },
     [`&${componentCls}-sm`]: {
-      width: controlHeightSM,
+      minWidth: controlHeightSM,
       height: controlHeightSM,
       borderRadius: borderRadiusSM,
       [`${componentCls}-color-block`]: {
