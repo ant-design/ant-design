@@ -16,10 +16,13 @@ const App: React.FC = () => (
     <Tag>
       <a href="https://github.com/ant-design/ant-design/issues/1862">Link</a>
     </Tag>
-    <Tag closable onClose={log}>
+    <Tag closeIcon="❌" onClose={log}>
       Tag 2
     </Tag>
-    <Tag closable onClose={preventDefault}>
+    <Tag closeIcon={false} onClose={log}>
+      Tag 3
+    </Tag>
+    <Tag closeIcon onClose={preventDefault}>
       Prevent Default
     </Tag>
   </Space>
