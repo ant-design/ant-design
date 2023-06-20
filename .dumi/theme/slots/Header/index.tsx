@@ -213,11 +213,13 @@ const Header: React.FC = () => {
         .replace(/\/$/, '');
       return;
     }
-
     // Mirror url must have `/`, we add this for compatible
     const urlObj = new URL(currentUrl.replace(window.location.origin, url));
-    urlObj.pathname = `${urlObj.pathname.replace(/\/$/, '')}/`;
-    window.location.href = urlObj.href;
+    if (urlObj.host === '3x.ant.design' || urlObj.host === '4x.ant.design') {
+      window.location.href = urlObj.href.replace(/\/$/, '');
+      return;
+    }
+    window.location.href = `${urlObj.href.replace(/\/$/, '')}/`;
   }, []);
 
   const onLangChange = useCallback(() => {
@@ -297,7 +299,7 @@ const Header: React.FC = () => {
       defaultValue={pkg.version}
       onChange={handleVersionChange}
       dropdownStyle={getDropdownStyle}
-      dropdownMatchSelectWidth={false}
+      popupMatchSelectWidth={false}
       getPopupContainer={(trigger) => trigger.parentNode}
       options={versionOptions}
     />,
