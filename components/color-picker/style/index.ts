@@ -80,6 +80,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
     motionDurationMid,
     colorBgElevated,
     colorTextDisabled,
+    colorText,
     colorBgContainerDisabled,
     borderRadius,
     marginXS,
@@ -90,6 +91,8 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
     colorPickerPresetColorSize,
     lineWidth,
     colorBorder,
+    paddingXXS,
+    fontSizeSM,
   } = token;
 
   return [
@@ -117,16 +120,23 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
         },
 
         '&-trigger': {
-          width: controlHeight,
+          minWidth: controlHeight,
           height: controlHeight,
           borderRadius,
           border: `${lineWidth}px solid ${colorBorder}`,
           cursor: 'pointer',
-          display: 'flex',
+          display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',
           transition: `all ${motionDurationMid}`,
           background: colorBgElevated,
+          padding: paddingXXS - lineWidth,
+          [`${componentCls}-trigger-text`]: {
+            marginInlineStart: marginXS,
+            marginInlineEnd: marginXS - (paddingXXS - lineWidth),
+            fontSize: fontSizeSM,
+            color: colorText,
+          },
           '&-active': {
             ...genActiveStyle(token),
             borderColor: colorPrimary,
@@ -140,6 +150,9 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
             cursor: 'not-allowed',
             '&:hover': {
               borderColor: colorBgTextActive,
+            },
+            [`${componentCls}-trigger-text`]: {
+              color: colorTextDisabled,
             },
           },
           ...genClearStyle(token, controlHeightSM),
