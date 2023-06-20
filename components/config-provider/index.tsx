@@ -142,6 +142,10 @@ export interface ConfigProviderProps {
     className?: string;
     style?: React.CSSProperties;
   };
+  spin?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -229,6 +233,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     iconPrefixCls: customIconPrefixCls,
     theme,
     componentDisabled,
+    spin,
     typography,
     divider,
   } = props;
@@ -282,6 +287,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     getPrefixCls,
     iconPrefixCls,
     theme: mergedTheme,
+    spin,
     typography,
     divider,
   };

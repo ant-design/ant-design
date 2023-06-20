@@ -109,6 +109,7 @@ const {
 | input | 设置 Input 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | select | 设置 Select 组件的通用属性 | { showSearch?: boolean } | - |  |
 | space | 设置 Space 的通用属性，参考 [Space](/components/space-cn) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: { item: string }, styles?: { item: React.CSSProperties } } | - | 5.6.0 |
+| spin | 设置 Spin 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | typography | 设置 Typography 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 
 ## FAQ
