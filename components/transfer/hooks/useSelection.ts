@@ -7,6 +7,10 @@ function filterKeys(keys: string[], dataKeys: Set<string>) {
   return keys.length === filteredKeys.length ? keys : filteredKeys;
 }
 
+function flattenKeys(keys: Set<string>) {
+  return Array.from(keys).join(';');
+}
+
 export default function useSelection<T extends { key: string }>(
   leftDataSource: T[],
   rightDataSource: T[],
@@ -44,7 +48,7 @@ export default function useSelection<T extends { key: string }>(
   React.useEffect(() => {
     setSourceSelectedKeys(filterKeys(sourceSelectedKeys, leftKeys));
     setTargetSelectedKeys(filterKeys(targetSelectedKeys, rightKeys));
-  }, [leftKeys, rightKeys]);
+  }, [flattenKeys(leftKeys), flattenKeys(rightKeys)]);
 
   return [
     // Keys
