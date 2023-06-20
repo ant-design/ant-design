@@ -299,7 +299,7 @@ const Header: React.FC = () => {
       defaultValue={pkg.version}
       onChange={handleVersionChange}
       dropdownStyle={getDropdownStyle}
-      dropdownMatchSelectWidth={false}
+      popupMatchSelectWidth={false}
       getPopupContainer={(trigger) => trigger.parentNode}
       options={versionOptions}
     />,
