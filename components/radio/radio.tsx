@@ -51,7 +51,7 @@ const InternalRadio: React.ForwardRefRenderFunction<CheckboxRef, RadioProps> = (
   const disabled = React.useContext(DisabledContext);
 
   if (groupContext) {
-    radioProps.name = groupContext.name;
+    radioProps.name = groupContext.name || radioProps.name;
     radioProps.onChange = onChange;
     radioProps.checked = props.value === groupContext.value;
     radioProps.disabled = radioProps.disabled ?? groupContext.disabled;

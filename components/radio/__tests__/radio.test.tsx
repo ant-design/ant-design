@@ -44,6 +44,14 @@ describe('Radio', () => {
     expect(getByRole('radio')).not.toBeDisabled();
   });
 
+  it('should render input element with name attribute if name prop is passed', () => {
+    const nameValue = 'test-radio-name';
+    const { container } = render(<Radio name={nameValue} />);
+    const inputElement = container.querySelector('input');
+
+    expect(inputElement).toHaveAttribute('name', nameValue);
+  });
+
   it('should obtained correctly disabled status', () => {
     const { getByRole } = render(
       <Form disabled>
