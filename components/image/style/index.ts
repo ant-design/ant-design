@@ -182,9 +182,6 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
         [`${previewCls}-body`]: {
           ...genBoxStyle(),
           overflow: 'hidden',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
         },
 
         [`${previewCls}-img`]: {
@@ -195,15 +192,36 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
           cursor: 'grab',
           transition: `transform ${motionDurationSlow} ${motionEaseOut} 0s`,
           userSelect: 'none',
+          pointerEvents: 'auto',
 
           '&-wrapper': {
-            pointerEvents: 'auto',
+            ...genBoxStyle(),
+            transition: `transform ${motionDurationSlow} ${motionEaseOut} 0s`,
+
+            // https://github.com/ant-design/ant-design/issues/39913
+            // TailwindCSS will reset img default style.
+            // Let's set back.
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+
+            '&::before': {
+              display: 'inline-block',
+              width: 1,
+              height: '50%',
+              marginInlineEnd: -1,
+              content: '""',
+            },
           },
         },
 
         [`${previewCls}-moving`]: {
           [`${previewCls}-preview-img`]: {
             cursor: 'grabbing',
+
+            '&-wrapper': {
+              transitionDuration: '0s',
+            },
           },
         },
       },

@@ -10,6 +10,7 @@ const App: React.FC = () => (
           muted
           width="100%"
           controls
+          style={{ pointerEvents: 'auto' }}
           src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ"
         />
       ),
