@@ -4,14 +4,20 @@ import { Radio } from 'antd';
 
 const plainOptions = ['Apple', 'Pear', 'Orange'];
 const options = [
-  { label: 'Apple', value: 'Apple' },
-  { label: 'Pear', value: 'Pear' },
-  { label: 'Orange', value: 'Orange' },
+  { label: 'Apple', value: 'Apple', name: 'group1' },
+  { label: 'Pear', value: 'Pear', name: 'group1' },
+  { label: 'Orange', value: 'Orange', name: 'group1' },
 ];
 const optionsWithDisabled = [
-  { label: 'Apple', value: 'Apple' },
-  { label: 'Pear', value: 'Pear' },
-  { label: 'Orange', value: 'Orange', disabled: true },
+  { label: 'Apple', value: 'Apple', name: 'group2' },
+  { label: 'Pear', value: 'Pear', name: 'group2' },
+  { label: 'Orange', value: 'Orange', name: 'group2', disabled: true },
+];
+
+const optionsWithDisabledForButtonRadio = [
+  { label: 'Apple', value: 'Apple', name: 'group3' },
+  { label: 'Pear', value: 'Pear', name: 'group3' },
+  { label: 'Orange', value: 'Orange', name: 'group3', disabled: true },
 ];
 
 const App: React.FC = () => {
@@ -51,7 +57,7 @@ const App: React.FC = () => {
       <br />
       <br />
       <Radio.Group
-        options={optionsWithDisabled}
+        options={optionsWithDisabledForButtonRadio}
         onChange={onChange4}
         value={value4}
         optionType="button"
