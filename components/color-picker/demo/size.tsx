@@ -3,9 +3,16 @@ import React from 'react';
 
 const Demo = () => (
   <Space>
-    <ColorPicker size="small" />
-    <ColorPicker />
-    <ColorPicker size="large" />
+    <Space direction="vertical">
+      <ColorPicker size="small" />
+      <ColorPicker />
+      <ColorPicker size="large" />
+    </Space>
+    <Space direction="vertical">
+      <ColorPicker size="small" showText />
+      <ColorPicker showText />
+      <ColorPicker size="large" showText />
+    </Space>
   </Space>
 );
 
