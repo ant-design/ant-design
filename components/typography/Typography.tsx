@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
-import type { DirectionType } from '../config-provider';
-import { ConfigContext } from '../config-provider';
 import warning from '../_util/warning';
+import type { ConfigConsumerProps, DirectionType } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 
 export interface TypographyProps<C extends keyof JSX.IntrinsicElements>
@@ -29,53 +29,57 @@ interface InternalTypographyProps<C extends keyof JSX.IntrinsicElements>
 const Typography = React.forwardRef<
   HTMLElement,
   InternalTypographyProps<keyof JSX.IntrinsicElements>
->(
-  (
+>((props, ref) => {
+  const {
+    prefixCls: customizePrefixCls,
+    component: Component = 'article',
+    className,
+    rootClassName,
+    setContentRef,
+    children,
+    direction: typographyDirection,
+    style,
+    ...restProps
+  } = props;
+  const {
+    getPrefixCls,
+    direction: contextDirection,
+    typography,
+  } = React.useContext<ConfigConsumerProps>(ConfigContext);
+
+  const direction = typographyDirection ?? contextDirection;
+
+  let mergedRef = ref;
+  if (setContentRef) {
+    warning(false, 'Typography', '`setContentRef` is deprecated. Please use `ref` instead.');
+    mergedRef = composeRef(ref, setContentRef);
+  }
+
+  const prefixCls = getPrefixCls('typography', customizePrefixCls);
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const componentClassName = classNames(
+    prefixCls,
+    typography?.className,
     {
-      prefixCls: customizePrefixCls,
-      component: Component = 'article',
-      className,
-      rootClassName,
-      setContentRef,
-      children,
-      direction: typographyDirection,
-      ...restProps
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     },
-    ref,
-  ) => {
-    const { getPrefixCls, direction: contextDirection } = React.useContext(ConfigContext);
+    className,
+    rootClassName,
+    hashId,
+  );
 
-    const direction = typographyDirection ?? contextDirection;
+  const mergedStyle: React.CSSProperties = { ...typography?.style, ...style };
 
-    let mergedRef = ref;
-    if (setContentRef) {
-      warning(false, 'Typography', '`setContentRef` is deprecated. Please use `ref` instead.');
-      mergedRef = composeRef(ref, setContentRef);
-    }
-
-    const prefixCls = getPrefixCls('typography', customizePrefixCls);
-
-    // Style
-    const [wrapSSR, hashId] = useStyle(prefixCls);
-
-    const componentClassName = classNames(
-      prefixCls,
-      {
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-      },
-      className,
-      rootClassName,
-      hashId,
-    );
-
-    return wrapSSR(
-      // @ts-expect-error: Expression produces a union type that is too complex to represent.
-      <Component className={componentClassName} ref={mergedRef} {...restProps}>
-        {children}
-      </Component>,
-    );
-  },
-);
+  return wrapSSR(
+    // @ts-expect-error: Expression produces a union type that is too complex to represent.
+    <Component className={componentClassName} style={mergedStyle} ref={mergedRef} {...restProps}>
+      {children}
+    </Component>,
+  );
+});
 
 if (process.env.NODE_ENV !== 'production') {
   Typography.displayName = 'Typography';

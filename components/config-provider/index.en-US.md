@@ -107,6 +107,7 @@ const {
 | input | Set Input common props | { autoComplete?: string } | - | 4.2.0 |
 | select | Set Select common props | { showSearch?: boolean } | - |  |
 | space | Set Space common props, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: { item: string }, styles?: { item: React.CSSProperties } } | - | 5.6.0 |
+| typography | Set Typography common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 
 ## FAQ
 
