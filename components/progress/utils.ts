@@ -1,7 +1,7 @@
 import { presetPrimaryColors } from '@ant-design/colors';
+import warning from '../_util/warning';
 import type { CircleProps } from './Circle';
 import type { ProgressProps } from './progress';
-import warning from '../_util/warning';
 
 export function validProgress(progress?: number) {
   if (!progress || progress < 0) {
@@ -35,10 +35,10 @@ export const getPercentage = ({ percent, success, successPercent }: ProgressProp
   return [realSuccessPercent, validProgress(validProgress(percent) - realSuccessPercent)];
 };
 
-export const getStrokeColor = ({ success = {}, strokeColor }: Partial<CircleProps>): (
-  | string
-  | Record<PropertyKey, string>
-)[] => {
+export const getStrokeColor = ({
+  success = {},
+  strokeColor,
+}: Partial<CircleProps>): (string | Record<PropertyKey, string>)[] => {
   const { strokeColor: successColor } = success;
   return [successColor || presetPrimaryColors.green, strokeColor || null!];
 };
@@ -62,7 +62,7 @@ export const getSize = (
     } else if (typeof size === 'number') {
       [width, height] = [size, size];
     } else {
-      [width = 14, height = 8] = size;
+      [width = 14, height = 8] = size as [number, number];
     }
     width *= steps;
   } else if (type === 'line') {
@@ -72,7 +72,7 @@ export const getSize = (
     } else if (typeof size === 'number') {
       [width, height] = [size, size];
     } else {
-      [width = -1, height = 8] = size;
+      [width = -1, height = 8] = size as [number, number];
     }
   } else if (type === 'circle' || type === 'dashboard') {
     if (typeof size === 'string' || typeof size === 'undefined') {
@@ -88,8 +88,8 @@ export const getSize = (
         );
       }
 
-      width = size[0] ?? size[1] ?? 120;
-      height = size[0] ?? size[1] ?? 120;
+      width = (size[0] ?? size[1] ?? 120) as number;
+      height = (size[0] ?? size[1] ?? 120) as number;
     }
   }
   return [width, height];
