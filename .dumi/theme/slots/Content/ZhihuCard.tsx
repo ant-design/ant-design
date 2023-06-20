@@ -2,9 +2,8 @@ import { css } from '@emotion/react';
 import { Button, Card } from 'antd';
 import React from 'react';
 
-interface Props {
-  link?: string;
-}
+const ANTD_IMG_URL =
+  'https://picx.zhimg.com/v2-3b2bca09c2771e7a82a81562e806be4d_200x0.jpg?source=d16d100b';
 
 const useStyle = () => ({
   card: css`
@@ -52,8 +51,11 @@ const useStyle = () => ({
   `,
 });
 
-const ZhihuCard: React.FC<Props> = (props) => {
-  const { link } = props;
+interface Props {
+  link?: string;
+}
+
+const ZhihuCard: React.FC<Props> = ({ link }) => {
   const { card, bigTitle, cardBody, left, title, subTitle } = useStyle();
   if (!link) {
     return null;
@@ -63,10 +65,7 @@ const ZhihuCard: React.FC<Props> = (props) => {
       <h3 css={bigTitle}>文章被收录于专栏：</h3>
       <div css={cardBody}>
         <div css={left}>
-          <img
-            alt=""
-            src="https://picx.zhimg.com/v2-3b2bca09c2771e7a82a81562e806be4d_200x0.jpg?source=d16d100b"
-          />
+          <img src={ANTD_IMG_URL} alt="antd" />
           <div>
             <p css={title}>Ant Design</p>
             <p css={subTitle}>一个 UI 设计体系</p>
