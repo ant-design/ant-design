@@ -3,6 +3,7 @@ import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import Divider from '../../divider';
 import Space from '../../space';
+import Spin from '../../spin';
 import Typography from '../../typography';
 
 describe('ConfigProvider support style and className props', () => {
@@ -119,6 +120,19 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLElement>('.ant-typography');
     expect(element).toHaveClass('cp-typography');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Spin className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        spin={{ className: 'config-provider-spin', style: { backgroundColor: 'red' } }}
+      >
+        <Spin />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-spin');
+    expect(element).toHaveClass('config-provider-spin');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });
