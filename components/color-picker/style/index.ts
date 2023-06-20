@@ -83,6 +83,7 @@ const genSizeStyle = (token: ColorPickerToken): CSSObject => {
     borderRadiusSM,
     borderRadiusXS,
     borderRadiusLG,
+    fontSizeLG,
   } = token;
   return {
     [`&${componentCls}-lg`]: {
@@ -93,6 +94,9 @@ const genSizeStyle = (token: ColorPickerToken): CSSObject => {
         width: controlHeight,
         height: controlHeight,
         borderRadius,
+      },
+      [`${componentCls}-trigger-text`]: {
+        fontSize: fontSizeLG,
       },
     },
     [`&${componentCls}-sm`]: {
@@ -128,7 +132,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
     lineWidth,
     colorBorder,
     paddingXXS,
-    fontSizeSM,
+    fontSize,
   } = token;
 
   return [
@@ -170,7 +174,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           [`${componentCls}-trigger-text`]: {
             marginInlineStart: marginXS,
             marginInlineEnd: marginXS - (paddingXXS - lineWidth),
-            fontSize: fontSizeSM,
+            fontSize,
             color: colorText,
           },
           '&-active': {
