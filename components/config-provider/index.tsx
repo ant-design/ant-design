@@ -19,6 +19,7 @@ import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
   ButtonConfig,
+  componentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
   DirectionType,
@@ -38,8 +39,8 @@ import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
 
 /**
- * Since too many feedback using static method like `Modal.confirm` not getting theme,
- * we record the theme register info here to help developer get warning info.
+ * Since too many feedback using static method like `Modal.confirm` not getting theme, we record the
+ * theme register info here to help developer get warning info.
  */
 let existThemeConfig = false;
 
@@ -136,6 +137,7 @@ export interface ConfigProviderProps {
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
   button?: ButtonConfig;
+  divider?: componentStyleConfig;
   typography?: {
     className?: string;
     style?: React.CSSProperties;
@@ -228,6 +230,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     theme,
     componentDisabled,
     typography,
+    divider,
   } = props;
 
   // =================================== Warning ===================================
@@ -280,6 +283,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     iconPrefixCls,
     theme: mergedTheme,
     typography,
+    divider,
   };
 
   const config = {

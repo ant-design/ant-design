@@ -19,7 +19,7 @@ export interface DividerProps {
 }
 
 const Divider: React.FC<DividerProps> = (props) => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, divider } = React.useContext(ConfigContext);
 
   const {
     prefixCls: customizePrefixCls,
@@ -31,6 +31,7 @@ const Divider: React.FC<DividerProps> = (props) => {
     children,
     dashed,
     plain,
+    style,
     ...restProps
   } = props;
   const prefixCls = getPrefixCls('divider', customizePrefixCls);
@@ -42,6 +43,7 @@ const Divider: React.FC<DividerProps> = (props) => {
   const hasCustomMarginRight = orientation === 'right' && orientationMargin != null;
   const classString = classNames(
     prefixCls,
+    divider?.className,
     hashId,
     `${prefixCls}-${type}`,
     {
@@ -82,7 +84,12 @@ const Divider: React.FC<DividerProps> = (props) => {
   }
 
   return wrapSSR(
-    <div className={classString} {...restProps} role="separator">
+    <div
+      className={classString}
+      style={{ ...divider?.style, ...style }}
+      {...restProps}
+      role="separator"
+    >
       {children && type !== 'vertical' && (
         <span className={`${prefixCls}-inner-text`} style={innerStyle}>
           {children}

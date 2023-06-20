@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
 import warning from '../_util/warning';
+import { ConfigContext } from '../config-provider';
 import type { AntAnchor } from './Anchor';
 import AnchorContext from './context';
 
@@ -11,6 +11,7 @@ export interface AnchorLinkBaseProps {
   target?: string;
   title: React.ReactNode;
   className?: string;
+  replace?: boolean;
 }
 
 export interface AnchorLinkProps extends AnchorLinkBaseProps {
@@ -18,7 +19,15 @@ export interface AnchorLinkProps extends AnchorLinkBaseProps {
 }
 
 const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
-  const { href = '#', title, prefixCls: customizePrefixCls, children, className, target } = props;
+  const {
+    href,
+    title,
+    prefixCls: customizePrefixCls,
+    children,
+    className,
+    target,
+    replace,
+  } = props;
 
   const context = React.useContext<AntAnchor | undefined>(AnchorContext);
 
@@ -32,6 +41,10 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
   }, [href]);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    if (replace) {
+      e.preventDefault();
+      window.location.replace(href);
+    }
     onClick?.(e, { title, href });
     scrollTo?.(href);
   };

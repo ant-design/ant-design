@@ -7,7 +7,6 @@ import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
 import Input from '../../input';
 import Select from '../../select';
-import Space from '../../space';
 import Table from '../../table';
 import Typography from '../../typography';
 
@@ -126,6 +125,7 @@ describe('ConfigProvider', () => {
     expect(cacheRenderEmpty).toBeFalsy();
   });
 
+
   it('Should Space classNames works', () => {
     const { container } = render(
       <ConfigProvider
@@ -211,4 +211,5 @@ describe('ConfigProvider', () => {
     expect(element).toHaveClass('config-provider-typography');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
+
 });
