@@ -3,12 +3,12 @@ import useEvent from 'rc-util/lib/hooks/useEvent';
 import * as React from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
-import Affix from '../affix';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
 import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';
 import warning from '../_util/warning';
+import Affix from '../affix';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import type { AnchorLinkBaseProps } from './AnchorLink';
 import AnchorLink from './AnchorLink';
 import AnchorContext from './context';
@@ -77,6 +77,7 @@ export interface AnchorProps {
   onChange?: (currentActiveLink: string) => void;
   items?: AnchorLinkItemProps[];
   direction?: AnchorDirection;
+  replace?: boolean;
 }
 
 interface InternalAnchorProps extends AnchorProps {
@@ -127,6 +128,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     onChange,
     getContainer,
     getCurrentAnchor,
+    replace,
   } = props;
 
   // =================== Warning =====================
@@ -296,7 +298,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
   const createNestedLink = (options?: AnchorLinkItemProps[]) =>
     Array.isArray(options)
       ? options.map((item) => (
-          <AnchorLink {...item} key={item.key}>
+          <AnchorLink replace={replace} {...item} key={item.key}>
             {anchorDirection === 'vertical' && createNestedLink(item.children)}
           </AnchorLink>
         ))

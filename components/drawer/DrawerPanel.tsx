@@ -10,7 +10,7 @@ export interface DrawerPanelProps {
   footer?: React.ReactNode;
   extra?: React.ReactNode;
   /**
-   * advised to use closeIcon instead
+   * Recommend to use closeIcon instead
    *
    * e.g.
    *

@@ -30,6 +30,7 @@ group:
 <code src="./demo/customizeHighlight.tsx">自定义锚点高亮</code>
 <code src="./demo/targetOffset.tsx" iframe="200">设置锚点滚动偏移量</code>
 <code src="./demo/onChange.tsx">监听锚点链接改变</code>
+<code src="./demo/replace.tsx" iframe="200">替换历史中的 href</code>
 <code src="./demo/legacy-anchor.tsx" debug>废弃的 JSX 示例</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
@@ -50,6 +51,7 @@ group:
 | onClick | `click` 事件的 handler | (e: MouseEvent, link: object) => void | - |  |
 | items | 数据化配置选项内容，支持通过 children 嵌套 | { key, href, title, target, children }\[] [具体见](#anchoritem) | - | 5.1.0 |
 | direction | 设置导航方向 | `vertical` \| `horizontal` | `vertical` | 5.2.0 |
+| replace | 替换浏览器历史记录中项目的 href 而不是推送它 | boolean | false | 5.7.0 |
 
 ### AnchorItem
 
@@ -60,6 +62,7 @@ group:
 | target | 该属性指定在何处显示链接的资源 | string | - |  |
 | title | 文字内容 | ReactNode | - |  |
 | children | 嵌套的 Anchor Link，`注意：水平方向该属性不支持` | [AnchorItem](#anchoritem)\[] | - |  |
+| replace | 替换浏览器历史记录中的项目 href 而不是推送它 | boolean | false | 5.7.0 |
 
 ### Link Props
 
