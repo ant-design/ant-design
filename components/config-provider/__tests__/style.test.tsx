@@ -7,6 +7,73 @@ import Spin from '../../spin';
 import Typography from '../../typography';
 
 describe('ConfigProvider support style and className props', () => {
+  // ====================== Alert ======================
+  // ====================== Anchor ======================
+  // ====================== Avatar ======================
+  // ====================== Badge ======================
+  // ====================== Breadcrumb ======================
+  // ====================== Button ======================
+  // ====================== Calendar ======================
+  // ====================== Card ======================
+  // ====================== Carousel ======================
+  // ====================== Cascader ======================
+  // ====================== Checkbox ======================
+  // ====================== Collapse ======================
+  // ====================== ColorPicker ======================
+  // ====================== Descriptions ======================
+  // ====================== Divider ======================
+  it('Should Divider className works', () => {
+    const { container } = render(
+      <ConfigProvider
+        divider={{
+          className: 'config-provider-className',
+        }}
+      >
+        <Divider />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-divider')).toHaveClass('config-provider-className');
+  });
+
+  it('Should Divider style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        divider={{
+          style: {
+            color: 'red',
+            height: 80,
+          },
+        }}
+      >
+        <Divider />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-divider'))?.toHaveStyle({ color: 'red', height: '80px' });
+  });
+
+  // ====================== Drawer ======================
+  // ====================== Empty ======================
+  // ====================== Form ======================
+  // ====================== Image ======================
+  // ====================== Input ======================
+  // ====================== Layout ======================
+  // ====================== List ======================
+  // ====================== Mentions ======================
+  // ====================== Menu ======================
+  // ====================== Message ======================
+  // ====================== Modal ======================
+  // ====================== Notification ======================
+  // ====================== Pagination ======================
+  // ====================== Popover ======================
+  // ====================== Progress ======================
+  // ====================== Radio ======================
+  // ====================== Rate ======================
+  // ====================== Result ======================
+  // ====================== Segmented ======================
+  // ====================== Select ======================
+  // ====================== Skeleton ======================
+  // ====================== Slider ======================
+  // ====================== Space ======================
   it('Should Space classNames works', () => {
     const { container } = render(
       <ConfigProvider
@@ -81,35 +148,32 @@ describe('ConfigProvider support style and className props', () => {
     expect(container.querySelector('.ant-space')).toHaveStyle('color: red;');
   });
 
-  it('Should Divider className works', () => {
+  // ====================== Spin ======================
+  it('Should Spin className & style works', () => {
     const { container } = render(
       <ConfigProvider
-        divider={{
-          className: 'config-provider-className',
-        }}
+        spin={{ className: 'config-provider-spin', style: { backgroundColor: 'red' } }}
       >
-        <Divider />
+        <Spin />
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-divider')).toHaveClass('config-provider-className');
+    const element = container.querySelector<HTMLDivElement>('.ant-spin');
+    expect(element).toHaveClass('config-provider-spin');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 
-  it('Should Divider style works', () => {
-    const { container } = render(
-      <ConfigProvider
-        divider={{
-          style: {
-            color: 'red',
-            height: 80,
-          },
-        }}
-      >
-        <Divider />
-      </ConfigProvider>,
-    );
-    expect(container.querySelector('.ant-divider'))?.toHaveStyle({ color: 'red', height: '80px' });
-  });
-
+  // ====================== Statistic ======================
+  // ====================== Steps ======================
+  // ====================== Switch ======================
+  // ====================== Table ======================
+  // ====================== Tabs ======================
+  // ====================== Tag ======================
+  // ====================== TimePicker ======================
+  // ====================== Timeline ======================
+  // ====================== Tooltip ======================
+  // ====================== Transfer ======================
+  // ====================== Tree ======================
+  // ====================== Typography ======================
   it('Should Typography className & style works', () => {
     const { container } = render(
       <ConfigProvider
@@ -123,16 +187,5 @@ describe('ConfigProvider support style and className props', () => {
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 
-  it('Should Spin className & style works', () => {
-    const { container } = render(
-      <ConfigProvider
-        spin={{ className: 'config-provider-spin', style: { backgroundColor: 'red' } }}
-      >
-        <Spin />
-      </ConfigProvider>,
-    );
-    const element = container.querySelector<HTMLDivElement>('.ant-spin');
-    expect(element).toHaveClass('config-provider-spin');
-    expect(element).toHaveStyle({ backgroundColor: 'red' });
-  });
+  // ====================== Upload ======================
 });

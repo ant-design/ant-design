@@ -19,7 +19,7 @@ import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
   ButtonConfig,
-  componentStyleConfig,
+  ComponentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
   DirectionType,
@@ -101,28 +101,55 @@ export interface ConfigProviderProps {
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
+  // ====================== Component Config Start ======================
+  // alert?: ComponentStyleConfig;
+  // anchor?: ComponentStyleConfig;
+  // avatar?: ComponentStyleConfig;
+  // badge?: ComponentStyleConfig;
+  // breadcrumb?: ComponentStyleConfig;
+  button?: ButtonConfig;
+  // calendar?: ComponentStyleConfig;
+  // card?: ComponentStyleConfig;
+  // carousel?: ComponentStyleConfig;
+  // cascader?: ComponentStyleConfig;
+  // checkbox?: ComponentStyleConfig;
+  // collapse?: ComponentStyleConfig;
+  // colorPicker?: ComponentStyleConfig;
+  // descriptions?: ComponentStyleConfig;
+  divider?: ComponentStyleConfig;
+  // drawer?: ComponentStyleConfig;
+  // empty?: ComponentStyleConfig;
   form?: {
     validateMessages?: ValidateMessages;
     requiredMark?: RequiredMark;
     colon?: boolean;
     scrollToFirstError?: Options | boolean;
   };
+  // image?: ComponentStyleConfig;
   input?: {
     autoComplete?: string;
   };
-  select?: {
-    showSearch?: boolean;
-  };
+  // layout?: ComponentStyleConfig;
+  // list?: ComponentStyleConfig;
+  // mentions?: ComponentStyleConfig;
+  // menu?: ComponentStyleConfig;
+  // message?: ComponentStyleConfig;
+  // modal?: ComponentStyleConfig;
+  // notification?: ComponentStyleConfig;
   pagination?: {
     showSizeChanger?: boolean;
   };
-  locale?: Locale;
-  pageHeader?: {
-    ghost: boolean;
+  // popover?: ComponentStyleConfig;
+  // progress?: ComponentStyleConfig;
+  // radio?: ComponentStyleConfig;
+  // rate?: ComponentStyleConfig;
+  // result?: ComponentStyleConfig;
+  // segmented?: ComponentStyleConfig;
+  select?: {
+    showSearch?: boolean;
   };
-  componentSize?: SizeType;
-  componentDisabled?: boolean;
-  direction?: DirectionType;
+  // skeleton?: ComponentStyleConfig;
+  // slider?: ComponentStyleConfig;
   space?: {
     size?: SizeType | number;
     className?: SpaceProps['className'];
@@ -130,22 +157,34 @@ export interface ConfigProviderProps {
     style?: SpaceProps['style'];
     styles?: SpaceProps['styles'];
   };
+  spin?: ComponentStyleConfig;
+  // statistic?: ComponentStyleConfig;
+  // steps?: ComponentStyleConfig;
+  // switch?: ComponentStyleConfig;
+  // table?: ComponentStyleConfig;
+  // tabs?: ComponentStyleConfig;
+  // tag?: ComponentStyleConfig;
+  // timePicker?: ComponentStyleConfig;
+  // timeline?: ComponentStyleConfig;
+  // tooltip?: ComponentStyleConfig;
+  // transfer?: ComponentStyleConfig;
+  // tree?: ComponentStyleConfig;
+  typography?: ComponentStyleConfig;
+  // upload?: ComponentStyleConfig;
+  // ====================== Component Config End ======================
+  locale?: Locale;
+  pageHeader?: {
+    ghost: boolean;
+  };
+  componentSize?: SizeType;
+  componentDisabled?: boolean;
+  direction?: DirectionType;
   virtual?: boolean;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean;
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
-  button?: ButtonConfig;
-  divider?: componentStyleConfig;
-  typography?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-  spin?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {

@@ -36,12 +36,12 @@ export interface ThemeConfig {
   inherit?: boolean;
 }
 
-export interface componentStyleConfig {
+export interface ComponentStyleConfig {
   className?: string;
   style?: React.CSSProperties;
 }
 
-export interface ButtonConfig extends componentStyleConfig {
+export interface ButtonConfig extends ComponentStyleConfig {
   classNames?: ButtonProps['classNames'];
   styles?: ButtonProps['styles'];
 }
@@ -57,17 +57,54 @@ export interface ConfigConsumerProps {
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
+  // ====================== Component Config Start ======================
+  // alert?: ComponentStyleConfig;
+  // anchor?: ComponentStyleConfig;
+  // avatar?: ComponentStyleConfig;
+  // badge?: ComponentStyleConfig;
+  // breadcrumb?: ComponentStyleConfig;
+  button?: ButtonConfig;
+  // calendar?: ComponentStyleConfig;
+  // card?: ComponentStyleConfig;
+  // carousel?: ComponentStyleConfig;
+  // cascader?: ComponentStyleConfig;
+  // checkbox?: ComponentStyleConfig;
+  // collapse?: ComponentStyleConfig;
+  // colorPicker?: ComponentStyleConfig;
+  // descriptions?: ComponentStyleConfig;
+  divider?: ComponentStyleConfig;
+  // drawer?: ComponentStyleConfig;
+  // empty?: ComponentStyleConfig;
+  form?: {
+    requiredMark?: RequiredMark;
+    colon?: boolean;
+    scrollToFirstError?: Options | boolean;
+  };
+  // image?: ComponentStyleConfig;
   input?: {
     autoComplete?: string;
   };
+  // layout?: ComponentStyleConfig;
+  // list?: ComponentStyleConfig;
+  // mentions?: ComponentStyleConfig;
+  // menu?: ComponentStyleConfig;
+  // message?: ComponentStyleConfig;
+  // modal?: ComponentStyleConfig;
+  // notification?: ComponentStyleConfig;
   pagination?: {
     showSizeChanger?: boolean;
   };
-  locale?: Locale;
-  pageHeader?: {
-    ghost: boolean;
+  // popover?: ComponentStyleConfig;
+  // progress?: ComponentStyleConfig;
+  // radio?: ComponentStyleConfig;
+  // rate?: ComponentStyleConfig;
+  // result?: ComponentStyleConfig;
+  // segmented?: ComponentStyleConfig;
+  select?: {
+    showSearch?: boolean;
   };
-  direction?: DirectionType;
+  // skeleton?: ComponentStyleConfig;
+  // slider?: ComponentStyleConfig;
   space?: {
     size?: SizeType | number;
     className?: SpaceProps['className'];
@@ -75,28 +112,30 @@ export interface ConfigConsumerProps {
     style?: SpaceProps['style'];
     styles?: SpaceProps['styles'];
   };
+  spin?: ComponentStyleConfig;
+  // statistic?: ComponentStyleConfig;
+  // steps?: ComponentStyleConfig;
+  // switch?: ComponentStyleConfig;
+  // table?: ComponentStyleConfig;
+  // tabs?: ComponentStyleConfig;
+  // tag?: ComponentStyleConfig;
+  // timePicker?: ComponentStyleConfig;
+  // timeline?: ComponentStyleConfig;
+  // tooltip?: ComponentStyleConfig;
+  // transfer?: ComponentStyleConfig;
+  // tree?: ComponentStyleConfig;
+  typography?: ComponentStyleConfig;
+  // upload?: ComponentStyleConfig;
+  // ====================== Component Config End ======================
+  locale?: Locale;
+  pageHeader?: {
+    ghost: boolean;
+  };
+  direction?: DirectionType;
   virtual?: boolean;
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
-  form?: {
-    requiredMark?: RequiredMark;
-    colon?: boolean;
-    scrollToFirstError?: Options | boolean;
-  };
   theme?: ThemeConfig;
-  select?: {
-    showSearch?: boolean;
-  };
-  button?: ButtonConfig;
-  divider?: componentStyleConfig;
-  typography?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-  spin?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
