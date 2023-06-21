@@ -62,8 +62,8 @@ Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 | minScale | Min scale | number | 1 | 5.7.0 |
 | maxScale | Max scale | number | 50 | 5.7.0 |
 | forceRender | Force render preview dialog | boolean | - | - |
-| toolbarRender | Custom toolbar render | (params: Omit<[ToolbarRenderType](#ToolbarRenderType), 'current' \| 'total'>) => React.ReactNode | - | 5.7.0 |
-| imageRender | Custom preview content | { originalNode: React.ReactNode, transform: [TransformType](#TransformType) } => React.ReactNode | - | 5.7.0 |
+| toolbarRender | Custom toolbar render | (originalNode: React.ReactNode, info: Omit<[ToolbarRenderInfoType](#ToolbarRenderInfoType), 'current' \| 'total'>) => React.ReactNode | - | 5.7.0 |
+| imageRender | Custom preview content | (originalNode: React.ReactNode, info: { transform: [TransformType](#TransformType) }) => React.ReactNode | - | 5.7.0 |
 | onTransform | Callback when the transform of image changed | { transform: [TransformType](#TransformType), action: [TransformAction](#TransformAction) } | - | 5.7.0 |
 | onVisibleChange | Callback when `visible` changed | (visible: boolean, prevVisible: boolean) => void | - | - |
 
@@ -89,8 +89,8 @@ Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 | maxScale | Max scale | number | 50 | 5.7.0 |
 | forceRender | Force render preview dialog | boolean | - | - |
 | countRender | Custom preview count content | (current: number, total: number) => string | - | 4.20.0 |
-| toolbarRender | Custom toolbar render | (params: [ToolbarRenderType](#ToolbarRenderType)) => React.ReactNode | - | 5.7.0 |
-| imageRender | Custom preview content | { originalNode: React.ReactNode, transform: [TransformType](#TransformType), current: number } => React.ReactNode | - | 5.7.0 |
+| toolbarRender | Custom toolbar render | (originalNode: React.ReactNode, info: [ToolbarRenderInfoType](#ToolbarRenderInfoType)) => React.ReactNode | - | 5.7.0 |
+| imageRender | Custom preview content | (originalNode: React.ReactNode, info: { transform: [TransformType](#TransformType), current: number }) => React.ReactNode | - | 5.7.0 |
 | onTransform | Callback when the transform of image changed | { transform: [TransformType](#TransformType), action: [TransformAction](#TransformAction) } | - | 5.7.0 |
 | onChange | Callback when switch preview image | (current: number, prevCurrent: number) => void | - | 5.3.0 |
 | onVisibleChange | Callback when `visible` changed | (visible: boolean, prevVisible: boolean, current: number) => void | - | current 参数 5.3.0 |
@@ -129,11 +129,10 @@ type TransformAction =
   | 'dragRebound';
 ```
 
-### ToolbarRenderType
+### ToolbarRenderInfoType
 
 ```typescript
 {
-  originalNode: React.ReactNode;
   icons: {
     flipYIcon: React.ReactNode;
     flipXIcon: React.ReactNode;
@@ -144,13 +143,13 @@ type TransformAction =
     closeIcon: React.ReactNode;
   };
   actions: {
-    flipY: () => void;
-    flipX: () => void;
-    rotateLeft: () => void;
-    rotateRight: () => void;
-    zoomOut: () => void;
-    zoomIn: () => void;
-    close: () => void;
+    onFlipY: () => void;
+    onFlipX: () => void;
+    onRotateLeft: () => void;
+    onRotateRight: () => void;
+    onZoomOut: () => void;
+    onZoomIn: () => void;
+    onClose: () => void;
   };
   transform: TransformType,
   current: number;

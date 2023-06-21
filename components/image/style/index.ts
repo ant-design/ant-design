@@ -192,7 +192,6 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
           cursor: 'grab',
           transition: `transform ${motionDurationSlow} ${motionEaseOut} 0s`,
           userSelect: 'none',
-          pointerEvents: 'auto',
 
           '&-wrapper': {
             ...genBoxStyle(),
@@ -204,6 +203,10 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+
+            '& > *': {
+              pointerEvents: 'auto',
+            },
 
             '&::before': {
               display: 'inline-block',

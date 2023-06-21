@@ -10,11 +10,10 @@ const App: React.FC = () => (
           muted
           width="100%"
           controls
-          style={{ pointerEvents: 'auto' }}
           src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ"
         />
       ),
-      toolbarRender: ({ icons: { closeIcon } }) => (
+      toolbarRender: (_, { icons: { closeIcon } }) => (
         <ul className="ant-image-preview-operations">{closeIcon}</ul>
       ),
     }}

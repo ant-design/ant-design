@@ -63,8 +63,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | minScale | 最小缩放倍数 | number | 1 | 5.7.0 |
 | maxScale | 最大放大倍数 | number | 50 | 5.7.0 |
 | forceRender | 强制渲染预览图 | boolean | - | - |
-| toolbarRender | 自定义工具栏 | (params: Omit<[ToolbarRenderType](#ToolbarRenderType), 'current' \| 'total'>) => React.ReactNode | - | 5.7.0 |
-| imageRender | 自定义预览内容 | { originalNode: React.ReactNode, transform: [TransformType](#TransformType) } => React.ReactNode | - | 5.7.0 |
+| toolbarRender | 自定义工具栏 | (originalNode: React.ReactNode, info: Omit<[ToolbarRenderInfoType](#ToolbarRenderInfoType), 'current' \| 'total'>) => React.ReactNode | - | 5.7.0 |
+| imageRender | 自定义预览内容 | (originalNode: React.ReactNode, info: { transform: [TransformType](#TransformType) }) => React.ReactNode | - | 5.7.0 |
 | onTransform | 预览图 transform 变化的回调 | { transform: [TransformType](#TransformType), action: [TransformAction](#TransformAction) } | - | 5.7.0 |
 | onVisibleChange | 当 `visible` 发生改变时的回调 | (visible: boolean, prevVisible: boolean) => void | - | - |
 
@@ -90,8 +90,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | maxScale | 最大放大倍数 | number | 50 | 5.7.0 |
 | forceRender | 强制渲染预览图 | boolean | - | - |
 | countRender | 自定义预览计数内容 | (current: number, total: number) => string | - | 4.20.0 |
-| toolbarRender | 自定义工具栏 | (params: [ToolbarRenderType](#ToolbarRenderType)) => React.ReactNode | - | 5.7.0 |
-| imageRender | 自定义预览内容 | { originalNode: React.ReactNode, transform: [TransformType](#TransformType), current: number } => React.ReactNode | - | 5.7.0 |
+| toolbarRender | 自定义工具栏 | (originalNode: React.ReactNode, info: [ToolbarRenderInfoType](#ToolbarRenderInfoType)) => React.ReactNode | - | 5.7.0 |
+| imageRender | 自定义预览内容 | (originalNode: React.ReactNode, info: { transform: [TransformType](#TransformType), current: number }) => React.ReactNode | - | 5.7.0 |
 | onTransform | 预览图 transform 变化的回调 | { transform: [TransformType](#TransformType), action: [TransformAction](#TransformAction) } | - | 5.7.0 |
 | onChange | 切换预览图的回调 | (current: number, prevCurrent: number) => void | - | 5.3.0 |
 | onVisibleChange | 当 `visible` 发生改变时的回调 | (visible: boolean, prevVisible: boolean, current: number) => void | - | current 参数 5.3.0 |
@@ -130,11 +130,10 @@ type TransformAction =
   | 'dragRebound';
 ```
 
-### ToolbarRenderType
+### ToolbarRenderInfoType
 
 ```typescript
 {
-  originalNode: React.ReactNode;
   icons: {
     flipYIcon: React.ReactNode;
     flipXIcon: React.ReactNode;
@@ -145,13 +144,13 @@ type TransformAction =
     closeIcon: React.ReactNode;
   };
   actions: {
-    flipY: () => void;
-    flipX: () => void;
-    rotateLeft: () => void;
-    rotateRight: () => void;
-    zoomOut: () => void;
-    zoomIn: () => void;
-    close: () => void;
+    onFlipY: () => void;
+    onFlipX: () => void;
+    onRotateLeft: () => void;
+    onRotateRight: () => void;
+    onZoomOut: () => void;
+    onZoomIn: () => void;
+    onClose: () => void;
   };
   transform: TransformType,
   current: number;

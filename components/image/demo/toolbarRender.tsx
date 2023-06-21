@@ -24,17 +24,20 @@ const App: React.FC = () => {
     <Image
       width={200}
       preview={{
-        toolbarRender: ({
-          icons: {
-            flipYIcon,
-            flipXIcon,
-            rotateLeftIcon,
-            rotateRightIcon,
-            zoomOutIcon,
-            zoomInIcon,
-            closeIcon,
+        toolbarRender: (
+          _,
+          {
+            icons: {
+              flipYIcon,
+              flipXIcon,
+              rotateLeftIcon,
+              rotateRightIcon,
+              zoomOutIcon,
+              zoomInIcon,
+              closeIcon,
+            },
           },
-        }) => (
+        ) => (
           <ul className="ant-image-preview-operations">
             <li className="ant-image-preview-operations-operation" onClick={onDownload}>
               <DownloadOutlined className="ant-image-preview-operations-icon" />
