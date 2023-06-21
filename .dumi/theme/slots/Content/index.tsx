@@ -273,7 +273,13 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
           ) : null}
           {!meta.frontmatter.__autoDescription && meta.frontmatter.description}
           {children}
-          {meta.frontmatter?.column_url && <ZhihuCard link={meta.frontmatter.column_url} />}
+          {console.log(meta.frontmatter)}
+          {(meta.frontmatter?.zhihu_column_url || meta.frontmatter?.yuque_column_url) && (
+            <ZhihuCard
+              zhihuLink={meta.frontmatter.zhihu_column_url}
+              yuqueLink={meta.frontmatter.yuque_column_url}
+            />
+          )}
           {meta.frontmatter.filename && (
             <ContributorsList
               repo="ant-design"

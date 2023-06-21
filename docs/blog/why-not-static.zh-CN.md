@@ -2,7 +2,8 @@
 title: 静态方法之痛
 date: 2023-04-26
 author: zombieJ
-column_url: https://zhuanlan.zhihu.com/p/633333904
+zhihu_column_url: https://zhuanlan.zhihu.com/p/633333904
+yuque_column_url: https://www.yuque.com/ant-design/ant-design
 ---
 
 > `message.success` 用的好好的为什么要 warning 我去用 hooks？antd 越做越垃圾，走好不送！
