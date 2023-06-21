@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-carousel ant-carousel-rtl"
+>
+  <div
+    class="slick-slider slick-initialized"
+  >
+    <div
+      class="slick-list"
+    >
+      <div
+        class="slick-track"
+        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Carousel should works for dotPosition bottom 1`] = `
+<div
+  class="ant-carousel"
+>
+  <div
+    class="slick-slider slick-initialized"
+  >
+    <div
+      class="slick-list"
+    >
+      <div
+        class="slick-track"
+        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+      >
+        <div
+          aria-hidden="false"
+          class="slick-slide slick-active slick-current"
+          data-index="0"
+          style="outline: none; width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Carousel should works for dotPosition left 1`] = `
+<div
+  class="ant-carousel ant-carousel-vertical"
+>
+  <div
+    class="slick-slider slick-vertical slick-initialized"
+  >
+    <div
+      class="slick-list"
+    >
+      <div
+        class="slick-track"
+        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+      >
+        <div
+          aria-hidden="false"
+          class="slick-slide slick-active slick-current"
+          data-index="0"
+          style="outline: none; width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Carousel should works for dotPosition right 1`] = `
+<div
+  class="ant-carousel ant-carousel-vertical"
+>
+  <div
+    class="slick-slider slick-vertical slick-initialized"
+  >
+    <div
+      class="slick-list"
+    >
+      <div
+        class="slick-track"
+        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+      >
+        <div
+          aria-hidden="false"
+          class="slick-slide slick-active slick-current"
+          data-index="0"
+          style="outline: none; width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Carousel should works for dotPosition top 1`] = `
+<div
+  class="ant-carousel"
+>
+  <div
+    class="slick-slider slick-initialized"
+  >
+    <div
+      class="slick-list"
+    >
+      <div
+        class="slick-track"
+        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+      >
+        <div
+          aria-hidden="false"
+          class="slick-slide slick-active slick-current"
+          data-index="0"
+          style="outline: none; width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,1241 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/empty/demo/basic.tsx extend context correctly 1`] = `
+<div
+  class="ant-empty"
+>
+  <div
+    class="ant-empty-image"
+  >
+    <svg
+      height="152"
+      viewBox="0 0 184 152"
+      width="184"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        fill="none"
+        fill-rule="evenodd"
+      >
+        <g
+          transform="translate(24 31.67)"
+        >
+          <ellipse
+            cx="67.797"
+            cy="106.89"
+            fill="#F5F5F7"
+            fill-opacity=".8"
+            rx="67.797"
+            ry="12.668"
+          />
+          <path
+            d="M122.034 69.674L98.109 40.229c-1.148-1.386-2.826-2.225-4.593-2.225h-51.44c-1.766 0-3.444.839-4.592 2.225L13.56 69.674v15.383h108.475V69.674z"
+            fill="#AEB8C2"
+          />
+          <path
+            d="M101.537 86.214L80.63 61.102c-1.001-1.207-2.507-1.867-4.048-1.867H31.724c-1.54 0-3.047.66-4.048 1.867L6.769 86.214v13.792h94.768V86.214z"
+            fill="url(#linearGradient-1)"
+            transform="translate(13.56)"
+          />
+          <path
+            d="M33.83 0h67.933a4 4 0 0 1 4 4v93.344a4 4 0 0 1-4 4H33.83a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z"
+            fill="#F5F5F7"
+          />
+          <path
+            d="M42.678 9.953h50.237a2 2 0 0 1 2 2V36.91a2 2 0 0 1-2 2H42.678a2 2 0 0 1-2-2V11.953a2 2 0 0 1 2-2zM42.94 49.767h49.713a2.262 2.262 0 1 1 0 4.524H42.94a2.262 2.262 0 0 1 0-4.524zM42.94 61.53h49.713a2.262 2.262 0 1 1 0 4.525H42.94a2.262 2.262 0 0 1 0-4.525zM121.813 105.032c-.775 3.071-3.497 5.36-6.735 5.36H20.515c-3.238 0-5.96-2.29-6.734-5.36a7.309 7.309 0 0 1-.222-1.79V69.675h26.318c2.907 0 5.25 2.448 5.25 5.42v.04c0 2.971 2.37 5.37 5.277 5.37h34.785c2.907 0 5.277-2.421 5.277-5.393V75.1c0-2.972 2.343-5.426 5.25-5.426h26.318v33.569c0 .617-.077 1.216-.221 1.789z"
+            fill="#DCE0E6"
+          />
+        </g>
+        <path
+          d="M149.121 33.292l-6.83 2.65a1 1 0 0 1-1.317-1.23l1.937-6.207c-2.589-2.944-4.109-6.534-4.109-10.408C138.802 8.102 148.92 0 161.402 0 173.881 0 184 8.102 184 18.097c0 9.995-10.118 18.097-22.599 18.097-4.528 0-8.744-1.066-12.28-2.902z"
+          fill="#DCE0E6"
+        />
+        <g
+          fill="#FFF"
+          transform="translate(149.65 15.383)"
+        >
+          <ellipse
+            cx="20.654"
+            cy="3.167"
+            rx="2.849"
+            ry="2.815"
+          />
+          <path
+            d="M5.698 5.63H0L2.898.704zM9.259.704h4.985V5.63H9.259z"
+          />
+        </g>
+      </g>
+    </svg>
+  </div>
+  <div
+    class="ant-empty-description"
+  >
+    No data
+  </div>
+</div>
+`;
+
+exports[`renders components/empty/demo/config-provider.tsx extend context correctly 1`] = `
+Array [
+  <button
+    aria-checked="true"
+    class="ant-switch ant-switch-checked"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    >
+      <span
+        class="ant-switch-inner-checked"
+      >
+        customize
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        default
+      </span>
+    </span>
+  </button>,
+  <div
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />,
+  <div
+    class="ant-space ant-space-vertical"
+    style="width: 100%;"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
+      <h4>
+        Select
+      </h4>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
+      <div
+        class="ant-select ant-select-single ant-select-show-arrow"
+        style="width: 200px;"
+      >
+        <div
+          class="ant-select-selector"
+        >
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-placeholder"
+          />
+        </div>
+        <div
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        >
+          <div>
+            <div
+              class="ant-select-item-empty"
+              id="rc_select_TEST_OR_SSR_list"
+              role="listbox"
+            >
+              <div
+                style="text-align: center;"
+              >
+                <span
+                  aria-label="smile"
+                  class="anticon anticon-smile"
+                  role="img"
+                  style="font-size: 20px;"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="smile"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+                    />
+                  </svg>
+                </span>
+                <p>
+                  Data Not Found
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select: none;"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down ant-select-suffix"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
+      <h4>
+        TreeSelect
+      </h4>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
+      <div
+        class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+        style="width: 200px;"
+      >
+        <div
+          class="ant-select-selector"
+        >
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-placeholder"
+          />
+        </div>
+        <div
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        >
+          <div>
+            <div
+              class="ant-select-empty"
+              role="listbox"
+            >
+              <div
+                style="text-align: center;"
+              >
+                <span
+                  aria-label="smile"
+                  class="anticon anticon-smile"
+                  role="img"
+                  style="font-size: 20px;"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="smile"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+                    />
+                  </svg>
+                </span>
+                <p>
+                  Data Not Found
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select: none;"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down ant-select-suffix"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
+      <h4>
+        Cascader
+      </h4>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
+      <div
+        class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+        style="width: 200px;"
+      >
+        <div
+          class="ant-select-selector"
+        >
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              role="combobox"
+              type="search"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-placeholder"
+          />
+        </div>
+        <div
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        >
+          <div>
+            <div
+              class="ant-cascader-menus ant-cascader-menu-empty"
+            >
+              <ul
+                class="ant-cascader-menu"
+                role="menu"
+              >
+                <li
+                  aria-checked="false"
+                  class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
+                  data-path-key="__EMPTY__"
+                  role="menuitemcheckbox"
+                >
+                  <div
+                    class="ant-cascader-menu-item-content"
+                  >
+                    <div
+                      style="text-align: center;"
+                    >
+                      <span
+                        aria-label="smile"
+                        class="anticon anticon-smile"
+                        role="img"
+                        style="font-size: 20px;"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="smile"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+                          />
+                        </svg>
+                      </span>
+                      <p>
+                        Data Not Found
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select: none;"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down ant-select-suffix"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
+      <h4>
+        Transfer
+      </h4>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
+      <div
+        class="ant-transfer"
+      >
+        <div
+          class="ant-transfer-list"
+        >
+          <div
+            class="ant-transfer-list-header"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox ant-checkbox-disabled"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  disabled=""
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              aria-label="down"
+              class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="down"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                />
+              </svg>
+            </span>
+            <div
+              class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <ul
+                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                data-menu-list="true"
+                role="menu"
+                tabindex="0"
+              >
+                <li
+                  class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-selectAll"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-dropdown-menu-title-content"
+                  >
+                    Select all data
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
+                <li
+                  class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-selectInvert"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-dropdown-menu-title-content"
+                  >
+                    Invert current page
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
+              </ul>
+              <div
+                aria-hidden="true"
+                style="display: none;"
+              >
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              class="ant-transfer-list-header-selected"
+            >
+              0 item
+            </span>
+            <span
+              class="ant-transfer-list-header-title"
+            />
+          </div>
+          <div
+            class="ant-transfer-list-body"
+          >
+            <div
+              class="ant-transfer-list-body-not-found"
+            >
+              <div
+                style="text-align: center;"
+              >
+                <span
+                  aria-label="smile"
+                  class="anticon anticon-smile"
+                  role="img"
+                  style="font-size: 20px;"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="smile"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+                    />
+                  </svg>
+                </span>
+                <p>
+                  Data Not Found
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-transfer-operation"
+        >
+          <button
+            class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+            disabled=""
+            type="button"
+          >
+            <span
+              class="ant-btn-icon"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+            disabled=""
+            type="button"
+          >
+            <span
+              class="ant-btn-icon"
+            >
+              <span
+                aria-label="left"
+                class="anticon anticon-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-transfer-list"
+        >
+          <div
+            class="ant-transfer-list-header"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox ant-checkbox-disabled"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  disabled=""
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              aria-label="down"
+              class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="down"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                />
+              </svg>
+            </span>
+            <div
+              class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <ul
+                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                data-menu-list="true"
+                role="menu"
+                tabindex="0"
+              >
+                <li
+                  class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-selectAll"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-dropdown-menu-title-content"
+                  >
+                    Select all data
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
+                <li
+                  class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-selectInvert"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-dropdown-menu-title-content"
+                  >
+                    Invert current page
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
+              </ul>
+              <div
+                aria-hidden="true"
+                style="display: none;"
+              >
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              class="ant-transfer-list-header-selected"
+            >
+              0 item
+            </span>
+            <span
+              class="ant-transfer-list-header-title"
+            />
+          </div>
+          <div
+            class="ant-transfer-list-body"
+          >
+            <div
+              class="ant-transfer-list-body-not-found"
+            >
+              <div
+                style="text-align: center;"
+              >
+                <span
+                  aria-label="smile"
+                  class="anticon anticon-smile"
+                  role="img"
+                  style="font-size: 20px;"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="smile"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+                    />
+                  </svg>
+                </span>
+                <p>
+                  Data Not Found
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
+      <h4>
+        Table
+      </h4>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
+      <div
+        class="ant-table-wrapper"
+        style="margin-top: 8px;"
+      >
+        <div
+          class="ant-spin-nested-loading"
+        >
+          <div
+            class="ant-spin-container"
+          >
+            <div
+              class="ant-table ant-table-empty"
+            >
+              <div
+                class="ant-table-container"
+              >
+                <div
+                  class="ant-table-content"
+                >
+                  <table
+                    style="table-layout: auto;"
+                  >
+                    <colgroup />
+                    <thead
+                      class="ant-table-thead"
+                    >
+                      <tr>
+                        <th
+                          class="ant-table-cell"
+                          scope="col"
+                        >
+                          Name
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                          scope="col"
+                        >
+                          Age
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      class="ant-table-tbody"
+                    >
+                      <tr
+                        class="ant-table-placeholder"
+                      >
+                        <td
+                          class="ant-table-cell"
+                          colspan="2"
+                        >
+                          <div
+                            style="text-align: center;"
+                          >
+                            <span
+                              aria-label="smile"
+                              class="anticon anticon-smile"
+                              role="img"
+                              style="font-size: 20px;"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="smile"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+                                />
+                              </svg>
+                            </span>
+                            <p>
+                              Data Not Found
+                            </p>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
+      <h4>
+        List
+      </h4>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-list ant-list-split"
+      >
+        <div
+          class="ant-spin-nested-loading"
+        >
+          <div
+            class="ant-spin-container"
+          >
+            <div
+              class="ant-list-empty-text"
+            >
+              <div
+                style="text-align: center;"
+              >
+                <span
+                  aria-label="smile"
+                  class="anticon anticon-smile"
+                  role="img"
+                  style="font-size: 20px;"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="smile"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+                    />
+                  </svg>
+                </span>
+                <p>
+                  Data Not Found
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/empty/demo/customize.tsx extend context correctly 1`] = `
+<div
+  class="ant-empty"
+>
+  <div
+    class="ant-empty-image"
+    style="height: 60px;"
+  >
+    <img
+      alt="empty"
+      src="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+    />
+  </div>
+  <div
+    class="ant-empty-description"
+  >
+    <span>
+      Customize
+      <a
+        href="#API"
+      >
+        Description
+      </a>
+    </span>
+  </div>
+  <div
+    class="ant-empty-footer"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Create Now
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/empty/demo/description.tsx extend context correctly 1`] = `
+<div
+  class="ant-empty"
+>
+  <div
+    class="ant-empty-image"
+  >
+    <svg
+      height="152"
+      viewBox="0 0 184 152"
+      width="184"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        fill="none"
+        fill-rule="evenodd"
+      >
+        <g
+          transform="translate(24 31.67)"
+        >
+          <ellipse
+            cx="67.797"
+            cy="106.89"
+            fill="#F5F5F7"
+            fill-opacity=".8"
+            rx="67.797"
+            ry="12.668"
+          />
+          <path
+            d="M122.034 69.674L98.109 40.229c-1.148-1.386-2.826-2.225-4.593-2.225h-51.44c-1.766 0-3.444.839-4.592 2.225L13.56 69.674v15.383h108.475V69.674z"
+            fill="#AEB8C2"
+          />
+          <path
+            d="M101.537 86.214L80.63 61.102c-1.001-1.207-2.507-1.867-4.048-1.867H31.724c-1.54 0-3.047.66-4.048 1.867L6.769 86.214v13.792h94.768V86.214z"
+            fill="url(#linearGradient-1)"
+            transform="translate(13.56)"
+          />
+          <path
+            d="M33.83 0h67.933a4 4 0 0 1 4 4v93.344a4 4 0 0 1-4 4H33.83a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z"
+            fill="#F5F5F7"
+          />
+          <path
+            d="M42.678 9.953h50.237a2 2 0 0 1 2 2V36.91a2 2 0 0 1-2 2H42.678a2 2 0 0 1-2-2V11.953a2 2 0 0 1 2-2zM42.94 49.767h49.713a2.262 2.262 0 1 1 0 4.524H42.94a2.262 2.262 0 0 1 0-4.524zM42.94 61.53h49.713a2.262 2.262 0 1 1 0 4.525H42.94a2.262 2.262 0 0 1 0-4.525zM121.813 105.032c-.775 3.071-3.497 5.36-6.735 5.36H20.515c-3.238 0-5.96-2.29-6.734-5.36a7.309 7.309 0 0 1-.222-1.79V69.675h26.318c2.907 0 5.25 2.448 5.25 5.42v.04c0 2.971 2.37 5.37 5.277 5.37h34.785c2.907 0 5.277-2.421 5.277-5.393V75.1c0-2.972 2.343-5.426 5.25-5.426h26.318v33.569c0 .617-.077 1.216-.221 1.789z"
+            fill="#DCE0E6"
+          />
+        </g>
+        <path
+          d="M149.121 33.292l-6.83 2.65a1 1 0 0 1-1.317-1.23l1.937-6.207c-2.589-2.944-4.109-6.534-4.109-10.408C138.802 8.102 148.92 0 161.402 0 173.881 0 184 8.102 184 18.097c0 9.995-10.118 18.097-22.599 18.097-4.528 0-8.744-1.066-12.28-2.902z"
+          fill="#DCE0E6"
+        />
+        <g
+          fill="#FFF"
+          transform="translate(149.65 15.383)"
+        >
+          <ellipse
+            cx="20.654"
+            cy="3.167"
+            rx="2.849"
+            ry="2.815"
+          />
+          <path
+            d="M5.698 5.63H0L2.898.704zM9.259.704h4.985V5.63H9.259z"
+          />
+        </g>
+      </g>
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`renders components/empty/demo/simple.tsx extend context correctly 1`] = `
+<div
+  class="ant-empty ant-empty-normal"
+>
+  <div
+    class="ant-empty-image"
+  >
+    <svg
+      height="41"
+      viewBox="0 0 64 41"
+      width="64"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        fill="none"
+        fill-rule="evenodd"
+        transform="translate(0 1)"
+      >
+        <ellipse
+          cx="32"
+          cy="33"
+          fill="#f5f5f5"
+          rx="32"
+          ry="7"
+        />
+        <g
+          fill-rule="nonzero"
+          stroke="#d9d9d9"
+        >
+          <path
+            d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+          />
+          <path
+            d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+            fill="#fafafa"
+          />
+        </g>
+      </g>
+    </svg>
+  </div>
+  <div
+    class="ant-empty-description"
+  >
+    No data
+  </div>
+</div>
+`;

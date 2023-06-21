@@ -1,0 +1,25 @@
+name: PR Check Merge
+
+on:
+  pull_request_target:
+    types: [opened]
+
+permissions:
+  contents: read
+
+jobs:
+  pr-check-merge:
+    permissions:
+      issues: write  # for actions-cool/issues-helper to update issues
+      pull-requests: write  # for actions-cool/issues-helper to update PRs
+    runs-on: ubuntu-latest
+    if: (github.event.pull_request.head.ref == 'feature' || github.event.pull_request.head.ref == 'master') && github.event.pull_request.head.user.login == 'ant-design'
+    steps:
+      - uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'create-comment'
+          issue-number: ${{ github.event.number }}
+          body: |
+            Hi @${{ github.event.pull_request.user.login }}。
+
+            **请注意**，当前 PR 是分支间的互相合并，请使用 `BranchAutoMerge` 标签来进行自动合并。切记**不要、不要、不要使用 `Squash`**。

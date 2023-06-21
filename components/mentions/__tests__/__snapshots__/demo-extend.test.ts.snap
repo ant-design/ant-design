@@ -1,0 +1,386 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/mentions/demo/async.tsx extend context correctly 1`] = `
+<div
+  class="ant-mentions"
+  style="width: 100%;"
+>
+  <textarea
+    class="rc-textarea"
+    rows="1"
+  />
+</div>
+`;
+
+exports[`renders components/mentions/demo/autoSize.tsx extend context correctly 1`] = `
+<div
+  class="ant-mentions"
+  style="width: 100%;"
+>
+  <textarea
+    class="rc-textarea"
+    rows="1"
+    style="resize: none;"
+  />
+</div>
+`;
+
+exports[`renders components/mentions/demo/basic.tsx extend context correctly 1`] = `
+<div
+  class="ant-mentions"
+  style="width: 100%;"
+>
+  <textarea
+    class="rc-textarea"
+    rows="1"
+  >
+    @afc163
+  </textarea>
+</div>
+`;
+
+exports[`renders components/mentions/demo/component-token.tsx extend context correctly 1`] = `
+<div
+  style="padding-bottom: 0px; position: relative; min-width: 0;"
+>
+  <div
+    class="ant-mentions"
+    style="width: 100%; margin: 0px;"
+  >
+    <textarea
+      class="rc-textarea"
+      rows="1"
+    >
+      @
+    </textarea>
+    <div
+      class="ant-mentions-measure"
+    >
+      <span>
+        @
+      </span>
+      <div
+        class="ant-mentions-dropdown ant-mentions-dropdown-placement-bottomRight"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <ul
+          class="ant-mentions-dropdown-menu ant-mentions-dropdown-menu-root ant-mentions-dropdown-menu-vertical"
+          data-menu-list="true"
+          role="menu"
+          tabindex="0"
+        >
+          <li
+            class="ant-mentions-dropdown-menu-item ant-mentions-dropdown-menu-item-active"
+            data-menu-id="rc-menu-uuid-test-afc163"
+            role="menuitem"
+            tabindex="-1"
+          >
+            afc163
+          </li>
+          <li
+            class="ant-mentions-dropdown-menu-item"
+            data-menu-id="rc-menu-uuid-test-zombieJ"
+            role="menuitem"
+            tabindex="-1"
+          >
+            zombieJ
+          </li>
+        </ul>
+        <div
+          aria-hidden="true"
+          style="display: none;"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-6 ant-form-item-label"
+      >
+        <label
+          class=""
+          for="coders"
+          title="Top coders"
+        >
+          Top coders
+        </label>
+      </div>
+      <div
+        class="ant-col ant-col-16 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-mentions"
+            >
+              <textarea
+                class="rc-textarea"
+                id="coders"
+                rows="1"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-6 ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="bio"
+          title="Bio"
+        >
+          Bio
+        </label>
+      </div>
+      <div
+        class="ant-col ant-col-16 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-mentions"
+            >
+              <textarea
+                aria-required="true"
+                class="rc-textarea"
+                id="bio"
+                placeholder="You can use @ to ref user here"
+                rows="3"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-14 ant-col-offset-6 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center"
+              style="flex-wrap: wrap; margin-bottom: -8px;"
+            >
+              <div
+                class="ant-space-item"
+                style="margin-right: 8px; padding-bottom: 8px;"
+              >
+                <button
+                  class="ant-btn ant-btn-primary"
+                  type="submit"
+                >
+                  <span>
+                    Submit
+                  </span>
+                </button>
+              </div>
+              <div
+                class="ant-space-item"
+                style="padding-bottom: 8px;"
+              >
+                <button
+                  class="ant-btn ant-btn-default"
+                  type="button"
+                >
+                  <span>
+                    Reset
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders components/mentions/demo/placement.tsx extend context correctly 1`] = `
+<div
+  class="ant-mentions"
+  style="width: 100%;"
+>
+  <textarea
+    class="rc-textarea"
+    rows="1"
+  />
+</div>
+`;
+
+exports[`renders components/mentions/demo/prefix.tsx extend context correctly 1`] = `
+<div
+  class="ant-mentions"
+  style="width: 100%;"
+>
+  <textarea
+    class="rc-textarea"
+    placeholder="input @ to mention people, # to mention tag"
+    rows="1"
+  />
+</div>
+`;
+
+exports[`renders components/mentions/demo/readonly.tsx extend context correctly 1`] = `
+Array [
+  <div
+    style="margin-bottom: 10px;"
+  >
+    <div
+      class="ant-mentions ant-mentions-disabled"
+      style="width: 100%;"
+    >
+      <textarea
+        class="rc-textarea rc-textarea-disabled"
+        disabled=""
+        placeholder="this is disabled Mentions"
+        rows="1"
+      />
+    </div>
+  </div>,
+  <div
+    class="ant-mentions"
+    style="width: 100%;"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="this is readOnly Mentions"
+      readonly=""
+      rows="1"
+    />
+  </div>,
+]
+`;
+
+exports[`renders components/mentions/demo/render-panel.tsx extend context correctly 1`] = `
+<div
+  style="padding-bottom: 0px; position: relative; min-width: 0;"
+>
+  <div
+    class="ant-mentions"
+    style="width: 100%; margin: 0px;"
+  >
+    <textarea
+      class="rc-textarea"
+      rows="1"
+    >
+      @
+    </textarea>
+    <div
+      class="ant-mentions-measure"
+    >
+      <span>
+        @
+      </span>
+      <div
+        class="ant-mentions-dropdown ant-mentions-dropdown-placement-bottomRight"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <ul
+          class="ant-mentions-dropdown-menu ant-mentions-dropdown-menu-root ant-mentions-dropdown-menu-vertical"
+          data-menu-list="true"
+          role="menu"
+          tabindex="0"
+        >
+          <li
+            class="ant-mentions-dropdown-menu-item ant-mentions-dropdown-menu-item-active"
+            data-menu-id="rc-menu-uuid-test-afc163"
+            role="menuitem"
+            tabindex="-1"
+          >
+            afc163
+          </li>
+          <li
+            class="ant-mentions-dropdown-menu-item"
+            data-menu-id="rc-menu-uuid-test-zombieJ"
+            role="menuitem"
+            tabindex="-1"
+          >
+            zombieJ
+          </li>
+        </ul>
+        <div
+          aria-hidden="true"
+          style="display: none;"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/mentions/demo/status.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom: 8px;"
+  >
+    <div
+      class="ant-mentions ant-mentions-status-error"
+    >
+      <textarea
+        class="rc-textarea"
+        rows="1"
+      >
+        @afc163
+      </textarea>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-mentions ant-mentions-status-warning"
+    >
+      <textarea
+        class="rc-textarea"
+        rows="1"
+      >
+        @afc163
+      </textarea>
+    </div>
+  </div>
+</div>
+`;

@@ -1,13 +1,25 @@
 import classNames from 'classnames';
-import omit from 'omit.js';
-import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import RcMentions from 'rc-mentions';
-import { MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
+import type {
+  DataDrivenOptionProps as MentionsOptionProps,
+  MentionsProps as RcMentionsProps,
+  MentionsRef as RcMentionsRef,
+} from 'rc-mentions/lib/Mentions';
+import { composeRef } from 'rc-util/lib/ref';
+// eslint-disable-next-line import/no-named-as-default
+import * as React from 'react';
+import genPurePanel from '../_util/PurePanel';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import warning from '../_util/warning';
+import { ConfigContext } from '../config-provider';
+import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import { FormItemInputContext } from '../form/context';
 import Spin from '../spin';
-import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 
-const { Option } = RcMentions;
+import useStyle from './style';
+
+export const { Option } = RcMentions;
 
 function loadingFilterOption() {
   return true;
@@ -15,19 +27,23 @@ function loadingFilterOption() {
 
 export type MentionPlacement = 'top' | 'bottom';
 
+export type { DataDrivenOptionProps as MentionsOptionProps } from 'rc-mentions/lib/Mentions';
+
 export interface OptionProps {
   value: string;
   children: React.ReactNode;
   [key: string]: any;
 }
 
-export interface MentionProps extends RcMentionsProps {
+export interface MentionProps extends Omit<RcMentionsProps, 'suffix'> {
+  rootClassName?: string;
   loading?: boolean;
+  status?: InputStatus;
+  options?: MentionsOptionProps[];
+  popupClassName?: string;
 }
 
-export interface MentionState {
-  focused: boolean;
-}
+export interface MentionsRef extends RcMentionsRef {}
 
 interface MentionsConfig {
   prefix?: string | string[];
@@ -39,77 +55,75 @@ interface MentionsEntity {
   value: string;
 }
 
-class Mentions extends React.Component<MentionProps, MentionState> {
-  static Option = Option;
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  MentionProps & React.RefAttributes<MentionsRef>
+> & {
+  Option: typeof Option;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+  getMentions: (value: string, config?: MentionsConfig) => MentionsEntity[];
+};
 
-  static getMentions = (value: string = '', config?: MentionsConfig): MentionsEntity[] => {
-    const { prefix = '@', split = ' ' } = config || {};
-    const prefixList: string[] = Array.isArray(prefix) ? prefix : [prefix];
+const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps> = (
+  {
+    prefixCls: customizePrefixCls,
+    className,
+    rootClassName,
+    disabled,
+    loading,
+    filterOption,
+    children,
+    notFoundContent,
+    options,
+    status: customStatus,
+    popupClassName,
+    ...restProps
+  },
+  ref,
+) => {
+  const [focused, setFocused] = React.useState(false);
+  const innerRef = React.useRef<MentionsRef>(null);
+  const mergedRef = composeRef(ref, innerRef);
 
-    return value
-      .split(split)
-      .map(
-        (str = ''): MentionsEntity | null => {
-          let hitPrefix: string | null = null;
+  // =================== Warning =====================
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !children,
+      'Mentions',
+      '`Mentions.Option` is deprecated. Please use `options` instead.',
+    );
+  }
 
-          prefixList.some(prefixStr => {
-            const startStr = str.slice(0, prefixStr.length);
-            if (startStr === prefixStr) {
-              hitPrefix = prefixStr;
-              return true;
-            }
-            return false;
-          });
+  const { getPrefixCls, renderEmpty, direction } = React.useContext(ConfigContext);
+  const {
+    status: contextStatus,
+    hasFeedback,
+    feedbackIcon,
+  } = React.useContext(FormItemInputContext);
+  const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
-          if (hitPrefix !== null) {
-            return {
-              prefix: hitPrefix,
-              value: str.slice(hitPrefix!.length),
-            };
-          }
-          return null;
-        },
-      )
-      .filter((entity): entity is MentionsEntity => !!entity && !!entity.value);
-  };
-
-  state = {
-    focused: false,
-  };
-
-  private rcMentions: any;
-
-  onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
-    const { onFocus } = this.props;
-    if (onFocus) {
-      onFocus(...args);
+  const onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
+    if (restProps.onFocus) {
+      restProps.onFocus(...args);
     }
-    this.setState({
-      focused: true,
-    });
+    setFocused(true);
   };
 
-  onBlur: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
-    const { onBlur } = this.props;
-    if (onBlur) {
-      onBlur(...args);
+  const onBlur: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
+    if (restProps.onBlur) {
+      restProps.onBlur(...args);
     }
-    this.setState({
-      focused: false,
-    });
+
+    setFocused(false);
   };
 
-  getNotFoundContent(renderEmpty: RenderEmptyHandler) {
-    const { notFoundContent } = this.props;
+  const notFoundContentEle = React.useMemo<React.ReactNode>(() => {
     if (notFoundContent !== undefined) {
       return notFoundContent;
     }
+    return renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />;
+  }, [notFoundContent, renderEmpty]);
 
-    return renderEmpty('Select');
-  }
-
-  getOptions = () => {
-    const { children, loading } = this.props;
+  const mentionOptions = React.useMemo<React.ReactNode>(() => {
     if (loading) {
       return (
         <Option value="ANTD_SEARCHING" disabled>
@@ -117,63 +131,102 @@ class Mentions extends React.Component<MentionProps, MentionState> {
         </Option>
       );
     }
-
     return children;
-  };
+  }, [loading, children]);
 
-  getFilterOption = (): any => {
-    const { filterOption, loading } = this.props;
-    if (loading) {
-      return loadingFilterOption;
-    }
-    return filterOption;
-  };
+  const mergedOptions = loading
+    ? [
+        {
+          value: 'ANTD_SEARCHING',
+          disabled: true,
+          label: <Spin size="small" />,
+        },
+      ]
+    : options;
 
-  saveMentions = (node: typeof RcMentions) => {
-    this.rcMentions = node;
-  };
+  const mentionsfilterOption = loading ? loadingFilterOption : filterOption;
 
-  focus() {
-    this.rcMentions.focus();
-  }
+  const prefixCls = getPrefixCls('mentions', customizePrefixCls);
 
-  blur() {
-    this.rcMentions.blur();
-  }
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  renderMentions = ({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
-    const { focused } = this.state;
-    const { prefixCls: customizePrefixCls, className, disabled, ...restProps } = this.props;
-    const prefixCls = getPrefixCls('mentions', customizePrefixCls);
-    const mentionsProps = omit(restProps, ['loading']);
-
-    const mergedClassName = classNames(className, {
+  const mergedClassName = classNames(
+    {
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-focused`]: focused,
-    });
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    getStatusClassNames(prefixCls, mergedStatus),
+    !hasFeedback && className,
+    rootClassName,
+    hashId,
+  );
 
-    return (
-      <RcMentions
-        prefixCls={prefixCls}
-        notFoundContent={this.getNotFoundContent(renderEmpty)}
-        className={mergedClassName}
-        disabled={disabled}
-        {...mentionsProps}
-        filterOption={this.getFilterOption()}
-        onFocus={this.onFocus}
-        onBlur={this.onBlur}
-        ref={this.saveMentions}
-      >
-        {this.getOptions()}
-      </RcMentions>
-    );
-  };
+  const mentions = (
+    <RcMentions
+      prefixCls={prefixCls}
+      notFoundContent={notFoundContentEle}
+      className={mergedClassName}
+      disabled={disabled}
+      direction={direction}
+      {...restProps}
+      filterOption={mentionsfilterOption}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      dropdownClassName={classNames(popupClassName, rootClassName, hashId)}
+      ref={mergedRef}
+      options={mergedOptions}
+      suffix={hasFeedback && feedbackIcon}
+      classes={{ affixWrapper: classNames(hashId, className) }}
+    >
+      {mentionOptions}
+    </RcMentions>
+  );
 
-  render() {
-    return <ConfigConsumer>{this.renderMentions}</ConfigConsumer>;
-  }
+  return wrapSSR(mentions);
+};
+
+const Mentions = React.forwardRef<MentionsRef, MentionProps>(
+  InternalMentions,
+) as CompoundedComponent;
+if (process.env.NODE_ENV !== 'production') {
+  Mentions.displayName = 'Mentions';
 }
+Mentions.Option = Option;
 
-polyfill(Mentions);
+// We don't care debug panel
+/* istanbul ignore next */
+const PurePanel = genPurePanel(Mentions, 'mentions');
+Mentions._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+
+Mentions.getMentions = (value: string = '', config: MentionsConfig = {}): MentionsEntity[] => {
+  const { prefix = '@', split = ' ' } = config;
+  const prefixList: string[] = Array.isArray(prefix) ? prefix : [prefix];
+
+  return value
+    .split(split)
+    .map((str = ''): MentionsEntity | null => {
+      let hitPrefix: string | null = null;
+
+      prefixList.some((prefixStr) => {
+        const startStr = str.slice(0, prefixStr.length);
+        if (startStr === prefixStr) {
+          hitPrefix = prefixStr;
+          return true;
+        }
+        return false;
+      });
+
+      if (hitPrefix !== null) {
+        return {
+          prefix: hitPrefix,
+          value: str.slice((hitPrefix as string).length),
+        };
+      }
+      return null;
+    })
+    .filter((entity): entity is MentionsEntity => !!entity && !!entity.value);
+};
 
 export default Mentions;

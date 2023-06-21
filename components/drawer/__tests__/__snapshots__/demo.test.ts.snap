@@ -1,0 +1,716 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/drawer/demo/basic-right.tsx correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open
+  </span>
+</button>
+`;
+
+exports[`renders components/drawer/demo/component-token.tsx correctly 1`] = `
+<div
+  style="padding:32px;background:#e6e6e6"
+>
+  <div
+    class="ant-drawer ant-drawer-pure ant-drawer-right"
+    style="height:300px"
+  >
+    <div
+      class="ant-drawer-wrapper-body"
+    >
+      <div
+        class="ant-drawer-header"
+      >
+        <div
+          class="ant-drawer-header-title"
+        >
+          <button
+            aria-label="Close"
+            class="ant-drawer-close"
+            type="button"
+          >
+            <span
+              aria-label="close"
+              class="anticon anticon-close"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                />
+              </svg>
+            </span>
+          </button>
+          <div
+            class="ant-drawer-title"
+          >
+            Hello Title
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-drawer-body"
+      >
+        Hello Content
+      </div>
+      <div
+        class="ant-drawer-footer"
+      >
+        Footer!
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/drawer/demo/config-provider.tsx correctly 1`] = `
+<div
+  class="site-drawer-render-in-current-wrapper"
+>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Open
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
+  >
+    <div
+      class="ant-radio-group ant-radio-group-outline"
+    >
+      <label
+        class="ant-radio-wrapper"
+      >
+        <span
+          class="ant-radio"
+        >
+          <input
+            class="ant-radio-input"
+            type="radio"
+            value="top"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span>
+          top
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper ant-radio-wrapper-checked"
+      >
+        <span
+          class="ant-radio ant-radio-checked"
+        >
+          <input
+            checked=""
+            class="ant-radio-input"
+            type="radio"
+            value="right"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span>
+          right
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper"
+      >
+        <span
+          class="ant-radio"
+        >
+          <input
+            class="ant-radio-input"
+            type="radio"
+            value="bottom"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span>
+          bottom
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper"
+      >
+        <span
+          class="ant-radio"
+        >
+          <input
+            class="ant-radio-input"
+            type="radio"
+            value="left"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span>
+          left
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Open
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/drawer/demo/form-in-drawer.tsx correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span
+    class="ant-btn-icon"
+  >
+    <span
+      aria-label="plus"
+      class="anticon anticon-plus"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="plus"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <defs>
+          <style />
+        </defs>
+        <path
+          d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+        />
+        <path
+          d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+        />
+      </svg>
+    </span>
+  </span>
+  <span>
+    New account
+  </span>
+</button>
+`;
+
+exports[`renders components/drawer/demo/multi-level-drawer.tsx correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open drawer
+  </span>
+</button>
+`;
+
+exports[`renders components/drawer/demo/no-mask.tsx correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open
+  </span>
+</button>
+`;
+
+exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
+  >
+    <div
+      class="ant-radio-group ant-radio-group-outline"
+    >
+      <label
+        class="ant-radio-wrapper"
+      >
+        <span
+          class="ant-radio"
+        >
+          <input
+            class="ant-radio-input"
+            type="radio"
+            value="top"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span>
+          top
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper"
+      >
+        <span
+          class="ant-radio"
+        >
+          <input
+            class="ant-radio-input"
+            type="radio"
+            value="right"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span>
+          right
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper"
+      >
+        <span
+          class="ant-radio"
+        >
+          <input
+            class="ant-radio-input"
+            type="radio"
+            value="bottom"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span>
+          bottom
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper ant-radio-wrapper-checked"
+      >
+        <span
+          class="ant-radio ant-radio-checked"
+        >
+          <input
+            checked=""
+            class="ant-radio-input"
+            type="radio"
+            value="left"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span>
+          left
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Open
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/drawer/demo/render-in-current.tsx correctly 1`] = `
+<div
+  style="position:relative;height:200px;padding:48px;overflow:hidden;text-align:center;background:rgba(0, 0, 0, 0.02);border:1px solid #f0f0f0;border-radius:8px"
+>
+  Render in this
+  <div
+    style="margin-top:16px"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Open
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/drawer/demo/render-panel.tsx correctly 1`] = `
+<div
+  style="padding:32px;background:#e6e6e6"
+>
+  <div
+    class="ant-drawer ant-drawer-pure ant-drawer-right"
+    style="height:300px"
+  >
+    <div
+      class="ant-drawer-wrapper-body"
+    >
+      <div
+        class="ant-drawer-header"
+      >
+        <div
+          class="ant-drawer-header-title"
+        >
+          <button
+            aria-label="Close"
+            class="ant-drawer-close"
+            type="button"
+          >
+            <span
+              aria-label="close"
+              class="anticon anticon-close"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                />
+              </svg>
+            </span>
+          </button>
+          <div
+            class="ant-drawer-title"
+          >
+            Hello Title
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-drawer-body"
+      >
+        Hello Content
+      </div>
+      <div
+        class="ant-drawer-footer"
+      >
+        Footer!
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/drawer/demo/scroll-debug.tsx correctly 1`] = `
+<div
+  style="position:relative;z-index:999999"
+>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-right:8px"
+    >
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          <span
+            class="ant-switch-inner-checked"
+          >
+            Drawer
+          </span>
+          <span
+            class="ant-switch-inner-unchecked"
+          >
+            Drawer
+          </span>
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right:8px"
+    >
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          <span
+            class="ant-switch-inner-checked"
+          >
+            Drawer2
+          </span>
+          <span
+            class="ant-switch-inner-unchecked"
+          >
+            Drawer2
+          </span>
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right:8px"
+    >
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          <span
+            class="ant-switch-inner-checked"
+          >
+            Modal
+          </span>
+          <span
+            class="ant-switch-inner-unchecked"
+          >
+            Modal
+          </span>
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          <span
+            class="ant-switch-inner-checked"
+          >
+            Modal2
+          </span>
+          <span
+            class="ant-switch-inner-unchecked"
+          >
+            Modal2
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/drawer/demo/size.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Open Default Size (378px)
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Open Large Size (736px)
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/drawer/demo/user-profile.tsx correctly 1`] = `
+<div
+  class="ant-list ant-list-split ant-list-bordered"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <ul
+        class="ant-list-items"
+      >
+        <li
+          class="ant-list-item"
+        >
+          <div
+            class="ant-list-item-meta"
+          >
+            <div
+              class="ant-list-item-meta-avatar"
+            >
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image"
+              >
+                <img
+                  src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="https://ant.design/index-cn"
+                >
+                  Lily
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                Progresser XTech
+              </div>
+            </div>
+          </div>
+          <ul
+            class="ant-list-item-action"
+          >
+            <li>
+              <a>
+                View Profile
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          class="ant-list-item"
+        >
+          <div
+            class="ant-list-item-meta"
+          >
+            <div
+              class="ant-list-item-meta-avatar"
+            >
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image"
+              >
+                <img
+                  src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="https://ant.design/index-cn"
+                >
+                  Lily
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                Progresser XTech
+              </div>
+            </div>
+          </div>
+          <ul
+            class="ant-list-item-action"
+          >
+            <li>
+              <a>
+                View Profile
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

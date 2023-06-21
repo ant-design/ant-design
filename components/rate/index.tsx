@@ -1,78 +1,58 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import StarFilled from '@ant-design/icons/StarFilled';
+import classNames from 'classnames';
 import RcRate from 'rc-rate';
-import omit from 'omit.js';
-import Icon from '../icon';
+import type { RateProps as RcRateProps, RateRef } from 'rc-rate/lib/Rate';
+import * as React from 'react';
+import { ConfigContext } from '../config-provider';
 import Tooltip from '../tooltip';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import useStyle from './style';
 
-export interface RateProps {
-  prefixCls?: string;
-  count?: number;
-  value?: number;
-  defaultValue?: number;
-  allowHalf?: boolean;
-  allowClear?: boolean;
-  disabled?: boolean;
+export interface RateProps extends RcRateProps {
+  rootClassName?: string;
   tooltips?: Array<string>;
-  onChange?: (value: number) => void;
-  onHoverChange?: (value: number) => void;
-  character?: React.ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
 }
 
 interface RateNodeProps {
   index: number;
 }
 
-export default class Rate extends React.Component<RateProps, any> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    character: PropTypes.node,
-  };
-
-  static defaultProps = {
-    character: <Icon type="star" theme="filled" />,
-  };
-
-  private rcRate: any;
-
-  saveRate = (node: any) => {
-    this.rcRate = node;
-  };
-
-  characterRender = (node: React.ReactNode, { index }: RateNodeProps) => {
-    const { tooltips } = this.props;
-    if (!tooltips) return node;
-
+const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
+  const {
+    prefixCls,
+    className,
+    rootClassName,
+    tooltips,
+    character = <StarFilled />,
+    ...rest
+  } = props;
+  const characterRender = (node: React.ReactElement, { index }: RateNodeProps) => {
+    if (!tooltips) {
+      return node;
+    }
     return <Tooltip title={tooltips[index]}>{node}</Tooltip>;
   };
 
-  focus() {
-    this.rcRate.focus();
-  }
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const ratePrefixCls = getPrefixCls('rate', prefixCls);
 
-  blur() {
-    this.rcRate.blur();
-  }
+  // Style
+  const [wrapSSR, hashId] = useStyle(ratePrefixCls);
 
-  renderRate = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls, ...restProps } = this.props;
+  return wrapSSR(
+    <RcRate
+      ref={ref}
+      character={character}
+      characterRender={characterRender}
+      {...rest}
+      className={classNames(className, rootClassName, hashId)}
+      prefixCls={ratePrefixCls}
+      direction={direction}
+    />,
+  );
+});
 
-    const rateProps = omit(restProps, ['tooltips']);
-
-    return (
-      <RcRate
-        ref={this.saveRate}
-        characterRender={this.characterRender}
-        {...rateProps}
-        prefixCls={getPrefixCls('rate', prefixCls)}
-      />
-    );
-  };
-
-  render() {
-    return <ConfigConsumer>{this.renderRate}</ConfigConsumer>;
-  }
+if (process.env.NODE_ENV !== 'production') {
+  Rate.displayName = 'Rate';
 }
+
+export default Rate;

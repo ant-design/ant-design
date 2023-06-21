@@ -1,0 +1,3 @@
+comment: 'Could you please add tests to make sure this change works as expected?',
+fileExtensions: [.ts', '.tsx', '.json']
+testDir: '__tests__'

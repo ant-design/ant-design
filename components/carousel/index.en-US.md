@@ -1,7 +1,11 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Carousel
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*bPMSSqbaTMkAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a-58QpYnqOsAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 A carousel component. Scales with its container.
@@ -12,24 +16,44 @@ A carousel component. Scales with its container.
 - When there is insufficient content space, it can be used to save space in the form of a revolving door.
 - Commonly used for a group of pictures/cards.
 
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/position.tsx">Position</code>
+<code src="./demo/autoplay.tsx">Scroll automatically</code>
+<code src="./demo/fade.tsx">Fade in</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
+
 ## API
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| afterChange | Callback function called after the current index changes | function(current) | - |  |
-| autoplay | Whether to scroll automatically | boolean | `false` |  |
-| beforeChange | Callback function called before the current index changes | function(from, to) | - |  |
-| dotPosition | The position of the dots, which can be one of `top` `bottom` `left` `right` | string | bottom | 3.17.0 |
-| dots | Whether to show the dots at the bottom of the gallery | boolean | `true` |  |
+| autoplay | Whether to scroll automatically | boolean | false |  |
+| dotPosition | The position of the dots, which can be one of `top` `bottom` `left` `right` | string | `bottom` |  |
+| dots | Whether to show the dots at the bottom of the gallery, `object` for `dotsClass` and any others | boolean \| { className?: string } | true |  |
+| waitForAnimate | Whether to wait for the animation when switching | boolean | false |  |
 | easing | Transition interpolation function name | string | `linear` |  |
 | effect | Transition effect | `scrollx` \| `fade` | `scrollx` |  |
+| afterChange | Callback function called after the current index changes | (current: number) => void | - |  |
+| beforeChange | Callback function called before the current index changes | (current: number, next: number) => void | - |  |
 
 ## Methods
 
-| Name | Description | Version |
-| --- | --- | --- |
-| goTo(slideNumber, dontAnimate) | Go to slide index, if dontAnimate=true, it happens without animation | 3.9.3 |
-| next() | Change current slide to next slide |  |
-| prev() | Change current slide to previous slide |  |
+| Name | Description |
+| --- | --- |
+| goTo(slideNumber, dontAnimate) | Go to slide index, if dontAnimate=true, it happens without animation |
+| next() | Change current slide to next slide |
+| prev() | Change current slide to previous slide |
 
-For more info on the parameters, refer to the <https://github.com/akiran/react-slick>
+Find more APIs in react-slick [documentation](https://react-slick.neostack.com/docs/api).
+
+## Design Token
+
+<ComponentTokenTable component="Carousel"></ComponentTokenTable>
+
+## FAQ
+
+### How to add custom arrows?
+
+See [#12479](https://github.com/ant-design/ant-design/issues/12479).

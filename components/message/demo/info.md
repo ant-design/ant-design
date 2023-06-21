@@ -1,29 +1,7 @@
----
-order: 0
-title:
-  zh-CN: 普通提示
-  en-US: Normal prompt
----
-
 ## zh-CN
 
-信息提醒反馈。
+静态方法无法消费 Context，推荐优先使用 Hooks 版本。
 
 ## en-US
 
-Normal message for information.
-
-```jsx
-import { message, Button } from 'antd';
-
-const info = () => {
-  message.info('This is a normal message');
-};
-
-ReactDOM.render(
-  <Button type="primary" onClick={info}>
-    Display normal message
-  </Button>,
-  mountNode,
-);
-```
+Static methods cannot consume Context. Please use hooks first.

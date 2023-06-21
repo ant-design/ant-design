@@ -1,11 +1,37 @@
-import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
-import RcTooltip from 'rc-tooltip';
+import type { BuildInPlacements } from '@rc-component/trigger';
 import classNames from 'classnames';
-import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import RcTooltip from 'rc-tooltip';
+import type {
+  TooltipProps as RcTooltipProps,
+  TooltipRef as RcTooltipRef,
+} from 'rc-tooltip/lib/Tooltip';
+import type { placements as Placements } from 'rc-tooltip/lib/placements';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import type { CSSProperties } from 'react';
+import * as React from 'react';
+import type { PresetColorType } from '../_util/colors';
+import { getTransitionName } from '../_util/motion';
+import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
+import getPlacements from '../_util/placements';
+import { cloneElement, isFragment, isValidElement } from '../_util/reactNode';
+import type { LiteralUnion } from '../_util/type';
+import warning from '../_util/warning';
+import { ConfigContext } from '../config-provider';
+import { NoCompactStyle } from '../space/Compact';
+import theme from '../theme';
+import PurePanel from './PurePanel';
+import useStyle from './style';
+import { parseColor } from './util';
 
-export { AdjustOverflow, PlacementsConfig };
+const { useToken } = theme;
+
+export type { AdjustOverflow, PlacementsConfig };
+
+export interface TooltipRef {
+  /** @deprecated Please use `forceAlign` instead */
+  forcePopupAlign: VoidFunction;
+  forceAlign: VoidFunction;
+}
 
 export type TooltipPlacement =
   | 'top'
@@ -21,8 +47,6 @@ export type TooltipPlacement =
   | 'rightTop'
   | 'rightBottom';
 
-export type TooltipTrigger = 'hover' | 'focus' | 'click' | 'contextMenu';
-
 // https://github.com/react-component/tooltip
 // https://github.com/yiminghe/dom-align
 export interface TooltipAlignConfig {
@@ -34,53 +58,79 @@ export interface TooltipAlignConfig {
   useCssBottom?: boolean;
   useCssTransform?: boolean;
 }
+// remove this after RcTooltip switch visible to open.
+interface LegacyTooltipProps
+  extends Partial<
+    Omit<
+      RcTooltipProps,
+      | 'children'
+      | 'visible'
+      | 'defaultVisible'
+      | 'onVisibleChange'
+      | 'afterVisibleChange'
+      | 'destroyTooltipOnHide'
+    >
+  > {
+  open?: RcTooltipProps['visible'];
+  defaultOpen?: RcTooltipProps['defaultVisible'];
+  onOpenChange?: RcTooltipProps['onVisibleChange'];
+  afterOpenChange?: RcTooltipProps['afterVisibleChange'];
 
-export interface AbstractTooltipProps {
-  prefixCls?: string;
-  overlayClassName?: string;
+  // Legacy
+  /** @deprecated Please use `open` instead. */
+  visible?: RcTooltipProps['visible'];
+  /** @deprecated Please use `defaultOpen` instead. */
+  defaultVisible?: RcTooltipProps['defaultVisible'];
+  /** @deprecated Please use `onOpenChange` instead. */
+  onVisibleChange?: RcTooltipProps['onVisibleChange'];
+  /** @deprecated Please use `afterOpenChange` instead. */
+  afterVisibleChange?: RcTooltipProps['afterVisibleChange'];
+}
+
+export interface AbstractTooltipProps extends LegacyTooltipProps {
   style?: React.CSSProperties;
   className?: string;
-  overlayStyle?: React.CSSProperties;
+  rootClassName?: string;
+  color?: LiteralUnion<PresetColorType>;
   placement?: TooltipPlacement;
-  builtinPlacements?: Object;
-  defaultVisible?: boolean;
-  visible?: boolean;
-  onVisibleChange?: (visible: boolean) => void;
-  mouseEnterDelay?: number;
-  mouseLeaveDelay?: number;
-  transitionName?: string;
-  trigger?: TooltipTrigger;
+  builtinPlacements?: typeof Placements;
   openClassName?: string;
+  /** @deprecated Please use `arrow` instead. */
   arrowPointAtCenter?: boolean;
+  arrow?:
+    | boolean
+    | {
+        /** @deprecated Please use `pointAtCenter` instead. */
+        arrowPointAtCenter?: boolean;
+        pointAtCenter?: boolean;
+      };
   autoAdjustOverflow?: boolean | AdjustOverflow;
-  // getTooltipContainer had been rename to getPopupContainer
-  getTooltipContainer?: (triggerNode: HTMLElement) => HTMLElement;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   children?: React.ReactNode;
-  // align is a more higher api
-  align?: TooltipAlignConfig;
-  /** Internal. Hide tooltip when hidden. This will be renamed in future. */
-  destroyTooltipOnHide?: boolean;
+  destroyTooltipOnHide?: boolean | { keepParent?: boolean };
 }
 
 export type RenderFunction = () => React.ReactNode;
 
-interface TooltipPropsWithOverlay extends AbstractTooltipProps {
+export interface TooltipPropsWithOverlay extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
-  overlay: React.ReactNode | RenderFunction;
+  overlay?: React.ReactNode | RenderFunction;
 }
 
-interface TooltipPropsWithTitle extends AbstractTooltipProps {
+export interface TooltipPropsWithTitle extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
   overlay?: React.ReactNode | RenderFunction;
 }
 
 export declare type TooltipProps = TooltipPropsWithTitle | TooltipPropsWithOverlay;
 
-const splitObject = (obj: any, keys: string[]) => {
-  const picked: any = {};
-  const omitted: any = { ...obj };
-  keys.forEach(key => {
+const splitObject = <T extends CSSProperties>(
+  obj: T,
+  keys: (keyof T)[],
+): Record<'picked' | 'omitted', T> => {
+  const picked: T = {} as T;
+  const omitted: T = { ...obj };
+  keys.forEach((key) => {
     if (obj && key in obj) {
       picked[key] = obj[key];
       delete omitted[key];
@@ -92,14 +142,12 @@ const splitObject = (obj: any, keys: string[]) => {
 // Fix Tooltip won't hide at disabled button
 // mouse events don't trigger at disabled button in Chrome
 // https://github.com/react-component/tooltip/issues/18
-function getDisabledCompatibleChildren(element: React.ReactElement<any>) {
+function getDisabledCompatibleChildren(element: React.ReactElement<any>, prefixCls: string) {
   const elementType = element.type as any;
   if (
-    (elementType.__ANT_BUTTON ||
-      elementType.__ANT_SWITCH ||
-      elementType.__ANT_CHECKBOX ||
-      element.type === 'button') &&
-    element.props.disabled
+    ((elementType.__ANT_BUTTON === true || element.type === 'button') && element.props.disabled) ||
+    (elementType.__ANT_SWITCH === true && (element.props.disabled || element.props.loading)) ||
+    (elementType.__ANT_RADIO === true && element.props.disabled)
   ) {
     // Pick some layout related style properties up to span
     // Prevent layout bugs like https://github.com/ant-design/ant-design/issues/5254
@@ -113,22 +161,25 @@ function getDisabledCompatibleChildren(element: React.ReactElement<any>) {
       'display',
       'zIndex',
     ]);
-    const spanStyle = {
+    const spanStyle: React.CSSProperties = {
       display: 'inline-block', // default inline-block is important
       ...picked,
       cursor: 'not-allowed',
-      width: element.props.block ? '100%' : null,
+      width: element.props.block ? '100%' : undefined,
     };
-    const buttonStyle = {
+    const buttonStyle: React.CSSProperties = {
       ...omitted,
       pointerEvents: 'none',
     };
-    const child = React.cloneElement(element, {
+    const child = cloneElement(element, {
       style: buttonStyle,
       className: null,
     });
     return (
-      <span style={spanStyle} className={element.props.className}>
+      <span
+        style={spanStyle}
+        className={classNames(element.props.className, `${prefixCls}-disabled-compatible-wrapper`)}
+      >
         {child}
       </span>
     );
@@ -136,151 +187,218 @@ function getDisabledCompatibleChildren(element: React.ReactElement<any>) {
   return element;
 }
 
-class Tooltip extends React.Component<TooltipProps, any> {
-  static defaultProps = {
-    placement: 'top' as TooltipPlacement,
-    transitionName: 'zoom-big-fast',
-    mouseEnterDelay: 0.1,
-    mouseLeaveDelay: 0.1,
-    arrowPointAtCenter: false,
-    autoAdjustOverflow: true,
+const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
+  const {
+    prefixCls: customizePrefixCls,
+    openClassName,
+    getTooltipContainer,
+    overlayClassName,
+    color,
+    overlayInnerStyle,
+    children,
+    afterOpenChange,
+    afterVisibleChange,
+    destroyTooltipOnHide,
+    arrow = true,
+    title,
+    overlay,
+    builtinPlacements,
+    arrowPointAtCenter = false,
+    autoAdjustOverflow = true,
+  } = props;
+
+  const mergedShowArrow = !!arrow;
+
+  const { token } = useToken();
+
+  const {
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+    direction,
+  } = React.useContext(ConfigContext);
+
+  // ============================== Ref ===============================
+  const tooltipRef = React.useRef<RcTooltipRef>(null);
+
+  const forceAlign = () => {
+    tooltipRef.current?.forceAlign();
   };
 
-  static getDerivedStateFromProps(nextProps: TooltipProps) {
-    if ('visible' in nextProps) {
-      return { visible: nextProps.visible };
-    }
-    return null;
+  React.useImperativeHandle(ref, () => ({
+    forceAlign,
+    forcePopupAlign: () => {
+      warning(false, 'Tooltip', '`forcePopupAlign` is align to `forceAlign` instead.');
+      forceAlign();
+    },
+  }));
+
+  // ============================== Warn ==============================
+  if (process.env.NODE_ENV !== 'production') {
+    [
+      ['visible', 'open'],
+      ['defaultVisible', 'defaultOpen'],
+      ['onVisibleChange', 'onOpenChange'],
+      ['afterVisibleChange', 'afterOpenChange'],
+      ['arrowPointAtCenter', 'arrow'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning(
+        !(deprecatedName in props),
+        'Tooltip',
+        `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
+      );
+    });
+
+    warning(
+      !destroyTooltipOnHide || typeof destroyTooltipOnHide === 'boolean',
+      'Tooltip',
+      '`destroyTooltipOnHide` no need config `keepParent` anymore. Please use `boolean` value directly.',
+    );
+
+    warning(
+      !arrow || typeof arrow === 'boolean' || !('arrowPointAtCenter' in arrow),
+      'Tooltip',
+      '`arrowPointAtCenter` in `arrow` is deprecated, please use `pointAtCenter` instead.',
+    );
   }
 
-  private tooltip: typeof RcTooltip;
+  // ============================== Open ==============================
+  const [open, setOpen] = useMergedState(false, {
+    value: props.open ?? props.visible,
+    defaultValue: props.defaultOpen ?? props.defaultVisible,
+  });
 
-  constructor(props: TooltipProps) {
-    super(props);
+  const noTitle = !title && !overlay && title !== 0; // overlay for old version compatibility
 
-    this.state = {
-      visible: !!props.visible || !!props.defaultVisible,
-    };
-  }
-
-  onVisibleChange = (visible: boolean) => {
-    const { onVisibleChange } = this.props;
-    if (!('visible' in this.props)) {
-      this.setState({ visible: this.isNoTitle() ? false : visible });
-    }
-    if (onVisibleChange && !this.isNoTitle()) {
-      onVisibleChange(visible);
+  const onOpenChange = (vis: boolean) => {
+    setOpen(noTitle ? false : vis);
+    if (!noTitle) {
+      props.onOpenChange?.(vis);
+      props.onVisibleChange?.(vis);
     }
   };
 
-  getPopupDomNode() {
-    return this.tooltip.getPopupDomNode();
-  }
-
-  getPlacements() {
-    const { builtinPlacements, arrowPointAtCenter, autoAdjustOverflow } = this.props;
+  const tooltipPlacements = React.useMemo<BuildInPlacements>(() => {
+    let mergedArrowPointAtCenter = arrowPointAtCenter;
+    if (typeof arrow === 'object') {
+      mergedArrowPointAtCenter =
+        arrow.pointAtCenter ?? arrow.arrowPointAtCenter ?? arrowPointAtCenter;
+    }
     return (
       builtinPlacements ||
       getPlacements({
-        arrowPointAtCenter,
-        verticalArrowShift: 8,
+        arrowPointAtCenter: mergedArrowPointAtCenter,
         autoAdjustOverflow,
+        arrowWidth: mergedShowArrow ? token.sizePopupArrow : 0,
+        borderRadius: token.borderRadius,
+        offset: token.marginXXS,
+        visibleFirst: true,
       })
     );
+  }, [arrowPointAtCenter, arrow, builtinPlacements, token]);
+
+  const memoOverlay = React.useMemo<TooltipProps['overlay']>(() => {
+    if (title === 0) {
+      return title;
+    }
+    return overlay || title || '';
+  }, [overlay, title]);
+
+  const memoOverlayWrapper = (
+    <NoCompactStyle>
+      {typeof memoOverlay === 'function' ? memoOverlay() : memoOverlay}
+    </NoCompactStyle>
+  );
+
+  const {
+    getPopupContainer,
+    placement = 'top',
+    mouseEnterDelay = 0.1,
+    mouseLeaveDelay = 0.1,
+    overlayStyle,
+    rootClassName,
+    ...otherProps
+  } = props;
+
+  const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
+
+  const injectFromPopover = (props as any)['data-popover-inject'];
+
+  let tempOpen = open;
+  // Hide tooltip when there is no title
+  if (!('open' in props) && !('visible' in props) && noTitle) {
+    tempOpen = false;
   }
 
-  saveTooltip = (node: typeof RcTooltip) => {
-    this.tooltip = node;
-  };
+  // ============================= Render =============================
+  const child = getDisabledCompatibleChildren(
+    isValidElement(children) && !isFragment(children) ? children : <span>{children}</span>,
+    prefixCls,
+  );
+  const childProps = child.props;
+  const childCls =
+    !childProps.className || typeof childProps.className === 'string'
+      ? classNames(childProps.className, {
+          [openClassName || `${prefixCls}-open`]: true,
+        })
+      : childProps.className;
 
-  // 动态设置动画点
-  onPopupAlign = (domNode: HTMLElement, align: any) => {
-    const placements: any = this.getPlacements();
-    // 当前返回的位置
-    const placement = Object.keys(placements).filter(
-      key =>
-        placements[key].points[0] === align.points[0] &&
-        placements[key].points[1] === align.points[1],
-    )[0];
-    if (!placement) {
-      return;
-    }
-    // 根据当前坐标设置动画点
-    const rect = domNode.getBoundingClientRect();
-    const transformOrigin = {
-      top: '50%',
-      left: '50%',
-    };
-    if (placement.indexOf('top') >= 0 || placement.indexOf('Bottom') >= 0) {
-      transformOrigin.top = `${rect.height - align.offset[1]}px`;
-    } else if (placement.indexOf('Top') >= 0 || placement.indexOf('bottom') >= 0) {
-      transformOrigin.top = `${-align.offset[1]}px`;
-    }
-    if (placement.indexOf('left') >= 0 || placement.indexOf('Right') >= 0) {
-      transformOrigin.left = `${rect.width - align.offset[0]}px`;
-    } else if (placement.indexOf('right') >= 0 || placement.indexOf('Left') >= 0) {
-      transformOrigin.left = `${-align.offset[0]}px`;
-    }
-    domNode.style.transformOrigin = `${transformOrigin.left} ${transformOrigin.top}`;
-  };
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls, !injectFromPopover);
 
-  isNoTitle() {
-    const { title, overlay } = this.props;
-    return !title && !overlay; // overlay for old version compatibility
-  }
+  // Color
+  const colorInfo = parseColor(prefixCls, color);
+  const formattedOverlayInnerStyle = { ...overlayInnerStyle, ...colorInfo.overlayStyle };
+  const arrowContentStyle = colorInfo.arrowStyle;
 
-  renderTooltip = ({
-    getPopupContainer: getContextPopupContainer,
-    getPrefixCls,
-  }: ConfigConsumerProps) => {
-    const { props, state } = this;
-    const {
-      prefixCls: customizePrefixCls,
-      title,
-      overlay,
-      openClassName,
-      getPopupContainer,
-      getTooltipContainer,
-    } = props;
-    const children = props.children as React.ReactElement<any>;
-    const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
-    let { visible } = state;
-    // Hide tooltip when there is no title
-    if (!('visible' in props) && this.isNoTitle()) {
-      visible = false;
-    }
+  const customOverlayClassName = classNames(
+    overlayClassName,
+    {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    colorInfo.className,
+    rootClassName,
+    hashId,
+  );
 
-    const child = getDisabledCompatibleChildren(
-      React.isValidElement(children) ? children : <span>{children}</span>,
-    );
+  return wrapSSR(
+    <RcTooltip
+      {...otherProps}
+      showArrow={mergedShowArrow}
+      placement={placement}
+      mouseEnterDelay={mouseEnterDelay}
+      mouseLeaveDelay={mouseLeaveDelay}
+      prefixCls={prefixCls}
+      overlayClassName={customOverlayClassName}
+      overlayStyle={{ ...arrowContentStyle, ...overlayStyle }}
+      getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
+      ref={tooltipRef}
+      builtinPlacements={tooltipPlacements}
+      overlay={memoOverlayWrapper}
+      visible={tempOpen}
+      onVisibleChange={onOpenChange}
+      afterVisibleChange={afterOpenChange ?? afterVisibleChange}
+      overlayInnerStyle={formattedOverlayInnerStyle}
+      arrowContent={<span className={`${prefixCls}-arrow-content`} />}
+      motion={{
+        motionName: getTransitionName(rootPrefixCls, 'zoom-big-fast', props.transitionName),
+        motionDeadline: 1000,
+      }}
+      destroyTooltipOnHide={!!destroyTooltipOnHide}
+    >
+      {tempOpen ? cloneElement(child, { className: childCls }) : child}
+    </RcTooltip>,
+  );
+}) as React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<TooltipProps> & React.RefAttributes<unknown>
+> & {
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+};
 
-    const childProps = child.props;
-    const childCls = classNames(childProps.className, {
-      [openClassName || `${prefixCls}-open`]: true,
-    });
-
-    return (
-      <RcTooltip
-        {...this.props}
-        prefixCls={prefixCls}
-        getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
-        ref={this.saveTooltip}
-        builtinPlacements={this.getPlacements()}
-        overlay={overlay || title || ''}
-        visible={visible}
-        onVisibleChange={this.onVisibleChange}
-        onPopupAlign={this.onPopupAlign}
-      >
-        {visible ? React.cloneElement(child, { className: childCls }) : child}
-      </RcTooltip>
-    );
-  };
-
-  render() {
-    return <ConfigConsumer>{this.renderTooltip}</ConfigConsumer>;
-  }
+if (process.env.NODE_ENV !== 'production') {
+  Tooltip.displayName = 'Tooltip';
 }
 
-polyfill(Tooltip);
+Tooltip._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default Tooltip;

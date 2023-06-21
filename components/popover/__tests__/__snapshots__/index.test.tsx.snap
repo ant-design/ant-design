@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popover should be rendered correctly in RTL direction 1`] = `
+Array [
+  <span
+    class="ant-popover-open"
+  >
+    show me your Rtl demo
+  </span>,
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-rtl ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
+    <div
+      class="ant-popover-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    />
+    <div
+      class="ant-popover-content"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-title"
+        >
+          RTL
+        </div>
+        <div
+          class="ant-popover-inner-content"
+        />
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Popover shows content for render functions 1`] = `"<div class="ant-popover-arrow" style="position: absolute; bottom: 0px; left: 0px;"></div><div class="ant-popover-content"><div class="ant-popover-inner" role="tooltip"><div class="ant-popover-title">some-title</div><div class="ant-popover-inner-content">some-content</div></div></div>"`;

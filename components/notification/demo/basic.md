@@ -1,36 +1,7 @@
----
-order: 0
-title:
-  zh-CN: 基本
-  en-US: Basic
----
-
 ## zh-CN
 
-最简单的用法，4.5 秒后自动关闭。
+静态方法无法消费 Context，推荐优先使用 Hooks 版本。
 
 ## en-US
 
-The simplest usage that close the notification box after 4.5s.
-
-```jsx
-import { Button, notification } from 'antd';
-
-const openNotification = () => {
-  notification.open({
-    message: 'Notification Title',
-    description:
-      'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
-    onClick: () => {
-      console.log('Notification Clicked!');
-    },
-  });
-};
-
-ReactDOM.render(
-  <Button type="primary" onClick={openNotification}>
-    Open the notification box
-  </Button>,
-  mountNode,
-);
-```
+Static methods cannot consume Context. Please use hooks first.

@@ -1,11 +1,12 @@
 ---
 category: Components
-type: Feedback
+group: Feedback
 title: Skeleton
-cols: 1
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*uae3QbkNCm8AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-Provide a placeholder while you wait for content to load, or to visualise content that doesn't exist yet.
+Provide a placeholder while you wait for content to load, or to visualize content that doesn't exist yet.
 
 ## When To Use
 
@@ -14,34 +15,67 @@ Provide a placeholder while you wait for content to load, or to visualise conten
 - Only works when loading data for the first time.
 - Could be replaced by Spin in any situation, but can provide a better user experience.
 
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/complex.tsx">Complex combination</code>
+<code src="./demo/active.tsx">Active Animation</code>
+<code src="./demo/element.tsx">Button/Avatar/Input/Image/Node</code>
+<code src="./demo/children.tsx">Contains sub component</code>
+<code src="./demo/list.tsx">List</code>
+<code src="./demo/componentToken.tsx" debug>Custom component token</code>
+
 ## API
 
 ### Skeleton
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| active | Show animation effect | boolean | false | 3.9.0 |
-| avatar | Show avatar placeholder | boolean \| [SkeletonAvatarProps](#SkeletonAvatarProps) | false | 3.9.0 |
-| loading | Display the skeleton when `true` | boolean | - | 3.9.0 |
-| paragraph | Show paragraph placeholder | boolean \| [SkeletonParagraphProps](#SkeletonParagraphProps) | true | 3.9.0 |
-| title | Show title placeholder | boolean \| [SkeletonTitleProps](#SkeletonTitleProps) | true | 3.9.0 |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| active | Show animation effect | boolean | false |
+| avatar | Show avatar placeholder | boolean \| [SkeletonAvatarProps](#skeletonavatarprops) | false |
+| loading | Display the skeleton when true | boolean | - |
+| paragraph | Show paragraph placeholder | boolean \| [SkeletonParagraphProps](#skeletonparagraphprops) | true |
+| round | Show paragraph and title radius when true | boolean | false |
+| title | Show title placeholder | boolean \| [SkeletonTitleProps](#skeletontitleprops) | true |
 
 ### SkeletonAvatarProps
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| size | Set the size of avatar | number \| Enum{ 'large', 'small', 'default' } | - | 3.9.0 |
-| shape | Set the shape of avatar | Enum{ 'circle', 'square' } | - | 3.9.0 |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| active | Show animation effect, only valid when used avatar independently | boolean | false |
+| shape | Set the shape of avatar | `circle` \| `square` | - |
+| size | Set the size of avatar | number \| `large` \| `small` \| `default` | - |
 
 ### SkeletonTitleProps
 
-| Property | Description            | Type             | Default | Version |
-| -------- | ---------------------- | ---------------- | ------- | ------- |
-| width    | Set the width of title | number \| string | -       | 3.9.0   |
+| Property | Description            | Type             | Default |
+| -------- | ---------------------- | ---------------- | ------- |
+| width    | Set the width of title | number \| string | -       |
 
 ### SkeletonParagraphProps
 
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| rows | Set the row count of paragraph | number | - |
+| width | Set the width of paragraph. When width is an Array, it can set the width of each row. Otherwise only set the last row width | number \| string \| Array&lt;number \| string> | - |
+
+### SkeletonButtonProps
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| rows | Set the row count of paragraph | number | - | 3.9.0 |
-| width | Set the width of paragraph. When width is an Array, it can set the width of each row. Otherwise only set the last row width | number \| string \| Array<number \| string> | - | 3.9.0 |
+| active | Show animation effect | boolean | false |  |
+| block | Option to fit button width to its parent width | boolean | false | 4.17.0 |
+| shape | Set the shape of button | `circle` \| `round` \| `square` \| `default` | - |  |
+| size | Set the size of button | `large` \| `small` \| `default` | - |  |
+
+### SkeletonInputProps
+
+| Property | Description           | Type                            | Default |
+| -------- | --------------------- | ------------------------------- | ------- |
+| active   | Show animation effect | boolean                         | false   |
+| size     | Set the size of input | `large` \| `small` \| `default` | -       |
+
+## Design Token
+
+<ComponentTokenTable component="Skeleton"></ComponentTokenTable>

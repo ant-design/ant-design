@@ -1,157 +1,149 @@
-import * as React from 'react';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
-import omit from 'omit.js';
-import { polyfill } from 'react-lifecycles-compat';
-import Icon from '../icon';
-import CheckableTag from './CheckableTag';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import { PresetColorTypes } from '../_util/colors';
+import * as React from 'react';
+import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
+import { isPresetColor, isPresetStatusColor } from '../_util/colors';
+import type { LiteralUnion } from '../_util/type';
 import warning from '../_util/warning';
 import Wave from '../_util/wave';
+import { ConfigContext } from '../config-provider';
+import CheckableTag from './CheckableTag';
+import useStyle from './style';
 
-export { CheckableTagProps } from './CheckableTag';
+export type { CheckableTagProps } from './CheckableTag';
 
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   prefixCls?: string;
   className?: string;
-  color?: string;
+  rootClassName?: string;
+  color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
   closable?: boolean;
+  closeIcon?: React.ReactNode;
+  /** @deprecated `visible` will be removed in next major version. */
   visible?: boolean;
-  onClose?: Function;
-  afterClose?: Function;
+  onClose?: (e: React.MouseEvent<HTMLElement>) => void;
   style?: React.CSSProperties;
+  icon?: React.ReactNode;
+  bordered?: boolean;
 }
 
-interface TagState {
-  visible: boolean;
+export interface TagType
+  extends React.ForwardRefExoticComponent<TagProps & React.RefAttributes<HTMLElement>> {
+  CheckableTag: typeof CheckableTag;
 }
 
-const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?$`);
+const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (tagProps, ref) => {
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    rootClassName,
+    style,
+    children,
+    icon,
+    color,
+    onClose,
+    closeIcon,
+    closable = false,
+    bordered = true,
+    ...props
+  } = tagProps;
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const [visible, setVisible] = React.useState(true);
 
-class Tag extends React.Component<TagProps, TagState> {
-  static CheckableTag = CheckableTag;
-
-  static defaultProps = {
-    closable: false,
-  };
-
-  static getDerivedStateFromProps(nextProps: TagProps) {
-    if ('visible' in nextProps) {
-      return {
-        visible: nextProps.visible,
-      };
-    }
-    return null;
-  }
-
-  state = {
-    visible: true,
-  };
-
-  constructor(props: TagProps) {
-    super(props);
+  // Warning for deprecated usage
+  if (process.env.NODE_ENV !== 'production') {
     warning(
-      !('afterClose' in props),
+      !('visible' in props),
       'Tag',
-      "'afterClose' will be deprecated, please use 'onClose', we will remove this in the next version.",
+      '`visible` is deprecated, please use `visible && <Tag />` instead.',
     );
   }
 
-  getTagStyle() {
-    const { color, style } = this.props;
-    const isPresetColor = this.isPresetColor();
-    return {
-      backgroundColor: color && !isPresetColor ? color : undefined,
-      ...style,
-    };
-  }
-
-  getTagClassName({ getPrefixCls }: ConfigConsumerProps) {
-    const { prefixCls: customizePrefixCls, className, color } = this.props;
-    const { visible } = this.state;
-    const isPresetColor = this.isPresetColor();
-    const prefixCls = getPrefixCls('tag', customizePrefixCls);
-    return classNames(
-      prefixCls,
-      {
-        [`${prefixCls}-${color}`]: isPresetColor,
-        [`${prefixCls}-has-color`]: color && !isPresetColor,
-        [`${prefixCls}-hidden`]: !visible,
-      },
-      className,
-    );
-  }
-
-  setVisible(visible: boolean, e: React.MouseEvent<HTMLElement>) {
-    const { onClose, afterClose } = this.props;
-    if (onClose) {
-      onClose(e);
+  React.useEffect(() => {
+    if ('visible' in props) {
+      setVisible(props.visible!);
     }
-    if (afterClose && !onClose) {
-      // next version remove.
-      afterClose();
-    }
+  }, [props.visible]);
+
+  const isInternalColor = isPresetColor(color) || isPresetStatusColor(color);
+
+  const tagStyle: React.CSSProperties = {
+    backgroundColor: color && !isInternalColor ? color : undefined,
+    ...style,
+  };
+
+  const prefixCls = getPrefixCls('tag', customizePrefixCls);
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const tagClassName = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-${color}`]: isInternalColor,
+      [`${prefixCls}-has-color`]: color && !isInternalColor,
+      [`${prefixCls}-hidden`]: !visible,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-borderless`]: !bordered,
+    },
+    className,
+    rootClassName,
+    hashId,
+  );
+
+  const handleCloseClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.stopPropagation();
+    onClose?.(e);
+
     if (e.defaultPrevented) {
       return;
     }
-    if (!('visible' in this.props)) {
-      this.setState({ visible });
-    }
-  }
-
-  handleIconClick = (e: React.MouseEvent<HTMLElement>) => {
-    this.setVisible(false, e);
+    setVisible(false);
   };
 
-  isPresetColor(): boolean {
-    const { color } = this.props;
-    if (!color) {
-      return false;
-    }
-    return PresetColorRegex.test(color);
-  }
-
-  renderCloseIcon() {
-    const { closable } = this.props;
-    return closable ? <Icon type="close" onClick={this.handleIconClick} /> : null;
-  }
-
-  renderTag = (configProps: ConfigConsumerProps) => {
-    const { children, ...otherProps } = this.props;
-    const isNeedWave =
-      'onClick' in otherProps || (children && (children as React.ReactElement<any>).type === 'a');
-    const tagProps = omit(otherProps, [
-      'onClose',
-      'afterClose',
-      'color',
-      'visible',
-      'closable',
-      'prefixCls',
-    ]);
-    return isNeedWave ? (
-      <Wave>
-        <span
-          {...tagProps}
-          className={this.getTagClassName(configProps)}
-          style={this.getTagStyle()}
-        >
-          {children}
-          {this.renderCloseIcon()}
+  const closeIconNode = React.useMemo<React.ReactNode>(() => {
+    if (closable) {
+      return closeIcon ? (
+        <span className={`${prefixCls}-close-icon`} onClick={handleCloseClick}>
+          {closeIcon}
         </span>
-      </Wave>
-    ) : (
-      <span {...tagProps} className={this.getTagClassName(configProps)} style={this.getTagStyle()}>
-        {children}
-        {this.renderCloseIcon()}
-      </span>
-    );
-  };
+      ) : (
+        <CloseOutlined className={`${prefixCls}-close-icon`} onClick={handleCloseClick} />
+      );
+    }
+    return null;
+  }, [closable, closeIcon, prefixCls, handleCloseClick]);
 
-  render() {
-    return <ConfigConsumer>{this.renderTag}</ConfigConsumer>;
-  }
+  const isNeedWave =
+    typeof props.onClick === 'function' ||
+    (children && (children as React.ReactElement<any>).type === 'a');
+
+  const iconNode = icon || null;
+
+  const kids = iconNode ? (
+    <>
+      {iconNode}
+      <span>{children}</span>
+    </>
+  ) : (
+    children
+  );
+
+  const tagNode = (
+    <span {...props} ref={ref} className={tagClassName} style={tagStyle}>
+      {kids}
+      {closeIconNode}
+    </span>
+  );
+
+  return wrapSSR(isNeedWave ? <Wave>{tagNode}</Wave> : tagNode);
+};
+
+const Tag = React.forwardRef<HTMLSpanElement, TagProps>(InternalTag) as TagType;
+
+if (process.env.NODE_ENV !== 'production') {
+  Tag.displayName = 'Tag';
 }
 
-polyfill(Tag);
+Tag.CheckableTag = CheckableTag;
 
 export default Tag;

@@ -1,0 +1,105 @@
+name: Issue Open Check
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: read
+
+jobs:
+  issue-open-check:
+    permissions:
+      contents: read  # for visiky/dingtalk-release-notify to get latest release
+      issues: write  # for actions-cool/issues-helper to update issues
+      pull-requests: write  # for actions-cool/issues-helper to update PRs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions-cool/check-user-permission@v2
+        id: checkUser
+        with:
+          require: 'write'
+          check-bot: true
+
+      - name: add unconfirmed label
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'add-labels'
+          issue-number: ${{ github.event.issue.number }}
+          labels: 'unconfirmed'
+
+      - name: check invalid
+        if: (contains(github.event.issue.body, 'ant-design-issue-helper') == false) && (steps.checkUser.outputs.require-result == 'false')
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'create-comment,add-labels,close-issue'
+          issue-number: ${{ github.event.issue.number }}
+          labels: 'Invalid'
+          body: |
+            Hello @${{ github.event.issue.user.login }}, your issue has been closed because it does not conform to our issue requirements. Please use the [Issue Helper](http://new-issue.ant.design) to create an issue, thank you!
+
+            你好 @${{ github.event.issue.user.login }}，为了能够进行高效沟通，我们对 issue 有一定的格式要求，你的 issue 因为不符合要求而被自动关闭。你可以通过 [issue 助手](http://new-issue.ant.design) 来创建 issue 以方便我们定位错误。谢谢配合！
+
+      - name: check website
+        uses: actions-cool/issues-helper@v3
+        id: checkid
+        with:
+          actions: 'check-issue'
+          issue-number: ${{ github.event.issue.number }}
+          # 格式如：'x1,x2' or  'x1,x2/y1,y2' 最多支持 2 个数组
+          title-includes: '官网,网站,国内,镜像,mobile ant design,mobile.ant.design,ant design,ant design pro,pro.ant.design/挂了,挂掉了,无法访问,不能访问,访问速度,访问慢,访问不了,加载太慢,加载慢,加载很慢,出问题,打不开,登不上,can not open,cannot open,can not be reached'
+
+      - name: deal website
+        if: steps.checkid.outputs.check-result == 'true'
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'create-comment,close-issue'
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            如果你无法访问 Ant Design 官网，可以先点此[downforeveryoneorjustme.com/ant.design](https://downforeveryoneorjustme.com/ant.design) 检查网站是不是挂了，如果没挂，可以尝试翻墙或访问国内镜像站点。
+
+            ## 官网
+            * Ant Design: https://ant.design
+            * Ant Design Pro: https://pro.ant.design
+            * Ant Design Pro Preview : https://preview.pro.ant.design
+            * Ant Design Mobile: https://mobile.ant.design
+            * Ant Motion: https://motion.ant.design
+
+            ## 国内镜像
+            * 官方镜像: https://ant-design.antgroup.com
+            * Gitee 镜像: http://ant-design.gitee.io
+            * Ant Design 4.x: https://4x-ant-design.antgroup.com
+            * Ant Design 3.x: https://ant-design-3x.gitee.io
+            * Ant Design 2.x: https://ant-design-2x.gitee.io
+            * Ant Design 1.x: https://ant-design-1x.gitee.io
+            * Ant Design Pro: https://ant-design-pro.gitee.io
+            * Ant Design Mobile: https://antd-mobile.gitee.io
+            * Ant Motion: https://ant-motion.gitee.io
+
+      - name: check ie
+        if: contains(github.event.issue.body, 'ant-design-issue-helper') == true && contains(github.event.issue.title, 'IE9') == true || contains(github.event.issue.title, 'IE 9') == true || contains(github.event.issue.title, 'IE10') == true || contains(github.event.issue.title, 'IE 10') == true || contains(github.event.issue.title, 'IE11') == true || contains(github.event.issue.title, 'IE 11') == true || contains(github.event.issue.title, 'Internet Explorer') == true || contains(github.event.issue.body, 'IE9') == true || contains(github.event.issue.body, 'IE 9') == true || contains(github.event.issue.body, 'IE10') == true || contains(github.event.issue.body, 'IE 10') == true || contains(github.event.issue.body, 'IE11') == true || contains(github.event.issue.body, 'IE 11') == true || contains(github.event.issue.body, 'Internet Explorer') == true
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'add-labels'
+          issue-number: ${{ github.event.issue.number }}
+          labels: 'IE | Firefox | Safari,Internet Explorer'
+
+      - name: check ie11-
+        if: contains(github.event.issue.body, 'ant-design-issue-helper') == true && contains(github.event.issue.title, 'IE9') == true || contains(github.event.issue.title, 'IE 9') == true || contains(github.event.issue.title, 'IE10') == true || contains(github.event.issue.title, 'IE 10') == true || contains(github.event.issue.body, 'IE9') == true || contains(github.event.issue.body, 'IE 9') == true || contains(github.event.issue.body, 'IE10') == true || contains(github.event.issue.body, 'IE 10') == true
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'create-comment, close-issue'
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Hello @${{ github.event.issue.user.login }}, v4 only support IE11 and above.
+
+      - name: send to dingtalk
+        uses: visiky/dingtalk-release-notify@main
+        with:
+          DING_TALK_TOKEN: |
+            ${{ secrets.DINGDING_BOT_TOKEN }}
+            ${{ secrets.DINGDING_BOT_COLLABORATOR_TOKEN }}
+          notify_title: '🔥 @${{ github.event.issue.user.login }} 创建了 issue：${{ github.event.issue.title }}'
+          notify_body: '### 🔥 @${{ github.event.issue.user.login }} 创建了 issue：[${{ github.event.issue.title }}](${{ github.event.issue.html_url }}) <hr /> ![](https://gw.alipayobjects.com/zos/antfincdn/5Cl2G7JjF/jieping2022-03-20%252520xiawu11.06.04.png)'
+          notify_footer: '> 💬 欢迎前往 GitHub 进行讨论，社区可能需要你的帮助。'
+          at_all: false # whether to ding everybody

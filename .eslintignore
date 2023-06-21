@@ -1,16 +1,24 @@
 components/**/*.js
 components/**/*.jsx
-components/*/__tests__/type.tsx
+components/version/token.tsx
 !components/*/__tests__/**/*.js
-!components/*/demo/*
+!components/*/demo/*.md
 !.*.js
-# Docs templates
-site/theme/template/IconDisplay/*.js
-site/theme/template/IconDisplay/*.jsx
+~*
 typings
 es/**/*
 lib/**/*
+locale
+server
+.dumi/tmp
+.dumi/tmp-production
+!.dumi/
 node_modules
+.eslintcache
 _site
 dist
+coverage
 **/*.d.ts
+# Scripts
+scripts/previewEditor/**/*
+jest-stare

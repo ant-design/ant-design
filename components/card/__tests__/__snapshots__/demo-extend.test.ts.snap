@@ -1,0 +1,1325 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/card/demo/basic.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom: 16px;"
+  >
+    <div
+      class="ant-card ant-card-bordered"
+      style="width: 300px;"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Default size card
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <a
+              href="#"
+            >
+              More
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        <p>
+          Card content
+        </p>
+        <p>
+          Card content
+        </p>
+        <p>
+          Card content
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+      style="width: 300px;"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Small size card
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <a
+              href="#"
+            >
+              More
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        <p>
+          Card content
+        </p>
+        <p>
+          Card content
+        </p>
+        <p>
+          Card content
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/card/demo/border-less.tsx extend context correctly 1`] = `
+<div
+  class="ant-card"
+  style="width: 300px;"
+>
+  <div
+    class="ant-card-head"
+  >
+    <div
+      class="ant-card-head-wrapper"
+    >
+      <div
+        class="ant-card-head-title"
+      >
+        Card title
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-card-body"
+  >
+    <p>
+      Card content
+    </p>
+    <p>
+      Card content
+    </p>
+    <p>
+      Card content
+    </p>
+  </div>
+</div>
+`;
+
+exports[`renders components/card/demo/component-token.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-card ant-card-bordered ant-card-contain-tabs"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Card title
+        </div>
+        <div
+          class="ant-card-extra"
+        >
+          More
+        </div>
+      </div>
+      <div
+        class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs"
+      >
+        <div
+          class="ant-tabs-nav"
+          role="tablist"
+        >
+          <div
+            class="ant-tabs-nav-wrap"
+          >
+            <div
+              class="ant-tabs-nav-list"
+              style="transform: translate(0px, 0px);"
+            >
+              <div
+                class="ant-tabs-tab ant-tabs-tab-active"
+                data-node-key="tab1"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-tab1"
+                  aria-selected="true"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-tab1"
+                  role="tab"
+                  tabindex="0"
+                >
+                  tab1
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab"
+                data-node-key="tab2"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-tab2"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-tab2"
+                  role="tab"
+                  tabindex="0"
+                >
+                  tab2
+                </div>
+              </div>
+              <div
+                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              />
+            </div>
+          </div>
+          <div
+            class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+          >
+            <button
+              aria-controls="rc-tabs-test-more-popup"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-hidden="true"
+              class="ant-tabs-nav-more"
+              id="rc-tabs-test-more"
+              style="visibility: hidden; order: 1;"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="ellipsis"
+                class="anticon anticon-ellipsis"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="ellipsis"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div
+              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <ul
+                aria-label="expanded dropdown"
+                class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+                data-menu-list="true"
+                id="rc-tabs-test-more-popup"
+                role="listbox"
+                tabindex="-1"
+              />
+              <div
+                aria-hidden="true"
+                style="display: none;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-tabs-content-holder"
+        >
+          <div
+            class="ant-tabs-content ant-tabs-content-top"
+          >
+            <div
+              aria-hidden="false"
+              aria-labelledby="rc-tabs-test-tab-tab1"
+              class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              id="rc-tabs-test-panel-tab1"
+              role="tabpanel"
+              tabindex="0"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+    </div>
+    <ul
+      class="ant-card-actions"
+    >
+      <li
+        style="width: 33.333333333333336%;"
+      >
+        <span>
+          <span
+            aria-label="setting"
+            class="anticon anticon-setting"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="setting"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
+              />
+            </svg>
+          </span>
+        </span>
+      </li>
+      <li
+        style="width: 33.333333333333336%;"
+      >
+        <span>
+          <span
+            aria-label="edit"
+            class="anticon anticon-edit"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="edit"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+              />
+            </svg>
+          </span>
+        </span>
+      </li>
+      <li
+        style="width: 33.333333333333336%;"
+      >
+        <span>
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </span>
+      </li>
+    </ul>
+  </div>,
+  <div
+    class="ant-card ant-card-bordered ant-card-small"
+    style="width: 300px;"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Small size card
+        </div>
+        <div
+          class="ant-card-extra"
+        >
+          <a
+            href="#"
+          >
+            More
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/card/demo/flexible-content.tsx extend context correctly 1`] = `
+<div
+  class="ant-card ant-card-bordered ant-card-hoverable"
+  style="width: 240px;"
+>
+  <div
+    class="ant-card-cover"
+  >
+    <img
+      alt="example"
+      src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+    />
+  </div>
+  <div
+    class="ant-card-body"
+  >
+    <div
+      class="ant-card-meta"
+    >
+      <div
+        class="ant-card-meta-detail"
+      >
+        <div
+          class="ant-card-meta-title"
+        >
+          Europe Street beat
+        </div>
+        <div
+          class="ant-card-meta-description"
+        >
+          www.instagram.com
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/card/demo/grid-card.tsx extend context correctly 1`] = `
+<div
+  class="ant-card ant-card-bordered ant-card-contain-grid"
+>
+  <div
+    class="ant-card-head"
+  >
+    <div
+      class="ant-card-head-wrapper"
+    >
+      <div
+        class="ant-card-head-title"
+      >
+        Card Title
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-card-body"
+  >
+    <div
+      class="ant-card-grid ant-card-grid-hoverable"
+      style="width: 25%; text-align: center;"
+    >
+      Content
+    </div>
+    <div
+      class="ant-card-grid"
+      style="width: 25%; text-align: center;"
+    >
+      Content
+    </div>
+    <div
+      class="ant-card-grid ant-card-grid-hoverable"
+      style="width: 25%; text-align: center;"
+    >
+      Content
+    </div>
+    <div
+      class="ant-card-grid ant-card-grid-hoverable"
+      style="width: 25%; text-align: center;"
+    >
+      Content
+    </div>
+    <div
+      class="ant-card-grid ant-card-grid-hoverable"
+      style="width: 25%; text-align: center;"
+    >
+      Content
+    </div>
+    <div
+      class="ant-card-grid ant-card-grid-hoverable"
+      style="width: 25%; text-align: center;"
+    >
+      Content
+    </div>
+    <div
+      class="ant-card-grid ant-card-grid-hoverable"
+      style="width: 25%; text-align: center;"
+    >
+      Content
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/card/demo/in-column.tsx extend context correctly 1`] = `
+<div
+  class="ant-row"
+  style="margin-left: -8px; margin-right: -8px;"
+>
+  <div
+    class="ant-col ant-col-8"
+    style="padding-left: 8px; padding-right: 8px;"
+  >
+    <div
+      class="ant-card"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Card title
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        Card content
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-col ant-col-8"
+    style="padding-left: 8px; padding-right: 8px;"
+  >
+    <div
+      class="ant-card"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Card title
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        Card content
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-col ant-col-8"
+    style="padding-left: 8px; padding-right: 8px;"
+  >
+    <div
+      class="ant-card"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Card title
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        Card content
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/card/demo/inner.tsx extend context correctly 1`] = `
+<div
+  class="ant-card ant-card-bordered"
+>
+  <div
+    class="ant-card-head"
+  >
+    <div
+      class="ant-card-head-wrapper"
+    >
+      <div
+        class="ant-card-head-title"
+      >
+        Card title
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-card-body"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-type-inner"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Inner Card title
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <a
+              href="#"
+            >
+              More
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        Inner Card content
+      </div>
+    </div>
+    <div
+      class="ant-card ant-card-bordered ant-card-type-inner"
+      style="margin-top: 16px;"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Inner Card title
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <a
+              href="#"
+            >
+              More
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        Inner Card content
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/card/demo/loading.tsx extend context correctly 1`] = `
+Array [
+  <button
+    aria-checked="false"
+    class="ant-switch"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
+  </button>,
+  <div
+    class="ant-card ant-card-loading ant-card-bordered"
+    style="width: 300px; margin-top: 16px;"
+  >
+    <div
+      class="ant-card-body"
+    >
+      <div
+        class="ant-skeleton ant-skeleton-active"
+      >
+        <div
+          class="ant-skeleton-content"
+        >
+          <ul
+            class="ant-skeleton-paragraph"
+          >
+            <li />
+            <li />
+            <li />
+            <li
+              style="width: 61%;"
+            />
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-card ant-card-bordered"
+    style="width: 300px; margin-top: 16px;"
+  >
+    <div
+      class="ant-card-body"
+    >
+      <div
+        class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"
+      >
+        <div
+          class="ant-skeleton-header"
+        >
+          <span
+            class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+          />
+        </div>
+        <div
+          class="ant-skeleton-content"
+        >
+          <h3
+            class="ant-skeleton-title"
+            style="width: 50%;"
+          />
+          <ul
+            class="ant-skeleton-paragraph"
+          >
+            <li />
+            <li />
+          </ul>
+        </div>
+      </div>
+    </div>
+    <ul
+      class="ant-card-actions"
+    >
+      <li
+        style="width: 33.333333333333336%;"
+      >
+        <span>
+          <span
+            aria-label="setting"
+            class="anticon anticon-setting"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="setting"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
+              />
+            </svg>
+          </span>
+        </span>
+      </li>
+      <li
+        style="width: 33.333333333333336%;"
+      >
+        <span>
+          <span
+            aria-label="edit"
+            class="anticon anticon-edit"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="edit"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+              />
+            </svg>
+          </span>
+        </span>
+      </li>
+      <li
+        style="width: 33.333333333333336%;"
+      >
+        <span>
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </span>
+      </li>
+    </ul>
+  </div>,
+]
+`;
+
+exports[`renders components/card/demo/meta.tsx extend context correctly 1`] = `
+<div
+  class="ant-card ant-card-bordered"
+  style="width: 300px;"
+>
+  <div
+    class="ant-card-cover"
+  >
+    <img
+      alt="example"
+      src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+    />
+  </div>
+  <div
+    class="ant-card-body"
+  >
+    <div
+      class="ant-card-meta"
+    >
+      <div
+        class="ant-card-meta-avatar"
+      >
+        <span
+          class="ant-avatar ant-avatar-circle ant-avatar-image"
+        >
+          <img
+            src="https://xsgames.co/randomusers/avatar.php?g=pixel"
+          />
+        </span>
+      </div>
+      <div
+        class="ant-card-meta-detail"
+      >
+        <div
+          class="ant-card-meta-title"
+        >
+          Card title
+        </div>
+        <div
+          class="ant-card-meta-description"
+        >
+          This is the description
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul
+    class="ant-card-actions"
+  >
+    <li
+      style="width: 33.333333333333336%;"
+    >
+      <span>
+        <span
+          aria-label="setting"
+          class="anticon anticon-setting"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="setting"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
+            />
+          </svg>
+        </span>
+      </span>
+    </li>
+    <li
+      style="width: 33.333333333333336%;"
+    >
+      <span>
+        <span
+          aria-label="edit"
+          class="anticon anticon-edit"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="edit"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+            />
+          </svg>
+        </span>
+      </span>
+    </li>
+    <li
+      style="width: 33.333333333333336%;"
+    >
+      <span>
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </span>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`renders components/card/demo/simple.tsx extend context correctly 1`] = `
+<div
+  class="ant-card ant-card-bordered"
+  style="width: 300px;"
+>
+  <div
+    class="ant-card-body"
+  >
+    <p>
+      Card content
+    </p>
+    <p>
+      Card content
+    </p>
+    <p>
+      Card content
+    </p>
+  </div>
+</div>
+`;
+
+exports[`renders components/card/demo/tabs.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-card ant-card-bordered ant-card-contain-tabs"
+    style="width: 100%;"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Card title
+        </div>
+        <div
+          class="ant-card-extra"
+        >
+          <a
+            href="#"
+          >
+            More
+          </a>
+        </div>
+      </div>
+      <div
+        class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs"
+      >
+        <div
+          class="ant-tabs-nav"
+          role="tablist"
+        >
+          <div
+            class="ant-tabs-nav-wrap"
+          >
+            <div
+              class="ant-tabs-nav-list"
+              style="transform: translate(0px, 0px);"
+            >
+              <div
+                class="ant-tabs-tab ant-tabs-tab-active"
+                data-node-key="tab1"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-tab1"
+                  aria-selected="true"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-tab1"
+                  role="tab"
+                  tabindex="0"
+                >
+                  tab1
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab"
+                data-node-key="tab2"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-tab2"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-tab2"
+                  role="tab"
+                  tabindex="0"
+                >
+                  tab2
+                </div>
+              </div>
+              <div
+                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              />
+            </div>
+          </div>
+          <div
+            class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+          >
+            <button
+              aria-controls="rc-tabs-test-more-popup"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-hidden="true"
+              class="ant-tabs-nav-more"
+              id="rc-tabs-test-more"
+              style="visibility: hidden; order: 1;"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="ellipsis"
+                class="anticon anticon-ellipsis"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="ellipsis"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div
+              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <ul
+                aria-label="expanded dropdown"
+                class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+                data-menu-list="true"
+                id="rc-tabs-test-more-popup"
+                role="listbox"
+                tabindex="-1"
+              />
+              <div
+                aria-hidden="true"
+                style="display: none;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-tabs-content-holder"
+        >
+          <div
+            class="ant-tabs-content ant-tabs-content-top"
+          >
+            <div
+              aria-hidden="false"
+              aria-labelledby="rc-tabs-test-tab-tab1"
+              class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              id="rc-tabs-test-panel-tab1"
+              role="tabpanel"
+              tabindex="0"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      <p>
+        content1
+      </p>
+    </div>
+  </div>,
+  <br />,
+  <br />,
+  <div
+    class="ant-card ant-card-bordered ant-card-contain-tabs"
+    style="width: 100%;"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      />
+      <div
+        class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs"
+      >
+        <div
+          class="ant-tabs-nav"
+          role="tablist"
+        >
+          <div
+            class="ant-tabs-nav-wrap"
+          >
+            <div
+              class="ant-tabs-nav-list"
+              style="transform: translate(0px, 0px);"
+            >
+              <div
+                class="ant-tabs-tab"
+                data-node-key="article"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-article"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-article"
+                  role="tab"
+                  tabindex="0"
+                >
+                  article
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab ant-tabs-tab-active"
+                data-node-key="app"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-app"
+                  aria-selected="true"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-app"
+                  role="tab"
+                  tabindex="0"
+                >
+                  app
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab"
+                data-node-key="project"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-project"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-project"
+                  role="tab"
+                  tabindex="0"
+                >
+                  project
+                </div>
+              </div>
+              <div
+                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              />
+            </div>
+          </div>
+          <div
+            class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+          >
+            <button
+              aria-controls="rc-tabs-test-more-popup"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-hidden="true"
+              class="ant-tabs-nav-more"
+              id="rc-tabs-test-more"
+              style="visibility: hidden; order: 1;"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="ellipsis"
+                class="anticon anticon-ellipsis"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="ellipsis"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div
+              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <ul
+                aria-label="expanded dropdown"
+                class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+                data-menu-list="true"
+                id="rc-tabs-test-more-popup"
+                role="listbox"
+                tabindex="-1"
+              />
+              <div
+                aria-hidden="true"
+                style="display: none;"
+              />
+            </div>
+          </div>
+          <div
+            class="ant-tabs-extra-content"
+          >
+            <a
+              href="#"
+            >
+              More
+            </a>
+          </div>
+        </div>
+        <div
+          class="ant-tabs-content-holder"
+        >
+          <div
+            class="ant-tabs-content ant-tabs-content-top"
+          >
+            <div
+              aria-hidden="false"
+              aria-labelledby="rc-tabs-test-tab-app"
+              class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              id="rc-tabs-test-panel-app"
+              role="tabpanel"
+              tabindex="0"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      <p>
+        app content
+      </p>
+    </div>
+  </div>,
+]
+`;

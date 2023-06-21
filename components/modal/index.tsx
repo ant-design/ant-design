@@ -1,49 +1,47 @@
-import * as React from 'react';
-import Modal, { ModalFuncProps, destroyFns } from './Modal';
-import confirm from './confirm';
-import Icon from '../icon';
+import type { ModalStaticFunctions } from './confirm';
+import confirm, {
+  modalGlobalConfig,
+  withConfirm,
+  withError,
+  withInfo,
+  withSuccess,
+  withWarn,
+} from './confirm';
+import destroyFns from './destroyFns';
+import type { ModalFuncProps } from './interface';
+import OriginModal from './Modal';
+import PurePanel from './PurePanel';
+import useModal from './useModal';
 
-export { ActionButtonProps } from './ActionButton';
-export { ModalProps, ModalFuncProps } from './Modal';
+export type { ModalFuncProps, ModalLocale, ModalProps } from './interface';
 
 function modalWarn(props: ModalFuncProps) {
-  const config = {
-    type: 'warning',
-    icon: <Icon type="exclamation-circle" />,
-    okCancel: false,
-    ...props,
-  };
-  return confirm(config);
+  return confirm(withWarn(props));
 }
 
-Modal.info = function infoFn(props: ModalFuncProps) {
-  const config = {
-    type: 'info',
-    icon: <Icon type="info-circle" />,
-    okCancel: false,
-    ...props,
+type ModalType = typeof OriginModal &
+  ModalStaticFunctions & {
+    useModal: typeof useModal;
+    destroyAll: () => void;
+    config: typeof modalGlobalConfig;
+    /** @private Internal Component. Do not use in your production. */
+    _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
   };
-  return confirm(config);
+
+const Modal = OriginModal as ModalType;
+
+Modal.useModal = useModal;
+
+Modal.info = function infoFn(props: ModalFuncProps) {
+  return confirm(withInfo(props));
 };
 
 Modal.success = function successFn(props: ModalFuncProps) {
-  const config = {
-    type: 'success',
-    icon: <Icon type="check-circle" />,
-    okCancel: false,
-    ...props,
-  };
-  return confirm(config);
+  return confirm(withSuccess(props));
 };
 
 Modal.error = function errorFn(props: ModalFuncProps) {
-  const config = {
-    type: 'error',
-    icon: <Icon type="close-circle" />,
-    okCancel: false,
-    ...props,
-  };
-  return confirm(config);
+  return confirm(withError(props));
 };
 
 Modal.warning = modalWarn;
@@ -51,12 +49,7 @@ Modal.warning = modalWarn;
 Modal.warn = modalWarn;
 
 Modal.confirm = function confirmFn(props: ModalFuncProps) {
-  const config = {
-    type: 'confirm',
-    okCancel: true,
-    ...props,
-  };
-  return confirm(config);
+  return confirm(withConfirm(props));
 };
 
 Modal.destroyAll = function destroyAllFn() {
@@ -67,5 +60,13 @@ Modal.destroyAll = function destroyAllFn() {
     }
   }
 };
+
+Modal.config = modalGlobalConfig;
+
+Modal._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+
+if (process.env.NODE_ENV !== 'production') {
+  Modal.displayName = 'Modal';
+}
 
 export default Modal;

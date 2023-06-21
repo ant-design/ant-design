@@ -1,0 +1,24 @@
+name: Verify Package Version
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize, ready_for_review]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    permissions:
+      contents: read  # for actions/checkout to fetch code
+      pull-requests: write  # for actions-cool/verify-package-version to comment on PR
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.title, 'changelog') || contains(github.event.pull_request.title, 'release')
+    steps:
+      - uses: actions/checkout@v3
+      - name: verify-version
+        uses: actions-cool/verify-package-version@v1
+        with:
+          title-include-content: 'docs'
+          title-include-version: true
+          open-comment: true

@@ -1,15 +1,18 @@
-import * as React from 'react';
 import classNames from 'classnames';
-import createContext from '@ant-design/create-react-context';
-import { SiderProps } from './Sider';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import omit from 'rc-util/lib/omit';
+import * as React from 'react';
+import { ConfigContext } from '../config-provider';
+import useStyle from './style';
 
 export interface GeneratorProps {
-  suffixCls: string;
+  suffixCls?: string;
   tagName: 'header' | 'footer' | 'main' | 'section';
+  displayName: string;
 }
 export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
+  suffixCls?: string;
+  rootClassName?: string;
   hasSider?: boolean;
 }
 
@@ -19,7 +22,7 @@ export interface LayoutContextProps {
     removeSider: (id: string) => void;
   };
 }
-export const LayoutContext = createContext<LayoutContextProps>({
+export const LayoutContext = React.createContext<LayoutContextProps>({
   siderHook: {
     addSider: () => null,
     removeSider: () => null,
@@ -30,103 +33,121 @@ interface BasicPropsWithTagName extends BasicProps {
   tagName: 'header' | 'footer' | 'main' | 'section';
 }
 
-function generator({ suffixCls, tagName }: GeneratorProps) {
+function generator({ suffixCls, tagName, displayName }: GeneratorProps) {
   return (BasicComponent: any) => {
-    return class Adapter extends React.Component<BasicProps, any> {
-      static Header: any;
-
-      static Footer: any;
-
-      static Content: any;
-
-      static Sider: any;
-
-      renderComponent = ({ getPrefixCls }: ConfigConsumerProps) => {
-        const { prefixCls: customizePrefixCls } = this.props;
-        const prefixCls = getPrefixCls(suffixCls, customizePrefixCls);
-
-        return <BasicComponent prefixCls={prefixCls} tagName={tagName} {...this.props} />;
-      };
-
-      render() {
-        return <ConfigConsumer>{this.renderComponent}</ConfigConsumer>;
-      }
-    };
+    const Adapter = React.forwardRef<HTMLElement, BasicProps>((props, ref) => (
+      <BasicComponent ref={ref} suffixCls={suffixCls} tagName={tagName} {...props} />
+    ));
+    if (process.env.NODE_ENV !== 'production') {
+      Adapter.displayName = displayName;
+    }
+    return Adapter;
   };
 }
 
-const Basic = (props: BasicPropsWithTagName) => {
-  const { prefixCls, className, children, tagName, ...others } = props;
-  const classString = classNames(className, prefixCls);
-  return React.createElement(tagName, { className: classString, ...others }, children);
-};
+const Basic = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) => {
+  const {
+    prefixCls: customizePrefixCls,
+    suffixCls,
+    className,
+    tagName: TagName,
+    ...others
+  } = props;
 
-interface BasicLayoutState {
-  siders: string[];
-}
+  const { getPrefixCls } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('layout', customizePrefixCls);
 
-class BasicLayout extends React.Component<BasicPropsWithTagName, BasicLayoutState> {
-  state = { siders: [] };
+  const [wrapSSR, hashId] = useStyle(prefixCls as string);
 
-  getSiderHook() {
-    return {
-      addSider: (id: string) => {
-        this.setState(state => ({
-          siders: [...state.siders, id],
-        }));
+  const prefixWithSuffixCls = suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
+
+  return wrapSSR(
+    <TagName
+      className={classNames(customizePrefixCls || prefixWithSuffixCls, className, hashId)}
+      ref={ref}
+      {...others}
+    />,
+  );
+});
+
+const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) => {
+  const { direction } = React.useContext(ConfigContext);
+
+  const [siders, setSiders] = React.useState<string[]>([]);
+
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    rootClassName,
+    children,
+    hasSider,
+    tagName: Tag,
+    ...others
+  } = props;
+
+  const passedProps = omit(others, ['suffixCls']);
+
+  const { getPrefixCls } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('layout', customizePrefixCls);
+
+  const [wrapSSR, hashId] = useStyle(prefixCls as string);
+  const classString = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-has-sider`]: typeof hasSider === 'boolean' ? hasSider : siders.length > 0,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    className,
+    rootClassName,
+    hashId,
+  );
+
+  const contextValue = React.useMemo(
+    () => ({
+      siderHook: {
+        addSider: (id: string) => {
+          setSiders((prev) => [...prev, id]);
+        },
+        removeSider: (id: string) => {
+          setSiders((prev) => prev.filter((currentId) => currentId !== id));
+        },
       },
-      removeSider: (id: string) => {
-        this.setState(state => ({
-          siders: state.siders.filter(currentId => currentId !== id),
-        }));
-      },
-    };
-  }
+    }),
+    [],
+  );
 
-  render() {
-    const { prefixCls, className, children, hasSider, tagName: Tag, ...others } = this.props;
-    const classString = classNames(className, prefixCls, {
-      [`${prefixCls}-has-sider`]:
-        typeof hasSider === 'boolean' ? hasSider : this.state.siders.length > 0,
-    });
+  return wrapSSR(
+    <LayoutContext.Provider value={contextValue}>
+      <Tag ref={ref} className={classString} {...passedProps}>
+        {children}
+      </Tag>
+    </LayoutContext.Provider>,
+  );
+});
 
-    return (
-      <LayoutContext.Provider value={{ siderHook: this.getSiderHook() }}>
-        <Tag className={classString} {...others}>
-          {children}
-        </Tag>
-      </LayoutContext.Provider>
-    );
-  }
-}
-
-const Layout: React.ComponentClass<BasicProps> & {
-  Header: React.ComponentClass<BasicProps>;
-  Footer: React.ComponentClass<BasicProps>;
-  Content: React.ComponentClass<BasicProps>;
-  Sider: React.ComponentClass<SiderProps>;
-} = generator({
-  suffixCls: 'layout',
+const Layout = generator({
   tagName: 'section',
+  displayName: 'Layout',
 })(BasicLayout);
 
 const Header = generator({
-  suffixCls: 'layout-header',
+  suffixCls: 'header',
   tagName: 'header',
+  displayName: 'Header',
 })(Basic);
 
 const Footer = generator({
-  suffixCls: 'layout-footer',
+  suffixCls: 'footer',
   tagName: 'footer',
+  displayName: 'Footer',
 })(Basic);
 
 const Content = generator({
-  suffixCls: 'layout-content',
+  suffixCls: 'content',
   tagName: 'main',
+  displayName: 'Content',
 })(Basic);
 
-Layout.Header = Header;
-Layout.Footer = Footer;
-Layout.Content = Content;
+export { Header, Footer, Content };
 
 export default Layout;

@@ -1,0 +1,41 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: "npm" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "daily"
+    ignore:
+      - dependency-name: "rc-cascader"
+      - dependency-name: "rc-checkbox"
+      - dependency-name: "rc-collapse"
+      - dependency-name: "rc-dialog"
+      - dependency-name: "rc-drawer"
+      - dependency-name: "rc-dropdown"
+      - dependency-name: "rc-field-form"
+      - dependency-name: "rc-image"
+      - dependency-name: "rc-mentions"
+      - dependency-name: "rc-menu"
+      - dependency-name: "rc-motion"
+      - dependency-name: "rc-notification"
+      - dependency-name: "rc-picker"
+      - dependency-name: "rc-progress"
+      - dependency-name: "rc-rate"
+      - dependency-name: "rc-resize-observer"
+      - dependency-name: "rc-select"
+      - dependency-name: "rc-slider"
+      - dependency-name: "rc-steps"
+      - dependency-name: "rc-switch"
+      - dependency-name: "rc-table"
+      - dependency-name: "rc-tabs"
+      - dependency-name: "rc-textarea"
+      - dependency-name: "rc-tooltip"
+      - dependency-name: "rc-tree"
+      - dependency-name: "rc-tree-select"
+      - dependency-name: "rc-trigger"
+      - dependency-name: "rc-upload"
+      - dependency-name: "rc-util"

@@ -1,0 +1,832 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table.filter clearFilters should support params 1`] = `
+<div
+  class="ant-dropdown-custom-view"
+  id="customFilter"
+>
+  <span
+    id="setNoParams"
+  >
+    setSelectedKeys
+  </span>
+  <span
+    id="resetNoParams"
+  >
+    Reset
+  </span>
+  <span
+    id="setConfirm"
+  >
+    setSelectedKeys
+  </span>
+  <span
+    id="resetConfirm"
+  >
+    Reset
+  </span>
+  <span
+    id="setClose"
+  >
+    setSelectedKeys
+  </span>
+  <span
+    id="resetClose"
+  >
+    Reset
+  </span>
+  <span
+    id="setParams"
+  >
+    setSelectedKeys
+  </span>
+  <span
+    id="resetParams"
+  >
+    Reset
+  </span>
+</div>
+`;
+
+exports[`Table.filter override custom filter correctly 1`] = `
+<div
+  class="ant-dropdown-custom-view"
+  id="customFilter"
+>
+  <span
+    id="setSelectedKeys"
+  >
+    setSelectedKeys
+  </span>
+  <span
+    id="confirm"
+  >
+    Confirm
+  </span>
+  <span
+    id="reset"
+  >
+    Reset
+  </span>
+  <span
+    id="simulateOnSelect"
+  >
+    SimulateOnSelect
+  </span>
+</div>
+`;
+
+exports[`Table.filter renders custom content correctly 1`] = `
+<div
+  class="ant-table-filter-dropdown"
+>
+  <div
+    class="custom-filter-dropdown"
+  >
+    custom filter
+  </div>
+</div>
+`;
+
+exports[`Table.filter renders custom filter icon as ReactNode 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout: auto;"
+            >
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    <div
+                      class="ant-table-filter-column"
+                    >
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-dropdown-trigger ant-table-filter-trigger"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="customize-icon"
+                        />
+                      </span>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jack
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Lucy
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Tom
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jerry
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table.filter renders custom filter icon as string correctly 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout: auto;"
+            >
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    <div
+                      class="ant-table-filter-column"
+                    >
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-dropdown-trigger ant-table-filter-trigger"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        string
+                      </span>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jack
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Lucy
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Tom
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jerry
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table.filter renders custom filter icon correctly 1`] = `
+<span
+  class="customize-icon"
+>
+  filtered
+</span>
+`;
+
+exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout: auto;"
+            >
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    <div
+                      class="ant-table-filter-column"
+                    >
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-dropdown-trigger ant-table-filter-trigger"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="ant-tooltip-open"
+                        >
+                          Tooltip
+                        </span>
+                        <div
+                          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                            style="position: absolute; bottom: 0px; left: 0px;"
+                          />
+                          <div
+                            class="ant-tooltip-content"
+                          >
+                            <div
+                              class="ant-tooltip-inner"
+                              role="tooltip"
+                            >
+                              title
+                            </div>
+                          </div>
+                        </div>
+                      </span>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jack
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Lucy
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Tom
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jerry
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table.filter renders filter correctly 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout: auto;"
+            >
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    <div
+                      class="ant-table-filter-column"
+                    >
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-dropdown-trigger ant-table-filter-trigger"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <span
+                          aria-label="filter"
+                          class="anticon anticon-filter"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="filter"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jack
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Lucy
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Tom
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jerry
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table.filter renders menu correctly 1`] = `
+<div
+  class="ant-table-filter-dropdown"
+>
+  <ul
+    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
+  >
+    <li
+      class="ant-dropdown-menu-item"
+      data-menu-id="rc-menu-uuid-test-boy"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="ant-dropdown-menu-title-content"
+      >
+        <label
+          class="ant-checkbox-wrapper"
+        >
+          <span
+            class="ant-checkbox"
+          >
+            <input
+              class="ant-checkbox-input"
+              type="checkbox"
+            />
+            <span
+              class="ant-checkbox-inner"
+            />
+          </span>
+        </label>
+        <span>
+          Boy
+        </span>
+      </span>
+    </li>
+    <li
+      class="ant-dropdown-menu-item"
+      data-menu-id="rc-menu-uuid-test-girl"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="ant-dropdown-menu-title-content"
+      >
+        <label
+          class="ant-checkbox-wrapper"
+        >
+          <span
+            class="ant-checkbox"
+          >
+            <input
+              class="ant-checkbox-input"
+              type="checkbox"
+            />
+            <span
+              class="ant-checkbox-inner"
+            />
+          </span>
+        </label>
+        <span>
+          Girl
+        </span>
+      </span>
+    </li>
+    <li
+      class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
+      role="none"
+    >
+      <div
+        aria-controls="rc-menu-uuid-test-title-popup"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-dropdown-menu-submenu-title"
+        data-menu-id="rc-menu-uuid-test-title"
+        role="menuitem"
+        tabindex="-1"
+      >
+        <span
+          class="ant-dropdown-menu-title-content"
+        >
+          Title
+        </span>
+        <span
+          class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
+        >
+          <span
+            aria-label="right"
+            class="anticon anticon-right ant-dropdown-menu-submenu-arrow-icon"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </li>
+  </ul>
+  <div
+    aria-hidden="true"
+    style="display: none;"
+  />
+  <div
+    class="ant-table-filter-dropdown-btns"
+  >
+    <button
+      class="ant-btn ant-btn-link ant-btn-sm"
+      disabled=""
+      type="button"
+    >
+      <span>
+        Reset
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm"
+      type="button"
+    >
+      <span>
+        OK
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Table.filter renders radio filter correctly 1`] = `
+<div
+  class="ant-table-filter-dropdown"
+>
+  <ul
+    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
+  >
+    <li
+      class="ant-dropdown-menu-item"
+      data-menu-id="rc-menu-uuid-test-boy"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="ant-dropdown-menu-title-content"
+      >
+        <label
+          class="ant-radio-wrapper"
+        >
+          <span
+            class="ant-radio"
+          >
+            <input
+              class="ant-radio-input"
+              type="radio"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+        </label>
+        <span>
+          Boy
+        </span>
+      </span>
+    </li>
+    <li
+      class="ant-dropdown-menu-item"
+      data-menu-id="rc-menu-uuid-test-girl"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="ant-dropdown-menu-title-content"
+      >
+        <label
+          class="ant-radio-wrapper"
+        >
+          <span
+            class="ant-radio"
+          >
+            <input
+              class="ant-radio-input"
+              type="radio"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+        </label>
+        <span>
+          Girl
+        </span>
+      </span>
+    </li>
+    <li
+      class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
+      role="none"
+    >
+      <div
+        aria-controls="rc-menu-uuid-test-title-popup"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-dropdown-menu-submenu-title"
+        data-menu-id="rc-menu-uuid-test-title"
+        role="menuitem"
+        tabindex="-1"
+      >
+        <span
+          class="ant-dropdown-menu-title-content"
+        >
+          Title
+        </span>
+        <span
+          class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
+        >
+          <span
+            aria-label="right"
+            class="anticon anticon-right ant-dropdown-menu-submenu-arrow-icon"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </li>
+  </ul>
+  <div
+    aria-hidden="true"
+    style="display: none;"
+  />
+  <div
+    class="ant-table-filter-dropdown-btns"
+  >
+    <button
+      class="ant-btn ant-btn-link ant-btn-sm"
+      disabled=""
+      type="button"
+    >
+      <span>
+        Reset
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm"
+      type="button"
+    >
+      <span>
+        OK
+      </span>
+    </button>
+  </div>
+</div>
+`;

@@ -1,0 +1,940 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/timeline/demo/alternate.tsx correctly 1`] = `
+<ul
+  class="ant-timeline ant-timeline-alternate"
+>
+  <li
+    class="ant-timeline-item ant-timeline-item-left"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Create a services site 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-right"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-green"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Solve initial network problems 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-left"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-blue"
+    >
+      <span
+        aria-label="clock-circle"
+        class="anticon anticon-clock-circle"
+        role="img"
+        style="font-size:16px"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="clock-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          />
+          <path
+            d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ant-timeline-item-content"
+    >
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-right"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-red"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Network problems being solved 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-left"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Create a services site 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-last ant-timeline-item-right"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-blue"
+    >
+      <span
+        aria-label="clock-circle"
+        class="anticon anticon-clock-circle"
+        role="img"
+        style="font-size:16px"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="clock-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          />
+          <path
+            d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ant-timeline-item-content"
+    >
+      Technical testing 2015-09-01
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`renders components/timeline/demo/basic.tsx correctly 1`] = `
+<ul
+  class="ant-timeline"
+>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Create a services site 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Solve initial network problems 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Technical testing 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-last"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Network problems being solved 2015-09-01
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`renders components/timeline/demo/color.tsx correctly 1`] = `
+<ul
+  class="ant-timeline"
+>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-green"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Create a services site 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-green"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Create a services site 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-red"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      <p>
+        Solve initial network problems 1
+      </p>
+      <p>
+        Solve initial network problems 2
+      </p>
+      <p>
+        Solve initial network problems 3 2015-09-01
+      </p>
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      <p>
+        Technical testing 1
+      </p>
+      <p>
+        Technical testing 2
+      </p>
+      <p>
+        Technical testing 3 2015-09-01
+      </p>
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-gray"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      <p>
+        Technical testing 1
+      </p>
+      <p>
+        Technical testing 2
+      </p>
+      <p>
+        Technical testing 3 2015-09-01
+      </p>
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-gray"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      <p>
+        Technical testing 1
+      </p>
+      <p>
+        Technical testing 2
+      </p>
+      <p>
+        Technical testing 3 2015-09-01
+      </p>
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-last"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-custom"
+      style="border-color:#00CCFF;color:#00CCFF"
+    >
+      <span
+        aria-label="smile"
+        class="anticon anticon-smile"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="smile"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ant-timeline-item-content"
+    >
+      <p>
+        Custom color testing
+      </p>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`renders components/timeline/demo/component-token.tsx correctly 1`] = `
+<ul
+  class="ant-timeline"
+>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Create a services site 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Solve initial network problems 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Technical testing 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-last"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Network problems being solved 2015-09-01
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`renders components/timeline/demo/custom.tsx correctly 1`] = `
+<ul
+  class="ant-timeline"
+>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Create a services site 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Solve initial network problems 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-red"
+    >
+      <span
+        aria-label="clock-circle"
+        class="anticon anticon-clock-circle timeline-clock-icon"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="clock-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          />
+          <path
+            d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ant-timeline-item-content"
+    >
+      Technical testing 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-last"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Network problems being solved 2015-09-01
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`renders components/timeline/demo/label.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-radio-group ant-radio-group-outline"
+    style="margin-bottom:20px"
+  >
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked"
+    >
+      <span
+        class="ant-radio ant-radio-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          type="radio"
+          value="left"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        Left
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="right"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        Right
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="alternate"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        Alternate
+      </span>
+    </label>
+  </div>,
+  <ul
+    class="ant-timeline ant-timeline-label"
+  >
+    <li
+      class="ant-timeline-item ant-timeline-item-left"
+    >
+      <div
+        class="ant-timeline-item-label"
+      >
+        2015-09-01
+      </div>
+      <div
+        class="ant-timeline-item-tail"
+      />
+      <div
+        class="ant-timeline-item-head ant-timeline-item-head-blue"
+      />
+      <div
+        class="ant-timeline-item-content"
+      >
+        Create a services
+      </div>
+    </li>
+    <li
+      class="ant-timeline-item ant-timeline-item-left"
+    >
+      <div
+        class="ant-timeline-item-label"
+      >
+        2015-09-01 09:12:11
+      </div>
+      <div
+        class="ant-timeline-item-tail"
+      />
+      <div
+        class="ant-timeline-item-head ant-timeline-item-head-blue"
+      />
+      <div
+        class="ant-timeline-item-content"
+      >
+        Solve initial network problems
+      </div>
+    </li>
+    <li
+      class="ant-timeline-item ant-timeline-item-left"
+    >
+      <div
+        class="ant-timeline-item-tail"
+      />
+      <div
+        class="ant-timeline-item-head ant-timeline-item-head-blue"
+      />
+      <div
+        class="ant-timeline-item-content"
+      >
+        Technical testing
+      </div>
+    </li>
+    <li
+      class="ant-timeline-item ant-timeline-item-last ant-timeline-item-left"
+    >
+      <div
+        class="ant-timeline-item-label"
+      >
+        2015-09-01 09:12:11
+      </div>
+      <div
+        class="ant-timeline-item-tail"
+      />
+      <div
+        class="ant-timeline-item-head ant-timeline-item-head-blue"
+      />
+      <div
+        class="ant-timeline-item-content"
+      >
+        Network problems being solved
+      </div>
+    </li>
+  </ul>,
+]
+`;
+
+exports[`renders components/timeline/demo/pending.tsx correctly 1`] = `
+<div>
+  <ul
+    class="ant-timeline ant-timeline-pending"
+  >
+    <li
+      class="ant-timeline-item"
+    >
+      <div
+        class="ant-timeline-item-tail"
+      />
+      <div
+        class="ant-timeline-item-head ant-timeline-item-head-blue"
+      />
+      <div
+        class="ant-timeline-item-content"
+      >
+        Create a services site 2015-09-01
+      </div>
+    </li>
+    <li
+      class="ant-timeline-item"
+    >
+      <div
+        class="ant-timeline-item-tail"
+      />
+      <div
+        class="ant-timeline-item-head ant-timeline-item-head-blue"
+      />
+      <div
+        class="ant-timeline-item-content"
+      >
+        Solve initial network problems 2015-09-01
+      </div>
+    </li>
+    <li
+      class="ant-timeline-item ant-timeline-item-last"
+    >
+      <div
+        class="ant-timeline-item-tail"
+      />
+      <div
+        class="ant-timeline-item-head ant-timeline-item-head-blue"
+      />
+      <div
+        class="ant-timeline-item-content"
+      >
+        Technical testing 2015-09-01
+      </div>
+    </li>
+    <li
+      class="ant-timeline-item ant-timeline-item-pending"
+    >
+      <div
+        class="ant-timeline-item-tail"
+      />
+      <div
+        class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-blue"
+      >
+        <span
+          aria-label="loading"
+          class="anticon anticon-loading anticon-spin"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="loading"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="ant-timeline-item-content"
+      >
+        Recording...
+      </div>
+    </li>
+  </ul>
+  <button
+    class="ant-btn ant-btn-primary"
+    style="margin-top:16px"
+    type="button"
+  >
+    <span>
+      Toggle Reverse
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders components/timeline/demo/right.tsx correctly 1`] = `
+<ul
+  class="ant-timeline ant-timeline-right"
+>
+  <li
+    class="ant-timeline-item ant-timeline-item-right"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Create a services site 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-right"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Solve initial network problems 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-right"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-red"
+    >
+      <span
+        aria-label="clock-circle"
+        class="anticon anticon-clock-circle"
+        role="img"
+        style="font-size:16px"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="clock-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          />
+          <path
+            d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ant-timeline-item-content"
+    >
+      Technical testing 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-last ant-timeline-item-right"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Network problems being solved 2015-09-01
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`renders components/timeline/demo/wireframe.tsx correctly 1`] = `
+<ul
+  class="ant-timeline"
+>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Create a services site 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Solve initial network problems 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Technical testing 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-last"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Network problems being solved 2015-09-01
+    </div>
+  </li>
+</ul>
+`;

@@ -1,17 +1,17 @@
-import * as React from 'react';
-import Dialog from 'rc-dialog';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import addEventListener from 'rc-util/lib/Dom/addEventListener';
-import { getConfirmLocale } from './locale';
-import Icon from '../icon';
-import Button from '../button';
-import { ButtonType, NativeButtonProps } from '../button/button';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import Dialog from 'rc-dialog';
+import * as React from 'react';
+import { getTransitionName } from '../_util/motion';
+import { canUseDocElement } from '../_util/styleChecker';
+import warning from '../_util/warning';
+import { ConfigContext } from '../config-provider';
+import { NoFormStyle } from '../form/context';
+import { NoCompactStyle } from '../space/Compact';
+import type { ModalProps, MousePosition } from './interface';
+import { Footer, renderCloseIcon } from './shared';
+import useStyle from './style';
 
-let mousePosition: { x: number; y: number } | null;
-export const destroyFns: Array<() => void> = [];
+let mousePosition: MousePosition;
 
 // ref: https://github.com/ant-design/ant-design/issues/15795
 const getClickPosition = (e: MouseEvent) => {
@@ -22,229 +22,98 @@ const getClickPosition = (e: MouseEvent) => {
   // 100ms 内发生过点击事件，则从点击位置动画展示
   // 否则直接 zoom 展示
   // 这样可以兼容非点击方式展开
-  setTimeout(() => (mousePosition = null), 100);
+  setTimeout(() => {
+    mousePosition = null;
+  }, 100);
 };
 
 // 只有点击事件支持从鼠标位置动画展开
-if (typeof window !== 'undefined' && window.document && window.document.documentElement) {
-  addEventListener(document.documentElement, 'click', getClickPosition);
+if (canUseDocElement()) {
+  document.documentElement.addEventListener('click', getClickPosition, true);
 }
 
-export interface ModalProps {
-  /** 对话框是否可见 */
-  visible?: boolean;
-  /** 确定按钮 loading */
-  confirmLoading?: boolean;
-  /** 标题 */
-  title?: React.ReactNode | string;
-  /** 是否显示右上角的关闭按钮 */
-  closable?: boolean;
-  /** 点击确定回调 */
-  onOk?: (e: React.MouseEvent<HTMLElement>) => void;
-  /** 点击模态框右上角叉、取消按钮、Props.maskClosable 值为 true 时的遮罩层或键盘按下 Esc 时的回调 */
-  onCancel?: (e: React.MouseEvent<HTMLElement>) => void;
-  afterClose?: () => void;
-  /** 垂直居中 */
-  centered?: boolean;
-  /** 宽度 */
-  width?: string | number;
-  /** 底部内容 */
-  footer?: React.ReactNode;
-  /** 确认按钮文字 */
-  okText?: React.ReactNode;
-  /** 确认按钮类型 */
-  okType?: ButtonType;
-  /** 取消按钮文字 */
-  cancelText?: React.ReactNode;
-  /** 点击蒙层是否允许关闭 */
-  maskClosable?: boolean;
-  /** 强制渲染 Modal */
-  forceRender?: boolean;
-  okButtonProps?: NativeButtonProps;
-  cancelButtonProps?: NativeButtonProps;
-  destroyOnClose?: boolean;
-  style?: React.CSSProperties;
-  wrapClassName?: string;
-  maskTransitionName?: string;
-  transitionName?: string;
-  className?: string;
-  getContainer?: string | HTMLElement | getContainerFunc | false | null;
-  zIndex?: number;
-  bodyStyle?: React.CSSProperties;
-  maskStyle?: React.CSSProperties;
-  mask?: boolean;
-  keyboard?: boolean;
-  wrapProps?: any;
-  prefixCls?: string;
-  closeIcon?: React.ReactNode;
-}
-
-type getContainerFunc = () => HTMLElement;
-
-export interface ModalFuncProps {
-  prefixCls?: string;
-  className?: string;
-  visible?: boolean;
-  title?: React.ReactNode;
-  content?: React.ReactNode;
-  // TODO: find out exact types
-  onOk?: (...args: any[]) => any;
-  onCancel?: (...args: any[]) => any;
-  okButtonProps?: NativeButtonProps;
-  cancelButtonProps?: NativeButtonProps;
-  centered?: boolean;
-  width?: string | number;
-  iconClassName?: string;
-  okText?: React.ReactNode;
-  okType?: ButtonType;
-  cancelText?: React.ReactNode;
-  icon?: React.ReactNode;
-  /* Deprecated */
-  iconType?: string;
-  mask?: boolean;
-  maskClosable?: boolean;
-  zIndex?: number;
-  okCancel?: boolean;
-  style?: React.CSSProperties;
-  maskStyle?: React.CSSProperties;
-  type?: string;
-  keyboard?: boolean;
-  getContainer?: string | HTMLElement | getContainerFunc | false | null;
-  autoFocusButton?: null | 'ok' | 'cancel';
-  transitionName?: string;
-  maskTransitionName?: string;
-}
-
-export type ModalFunc = (
-  props: ModalFuncProps,
-) => {
-  destroy: () => void;
-  update: (newConfig: ModalFuncProps) => void;
-};
-
-export interface ModalLocale {
-  okText: string;
-  cancelText: string;
-  justOkText: string;
-}
-
-export default class Modal extends React.Component<ModalProps, {}> {
-  static info: ModalFunc;
-
-  static success: ModalFunc;
-
-  static error: ModalFunc;
-
-  static warn: ModalFunc;
-
-  static warning: ModalFunc;
-
-  static confirm: ModalFunc;
-
-  static destroyAll: () => void;
-
-  static defaultProps = {
-    width: 520,
-    transitionName: 'zoom',
-    maskTransitionName: 'fade',
-    confirmLoading: false,
-    visible: false,
-    okType: 'primary' as ButtonType,
-  };
-
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    onOk: PropTypes.func,
-    onCancel: PropTypes.func,
-    okText: PropTypes.node,
-    cancelText: PropTypes.node,
-    centered: PropTypes.bool,
-    width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    confirmLoading: PropTypes.bool,
-    visible: PropTypes.bool,
-    footer: PropTypes.node,
-    title: PropTypes.node,
-    closable: PropTypes.bool,
-    closeIcon: PropTypes.node,
-  };
-
-  handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const { onCancel } = this.props;
-    if (onCancel) {
-      onCancel(e);
-    }
-  };
-
-  handleOk = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const { onOk } = this.props;
-    if (onOk) {
-      onOk(e);
-    }
-  };
-
-  renderFooter = (locale: ModalLocale) => {
-    const { okText, okType, cancelText, confirmLoading } = this.props;
-    return (
-      <div>
-        <Button onClick={this.handleCancel} {...this.props.cancelButtonProps}>
-          {cancelText || locale.cancelText}
-        </Button>
-        <Button
-          type={okType}
-          loading={confirmLoading}
-          onClick={this.handleOk}
-          {...this.props.okButtonProps}
-        >
-          {okText || locale.okText}
-        </Button>
-      </div>
-    );
-  };
-
-  renderModal = ({
+const Modal: React.FC<ModalProps> = (props) => {
+  const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
-  }: ConfigConsumerProps) => {
-    const {
-      prefixCls: customizePrefixCls,
-      footer,
-      visible,
-      wrapClassName,
-      centered,
-      getContainer,
-      closeIcon,
-      ...restProps
-    } = this.props;
+    direction,
+  } = React.useContext(ConfigContext);
 
-    const prefixCls = getPrefixCls('modal', customizePrefixCls);
-    const defaultFooter = (
-      <LocaleReceiver componentName="Modal" defaultLocale={getConfirmLocale()}>
-        {this.renderFooter}
-      </LocaleReceiver>
-    );
-
-    const closeIconToRender = (
-      <span className={`${prefixCls}-close-x`}>
-        {closeIcon || <Icon className={`${prefixCls}-close-icon`} type="close" />}
-      </span>
-    );
-
-    return (
-      <Dialog
-        {...restProps}
-        getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
-        prefixCls={prefixCls}
-        wrapClassName={classNames({ [`${prefixCls}-centered`]: !!centered }, wrapClassName)}
-        footer={footer === undefined ? defaultFooter : footer}
-        visible={visible}
-        mousePosition={mousePosition}
-        onClose={this.handleCancel}
-        closeIcon={closeIconToRender}
-      />
-    );
+  const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const { onCancel } = props;
+    onCancel?.(e);
   };
 
-  render() {
-    return <ConfigConsumer>{this.renderModal}</ConfigConsumer>;
+  const handleOk = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const { onOk } = props;
+    onOk?.(e);
+  };
+
+  warning(
+    !('visible' in props),
+    'Modal',
+    `\`visible\` will be removed in next major version, please use \`open\` instead.`,
+  );
+
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    rootClassName,
+    open,
+    wrapClassName,
+    centered,
+    getContainer,
+    closeIcon,
+    focusTriggerAfterClose = true,
+
+    // Deprecated
+    visible,
+
+    width = 520,
+    footer,
+    ...restProps
+  } = props;
+
+  const prefixCls = getPrefixCls('modal', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const wrapClassNameExtended = classNames(wrapClassName, {
+    [`${prefixCls}-centered`]: !!centered,
+    [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
+  });
+
+  if (process.env.NODE_ENV !== 'production') {
+    warning(!('visible' in props), 'Modal', '`visible` is deprecated, please use `open` instead.');
   }
-}
+
+  const dialogFooter =
+    footer === undefined ? <Footer {...props} onOk={handleOk} onCancel={handleCancel} /> : footer;
+
+  return wrapSSR(
+    <NoCompactStyle>
+      <NoFormStyle status override>
+        <Dialog
+          width={width}
+          {...restProps}
+          getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
+          prefixCls={prefixCls}
+          rootClassName={classNames(hashId, rootClassName)}
+          wrapClassName={wrapClassNameExtended}
+          footer={dialogFooter}
+          visible={open ?? visible}
+          mousePosition={restProps.mousePosition ?? mousePosition}
+          onClose={handleCancel}
+          closeIcon={renderCloseIcon(prefixCls, closeIcon)}
+          focusTriggerAfterClose={focusTriggerAfterClose}
+          transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
+          maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
+          className={classNames(hashId, className)}
+        />
+      </NoFormStyle>
+    </NoCompactStyle>,
+  );
+};
+
+export default Modal;

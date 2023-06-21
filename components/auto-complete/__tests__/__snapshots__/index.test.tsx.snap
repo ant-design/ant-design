@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AutoComplete rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-select ant-select-rtl ant-select-auto-complete ant-select-single ant-select-show-search"
+>
+  <div
+    class="ant-select-selector"
+  >
+    <span
+      class="ant-select-selection-search"
+    >
+      <input
+        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+        aria-autocomplete="list"
+        aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="rc_select_TEST_OR_SSR_list"
+        autocomplete="off"
+        class="ant-select-selection-search-input"
+        id="rc_select_TEST_OR_SSR"
+        role="combobox"
+        type="search"
+        value=""
+      />
+    </span>
+    <span
+      class="ant-select-selection-placeholder"
+    />
+  </div>
+</div>
+`;

@@ -1,10 +1,11 @@
 ---
-category: Principles
+group: Design Patterns
+type: Principles
 order: 9
 title: Use Transition
 ---
 
-Our Gray Matter are wired to react to dynamic things like movement,shape change and colour change. Transitions smooth out the jarring world of the Web, making changes appear more natural. The main purpose for Transitions is to provide an engaging interface and reinforce communication.
+Our Gray Matter are wired to react to dynamic things like movement,shape change and color change. Transitions smooth out the jarring world of the Web, making changes appear more natural. The main purpose for Transitions is to provide an engaging interface and reinforce communication.
 
 - Adding: The added elements should inform the users how to use, and the modified elements should be recognized.
 - Receding: The irrelevant page elements should be removed properly.
@@ -69,4 +70,4 @@ If actual performance can hardly improved, there is a difference between actual 
 
 ## Natural Motion
 
-Please refer to [Ant Motion, a motion language](http://motion.ant.design/#/language/).
+Please refer to [Ant Motion, a motion language](https://motion.ant.design/language/basic).

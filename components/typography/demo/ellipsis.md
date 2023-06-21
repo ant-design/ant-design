@@ -1,43 +1,7 @@
----
-order: 4
-title:
-  zh-CN: 省略号
-  en-US: Ellipsis
----
-
 ## zh-CN
 
-多行文本省略。
+多行文本省略。你可以通过 `tooltip` 属性配置省略展示内容，大量文本时推荐优先使用 `expandable`。
 
 ## en-US
 
-Multiple line ellipsis support.
-
-```jsx
-import { Typography } from 'antd';
-
-const { Paragraph } = Typography;
-
-ReactDOM.render(
-  <div>
-    <Paragraph ellipsis>
-      Ant Design, a design language for background applications, is refined by Ant UED Team. Ant
-      Design, a design language for background applications, is refined by Ant UED Team. Ant Design,
-      a design language for background applications, is refined by Ant UED Team. Ant Design, a
-      design language for background applications, is refined by Ant UED Team. Ant Design, a design
-      language for background applications, is refined by Ant UED Team. Ant Design, a design
-      language for background applications, is refined by Ant UED Team.
-    </Paragraph>
-
-    <Paragraph ellipsis={{ rows: 3, expandable: true }}>
-      Ant Design, a design language for background applications, is refined by Ant UED Team. Ant
-      Design, a design language for background applications, is refined by Ant UED Team. Ant Design,
-      a design language for background applications, is refined by Ant UED Team. Ant Design, a
-      design language for background applications, is refined by Ant UED Team. Ant Design, a design
-      language for background applications, is refined by Ant UED Team. Ant Design, a design
-      language for background applications, is refined by Ant UED Team.
-    </Paragraph>
-  </div>,
-  mountNode,
-);
-```
+Multiple line ellipsis support. You can use `tooltip` to config ellipsis tooltip. Recommend `expandable` when have lots of content.

@@ -1,0 +1,633 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge render Badge status/color when contains children 1`] = `
+<div>
+  <span
+    class="ant-badge"
+  >
+    <a />
+    <sup
+      class="ant-scroll-number ant-badge-count ant-badge-status-success"
+      data-show="true"
+      title="5"
+    >
+      <span
+        class="ant-scroll-number-only"
+        style="transition: none;"
+      >
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          5
+        </span>
+      </span>
+    </sup>
+  </span>
+  <span
+    class="ant-badge"
+  >
+    <a />
+    <sup
+      class="ant-scroll-number ant-badge-count ant-badge-color-blue"
+      data-show="true"
+      title="5"
+    >
+      <span
+        class="ant-scroll-number-only"
+        style="transition: none;"
+      >
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          5
+        </span>
+      </span>
+    </sup>
+  </span>
+  <span
+    class="ant-badge"
+  >
+    <a />
+    <sup
+      class="ant-scroll-number ant-badge-count"
+      data-show="true"
+      style="background: rgb(0, 136, 204);"
+      title="5"
+    >
+      <span
+        class="ant-scroll-number-only"
+        style="transition: none;"
+      >
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          5
+        </span>
+      </span>
+    </sup>
+  </span>
+</div>
+`;
+
+exports[`Badge render correct with negative number 1`] = `
+<div>
+  <span
+    class="ant-badge ant-badge-not-a-wrapper"
+  >
+    <sup
+      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+      data-show="true"
+      title="-10"
+    >
+      <span
+        class="ant-scroll-number-only"
+        style="transition: none;"
+      >
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          -
+        </span>
+      </span>
+      <span
+        class="ant-scroll-number-only"
+        style="transition: none;"
+      >
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          1
+        </span>
+      </span>
+      <span
+        class="ant-scroll-number-only"
+        style="transition: none;"
+      >
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          0
+        </span>
+      </span>
+    </sup>
+  </span>
+  <span
+    class="ant-badge ant-badge-not-a-wrapper"
+  >
+    <sup
+      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+      data-show="true"
+      title="-10"
+    >
+      <span
+        class="ant-scroll-number-only"
+        style="transition: none;"
+      >
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          -
+        </span>
+      </span>
+      <span
+        class="ant-scroll-number-only"
+        style="transition: none;"
+      >
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          1
+        </span>
+      </span>
+      <span
+        class="ant-scroll-number-only"
+        style="transition: none;"
+      >
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          0
+        </span>
+      </span>
+    </sup>
+  </span>
+</div>
+`;
+
+exports[`Badge rtl render component should be rendered correctly in RTL direction 1`] = `
+<span
+  class="ant-badge ant-badge-not-a-wrapper ant-badge-rtl"
+/>
+`;
+
+exports[`Badge rtl render component should be rendered correctly in RTL direction 2`] = `
+<span
+  class="ant-badge ant-badge-rtl"
+>
+  <a
+    class="head-example"
+    href="#"
+  >
+    head
+  </a>
+  <sup
+    class="ant-scroll-number ant-badge-count"
+    data-show="true"
+    style="margin-top: 10px; left: 10px;"
+    title="5"
+  >
+    <span
+      class="ant-scroll-number-only"
+      style="transition: none;"
+    >
+      <span
+        class="ant-scroll-number-only-unit current"
+      >
+        5
+      </span>
+    </span>
+  </sup>
+</span>
+`;
+
+exports[`Badge should be compatible with borderColor style 1`] = `
+<span
+  class="ant-badge ant-badge-not-a-wrapper"
+>
+  <sup
+    class="ant-scroll-number ant-badge-count"
+    data-show="true"
+    style="background-color: rgb(255, 255, 255); color: rgb(153, 153, 153); border-color: #d9d9d9; box-shadow: 0 0 0 1px #d9d9d9 inset;"
+    title="4"
+  >
+    <span
+      class="ant-scroll-number-only"
+      style="transition: none;"
+    >
+      <span
+        class="ant-scroll-number-only-unit current"
+      >
+        4
+      </span>
+    </span>
+  </sup>
+</span>
+`;
+
+exports[`Badge should display custom color and number is 0 1`] = `
+<div>
+  <span
+    class="ant-badge ant-badge-not-a-wrapper"
+  >
+    <sup
+      class="ant-scroll-number ant-badge-count"
+      data-show="true"
+      style="background: rgb(255, 255, 0);"
+      title="0"
+    >
+      0
+    </sup>
+  </span>
+  <span
+    class="ant-badge ant-badge-not-a-wrapper"
+  >
+    <sup
+      class="ant-scroll-number ant-badge-count ant-badge-color-blue"
+      data-show="true"
+      title="0"
+    >
+      0
+    </sup>
+  </span>
+  <span
+    class="ant-badge ant-badge-not-a-wrapper"
+  >
+    <sup
+      class="ant-scroll-number ant-badge-count"
+      data-show="true"
+      title="0"
+    >
+      0
+    </sup>
+  </span>
+  <span
+    class="ant-badge"
+  >
+    <div />
+    <sup
+      class="ant-scroll-number ant-badge-count ant-badge-color-green"
+      data-show="true"
+      title="0"
+    >
+      0
+    </sup>
+  </span>
+</div>
+`;
+
+exports[`Badge should render when count is changed 1`] = `
+<span
+  class="ant-badge ant-badge-not-a-wrapper"
+>
+  <sup
+    class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+    data-show="true"
+    title="10"
+  >
+    <span
+      class="ant-scroll-number-only"
+      style="transition: none;"
+    >
+      <span
+        class="ant-scroll-number-only-unit current"
+      >
+        1
+      </span>
+    </span>
+    <span
+      class="ant-scroll-number-only"
+      style="transform: translateY(-100%);"
+    >
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: -900%; left: 0px;"
+      >
+        0
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: -800%; left: 0px;"
+      >
+        1
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: -700%; left: 0px;"
+      >
+        2
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: -600%; left: 0px;"
+      >
+        3
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: -500%; left: 0px;"
+      >
+        4
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: -400%; left: 0px;"
+      >
+        5
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: -300%; left: 0px;"
+      >
+        6
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: -200%; left: 0px;"
+      >
+        7
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: -100%; left: 0px;"
+      >
+        8
+      </span>
+      <span
+        class="ant-scroll-number-only-unit current"
+      >
+        9
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: 100%; left: 0px;"
+      >
+        0
+      </span>
+    </span>
+  </sup>
+</span>
+`;
+
+exports[`Badge should render when count is changed 2`] = `
+<span
+  class="ant-badge ant-badge-not-a-wrapper"
+>
+  <sup
+    class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+    data-show="true"
+    title="11"
+  >
+    <span
+      class="ant-scroll-number-only"
+      style="transition: none;"
+    >
+      <span
+        class="ant-scroll-number-only-unit current"
+      >
+        1
+      </span>
+    </span>
+    <span
+      class="ant-scroll-number-only"
+      style="transform: translateY(-100%);"
+    >
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: -900%; left: 0px;"
+      >
+        1
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: -800%; left: 0px;"
+      >
+        2
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: -700%; left: 0px;"
+      >
+        3
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: -600%; left: 0px;"
+      >
+        4
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: -500%; left: 0px;"
+      >
+        5
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: -400%; left: 0px;"
+      >
+        6
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: -300%; left: 0px;"
+      >
+        7
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: -200%; left: 0px;"
+      >
+        8
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: -100%; left: 0px;"
+      >
+        9
+      </span>
+      <span
+        class="ant-scroll-number-only-unit current"
+      >
+        0
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: 100%; left: 0px;"
+      >
+        1
+      </span>
+    </span>
+  </sup>
+</span>
+`;
+
+exports[`Badge should render when count is changed 3`] = `
+<span
+  class="ant-badge ant-badge-not-a-wrapper"
+>
+  <sup
+    class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+    data-show="true"
+    title="11"
+  >
+    <span
+      class="ant-scroll-number-only"
+      style="transition: none;"
+    >
+      <span
+        class="ant-scroll-number-only-unit current"
+      >
+        1
+      </span>
+    </span>
+    <span
+      class="ant-scroll-number-only"
+      style="transition: none;"
+    >
+      <span
+        class="ant-scroll-number-only-unit current"
+        style=""
+      >
+        1
+      </span>
+    </span>
+  </sup>
+</span>
+`;
+
+exports[`Badge should render when count is changed 4`] = `
+<span
+  class="ant-badge ant-badge-not-a-wrapper"
+>
+  <sup
+    class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+    data-show="true"
+    title="111"
+  >
+    99+
+  </sup>
+</span>
+`;
+
+exports[`Badge should render when count is changed 5`] = `
+<span
+  class="ant-badge ant-badge-not-a-wrapper"
+>
+  <sup
+    class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+    data-show="true"
+    title="10"
+  >
+    <span
+      class="ant-scroll-number-only"
+      style="transition: none;"
+    >
+      <span
+        class="ant-scroll-number-only-unit current"
+      >
+        1
+      </span>
+    </span>
+    <span
+      class="ant-scroll-number-only"
+      style="transition: none;"
+    >
+      <span
+        class="ant-scroll-number-only-unit current"
+      >
+        0
+      </span>
+    </span>
+  </sup>
+</span>
+`;
+
+exports[`Badge should render when count is changed 6`] = `
+<span
+  class="ant-badge ant-badge-not-a-wrapper"
+>
+  <sup
+    class="ant-scroll-number ant-badge-count"
+    data-show="true"
+    title="9"
+  >
+    <span
+      class="ant-scroll-number-only"
+      style="transform: translateY(100%);"
+    >
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: -100%; left: 0px;"
+      >
+        9
+      </span>
+      <span
+        class="ant-scroll-number-only-unit current"
+      >
+        0
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: 100%; left: 0px;"
+      >
+        1
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: 200%; left: 0px;"
+      >
+        2
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: 300%; left: 0px;"
+      >
+        3
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: 400%; left: 0px;"
+      >
+        4
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: 500%; left: 0px;"
+      >
+        5
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: 600%; left: 0px;"
+      >
+        6
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: 700%; left: 0px;"
+      >
+        7
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: 800%; left: 0px;"
+      >
+        8
+      </span>
+      <span
+        class="ant-scroll-number-only-unit"
+        style="position: absolute; top: 900%; left: 0px;"
+      >
+        9
+      </span>
+    </span>
+  </sup>
+</span>
+`;
+
+exports[`Badge should support offset when count is a ReactNode 1`] = `
+<span
+  class="ant-badge"
+>
+  <a
+    class="head-example"
+    href="#"
+  >
+    head
+  </a>
+  <span
+    class="ant-scroll-number-custom-component custom"
+    style="margin-top: 20px; right: -10px; color: rgb(245, 34, 45);"
+  />
+</span>
+`;

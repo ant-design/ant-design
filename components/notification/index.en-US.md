@@ -1,8 +1,12 @@
 ---
 category: Components
-type: Feedback
+group: Feedback
 noinstant: true
 title: Notification
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*6RWNQ78WtvEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*9hTIToR-3YYAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 Display a notification message globally.
@@ -15,52 +19,124 @@ To display a notification message at any of the four corners of the viewport. Ty
 - A notification providing a feedback based on the user interaction. Or it may show some details about upcoming steps the user may have to follow.
 - A notification that is pushed by the application.
 
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/hooks.tsx">Hooks usage (recommended)</code>
+<code src="./demo/duration.tsx">Duration after which the notification box is closed</code>
+<code src="./demo/with-icon.tsx">Notification with icon</code>
+<code src="./demo/with-btn.tsx">Custom close button</code>
+<code src="./demo/custom-icon.tsx">Customized Icon</code>
+<code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/custom-style.tsx">Customized style</code>
+<code src="./demo/update.tsx">Update Message Content</code>
+<code src="./demo/basic.tsx">Static Method (deprecated)</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+
 ## API
 
 - `notification.success(config)`
 - `notification.error(config)`
 - `notification.info(config)`
 - `notification.warning(config)`
-- `notification.warn(config)`
 - `notification.open(config)`
-- `notification.close(key: String)`
-- `notification.destroy()`
+- `notification.destroy(key?: String)`
 
 The properties of config are as follows:
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels). | number | 24 |  |
-| btn | Customized close button | ReactNode | - |  |
-| className | Customized CSS class | string | - |  |
-| description | The content of notification box (required) | string\|ReactNode | - |  |
-| duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 |  |
-| getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |  |
-| icon | Customized icon | ReactNode | - |  |
-| key | The unique identifier of the Notification | string | - |  |
-| message | The title of notification box (required) | string\|ReactNode | - |  |
-| onClose | Specify a function that will be called when the close button is clicked | Function | - |  |
-| onClick | Specify a function that will be called when the notification is clicked | Function | - | 3.11.0 |
+| btn | Customized close button | ReactNode | - | - |
+| className | Customized CSS class | string | - | - |
+| closeIcon | Custom close icon | ReactNode | - | - |
+| description | The content of notification box (required) | ReactNode | - | - |
+| duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 | - |
+| icon | Customized icon | ReactNode | - | - |
+| key | The unique identifier of the Notification | string | - | - |
+| message | The title of notification box (required) | ReactNode | - | - |
+| placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` | - |
+| style | Customized inline style | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - | - |
+| role | The semantics of notification content recognized by screen readers. The default value is `alert`. When set as the default value, the screen reader will promptly interrupt any ongoing content reading and prioritize the notification content for immediate attention. | `alert \| status` | `alert` | 5.6.0 |
+| onClick | Specify a function that will be called when the notification is clicked | function | - | - |
+| onClose | Trigger when notification closed | function | - | - |
+| props | An object that can contain `data-*`, `aria-*`, or `role` props, to be put on the notification `div`. This currently only allows `data-testid` instead of `data-*` in TypeScript. See https://github.com/microsoft/TypeScript/issues/28960. | Object | - | - |
+
+- `notification.useNotification(config)`
+
+The properties of config are as follows:
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels) | number | 24 |  |
+| closeIcon | Custom close icon | ReactNode | - |  |
+| getContainer | Return the mount node for Notification, but still display at fullScreen | () => HTMLNode | () => document.body |  |
 | placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |  |
-| style | Customized inline style | [React.CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |  |
-| top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels). | number | 24 |  |
+| rtl | Whether to enable RTL mode | boolean | false |  |
+| top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels) | number | 24 |  |
+| maxCount | Max Notification show, drop oldest if exceed limit | number | - | 4.17.0 |
 
 `notification` also provides a global `config()` method that can be used for specifying the default options. Once this method is used, all the notification boxes will take into account these globally defined options when displaying.
 
-- `notification.config(options)`
+### Global configuration
+
+`notification.config(options)`
+
+> When you use `ConfigProvider` for global configuration, the system will automatically start RTL mode by default.(4.3.0+)
+>
+> When you want to use it alone, you can start the RTL mode through the following settings.
+
+#### notification.config
 
 ```js
 notification.config({
   placement: 'bottomRight',
   bottom: 50,
   duration: 3,
+  rtl: true,
 });
 ```
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels). | number | 24 |  |
+| bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels) | number | 24 |  |
+| closeIcon | Custom close icon | ReactNode | - |  |
 | duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 |  |
-| getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |  |
+| getContainer | Return the mount node for Notification, but still display at fullScreen | () => HTMLNode | () => document.body |  |
 | placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |  |
-| top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels). | number | 24 |  |
+| rtl | Whether to enable RTL mode | boolean | false |  |
+| top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels) | number | 24 |  |
+| maxCount | Max Notification show, drop oldest if exceed limit | number | - | 4.17.0 |
+
+## Design Token
+
+<ComponentTokenTable component="Notification"></ComponentTokenTable>
+
+## FAQ
+
+### Why I can not access context, redux, ConfigProvider `locale/prefixCls/theme` in notification?
+
+antd will dynamic create React instance by `ReactDOM.render` when call notification methods. Whose context is different with origin code located context.
+
+When you need context info (like ConfigProvider context), you can use `notification.useNotification` to get `api` instance and `contextHolder` node. And put it in your children:
+
+```tsx
+const [api, contextHolder] = notification.useNotification();
+
+return (
+  <Context1.Provider value="Ant">
+    {/* contextHolder is inside Context1 which means api will get value of Context1 */}
+    {contextHolder}
+    <Context2.Provider value="Design">
+      {/* contextHolder is outside Context2 which means api will **not** get value of Context2 */}
+    </Context2.Provider>
+  </Context1.Provider>
+);
+```
+
+**Note:** You must insert `contextHolder` into your children with hooks. You can use origin method if you do not need context connection.
+
+> [App Package Component](/components/app) can be used to simplify the problem of `useNotification` and other methods that need to manually implant contextHolder.
+
+### How to set static methods prefixCls ？
+
+You can config with [`ConfigProvider.config`](/components/config-provider#configproviderconfig-4130)

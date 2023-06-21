@@ -1,0 +1,32 @@
+# Used to merge master/feature branches with each other
+name: PR Check CI
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  pr-check-ci:
+    if: github.repository == 'ant-design/ant-design'
+    permissions:
+      checks: read  # for actions-cool/check-pr-ci to get check reference
+      contents: write  # for actions-cool/check-pr-ci to merge PRs
+      issues: write  # for actions-cool/check-pr-ci to update issues
+      pull-requests: write  # for actions-cool/check-pr-ci to update PRs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions-cool/check-pr-ci@v1
+        with:
+          filter-label: 'BranchAutoMerge'
+          filter-creator-authority: 'write'
+          filter-head-ref: 'master, feature, next, master-merge-feature, feature-merge-master, next-merge-master, next-merge-feature'
+          filter-support-fork: false
+          skip-run-names: 'deploy preview, pr-check-ci, build preview failed, suggest-related-links'
+          conflict-review-body: '😅 This branch has conflicts that must be resolved!'
+          success-review: true
+          success-merge: true
+          merge-method: 'merge'
+          merge-title: 'chore: auto merge branches (#${number})'

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox rtl render component should be rendered correctly in RTL direction 1`] = `
+<label
+  class="ant-checkbox-wrapper ant-checkbox-rtl"
+>
+  <span
+    class="ant-checkbox"
+  >
+    <input
+      class="ant-checkbox-input"
+      type="checkbox"
+    />
+    <span
+      class="ant-checkbox-inner"
+    />
+  </span>
+</label>
+`;

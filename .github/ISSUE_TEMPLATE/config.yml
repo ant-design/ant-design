@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 🆕 Create new issue
+    url: http://new-issue.ant.design
+    about: The issue which is not created via http://new-issue.ant.design will be closed immediately.
+  - name: 🆕 创建一个新 Issue
+    url: http://new-issue.ant.design
+    about: 不是用 http://new-issue.ant.design 创建的 issue 会被机器人自动关闭。另外『如何使用...』类问题建议使用讨论区 https://github.com/ant-design/ant-design/discussions

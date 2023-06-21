@@ -1,0 +1,631 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/popover/demo/arrow.tsx correctly 1`] = `
+<div
+  class="demo"
+>
+  <div
+    class="ant-segmented"
+  >
+    <div
+      class="ant-segmented-group"
+    >
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
+      >
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="Show"
+        >
+          Show
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="Hide"
+        >
+          Hide
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="Center"
+        >
+          Center
+        </div>
+      </label>
+    </div>
+  </div>
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Content
+    </span>
+  </div>
+  <div
+    style="margin-left:70px;white-space:nowrap"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        TL
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Top
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        TR
+      </span>
+    </button>
+  </div>
+  <div
+    style="width:70px;float:left"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        LT
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Left
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        LB
+      </span>
+    </button>
+  </div>
+  <div
+    style="width:70px;margin-left:304px"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        RT
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Right
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        RB
+      </span>
+    </button>
+  </div>
+  <div
+    style="margin-left:70px;clear:both;white-space:nowrap"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        BL
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Bottom
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        BR
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/popover/demo/arrow-point-at-center.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+  style="flex-wrap:wrap;margin-bottom:-8px"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px;padding-bottom:8px"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Align edge / 边缘对齐
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="padding-bottom:8px"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Arrow points to center / 箭头指向中心
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/popover/demo/basic.tsx correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Hover me
+  </span>
+</button>
+`;
+
+exports[`renders components/popover/demo/component-token.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-top"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-content"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-title"
+        >
+          Title
+        </div>
+        <div
+          class="ant-popover-inner-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft"
+    style="width:250px"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-content"
+      style="width:250px"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-title"
+        >
+          Title
+        </div>
+        <div
+          class="ant-popover-inner-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/popover/demo/control.tsx correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Click me
+  </span>
+</button>
+`;
+
+exports[`renders components/popover/demo/hover-with-click.tsx correctly 1`] = `
+<button
+  class="ant-btn ant-btn-default"
+  type="button"
+>
+  <span>
+    Hover and click / 悬停并单击
+  </span>
+</button>
+`;
+
+exports[`renders components/popover/demo/placement.tsx correctly 1`] = `
+<div>
+  <div
+    style="margin-left:70px;white-space:nowrap"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        TL
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Top
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        TR
+      </span>
+    </button>
+  </div>
+  <div
+    style="width:70px;float:left"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        LT
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Left
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        LB
+      </span>
+    </button>
+  </div>
+  <div
+    style="width:70px;margin-left:304px"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        RT
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Right
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        RB
+      </span>
+    </button>
+  </div>
+  <div
+    style="margin-left:70px;clear:both;white-space:nowrap"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        BL
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Bottom
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        BR
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/popover/demo/render-panel.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-top"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-content"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-title"
+        >
+          Title
+        </div>
+        <div
+          class="ant-popover-inner-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft"
+    style="width:250px"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-content"
+      style="width:250px"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-title"
+        >
+          Title
+        </div>
+        <div
+          class="ant-popover-inner-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/popover/demo/triggerType.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+  style="flex-wrap:wrap;margin-bottom:-8px"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px;padding-bottom:8px"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Hover me
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px;padding-bottom:8px"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Focus me
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="padding-bottom:8px"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Click me
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/popover/demo/wireframe.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-top"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-content"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-title"
+        >
+          Title
+        </div>
+        <div
+          class="ant-popover-inner-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft"
+    style="width:250px"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-content"
+      style="width:250px"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-title"
+        >
+          Title
+        </div>
+        <div
+          class="ant-popover-inner-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;

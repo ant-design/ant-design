@@ -1,73 +1,116 @@
-import * as React from 'react';
+import classNames from 'classnames';
+import type { MenuItemProps as RcMenuItemProps } from 'rc-menu';
 import { Item } from 'rc-menu';
-import { ClickParam } from '.';
-import MenuContext, { MenuContextProps } from './MenuContext';
-import Tooltip, { TooltipProps } from '../tooltip';
-import { SiderContext, SiderContextProps } from '../layout/Sider';
+import toArray from 'rc-util/lib/Children/toArray';
+import omit from 'rc-util/lib/omit';
+import * as React from 'react';
+import type { SiderContextProps } from '../layout/Sider';
+import { SiderContext } from '../layout/Sider';
+import type { TooltipProps } from '../tooltip';
+import Tooltip from '../tooltip';
+import { cloneElement, isValidElement } from '../_util/reactNode';
+import type { MenuContextProps } from './MenuContext';
+import MenuContext from './MenuContext';
 
-export interface MenuItemProps
-  extends Omit<
-    React.HTMLAttributes<HTMLLIElement>,
-    'title' | 'onClick' | 'onMouseEnter' | 'onMouseLeave'
-  > {
-  rootPrefixCls?: string;
-  disabled?: boolean;
-  level?: number;
+export interface MenuItemProps extends Omit<RcMenuItemProps, 'title'> {
+  icon?: React.ReactNode;
+  danger?: boolean;
   title?: React.ReactNode;
-  children?: React.ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
-  onClick?: (param: ClickParam) => void;
-  onMouseEnter?: (e: { key: string; domEvent: MouseEvent }) => void;
-  onMouseLeave?: (e: { key: string; domEvent: MouseEvent }) => void;
 }
 
-export default class MenuItem extends React.Component<MenuItemProps> {
-  static isMenuItem = true;
+type MenuItemComponent = React.FC<MenuItemProps>;
 
-  private menuItem: this;
+type RestArgs<T> = T extends (arg: any, ...args: infer P) => any ? P : never;
 
-  onKeyDown = (e: React.MouseEvent<HTMLElement>) => {
-    this.menuItem.onKeyDown(e);
+type GenericProps<T = unknown> = T extends infer U extends MenuItemProps
+  ? unknown extends U
+    ? MenuItemProps
+    : U
+  : MenuItemProps;
+
+type GenericComponent = Omit<MenuItemComponent, ''> & {
+  <T extends MenuItemProps>(
+    props: GenericProps<T>,
+    ...args: RestArgs<MenuItemComponent>
+  ): ReturnType<MenuItemComponent>;
+};
+
+const MenuItem: GenericComponent = (props) => {
+  const { className, children, icon, title, danger } = props;
+  const {
+    prefixCls,
+    firstLevel,
+    direction,
+    disableMenuItemTitleTooltip,
+    inlineCollapsed: isInlineCollapsed,
+  } = React.useContext<MenuContextProps>(MenuContext);
+  const renderItemChildren = (inlineCollapsed: boolean) => {
+    const wrapNode = <span className={`${prefixCls}-title-content`}>{children}</span>;
+    // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
+    // ref: https://github.com/ant-design/ant-design/pull/23456
+    if (!icon || (isValidElement(children) && children.type === 'span')) {
+      if (children && inlineCollapsed && firstLevel && typeof children === 'string') {
+        return <div className={`${prefixCls}-inline-collapsed-noicon`}>{children.charAt(0)}</div>;
+      }
+    }
+    return wrapNode;
   };
 
-  saveMenuItem = (menuItem: this) => {
-    this.menuItem = menuItem;
-  };
+  const { siderCollapsed } = React.useContext<SiderContextProps>(SiderContext);
 
-  renderItem = ({ siderCollapsed }: SiderContextProps) => {
-    const { level, children, rootPrefixCls } = this.props;
-    const { title, ...rest } = this.props;
+  let tooltipTitle = title;
 
-    return (
-      <MenuContext.Consumer>
-        {({ inlineCollapsed }: MenuContextProps) => {
-          const tooltipProps: TooltipProps = {
-            title: title || (level === 1 ? children : ''),
-          };
-
-          if (!siderCollapsed && !inlineCollapsed) {
-            tooltipProps.title = null;
-            // Reset `visible` to fix control mode tooltip display not correct
-            // ref: https://github.com/ant-design/ant-design/issues/16742
-            tooltipProps.visible = false;
-          }
-
-          return (
-            <Tooltip
-              {...tooltipProps}
-              placement="right"
-              overlayClassName={`${rootPrefixCls}-inline-collapsed-tooltip`}
-            >
-              <Item {...rest} title={title} ref={this.saveMenuItem} />
-            </Tooltip>
-          );
-        }}
-      </MenuContext.Consumer>
-    );
-  };
-
-  render() {
-    return <SiderContext.Consumer>{this.renderItem}</SiderContext.Consumer>;
+  if (typeof title === 'undefined') {
+    tooltipTitle = firstLevel ? children : '';
+  } else if (title === false) {
+    tooltipTitle = '';
   }
-}
+
+  const tooltipProps: TooltipProps = { title: tooltipTitle };
+
+  if (!siderCollapsed && !isInlineCollapsed) {
+    tooltipProps.title = null;
+    // Reset `open` to fix control mode tooltip display not correct
+    // ref: https://github.com/ant-design/ant-design/issues/16742
+    tooltipProps.open = false;
+  }
+
+  const childrenLength = toArray(children).length;
+
+  let returnNode = (
+    <Item
+      {...omit(props, ['title', 'icon', 'danger'])}
+      className={classNames(
+        {
+          [`${prefixCls}-item-danger`]: danger,
+          [`${prefixCls}-item-only-child`]: (icon ? childrenLength + 1 : childrenLength) === 1,
+        },
+        className,
+      )}
+      title={typeof title === 'string' ? title : undefined}
+    >
+      {cloneElement(icon, {
+        className: classNames(
+          isValidElement(icon) ? icon.props?.className : '',
+          `${prefixCls}-item-icon`,
+        ),
+      })}
+      {renderItemChildren(isInlineCollapsed)}
+    </Item>
+  );
+
+  if (!disableMenuItemTitleTooltip) {
+    returnNode = (
+      <Tooltip
+        {...tooltipProps}
+        placement={direction === 'rtl' ? 'left' : 'right'}
+        overlayClassName={`${prefixCls}-inline-collapsed-tooltip`}
+      >
+        {returnNode}
+      </Tooltip>
+    );
+  }
+  return returnNode;
+};
+
+export default MenuItem;

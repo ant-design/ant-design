@@ -1,17 +1,22 @@
 import * as React from 'react';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 
-export default class BreadcrumbSeparator extends React.Component<any> {
-  static __ANT_BREADCRUMB_SEPARATOR = true;
+type CompoundedComponent = React.FC<{ children?: React.ReactNode }> & {
+  /** @internal */
+  __ANT_BREADCRUMB_SEPARATOR: boolean;
+};
 
-  renderSeparator = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { children } = this.props;
-    const prefixCls = getPrefixCls('breadcrumb');
+const BreadcrumbSeparator: CompoundedComponent = ({ children }) => {
+  const { getPrefixCls } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('breadcrumb');
 
-    return <span className={`${prefixCls}-separator`}>{children || '/'}</span>;
-  };
+  return (
+    <li className={`${prefixCls}-separator`} aria-hidden="true">
+      {children === '' ? children : children || '/'}
+    </li>
+  );
+};
 
-  render() {
-    return <ConfigConsumer>{this.renderSeparator}</ConfigConsumer>;
-  }
-}
+BreadcrumbSeparator.__ANT_BREADCRUMB_SEPARATOR = true;
+
+export default BreadcrumbSeparator;

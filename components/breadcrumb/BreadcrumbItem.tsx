@@ -1,84 +1,120 @@
+import DownOutlined from '@ant-design/icons/DownOutlined';
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import omit from 'omit.js';
-import DropDown, { DropDownProps } from '../dropdown/dropdown';
-import Icon from '../icon';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import warning from '../_util/warning';
+import { ConfigContext } from '../config-provider';
+import type { DropdownProps } from '../dropdown/dropdown';
+import Dropdown from '../dropdown/dropdown';
+import type { ItemType } from './Breadcrumb';
+import BreadcrumbSeparator from './BreadcrumbSeparator';
+import { renderItem } from './useItemRender';
 
-export interface BreadcrumbItemProps {
-  prefixCls?: string;
+export interface SeparatorType {
   separator?: React.ReactNode;
-  href?: string;
-  overlay?: DropDownProps['overlay'];
-  onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
+  key?: React.Key;
 }
 
-export default class BreadcrumbItem extends React.Component<BreadcrumbItemProps, any> {
-  static __ANT_BREADCRUMB_ITEM = true;
+type MenuType = NonNullable<DropdownProps['menu']>;
+interface MenuItem {
+  key?: React.Key;
+  title?: React.ReactNode;
+  label?: React.ReactNode;
+  path?: string;
+  href?: string;
+}
 
-  static defaultProps = {
-    separator: '/',
+export interface BreadcrumbItemProps extends SeparatorType {
+  prefixCls?: string;
+  href?: string;
+  menu?: Omit<MenuType, 'items'> & {
+    items?: MenuItem[];
   };
+  dropdownProps?: DropdownProps;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
+  className?: string;
+  children?: React.ReactNode;
+  // Deprecated
+  /** @deprecated Please use `menu` instead */
+  overlay?: DropdownProps['overlay'];
+}
 
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    separator: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    href: PropTypes.string,
-  };
+export const InternalBreadcrumbItem = (props: BreadcrumbItemProps) => {
+  const { prefixCls, separator = '/', children, menu, overlay, dropdownProps, href } = props;
 
-  renderBreadcrumbItem = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, separator, children, ...restProps } = this.props;
-    const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
-    let link;
-    if ('href' in this.props) {
-      link = (
-        <a className={`${prefixCls}-link`} {...omit(restProps, ['overlay'])}>
-          {children}
-        </a>
-      );
-    } else {
-      link = (
-        <span className={`${prefixCls}-link`} {...omit(restProps, ['overlay'])}>
-          {children}
-        </span>
-      );
-    }
+  // Warning for deprecated usage
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !('overlay' in props),
+      'Breadcrumb.Item',
+      '`overlay` is deprecated. Please use `menu` instead.',
+    );
+  }
 
-    // wrap to dropDown
-    link = this.renderBreadcrumbNode(link, prefixCls);
-    if (children) {
+  /** If overlay is have Wrap a Dropdown */
+  const renderBreadcrumbNode = (breadcrumbItem: React.ReactNode) => {
+    if (menu || overlay) {
+      const mergeDropDownProps: DropdownProps = {
+        ...dropdownProps,
+      };
+
+      if (menu) {
+        const { items, ...menuProps } = menu || {};
+        mergeDropDownProps.menu = {
+          ...menuProps,
+          items: items?.map(({ key, title, label, path, ...itemProps }, index) => {
+            let mergedLabel: React.ReactNode = label ?? title;
+
+            if (path) {
+              mergedLabel = <a href={`${href}${path}`}>{mergedLabel}</a>;
+            }
+
+            return {
+              ...itemProps,
+              key: key ?? index,
+              label: mergedLabel as string,
+            };
+          }),
+        };
+      } else if (overlay) {
+        mergeDropDownProps.overlay = overlay;
+      }
+
       return (
-        <span>
-          {link}
-          {separator && separator !== '' && (
-            <span className={`${prefixCls}-separator`}>{separator}</span>
-          )}
-        </span>
-      );
-    }
-    return null;
-  };
-
-  /**
-   * if overlay is have
-   * Wrap a DropDown
-   */
-  renderBreadcrumbNode = (breadcrumbItem: React.ReactNode, prefixCls: string) => {
-    const { overlay } = this.props;
-    if (overlay) {
-      return (
-        <DropDown overlay={overlay} placement="bottomCenter">
+        <Dropdown placement="bottom" {...mergeDropDownProps}>
           <span className={`${prefixCls}-overlay-link`}>
             {breadcrumbItem}
-            <Icon type="down" />
+            <DownOutlined />
           </span>
-        </DropDown>
+        </Dropdown>
       );
     }
     return breadcrumbItem;
   };
 
-  render() {
-    return <ConfigConsumer>{this.renderBreadcrumbItem}</ConfigConsumer>;
+  // wrap to dropDown
+  const link = renderBreadcrumbNode(children);
+  if (link !== undefined && link !== null) {
+    return (
+      <>
+        <li>{link}</li>
+        {separator && <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>}
+      </>
+    );
   }
-}
+  return null;
+};
+
+const BreadcrumbItem = (props: BreadcrumbItemProps) => {
+  const { prefixCls: customizePrefixCls, children, href, ...restProps } = props;
+  const { getPrefixCls } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
+
+  return (
+    <InternalBreadcrumbItem {...restProps} prefixCls={prefixCls}>
+      {renderItem(prefixCls, restProps as ItemType, children, href)}
+    </InternalBreadcrumbItem>
+  );
+};
+
+BreadcrumbItem.__ANT_BREADCRUMB_ITEM = true;
+
+export default BreadcrumbItem;

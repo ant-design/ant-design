@@ -1,46 +1,59 @@
-import * as React from 'react';
 import classNames from 'classnames';
-import { ButtonSize } from './button';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import * as React from 'react';
+import { ConfigContext } from '../config-provider';
+import type { SizeType } from '../config-provider/SizeContext';
+import { useToken } from '../theme/internal';
+import warning from '../_util/warning';
 
 export interface ButtonGroupProps {
-  size?: ButtonSize;
+  size?: SizeType;
   style?: React.CSSProperties;
   className?: string;
   prefixCls?: string;
+  children?: React.ReactNode;
 }
 
-const ButtonGroup: React.SFC<ButtonGroupProps> = props => (
-  <ConfigConsumer>
-    {({ getPrefixCls }: ConfigConsumerProps) => {
-      const { prefixCls: customizePrefixCls, size, className, ...others } = props;
-      const prefixCls = getPrefixCls('btn-group', customizePrefixCls);
+export const GroupSizeContext = React.createContext<SizeType | undefined>(undefined);
 
-      // large => lg
-      // small => sm
-      let sizeCls = '';
-      switch (size) {
-        case 'large':
-          sizeCls = 'lg';
-          break;
-        case 'small':
-          sizeCls = 'sm';
-          break;
-        default:
-          break;
-      }
+const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-      const classes = classNames(
-        prefixCls,
-        {
-          [`${prefixCls}-${sizeCls}`]: sizeCls,
-        },
-        className,
-      );
+  const { prefixCls: customizePrefixCls, size, className, ...others } = props;
+  const prefixCls = getPrefixCls('btn-group', customizePrefixCls);
 
-      return <div {...others} className={classes} />;
-    }}
-  </ConfigConsumer>
-);
+  const [, , hashId] = useToken();
+
+  let sizeCls = '';
+
+  switch (size) {
+    case 'large':
+      sizeCls = 'lg';
+      break;
+    case 'small':
+      sizeCls = 'sm';
+      break;
+    case 'middle':
+    case undefined:
+      break;
+    default:
+      warning(!size, 'Button.Group', 'Invalid prop `size`.');
+  }
+
+  const classes = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-${sizeCls}`]: sizeCls,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    className,
+    hashId,
+  );
+
+  return (
+    <GroupSizeContext.Provider value={size}>
+      <div {...others} className={classes} />
+    </GroupSizeContext.Provider>
+  );
+};
 
 export default ButtonGroup;

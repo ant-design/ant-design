@@ -1,19 +1,19 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
 
 type widthUnit = number | string;
 
 export interface SkeletonParagraphProps {
   prefixCls?: string;
   className?: string;
-  style?: object;
+  style?: React.CSSProperties;
   width?: widthUnit | Array<widthUnit>;
   rows?: number;
 }
 
-class Paragraph extends React.Component<SkeletonParagraphProps, {}> {
-  getWidth(index: number) {
-    const { width, rows = 2 } = this.props;
+const Paragraph: React.FC<SkeletonParagraphProps> = (props) => {
+  const getWidth = (index: number) => {
+    const { width, rows = 2 } = props;
     if (Array.isArray(width)) {
       return width[index];
     }
@@ -22,20 +22,17 @@ class Paragraph extends React.Component<SkeletonParagraphProps, {}> {
       return width;
     }
     return undefined;
-  }
-
-  render() {
-    const { prefixCls, className, style, rows } = this.props;
-    const rowList = [...Array(rows)].map((_, index) => (
-      // eslint-disable-next-line react/no-array-index-key
-      <li key={index} style={{ width: this.getWidth(index) }} />
-    ));
-    return (
-      <ul className={classNames(prefixCls, className)} style={style}>
-        {rowList}
-      </ul>
-    );
-  }
-}
+  };
+  const { prefixCls, className, style, rows } = props;
+  const rowList = [...Array(rows)].map((_, index) => (
+    // eslint-disable-next-line react/no-array-index-key
+    <li key={index} style={{ width: getWidth(index) }} />
+  ));
+  return (
+    <ul className={classNames(prefixCls, className)} style={style}>
+      {rowList}
+    </ul>
+  );
+};
 
 export default Paragraph;

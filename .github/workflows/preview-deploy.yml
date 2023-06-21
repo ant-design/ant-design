@@ -1,0 +1,106 @@
+# Each PR will build preview site that help to check code is work as expect.
+
+name: Preview Deploy
+
+on:
+  workflow_run:
+    workflows: ["Preview Build"]
+    types:
+      - completed
+
+permissions:
+  contents: read
+
+jobs:
+  deploy-site:
+    permissions:
+      actions: read  # for dawidd6/action-download-artifact to query and download artifacts
+      issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
+      pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
+    name: deploy preview
+    runs-on: ubuntu-latest
+    if: >
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success'
+    steps:
+      # We need get PR id first
+      - name: download pr artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          run_id: ${{ github.event.workflow_run.id }}
+          name: pr
+
+      # Save PR id to output
+      - name: save PR id
+        id: pr
+        run: echo "::set-output name=id::$(<pr-id.txt)"
+
+      # Download site artifact
+      - name: download site artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          run_id: ${{ github.event.workflow_run.id }}
+          name: site
+
+      - name: upload surge service
+        id: deploy
+        run: |
+          export DEPLOY_DOMAIN=https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh
+          npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+
+      - name: update status comment
+        uses: actions-cool/maintain-one-comment@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            [<img width="306" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">](https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh)
+            <!-- AUTO_PREVIEW_HOOK -->
+          body-include: '<!-- AUTO_PREVIEW_HOOK -->'
+          number: ${{ steps.pr.outputs.id }}
+
+      - name: The job has failed
+        if: ${{ failure() }}
+        uses: actions-cool/maintain-one-comment@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            <img width="534" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">
+            <!-- AUTO_PREVIEW_HOOK -->
+          body-include: '<!-- AUTO_PREVIEW_HOOK -->'
+          number: ${{ steps.pr.outputs.id }}
+
+  build-site-failed:
+    permissions:
+      actions: read  # for dawidd6/action-download-artifact to query and download artifacts
+      issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
+      pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
+    name: build preview failed
+    runs-on: ubuntu-latest
+    if: >
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'failure'
+    steps:
+      # We need get PR id first
+      - name: download pr artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          run_id: ${{ github.event.workflow_run.id }}
+          name: pr
+
+      # Save PR id to output
+      - name: save PR id
+        id: pr
+        run: echo "::set-output name=id::$(<pr-id.txt)"
+
+      - name: The job has failed
+        uses: actions-cool/maintain-one-comment@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            <img width="534" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">
+            <!-- AUTO_PREVIEW_HOOK -->
+          body-include: '<!-- AUTO_PREVIEW_HOOK -->'
+          number: ${{ steps.pr.outputs.id }}

@@ -1,17 +1,29 @@
-import * as React from 'react';
+import EyeInvisibleOutlined from '@ant-design/icons/EyeInvisibleOutlined';
+import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import classNames from 'classnames';
-import omit from 'omit.js';
-import Input, { InputProps } from './Input';
-import Icon from '../icon';
+import omit from 'rc-util/lib/omit';
+import { composeRef } from 'rc-util/lib/ref';
+import * as React from 'react';
+import { useRef, useState } from 'react';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
+import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
+import type { InputProps, InputRef } from './Input';
+import Input from './Input';
+
+const defaultIconRender = (visible: boolean): React.ReactNode =>
+  visible ? <EyeOutlined /> : <EyeInvisibleOutlined />;
+
+type VisibilityToggle = {
+  visible?: boolean;
+  onVisibleChange?: (visible: boolean) => void;
+};
 
 export interface PasswordProps extends InputProps {
   readonly inputPrefixCls?: string;
   readonly action?: string;
-  visibilityToggle?: boolean;
-}
-
-export interface PasswordState {
-  visible: boolean;
+  visibilityToggle?: boolean | VisibilityToggle;
+  iconRender?: (visible: boolean) => React.ReactNode;
 }
 
 const ActionMap: Record<string, string> = {
@@ -19,87 +31,98 @@ const ActionMap: Record<string, string> = {
   hover: 'onMouseOver',
 };
 
-export default class Password extends React.Component<PasswordProps, PasswordState> {
-  input: HTMLInputElement;
+const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
+  const { visibilityToggle = true } = props;
+  const visibilityControlled =
+    typeof visibilityToggle === 'object' && visibilityToggle.visible !== undefined;
+  const [visible, setVisible] = useState(() =>
+    visibilityControlled ? visibilityToggle.visible! : false,
+  );
+  const inputRef = useRef<InputRef>(null);
 
-  static defaultProps = {
-    inputPrefixCls: 'ant-input',
-    prefixCls: 'ant-input-password',
-    action: 'click',
-    visibilityToggle: true,
-  };
+  React.useEffect(() => {
+    if (visibilityControlled) {
+      setVisible(visibilityToggle.visible!);
+    }
+  }, [visibilityControlled, visibilityToggle]);
 
-  state: PasswordState = {
-    visible: false,
-  };
+  // Remove Password value
+  const removePasswordTimeout = useRemovePasswordTimeout(inputRef);
 
-  onChange = () => {
-    const { disabled } = this.props;
+  const onVisibleChange = () => {
+    const { disabled } = props;
     if (disabled) {
       return;
     }
-
-    this.setState(({ visible }) => ({ visible: !visible }));
+    if (visible) {
+      removePasswordTimeout();
+    }
+    setVisible((prevState) => {
+      const newState = !prevState;
+      if (typeof visibilityToggle === 'object') {
+        visibilityToggle.onVisibleChange?.(newState);
+      }
+      return newState;
+    });
   };
 
-  getIcon() {
-    const { prefixCls, action } = this.props;
-    const iconTrigger = ActionMap[action!] || '';
+  const getIcon = (prefixCls: string) => {
+    const { action = 'click', iconRender = defaultIconRender } = props;
+    const iconTrigger = ActionMap[action] || '';
+    const icon = iconRender(visible);
     const iconProps = {
-      [iconTrigger]: this.onChange,
+      [iconTrigger]: onVisibleChange,
       className: `${prefixCls}-icon`,
-      type: this.state.visible ? 'eye' : 'eye-invisible',
       key: 'passwordIcon',
       onMouseDown: (e: MouseEvent) => {
         // Prevent focused state lost
         // https://github.com/ant-design/ant-design/issues/15173
         e.preventDefault();
       },
+      onMouseUp: (e: MouseEvent) => {
+        // Prevent caret position change
+        // https://github.com/ant-design/ant-design/issues/23524
+        e.preventDefault();
+      },
     };
-    return <Icon {...iconProps} />;
-  }
-
-  saveInput = (instance: Input) => {
-    if (instance && instance.input) {
-      this.input = instance.input;
-    }
+    return React.cloneElement(React.isValidElement(icon) ? icon : <span>{icon}</span>, iconProps);
   };
 
-  focus() {
-    this.input.focus();
+  const {
+    className,
+    prefixCls: customizePrefixCls,
+    inputPrefixCls: customizeInputPrefixCls,
+    size,
+    ...restProps
+  } = props;
+
+  const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
+  const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
+  const prefixCls = getPrefixCls('input-password', customizePrefixCls);
+
+  const suffixIcon = visibilityToggle && getIcon(prefixCls);
+
+  const inputClassName = classNames(prefixCls, className, {
+    [`${prefixCls}-${size}`]: !!size,
+  });
+
+  const omittedProps: InputProps = {
+    ...omit(restProps, ['suffix', 'iconRender', 'visibilityToggle']),
+    type: visible ? 'text' : 'password',
+    className: inputClassName,
+    prefixCls: inputPrefixCls,
+    suffix: suffixIcon,
+  };
+
+  if (size) {
+    omittedProps.size = size;
   }
 
-  blur() {
-    this.input.blur();
-  }
+  return <Input ref={composeRef(ref, inputRef)} {...omittedProps} />;
+});
 
-  select() {
-    this.input.select();
-  }
-
-  render() {
-    const {
-      className,
-      prefixCls,
-      inputPrefixCls,
-      size,
-      visibilityToggle,
-      ...restProps
-    } = this.props;
-    const suffixIcon = visibilityToggle && this.getIcon();
-    const inputClassName = classNames(prefixCls, className, {
-      [`${prefixCls}-${size}`]: !!size,
-    });
-    return (
-      <Input
-        {...omit(restProps, ['suffix'])}
-        type={this.state.visible ? 'text' : 'password'}
-        size={size}
-        className={inputClassName}
-        prefixCls={inputPrefixCls}
-        suffix={suffixIcon}
-        ref={this.saveInput}
-      />
-    );
-  }
+if (process.env.NODE_ENV !== 'production') {
+  Password.displayName = 'Password';
 }
+
+export default Password;

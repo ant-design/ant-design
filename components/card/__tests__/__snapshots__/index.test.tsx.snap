@@ -1,0 +1,344 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card correct pass tabList props 1`] = `
+<div
+  class="ant-card ant-card-bordered ant-card-contain-tabs"
+>
+  <div
+    class="ant-card-head"
+  >
+    <div
+      class="ant-card-head-wrapper"
+    />
+    <div
+      class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-large ant-tabs-card ant-tabs-editable-card ant-card-head-tabs"
+    >
+      <div
+        class="ant-tabs-nav"
+        role="tablist"
+      >
+        <div
+          class="ant-tabs-nav-wrap"
+        >
+          <div
+            class="ant-tabs-nav-list"
+            style="transform: translate(0px, 0px);"
+          >
+            <div
+              class="ant-tabs-tab ant-tabs-tab-with-remove ant-tabs-tab-active"
+              data-node-key="basic"
+            >
+              <div
+                aria-controls="rc-tabs-test-panel-basic"
+                aria-selected="true"
+                class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-basic"
+                role="tab"
+                tabindex="0"
+              >
+                Basic
+              </div>
+              <button
+                aria-label="remove"
+                class="ant-tabs-tab-remove"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <div
+              class="ant-tabs-tab ant-tabs-tab-with-remove"
+              data-node-key="deprecated"
+            >
+              <div
+                aria-controls="rc-tabs-test-panel-deprecated"
+                aria-selected="false"
+                class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-deprecated"
+                role="tab"
+                tabindex="0"
+              >
+                Deprecated
+              </div>
+              <button
+                aria-label="remove"
+                class="ant-tabs-tab-remove"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <div
+              class="ant-tabs-tab ant-tabs-tab-disabled"
+              data-node-key="disabled"
+            >
+              <div
+                aria-controls="rc-tabs-test-panel-disabled"
+                aria-disabled="true"
+                aria-selected="false"
+                class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-disabled"
+                role="tab"
+              >
+                Disabled
+              </div>
+            </div>
+            <div
+              class="ant-tabs-tab"
+              data-node-key="notClosable"
+            >
+              <div
+                aria-controls="rc-tabs-test-panel-notClosable"
+                aria-selected="false"
+                class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-notClosable"
+                role="tab"
+                tabindex="0"
+              >
+                NotClosable
+              </div>
+            </div>
+            <button
+              aria-label="Add tab"
+              class="ant-tabs-nav-add"
+              type="button"
+            >
+              <span
+                aria-label="plus"
+                class="anticon anticon-plus"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="plus"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <defs>
+                    <style />
+                  </defs>
+                  <path
+                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                  />
+                  <path
+                    d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+        >
+          <button
+            aria-controls="rc-tabs-test-more-popup"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-hidden="true"
+            class="ant-tabs-nav-more"
+            id="rc-tabs-test-more"
+            style="visibility: hidden; order: 1;"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="ellipsis"
+              class="anticon anticon-ellipsis"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="ellipsis"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
+          </button>
+          <button
+            aria-label="Add tab"
+            class="ant-tabs-nav-add"
+            type="button"
+          >
+            <span
+              aria-label="plus"
+              class="anticon anticon-plus"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="plus"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <defs>
+                  <style />
+                </defs>
+                <path
+                  d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                />
+                <path
+                  d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="ant-tabs-content-holder"
+      >
+        <div
+          class="ant-tabs-content ant-tabs-content-top"
+        >
+          <div
+            aria-hidden="false"
+            aria-labelledby="rc-tabs-test-tab-basic"
+            class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            id="rc-tabs-test-panel-basic"
+            role="tabpanel"
+            tabindex="0"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-card-body"
+  />
+</div>
+`;
+
+exports[`Card rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-card ant-card-bordered ant-card-rtl"
+>
+  <div
+    class="ant-card-body"
+  />
+</div>
+`;
+
+exports[`Card should still have padding when card which set padding to 0 is loading 1`] = `
+<div
+  class="ant-card ant-card-loading ant-card-bordered"
+>
+  <div
+    class="ant-card-body"
+    style="padding: 0px;"
+  >
+    <div
+      class="ant-skeleton ant-skeleton-active"
+    >
+      <div
+        class="ant-skeleton-content"
+      >
+        <ul
+          class="ant-skeleton-paragraph"
+        >
+          <li />
+          <li />
+          <li />
+          <li
+            style="width: 61%;"
+          />
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card title should be vertically aligned 1`] = `
+<div
+  class="ant-card ant-card-bordered"
+  style="width: 300px;"
+>
+  <div
+    class="ant-card-head"
+  >
+    <div
+      class="ant-card-head-wrapper"
+    >
+      <div
+        class="ant-card-head-title"
+      >
+        Card title
+      </div>
+      <div
+        class="ant-card-extra"
+      >
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            Button
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-card-body"
+  >
+    <p>
+      Card content
+    </p>
+  </div>
+</div>
+`;

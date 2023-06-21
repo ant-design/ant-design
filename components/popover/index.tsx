@@ -1,64 +1,82 @@
+import classNames from 'classnames';
 import * as React from 'react';
-import Tooltip, { AbstractTooltipProps, TooltipPlacement, TooltipTrigger } from '../tooltip';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
+import type { RenderFunction } from '../_util/getRenderPropValue';
+import { getRenderPropValue } from '../_util/getRenderPropValue';
+import { getTransitionName } from '../_util/motion';
+import { ConfigContext } from '../config-provider';
+import type { AbstractTooltipProps } from '../tooltip';
+import Tooltip from '../tooltip';
+import PurePanel from './PurePanel';
+// CSSINJS
+import useStyle from './style';
 
 export interface PopoverProps extends AbstractTooltipProps {
-  title?: React.ReactNode;
-  content?: React.ReactNode;
+  title?: React.ReactNode | RenderFunction;
+  content?: React.ReactNode | RenderFunction;
 }
 
-export default class Popover extends React.Component<PopoverProps, {}> {
-  static defaultProps = {
-    placement: 'top' as TooltipPlacement,
-    transitionName: 'zoom-big',
-    trigger: 'hover' as TooltipTrigger,
-    mouseEnterDelay: 0.1,
-    mouseLeaveDelay: 0.1,
-    overlayStyle: {},
-  };
-
-  private tooltip: Tooltip;
-
-  getPopupDomNode() {
-    return this.tooltip.getPopupDomNode();
-  }
-
-  getOverlay(prefixCls: string) {
-    const { title, content } = this.props;
-    warning(
-      !('overlay' in this.props),
-      'Popover',
-      '`overlay` is removed, please use `content` instead, ' +
-        'see: https://u.ant.design/popover-content',
-    );
-    return (
-      <div>
-        {title && <div className={`${prefixCls}-title`}>{title}</div>}
-        <div className={`${prefixCls}-inner-content`}>{content}</div>
-      </div>
-    );
-  }
-
-  saveTooltip = (node: any) => {
-    this.tooltip = node;
-  };
-
-  renderPopover = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, ...props } = this.props;
-    delete props.title;
-    const prefixCls = getPrefixCls('popover', customizePrefixCls);
-    return (
-      <Tooltip
-        {...props}
-        prefixCls={prefixCls}
-        ref={this.saveTooltip}
-        overlay={this.getOverlay(prefixCls)}
-      />
-    );
-  };
-
-  render() {
-    return <ConfigConsumer>{this.renderPopover}</ConfigConsumer>;
-  }
+interface OverlayProps {
+  prefixCls?: string;
+  title?: PopoverProps['title'];
+  content?: PopoverProps['content'];
 }
+
+const Overlay: React.FC<OverlayProps> = ({ title, content, prefixCls }) => (
+  <>
+    {title && <div className={`${prefixCls}-title`}>{getRenderPropValue(title)}</div>}
+    <div className={`${prefixCls}-inner-content`}>{getRenderPropValue(content)}</div>
+  </>
+);
+
+const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
+  const {
+    prefixCls: customizePrefixCls,
+    title,
+    content,
+    overlayClassName,
+    placement = 'top',
+    trigger = 'hover',
+    mouseEnterDelay = 0.1,
+    mouseLeaveDelay = 0.1,
+    overlayStyle = {},
+    ...otherProps
+  } = props;
+  const { getPrefixCls } = React.useContext(ConfigContext);
+
+  const prefixCls = getPrefixCls('popover', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootPrefixCls = getPrefixCls();
+
+  const overlayCls = classNames(overlayClassName, hashId);
+
+  return wrapSSR(
+    <Tooltip
+      placement={placement}
+      trigger={trigger}
+      mouseEnterDelay={mouseEnterDelay}
+      mouseLeaveDelay={mouseLeaveDelay}
+      overlayStyle={overlayStyle}
+      {...otherProps}
+      prefixCls={prefixCls}
+      overlayClassName={overlayCls}
+      ref={ref}
+      overlay={
+        title || content ? <Overlay prefixCls={prefixCls} title={title} content={content} /> : null
+      }
+      transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
+      data-popover-inject
+    />,
+  );
+}) as React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<PopoverProps> & React.RefAttributes<unknown>
+> & {
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+};
+
+if (process.env.NODE_ENV !== 'production') {
+  Popover.displayName = 'Popover';
+}
+
+Popover._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+
+export default Popover;

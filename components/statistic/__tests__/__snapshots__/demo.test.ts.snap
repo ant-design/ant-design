@@ -1,0 +1,593 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/statistic/demo/animated.tsx correctly 1`] = `
+<div
+  class="ant-row"
+  style="margin-left:-8px;margin-right:-8px"
+>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Active Users
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          <span />
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Account Balance (CNY)
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          <span />
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/statistic/demo/basic.tsx correctly 1`] = `
+<div
+  class="ant-row"
+  style="margin-left:-8px;margin-right:-8px"
+>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Active Users
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          <span
+            class="ant-statistic-content-value-int"
+          >
+            112,893
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Account Balance (CNY)
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          <span
+            class="ant-statistic-content-value-int"
+          >
+            112,893
+          </span>
+          <span
+            class="ant-statistic-content-value-decimal"
+          >
+            .00
+          </span>
+        </span>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-primary"
+      style="margin-top:16px"
+      type="button"
+    >
+      <span>
+        Recharge
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Active Users
+      </div>
+      <div
+        class="ant-skeleton ant-statistic-skeleton"
+      >
+        <div
+          class="ant-skeleton-content"
+        >
+          <h3
+            class="ant-skeleton-title"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/statistic/demo/card.tsx correctly 1`] = `
+<div
+  class="ant-row"
+  style="margin-left:-8px;margin-right:-8px"
+>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  >
+    <div
+      class="ant-card"
+    >
+      <div
+        class="ant-card-body"
+      >
+        <div
+          class="ant-statistic"
+        >
+          <div
+            class="ant-statistic-title"
+          >
+            Active
+          </div>
+          <div
+            class="ant-statistic-content"
+            style="color:#3f8600"
+          >
+            <span
+              class="ant-statistic-content-prefix"
+            >
+              <span
+                aria-label="arrow-up"
+                class="anticon anticon-arrow-up"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="arrow-up"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M868 545.5L536.1 163a31.96 31.96 0 00-48.3 0L156 545.5a7.97 7.97 0 006 13.2h81c4.6 0 9-2 12.1-5.5L474 300.9V864c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V300.9l218.9 252.3c3 3.5 7.4 5.5 12.1 5.5h81c6.8 0 10.5-8 6-13.2z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-statistic-content-value"
+            >
+              <span
+                class="ant-statistic-content-value-int"
+              >
+                11
+              </span>
+              <span
+                class="ant-statistic-content-value-decimal"
+              >
+                .28
+              </span>
+            </span>
+            <span
+              class="ant-statistic-content-suffix"
+            >
+              %
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  >
+    <div
+      class="ant-card"
+    >
+      <div
+        class="ant-card-body"
+      >
+        <div
+          class="ant-statistic"
+        >
+          <div
+            class="ant-statistic-title"
+          >
+            Idle
+          </div>
+          <div
+            class="ant-statistic-content"
+            style="color:#cf1322"
+          >
+            <span
+              class="ant-statistic-content-prefix"
+            >
+              <span
+                aria-label="arrow-down"
+                class="anticon anticon-arrow-down"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="arrow-down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M862 465.3h-81c-4.6 0-9 2-12.1 5.5L550 723.1V160c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v563.1L255.1 470.8c-3-3.5-7.4-5.5-12.1-5.5h-81c-6.8 0-10.5 8.1-6 13.2L487.9 861a31.96 31.96 0 0048.3 0L868 478.5c4.5-5.2.8-13.2-6-13.2z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-statistic-content-value"
+            >
+              <span
+                class="ant-statistic-content-value-int"
+              >
+                9
+              </span>
+              <span
+                class="ant-statistic-content-value-decimal"
+              >
+                .30
+              </span>
+            </span>
+            <span
+              class="ant-statistic-content-suffix"
+            >
+              %
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/statistic/demo/component-token.tsx correctly 1`] = `
+<div
+  class="ant-row"
+  style="margin-left:-8px;margin-right:-8px"
+>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Active Users
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          <span
+            class="ant-statistic-content-value-int"
+          >
+            112,893
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Account Balance (CNY)
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          <span
+            class="ant-statistic-content-value-int"
+          >
+            112,893
+          </span>
+          <span
+            class="ant-statistic-content-value-decimal"
+          >
+            .00
+          </span>
+        </span>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-primary"
+      style="margin-top:16px"
+      type="button"
+    >
+      <span>
+        Recharge
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Active Users
+      </div>
+      <div
+        class="ant-skeleton ant-statistic-skeleton"
+      >
+        <div
+          class="ant-skeleton-content"
+        >
+          <h3
+            class="ant-skeleton-title"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/statistic/demo/countdown.tsx correctly 1`] = `
+<div
+  class="ant-row"
+  style="margin-left:-8px;margin-right:-8px"
+>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Countdown
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          48:00:30
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Million Seconds
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          48:00:30:000
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-col ant-col-24"
+    style="padding-left:8px;padding-right:8px;margin-top:32px"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Day Level
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          2 天 0 时 0 分 30 秒
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Countdown
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          00:00:10
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/statistic/demo/unit.tsx correctly 1`] = `
+<div
+  class="ant-row"
+  style="margin-left:-8px;margin-right:-8px"
+>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Feedback
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-prefix"
+        >
+          <span
+            aria-label="like"
+            class="anticon anticon-like"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="like"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M885.9 533.7c16.8-22.2 26.1-49.4 26.1-77.7 0-44.9-25.1-87.4-65.5-111.1a67.67 67.67 0 00-34.3-9.3H572.4l6-122.9c1.4-29.7-9.1-57.9-29.5-79.4A106.62 106.62 0 00471 99.9c-52 0-98 35-111.8 85.1l-85.9 311H144c-17.7 0-32 14.3-32 32v364c0 17.7 14.3 32 32 32h601.3c9.2 0 18.2-1.8 26.5-5.4 47.6-20.3 78.3-66.8 78.3-118.4 0-12.6-1.8-25-5.4-37 16.8-22.2 26.1-49.4 26.1-77.7 0-12.6-1.8-25-5.4-37 16.8-22.2 26.1-49.4 26.1-77.7-.2-12.6-2-25.1-5.6-37.1zM184 852V568h81v284h-81zm636.4-353l-21.9 19 13.9 25.4a56.2 56.2 0 016.9 27.3c0 16.5-7.2 32.2-19.6 43l-21.9 19 13.9 25.4a56.2 56.2 0 016.9 27.3c0 16.5-7.2 32.2-19.6 43l-21.9 19 13.9 25.4a56.2 56.2 0 016.9 27.3c0 22.4-13.2 42.6-33.6 51.8H329V564.8l99.5-360.5a44.1 44.1 0 0142.2-32.3c7.6 0 15.1 2.2 21.1 6.7 9.9 7.4 15.2 18.6 14.6 30.5l-9.6 198.4h314.4C829 418.5 840 436.9 840 456c0 16.5-7.2 32.1-19.6 43z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span
+          class="ant-statistic-content-value"
+        >
+          <span
+            class="ant-statistic-content-value-int"
+          >
+            1,128
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Unmerged
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          <span
+            class="ant-statistic-content-value-int"
+          >
+            93
+          </span>
+        </span>
+        <span
+          class="ant-statistic-content-suffix"
+        >
+          / 100
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
