@@ -29,6 +29,7 @@ Used when the user needs to customize the color selection.
 <code src="./demo/trigger-event.tsx">Custom Trigger Event</code>
 <code src="./demo/format.tsx">Color Format</code>
 <code src="./demo/presets.tsx">Preset Colors</code>
+<code src="./demo/panel-render.tsx">Custom Render Panel</code>
 <code src="./demo/pure-panel.tsx" debug>Pure Render</code>
 
 ## API
@@ -50,8 +51,9 @@ Used when the user needs to customize the color selection.
 | placement | Placement of popup | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` | |
 | arrow | Configuration for popup arrow | `boolean \| { pointAtCenter: boolean }` | true | |
 | destroyTooltipOnHide | Whether destroy popover when hidden | `boolean` | false | 5.7.0 |
-| showText | show color text | boolean \| `(color: Color) => React.ReactNode` | - | 5.7.0 |
 | size | Setting the trigger size | `large` \| `middle` \| `small` | `middle` | 5.7.0 |
+| showText | Show color text | boolean \| `(color: Color) => React.ReactNode` | - | 5.7.0 |
+| panelRender | Custom Render Panel | `(panel: React.ReactNode, extra: { components: { Picker: FC; Presets: FC } }) => React.ReactNode` | - | 5.7.0 |
 | onChange | Callback when `value` is changed | `(value: Color, hex: string) => void` | - | |
 | onFormatChange | Callback when `format` is changed | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - | |
 | onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - | |
