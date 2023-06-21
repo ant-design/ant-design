@@ -425,8 +425,8 @@ Then, you just need to import this file into the `pages/_app.tsx` file:
 ```tsx
 import { StyleProvider } from '@ant-design/cssinjs';
 import type { AppProps } from 'next/app';
-import '../public/antd.min.css';
-import '../styles/globals.css'; // add this line
+import '../public/antd.min.css'; // add this line
+import '../styles/globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
