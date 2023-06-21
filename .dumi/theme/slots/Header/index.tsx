@@ -21,8 +21,6 @@ import type { SharedProps } from './interface';
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
 
-const VALID_VERSION_HOST = ['3x.ant.design', '4x.ant.design', '2x.ant.design'];
-
 const useStyle = () => {
   const { token } = useSiteToken();
   const searchIconColor = '#ced4d9';
@@ -257,8 +255,6 @@ const Header: React.FC = () => {
     value: docVersions[version],
     label: version,
   }));
-
-  console.log(versionOptions, 'versionOptions');
 
   const isHome = ['', 'index', 'index-cn'].includes(pathname);
   const isZhCN = lang === 'cn';
