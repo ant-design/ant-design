@@ -24,7 +24,7 @@ const Demo = () => (
         <Col>
           <ColorPicker
             styles={{
-              popup: {
+              overlayInnerStyle: {
                 width: 468 + 24,
               },
             }}
