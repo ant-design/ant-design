@@ -7,4 +7,4 @@ export const PanelPickerContext = React.createContext<PanelPickerProps>({} as Pa
 export const PanelPresetsContext = React.createContext<PanelPresetsProps>({} as PanelPresetsProps);
 
 export const { Provider: PanelPickerProvider } = PanelPickerContext;
-export const { Provider: PanelPresetsPanelProvider } = PanelPresetsContext;
+export const { Provider: PanelPresetsProvider } = PanelPresetsContext;

@@ -6,7 +6,7 @@ import Divider from '../divider';
 import type { Color } from './color';
 import PanelPicker from './components/PanelPicker';
 import PanelPresets from './components/PanelPresets';
-import { PanelPickerProvider, PanelPresetsPanelProvider } from './context';
+import { PanelPickerProvider, PanelPresetsProvider } from './context';
 import type { ColorPickerBaseProps } from './interface';
 
 interface ColorPickerPanelProps extends ColorPickerBaseProps {
@@ -46,7 +46,7 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
 
   const extraPanelRender = (panel: React.ReactNode) => (
     <PanelPickerProvider value={{ panel, ...panelPickerProps }}>
-      <PanelPresetsPanelProvider value={panelPresetsProps}>
+      <PanelPresetsProvider value={panelPresetsProps}>
         <div className={colorPickerPanelPrefixCls}>
           {typeof panelRender === 'function'
             ? panelRender(innerPanel, {
@@ -57,7 +57,7 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
               })
             : innerPanel}
         </div>
-      </PanelPresetsPanelProvider>
+      </PanelPresetsProvider>
     </PanelPickerProvider>
   );
 
