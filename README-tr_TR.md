@@ -140,7 +140,7 @@ Tarayıcınızı açın ve http://127.0.0.1:8001 adresini ziyaret edin, daha faz
 
 ## 🤝 Katılım [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-[katılım rehberimizi](https://ant.design/docs/react/contributing) okuyun ve daha iyi bir antd'yi beraber inşa edelim.
+[Katılım rehberimizi](https://ant.design/docs/react/contributing) okuyun ve daha iyi bir antd'yi beraber inşa edelim.
 
 Her türlü katılımı hoş karşılıyoruz. Öncelikle lütfen bizim [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) dosyamızı okuyun. Herhangi bir fikrinizi [pull requests](https://github.com/ant-design/ant-design/pulls) veya [GitHub issues](https://github.com/ant-design/ant-design/issues) kısımlarından gönderebilirsiniz. Eğer kodu geliştirmek istiyorsanız [Development Instructions](https://github.com/ant-design/ant-design/wiki/Development) kısmından bilgi alabilirsiniz. İyi eğlenceler! :)
 
