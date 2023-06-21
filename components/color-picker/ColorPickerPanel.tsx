@@ -24,6 +24,7 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
   const panelPickerProps = {
     prefixCls,
     value: color,
+    onChange,
     ...injectProps,
   };
 

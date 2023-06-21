@@ -210,6 +210,94 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/color-picker/demo/panel-render.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-row ant-row-middle"
+    >
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center"
+      >
+        <div
+          class="ant-space-item"
+          style="margin-right:8px"
+        >
+          <span>
+            Add title:
+          </span>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <div
+            class="ant-col"
+          >
+            <div
+              class="ant-color-picker-trigger"
+            >
+              <div
+                class="ant-color-picker-color-block"
+              >
+                <div
+                  class="ant-color-picker-color-block-inner"
+                  style="background:rgb(22, 119, 255)"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-row ant-row-middle"
+    >
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center"
+      >
+        <div
+          class="ant-space-item"
+          style="margin-right:8px"
+        >
+          <span>
+            Horizontal layout:
+          </span>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <div
+            class="ant-col"
+          >
+            <div
+              class="ant-color-picker-trigger"
+            >
+              <div
+                class="ant-color-picker-color-block"
+              >
+                <div
+                  class="ant-color-picker-color-block-inner"
+                  style="background:rgb(22, 119, 255)"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/color-picker/demo/presets.tsx correctly 1`] = `
 <div
   class="ant-color-picker-trigger"

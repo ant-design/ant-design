@@ -373,4 +373,28 @@ describe('ColorPicker', () => {
     const { container: sm } = render(<ColorPicker size="small" />);
     expect(sm.querySelector('.ant-color-picker-sm')).toBeTruthy();
   });
+
+  it('Should panelRender work', async () => {
+    const { container: panelContainer } = render(
+      <ColorPicker open panelRender={(panel) => <div className="custom-panel">{panel}</div>} />,
+    );
+    expect(panelContainer.querySelector('.custom-panel')).toBeTruthy();
+    expect(panelContainer.querySelector('.ant-color-picker-inner-panel')).toBeTruthy();
+    expect(panelContainer).toMatchSnapshot();
+
+    const { container: componentContainer } = render(
+      <ColorPicker
+        open
+        panelRender={(_, { components: { Picker, Presets } }) => (
+          <div className="custom-panel">
+            <Picker />
+            <Presets />
+          </div>
+        )}
+      />,
+    );
+    expect(componentContainer.querySelector('.custom-panel')).toBeTruthy();
+    expect(componentContainer.querySelector('.ant-color-picker-inner-panel')).toBeTruthy();
+    expect(componentContainer).toMatchSnapshot();
+  });
 });
