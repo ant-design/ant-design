@@ -15,9 +15,6 @@ const useStyle = () => {
       margin: 40px 0;
       transition: all 0.2s;
       background-color: ${token.colorFillQuaternary};
-      &:hover {
-        border-color: rgba(0, 0, 0, 0.1);
-      }
     `,
     bigTitle: css`
       font-size: 16px;
@@ -64,7 +61,7 @@ const locales = {
   en: {
     bigTitle: 'Articles are included in the column:',
     subTitle: 'A UI design system',
-    buttonText: 'go to discuss',
+    buttonText: 'Go to discuss',
   },
 };
 
@@ -79,7 +76,7 @@ const ZhihuCard: React.FC<Props> = ({ link }) => {
     return null;
   }
   return (
-    <Card css={card}>
+    <Card css={card} bordered={false}>
       <h3 css={bigTitle}>{locale.bigTitle}</h3>
       <div css={cardBody}>
         <div css={left}>
