@@ -21,6 +21,7 @@ group:
 
 <!-- prettier-ignore -->
 <code src="./demo/base.tsx">基本使用</code>
+<code src="./demo/size.tsx">触发器尺寸大小</code>
 <code src="./demo/controlled.tsx">受控模式</code>
 <code src="./demo/text-render.tsx">渲染触发器文本</code>
 <code src="./demo/disabled.tsx">禁用</code>
@@ -51,6 +52,7 @@ group:
 | arrow | 配置弹出的箭头 | `boolean \| { pointAtCenter: boolean }` | true | |
 | destroyTooltipOnHide | 关闭后是否销毁弹窗 | `boolean` | false | 5.7.0 |
 | showText | 显示颜色文本 | boolean \| `(color: Color) => React.ReactNode` | - | 5.7.0 |
+| size | 设置触发器大小 | `large` \| `middle` \| `small` | `middle` | 5.7.0 |
 | onChange | 颜色变化的回调 | `(value: Color, hex: string) => void` | - | |
 | onFormatChange | 颜色格式变化的回调 | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - | |
 | onOpenChange | 当 `open` 被改变时的回调 | `(open: boolean) => void` | - | |

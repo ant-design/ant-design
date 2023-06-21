@@ -72,6 +72,46 @@ const genClearStyle = (token: ColorPickerToken, size: number): CSSObject => {
   };
 };
 
+const genSizeStyle = (token: ColorPickerToken): CSSObject => {
+  const {
+    componentCls,
+    controlHeightLG,
+    controlHeightSM,
+    controlHeight,
+    controlHeightXS,
+    borderRadius,
+    borderRadiusSM,
+    borderRadiusXS,
+    borderRadiusLG,
+    fontSizeLG,
+  } = token;
+  return {
+    [`&${componentCls}-lg`]: {
+      minWidth: controlHeightLG,
+      height: controlHeightLG,
+      borderRadius: borderRadiusLG,
+      [`${componentCls}-color-block`]: {
+        width: controlHeight,
+        height: controlHeight,
+        borderRadius,
+      },
+      [`${componentCls}-trigger-text`]: {
+        fontSize: fontSizeLG,
+      },
+    },
+    [`&${componentCls}-sm`]: {
+      minWidth: controlHeightSM,
+      height: controlHeightSM,
+      borderRadius: borderRadiusSM,
+      [`${componentCls}-color-block`]: {
+        width: controlHeightXS,
+        height: controlHeightXS,
+        borderRadius: borderRadiusXS,
+      },
+    },
+  };
+};
+
 const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
   const {
     componentCls,
@@ -92,7 +132,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
     lineWidth,
     colorBorder,
     paddingXXS,
-    fontSizeSM,
+    fontSize,
   } = token;
 
   return [
@@ -134,7 +174,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           [`${componentCls}-trigger-text`]: {
             marginInlineStart: marginXS,
             marginInlineEnd: marginXS - (paddingXXS - lineWidth),
-            fontSize: fontSizeSM,
+            fontSize,
             color: colorText,
           },
           '&-active': {
@@ -157,6 +197,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           },
           ...genClearStyle(token, controlHeightSM),
           ...genColorBlockStyle(token, controlHeightSM),
+          ...genSizeStyle(token),
         },
         ...genRtlStyle(token),
       },

@@ -7,8 +7,10 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties } from 'react';
 import React, { useContext, useRef, useState } from 'react';
 import genPurePanel from '../_util/PurePanel';
+import type { SizeType } from '../config-provider/SizeContext';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
+import useSize from '../config-provider/hooks/useSize';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import theme from '../theme';
@@ -43,6 +45,7 @@ export type ColorPickerProps = Omit<
   arrow?: boolean | { pointAtCenter: boolean };
   showText?: boolean | ((color: Color) => React.ReactNode);
   styles?: { popup?: CSSProperties };
+  size?: SizeType;
   rootClassName?: string;
   onOpenChange?: (open: boolean) => void;
   onFormatChange?: (format: ColorFormat) => void;
@@ -70,6 +73,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     showText,
     style,
     className,
+    size: customizeSize,
     rootClassName,
     styles,
     onFormatChange,
@@ -102,10 +106,20 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
+  // ===================== Style =====================
+  const mergedSize = useSize(customizeSize);
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
   const mergeRootCls = classNames(rootClassName, rtlCls);
-  const mergeCls = classNames(mergeRootCls, className, hashId);
+  const mergeCls = classNames(
+    {
+      [`${prefixCls}-sm`]: mergedSize === 'small',
+      [`${prefixCls}-lg`]: mergedSize === 'large',
+    },
+    mergeRootCls,
+    className,
+    hashId,
+  );
   const mergePopupCls = classNames(prefixCls, rtlCls);
 
   const popupAllowCloseRef = useRef(true);
