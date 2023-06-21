@@ -90,7 +90,7 @@ interface Props {
   yuqueLink?: string;
 }
 
-const ZhihuCard: React.FC<Props> = ({ zhihuLink, yuqueLink }) => {
+const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink }) => {
   const [locale] = useLocale(locales);
   const { card, bigTitle, cardBody, left, title, subTitle } = useStyle();
   if (!zhihuLink && !yuqueLink) {
@@ -148,4 +148,4 @@ const ZhihuCard: React.FC<Props> = ({ zhihuLink, yuqueLink }) => {
   );
 };
 
-export default ZhihuCard;
+export default ColumnCard;
