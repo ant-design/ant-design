@@ -72,7 +72,7 @@ const useStyle = () => {
 
 const locales = {
   cn: {
-    bigTitle: '文章被收录于知乎专栏/语雀专栏：',
+    bigTitle: '文章被以下专栏收录：',
     zhiHu: '一个 UI 设计体系',
     yuQue: 'Ant Design 官方专栏',
     buttonText: '我有想法，去参与讨论',
