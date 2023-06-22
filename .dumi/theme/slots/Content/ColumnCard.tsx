@@ -123,7 +123,12 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink }) => {
               <div css={subTitle}>
                 <ZhihuOutlined className="logo zhihu-logo" />
                 <RightOutlined className="arrowIcon" />
-                <Button target="_blank" href={zhihuLink} className="zl-btn" type="link">
+                <Button
+                  target="_blank"
+                  href="https://www.zhihu.com/column/c_1564262000561106944"
+                  className="zl-btn"
+                  type="link"
+                >
                   {locale.zhiHu}
                 </Button>
               </div>
@@ -152,7 +157,12 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink }) => {
                 <div css={subTitle}>
                   <YuqueOutlined className="logo yuque-logo" />
                   <RightOutlined className="arrowIcon" />
-                  <Button target="_blank" href={yuqueLink} className="zl-btn" type="link">
+                  <Button
+                    target="_blank"
+                    href="https://www.yuque.com/ant-design/ant-design"
+                    className="zl-btn"
+                    type="link"
+                  >
                     {locale.yuQue}
                   </Button>
                 </div>
