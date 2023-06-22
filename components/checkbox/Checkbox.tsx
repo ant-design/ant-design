@@ -102,7 +102,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
       }
     };
     checkboxProps.name = checkboxGroup.name;
-    checkboxProps.checked = checkboxGroup.value.includes(restProps.value);
+    checkboxProps.checked = checkboxGroup.value.indexOf(restProps.value) !== -1;
   }
   const classString = classNames(
     {

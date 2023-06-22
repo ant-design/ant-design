@@ -149,8 +149,8 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
     const { selectedKeys = [], targetKeys = [] } = props;
     this.state = {
-      sourceSelectedKeys: selectedKeys.filter(key => !targetKeys.includes(key)),
-      targetSelectedKeys: selectedKeys.filter(key => targetKeys.includes(key)),
+      sourceSelectedKeys: selectedKeys.filter(key => targetKeys.indexOf(key) === -1),
+      targetSelectedKeys: selectedKeys.filter(key => targetKeys.indexOf(key) > -1),
     };
   }
 
@@ -190,7 +190,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     const newTargetKeys =
       direction === 'right'
         ? newMoveKeys.concat(targetKeys)
-        : targetKeys.filter(targetKey => !newMoveKeys.includes(targetKey));
+        : targetKeys.filter(targetKey => newMoveKeys.indexOf(targetKey) === -1);
 
     // empty checked keys
     const oppositeDirection = direction === 'right' ? 'left' : 'right';
@@ -206,13 +206,13 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
   onItemSelectAll = (direction: TransferDirection, selectedKeys: string[], checkAll: boolean) => {
     this.setStateKeys(direction, prevKeys => {
-      let mergedCheckedKeys: string[] = [];
+      let mergedCheckedKeys = [];
       if (checkAll) {
         // Merge current keys with origin key
-        mergedCheckedKeys = Array.from(new Set<string>([...prevKeys, ...selectedKeys]));
+        mergedCheckedKeys = Array.from(new Set([...prevKeys, ...selectedKeys]));
       } else {
         // Remove current keys from origin keys
-        mergedCheckedKeys = prevKeys.filter(key => !selectedKeys.includes(key));
+        mergedCheckedKeys = prevKeys.filter((key: string) => selectedKeys.indexOf(key) === -1);
       }
 
       this.handleSelectChange(direction, mergedCheckedKeys);
