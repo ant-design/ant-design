@@ -52,6 +52,9 @@ const useStyle = () => {
       font-size: 14px;
       font-weight: 400;
       margin-top: 8px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
       .logo {
         font-size: 24px;
         &.zhihu-logo {
@@ -66,6 +69,11 @@ const useStyle = () => {
         color: #8a8f8d;
         font-size: 12px;
       }
+    `,
+    btn: css`
+      display: flex;
+      justify-content: center;
+      align-items: center;
     `,
   };
 };
@@ -92,58 +100,66 @@ interface Props {
 
 const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink }) => {
   const [locale] = useLocale(locales);
-  const { card, bigTitle, cardBody, left, title, subTitle } = useStyle();
+  const { card, bigTitle, cardBody, left, title, subTitle, btn } = useStyle();
   if (!zhihuLink && !yuqueLink) {
     return null;
   }
   return (
     <Card css={card} bordered={false}>
       <h3 css={bigTitle}>{locale.bigTitle}</h3>
-      <div css={cardBody}>
-        <div css={left}>
-          <img src={ANTD_IMG_URL} alt="antd" />
-          <div>
-            <p css={title}>Ant Design</p>
-            <div css={subTitle}>
-              <ZhihuOutlined className="logo zhihu-logo" />
-              <RightOutlined className="arrowIcon" />
-              {locale.zhiHu}
+      {zhihuLink && (
+        <div css={cardBody}>
+          <div css={left}>
+            <img src={ANTD_IMG_URL} alt="antd" />
+            <div>
+              <p css={title}>Ant Design</p>
+              <div css={subTitle}>
+                <ZhihuOutlined className="logo zhihu-logo" />
+                <RightOutlined className="arrowIcon" />
+                {locale.zhiHu}
+              </div>
             </div>
           </div>
+          <Button
+            type="primary"
+            css={btn}
+            icon={<ZhihuOutlined style={{ fontSize: 15 }} />}
+            ghost
+            target="_blank"
+            href={zhihuLink}
+          >
+            {locale.buttonText}
+          </Button>
         </div>
-        <Button
-          type="primary"
-          icon={<ZhihuOutlined style={{ fontSize: 14 }} />}
-          ghost
-          target="_blank"
-          href={zhihuLink}
-        >
-          {locale.buttonText}
-        </Button>
-      </div>
-      <Divider />
-      <div css={cardBody}>
-        <div css={left}>
-          <img src={ANTD_IMG_URL} alt="antd" />
-          <div>
-            <p css={title}>Ant Design</p>
-            <div css={subTitle}>
-              <YuqueOutlined className="logo yuque-logo" />
-              <RightOutlined className="arrowIcon" />
-              {locale.yuQue}
+      )}
+      {yuqueLink && (
+        <>
+          <Divider />
+          <div css={cardBody}>
+            <div css={left}>
+              <img src={ANTD_IMG_URL} alt="antd" />
+              <div>
+                <p css={title}>Ant Design</p>
+                <div css={subTitle}>
+                  <YuqueOutlined className="logo yuque-logo" />
+                  <RightOutlined className="arrowIcon" />
+                  {locale.yuQue}
+                </div>
+              </div>
             </div>
+            <Button
+              type="primary"
+              css={btn}
+              icon={<YuqueOutlined style={{ fontSize: 15 }} />}
+              ghost
+              target="_blank"
+              href={yuqueLink}
+            >
+              {locale.buttonText}
+            </Button>
           </div>
-        </div>
-        <Button
-          type="primary"
-          icon={<YuqueOutlined style={{ fontSize: 14 }} />}
-          ghost
-          target="_blank"
-          href={yuqueLink}
-        >
-          {locale.buttonText}
-        </Button>
-      </div>
+        </>
+      )}
     </Card>
   );
 };
