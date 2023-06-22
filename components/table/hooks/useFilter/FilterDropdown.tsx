@@ -42,7 +42,7 @@ function hasSubMenu(filters: ColumnFilterItem[]) {
 
 function searchValueMatched(searchValue: string, text: React.ReactNode) {
   if (typeof text === 'string' || typeof text === 'number') {
-    return text?.toString().toLowerCase().includes(searchValue.trim().toLowerCase());
+    return text?.toString().toLowerCase().indexOf(searchValue.trim().toLowerCase()) >= 0;
   }
   return false;
 }
@@ -87,7 +87,7 @@ function renderFilterItems({
       key: filter.value !== undefined ? key : index,
       label: (
         <>
-          <Component checked={filteredKeys.includes(key)} />
+          <Component checked={filteredKeys.indexOf(key) >= 0} />
           <span>{filter.text}</span>
         </>
       ),

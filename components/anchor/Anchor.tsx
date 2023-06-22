@@ -120,7 +120,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
 
   const registerLink = React.useCallback<AntAnchor['registerLink']>(
     link => {
-      if (!links.includes(link)) {
+      if (links.indexOf(link) < 0) {
         setLinks(prev => [...prev, link]);
       }
     },
@@ -129,7 +129,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
 
   const unregisterLink = React.useCallback<AntAnchor['unregisterLink']>(
     link => {
-      if (links.includes(link)) {
+      if (links.indexOf(link) >= 0) {
         setLinks(prev => prev.filter(i => i !== link));
       }
     },

@@ -149,7 +149,7 @@ function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[])
       currentFilters[key] = filteredKeys || null;
     } else if (Array.isArray(filteredKeys)) {
       const keys = flattenKeys(filters);
-      currentFilters[key] = keys.filter(originKey => filteredKeys.includes(String(originKey)));
+      currentFilters[key] = keys.filter(originKey => filteredKeys.indexOf(String(originKey)) >= 0);
     } else {
       currentFilters[key] = null;
     }

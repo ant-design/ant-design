@@ -119,7 +119,7 @@ const Dropdown: CompoundedComponent = (props) => {
     if (transitionName !== undefined) {
       return transitionName;
     }
-    if (placement.includes('top')) {
+    if (placement.indexOf('top') >= 0) {
       return `${rootPrefixCls}-slide-down`;
     }
     return `${rootPrefixCls}-slide-up`;
@@ -131,10 +131,11 @@ const Dropdown: CompoundedComponent = (props) => {
       return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
     }
 
-    if (placement.includes('Center')) {
-      const newPlacement = placement.slice(0, placement.indexOf('Center'));
+    const idx = placement.indexOf('Center')
+    if (idx >= 0) {
+      const newPlacement = placement.slice(0, idx);
       warning(
-        !placement.includes('Center'),
+        idx < 0,
         'Dropdown',
         `You are using '${placement}' placement in Dropdown, which is deprecated. Try to use '${newPlacement}' instead.`,
       );
@@ -179,7 +180,7 @@ const Dropdown: CompoundedComponent = (props) => {
 
   const triggerActions = disabled ? [] : trigger;
   let alignPoint: boolean;
-  if (triggerActions && triggerActions.includes('contextMenu')) {
+  if (triggerActions && triggerActions.indexOf('contextMenu') >= 0) {
     alignPoint = true;
   }
 

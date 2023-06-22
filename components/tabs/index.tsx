@@ -84,7 +84,7 @@ function Tabs({
             className={classNames(
               {
                 [`${prefixCls}-${size}`]: size,
-                [`${prefixCls}-card`]: ['card', 'editable-card'].includes(type as string),
+                [`${prefixCls}-card`]: ['card', 'editable-card'].indexOf(type as string) >= 0,
                 [`${prefixCls}-editable-card`]: type === 'editable-card',
                 [`${prefixCls}-centered`]: centered,
               },

@@ -65,7 +65,7 @@ const Icon: React.FC<IconProps> = ({ prefixCls, icon, status }) => {
     `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
   );
 
-  if (ExceptionStatus.includes(`${status}`)) {
+  if (ExceptionStatus.indexOf(`${status}`) >= 0) {
     const SVGComponent = ExceptionMap[status as ExceptionStatusType];
     return (
       <div className={`${className} ${prefixCls}-image`}>

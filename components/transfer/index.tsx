@@ -124,9 +124,18 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
   }: TransferProps<T>) {
     if (selectedKeys) {
       const mergedTargetKeys = targetKeys || [];
+      const sourceSelectedKeys: string[] = [];
+      const targetSelectedKeys: string[] = [];
+      selectedKeys.forEach(key => {
+        if (mergedTargetKeys.indexOf(key) >= 0) {
+          targetSelectedKeys.push(key);
+        } else {
+          sourceSelectedKeys.push(key);
+        }
+      });
       return {
-        sourceSelectedKeys: selectedKeys.filter(key => !mergedTargetKeys.includes(key)),
-        targetSelectedKeys: selectedKeys.filter(key => mergedTargetKeys.includes(key)),
+        sourceSelectedKeys,
+        targetSelectedKeys,
       };
     }
 
@@ -275,7 +284,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     this.setStateKeys('right', []);
 
     onChange?.(
-      targetKeys.filter(key => !selectedKeys.includes(key)),
+      targetKeys.filter(key => selectedKeys.indexOf(key) < 0),
       'left',
       [...selectedKeys],
     );

@@ -355,7 +355,7 @@ export default function useSelection<RecordType>(
       // >>>>>>>>>>> Skip if not exists `rowSelection`
       if (!rowSelection) {
         warning(
-          !columns.includes(SELECTION_COLUMN),
+          columns.indexOf(SELECTION_COLUMN) < 0,
           'Table',
           '`rowSelection` is not config but `SELECTION_COLUMN` exists in the `columns`.',
         );
@@ -636,7 +636,7 @@ export default function useSelection<RecordType>(
       };
 
       // Insert selection column if not exist
-      if (!cloneColumns.includes(SELECTION_COLUMN)) {
+      if (cloneColumns.indexOf(SELECTION_COLUMN) < 0) {
         // Always after expand icon
         if (
           cloneColumns.findIndex(

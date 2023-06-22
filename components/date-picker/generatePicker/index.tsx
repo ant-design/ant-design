@@ -43,17 +43,17 @@ export function getTimeProps<DateType, DisabledTime>(
   const showTimeObj = { ...props };
 
   if (firstFormat && typeof firstFormat === 'string') {
-    if (!firstFormat.includes('s') && showSecond === undefined) {
+    if (firstFormat.indexOf('s') < 0 && showSecond === undefined) {
       showTimeObj.showSecond = false;
     }
-    if (!firstFormat.includes('m') && showMinute === undefined) {
+    if (firstFormat.indexOf('m') < 0 && showMinute === undefined) {
       showTimeObj.showMinute = false;
     }
-    if (!firstFormat.includes('H') && !firstFormat.includes('h') && showHour === undefined) {
+    if (firstFormat.indexOf('H') < 0 && firstFormat.indexOf('h') < 0 && showHour === undefined) {
       showTimeObj.showHour = false;
     }
 
-    if ((firstFormat.includes('a') || firstFormat.includes('A')) && use12Hours === undefined) {
+    if ((firstFormat.indexOf('a') >= 0 || firstFormat.indexOf('A') >= 0) && use12Hours === undefined) {
       showTimeObj.use12Hours = true;
     }
   }

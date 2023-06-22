@@ -143,7 +143,7 @@ export const globalConfig = () => ({
     }
 
     // [Legacy] If customize prefixCls provided, we cut it to get the prefixCls
-    if (customizePrefixCls && customizePrefixCls.includes('-')) {
+    if (customizePrefixCls && customizePrefixCls.indexOf('-') >= 0) {
       return customizePrefixCls.replace(/^(.*)-[^-]*$/, '$1');
     }
 

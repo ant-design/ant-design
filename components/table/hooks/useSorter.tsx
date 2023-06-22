@@ -127,7 +127,7 @@ function injectSorter<RecordType>(
       const sorterState = sorterStates.find(({ key }) => key === columnKey);
       const sorterOrder = sorterState ? sorterState.sortOrder : null;
       const nextSortOrder = nextSortDirection(sortDirections, sorterOrder);
-      const upNode: React.ReactNode = sortDirections.includes(ASCEND) && (
+      const upNode: React.ReactNode = sortDirections.indexOf(ASCEND) >= 0 && (
         <CaretUpOutlined
           className={classNames(`${prefixCls}-column-sorter-up`, {
             active: sorterOrder === ASCEND,
@@ -135,7 +135,7 @@ function injectSorter<RecordType>(
           role="presentation"
         />
       );
-      const downNode: React.ReactNode = sortDirections.includes(DESCEND) && (
+      const downNode: React.ReactNode = sortDirections.indexOf(DESCEND) >= 0 && (
         <CaretDownOutlined
           className={classNames(`${prefixCls}-column-sorter-down`, {
             active: sorterOrder === DESCEND,

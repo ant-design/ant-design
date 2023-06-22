@@ -349,7 +349,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     tooltipProps = { title: ellipsisConfig.tooltip };
   }
   const topAriaLabel = React.useMemo(() => {
-    const isValid = (val: any): val is string | number => ['string', 'number'].includes(typeof val);
+    const isValid = (val: any): val is string | number => ['string', 'number'].indexOf(typeof val) >= 0;
 
     if (!enableEllipsis || cssEllipsis) {
       return undefined;
@@ -430,7 +430,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     const editTitle = toArray(tooltip)[0] || textLocale.edit;
     const ariaLabel = typeof editTitle === 'string' ? editTitle : '';
 
-    return triggerType.includes('icon') ? (
+    return triggerType.indexOf('icon') ? (
       <Tooltip key="edit" title={tooltip === false ? '' : editTitle}>
         <TransButton
           ref={editIconRef}
@@ -518,7 +518,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             component={component}
             ref={composeRef(resizeRef, typographyRef, ref)}
             direction={direction}
-            onClick={triggerType.includes('text') ? onEditClick : undefined}
+            onClick={triggerType.indexOf('text') ? onEditClick : undefined}
             aria-label={topAriaLabel?.toString()}
             title={title}
             {...textProps}

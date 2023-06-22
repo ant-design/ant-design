@@ -215,7 +215,7 @@ function List<T>({
   }
 
   const needResponsive = Object.keys(grid || {}).some(key =>
-    ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),
+    ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(key) >= 0,
   );
   const screens = useBreakpoint(needResponsive);
   const currentBreakpoint = React.useMemo(() => {
