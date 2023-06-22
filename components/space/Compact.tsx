@@ -78,7 +78,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
     ...restProps
   } = props;
 
-  const mergedSize = useSize((ctx) => size ?? ctx ?? 'middle');
+  const mergedSize = useSize((ctx) => size ?? ctx);
 
   const prefixCls = getPrefixCls('space-compact', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);

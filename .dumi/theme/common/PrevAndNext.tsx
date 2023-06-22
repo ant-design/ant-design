@@ -37,7 +37,10 @@ const useStyle = createStyles(({ token }) => {
     `,
     prevNav: css`
       text-align: start;
-
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      
       .footer-nav-icon-after {
         display: none;
       }
@@ -57,7 +60,10 @@ const useStyle = createStyles(({ token }) => {
     `,
     nextNav: css`
       text-align: end;
-
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      
       .footer-nav-icon-before {
         display: none;
       }

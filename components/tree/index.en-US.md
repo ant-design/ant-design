@@ -61,7 +61,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 | rootClassName | ClassName on the root element | string | - | 4.20.0 |
 | rootStyle | Style on the root element | CSSProperties | - | 4.20.0 |
 | selectable | Whether can be selected | boolean | true |  |
-| selectedKeys | (Controlled) Specifies the keys of the selected treeNodes | string\[] | - |  |
+| selectedKeys | (Controlled) Specifies the keys of the selected treeNodes, multiple selection needs to set `multiple` to true | string\[] | - |  |
 | showIcon | Shows the icon before a TreeNode's title. There is no default style; you must set a custom style for it if set to true | boolean | false |  |
 | showLine | Shows a connecting line | boolean \| {showLeafIcon: boolean \| ReactNode \| ((props: AntTreeNodeProps) => ReactNode)} | false |  |
 | switcherIcon | Customize collapse/expand icon of tree node | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |

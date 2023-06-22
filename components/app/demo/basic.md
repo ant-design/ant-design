@@ -1,6 +1,6 @@
 ## zh-CN
 
-获取 `message`, `notification`, `modal` 静态方法。
+获取 `message`、`notification`、`modal` 静态方法。
 
 ## en-US
 

@@ -55,7 +55,7 @@ export interface BaseButtonProps {
 
 export type AnchorButtonProps = {
   href: string;
-  target?: string;
+  target?: React.HTMLAttributeAnchorTarget;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 } & BaseButtonProps &
   Omit<React.AnchorHTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, 'type' | 'onClick'>;
@@ -210,7 +210,7 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
 
-  const sizeFullname = useSize((ctxSize) => compactSize ?? groupSize ?? customizeSize ?? ctxSize);
+  const sizeFullname = useSize((ctxSize) => customizeSize ?? compactSize ?? groupSize ?? ctxSize);
 
   const sizeCls = sizeFullname ? sizeClassNameMap[sizeFullname] || '' : '';
 
