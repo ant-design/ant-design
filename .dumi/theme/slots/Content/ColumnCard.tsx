@@ -69,6 +69,13 @@ const useStyle = () => {
         color: #8a8f8d;
         font-size: 12px;
       }
+      .zl-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        color: #646464;
+      }
     `,
     btn: css`
       display: flex;
@@ -116,7 +123,9 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink }) => {
               <div css={subTitle}>
                 <ZhihuOutlined className="logo zhihu-logo" />
                 <RightOutlined className="arrowIcon" />
-                {locale.zhiHu}
+                <Button target="_blank" href={zhihuLink} className="zl-btn" type="link">
+                  {locale.zhiHu}
+                </Button>
               </div>
             </div>
           </div>
@@ -143,7 +152,9 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink }) => {
                 <div css={subTitle}>
                   <YuqueOutlined className="logo yuque-logo" />
                   <RightOutlined className="arrowIcon" />
-                  {locale.yuQue}
+                  <Button target="_blank" href={yuqueLink} className="zl-btn" type="link">
+                    {locale.yuQue}
+                  </Button>
                 </div>
               </div>
             </div>
