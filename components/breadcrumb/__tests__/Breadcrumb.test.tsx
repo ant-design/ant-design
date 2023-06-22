@@ -362,4 +362,26 @@ describe('Breadcrumb', () => {
   it('Breadcrumb.Item menu type', () => {
     expect(<Breadcrumb.Item menu={{ selectable: true }} />).toBeTruthy();
   });
+
+  it('dropdownProps in items should be worked', () => {
+    render(
+      <Breadcrumb
+        items={[
+          {
+            title: 'test',
+            menu: {
+              items: [
+                {
+                  key: '1',
+                  label: 'label',
+                },
+              ],
+            },
+            dropdownProps: { open: true },
+          },
+        ]}
+      />,
+    );
+    expect(document.querySelector('.ant-dropdown')).toBeTruthy();
+  });
 });
