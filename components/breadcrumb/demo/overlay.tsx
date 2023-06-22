@@ -40,9 +40,6 @@ const App: React.FC = () => (
       {
         title: <a href="">General</a>,
         menu: { items: menuItems },
-        dropdownProps: {
-          arrow: true,
-        },
       },
       {
         title: 'Button',
