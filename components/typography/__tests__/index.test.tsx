@@ -262,14 +262,14 @@ describe('Typography', () => {
             </Paragraph>,
           );
 
-          if (triggerType === undefined || triggerType.indexOf('icon') !== -1) {
+          if (triggerType === undefined || triggerType.includes('icon')) {
             if (icon) {
               expect(wrapper.querySelectorAll('.anticon-highlight').length).toBeGreaterThan(0);
             } else {
               expect(wrapper.querySelectorAll('.anticon-edit').length).toBeGreaterThan(0);
             }
 
-            if (triggerType === undefined || triggerType.indexOf('text') === -1) {
+            if (triggerType === undefined || !triggerType.includes('text')) {
               fireEvent.click(wrapper.firstChild!);
               expect(onStart).not.toHaveBeenCalled();
             }
@@ -295,15 +295,15 @@ describe('Typography', () => {
             fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
 
             expect(onStart).toHaveBeenCalled();
-            if (triggerType !== undefined && triggerType.indexOf('text') !== -1) {
+            if (triggerType !== undefined && triggerType.includes('text')) {
               fireEvent.keyDown(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
               fireEvent.keyUp(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
               expect(onChange).not.toHaveBeenCalled();
             }
           }
 
-          if (triggerType !== undefined && triggerType.indexOf('text') !== -1) {
-            if (triggerType.indexOf('icon') === -1) {
+          if (triggerType !== undefined && triggerType.includes('text')) {
+            if (!triggerType.includes('icon')) {
               expect(wrapper.querySelectorAll('.anticon-highlight').length).toBe(0);
               expect(wrapper.querySelectorAll('.anticon-edit').length).toBe(0);
             }
