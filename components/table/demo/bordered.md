@@ -4,4 +4,4 @@
 
 ## en-US
 
-Add border, title and footer for table.
+Add border, caption and footer for table.

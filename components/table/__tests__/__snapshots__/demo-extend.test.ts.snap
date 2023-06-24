@@ -337,11 +337,6 @@ exports[`renders components/table/demo/bordered.tsx extend context correctly 1`]
         class="ant-table ant-table-bordered"
       >
         <div
-          class="ant-table-title"
-        >
-          Header
-        </div>
-        <div
           class="ant-table-container"
         >
           <div
@@ -350,6 +345,15 @@ exports[`renders components/table/demo/bordered.tsx extend context correctly 1`]
             <table
               style="table-layout: auto;"
             >
+              <caption
+                class="ant-table-caption"
+              >
+                <div
+                  style="text-align: left; padding: 16px;"
+                >
+                  Header
+                </div>
+              </caption>
               <colgroup />
               <thead
                 class="ant-table-thead"

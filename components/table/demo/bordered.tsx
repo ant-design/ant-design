@@ -1,6 +1,6 @@
-import React from 'react';
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+import React from 'react';
 
 interface DataType {
   key: string;
@@ -53,7 +53,7 @@ const App: React.FC = () => (
     columns={columns}
     dataSource={data}
     bordered
-    title={() => 'Header'}
+    caption={<div style={{ textAlign: 'left', padding: 16 }}>Header</div>}
     footer={() => 'Footer'}
   />
 );

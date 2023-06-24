@@ -78,7 +78,7 @@ const columns = [
 <code src="./demo/ajax.tsx">Ajax</code>
 <code src="./demo/size.tsx">size</code>
 <code src="./demo/narrow.tsx" debug>size</code>
-<code src="./demo/bordered.tsx">border, title and footer</code>
+<code src="./demo/bordered.tsx">border, caption and footer</code>
 <code src="./demo/expand.tsx">Expandable Row</code>
 <code src="./demo/order-column.tsx">Order Specific Column</code>
 <code src="./demo/colspan-rowspan.tsx">colSpan and rowSpan</code>
@@ -133,7 +133,7 @@ const columns = [
 | sticky | Set sticky header and scroll bar | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | 4.6.0 (getContainer: 4.7.0) |
 | summary | Summary content | (currentData) => ReactNode | - |  |
 | tableLayout | The [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | - \| `auto` \| `fixed` | -<hr />`fixed` when header/columns are fixed, or using `column.ellipsis` |  |
-| title | Table title renderer | function(currentPageData) | - |  |
+| caption | Table caption renderer | function(currentPageData) | - |  |
 | onChange | Callback executed when pagination, filters or sorter is changed | function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` \| `sort` \| `filter` }) | - |  |
 | onHeaderRow | Set props on per header row | function(columns, index) | - |  |
 | onRow | Set props on per row | function(record, index) | - |  |
