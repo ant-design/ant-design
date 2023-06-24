@@ -389,7 +389,6 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
 };
 
 const makeVerticalLayoutLabel = (token: FormToken): CSSObject => ({
-  margin: 0,
   padding: `0 0 ${token.paddingXS}px`,
   whiteSpace: 'initial',
   textAlign: 'start',
