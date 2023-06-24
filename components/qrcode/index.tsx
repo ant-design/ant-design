@@ -15,13 +15,14 @@ import useStyle from './style/index';
 const { useToken } = theme;
 
 const QRCode: React.FC<QRCodeProps> = (props) => {
+  const { token } = useToken();
   const {
     value,
     type = 'canvas',
     icon = '',
     size = 160,
     iconSize = 40,
-    color,
+    color = token.colorText,
     errorLevel = 'M',
     status = 'active',
     bordered = true,
@@ -35,7 +36,6 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
-  const { token } = useToken();
 
   const imageSettings: QRProps['imageSettings'] = {
     src: icon,
@@ -51,7 +51,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     size: size - (token.paddingSM + token.lineWidth) * 2,
     level: errorLevel,
     bgColor,
-    fgColor: color || token.colorText,
+    fgColor: color,
     imageSettings: icon ? imageSettings : undefined,
   };
 
