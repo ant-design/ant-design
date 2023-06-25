@@ -37,7 +37,7 @@ const Image: CompositionImage<ImageProps> = ({
 
   const mergedRootClassName = classNames(rootClassName, hashId);
 
-  const mergeClassName = classNames(className, hashId, image?.className);
+  const mergedClassName = classNames(className, hashId, image?.className);
 
   const mergedPreview = React.useMemo(() => {
     if (preview === false) {
@@ -60,15 +60,15 @@ const Image: CompositionImage<ImageProps> = ({
     };
   }, [preview, imageLocale]);
 
-  const mergeStyle: React.CSSProperties = { ...image?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...image?.style, ...style };
 
   return wrapSSR(
     <RcImage
       prefixCls={`${prefixCls}`}
       preview={mergedPreview}
       rootClassName={mergedRootClassName}
-      className={mergeClassName}
-      style={mergeStyle}
+      className={mergedClassName}
+      style={mergedStyle}
       {...otherProps}
     />,
   );

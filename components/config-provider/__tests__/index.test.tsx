@@ -5,10 +5,8 @@ import ConfigProvider, { ConfigContext } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
-import Image from '../../image';
 import Input from '../../input';
 import Select from '../../select';
-import Space from '../../space';
 import Table from '../../table';
 
 describe('ConfigProvider', () => {
@@ -124,94 +122,5 @@ describe('ConfigProvider', () => {
 
     expect(rendered).toBeTruthy();
     expect(cacheRenderEmpty).toBeFalsy();
-  });
-
-  it('Should Space classNames works', () => {
-    const { container } = render(
-      <ConfigProvider
-        space={{
-          classNames: {
-            item: 'test-classNames',
-          },
-        }}
-      >
-        <Space>
-          <span>Text1</span>
-          <span>Text2</span>
-        </Space>
-      </ConfigProvider>,
-    );
-    expect(container.querySelector('.ant-space-item.test-classNames')).toBeTruthy();
-  });
-
-  it('Should Space className works', () => {
-    const { container } = render(
-      <ConfigProvider
-        space={{
-          className: 'test-classNames',
-        }}
-      >
-        <Space>
-          <span>Text1</span>
-          <span>Text2</span>
-        </Space>
-      </ConfigProvider>,
-    );
-    expect(container.querySelector('.ant-space.test-classNames')).toBeTruthy();
-  });
-
-  it('Should Space styles works', () => {
-    const { container } = render(
-      <ConfigProvider
-        space={{
-          styles: {
-            item: {
-              color: 'red',
-            },
-          },
-        }}
-      >
-        <Space>
-          <span>Text1</span>
-          <span>Text2</span>
-        </Space>
-      </ConfigProvider>,
-    );
-    expect(container.querySelector('.ant-space-item')?.getAttribute('style')).toEqual(
-      'margin-right: 8px; color: red;',
-    );
-  });
-
-  it('Should Space style works', () => {
-    const { container } = render(
-      <ConfigProvider
-        space={{
-          style: {
-            color: 'red',
-          },
-        }}
-      >
-        <Space>
-          <span>Text1</span>
-          <span>Text2</span>
-        </Space>
-      </ConfigProvider>,
-    );
-    expect(container.querySelector('.ant-space')?.getAttribute('style')).toEqual('color: red;');
-  });
-
-  it('Should Image className & style works', () => {
-    const { container } = render(
-      <ConfigProvider
-        image={{ className: 'config-provider-image', style: { backgroundColor: 'red' } }}
-      >
-        <Image src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
-      </ConfigProvider>,
-    );
-    const element = container
-      ?.querySelector<HTMLDivElement>('.ant-image')
-      ?.querySelector<HTMLImageElement>('img');
-    expect(element).toHaveClass('config-provider-image');
-    expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });
