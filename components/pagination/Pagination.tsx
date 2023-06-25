@@ -117,13 +117,13 @@ const Pagination: React.FC<PaginationProps> = ({
     hashId,
   );
 
-  const mergeStyle: React.CSSProperties = { ...pagination?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...pagination?.style, ...style };
 
   return wrapSSR(
     <RcPagination
       {...iconsProps}
       {...restProps}
-      style={mergeStyle}
+      style={mergedStyle}
       prefixCls={prefixCls}
       selectPrefixCls={selectPrefixCls}
       className={extendedClassName}
