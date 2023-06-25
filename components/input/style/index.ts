@@ -931,11 +931,10 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
 
       [`&-affix-wrapper${componentCls}-affix-wrapper`]: {
         padding: 0,
+        border: 'none',
 
         [`> textarea${componentCls}`]: {
           fontSize: 'inherit',
-          border: 'none',
-          outline: 'none',
 
           '&:focus': {
             boxShadow: 'none !important',
