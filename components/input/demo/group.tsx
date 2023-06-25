@@ -1,4 +1,3 @@
-import React from 'react';
 import { CopyOutlined } from '@ant-design/icons';
 import {
   AutoComplete,
@@ -12,6 +11,7 @@ import {
   Select,
   Tooltip,
 } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 
@@ -102,7 +102,7 @@ const App: React.FC = () => (
         <Option value="Option2">Option2</Option>
       </Select>
       <Input style={{ width: '50%' }} defaultValue="input content" />
-      <InputNumber />
+      <InputNumber prefix="@" />
     </Input.Group>
     <br />
     <Input.Group compact>

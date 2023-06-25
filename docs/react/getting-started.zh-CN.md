@@ -5,7 +5,7 @@ title: 快速上手
 
 Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
-> 在开始之前，推荐先学习 [React](http://reactjs.org) 和 [ES2015](http://babeljs.io/docs/learn-es2015/)，并正确安装和配置了 [Node.js](https://nodejs.org/) v8 或以上。官方指南假设你已了解关于 HTML、CSS 和 JavaScript 的中级知识，并且已经完全掌握了 React 全家桶的正确开发方式。如果你刚开始学习前端或者 React，将 UI 框架作为你的第一步可能不是最好的主意。
+> 在开始之前，推荐先学习 [React](https://react.dev)，并正确安装和配置了 [Node.js](https://nodejs.org/) v16 或以上。官方指南假设你已了解关于 HTML、CSS 和 JavaScript 的中级知识，并且已经完全掌握了 React 全家桶的正确开发方式。如果你刚开始学习前端或者 React，将 UI 框架作为你的第一步可能不是最好的主意。
 
 ---
 
@@ -23,7 +23,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ### 1. 创建一个 codesandbox
 
-访问 http://u.ant.design/codesandbox-repro 创建一个 codesandbox 的在线示例，别忘了保存以创建一个新的实例。
+访问 https://u.ant.design/codesandbox-repro 创建一个 codesandbox 的在线示例，别忘了保存以创建一个新的实例。
 
 ### 2. 使用组件
 
@@ -31,21 +31,21 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ```jsx
 import React, { useState } from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { ConfigProvider, DatePicker, message } from 'antd';
 // 由于 antd 组件的默认文案是英文，所以需要修改为中文
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import zhCN from 'antd/locale/zh_CN';
-import 'antd/dist/reset.css';
 import './index.css';
 
 dayjs.locale('zh-cn');
 
 const App = () => {
   const [date, setDate] = useState(null);
+  const [messageApi, contextHolder] = message.useMessage();
   const handleChange = (value) => {
-    message.info(`您选择的日期是: ${value ? value.format('YYYY年MM月DD日') : '未选择'}`);
+    messageApi.info(`您选择的日期是: ${value ? value.format('YYYY年MM月DD日') : '未选择'}`);
     setDate(value);
   };
   return (
@@ -56,11 +56,12 @@ const App = () => {
           当前日期：{date ? date.format('YYYY年MM月DD日') : '未选择'}
         </div>
       </div>
+      {contextHolder}
     </ConfigProvider>
   );
 };
 
-render(<App />, document.getElementById('root'));
+createRoot(document.getElementById('root')).render(<App />);
 ```
 
 ### 3. 探索更多组件用法
@@ -94,11 +95,9 @@ render(<App />, document.getElementById('root'));
 
 实际项目开发中，你会需要构建、调试、代理、打包部署等一系列工程化的需求。您可以阅读后面的文档或者使用以下脚手架和范例：
 
-- [Ant Design Pro](http://pro.ant.design/)
-- [antd-admin](https://github.com/zuiidea/antd-admin)
-- [d2-admin](https://github.com/d2-projects/d2-admin)
-- [Use in Next](https://github.com/ant-design/create-next-app-antd)
-- 更多脚手架可以查看 [脚手架市场](http://scaffold.ant.design/)
+- [Ant Design Pro](https://pro.ant.design/)
+- [create-next-app](https://github.com/ant-design/create-next-app-antd)
+- 更多脚手架可以查看 [脚手架市场](https://scaffold.ant.design/)
 
 ## 按需加载
 
@@ -106,6 +105,6 @@ render(<App />, document.getElementById('root'));
 
 ## 自行构建
 
-如果想自己维护工作流，我们推荐使用 [webpack](https://webpack.github.io/) 进行构建和调试，可以使用 React 生态圈中的 [各种脚手架](https://github.com/enaqx/awesome-react#react-tools) 进行开发。
+如果想自己维护工作流，我们推荐使用 [webpack](https://webpack.js.org) 进行构建和调试，可以使用 React 生态圈中的 [各种脚手架](https://github.com/enaqx/awesome-react#react-tools) 进行开发。
 
-目前社区也有很多基于 antd 定制的 [React 脚手架](http://scaffold.ant.design/)，欢迎进行试用和贡献。
+目前社区也有很多基于 antd 定制的 [React 脚手架](https://scaffold.ant.design/)，欢迎进行试用和贡献。
