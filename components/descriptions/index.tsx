@@ -207,6 +207,9 @@ if (process.env.NODE_ENV !== 'production') {
   Descriptions.displayName = 'Descriptions';
 }
 
+export type { DescriptionsContextProps } from './DescriptionsContext';
+export { DescriptionsContext };
+
 Descriptions.Item = DescriptionsItem;
 
 export default Descriptions;
