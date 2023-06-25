@@ -1,14 +1,13 @@
 import { css, Global } from '@emotion/react';
 import React from 'react';
 
-export default () => (
+const BrowserMockupStyle: React.FC = () => (
   <Global
     styles={css`
       /* Browser mockup code
  * Contribute: https://gist.github.com/jarthod/8719db9fef8deb937f4f
  * Live example: https://updown.io
  */
-
       .browser-mockup {
         position: relative;
         border-top: 2em solid rgba(230, 230, 230, 0.7);
@@ -60,3 +59,5 @@ export default () => (
     `}
   />
 );
+
+export default BrowserMockupStyle;

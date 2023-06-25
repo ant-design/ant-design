@@ -95,7 +95,7 @@ export default () => {
   return null;
 };
 
-export { message, notification, modal };
+export { message, modal, notification };
 ```
 
 ```tsx
@@ -104,7 +104,7 @@ import { Button, Space } from 'antd';
 import React from 'react';
 import { message } from './store';
 
-export default () => {
+const Demo: React.FC = () => {
   const showMessage = () => {
     message.success('Success!');
   };
@@ -117,6 +117,8 @@ export default () => {
     </Space>
   );
 };
+
+export default Demo;
 ```
 
 ## API

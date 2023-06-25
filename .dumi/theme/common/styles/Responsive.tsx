@@ -2,9 +2,8 @@ import { css, Global } from '@emotion/react';
 import React from 'react';
 import useSiteToken from '../../../hooks/useSiteToken';
 
-export default () => {
+const ResponsiveStyle: React.FC = () => {
   const { token } = useSiteToken();
-
   return (
     <Global
       styles={css`
@@ -339,3 +338,5 @@ export default () => {
     />
   );
 };
+
+export default ResponsiveStyle;
