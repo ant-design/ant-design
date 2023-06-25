@@ -8,7 +8,6 @@ import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
 import type { RangePickerProps } from '.';
-import { Components, getTimeProps } from '.';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import warning from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
@@ -19,7 +18,8 @@ import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
-import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
+import { getRangePlaceholder, getTimeProps, transPlacement2DropdownAlign } from '../util';
+import Components from './Components';
 import type { CommonPickerMethods, PickerComponentClass } from './interface';
 
 export default function generateRangePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
@@ -78,7 +78,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
     }
 
     // ===================== Size =====================
-    const mergedSize = useSize((ctx) => compactSize ?? customizeSize ?? ctx);
+    const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);

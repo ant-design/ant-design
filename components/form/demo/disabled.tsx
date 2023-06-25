@@ -9,6 +9,7 @@ import {
   InputNumber,
   Radio,
   Select,
+  Slider,
   Switch,
   TreeSelect,
   Upload,
@@ -108,6 +109,9 @@ const FormDisabledDemo: React.FC = () => {
         </Form.Item>
         <Form.Item label="Button">
           <Button>Button</Button>
+        </Form.Item>
+        <Form.Item label="Slider">
+          <Slider />
         </Form.Item>
       </Form>
     </>

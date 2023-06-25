@@ -36,14 +36,15 @@ export interface ThemeConfig {
   inherit?: boolean;
 }
 
-interface componentStyleConfig {
+export interface componentStyleConfig {
   className?: string;
   style?: React.CSSProperties;
+}
+
+export interface ButtonConfig extends componentStyleConfig {
   classNames?: ButtonProps['classNames'];
   styles?: ButtonProps['styles'];
 }
-
-export interface ButtonConfig extends componentStyleConfig {}
 
 export type PopupOverflow = 'viewport' | 'scroll';
 
@@ -87,6 +88,35 @@ export interface ConfigConsumerProps {
     showSearch?: boolean;
   };
   button?: ButtonConfig;
+  divider?: componentStyleConfig;
+  typography?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+  spin?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+  segmented?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+  steps?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+  image?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+  result?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+  slider?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
   breadcrumb?: {
     className?: string;
     style?: React.CSSProperties;
@@ -94,8 +124,9 @@ export interface ConfigConsumerProps {
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
-  if (customizePrefixCls) return customizePrefixCls;
-
+  if (customizePrefixCls) {
+    return customizePrefixCls;
+  }
   return suffixCls ? `ant-${suffixCls}` : 'ant';
 };
 

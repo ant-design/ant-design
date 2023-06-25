@@ -1,8 +1,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { resetComponent } from '../../style';
 import { genCollapseMotion, zoomIn } from '../../style/motion';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent } from '../../style';
 import genFormValidateMotionStyle from './explain';
 
 export interface FormToken extends FullToken<'Form'> {
@@ -389,7 +389,6 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
 };
 
 const makeVerticalLayoutLabel = (token: FormToken): CSSObject => ({
-  margin: 0,
   padding: `0 0 ${token.paddingXS}px`,
   whiteSpace: 'initial',
   textAlign: 'start',

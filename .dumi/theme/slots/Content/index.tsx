@@ -16,6 +16,7 @@ import type { DemoContextProps } from '../DemoContext';
 import DemoContext from '../DemoContext';
 import Footer from '../Footer';
 import SiteContext from '../SiteContext';
+import ColumnCard from './ColumnCard';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -272,6 +273,12 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
           ) : null}
           {!meta.frontmatter.__autoDescription && meta.frontmatter.description}
           {children}
+          {(meta.frontmatter?.zhihu_url || meta.frontmatter?.yuque_url) && (
+            <ColumnCard
+              zhihuLink={meta.frontmatter.zhihu_url}
+              yuqueLink={meta.frontmatter.yuque_url}
+            />
+          )}
           {meta.frontmatter.filename && (
             <ContributorsList
               repo="ant-design"

@@ -645,6 +645,7 @@ Array [
     aria-checked="true"
     class="ant-switch ant-switch-checked"
     role="switch"
+    style="margin:16px"
     type="button"
   >
     <div

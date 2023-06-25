@@ -85,7 +85,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
-  const mergedSize = useSize((ctx) => compactSize ?? customizeSize ?? ctx);
+  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
@@ -152,6 +152,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
         wrapper: classNames(
           {
             [`${wrapperClassName}-rtl`]: direction === 'rtl',
+            [`${prefixCls}-wrapper-disabled`]: mergedDisabled,
           },
           hashId,
         ),

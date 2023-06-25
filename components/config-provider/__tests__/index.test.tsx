@@ -4,11 +4,9 @@ import type { ConfigConsumerProps } from '..';
 import ConfigProvider, { ConfigContext } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { fireEvent, render } from '../../../tests/utils';
-import Breadcrumb from '../../breadcrumb';
 import Button from '../../button';
 import Input from '../../input';
 import Select from '../../select';
-import Space from '../../space';
 import Table from '../../table';
 
 describe('ConfigProvider', () => {
@@ -124,92 +122,5 @@ describe('ConfigProvider', () => {
 
     expect(rendered).toBeTruthy();
     expect(cacheRenderEmpty).toBeFalsy();
-  });
-
-  it('Should Space classNames works', () => {
-    const { container } = render(
-      <ConfigProvider
-        space={{
-          classNames: {
-            item: 'test-classNames',
-          },
-        }}
-      >
-        <Space>
-          <span>Text1</span>
-          <span>Text2</span>
-        </Space>
-      </ConfigProvider>,
-    );
-    expect(container.querySelector('.ant-space-item.test-classNames')).toBeTruthy();
-  });
-
-  it('Should Space className works', () => {
-    const { container } = render(
-      <ConfigProvider
-        space={{
-          className: 'test-classNames',
-        }}
-      >
-        <Space>
-          <span>Text1</span>
-          <span>Text2</span>
-        </Space>
-      </ConfigProvider>,
-    );
-    expect(container.querySelector('.ant-space.test-classNames')).toBeTruthy();
-  });
-
-  it('Should Space styles works', () => {
-    const { container } = render(
-      <ConfigProvider
-        space={{
-          styles: {
-            item: {
-              color: 'red',
-            },
-          },
-        }}
-      >
-        <Space>
-          <span>Text1</span>
-          <span>Text2</span>
-        </Space>
-      </ConfigProvider>,
-    );
-    expect(container.querySelector('.ant-space-item')?.getAttribute('style')).toEqual(
-      'margin-right: 8px; color: red;',
-    );
-  });
-
-  it('Should Space style works', () => {
-    const { container } = render(
-      <ConfigProvider
-        space={{
-          style: {
-            color: 'red',
-          },
-        }}
-      >
-        <Space>
-          <span>Text1</span>
-          <span>Text2</span>
-        </Space>
-      </ConfigProvider>,
-    );
-    expect(container.querySelector('.ant-space')?.getAttribute('style')).toEqual('color: red;');
-  });
-
-  it('Should Breadcrumb className & style works', () => {
-    const { container } = render(
-      <ConfigProvider
-        breadcrumb={{ className: 'cp-breadcrumb', style: { backgroundColor: 'red' } }}
-      >
-        <Breadcrumb />
-      </ConfigProvider>,
-    );
-    const element = container.querySelector<HTMLElement>('.ant-breadcrumb');
-    expect(element).toHaveClass('cp-breadcrumb');
-    expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });
