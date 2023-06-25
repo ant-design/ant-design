@@ -95,7 +95,7 @@ export default () => {
   return null;
 };
 
-export { message, modal, notification };
+export { message, notification, modal };
 ```
 
 ```tsx
