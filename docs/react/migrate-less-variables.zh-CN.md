@@ -291,7 +291,27 @@ Mentions 提及
 
 <!-- ### Progress 进度条 -->
 
-<!-- ### Radio 单选框 -->
+## Radio 单选框
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@radio-size` | `radioSize` | - |
+| `@radio-top` | - | 已废弃 |
+| `@radio-border-width` | `lineWidth` | 全局 Token |
+| `@radio-dot-size` | `dotSize` | - |
+| `@radio-dot-color` | - | 已废弃 |
+| `@radio-dot-disabled-color` | `dotColorDisabled` | - |
+| `@radio-solid-checked-color` | `buttonSolidCheckedColor` | - |
+| `@radio-button-bg` | `buttonBg` | - |
+| `@radio-button-checked-bg` | `buttonCheckedBg` | - |
+| `@radio-button-color` | `buttonColor` | - |
+| `@radio-button-hover-color` | `colorPrimaryHover` | 全局 Token |
+| `@radio-button-active-color` | `colorPrimaryActive` | 全局 Token |
+| `@radio-button-padding-horizontal` | `buttonPaddingInline` | - |
+| `@radio-disabled-button-checked-bg` | `buttonCheckdBgDisabled` | - |
+| `@radio-disabled-button-checked-color` | `buttonCheckdColorDisabled` | - |
+| `@radio-wrapper-margin-right` | `wrapperMarginInlineEnd` | - |
 
 ## Rate 评分
 

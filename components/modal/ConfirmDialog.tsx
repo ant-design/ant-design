@@ -10,8 +10,8 @@ import warning from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
 import ConfigProvider from '../config-provider';
 import { useLocale } from '../locale';
-import type { ModalFuncProps, ModalLocale } from './Modal';
 import Dialog from './Modal';
+import type { ModalFuncProps, ModalLocale } from './interface';
 
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
