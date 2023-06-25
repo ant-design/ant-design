@@ -89,11 +89,44 @@ export interface ConfigConsumerProps {
   };
   button?: ButtonConfig;
   divider?: componentStyleConfig;
+  typography?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+  spin?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+  segmented?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+  steps?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+  image?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+  result?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+  slider?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+  breadcrumb?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
-  if (customizePrefixCls) return customizePrefixCls;
-
+  if (customizePrefixCls) {
+    return customizePrefixCls;
+  }
   return suffixCls ? `ant-${suffixCls}` : 'ant';
 };
 

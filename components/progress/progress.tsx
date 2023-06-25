@@ -50,7 +50,7 @@ export interface ProgressProps extends ProgressAriaProps {
   style?: React.CSSProperties;
   gapDegree?: number;
   gapPosition?: 'top' | 'bottom' | 'left' | 'right';
-  size?: number | [number, number] | ProgressSize;
+  size?: number | [number | string, number] | ProgressSize;
   steps?: number;
   /** @deprecated Use `success` instead */
   successPercent?: number;

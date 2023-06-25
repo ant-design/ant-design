@@ -1,7 +1,6 @@
 import * as React from 'react';
 import warning from '../../../_util/warning';
 import type {
-  ColumnFilterItem,
   ColumnsType,
   ColumnTitleProps,
   ColumnType,
@@ -13,7 +12,7 @@ import type {
   TransformColumns,
 } from '../../interface';
 import { getColumnKey, getColumnPos, renderColumnTitle } from '../../util';
-import FilterDropdown from './FilterDropdown';
+import FilterDropdown, { flattenKeys } from './FilterDropdown';
 
 export interface FilterState<RecordType> {
   column: ColumnType<RecordType>;
@@ -127,17 +126,6 @@ function injectFilter<RecordType>(
 
     return newColumn;
   });
-}
-
-export function flattenKeys(filters?: ColumnFilterItem[]) {
-  let keys: FilterValue = [];
-  (filters || []).forEach(({ value, children }) => {
-    keys.push(value);
-    if (children) {
-      keys = [...keys, ...flattenKeys(children)];
-    }
-  });
-  return keys;
 }
 
 function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[]) {
@@ -291,5 +279,7 @@ function useFilter<RecordType>({
 
   return [transformColumns, mergedFilterStates, filters];
 }
+
+export { flattenKeys };
 
 export default useFilter;

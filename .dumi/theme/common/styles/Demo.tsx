@@ -60,36 +60,29 @@ const GlobalDemoStyles: React.FC = () => {
 
           &-expand-trigger {
             position: relative;
-            margin-left: 12px;
             color: #3b4357;
             font-size: 20px;
             cursor: pointer;
             opacity: 0.75;
             transition: all 0.3s;
+            margin-inline-start: 12px;
 
             &:hover {
               opacity: 1;
-            }
-
-            ${antCls}-row-rtl & {
-              margin-right: 8px;
-              margin-left: 0;
             }
           }
 
           &-title {
             position: absolute;
             top: -14px;
-            margin-left: 16px;
             padding: 1px 8px;
             color: #777;
             background: ${token.colorBgContainer};
             border-radius: ${token.borderRadius}px ${token.borderRadius}px 0 0;
             transition: background-color 0.4s;
+            margin-inline-start: 16px;
 
             ${antCls}-row-rtl & {
-              margin-right: 16px;
-              margin-left: 0;
               border-radius: ${token.borderRadius}px 0 0 ${token.borderRadius}px;
             }
 
@@ -109,11 +102,11 @@ const GlobalDemoStyles: React.FC = () => {
             position: absolute;
             top: 7px;
             right: -16px;
-            padding-right: 6px;
             font-size: 12px;
             text-decoration: none;
             background: inherit;
             transform: scale(0.9);
+            padding-inline-end: 6px;
 
             ${iconCls} {
               color: ${token.colorTextSecondary};
@@ -127,9 +120,6 @@ const GlobalDemoStyles: React.FC = () => {
             ${antCls}-row${antCls}-row-rtl & {
               right: auto;
               left: -22px;
-              margin-right: 0;
-              padding-right: 8px;
-              padding-left: 6px;
             }
           }
 
@@ -165,14 +155,9 @@ const GlobalDemoStyles: React.FC = () => {
             > p {
               width: 100%;
               margin: 0.5em 0;
-              padding-right: 25px;
               font-size: 12px;
               word-break: break-word;
-
-              ${antCls}-row-rtl & {
-                padding-right: 0;
-                padding-left: 25px;
-              }
+              padding-inline-end: 25px;
             }
           }
 

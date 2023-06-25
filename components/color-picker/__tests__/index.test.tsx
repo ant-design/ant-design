@@ -366,4 +366,11 @@ describe('ColorPicker', () => {
     await waitFakeTimer();
     expect(targetEle?.innerHTML).toEqual('#1677FF');
   });
+
+  it('Should size work', async () => {
+    const { container: lg } = render(<ColorPicker size="large" />);
+    expect(lg.querySelector('.ant-color-picker-lg')).toBeTruthy();
+    const { container: sm } = render(<ColorPicker size="small" />);
+    expect(sm.querySelector('.ant-color-picker-sm')).toBeTruthy();
+  });
 });

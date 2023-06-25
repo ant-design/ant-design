@@ -421,8 +421,8 @@ fs.writeFileSync(outputPath, css);
 ```tsx
 import { StyleProvider } from '@ant-design/cssinjs';
 import type { AppProps } from 'next/app';
-import '../public/antd.min.css';
-import '../styles/globals.css'; // 添加这行
+import '../public/antd.min.css'; // 添加这行
+import '../styles/globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

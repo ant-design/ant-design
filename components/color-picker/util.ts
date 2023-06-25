@@ -1,5 +1,4 @@
 import type { ColorGenInput } from '@rc-component/color-picker';
-import { getRoundNumber } from '@rc-component/color-picker/lib/util';
 import type { Color } from './color';
 import { ColorFactory } from './color';
 
@@ -11,5 +10,7 @@ export const generateColor = (color: ColorGenInput<Color>): Color => {
   }
   return new ColorFactory(color);
 };
+
+export const getRoundNumber = (value: number) => Math.round(Number(value || 0));
 
 export const getAlphaColor = (color: Color) => getRoundNumber(color.toHsb().a * 100);

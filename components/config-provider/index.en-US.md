@@ -92,7 +92,7 @@ const {
 } = ConfigProvider.useConfig();
 ```
 
-| 返回值 | 说明 | 类型 | 默认值 | 版本 |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | componentDisabled | antd component disabled state | boolean | - | 5.3.0 |
 | componentSize | antd component size state | `small` \| `middle` \| `large` | - | 5.3.0 |
@@ -101,12 +101,20 @@ const {
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| breadcrumb | Set Breadcrumb common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | button | Set Button common props | { className?: string, style?: React.CSSProperties, classNames?: { icon: string }, styles?: { icon: React.CSSProperties } } | - | 5.6.0 |
 | divider | Set Divider common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | form | Set Form common props | { validateMessages?: [ValidateMessages](/components/form/#validatemessages), requiredMark?: boolean \| `optional`, scrollToFirstError?: boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) } | - | requiredMark: 4.8.0; colon: 4.18.0; scrollToFirstError: 5.2.0 |
+| image | Set Image common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | input | Set Input common props | { autoComplete?: string } | - | 4.2.0 |
+| result | Set Result common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| segmented | Set Segmented common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | select | Set Select common props | { showSearch?: boolean } | - |  |
+| slider | Set Slider common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | space | Set Space common props, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: { item: string }, styles?: { item: React.CSSProperties } } | - | 5.6.0 |
+| spin | Set Spin common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| steps | Set Steps common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| typography | Set Typography common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 
 ## FAQ
 

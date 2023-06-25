@@ -412,11 +412,11 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         borderRadius: 0,
       },
 
-      [`& > ${componentCls}-affix-wrapper`]: {
-        display: 'inline-flex',
-      },
-
-      [`& > ${antCls}-picker-range`]: {
+      [`
+        & > ${componentCls}-affix-wrapper,
+        & > ${componentCls}-number-affix-wrapper,
+        & > ${antCls}-picker-range
+      `]: {
         display: 'inline-flex',
       },
 
@@ -620,6 +620,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       },
 
       '&::before': {
+        display: 'inline-block',
         width: 0,
         visibility: 'hidden',
         content: '"\\a0"',

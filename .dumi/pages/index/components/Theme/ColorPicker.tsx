@@ -19,7 +19,7 @@ const useStyle = () => {
       transition: all ${token.motionDurationFast};
       display: inline-block;
 
-      & > input[type="radio"] {
+      & > input[type='radio'] {
         width: 0;
         height: 0;
         opacity: 0;
@@ -138,7 +138,11 @@ export default function ThemeColorPicker({ value, onChange }: RadiusPickerProps)
 
           if (picker) {
             colorNode = (
-              <DebouncedColorPicker value={value || ''} onChange={onChange}>
+              <DebouncedColorPicker
+                key={`colorpicker-${value}`}
+                value={value || ''}
+                onChange={onChange}
+              >
                 {colorNode}
               </DebouncedColorPicker>
             );
