@@ -1,7 +1,6 @@
 import React from 'react';
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
-import Checkbox from '../../checkbox';
 import Divider from '../../divider';
 import Space from '../../space';
 
@@ -107,25 +106,5 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('.ant-divider'))?.toHaveStyle({ color: 'red', height: '80px' });
-  });
-
-  it('Should Radio className & style works', () => {
-    const { container } = render(
-      <ConfigProvider
-        checkbox={{
-          className: 'config-provider-className',
-          style: {
-            background: 'red',
-          },
-        }}
-      >
-        <Checkbox>Checkbox</Checkbox>
-      </ConfigProvider>,
-    );
-
-    expect(container.querySelector('.ant-checkbox-wrapper')).toHaveClass(
-      'config-provider-className',
-    );
-    expect(container.querySelector('.ant-checkbox-wrapper')).toHaveStyle({ background: 'red' });
   });
 });
