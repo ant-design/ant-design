@@ -39,21 +39,21 @@ Used when the user needs to customize the color selection.
 <!-- prettier-ignore -->
 | Property | Description | Type | Default | Version |
 | :-- | :-- | :-- | :-- | :-- |
-| format | Format of color | `rgb` \| `hex` \| `hsb` | `hex` | |
-| value | Value of color | string \| `Color` | - | |
-| defaultValue | Default value of color | string \| `Color` | - | |
 | allowClear | 	Allow clearing color selected | boolean | false | |
-| presets | 	Preset colors | `{ label: ReactNode, colors: Array<string \| Color> }[]` | - | |
-| children | Trigger of ColorPicker | React.ReactNode | - | |
-| trigger | ColorPicker trigger mode | `hover` \| `click` | `click` | |
-| open | Whether to show popup | boolean | - | |
-| disabled | Disable ColorPicker | boolean | - | |
-| placement | Placement of popup | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` | |
 | arrow | Configuration for popup arrow | `boolean \| { pointAtCenter: boolean }` | true | |
+| children | Trigger of ColorPicker | React.ReactNode | - | |
+| defaultValue | Default value of color | string \| `Color` | - | |
+| disabled | Disable ColorPicker | boolean | - | |
 | destroyTooltipOnHide | Whether destroy popover when hidden | `boolean` | false | 5.7.0 |
-| size | Setting the trigger size | `large` \| `middle` \| `small` | `middle` | 5.7.0 |
-| showText | Show color text | boolean \| `(color: Color) => React.ReactNode` | - | 5.7.0 |
+| format | Format of color | `rgb` \| `hex` \| `hsb` | `hex` | |
+| open | Whether to show popup | boolean | - | |
+| presets | 	Preset colors | `{ label: ReactNode, colors: Array<string \| Color> }[]` | - | |
+| placement | Placement of popup | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` | |
 | panelRender | Custom Render Panel | `(panel: React.ReactNode, extra: { components: { Picker: FC; Presets: FC } }) => React.ReactNode` | - | 5.7.0 |
+| showText | Show color text | boolean \| `(color: Color) => React.ReactNode` | - | 5.7.0 |
+| size | Setting the trigger size | `large` \| `middle` \| `small` | `middle` | 5.7.0 |
+| trigger | ColorPicker trigger mode | `hover` \| `click` | `click` | |
+| value | Value of color | string \| `Color` | - | |
 | onChange | Callback when `value` is changed | `(value: Color, hex: string) => void` | - | |
 | onFormatChange | Callback when `format` is changed | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - | |
 | onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - | |
