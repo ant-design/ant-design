@@ -113,6 +113,10 @@ export interface ConfigConsumerProps {
     className?: string;
     style?: React.CSSProperties;
   };
+  slider?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {

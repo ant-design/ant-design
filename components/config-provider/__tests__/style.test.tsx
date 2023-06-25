@@ -5,6 +5,7 @@ import Divider from '../../divider';
 import Image from '../../image';
 import Result from '../../result';
 import Segmented from '../../segmented';
+import Slider from '../../slider';
 import Space from '../../space';
 import Spin from '../../spin';
 import Steps from '../../steps';
@@ -189,6 +190,17 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-result');
     expect(element).toHaveClass('cp-result');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Slider className & style works', () => {
+    const { container } = render(
+      <ConfigProvider slider={{ className: 'cp-slider', style: { backgroundColor: 'red' } }}>
+        <Slider />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-slider');
+    expect(element).toHaveClass('cp-slider');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });
