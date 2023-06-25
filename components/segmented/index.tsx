@@ -95,13 +95,13 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
     hashId,
   );
 
-  const mergeStyle: React.CSSProperties = { ...segmented?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...segmented?.style, ...style };
 
   return wrapSSR(
     <RcSegmented
       {...restProps}
       className={cls}
-      style={mergeStyle}
+      style={mergedStyle}
       options={extendedOptions}
       ref={ref}
       prefixCls={prefixCls}
