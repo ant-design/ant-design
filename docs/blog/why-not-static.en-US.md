@@ -2,6 +2,7 @@
 title: Pain of static methods
 date: 2023-04-26
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/633333904
 ---
 
 > `message.success` is working well, why do you warn me to use hooks? antd is getting worse and worse, goodbye!

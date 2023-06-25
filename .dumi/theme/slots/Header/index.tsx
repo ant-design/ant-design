@@ -215,11 +215,10 @@ const Header: React.FC = () => {
     }
     // Mirror url must have `/`, we add this for compatible
     const urlObj = new URL(currentUrl.replace(window.location.origin, url));
-    if (urlObj.host === '3x.ant.design' || urlObj.host === '4x.ant.design') {
-      window.location.href = urlObj.href.replace(/\/$/, '');
-      return;
+    if (urlObj.host.includes('antgroup')) {
+      window.location.href = `${urlObj.href.replace(/\/$/, '')}/`;
     }
-    window.location.href = `${urlObj.href.replace(/\/$/, '')}/`;
+    window.location.href = urlObj.href.replace(/\/$/, '');
   }, []);
 
   const onLangChange = useCallback(() => {

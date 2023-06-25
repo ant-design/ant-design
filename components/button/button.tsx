@@ -210,9 +210,9 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
 
-  const sizeFullname = useSize((ctxSize) => customizeSize ?? compactSize ?? groupSize ?? ctxSize);
+  const sizeFullName = useSize((ctxSize) => customizeSize ?? compactSize ?? groupSize ?? ctxSize);
 
-  const sizeCls = sizeFullname ? sizeClassNameMap[sizeFullname] || '' : '';
+  const sizeCls = sizeFullName ? sizeClassNameMap[sizeFullName] || '' : '';
 
   const iconType = innerLoading ? 'loading' : icon;
 
