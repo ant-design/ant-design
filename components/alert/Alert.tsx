@@ -11,7 +11,6 @@ import * as React from 'react';
 import { replaceElement } from '../_util/reactNode';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import ErrorBoundary from './ErrorBoundary';
 
 // CSSINJS
 import useStyle from './style';
@@ -97,11 +96,7 @@ const CloseIcon: React.FC<CloseIconProps> = (props) => {
   ) : null;
 };
 
-type CompoundedComponent = React.FC<AlertProps> & {
-  ErrorBoundary: typeof ErrorBoundary;
-};
-
-const Alert: CompoundedComponent = ({
+const Alert: React.FC<AlertProps> = ({
   description,
   prefixCls: customizePrefixCls,
   message,
@@ -226,8 +221,6 @@ const Alert: CompoundedComponent = ({
     </CSSMotion>,
   );
 };
-
-Alert.ErrorBoundary = ErrorBoundary;
 
 if (process.env.NODE_ENV !== 'production') {
   Alert.displayName = 'Alert';
