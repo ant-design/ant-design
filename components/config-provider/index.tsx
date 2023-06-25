@@ -154,6 +154,10 @@ export interface ConfigProviderProps {
     className?: string;
     style?: React.CSSProperties;
   };
+  image?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -246,6 +250,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     typography,
     divider,
     steps,
+    image,
   } = props;
 
   // =================================== Warning ===================================
@@ -302,6 +307,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     typography,
     divider,
     steps,
+    image,
   };
 
   const config = {

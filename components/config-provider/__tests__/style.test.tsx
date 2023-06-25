@@ -2,6 +2,7 @@ import React from 'react';
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import Divider from '../../divider';
+import Image from '../../image';
 import Segmented from '../../segmented';
 import Space from '../../space';
 import Spin from '../../spin';
@@ -161,6 +162,21 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-steps');
     expect(element).toHaveClass('config-provider-steps');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Image className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        image={{ className: 'config-provider-image', style: { backgroundColor: 'red' } }}
+      >
+        <Image src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
+      </ConfigProvider>,
+    );
+    const element = container
+      ?.querySelector<HTMLDivElement>('.ant-image')
+      ?.querySelector<HTMLImageElement>('img');
+    expect(element).toHaveClass('config-provider-image');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });
