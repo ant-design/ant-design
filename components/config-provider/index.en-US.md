@@ -65,7 +65,6 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | renderEmpty | Set empty content of components. Ref [Empty](/components/empty/) | function(componentName: string): ReactNode | - |  |
 | theme | Set theme, ref [Customize Theme](/docs/react/customize-theme) | - | - | 5.0.0 |
 | virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
-| image | Set Image common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 
 ### ConfigProvider.config()
 
@@ -93,7 +92,7 @@ const {
 } = ConfigProvider.useConfig();
 ```
 
-| 返回值 | 说明 | 类型 | 默认值 | 版本 |
+| Return | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | componentDisabled | antd component disabled state | boolean | - | 5.3.0 |
 | componentSize | antd component size state | `small` \| `middle` \| `large` | - | 5.3.0 |
@@ -105,6 +104,7 @@ const {
 | button | Set Button common props | { className?: string, style?: React.CSSProperties, classNames?: { icon: string }, styles?: { icon: React.CSSProperties } } | - | 5.6.0 |
 | divider | Set Divider common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | form | Set Form common props | { validateMessages?: [ValidateMessages](/components/form/#validatemessages), requiredMark?: boolean \| `optional`, scrollToFirstError?: boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) } | - | requiredMark: 4.8.0; colon: 4.18.0; scrollToFirstError: 5.2.0 |
+| image | Set Image common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | input | Set Input common props | { autoComplete?: string } | - | 4.2.0 |
 | segmented | Set Segmented common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | select | Set Select common props | { showSearch?: boolean } | - |  |
