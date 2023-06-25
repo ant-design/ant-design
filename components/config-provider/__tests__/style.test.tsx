@@ -1,6 +1,7 @@
 import React from 'react';
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
+import Breadcrumb from '../../breadcrumb';
 import Divider from '../../divider';
 import Image from '../../image';
 import Result from '../../result';
@@ -201,6 +202,19 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-slider');
     expect(element).toHaveClass('cp-slider');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Breadcrumb className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        breadcrumb={{ className: 'cp-breadcrumb', style: { backgroundColor: 'red' } }}
+      >
+        <Breadcrumb />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLElement>('.ant-breadcrumb');
+    expect(element).toHaveClass('cp-breadcrumb');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });

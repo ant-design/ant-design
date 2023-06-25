@@ -166,6 +166,10 @@ export interface ConfigProviderProps {
     className?: string;
     style?: React.CSSProperties;
   };
+  breadcrumb?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -261,6 +265,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     image,
     result,
     slider,
+    breadcrumb,
   } = props;
 
   // =================================== Warning ===================================
@@ -320,6 +325,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     image,
     result,
     slider,
+    breadcrumb,
   };
 
   const config = {
