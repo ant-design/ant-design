@@ -280,6 +280,6 @@ function useFilter<RecordType>({
   return [transformColumns, mergedFilterStates, filters];
 }
 
-export flattenKeys;
-    
+export { flattenKeys };
+
 export default useFilter;
