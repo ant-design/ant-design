@@ -14,9 +14,10 @@ import type { CheckboxProps } from '../../checkbox';
 import Checkbox from '../../checkbox';
 import Dropdown from '../../dropdown';
 import Radio from '../../radio';
+import type { AnyObject } from '../Table';
 import type {
-  ColumnsType,
   ColumnType,
+  ColumnsType,
   ExpandType,
   GetPopupContainer,
   GetRowKey,
@@ -27,7 +28,6 @@ import type {
   TableRowSelection,
   TransformColumns,
 } from '../interface';
-import type { AnyObject } from '../Table';
 
 // TODO: warning if use ajax!!!
 
@@ -143,16 +143,25 @@ const useSelection = <RecordType extends AnyObject = any>(
     updatePreserveRecordsCache(mergedSelectedKeys);
   }, [mergedSelectedKeys]);
 
-  const { keyEntities } = useMemo(
-    () =>
-      checkStrictly
-        ? { keyEntities: null }
-        : convertDataToEntities(data as unknown as DataNode[], {
-            externalGetKey: getRowKey as any,
-            childrenPropName: childrenColumnName,
-          }),
-    [data, getRowKey, checkStrictly, childrenColumnName],
-  );
+  const { keyEntities } = useMemo(() => {
+    if (checkStrictly) {
+      return { keyEntities: null };
+    }
+    let convertData = data;
+    if (preserveSelectedRowKeys) {
+      const keysSet = new Set(data.map((record, index) => getRowKey(record, index)));
+      // remove preserveRecords that duplicate data
+      const preserveRecords = Array.from(preserveRecordsRef.current).reduce(
+        (total: RecordType[], [key, value]) => (keysSet.has(key) ? total : total.concat(value)),
+        [],
+      );
+      convertData = [...convertData, ...preserveRecords];
+    }
+    return convertDataToEntities(convertData as unknown as DataNode[], {
+      externalGetKey: getRowKey as any,
+      childrenPropName: childrenColumnName,
+    });
+  }, [data, getRowKey, checkStrictly, childrenColumnName, preserveSelectedRowKeys]);
 
   // Get flatten data
   const flattedData = useMemo(

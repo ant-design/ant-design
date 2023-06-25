@@ -64,10 +64,11 @@ const Steps: CompoundedComponent = (props) => {
     responsive = true,
     current = 0,
     children,
+    style,
     ...restProps
   } = props;
   const { xs } = useBreakpoint(responsive);
-  const { getPrefixCls, direction: rtlDirection } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction: rtlDirection, steps } = React.useContext(ConfigContext);
 
   const realDirectionValue = React.useMemo<RcStepsProps['direction']>(
     () => (responsive && xs ? 'vertical' : direction),
@@ -85,7 +86,10 @@ const Steps: CompoundedComponent = (props) => {
   const mergedItems = useLegacyItems(items, children);
   const mergedPercent = isInline ? undefined : percent;
 
+  const mergedStyle: React.CSSProperties = { ...steps?.style, ...style };
+
   const stepsClassName = classNames(
+    steps?.className,
     {
       [`${prefixCls}-rtl`]: rtlDirection === 'rtl',
       [`${prefixCls}-with-progress`]: mergedPercent !== undefined,
@@ -127,6 +131,7 @@ const Steps: CompoundedComponent = (props) => {
     <RcSteps
       icons={icons}
       {...restProps}
+      style={mergedStyle}
       current={current}
       size={size}
       items={mergedItems}

@@ -1,6 +1,6 @@
 import type { UploadToken } from '.';
-import type { GenerateStyle } from '../../theme/internal';
 import { clearFix, textEllipsis } from '../../style';
+import type { GenerateStyle } from '../../theme/internal';
 
 const genListStyle: GenerateStyle<UploadToken> = (token) => {
   const { componentCls, antCls, iconCls, fontSize, lineHeight } = token;

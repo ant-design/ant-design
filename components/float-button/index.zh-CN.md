@@ -26,6 +26,7 @@ demo:
 <code src="./demo/tooltip.tsx" iframe="360">含有气泡卡片的悬浮按钮</code>
 <code src="./demo/group.tsx" iframe="360">浮动按钮组</code>
 <code src="./demo/group-menu.tsx" iframe="360">菜单模式</code>
+<code src="./demo/controlled.tsx" iframe="360">受控模式</code>
 <code src="./demo/back-top.tsx" iframe="360">回到顶部</code>
 <code src="./demo/badge.tsx" iframe="360">徽标数</code>
 <code src="./demo/badge-debug.tsx" iframe="360" debug>调试小圆点使用</code>
@@ -51,12 +52,12 @@ demo:
 
 ### FloatButton.Group
 
-| 参数         | 说明                             | 类型                    | 默认值   | 版本 |
-| ------------ | -------------------------------- | ----------------------- | -------- | ---- |
-| shape        | 设置包含的 FloatButton 按钮形状  | `circle` \| `square`    | `circle` |      |
-| trigger      | 触发方式（有触发方式为菜单模式） | `click` \| `hover`      | -        |      |
-| open         | 受控展开                         | boolean                 | -        |      |
-| onOpenChange | 展开收起时的回调                 | (open: boolean) => void | -        |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| shape | 设置包含的 FloatButton 按钮形状 | `circle` \| `square` | `circle` |  |
+| trigger | 触发方式（有触发方式为菜单模式） | `click` \| `hover` | - |  |
+| open | 受控展开，需配合 trigger 一起使用 | boolean | - |  |
+| onOpenChange | 展开收起时的回调，需配合 trigger 一起使用 | (open: boolean) => void | - |  |
 
 ### FloatButton.BackTop
 

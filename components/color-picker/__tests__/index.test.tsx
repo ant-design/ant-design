@@ -4,6 +4,8 @@ import React, { useMemo, useState } from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import theme from '../../theme';
 import ColorPicker from '../ColorPicker';
 import type { Color } from '../color';
 
@@ -194,6 +196,9 @@ describe('ColorPicker', () => {
     expect(
       container.querySelector('.ant-color-picker-hex-input input')?.getAttribute('value'),
     ).toEqual('000000');
+    expect(container.querySelectorAll('.ant-color-picker-presets-color')[0]).toHaveClass(
+      'ant-color-picker-presets-color-checked',
+    );
 
     fireEvent.click(presetsColors[9]);
     expect(
@@ -205,6 +210,9 @@ describe('ColorPicker', () => {
     expect(
       container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
     ).toEqual('2%');
+    expect(container.querySelectorAll('.ant-color-picker-presets-color')[9]).toHaveClass(
+      'ant-color-picker-presets-color-checked',
+    );
 
     expect(handleColorChange).toHaveBeenCalledTimes(2);
   });
@@ -275,6 +283,16 @@ describe('ColorPicker', () => {
     ).toEqual('background: rgb(99, 22, 22);');
   });
 
+  it('Should not trigger onChange when click clear after clearing', async () => {
+    const onChange = jest.fn();
+    const { container } = render(<ColorPicker allowClear onChange={onChange} />);
+    fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
+    fireEvent.click(container.querySelector('.ant-color-picker-clear')!);
+    expect(onChange).toHaveBeenCalledTimes(1);
+    fireEvent.click(container.querySelector('.ant-popover .ant-color-picker-clear')!);
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
   it('Should fix hover boundary issues', async () => {
     spyElementPrototypes(HTMLElement, {
       getBoundingClientRect: () => ({
@@ -292,5 +310,67 @@ describe('ColorPicker', () => {
     fireEvent.mouseLeave(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-popover-hidden')).toBeTruthy();
+  });
+
+  it('Should work at dark mode', async () => {
+    const { container } = render(
+      <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
+        <ColorPicker
+          open
+          presets={[
+            {
+              label: 'test',
+              colors: ['#0000001A'],
+            },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-color-picker-presets-color-bright')).toBeFalsy();
+  });
+
+  it('Should showText as render function work', async () => {
+    const { container } = render(<ColorPicker showText={(color) => color.toHexString()} />);
+    const targetEle = container.querySelector('.ant-color-picker-trigger-text');
+    expect(targetEle).toBeTruthy();
+    expect(targetEle?.innerHTML).toBe('#1677ff');
+  });
+
+  it('Should showText work', async () => {
+    const { container } = render(<ColorPicker open showText />);
+    const targetEle = container.querySelector('.ant-color-picker-trigger-text');
+    expect(targetEle).toBeTruthy();
+
+    fireEvent.mouseDown(
+      container.querySelector('.ant-color-picker-format-select .ant-select-selector')!,
+    );
+    await waitFakeTimer();
+    fireEvent.click(container.querySelector('.ant-select-item[title="HSB"]')!);
+    await waitFakeTimer();
+    expect(targetEle?.innerHTML).toEqual('hsb(215, 91%, 100%)');
+
+    fireEvent.mouseDown(
+      container.querySelector('.ant-color-picker-format-select .ant-select-selector')!,
+    );
+    await waitFakeTimer();
+    fireEvent.click(container.querySelector('.ant-select-item[title="RGB"]')!);
+    await waitFakeTimer();
+    expect(targetEle?.innerHTML).toEqual('rgb(22, 119, 255)');
+
+    fireEvent.mouseDown(
+      container.querySelector('.ant-color-picker-format-select .ant-select-selector')!,
+    );
+    await waitFakeTimer();
+    fireEvent.click(container.querySelector('.ant-select-item[title="HEX"]')!);
+    await waitFakeTimer();
+    expect(targetEle?.innerHTML).toEqual('#1677FF');
+  });
+
+  it('Should size work', async () => {
+    const { container: lg } = render(<ColorPicker size="large" />);
+    expect(lg.querySelector('.ant-color-picker-lg')).toBeTruthy();
+    const { container: sm } = render(<ColorPicker size="small" />);
+    expect(sm.querySelector('.ant-color-picker-sm')).toBeTruthy();
   });
 });

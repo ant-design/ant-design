@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import * as React from 'react';
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { isPresetColor, isPresetStatusColor } from '../_util/colors';
+import useClosable from '../_util/hooks/useClosable';
 import type { LiteralUnion } from '../_util/type';
 import warning from '../_util/warning';
 import Wave from '../_util/wave';
@@ -18,7 +19,8 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   rootClassName?: string;
   color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
   closable?: boolean;
-  closeIcon?: React.ReactNode;
+  /** Advised to use closeIcon instead. */
+  closeIcon?: boolean | React.ReactNode;
   /** @deprecated `visible` will be removed in next major version. */
   visible?: boolean;
   onClose?: (e: React.MouseEvent<HTMLElement>) => void;
@@ -43,7 +45,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     color,
     onClose,
     closeIcon,
-    closable = false,
+    closable,
     bordered = true,
     ...props
   } = tagProps;
@@ -100,18 +102,20 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     setVisible(false);
   };
 
-  const closeIconNode = React.useMemo<React.ReactNode>(() => {
-    if (closable) {
-      return closeIcon ? (
-        <span className={`${prefixCls}-close-icon`} onClick={handleCloseClick}>
-          {closeIcon}
-        </span>
-      ) : (
+  const [, mergedCloseIcon] = useClosable(
+    closable,
+    closeIcon,
+    (iconNode: React.ReactNode) =>
+      iconNode === null ? (
         <CloseOutlined className={`${prefixCls}-close-icon`} onClick={handleCloseClick} />
-      );
-    }
-    return null;
-  }, [closable, closeIcon, prefixCls, handleCloseClick]);
+      ) : (
+        <span className={`${prefixCls}-close-icon`} onClick={handleCloseClick}>
+          {iconNode}
+        </span>
+      ),
+    null,
+    false,
+  );
 
   const isNeedWave =
     typeof props.onClick === 'function' ||
@@ -131,7 +135,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   const tagNode = (
     <span {...props} ref={ref} className={tagClassName} style={tagStyle}>
       {kids}
-      {closeIconNode}
+      {mergedCloseIcon}
     </span>
   );
 

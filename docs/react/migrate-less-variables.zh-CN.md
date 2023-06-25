@@ -7,6 +7,35 @@ title: Less 变量迁移 Design Token
 
 <Alert message="注意：仍有部分变量没有对应的 Component Token，这些变量在 5.x 版本中已被废弃。"></Alert>
 
+## 如何配置 Component Token
+
+通过 ConfigProvider 的 `theme` 属性，我们可以对每一个组件单独配置全局 Token 和组件 Token
+
+```tsx
+import { Checkbox, ConfigProvider, Radio } from 'antd';
+import React from 'react';
+
+const App: React.FC = () => (
+  <ConfigProvider
+    theme={{
+      components: {
+        Radio: {
+          colorPrimary: '#00b96b',
+        },
+        Checkbox: {
+          colorPrimary: '#ff4d4f',
+        },
+      },
+    }}
+  >
+    <Radio>Radio</Radio>
+    <Checkbox>Checkbox</Checkbox>
+  </ConfigProvider>
+);
+
+export default App;
+```
+
 <!-- ## 全局变量 -->
 
 ## 组件变量
@@ -359,7 +388,31 @@ Mentions 提及
 | `@skeleton-paragraph-li-height` | `paragraphLiHeight` | - |
 | `@skeleton-paragraph-li-margin-top` | - | 由于样式变化已废弃 |
 
-<!-- ### Slider 滑动输入条 -->
+### Slider 滑动输入条
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@slider-margin` | - | 可由 `className` 或 `style` 直接修改 |
+| `@slider-rail-background-color` | `railBg` | - |
+| `@slider-rail-background-color-hover` | `railHoverBg` | - |
+| `@slider-track-background-color` | `trackBg` | - |
+| `@slider-track-background-color-hover` | `trackHoverBg` | - |
+| `@slider-handle-border-width` | `handleLineWidth` | - |
+| `@slider-handle-background-color` | - | 已废弃 |
+| `@slider-handle-color` | `handleColor` | - |
+| `@slider-handle-color-hover` | `handleActiveColor` | - |
+| `@slider-handle-color-focus` | `handleActiveColor` | - |
+| `@slider-handle-color-focus-shadow` | - | 已废弃 |
+| `@slider-handle-color-tooltip-open` | `handleActiveColor` | - |
+| `@slider-handle-size` | `handleSize` | - |
+| `@slider-handle-margin-top` | - | 已废弃 |
+| `@slider-handle-margin-left` | - | 已废弃 |
+| `@slider-handle-shadow` | - | 已废弃 |
+| `@slider-dot-border-color` | `dotBorderColor` | - |
+| `@slider-dot-border-color-active` | `dotActiveBorderColor` | - |
+| `@slider-disabled-color` | `trackBgDisabled` | - |
+| `@slider-disabled-background-color` | - | 已废弃 |
 
 ### Statistic 统计数值
 
