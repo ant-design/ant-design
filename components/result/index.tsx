@@ -5,8 +5,8 @@ import WarningFilled from '@ant-design/icons/WarningFilled';
 import classNames from 'classnames';
 import * as React from 'react';
 
-import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import warning from '../_util/warning';
 
 import noFound from './noFound';
 import serverError from './serverError';
