@@ -5,6 +5,7 @@ import type { SliderRef } from 'rc-slider/lib/Slider';
 import React from 'react';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
 import type { TooltipPlacement } from '../tooltip';
 import SliderTooltip from './SliderTooltip';
 import useStyle from './style';
@@ -104,17 +105,19 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     className,
     rootClassName,
     style,
+    disabled,
     // Deprecated Props
     tooltipPrefixCls: legacyTooltipPrefixCls,
     tipFormatter: legacyTipFormatter,
     tooltipVisible: legacyTooltipVisible,
     getTooltipPopupContainer: legacyGetTooltipPopupContainer,
     tooltipPlacement: legacyTooltipPlacement,
-
     ...restProps
   } = props;
 
   const { direction, slider, getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
+  const contextDisabled = React.useContext(DisabledContext);
+  const mergedDisabled = disabled ?? contextDisabled;
   const [opens, setOpens] = React.useState<Opens>({});
 
   const toggleTooltipOpen = (index: number, open: boolean) => {
@@ -233,7 +236,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     );
   };
 
-  const mergeStyle: React.CSSProperties = { ...slider?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...slider?.style, ...style };
 
   return wrapSSR(
     <RcSlider
@@ -242,7 +245,8 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
       range={mergedRange}
       draggableTrack={draggableTrack}
       className={cls}
-      style={mergeStyle}
+      style={mergedStyle}
+      disabled={mergedDisabled}
       ref={ref}
       prefixCls={prefixCls}
       handleRender={handleRender}

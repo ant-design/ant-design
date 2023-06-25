@@ -64,7 +64,7 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
     [`${previewCls}-operations`]: {
       ...resetComponent(token),
       display: 'flex',
-      flexDirection: 'row-reverse',
+      justifyContent: 'flex-end',
       alignItems: 'center',
       color: token.previewOperationColor,
       listStyle: 'none',
@@ -87,7 +87,7 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
           pointerEvents: 'none',
         },
 
-        '&:last-of-type': {
+        '&:first-of-type': {
           marginInlineStart: 0,
         },
       },
@@ -192,7 +192,6 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
           cursor: 'grab',
           transition: `transform ${motionDurationSlow} ${motionEaseOut} 0s`,
           userSelect: 'none',
-          pointerEvents: 'auto',
 
           '&-wrapper': {
             ...genBoxStyle(),
@@ -204,6 +203,10 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+
+            '& > *': {
+              pointerEvents: 'auto',
+            },
 
             '&::before': {
               display: 'inline-block',

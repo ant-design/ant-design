@@ -11,7 +11,7 @@ type ItemRender = NonNullable<BreadcrumbProps['itemRender']>;
 type InternalItemRenderParams = AddParameters<ItemRender, [href?: string]>;
 
 function getBreadcrumbName(route: InternalRouteType, params: any) {
-  if (route.title === undefined) {
+  if (route.title === undefined || route.title === null) {
     return null;
   }
   const paramsKeys = Object.keys(params).join('|');

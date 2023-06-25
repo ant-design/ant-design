@@ -119,6 +119,13 @@ module.exports = {
         'react/no-danger': 0,
       },
     },
+    {
+      files: ['**/*.json'],
+      rules: {
+        'no-unused-expressions': 0,
+        'comma-dangle': 0,
+      },
+    },
   ],
   rules: {
     'react/jsx-one-expression-per-line': 0,
@@ -142,7 +149,7 @@ module.exports = {
     'react/function-component-definition': 0,
     'react/no-unused-class-component-methods': 0,
     'import/extensions': 0,
-    'import/no-cycle': 0,
+    'import/no-cycle': 2,
     'import/no-extraneous-dependencies': [
       'error',
       {

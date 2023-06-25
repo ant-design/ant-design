@@ -1,5 +1,4 @@
 import { css, Global } from '@emotion/react';
-import React from 'react';
 import useSiteToken from '../../../hooks/useSiteToken';
 
 export default () => {
@@ -53,7 +52,7 @@ export default () => {
           font-family: ${token.fontFamily};
           line-height: ${token.lineHeight};
           background: ${token.colorBgContainer};
-          transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+          transition: background-color 1s cubic-bezier(0.075, 0.82, 0.165, 1);
         }
       `}
     />
