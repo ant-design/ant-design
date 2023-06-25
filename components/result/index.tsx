@@ -135,10 +135,10 @@ const Result: ResultType = ({
     hashId,
   );
 
-  const mergeStyle: React.CSSProperties = { ...result?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...result?.style, ...style };
 
   return wrapSSR(
-    <div className={className} style={mergeStyle}>
+    <div className={className} style={mergedStyle}>
       <Icon prefixCls={prefixCls} status={status} icon={icon} />
       <div className={`${prefixCls}-title`}>{title}</div>
       {subTitle && <div className={`${prefixCls}-subtitle`}>{subTitle}</div>}

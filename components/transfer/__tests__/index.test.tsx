@@ -496,10 +496,32 @@ describe('Transfer', () => {
     expect(onScroll).toHaveBeenLastCalledWith('right', expect.anything());
   });
 
-  it('should support rowKey is function', () => {
-    expect(() => {
-      render(<Transfer {...listCommonProps} rowKey={(record) => record.key} />);
-    }).not.toThrow();
+  it('support rowKey', () => {
+    const onSelectChange = jest.fn();
+
+    const Demo = () => {
+      const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
+
+      return (
+        <Transfer
+          {...listCommonProps}
+          selectedKeys={selectedKeys}
+          rowKey={(record) => `key_${record.key}`}
+          onSelectChange={(keys) => {
+            onSelectChange(keys);
+            setSelectedKeys(keys);
+          }}
+        />
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    fireEvent.click(container.querySelector('.ant-transfer-list-content input')!);
+    expect(onSelectChange).toHaveBeenCalledWith(['key_a']);
+    expect(
+      container.querySelector<HTMLInputElement>('.ant-transfer-list-content input')!.checked,
+    ).toBeTruthy();
   });
 
   it('should support render value and label in item', () => {

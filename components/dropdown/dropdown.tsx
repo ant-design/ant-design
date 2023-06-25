@@ -14,7 +14,6 @@ import { ConfigContext } from '../config-provider';
 import type { MenuProps } from '../menu';
 import Menu from '../menu';
 import { OverrideProvider } from '../menu/OverrideContext';
-import { NoCompactStyle } from '../space/Compact';
 import theme from '../theme';
 import useStyle from './style';
 
@@ -274,7 +273,7 @@ const Dropdown: CompoundedComponent = (props) => {
           );
         }}
       >
-        <NoCompactStyle>{overlayNode}</NoCompactStyle>
+        {overlayNode}
       </OverrideProvider>
     );
   };

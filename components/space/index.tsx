@@ -76,13 +76,14 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
   const cn = classNames(
     prefixCls,
+    space?.className,
     hashId,
     `${prefixCls}-${direction}`,
     {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
       [`${prefixCls}-align-${mergedAlign}`]: mergedAlign,
     },
-    className ?? space?.className,
+    className,
     rootClassName,
   );
 

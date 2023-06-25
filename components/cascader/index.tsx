@@ -229,7 +229,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   }, [showSearch]);
 
   // ===================== Size ======================
-  const mergedSize = useSize((ctx) => compactSize ?? customizeSize ?? ctx);
+  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);

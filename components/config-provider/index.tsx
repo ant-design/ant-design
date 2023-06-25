@@ -7,8 +7,8 @@ import type { ReactElement } from 'react';
 import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
 import warning from '../_util/warning';
-import { ValidateMessagesContext } from '../form/context';
 import type { RequiredMark } from '../form/Form';
+import ValidateMessagesContext from '../form/validateMessagesContext';
 import type { Locale } from '../locale';
 import LocaleProvider, { ANT_MARK } from '../locale';
 import type { LocaleContextProps } from '../locale/context';
@@ -19,6 +19,7 @@ import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
   ButtonConfig,
+  componentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
   DirectionType,
@@ -38,8 +39,8 @@ import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
 
 /**
- * Since too many feedback using static method like `Modal.confirm` not getting theme,
- * we record the theme register info here to help developer get warning info.
+ * Since too many feedback using static method like `Modal.confirm` not getting theme, we record the
+ * theme register info here to help developer get warning info.
  */
 let existThemeConfig = false;
 
@@ -136,6 +137,27 @@ export interface ConfigProviderProps {
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
   button?: ButtonConfig;
+  divider?: componentStyleConfig;
+  typography?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+  spin?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+  segmented?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+  steps?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+  image?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
   result?: {
     className?: string;
     style?: React.CSSProperties;
@@ -227,6 +249,12 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     iconPrefixCls: customIconPrefixCls,
     theme,
     componentDisabled,
+    segmented,
+    spin,
+    typography,
+    divider,
+    steps,
+    image,
     result,
   } = props;
 
@@ -244,7 +272,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     (suffixCls: string, customizePrefixCls?: string) => {
       const { prefixCls } = props;
 
-      if (customizePrefixCls) return customizePrefixCls;
+      if (customizePrefixCls) {
+        return customizePrefixCls;
+      }
 
       const mergedPrefixCls = prefixCls || parentContext.getPrefixCls('');
 
@@ -277,6 +307,12 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     getPrefixCls,
     iconPrefixCls,
     theme: mergedTheme,
+    segmented,
+    spin,
+    typography,
+    divider,
+    steps,
+    image,
     result,
   };
 
