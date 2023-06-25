@@ -86,7 +86,7 @@ const Steps: CompoundedComponent = (props) => {
   const mergedItems = useLegacyItems(items, children);
   const mergedPercent = isInline ? undefined : percent;
 
-  const mergeStyle: React.CSSProperties = { ...steps?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...steps?.style, ...style };
 
   const stepsClassName = classNames(
     steps?.className,
@@ -131,7 +131,7 @@ const Steps: CompoundedComponent = (props) => {
     <RcSteps
       icons={icons}
       {...restProps}
-      style={mergeStyle}
+      style={mergedStyle}
       current={current}
       size={size}
       items={mergedItems}
