@@ -2,6 +2,7 @@ import React from 'react';
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import Divider from '../../divider';
+import Image from '../../image';
 import Segmented from '../../segmented';
 import Space from '../../space';
 import Spin from '../../spin';
