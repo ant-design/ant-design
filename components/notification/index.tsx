@@ -252,11 +252,14 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string, iconPrefixCls?: st
     });
   }
 
-  const closeIconToRender = (
-    <span className={`${prefixCls}-close-x`}>
-      {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
-    </span>
-  );
+  const closeIconToRender =
+    typeof closeIcon === 'undefined' ? (
+      <span className={`${prefixCls}-close-x`}>
+        <CloseOutlined className={`${prefixCls}-close-icon`} />
+      </span>
+    ) : (
+      closeIcon
+    );
 
   const autoMarginTag =
     !description && iconNode ? (
