@@ -27,6 +27,13 @@ const genRadiusStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
             },
           },
         },
+        [`${componentCls}-caption + colgroup + ${componentCls}-thead`]: {
+          'tr:first-child': {
+            'th:first-child, th:last-child, td:first-child, td:last-child': {
+              borderRadius: 0,
+            },
+          },
+        },
 
         '&-container': {
           borderStartStartRadius: tableRadius,

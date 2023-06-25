@@ -40,7 +40,14 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         [`> ${componentCls}-container`]: {
           borderInlineStart: tableBorder,
           borderTop: tableBorder,
-
+          // ============================ Caption =============================
+          [`
+          > ${componentCls}-content
+          > table
+          > ${componentCls}-caption
+          `]: {
+            borderBottom: tableBorder,
+          },
           [`
             > ${componentCls}-content,
             > ${componentCls}-header,

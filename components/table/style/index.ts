@@ -131,6 +131,11 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       [`${componentCls}-title`]: {
         padding: `${tablePaddingVertical}px ${tablePaddingHorizontal}px`,
       },
+      // ============================ Caption ============================
+      [`${componentCls}-caption`]: {
+        padding: `${tablePaddingVertical}px ${tablePaddingHorizontal}px`,
+        textAlign: 'start',
+      },
 
       // ============================ Header ============================
       [`${componentCls}-thead`]: {
