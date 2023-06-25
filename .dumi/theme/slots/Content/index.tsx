@@ -273,10 +273,13 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
           ) : null}
           {!meta.frontmatter.__autoDescription && meta.frontmatter.description}
           {children}
-          {(meta.frontmatter?.zhihu_url || meta.frontmatter?.yuque_url) && (
+          {(meta.frontmatter?.zhihu_url ||
+            meta.frontmatter?.yuque_url ||
+            meta.frontmatter?.juejin_url) && (
             <ColumnCard
               zhihuLink={meta.frontmatter.zhihu_url}
               yuqueLink={meta.frontmatter.yuque_url}
+              juejinLink={meta.frontmatter.juejin_url}
             />
           )}
           {meta.frontmatter.filename && (

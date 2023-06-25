@@ -1,7 +1,8 @@
 ---
 title: 打包体积优化
-date: 2023-06-24
+date: 2023-06-25
 author: zombieJ
+juejin_url: https://juejin.cn/post/7248424501813674021
 ---
 
 在现代 JS 应用中，通过模块化打包工具可以自动将一些未使用的模块代码去除，这个过程叫做 [Tree Shaking](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking)。不过如果你已经对此非常熟悉了，你会发现现实中它并不是那么完美，我们还需要一些额外的操作才能达到最佳的体积优化效果。今天，我们就来讲讲一个 ConfigProvider 导致的 Tree Shaking 失效的问题。
