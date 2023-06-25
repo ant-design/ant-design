@@ -5,6 +5,7 @@ import Divider from '../../divider';
 import Segmented from '../../segmented';
 import Space from '../../space';
 import Spin from '../../spin';
+import Steps from '../../steps';
 import Typography from '../../typography';
 
 describe('ConfigProvider support style and className props', () => {
@@ -147,6 +148,19 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-segmented');
     expect(element).toHaveClass('config-provider-segmented');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Steps className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        steps={{ className: 'config-provider-steps', style: { backgroundColor: 'red' } }}
+      >
+        <Steps items={[{ title: 'title', description: 'description' }]} />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-steps');
+    expect(element).toHaveClass('config-provider-steps');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });

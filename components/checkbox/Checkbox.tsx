@@ -6,7 +6,7 @@ import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import { FormItemInputContext } from '../form/context';
-import { GroupContext } from './Group';
+import GroupContext from './GroupContext';
 
 import useStyle from './style';
 

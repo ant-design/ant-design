@@ -137,12 +137,12 @@ const Spin: React.FC<SpinClassProps> = (props) => {
   // fix https://fb.me/react-unknown-prop
   const divProps = omit(restProps, ['indicator', 'prefixCls']);
 
-  const mergeStyle: React.CSSProperties = { ...spin?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...spin?.style, ...style };
 
   const spinElement: React.ReactNode = (
     <div
       {...divProps}
-      style={mergeStyle}
+      style={mergedStyle}
       className={spinClassName}
       aria-live="polite"
       aria-busy={spinning}

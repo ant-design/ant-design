@@ -101,6 +101,10 @@ export interface ConfigConsumerProps {
     className?: string;
     style?: React.CSSProperties;
   };
+  steps?: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
