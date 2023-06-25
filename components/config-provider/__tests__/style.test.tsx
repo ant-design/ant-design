@@ -2,6 +2,7 @@ import React from 'react';
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import Divider from '../../divider';
+import Segmented from '../../segmented';
 import Space from '../../space';
 import Spin from '../../spin';
 import Typography from '../../typography';
@@ -133,6 +134,19 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-spin');
     expect(element).toHaveClass('config-provider-spin');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Segmented className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        segmented={{ className: 'config-provider-segmented', style: { backgroundColor: 'red' } }}
+      >
+        <Segmented options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-segmented');
+    expect(element).toHaveClass('config-provider-segmented');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });
