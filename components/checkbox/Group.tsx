@@ -154,6 +154,9 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
   );
 };
 
+export type { CheckboxGroupContext } from './GroupContext';
+export { GroupContext };
+
 const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(InternalCheckboxGroup);
 
 export default React.memo(CheckboxGroup);
