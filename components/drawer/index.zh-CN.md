@@ -45,8 +45,7 @@ demo:
 | afterOpenChange | 切换抽屉时动画结束后的回调 | function(open) | - |  |
 | bodyStyle | 可用于设置 Drawer 内容部分的样式 | CSSProperties | - |  |
 | className | Drawer 容器外层 className 设置，如果需要设置最外层，请使用 rootClassName | string | - |  |
-| closable | 是否显示左上角的关闭按钮 | boolean | true |  |
-| closeIcon | 自定义关闭图标 | ReactNode | &lt;CloseOutlined /> |  |
+| closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | boolean \| ReactNode | &lt;CloseOutlined /> |  |
 | contentWrapperStyle | 可用于设置 Drawer 包裹内容部分的样式 | CSSProperties | - |  |
 | destroyOnClose | 关闭时销毁 Drawer 里的子元素 | boolean | false |  |
 | extra | 抽屉右上角的操作区域 | ReactNode | - | 4.17.0 |

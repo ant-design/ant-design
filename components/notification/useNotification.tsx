@@ -113,8 +113,11 @@ export function useInternalNotification(
         btn,
         className,
         role = 'alert',
+        closeIcon,
         ...restConfig
       } = config;
+
+      const realCloseIcon = getCloseIcon(noticePrefixCls, closeIcon);
 
       return originOpen({
         placement: 'topRight',
@@ -131,6 +134,8 @@ export function useInternalNotification(
           />
         ),
         className: classNames(type && `${noticePrefixCls}-${type}`, hashId, className),
+        closeIcon: realCloseIcon,
+        closable: !!realCloseIcon,
       });
     };
 

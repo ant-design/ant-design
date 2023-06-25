@@ -72,9 +72,7 @@ More option at [rc-tabs tabs](https://github.com/react-component/tabs#tabs)
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| closable | Set tab closable. Only works while `type="editable-card"` | boolean | true |
-| closeIcon | Customize close icon in TabPane's head. Only works while `type="editable-card"` | ReactNode | - |
-| closable | Whether the Tab can be closed, Only works while `type="editable-card"` | boolean | true |
+| closeIcon | Customize close icon in TabPane's head. Only works while `type="editable-card"`. 5.7.0: close button will be hidden when setting to `null` or `false` | boolean \| ReactNode | - |
 | disabled | Set TabPane disabled | boolean | false |
 | forceRender | Forced render of content in tabs, not lazy render after clicking on tabs | boolean | false |
 | key | TabPane's key | string | - |
