@@ -1,7 +1,8 @@
 ---
 title: Bundle Size Optimization
-date: 2023-06-24
+date: 2023-06-25
 author: zombieJ
+juejin_url: https://juejin.cn/post/7248424501813674021
 ---
 
 In modern JS applications, unused module can be automatically removed by modular packaging tools. This process is called [Tree Shaking](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking). However, if you are already very familiar with it, you will find that it is not so perfect in reality. We still need some extra operations to achieve the best size optimization effect. Today, let's talk about a problem that ConfigProvider causes Tree Shaking to fail.
