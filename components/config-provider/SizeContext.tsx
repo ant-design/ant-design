@@ -1,5 +1,4 @@
 import * as React from 'react';
-import useSize from './hooks/useSize';
 
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
 
@@ -11,8 +10,8 @@ export interface SizeContextProps {
 }
 
 export const SizeContextProvider: React.FC<SizeContextProps> = ({ children, size }) => {
-  const mergedSize = useSize(size);
-  return <SizeContext.Provider value={mergedSize}>{children}</SizeContext.Provider>;
+  const originSize = React.useContext<SizeType>(SizeContext);
+  return <SizeContext.Provider value={size || originSize}>{children}</SizeContext.Provider>;
 };
 
 export default SizeContext;
