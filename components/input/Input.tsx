@@ -97,7 +97,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   // ===================== Size =====================
-  const mergedSize = useSize((ctx) => compactSize ?? customSize ?? ctx);
+  const mergedSize = useSize((ctx) => customSize ?? compactSize ?? ctx);
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);

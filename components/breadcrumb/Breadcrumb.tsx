@@ -9,6 +9,7 @@ import type { BreadcrumbItemProps } from './BreadcrumbItem';
 import BreadcrumbItem, { InternalBreadcrumbItem } from './BreadcrumbItem';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 
+import type { DropdownProps } from '../dropdown';
 import useStyle from './style';
 import useItemRender from './useItemRender';
 import useItems from './useItems';
@@ -30,6 +31,7 @@ export interface BreadcrumbItemType {
   /** @deprecated Please use `menu` instead */
   overlay?: React.ReactNode;
   className?: string;
+  dropdownProps?: DropdownProps;
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
 
   /** @deprecated Please use `menu` instead */
@@ -93,7 +95,7 @@ const Breadcrumb = (props: BreadcrumbProps) => {
     ...restProps
   } = props;
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, breadcrumb } = React.useContext(ConfigContext);
 
   let crumbs: React.ReactNode;
   const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
@@ -123,6 +125,7 @@ const Breadcrumb = (props: BreadcrumbProps) => {
         onClick,
         className: itemClassName,
         separator: itemSeparator,
+        dropdownProps,
       } = item;
       const mergedPath = getPath(params, path);
 
@@ -145,10 +148,6 @@ const Breadcrumb = (props: BreadcrumbProps) => {
         itemProps.overlay = overlay as any;
       }
 
-      if (itemClassName) {
-        itemProps.className = itemClassName;
-      }
-
       let { href } = item;
       if (paths.length && mergedPath !== undefined) {
         href = `#/${paths.join('/')}`;
@@ -162,6 +161,8 @@ const Breadcrumb = (props: BreadcrumbProps) => {
             data: true,
             aria: true,
           })}
+          className={itemClassName}
+          dropdownProps={dropdownProps}
           href={href}
           separator={isLastItem ? '' : separator}
           onClick={onClick}
@@ -202,6 +203,7 @@ const Breadcrumb = (props: BreadcrumbProps) => {
 
   const breadcrumbClassName = classNames(
     prefixCls,
+    breadcrumb?.className,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
@@ -210,8 +212,10 @@ const Breadcrumb = (props: BreadcrumbProps) => {
     hashId,
   );
 
+  const mergedStyle: React.CSSProperties = { ...breadcrumb?.style, ...style };
+
   return wrapSSR(
-    <nav className={breadcrumbClassName} style={style} {...restProps}>
+    <nav className={breadcrumbClassName} style={mergedStyle} {...restProps}>
       <ol>{crumbs}</ol>
     </nav>,
   );
