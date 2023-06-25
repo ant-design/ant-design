@@ -3,6 +3,7 @@ import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import Divider from '../../divider';
 import Image from '../../image';
+import Result from '../../result';
 import Segmented from '../../segmented';
 import Space from '../../space';
 import Spin from '../../spin';
@@ -177,6 +178,17 @@ describe('ConfigProvider support style and className props', () => {
       ?.querySelector<HTMLDivElement>('.ant-image')
       ?.querySelector<HTMLImageElement>('img');
     expect(element).toHaveClass('config-provider-image');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Result className & style works', () => {
+    const { container } = render(
+      <ConfigProvider result={{ className: 'cp-result', style: { backgroundColor: 'red' } }}>
+        <Result />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-result');
+    expect(element).toHaveClass('cp-result');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });

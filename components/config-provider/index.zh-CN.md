@@ -108,6 +108,7 @@ const {
 | form | 设置 Form 组件的通用属性 | { validateMessages?: [ValidateMessages](/components/form-cn#validatemessages), requiredMark?: boolean \| `optional`, colon?: boolean, scrollToFirstError?: boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)} | - | requiredMark: 4.8.0; colon: 4.18.0; scrollToFirstError: 5.2.0 |
 | image | 设置 Image 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | input | 设置 Input 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| result | 设置 Result 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | segmented | 设置 Segmented 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | select | 设置 Select 组件的通用属性 | { showSearch?: boolean } | - |  |
 | space | 设置 Space 的通用属性，参考 [Space](/components/space-cn) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: { item: string }, styles?: { item: React.CSSProperties } } | - | 5.6.0 |
