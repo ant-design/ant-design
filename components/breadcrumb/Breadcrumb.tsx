@@ -212,10 +212,10 @@ const Breadcrumb = (props: BreadcrumbProps) => {
     hashId,
   );
 
-  const mergeStyle: React.CSSProperties = { ...breadcrumb?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...breadcrumb?.style, ...style };
 
   return wrapSSR(
-    <nav className={breadcrumbClassName} style={mergeStyle} {...restProps}>
+    <nav className={breadcrumbClassName} style={mergedStyle} {...restProps}>
       <ol>{crumbs}</ol>
     </nav>,
   );
