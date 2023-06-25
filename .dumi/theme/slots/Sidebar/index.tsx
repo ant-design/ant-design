@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
-import { useSidebarData } from 'dumi';
-import { Col, ConfigProvider, Menu } from 'antd';
-import MobileMenu from 'rc-drawer';
 import { css } from '@emotion/react';
-import SiteContext from '../SiteContext';
+import { Col, ConfigProvider, Menu } from 'antd';
+import { useSidebarData } from 'dumi';
+import MobileMenu from 'rc-drawer';
+import React, { useContext } from 'react';
 import useMenu from '../../../hooks/useMenu';
 import useSiteToken from '../../../hooks/useSiteToken';
+import SiteContext from '../SiteContext';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -134,7 +134,7 @@ const Sidebar: React.FC = () => {
   } = useSiteToken();
 
   const menuChild = (
-    <ConfigProvider theme={{ components: { Menu: { colorItemBg: colorBgContainer } } }}>
+    <ConfigProvider theme={{ components: { Menu: { itemBg: colorBgContainer } } }}>
       <Menu
         items={menuItems}
         inlineIndent={30}

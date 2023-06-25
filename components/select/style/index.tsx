@@ -144,11 +144,6 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         flex: 1,
         fontWeight: 'normal',
         ...textEllipsis,
-
-        '> *': {
-          lineHeight: 'inherit',
-          ...textEllipsis,
-        },
       },
 
       // ======================= Placeholder =======================

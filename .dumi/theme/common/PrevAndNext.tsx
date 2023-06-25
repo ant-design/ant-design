@@ -1,13 +1,14 @@
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import { css } from '@emotion/react';
 import type { MenuProps } from 'antd';
-import { createStyles, css } from 'antd-style';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
-import classNames from 'classnames';
 import type { ReactElement } from 'react';
 import React, { useMemo } from 'react';
 import useMenu from '../../hooks/useMenu';
+import useSiteToken from '../../hooks/useSiteToken';
 
-const useStyle = createStyles(({ token }) => {
+const useStyle = () => {
+  const { token } = useSiteToken();
   const { colorSplit, iconCls, fontSizeIcon } = token;
 
   return {
@@ -27,6 +28,7 @@ const useStyle = createStyles(({ token }) => {
       text-decoration: none;
 
       ${iconCls} {
+        color: #999;
         font-size: ${fontSizeIcon}px;
         transition: all 0.3s;
       }
@@ -37,6 +39,9 @@ const useStyle = createStyles(({ token }) => {
     `,
     prevNav: css`
       text-align: start;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
 
       .footer-nav-icon-after {
         display: none;
@@ -57,6 +62,9 @@ const useStyle = createStyles(({ token }) => {
     `,
     nextNav: css`
       text-align: end;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
 
       .footer-nav-icon-before {
         display: none;
@@ -77,7 +85,7 @@ const useStyle = createStyles(({ token }) => {
       }
     `,
   };
-});
+};
 
 const flattenMenu = (menuItems: MenuProps['items']): MenuProps['items'] | null => {
   if (Array.isArray(menuItems)) {
@@ -95,8 +103,7 @@ const flattenMenu = (menuItems: MenuProps['items']): MenuProps['items'] | null =
 };
 
 const PrevAndNext: React.FC<{ rtl?: boolean }> = ({ rtl }) => {
-  const { styles } = useStyle();
-
+  const styles = useStyle();
   const beforeProps = { className: 'footer-nav-icon-before' };
   const afterProps = { className: 'footer-nav-icon-after' };
 
@@ -123,14 +130,14 @@ const PrevAndNext: React.FC<{ rtl?: boolean }> = ({ rtl }) => {
   }, [menuItems, selectedKey]);
 
   return (
-    <section className={styles.prevNextNav}>
+    <section css={styles.prevNextNav}>
       {prev &&
         React.cloneElement(prev.label as ReactElement, {
-          className: classNames(styles.pageNav, styles.prevNav),
+          css: [styles.pageNav, styles.prevNav],
         })}
       {next &&
         React.cloneElement(next.label as ReactElement, {
-          className: classNames(styles.pageNav, styles.nextNav),
+          css: [styles.pageNav, styles.nextNav],
         })}
     </section>
   );

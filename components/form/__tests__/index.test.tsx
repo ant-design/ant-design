@@ -21,6 +21,7 @@ import zhCN from '../../locale/zh_CN';
 import Modal from '../../modal';
 import Radio from '../../radio';
 import Select from '../../select';
+import Slider from '../../slider';
 import Switch from '../../switch';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
@@ -1159,6 +1160,9 @@ describe('Form', () => {
         </Form.Item>
         <Form.Item label="Button">
           <Button>Button</Button>
+        </Form.Item>
+        <Form.Item label="Slider">
+          <Slider />
         </Form.Item>
       </Form>
     );
