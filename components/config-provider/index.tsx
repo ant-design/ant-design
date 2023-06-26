@@ -148,6 +148,7 @@ export interface ConfigProviderProps {
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
   empty?: ComponentStyleConfig;
+  radio?: ComponentStyleConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -249,6 +250,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     breadcrumb,
     pagination,
     empty,
+    radio,
   } = props;
 
   // =================================== Warning ===================================
@@ -314,6 +316,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     breadcrumb,
     pagination,
     empty,
+    radio,
   };
 
   const config = {

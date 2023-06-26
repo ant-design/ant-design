@@ -9,6 +9,7 @@ import Divider from '../../divider';
 import Empty from '../../empty';
 import Image from '../../image';
 import Pagination from '../../pagination';
+import Radio from '../../radio';
 import Result from '../../result';
 import Segmented from '../../segmented';
 import Slider from '../../slider';
@@ -197,6 +198,24 @@ describe('ConfigProvider support style and className props', () => {
     const element = container.querySelector<HTMLDivElement>('.ant-result');
     expect(element).toHaveClass('cp-result');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Radio className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        radio={{
+          className: 'cp-className',
+          style: {
+            background: 'red',
+          },
+        }}
+      >
+        <Radio>Radio</Radio>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-radio-wrapper')).toHaveClass('cp-className');
+    expect(container.querySelector('.ant-radio-wrapper')).toHaveStyle({ background: 'red' });
   });
 
   it('Should Slider className & style works', () => {
