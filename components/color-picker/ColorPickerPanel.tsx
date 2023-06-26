@@ -28,17 +28,14 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
   const colorPickerPanelPrefixCls = `${prefixCls}-inner-content`;
 
   // ==== Inject props ===
-  const panelPickerProps = React.useMemo(
-    () => ({
-      prefixCls,
-      value: color,
-      onChange,
-      onClear,
-      onChangeComplete,
-      ...injectProps,
-    }),
-    [prefixCls, color, onChange, injectProps],
-  );
+  const panelPickerProps = {
+    prefixCls,
+    value: color,
+    onChange,
+    onClear,
+    onChangeComplete,
+    ...injectProps,
+  };
 
   const panelPresetsProps = React.useMemo(
     () => ({
