@@ -777,6 +777,36 @@ describe('Upload', () => {
         expect(args[0].file.name).toBe('foo.png');
       });
     });
+
+    // https://github.com/ant-design/ant-design/issues/43190
+    it('should trigger onChange when remove', () => {
+      const onChange = jest.fn();
+
+      const { container } = render(
+        <Upload
+          onChange={onChange}
+          maxCount={2}
+          defaultFileList={[
+            {
+              uid: 'bamboo',
+              name: 'bamboo.png',
+            },
+            {
+              uid: 'little',
+              name: 'little.png',
+            },
+          ]}
+          showUploadList
+        >
+          <button type="button">upload</button>
+        </Upload>,
+      );
+
+      // Click delete
+      fireEvent.click(container.querySelector('.ant-upload-list-item-action')!);
+
+      expect(onChange).toHaveBeenCalledWith({});
+    });
   });
 
   it('auto fill file uid', () => {
