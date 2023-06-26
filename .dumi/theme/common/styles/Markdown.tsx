@@ -180,15 +180,25 @@ const GlobalStyle: React.FC = () => {
             line-height: 2;
           }
         }
-
+        .pic-plus {
+          & > * {
+            display: inline-block !important;
+            vertical-align: middle;
+          }
+          span {
+            margin: 0 20px;
+            color: #aaa;
+            font-size: 30px;
+          }
+        }
         .antd-site-snippet {
           .ant-tabs-tab {
             .snippet-label {
               display: flex;
               align-items: center;
               justify-content: center;
-              span {
-                margin-inline-start: 8px;
+              svg {
+                margin-inline-end: 8px;
               }
             }
           }

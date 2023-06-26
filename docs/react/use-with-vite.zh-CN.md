@@ -1,9 +1,9 @@
 ---
 order: 4
-title: 在 vite 中使用
+title: 在 Vite 中使用
 ---
 
-[vite](https://cn.vitejs.dev/) 是业界最优秀的 React 应用开发工具之一，本文会尝试在 vite 创建的工程中使用 `antd` 组件，并自定义 vite 的配置以满足各类工程化需求。
+[Vite](https://cn.vitejs.dev/) 是业界最优秀的 React 应用开发工具之一，本文会尝试在 Vite 创建的工程中使用 `antd` 组件，并自定义 Vite 的配置以满足各类工程化需求。
 
 ## 安装和初始化
 
@@ -64,6 +64,6 @@ const App = () => (
 export default App;
 ```
 
-好了，现在你应该能看到页面上已经有了 `antd` 的蓝色按钮组件，接下来就可以继续选用其他组件开发应用了。其他开发流程你可以参考 vite 的[官方文档](https://cn.vitejs.dev/)。
+好了，现在你应该能看到页面上已经有了 `antd` 的蓝色按钮组件，接下来就可以继续选用其他组件开发应用了。其他开发流程你可以参考 Vite 的[官方文档](https://cn.vitejs.dev/)。
 
 我们现在已经把 antd 组件成功运行起来了，开始开发你的应用吧！

@@ -49,12 +49,12 @@ The core team is monitoring for pull requests. We will review your pull request 
 **Before submitting a pull request**, please make sure the following is done:
 
 1. Fork the repository and create your branch from the [correct branch](#branch-organization).
-1. Run `npm install` in the repository root.
-1. If you've fixed a bug or added code that should be tested, add tests!
-1. Ensure the test suite passes (npm run test). Tip: `npm test -- --watch TestName` is helpful in development.
-1. Run `npm test -- -u` to update the [jest snapshots](https://jestjs.io/docs/snapshot-testing) and commit these changes as well (if there are any updates).
-1. Ensure the UI change passes `npm run test-image`，Run `npm run test-image -- -u` to update UI snapshots and commit these changes as well (if there are any updates), **UI test base on [Docker](https://docs.docker.com/get-docker/), need download the corresponding installation according to the platform**
-1. Make sure your code lints (npm run lint). Tip: Lint runs automatically when you `git commit` (Use [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)).
+2. Run `npm install` in the repository root.
+3. If you've fixed a bug or added code that should be tested, add tests!
+4. Ensure the test suite passes (npm run test). Tip: `npm test -- --watch TestName` is helpful in development.
+5. Run `npm test -- -u` to update the [jest snapshots](https://jestjs.io/docs/snapshot-testing) and commit these changes as well (if there are any updates).
+6. Ensure the UI change passes `npm run test-image`，Run `npm run test-image -- -u` to update UI snapshots and commit these changes as well (if there are any updates), **UI test base on [Docker](https://docs.docker.com/get-docker/), need download the corresponding installation according to the platform**
+7. Make sure your code lints (npm run lint). Tip: Lint runs automatically when you `git commit` (Use [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)).
 
 Sending a Pull Request to [react-component](https://github.com/react-component/):
 
@@ -62,19 +62,41 @@ Since antd's components are based on react-component, sometimes you may need to 
 
 ## Development Workflow
 
-Before you can start you must run the following command to enable [corepack](https://nodejs.org/api/corepack.html)。
+`npm` or `yarn` are recommended as package management tools.
 
-```bash
-corepack enable
-```
+After you clone the antd code and use following commands to install dependencies:
 
-After cloning antd, run `npm install` to fetch its dependencies. Then, you can run several commands:
+<InstallDependencies npm='$ npm install' yarn='$ yarn'></InstallDependencies>
 
-1. `npm start` runs Ant Design website locally.
-1. `npm run lint` checks the code style.
-1. `npm test` runs the complete test suite. (Make sure the `NODE_ENV` environment variable is unset, or it may causing some problems.)
-1. `npm run compile` compiles TypeScript code to the `lib` and `es` directory.
-1. `npm run dist` creates UMD build of antd.
+You can also run the following common commands:
+
+### Run locally
+
+Runs Ant Design website locally.
+
+<InstallDependencies npm='$ npm start' yarn='$ yarn start'></InstallDependencies>
+
+### Checks the code style
+
+<InstallDependencies npm='$ npm run lint' yarn='$ yarn lint'></InstallDependencies>
+
+### Run test
+
+runs the complete test suite. (Make sure the `NODE_ENV` environment variable is unset, or it may causing some problems.)
+
+<InstallDependencies npm='$ npm test' yarn='$ yarn test'></InstallDependencies>
+
+### Compile
+
+compiles TypeScript code to the `lib` and `es` directory.
+
+<InstallDependencies npm='$ npm run compile' yarn='$ yarn compile'></InstallDependencies>
+
+### Build
+
+creates UMD build of antd.
+
+<InstallDependencies npm='$ npm run dist' yarn='$ yarn dist'></InstallDependencies>
 
 ## Development Tools
 

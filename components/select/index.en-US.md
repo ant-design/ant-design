@@ -47,12 +47,6 @@ Select component to select value from options.
 
 ## API
 
-```tsx
-<Select>
-  <Option value="lucy">lucy</Option>
-</Select>
-```
-
 ### Select props
 
 | Property | Description | Type | Default | Version |

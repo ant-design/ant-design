@@ -991,6 +991,59 @@ exports[`Form form should support disabled 1`] = `
       </div>
     </div>
   </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-4 ant-form-item-label"
+      >
+        <label
+          class=""
+          title="Slider"
+        >
+          Slider
+        </label>
+      </div>
+      <div
+        class="ant-col ant-col-14 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-slider ant-slider-disabled ant-slider-horizontal"
+            >
+              <div
+                class="ant-slider-rail"
+              />
+              <div
+                class="ant-slider-track"
+                style="left: 0%; width: 0%;"
+              />
+              <div
+                class="ant-slider-step"
+              />
+              <div
+                aria-disabled="true"
+                aria-valuemax="100"
+                aria-valuemin="0"
+                aria-valuenow="0"
+                class="ant-slider-handle"
+                role="slider"
+                style="left: 0%; transform: translateX(-50%);"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </form>
 `;
 

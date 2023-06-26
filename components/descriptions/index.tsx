@@ -8,16 +8,10 @@ import useResponsiveObserver, { responsiveArray } from '../_util/responsiveObser
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
+import DescriptionsContext from './DescriptionsContext';
 import DescriptionsItem from './Item';
 import Row from './Row';
 import useStyle from './style';
-
-export interface DescriptionsContextProps {
-  labelStyle?: React.CSSProperties;
-  contentStyle?: React.CSSProperties;
-}
-
-export const DescriptionsContext = React.createContext<DescriptionsContextProps>({});
 
 const DEFAULT_COLUMN_MAP: Record<Breakpoint, number> = {
   xxl: 3,
@@ -212,6 +206,9 @@ function Descriptions({
 if (process.env.NODE_ENV !== 'production') {
   Descriptions.displayName = 'Descriptions';
 }
+
+export type { DescriptionsContextProps } from './DescriptionsContext';
+export { DescriptionsContext };
 
 Descriptions.Item = DescriptionsItem;
 

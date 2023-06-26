@@ -20,6 +20,7 @@ Used when the user needs to customize the color selection.
 
 <!-- prettier-ignore -->
 <code src="./demo/base.tsx">Basic Usage</code>
+<code src="./demo/size.tsx">Trigger size</code>
 <code src="./demo/controlled.tsx">controlled mode</code>
 <code src="./demo/text-render.tsx">Rendering Trigger Text</code>
 <code src="./demo/disabled.tsx">Disable</code>
@@ -50,6 +51,7 @@ Used when the user needs to customize the color selection.
 | arrow | Configuration for popup arrow | `boolean \| { pointAtCenter: boolean }` | true | |
 | destroyTooltipOnHide | Whether destroy popover when hidden | `boolean` | false | 5.7.0 |
 | showText | show color text | boolean \| `(color: Color) => React.ReactNode` | - | 5.7.0 |
+| size | Setting the trigger size | `large` \| `middle` \| `small` | `middle` | 5.7.0 |
 | onChange | Callback when `value` is changed | `(value: Color, hex: string) => void` | - | |
 | onFormatChange | Callback when `format` is changed | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - | |
 | onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - | |

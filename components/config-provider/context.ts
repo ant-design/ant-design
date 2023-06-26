@@ -36,12 +36,12 @@ export interface ThemeConfig {
   inherit?: boolean;
 }
 
-export interface componentStyleConfig {
+export interface ComponentStyleConfig {
   className?: string;
   style?: React.CSSProperties;
 }
 
-export interface ButtonConfig extends componentStyleConfig {
+export interface ButtonConfig extends ComponentStyleConfig {
   classNames?: ButtonProps['classNames'];
   styles?: ButtonProps['styles'];
 }
@@ -88,12 +88,22 @@ export interface ConfigConsumerProps {
     showSearch?: boolean;
   };
   button?: ButtonConfig;
-  divider?: componentStyleConfig;
+  divider?: ComponentStyleConfig;
+  typography?: ComponentStyleConfig;
+  spin?: ComponentStyleConfig;
+  segmented?: ComponentStyleConfig;
+  steps?: ComponentStyleConfig;
+  image?: ComponentStyleConfig;
+  result?: ComponentStyleConfig;
+  slider?: ComponentStyleConfig;
+  breadcrumb?: ComponentStyleConfig;
+  checkbox?: ComponentStyleConfig;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
-  if (customizePrefixCls) return customizePrefixCls;
-
+  if (customizePrefixCls) {
+    return customizePrefixCls;
+  }
   return suffixCls ? `ant-${suffixCls}` : 'ant';
 };
 
