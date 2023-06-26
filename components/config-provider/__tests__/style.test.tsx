@@ -1,6 +1,7 @@
 import React from 'react';
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
+import Anchor from '../../anchor';
 import Breadcrumb from '../../breadcrumb';
 import Checkbox from '../../checkbox';
 import Descriptions from '../../descriptions';
@@ -206,6 +207,37 @@ describe('ConfigProvider support style and className props', () => {
     const element = container.querySelector<HTMLDivElement>('.ant-slider');
     expect(element).toHaveClass('cp-slider');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Anchor className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        anchor={{
+          className: 'cp-className',
+          style: {
+            background: 'red',
+          },
+        }}
+      >
+        <Anchor
+          items={[
+            {
+              key: 'part-1',
+              href: '#part-1',
+              title: 'Part 1',
+            },
+            {
+              key: 'part-2',
+              href: '#part-2',
+              title: 'Part 2',
+            },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-anchor-wrapper')).toHaveClass('cp-className');
+    expect(container.querySelector('.ant-anchor-wrapper')).toHaveStyle({ background: 'red' });
   });
 
   it('Should Breadcrumb className & style works', () => {
