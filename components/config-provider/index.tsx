@@ -113,11 +113,7 @@ export interface ConfigProviderProps {
   select?: {
     showSearch?: boolean;
   };
-  pagination?: {
-    showSizeChanger?: boolean;
-    className?: string;
-    style?: React.CSSProperties;
-  };
+  pagination?: ComponentStyleConfig & { showSizeChanger?: boolean };
   locale?: Locale;
   pageHeader?: {
     ghost: boolean;
