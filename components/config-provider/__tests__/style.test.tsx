@@ -2,6 +2,7 @@ import React from 'react';
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import Anchor from '../../anchor';
+import Badge from '../../badge';
 import Breadcrumb from '../../breadcrumb';
 import Checkbox from '../../checkbox';
 import Descriptions from '../../descriptions';
@@ -321,5 +322,16 @@ describe('ConfigProvider support style and className props', () => {
 
     expect(container.querySelector('.ant-empty')).toHaveClass('cp-className');
     expect(container.querySelector('.ant-empty')).toHaveStyle({ background: 'red' });
+  });
+
+  it('Should Badge className & style works', () => {
+    const { container } = render(
+      <ConfigProvider pagination={{ className: 'cp-badge', style: { backgroundColor: 'blue' } }}>
+        <Badge count={10}>test</Badge>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLSpanElement>('.ant-badge');
+    expect(element).toHaveClass('cp-badge');
+    expect(element).toHaveStyle({ backgroundColor: 'blue' });
   });
 });

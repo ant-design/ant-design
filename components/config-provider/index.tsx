@@ -148,6 +148,7 @@ export interface ConfigProviderProps {
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
   empty?: ComponentStyleConfig;
+  badge?: ComponentStyleConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -200,7 +201,9 @@ const setGlobalConfig = ({
 
 export const globalConfig = () => ({
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
-    if (customizePrefixCls) return customizePrefixCls;
+    if (customizePrefixCls) {
+      return customizePrefixCls;
+    }
     return suffixCls ? `${getGlobalPrefixCls()}-${suffixCls}` : getGlobalPrefixCls();
   },
   getIconPrefixCls: getGlobalIconPrefixCls,
@@ -249,6 +252,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     breadcrumb,
     pagination,
     empty,
+    badge,
   } = props;
 
   // =================================== Warning ===================================
@@ -314,6 +318,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     breadcrumb,
     pagination,
     empty,
+    badge,
   };
 
   const config = {
