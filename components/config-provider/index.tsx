@@ -149,6 +149,7 @@ export interface ConfigProviderProps {
   descriptions?: ComponentStyleConfig;
   empty?: ComponentStyleConfig;
   badge?: ComponentStyleConfig;
+  radio?: ComponentStyleConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -253,6 +254,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     pagination,
     empty,
     badge,
+    radio,
   } = props;
 
   // =================================== Warning ===================================
@@ -319,6 +321,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     pagination,
     empty,
     badge,
+    radio,
   };
 
   const config = {
