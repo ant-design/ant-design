@@ -3,6 +3,7 @@ import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import Breadcrumb from '../../breadcrumb';
 import Checkbox from '../../checkbox';
+import Descriptions from '../../descriptions';
 import Divider from '../../divider';
 import Image from '../../image';
 import Result from '../../result';
@@ -235,5 +236,25 @@ describe('ConfigProvider support style and className props', () => {
 
     expect(container.querySelector('.ant-checkbox-wrapper')).toHaveClass('cp-breadcrumb');
     expect(container.querySelector('.ant-checkbox-wrapper')).toHaveStyle({ background: 'red' });
+  });
+
+  it('Should Descriptions className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        descriptions={{
+          className: 'cp-className',
+          style: {
+            background: 'red',
+          },
+        }}
+      >
+        <Descriptions title="User Info">
+          <Descriptions.Item label="UserName">muxin</Descriptions.Item>
+        </Descriptions>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-descriptions')).toHaveClass('cp-className');
+    expect(container.querySelector('.ant-descriptions')).toHaveStyle({ background: 'red' });
   });
 });
