@@ -10,6 +10,23 @@ import genRadius from '../themes/shared/genRadius';
 const { useToken } = theme;
 
 describe('Theme', () => {
+  const getHookToken = (config?: ThemeConfig) => {
+    let token: any;
+    const Demo = () => {
+      const { token: hookToken } = useToken();
+      token = hookToken;
+      return null;
+    };
+    render(
+      <ConfigProvider theme={config}>
+        <Demo />
+      </ConfigProvider>,
+    );
+    delete token._hashId;
+    delete token._tokenKey;
+    return token;
+  };
+
   it('useTheme', () => {
     const { result } = renderHook(() => useToken());
 
@@ -224,23 +241,6 @@ describe('Theme', () => {
   });
 
   describe('getDesignToken', () => {
-    const getHookToken = (config?: ThemeConfig) => {
-      let token: any;
-      const Demo = () => {
-        const { token: hookToken } = useToken();
-        token = hookToken;
-        return null;
-      };
-      render(
-        <ConfigProvider theme={config}>
-          <Demo />
-        </ConfigProvider>,
-      );
-      delete token._hashId;
-      delete token._tokenKey;
-      return token;
-    };
-
     it('default', () => {
       const token = theme.getDesignToken();
       const hookToken = getHookToken();
@@ -274,6 +274,32 @@ describe('Theme', () => {
       const hookToken = getHookToken(config);
       expect(token).toEqual(hookToken);
       expect(token.colorPrimary).toEqual('#1668dc');
+    });
+  });
+
+  describe('colorLink', () => {
+    it('should follow colorPrimary by default', () => {
+      const token = getHookToken();
+      expect(token.colorLink).toEqual(token.colorPrimary);
+      expect(token.colorLinkHover).toEqual(token.colorPrimaryHover);
+      expect(token.colorLinkActive).toEqual(token.colorPrimaryActive);
+
+      const token2 = getHookToken({ token: { colorPrimary: '#189cff' } });
+      expect(token2.colorLink).toEqual(token2.colorPrimary);
+      expect(token2.colorLinkHover).toEqual(token2.colorPrimaryHover);
+      expect(token2.colorLinkActive).toEqual(token2.colorPrimaryActive);
+
+      const token3 = getHookToken({ algorithm: [theme.darkAlgorithm] });
+      expect(token3.colorLink).toEqual(token3.colorPrimary);
+      expect(token3.colorLinkHover).toEqual(token3.colorPrimaryHover);
+      expect(token3.colorLinkActive).toEqual(token3.colorPrimaryActive);
+    });
+
+    it('should be calculated correctly', () => {
+      const token = getHookToken({ token: { colorLink: '#189cff' } });
+      expect(token.colorLink).toEqual('#189cff');
+      expect(token.colorLinkHover).toEqual('#40b3ff');
+      expect(token.colorLinkActive).toEqual('#0978d9');
     });
   });
 });
