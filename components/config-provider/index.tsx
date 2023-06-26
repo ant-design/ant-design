@@ -147,6 +147,7 @@ export interface ConfigProviderProps {
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;
   checkbox?: ComponentStyleConfig;
+  descriptions?: ComponentStyleConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -238,6 +239,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     spin,
     typography,
     checkbox,
+    descriptions,
     divider,
     steps,
     image,
@@ -299,6 +301,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     spin,
     typography,
     checkbox,
+    descriptions,
     divider,
     steps,
     image,
