@@ -98,7 +98,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     getPrefixCls,
     renderEmpty,
     direction,
-    mentions: CPMentions,
+    mentions: contextMentions,
   } = React.useContext(ConfigContext);
   const {
     status: contextStatus,
@@ -164,7 +164,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     getStatusClassNames(prefixCls, mergedStatus),
-    CPMentions?.className,
+    contextMentions?.className,
     !hasFeedback && className,
     rootClassName,
     hashId,
@@ -177,7 +177,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
       className={mergedClassName}
       disabled={disabled}
       direction={direction}
-      style={{ ...CPMentions?.style, ...style }}
+      style={{ ...contextMentions?.style, ...style }}
       {...restProps}
       filterOption={mentionsfilterOption}
       onFocus={onFocus}
