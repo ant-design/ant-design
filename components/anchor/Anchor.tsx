@@ -152,7 +152,8 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
   const spanLinkNode = React.useRef<HTMLSpanElement>(null);
   const animating = React.useRef<boolean>(false);
 
-  const { direction, getTargetContainer } = React.useContext<ConfigConsumerProps>(ConfigContext);
+  const { direction, getTargetContainer, anchor } =
+    React.useContext<ConfigConsumerProps>(ConfigContext);
 
   const getCurrentContainer = getContainer ?? getTargetContainer ?? getDefaultContainer;
 
@@ -280,6 +281,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    anchor?.className,
   );
 
   const anchorClass = classNames(prefixCls, {
@@ -292,6 +294,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
 
   const wrapperStyle: React.CSSProperties = {
     maxHeight: offsetTop ? `calc(100vh - ${offsetTop}px)` : '100vh',
+    ...anchor?.style,
     ...style,
   };
 
