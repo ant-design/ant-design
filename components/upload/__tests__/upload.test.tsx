@@ -779,7 +779,7 @@ describe('Upload', () => {
     });
 
     // https://github.com/ant-design/ant-design/issues/43190
-    it('should trigger onChange when remove', () => {
+    it('should trigger onChange when remove', async () => {
       const onChange = jest.fn();
 
       const { container } = render(
@@ -805,7 +805,14 @@ describe('Upload', () => {
       // Click delete
       fireEvent.click(container.querySelector('.ant-upload-list-item-action')!);
 
-      expect(onChange).toHaveBeenCalledWith({});
+      await waitFakeTimer();
+
+      expect(onChange).toHaveBeenCalledWith(
+        expect.objectContaining({
+          // Have 1 file
+          fileList: [expect.anything()],
+        }),
+      );
     });
   });
 
