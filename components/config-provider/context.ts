@@ -98,6 +98,7 @@ export interface ConfigConsumerProps {
   breadcrumb?: ComponentStyleConfig;
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
+  empty?: ComponentStyleConfig;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
