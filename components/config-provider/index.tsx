@@ -18,6 +18,7 @@ import type { SpaceProps } from '../space';
 import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
+  BadgeConfig,
   ButtonConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
@@ -148,7 +149,7 @@ export interface ConfigProviderProps {
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
   empty?: ComponentStyleConfig;
-  badge?: ComponentStyleConfig;
+  badge?: BadgeConfig;
   radio?: ComponentStyleConfig;
 }
 

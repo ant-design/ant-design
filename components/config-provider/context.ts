@@ -41,6 +41,10 @@ export interface ComponentStyleConfig {
   style?: React.CSSProperties;
 }
 
+export interface BadgeConfig extends ComponentStyleConfig {
+  classNames?: { count?: string };
+}
+
 export interface ButtonConfig extends ComponentStyleConfig {
   classNames?: ButtonProps['classNames'];
   styles?: ButtonProps['styles'];
@@ -99,7 +103,7 @@ export interface ConfigConsumerProps {
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
   empty?: ComponentStyleConfig;
-  badge?: ComponentStyleConfig;
+  badge?: BadgeConfig;
   radio?: ComponentStyleConfig;
 }
 

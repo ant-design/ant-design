@@ -1,19 +1,18 @@
+import { Badge, ConfigProvider } from 'antd';
 import React from 'react';
-import { ClockCircleOutlined } from '@ant-design/icons';
-import { Avatar, Badge, Space } from 'antd';
 
 const App: React.FC = () => (
-  <Space size="middle">
-    <Badge count={5}>
-      <Avatar shape="square" size="large" />
+  <ConfigProvider
+    badge={{
+      className: 'aaaaaaa',
+      style: { color: 'blue' },
+      classNames: { count: 'lllllll' },
+    }}
+  >
+    <Badge className="kkkkkkk" style={{ backgroundColor: 'yellow' }} count={10}>
+      test
     </Badge>
-    <Badge count={0} showZero>
-      <Avatar shape="square" size="large" />
-    </Badge>
-    <Badge count={<ClockCircleOutlined style={{ color: '#f5222d' }} />}>
-      <Avatar shape="square" size="large" />
-    </Badge>
-  </Space>
+  </ConfigProvider>
 );
 
 export default App;

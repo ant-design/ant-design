@@ -212,7 +212,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
 
           const isDot = isDotRef.current;
 
-          const scrollNumberCls = classNames({
+          const scrollNumberCls = classNames(badge?.classNames?.count, {
             [`${prefixCls}-dot`]: isDot,
             [`${prefixCls}-count`]: !isDot,
             [`${prefixCls}-count-sm`]: size === 'small',
