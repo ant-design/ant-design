@@ -119,7 +119,9 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       changeInfo.event = event;
     }
 
-    onChange?.(changeInfo);
+    if (onChange) {
+      flushSync(() => onChange(changeInfo));
+    }
   };
 
   const mergedBeforeUpload = async (file: RcFile, fileListArgs: RcFile[]) => {
