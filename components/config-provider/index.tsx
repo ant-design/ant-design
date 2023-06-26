@@ -113,9 +113,7 @@ export interface ConfigProviderProps {
   select?: {
     showSearch?: boolean;
   };
-  pagination?: {
-    showSizeChanger?: boolean;
-  };
+  pagination?: ComponentStyleConfig & { showSizeChanger?: boolean };
   locale?: Locale;
   pageHeader?: {
     ghost: boolean;
@@ -246,6 +244,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     result,
     slider,
     breadcrumb,
+    pagination,
   } = props;
 
   // =================================== Warning ===================================
@@ -308,6 +307,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     result,
     slider,
     breadcrumb,
+    pagination,
   };
 
   const config = {

@@ -60,9 +60,7 @@ export interface ConfigConsumerProps {
   input?: {
     autoComplete?: string;
   };
-  pagination?: {
-    showSizeChanger?: boolean;
-  };
+  pagination?: ComponentStyleConfig & { showSizeChanger?: boolean };
   locale?: Locale;
   pageHeader?: {
     ghost: boolean;
