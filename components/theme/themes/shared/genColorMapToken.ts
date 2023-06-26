@@ -29,7 +29,7 @@ export default function genColorMapToken(
   const neutralColors = generateNeutralColorPalettes(colorBgBase, colorTextBase);
 
   // Color Link
-  const colorLink = seed.colorLink || seed.colorPrimary;
+  const colorLink = seed.colorLink || seed.colorInfo;
   const linkColors = generateColorPalettes(colorLink);
 
   return {
@@ -90,7 +90,7 @@ export default function genColorMapToken(
     colorInfoText: infoColors[9],
     colorInfoTextActive: infoColors[10],
 
-    colorLinkHover: linkColors[5],
+    colorLinkHover: linkColors[4],
     colorLink: linkColors[6],
     colorLinkActive: linkColors[7],
 
