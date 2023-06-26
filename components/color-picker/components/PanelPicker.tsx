@@ -1,3 +1,5 @@
+import type { HsbaColorType } from '@rc-component/color-picker';
+import RcColorPicker from '@rc-component/color-picker';
 import type { FC } from 'react';
 import React, { useContext } from 'react';
 import type { Color } from '../color';
@@ -9,14 +11,22 @@ import ColorInput from './ColorInput';
 export interface PanelPickerProps
   extends Pick<ColorPickerBaseProps, 'prefixCls' | 'colorCleared' | 'allowClear'> {
   value?: Color;
-  panel?: React.ReactNode;
-  onChange?: (value: Color) => void;
+  onChange?: (value?: Color, type?: HsbaColorType, pickColor?: boolean) => void;
+  onChangeComplete?: (type?: HsbaColorType) => void;
   onClear?: () => void;
 }
 
 const PanelPicker: FC = () => {
-  const { prefixCls, colorCleared, allowClear, value, panel, onChange, onClear, ...injectProps } =
-    useContext(PanelPickerContext);
+  const {
+    prefixCls,
+    colorCleared,
+    allowClear,
+    value,
+    onChange,
+    onClear,
+    onChangeComplete,
+    ...injectProps
+  } = useContext(PanelPickerContext);
   return (
     <>
       {allowClear && (
@@ -31,7 +41,12 @@ const PanelPicker: FC = () => {
           {...injectProps}
         />
       )}
-      {panel}
+      <RcColorPicker
+        prefixCls={prefixCls}
+        value={value?.toHsb()}
+        onChange={(colorValue, type) => onChange?.(colorValue, type, true)}
+        onChangeComplete={onChangeComplete}
+      />
       <ColorInput value={value} onChange={onChange} prefixCls={prefixCls} {...injectProps} />
     </>
   );

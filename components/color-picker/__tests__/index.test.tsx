@@ -379,7 +379,7 @@ describe('ColorPicker', () => {
       <ColorPicker open panelRender={(panel) => <div className="custom-panel">{panel}</div>} />,
     );
     expect(panelContainer.querySelector('.custom-panel')).toBeTruthy();
-    expect(panelContainer.querySelector('.ant-color-picker-inner-panel')).toBeTruthy();
+    expect(panelContainer.querySelector('.ant-color-picker-inner-content')).toBeTruthy();
     expect(panelContainer).toMatchSnapshot();
 
     const { container: componentContainer } = render(
@@ -394,7 +394,7 @@ describe('ColorPicker', () => {
       />,
     );
     expect(componentContainer.querySelector('.custom-panel')).toBeTruthy();
-    expect(componentContainer.querySelector('.ant-color-picker-inner-panel')).toBeTruthy();
+    expect(componentContainer.querySelector('.ant-color-picker-inner-content')).toBeTruthy();
     expect(componentContainer).toMatchSnapshot();
   });
 });
