@@ -19,7 +19,7 @@ import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
   ButtonConfig,
-  componentStyleConfig,
+  ComponentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
   DirectionType,
@@ -137,39 +137,16 @@ export interface ConfigProviderProps {
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
   button?: ButtonConfig;
-  divider?: componentStyleConfig;
-  typography?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-  spin?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-  segmented?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-  steps?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-  image?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-  result?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-  slider?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-  breadcrumb?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
+  divider?: ComponentStyleConfig;
+  typography?: ComponentStyleConfig;
+  spin?: ComponentStyleConfig;
+  segmented?: ComponentStyleConfig;
+  steps?: ComponentStyleConfig;
+  image?: ComponentStyleConfig;
+  result?: ComponentStyleConfig;
+  slider?: ComponentStyleConfig;
+  breadcrumb?: ComponentStyleConfig;
+  checkbox?: ComponentStyleConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -260,6 +237,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     segmented,
     spin,
     typography,
+    checkbox,
     divider,
     steps,
     image,
@@ -320,6 +298,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     segmented,
     spin,
     typography,
+    checkbox,
     divider,
     steps,
     image,

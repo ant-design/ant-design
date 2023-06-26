@@ -2,6 +2,7 @@ import React from 'react';
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import Breadcrumb from '../../breadcrumb';
+import Checkbox from '../../checkbox';
 import Divider from '../../divider';
 import Image from '../../image';
 import Result from '../../result';
@@ -216,5 +217,23 @@ describe('ConfigProvider support style and className props', () => {
     const element = container.querySelector<HTMLElement>('.ant-breadcrumb');
     expect(element).toHaveClass('cp-breadcrumb');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Checkbox className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        checkbox={{
+          className: 'cp-breadcrumb',
+          style: {
+            background: 'red',
+          },
+        }}
+      >
+        <Checkbox>Checkbox</Checkbox>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-checkbox-wrapper')).toHaveClass('cp-breadcrumb');
+    expect(container.querySelector('.ant-checkbox-wrapper')).toHaveStyle({ background: 'red' });
   });
 });

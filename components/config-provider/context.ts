@@ -36,12 +36,12 @@ export interface ThemeConfig {
   inherit?: boolean;
 }
 
-export interface componentStyleConfig {
+export interface ComponentStyleConfig {
   className?: string;
   style?: React.CSSProperties;
 }
 
-export interface ButtonConfig extends componentStyleConfig {
+export interface ButtonConfig extends ComponentStyleConfig {
   classNames?: ButtonProps['classNames'];
   styles?: ButtonProps['styles'];
 }
@@ -88,39 +88,16 @@ export interface ConfigConsumerProps {
     showSearch?: boolean;
   };
   button?: ButtonConfig;
-  divider?: componentStyleConfig;
-  typography?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-  spin?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-  segmented?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-  steps?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-  image?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-  result?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-  slider?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-  breadcrumb?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
+  divider?: ComponentStyleConfig;
+  typography?: ComponentStyleConfig;
+  spin?: ComponentStyleConfig;
+  segmented?: ComponentStyleConfig;
+  steps?: ComponentStyleConfig;
+  image?: ComponentStyleConfig;
+  result?: ComponentStyleConfig;
+  slider?: ComponentStyleConfig;
+  breadcrumb?: ComponentStyleConfig;
+  checkbox?: ComponentStyleConfig;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
