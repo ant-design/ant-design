@@ -113,7 +113,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     if (maxCount === 1) {
       cloneList = cloneList.slice(-1);
     } else if (maxCount) {
-      exceedMaxCount = true;
+      exceedMaxCount = cloneList.length > maxCount;
       cloneList = cloneList.slice(0, maxCount);
     }
 
