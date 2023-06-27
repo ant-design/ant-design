@@ -76,7 +76,7 @@ export interface ConfigConsumerProps {
   virtual?: boolean;
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
-  form?: {
+  form?: ComponentStyleConfig & {
     requiredMark?: RequiredMark;
     colon?: boolean;
     scrollToFirstError?: Options | boolean;
