@@ -31,6 +31,7 @@ timeline: true
 - 🐞 修复 Form `onFieldsChange` 丢失一次 `validating` 状态变更的更新事件。[#42263](https://github.com/ant-design/ant-design/pull/42263)
 - 🐞 修复 Popover 组件当 `title` 和 `content` 都为空时展示空气泡的问题[19f8505](https://github.com/ant-design/ant-design/commit/19f8505) [@MaHui](https://github.com/MaHui)
 - 🐞 修复 Upload 禁用状态逻辑。[#42143](https://github.com/ant-design/ant-design/pull/42143) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 RangePicker 在某些情况下面板打开未知不正确的问题。[#43179](https://github.com/ant-design/ant-design/pull/43179) [@cooljser](https://github.com/cooljser)
 - 💄 优化 Spin 样式，保持容器与子元素图标高度一致。[#42163](https://github.com/ant-design/ant-design/pull/42163) [@cheapCoder](https://github.com/cheapCoder)
 
 ## 4.24.10

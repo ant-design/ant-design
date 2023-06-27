@@ -31,6 +31,7 @@ timeline: true
 - 🐞 Fix Form `onFieldsChange` missing `validating` status change. [#42263](https://github.com/ant-design/ant-design/pull/42263)
 - 🐞 Fix Popover that display empty `div` when `title` and `content` is null. [19f8505](https://github.com/ant-design/ant-design/commit/19f8505) [@MaHui](https://github.com/MaHui)
 - 🐞 Fix Upload `disabled` logic. [#42143](https://github.com/ant-design/ant-design/pull/42143) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix RangePicker wrong panel position under some circumstances. [#43179](https://github.com/ant-design/ant-design/pull/43179) [@cooljser](https://github.com/cooljser)
 - 💄 Optimize Spin style to keep height of container the same as child element. [#42163](https://github.com/ant-design/ant-design/pull/42163) [@cheapCoder](https://github.com/cheapCoder)
 
 ## 4.24.10
