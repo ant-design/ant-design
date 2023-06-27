@@ -9,6 +9,7 @@ import Descriptions from '../../descriptions';
 import Divider from '../../divider';
 import Empty from '../../empty';
 import Image from '../../image';
+import Input from '../../input';
 import Mentions from '../../mentions';
 import Modal from '../../modal';
 import Pagination from '../../pagination';
@@ -253,6 +254,18 @@ describe('ConfigProvider support style and className props', () => {
       ?.querySelector<HTMLDivElement>('.ant-image')
       ?.querySelector<HTMLImageElement>('img');
     expect(element).toHaveClass('config-provider-image');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Input className & style works', () => {
+    const { container } = render(
+      <ConfigProvider input={{ className: 'cp-input', style: { backgroundColor: 'red' } }}>
+        <Input placeholder="Basic usage" />
+      </ConfigProvider>,
+    );
+
+    const element = container.querySelector<HTMLDivElement>('.ant-input');
+    expect(element).toHaveClass('cp-input');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 

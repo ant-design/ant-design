@@ -57,7 +57,7 @@ export interface ConfigConsumerProps {
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
-  input?: {
+  input?: ComponentStyleConfig & {
     autoComplete?: string;
   };
   pagination?: ComponentStyleConfig & { showSizeChanger?: boolean };
