@@ -107,7 +107,7 @@ export interface ConfigProviderProps {
     colon?: boolean;
     scrollToFirstError?: Options | boolean;
   };
-  input?: ComponentStyleConfig & {
+  input?: {
     autoComplete?: string;
   };
   select?: ComponentStyleConfig & {
@@ -255,7 +255,6 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     slider,
     breadcrumb,
     pagination,
-    input,
     empty,
     radio,
   } = props;
@@ -319,7 +318,6 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     divider,
     steps,
     image,
-    input,
     mentions,
     modal,
     result,

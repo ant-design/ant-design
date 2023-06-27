@@ -80,7 +80,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     addonAfter,
     addonBefore,
     className,
-    style,
     rootClassName,
     onChange,
     classNames: classes,
@@ -164,10 +163,9 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       disabled={mergedDisabled}
       onBlur={handleBlur}
       onFocus={handleFocus}
-      style={{ ...input?.style, ...style }}
       suffix={suffixNode}
       allowClear={mergedAllowClear}
-      className={classNames(className, rootClassName, compactItemClassnames, input?.className)}
+      className={classNames(className, rootClassName, compactItemClassnames)}
       onChange={handleChange}
       addonAfter={
         addonAfter && (
