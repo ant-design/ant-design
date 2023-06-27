@@ -15,6 +15,25 @@ timeline: true
 
 ---
 
+## 5.6.3
+
+`2023-06-25`
+
+- BreadCrumb
+  - 🐞 Fix BreadCrumb `dropdownProps` does not working bug. [#43151](https://github.com/ant-design/ant-design/pull/43151) [@linxianxi](https://github.com/linxianxi)
+  - 🛠 Improve BreadCrumb behavior when receiving a null title. [#43099](https://github.com/ant-design/ant-design/pull/43099) [@Asanio06](https://github.com/Asanio06)
+- 🐞 Fix Slider disabled state within Form. [#43142](https://github.com/ant-design/ant-design/pull/43142) [@Starpuccino](https://github.com/Starpuccino)
+- 🐞 Fix Form that label offset does not work in vertical mode. [#43155](https://github.com/ant-design/ant-design/pull/43155) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Fix Table open filter popup throw react ref warning. [#43139](https://github.com/ant-design/ant-design/pull/43139)
+- 🐞 Fix Transfer with `rowKey` makes item unselectable. [#43115](https://github.com/ant-design/ant-design/pull/43115)
+- 🐞 Fix Space `size` priority when using with other components [#42752](https://github.com/ant-design/ant-design/pull/42752) [@linxianxi](https://github.com/linxianxi)
+- 🐞 Fix QRCode color in dark mode. [#43162](https://github.com/ant-design/ant-design/pull/43162) [@ds1371dani](https://github.com/ds1371dani)
+- 💄 Fix Select option unexpected margin when using with Badge and Tag. [#43097](https://github.com/ant-design/ant-design/pull/43097) [@Yuiai01](https://github.com/Yuiai01)
+- TypeScript
+  - 🤖 Improve Button `target` property type definition. [#43129](https://github.com/ant-design/ant-design/pull/43129) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🤖 Improve Progress `size` property type to support percent value. [#43123](https://github.com/ant-design/ant-design/pull/43123) [@Ali-ovo](https://github.com/Ali-ovo)
+  - 🤖 Improve Slider tooltip type definition. [#43094](https://github.com/ant-design/ant-design/pull/43094) [@li-jia-nan](https://github.com/li-jia-nan)
+
 ## 5.6.2
 
 `2023-06-19`
