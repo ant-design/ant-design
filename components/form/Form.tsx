@@ -11,7 +11,8 @@ import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext, { SizeContextProvider } from '../config-provider/SizeContext';
 import type { ColProps } from '../grid/col';
 import type { FormContextProps } from './context';
-import { FormContext } from './context';
+import { FormContext, FormProvider } from './context';
+import ValidateMessagesContext from './validateMessagesContext';
 import useForm, { FormInstance } from './hooks/useForm';
 import type { FormLabelAlign } from './interface';
 
@@ -60,6 +61,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     name,
     ...restFormProps
   } = props;
+
+  const contextValidateMessages = React.useContext(ValidateMessagesContext);
 
   const mergedRequiredMark = useMemo(() => {
     if (requiredMark !== undefined) {
@@ -130,16 +133,23 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
   return (
     <DisabledContextProvider disabled={disabled}>
       <SizeContextProvider size={size}>
-        <FormContext.Provider value={formContextValue}>
-          <FieldForm
-            id={name}
-            {...restFormProps}
-            name={name}
-            onFinishFailed={onInternalFinishFailed}
-            form={wrapForm}
-            className={formClassName}
-          />
-        </FormContext.Provider>
+        <FormProvider
+          {...{
+            // This is not list in API, we pass with spread
+            validateMessages: contextValidateMessages,
+          }}
+        >
+          <FormContext.Provider value={formContextValue}>
+            <FieldForm
+              id={name}
+              {...restFormProps}
+              name={name}
+              onFinishFailed={onInternalFinishFailed}
+              form={wrapForm}
+              className={formClassName}
+            />
+          </FormContext.Provider>
+        </FormProvider>
       </SizeContextProvider>
     </DisabledContextProvider>
   );
