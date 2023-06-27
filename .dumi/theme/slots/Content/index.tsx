@@ -104,7 +104,7 @@ type AnchorItem = {
   children?: AnchorItem[];
 };
 
-const AvatarPlaceholder = ({ num = 3 }: { num?: number }) => (
+const AvatarPlaceholder: React.FC<{ num?: number }> = ({ num = 3 }) => (
   <>
     {Array.from({ length: num }).map((_, i) => (
       <Skeleton.Avatar size="small" active key={i} style={{ marginLeft: i === 0 ? 0 : -8 }} />
@@ -273,10 +273,13 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
           ) : null}
           {!meta.frontmatter.__autoDescription && meta.frontmatter.description}
           {children}
-          {(meta.frontmatter?.zhihu_url || meta.frontmatter?.yuque_url) && (
+          {(meta.frontmatter?.zhihu_url ||
+            meta.frontmatter?.yuque_url ||
+            meta.frontmatter?.juejin_url) && (
             <ColumnCard
               zhihuLink={meta.frontmatter.zhihu_url}
               yuqueLink={meta.frontmatter.yuque_url}
+              juejinLink={meta.frontmatter.juejin_url}
             />
           )}
           {meta.frontmatter.filename && (
@@ -286,10 +289,14 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
               css={styles.contributorsList}
               cache
               fileName={meta.frontmatter.filename}
-              renderItem={(item, loading) =>
-                loading || !item ? (
-                  <AvatarPlaceholder />
-                ) : (
+              renderItem={(item, loading) => {
+                if (!item || loading) {
+                  return <AvatarPlaceholder />;
+                }
+                if (item.username?.includes('github-actions')) {
+                  return null;
+                }
+                return (
                   <Tooltip
                     mouseEnterDelay={0.3}
                     title={`${formatMessage({ id: 'app.content.contributors' })}: ${item.username}`}
@@ -305,8 +312,8 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                       </Avatar>
                     </a>
                   </Tooltip>
-                )
-              }
+                );
+              }}
             />
           )}
         </article>
