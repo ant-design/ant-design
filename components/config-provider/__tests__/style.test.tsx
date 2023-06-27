@@ -3,6 +3,7 @@ import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import Anchor from '../../anchor';
 import Breadcrumb from '../../breadcrumb';
+import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
 import Descriptions from '../../descriptions';
 import Divider from '../../divider';
@@ -122,6 +123,53 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('.ant-divider'))?.toHaveStyle({ color: 'red', height: '80px' });
+  });
+
+  it('Should Cascader className & style works', () => {
+    const options = [
+      {
+        value: 'zhejiang',
+        label: 'Zhejiang',
+        children: [
+          {
+            value: 'hangzhou',
+            label: 'Hangzhou',
+            children: [
+              {
+                value: 'xihu',
+                label: 'West Lake',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        value: 'jiangsu',
+        label: 'Jiangsu',
+        children: [
+          {
+            value: 'nanjing',
+            label: 'Nanjing',
+            children: [
+              {
+                value: 'zhonghuamen',
+                label: 'Zhong Hua Men',
+              },
+            ],
+          },
+        ],
+      },
+    ];
+
+    const { container } = render(
+      <ConfigProvider cascader={{ className: 'cp-cascader', style: { backgroundColor: 'red' } }}>
+        <Cascader open options={options} />
+      </ConfigProvider>,
+    );
+
+    const element = container.querySelector<HTMLElement>('.ant-cascader');
+    expect(element).toHaveClass('cp-cascader');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 
   it('Should Typography className & style works', () => {
