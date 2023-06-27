@@ -143,6 +143,7 @@ export interface ConfigProviderProps {
   segmented?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;
   image?: ComponentStyleConfig;
+  mentions?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;
@@ -247,6 +248,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     divider,
     steps,
     image,
+    mentions,
     result,
     slider,
     breadcrumb,
@@ -314,6 +316,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     divider,
     steps,
     image,
+    mentions,
     result,
     slider,
     breadcrumb,
