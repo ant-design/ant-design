@@ -113,7 +113,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
   // =============================== Styles ===============================
   const mergedStyle = useMemo<React.CSSProperties>(() => {
     if (!offset) {
-      return { ...badge?.style, ...style };
+      return { ...badge?.style, ...badge?.styles?.count, ...style };
     }
 
     const offsetStyle: React.CSSProperties = { marginTop: offset[1] };
@@ -125,6 +125,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
 
     return {
       ...badge?.style,
+      ...badge?.styles?.count,
       ...offsetStyle,
       ...style,
     };
