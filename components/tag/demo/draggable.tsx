@@ -25,14 +25,14 @@ const DraggableTag: FC<DraggableTagProps> = (props) => {
 
   const commonStyle = {
     cursor: 'move',
-    transition: 'unset', // 防止拖拽完毕之后元素抖动
+    transition: 'unset', // Prevent element from shaking after drag
   };
 
   const style = transform
     ? {
         ...commonStyle,
         transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
-        transition: isDragging ? 'unset' : transition, // 处理拖拽中的元素不跟手的问题
+        transition: isDragging ? 'unset' : transition, // Improve performance/visual effect when dragging
       }
     : commonStyle;
 
