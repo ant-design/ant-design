@@ -257,15 +257,30 @@ describe('ConfigProvider support style and className props', () => {
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 
-  it('Should Input className & style works', () => {
+  it('Should Input className & style & classNames & styles works', () => {
     const { container } = render(
-      <ConfigProvider input={{ className: 'cp-input', style: { backgroundColor: 'red' } }}>
+      <ConfigProvider
+        input={{
+          className: 'cp-input',
+          style: { backgroundColor: 'red' },
+          classNames: {
+            input: 'cp-classNames-input',
+          },
+          styles: {
+            input: {
+              color: 'blue',
+            },
+          },
+        }}
+      >
         <Input placeholder="Basic usage" />
       </ConfigProvider>,
     );
 
     const element = container.querySelector<HTMLDivElement>('.ant-input');
     expect(element).toHaveClass('cp-input');
+    expect(element).toHaveClass('cp-classNames-input');
+    expect(element).toHaveStyle({ color: 'blue' });
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 

@@ -9,6 +9,7 @@ import type { Options } from 'scroll-into-view-if-needed';
 import warning from '../_util/warning';
 import type { RequiredMark } from '../form/Form';
 import ValidateMessagesContext from '../form/validateMessagesContext';
+import type { InputProps } from '../input';
 import type { Locale } from '../locale';
 import LocaleProvider, { ANT_MARK } from '../locale';
 import type { LocaleContextProps } from '../locale/context';
@@ -108,6 +109,8 @@ export interface ConfigProviderProps {
     scrollToFirstError?: Options | boolean;
   };
   input?: ComponentStyleConfig & {
+    classNames?: InputProps['classNames'];
+    styles?: InputProps['styles'];
     autoComplete?: string;
   };
   select?: ComponentStyleConfig & {
