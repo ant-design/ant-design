@@ -110,7 +110,7 @@ export interface ConfigProviderProps {
   input?: {
     autoComplete?: string;
   };
-  select?: {
+  select?: ComponentStyleConfig & {
     showSearch?: boolean;
   };
   pagination?: ComponentStyleConfig & { showSizeChanger?: boolean };

@@ -13,6 +13,7 @@ import Pagination from '../../pagination';
 import Radio from '../../radio';
 import Result from '../../result';
 import Segmented from '../../segmented';
+import Select from '../../select';
 import Slider from '../../slider';
 import Space from '../../space';
 import Spin from '../../spin';
@@ -159,6 +160,22 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-segmented');
     expect(element).toHaveClass('config-provider-segmented');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Select className & style works', () => {
+    const { container } = render(
+      <ConfigProvider select={{ className: 'cp-select', style: { backgroundColor: 'red' } }}>
+        <Select
+          options={[
+            { value: 'jack', label: 'Jack' },
+            { value: 'lucy', label: 'Lucy' },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-select');
+    expect(element).toHaveClass('cp-select');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 

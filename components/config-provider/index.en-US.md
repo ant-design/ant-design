@@ -116,7 +116,7 @@ const {
 | radio | Set Radio common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | result | Set Result common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | segmented | Set Segmented common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| select | Set Select common props | { showSearch?: boolean } | - |  |
+| select | Set Select common props | { className?: string, showSearch?: boolean, style?: React.CSSProperties } | - |  |
 | slider | Set Slider common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | space | Set Space common props, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: { item: string }, styles?: { item: React.CSSProperties } } | - | 5.6.0 |
 | spin | Set Spin common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
