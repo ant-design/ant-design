@@ -32,6 +32,7 @@ timeline: true
 - 🐞 Fix Popover that display empty `div` when `title` and `content` is null. [19f8505](https://github.com/ant-design/ant-design/commit/19f8505) [@MaHui](https://github.com/MaHui)
 - 🐞 Fix Upload `disabled` logic. [#42143](https://github.com/ant-design/ant-design/pull/42143) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 Fix RangePicker wrong panel position under some circumstances. [#43179](https://github.com/ant-design/ant-design/pull/43179) [@cooljser](https://github.com/cooljser)
+- 🐞 Fix ConfigProvider makes Form component in the bundle even not use it. [#43207](https://github.com/ant-design/ant-design/pull/43207) [@yoyo837](https://github.com/yoyo837)
 - 💄 Optimize Spin style to keep height of container the same as child element. [#42163](https://github.com/ant-design/ant-design/pull/42163) [@cheapCoder](https://github.com/cheapCoder)
 
 ## 4.24.10
