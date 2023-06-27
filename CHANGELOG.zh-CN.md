@@ -15,6 +15,26 @@ timeline: true
 
 ---
 
+## 4.24.11
+
+`2023-06-27`
+
+- 🆕 Drawer 组件面板支持事件监听。[#42712](https://github.com/ant-design/ant-design/pull/42712) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 修复 Upload 在 React 18 下 `onChange` 有时数据不正确的问题。[#43200](https://github.com/ant-design/ant-design/pull/43200)
+- 🐞 修复 Notification 设置 `closeIcon={null}` 时关闭图标没有消失的问题。[#42791](https://github.com/ant-design/ant-design/pull/42791)
+- 🐞 修复 Drawer `id` 传入位置不正确的问题，现在始终会添加至弹出面板上。[#43124](https://github.com/ant-design/ant-design/pull/43124) [@MuxinFeng](https://github.com/MuxinFeng)
+- 🐞 修复 InputNumber 带有 `prefix` 时在 Form.Item `hasFeedBack` 内高度异常的问题。[#43048](https://github.com/ant-design/ant-design/pull/43048)
+- 🐞 修复 Popover 设置 `getPopupContainer` 后，某些时候宽度会过窄的问题。[#42697](https://github.com/ant-design/ant-design/pull/42697)
+- 🐞 修复 Select 在某些情况下会显示字母 A 的问题。[#42654](https://github.com/ant-design/ant-design/pull/42654) [@tchen-l](https://github.com/tchen-l)
+- 🐞 修复 ConfigProvider 引入 `FormProvider` 时，错误引入 'rc-field-form' 其他的无关依赖的问题。[#42502](https://github.com/ant-design/ant-design/pull/42502) [@BanShan-Alec](https://github.com/BanShan-Alec)
+- 🐞 修复 Popconfirm 的 `onVisibleChange` 会重复触发的问题。[#42351](https://github.com/ant-design/ant-design/pull/42351)
+- 🐞 修复 Form `onFieldsChange` 丢失一次 `validating` 状态变更的更新事件。[#42263](https://github.com/ant-design/ant-design/pull/42263)
+- 🐞 修复 Popover 组件当 `title` 和 `content` 都为空时展示空气泡的问题[19f8505](https://github.com/ant-design/ant-design/commit/19f8505) [@MaHui](https://github.com/MaHui)
+- 🐞 修复 Upload 禁用状态逻辑。[#42143](https://github.com/ant-design/ant-design/pull/42143) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 RangePicker 在某些情况下面板打开未知不正确的问题。[#43179](https://github.com/ant-design/ant-design/pull/43179) [@cooljser](https://github.com/cooljser)
+- 🐞 修复使用 ConfigProvider 会导致未使用的 Form 组件也被打包的问题。[#43207](https://github.com/ant-design/ant-design/pull/43207) [@yoyo837](https://github.com/yoyo837)
+- 💄 优化 Spin 样式，保持容器与子元素图标高度一致。[#42163](https://github.com/ant-design/ant-design/pull/42163) [@cheapCoder](https://github.com/cheapCoder)
+
 ## 4.24.10
 
 `2023-05-04`
