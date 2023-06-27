@@ -113,6 +113,7 @@ const {
 | image | Set Image common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | input | Set Input common props | { autoComplete?: string } | - | 4.2.0 |
 | mentions | Set Mentions common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| modal | Set Modal common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | pagination | Set Pagination common props | { showSizeChanger?: boolean, className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | radio | Set Radio common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | result | Set Result common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |

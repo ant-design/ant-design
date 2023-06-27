@@ -10,6 +10,7 @@ import Divider from '../../divider';
 import Empty from '../../empty';
 import Image from '../../image';
 import Mentions from '../../mentions';
+import Modal from '../../modal';
 import Pagination from '../../pagination';
 import Radio from '../../radio';
 import Result from '../../result';
@@ -287,6 +288,29 @@ describe('ConfigProvider support style and className props', () => {
 
     expect(container.querySelector('.ant-mentions')).toHaveClass('cp-className');
     expect(container.querySelector('.ant-mentions')).toHaveStyle({ background: 'red' });
+  });
+
+  it('Should Modal className & style works', () => {
+    const { baseElement } = render(
+      <ConfigProvider
+        modal={{
+          className: 'cp-modal',
+          style: {
+            background: 'red',
+          },
+        }}
+      >
+        <Modal title="Basic Modal" open>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Modal>
+      </ConfigProvider>,
+    );
+
+    const element = baseElement.querySelector<HTMLDivElement>('.ant-modal');
+    expect(element).toHaveClass('cp-modal');
+    expect(element).toHaveStyle({ background: 'red' });
   });
 
   it('Should Result className & style works', () => {

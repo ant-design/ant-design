@@ -115,6 +115,7 @@ const {
 | image | 设置 Image 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | input | 设置 Input 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | mentions | 设置 Mentions 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| modal | 设置 Modal 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | pagination | 设置 Pagination 组件的通用属性 | { showSizeChanger?: boolean, className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | radio | 设置 Radio 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | result | 设置 Result 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
