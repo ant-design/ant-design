@@ -306,4 +306,26 @@ describe('Form.List', () => {
 
     errorSpy.mockRestore();
   });
+
+  it('warning when name is null', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(
+      <Form>
+        <Form.List name={null!!}>
+          {(fields) =>
+            fields.map((field) => (
+              <Form.Item {...field} key={field.key}>
+                <Input />
+              </Form.Item>
+            ))
+          }
+        </Form.List>
+      </Form>,
+    );
+
+    expect(errorSpy).toHaveBeenCalled();
+
+    errorSpy.mockRestore();
+  });
 });
