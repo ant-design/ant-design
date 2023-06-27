@@ -39,7 +39,6 @@ const Modal: React.FC<ModalProps> = (props) => {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
-    modal,
   } = React.useContext(ConfigContext);
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -69,7 +68,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     closeIcon,
     closable,
     focusTriggerAfterClose = true,
-    style,
+
     // Deprecated
     visible,
 
@@ -122,8 +121,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           focusTriggerAfterClose={focusTriggerAfterClose}
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
-          className={classNames(hashId, className, modal?.className)}
-          style={{ ...modal?.style, ...style }}
+          className={classNames(hashId, className)}
         />
       </NoFormStyle>
     </NoCompactStyle>,
