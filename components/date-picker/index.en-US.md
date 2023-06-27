@@ -223,6 +223,10 @@ export type FormatType = Generic | GenericFn | Array<Generic | GenericFn>;
 
 Please refer [FAQ](/docs/react/faq#when-set-mode-to-datepickerrangepicker-cannot-select-year-or-month-anymore)
 
+### Why does the date picker switch to the date panel after selecting the year instead of the month panel?
+
+After selecting the year, the system directly switches to the date panel instead of month panel. This design is intended to reduce the user's operational burden by allowing them to complete the year modification with just one click, without having to enter the month selection interface again. At the same time, it also avoids additional cognitive burden of remembering the month.
+
 ### How to use DatePicker with customize date library like dayjs?
 
 Please refer [Use custom date library](/docs/react/use-custom-date-library#datepicker)

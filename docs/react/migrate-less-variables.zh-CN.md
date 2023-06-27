@@ -42,7 +42,7 @@ export default App;
 
 <!-- ### Alert 警告提示 -->
 
-## Anchor 锚点
+### Anchor 锚点
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
@@ -89,7 +89,7 @@ export default App;
 
 <!-- ### Button 按钮 -->
 
-## Calendar 日历
+### Calendar 日历
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
@@ -138,7 +138,7 @@ export default App;
 
 <!-- ### Cascader 级联选择 -->
 
-## Checkbox 多选框
+### Checkbox 多选框
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
@@ -320,7 +320,7 @@ Mentions 提及
 
 <!-- ### Progress 进度条 -->
 
-## Radio 单选框
+### Radio 单选框
 
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
@@ -342,7 +342,7 @@ Mentions 提及
 | `@radio-disabled-button-checked-color` | `buttonCheckdColorDisabled` | - |
 | `@radio-wrapper-margin-right` | `wrapperMarginInlineEnd` | - |
 
-## Rate 评分
+### Rate 评分
 
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
@@ -461,7 +461,7 @@ Mentions 提及
 | `@tabs-card-gutter` | `cardGutter` | - |
 | `@tabs-card-tab-active-border-top` | - | 已废弃 |
 
-## Tag 标签
+### Tag 标签
 
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |

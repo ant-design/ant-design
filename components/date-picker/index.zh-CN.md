@@ -106,8 +106,8 @@ import locale from 'antd/locale/zh_CN';
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | style | 自定义输入框样式 | CSSProperties | {} |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
-| superNextIcon | 自定义 `<<` 切换图标 | ReactNode | - | 4.17.0 |
-| superPrevIcon | 自定义 `>>` 切换图标 | ReactNode | - | 4.17.0 |
+| superNextIcon | 自定义 `>>` 切换图标 | ReactNode | - | 4.17.0 |
+| superPrevIcon | 自定义 `<<` 切换图标 | ReactNode | - | 4.17.0 |
 | onOpenChange | 弹出日历和关闭日历的回调 | function(open) | - |  |
 | onPanelChange | 日历面板切换的回调 | function(value, mode) | - |  |
 
@@ -223,6 +223,10 @@ export type FormatType = Generic | GenericFn | Array<Generic | GenericFn>;
 ### 当我指定了 DatePicker/RangePicker 的 mode 属性后，点击后无法选择年份/月份？
 
 请参考[常见问答](/docs/react/faq#当我指定了-datepickerrangepicker-的-mode-属性后点击后无法选择年份月份)
+
+### 为何日期选择年份后返回的是日期面板而不是月份面板？
+
+当用户选择完年份后，系统会直接切换至日期面板，而非显式提供月份选择。这样做的设计在于用户只需进行一次点击即可完成年份修改，无需再次点击进入月份选择界面，从而减少了用户的操作负担，同时也避免需要额外感知月份的记忆负担。
 
 ### 如何在 DatePicker 中使用自定义日期库（如 Moment.js ）？
 

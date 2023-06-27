@@ -49,7 +49,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
   const { compactSize } = useCompactItemContext(prefixCls, direction);
 
-  const size = useSize((ctx) => compactSize ?? customizeSize ?? ctx);
+  const size = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
   const inputRef = React.useRef<InputRef>(null);
 

@@ -87,7 +87,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
-  const mergedSize = useSize((ctx) => compactSize ?? customizeSize ?? ctx);
+  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
   const hasPrefix = prefix != null || hasFeedback;
   const hasAddon = !!(addonBefore || addonAfter);
@@ -179,6 +179,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
 
     const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, wrapperClassName, hashId, {
       [`${wrapperClassName}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-wrapper-disabled`]: mergedDisabled,
     });
 
     const mergedGroupClassName = classNames(
