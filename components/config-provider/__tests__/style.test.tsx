@@ -8,6 +8,7 @@ import Descriptions from '../../descriptions';
 import Divider from '../../divider';
 import Empty from '../../empty';
 import Image from '../../image';
+import Mentions from '../../mentions';
 import Pagination from '../../pagination';
 import Radio from '../../radio';
 import Result from '../../result';
@@ -187,6 +188,40 @@ describe('ConfigProvider support style and className props', () => {
       ?.querySelector<HTMLImageElement>('img');
     expect(element).toHaveClass('config-provider-image');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Mentions className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        mentions={{
+          className: 'cp-className',
+          style: {
+            background: 'red',
+          },
+        }}
+      >
+        <Mentions
+          defaultValue="@afc163"
+          options={[
+            {
+              value: 'afc163',
+              label: 'afc163',
+            },
+            {
+              value: 'zombieJ',
+              label: 'zombieJ',
+            },
+            {
+              value: 'yesmeck',
+              label: 'yesmeck',
+            },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-mentions')).toHaveClass('cp-className');
+    expect(container.querySelector('.ant-mentions')).toHaveStyle({ background: 'red' });
   });
 
   it('Should Result className & style works', () => {
