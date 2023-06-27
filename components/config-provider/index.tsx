@@ -1,9 +1,9 @@
 import IconContext from '@ant-design/icons/lib/components/Context';
-import { FormProvider as RcFormProvider } from 'rc-field-form/lib/FormContext';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import * as React from 'react';
 import type { RequiredMark } from '../form/Form';
+import ValidateMessagesContext from '../form/validateMessagesContext';
 import type { Locale } from '../locale-provider';
 import LocaleProvider, { ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
@@ -152,7 +152,7 @@ export const globalConfig = () => ({
   },
 });
 
-const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
+const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   const {
     children,
     csp,
@@ -197,7 +197,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
 
   // Pass the props used by `useContext` directly with child component.
   // These props should merged into `config`.
-  PASSED_PROPS.forEach(propName => {
+  PASSED_PROPS.forEach((propName) => {
     const propValue = props[propName];
     if (propValue) {
       (config as any)[propName] = propValue;
@@ -213,7 +213,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
       const currentKeys = Object.keys(currentConfig) as Array<keyof typeof config>;
       return (
         prevKeys.length !== currentKeys.length ||
-        prevKeys.some(key => prevConfig[key] !== currentConfig[key])
+        prevKeys.some((key) => prevConfig[key] !== currentConfig[key])
       );
     },
   );
@@ -236,7 +236,11 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   }
 
   if (Object.keys(validateMessages).length > 0) {
-    childNode = <RcFormProvider validateMessages={validateMessages}>{children}</RcFormProvider>;
+    childNode = (
+      <ValidateMessagesContext.Provider value={validateMessages}>
+        {children}
+      </ValidateMessagesContext.Provider>
+    );
   }
 
   if (locale) {
@@ -270,7 +274,7 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
   ConfigContext: typeof ConfigContext;
   SizeContext: typeof SizeContext;
   config: typeof setGlobalConfig;
-} = props => {
+} = (props) => {
   React.useEffect(() => {
     if (props.direction) {
       message.config({
@@ -286,7 +290,7 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
     <LocaleReceiver>
       {(_, __, legacyLocale) => (
         <ConfigConsumer>
-          {context => (
+          {(context) => (
             <ProviderChildren parentContext={context} legacyLocale={legacyLocale} {...props} />
           )}
         </ConfigConsumer>
