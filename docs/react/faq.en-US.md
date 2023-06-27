@@ -189,7 +189,7 @@ For historical reasons, the display names of the pop components are not uniform,
 
 ## Dynamic style using `:where` selector which not support old browser.
 
-Please ref dynamic theme document [Compatible Adjustment](/docs/react/customize-theme#compatible-adjustment) part.
+Please ref dynamic theme document [Legacy Browser Compatible](/docs/react/customize-theme#legacy-browser-compatible) part.
 
 ## How to disable motion?
 
