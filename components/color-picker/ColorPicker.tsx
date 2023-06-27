@@ -49,7 +49,7 @@ export type ColorPickerProps = Omit<
   ) => React.ReactNode;
   showText?: boolean | ((color: Color) => React.ReactNode);
   size?: SizeType;
-  styles?: { popup?: CSSProperties; overlayInnerStyle?: CSSProperties };
+  styles?: { popup?: CSSProperties; popupOverlayInner?: CSSProperties };
   rootClassName?: string;
   onOpenChange?: (open: boolean) => void;
   onFormatChange?: (format: ColorFormat) => void;
@@ -185,7 +185,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   return wrapSSR(
     <Popover
       style={styles?.popup}
-      overlayInnerStyle={styles?.overlayInnerStyle}
+      overlayInnerStyle={styles?.popupOverlayInner}
       onOpenChange={(visible) => {
         if (popupAllowCloseRef.current) {
           setPopupOpen(visible);
