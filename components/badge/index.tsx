@@ -113,7 +113,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
   // =============================== Styles ===============================
   const mergedStyle = useMemo<React.CSSProperties>(() => {
     if (!offset) {
-      return { ...badge?.style, ...badge?.styles?.count, ...style };
+      return { ...badge?.style, ...style };
     }
 
     const offsetStyle: React.CSSProperties = { marginTop: offset[1] };
@@ -123,12 +123,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
       offsetStyle.right = -parseInt(offset[0] as string, 10);
     }
 
-    return {
-      ...badge?.style,
-      ...badge?.styles?.count,
-      ...offsetStyle,
-      ...style,
-    };
+    return { ...badge?.style, ...offsetStyle, ...style };
   }, [direction, offset, style]);
 
   // =============================== Render ===============================
@@ -171,6 +166,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
   const badgeClassName = classNames(
     prefixCls,
     badge?.className,
+    badge?.classNames?.container,
     {
       [`${prefixCls}-status`]: hasStatus,
       [`${prefixCls}-not-a-wrapper`]: !children,
@@ -185,7 +181,11 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
   if (!children && hasStatus) {
     const statusTextColor = mergedStyle.color;
     return wrapSSR(
-      <span {...restProps} className={badgeClassName} style={mergedStyle}>
+      <span
+        {...restProps}
+        className={badgeClassName}
+        style={{ ...badge?.styles?.container, ...mergedStyle }}
+      >
         <span className={statusCls} style={statusStyle} />
         {text && (
           <span style={{ color: statusTextColor }} className={`${prefixCls}-status-text`}>
@@ -197,7 +197,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
   }
 
   return wrapSSR(
-    <span ref={ref} {...restProps} className={badgeClassName}>
+    <span ref={ref} {...restProps} className={badgeClassName} style={badge?.styles?.container}>
       {children}
       <CSSMotion
         visible={!isHidden}
@@ -223,7 +223,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
             [`${prefixCls}-color-${color}`]: isInternalColor,
           });
 
-          let scrollNumberStyle: React.CSSProperties = { ...mergedStyle };
+          let scrollNumberStyle: React.CSSProperties = { ...badge?.styles?.count, ...mergedStyle };
           if (color && !isInternalColor) {
             scrollNumberStyle = scrollNumberStyle || {};
             scrollNumberStyle.background = color;

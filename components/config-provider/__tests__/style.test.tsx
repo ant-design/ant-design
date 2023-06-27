@@ -348,20 +348,34 @@ describe('ConfigProvider support style and className props', () => {
       <ConfigProvider
         badge={{
           className: 'cp-badge',
-          style: { backgroundColor: 'blue' },
-          classNames: { count: 'cp-badge-sup' },
-          styles: { count: { color: 'green' } },
+          style: {
+            backgroundColor: 'blue',
+          },
+          classNames: {
+            count: 'cp-badge-count',
+            container: 'cp-badge-container',
+          },
+          styles: {
+            count: { color: 'green' },
+            container: { color: 'yellow' },
+          },
         }}
       >
         <Badge count={10}>test</Badge>
       </ConfigProvider>,
     );
     const element = container.querySelector<HTMLSpanElement>('.ant-badge');
+
+    // test className
     expect(element).toHaveClass('cp-badge');
-    expect(element?.querySelector<HTMLElement>('sup')).toHaveClass('cp-badge-sup');
+    expect(element).toHaveClass('cp-badge-container');
+    expect(element?.querySelector<HTMLElement>('sup')).toHaveClass('cp-badge-count');
+
+    // test style
+    expect(element).toHaveStyle({ color: 'yellow' });
     expect(element?.querySelector<HTMLElement>('sup')).toHaveStyle({
-      backgroundColor: 'blue',
       color: 'green',
+      backgroundColor: 'blue',
     });
   });
 });

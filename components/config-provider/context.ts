@@ -42,8 +42,14 @@ export interface ComponentStyleConfig {
 }
 
 export interface BadgeConfig extends ComponentStyleConfig {
-  classNames?: { count?: string };
-  styles?: { count?: React.CSSProperties };
+  classNames?: {
+    count?: string;
+    container?: string;
+  };
+  styles?: {
+    count?: React.CSSProperties;
+    container?: React.CSSProperties;
+  };
 }
 
 export interface ButtonConfig extends ComponentStyleConfig {
