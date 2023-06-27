@@ -82,7 +82,7 @@ export interface ConfigConsumerProps {
     scrollToFirstError?: Options | boolean;
   };
   theme?: ThemeConfig;
-  select?: {
+  select?: ComponentStyleConfig & {
     showSearch?: boolean;
   };
   anchor?: ComponentStyleConfig;
