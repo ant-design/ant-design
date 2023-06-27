@@ -111,7 +111,7 @@ export interface ConfigProviderProps {
   input?: {
     autoComplete?: string;
   };
-  select?: {
+  select?: ComponentStyleConfig & {
     showSearch?: boolean;
   };
   pagination?: ComponentStyleConfig & { showSizeChanger?: boolean };
@@ -137,6 +137,7 @@ export interface ConfigProviderProps {
   theme?: ThemeConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
+  cascader?: ComponentStyleConfig;
   divider?: ComponentStyleConfig;
   typography?: ComponentStyleConfig;
   spin?: ComponentStyleConfig;
@@ -144,6 +145,7 @@ export interface ConfigProviderProps {
   steps?: ComponentStyleConfig;
   image?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;
+  modal?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;
@@ -244,6 +246,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     componentDisabled,
     segmented,
     spin,
+    cascader,
     typography,
     checkbox,
     descriptions,
@@ -251,6 +254,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     steps,
     image,
     mentions,
+    modal,
     result,
     slider,
     breadcrumb,
@@ -312,6 +316,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     theme: mergedTheme,
     segmented,
     spin,
+    cascader,
     typography,
     checkbox,
     descriptions,
@@ -319,6 +324,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     steps,
     image,
     mentions,
+    modal,
     result,
     slider,
     breadcrumb,

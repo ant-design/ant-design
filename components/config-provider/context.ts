@@ -93,18 +93,20 @@ export interface ConfigConsumerProps {
     scrollToFirstError?: Options | boolean;
   };
   theme?: ThemeConfig;
-  select?: {
+  select?: ComponentStyleConfig & {
     showSearch?: boolean;
   };
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
   divider?: ComponentStyleConfig;
+  cascader?: ComponentStyleConfig;
   typography?: ComponentStyleConfig;
   spin?: ComponentStyleConfig;
   segmented?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;
   image?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;
+  modal?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;

@@ -4,16 +4,19 @@ import { render } from '../../../tests/utils';
 import Anchor from '../../anchor';
 import Badge from '../../badge';
 import Breadcrumb from '../../breadcrumb';
+import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
 import Descriptions from '../../descriptions';
 import Divider from '../../divider';
 import Empty from '../../empty';
 import Image from '../../image';
 import Mentions from '../../mentions';
+import Modal from '../../modal';
 import Pagination from '../../pagination';
 import Radio from '../../radio';
 import Result from '../../result';
 import Segmented from '../../segmented';
+import Select from '../../select';
 import Slider from '../../slider';
 import Space from '../../space';
 import Spin from '../../spin';
@@ -124,6 +127,53 @@ describe('ConfigProvider support style and className props', () => {
     expect(container.querySelector('.ant-divider'))?.toHaveStyle({ color: 'red', height: '80px' });
   });
 
+  it('Should Cascader className & style works', () => {
+    const options = [
+      {
+        value: 'zhejiang',
+        label: 'Zhejiang',
+        children: [
+          {
+            value: 'hangzhou',
+            label: 'Hangzhou',
+            children: [
+              {
+                value: 'xihu',
+                label: 'West Lake',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        value: 'jiangsu',
+        label: 'Jiangsu',
+        children: [
+          {
+            value: 'nanjing',
+            label: 'Nanjing',
+            children: [
+              {
+                value: 'zhonghuamen',
+                label: 'Zhong Hua Men',
+              },
+            ],
+          },
+        ],
+      },
+    ];
+
+    const { container } = render(
+      <ConfigProvider cascader={{ className: 'cp-cascader', style: { backgroundColor: 'red' } }}>
+        <Cascader open options={options} />
+      </ConfigProvider>,
+    );
+
+    const element = container.querySelector<HTMLElement>('.ant-cascader');
+    expect(element).toHaveClass('cp-cascader');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
   it('Should Typography className & style works', () => {
     const { container } = render(
       <ConfigProvider
@@ -160,6 +210,22 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-segmented');
     expect(element).toHaveClass('config-provider-segmented');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Select className & style works', () => {
+    const { container } = render(
+      <ConfigProvider select={{ className: 'cp-select', style: { backgroundColor: 'red' } }}>
+        <Select
+          options={[
+            { value: 'jack', label: 'Jack' },
+            { value: 'lucy', label: 'Lucy' },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-select');
+    expect(element).toHaveClass('cp-select');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 
@@ -223,6 +289,29 @@ describe('ConfigProvider support style and className props', () => {
 
     expect(container.querySelector('.ant-mentions')).toHaveClass('cp-className');
     expect(container.querySelector('.ant-mentions')).toHaveStyle({ background: 'red' });
+  });
+
+  it('Should Modal className & style works', () => {
+    const { baseElement } = render(
+      <ConfigProvider
+        modal={{
+          className: 'cp-modal',
+          style: {
+            background: 'red',
+          },
+        }}
+      >
+        <Modal title="Basic Modal" open>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Modal>
+      </ConfigProvider>,
+    );
+
+    const element = baseElement.querySelector<HTMLDivElement>('.ant-modal');
+    expect(element).toHaveClass('cp-modal');
+    expect(element).toHaveStyle({ background: 'red' });
   });
 
   it('Should Result className & style works', () => {

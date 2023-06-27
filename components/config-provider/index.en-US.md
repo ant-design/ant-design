@@ -105,6 +105,7 @@ const {
 | badge | Set Badge common props | { className?: string, style?: React.CSSProperties, classNames?: { count?: string, container?: string }, styles?: { count?: React.CSSProperties, container?: React.CSSProperties } } | - | 5.7.0 |
 | breadcrumb | Set Breadcrumb common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | button | Set Button common props | { className?: string, style?: React.CSSProperties, classNames?: { icon: string }, styles?: { icon: React.CSSProperties } } | - | 5.6.0 |
+| cascader | Set Cascader common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | checkbox | Set Checkbox common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | descriptions | Set Descriptions common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | divider | Set Divider common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
@@ -113,11 +114,12 @@ const {
 | image | Set Image common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | input | Set Input common props | { autoComplete?: string } | - | 4.2.0 |
 | mentions | Set Mentions common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| modal | Set Modal common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | pagination | Set Pagination common props | { showSizeChanger?: boolean, className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | radio | Set Radio common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | result | Set Result common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | segmented | Set Segmented common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| select | Set Select common props | { showSearch?: boolean } | - |  |
+| select | Set Select common props | { className?: string, showSearch?: boolean, style?: React.CSSProperties } | - |  |
 | slider | Set Slider common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | space | Set Space common props, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: { item: string }, styles?: { item: React.CSSProperties } } | - | 5.6.0 |
 | spin | Set Spin common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
