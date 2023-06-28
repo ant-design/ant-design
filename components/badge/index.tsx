@@ -164,7 +164,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
   const isInternalColor = isPresetColor(color, false);
 
   // Shared styles
-  const statusCls = classnames({
+  const statusCls = classnames(classNames?.indicator, {
     [`${prefixCls}-status-dot`]: hasStatus,
     [`${prefixCls}-status-${status}`]: !!status,
     [`${prefixCls}-color-${color}`]: isInternalColor,
@@ -194,7 +194,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
     const statusTextColor = mergedStyle.color;
     return wrapSSR(
       <span {...restProps} className={badgeClassName} style={{ ...styles?.root, ...mergedStyle }}>
-        <span className={statusCls} style={statusStyle} />
+        <span className={statusCls} style={{ ...styles?.indicator, ...statusStyle }} />
         {text && (
           <span style={{ color: statusTextColor }} className={`${prefixCls}-status-text`}>
             {text}
