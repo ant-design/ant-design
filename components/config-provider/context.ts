@@ -3,6 +3,7 @@ import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
 import type { ButtonProps } from '../button';
 import type { RequiredMark } from '../form/Form';
+import type { InputProps } from '../input';
 import type { Locale } from '../locale';
 import type { SpaceProps } from '../space';
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../theme/interface';
@@ -57,8 +58,10 @@ export interface ConfigConsumerProps {
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
-  input?: {
+  input?: ComponentStyleConfig & {
     autoComplete?: string;
+    classNames?: InputProps['classNames'];
+    styles?: InputProps['styles'];
   };
   pagination?: ComponentStyleConfig & { showSizeChanger?: boolean };
   locale?: Locale;
