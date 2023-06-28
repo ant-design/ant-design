@@ -797,7 +797,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
           <div
             class="ant-form-item-control-input-content"
           >
-            <span
+            <div
               class="ant-input-group ant-input-group-compact"
             >
               <div
@@ -956,7 +956,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                   </div>
                 </div>
               </div>
-            </span>
+            </div>
           </div>
         </div>
       </div>
@@ -1085,7 +1085,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
           <div
             class="ant-form-item-control-input-content"
           >
-            <span
+            <div
               class="ant-input-group ant-input-group-compact"
             >
               <div
@@ -1271,7 +1271,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                   </div>
                 </div>
               </div>
-            </span>
+            </div>
           </div>
         </div>
       </div>
@@ -1302,7 +1302,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
           <div
             class="ant-form-item-control-input-content"
           >
-            <span
+            <div
               class="ant-input-group ant-input-group-compact"
             >
               <div
@@ -1501,7 +1501,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                   </div>
                 </div>
               </div>
-            </span>
+            </div>
           </div>
         </div>
       </div>
@@ -1532,7 +1532,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
           <div
             class="ant-form-item-control-input-content"
           >
-            <span
+            <div
               class="ant-input-group ant-input-group-compact"
             >
               <div
@@ -1762,7 +1762,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                   Search
                 </span>
               </button>
-            </span>
+            </div>
           </div>
         </div>
       </div>

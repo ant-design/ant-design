@@ -51,7 +51,7 @@ const text = [
 ];
 
 function Principle() {
-  const childrenToRender = text.map(item => (
+  const childrenToRender = text.map((item) => (
     <Col key={item.title} sm={24} md={8}>
       <div className="principle">
         <div>
