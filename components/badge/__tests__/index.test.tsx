@@ -228,7 +228,7 @@ describe('Badge', () => {
         count={10}
         classNames={{
           root: 'test-root',
-          indicator: 'test-count',
+          indicator: 'test-indicator',
         }}
         styles={{
           root: { backgroundColor: 'yellow' },
@@ -243,7 +243,7 @@ describe('Badge', () => {
 
     // classNames
     expect(element).toHaveClass('test-root');
-    expect(element?.querySelector<HTMLElement>('sup')).toHaveClass('test-count');
+    expect(element?.querySelector<HTMLElement>('sup')).toHaveClass('test-indicator');
 
     // styles
     expect(element).toHaveStyle({ backgroundColor: 'yellow' });
