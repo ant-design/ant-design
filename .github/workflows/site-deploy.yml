@@ -51,6 +51,10 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
         with:
