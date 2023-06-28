@@ -265,23 +265,33 @@ describe('ConfigProvider support style and className props', () => {
           style: { backgroundColor: 'red' },
           classNames: {
             input: 'cp-classNames-input',
+            prefix: 'cp-classNames-prefix',
           },
           styles: {
             input: {
               color: 'blue',
             },
+            prefix: {
+              color: 'black',
+            },
           },
         }}
       >
-        <Input placeholder="Basic usage" />
+        <Input placeholder="Basic usage" prefix="￥" />
       </ConfigProvider>,
     );
 
-    const element = container.querySelector<HTMLDivElement>('.ant-input');
-    expect(element).toHaveClass('cp-input');
-    expect(element).toHaveClass('cp-classNames-input');
-    expect(element).toHaveStyle({ color: 'blue' });
-    expect(element).toHaveStyle({ backgroundColor: 'red' });
+    const wrapperElement = container.querySelector<HTMLDivElement>('.ant-input-affix-wrapper');
+    expect(wrapperElement).toHaveClass('cp-input');
+    expect(wrapperElement).toHaveStyle({ backgroundColor: 'red' });
+
+    const prefixElement = container.querySelector<HTMLDivElement>('.ant-input-prefix');
+    expect(prefixElement).toHaveClass('cp-classNames-prefix');
+    expect(prefixElement).toHaveStyle({ color: 'black' });
+
+    const inputElement = container.querySelector<HTMLDivElement>('.ant-input');
+    expect(inputElement).toHaveClass('cp-classNames-input');
+    expect(inputElement).toHaveStyle({ color: 'blue' });
   });
 
   it('Should Mentions className & style works', () => {
