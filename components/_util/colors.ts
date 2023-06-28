@@ -21,14 +21,14 @@ export type PresetStatusColorType = typeof PresetStatusColorTypes[number];
  * @param color color to be judged
  * @param includeInverse whether to include reversed colors
  */
-export function isPresetColor(color?: any, includeInverse = true) {
+export function isPresetColor(color?: PresetColorKey, includeInverse = true) {
   if (includeInverse) {
-    return [...inverseColors, ...PresetColors].includes(color);
+    return [...inverseColors, ...PresetColors].includes(color!);
   }
 
-  return PresetColors.includes(color);
+  return PresetColors.includes(color!);
 }
 
-export function isPresetStatusColor(color?: any): color is PresetStatusColorType {
-  return PresetStatusColorTypes.includes(color);
+export function isPresetStatusColor(color?: PresetStatusColorType): color is PresetStatusColorType {
+  return PresetStatusColorTypes.includes(color!);
 }
