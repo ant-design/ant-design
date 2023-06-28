@@ -97,6 +97,7 @@ export interface ConfigConsumerProps {
   segmented?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;
   image?: ComponentStyleConfig;
+  layout?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;
   modal?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
