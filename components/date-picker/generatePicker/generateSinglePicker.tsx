@@ -8,7 +8,6 @@ import type { PickerMode } from 'rc-picker/lib/interface';
 import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
 import type { PickerProps, PickerTimeProps } from '.';
-import { Components, getTimeProps } from '.';
 import type { InputStatus } from '../../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import warning from '../../_util/warning';
@@ -20,7 +19,8 @@ import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
-import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
+import { getPlaceholder, getTimeProps, transPlacement2DropdownAlign } from '../util';
+import Components from './Components';
 import type { CommonPickerMethods, DatePickRef, PickerComponentClass } from './interface';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {

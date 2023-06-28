@@ -119,6 +119,7 @@ export interface AliasToken extends MapToken {
    * @descEN Weak action. Such as `allowClear` or Alert close button
    */
   colorIcon: string;
+
   /**  */
   /**
    * @nameZH 弱操作图标悬浮态颜色
@@ -127,28 +128,6 @@ export interface AliasToken extends MapToken {
    * @descEN Weak action hover color. Such as `allowClear` or Alert close button
    */
   colorIconHover: string;
-
-  /**
-   * @nameZH 超链接颜色
-   * @nameEN Hyperlink color
-   * @desc 控制超链接的颜色。
-   * @descEN Control the color of hyperlink.
-   */
-  colorLink: string;
-  /**
-   * @nameZH 超链接悬浮颜色
-   * @nameEN Hyperlink hover color
-   * @desc 控制超链接悬浮时的颜色。
-   * @descEN Control the color of hyperlink when hovering.
-   */
-  colorLinkHover: string;
-  /**
-   * @nameZH 超链接激活颜色
-   * @nameEN Hyperlink active color
-   * @desc 控制超链接被点击时的颜色。
-   * @descEN Control the color of hyperlink when clicked.
-   */
-  colorLinkActive: string;
 
   /**
    * @nameZH 高亮颜色

@@ -21,6 +21,7 @@ export const TypeIcon = {
 };
 
 export function getCloseIcon(prefixCls: string, closeIcon?: React.ReactNode) {
+  if (closeIcon === null || closeIcon === false) return null;
   return (
     closeIcon || (
       <span className={`${prefixCls}-close-x`}>

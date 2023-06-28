@@ -92,6 +92,7 @@ const InternalSelect = <
     dropdownMatchSelectWidth,
     popupMatchSelectWidth,
     direction: propDirection,
+    style,
     ...props
   }: SelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -191,6 +192,7 @@ const InternalSelect = <
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     compactItemClassnames,
+    select?.className,
     className,
     rootClassName,
     hashId,
@@ -228,6 +230,7 @@ const InternalSelect = <
       virtual={virtual}
       showSearch={select?.showSearch}
       {...selectProps}
+      style={{ ...select?.style, ...style }}
       dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
       builtinPlacements={mergedBuiltinPlacements}
       transitionName={getTransitionName(
