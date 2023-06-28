@@ -299,7 +299,7 @@
     "vanilla-jsoneditor": "^0.17.1",
     "webpack-bundle-analyzer": "^4.1.0",
     "xhr-mock": "^2.4.1",
-    "file-system-cache": "2.3.0"
+    "file-system-cache": "^2.4.1"
   },
   "peerDependencies": {
     "react": ">=16.9.0",
