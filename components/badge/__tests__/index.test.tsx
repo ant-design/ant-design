@@ -228,11 +228,11 @@ describe('Badge', () => {
         count={10}
         classNames={{
           root: 'test-root',
-          count: 'test-count',
+          indicator: 'test-count',
         }}
         styles={{
           root: { backgroundColor: 'yellow' },
-          count: { backgroundColor: 'blue' },
+          indicator: { backgroundColor: 'blue' },
         }}
       >
         test

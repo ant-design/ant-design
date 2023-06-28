@@ -62,10 +62,10 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 
 ### `styles` and `classNames` attribute
 
-| Property | Description         | Version |
-| -------- | ------------------- | ------- |
-| root     | set `root` element  | 5.5.0   |
-| count    | set `badge` element | 5.7.0   |
+| Property  | Description         | Version |
+| --------- | ------------------- | ------- |
+| root      | set `root` element  | 5.5.0   |
+| indicator | set `badge` element | 5.7.0   |
 
 ## Design Token
 

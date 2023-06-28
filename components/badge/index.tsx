@@ -42,11 +42,11 @@ export interface BadgeProps {
   children?: React.ReactNode;
   classNames?: {
     root?: string;
-    count?: string;
+    indicator?: string;
   };
   styles?: {
     root?: React.CSSProperties;
-    count?: React.CSSProperties;
+    indicator?: React.CSSProperties;
   };
 }
 
@@ -221,7 +221,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
 
           const isDot = isDotRef.current;
 
-          const scrollNumberCls = classnames(classNames?.count, {
+          const scrollNumberCls = classnames(classNames?.indicator, {
             [`${prefixCls}-dot`]: isDot,
             [`${prefixCls}-count`]: !isDot,
             [`${prefixCls}-count-sm`]: size === 'small',
@@ -231,7 +231,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
             [`${prefixCls}-color-${color}`]: isInternalColor,
           });
 
-          let scrollNumberStyle: React.CSSProperties = { ...styles?.count, ...mergedStyle };
+          let scrollNumberStyle: React.CSSProperties = { ...styles?.indicator, ...mergedStyle };
           if (color && !isInternalColor) {
             scrollNumberStyle = scrollNumberStyle || {};
             scrollNumberStyle.background = color;
