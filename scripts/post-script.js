@@ -37,6 +37,8 @@ const DEPRECIATED_VERSION = {
     'https://github.com/ant-design/cssinjs/pull/108',
     'https://github.com/ant-design/ant-design/pull/41993',
   ],
+  '5.6.2': ['https://github.com/ant-design/ant-design/issues/43113'],
+  '5.6.3': ['https://github.com/ant-design/ant-design/issues/43190'],
 };
 
 function matchDeprecated(version) {

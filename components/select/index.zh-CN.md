@@ -48,12 +48,6 @@ demo:
 
 ## API
 
-```tsx
-<Select>
-  <Option value="lucy">lucy</Option>
-</Select>
-```
-
 ### Select props
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |

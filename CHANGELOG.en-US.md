@@ -15,6 +15,42 @@ timeline: true
 
 ---
 
+## 5.6.3
+
+`2023-06-25`
+
+- BreadCrumb
+  - 🐞 Fix BreadCrumb `dropdownProps` does not working bug. [#43151](https://github.com/ant-design/ant-design/pull/43151) [@linxianxi](https://github.com/linxianxi)
+  - 🛠 Improve BreadCrumb behavior when receiving a null title. [#43099](https://github.com/ant-design/ant-design/pull/43099) [@Asanio06](https://github.com/Asanio06)
+- 🐞 Fix Slider disabled state within Form. [#43142](https://github.com/ant-design/ant-design/pull/43142) [@Starpuccino](https://github.com/Starpuccino)
+- 🐞 Fix Form that label offset does not work in vertical mode. [#43155](https://github.com/ant-design/ant-design/pull/43155) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Fix Table open filter popup throw react ref warning. [#43139](https://github.com/ant-design/ant-design/pull/43139)
+- 🐞 Fix Transfer with `rowKey` makes item unselectable. [#43115](https://github.com/ant-design/ant-design/pull/43115)
+- 🐞 Fix Space `size` priority when using with other components [#42752](https://github.com/ant-design/ant-design/pull/42752) [@linxianxi](https://github.com/linxianxi)
+- 🐞 Fix QRCode color in dark mode. [#43162](https://github.com/ant-design/ant-design/pull/43162) [@ds1371dani](https://github.com/ds1371dani)
+- 💄 Fix Select option unexpected margin when using with Badge and Tag. [#43097](https://github.com/ant-design/ant-design/pull/43097) [@Yuiai01](https://github.com/Yuiai01)
+- TypeScript
+  - 🤖 Improve Button `target` property type definition. [#43129](https://github.com/ant-design/ant-design/pull/43129) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🤖 Improve Progress `size` property type to support percent value. [#43123](https://github.com/ant-design/ant-design/pull/43123) [@Ali-ovo](https://github.com/Ali-ovo)
+  - 🤖 Improve Slider tooltip type definition. [#43094](https://github.com/ant-design/ant-design/pull/43094) [@li-jia-nan](https://github.com/li-jia-nan)
+
+## 5.6.2
+
+`2023-06-19`
+
+- 🐞 Fix Dropdown with `autoFocus` not work as expect. [#43002](https://github.com/ant-design/ant-design/pull/43002) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 Fix InputNumber with `prefix` abnormal height under Form.Item of `hasFeedBack`. [#43049](https://github.com/ant-design/ant-design/pull/43049)
+- 💄 Fix Input and InputNumber disabled style with addons. [#42974](https://github.com/ant-design/ant-design/pull/42974) [@kampiu](https://github.com/kampiu)
+- 🐞 Fix Upload trigger extra `onChange` event when upload the file exceeds `maxCount`. [#43034](https://github.com/ant-design/ant-design/pull/43034)
+- 🐞 Fix export bundle size always contain `rc-field-form` even not use it. [#43023](https://github.com/ant-design/ant-design/pull/43023)
+- 🐞 Fix DatePicker `disabledTime` sometime can select disabled option. [#42991](https://github.com/ant-design/ant-design/pull/42991) [@linxianxi](https://github.com/linxianxi)
+- 📖 Add FloatButton controlled demo and patch related warning info. [#42835](https://github.com/ant-design/ant-design/pull/42835) [@poyiding](https://github.com/poyiding)
+- 🐞 Fix Button with `disabled` still can interactive with sub component. [#42949](https://github.com/ant-design/ant-design/pull/42949) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Drawer add max width to avoid exceed in small screen. [#42914](https://github.com/ant-design/ant-design/pull/42914) [@amir2mi](https://github.com/amir2mi)
+- 🐞 Fix Table `preserveSelectedRowKeys` not working when `checkStrictly` configured. [#42784](https://github.com/ant-design/ant-design/pull/42784) [@linxianxi](https://github.com/linxianxi)
+- 🐞 Fix Transfer select count not sync when dynamic update data. [#42785](https://github.com/ant-design/ant-design/pull/42785) [@BoyYangzai](https://github.com/BoyYangzai)
+- 🐞 Fix Radio.Button `title` not work and update typescript definition. [#43012](https://github.com/ant-design/ant-design/pull/43012) [@linxianxi](https://github.com/linxianxi)
+
 ## 5.6.1
 
 `2023-06-07`
