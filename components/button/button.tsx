@@ -76,8 +76,6 @@ type CompoundedComponent = React.ForwardRefExoticComponent<
   __ANT_BUTTON: boolean;
 };
 
-type Loading = number | boolean;
-
 type LoadingConfigType = {
   loading: boolean;
   delay: number;
@@ -137,7 +135,7 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const loadingOrDelay = useMemo<LoadingConfigType>(() => getLoadingConfig(loading), [loading]);
 
-  const [innerLoading, setLoading] = useState<Loading>(loadingOrDelay.loading);
+  const [innerLoading, setLoading] = useState<boolean>(loadingOrDelay.loading);
 
   const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
