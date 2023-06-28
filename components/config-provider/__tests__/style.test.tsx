@@ -8,6 +8,7 @@ import Checkbox from '../../checkbox';
 import Descriptions from '../../descriptions';
 import Divider from '../../divider';
 import Empty from '../../empty';
+import Form from '../../form';
 import Image from '../../image';
 import Input from '../../input';
 import Layout from '../../layout';
@@ -240,6 +241,22 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-steps');
     expect(element).toHaveClass('config-provider-steps');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Form className & style works', () => {
+    const { container } = render(
+      <ConfigProvider form={{ className: 'cp-form', style: { backgroundColor: 'red' } }}>
+        <Form name="basic">
+          <Form.Item label="Username" name="username">
+            <Input />
+          </Form.Item>
+        </Form>
+      </ConfigProvider>,
+    );
+
+    const element = container.querySelector<HTMLDivElement>('.ant-form');
+    expect(element).toHaveClass('cp-form');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 
