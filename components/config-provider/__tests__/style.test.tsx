@@ -10,6 +10,7 @@ import Divider from '../../divider';
 import Empty from '../../empty';
 import Image from '../../image';
 import Input from '../../input';
+import Layout from '../../layout';
 import Mentions from '../../mentions';
 import Modal from '../../modal';
 import Pagination from '../../pagination';
@@ -292,6 +293,29 @@ describe('ConfigProvider support style and className props', () => {
     const inputElement = container.querySelector<HTMLDivElement>('.ant-input');
     expect(inputElement).toHaveClass('cp-classNames-input');
     expect(inputElement).toHaveStyle({ color: 'blue' });
+  });
+
+  it('Should Layout className & style works', () => {
+    const { baseElement } = render(
+      <ConfigProvider
+        layout={{
+          className: 'cp-layout',
+          style: {
+            background: 'red',
+          },
+        }}
+      >
+        <Layout>
+          <Layout.Header>Header</Layout.Header>
+          <Layout.Content>Content</Layout.Content>
+          <Layout.Footer>Footer</Layout.Footer>
+        </Layout>
+      </ConfigProvider>,
+    );
+
+    const element = baseElement.querySelector<HTMLDivElement>('.ant-layout');
+    expect(element).toHaveClass('cp-layout');
+    expect(element).toHaveStyle({ background: 'red' });
   });
 
   it('Should Mentions className & style works', () => {
