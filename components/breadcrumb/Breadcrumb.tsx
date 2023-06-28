@@ -74,12 +74,7 @@ const getPath = <T extends Record<PropertyKey, any> = any>(params: T, path?: str
   return mergedPath;
 };
 
-interface CompoundedComponent {
-  Item: typeof BreadcrumbItem;
-  Separator: typeof BreadcrumbSeparator;
-}
-
-const Breadcrumb: React.FC<BreadcrumbProps> & CompoundedComponent = (props) => {
+const Breadcrumb = <T extends Record<PropertyKey, any> = any>(props: BreadcrumbProps<T>) => {
   const {
     prefixCls: customizePrefixCls,
     separator = '/',
