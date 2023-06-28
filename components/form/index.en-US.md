@@ -249,7 +249,7 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 | setFieldValue | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first) | (name: [NamePath](#NamePath), value: any) => void | 4.22.0 |
 | setFieldsValue | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first). Use `setFieldValue` instead if you want to only config single value in Form.List | (values) => void |  |
 | submit | Submit the form. It's same as click `submit` button | () => void |  |
-| validateFields | Validate fields | (nameList?: [NamePath](#NamePath)\[]) => Promise |  |
+| validateFields | Validate fields | (nameList?: [NamePath](#namepath)\[], { validateOnly?: boolean }) => Promise | `validateOnly`: 4.24.12 |
 
 #### validateFields return sample
 
