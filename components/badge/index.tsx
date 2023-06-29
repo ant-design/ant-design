@@ -123,7 +123,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
   // =============================== Styles ===============================
   const mergedStyle = useMemo<React.CSSProperties>(() => {
     if (!offset) {
-      return { ...style };
+      return { ...badge?.style, ...style };
     }
 
     const offsetStyle: React.CSSProperties = { marginTop: offset[1] };
@@ -133,11 +133,8 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
       offsetStyle.right = -parseInt(offset[0] as string, 10);
     }
 
-    return {
-      ...offsetStyle,
-      ...style,
-    };
-  }, [direction, offset, style]);
+    return { ...badge?.style, ...offsetStyle, ...style };
+  }, [direction, offset, style, badge?.style]);
 
   // =============================== Render ===============================
   // >>> Title
@@ -154,10 +151,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
     !livingCount || typeof livingCount !== 'object'
       ? undefined
       : cloneElement(livingCount, (oriProps) => ({
-          style: {
-            ...mergedStyle,
-            ...oriProps.style,
-          },
+          style: { ...mergedStyle, ...oriProps.style },
         }));
 
   // InternalColor
@@ -198,7 +192,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
       <span
         {...restProps}
         className={badgeClassName}
-        style={{ ...styles?.root, ...badge?.style, ...badge?.styles?.root, ...mergedStyle }}
+        style={{ ...styles?.root, ...badge?.styles?.root, ...mergedStyle }}
       >
         <span
           className={statusCls}
@@ -248,7 +242,6 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
           let scrollNumberStyle: React.CSSProperties = {
             ...styles?.indicator,
             ...badge?.styles?.indicator,
-            ...badge?.style,
             ...mergedStyle,
           };
 
