@@ -1,6 +1,7 @@
 import type { DerivativeFunc } from '@ant-design/cssinjs';
 import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
+import type { BadgeProps } from '../badge';
 import type { ButtonProps } from '../button';
 import type { RequiredMark } from '../form/Form';
 import type { InputProps } from '../input';
@@ -40,6 +41,11 @@ export interface ThemeConfig {
 export interface ComponentStyleConfig {
   className?: string;
   style?: React.CSSProperties;
+}
+
+export interface BadgeConfig extends ComponentStyleConfig {
+  classNames?: BadgeProps['classNames'];
+  styles?: BadgeProps['styles'];
 }
 
 export interface ButtonConfig extends ComponentStyleConfig {
@@ -106,6 +112,7 @@ export interface ConfigConsumerProps {
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
   empty?: ComponentStyleConfig;
+  badge?: BadgeConfig;
   radio?: ComponentStyleConfig;
 }
 

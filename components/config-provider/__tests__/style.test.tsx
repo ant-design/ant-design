@@ -2,6 +2,7 @@ import React from 'react';
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import Anchor from '../../anchor';
+import Badge from '../../badge';
 import Breadcrumb from '../../breadcrumb';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
@@ -543,5 +544,41 @@ describe('ConfigProvider support style and className props', () => {
 
     expect(container.querySelector('.ant-empty')).toHaveClass('cp-className');
     expect(container.querySelector('.ant-empty')).toHaveStyle({ background: 'red' });
+  });
+
+  it('Should Badge className & style & classNames works', () => {
+    const { container } = render(
+      <ConfigProvider
+        badge={{
+          className: 'cp-badge',
+          style: {
+            backgroundColor: 'blue',
+          },
+          classNames: {
+            root: 'cp-badge-root',
+            indicator: 'cp-badge-indicator',
+          },
+          styles: {
+            root: { color: 'yellow' },
+            indicator: { color: 'green' },
+          },
+        }}
+      >
+        <Badge count={10}>test</Badge>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLSpanElement>('.ant-badge');
+
+    // test className
+    expect(element).toHaveClass('cp-badge');
+    expect(element).toHaveClass('cp-badge-root');
+    expect(element?.querySelector<HTMLElement>('sup')).toHaveClass('cp-badge-indicator');
+
+    // test style
+    expect(element).toHaveStyle({ color: 'yellow' });
+    expect(element?.querySelector<HTMLElement>('sup')).toHaveStyle({
+      color: 'green',
+      backgroundColor: 'blue',
+    });
   });
 });

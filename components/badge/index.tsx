@@ -72,7 +72,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
     showZero = false,
     ...restProps
   } = props;
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, badge } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('badge', customizePrefixCls);
 
   // Style
@@ -123,7 +123,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
   // =============================== Styles ===============================
   const mergedStyle = useMemo<React.CSSProperties>(() => {
     if (!offset) {
-      return { ...style };
+      return { ...badge?.style, ...style };
     }
 
     const offsetStyle: React.CSSProperties = { marginTop: offset[1] };
@@ -133,11 +133,8 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
       offsetStyle.right = -parseInt(offset[0] as string, 10);
     }
 
-    return {
-      ...offsetStyle,
-      ...style,
-    };
-  }, [direction, offset, style]);
+    return { ...offsetStyle, ...badge?.style, ...style };
+  }, [direction, offset, style, badge?.style]);
 
   // =============================== Render ===============================
   // >>> Title
@@ -154,17 +151,14 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
     !livingCount || typeof livingCount !== 'object'
       ? undefined
       : cloneElement(livingCount, (oriProps) => ({
-          style: {
-            ...mergedStyle,
-            ...oriProps.style,
-          },
+          style: { ...mergedStyle, ...oriProps.style },
         }));
 
   // InternalColor
   const isInternalColor = isPresetColor(color, false);
 
   // Shared styles
-  const statusCls = classnames(classNames?.indicator, {
+  const statusCls = classnames(classNames?.indicator, badge?.classNames?.indicator, {
     [`${prefixCls}-status-dot`]: hasStatus,
     [`${prefixCls}-status-${status}`]: !!status,
     [`${prefixCls}-color-${color}`]: isInternalColor,
@@ -185,6 +179,8 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
     },
     className,
     rootClassName,
+    badge?.className,
+    badge?.classNames?.root,
     classNames?.root,
     hashId,
   );
@@ -193,8 +189,15 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
   if (!children && hasStatus) {
     const statusTextColor = mergedStyle.color;
     return wrapSSR(
-      <span {...restProps} className={badgeClassName} style={{ ...styles?.root, ...mergedStyle }}>
-        <span className={statusCls} style={{ ...styles?.indicator, ...statusStyle }} />
+      <span
+        {...restProps}
+        className={badgeClassName}
+        style={{ ...styles?.root, ...badge?.styles?.root, ...mergedStyle }}
+      >
+        <span
+          className={statusCls}
+          style={{ ...styles?.indicator, ...badge?.styles?.indicator, ...statusStyle }}
+        />
         {text && (
           <span style={{ color: statusTextColor }} className={`${prefixCls}-status-text`}>
             {text}
@@ -205,7 +208,12 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
   }
 
   return wrapSSR(
-    <span ref={ref} {...restProps} className={badgeClassName} style={styles?.root}>
+    <span
+      ref={ref}
+      {...restProps}
+      className={badgeClassName}
+      style={{ ...badge?.styles?.root, ...styles?.root }}
+    >
       {children}
       <CSSMotion
         visible={!isHidden}
@@ -221,7 +229,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
 
           const isDot = isDotRef.current;
 
-          const scrollNumberCls = classnames(classNames?.indicator, {
+          const scrollNumberCls = classnames(classNames?.indicator, badge?.classNames?.indicator, {
             [`${prefixCls}-dot`]: isDot,
             [`${prefixCls}-count`]: !isDot,
             [`${prefixCls}-count-sm`]: size === 'small',
@@ -231,7 +239,12 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
             [`${prefixCls}-color-${color}`]: isInternalColor,
           });
 
-          let scrollNumberStyle: React.CSSProperties = { ...styles?.indicator, ...mergedStyle };
+          let scrollNumberStyle: React.CSSProperties = {
+            ...styles?.indicator,
+            ...badge?.styles?.indicator,
+            ...mergedStyle,
+          };
+
           if (color && !isInternalColor) {
             scrollNumberStyle = scrollNumberStyle || {};
             scrollNumberStyle.background = color;

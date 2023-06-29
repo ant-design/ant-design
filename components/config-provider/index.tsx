@@ -19,6 +19,7 @@ import type { SpaceProps } from '../space';
 import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
+  BadgeConfig,
   ButtonConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
@@ -155,6 +156,7 @@ export interface ConfigProviderProps {
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
   empty?: ComponentStyleConfig;
+  badge?: BadgeConfig;
   radio?: ComponentStyleConfig;
 }
 
@@ -208,7 +210,9 @@ const setGlobalConfig = ({
 
 export const globalConfig = () => ({
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
-    if (customizePrefixCls) return customizePrefixCls;
+    if (customizePrefixCls) {
+      return customizePrefixCls;
+    }
     return suffixCls ? `${getGlobalPrefixCls()}-${suffixCls}` : getGlobalPrefixCls();
   },
   getIconPrefixCls: getGlobalIconPrefixCls,
@@ -262,6 +266,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     pagination,
     input,
     empty,
+    badge,
     radio,
   } = props;
 
@@ -333,6 +338,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     breadcrumb,
     pagination,
     empty,
+    badge,
     radio,
   };
 
