@@ -58,7 +58,7 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 | maxLength | The maximum number of characters in Input | number | - |  |
 | showCount | Whether to show character count | boolean \| { formatter: (info: { value: string, count: number, maxLength?: number }) => ReactNode } | false | 4.18.0 info.value: 4.23.0 |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
-| styles | Semantic DOM style | Record<[SemanticDOM](#input-1), CSSProperties> | - | 5.4.0 |
+| style | Semantic DOM style | Record<[SemanticDOM](#input-1), CSSProperties> | - | 5.4.0 |
 | prefix | The prefix icon for the Input | ReactNode | - |  |
 | size | The size of the input box. Note: in the context of a form, the `middle` size is used | `large` \| `middle` \| `small` | - |  |
 | suffix | The suffix icon for the Input | ReactNode | - |  |
@@ -82,7 +82,7 @@ The rest of the props of Input are exactly the same as the original [input](http
 | defaultValue | The initial input content | string | - |  |
 | maxLength | The maximum number of characters in TextArea | number | - | 4.7.0 |
 | showCount | Whether to show character count | boolean \| { formatter: (info: { value: string, count: number, maxLength?: number }) => string } | false | 4.7.0 formatter: 4.10.0 info.value: 4.23.0 |
-| styles | Semantic DOM style | Record<[SemanticDOM](#inputtextarea-1), CSSProperties> | - | 5.4.0 |
+| style | Semantic DOM style | Record<[SemanticDOM](#inputtextarea-1), CSSProperties> | - | 5.4.0 |
 | value | The input content value | string | - |  |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - |  |
 | onResize | The callback function that is triggered when resize | function({ width, height }) | - |  |
