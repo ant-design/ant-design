@@ -17,6 +17,7 @@ import Mentions from '../../mentions';
 import Modal from '../../modal';
 import Pagination from '../../pagination';
 import Radio from '../../radio';
+import Rate from '../../rate';
 import Result from '../../result';
 import Segmented from '../../segmented';
 import Select from '../../select';
@@ -580,5 +581,16 @@ describe('ConfigProvider support style and className props', () => {
       color: 'green',
       backgroundColor: 'blue',
     });
+  });
+
+  it('Should Rate className & style works', () => {
+    const { container } = render(
+      <ConfigProvider rate={{ className: 'cp-rate', style: { backgroundColor: 'blue' } }}>
+        <Rate />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLUListElement>('.ant-rate');
+    expect(element).toHaveClass('cp-rate');
+    expect(element).toHaveStyle({ backgroundColor: 'blue' });
   });
 });
