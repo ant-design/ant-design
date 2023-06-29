@@ -44,7 +44,11 @@ const genRtlStyle = (token: ColorPickerToken): CSSObject => {
   };
 };
 
-const genClearStyle = (token: ColorPickerToken, size: number): CSSObject => {
+const genClearStyle = (
+  token: ColorPickerToken,
+  size: number,
+  extraStyle?: CSSObject,
+): CSSObject => {
   const { componentCls, borderRadiusSM, lineWidth, colorSplit, red6 } = token;
 
   return {
@@ -56,6 +60,7 @@ const genClearStyle = (token: ColorPickerToken, size: number): CSSObject => {
       position: 'relative',
       cursor: 'pointer',
       overflow: 'hidden',
+      ...extraStyle,
       '&::after': {
         content: '""',
         position: 'absolute',
@@ -129,6 +134,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
     controlHeightSM,
     colorBgTextActive,
     colorPickerPresetColorSize,
+    colorPickerPreviewSize,
     lineWidth,
     colorBorder,
     paddingXXS,
@@ -138,25 +144,24 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
   return [
     {
       [componentCls]: {
-        [`${componentCls}-panel`]: {
+        [`${componentCls}-inner-content`]: {
           display: 'flex',
           flexDirection: 'column',
           width: colorPickerWidth,
 
-          [`${componentCls}-inner-panel`]: {
-            [`${componentCls}-clear`]: {
-              marginInlineStart: 'auto',
-              marginBottom: marginXS,
-            },
-            '&-divider': {
-              margin: `${marginSM}px 0 ${marginXS}px`,
-            },
+          '&-divider': {
+            margin: `${marginSM}px 0 ${marginXS}px`,
           },
-
-          ...genPickerStyle(token),
+          [`${componentCls}-panel`]: {
+            ...genPickerStyle(token),
+          },
+          ...genColorBlockStyle(token, colorPickerPreviewSize),
           ...genInputStyle(token),
           ...genPresetsStyle(token),
-          ...genClearStyle(token, colorPickerPresetColorSize),
+          ...genClearStyle(token, colorPickerPresetColorSize, {
+            marginInlineStart: 'auto',
+            marginBottom: marginXS,
+          }),
         },
 
         '&-trigger': {
