@@ -166,7 +166,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
   const badgeClassName = classNames(
     prefixCls,
     badge?.className,
-    badge?.classNames?.container,
+    badge?.classNames?.root,
     {
       [`${prefixCls}-status`]: hasStatus,
       [`${prefixCls}-not-a-wrapper`]: !children,
