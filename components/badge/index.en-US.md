@@ -64,7 +64,7 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 
 | Property  | Description         | Version |
 | --------- | ------------------- | ------- |
-| root      | set `root` element  | 5.5.0   |
+| root      | set `root` element  | 5.7.0   |
 | indicator | set `badge` element | 5.7.0   |
 
 ## Design Token
