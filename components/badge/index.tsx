@@ -133,7 +133,10 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
       offsetStyle.right = -parseInt(offset[0] as string, 10);
     }
 
-    return { ...offsetStyle };
+    return {
+      ...offsetStyle,
+      ...style,
+    };
   }, [direction, offset, style]);
 
   // =============================== Render ===============================
