@@ -159,6 +159,7 @@ export interface ConfigProviderProps {
   badge?: BadgeConfig;
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
+  switch?: ComponentStyleConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -270,6 +271,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     badge,
     radio,
     rate,
+    switch: SWITCH,
   } = props;
 
   // =================================== Warning ===================================
@@ -343,6 +345,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     badge,
     radio,
     rate,
+    switch: SWITCH,
   };
 
   const config = {
