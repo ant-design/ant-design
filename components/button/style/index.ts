@@ -120,7 +120,7 @@ const genHoverActiveButtonStyle = (
   hoverStyle: CSSObject,
   activeStyle: CSSObject,
 ): CSSObject => ({
-  [`&:not(:disabled, ${btnCls}-disabled)`]: {
+  [`&:not(:disabled):not(${btnCls}-disabled)`]: {
     '&:hover': hoverStyle,
     '&:active': activeStyle,
   },
