@@ -244,7 +244,12 @@ export type FormatType = Generic | GenericFn | Array<Generic | GenericFn>;
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 
-dayjs.locale("zh-cn");
+import updateLocale from 'dayjs/plugin/updateLocale';
+
+dayjs.extend(updateLocale);
+dayjs.updateLocale('zh-cn', {
+  weekStart: 0,
+});
 ```
 
 ### 为何使用 `panelRender` 时，原来面板无法切换？
