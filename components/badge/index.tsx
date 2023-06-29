@@ -184,7 +184,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
       <span
         {...restProps}
         className={badgeClassName}
-        style={{ ...badge?.styles?.container, ...mergedStyle }}
+        style={{ ...badge?.styles?.root, ...mergedStyle }}
       >
         <span className={statusCls} style={statusStyle} />
         {text && (
