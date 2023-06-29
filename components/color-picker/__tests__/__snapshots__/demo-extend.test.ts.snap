@@ -3276,7 +3276,9 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                       <div
                         class="custom-panel"
                       >
-                        <div>
+                        <div
+                          style="font-size: 12px; color: rgba(0, 0, 0, 0.88); line-height: 20px; margin-bottom: 8px;"
+                        >
                           Color Picker
                         </div>
                         <div
@@ -3691,7 +3693,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                         style="display: flex; width: 468px;"
                       >
                         <div
-                          style="width: 234px;"
+                          style="flex: 1;"
                         >
                           <div
                             class="ant-color-picker-presets"

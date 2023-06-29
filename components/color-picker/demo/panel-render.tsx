@@ -10,7 +10,16 @@ const Demo = () => (
           <ColorPicker
             panelRender={(panel) => (
               <div className="custom-panel">
-                <div>Color Picker</div>
+                <div
+                  style={{
+                    fontSize: 12,
+                    color: 'rgba(0, 0, 0, 0.88)',
+                    lineHeight: '20px',
+                    marginBottom: 8,
+                  }}
+                >
+                  Color Picker
+                </div>
                 {panel}
               </div>
             )}
@@ -86,7 +95,7 @@ const Demo = () => (
               >
                 <div
                   style={{
-                    width: 234,
+                    flex: 1,
                   }}
                 >
                   <Presets />
