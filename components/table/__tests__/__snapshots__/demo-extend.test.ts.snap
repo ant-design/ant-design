@@ -348,11 +348,7 @@ exports[`renders components/table/demo/bordered.tsx extend context correctly 1`]
               <caption
                 class="ant-table-caption"
               >
-                <div
-                  style="text-align: left; padding: 16px;"
-                >
-                  Header
-                </div>
+                Header
               </caption>
               <colgroup />
               <thead
@@ -23619,6 +23615,8 @@ Array [
         aria-valuenow="50"
         autocomplete="off"
         class="ant-input-number-input"
+        classes="[object Object]"
+        classnames="[object Object]"
         role="spinbutton"
         step="1"
         value="50"
