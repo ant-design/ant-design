@@ -42,7 +42,7 @@ const App: React.FC<AppProps> & { useApp: typeof useApp } = (props) => {
       message: { ...appConfig.message, ...message },
       notification: { ...appConfig.notification, ...notification },
     }),
-    [message, notification, appConfig.message, appConfig.message],
+    [message, notification, appConfig.message, appConfig.notification],
   );
 
   const [messageApi, messageContextHolder] = useMessage(mergedAppConfig.message);
