@@ -9,7 +9,10 @@ import Checkbox from '../../checkbox';
 import Descriptions from '../../descriptions';
 import Divider from '../../divider';
 import Empty from '../../empty';
+import Form from '../../form';
 import Image from '../../image';
+import Input from '../../input';
+import Layout from '../../layout';
 import Mentions from '../../mentions';
 import Modal from '../../modal';
 import Pagination from '../../pagination';
@@ -242,6 +245,22 @@ describe('ConfigProvider support style and className props', () => {
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 
+  it('Should Form className & style works', () => {
+    const { container } = render(
+      <ConfigProvider form={{ className: 'cp-form', style: { backgroundColor: 'red' } }}>
+        <Form name="basic">
+          <Form.Item label="Username" name="username">
+            <Input />
+          </Form.Item>
+        </Form>
+      </ConfigProvider>,
+    );
+
+    const element = container.querySelector<HTMLDivElement>('.ant-form');
+    expect(element).toHaveClass('cp-form');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
   it('Should Image className & style works', () => {
     const { container } = render(
       <ConfigProvider
@@ -255,6 +274,66 @@ describe('ConfigProvider support style and className props', () => {
       ?.querySelector<HTMLImageElement>('img');
     expect(element).toHaveClass('config-provider-image');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Input className & style & classNames & styles works', () => {
+    const { container } = render(
+      <ConfigProvider
+        input={{
+          className: 'cp-input',
+          style: { backgroundColor: 'red' },
+          classNames: {
+            input: 'cp-classNames-input',
+            prefix: 'cp-classNames-prefix',
+          },
+          styles: {
+            input: {
+              color: 'blue',
+            },
+            prefix: {
+              color: 'black',
+            },
+          },
+        }}
+      >
+        <Input placeholder="Basic usage" prefix="￥" />
+      </ConfigProvider>,
+    );
+
+    const wrapperElement = container.querySelector<HTMLDivElement>('.ant-input-affix-wrapper');
+    expect(wrapperElement).toHaveClass('cp-input');
+    expect(wrapperElement).toHaveStyle({ backgroundColor: 'red' });
+
+    const prefixElement = container.querySelector<HTMLDivElement>('.ant-input-prefix');
+    expect(prefixElement).toHaveClass('cp-classNames-prefix');
+    expect(prefixElement).toHaveStyle({ color: 'black' });
+
+    const inputElement = container.querySelector<HTMLDivElement>('.ant-input');
+    expect(inputElement).toHaveClass('cp-classNames-input');
+    expect(inputElement).toHaveStyle({ color: 'blue' });
+  });
+
+  it('Should Layout className & style works', () => {
+    const { baseElement } = render(
+      <ConfigProvider
+        layout={{
+          className: 'cp-layout',
+          style: {
+            background: 'red',
+          },
+        }}
+      >
+        <Layout>
+          <Layout.Header>Header</Layout.Header>
+          <Layout.Content>Content</Layout.Content>
+          <Layout.Footer>Footer</Layout.Footer>
+        </Layout>
+      </ConfigProvider>,
+    );
+
+    const element = baseElement.querySelector<HTMLDivElement>('.ant-layout');
+    expect(element).toHaveClass('cp-layout');
+    expect(element).toHaveStyle({ background: 'red' });
   });
 
   it('Should Mentions className & style works', () => {
@@ -476,12 +555,12 @@ describe('ConfigProvider support style and className props', () => {
             backgroundColor: 'blue',
           },
           classNames: {
-            count: 'cp-badge-count',
-            container: 'cp-badge-container',
+            root: 'cp-badge-root',
+            indicator: 'cp-badge-indicator',
           },
           styles: {
-            count: { color: 'green' },
-            container: { color: 'yellow' },
+            root: { color: 'yellow' },
+            indicator: { color: 'green' },
           },
         }}
       >
@@ -492,8 +571,8 @@ describe('ConfigProvider support style and className props', () => {
 
     // test className
     expect(element).toHaveClass('cp-badge');
-    expect(element).toHaveClass('cp-badge-container');
-    expect(element?.querySelector<HTMLElement>('sup')).toHaveClass('cp-badge-count');
+    expect(element).toHaveClass('cp-badge-root');
+    expect(element?.querySelector<HTMLElement>('sup')).toHaveClass('cp-badge-indicator');
 
     // test style
     expect(element).toHaveStyle({ color: 'yellow' });

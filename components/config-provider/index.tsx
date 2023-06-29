@@ -9,6 +9,7 @@ import type { Options } from 'scroll-into-view-if-needed';
 import warning from '../_util/warning';
 import type { RequiredMark } from '../form/Form';
 import ValidateMessagesContext from '../form/validateMessagesContext';
+import type { InputProps } from '../input';
 import type { Locale } from '../locale';
 import LocaleProvider, { ANT_MARK } from '../locale';
 import type { LocaleContextProps } from '../locale/context';
@@ -102,13 +103,15 @@ export interface ConfigProviderProps {
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
-  form?: {
+  form?: ComponentStyleConfig & {
     validateMessages?: ValidateMessages;
     requiredMark?: RequiredMark;
     colon?: boolean;
     scrollToFirstError?: Options | boolean;
   };
-  input?: {
+  input?: ComponentStyleConfig & {
+    classNames?: InputProps['classNames'];
+    styles?: InputProps['styles'];
     autoComplete?: string;
   };
   select?: ComponentStyleConfig & {
@@ -144,6 +147,7 @@ export interface ConfigProviderProps {
   segmented?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;
   image?: ComponentStyleConfig;
+  layout?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;
   modal?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
@@ -253,12 +257,14 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     divider,
     steps,
     image,
+    layout,
     mentions,
     modal,
     result,
     slider,
     breadcrumb,
     pagination,
+    input,
     empty,
     badge,
     radio,
@@ -323,6 +329,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     divider,
     steps,
     image,
+    input,
+    layout,
     mentions,
     modal,
     result,
