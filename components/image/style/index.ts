@@ -91,7 +91,10 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
     [`${previewCls}-close`]: {
       position: 'fixed',
       top: marginXL,
-      right: marginXL,
+      right: {
+        _skip_check_: true,
+        value: marginXL,
+      },
       display: 'flex',
       color: colorTextLightSolid,
       backgroundColor: operationBg.toRgbString(),
