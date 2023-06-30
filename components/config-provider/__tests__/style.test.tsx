@@ -26,6 +26,7 @@ import Space from '../../space';
 import Spin from '../../spin';
 import Steps from '../../steps';
 import Switch from '../../switch';
+import Tag from '../../tag';
 import Typography from '../../typography';
 
 describe('ConfigProvider support style and className props', () => {
@@ -603,6 +604,17 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLButtonElement>('.ant-switch');
     expect(element).toHaveClass('cp-switch');
+    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+  });
+
+  it('Should Tag className & style works', () => {
+    const { container } = render(
+      <ConfigProvider tag={{ className: 'cp-tag', style: { backgroundColor: 'blue' } }}>
+        <Tag>Test</Tag>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLSpanElement>('.ant-tag');
+    expect(element).toHaveClass('cp-tag');
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
   });
 });
