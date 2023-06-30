@@ -161,6 +161,7 @@ export interface ConfigProviderProps {
   rate?: ComponentStyleConfig;
   switch?: ComponentStyleConfig;
   tag?: ComponentStyleConfig;
+  table?: ComponentStyleConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -274,6 +275,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     rate,
     switch: SWITCH,
     tag,
+    table,
   } = props;
 
   // =================================== Warning ===================================
@@ -349,6 +351,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     rate,
     switch: SWITCH,
     tag,
+    table,
   };
 
   const config = {
