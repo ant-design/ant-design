@@ -126,7 +126,7 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
         transition: `all ${motionDurationSlow}`,
         userSelect: 'none',
 
-        [`&:hover > ${iconCls}`]: {
+        [`&:not(&-disabled):hover > ${iconCls}`]: {
           opacity: 0.3,
         },
 
