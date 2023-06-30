@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.24.12
+
+`2023-06-30`
+
+- 🐞 修复 Form 在提交时，字段没有配置 `rules` 时仍会错误触发 `onFieldsChange` 事件的问题。[#43292](https://github.com/ant-design/ant-design/pull/43292)
+- 🐞 修复 Form 嵌套 Form.List 嵌套 Form 的场景下，事件触发不正确的问题。[#43292](https://github.com/ant-design/ant-design/pull/43292)
+
 ## 4.24.11
 
 `2023-06-27`

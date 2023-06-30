@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.24.12
+
+`2023-06-30`
+
+- 🐞 Fix Form submit trigger wrong `onFieldsChange` event even all the fields do not config `rules`. [#43292](https://github.com/ant-design/ant-design/pull/43292)
+- 🐞 Fix Form.List nested Form event bubble not correct. [#43292](https://github.com/ant-design/ant-design/pull/43292)
+
 ## 4.24.11
 
 `2023-06-27`
