@@ -76,7 +76,9 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
   const colorPreset = genPresetColor(token, (colorKey, { darkColor }) => ({
     [`&${componentCls} ${componentCls}-color-${colorKey}`]: {
       background: darkColor,
-      color: darkColor,
+      [`&:not(${componentCls}-count)`]: {
+        color: darkColor,
+      },
     },
   }));
 
