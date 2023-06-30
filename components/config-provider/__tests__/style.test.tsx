@@ -4,6 +4,7 @@ import { render } from '../../../tests/utils';
 import Anchor from '../../anchor';
 import Badge from '../../badge';
 import Breadcrumb from '../../breadcrumb';
+import Card from '../../card';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
 import Descriptions from '../../descriptions';
@@ -627,6 +628,17 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-table-wrapper');
     expect(element).toHaveClass('cp-table');
+    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+  });
+
+  it('Should Card className & style works', () => {
+    const { container } = render(
+      <ConfigProvider card={{ className: 'cp-card', style: { backgroundColor: 'blue' } }}>
+        <Card>test</Card>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-card');
+    expect(element).toHaveClass('cp-card');
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
   });
 });
