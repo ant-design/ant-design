@@ -62,6 +62,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | scaleStep | `1 + scaleStep` 为缩放放大的每步倍数 | number | 0.5 | - |
 | minScale | 最小缩放倍数 | number | 1 | 5.7.0 |
 | maxScale | 最大放大倍数 | number | 50 | 5.7.0 |
+| closeIcon | 自定义关闭 Icon | React.ReactNode | - | 5.7.0 |
 | forceRender | 强制渲染预览图 | boolean | - | - |
 | toolbarRender | 自定义工具栏 | (originalNode: React.ReactNode, info: Omit<[ToolbarRenderInfoType](#ToolbarRenderInfoType), 'current' \| 'total'>) => React.ReactNode | - | 5.7.0 |
 | imageRender | 自定义预览内容 | (originalNode: React.ReactNode, info: { transform: [TransformType](#TransformType) }) => React.ReactNode | - | 5.7.0 |
@@ -74,6 +75,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | --- | --- | --- | --- | --- |
 | preview | 预览参数，为 `false` 时禁用 | boolean \| [PreviewGroupType](#PreviewGroupType) | true | 4.6.0 [PreviewGroupType](#PreviewGroupType):4.7.0 |
 | items | 预览数组 | string[] \| { src: string, crossOrigin: string, ... }[] | - | 5.7.0 |
+| fallback | 加载失败容错地址 | string | - | 5.7.0 |
 
 ### PreviewGroupType
 
@@ -88,8 +90,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | scaleStep | `1 + scaleStep` 为缩放放大的每步倍数 | number | 0.5 | - |
 | minScale | 最小缩放倍数 | number | 1 | 5.7.0 |
 | maxScale | 最大放大倍数 | number | 50 | 5.7.0 |
+| closeIcon | 自定义关闭 Icon | React.ReactNode | - | 5.7.0 |
 | forceRender | 强制渲染预览图 | boolean | - | - |
-| countRender | 自定义预览计数内容 | (current: number, total: number) => string | - | 4.20.0 |
+| countRender | 自定义预览计数内容 | (current: number, total: number) => React.ReactNode | - | 4.20.0 |
 | toolbarRender | 自定义工具栏 | (originalNode: React.ReactNode, info: [ToolbarRenderInfoType](#ToolbarRenderInfoType)) => React.ReactNode | - | 5.7.0 |
 | imageRender | 自定义预览内容 | (originalNode: React.ReactNode, info: { transform: [TransformType](#TransformType), current: number }) => React.ReactNode | - | 5.7.0 |
 | onTransform | 预览图 transform 变化的回调 | { transform: [TransformType](#TransformType), action: [TransformAction](#TransformAction) } | - | 5.7.0 |
@@ -141,7 +144,6 @@ type TransformAction =
     rotateRightIcon: React.ReactNode;
     zoomOutIcon: React.ReactNode;
     zoomInIcon: React.ReactNode;
-    closeIcon: React.ReactNode;
   };
   actions: {
     onFlipY: () => void;
@@ -150,7 +152,6 @@ type TransformAction =
     onRotateRight: () => void;
     onZoomOut: () => void;
     onZoomIn: () => void;
-    onClose: () => void;
   };
   transform: TransformType,
   current: number;

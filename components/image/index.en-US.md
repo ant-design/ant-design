@@ -61,6 +61,7 @@ Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 | scaleStep | `1 + scaleStep` is the step to increase or decrease the scale | number | 0.5 | - |
 | minScale | Min scale | number | 1 | 5.7.0 |
 | maxScale | Max scale | number | 50 | 5.7.0 |
+| closeIcon | Custom close icon | React.ReactNode | - | 5.7.0 |
 | forceRender | Force render preview dialog | boolean | - | - |
 | toolbarRender | Custom toolbar render | (originalNode: React.ReactNode, info: Omit<[ToolbarRenderInfoType](#ToolbarRenderInfoType), 'current' \| 'total'>) => React.ReactNode | - | 5.7.0 |
 | imageRender | Custom preview content | (originalNode: React.ReactNode, info: { transform: [TransformType](#TransformType) }) => React.ReactNode | - | 5.7.0 |
@@ -73,6 +74,7 @@ Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 | --- | --- | --- | --- | --- |
 | preview | Preview config, `disabled` when false | boolean \| [PreviewGroupType](#PreviewGroupType) | true | 4.6.0 [PreviewGroupType](#PreviewGroupType):4.7.0 |
 | items | Preview items | string[] \| { src: string, crossOrigin: string, ... }[] | - | 5.7.0 |
+| fallback | Load failure fault-tolerant src | string | - | 5.7.0 |
 
 ### PreviewGroupType
 
@@ -87,8 +89,9 @@ Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 | scaleStep | `1 + scaleStep` is the step to increase or decrease the scale | number | 0.5 | - |
 | minScale | Min scale | number | 1 | 5.7.0 |
 | maxScale | Max scale | number | 50 | 5.7.0 |
+| closeIcon | Custom close icon | React.ReactNode | - | 5.7.0 |
 | forceRender | Force render preview dialog | boolean | - | - |
-| countRender | Custom preview count content | (current: number, total: number) => string | - | 4.20.0 |
+| countRender | Custom preview count content | (current: number, total: number) => React.ReactNode | - | 4.20.0 |
 | toolbarRender | Custom toolbar render | (originalNode: React.ReactNode, info: [ToolbarRenderInfoType](#ToolbarRenderInfoType)) => React.ReactNode | - | 5.7.0 |
 | imageRender | Custom preview content | (originalNode: React.ReactNode, info: { transform: [TransformType](#TransformType), current: number }) => React.ReactNode | - | 5.7.0 |
 | onTransform | Callback when the transform of image changed | { transform: [TransformType](#TransformType), action: [TransformAction](#TransformAction) } | - | 5.7.0 |
@@ -140,7 +143,6 @@ type TransformAction =
     rotateRightIcon: React.ReactNode;
     zoomOutIcon: React.ReactNode;
     zoomInIcon: React.ReactNode;
-    closeIcon: React.ReactNode;
   };
   actions: {
     onFlipY: () => void;
@@ -149,7 +151,6 @@ type TransformAction =
     onRotateRight: () => void;
     onZoomOut: () => void;
     onZoomIn: () => void;
-    onClose: () => void;
   };
   transform: TransformType,
   current: number;
