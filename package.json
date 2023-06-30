@@ -209,7 +209,7 @@
     "antd-img-crop": "^4.9.0",
     "antd-style": "^3.0.0",
     "antd-token-previewer": "^1.1.0-21",
-    "chalk": "^4.0.0",
+    "chalk": "^5.3.0",
     "cheerio": "1.0.0-rc.12",
     "cross-env": "^7.0.0",
     "dekko": "^0.2.1",
