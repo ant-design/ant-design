@@ -115,6 +115,7 @@ export interface ConfigConsumerProps {
   badge?: BadgeConfig;
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
+  switch?: ComponentStyleConfig;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {

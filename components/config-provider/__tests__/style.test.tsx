@@ -25,6 +25,7 @@ import Slider from '../../slider';
 import Space from '../../space';
 import Spin from '../../spin';
 import Steps from '../../steps';
+import Switch from '../../switch';
 import Typography from '../../typography';
 
 describe('ConfigProvider support style and className props', () => {
@@ -591,6 +592,17 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLUListElement>('.ant-rate');
     expect(element).toHaveClass('cp-rate');
+    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+  });
+
+  it('Should Switch className & style works', () => {
+    const { container } = render(
+      <ConfigProvider switch={{ className: 'cp-switch', style: { backgroundColor: 'blue' } }}>
+        <Switch />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLButtonElement>('.ant-switch');
+    expect(element).toHaveClass('cp-switch');
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
   });
 });

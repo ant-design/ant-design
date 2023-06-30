@@ -123,6 +123,7 @@ const {
 | segmented | Set Segmented common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | select | Set Select common props | { className?: string, showSearch?: boolean, style?: React.CSSProperties } | - | 5.7.0 |
 | slider | Set Slider common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| switch | Set Switch common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | space | Set Space common props, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: { item: string }, styles?: { item: React.CSSProperties } } | - | 5.6.0 |
 | spin | Set Spin common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | steps | Set Steps common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
