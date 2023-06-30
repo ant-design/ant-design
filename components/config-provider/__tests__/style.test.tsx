@@ -26,6 +26,7 @@ import Space from '../../space';
 import Spin from '../../spin';
 import Steps from '../../steps';
 import Switch from '../../switch';
+import Table from '../../table';
 import Tag from '../../tag';
 import Typography from '../../typography';
 
@@ -615,6 +616,17 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLSpanElement>('.ant-tag');
     expect(element).toHaveClass('cp-tag');
+    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+  });
+
+  it('Should Table className & style works', () => {
+    const { container } = render(
+      <ConfigProvider table={{ className: 'cp-table', style: { backgroundColor: 'blue' } }}>
+        <Table dataSource={[]} />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-table-wrapper');
+    expect(element).toHaveClass('cp-table');
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
   });
 });
