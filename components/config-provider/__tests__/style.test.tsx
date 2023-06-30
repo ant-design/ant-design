@@ -621,7 +621,7 @@ describe('ConfigProvider support style and className props', () => {
 
   it('Should Table className & style works', () => {
     const { container } = render(
-      <ConfigProvider tag={{ className: 'cp-table', style: { backgroundColor: 'blue' } }}>
+      <ConfigProvider table={{ className: 'cp-table', style: { backgroundColor: 'blue' } }}>
         <Table dataSource={[]} />
       </ConfigProvider>,
     );
