@@ -213,7 +213,8 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
           fontSize: token.fontSize,
         },
       },
-      ...colorPreset,
+      [`${componentCls}-count, ${componentCls}-count-sm, ${componentCls}-dot, &${componentCls}-status`]:
+        colorPreset,
       [`${componentCls}-zoom-appear, ${componentCls}-zoom-enter`]: {
         animationName: antZoomBadgeIn,
         animationDuration: token.motionDurationSlow,
