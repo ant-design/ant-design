@@ -12,6 +12,7 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
   const {
     componentCls,
     iconCls,
+    antCls,
     zIndexPopup,
     colorText,
     colorWarning,
@@ -25,7 +26,10 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
   return {
     [componentCls]: {
       zIndex: zIndexPopup,
-      color: colorText,
+
+      [`&${antCls}-popover`]: {
+        fontSize,
+      },
 
       [`${componentCls}-message`]: {
         marginBottom: marginXS,
@@ -51,6 +55,7 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
 
         [`${componentCls}-description`]: {
           marginTop: marginXXS,
+          color: colorText,
         },
       },
 

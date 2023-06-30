@@ -1,14 +1,17 @@
 import classNames from 'classnames';
 import * as React from 'react';
+
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { KeyWiseTransferItem } from '.';
-import type { PaginationType } from './interface';
-import type { RenderedItem, TransferListProps } from './list';
 import Pagination from '../pagination';
 import ListItem from './ListItem';
+import type { PaginationType } from './interface';
+import type { RenderedItem, TransferListProps } from './list';
 
 export const OmitProps = ['handleFilter', 'handleClear', 'checkedKeys'] as const;
-export type OmitProp = typeof OmitProps[number];
+export type OmitProp = (typeof OmitProps)[number];
 type PartialTransferListProps<RecordType> = Omit<TransferListProps<RecordType>, OmitProp>;
+type ExistPagination = Exclude<PaginationType, boolean>;
 
 export interface TransferListBodyProps<RecordType> extends PartialTransferListProps<RecordType> {
   filteredItems: RecordType[];
@@ -16,25 +19,15 @@ export interface TransferListBodyProps<RecordType> extends PartialTransferListPr
   selectedKeys: string[];
 }
 
-const parsePagination = (pagination?: PaginationType) => {
-  if (!pagination) {
-    return null;
-  }
-
+const parsePagination = (pagination?: ExistPagination) => {
   const defaultPagination: PaginationType = {
-    pageSize: 10,
     simple: true,
     showSizeChanger: false,
     showLessItems: false,
   };
 
-  if (typeof pagination === 'object') {
-    return { ...defaultPagination, ...pagination };
-  }
-
-  return defaultPagination;
+  return { ...defaultPagination, ...pagination };
 };
-
 export interface ListBodyRef<RecordType extends KeyWiseTransferItem> {
   items?: RenderedItem<RecordType>[];
 }
@@ -57,16 +50,28 @@ const TransferListBody: React.ForwardRefRenderFunction<
     onItemSelect,
     onItemRemove,
   } = props;
-
   const [current, setCurrent] = React.useState<number>(1);
 
+  const mergedPagination = React.useMemo(() => {
+    if (!pagination) {
+      return null;
+    }
+
+    const convertPagination = typeof pagination === 'object' ? pagination : {};
+
+    return parsePagination(convertPagination);
+  }, [pagination]);
+
+  const [pageSize, setPageSize] = useMergedState<number>(10, {
+    value: mergedPagination?.pageSize,
+  });
+
   React.useEffect(() => {
-    const mergedPagination = parsePagination(pagination);
     if (mergedPagination) {
-      const maxPageCount = Math.ceil(filteredRenderItems.length / mergedPagination.pageSize!);
+      const maxPageCount = Math.ceil(filteredRenderItems.length / pageSize!);
       setCurrent(Math.min(current, maxPageCount));
     }
-  }, [filteredRenderItems, pagination]);
+  }, [filteredRenderItems, mergedPagination, pageSize]);
 
   const onClick = (item: RecordType) => {
     onItemSelect?.(item.key, !selectedKeys.includes(item.key));
@@ -80,33 +85,33 @@ const TransferListBody: React.ForwardRefRenderFunction<
     setCurrent(cur);
   };
 
+  const onSizeChange = (cur: number, size: number) => {
+    setCurrent(cur);
+    setPageSize(size);
+  };
+
   const memoizedItems = React.useMemo<RenderedItem<RecordType>[]>(() => {
-    const mergedPagination = parsePagination(pagination);
     const displayItems = mergedPagination
-      ? filteredRenderItems.slice(
-          (current - 1) * mergedPagination.pageSize!,
-          current * mergedPagination.pageSize!,
-        )
+      ? filteredRenderItems.slice((current - 1) * pageSize!, current * pageSize!)
       : filteredRenderItems;
     return displayItems;
-  }, [current, filteredRenderItems, pagination]);
+  }, [current, filteredRenderItems, mergedPagination, pageSize]);
 
   React.useImperativeHandle(ref, () => ({ items: memoizedItems }));
-
-  const mergedPagination = parsePagination(pagination);
 
   const paginationNode: React.ReactNode = mergedPagination ? (
     <Pagination
       size="small"
       disabled={globalDisabled}
       simple={mergedPagination.simple}
-      pageSize={mergedPagination.pageSize}
+      pageSize={pageSize}
       showLessItems={mergedPagination.showLessItems}
       showSizeChanger={mergedPagination.showSizeChanger}
       className={`${prefixCls}-pagination`}
       total={filteredRenderItems.length}
       current={current}
       onChange={onPageChange}
+      onShowSizeChange={onSizeChange}
     />
   ) : null;
 

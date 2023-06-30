@@ -50,6 +50,7 @@ dayjs.extend(customParseFormat)
 | allowClear | Whether allow clearing text | boolean | true |  |
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | bordered | Whether has border style | boolean | true |  |
+| cellRender | Custom rendering function for picker cells | (current: number, info: { originNode: React.ReactElement, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | changeOnBlur | Trigger `change` when blur. e.g. datetime picker no need click confirm button | boolean | false | 5.5.0 |
 | className | The className of picker | string | - |  |
 | clearIcon | The custom clear icon | ReactNode | - |  |

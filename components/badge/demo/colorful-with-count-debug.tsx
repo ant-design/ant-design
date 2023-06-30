@@ -1,5 +1,5 @@
-import React from 'react';
 import { Badge, Space } from 'antd';
+import React from 'react';
 
 const colors = [
   'pink',
@@ -17,24 +17,35 @@ const colors = [
   'lime',
 ];
 
+const AvatarItem = ({ color }: { color: string }) => (
+  <div
+    style={{
+      width: 90,
+      height: 90,
+      lineHeight: '90px',
+      background: '#ccc',
+      textAlign: 'center',
+    }}
+  >
+    {color}
+  </div>
+);
+
 const App: React.FC = () => (
-  <Space wrap size={['large', 'middle']}>
-    {colors.map((color) => (
-      <Badge color={color} count={44} key={color}>
-        <div
-          style={{
-            width: 90,
-            height: 90,
-            lineHeight: '90px',
-            background: '#ccc',
-            textAlign: 'center',
-          }}
-        >
-          {color}
-        </div>
-      </Badge>
-    ))}
-  </Space>
+  <>
+    <Space wrap size={['large', 'middle']}>
+      {colors.map((color) => (
+        <Badge color={color} count={44} key={color}>
+          <AvatarItem color={color} />
+        </Badge>
+      ))}
+    </Space>
+    <Space wrap size={['large', 'middle']}>
+      {colors.map((color) => (
+        <Badge status="processing" color={color} text="loading" key={color} />
+      ))}
+    </Space>
+  </>
 );
 
 export default App;

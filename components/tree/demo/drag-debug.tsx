@@ -40,7 +40,7 @@ const App: React.FC = () => {
 
   const onDragEnter: TreeProps['onDragEnter'] = (info) => {
     console.log(info);
-    // expandedKeys 需要受控时设置
+    // expandedKeys, set it when controlled is needed
     setExpandedKeys(info.expandedKeys);
   };
 
@@ -79,7 +79,7 @@ const App: React.FC = () => {
       // Drop on the content
       loop(data, dropKey, (item) => {
         item.children = item.children || [];
-        // where to insert 示例添加到尾部，可以是随意位置
+        // where to insert. New item was inserted to the end of the array in this example, but can be anywhere
         item.children.push(dragObj);
       });
     } else if (
@@ -89,7 +89,7 @@ const App: React.FC = () => {
     ) {
       loop(data, dropKey, (item) => {
         item.children = item.children || [];
-        // where to insert 示例添加到头部，可以是随意位置
+        // where to insert. New item was inserted to the start of the array in this example, but can be anywhere
         item.children.unshift(dragObj);
       });
     } else {
