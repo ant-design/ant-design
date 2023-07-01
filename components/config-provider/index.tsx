@@ -160,6 +160,7 @@ export interface ConfigProviderProps {
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
   switch?: ComponentStyleConfig;
+  avatar?: ComponentStyleConfig;
   tag?: ComponentStyleConfig;
   table?: ComponentStyleConfig;
 }
@@ -274,6 +275,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     radio,
     rate,
     switch: SWITCH,
+    avatar,
     tag,
     table,
   } = props;
@@ -350,6 +352,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     radio,
     rate,
     switch: SWITCH,
+    avatar,
     tag,
     table,
   };
