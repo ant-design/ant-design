@@ -23,6 +23,7 @@ export interface SubMenuProps {
   onTitleMouseLeave?: (e: TitleEventEntity) => void;
   popupOffset?: [number, number];
   popupClassName?: string;
+  popupStyle?: React.CSSProperties;
   children?: React.ReactNode;
   theme?: MenuTheme;
 }

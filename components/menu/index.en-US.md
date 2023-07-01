@@ -93,6 +93,7 @@ More layouts with navigation: [Layout](/components/layout).
 | label | Menu label | ReactNode | - |  |
 | popupClassName | Sub-menu class name, not working when `mode="inline"` | string | - |  |
 | popupOffset | Sub-menu offset, not working when `mode="inline"` | \[number, number] | - |  |
+| popupStyle | Sub-menu style, not working when `mode="inline"` | CSSProperties | - |  |
 | theme | Color theme of the SubMenu (inherits from Menu by default) |  | `light` \| `dark` | - |  |
 | onTitleClick | Callback executed when the sub-menu title is clicked | function({ key, domEvent }) | - |  |
 
