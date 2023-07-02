@@ -9,7 +9,7 @@ import { ConfigContext } from '../config-provider';
 import useStyle from './style/index';
 
 const SpinSizes = ['small', 'default', 'large'] as const;
-export type SpinSize = typeof SpinSizes[number];
+export type SpinSize = (typeof SpinSizes)[number];
 export type SpinIndicator = React.ReactElement<HTMLElement>;
 
 export interface SpinProps {
@@ -61,10 +61,10 @@ function renderIndicator(prefixCls: string, props: SpinClassProps): React.ReactN
 
   return (
     <span className={classNames(dotClassName, `${prefixCls}-dot-spin`)}>
-      <i className={`${prefixCls}-dot-item`} />
-      <i className={`${prefixCls}-dot-item`} />
-      <i className={`${prefixCls}-dot-item`} />
-      <i className={`${prefixCls}-dot-item`} />
+      <i className={`${prefixCls}-dot-item`} key={1} />
+      <i className={`${prefixCls}-dot-item`} key={2} />
+      <i className={`${prefixCls}-dot-item`} key={3} />
+      <i className={`${prefixCls}-dot-item`} key={4} />
     </span>
   );
 }
