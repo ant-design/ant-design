@@ -32,6 +32,7 @@ import Table from '../../table';
 import Tabs from '../../tabs';
 import Tag from '../../tag';
 import Typography from '../../typography';
+import Upload from '../../upload';
 
 describe('ConfigProvider support style and className props', () => {
   it('Should Space classNames works', () => {
@@ -664,5 +665,16 @@ describe('ConfigProvider support style and className props', () => {
     const element = container.querySelector<HTMLDivElement>('.ant-tabs');
     expect(element).toHaveClass('cp-tabs');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Upload className & style works', () => {
+    const { container } = render(
+      <ConfigProvider upload={{ className: 'cp-upload', style: { color: 'blue' } }}>
+        <Upload type="drag">upload</Upload>
+      </ConfigProvider>,
+    );
+    const element = container?.querySelector<HTMLSpanElement>('.ant-upload-wrapper');
+    expect(element).toHaveClass('cp-upload');
+    expect(element?.querySelector<HTMLDivElement>('.ant-upload')).toHaveStyle({ color: 'blue' });
   });
 });
