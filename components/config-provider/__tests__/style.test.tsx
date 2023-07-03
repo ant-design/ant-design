@@ -669,12 +669,12 @@ describe('ConfigProvider support style and className props', () => {
 
   it('Should Upload className & style works', () => {
     const { container } = render(
-      <ConfigProvider upload={{ className: 'cp-upload', style: { backgroundColor: 'red' } }}>
-        <Upload>Click to Upload</Upload>
+      <ConfigProvider upload={{ className: 'cp-upload', style: { color: 'blue' } }}>
+        <Upload type="drag">upload</Upload>
       </ConfigProvider>,
     );
-    const element = container.querySelector<HTMLSpanElement>('.ant-upload-wrapper');
+    const element = container?.querySelector<HTMLSpanElement>('.ant-upload-wrapper');
     expect(element).toHaveClass('cp-upload');
-    expect(element).toHaveStyle({ backgroundColor: 'red' });
+    expect(element?.querySelector<HTMLDivElement>('.ant-upload')).toHaveStyle({ color: 'blue' });
   });
 });
