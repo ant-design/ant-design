@@ -5,6 +5,7 @@ import type { NotificationAPI } from 'rc-notification/lib';
 import * as React from 'react';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import type { ComponentStyleConfig } from '../config-provider/context';
 import { PureContent } from './PurePanel';
 import type {
   ArgsProps,
@@ -30,6 +31,7 @@ type HolderProps = ConfigOptions & {
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
   hashId: string;
+  message?: ComponentStyleConfig;
 }
 
 const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
@@ -54,10 +56,9 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     left: '50%',
     transform: 'translateX(-50%)',
     top: top ?? DEFAULT_OFFSET,
-    ...message?.style,
   });
 
-  const getClassName = () => classNames(hashId, rtl ? `${prefixCls}-rtl` : '');
+  const getClassName = () => classNames(hashId, { [`${prefixCls}-rtl`]: rtl });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls, transitionName);
@@ -88,6 +89,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     ...api,
     prefixCls,
     hashId,
+    message,
   }));
 
   return holder;
@@ -126,10 +128,10 @@ export function useInternalMessage(
         return fakeResult;
       }
 
-      const { open: originOpen, prefixCls, hashId } = holderRef.current;
+      const { open: originOpen, prefixCls, hashId, message } = holderRef.current;
       const noticePrefixCls = `${prefixCls}-notice`;
 
-      const { content, icon, type, key, className, onClose, ...restConfig } = config;
+      const { content, icon, type, key, className, style, onClose, ...restConfig } = config;
 
       let mergedKey: React.Key = key!;
       if (mergedKey === undefined || mergedKey === null) {
@@ -147,7 +149,13 @@ export function useInternalMessage(
             </PureContent>
           ),
           placement: 'top',
-          className: classNames(type && `${noticePrefixCls}-${type}`, hashId, className),
+          className: classNames(
+            type && `${noticePrefixCls}-${type}`,
+            hashId,
+            className,
+            message?.className,
+          ),
+          style: { ...message?.style, ...style },
           onClose: () => {
             onClose?.();
             resolve();
