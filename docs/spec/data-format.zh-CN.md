@@ -66,7 +66,7 @@ title: 数据格式
 <img class="preview-img bad" alt="不推荐示例" description="“千”不能以单位的形式展示。" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*iuEARoq_-o0AAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-**大额计量：** 如果一个金额很大，那么数值中的“万”“亿”单位可采用汉字。如果一个数值很大，那么数值中的“万”“亿”单位可采用汉字。
+**大额计量：** 如果一个数值很大，那么数值中的“万”“亿”单位可采用汉字。
 
 ### 日期时间
 
