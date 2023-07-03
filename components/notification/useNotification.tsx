@@ -4,6 +4,7 @@ import type { NotificationAPI } from 'rc-notification/lib';
 import * as React from 'react';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import type { ComponentStyleConfig } from '../config-provider/context';
 import { PureContent, getCloseIcon } from './PurePanel';
 import type {
   ArgsProps,
@@ -27,6 +28,7 @@ type HolderProps = NotificationConfig & {
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
   hashId: string;
+  notification?: ComponentStyleConfig;
 }
 
 const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
@@ -39,12 +41,12 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     rtl,
     onAllRemoved,
   } = props;
-  const { getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
+  const { getPrefixCls, getPopupContainer, notification } = React.useContext(ConfigContext);
 
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
 
   // =============================== Style ===============================
-  const getStyle = (placement: NotificationPlacement) =>
+  const getStyle = (placement: NotificationPlacement): React.CSSProperties =>
     getPlacementStyle(placement, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET);
 
   // Style
@@ -74,6 +76,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     ...api,
     prefixCls,
     hashId,
+    notification,
   }));
 
   return holder;
@@ -102,7 +105,8 @@ export function useInternalNotification(
         return;
       }
 
-      const { open: originOpen, prefixCls, hashId } = holderRef.current;
+      const { open: originOpen, prefixCls, hashId, notification } = holderRef.current;
+
       const noticePrefixCls = `${prefixCls}-notice`;
 
       const {
@@ -112,6 +116,7 @@ export function useInternalNotification(
         type,
         btn,
         className,
+        style,
         role = 'alert',
         closeIcon,
         ...restConfig
@@ -133,7 +138,13 @@ export function useInternalNotification(
             role={role}
           />
         ),
-        className: classNames(type && `${noticePrefixCls}-${type}`, hashId, className),
+        className: classNames(
+          type && `${noticePrefixCls}-${type}`,
+          hashId,
+          className,
+          notification?.className,
+        ),
+        style: { ...notification?.style, ...style },
         closeIcon: realCloseIcon,
         closable: !!realCloseIcon,
       });

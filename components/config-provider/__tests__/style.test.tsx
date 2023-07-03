@@ -1,6 +1,6 @@
 import React from 'react';
 import ConfigProvider from '..';
-import { render } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 import Anchor from '../../anchor';
 import Avatar from '../../avatar';
 import Badge from '../../badge';
@@ -17,6 +17,7 @@ import Input from '../../input';
 import Layout from '../../layout';
 import Mentions from '../../mentions';
 import Modal from '../../modal';
+import notification from '../../notification';
 import Pagination from '../../pagination';
 import Radio from '../../radio';
 import Rate from '../../rate';
@@ -676,5 +677,26 @@ describe('ConfigProvider support style and className props', () => {
     const element = container?.querySelector<HTMLSpanElement>('.ant-upload-wrapper');
     expect(element).toHaveClass('cp-upload');
     expect(element?.querySelector<HTMLDivElement>('.ant-upload')).toHaveStyle({ color: 'blue' });
+  });
+
+  it('Should notification className & style works', () => {
+    const Demo: React.FC = () => {
+      const [api, holder] = notification.useNotification();
+      return (
+        <ConfigProvider notification={{ className: 'cp-notification', style: { color: 'blue' } }}>
+          <button type="button" onClick={() => api.open({ message: 'test', duration: 0 })}>
+            test
+          </button>
+          {holder}
+        </ConfigProvider>
+      );
+    };
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector<HTMLButtonElement>('button')!);
+    const element = document
+      ?.querySelector<HTMLDivElement>('.ant-notification')
+      ?.querySelector<HTMLDivElement>('.ant-notification-notice');
+    expect(element).toHaveClass('cp-notification');
+    expect(element).toHaveStyle({ color: 'blue' });
   });
 });

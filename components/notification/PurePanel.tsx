@@ -48,15 +48,8 @@ const typeToIcon = {
   warning: ExclamationCircleFilled,
 };
 
-export function PureContent({
-  prefixCls,
-  icon,
-  type,
-  message,
-  description,
-  btn,
-  role = 'alert',
-}: PureContentProps) {
+export const PureContent: React.FC<PureContentProps> = (props) => {
+  const { prefixCls, icon, type, message, description, btn, role = 'alert' } = props;
   let iconNode: React.ReactNode = null;
   if (icon) {
     iconNode = <span className={`${prefixCls}-icon`}>{icon}</span>;
@@ -65,21 +58,15 @@ export function PureContent({
       className: classNames(`${prefixCls}-icon`, `${prefixCls}-icon-${type}`),
     });
   }
-
   return (
-    <div
-      className={classNames({
-        [`${prefixCls}-with-icon`]: iconNode,
-      })}
-      role={role}
-    >
+    <div className={classNames({ [`${prefixCls}-with-icon`]: iconNode })} role={role}>
       {iconNode}
       <div className={`${prefixCls}-message`}>{message}</div>
       <div className={`${prefixCls}-description`}>{description}</div>
       {btn && <div className={`${prefixCls}-btn`}>{btn}</div>}
     </div>
   );
-}
+};
 
 export interface PurePanelProps
   extends Omit<NoticeProps, 'prefixCls' | 'eventKey'>,
@@ -88,7 +75,7 @@ export interface PurePanelProps
 }
 
 /** @internal Internal Component. Do not use in your production. */
-export default function PurePanel(props: PurePanelProps) {
+const PurePanel: React.FC<PurePanelProps> = (props) => {
   const {
     prefixCls: staticPrefixCls,
     className,
@@ -129,4 +116,6 @@ export default function PurePanel(props: PurePanelProps) {
       }
     />
   );
-}
+};
+
+export default PurePanel;

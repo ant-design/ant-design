@@ -118,6 +118,7 @@ const {
 | layout | Set Layout common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | mentions | Set Mentions common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | modal | Set Modal common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| notification | Set Notification common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | pagination | Set Pagination common props | { showSizeChanger?: boolean, className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | radio | Set Radio common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | rate | Set Rate common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
