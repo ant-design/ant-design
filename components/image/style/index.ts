@@ -103,6 +103,7 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
       outline: 0,
       border: 0,
       cursor: 'pointer',
+      transition: `all ${motionDurationSlow}`,
 
       '&:hover': {
         backgroundColor: operationBgHover.toRgbString(),
