@@ -117,6 +117,7 @@ export interface ConfigConsumerProps {
   rate?: ComponentStyleConfig;
   switch?: ComponentStyleConfig;
   avatar?: ComponentStyleConfig;
+  message?: ComponentStyleConfig;
   tag?: ComponentStyleConfig;
   table?: ComponentStyleConfig;
   card?: ComponentStyleConfig;

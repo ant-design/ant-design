@@ -16,6 +16,7 @@ import Image from '../../image';
 import Input from '../../input';
 import Layout from '../../layout';
 import Mentions from '../../mentions';
+import message from '../../message';
 import Modal from '../../modal';
 import notification from '../../notification';
 import Pagination from '../../pagination';
@@ -666,6 +667,27 @@ describe('ConfigProvider support style and className props', () => {
     const element = container.querySelector<HTMLDivElement>('.ant-tabs');
     expect(element).toHaveClass('cp-tabs');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should message className & style works', () => {
+    const Demo: React.FC = () => {
+      const [messageApi, contextHolder] = message.useMessage();
+      return (
+        <ConfigProvider message={{ className: 'cp-message', style: { color: 'blue' } }}>
+          {contextHolder}
+          <button type="button" onClick={() => messageApi.success('success')}>
+            test
+          </button>
+        </ConfigProvider>
+      );
+    };
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector<HTMLButtonElement>('button')!);
+    const element = document
+      ?.querySelector<HTMLDivElement>('.ant-message')
+      ?.querySelector<HTMLDivElement>('.ant-message-notice');
+    expect(element).toHaveClass('cp-message');
+    expect(element).toHaveStyle({ color: 'blue' });
   });
 
   it('Should Upload className & style works', () => {
