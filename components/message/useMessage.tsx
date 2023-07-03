@@ -1,21 +1,21 @@
-import * as React from 'react';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import classNames from 'classnames';
 import { useNotification as useRcNotification } from 'rc-notification';
 import type { NotificationAPI } from 'rc-notification/lib';
-import classNames from 'classnames';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import * as React from 'react';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import useStyle from './style';
+import { PureContent } from './PurePanel';
 import type {
-  MessageInstance,
   ArgsProps,
-  MessageType,
   ConfigOptions,
+  MessageInstance,
+  MessageType,
   NoticeType,
   TypeOpen,
 } from './interface';
+import useStyle from './style';
 import { getMotion, wrapPromiseFn } from './util';
-import warning from '../_util/warning';
-import { PureContent } from './PurePanel';
 
 const DEFAULT_OFFSET = 8;
 const DEFAULT_DURATION = 3;
@@ -43,17 +43,18 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     transitionName,
     onAllRemoved,
   } = props;
-  const { getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
+  const { getPrefixCls, getPopupContainer, message } = React.useContext(ConfigContext);
 
   const prefixCls = staticPrefixCls || getPrefixCls('message');
 
   const [, hashId] = useStyle(prefixCls);
 
   // =============================== Style ===============================
-  const getStyle = () => ({
+  const getStyle = (): React.CSSProperties => ({
     left: '50%',
     transform: 'translateX(-50%)',
     top: top ?? DEFAULT_OFFSET,
+    ...message?.style,
   });
 
   const getClassName = () => classNames(hashId, rtl ? `${prefixCls}-rtl` : '');
