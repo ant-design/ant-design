@@ -39,18 +39,21 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     rtl,
     onAllRemoved,
   } = props;
-  const { getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
+  const { getPrefixCls, getPopupContainer, notification } = React.useContext(ConfigContext);
 
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
 
   // =============================== Style ===============================
-  const getStyle = (placement: NotificationPlacement) =>
-    getPlacementStyle(placement, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET);
+  const getStyle = (placement: NotificationPlacement): React.CSSProperties => ({
+    ...notification?.style,
+    ...getPlacementStyle(placement, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET),
+  });
 
   // Style
   const [, hashId] = useStyle(prefixCls);
 
-  const getClassName = () => classNames(hashId, { [`${prefixCls}-rtl`]: rtl });
+  const getClassName = () =>
+    classNames(hashId, notification?.className, { [`${prefixCls}-rtl`]: rtl });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls);
