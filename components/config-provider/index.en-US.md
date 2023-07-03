@@ -130,6 +130,7 @@ const {
 | spin | Set Spin common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | steps | Set Steps common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | table | Set Table common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| tabs | Set Tabs common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | tag | Set Tag common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | typography | Set Typography common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 

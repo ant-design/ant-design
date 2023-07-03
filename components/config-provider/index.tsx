@@ -164,6 +164,7 @@ export interface ConfigProviderProps {
   tag?: ComponentStyleConfig;
   table?: ComponentStyleConfig;
   card?: ComponentStyleConfig;
+  tabs?: ComponentStyleConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -280,6 +281,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tag,
     table,
     card,
+    tabs,
   } = props;
 
   // =================================== Warning ===================================
@@ -358,6 +360,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tag,
     table,
     card,
+    tabs,
   };
 
   const config = {
