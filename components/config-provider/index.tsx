@@ -21,6 +21,7 @@ import defaultSeedToken from '../theme/themes/seed';
 import type {
   BadgeConfig,
   ButtonConfig,
+  ColorPickerConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
@@ -169,6 +170,7 @@ export interface ConfigProviderProps {
   upload?: ComponentStyleConfig;
   notification?: ComponentStyleConfig;
   tree?: ComponentStyleConfig;
+  colorPicker?: ColorPickerConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -290,6 +292,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     upload,
     notification,
     tree,
+    colorPicker,
   } = props;
 
   // =================================== Warning ===================================
@@ -373,6 +376,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     upload,
     notification,
     tree,
+    colorPicker,
   };
 
   const config = {

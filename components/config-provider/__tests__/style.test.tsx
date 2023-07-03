@@ -1,6 +1,6 @@
 import React from 'react';
 import ConfigProvider from '..';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Anchor from '../../anchor';
 import Avatar from '../../avatar';
 import Badge from '../../badge';
@@ -8,6 +8,7 @@ import Breadcrumb from '../../breadcrumb';
 import Card from '../../card';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
+import ColorPicker from '../../color-picker';
 import Descriptions from '../../descriptions';
 import Divider from '../../divider';
 import Empty from '../../empty';
@@ -722,7 +723,7 @@ describe('ConfigProvider support style and className props', () => {
     expect(element).toHaveClass('cp-notification');
     expect(element).toHaveStyle({ color: 'blue' });
   });
-  
+
   it('Should Tree className works', () => {
     const treeData = [
       {
@@ -765,5 +766,34 @@ describe('ConfigProvider support style and className props', () => {
     expect(container.querySelector('.ant-tree-list')).toHaveStyle(
       'color: red; font-size: 16px; position: relative;',
     );
+  });
+
+  it('Should ColorPicker className & style works', async () => {
+    const { container } = render(
+      <ConfigProvider
+        colorPicker={{
+          className: 'cp-colorPicker',
+          style: {
+            backgroundColor: 'red',
+          },
+          styles: {
+            popup: { backgroundColor: 'blue' },
+            popupOverlayInner: { backgroundColor: 'yellow' },
+          },
+        }}
+      >
+        <ColorPicker />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-color-picker-trigger');
+    expect(element).toHaveClass('cp-colorPicker');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
+    fireEvent.click(element!);
+    await waitFakeTimer();
+    expect(
+      element
+        ?.querySelector<HTMLDivElement>('.ant-color-picker')
+        ?.querySelector<HTMLDivElement>('.ant-popover-inner'),
+    ).toHaveStyle({ backgroundColor: 'yellow' });
   });
 });
