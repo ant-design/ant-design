@@ -29,6 +29,7 @@ import Spin from '../../spin';
 import Steps from '../../steps';
 import Switch from '../../switch';
 import Table from '../../table';
+import Tabs from '../../tabs';
 import Tag from '../../tag';
 import Typography from '../../typography';
 
@@ -652,5 +653,16 @@ describe('ConfigProvider support style and className props', () => {
     const element = container.querySelector<HTMLDivElement>('.ant-card');
     expect(element).toHaveClass('cp-card');
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
+  });
+
+  it('Should Tabs className & style works', () => {
+    const { container } = render(
+      <ConfigProvider tabs={{ className: 'cp-tabs', style: { backgroundColor: 'red' } }}>
+        <Tabs />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-tabs');
+    expect(element).toHaveClass('cp-tabs');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });
