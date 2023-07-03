@@ -118,8 +118,4 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   );
 };
 
-if (process.env.NODE_ENV !== 'production') {
-  PurePanel.displayName = 'InternalPurePanel';
-}
-
 export default PurePanel;
