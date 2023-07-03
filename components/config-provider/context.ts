@@ -118,6 +118,7 @@ export interface ConfigConsumerProps {
   switch?: ComponentStyleConfig;
   tag?: ComponentStyleConfig;
   table?: ComponentStyleConfig;
+  card?: ComponentStyleConfig;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
