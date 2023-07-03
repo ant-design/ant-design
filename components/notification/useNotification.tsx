@@ -45,8 +45,8 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
 
   // =============================== Style ===============================
   const getStyle = (placement: NotificationPlacement): React.CSSProperties => ({
-    ...notification?.style,
     ...getPlacementStyle(placement, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET),
+    ...notification?.style,
   });
 
   // Style
