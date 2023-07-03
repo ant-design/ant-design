@@ -693,7 +693,9 @@ describe('ConfigProvider support style and className props', () => {
     };
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector<HTMLButtonElement>('button')!);
-    const element = document?.querySelector<HTMLDivElement>('.ant-notification');
+    const element = document
+      ?.querySelector<HTMLDivElement>('.ant-notification')
+      ?.querySelector<HTMLDivElement>('.ant-notification-notice');
     expect(element).toHaveClass('cp-notification');
     expect(element).toHaveStyle({ color: 'blue' });
   });
