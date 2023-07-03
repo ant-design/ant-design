@@ -2,6 +2,7 @@ import React from 'react';
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import Anchor from '../../anchor';
+import Avatar from '../../avatar';
 import Badge from '../../badge';
 import Breadcrumb from '../../breadcrumb';
 import Card from '../../card';
@@ -606,6 +607,17 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLButtonElement>('.ant-switch');
     expect(element).toHaveClass('cp-switch');
+    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+  });
+
+  it('Should Avatar className & style works', () => {
+    const { container } = render(
+      <ConfigProvider avatar={{ className: 'cp-avatar', style: { backgroundColor: 'blue' } }}>
+        <Avatar />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLSpanElement>('.ant-avatar');
+    expect(element).toHaveClass('cp-avatar');
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
   });
 
