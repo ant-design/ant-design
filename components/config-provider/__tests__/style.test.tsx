@@ -791,9 +791,7 @@ describe('ConfigProvider support style and className props', () => {
     fireEvent.click(element!);
     await waitFakeTimer();
     expect(
-      element
-        ?.querySelector<HTMLDivElement>('.ant-color-picker')
-        ?.querySelector<HTMLDivElement>('.ant-popover-inner'),
+      container?.querySelector<HTMLDivElement>('.ant-color-picker .ant-popover-inner'),
     ).toHaveStyle({ backgroundColor: 'yellow' });
   });
 });
