@@ -33,6 +33,7 @@ import Switch from '../../switch';
 import Table from '../../table';
 import Tabs from '../../tabs';
 import Tag from '../../tag';
+import Tree from '../../tree';
 import Typography from '../../typography';
 import Upload from '../../upload';
 
@@ -720,5 +721,49 @@ describe('ConfigProvider support style and className props', () => {
       ?.querySelector<HTMLDivElement>('.ant-notification-notice');
     expect(element).toHaveClass('cp-notification');
     expect(element).toHaveStyle({ color: 'blue' });
+  });
+  
+  it('Should Tree className works', () => {
+    const treeData = [
+      {
+        title: 'test-title',
+        key: '0-0',
+      },
+    ];
+
+    const { container } = render(
+      <ConfigProvider
+        tree={{
+          className: 'test-class',
+        }}
+      >
+        <Tree treeData={treeData} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-tree')).toHaveClass('test-class');
+  });
+
+  it('Should Tree style works', () => {
+    const treeData = [
+      {
+        title: 'test-title',
+        key: '0-0',
+      },
+    ];
+
+    const { container } = render(
+      <ConfigProvider
+        tree={{
+          style: { color: 'red' },
+        }}
+      >
+        <Tree treeData={treeData} style={{ fontSize: '16px' }} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-tree-list')).toHaveStyle(
+      'color: red; font-size: 16px; position: relative;',
+    );
   });
 });
