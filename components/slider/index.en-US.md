@@ -50,8 +50,8 @@ To input a value in a range.
 | onAfterChange | Fire when onmouseup is fired | (value) => void | - |  |
 | onChange | Callback function that is fired when the user changes the slider's value | (value) => void | - |  |
 | trackStyle | The style of slider track (the active range) | CSSProperties | - |  |
-| railStyle | The style of slider rail (the background) | CSSProperties | - |  |
-| handleStyle | The style of slider handle | CSSProperties | - |  |
+| railStyle | The style of slider rail | CSSProperties \| CSSProperties[] | - |  |
+| handleStyle | The style of slider handle | CSSProperties \| CSSProperties[] | - |  |
 
 ### range
 
