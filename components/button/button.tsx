@@ -76,8 +76,6 @@ type CompoundedComponent = React.ForwardRefExoticComponent<
   __ANT_BUTTON: boolean;
 };
 
-type Loading = number | boolean;
-
 type LoadingConfigType = {
   loading: boolean;
   delay: number;
@@ -137,7 +135,7 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const loadingOrDelay = useMemo<LoadingConfigType>(() => getLoadingConfig(loading), [loading]);
 
-  const [innerLoading, setLoading] = useState<Loading>(loadingOrDelay.loading);
+  const [innerLoading, setLoading] = useState<boolean>(loadingOrDelay.loading);
 
   const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
@@ -218,8 +216,6 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
 
-  const hrefAndDisabled = linkButtonRestProps.href !== undefined && mergedDisabled;
-
   const classes = classNames(
     prefixCls,
     hashId,
@@ -234,7 +230,6 @@ const InternalButton: React.ForwardRefRenderFunction<
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-dangerous`]: !!danger,
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-disabled`]: hrefAndDisabled,
     },
     compactItemClassnames,
     className,
@@ -263,7 +258,9 @@ const InternalButton: React.ForwardRefRenderFunction<
     return wrapSSR(
       <a
         {...linkButtonRestProps}
-        className={classes}
+        className={classNames(classes, {
+          [`${prefixCls}-disabled`]: mergedDisabled,
+        })}
         style={fullStyle}
         onClick={handleClick}
         ref={buttonRef as React.Ref<HTMLAnchorElement>}

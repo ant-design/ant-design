@@ -13,7 +13,7 @@ Application wrapper for some global usages.
 ## When To Use
 
 - Provide reset styles based on `.ant-app` element.
-- You could use static methods of `message/notification/Modal` form `useApp` without put `contextHolder` mannully.
+- You could use static methods of `message/notification/Modal` form `useApp` without writing `contextHolder` manually.
 
 ## Examples
 
@@ -95,7 +95,7 @@ export default () => {
   return null;
 };
 
-export { message, notification, modal };
+export { message, modal, notification };
 ```
 
 ```tsx

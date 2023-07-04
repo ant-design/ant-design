@@ -101,6 +101,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     marginXS,
     paddingSM,
     lineType,
+    antCls,
     iconCls,
     motionDurationSlow,
     controlItemBgHover,
@@ -174,8 +175,9 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       display: 'flex',
       flex: 'auto',
       flexDirection: 'column',
-      overflow: 'hidden',
       fontSize: token.fontSize,
+      // https://blog.csdn.net/qq449245884/article/details/107373672/
+      minHeight: 0,
 
       '&-search-wrapper': {
         position: 'relative',
@@ -262,6 +264,10 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       padding: `${token.paddingXS}px 0`,
       textAlign: 'end',
       borderTop: `${lineWidth}px ${lineType} ${colorSplit}`,
+
+      [`${antCls}-pagination-options`]: {
+        paddingInlineEnd: token.paddingXS,
+      },
     },
 
     '&-body-not-found': {

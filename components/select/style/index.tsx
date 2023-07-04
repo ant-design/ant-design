@@ -235,7 +235,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
     // ========================= Feedback ==========================
     [`${componentCls}-has-feedback`]: {
       [`${componentCls}-clear`]: {
-        insetInlineEnd: inputPaddingHorizontalBase + token.fontSize + token.paddingXXS,
+        insetInlineEnd: inputPaddingHorizontalBase + token.fontSize + token.paddingXS,
       },
     },
   };

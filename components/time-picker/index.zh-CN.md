@@ -50,6 +50,7 @@ dayjs.extend(customParseFormat)
 | allowClear | 是否展示清除按钮 | boolean | true |  |
 | autoFocus | 自动获取焦点 | boolean | false |  |
 | bordered | 是否有边框 | boolean | true |  |
+| cellRender | 自定义单元格的内容 | (current: number, info: { originNode: React.ReactNode, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | changeOnBlur | 失去焦点时触发 `change` 事件，例如 datetime 下不再需要点击确认按钮 | boolean | false | 5.5.0 |
 | className | 选择器类名 | string | - |  |
 | clearIcon | 自定义的清除图标 | ReactNode | - |  |
