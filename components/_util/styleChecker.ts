@@ -25,10 +25,17 @@ export const detectFlexGapSupported = () => {
   flex.appendChild(document.createElement('div'));
   flex.appendChild(document.createElement('div'));
 
+  // some browser may not repaint when remove nodes, so we need create a new layer to detect.
+  const container = document.createElement('div');
+  container.style.position = 'absolute';
+  container.style.zIndex = '-9999';
+  container.appendChild(flex);
+
+
   // append to the DOM (needed to obtain scrollHeight)
-  document.body.appendChild(flex);
+  document.body.appendChild(container);
   flexGapSupported = flex.scrollHeight === 1; // flex container should be 1px high from the row-gap
-  document.body.removeChild(flex);
+  document.body.removeChild(container);
 
   return flexGapSupported;
 };
