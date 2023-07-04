@@ -160,6 +160,16 @@ export interface ConfigProviderProps {
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
   switch?: ComponentStyleConfig;
+  avatar?: ComponentStyleConfig;
+  message?: ComponentStyleConfig;
+  tag?: ComponentStyleConfig;
+  table?: ComponentStyleConfig;
+  card?: ComponentStyleConfig;
+  tabs?: ComponentStyleConfig;
+  upload?: ComponentStyleConfig;
+  notification?: ComponentStyleConfig;
+  tree?: ComponentStyleConfig;
+  colorPicker?: ComponentStyleConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -272,6 +282,16 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     radio,
     rate,
     switch: SWITCH,
+    avatar,
+    message,
+    tag,
+    table,
+    card,
+    tabs,
+    upload,
+    notification,
+    tree,
+    colorPicker,
   } = props;
 
   // =================================== Warning ===================================
@@ -346,6 +366,16 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     radio,
     rate,
     switch: SWITCH,
+    avatar,
+    message,
+    tag,
+    table,
+    card,
+    tabs,
+    upload,
+    notification,
+    tree,
+    colorPicker,
   };
 
   const config = {

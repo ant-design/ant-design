@@ -1,11 +1,14 @@
 import React from 'react';
 import ConfigProvider from '..';
-import { render } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 import Anchor from '../../anchor';
+import Avatar from '../../avatar';
 import Badge from '../../badge';
 import Breadcrumb from '../../breadcrumb';
+import Card from '../../card';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
+import ColorPicker from '../../color-picker';
 import Descriptions from '../../descriptions';
 import Divider from '../../divider';
 import Empty from '../../empty';
@@ -14,7 +17,9 @@ import Image from '../../image';
 import Input from '../../input';
 import Layout from '../../layout';
 import Mentions from '../../mentions';
+import message from '../../message';
 import Modal from '../../modal';
+import notification from '../../notification';
 import Pagination from '../../pagination';
 import Radio from '../../radio';
 import Rate from '../../rate';
@@ -26,7 +31,12 @@ import Space from '../../space';
 import Spin from '../../spin';
 import Steps from '../../steps';
 import Switch from '../../switch';
+import Table from '../../table';
+import Tabs from '../../tabs';
+import Tag from '../../tag';
+import Tree from '../../tree';
 import Typography from '../../typography';
+import Upload from '../../upload';
 
 describe('ConfigProvider support style and className props', () => {
   it('Should Space classNames works', () => {
@@ -604,5 +614,170 @@ describe('ConfigProvider support style and className props', () => {
     const element = container.querySelector<HTMLButtonElement>('.ant-switch');
     expect(element).toHaveClass('cp-switch');
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
+  });
+
+  it('Should Avatar className & style works', () => {
+    const { container } = render(
+      <ConfigProvider avatar={{ className: 'cp-avatar', style: { backgroundColor: 'blue' } }}>
+        <Avatar />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLSpanElement>('.ant-avatar');
+    expect(element).toHaveClass('cp-avatar');
+    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+  });
+
+  it('Should Tag className & style works', () => {
+    const { container } = render(
+      <ConfigProvider tag={{ className: 'cp-tag', style: { backgroundColor: 'blue' } }}>
+        <Tag>Test</Tag>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLSpanElement>('.ant-tag');
+    expect(element).toHaveClass('cp-tag');
+    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+  });
+
+  it('Should Table className & style works', () => {
+    const { container } = render(
+      <ConfigProvider table={{ className: 'cp-table', style: { backgroundColor: 'blue' } }}>
+        <Table dataSource={[]} />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-table-wrapper');
+    expect(element).toHaveClass('cp-table');
+    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+  });
+
+  it('Should Card className & style works', () => {
+    const { container } = render(
+      <ConfigProvider card={{ className: 'cp-card', style: { backgroundColor: 'blue' } }}>
+        <Card>test</Card>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-card');
+    expect(element).toHaveClass('cp-card');
+    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+  });
+
+  it('Should Tabs className & style works', () => {
+    const { container } = render(
+      <ConfigProvider tabs={{ className: 'cp-tabs', style: { backgroundColor: 'red' } }}>
+        <Tabs />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-tabs');
+    expect(element).toHaveClass('cp-tabs');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should message className & style works', () => {
+    const Demo: React.FC = () => {
+      const [messageApi, contextHolder] = message.useMessage();
+      return (
+        <ConfigProvider message={{ className: 'cp-message', style: { color: 'blue' } }}>
+          {contextHolder}
+          <button type="button" onClick={() => messageApi.success('success')}>
+            test
+          </button>
+        </ConfigProvider>
+      );
+    };
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector<HTMLButtonElement>('button')!);
+    const element = document
+      ?.querySelector<HTMLDivElement>('.ant-message')
+      ?.querySelector<HTMLDivElement>('.ant-message-notice');
+    expect(element).toHaveClass('cp-message');
+    expect(element).toHaveStyle({ color: 'blue' });
+  });
+
+  it('Should Upload className & style works', () => {
+    const { container } = render(
+      <ConfigProvider upload={{ className: 'cp-upload', style: { color: 'blue' } }}>
+        <Upload type="drag">upload</Upload>
+      </ConfigProvider>,
+    );
+    const element = container?.querySelector<HTMLSpanElement>('.ant-upload-wrapper');
+    expect(element).toHaveClass('cp-upload');
+    expect(element?.querySelector<HTMLDivElement>('.ant-upload')).toHaveStyle({ color: 'blue' });
+  });
+
+  it('Should notification className & style works', () => {
+    const Demo: React.FC = () => {
+      const [api, holder] = notification.useNotification();
+      return (
+        <ConfigProvider notification={{ className: 'cp-notification', style: { color: 'blue' } }}>
+          <button type="button" onClick={() => api.open({ message: 'test', duration: 0 })}>
+            test
+          </button>
+          {holder}
+        </ConfigProvider>
+      );
+    };
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector<HTMLButtonElement>('button')!);
+    const element = document
+      ?.querySelector<HTMLDivElement>('.ant-notification')
+      ?.querySelector<HTMLDivElement>('.ant-notification-notice');
+    expect(element).toHaveClass('cp-notification');
+    expect(element).toHaveStyle({ color: 'blue' });
+  });
+
+  it('Should Tree className works', () => {
+    const treeData = [
+      {
+        title: 'test-title',
+        key: '0-0',
+      },
+    ];
+
+    const { container } = render(
+      <ConfigProvider
+        tree={{
+          className: 'test-class',
+        }}
+      >
+        <Tree treeData={treeData} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-tree')).toHaveClass('test-class');
+  });
+
+  it('Should Tree style works', () => {
+    const treeData = [
+      {
+        title: 'test-title',
+        key: '0-0',
+      },
+    ];
+
+    const { container } = render(
+      <ConfigProvider
+        tree={{
+          style: { color: 'red' },
+        }}
+      >
+        <Tree treeData={treeData} style={{ fontSize: '16px' }} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-tree-list')).toHaveStyle(
+      'color: red; font-size: 16px; position: relative;',
+    );
+  });
+
+  it('Should ColorPicker className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        colorPicker={{ className: 'cp-colorPicker', style: { backgroundColor: 'red' } }}
+      >
+        <ColorPicker />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-color-picker-trigger');
+    expect(element).toHaveClass('cp-colorPicker');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });

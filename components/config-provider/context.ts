@@ -116,6 +116,16 @@ export interface ConfigConsumerProps {
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
   switch?: ComponentStyleConfig;
+  avatar?: ComponentStyleConfig;
+  message?: ComponentStyleConfig;
+  tag?: ComponentStyleConfig;
+  table?: ComponentStyleConfig;
+  card?: ComponentStyleConfig;
+  tabs?: ComponentStyleConfig;
+  upload?: ComponentStyleConfig;
+  notification?: ComponentStyleConfig;
+  tree?: ComponentStyleConfig;
+  colorPicker?: ComponentStyleConfig;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
