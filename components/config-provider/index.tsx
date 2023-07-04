@@ -169,6 +169,7 @@ export interface ConfigProviderProps {
   upload?: ComponentStyleConfig;
   notification?: ComponentStyleConfig;
   tree?: ComponentStyleConfig;
+  colorPicker?: ComponentStyleConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -290,6 +291,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     upload,
     notification,
     tree,
+    colorPicker,
   } = props;
 
   // =================================== Warning ===================================
@@ -373,6 +375,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     upload,
     notification,
     tree,
+    colorPicker,
   };
 
   const config = {

@@ -90,7 +90,8 @@ const ColorPicker: CompoundedComponent = (props) => {
     destroyTooltipOnHide,
   } = props;
 
-  const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
+  const { getPrefixCls, direction, colorPicker } = useContext<ConfigConsumerProps>(ConfigContext);
+
   const { token } = theme.useToken();
 
   const [colorValue, setColorValue] = useColorState(token.colorPrimary, {
@@ -121,6 +122,7 @@ const ColorPicker: CompoundedComponent = (props) => {
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-lg`]: mergedSize === 'large',
     },
+    colorPicker?.className,
     mergeRootCls,
     className,
     hashId,
@@ -182,6 +184,8 @@ const ColorPicker: CompoundedComponent = (props) => {
     onFormatChange: setFormatValue,
   };
 
+  const mergedStyle: React.CSSProperties = { ...colorPicker?.style, ...style };
+
   return wrapSSR(
     <Popover
       style={styles?.popup}
@@ -206,7 +210,7 @@ const ColorPicker: CompoundedComponent = (props) => {
         <ColorTrigger
           open={popupOpen}
           className={mergeCls}
-          style={style}
+          style={mergedStyle}
           color={colorValue}
           prefixCls={prefixCls}
           disabled={disabled}
