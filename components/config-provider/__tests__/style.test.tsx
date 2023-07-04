@@ -1,6 +1,6 @@
 import React from 'react';
 import ConfigProvider from '..';
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 import Anchor from '../../anchor';
 import Avatar from '../../avatar';
 import Badge from '../../badge';
@@ -768,19 +768,10 @@ describe('ConfigProvider support style and className props', () => {
     );
   });
 
-  it('Should ColorPicker className & style works', async () => {
+  it('Should ColorPicker className & style works', () => {
     const { container } = render(
       <ConfigProvider
-        colorPicker={{
-          className: 'cp-colorPicker',
-          style: {
-            backgroundColor: 'red',
-          },
-          styles: {
-            popup: { backgroundColor: 'blue' },
-            popupOverlayInner: { backgroundColor: 'yellow' },
-          },
-        }}
+        colorPicker={{ className: 'cp-colorPicker', style: { backgroundColor: 'red' } }}
       >
         <ColorPicker />
       </ConfigProvider>,
@@ -788,10 +779,5 @@ describe('ConfigProvider support style and className props', () => {
     const element = container.querySelector<HTMLDivElement>('.ant-color-picker-trigger');
     expect(element).toHaveClass('cp-colorPicker');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
-    fireEvent.click(element!);
-    await waitFakeTimer();
-    expect(
-      container?.querySelector<HTMLDivElement>('.ant-color-picker .ant-popover-inner'),
-    ).toHaveStyle({ backgroundColor: 'yellow' });
   });
 });

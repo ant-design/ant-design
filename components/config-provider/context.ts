@@ -3,7 +3,6 @@ import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
 import type { BadgeProps } from '../badge';
 import type { ButtonProps } from '../button';
-import type { ColorPickerProps } from '../color-picker';
 import type { RequiredMark } from '../form/Form';
 import type { InputProps } from '../input';
 import type { Locale } from '../locale';
@@ -52,10 +51,6 @@ export interface BadgeConfig extends ComponentStyleConfig {
 export interface ButtonConfig extends ComponentStyleConfig {
   classNames?: ButtonProps['classNames'];
   styles?: ButtonProps['styles'];
-}
-
-export interface ColorPickerConfig extends ComponentStyleConfig {
-  styles?: ColorPickerProps['styles'];
 }
 
 export type PopupOverflow = 'viewport' | 'scroll';
@@ -130,7 +125,7 @@ export interface ConfigConsumerProps {
   upload?: ComponentStyleConfig;
   notification?: ComponentStyleConfig;
   tree?: ComponentStyleConfig;
-  colorPicker?: ColorPickerConfig;
+  colorPicker?: ComponentStyleConfig;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {

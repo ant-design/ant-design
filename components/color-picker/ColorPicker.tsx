@@ -188,14 +188,8 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   return wrapSSR(
     <Popover
-      style={{
-        ...colorPicker?.styles?.popup,
-        ...styles?.popup,
-      }}
-      overlayInnerStyle={{
-        ...colorPicker?.styles?.popupOverlayInner,
-        ...styles?.popupOverlayInner,
-      }}
+      style={styles?.popup}
+      overlayInnerStyle={styles?.popupOverlayInner}
       onOpenChange={(visible) => {
         if (popupAllowCloseRef.current) {
           setPopupOpen(visible);
