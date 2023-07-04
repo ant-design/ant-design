@@ -30,7 +30,7 @@ import { customizePrefixCls, generateColor } from './util';
 
 export type ColorPickerProps = Omit<
   RcColorPickerProps,
-  'onChange' | 'value' | 'defaultValue' | 'panelRender' | 'onChangeComplete'
+  'onChange' | 'value' | 'defaultValue' | 'panelRender' | 'disabledAlpha' | 'onChangeComplete'
 > & {
   value?: Color | string;
   defaultValue?: Color | string;
@@ -51,6 +51,7 @@ export type ColorPickerProps = Omit<
   size?: SizeType;
   styles?: { popup?: CSSProperties; popupOverlayInner?: CSSProperties };
   rootClassName?: string;
+  disabledAlpha?: boolean;
   onOpenChange?: (open: boolean) => void;
   onFormatChange?: (format: ColorFormat) => void;
   onChange?: (value: Color, hex: string) => void;
@@ -82,6 +83,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     size: customizeSize,
     rootClassName,
     styles,
+    disabledAlpha,
     onFormatChange,
     onChange,
     onClear,
@@ -180,6 +182,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     allowClear,
     colorCleared,
     disabled,
+    disabledAlpha,
     presets,
     panelRender,
     format: formatValue,

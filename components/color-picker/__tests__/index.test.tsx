@@ -412,4 +412,11 @@ describe('ColorPicker', () => {
     doMouseMove(container, 0, 999);
     expect(handleChangeComplete).toHaveBeenCalledTimes(1);
   });
+
+  it('Should disabledAlpha work', async () => {
+    const { container } = render(<ColorPicker open disabledAlpha />);
+    expect(container.querySelector('.ant-color-picker-slider-group-disabled-alpha')).toBeTruthy();
+    expect(container.querySelector('.ant-color-picker-slider-alpha')).toBeFalsy();
+    expect(container.querySelector('.ant-color-picker-alpha-input')).toBeFalsy();
+  });
 });

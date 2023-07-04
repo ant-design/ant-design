@@ -28,6 +28,7 @@ export interface ColorPickerBaseProps {
   allowClear?: boolean;
   colorCleared?: boolean;
   disabled?: boolean;
+  disabledAlpha?: boolean;
   presets?: PresetsItem[];
   panelRender?: ColorPickerProps['panelRender'];
   onFormatChange?: ColorPickerProps['onFormatChange'];
