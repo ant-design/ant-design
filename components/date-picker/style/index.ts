@@ -23,8 +23,20 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
 
 export interface ComponentToken {
+  /**
+   * @desc 预设区域宽度
+   * @descEN Width of preset area
+   */
   presetsWidth: number;
+  /**
+   * @desc 预设区域最大宽度
+   * @descEN Max width of preset area
+   */
   presetsMaxWidth: number;
+  /**
+   * @desc 弹窗 z-index
+   * @descEN z-index of popup
+   */
   zIndexPopup: number;
 }
 
