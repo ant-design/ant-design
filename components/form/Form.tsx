@@ -22,7 +22,8 @@ import ValidateMessagesContext from './validateMessagesContext';
 export type RequiredMark = boolean | 'optional';
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
 
-export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form'> {
+export interface FormProps<Values = any>
+  extends Omit<RcFormProps<Values>, 'form' | 'initialValues'> {
   prefixCls?: string;
   colon?: boolean;
   name?: string;
@@ -39,6 +40,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   /** @deprecated Will warning in future branch. Pls use `requiredMark` instead. */
   hideRequiredMark?: boolean;
   rootClassName?: string;
+  initialValues?: Values;
 }
 
 const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (props, ref) => {
