@@ -73,6 +73,19 @@ const searchTransferProps = {
   targetKeys: ['3', '4'],
 };
 
+const generateData = (n = 20) => {
+  const data = [];
+  for (let i = 0; i < n; i++) {
+    data.push({
+      key: `${i}`,
+      title: `content${i}`,
+      description: `description of content${i}`,
+      chosen: false,
+    });
+  }
+  return data;
+};
+
 describe('Transfer', () => {
   mountTest(Transfer);
   rtlTest(Transfer);
@@ -496,10 +509,32 @@ describe('Transfer', () => {
     expect(onScroll).toHaveBeenLastCalledWith('right', expect.anything());
   });
 
-  it('should support rowKey is function', () => {
-    expect(() => {
-      render(<Transfer {...listCommonProps} rowKey={(record) => record.key} />);
-    }).not.toThrow();
+  it('support rowKey', () => {
+    const onSelectChange = jest.fn();
+
+    const Demo = () => {
+      const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
+
+      return (
+        <Transfer
+          {...listCommonProps}
+          selectedKeys={selectedKeys}
+          rowKey={(record) => `key_${record.key}`}
+          onSelectChange={(keys) => {
+            onSelectChange(keys);
+            setSelectedKeys(keys);
+          }}
+        />
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    fireEvent.click(container.querySelector('.ant-transfer-list-content input')!);
+    expect(onSelectChange).toHaveBeenCalledWith(['key_a']);
+    expect(
+      container.querySelector<HTMLInputElement>('.ant-transfer-list-content input')!.checked,
+    ).toBeTruthy();
   });
 
   it('should support render value and label in item', () => {
@@ -572,6 +607,32 @@ describe('Transfer', () => {
         />,
       );
       await waitFor(() => expect(getAllByTitle('1/1')).toHaveLength(2));
+    });
+
+    it('should support change pageSize', () => {
+      const dataSource = generateData();
+      const { container } = render(
+        <Transfer dataSource={dataSource} pagination={{ showSizeChanger: true, simple: false }} />,
+      );
+
+      fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+      fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
+      expect(container.querySelectorAll('.ant-transfer-list-content-item').length).toBe(20);
+    });
+
+    it('should be used first when pagination has pagesize', () => {
+      const dataSource = generateData(30);
+
+      const { container } = render(
+        <Transfer
+          dataSource={dataSource}
+          pagination={{ showSizeChanger: true, simple: false, pageSize: 20 }}
+        />,
+      );
+
+      fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+      fireEvent.click(container.querySelectorAll('.ant-select-item-option')[2]);
+      expect(container.querySelectorAll('.ant-transfer-list-content-item').length).toBe(20);
     });
   });
 

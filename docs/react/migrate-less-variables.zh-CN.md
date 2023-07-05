@@ -42,7 +42,7 @@ export default App;
 
 <!-- ### Alert 警告提示 -->
 
-## Anchor 锚点
+### Anchor 锚点
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
@@ -89,7 +89,7 @@ export default App;
 
 <!-- ### Button 按钮 -->
 
-## Calendar 日历
+### Calendar 日历
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
@@ -138,7 +138,7 @@ export default App;
 
 <!-- ### Cascader 级联选择 -->
 
-## Checkbox 多选框
+### Checkbox 多选框
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
@@ -320,7 +320,7 @@ Mentions 提及
 
 <!-- ### Progress 进度条 -->
 
-## Radio 单选框
+### Radio 单选框
 
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
@@ -342,7 +342,7 @@ Mentions 提及
 | `@radio-disabled-button-checked-color` | `buttonCheckdColorDisabled` | - |
 | `@radio-wrapper-margin-right` | `wrapperMarginInlineEnd` | - |
 
-## Rate 评分
+### Rate 评分
 
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
@@ -388,7 +388,31 @@ Mentions 提及
 | `@skeleton-paragraph-li-height` | `paragraphLiHeight` | - |
 | `@skeleton-paragraph-li-margin-top` | - | 由于样式变化已废弃 |
 
-<!-- ### Slider 滑动输入条 -->
+### Slider 滑动输入条
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@slider-margin` | - | 可由 `className` 或 `style` 直接修改 |
+| `@slider-rail-background-color` | `railBg` | - |
+| `@slider-rail-background-color-hover` | `railHoverBg` | - |
+| `@slider-track-background-color` | `trackBg` | - |
+| `@slider-track-background-color-hover` | `trackHoverBg` | - |
+| `@slider-handle-border-width` | `handleLineWidth` | - |
+| `@slider-handle-background-color` | - | 已废弃 |
+| `@slider-handle-color` | `handleColor` | - |
+| `@slider-handle-color-hover` | `handleActiveColor` | - |
+| `@slider-handle-color-focus` | `handleActiveColor` | - |
+| `@slider-handle-color-focus-shadow` | - | 已废弃 |
+| `@slider-handle-color-tooltip-open` | `handleActiveColor` | - |
+| `@slider-handle-size` | `handleSize` | - |
+| `@slider-handle-margin-top` | - | 已废弃 |
+| `@slider-handle-margin-left` | - | 已废弃 |
+| `@slider-handle-shadow` | - | 已废弃 |
+| `@slider-dot-border-color` | `dotBorderColor` | - |
+| `@slider-dot-border-color-active` | `dotActiveBorderColor` | - |
+| `@slider-disabled-color` | `trackBgDisabled` | - |
+| `@slider-disabled-background-color` | - | 已废弃 |
 
 ### Statistic 统计数值
 
@@ -461,7 +485,7 @@ Mentions 提及
 | `@tabs-card-gutter` | `cardGutter` | - |
 | `@tabs-card-tab-active-border-top` | - | 已废弃 |
 
-## Tag 标签
+### Tag 标签
 
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |

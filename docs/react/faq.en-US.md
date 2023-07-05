@@ -189,7 +189,7 @@ For historical reasons, the display names of the pop components are not uniform,
 
 ## Dynamic style using `:where` selector which not support old browser.
 
-Please ref dynamic theme document [Compatible Adjustment](/docs/react/customize-theme#compatible-adjustment) part.
+Please ref dynamic theme document [Legacy Browser Compatible](/docs/react/customize-theme#legacy-browser-compatible) part.
 
 ## How to disable motion?
 
@@ -234,3 +234,34 @@ Here are some typical wrong examples:
 ## Do you guys have any channel or website for submitting monetary donations, like through PayPal or Alipay?
 
 [https://opencollective.com/ant-design](https://opencollective.com/ant-design)
+
+## Use Form's `setFieldsValue` method to report an error if the object type contains `null`
+
+When we try to set the form value using the `setFieldsValue` method in the form instance of the form component, if the passed object contains the type null, such as:
+
+```tsx
+// This is not real world code, just for explain
+import { Form } from 'antd';
+
+type Test = {
+  value: string[] | null;
+};
+
+export default () => {
+  const [form] = Form.useForm<Test>();
+
+  form.setFieldsValue({
+    value: null, // Error: Type "null" cannot be assigned to type "string[] | undefined".
+  });
+};
+```
+
+If you encounter the above error, please check the current project `tsconfig.json` contains the following configuration:
+
+```json
+{
+  "strictNullChecks": true
+}
+```
+
+The above problem occurs if `strictNullChecks` is set to `true`, If you can determine the project don't need this configuration (see [strictNullChecks](https://www.typescriptlang.org/zh/tsconfig#strictNullChecks) to judge whether need the configuration). You can try changing to `false` to turn off the control strict check. However, if you do need to enable this feature, you can avoid this situation by using other types instead of `null` when designing types

@@ -210,7 +210,7 @@ ConfigProvider.config({
 
 ## 动态样式有 `:where` 导致旧版浏览器不支持怎么办？
 
-请参考动态主题文档 [兼容性调整](/docs/react/customize-theme-cn#兼容性调整) 部分内容。
+请参考动态主题文档 [兼容旧版浏览器](/docs/react/customize-theme-cn#兼容旧版浏览器) 部分内容。
 
 ## 如何关闭组件动画
 
@@ -256,3 +256,34 @@ import { ConfigProvider } from 'antd';
 ## 你们有接受捐助的渠道吗，比如支付宝或者微信支付？
 
 [https://opencollective.com/ant-design](https://opencollective.com/ant-design)
+
+## 使用表单组件的 `setFieldsValue` 方法如果对象类型中含有 `null` 时 TS 类型报错
+
+当我们尝试使用表单组件的表单实例当中的 `setFieldsValue` 方法设置表单值时，如果在传入的对象中包含有 `null` 类型，如：
+
+```tsx
+// This is not real world code, just for explain
+import { Form } from 'antd';
+
+type Test = {
+  value: string[] | null;
+};
+
+export default () => {
+  const [form] = Form.useForm<Test>();
+
+  form.setFieldsValue({
+    value: null, // Error: 不能将类型“null”分配给类型“string[] | undefined”。
+  });
+};
+```
+
+如果你遇到上述报错，请检查当前项目的 `tsconfig.json` 中是否包含如下配置：
+
+```json
+{
+  "strictNullChecks": true
+}
+```
+
+如果 `strictNullChecks` 的值被设置为 `true` 就会出现上述问题，如果你确定项目中可以不需要这个检测配置（查看[strictNullChecks](https://www.typescriptlang.org/zh/tsconfig#strictNullChecks)判断是否需要该配置），可以尝试改为 `false` 关闭控制严格检查功能。但如果你确实需要开启这个功能，那么，你可以在设计类型时，使用其他类型替代 `null` 以避免出现这种情况。

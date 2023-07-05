@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { type TableProps as RcTableProps, INTERNAL_HOOKS } from 'rc-table';
+import { INTERNAL_HOOKS, type TableProps as RcTableProps } from 'rc-table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
@@ -175,6 +175,7 @@ const InternalTable = <RecordType extends AnyObject = any>(
   const {
     locale: contextLocale = defaultLocale,
     direction,
+    table,
     renderEmpty,
     getPrefixCls,
     getPopupContainer: getContextPopupContainer,
@@ -516,6 +517,7 @@ const InternalTable = <RecordType extends AnyObject = any>(
 
   const wrapperClassNames = classNames(
     `${prefixCls}-wrapper`,
+    table?.className,
     {
       [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
     },
@@ -524,12 +526,14 @@ const InternalTable = <RecordType extends AnyObject = any>(
     hashId,
   );
 
+  const mergedStyle: React.CSSProperties = { ...table?.style, ...style };
+
   const emptyText = (locale && locale.emptyText) || renderEmpty?.('Table') || (
     <DefaultRenderEmpty componentName="Table" />
   );
 
   return wrapSSR(
-    <div ref={ref} className={wrapperClassNames} style={style}>
+    <div ref={ref} className={wrapperClassNames} style={mergedStyle}>
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
         <RcTable<RecordType>

@@ -7,8 +7,9 @@ import type { ReactElement } from 'react';
 import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
 import warning from '../_util/warning';
-import { ValidateMessagesContext } from '../form/context';
 import type { RequiredMark } from '../form/Form';
+import ValidateMessagesContext from '../form/validateMessagesContext';
+import type { InputProps } from '../input';
 import type { Locale } from '../locale';
 import LocaleProvider, { ANT_MARK } from '../locale';
 import type { LocaleContextProps } from '../locale/context';
@@ -18,7 +19,9 @@ import type { SpaceProps } from '../space';
 import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
+  BadgeConfig,
   ButtonConfig,
+  ComponentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
   DirectionType,
@@ -38,8 +41,8 @@ import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
 
 /**
- * Since too many feedback using static method like `Modal.confirm` not getting theme,
- * we record the theme register info here to help developer get warning info.
+ * Since too many feedback using static method like `Modal.confirm` not getting theme, we record the
+ * theme register info here to help developer get warning info.
  */
 let existThemeConfig = false;
 
@@ -100,21 +103,21 @@ export interface ConfigProviderProps {
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
-  form?: {
+  form?: ComponentStyleConfig & {
     validateMessages?: ValidateMessages;
     requiredMark?: RequiredMark;
     colon?: boolean;
     scrollToFirstError?: Options | boolean;
   };
-  input?: {
+  input?: ComponentStyleConfig & {
+    classNames?: InputProps['classNames'];
+    styles?: InputProps['styles'];
     autoComplete?: string;
   };
-  select?: {
+  select?: ComponentStyleConfig & {
     showSearch?: boolean;
   };
-  pagination?: {
-    showSizeChanger?: boolean;
-  };
+  pagination?: ComponentStyleConfig & { showSizeChanger?: boolean };
   locale?: Locale;
   pageHeader?: {
     ghost: boolean;
@@ -135,7 +138,38 @@ export interface ConfigProviderProps {
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
+  anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
+  cascader?: ComponentStyleConfig;
+  divider?: ComponentStyleConfig;
+  typography?: ComponentStyleConfig;
+  spin?: ComponentStyleConfig;
+  segmented?: ComponentStyleConfig;
+  steps?: ComponentStyleConfig;
+  image?: ComponentStyleConfig;
+  layout?: ComponentStyleConfig;
+  mentions?: ComponentStyleConfig;
+  modal?: ComponentStyleConfig;
+  result?: ComponentStyleConfig;
+  slider?: ComponentStyleConfig;
+  breadcrumb?: ComponentStyleConfig;
+  checkbox?: ComponentStyleConfig;
+  descriptions?: ComponentStyleConfig;
+  empty?: ComponentStyleConfig;
+  badge?: BadgeConfig;
+  radio?: ComponentStyleConfig;
+  rate?: ComponentStyleConfig;
+  switch?: ComponentStyleConfig;
+  avatar?: ComponentStyleConfig;
+  message?: ComponentStyleConfig;
+  tag?: ComponentStyleConfig;
+  table?: ComponentStyleConfig;
+  card?: ComponentStyleConfig;
+  tabs?: ComponentStyleConfig;
+  upload?: ComponentStyleConfig;
+  notification?: ComponentStyleConfig;
+  tree?: ComponentStyleConfig;
+  colorPicker?: ComponentStyleConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -188,7 +222,9 @@ const setGlobalConfig = ({
 
 export const globalConfig = () => ({
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
-    if (customizePrefixCls) return customizePrefixCls;
+    if (customizePrefixCls) {
+      return customizePrefixCls;
+    }
     return suffixCls ? `${getGlobalPrefixCls()}-${suffixCls}` : getGlobalPrefixCls();
   },
   getIconPrefixCls: getGlobalIconPrefixCls,
@@ -209,6 +245,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     children,
     csp: customCsp,
     autoInsertSpaceInButton,
+    anchor,
     form,
     locale,
     componentSize,
@@ -223,6 +260,38 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     iconPrefixCls: customIconPrefixCls,
     theme,
     componentDisabled,
+    segmented,
+    spin,
+    cascader,
+    typography,
+    checkbox,
+    descriptions,
+    divider,
+    steps,
+    image,
+    layout,
+    mentions,
+    modal,
+    result,
+    slider,
+    breadcrumb,
+    pagination,
+    input,
+    empty,
+    badge,
+    radio,
+    rate,
+    switch: SWITCH,
+    avatar,
+    message,
+    tag,
+    table,
+    card,
+    tabs,
+    upload,
+    notification,
+    tree,
+    colorPicker,
   } = props;
 
   // =================================== Warning ===================================
@@ -239,7 +308,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     (suffixCls: string, customizePrefixCls?: string) => {
       const { prefixCls } = props;
 
-      if (customizePrefixCls) return customizePrefixCls;
+      if (customizePrefixCls) {
+        return customizePrefixCls;
+      }
 
       const mergedPrefixCls = prefixCls || parentContext.getPrefixCls('');
 
@@ -263,6 +334,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   const baseConfig = {
     csp,
     autoInsertSpaceInButton,
+    anchor,
     locale: locale || legacyLocale,
     direction,
     space,
@@ -272,6 +344,38 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     getPrefixCls,
     iconPrefixCls,
     theme: mergedTheme,
+    segmented,
+    spin,
+    cascader,
+    typography,
+    checkbox,
+    descriptions,
+    divider,
+    steps,
+    image,
+    input,
+    layout,
+    mentions,
+    modal,
+    result,
+    slider,
+    breadcrumb,
+    pagination,
+    empty,
+    badge,
+    radio,
+    rate,
+    switch: SWITCH,
+    avatar,
+    message,
+    tag,
+    table,
+    card,
+    tabs,
+    upload,
+    notification,
+    tree,
+    colorPicker,
   };
 
   const config = {

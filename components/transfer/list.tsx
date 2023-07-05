@@ -110,7 +110,6 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
   } = props;
 
   const [filterValue, setFilterValue] = useState<string>('');
-
   const listBodyRef = useRef<ListBodyRef<RecordType>>({});
 
   const internalHandleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {

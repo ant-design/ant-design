@@ -42,7 +42,7 @@ export default App;
 
 <!-- ### Alert -->
 
-## Anchor
+### Anchor
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -89,7 +89,7 @@ export default App;
 
 <!-- ### Button -->
 
-## Calendar
+### Calendar
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -127,7 +127,7 @@ export default App;
 | `@card-head-tabs-margin-bottom` | `tabsMarginBottom` | - |
 | `@card-head-extra-color` | `extraColor` | - |
 
-## Carousel
+### Carousel
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -140,7 +140,7 @@ export default App;
 
 <!-- ### Checkbox -->
 
-## Checkbox
+### Checkbox
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -344,7 +344,7 @@ export default App;
 | `@radio-disabled-button-checked-color` | `buttonCheckdColorDisabled` | - |
 | `@radio-wrapper-margin-right` | `wrapperMarginInlineEnd` | - |
 
-## Rate
+### Rate
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -389,9 +389,33 @@ export default App;
 | `@skeleton-to-color` | `gradientToColor` | - |
 | `@skeleton-paragraph-margin-top` | `paragraphMarginTop` | - |
 | `@skeleton-paragraph-li-height` | `paragraphLiHeight` | - |
-| `@skeleton-paragraph-li-margin-top` | - | 由于样式变化已废弃 |
+| `@skeleton-paragraph-li-margin-top` | - | Deprecated for style change |
 
-<!-- ### Slider -->
+### Slider
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@slider-margin` | - | Could be customized with `className` or `style` |
+| `@slider-rail-background-color` | `railBg` | - |
+| `@slider-rail-background-color-hover` | `railHoverBg` | - |
+| `@slider-track-background-color` | `trackBg` | - |
+| `@slider-track-background-color-hover` | `trackHoverBg` | - |
+| `@slider-handle-border-width` | `handleLineWidth` | - |
+| `@slider-handle-background-color` | - | Deprecated |
+| `@slider-handle-color` | `handleColor` | - |
+| `@slider-handle-color-hover` | `handleActiveColor` | - |
+| `@slider-handle-color-focus` | `handleActiveColor` | - |
+| `@slider-handle-color-focus-shadow` | - Deprecated |
+| `@slider-handle-color-tooltip-open` | `handleActiveColor` | - |
+| `@slider-handle-size` | `handleSize` | - |
+| `@slider-handle-margin-top` | - | Deprecated |
+| `@slider-handle-margin-left` | - | Deprecated |
+| `@slider-handle-shadow` | - | Deprecated |
+| `@slider-dot-border-color` | `dotBorderColor` | - |
+| `@slider-dot-border-color-active` | `dotActiveBorderColor` | - |
+| `@slider-disabled-color` | `trackBgDisabled` | - |
+| `@slider-disabled-background-color` | - | Deprecated |
 
 ### Statistic
 
@@ -464,7 +488,7 @@ export default App;
 | `@tabs-card-gutter` | `cardGutter` | - |
 | `@tabs-card-tab-active-border-top` | - | Deprecated |
 
-## Tag
+### Tag
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |

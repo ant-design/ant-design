@@ -1,7 +1,7 @@
 import StarFilled from '@ant-design/icons/StarFilled';
 import classNames from 'classnames';
 import RcRate from 'rc-rate';
-import type { RateProps as RcRateProps, RateRef } from 'rc-rate/lib/Rate';
+import type { RateRef, RateProps as RcRateProps } from 'rc-rate/lib/Rate';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import Tooltip from '../tooltip';
@@ -21,10 +21,12 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
     prefixCls,
     className,
     rootClassName,
+    style,
     tooltips,
     character = <StarFilled />,
     ...rest
   } = props;
+
   const characterRender = (node: React.ReactElement, { index }: RateNodeProps) => {
     if (!tooltips) {
       return node;
@@ -32,11 +34,13 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
     return <Tooltip title={tooltips[index]}>{node}</Tooltip>;
   };
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, rate } = React.useContext(ConfigContext);
   const ratePrefixCls = getPrefixCls('rate', prefixCls);
 
   // Style
   const [wrapSSR, hashId] = useStyle(ratePrefixCls);
+
+  const mergedStyle: React.CSSProperties = { ...rate?.style, ...style };
 
   return wrapSSR(
     <RcRate
@@ -44,7 +48,8 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
       character={character}
       characterRender={characterRender}
       {...rest}
-      className={classNames(className, rootClassName, hashId)}
+      className={classNames(className, rootClassName, hashId, rate?.className)}
+      style={mergedStyle}
       prefixCls={ratePrefixCls}
       direction={direction}
     />,

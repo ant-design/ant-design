@@ -1,6 +1,8 @@
+import { CloseOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import Dialog from 'rc-dialog';
 import * as React from 'react';
+import useClosable from '../_util/hooks/useClosable';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
 import warning from '../_util/warning';
@@ -37,6 +39,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
+    modal,
   } = React.useContext(ConfigContext);
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -64,8 +67,9 @@ const Modal: React.FC<ModalProps> = (props) => {
     centered,
     getContainer,
     closeIcon,
+    closable,
     focusTriggerAfterClose = true,
-
+    style,
     // Deprecated
     visible,
 
@@ -91,6 +95,14 @@ const Modal: React.FC<ModalProps> = (props) => {
   const dialogFooter =
     footer === undefined ? <Footer {...props} onOk={handleOk} onCancel={handleCancel} /> : footer;
 
+  const [mergedClosable, mergedCloseIcon] = useClosable(
+    closable,
+    closeIcon,
+    (icon) => renderCloseIcon(prefixCls, icon),
+    <CloseOutlined className={`${prefixCls}-close-icon`} />,
+    true,
+  );
+
   return wrapSSR(
     <NoCompactStyle>
       <NoFormStyle status override>
@@ -105,11 +117,13 @@ const Modal: React.FC<ModalProps> = (props) => {
           visible={open ?? visible}
           mousePosition={restProps.mousePosition ?? mousePosition}
           onClose={handleCancel}
-          closeIcon={renderCloseIcon(prefixCls, closeIcon)}
+          closable={mergedClosable}
+          closeIcon={mergedCloseIcon}
           focusTriggerAfterClose={focusTriggerAfterClose}
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
-          className={classNames(hashId, className)}
+          className={classNames(hashId, className, modal?.className)}
+          style={{ ...modal?.style, ...style }}
         />
       </NoFormStyle>
     </NoCompactStyle>,
