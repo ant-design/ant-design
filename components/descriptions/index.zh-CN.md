@@ -34,7 +34,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*d27AQJrowGAAAA
 | --- | --- | --- | --- | --- |
 | bordered | 是否展示边框 | boolean | false |  |
 | colon | 配置 `Descriptions.Item` 的 `colon` 的默认值 | boolean | true |  |
-| column | 一行的 `DescriptionItems` 数量，可以写成像素值或支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | number | 3 |  |
+| column | 一行的 `DescriptionItems` 数量，可以写成像素值或支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | number \| object | 3 |  |
 | contentStyle | 自定义内容样式 | CSSProperties | - | 4.10.0 |
 | extra | 描述列表的操作区域，显示在右上方 | ReactNode | - | 4.5.0 |
 | labelStyle | 自定义标签样式 | CSSProperties | - | 4.10.0 |
