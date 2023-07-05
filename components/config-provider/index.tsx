@@ -154,6 +154,7 @@ export interface ConfigProviderProps {
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;
+  menu?: ComponentStyleConfig;
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
   empty?: ComponentStyleConfig;
@@ -277,6 +278,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     result,
     slider,
     breadcrumb,
+    menu,
     pagination,
     input,
     empty,
@@ -363,6 +365,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     result,
     slider,
     breadcrumb,
+    menu,
     pagination,
     empty,
     badge,

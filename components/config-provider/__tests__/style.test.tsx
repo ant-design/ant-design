@@ -17,6 +17,7 @@ import Image from '../../image';
 import Input from '../../input';
 import Layout from '../../layout';
 import Mentions from '../../mentions';
+import Menu from '../../menu';
 import message from '../../message';
 import Modal from '../../modal';
 import notification from '../../notification';
@@ -24,9 +25,9 @@ import Pagination from '../../pagination';
 import Radio from '../../radio';
 import Rate from '../../rate';
 import Result from '../../result';
-import Skeleton from '../../skeleton';
 import Segmented from '../../segmented';
 import Select from '../../select';
+import Skeleton from '../../skeleton';
 import Slider from '../../slider';
 import Space from '../../space';
 import Spin from '../../spin';
@@ -375,6 +376,46 @@ describe('ConfigProvider support style and className props', () => {
     const element = baseElement.querySelector<HTMLDivElement>('.ant-layout');
     expect(element).toHaveClass('cp-layout');
     expect(element).toHaveStyle({ background: 'red' });
+  });
+
+  it('Should Menu className works', () => {
+    const menuItems = [
+      {
+        label: 'Test Label',
+        key: 'test',
+      },
+    ];
+    const { container } = render(
+      <ConfigProvider
+        menu={{
+          className: 'test-class',
+        }}
+      >
+        <Menu items={menuItems} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-menu')).toHaveClass('test-class');
+  });
+
+  it('Should Menu style works', () => {
+    const menuItems = [
+      {
+        label: 'Test Label',
+        key: 'test',
+      },
+    ];
+    const { container } = render(
+      <ConfigProvider
+        menu={{
+          style: { color: 'red' },
+        }}
+      >
+        <Menu items={menuItems} style={{ fontSize: '16px' }} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-menu')).toHaveStyle('color: red; font-size: 16px;');
   });
 
   it('Should Mentions className & style works', () => {
