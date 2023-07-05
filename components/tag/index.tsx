@@ -123,9 +123,9 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     typeof props.onClick === 'function' ||
     (children && (children as React.ReactElement<any>).type === 'a');
 
-  const iconNode = icon || null;
+  const iconNode: React.ReactNode = icon || null;
 
-  const kids = iconNode ? (
+  const kids: React.ReactNode = iconNode ? (
     <>
       {iconNode}
       <span>{children}</span>
@@ -134,7 +134,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     children
   );
 
-  const tagNode = (
+  const tagNode: React.ReactNode = (
     <span {...props} ref={ref} className={tagClassName} style={tagStyle}>
       {kids}
       {mergedCloseIcon}
