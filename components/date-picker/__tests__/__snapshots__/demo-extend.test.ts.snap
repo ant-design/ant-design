@@ -28480,36 +28480,6 @@ exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1
                 </ul>
               </div>
             </div>
-            <div
-              class="ant-picker-footer"
-            >
-              <ul
-                class="ant-picker-ranges"
-              >
-                <li
-                  class="ant-picker-now"
-                >
-                  <a
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
-                >
-                  <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
-                    disabled=""
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
