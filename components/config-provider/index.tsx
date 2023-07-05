@@ -138,6 +138,7 @@ export interface ConfigProviderProps {
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
+  alert?: ComponentStyleConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
   cascader?: ComponentStyleConfig;
@@ -246,6 +247,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     children,
     csp: customCsp,
     autoInsertSpaceInButton,
+    alert,
     anchor,
     form,
     locale,
@@ -336,6 +338,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   const baseConfig = {
     csp,
     autoInsertSpaceInButton,
+    alert,
     anchor,
     locale: locale || legacyLocale,
     direction,

@@ -101,6 +101,7 @@ const {
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| alert | Set Alert common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | anchor | Set Anchor common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | avatar | Set Avatar common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | badge | Set Badge common props | { className?: string, style?: React.CSSProperties, classNames?: { count?: string, indicator?: string }, styles?: { count?: React.CSSProperties, indicator?: React.CSSProperties } } | - | 5.7.0 |

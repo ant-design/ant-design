@@ -120,7 +120,7 @@ const Alert: React.FC<AlertProps> = ({
     warning(!closeText, 'Alert', '`closeText` is deprecated. Please use `closeIcon` instead.');
   }
   const ref = React.useRef<HTMLDivElement>(null);
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, alert } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
@@ -164,6 +164,7 @@ const Alert: React.FC<AlertProps> = ({
       [`${prefixCls}-banner`]: !!banner,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
+    alert?.className,
     className,
     rootClassName,
     hashId,
@@ -190,7 +191,7 @@ const Alert: React.FC<AlertProps> = ({
           ref={ref}
           data-show={!closed}
           className={classNames(alertCls, motionClassName)}
-          style={{ ...style, ...motionStyle }}
+          style={{ ...alert?.style, ...style, ...motionStyle }}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
           onClick={onClick}
