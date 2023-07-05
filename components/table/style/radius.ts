@@ -27,6 +27,9 @@ const genRadiusStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
             },
           },
         },
+        [`${componentCls}-caption`]: {
+          borderStartEndRadius: tableRadius,
+        },
         [`${componentCls}-caption + colgroup + ${componentCls}-thead`]: {
           'tr:first-child': {
             'th:first-child, th:last-child, td:first-child, td:last-child': {

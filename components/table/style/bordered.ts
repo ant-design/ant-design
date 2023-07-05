@@ -47,6 +47,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           > ${componentCls}-caption
           `]: {
             borderBottom: tableBorder,
+            borderRight: tableBorder,
           },
           [`
             > ${componentCls}-content,
