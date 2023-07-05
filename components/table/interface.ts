@@ -7,23 +7,24 @@ import type {
 import { ExpandableConfig, GetRowKey } from 'rc-table/lib/interface';
 import type * as React from 'react';
 import type { Breakpoint } from '../_util/responsiveObserver';
+import type { AnyObject } from '../_util/type';
 import type { CheckboxProps } from '../checkbox';
 import type { PaginationProps } from '../pagination';
 import type { TooltipProps } from '../tooltip';
 import type { InternalTableProps, TableProps } from './InternalTable';
 import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 
-export type RefTable = <RecordType extends object = any>(
+export type RefTable = <RecordType extends AnyObject = AnyObject>(
   props: React.PropsWithChildren<TableProps<RecordType>> & { ref?: React.Ref<HTMLDivElement> },
 ) => React.ReactElement;
 
-export type RefInternalTable = <RecordType extends object = any>(
+export type RefInternalTable = <RecordType extends AnyObject = AnyObject>(
   props: React.PropsWithChildren<InternalTableProps<RecordType>> & {
     ref?: React.Ref<HTMLDivElement>;
   },
 ) => React.ReactElement;
 
-export { GetRowKey, ExpandableConfig };
+export { ExpandableConfig, GetRowKey };
 
 export type Key = React.Key;
 
@@ -82,7 +83,7 @@ export type ColumnTitle<RecordType> =
 
 export type FilterValue = (Key | boolean)[];
 export type FilterKey = Key[] | null;
-export type FilterSearchType<RecordType = Record<string, any>> =
+export type FilterSearchType<RecordType = AnyObject> =
   | boolean
   | ((input: string, record: RecordType) => boolean);
 export interface FilterConfirmProps {
