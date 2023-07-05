@@ -141,6 +141,7 @@ export interface ConfigProviderProps {
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
   cascader?: ComponentStyleConfig;
+  collapse?: ComponentStyleConfig;
   divider?: ComponentStyleConfig;
   typography?: ComponentStyleConfig;
   skeleton?: ComponentStyleConfig;
@@ -266,6 +267,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     segmented,
     spin,
     cascader,
+    collapse,
     typography,
     checkbox,
     descriptions,
@@ -353,6 +355,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     segmented,
     spin,
     cascader,
+    collapse,
     typography,
     checkbox,
     descriptions,

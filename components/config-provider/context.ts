@@ -98,6 +98,7 @@ export interface ConfigConsumerProps {
   button?: ButtonConfig;
   divider?: ComponentStyleConfig;
   cascader?: ComponentStyleConfig;
+  collapse?: ComponentStyleConfig;
   typography?: ComponentStyleConfig;
   skeleton?: ComponentStyleConfig;
   spin?: ComponentStyleConfig;
