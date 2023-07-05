@@ -17,7 +17,7 @@ const Table = <RecordType extends AnyObject = AnyObject>(
   props: TableProps<RecordType>,
   ref: React.Ref<HTMLDivElement>,
 ) => {
-  const renderTimesRef = React.useRef(0);
+  const renderTimesRef = React.useRef<number>(0);
   renderTimesRef.current += 1;
   return <InternalTable<RecordType> {...props} ref={ref} _renderTimes={renderTimesRef.current} />;
 };
