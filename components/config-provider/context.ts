@@ -99,6 +99,7 @@ export interface ConfigConsumerProps {
   divider?: ComponentStyleConfig;
   cascader?: ComponentStyleConfig;
   typography?: ComponentStyleConfig;
+  skeleton?: ComponentStyleConfig;
   spin?: ComponentStyleConfig;
   segmented?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;

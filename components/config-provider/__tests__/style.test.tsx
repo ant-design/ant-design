@@ -24,6 +24,7 @@ import Pagination from '../../pagination';
 import Radio from '../../radio';
 import Rate from '../../rate';
 import Result from '../../result';
+import Skeleton from '../../skeleton';
 import Segmented from '../../segmented';
 import Select from '../../select';
 import Slider from '../../slider';
@@ -200,6 +201,34 @@ describe('ConfigProvider support style and className props', () => {
     const element = container.querySelector<HTMLElement>('.ant-typography');
     expect(element).toHaveClass('cp-typography');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Skeleton className works', () => {
+    const { container } = render(
+      <ConfigProvider
+        skeleton={{
+          className: 'test-class',
+        }}
+      >
+        <Skeleton />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-skeleton')).toHaveClass('test-class');
+  });
+
+  it('Should Skeleton style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        skeleton={{
+          style: { color: 'red' },
+        }}
+      >
+        <Skeleton style={{ fontSize: '16px' }} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-skeleton')).toHaveStyle('color: red; font-size: 16px;');
   });
 
   it('Should Spin className & style works', () => {
