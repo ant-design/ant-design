@@ -13,7 +13,7 @@ import {
 import type { RefTable } from './interface';
 
 export type AnyObject = Record<PropertyKey, any>;
-//
+
 const Table = <RecordType extends AnyObject = any>(
   props: TableProps<RecordType>,
   ref: React.Ref<HTMLDivElement>,
