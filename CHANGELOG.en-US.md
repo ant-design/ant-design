@@ -15,6 +15,25 @@ timeline: true
 
 ---
 
+## 5.6.4
+
+`2023-07-03`
+
+- Form
+  - 🐞 Fix `onFieldsChange` event will still be triggered incorrectly when the field is not configured with `rules` when the Form is submitted. [#43290](https://github.com/ant-design/ant-design/pull/43290)
+  - 🐞 Fix the problem that the warning message that `name` is empty is falsely reported when the `name` of Form.List is 0. [#43199](https://github.com/ant-design/ant-design/pull/43199) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 Fix the Badge `color` attribute does not take effect. [#43304](https://github.com/ant-design/ant-design/pull/43304)
+- 🐞 Fix the position of Select clear icon when FormItem sets `hasFeedback`. [#43302](https://github.com/ant-design/ant-design/pull/43302) [@tinyfind](https://github.com/tinyfind)
+- 🐞 Fix Transfer paging drop-down button is hidden and `showSizeChanger` method is invalid. [#41906](https://github.com/ant-design/ant-design/pull/41906) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 Fix the invalid modification of `colorText` and `fontSize` of Popconfirm component. [#43212](https://github.com/ant-design/ant-design/pull/43212) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix the problem that deleting files after Upload configures `maxCount` will not trigger `onChange`. [#43193](https://github.com/ant-design/ant-design/pull/43193)
+- 💄 Fix Button disabled style error when it has `link` or `href` attribute. [#43091](https://github.com/ant-design/ant-design/pull/43091) [@BoyYangzai](https://github.com/BoyYangzai)
+- TypeScript
+  - 🤖 Optimize Breadcrumb `params` type and support generics. [#43211](https://github.com/ant-design/ant-design/pull/43211)
+  - 🤖 Optimize Breadcrumb `params` type and support generics. [#43257](https://github.com/ant-design/ant-design/pull/43257) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 Remove redundant number type from Button `loading`. [#43256](https://github.com/ant-design/ant-design/pull/43256) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 Transparently pass Cascader `optionType` generic. [#43231](https://github.com/ant-design/ant-design/pull/43231) [@ZWkang](https://github.com/ZWkang)
+
 ## 5.6.3
 
 `2023-06-25`

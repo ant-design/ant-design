@@ -61,10 +61,10 @@ function renderIndicator(prefixCls: string, props: SpinClassProps): React.ReactN
 
   return (
     <span className={classNames(dotClassName, `${prefixCls}-dot-spin`)}>
-      <i className={`${prefixCls}-dot-item`} />
-      <i className={`${prefixCls}-dot-item`} />
-      <i className={`${prefixCls}-dot-item`} />
-      <i className={`${prefixCls}-dot-item`} />
+      <i className={`${prefixCls}-dot-item`} key={1} />
+      <i className={`${prefixCls}-dot-item`} key={2} />
+      <i className={`${prefixCls}-dot-item`} key={3} />
+      <i className={`${prefixCls}-dot-item`} key={4} />
     </span>
   );
 }

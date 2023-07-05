@@ -183,6 +183,10 @@ const CustomTheme = () => {
           style={{ height: 'calc(100vh - 64px - 56px)' }}
           onThemeChange={(newTheme) => {
             setTheme(newTheme.config);
+            setThemeConfigContent({
+              json: newTheme.config,
+              text: undefined,
+            });
           }}
           locale={lang === 'cn' ? zhCN : enUS}
         />
