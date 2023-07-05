@@ -1,9 +1,10 @@
+import classNames from 'classnames';
 import * as React from 'react';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { TimelineItemProps } from './TimelineItem';
-import TimelineItemList from './TimelineItemList';
 import TimelineItem from './TimelineItem';
-import warning from '../_util/warning';
+import TimelineItemList from './TimelineItemList';
 import useItems from './useItems';
 
 // CSSINJS
@@ -28,8 +29,8 @@ type CompoundedComponent = React.FC<TimelineProps> & {
 };
 
 const Timeline: CompoundedComponent = (props) => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const { prefixCls: customizePrefixCls, children, items, ...restProps } = props;
+  const { getPrefixCls, direction, timeline } = React.useContext(ConfigContext);
+  const { prefixCls: customizePrefixCls, children, items, className, style, ...restProps } = props;
   const prefixCls = getPrefixCls('timeline', customizePrefixCls);
 
   // =================== Warning =====================
@@ -45,6 +46,8 @@ const Timeline: CompoundedComponent = (props) => {
   return wrapSSR(
     <TimelineItemList
       {...restProps}
+      className={classNames(timeline?.className, className)}
+      style={{ ...timeline?.style, ...style }}
       prefixCls={prefixCls}
       direction={direction}
       items={mergedItems}
