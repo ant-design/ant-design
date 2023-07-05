@@ -20,7 +20,7 @@ export const TypeIcon = {
   loading: <LoadingOutlined />,
 };
 
-export function getCloseIcon(prefixCls: string, closeIcon?: React.ReactNode) {
+export function getCloseIcon(prefixCls: string, closeIcon?: React.ReactNode): React.ReactNode {
   return (
     closeIcon || (
       <span className={`${prefixCls}-close-x`}>

@@ -1,8 +1,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
+import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent } from '../../style';
 
 export interface ComponentToken {}
 
@@ -16,20 +16,23 @@ interface ProgressToken extends FullToken<'Progress'> {
   progressActiveMotionDuration: string;
 }
 
-const antProgressActive = new Keyframes('antProgressActive', {
-  '0%': {
-    transform: 'translateX(-100%) scaleX(0)',
-    opacity: 0.1,
-  },
-  '20%': {
-    transform: 'translateX(-100%) scaleX(0)',
-    opacity: 0.5,
-  },
-  to: {
-    transform: 'translateX(0) scaleX(1)',
-    opacity: 0,
-  },
-});
+const genAntProgressActive = (isRtl?: boolean) => {
+  const direction = isRtl ? '100%' : '-100%';
+  return new Keyframes(`antProgress${isRtl ? 'RTL' : 'LTR'}Active`, {
+    '0%': {
+      transform: `translateX(${direction}) scaleX(0)`,
+      opacity: 0.1,
+    },
+    '20%': {
+      transform: `translateX(${direction}) scaleX(0)`,
+      opacity: 0.5,
+    },
+    to: {
+      transform: 'translateX(0) scaleX(1)',
+      opacity: 0,
+    },
+  });
+};
 
 const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
   const { componentCls: progressCls, iconCls: iconPrefixCls } = token;
@@ -116,11 +119,17 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
           backgroundColor: token.colorBgContainer,
           borderRadius: token.progressLineRadius,
           opacity: 0,
-          animationName: antProgressActive,
+          animationName: genAntProgressActive(),
           animationDuration: token.progressActiveMotionDuration,
           animationTimingFunction: token.motionEaseOutQuint,
           animationIterationCount: 'infinite',
           content: '""',
+        },
+      },
+
+      [`&${progressCls}-rtl${progressCls}-status-active`]: {
+        [`${progressCls}-bg::before`]: {
+          animationName: genAntProgressActive(true),
         },
       },
 
