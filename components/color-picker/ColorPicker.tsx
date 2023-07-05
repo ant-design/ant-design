@@ -30,7 +30,7 @@ import { customizePrefixCls, generateColor } from './util';
 
 export type ColorPickerProps = Omit<
   RcColorPickerProps,
-  'onChange' | 'value' | 'defaultValue' | 'panelRender'
+  'onChange' | 'value' | 'defaultValue' | 'panelRender' | 'onChangeComplete'
 > & {
   value?: Color | string;
   defaultValue?: Color | string;
@@ -55,6 +55,7 @@ export type ColorPickerProps = Omit<
   onFormatChange?: (format: ColorFormat) => void;
   onChange?: (value: Color, hex: string) => void;
   onClear?: () => void;
+  onChangeComplete?: (value: Color) => void;
 } & Pick<PopoverProps, 'getPopupContainer' | 'autoAdjustOverflow' | 'destroyTooltipOnHide'>;
 
 type CompoundedComponent = React.FC<ColorPickerProps> & {
@@ -85,6 +86,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     onChange,
     onClear,
     onOpenChange,
+    onChangeComplete,
     getPopupContainer,
     autoAdjustOverflow = true,
     destroyTooltipOnHide,
@@ -159,6 +161,7 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const handleChangeComplete = () => {
     popupAllowCloseRef.current = true;
+    onChangeComplete?.(colorValue);
   };
 
   const popoverProps: PopoverProps = {

@@ -58,6 +58,7 @@ Used when the user needs to customize the color selection.
 | onFormatChange | Callback when `format` is changed | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - | |
 | onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - | |
 | onClear | Called when clear | `() => void` | - | 5.6.0 |
+| onChangeComplete | Called when color pick ends   | `(value: Color) => void` | - | 5.7.0 |
 
 ### Color
 

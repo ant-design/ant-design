@@ -59,6 +59,7 @@ group:
 | onFormatChange | 颜色格式变化的回调 | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - | |
 | onOpenChange | 当 `open` 被改变时的回调 | `(open: boolean) => void` | - | |
 | onClear | 清除的回调 | `() => void` | - | 5.6.0 |
+| onChangeComplete | 颜色选择完成的回调  | `(value: Color) => void` | - | 5.7.0 |
 
 ### Color
 
