@@ -107,6 +107,7 @@ export interface ConfigConsumerProps {
   layout?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;
   modal?: ComponentStyleConfig;
+  progress?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;

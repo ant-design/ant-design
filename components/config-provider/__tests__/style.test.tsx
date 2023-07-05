@@ -21,6 +21,7 @@ import message from '../../message';
 import Modal from '../../modal';
 import notification from '../../notification';
 import Pagination from '../../pagination';
+import Progress from '../../progress';
 import Radio from '../../radio';
 import Rate from '../../rate';
 import Result from '../../result';
@@ -547,6 +548,34 @@ describe('ConfigProvider support style and className props', () => {
     const element = container.querySelector<HTMLUListElement>('.ant-pagination');
     expect(element).toHaveClass('cp-pagination');
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
+  });
+
+  it('Should Progress className works', () => {
+    const { container } = render(
+      <ConfigProvider
+        progress={{
+          className: 'test-class',
+        }}
+      >
+        <Progress />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-progress')).toHaveClass('test-class');
+  });
+
+  it('Should Progress style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        progress={{
+          style: { color: 'red' },
+        }}
+      >
+        <Progress style={{ fontSize: '16px' }} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-progress')).toHaveStyle('color: red; font-size: 16px;');
   });
 
   it('Should Descriptions className & style works', () => {

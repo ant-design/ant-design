@@ -151,6 +151,7 @@ export interface ConfigProviderProps {
   layout?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;
   modal?: ComponentStyleConfig;
+  progress?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;
@@ -274,6 +275,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     layout,
     mentions,
     modal,
+    progress,
     result,
     slider,
     breadcrumb,
@@ -360,6 +362,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     layout,
     mentions,
     modal,
+    progress,
     result,
     slider,
     breadcrumb,
