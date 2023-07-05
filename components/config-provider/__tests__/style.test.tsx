@@ -5,6 +5,7 @@ import Anchor from '../../anchor';
 import Avatar from '../../avatar';
 import Badge from '../../badge';
 import Breadcrumb from '../../breadcrumb';
+import Calendar from '../../calendar';
 import Card from '../../card';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
@@ -25,9 +26,9 @@ import Progress from '../../progress';
 import Radio from '../../radio';
 import Rate from '../../rate';
 import Result from '../../result';
-import Skeleton from '../../skeleton';
 import Segmented from '../../segmented';
 import Select from '../../select';
+import Skeleton from '../../skeleton';
 import Slider from '../../slider';
 import Space from '../../space';
 import Spin from '../../spin';
@@ -705,6 +706,36 @@ describe('ConfigProvider support style and className props', () => {
     const element = container.querySelector<HTMLDivElement>('.ant-table-wrapper');
     expect(element).toHaveClass('cp-table');
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
+  });
+
+  it('Should Calendar className works', () => {
+    const { container } = render(
+      <ConfigProvider
+        calendar={{
+          className: 'test-class',
+        }}
+      >
+        <Calendar />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-picker-calendar')).toHaveClass('test-class');
+  });
+
+  it('Should Calendar style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        calendar={{
+          style: { color: 'red' },
+        }}
+      >
+        <Calendar style={{ fontSize: '16px' }} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-picker-calendar')).toHaveStyle(
+      'color: red; font-size: 16px;',
+    );
   });
 
   it('Should Card className & style works', () => {
