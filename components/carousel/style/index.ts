@@ -3,10 +3,22 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
+  /**
+   * @desc 指示点宽度
+   * @descEN Width of indicator
+   */
   dotWidth: number;
+  /**
+   * @desc 指示点高度
+   * @descEN Height of indicator
+   */
   dotHeight: number;
   /** @deprecated Use `dotActiveWidth` instead. */
   dotWidthActive: number;
+  /**
+   * @desc 激活态指示点宽度
+   * @descEN Width of active indicator
+   */
   dotActiveWidth: number;
 }
 

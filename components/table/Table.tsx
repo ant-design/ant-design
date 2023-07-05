@@ -1,5 +1,6 @@
 import { EXPAND_COLUMN, Summary } from 'rc-table';
 import * as React from 'react';
+import type { AnyObject } from '../_util/type';
 import Column from './Column';
 import ColumnGroup from './ColumnGroup';
 import type { TableProps } from './InternalTable';
@@ -12,13 +13,11 @@ import {
 } from './hooks/useSelection';
 import type { RefTable } from './interface';
 
-export type AnyObject = Record<PropertyKey, any>;
-
-const Table = <RecordType extends AnyObject = any>(
+const Table = <RecordType extends AnyObject = AnyObject>(
   props: TableProps<RecordType>,
   ref: React.Ref<HTMLDivElement>,
 ) => {
-  const renderTimesRef = React.useRef(0);
+  const renderTimesRef = React.useRef<number>(0);
   renderTimesRef.current += 1;
   return <InternalTable<RecordType> {...props} ref={ref} _renderTimes={renderTimesRef.current} />;
 };

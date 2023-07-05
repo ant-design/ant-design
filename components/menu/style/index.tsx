@@ -11,112 +11,223 @@ import getVerticalStyle from './vertical';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
+  /**
+   * @desc 弹出菜单的宽度
+   * @descEN Width of popup menu
+   */
   dropdownWidth: number;
+  /**
+   * @desc 弹出菜单的 z-index
+   * @descEN z-index of popup menu
+   */
   zIndexPopup: number;
 
   // Group
   /** @deprecated Use `groupTitleColor` instead */
   colorGroupTitle: string;
+  /**
+   * @desc 分组标题文字颜色
+   * @descEN Color of group title text
+   */
   groupTitleColor: string;
 
   // radius
   /** @deprecated Use `itemBorderRadius` instead */
   radiusItem: number;
+  /**
+   * @desc 菜单项的圆角
+   * @descEN Radius of menu item
+   */
   itemBorderRadius: number;
 
   /** @deprecated Use `subMenuItemBorderRadius` instead */
   radiusSubMenuItem: number;
+  /**
+   * @desc 子菜单项的圆角
+   * @descEN Radius of sub-menu item
+   */
   subMenuItemBorderRadius: number;
 
   // Item Text
   // > Default
   /** @deprecated Use `itemColor` instead */
   colorItemText: string;
+  /**
+   * @desc 菜单项文字颜色
+   * @descEN Color of menu item text
+   */
   itemColor: string;
 
   /** @deprecated Use `itemHoverColor` instead */
   colorItemTextHover: string;
+  /**
+   * @desc 菜单项文字悬浮颜色
+   * @descEN Hover color of menu item text
+   */
   itemHoverColor: string;
 
   /** @deprecated Use `horizontalItemHoverColor` instead */
   colorItemTextHoverHorizontal: string;
+  /**
+   * @desc 水平菜单项文字悬浮颜色
+   * @descEN Hover color of horizontal menu item text
+   */
   horizontalItemHoverColor: string;
 
   /** @deprecated Use `itemSelectedColor` instead */
   colorItemTextSelected: string;
+  /**
+   * @desc 菜单项文字选中颜色
+   * @descEN Color of selected menu item text
+   */
   itemSelectedColor: string;
 
   /** @deprecated Use `horizontalItemSelectedColor` instead */
   colorItemTextSelectedHorizontal: string;
+  /**
+   * @desc 水平菜单项文字选中颜色
+   * @descEN Color of selected horizontal menu item text
+   */
   horizontalItemSelectedColor: string;
 
   // > Disabled
   /** @deprecated Use `itemDisabledColor` instead */
   colorItemTextDisabled: string;
+  /**
+   * @desc 菜单项文字禁用颜色
+   * @descEN Color of disabled menu item text
+   */
   itemDisabledColor: string;
 
   // > Danger
   /** @deprecated Use `dangerItemColor` instead */
   colorDangerItemText: string;
+  /**
+   * @desc 危险菜单项文字颜色
+   * @descEN Color of danger menu item text
+   */
   dangerItemColor: string;
 
   /** @deprecated Use `dangerItemHoverColor` instead */
   colorDangerItemTextHover: string;
+  /**
+   * @desc 危险菜单项文字悬浮颜色
+   * @descEN Hover color of danger menu item text
+   */
   dangerItemHoverColor: string;
 
   /** @deprecated Use `dangerItemSelectedColor` instead */
   colorDangerItemTextSelected: string;
+  /**
+   * @desc 危险菜单项文字选中颜色
+   * @descEN Color of selected danger menu item text
+   */
   dangerItemSelectedColor: string;
 
   /** @deprecated Use `dangerItemActiveBg` instead */
   colorDangerItemBgActive: string;
+  /**
+   * @desc 危险菜单项文字激活颜色
+   * @descEN Color of active danger menu item text
+   */
   dangerItemActiveBg: string;
 
   /** @deprecated Use `dangerItemSelectedBg` instead */
   colorDangerItemBgSelected: string;
+  /**
+   * @desc 危险菜单项文字选中颜色
+   * @descEN Color of selected danger menu item text
+   */
   dangerItemSelectedBg: string;
 
   // Item Bg
   /** @deprecated Use `itemBg` instead */
   colorItemBg: string;
+  /**
+   * @desc 菜单项背景色
+   */
   itemBg: string;
 
   /** @deprecated Use `itemHoverBg` instead */
   colorItemBgHover: string;
+  /**
+   * @desc 菜单项悬浮态背景色
+   * @descEN Background color of menu item when hover
+   */
   itemHoverBg: string;
 
   /** @deprecated Use `subMenuItemBg` instead */
   colorSubItemBg: string;
+  /**
+   * @desc 子菜单项背景色
+   * @descEN Background color of sub-menu item
+   */
   subMenuItemBg: string;
 
   // > Default
   /** @deprecated Use `itemActiveBg` instead */
   colorItemBgActive: string;
+  /**
+   * @desc 菜单项激活态背景色
+   * @descEN Background color of menu item when active
+   */
   itemActiveBg: string;
 
   /** @deprecated Use `itemSelectedBg` instead */
   colorItemBgSelected: string;
+  /**
+   * @desc 菜单项选中态背景色
+   * @descEN Background color of menu item when selected
+   */
   itemSelectedBg: string;
 
   /** @deprecated Use `horizontalItemSelectedBg` instead */
   colorItemBgSelectedHorizontal: string;
+  /**
+   * @desc 水平菜单项选中态背景色
+   * @descEN Background color of horizontal menu item when selected
+   */
   horizontalItemSelectedBg: string;
 
   // Ink Bar
   /** @deprecated Use `activeBarWidth` instead */
   colorActiveBarWidth: number;
+  /**
+   * @desc 菜单项指示条宽度
+   * @descEN Width of menu item active bar
+   */
   activeBarWidth: number;
 
   /** @deprecated Use `activeBarHeight` instead */
   colorActiveBarHeight: number;
+  /**
+   * @desc 菜单项指示条高度
+   * @descEN Height of menu item active bar
+   */
   activeBarHeight: number;
 
   /** @deprecated Use `activeBarBorderWidth` instead */
   colorActiveBarBorderSize: number;
+  /**
+   * @desc 菜单项指示条边框宽度
+   * @descEN Border width of menu item active bar
+   */
   activeBarBorderWidth: number;
 
+  /**
+   * @desc 菜单项横向外间距
+   * @descEN Horizontal margin of menu item
+   */
   itemMarginInline: number;
+  /**
+   * @desc 横向菜单项横悬浮态背景色
+   * @descEN Background color of horizontal menu item when hover
+   */
   horizontalItemHoverBg: string;
+  /**
+   * @desc 横向菜单项圆角
+   * @descEN Border radius of horizontal menu item
+   */
   horizontalItemBorderRadius: number;
 }
 
