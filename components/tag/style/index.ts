@@ -88,6 +88,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       opacity: 1,
       transition: `all ${token.motionDurationMid}`,
       textAlign: 'start',
+      position: 'relative',
 
       // RTL
       [`&${componentCls}-rtl`]: {

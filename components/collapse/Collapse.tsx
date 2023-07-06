@@ -102,7 +102,10 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     ) as React.ReactNode;
 
     return cloneElement(icon, () => ({
-      className: classNames((icon as any).props.className, `${prefixCls}-arrow`),
+      className: classNames(
+        (icon as React.ReactElement<any>).props.className,
+        `${prefixCls}-arrow`,
+      ),
     }));
   };
 

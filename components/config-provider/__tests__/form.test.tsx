@@ -148,6 +148,42 @@ describe('ConfigProvider.Form', () => {
         'age must be between 18-99',
       );
     });
+
+    // https://github.com/ant-design/ant-design/issues/43210
+    it('should merge parent ConfigProvider validateMessages', async () => {
+      const MyForm = () => (
+        <Form>
+          <Form.Item name="name" label="Name" rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form>
+      );
+
+      const { container, getAllByRole, getAllByText } = render(
+        <ConfigProvider>
+          <MyForm />
+          <ConfigProvider form={{ validateMessages: { required: 'Required' } }}>
+            <MyForm />
+            <ConfigProvider>
+              <MyForm />
+            </ConfigProvider>
+          </ConfigProvider>
+        </ConfigProvider>,
+      );
+
+      const submitButtons = getAllByRole('button');
+      expect(submitButtons).toHaveLength(3);
+      submitButtons.forEach(fireEvent.click);
+
+      await waitFakeTimer();
+
+      expect(container.querySelectorAll('.ant-form-item-explain-error')).toHaveLength(3);
+      expect(getAllByText('Please enter Name')).toHaveLength(1);
+      expect(getAllByText('Required')).toHaveLength(2);
+    });
   });
 
   describe('form requiredMark', () => {

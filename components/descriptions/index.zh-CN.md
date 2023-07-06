@@ -34,7 +34,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*d27AQJrowGAAAA
 | --- | --- | --- | --- | --- |
 | bordered | 是否展示边框 | boolean | false |  |
 | colon | 配置 `Descriptions.Item` 的 `colon` 的默认值 | boolean | true |  |
-| column | 一行的 `DescriptionItems` 数量，可以写成像素值或支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | number | 3 |  |
+| column | 一行的 `DescriptionItems` 数量，可以写成像素值或支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | number \| [Record<Breakpoint, number>](https://github.com/ant-design/ant-design/blob/84ca0d23ae52e4f0940f20b0e22eabe743f90dca/components/descriptions/index.tsx#L111C21-L111C56) | 3 |  |
 | contentStyle | 自定义内容样式 | CSSProperties | - | 4.10.0 |
 | extra | 描述列表的操作区域，显示在右上方 | ReactNode | - | 4.5.0 |
 | labelStyle | 自定义标签样式 | CSSProperties | - | 4.10.0 |

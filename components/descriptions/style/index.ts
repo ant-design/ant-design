@@ -22,12 +22,12 @@ export interface ComponentToken {
    */
   itemPaddingBottom: number;
   /**
-   * @desc 分号右间距
+   * @desc 冒号右间距
    * @descEN Right margin of colon
    */
   colonMarginRight: number;
   /**
-   * @desc 分号左间距
+   * @desc 冒号左间距
    * @descEN Left margin of colon
    */
   colonMarginLeft: number;

@@ -150,11 +150,13 @@ const ComponentTokenTable: React.FC<ComponentTokenTableProps> = ({ component }) 
 
   return (
     <>
-      <SubTokenTable
-        title={locale.componentToken}
-        tokens={tokenMeta.components[component].map((item) => item.token)}
-        component={component}
-      />
+      {tokenMeta.components[component] && (
+        <SubTokenTable
+          title={locale.componentToken}
+          tokens={tokenMeta.components[component].map((item) => item.token)}
+          component={component}
+        />
+      )}
       <SubTokenTable title={locale.globalToken} tokens={mergedGlobalTokens} />
     </>
   );

@@ -456,6 +456,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
       merge(
         defaultLocale.Form?.defaultValidateMessages || {},
         memoedConfig.locale?.Form?.defaultValidateMessages || {},
+        memoedConfig.form?.validateMessages || {},
         form?.validateMessages || {},
       ),
     [memoedConfig, form?.validateMessages],
