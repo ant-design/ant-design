@@ -1,6 +1,7 @@
 import React from 'react';
 import ConfigProvider from '..';
 import { fireEvent, render } from '../../../tests/utils';
+import Alert from '../../alert';
 import Anchor from '../../anchor';
 import Avatar from '../../avatar';
 import Badge from '../../badge';
@@ -514,6 +515,34 @@ describe('ConfigProvider support style and className props', () => {
     const element = container.querySelector<HTMLDivElement>('.ant-slider');
     expect(element).toHaveClass('cp-slider');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Alert className works', () => {
+    const { container } = render(
+      <ConfigProvider
+        alert={{
+          className: 'test-class',
+        }}
+      >
+        <Alert message="Test Message" />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-alert')).toHaveClass('test-class');
+  });
+
+  it('Should Alert style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        alert={{
+          style: { color: 'red' },
+        }}
+      >
+        <Alert style={{ fontSize: '16px' }} message="Test Message" />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-alert')).toHaveStyle('color: red; font-size: 16px;');
   });
 
   it('Should Anchor className & style works', () => {

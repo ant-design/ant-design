@@ -94,6 +94,7 @@ export interface ConfigConsumerProps {
   select?: ComponentStyleConfig & {
     showSearch?: boolean;
   };
+  alert?: ComponentStyleConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
   divider?: ComponentStyleConfig;
