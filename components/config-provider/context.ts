@@ -107,6 +107,7 @@ export interface ConfigConsumerProps {
   spin?: ComponentStyleConfig;
   segmented?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;
+  statistic?: ComponentStyleConfig;
   image?: ComponentStyleConfig;
   layout?: ComponentStyleConfig;
   list?: ComponentStyleConfig;
