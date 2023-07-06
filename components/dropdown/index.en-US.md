@@ -77,3 +77,9 @@ Please ensure that the child node of `Dropdown` accepts `onMouseEnter`, `onMouse
 ## Design Token
 
 <ComponentTokenTable component="Dropdown"></ComponentTokenTable>
+
+## FAQ
+
+### How to prevent Dropdown from being squeezed when it exceeds the screen horizontally?
+
+You can use `width: max-content` style to handle this. ref [#43025](https://github.com/ant-design/ant-design/issues/43025#issuecomment-1594394135).
