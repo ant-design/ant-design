@@ -119,6 +119,7 @@ const {
 | image | Set Image common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | input | Set Input common props | { autoComplete?: string, className?: string, style?: React.CSSProperties } | - | 4.2.0 |
 | layout | Set Layout common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| list | Set List common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | menu | Set Menu common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | mentions | Set Mentions common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | message | Set Message common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |

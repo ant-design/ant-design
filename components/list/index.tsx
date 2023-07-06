@@ -75,6 +75,7 @@ function List<T>({
   split = true,
   className,
   rootClassName,
+  style,
   children,
   itemLayout,
   loadMore,
@@ -96,7 +97,7 @@ function List<T>({
   );
   const [paginationSize, setPaginationSize] = React.useState(paginationObj.defaultPageSize || 10);
 
-  const { getPrefixCls, renderEmpty, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, renderEmpty, direction, list } = React.useContext(ConfigContext);
 
   const defaultPaginationProps = {
     current: 1,
@@ -176,6 +177,7 @@ function List<T>({
       [`${prefixCls}-something-after-last-item`]: isSomethingAfterLastItem(),
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
+    list?.className,
     className,
     rootClassName,
     hashId,
@@ -280,7 +282,7 @@ function List<T>({
 
   return wrapSSR(
     <ListContext.Provider value={contextValue}>
-      <div className={classString} {...rest}>
+      <div style={{ ...list?.style, ...style }} className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
         {header && <div className={`${prefixCls}-header`}>{header}</div>}
         <Spin {...loadingProp}>

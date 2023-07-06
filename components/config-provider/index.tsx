@@ -151,6 +151,7 @@ export interface ConfigProviderProps {
   steps?: ComponentStyleConfig;
   image?: ComponentStyleConfig;
   layout?: ComponentStyleConfig;
+  list?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;
   modal?: ComponentStyleConfig;
   progress?: ComponentStyleConfig;
@@ -279,6 +280,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     steps,
     image,
     layout,
+    list,
     mentions,
     modal,
     progress,
@@ -370,6 +372,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     image,
     input,
     layout,
+    list,
     mentions,
     modal,
     progress,

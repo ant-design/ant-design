@@ -18,6 +18,7 @@ import Form from '../../form';
 import Image from '../../image';
 import Input from '../../input';
 import Layout from '../../layout';
+import List from '../../list';
 import Mentions from '../../mentions';
 import Menu from '../../menu';
 import message from '../../message';
@@ -380,6 +381,44 @@ describe('ConfigProvider support style and className props', () => {
     const element = baseElement.querySelector<HTMLDivElement>('.ant-layout');
     expect(element).toHaveClass('cp-layout');
     expect(element).toHaveStyle({ background: 'red' });
+  });
+
+  it('Should List className works', () => {
+    const listData = [
+      {
+        title: 'Test Title',
+      },
+    ];
+    const { container } = render(
+      <ConfigProvider
+        list={{
+          className: 'test-class',
+        }}
+      >
+        <List dataSource={listData} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-list')).toHaveClass('test-class');
+  });
+
+  it('Should List style works', () => {
+    const listData = [
+      {
+        title: 'Test Title',
+      },
+    ];
+    const { container } = render(
+      <ConfigProvider
+        list={{
+          style: { color: 'red' },
+        }}
+      >
+        <List style={{ fontSize: '16px' }} dataSource={listData} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-list')).toHaveStyle('color: red; font-size: 16px;');
   });
 
   it('Should Menu className works', () => {
