@@ -1,9 +1,8 @@
 import { css } from '@emotion/react';
-import { useLocation } from 'dumi';
+import { Link, useLocation } from 'dumi';
 import * as React from 'react';
 import useSiteToken from '../../../hooks/useSiteToken';
 import * as utils from '../../utils';
-import Link from '../../common/Link';
 
 const useStyle = () => {
   const { token } = useSiteToken();

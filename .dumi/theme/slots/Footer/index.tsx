@@ -15,11 +15,10 @@ import {
 import { TinyColor } from '@ctrl/tinycolor';
 import { css } from '@emotion/react';
 import getAlphaColor from 'antd/es/theme/util/getAlphaColor';
-import { FormattedMessage } from 'dumi';
+import { FormattedMessage, Link } from 'dumi';
 import RcFooter from 'rc-footer';
 import type { FooterColumn } from 'rc-footer/lib/column';
 import React, { useContext } from 'react';
-import Link from '../../common/Link';
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
 import useSiteToken from '../../../hooks/useSiteToken';
@@ -243,7 +242,7 @@ const Footer: React.FC = () => {
           en: 'JoinUs',
         }),
         LinkComponent: Link,
-      } as unknown as (typeof col2)['items'][number]);
+      } as unknown as typeof col2['items'][number]);
     }
 
     const col3 = {

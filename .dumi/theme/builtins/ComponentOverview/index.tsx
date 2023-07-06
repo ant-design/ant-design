@@ -1,6 +1,6 @@
 import React, { memo, useContext, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
-import { useIntl, useSidebarData, useLocation } from 'dumi';
+import { Link, useIntl, useSidebarData, useLocation } from 'dumi';
 import { css } from '@emotion/react';
 import debounce from 'lodash/debounce';
 import { Card, Col, Divider, Input, Row, Space, Tag, Typography, Affix } from 'antd';
@@ -9,7 +9,6 @@ import type { Component } from './ProComponentsList';
 import proComponentsList from './ProComponentsList';
 import useSiteToken from '../../../hooks/useSiteToken';
 import SiteContext from '../../slots/SiteContext';
-import Link from '../../common/Link';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -32,10 +31,7 @@ const useStyle = () => {
       cursor: pointer;
       transition: all 0.5s;
       &:hover {
-        box-shadow:
-          0 6px 16px -8px #00000014,
-          0 9px 28px #0000000d,
-          0 12px 48px 16px #00000008;
+        box-shadow: 0 6px 16px -8px #00000014, 0 9px 28px #0000000d, 0 12px 48px 16px #00000008;
       }
     `,
     componentsOverviewAffix: css`

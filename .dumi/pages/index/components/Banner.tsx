@@ -1,13 +1,12 @@
 import { css } from '@emotion/react';
 import { Button, Space, Typography } from 'antd';
-import { useLocation } from 'dumi';
+import { Link, useLocation } from 'dumi';
 import * as React from 'react';
 import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
 import SiteContext from '../../../theme/slots/SiteContext';
 import * as utils from '../../../theme/utils';
 import { GroupMask } from './Group';
-import Link from '../../../theme/common/Link';
 
 const locales = {
   cn: {

@@ -1,9 +1,8 @@
 import { HomeOutlined } from '@ant-design/icons';
 import { Button, Result } from 'antd';
-import { useLocation } from 'dumi';
+import { Link, useLocation } from 'dumi';
 import React, { useEffect } from 'react';
 import * as utils from '../../theme/utils';
-import Link from '../../theme/common/Link';
 
 export interface NotFoundProps {
   router: {

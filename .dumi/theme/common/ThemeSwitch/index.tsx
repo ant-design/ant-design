@@ -1,12 +1,11 @@
 import { BgColorsOutlined } from '@ant-design/icons';
 import { FloatButton } from 'antd';
 import { CompactTheme, DarkTheme, Motion } from 'antd-token-previewer/es/icons';
-import { FormattedMessage, useLocation } from 'dumi';
+import { FormattedMessage, Link, useLocation } from 'dumi';
 import React from 'react';
 import useSiteToken from '../../../hooks/useSiteToken';
 import { getLocalizedPathname, isZhCN } from '../../utils';
 import ThemeIcon from './ThemeIcon';
-import Link from '../Link';
 
 export type ThemeName = 'light' | 'dark' | 'compact' | 'motion-off';
 
