@@ -28,43 +28,44 @@ const App: React.FC = () => {
   };
 
   // you can download the flipped and rotated image
-  const onTransformImgDownload = ({
-    flipY,
-    flipX,
-    rotate,
-  }: {
-    flipY: boolean;
-    flipX: boolean;
-    rotate: number;
-  }) => {
-    const img = document.createElement('img');
-    img.src = src;
-    img.crossOrigin = 'anonymous';
 
-    img.onload = () => {
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d')!;
-      const { naturalWidth, naturalHeight } = img;
+  // const onTransformImgDownload = ({
+  //   flipY,
+  //   flipX,
+  //   rotate,
+  // }: {
+  //   flipY: boolean;
+  //   flipX: boolean;
+  //   rotate: number;
+  // }) => {
+  //   const img = document.createElement('img');
+  //   img.src = src;
+  //   img.crossOrigin = 'anonymous';
 
-      // flip and rotate in canvas
-      const angle = (rotate * Math.PI) / 180;
-      const sinAngle = Math.sin(angle);
-      const cosAngle = Math.cos(angle);
-      canvas.width = Math.abs(naturalWidth * cosAngle) + Math.abs(naturalHeight * sinAngle);
-      canvas.height = Math.abs(naturalWidth * sinAngle) + Math.abs(naturalHeight * cosAngle);
-      ctx.translate(canvas.width / 2, canvas.height / 2);
-      ctx.scale(flipX ? -1 : 1, flipY ? -1 : 1);
-      ctx.rotate(angle);
-      ctx.drawImage(img, -naturalWidth / 2, -naturalHeight / 2);
+  //   img.onload = () => {
+  //     const canvas = document.createElement('canvas');
+  //     const ctx = canvas.getContext('2d')!;
+  //     const { naturalWidth, naturalHeight } = img;
 
-      const link = document.createElement('a');
-      link.href = canvas.toDataURL('image/png');
-      link.download = 'image.png';
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-    };
-  };
+  //     // flip and rotate in canvas
+  //     const angle = (rotate * Math.PI) / 180;
+  //     const sinAngle = Math.sin(angle);
+  //     const cosAngle = Math.cos(angle);
+  //     canvas.width = Math.abs(naturalWidth * cosAngle) + Math.abs(naturalHeight * sinAngle);
+  //     canvas.height = Math.abs(naturalWidth * sinAngle) + Math.abs(naturalHeight * cosAngle);
+  //     ctx.translate(canvas.width / 2, canvas.height / 2);
+  //     ctx.scale(flipX ? -1 : 1, flipY ? -1 : 1);
+  //     ctx.rotate(angle);
+  //     ctx.drawImage(img, -naturalWidth / 2, -naturalHeight / 2);
+
+  //     const link = document.createElement('a');
+  //     link.href = canvas.toDataURL('image/png');
+  //     link.download = 'image.png';
+  //     document.body.appendChild(link);
+  //     link.click();
+  //     link.remove();
+  //   };
+  // };
 
   return (
     <Image
