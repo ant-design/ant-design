@@ -30,6 +30,25 @@ exports[`renders components/color-picker/demo/base.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/color-picker/demo/change-completed.tsx correctly 1`] = `
+<div
+  class="ant-app"
+>
+  <div
+    class="ant-color-picker-trigger"
+  >
+    <div
+      class="ant-color-picker-color-block"
+    >
+      <div
+        class="ant-color-picker-color-block-inner"
+        style="background:rgb(22, 119, 255)"
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/color-picker/demo/controlled.tsx correctly 1`] = `
 <div
   class="ant-color-picker-trigger"

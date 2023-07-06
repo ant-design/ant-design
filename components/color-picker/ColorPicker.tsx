@@ -159,9 +159,9 @@ const ColorPicker: CompoundedComponent = (props) => {
     onClear?.();
   };
 
-  const handleChangeComplete = () => {
+  const handleChangeComplete: ColorPickerProps['onChangeComplete'] = (color) => {
     popupAllowCloseRef.current = true;
-    onChangeComplete?.(colorValue);
+    onChangeComplete?.(generateColor(color));
   };
 
   const popoverProps: PopoverProps = {
@@ -185,6 +185,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     panelRender,
     format: formatValue,
     onFormatChange: setFormatValue,
+    onChangeComplete: handleChangeComplete,
   };
 
   const mergedStyle: React.CSSProperties = { ...colorPicker?.style, ...style };
@@ -199,12 +200,7 @@ const ColorPicker: CompoundedComponent = (props) => {
         }
       }}
       content={
-        <ColorPickerPanel
-          {...colorBaseProps}
-          onChange={handleChange}
-          onChangeComplete={handleChangeComplete}
-          onClear={handleClear}
-        />
+        <ColorPickerPanel {...colorBaseProps} onChange={handleChange} onClear={handleClear} />
       }
       overlayClassName={mergePopupCls}
       {...popoverProps}
