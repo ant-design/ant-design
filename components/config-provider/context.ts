@@ -1,4 +1,5 @@
 import type { DerivativeFunc } from '@ant-design/cssinjs';
+import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
 import type { ButtonProps } from '../button';
@@ -81,6 +82,7 @@ export interface ConfigConsumerProps {
     requiredMark?: RequiredMark;
     colon?: boolean;
     scrollToFirstError?: Options | boolean;
+    validateMessages?: ValidateMessages;
   };
   theme?: ThemeConfig;
   select?: {
