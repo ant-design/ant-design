@@ -1,11 +1,12 @@
 import { Col, Row, Typography } from 'antd';
 import React, { useContext } from 'react';
 import { css } from '@emotion/react';
-import { Link, useLocation } from 'dumi';
+import { useLocation } from 'dumi';
 import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
 import * as utils from '../../../theme/utils';
 import SiteContext from '../../../theme/slots/SiteContext';
+import Link from '../../../theme/common/Link';
 
 const SECONDARY_LIST = [
   {
@@ -69,7 +70,9 @@ const useStyle = () => {
       padding: ${token.paddingSM}px;
       border-radius: ${token.borderRadius * 2}px;
       background: #fff;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02),
+      box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.03),
+        0 1px 6px -1px rgba(0, 0, 0, 0.02),
         0 2px 4px rgba(0, 0, 0, 0.02);
 
       img {
