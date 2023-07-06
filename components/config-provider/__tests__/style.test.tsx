@@ -41,6 +41,7 @@ import Switch from '../../switch';
 import Table from '../../table';
 import Tabs from '../../tabs';
 import Tag from '../../tag';
+import Timeline from '../../timeline';
 import Transfer from '../../transfer';
 import Tree from '../../tree';
 import Typography from '../../typography';
@@ -964,6 +965,46 @@ describe('ConfigProvider support style and className props', () => {
       ?.querySelector<HTMLDivElement>('.ant-notification-notice');
     expect(element).toHaveClass('cp-notification');
     expect(element).toHaveStyle({ color: 'blue' });
+  });
+
+  it('Should Timeline className works', () => {
+    const items = [
+      {
+        children: 'test item',
+      },
+    ];
+
+    const { container } = render(
+      <ConfigProvider
+        timeline={{
+          className: 'test-class',
+        }}
+      >
+        <Timeline items={items} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-timeline')).toHaveClass('test-class');
+  });
+
+  it('Should Timeline style works', () => {
+    const items = [
+      {
+        children: 'test item',
+      },
+    ];
+
+    const { container } = render(
+      <ConfigProvider
+        timeline={{
+          style: { color: 'red' },
+        }}
+      >
+        <Timeline items={items} style={{ fontSize: '16px' }} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-timeline')).toHaveStyle('color: red; font-size: 16px;');
   });
 
   it('Should Transfer className works', () => {

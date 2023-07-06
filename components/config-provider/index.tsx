@@ -174,6 +174,7 @@ export interface ConfigProviderProps {
   table?: ComponentStyleConfig;
   card?: ComponentStyleConfig;
   tabs?: ComponentStyleConfig;
+  timeline?: ComponentStyleConfig;
   upload?: ComponentStyleConfig;
   notification?: ComponentStyleConfig;
   tree?: ComponentStyleConfig;
@@ -304,6 +305,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     table,
     card,
     tabs,
+    timeline,
     upload,
     notification,
     tree,
@@ -396,6 +398,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     table,
     card,
     tabs,
+    timeline,
     upload,
     notification,
     tree,
