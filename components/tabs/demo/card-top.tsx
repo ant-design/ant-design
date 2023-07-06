@@ -1,6 +1,6 @@
-import { css } from '@emotion/css';
-import { Tabs, theme } from 'antd';
 import React from 'react';
+import { Tabs, theme } from 'antd';
+import { css } from '@emotion/css';
 
 const useStyle = () => {
   const { token } = theme.useToken();
@@ -21,8 +21,8 @@ const useStyle = () => {
           border-color: transparent;
 
           &-active {
-            background: ${token.colorBgContainer};
             border-color: ${token.colorBorderBg};
+            background: ${token.colorBgContainer};
           }
         }
 
