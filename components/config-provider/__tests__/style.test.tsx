@@ -37,6 +37,7 @@ import Skeleton from '../../skeleton';
 import Slider from '../../slider';
 import Space from '../../space';
 import Spin from '../../spin';
+import Statistic from '../../statistic';
 import Steps from '../../steps';
 import Switch from '../../switch';
 import Table from '../../table';
@@ -323,6 +324,34 @@ describe('ConfigProvider support style and className props', () => {
     const element = container.querySelector<HTMLDivElement>('.ant-spin');
     expect(element).toHaveClass('config-provider-spin');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Statistic className works', () => {
+    const { container } = render(
+      <ConfigProvider
+        statistic={{
+          className: 'test-class',
+        }}
+      >
+        <Statistic title="Test Title" value={100} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-statistic')).toHaveClass('test-class');
+  });
+
+  it('Should Statistic style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        statistic={{
+          style: { color: 'red' },
+        }}
+      >
+        <Statistic style={{ fontSize: '16px' }} title="Test Title" value={100} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-statistic')).toHaveStyle('color: red; font-size: 16px;');
   });
 
   it('Should Segmented className & style works', () => {

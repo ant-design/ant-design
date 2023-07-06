@@ -150,6 +150,7 @@ export interface ConfigProviderProps {
   skeleton?: ComponentStyleConfig;
   spin?: ComponentStyleConfig;
   segmented?: ComponentStyleConfig;
+  statistic?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;
   image?: ComponentStyleConfig;
   layout?: ComponentStyleConfig;
@@ -272,6 +273,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     theme,
     componentDisabled,
     segmented,
+    statistic,
     spin,
     calendar,
     cascader,
@@ -366,6 +368,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     iconPrefixCls,
     theme: mergedTheme,
     segmented,
+    statistic,
     spin,
     calendar,
     cascader,
