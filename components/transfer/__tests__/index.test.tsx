@@ -646,7 +646,7 @@ describe('Transfer', () => {
   it('control mode select all should not throw warning', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    const App = () => {
+    const App: React.FC = () => {
       const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
 
       const onSelectChange = (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => {
@@ -686,7 +686,7 @@ describe('immutable data', () => {
   });
 
   it('prevent error when reset data in some cases', () => {
-    const App = () => {
+    const App: React.FC = () => {
       const [mockData, setMockData] = useState<DefaultRecordType[]>([]);
       const [targetKeys, setTargetKeys] = useState<string[]>([]);
 

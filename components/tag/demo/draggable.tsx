@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { Tag } from 'antd';
-import { DndContext, PointerSensor, useSensor, useSensors, closestCenter } from '@dnd-kit/core';
-import {
-  arrayMove,
-  useSortable,
-  SortableContext,
-  horizontalListSortingStrategy,
-} from '@dnd-kit/sortable';
-import type { FC } from 'react';
+import { DndContext, PointerSensor, closestCenter, useSensor, useSensors } from '@dnd-kit/core';
 import type { DragEndEvent } from '@dnd-kit/core/dist/types/index';
+import {
+  SortableContext,
+  arrayMove,
+  horizontalListSortingStrategy,
+  useSortable,
+} from '@dnd-kit/sortable';
+import { Tag } from 'antd';
+import type { FC } from 'react';
+import React, { useState } from 'react';
 
 type Item = {
   id: number;
@@ -43,7 +43,7 @@ const DraggableTag: FC<DraggableTagProps> = (props) => {
   );
 };
 
-const App = () => {
+const App: React.FC = () => {
   const [items, setItems] = useState<Item[]>([
     {
       id: 1,
