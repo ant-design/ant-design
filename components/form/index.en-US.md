@@ -545,6 +545,10 @@ In most case, we always recommend to use Form `initialValues`. Use Item `initial
 1. Form `initialValues` is the first priority
 2. Field `initialValue` is secondary \*. Does not work when multiple Item with same `name` setting the `initialValue`
 
+### Why can't `getFieldsValue` get value at first render?
+
+`getFieldsValue` returns collected field data by default, but the Form.Item node is not ready at the first render. You can get all field data by `getFieldsValue(true)`.
+
 ### Why does `onFieldsChange` trigger three times on change when field sets `rules`?
 
 Validating is also part of the value updating. It pass follow steps:
