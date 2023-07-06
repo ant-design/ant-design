@@ -6,7 +6,7 @@ import {
   ZoomInOutlined,
   ZoomOutOutlined,
 } from '@ant-design/icons';
-import { Image, Space, Tooltip } from 'antd';
+import { Image, Space } from 'antd';
 import React from 'react';
 
 const src = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
@@ -27,6 +27,7 @@ const App: React.FC = () => {
       });
   };
 
+  // you can download the flipped and rotated image
   const onTransformImgDownload = ({
     flipY,
     flipX,
@@ -73,17 +74,12 @@ const App: React.FC = () => {
         toolbarRender: (
           _,
           {
-            transform: { flipY, flipX, rotate, scale },
+            transform: { scale },
             actions: { onFlipY, onFlipX, onRotateLeft, onRotateRight, onZoomOut, onZoomIn },
           },
         ) => (
           <Space size={12} className="toolbar-wrapper">
-            <Tooltip title="download the original image" zIndex={9999}>
-              <DownloadOutlined onClick={onOriginalImgDownload} />
-            </Tooltip>
-            <Tooltip title="download the flipped and rotated image" zIndex={9999}>
-              <DownloadOutlined onClick={() => onTransformImgDownload({ flipY, flipX, rotate })} />
-            </Tooltip>
+            <DownloadOutlined onClick={onOriginalImgDownload} />
             <SwapOutlined rotate={90} onClick={onFlipY} />
             <SwapOutlined onClick={onFlipX} />
             <RotateLeftOutlined onClick={onRotateLeft} />
