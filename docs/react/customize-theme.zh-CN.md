@@ -98,7 +98,7 @@ export default App;
 
 ### 禁用动画
 
-动画同样为 Token 化配置：
+antd 默认内置了一些组件交互动效让企业级页面更加富有细节，在一些极端场景可能会影响页面交互性能，如需关闭动画可以使用下面的方式：
 
 <!-- prettier-ignore -->
 <code src="./demo/motion.tsx">动画控制</code>

@@ -98,7 +98,7 @@ In this way, we changed the primary color of Radio to <ColorChunk color="#00b96b
 
 ### Disable Motion
 
-Motion control is same as Token configuration:
+antd has built-in interaction animations to make enterprise-level pages more detailed. In some extreme scenarios, it may affect the performance of page interaction. If you need to turn off the animation, you can use the following method:
 
 <!-- prettier-ignore -->
 <code src="./demo/motion.tsx">Motion</code>
