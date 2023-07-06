@@ -120,6 +120,7 @@ export interface ConfigConsumerProps {
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
   switch?: ComponentStyleConfig;
+  transfer?: ComponentStyleConfig;
   avatar?: ComponentStyleConfig;
   message?: ComponentStyleConfig;
   tag?: ComponentStyleConfig;

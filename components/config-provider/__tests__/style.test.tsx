@@ -38,6 +38,7 @@ import Switch from '../../switch';
 import Table from '../../table';
 import Tabs from '../../tabs';
 import Tag from '../../tag';
+import Transfer from '../../transfer';
 import Tree from '../../tree';
 import Typography from '../../typography';
 import Upload from '../../upload';
@@ -850,6 +851,52 @@ describe('ConfigProvider support style and className props', () => {
       ?.querySelector<HTMLDivElement>('.ant-notification-notice');
     expect(element).toHaveClass('cp-notification');
     expect(element).toHaveStyle({ color: 'blue' });
+  });
+
+  it('Should Transfer className works', () => {
+    const mockData = [
+      {
+        key: '0-0',
+        title: `content`,
+        description: `description of content`,
+      },
+    ];
+
+    const { container } = render(
+      <ConfigProvider
+        transfer={{
+          className: 'test-class',
+        }}
+      >
+        <Transfer dataSource={mockData} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-transfer')).toHaveClass('test-class');
+  });
+
+  it('Should Transfer style works', () => {
+    const mockData = [
+      {
+        key: '0-0',
+        title: `content`,
+        description: `description of content`,
+      },
+    ];
+
+    const { container } = render(
+      <ConfigProvider
+        transfer={{
+          style: {
+            color: 'red',
+          },
+        }}
+      >
+        <Transfer dataSource={mockData} style={{ fontSize: '16px' }} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-transfer')).toHaveStyle('color: red; font-size: 16px;');
   });
 
   it('Should Tree className works', () => {

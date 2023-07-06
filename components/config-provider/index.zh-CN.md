@@ -142,6 +142,7 @@ const {
 | tabs | 设置 Tabs 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | tag | 设置 Tag 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | tree | 设置 Tree 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| transfer | 设置 Transfer 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | typography | 设置 Typography 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | upload | 设置 Upload 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 

@@ -143,6 +143,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     getPrefixCls,
     renderEmpty,
     direction: dir,
+    transfer,
   } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('transfer', customizePrefixCls);
 
@@ -336,6 +337,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       [`${prefixCls}-rtl`]: dir === 'rtl',
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
+    transfer?.className,
     className,
     rootClassName,
     hashId,
@@ -348,7 +350,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const [leftTitle, rightTitle] = getTitles(listLocale);
 
   return wrapSSR(
-    <div className={cls} style={style}>
+    <div className={cls} style={{ ...transfer?.style, ...style }}>
       <List<KeyWise<RecordType>>
         prefixCls={`${prefixCls}-list`}
         titleText={leftTitle}
