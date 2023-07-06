@@ -145,6 +145,7 @@ export interface ConfigProviderProps {
   cascader?: ComponentStyleConfig;
   collapse?: ComponentStyleConfig;
   divider?: ComponentStyleConfig;
+  drawer?: ComponentStyleConfig;
   typography?: ComponentStyleConfig;
   skeleton?: ComponentStyleConfig;
   spin?: ComponentStyleConfig;
@@ -279,6 +280,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     checkbox,
     descriptions,
     divider,
+    drawer,
     skeleton,
     steps,
     image,
@@ -372,6 +374,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     checkbox,
     descriptions,
     divider,
+    drawer,
     skeleton,
     steps,
     image,

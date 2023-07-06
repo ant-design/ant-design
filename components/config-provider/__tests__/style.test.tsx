@@ -14,6 +14,7 @@ import Collapse from '../../collapse';
 import ColorPicker from '../../color-picker';
 import Descriptions from '../../descriptions';
 import Divider from '../../divider';
+import Drawer from '../../drawer';
 import Empty from '../../empty';
 import Form from '../../form';
 import Image from '../../image';
@@ -149,6 +150,36 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('.ant-divider'))?.toHaveStyle({ color: 'red', height: '80px' });
+  });
+
+  it('Should Drawer className works', () => {
+    render(
+      <ConfigProvider
+        drawer={{
+          className: 'test-class',
+        }}
+      >
+        <Drawer title="Test Drawer" open />
+      </ConfigProvider>,
+    );
+
+    expect(document.querySelector('.ant-drawer-content')).toHaveClass('test-class');
+  });
+
+  it('Should Drawer style works', () => {
+    render(
+      <ConfigProvider
+        drawer={{
+          style: { color: 'red' },
+        }}
+      >
+        <Drawer title="Test Drawer" style={{ fontSize: '16px' }} open />
+      </ConfigProvider>,
+    );
+
+    expect(document.querySelector('.ant-drawer-content')).toHaveStyle(
+      'color: red; font-size: 16px;',
+    );
   });
 
   it('Should Cascader className & style works', () => {
