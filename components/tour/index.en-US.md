@@ -20,8 +20,8 @@ Use when you want to guide users through a product.
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/non-modal.tsx">Non-modal</code>
 <code src="./demo/placement.tsx">Placement</code>
-<code src="./demo/mask.tsx">custom mask style</code>
-<code src="./demo/indicator.tsx">custom indicator</code>
+<code src="./demo/mask.tsx">Custom mask style</code>
+<code src="./demo/indicator.tsx">Custom indicator</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API

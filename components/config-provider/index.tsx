@@ -138,21 +138,29 @@ export interface ConfigProviderProps {
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
+  alert?: ComponentStyleConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
+  calendar?: ComponentStyleConfig;
   cascader?: ComponentStyleConfig;
+  collapse?: ComponentStyleConfig;
   divider?: ComponentStyleConfig;
+  drawer?: ComponentStyleConfig;
   typography?: ComponentStyleConfig;
+  skeleton?: ComponentStyleConfig;
   spin?: ComponentStyleConfig;
   segmented?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;
   image?: ComponentStyleConfig;
   layout?: ComponentStyleConfig;
+  list?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;
   modal?: ComponentStyleConfig;
+  progress?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;
+  menu?: ComponentStyleConfig;
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
   empty?: ComponentStyleConfig;
@@ -160,12 +168,14 @@ export interface ConfigProviderProps {
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
   switch?: ComponentStyleConfig;
+  transfer?: ComponentStyleConfig;
   avatar?: ComponentStyleConfig;
   message?: ComponentStyleConfig;
   tag?: ComponentStyleConfig;
   table?: ComponentStyleConfig;
   card?: ComponentStyleConfig;
   tabs?: ComponentStyleConfig;
+  timeline?: ComponentStyleConfig;
   upload?: ComponentStyleConfig;
   notification?: ComponentStyleConfig;
   tree?: ComponentStyleConfig;
@@ -245,6 +255,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     children,
     csp: customCsp,
     autoInsertSpaceInButton,
+    alert,
     anchor,
     form,
     locale,
@@ -262,19 +273,26 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     componentDisabled,
     segmented,
     spin,
+    calendar,
     cascader,
+    collapse,
     typography,
     checkbox,
     descriptions,
     divider,
+    drawer,
+    skeleton,
     steps,
     image,
     layout,
+    list,
     mentions,
     modal,
+    progress,
     result,
     slider,
     breadcrumb,
+    menu,
     pagination,
     input,
     empty,
@@ -282,12 +300,14 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     radio,
     rate,
     switch: SWITCH,
+    transfer,
     avatar,
     message,
     tag,
     table,
     card,
     tabs,
+    timeline,
     upload,
     notification,
     tree,
@@ -334,6 +354,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   const baseConfig = {
     csp,
     autoInsertSpaceInButton,
+    alert,
     anchor,
     locale: locale || legacyLocale,
     direction,
@@ -346,32 +367,41 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     theme: mergedTheme,
     segmented,
     spin,
+    calendar,
     cascader,
+    collapse,
     typography,
     checkbox,
     descriptions,
     divider,
+    drawer,
+    skeleton,
     steps,
     image,
     input,
     layout,
+    list,
     mentions,
     modal,
+    progress,
     result,
     slider,
     breadcrumb,
+    menu,
     pagination,
     empty,
     badge,
     radio,
     rate,
     switch: SWITCH,
+    transfer,
     avatar,
     message,
     tag,
     table,
     card,
     tabs,
+    timeline,
     upload,
     notification,
     tree,

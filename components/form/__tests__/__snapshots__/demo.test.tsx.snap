@@ -4844,9 +4844,9 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
         <label
           class="ant-form-item-required ant-form-item-no-colon"
           for="wrap_username"
-          title="正常标签文案"
+          title="Normal label"
         >
-          正常标签文案
+          Normal label
         </label>
       </div>
       <div
@@ -4884,9 +4884,9 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
         <label
           class="ant-form-item-required ant-form-item-no-colon"
           for="wrap_password"
-          title="超长标签文案超长标签文案"
+          title="A super long label text"
         >
-          超长标签文案超长标签文案
+          A super long label text
         </label>
       </div>
       <div

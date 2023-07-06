@@ -1,21 +1,21 @@
 import classNames from 'classnames';
-import RcDrawer from 'rc-drawer';
 import type { DrawerProps as RcDrawerProps } from 'rc-drawer';
+import RcDrawer from 'rc-drawer';
 import type { CSSMotionProps } from 'rc-motion';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import { NoFormStyle } from '../form/context';
 import { getTransitionName } from '../_util/motion';
 import warning from '../_util/warning';
-import DrawerPanel from './DrawerPanel';
+import { ConfigContext } from '../config-provider';
+import { NoFormStyle } from '../form/context';
 import type { DrawerPanelProps } from './DrawerPanel';
+import DrawerPanel from './DrawerPanel';
 
 // CSSINJS
-import useStyle from './style';
 import { NoCompactStyle } from '../space/Compact';
+import useStyle from './style';
 
 const SizeTypes = ['default', 'large'] as const;
-type sizeType = typeof SizeTypes[number];
+type sizeType = (typeof SizeTypes)[number];
 
 export interface PushState {
   distance: string | number;
@@ -51,6 +51,8 @@ function Drawer(props: DrawerProps) {
     onClose,
     prefixCls: customizePrefixCls,
     getContainer: customizeGetContainer,
+    style,
+    className,
 
     // Deprecated
     visible,
@@ -59,7 +61,7 @@ function Drawer(props: DrawerProps) {
     ...rest
   } = props;
 
-  const { getPopupContainer, getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPopupContainer, getPrefixCls, direction, drawer } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
   // Style
@@ -141,6 +143,8 @@ function Drawer(props: DrawerProps) {
           push={push}
           width={mergedWidth}
           height={mergedHeight}
+          style={{ ...drawer?.style, ...style }}
+          className={classNames(drawer?.className, className)}
           rootClassName={drawerClassName}
           getContainer={getContainer}
           afterOpenChange={afterOpenChange ?? afterVisibleChange}

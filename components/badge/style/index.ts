@@ -74,8 +74,11 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
   const ribbonWrapperPrefixCls = `${antCls}-ribbon-wrapper`;
 
   const colorPreset = genPresetColor(token, (colorKey, { darkColor }) => ({
-    [`${componentCls}-color-${colorKey}`]: {
+    [`&${componentCls} ${componentCls}-color-${colorKey}`]: {
       background: darkColor,
+      [`&:not(${componentCls}-count)`]: {
+        color: darkColor,
+      },
     },
   }));
 

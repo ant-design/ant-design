@@ -8,6 +8,10 @@ import genMultipleStyle from './multiple';
 import genSingleStyle from './single';
 
 export interface ComponentToken {
+  /**
+   * @desc 下拉菜单 z-index
+   * @descEN z-index of dropdown
+   */
   zIndexPopup: number;
 }
 
@@ -235,7 +239,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
     // ========================= Feedback ==========================
     [`${componentCls}-has-feedback`]: {
       [`${componentCls}-clear`]: {
-        insetInlineEnd: inputPaddingHorizontalBase + token.fontSize + token.paddingXXS,
+        insetInlineEnd: inputPaddingHorizontalBase + token.fontSize + token.paddingXS,
       },
     },
   };

@@ -98,7 +98,7 @@ const TokenTable: FC<TokenTableProps> = ({ type }) => {
 
   const data = React.useMemo<TokenData[]>(
     () =>
-      Object.entries(tokenMeta)
+      Object.entries(tokenMeta.global)
         .filter(([, meta]) => meta.source === type)
         .map(([token, meta]) => ({
           name: token,
