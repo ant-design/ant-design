@@ -100,6 +100,7 @@ export interface ConfigConsumerProps {
   divider?: ComponentStyleConfig;
   calendar?: ComponentStyleConfig;
   cascader?: ComponentStyleConfig;
+  collapse?: ComponentStyleConfig;
   typography?: ComponentStyleConfig;
   skeleton?: ComponentStyleConfig;
   spin?: ComponentStyleConfig;

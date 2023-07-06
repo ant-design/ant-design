@@ -10,6 +10,7 @@ import Calendar from '../../calendar';
 import Card from '../../card';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
+import Collapse from '../../collapse';
 import ColorPicker from '../../color-picker';
 import Descriptions from '../../descriptions';
 import Divider from '../../divider';
@@ -194,6 +195,48 @@ describe('ConfigProvider support style and className props', () => {
     const element = container.querySelector<HTMLElement>('.ant-cascader');
     expect(element).toHaveClass('cp-cascader');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Collapse className works', () => {
+    const items = [
+      {
+        key: '1',
+        label: 'test label',
+        children: <p>item</p>,
+      },
+    ];
+    const { container } = render(
+      <ConfigProvider
+        collapse={{
+          className: 'test-class',
+        }}
+      >
+        <Collapse items={items} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-collapse')).toHaveClass('test-class');
+  });
+
+  it('Should Collapse style works', () => {
+    const items = [
+      {
+        key: '1',
+        label: 'test label',
+        children: <p>item</p>,
+      },
+    ];
+    const { container } = render(
+      <ConfigProvider
+        collapse={{
+          style: { color: 'red' },
+        }}
+      >
+        <Collapse items={items} style={{ fontSize: '16px' }} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-collapse')).toHaveStyle('color: red; font-size: 16px;');
   });
 
   it('Should Typography className & style works', () => {

@@ -143,6 +143,7 @@ export interface ConfigProviderProps {
   button?: ButtonConfig;
   calendar?: ComponentStyleConfig;
   cascader?: ComponentStyleConfig;
+  collapse?: ComponentStyleConfig;
   divider?: ComponentStyleConfig;
   typography?: ComponentStyleConfig;
   skeleton?: ComponentStyleConfig;
@@ -272,6 +273,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     spin,
     calendar,
     cascader,
+    collapse,
     typography,
     checkbox,
     descriptions,
@@ -363,6 +365,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     spin,
     calendar,
     cascader,
+    collapse,
     typography,
     checkbox,
     descriptions,
