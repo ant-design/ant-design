@@ -141,6 +141,7 @@ export interface ConfigProviderProps {
   alert?: ComponentStyleConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
+  calendar?: ComponentStyleConfig;
   cascader?: ComponentStyleConfig;
   divider?: ComponentStyleConfig;
   typography?: ComponentStyleConfig;
@@ -268,6 +269,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     componentDisabled,
     segmented,
     spin,
+    calendar,
     cascader,
     typography,
     checkbox,
@@ -357,6 +359,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     theme: mergedTheme,
     segmented,
     spin,
+    calendar,
     cascader,
     typography,
     checkbox,
