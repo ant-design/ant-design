@@ -1,10 +1,10 @@
 ## zh-CN
 
-可以自定义工具栏并添加下载原图和翻转旋转后图片的按钮。
+可以自定义工具栏并添加下载图片按钮。
 
 ## en-US
 
-You can customize the toolbar and add buttons for downloading the original image and downloading the flipped and rotated image.
+You can customize the toolbar and add a button for downloading the image.
 
 ```css
 .toolbar-wrapper {
