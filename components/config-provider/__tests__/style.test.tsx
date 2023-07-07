@@ -13,6 +13,7 @@ import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
 import Collapse from '../../collapse';
 import ColorPicker from '../../color-picker';
+import DatePicker from '../../date-picker';
 import Descriptions from '../../descriptions';
 import Divider from '../../divider';
 import Drawer from '../../drawer';
@@ -44,6 +45,7 @@ import Switch from '../../switch';
 import Table from '../../table';
 import Tabs from '../../tabs';
 import Tag from '../../tag';
+import TimePicker from '../../time-picker';
 import Timeline from '../../timeline';
 import Transfer from '../../transfer';
 import Tree from '../../tree';
@@ -1010,6 +1012,34 @@ describe('ConfigProvider support style and className props', () => {
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 
+  it('Should TimePicker className works', () => {
+    const { container } = render(
+      <ConfigProvider
+        timePicker={{
+          className: 'test-class',
+        }}
+      >
+        <TimePicker />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-picker')).toHaveClass('test-class');
+  });
+
+  it('Should TimePicker style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        timePicker={{
+          style: { color: 'red' },
+        }}
+      >
+        <TimePicker style={{ fontSize: '16px' }} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-picker')).toHaveStyle('color: red; font-size: 16px;');
+  });
+
   it('Should message className & style works', () => {
     const Demo: React.FC = () => {
       const [messageApi, contextHolder] = message.useMessage();
@@ -1204,5 +1234,33 @@ describe('ConfigProvider support style and className props', () => {
     const element = container.querySelector<HTMLDivElement>('.ant-color-picker-trigger');
     expect(element).toHaveClass('cp-colorPicker');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should DatePicker className works', () => {
+    const { container } = render(
+      <ConfigProvider
+        datePicker={{
+          className: 'test-class',
+        }}
+      >
+        <DatePicker />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-picker')).toHaveClass('test-class');
+  });
+
+  it('Should DatePicker style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        datePicker={{
+          style: { color: 'red' },
+        }}
+      >
+        <DatePicker style={{ fontSize: '16px' }} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-picker')).toHaveStyle('color: red; font-size: 16px;');
   });
 });

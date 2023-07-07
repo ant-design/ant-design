@@ -178,10 +178,12 @@ export interface ConfigProviderProps {
   card?: ComponentStyleConfig;
   tabs?: ComponentStyleConfig;
   timeline?: ComponentStyleConfig;
+  timePicker?: ComponentStyleConfig;
   upload?: ComponentStyleConfig;
   notification?: ComponentStyleConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
+  datePicker?: ComponentStyleConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -312,10 +314,12 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     card,
     tabs,
     timeline,
+    timePicker,
     upload,
     notification,
     tree,
     colorPicker,
+    datePicker,
   } = props;
 
   // =================================== Warning ===================================
@@ -408,10 +412,12 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     card,
     tabs,
     timeline,
+    timePicker,
     upload,
     notification,
     tree,
     colorPicker,
+    datePicker,
   };
 
   const config = {

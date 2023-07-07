@@ -116,6 +116,7 @@ const {
 | checkbox | 设置 Checkbox 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | collapse | 设置 Collapse 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | colorPicker | 设置 ColorPicker 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| datePicker | 设置 DatePicker 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | descriptions | 设置 Descriptions 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | divider | 设置 Divider 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | drawer | 设置 Drawer 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
@@ -148,6 +149,7 @@ const {
 | tabs | 设置 Tabs 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | tag | 设置 Tag 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | timeline | 设置 Timeline 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| timePicker | 设置 TimePicker 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | transfer | 设置 Transfer 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | tree | 设置 Tree 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | typography | 设置 Typography 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
