@@ -151,7 +151,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   );
 };
 
-const Checkbox = React.forwardRef<unknown, CheckboxProps>(InternalCheckbox);
+const Checkbox = React.forwardRef<CheckboxRef, CheckboxProps>(InternalCheckbox);
+
 if (process.env.NODE_ENV !== 'production') {
   Checkbox.displayName = 'Checkbox';
 }
