@@ -57,7 +57,7 @@ interface SliderToken extends FullToken<'Slider'> {
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
-  const { componentCls, controlSize, dotSize, marginFull, marginPart, colorFillContentHover } =
+  const { componentCls, controlSize, dotSize, marginFull, marginPart, colorFillContentHover ,antCls } =
     token;
 
   return {
@@ -254,6 +254,11 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
           ${componentCls}-dot
         `]: {
           cursor: `not-allowed !important`,
+        },
+      },
+      [`&-tooltip`]: {
+        [`${antCls}-tooltip-inner`]:{
+          minWidth: "unset",
         },
       },
     },
