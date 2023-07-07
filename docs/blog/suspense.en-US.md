@@ -126,8 +126,6 @@ With a series of breakpoints, we found that this problem is caused by the asynch
 - effect: 2
 - Not like StrictMode, effect is not executed again, so effect cleanup will not be executed
 
-计数器不同步导致 token 层面已经认为样式已经没有再使用所以进行了批量清理，而在组件样式层面则认为还有其他组件在使用，所以当重新进入 Page 1 时并不会重新插入样式。
-
 Counter is not synchronized, so the token manager thinks that the style is no longer in use, so it performs batch cleaning, while the component style manager thinks that other components are still in use, so when re-entering Page 1, the style will not be re-inserted.
 
 ## useInsertionEffect
@@ -180,7 +178,5 @@ useLayoutEffect(() => {
 Measure logic in `useLayoutEffect` is executed before injecting style, resulting in incorrect size information. It can also be predicted that this will have an impact on developers. So we have to compromise, and in React 17 version, it will be downgraded to the original `useMemo` insertion.
 
 ## Summary
-
-Suspense 在带来渲染能力提升的同时也让时序变得十分重要，仅仅对 StrictMode 进行处理并不是一个最优的方式。针对不同的 React 版本使用不同的逻辑其实会存在不同版本之间的时序问题，`render` 会从父节点到子节点依次触发，而 `useInsertionEffect` 则相反。不过从 antd 角度来说，组件样式之间相互独立，所以这种时序问题并不会对我们产生影响。
 
 Suspense brings rendering performance improvements, but it also makes timing very important. It is not the best way to only 'work on' StrictMode. Different logic is used for different React versions is not good choice since it will have timing problem. `render` will trigger from parent node to child node in turn, while `useInsertionEffect` is the opposite. However, from the perspective of antd, the component styles are independent of each other, so this problem will not affect us.
