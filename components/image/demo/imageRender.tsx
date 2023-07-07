@@ -13,9 +13,6 @@ const App: React.FC = () => (
           src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ"
         />
       ),
-      toolbarRender: (_, { icons: { closeIcon } }) => (
-        <ul className="ant-image-preview-operations">{closeIcon}</ul>
-      ),
     }}
     src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
   />
