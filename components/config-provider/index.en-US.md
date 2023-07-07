@@ -114,6 +114,7 @@ const {
 | checkbox | Set Checkbox common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | collapse | Set Collapse common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | colorPicker | Set ColorPicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| datePicker | Set datePicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | descriptions | Set Descriptions common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | divider | Set Divider common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | drawer | Set Drawer common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
@@ -146,6 +147,7 @@ const {
 | tabs | Set Tabs common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | tag | Set Tag common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | timeline | Set Timeline common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| timePicker | Set TimePicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | transfer | Set Transfer common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | tree | Set Tree common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | typography | Set Typography common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |

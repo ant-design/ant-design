@@ -136,10 +136,12 @@ export interface ConfigConsumerProps {
   card?: ComponentStyleConfig;
   tabs?: ComponentStyleConfig;
   timeline?: ComponentStyleConfig;
+  timePicker?: ComponentStyleConfig;
   upload?: ComponentStyleConfig;
   notification?: ComponentStyleConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
+  datePicker?: ComponentStyleConfig;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {

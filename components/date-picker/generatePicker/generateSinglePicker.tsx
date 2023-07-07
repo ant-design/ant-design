@@ -37,11 +37,13 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
     picker?: PickerMode,
     displayName?: string,
   ) {
+    const consumerName = displayName === 'TimePicker' ? 'timePicker' : 'datePicker';
     const Picker = forwardRef<DatePickRef<DateType> | CommonPickerMethods, InnerPickerProps>(
       (props, ref) => {
         const {
           prefixCls: customizePrefixCls,
           getPopupContainer: customizeGetPopupContainer,
+          style,
           className,
           rootClassName,
           size: customizeSize,
@@ -55,7 +57,14 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           ...restProps
         } = props;
 
-        const { getPrefixCls, direction, getPopupContainer } = useContext(ConfigContext);
+        const {
+          getPrefixCls,
+          direction,
+          getPopupContainer,
+          // Consume different styles according to different names
+          [consumerName]: consumerStyle,
+        } = useContext(ConfigContext);
+
         const prefixCls = getPrefixCls('picker', customizePrefixCls);
         const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
         const innerRef = React.useRef<RCPicker<DateType>>(null);
@@ -153,9 +162,11 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
               ),
               hashId,
               compactItemClassnames,
+              consumerStyle?.className,
               className,
               rootClassName,
             )}
+            style={{ ...consumerStyle?.style, ...style }}
             prefixCls={prefixCls}
             getPopupContainer={customizeGetPopupContainer || getPopupContainer}
             generateConfig={generateConfig}
