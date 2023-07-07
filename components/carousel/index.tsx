@@ -39,11 +39,13 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
       dotPosition = 'bottom',
       vertical = dotPosition === 'left' || dotPosition === 'right',
       rootClassName,
+      className: customClassName,
+      style,
       ...props
     },
     ref,
   ) => {
-    const { getPrefixCls, direction } = React.useContext(ConfigContext);
+    const { getPrefixCls, direction, carousel } = React.useContext(ConfigContext);
     const slickRef = React.useRef<any>();
 
     const goTo = (slide: number, dontAnimate = false) => {
@@ -73,6 +75,8 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
 
     const newProps = {
       vertical,
+      className: classNames(customClassName, carousel?.className),
+      style: { ...carousel?.style, ...style },
       ...props,
     };
 

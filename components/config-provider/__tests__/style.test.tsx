@@ -8,6 +8,7 @@ import Badge from '../../badge';
 import Breadcrumb from '../../breadcrumb';
 import Calendar from '../../calendar';
 import Card from '../../card';
+import Carousel from '../../carousel';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
 import Collapse from '../../collapse';
@@ -181,6 +182,41 @@ describe('ConfigProvider support style and className props', () => {
     expect(document.querySelector('.ant-drawer-content')).toHaveStyle(
       'color: red; font-size: 16px;',
     );
+  });
+
+  it('Should Carousel className works', () => {
+    const { container } = render(
+      <ConfigProvider
+        carousel={{
+          className: 'test-class',
+        }}
+      >
+        <Carousel>
+          <div>
+            <h3>test item</h3>
+          </div>
+        </Carousel>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.slick-slider')).toHaveClass('test-class');
+  });
+
+  it('Should Carousel style works', () => {
+    const { container } = render(
+      <ConfigProvider carousel={{ style: { color: 'red' } }}>
+        <Carousel style={{ fontSize: '16px' }}>
+          <div>
+            <h3>test item 1</h3>
+          </div>
+          <div>
+            <h3>test item 2</h3>
+          </div>
+        </Carousel>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.slick-slider')).toHaveStyle('color: red; font-size: 16px;');
   });
 
   it('Should Cascader className & style works', () => {
