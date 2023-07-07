@@ -1,6 +1,6 @@
 ---
 title: Suspense breaks styles
-date: 2023-07-06
+date: 2023-07-07
 author: zombieJ
 ---
 
