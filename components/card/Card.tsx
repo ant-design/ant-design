@@ -118,19 +118,18 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   let head: React.ReactNode;
   const mergedSize = useSize(customizeSize);
   const tabSize = !mergedSize || mergedSize === 'default' ? 'large' : mergedSize;
-  const tabs =
-    tabList && tabList.length ? (
-      <Tabs
-        size={tabSize}
-        {...extraProps}
-        className={`${prefixCls}-head-tabs`}
-        onChange={onTabChange}
-        items={tabList.map(({ tab, ...item }) => ({
-          label: tab,
-          ...item,
-        }))}
-      />
-    ) : null;
+  const tabs = tabList ? (
+    <Tabs
+      size={tabSize}
+      {...extraProps}
+      className={`${prefixCls}-head-tabs`}
+      onChange={onTabChange}
+      items={tabList.map(({ tab, ...item }) => ({
+        label: tab,
+        ...item,
+      }))}
+    />
+  ) : null;
   if (title || extra || tabs) {
     head = (
       <div className={`${prefixCls}-head`} style={headStyle}>
