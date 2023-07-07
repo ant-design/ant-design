@@ -43,7 +43,7 @@ const DraggableTag: FC<DraggableTagProps> = (props) => {
   );
 };
 
-const App = () => {
+const App: React.FC = () => {
   const [items, setItems] = useState<Item[]>([
     {
       id: 1,

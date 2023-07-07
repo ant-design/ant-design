@@ -1,13 +1,13 @@
 // @ts-nocheck
-import React from 'react';
 import { PoweroffOutlined } from '@ant-design/icons';
 import { Button, Space } from 'antd';
+import React from 'react';
 
 const Text1 = () => '部署';
 const Text2 = () => <span>部署</span>;
 const Text3 = () => 'Submit';
 
-const App = () => (
+const App: React.FC = () => (
   <Space wrap>
     <Button loading>部署</Button>
     <Button loading>
