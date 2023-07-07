@@ -43,7 +43,7 @@ export interface InternalSelectProps<
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;
-  mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
+  mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE' | 'combobox';
   bordered?: boolean;
 }
 
@@ -119,7 +119,7 @@ const InternalSelect = <
   const mode = React.useMemo(() => {
     const { mode: m } = props as InternalSelectProps<OptionType>;
 
-    if ((m as any) === 'combobox') {
+    if (m === 'combobox') {
       return undefined;
     }
 
