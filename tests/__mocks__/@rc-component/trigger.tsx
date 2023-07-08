@@ -1,4 +1,4 @@
-import type { TriggerProps,TriggerRef } from '@rc-component/trigger';
+import type { TriggerProps, TriggerRef } from '@rc-component/trigger';
 import MockTrigger from '@rc-component/trigger/lib/mock';
 import * as React from 'react';
 import { TriggerMockContext } from '../../shared/demoTestContext';
@@ -12,7 +12,7 @@ const ForwardTrigger = React.forwardRef<TriggerRef, TriggerProps>((props, ref) =
   const mergedPopupVisible = context?.popupVisible ?? props.popupVisible;
   (global as any).triggerProps = props;
 
-  const mergedProps:TriggerProps = {
+  const mergedProps: TriggerProps = {
     ...props,
     popupVisible: mergedPopupVisible,
   };
