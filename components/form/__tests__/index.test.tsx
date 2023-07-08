@@ -1641,7 +1641,7 @@ describe('Form', () => {
       <DatePicker.YearPicker key="DatePicker.YearPicker" disabled={disabled} />,
       <DatePicker.TimePicker key="DatePicker.TimePicker" disabled={disabled} />,
     ];
-    const App = () => <Form disabled>{renderComps(false)}</Form>;
+    const App: React.FC = () => <Form disabled>{renderComps(false)}</Form>;
 
     const wrapper = render(<App />);
     expect(wrapper.container.querySelectorAll('[disabled]').length).toBe(0);
@@ -1803,7 +1803,7 @@ describe('Form', () => {
       return <Input {...props} />;
     };
 
-    const App = () => (
+    const App: React.FC = () => (
       <Form>
         <Form.Item>
           <Form.Item name="test" label="test" rules={[{ len: 3, message: 'error.' }]}>

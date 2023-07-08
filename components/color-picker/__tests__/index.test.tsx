@@ -55,7 +55,7 @@ describe('ColorPicker', () => {
   });
 
   it('Should component custom trigger work', async () => {
-    const App = () => {
+    const App: React.FC = () => {
       const [color, setColor] = useState<Color | string>('hsb(215, 91%, 100%)');
       const colorString = useMemo(
         () => (typeof color === 'string' ? color : color.toHsbString()),

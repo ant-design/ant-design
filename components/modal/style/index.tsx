@@ -8,11 +8,35 @@ import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook'
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   // Component token here
+  /**
+   * @desc 顶部背景色
+   * @descEN Background color of header
+   */
   headerBg: string;
+  /**
+   * @desc 标题行高
+   * @descEN Line height of title
+   */
   titleLineHeight: number;
+  /**
+   * @desc 标题字体大小
+   * @descEN Font size of title
+   */
   titleFontSize: number;
+  /**
+   * @desc 标题字体颜色
+   * @descEN Font color of title
+   */
   titleColor: string;
+  /**
+   * @desc 内容区域背景色
+   * @descEN Background color of content
+   */
   contentBg: string;
+  /**
+   * @desc 底部区域背景色
+   * @descEN Background color of footer
+   */
   footerBg: string;
 }
 

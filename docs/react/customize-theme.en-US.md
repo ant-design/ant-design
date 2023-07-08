@@ -96,6 +96,13 @@ In this way, we changed the primary color of Radio to <ColorChunk color="#00b96b
 
 > Notice: `ConfigProvider` will not take effect on static methods such as `message.xxx`, `Modal.xxx`, `notification.xxx`, because in these methods, antd will dynamically create new ones through `ReactDOM.render` React entities. Its context is not the same as the context of the current code, so context information cannot be obtained. When you need context information (such as the content configured by ConfigProvider), you can use the `Modal.useModal` method to return the modal entity and the contextHolder node. Just insert it where you need to get the context, or you can use [App Component](/components/app) to simplify the problem of usingModal and other methods that need to manually implant the contextHolder.
 
+### Disable Motion
+
+antd has built-in interaction animations to make enterprise-level pages more detailed. In some extreme scenarios, it may affect the performance of page interaction. If you need to turn off the animation, you can use the following method:
+
+<!-- prettier-ignore -->
+<code src="./demo/motion.tsx">Motion</code>
+
 ## Other Ways to Use Dynamic Themes
 
 ### Switch Themes Dynamically
@@ -560,12 +567,11 @@ export default class MyDocument extends Document {
     const originalRenderPage = ctx.renderPage;
     ctx.renderPage = () =>
       originalRenderPage({
-        enhanceApp: (App) => (props) =>
-          (
-            <StyleProvider cache={cache}>
-              <App {...props} />
-            </StyleProvider>
-          ),
+        enhanceApp: (App) => (props) => (
+          <StyleProvider cache={cache}>
+            <App {...props} />
+          </StyleProvider>
+        ),
       });
 
     const initialProps = await Document.getInitialProps(ctx);
