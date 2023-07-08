@@ -4,7 +4,7 @@ import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { getTransitionName } from '../_util/motion';
 import { ConfigContext } from '../config-provider';
-import type { AbstractTooltipProps } from '../tooltip';
+import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import Tooltip from '../tooltip';
 import PurePanel from './PurePanel';
 // CSSINJS
@@ -28,7 +28,7 @@ const Overlay: React.FC<OverlayProps> = ({ title, content, prefixCls }) => (
   </>
 );
 
-const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
+const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     title,
