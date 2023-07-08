@@ -71,6 +71,7 @@ const App: React.FC = () => {
           <Draggable
             disabled={disabled}
             bounds={bounds}
+            nodeRef={draggleRef}
             onStart={(event, uiData) => onStart(event, uiData)}
           >
             <div ref={draggleRef}>{modal}</div>
