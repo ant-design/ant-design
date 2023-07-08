@@ -60,7 +60,7 @@ export const RawPurePanel: React.FC<RawPurePanelProps> = (props) => {
   );
 };
 
-export default function PurePanel(props: PurePanelProps) {
+const PurePanel: React.FC<PurePanelProps> = (props) => {
   const { prefixCls: customizePrefixCls, ...restProps } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 
@@ -68,4 +68,6 @@ export default function PurePanel(props: PurePanelProps) {
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   return wrapSSR(<RawPurePanel {...restProps} prefixCls={prefixCls} hashId={hashId} />);
-}
+};
+
+export default PurePanel;
