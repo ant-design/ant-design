@@ -92,6 +92,10 @@ function getRows(children: React.ReactNode, column: number) {
   return rows;
 }
 
+interface CompoundedComponent {
+  Item: typeof DescriptionsItem;
+}
+
 export interface DescriptionsProps {
   prefixCls?: string;
   className?: string;
@@ -109,23 +113,24 @@ export interface DescriptionsProps {
   contentStyle?: React.CSSProperties;
 }
 
-function Descriptions({
-  prefixCls: customizePrefixCls,
-  title,
-  extra,
-  column = DEFAULT_COLUMN_MAP,
-  colon = true,
-  bordered,
-  layout,
-  children,
-  className,
-  rootClassName,
-  style,
-  size: customizeSize,
-  labelStyle,
-  contentStyle,
-  ...restProps
-}: DescriptionsProps) {
+const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) => {
+  const {
+    prefixCls: customizePrefixCls,
+    title,
+    extra,
+    column = DEFAULT_COLUMN_MAP,
+    colon = true,
+    bordered,
+    layout,
+    children,
+    className,
+    rootClassName,
+    style,
+    size: customizeSize,
+    labelStyle,
+    contentStyle,
+    ...restProps
+  } = props;
   const { getPrefixCls, direction, descriptions } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
   const [screens, setScreens] = React.useState<ScreenMap>({});
@@ -202,7 +207,7 @@ function Descriptions({
       </div>
     </DescriptionsContext.Provider>,
   );
-}
+};
 
 if (process.env.NODE_ENV !== 'production') {
   Descriptions.displayName = 'Descriptions';

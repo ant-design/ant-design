@@ -21,7 +21,7 @@ jest.mock('@rc-component/trigger', () => {
   const h: typeof React = jest.requireActual('react');
 
   return {
-    default: h.forwardRef<unknown, TriggerProps>((props, ref) => {
+    default: h.forwardRef<HTMLElement, TriggerProps>((props, ref) => {
       triggerProps = props;
       return h.createElement(Trigger, { ref, ...props });
     }),
