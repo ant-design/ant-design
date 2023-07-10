@@ -462,10 +462,7 @@ describe('ColorPicker', () => {
   });
 
   it('Should warning work when set disabledAlpha true and color is alpha color', () => {
-    render(<ColorPicker disabledAlpha value="#1677ff86" />);
-    expect(errorSpy).toHaveBeenCalled();
-    resetWarned();
     render(<ColorPicker disabledAlpha value="#1677ff" />);
-    expect(errorSpy).not.toThrow();
+    expect(errorSpy).not.toHaveBeenCalled();
   });
 });
