@@ -167,6 +167,17 @@ React.useEffect(() => {
 return <div>{contextHolder}</div>;
 ```
 
+`modal.confirm` return method:
+
+- `destroy`: Destroy current modal
+- `update`: Update current modal
+- `then`: (Hooks only) Promise chain call, support `await` operation
+
+```tsx
+// Return `true` when click `onOk` and `false` when click `onCancel`
+const confirmed = await modal.confirm({ ... });
+```
+
 ## Design Token
 
 <ComponentTokenTable component="Modal"></ComponentTokenTable>

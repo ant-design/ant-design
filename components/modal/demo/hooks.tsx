@@ -23,8 +23,8 @@ const App: React.FC = () => {
       <Space>
         <Button
           onClick={async () => {
-            const result = await modal.confirm(config);
-            console.log('Result: ', result);
+            const confirmed = await modal.confirm(config);
+            console.log('Confirmed: ', confirmed);
           }}
         >
           Confirm

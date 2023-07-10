@@ -35,10 +35,7 @@ const ElementsHolder = React.memo(
   }),
 );
 
-function useModal(): readonly [
-  instance: Omit<ModalStaticFunctions, 'warn'>,
-  contextHolder: React.ReactElement,
-] {
+function useModal(): readonly [instance: HookAPI, contextHolder: React.ReactElement] {
   const holderRef = React.useRef<ElementsHolderRef>(null);
 
   // ========================== Effect ==========================
@@ -68,6 +65,7 @@ function useModal(): readonly [
         const promise = new Promise<boolean>((resolve) => {
           resolvePromise = resolve;
         });
+        let silent = false;
 
         let closeFunc: Function | undefined;
         const modal = (
@@ -78,6 +76,7 @@ function useModal(): readonly [
             afterClose={() => {
               closeFunc?.();
             }}
+            isSilent={() => silent}
             onClose={(confirmed) => {
               resolvePromise(confirmed);
             }}
@@ -90,7 +89,7 @@ function useModal(): readonly [
           destroyFns.push(closeFunc);
         }
 
-        return {
+        const instance: ReturnType<ModalFuncWithPromise> = {
           destroy: () => {
             function destroyAction() {
               modalRef.current?.destroy();
@@ -113,8 +112,13 @@ function useModal(): readonly [
               setActionQueue((prev) => [...prev, updateAction]);
             }
           },
-          then: promise.then.bind(promise),
+          then: (resolve) => {
+            silent = true;
+            return promise.then(resolve);
+          },
         };
+
+        return instance;
       },
     [],
   );

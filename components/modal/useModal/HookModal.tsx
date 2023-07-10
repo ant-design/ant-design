@@ -9,6 +9,10 @@ export interface HookModalProps {
   afterClose: () => void;
   config: ModalFuncProps;
   onClose?: (confirmed: boolean) => void;
+  /**
+   * Do not throw if is await mode
+   */
+  isSilent?: () => boolean;
 }
 
 export interface HookModalRef {
@@ -17,7 +21,7 @@ export interface HookModalRef {
 }
 
 const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = (
-  { afterClose: hookAfterClose, config, onClose },
+  { afterClose: hookAfterClose, config, ...restProps },
   ref,
 ) => {
   const [open, setOpen] = React.useState(true);
@@ -67,7 +71,7 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
       }
       direction={innerConfig.direction || direction}
       cancelText={innerConfig.cancelText || contextLocale?.cancelText}
-      onClose={onClose}
+      {...restProps}
     />
   );
 };

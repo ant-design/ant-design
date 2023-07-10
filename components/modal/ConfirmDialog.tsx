@@ -29,6 +29,11 @@ interface ConfirmDialogProps extends ModalFuncProps {
 
   /** @private Internal Usage. Do not override this */
   locale?: ModalLocale;
+
+  /**
+   * Do not throw if is await mode
+   */
+  isSilent?: () => boolean;
 }
 
 export function ConfirmContent(
@@ -42,6 +47,7 @@ export function ConfirmContent(
     onOk,
     close,
     onClose,
+    isSilent,
     okText,
     okButtonProps,
     cancelText,
@@ -96,6 +102,7 @@ export function ConfirmContent(
 
   const cancelButton = mergedOkCancel && (
     <ActionButton
+      isSilent={isSilent}
       actionFn={onCancel}
       close={(...args: any[]) => {
         close?.(...args);
@@ -122,6 +129,7 @@ export function ConfirmContent(
         <div className={`${confirmPrefixCls}-btns`}>
           {cancelButton}
           <ActionButton
+            isSilent={isSilent}
             type={okType}
             actionFn={onOk}
             close={(...args: any[]) => {

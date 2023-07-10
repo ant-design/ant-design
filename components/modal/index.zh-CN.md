@@ -168,6 +168,17 @@ React.useEffect(() => {
 return <div>{contextHolder}</div>;
 ```
 
+`modal.confirm` 返回方法：
+
+- `destroy`：销毁当前窗口
+- `update`：更新当前窗口
+- `then`：Promise 链式调用，支持 `await` 操作。该方法为 Hooks 仅有
+
+```tsx
+//点击 `onOk` 时返回 `true`，点击 `onCancel` 时返回 `false`
+const confirmed = await modal.confirm({ ... });
+```
+
 ## Design Token
 
 <ComponentTokenTable component="Modal"></ComponentTokenTable>
