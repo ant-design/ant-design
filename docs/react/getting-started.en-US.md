@@ -94,7 +94,7 @@ OK! Now that you know the basics of using antd components, you are welcome to ex
 During actual real-world project development, you will most likely need a development workflow consisting of `compile/build/deploy/lint/debug/` deployment. You can read the following documents on the subject or use the following scaffolds and examples provided below:
 
 - [Ant Design Pro](https://pro.ant.design/)
-- [create-next-app](https://github.com/ant-design/create-next-app-antd)
+- [create-next-app](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-inline-style)
 - More scaffolds at [Scaffold Market](https://scaffold.ant.design/)
 
 ## Test with Jest
