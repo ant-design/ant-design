@@ -97,6 +97,7 @@ function useModal(): readonly [
               setActionQueue((prev) => [...prev, updateAction]);
             }
           },
+          then: () => {},
         };
       },
     [],
