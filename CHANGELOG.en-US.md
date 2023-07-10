@@ -20,7 +20,7 @@ timeline: true
 `2023-07-10`
 
 
-- 🆕 ConfigProvider now supports className and style properties for all components. Thanks to [@Yuiai01](https://github.com/Yuiai01)、[@li-jia-nan](https://github.com/li-jia-nan) 和 [@MuxinFeng](https://github.com/MuxinFeng) for their contributions.
+- 🆕 ConfigProvider now supports `className` and `style` properties for all components. Thanks to [@Yuiai01](https://github.com/Yuiai01)、[@li-jia-nan](https://github.com/li-jia-nan) 和 [@MuxinFeng](https://github.com/MuxinFeng) for their contributions.
 - 🆕 ColorPicker now supports new features such as `showText`, `destroyTooltipOnHide`, `onChangeComplete`, `panelRender` and `size`.[#42865](https://github.com/ant-design/ant-design/pull/42865) [@RedJue](https://github.com/RedJue)，[#42645](https://github.com/ant-design/ant-design/pull/42645) [@linxianxi](https://github.com/linxianxi)，[#43370](https://github.com/ant-design/ant-design/pull/43370) [@RedJue](https://github.com/RedJue)，[#43134](https://github.com/ant-design/ant-design/pull/43134) [@RedJue](https://github.com/RedJue)，[#43116](https://github.com/ant-design/ant-design/pull/43116) [@RedJue](https://github.com/RedJue)
 - 🆕 The following components now support hiding the close button by setting `closeIcon` to null or false:
   - Drawer [#42993](https://github.com/ant-design/ant-design/pull/42993) [@kiner-tang](https://github.com/kiner-tang)
@@ -44,24 +44,24 @@ timeline: true
 - 🐞 Added warning for deprecated Token colorItemBgSelected.[#43461](https://github.com/ant-design/ant-design/pull/43461) [@MadCcc](https://github.com/MadCcc)
 - 🐞 Fixed an issue where some browsers would display a scrollbar due to not being redrawn.[#43358](https://github.com/ant-design/ant-design/pull/43358) [@LeeeeeeM](https://github.com/LeeeeeeM)
 - 🐞 Fixed an issue where the Tab component of Card would not be displayed at all when tabList is empty.[#43416](https://github.com/ant-design/ant-design/pull/43416) [@linxianxi](https://github.com/linxianxi)
-- 🐞 Fixed an issue where the form.validateMessages configuration would be lost when using ConfigProvider nestedly.[#43239](https://github.com/ant-design/ant-design/pull/43239) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fixed an issue where the `form.validateMessages`` configuration would be lost when using ConfigProvider nestedly.[#43239](https://github.com/ant-design/ant-design/pull/43239) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 Fixed an issue where the ripple effect of Tag click would sometimes be offset from the Tag element.[#43402](https://github.com/ant-design/ant-design/pull/43402)
 - 🐞 Fixed an issue where clicking "now" in DatePicker when switching to the year-month panel would not work.[#43367](https://github.com/ant-design/ant-design/pull/43367) [@Yuiai01](https://github.com/Yuiai01)
 - 🐞  Fixed an issue where the height set for the TextArea component would become invalid when the screen size changed.[#43169](https://github.com/ant-design/ant-design/pull/43169) [@MadCcc](https://github.com/MadCcc)
-- 🐞 Added support for imageRender, toolbarRender, onTransform, items, minScale, and maxScale. Fixed an issue where the native attributes of img were not passed to the preview image. [#43075](https://github.com/ant-design/ant-design/pull/43075) [@linxianxi](https://github.com/linxianxi)
-- 💄 In Slider, the tooltip should be centered when there is little content. [#43430](https://github.com/ant-design/ant-design/pull/43430) [@Jomorx](https://github.com/Jomorx)
-- 💄 Changed the layout style, Preview now supports closeIcon, PreviewGroup now supports fallback, and fixed an issue where preview resources would be loaded at the beginning.[#43167](https://github.com/ant-design/ant-design/pull/43167) [@linxianxi](https://github.com/linxianxi)
-- 💄 Added colorLink to the seed token, and colorLinkHover and colorLinkActive will be calculated from colorLink.[#43183](https://github.com/ant-design/ant-design/pull/43183) [@MadCcc](https://github.com/MadCcc)
-- 💄 Adjusted some tokens in Slider to component tokens. #42428 ↗ @heiyu4585 ↗
+- 🐞 Added support for `imageRender`, `toolbarRender`, `onTransform`, `items`, `minScale`, and `maxScale`. Fixed an issue where the native attributes of img were not passed to the preview image. [#43075](https://github.com/ant-design/ant-design/pull/43075) [@linxianxi](https://github.com/linxianxi)
+- 💄 In Slider, the `tooltip` should be centered when there is little content. [#43430](https://github.com/ant-design/ant-design/pull/43430) [@Jomorx](https://github.com/Jomorx)
+- 💄 Changed the layout style, Preview now supports `closeIcon`, PreviewGroup now supports `fallback`, and fixed an issue where preview resources would be loaded at the beginning.[#43167](https://github.com/ant-design/ant-design/pull/43167) [@linxianxi](https://github.com/linxianxi)
+- 💄 Added `colorLink` to the seed token, and `colorLinkHover` and `colorLinkActive` will be calculated from colorLink.[#43183](https://github.com/ant-design/ant-design/pull/43183) [@MadCcc](https://github.com/MadCcc)
+- 💄 Adjusted some tokens in Slider to component tokens. [#42428](https://github.com/ant-design/ant-design/pull/42428) [@heiyu4585](https://github.com/heiyu4585)
 RTL[#42428](https://github.com/ant-design/ant-design/pull/42428) [@heiyu4585](https://github.com/heiyu4585)
 - RTL
   - 🤖 Progress now supports animations in rtl direction.[#43316](https://github.com/ant-design/ant-design/pull/43316) [@Yuiai01](https://github.com/Yuiai01)
 - TypeScript
-  - 🤖 Added RawPurePanelProps interface description for Popover.[#43453](https://github.com/ant-design/ant-design/pull/43453) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 Added `RawPurePanelProps` interface description for Popover.[#43453](https://github.com/ant-design/ant-design/pull/43453) [@thinkasany](https://github.com/thinkasany)
   - 🤖 Replaced unknown ref type with TooltipRef for Popconfirm.[#43452](https://github.com/ant-design/ant-design/pull/43452) [@thinkasany](https://github.com/thinkasany)
   - 🤖 Replaced unknown ref type with TooltipRef for Popover.[#43450](https://github.com/ant-design/ant-design/pull/43450) [@Negentropy247](https://github.com/Negentropy247)
-  - 🤖 Improved type declaration of GroupSizeContext in ButtonGroup.[#43439](https://github.com/ant-design/ant-design/pull/43439) [@thinkasany](https://github.com/thinkasany)
-  - 🤖 Improved type declaration of mode property in Select.[#43413](https://github.com/ant-design/ant-design/pull/43413) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 Improved type declaration of `GroupSizeContext` in ButtonGroup.[#43439](https://github.com/ant-design/ant-design/pull/43439) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 Improved type declaration of `mode` property in Select.[#43413](https://github.com/ant-design/ant-design/pull/43413) [@thinkasany](https://github.com/thinkasany)
   - 🤖 Replaced unknown ref type with CheckboxRef for Checkbox.[#43424](https://github.com/ant-design/ant-design/pull/43424) [@li-jia-nan](https://github.com/li-jia-nan)
   - 🤖 Improved internal type implementation for Table/Tag/Notification. [#43366](https://github.com/ant-design/ant-design/pull/43366) [@li-jia-nan](https://github.com/li-jia-nan)，[#43357](https://github.com/ant-design/ant-design/pull/43357) [@thinkasany](https://github.com/thinkasany)，[#43351](https://github.com/ant-design/ant-design/pull/43351) [@thinkasany](https://github.com/thinkasany)
 
