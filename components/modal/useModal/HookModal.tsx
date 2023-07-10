@@ -8,6 +8,7 @@ import type { ModalFuncProps } from '../interface';
 export interface HookModalProps {
   afterClose: () => void;
   config: ModalFuncProps;
+  onClose?: (confirmed: boolean) => void;
 }
 
 export interface HookModalRef {
@@ -16,7 +17,7 @@ export interface HookModalRef {
 }
 
 const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = (
-  { afterClose: hookAfterClose, config },
+  { afterClose: hookAfterClose, config, onClose },
   ref,
 ) => {
   const [open, setOpen] = React.useState(true);
@@ -66,6 +67,7 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
       }
       direction={innerConfig.direction || direction}
       cancelText={innerConfig.cancelText || contextLocale?.cancelText}
+      onClose={onClose}
     />
   );
 };

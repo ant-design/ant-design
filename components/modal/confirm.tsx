@@ -18,7 +18,6 @@ type ConfigUpdate = ModalFuncProps | ((prevConfig: ModalFuncProps) => ModalFuncP
 export type ModalFunc = (props: ModalFuncProps) => {
   destroy: () => void;
   update: (configUpdate: ConfigUpdate) => void;
-  then<T>(resolve: (confirmed: boolean) => T, reject: VoidFunction): Promise<T>;
 };
 
 export type ModalStaticFunctions = Record<NonNullable<ModalFuncProps['type']>, ModalFunc>;
