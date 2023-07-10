@@ -2,7 +2,10 @@
 
 name: Deploy website
 on:
-  create
+  push:
+    tags:
+      - '4.*'
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -10,7 +13,7 @@ permissions:
 jobs:
   setup:
     runs-on: ubuntu-latest
-    if: github.event.ref_type == 'tag' && (contains(github.event.ref, '-') == false || startsWith(github.event.ref, '4.'))
+    if: (startsWith(github.ref, 'refs/tags/') && (contains(github.ref_name, '-') == false)) || github.event_name == 'workflow_dispatch'
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -47,6 +50,10 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
