@@ -77,7 +77,7 @@ function useModal(): readonly [instance: HookAPI, contextHolder: React.ReactElem
               closeFunc?.();
             }}
             isSilent={() => silent}
-            onClose={(confirmed) => {
+            onConfirm={(confirmed) => {
               resolvePromise(confirmed);
             }}
           />

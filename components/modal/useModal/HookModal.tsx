@@ -8,7 +8,7 @@ import type { ModalFuncProps } from '../interface';
 export interface HookModalProps {
   afterClose: () => void;
   config: ModalFuncProps;
-  onClose?: (confirmed: boolean) => void;
+  onConfirm?: (confirmed: boolean) => void;
   /**
    * Do not throw if is await mode
    */

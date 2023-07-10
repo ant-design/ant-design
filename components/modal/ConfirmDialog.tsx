@@ -21,7 +21,7 @@ interface ConfirmDialogProps extends ModalFuncProps {
    * that we can not break this.
    * Provider `onClose` for internal usage
    */
-  onClose?: (confirmed: boolean) => void;
+  onConfirm?: (confirmed: boolean) => void;
   autoFocusButton?: null | 'ok' | 'cancel';
   rootPrefixCls: string;
   iconPrefixCls?: string;
@@ -46,7 +46,7 @@ export function ConfirmContent(
     onCancel,
     onOk,
     close,
-    onClose,
+    onConfirm,
     isSilent,
     okText,
     okButtonProps,
@@ -106,7 +106,7 @@ export function ConfirmContent(
       actionFn={onCancel}
       close={(...args: any[]) => {
         close?.(...args);
-        onClose?.(false);
+        onConfirm?.(false);
       }}
       autoFocus={autoFocusButton === 'cancel'}
       buttonProps={cancelButtonProps}
@@ -134,7 +134,7 @@ export function ConfirmContent(
             actionFn={onOk}
             close={(...args: any[]) => {
               close?.(...args);
-              onClose?.(true);
+              onConfirm?.(true);
             }}
             autoFocus={autoFocusButton === 'ok'}
             buttonProps={okButtonProps}
