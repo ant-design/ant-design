@@ -10,21 +10,11 @@ import type { ColorPickerBaseProps } from './interface';
 
 interface ColorPickerPanelProps extends ColorPickerBaseProps {
   onChange?: (value?: Color, type?: HsbaColorType, pickColor?: boolean) => void;
-  onChangeComplete?: (type?: HsbaColorType) => void;
   onClear?: () => void;
 }
 
 const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
-  const {
-    prefixCls,
-    presets,
-    panelRender,
-    color,
-    onChange,
-    onClear,
-    onChangeComplete,
-    ...injectProps
-  } = props;
+  const { prefixCls, presets, panelRender, color, onChange, onClear, ...injectProps } = props;
   const colorPickerPanelPrefixCls = `${prefixCls}-inner-content`;
 
   // ==== Inject props ===
@@ -33,7 +23,6 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
     value: color,
     onChange,
     onClear,
-    onChangeComplete,
     ...injectProps,
   };
 

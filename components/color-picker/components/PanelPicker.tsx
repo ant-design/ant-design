@@ -9,10 +9,12 @@ import ColorClear from './ColorClear';
 import ColorInput from './ColorInput';
 
 export interface PanelPickerProps
-  extends Pick<ColorPickerBaseProps, 'prefixCls' | 'colorCleared' | 'allowClear'> {
+  extends Pick<
+    ColorPickerBaseProps,
+    'prefixCls' | 'colorCleared' | 'allowClear' | 'onChangeComplete'
+  > {
   value?: Color;
   onChange?: (value?: Color, type?: HsbaColorType, pickColor?: boolean) => void;
-  onChangeComplete?: (type?: HsbaColorType) => void;
   onClear?: () => void;
 }
 

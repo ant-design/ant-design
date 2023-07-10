@@ -31,4 +31,5 @@ export interface ColorPickerBaseProps {
   presets?: PresetsItem[];
   panelRender?: ColorPickerProps['panelRender'];
   onFormatChange?: ColorPickerProps['onFormatChange'];
+  onChangeComplete?: ColorPickerProps['onChangeComplete'];
 }

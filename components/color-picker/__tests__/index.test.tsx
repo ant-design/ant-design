@@ -397,4 +397,19 @@ describe('ColorPicker', () => {
     expect(componentContainer.querySelector('.ant-color-picker-inner-content')).toBeTruthy();
     expect(componentContainer).toMatchSnapshot();
   });
+
+  it('Should onChangeComplete work', async () => {
+    spyElementPrototypes(HTMLElement, {
+      getBoundingClientRect: () => ({
+        x: 0,
+        y: 100,
+        width: 100,
+        height: 100,
+      }),
+    });
+    const handleChangeComplete = jest.fn();
+    const { container } = render(<ColorPicker open onChangeComplete={handleChangeComplete} />);
+    doMouseMove(container, 0, 999);
+    expect(handleChangeComplete).toHaveBeenCalledTimes(1);
+  });
 });

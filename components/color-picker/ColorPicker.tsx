@@ -30,7 +30,7 @@ import { customizePrefixCls, generateColor } from './util';
 
 export type ColorPickerProps = Omit<
   RcColorPickerProps,
-  'onChange' | 'value' | 'defaultValue' | 'panelRender'
+  'onChange' | 'value' | 'defaultValue' | 'panelRender' | 'onChangeComplete'
 > & {
   value?: Color | string;
   defaultValue?: Color | string;
@@ -55,6 +55,7 @@ export type ColorPickerProps = Omit<
   onFormatChange?: (format: ColorFormat) => void;
   onChange?: (value: Color, hex: string) => void;
   onClear?: () => void;
+  onChangeComplete?: (value: Color) => void;
 } & Pick<PopoverProps, 'getPopupContainer' | 'autoAdjustOverflow' | 'destroyTooltipOnHide'>;
 
 type CompoundedComponent = React.FC<ColorPickerProps> & {
@@ -85,6 +86,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     onChange,
     onClear,
     onOpenChange,
+    onChangeComplete,
     getPopupContainer,
     autoAdjustOverflow = true,
     destroyTooltipOnHide,
@@ -142,13 +144,12 @@ const ColorPicker: CompoundedComponent = (props) => {
         color = generateColor(hsba);
       }
     }
-    if (!value) {
-      setColorValue(color);
-    }
     // Only for drag-and-drop color picking
     if (pickColor) {
       popupAllowCloseRef.current = false;
     }
+
+    setColorValue(color);
     onChange?.(color, color.toHexString());
   };
 
@@ -157,8 +158,9 @@ const ColorPicker: CompoundedComponent = (props) => {
     onClear?.();
   };
 
-  const handleChangeComplete = () => {
+  const handleChangeComplete: ColorPickerProps['onChangeComplete'] = (color) => {
     popupAllowCloseRef.current = true;
+    onChangeComplete?.(generateColor(color));
   };
 
   const popoverProps: PopoverProps = {
@@ -182,6 +184,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     panelRender,
     format: formatValue,
     onFormatChange: setFormatValue,
+    onChangeComplete: handleChangeComplete,
   };
 
   const mergedStyle: React.CSSProperties = { ...colorPicker?.style, ...style };
@@ -196,12 +199,7 @@ const ColorPicker: CompoundedComponent = (props) => {
         }
       }}
       content={
-        <ColorPickerPanel
-          {...colorBaseProps}
-          onChange={handleChange}
-          onChangeComplete={handleChangeComplete}
-          onClear={handleClear}
-        />
+        <ColorPickerPanel {...colorBaseProps} onChange={handleChange} onClear={handleClear} />
       }
       overlayClassName={mergePopupCls}
       {...popoverProps}
@@ -211,7 +209,7 @@ const ColorPicker: CompoundedComponent = (props) => {
           open={popupOpen}
           className={mergeCls}
           style={mergedStyle}
-          color={colorValue}
+          color={value ? generateColor(value) : colorValue}
           prefixCls={prefixCls}
           disabled={disabled}
           colorCleared={colorCleared}
