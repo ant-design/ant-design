@@ -411,7 +411,7 @@ fs.writeFileSync(outputPath, css);
 
 You can choose to execute this script before starting the development command or before compiling. Running this script will generate a full antd.min.css file directly in the specified directory of the current project (e.g. public).
 
-Take Next.js for example（[example](https://github.com/ant-design/create-next-app-antd)）：
+Take Next.js for example（[example](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-inline-style)）：
 
 ```json
 // package.json
@@ -605,7 +605,7 @@ export default class MyDocument extends Document {
 }
 ```
 
-See the demo：[Export the css files on demand demo](https://github.com/ant-design/create-next-app-antd/tree/generate-css-on-demand)
+See the demo：[Export the css files on demand demo](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-generate-css-on-demand)
 
 ### Shadow DOM Usage
 
