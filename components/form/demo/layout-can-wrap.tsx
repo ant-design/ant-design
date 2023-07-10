@@ -1,5 +1,5 @@
-import React from 'react';
 import { Button, Form, Input } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Form
@@ -11,11 +11,11 @@ const App: React.FC = () => (
     colon={false}
     style={{ maxWidth: 600 }}
   >
-    <Form.Item label="正常标签文案" name="username" rules={[{ required: true }]}>
+    <Form.Item label="Normal label" name="username" rules={[{ required: true }]}>
       <Input />
     </Form.Item>
 
-    <Form.Item label="超长标签文案超长标签文案" name="password" rules={[{ required: true }]}>
+    <Form.Item label="A super long label text" name="password" rules={[{ required: true }]}>
       <Input />
     </Form.Item>
 

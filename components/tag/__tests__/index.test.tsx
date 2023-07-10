@@ -62,6 +62,33 @@ describe('Tag', () => {
     expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
   });
 
+  it('show close button by closeIcon', () => {
+    const { container } = render(
+      <>
+        <Tag className="tag1" closable closeIcon="close" />
+        <Tag className="tag2" closable closeIcon />
+        <Tag className="tag3" closable closeIcon={false} />
+        <Tag className="tag4" closable closeIcon={null} />
+        <Tag className="tag5" closable={false} closeIcon="close" />
+        <Tag className="tag6" closable={false} closeIcon />
+        <Tag className="tag7" closable={false} closeIcon={false} />
+        <Tag className="tag8" closable={false} closeIcon={null} />
+        <Tag className="tag9" closeIcon="close" />
+        <Tag className="tag10" closeIcon />
+        <Tag className="tag11" closeIcon={false} />
+        <Tag className="tag12" closeIcon={null} />
+      </>,
+    );
+
+    expect(container.querySelectorAll('.ant-tag-close-icon').length).toBe(6);
+    ['tag1', 'tag2', 'tag3', 'tag4', 'tag9', 'tag10'].forEach((tag) => {
+      expect(container.querySelector(`.${tag} .ant-tag-close-icon`)).toBeTruthy();
+    });
+    ['tag5', 'tag6', 'tag7', 'tag8', 'tag11', 'tag12'].forEach((tag) => {
+      expect(container.querySelector(`.${tag} .ant-tag-close-icon`)).toBeFalsy();
+    });
+  });
+
   it('should trigger onClick', () => {
     const onClick = jest.fn();
     const { container } = render(<Tag onClick={onClick} />);

@@ -26,7 +26,7 @@ const SubmitButton = ({ form }: { form: FormInstance }) => {
   );
 };
 
-const App = () => {
+const App: React.FC = () => {
   const [form] = Form.useForm();
 
   return (

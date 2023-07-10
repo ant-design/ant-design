@@ -9,7 +9,7 @@ import { ConfigContext } from '../config-provider';
 import useStyle from './style/index';
 
 const SpinSizes = ['small', 'default', 'large'] as const;
-export type SpinSize = typeof SpinSizes[number];
+export type SpinSize = (typeof SpinSizes)[number];
 export type SpinIndicator = React.ReactElement<HTMLElement>;
 
 export interface SpinProps {
@@ -61,10 +61,10 @@ function renderIndicator(prefixCls: string, props: SpinClassProps): React.ReactN
 
   return (
     <span className={classNames(dotClassName, `${prefixCls}-dot-spin`)}>
-      <i className={`${prefixCls}-dot-item`} />
-      <i className={`${prefixCls}-dot-item`} />
-      <i className={`${prefixCls}-dot-item`} />
-      <i className={`${prefixCls}-dot-item`} />
+      <i className={`${prefixCls}-dot-item`} key={1} />
+      <i className={`${prefixCls}-dot-item`} key={2} />
+      <i className={`${prefixCls}-dot-item`} key={3} />
+      <i className={`${prefixCls}-dot-item`} key={4} />
     </span>
   );
 }
@@ -113,10 +113,11 @@ const Spin: React.FC<SpinClassProps> = (props) => {
     warning(!tip || isNestedPattern, 'Spin', '`tip` only work in nest pattern.');
   }
 
-  const { direction } = React.useContext<ConfigConsumerProps>(ConfigContext);
+  const { direction, spin } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
   const spinClassName = classNames(
     prefixCls,
+    spin?.className,
     {
       [`${prefixCls}-sm`]: size === 'small',
       [`${prefixCls}-lg`]: size === 'large',
@@ -136,10 +137,12 @@ const Spin: React.FC<SpinClassProps> = (props) => {
   // fix https://fb.me/react-unknown-prop
   const divProps = omit(restProps, ['indicator', 'prefixCls']);
 
+  const mergedStyle: React.CSSProperties = { ...spin?.style, ...style };
+
   const spinElement: React.ReactNode = (
     <div
       {...divProps}
-      style={style}
+      style={mergedStyle}
       className={spinClassName}
       aria-live="polite"
       aria-busy={spinning}

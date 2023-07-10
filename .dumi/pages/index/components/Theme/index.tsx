@@ -377,8 +377,8 @@ export default function Theme() {
               },
           Menu: isLight
             ? {
-                colorItemBg: 'transparent',
-                colorSubItemBg: 'transparent',
+                itemBg: 'transparent',
+                subMenuItemBg: 'transparent',
                 colorActiveBarWidth: 0,
               }
             : {

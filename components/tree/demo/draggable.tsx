@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import { Tree } from 'antd';
 import type { DataNode, TreeProps } from 'antd/es/tree';
+import React, { useState } from 'react';
 
 const x = 3;
 const y = 2;
@@ -36,7 +36,7 @@ const App: React.FC = () => {
 
   const onDragEnter: TreeProps['onDragEnter'] = (info) => {
     console.log(info);
-    // expandedKeys 需要受控时设置
+    // expandedKeys, set it when controlled is needed
     // setExpandedKeys(info.expandedKeys)
   };
 
@@ -74,7 +74,7 @@ const App: React.FC = () => {
       // Drop on the content
       loop(data, dropKey, (item) => {
         item.children = item.children || [];
-        // where to insert 示例添加到头部，可以是随意位置
+        // where to insert. New item was inserted to the start of the array in this example, but can be anywhere
         item.children.unshift(dragObj);
       });
     } else if (
@@ -84,7 +84,7 @@ const App: React.FC = () => {
     ) {
       loop(data, dropKey, (item) => {
         item.children = item.children || [];
-        // where to insert 示例添加到头部，可以是随意位置
+        // where to insert. New item was inserted to the start of the array in this example, but can be anywhere
         item.children.unshift(dragObj);
         // in previous version, we use item.children.push(dragObj) to insert the
         // item to the tail of the children

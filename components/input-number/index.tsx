@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import type { InputNumberProps as RcInputNumberProps } from 'rc-input-number';
 import RcInputNumber from 'rc-input-number';
 import * as React from 'react';
-import { cloneElement } from '../_util/reactNode';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import ConfigProvider, { ConfigContext } from '../config-provider';
@@ -33,7 +32,6 @@ export interface InputNumberProps<T extends ValueType = ValueType>
 const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-  const [focused, setFocus] = React.useState(false);
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   React.useImperativeHandle(ref, () => inputRef.current!);
@@ -87,10 +85,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
-  const mergedSize = useSize((ctx) => compactSize ?? customizeSize ?? ctx);
-
-  const hasPrefix = prefix != null || hasFeedback;
-  const hasAddon = !!(addonBefore || addonAfter);
+  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
@@ -107,114 +102,73 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     getStatusClassNames(prefixCls, mergedStatus),
     compactItemClassnames,
     hashId,
-    className,
-    !hasPrefix && !hasAddon && rootClassName,
   );
+  const wrapperClassName = `${prefixCls}-group`;
 
-  let element = (
+  const element = (
     <RcInputNumber
       ref={inputRef}
       disabled={mergedDisabled}
-      className={inputNumberClass}
+      className={classNames(className, rootClassName)}
       upHandler={upIcon}
       downHandler={downIcon}
       prefixCls={prefixCls}
       readOnly={readOnly}
       controls={controlsTemp}
+      prefix={prefix}
+      suffix={hasFeedback && feedbackIcon}
+      addonAfter={
+        addonAfter && (
+          <NoCompactStyle>
+            <NoFormStyle override status>
+              {addonAfter}
+            </NoFormStyle>
+          </NoCompactStyle>
+        )
+      }
+      addonBefore={
+        addonBefore && (
+          <NoCompactStyle>
+            <NoFormStyle override status>
+              {addonBefore}
+            </NoFormStyle>
+          </NoCompactStyle>
+        )
+      }
+      classNames={{
+        input: inputNumberClass,
+      }}
+      classes={{
+        affixWrapper: classNames(
+          getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
+          {
+            [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
+            [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
+            [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+            [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
+          },
+          hashId,
+        ),
+        wrapper: classNames(
+          {
+            [`${wrapperClassName}-rtl`]: direction === 'rtl',
+            [`${prefixCls}-wrapper-disabled`]: mergedDisabled,
+          },
+          hashId,
+        ),
+        group: classNames(
+          {
+            [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
+            [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
+            [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
+          },
+          getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
+          hashId,
+        ),
+      }}
       {...others}
     />
   );
-
-  if (hasPrefix) {
-    const affixWrapperCls = classNames(
-      `${prefixCls}-affix-wrapper`,
-      getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
-      {
-        [`${prefixCls}-affix-wrapper-focused`]: focused,
-        [`${prefixCls}-affix-wrapper-disabled`]: props.disabled,
-        [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
-        [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
-        [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-        [`${prefixCls}-affix-wrapper-readonly`]: readOnly,
-        [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
-      },
-
-      // className will go to addon wrapper
-      !hasAddon && className,
-      !hasAddon && rootClassName,
-      hashId,
-    );
-
-    element = (
-      <div
-        className={affixWrapperCls}
-        style={props.style}
-        onMouseUp={() => inputRef.current!.focus()}
-      >
-        {prefix && <span className={`${prefixCls}-prefix`}>{prefix}</span>}
-        {cloneElement(element, {
-          style: null,
-          value: props.value,
-          onFocus: (event: React.FocusEvent<HTMLInputElement>) => {
-            setFocus(true);
-            props.onFocus?.(event);
-          },
-          onBlur: (event: React.FocusEvent<HTMLInputElement>) => {
-            setFocus(false);
-            props.onBlur?.(event);
-          },
-        })}
-        {hasFeedback && <span className={`${prefixCls}-suffix`}>{feedbackIcon}</span>}
-      </div>
-    );
-  }
-
-  if (hasAddon) {
-    const wrapperClassName = `${prefixCls}-group`;
-    const addonClassName = `${wrapperClassName}-addon`;
-    const addonBeforeNode = addonBefore ? (
-      <div className={addonClassName}>{addonBefore}</div>
-    ) : null;
-    const addonAfterNode = addonAfter ? <div className={addonClassName}>{addonAfter}</div> : null;
-
-    const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, wrapperClassName, hashId, {
-      [`${wrapperClassName}-rtl`]: direction === 'rtl',
-    });
-
-    const mergedGroupClassName = classNames(
-      `${prefixCls}-group-wrapper`,
-      {
-        [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
-        [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
-        [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
-      },
-      getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
-      hashId,
-      className,
-      rootClassName,
-    );
-    element = (
-      <div className={mergedGroupClassName} style={props.style}>
-        <div className={mergedWrapperClassName}>
-          {addonBeforeNode && (
-            <NoCompactStyle>
-              <NoFormStyle status override>
-                {addonBeforeNode}
-              </NoFormStyle>
-            </NoCompactStyle>
-          )}
-          {cloneElement(element, { style: null, disabled: mergedDisabled })}
-          {addonAfterNode && (
-            <NoCompactStyle>
-              <NoFormStyle status override>
-                {addonAfterNode}
-              </NoFormStyle>
-            </NoCompactStyle>
-          )}
-        </div>
-      </div>
-    );
-  }
 
   return wrapSSR(element);
 });

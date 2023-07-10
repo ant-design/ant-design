@@ -12,11 +12,12 @@ import { SizeContextProvider } from '../config-provider/SizeContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { ColProps } from '../grid/col';
 import type { FormContextProps } from './context';
-import { FormContext, FormProvider, ValidateMessagesContext } from './context';
+import { FormContext, FormProvider } from './context';
 import useForm, { type FormInstance } from './hooks/useForm';
 import useFormWarning from './hooks/useFormWarning';
 import type { FormLabelAlign } from './interface';
 import useStyle from './style';
+import ValidateMessagesContext from './validateMessagesContext';
 
 export type RequiredMark = boolean | 'optional';
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
@@ -62,6 +63,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     requiredMark,
     onFinishFailed,
     name,
+    style,
     ...restFormProps
   } = props;
 
@@ -106,6 +108,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
       [`${prefixCls}-${mergedSize}`]: mergedSize,
     },
     hashId,
+    contextForm?.className,
     className,
     rootClassName,
   );
@@ -173,6 +176,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
               name={name}
               onFinishFailed={onInternalFinishFailed}
               form={wrapForm}
+              style={{ ...contextForm?.style, ...style }}
               className={formClassName}
             />
           </FormContext.Provider>
@@ -186,6 +190,6 @@ const Form = React.forwardRef<FormInstance, FormProps>(InternalForm) as <Values 
   props: React.PropsWithChildren<FormProps<Values>> & { ref?: React.Ref<FormInstance<Values>> },
 ) => React.ReactElement;
 
-export { useForm, List, type FormInstance, useWatch };
+export { List, useForm, useWatch, type FormInstance };
 
 export default Form;

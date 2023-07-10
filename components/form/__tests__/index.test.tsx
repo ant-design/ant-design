@@ -21,6 +21,7 @@ import zhCN from '../../locale/zh_CN';
 import Modal from '../../modal';
 import Radio from '../../radio';
 import Select from '../../select';
+import Slider from '../../slider';
 import Switch from '../../switch';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
@@ -1160,6 +1161,9 @@ describe('Form', () => {
         <Form.Item label="Button">
           <Button>Button</Button>
         </Form.Item>
+        <Form.Item label="Slider">
+          <Slider />
+        </Form.Item>
       </Form>
     );
     const { container } = render(<App />);
@@ -1637,7 +1641,7 @@ describe('Form', () => {
       <DatePicker.YearPicker key="DatePicker.YearPicker" disabled={disabled} />,
       <DatePicker.TimePicker key="DatePicker.TimePicker" disabled={disabled} />,
     ];
-    const App = () => <Form disabled>{renderComps(false)}</Form>;
+    const App: React.FC = () => <Form disabled>{renderComps(false)}</Form>;
 
     const wrapper = render(<App />);
     expect(wrapper.container.querySelectorAll('[disabled]').length).toBe(0);
@@ -1799,7 +1803,7 @@ describe('Form', () => {
       return <Input {...props} />;
     };
 
-    const App = () => (
+    const App: React.FC = () => (
       <Form>
         <Form.Item>
           <Form.Item name="test" label="test" rules={[{ len: 3, message: 'error.' }]}>

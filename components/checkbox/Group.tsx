@@ -4,6 +4,7 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { CheckboxChangeEvent } from './Checkbox';
 import Checkbox from './Checkbox';
+import GroupContext from './GroupContext';
 
 import useStyle from './style';
 
@@ -14,6 +15,7 @@ export interface CheckboxOptionType {
   value: CheckboxValueType;
   style?: React.CSSProperties;
   disabled?: boolean;
+  title?: string;
   onChange?: (e: CheckboxChangeEvent) => void;
 }
 
@@ -33,17 +35,6 @@ export interface CheckboxGroupProps extends AbstractCheckboxGroupProps {
   onChange?: (checkedValue: Array<CheckboxValueType>) => void;
   children?: React.ReactNode;
 }
-
-export interface CheckboxGroupContext {
-  name?: string;
-  toggleOption?: (option: CheckboxOptionType) => void;
-  value?: any;
-  disabled?: boolean;
-  registerValue: (val: string) => void;
-  cancelValue: (val: string) => void;
-}
-
-export const GroupContext = React.createContext<CheckboxGroupContext | null>(null);
 
 const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, CheckboxGroupProps> = (
   {
@@ -132,6 +123,7 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
         onChange={option.onChange}
         className={`${groupPrefixCls}-item`}
         style={option.style}
+        title={option.title}
       >
         {option.label}
       </Checkbox>
@@ -163,6 +155,9 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
     </div>,
   );
 };
+
+export type { CheckboxGroupContext } from './GroupContext';
+export { GroupContext };
 
 const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(InternalCheckboxGroup);
 

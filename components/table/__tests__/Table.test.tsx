@@ -251,7 +251,7 @@ describe('Table', () => {
         dataIndex: 'name',
       },
     ];
-    render(<Table columns={columns} rowKey={(record, index) => record + index} />);
+    render(<Table columns={columns} rowKey={(record, index) => record.key + index} />);
     expect(warnSpy).toHaveBeenCalledWith(
       'Warning: [antd: Table] `index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
     );

@@ -1,5 +1,5 @@
-import React from 'react';
 import { Badge, Card, Space } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Space direction="vertical" size="middle" style={{ width: '100%' }}>
@@ -8,12 +8,7 @@ const App: React.FC = () => (
         and raises the spyglass.
       </Card>
     </Badge.Ribbon>
-    <Badge.Ribbon text={
-        <div>
-          Hippies <br />
-          Happy
-        </div>
-      } color="pink">
+    <Badge.Ribbon text="Hippies" color="pink">
       <Card title="Pushes open the window" size="small">
         and raises the spyglass.
       </Card>

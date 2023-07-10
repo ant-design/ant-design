@@ -29,7 +29,9 @@ export interface ColorPickerBaseProps {
   colorCleared?: boolean;
   disabled?: boolean;
   presets?: PresetsItem[];
+  panelRender?: ColorPickerProps['panelRender'];
   onFormatChange?: ColorPickerProps['onFormatChange'];
+  onChangeComplete?: ColorPickerProps['onChangeComplete'];
 }
 
 export type ColorValueType = Color | string | null;

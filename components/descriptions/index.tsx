@@ -8,16 +8,10 @@ import useResponsiveObserver, { responsiveArray } from '../_util/responsiveObser
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
+import DescriptionsContext from './DescriptionsContext';
 import DescriptionsItem from './Item';
 import Row from './Row';
 import useStyle from './style';
-
-export interface DescriptionsContextProps {
-  labelStyle?: React.CSSProperties;
-  contentStyle?: React.CSSProperties;
-}
-
-export const DescriptionsContext = React.createContext<DescriptionsContextProps>({});
 
 const DEFAULT_COLUMN_MAP: Record<Breakpoint, number> = {
   xxl: 3,
@@ -98,6 +92,10 @@ function getRows(children: React.ReactNode, column: number) {
   return rows;
 }
 
+interface CompoundedComponent {
+  Item: typeof DescriptionsItem;
+}
+
 export interface DescriptionsProps {
   prefixCls?: string;
   className?: string;
@@ -115,24 +113,25 @@ export interface DescriptionsProps {
   contentStyle?: React.CSSProperties;
 }
 
-function Descriptions({
-  prefixCls: customizePrefixCls,
-  title,
-  extra,
-  column = DEFAULT_COLUMN_MAP,
-  colon = true,
-  bordered,
-  layout,
-  children,
-  className,
-  rootClassName,
-  style,
-  size: customizeSize,
-  labelStyle,
-  contentStyle,
-  ...restProps
-}: DescriptionsProps) {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) => {
+  const {
+    prefixCls: customizePrefixCls,
+    title,
+    extra,
+    column = DEFAULT_COLUMN_MAP,
+    colon = true,
+    bordered,
+    layout,
+    children,
+    className,
+    rootClassName,
+    style,
+    size: customizeSize,
+    labelStyle,
+    contentStyle,
+    ...restProps
+  } = props;
+  const { getPrefixCls, direction, descriptions } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
   const [screens, setScreens] = React.useState<ScreenMap>({});
   const mergedColumn = getColumn(column, screens);
@@ -168,6 +167,7 @@ function Descriptions({
       <div
         className={classNames(
           prefixCls,
+          descriptions?.className,
           {
             [`${prefixCls}-${mergedSize}`]: mergedSize && mergedSize !== 'default',
             [`${prefixCls}-bordered`]: !!bordered,
@@ -177,7 +177,7 @@ function Descriptions({
           rootClassName,
           hashId,
         )}
-        style={style}
+        style={{ ...descriptions?.style, ...style }}
         {...restProps}
       >
         {(title || extra) && (
@@ -207,11 +207,14 @@ function Descriptions({
       </div>
     </DescriptionsContext.Provider>,
   );
-}
+};
 
 if (process.env.NODE_ENV !== 'production') {
   Descriptions.displayName = 'Descriptions';
 }
+
+export type { DescriptionsContextProps } from './DescriptionsContext';
+export { DescriptionsContext };
 
 Descriptions.Item = DescriptionsItem;
 

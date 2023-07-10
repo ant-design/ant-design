@@ -531,13 +531,38 @@ interface ColorErrorMapToken {
   colorErrorTextActive: string; // 10
 }
 
+export interface ColorLinkMapToken {
+  /**
+   * @nameZH 超链接颜色
+   * @nameEN Hyperlink color
+   * @desc 控制超链接的颜色。
+   * @descEN Control the color of hyperlink.
+   */
+  colorLink: string;
+  /**
+   * @nameZH 超链接悬浮颜色
+   * @nameEN Hyperlink hover color
+   * @desc 控制超链接悬浮时的颜色。
+   * @descEN Control the color of hyperlink when hovering.
+   */
+  colorLinkHover: string;
+  /**
+   * @nameZH 超链接激活颜色
+   * @nameEN Hyperlink active color
+   * @desc 控制超链接被点击时的颜色。
+   * @descEN Control the color of hyperlink when clicked.
+   */
+  colorLinkActive: string;
+}
+
 export interface ColorMapToken
   extends ColorNeutralMapToken,
     ColorPrimaryMapToken,
     ColorSuccessMapToken,
     ColorWarningMapToken,
     ColorErrorMapToken,
-    ColorInfoMapToken {
+    ColorInfoMapToken,
+    ColorLinkMapToken {
   /**
    * @nameZH 纯白色
    * @desc 不随主题变化的纯白色

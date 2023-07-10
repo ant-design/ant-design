@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { TinyColor, type ColorInput } from '@ctrl/tinycolor';
 import { css } from '@emotion/react';
+import * as React from 'react';
 import useSiteToken from '../../../hooks/useSiteToken';
 
 interface ColorChunkProps {
@@ -23,7 +23,7 @@ const useStyle = () => {
       display: inline-block;
       width: 6px;
       height: 6px;
-      border-radius: ${token.borderRadiusSM}px;
+      border-radius: 50%;
       margin-inline-end: 4px;
       border: 1px solid ${token.colorSplit};
     `,

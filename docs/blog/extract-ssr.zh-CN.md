@@ -150,7 +150,7 @@ if (!fs.existsSync(cssFileName)) {
 </html>
 ```
 
-完整实现点击[此处](https://github.com/ant-design/create-next-app-antd/tree/generate-css-on-demand)查阅。
+完整实现点击[此处](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-generate-css-on-demand)查阅。
 
 访问不同的页面时会生成对应的 CSS，每个 CSS 都会有其对应的 Hash 值。当 Hash 命中时，则说明该 CSS 文件已经被落盘，可以直接使用。继而对于客户端而言就是一次正常的 CSS 文件访问，同样享受缓存能力。
 

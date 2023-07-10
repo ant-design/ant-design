@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { Tag } from 'antd';
-import { DndContext, PointerSensor, useSensor, useSensors, closestCenter } from '@dnd-kit/core';
-import {
-  arrayMove,
-  useSortable,
-  SortableContext,
-  horizontalListSortingStrategy,
-} from '@dnd-kit/sortable';
-import type { FC } from 'react';
+import { DndContext, PointerSensor, closestCenter, useSensor, useSensors } from '@dnd-kit/core';
 import type { DragEndEvent } from '@dnd-kit/core/dist/types/index';
+import {
+  SortableContext,
+  arrayMove,
+  horizontalListSortingStrategy,
+  useSortable,
+} from '@dnd-kit/sortable';
+import { Tag } from 'antd';
+import type { FC } from 'react';
+import React, { useState } from 'react';
 
 type Item = {
   id: number;
@@ -25,14 +25,14 @@ const DraggableTag: FC<DraggableTagProps> = (props) => {
 
   const commonStyle = {
     cursor: 'move',
-    transition: 'unset', // 防止拖拽完毕之后元素抖动
+    transition: 'unset', // Prevent element from shaking after drag
   };
 
   const style = transform
     ? {
         ...commonStyle,
         transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
-        transition: isDragging ? 'unset' : transition, // 处理拖拽中的元素不跟手的问题
+        transition: isDragging ? 'unset' : transition, // Improve performance/visual effect when dragging
       }
     : commonStyle;
 
@@ -43,7 +43,7 @@ const DraggableTag: FC<DraggableTagProps> = (props) => {
   );
 };
 
-const App = () => {
+const App: React.FC = () => {
   const [items, setItems] = useState<Item[]>([
     {
       id: 1,

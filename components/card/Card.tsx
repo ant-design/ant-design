@@ -46,14 +46,13 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   tabProps?: TabsProps;
 }
 
-function getAction(actions: React.ReactNode[]) {
-  const actionList = actions.map((action, index) => (
+function getAction(actions: React.ReactNode[]): React.ReactNode[] {
+  return actions.map<React.ReactNode>((action, index) => (
     // eslint-disable-next-line react/no-array-index-key
     <li style={{ width: `${100 / actions.length}%` }} key={`action-${index}`}>
       <span>{action}</span>
     </li>
   ));
-  return actionList;
 }
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
@@ -61,6 +60,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
+    style,
     extra,
     headStyle = {},
     bodyStyle = {},
@@ -81,7 +81,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     ...others
   } = props;
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, card } = React.useContext(ConfigContext);
 
   const onTabChange = (key: string) => {
     props.onTabChange?.(key);
@@ -118,19 +118,15 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   let head: React.ReactNode;
   const mergedSize = useSize(customizeSize);
   const tabSize = !mergedSize || mergedSize === 'default' ? 'large' : mergedSize;
-  const tabs =
-    tabList && tabList.length ? (
-      <Tabs
-        size={tabSize}
-        {...extraProps}
-        className={`${prefixCls}-head-tabs`}
-        onChange={onTabChange}
-        items={tabList.map(({ tab, ...item }) => ({
-          label: tab,
-          ...item,
-        }))}
-      />
-    ) : null;
+  const tabs = tabList ? (
+    <Tabs
+      size={tabSize}
+      {...extraProps}
+      className={`${prefixCls}-head-tabs`}
+      onChange={onTabChange}
+      items={tabList.map(({ tab, ...item }) => ({ label: tab, ...item }))}
+    />
+  ) : null;
   if (title || extra || tabs) {
     head = (
       <div className={`${prefixCls}-head`} style={headStyle}>
@@ -152,9 +148,12 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     actions && actions.length ? (
       <ul className={`${prefixCls}-actions`}>{getAction(actions)}</ul>
     ) : null;
+
   const divProps = omit(others, ['onTabChange']);
+
   const classString = classNames(
     prefixCls,
+    card?.className,
     {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-bordered`]: bordered,
@@ -170,8 +169,10 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     hashId,
   );
 
+  const mergedStyle: React.CSSProperties = { ...card?.style, ...style };
+
   return wrapSSR(
-    <div ref={ref} {...divProps} className={classString}>
+    <div ref={ref} {...divProps} className={classString} style={mergedStyle}>
       {head}
       {coverDom}
       {body}

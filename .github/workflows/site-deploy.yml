@@ -89,6 +89,15 @@ jobs:
           publish_dir: ./_site
           force_orphan: true
 
+      # Since force_orphan will not trigger Sync to Gitee, we need to force run it here
+      - name: Sync to Gitee
+        uses: wearerequired/git-mirror-action@v1
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
+        with:
+          source-repo: 'git@github.com:ant-design/ant-design.git'
+          destination-repo: 'git@gitee.com:ant-design/ant-design.git'
+
       - name: Deploy to Surge (with TAG)
         run: |
           export DEPLOY_DOMAIN=ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh

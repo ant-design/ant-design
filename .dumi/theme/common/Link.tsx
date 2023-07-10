@@ -1,6 +1,6 @@
+import { useNavigate } from 'dumi';
 import type { MouseEvent } from 'react';
 import React, { forwardRef, startTransition } from 'react';
-import { useNavigate } from 'dumi';
 
 export type LinkProps = {
   to?: string;
@@ -14,10 +14,13 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
 
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
     if (!to.startsWith('http')) {
-      e.preventDefault();
-      startTransition(() => {
-        navigate(to);
-      });
+      // Should support open in new tab
+      if (!e.metaKey && !e.ctrlKey && !e.shiftKey) {
+        e.preventDefault();
+        startTransition(() => {
+          navigate(to);
+        });
+      }
     }
   };
 

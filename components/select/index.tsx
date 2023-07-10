@@ -43,7 +43,7 @@ export interface InternalSelectProps<
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;
-  mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
+  mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE' | 'combobox';
   bordered?: boolean;
 }
 
@@ -92,6 +92,7 @@ const InternalSelect = <
     dropdownMatchSelectWidth,
     popupMatchSelectWidth,
     direction: propDirection,
+    style,
     ...props
   }: SelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -118,7 +119,7 @@ const InternalSelect = <
   const mode = React.useMemo(() => {
     const { mode: m } = props as InternalSelectProps<OptionType>;
 
-    if ((m as any) === 'combobox') {
+    if (m === 'combobox') {
       return undefined;
     }
 
@@ -175,7 +176,7 @@ const InternalSelect = <
     hashId,
   );
 
-  const mergedSize = useSize((ctx) => compactSize ?? customizeSize ?? ctx);
+  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
@@ -191,6 +192,7 @@ const InternalSelect = <
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     compactItemClassnames,
+    select?.className,
     className,
     rootClassName,
     hashId,
@@ -228,6 +230,7 @@ const InternalSelect = <
       virtual={virtual}
       showSearch={select?.showSearch}
       {...selectProps}
+      style={{ ...select?.style, ...style }}
       dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
       builtinPlacements={mergedBuiltinPlacements}
       transitionName={getTransitionName(
