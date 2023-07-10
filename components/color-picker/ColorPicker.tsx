@@ -26,7 +26,7 @@ import type {
   TriggerType,
 } from './interface';
 import useStyle from './style/index';
-import { customizePrefixCls, generateColor } from './util';
+import { customizePrefixCls, genAlphaColor, generateColor, getAlphaColor } from './util';
 
 export type ColorPickerProps = Omit<
   RcColorPickerProps,
@@ -139,12 +139,17 @@ const ColorPicker: CompoundedComponent = (props) => {
     let color: Color = generateColor(data);
     if (colorCleared) {
       setColorCleared(false);
-      const hsba = color.toHsb();
       // ignore alpha slider
-      if (colorValue.toHsb().a === 0 && type !== 'alpha') {
-        hsba.a = 1;
-        color = generateColor(hsba);
+      if (getAlphaColor(colorValue) === 0 && type !== 'alpha') {
+        color = genAlphaColor(color);
       }
+    }
+    // ignore alpha color
+    if (disabledAlpha && getAlphaColor(color) < 100) {
+      color = genAlphaColor(color);
+    }
+    if (!value) {
+      setColorValue(color);
     }
     // Only for drag-and-drop color picking
     if (pickColor) {
@@ -162,7 +167,12 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const handleChangeComplete: ColorPickerProps['onChangeComplete'] = (color) => {
     popupAllowCloseRef.current = true;
-    onChangeComplete?.(generateColor(color));
+    let changeColor = generateColor(color);
+    // ignore alpha color
+    if (disabledAlpha && getAlphaColor(color) < 100) {
+      changeColor = genAlphaColor(color);
+    }
+    onChangeComplete?.(changeColor);
   };
 
   const popoverProps: PopoverProps = {

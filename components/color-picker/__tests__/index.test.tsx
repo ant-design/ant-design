@@ -6,6 +6,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import theme from '../../theme';
+import type { ColorPickerProps } from '../ColorPicker';
 import ColorPicker from '../ColorPicker';
 import type { Color } from '../color';
 
@@ -418,5 +419,24 @@ describe('ColorPicker', () => {
     expect(container.querySelector('.ant-color-picker-slider-group-disabled-alpha')).toBeTruthy();
     expect(container.querySelector('.ant-color-picker-slider-alpha')).toBeFalsy();
     expect(container.querySelector('.ant-color-picker-alpha-input')).toBeFalsy();
+  });
+
+  it('Should disabledAlpha work with value', async () => {
+    const Demo = () => {
+      const [value, setValue] = useState<ColorPickerProps['value']>('#1677ff86');
+      return (
+        <ColorPicker open disabledAlpha value={value} onChange={setValue}>
+          <div className="color-value">
+            {typeof value === 'string' ? value : value?.toHexString()}
+          </div>
+        </ColorPicker>
+      );
+    };
+    const { container } = render(<Demo />);
+    expect(container.querySelector('.color-value')?.innerHTML).toEqual('#1677ff86');
+    fireEvent.change(container.querySelector('.ant-color-picker-hex-input input')!, {
+      target: { value: '1677ff86' },
+    });
+    expect(container.querySelector('.color-value')?.innerHTML).toEqual('#1677ff');
   });
 });
