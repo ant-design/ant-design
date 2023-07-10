@@ -20,13 +20,18 @@ timeline: true
 `2023-07-10`
 
 - 🆕 ConfigProvider 支持所有组件的 className 和 style 属性控制。感谢 [@Yuiai01](https://github.com/Yuiai01)、[@li-jia-nan](https://github.com/li-jia-nan) 和 [@MuxinFeng](https://github.com/MuxinFeng) 的贡献。
-- 🆕 ColorPicker 支持 `showText`、`destroyTooltipOnHide`、`onChangeComplete`、`panelRender`、`size` 等新特性。[#42865](https://github.com/ant-design/ant-design/pull/42865) [@RedJue](https://github.com/RedJue)，[#42645](https://github.com/ant-design/ant-design/pull/42645) [@linxianxi](https://github.com/linxianxi)，[#43370](https://github.com/ant-design/ant-design/pull/43370) [@RedJue](https://github.com/RedJue)，[#43134](https://github.com/ant-design/ant-design/pull/43134) [@RedJue](https://github.com/RedJue)，[#43116](https://github.com/ant-design/ant-design/pull/43116) [@RedJue](https://github.com/RedJue)
+- 🆕 ColorPicker 支持 `showText`、`destroyTooltipOnHide`、`onChangeComplete`、`panelRender`、`size` 等新特性。
+  - [#42865](https://github.com/ant-design/ant-design/pull/42865) [@RedJue](https://github.com/RedJue)
+  - [#42645](https://github.com/ant-design/ant-design/pull/42645) [@linxianxi](https://github.com/linxianxi)
+  - [#43370](https://github.com/ant-design/ant-design/pull/43370) [@RedJue](https://github.com/RedJue)
+  - [#43134](https://github.com/ant-design/ant-design/pull/43134) [@RedJue](https://github.com/RedJue)
+  - [#43116](https://github.com/ant-design/ant-design/pull/43116) [@RedJue](https://github.com/RedJue)
 - 🆕 以下组件已支持通过设置 `closeIcon` 为 null 或 false 隐藏关闭按钮
   - Drawer [#42993](https://github.com/ant-design/ant-design/pull/42993) [@kiner-tang](https://github.com/kiner-tang)
   - Alert（同时废弃 `closeText` 属性）[#42962](https://github.com/ant-design/ant-design/pull/42962) [@kiner-tang](https://github.com/kiner-tang)
   - Notifaction [#42927](https://github.com/ant-design/ant-design/pull/42927) [@kiner-tang](https://github.com/kiner-tang)
   -  Tag [#43109](https://github.com/ant-design/ant-design/pull/43109) [@kiner-tang](https://github.com/kiner-tang)
-  -  Tab [#43098](https://github.com/ant-design/ant-design/pull/43098) [@kiner-tang](https://github.com/kiner-tang)
+  -  Tabs [#43098](https://github.com/ant-design/ant-design/pull/43098) [@kiner-tang](https://github.com/kiner-tang)
   -  Modal [#43017](https://github.com/ant-design/ant-design/pull/43017) [@kiner-tang](<https://github.com/kiner-tang>)
 - 🆕 Badge 支持 `classNames` 属性和 `styles` 属性。[#43245](https://github.com/ant-design/ant-design/pull/43245) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 为 Anchor 添加 `replace` 属性。[#43006](https://github.com/ant-design/ant-design/pull/43006) [@ds1371dani](https://github.com/ds1371dani)
@@ -56,12 +61,15 @@ timeline: true
   - 🤖 Progress 支持 rtl 方向的动画。[#43316](https://github.com/ant-design/ant-design/pull/43316) [@Yuiai01](https://github.com/Yuiai01)
 - TypeScript
   - 🤖 Popover 增加 `RawPurePanelProps` 接口描述。[#43453](https://github.com/ant-design/ant-design/pull/43453) [@thinkasany](https://github.com/thinkasany)
-  - 🤖 Popconfirm 替换 ref 类型 unknown 为 TooltipRef。[#43452](https://github.com/ant-design/ant-design/pull/43452) [@thinkasany](https://github.com/thinkasany)
-  - 🤖 Popover 替换 ref 类型 unknown 为 TooltipRef。[#43450](https://github.com/ant-design/ant-design/pull/43450) [@Negentropy247](https://github.com/Negentropy247)
-  - 🤖 改进 ButtonGroup 中 GroupSizeContext 的类型声明。[#43439](https://github.com/ant-design/ant-design/pull/43439) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 Popconfirm 替换 `ref` 类型 `unknown` 为 `TooltipRef`。[#43452](https://github.com/ant-design/ant-design/pull/43452) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 Popover 替换 `ref` 类型 `unknown` 为 `TooltipRef`。[#43450](https://github.com/ant-design/ant-design/pull/43450) [@Negentropy247](https://github.com/Negentropy247)
+  - 🤖 改进 ButtonGroup 中 `GroupSizeContext` 的类型声明。[#43439](https://github.com/ant-design/ant-design/pull/43439) [@thinkasany](https://github.com/thinkasany)
   - 🤖 改进 Select 的 `mode` 属性的类型声明。[#43413](https://github.com/ant-design/ant-design/pull/43413) [@thinkasany](https://github.com/thinkasany)
-  - 🤖 Checkbox 替换 ref 类型 unknown 为 CheckboxRef。[#43424](https://github.com/ant-design/ant-design/pull/43424) [@li-jia-nan](https://github.com/li-jia-nan)
-  - 🤖 改进 Table/Tag/Notification 内部类型实现。 [#43366](https://github.com/ant-design/ant-design/pull/43366) [@li-jia-nan](https://github.com/li-jia-nan)，[#43357](https://github.com/ant-design/ant-design/pull/43357) [@thinkasany](https://github.com/thinkasany)，[#43351](https://github.com/ant-design/ant-design/pull/43351) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 Checkbox 替换 `ref` 类型 `unknown` 为 `CheckboxRef`。[#43424](https://github.com/ant-design/ant-design/pull/43424) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🤖 改进 Table/Tag/Notification 内部类型实现。
+    - [#43366](https://github.com/ant-design/ant-design/pull/43366) [@li-jia-nan](https://github.com/li-jia-nan)
+    - [#43357](https://github.com/ant-design/ant-design/pull/43357) [@thinkasany](https://github.com/thinkasany)
+    - [#43351](https://github.com/ant-design/ant-design/pull/43351) [@thinkasany](https://github.com/thinkasany)
 
 ## 5.6.4
 

@@ -21,13 +21,18 @@ timeline: true
 
 
 - 🆕 ConfigProvider now supports `className` and `style` properties for all components. Thanks to [@Yuiai01](https://github.com/Yuiai01)、[@li-jia-nan](https://github.com/li-jia-nan) 和 [@MuxinFeng](https://github.com/MuxinFeng) for their contributions.
-- 🆕 ColorPicker now supports new features such as `showText`, `destroyTooltipOnHide`, `onChangeComplete`, `panelRender` and `size`.[#42865](https://github.com/ant-design/ant-design/pull/42865) [@RedJue](https://github.com/RedJue)，[#42645](https://github.com/ant-design/ant-design/pull/42645) [@linxianxi](https://github.com/linxianxi)，[#43370](https://github.com/ant-design/ant-design/pull/43370) [@RedJue](https://github.com/RedJue)，[#43134](https://github.com/ant-design/ant-design/pull/43134) [@RedJue](https://github.com/RedJue)，[#43116](https://github.com/ant-design/ant-design/pull/43116) [@RedJue](https://github.com/RedJue)
+- 🆕 ColorPicker now supports new features such as `showText`, `destroyTooltipOnHide`, `onChangeComplete`, `panelRender` and `size`.
+  - [#42865](https://github.com/ant-design/ant-design/pull/42865) [@RedJue](https://github.com/RedJue)
+  - [#42645](https://github.com/ant-design/ant-design/pull/42645) [@linxianxi](https://github.com/linxianxi)
+  - [#43370](https://github.com/ant-design/ant-design/pull/43370) [@RedJue](https://github.com/RedJue)
+  - [#43134](https://github.com/ant-design/ant-design/pull/43134) [@RedJue](https://github.com/RedJue)
+  - [#43116](https://github.com/ant-design/ant-design/pull/43116) [@RedJue](https://github.com/RedJue)
 - 🆕 The following components now support hiding the close button by setting `closeIcon` to null or false:
   - Drawer [#42993](https://github.com/ant-design/ant-design/pull/42993) [@kiner-tang](https://github.com/kiner-tang)
   - Alert（(also deprecating the closeText property) [#42962](https://github.com/ant-design/ant-design/pull/42962) [@kiner-tang](https://github.com/kiner-tang)
   - Notifaction [#42927](https://github.com/ant-design/ant-design/pull/42927) [@kiner-tang](https://github.com/kiner-tang)
   -  Tag [#43109](https://github.com/ant-design/ant-design/pull/43109) [@kiner-tang](https://github.com/kiner-tang)
-  -  Tab [#43098](https://github.com/ant-design/ant-design/pull/43098) [@kiner-tang](https://github.com/kiner-tang)
+  -  Tabs [#43098](https://github.com/ant-design/ant-design/pull/43098) [@kiner-tang](https://github.com/kiner-tang)
   -  Modal [#43017](https://github.com/ant-design/ant-design/pull/43017) [@kiner-tang](<https://github.com/kiner-tang>)
 - 🆕 Badge now supports `classNames` and `styles` properties. [#43245](https://github.com/ant-design/ant-design/pull/43245) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 Added `replace` property to Anchor.[#43006](https://github.com/ant-design/ant-design/pull/43006) [@ds1371dani](https://github.com/ds1371dani)
@@ -58,12 +63,15 @@ RTL[#42428](https://github.com/ant-design/ant-design/pull/42428) [@heiyu4585](ht
   - 🤖 Progress now supports animations in rtl direction.[#43316](https://github.com/ant-design/ant-design/pull/43316) [@Yuiai01](https://github.com/Yuiai01)
 - TypeScript
   - 🤖 Added `RawPurePanelProps` interface description for Popover.[#43453](https://github.com/ant-design/ant-design/pull/43453) [@thinkasany](https://github.com/thinkasany)
-  - 🤖 Replaced unknown ref type with TooltipRef for Popconfirm.[#43452](https://github.com/ant-design/ant-design/pull/43452) [@thinkasany](https://github.com/thinkasany)
-  - 🤖 Replaced unknown ref type with TooltipRef for Popover.[#43450](https://github.com/ant-design/ant-design/pull/43450) [@Negentropy247](https://github.com/Negentropy247)
+  - 🤖 Replaced `ref` type with `TooltipRef` instead of `unknown` for `Popconfirm`.[#43452](https://github.com/ant-design/ant-design/pull/43452) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 Replaced `ref` type with `TooltipRef` instead of `unknown` for Popover.[#43450](https://github.com/ant-design/ant-design/pull/43450) [@Negentropy247](https://github.com/Negentropy247)
   - 🤖 Improved type declaration of `GroupSizeContext` in ButtonGroup.[#43439](https://github.com/ant-design/ant-design/pull/43439) [@thinkasany](https://github.com/thinkasany)
   - 🤖 Improved type declaration of `mode` property in Select.[#43413](https://github.com/ant-design/ant-design/pull/43413) [@thinkasany](https://github.com/thinkasany)
-  - 🤖 Replaced unknown ref type with CheckboxRef for Checkbox.[#43424](https://github.com/ant-design/ant-design/pull/43424) [@li-jia-nan](https://github.com/li-jia-nan)
-  - 🤖 Improved internal type implementation for Table/Tag/Notification. [#43366](https://github.com/ant-design/ant-design/pull/43366) [@li-jia-nan](https://github.com/li-jia-nan)，[#43357](https://github.com/ant-design/ant-design/pull/43357) [@thinkasany](https://github.com/thinkasany)，[#43351](https://github.com/ant-design/ant-design/pull/43351) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 Replaced `ref` type with `CheckboxRef` instead of `unknown` for Checkbox.[#43424](https://github.com/ant-design/ant-design/pull/43424) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🤖 Improved internal type implementation for Table/Tag/Notification.
+    - [#43366](https://github.com/ant-design/ant-design/pull/43366) [@li-jia-nan](https://github.com/li-jia-nan)
+    - [#43357](https://github.com/ant-design/ant-design/pull/43357) [@thinkasany](https://github.com/thinkasany)
+    - [#43351](https://github.com/ant-design/ant-design/pull/43351) [@thinkasany](https://github.com/thinkasany)
 
 ## 5.6.4
 
