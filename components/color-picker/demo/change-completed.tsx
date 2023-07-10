@@ -1,14 +1,18 @@
 import { App, ColorPicker } from 'antd';
-import React from 'react';
+import type { ColorPickerProps } from 'antd/es/color-picker';
+import React, { useState } from 'react';
 
 const Demo = () => {
   const { message } = App.useApp();
+  const [value, setValue] = useState<ColorPickerProps['value']>('#1677ff');
   return (
     <App>
       <ColorPicker
-        onChangeComplete={(color) =>
-          message.success(`The selected color is ${color.toHexString()}`)
-        }
+        value={value}
+        onChangeComplete={(color) => {
+          setValue(color);
+          message.success(`The selected color is ${color.toHexString()}`);
+        }}
       />
     </App>
   );

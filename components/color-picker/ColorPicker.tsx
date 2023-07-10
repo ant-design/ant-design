@@ -144,13 +144,12 @@ const ColorPicker: CompoundedComponent = (props) => {
         color = generateColor(hsba);
       }
     }
-    if (!value) {
-      setColorValue(color);
-    }
     // Only for drag-and-drop color picking
     if (pickColor) {
       popupAllowCloseRef.current = false;
     }
+
+    setColorValue(color);
     onChange?.(color, color.toHexString());
   };
 
@@ -210,7 +209,7 @@ const ColorPicker: CompoundedComponent = (props) => {
           open={popupOpen}
           className={mergeCls}
           style={mergedStyle}
-          color={colorValue}
+          color={value ? generateColor(value) : colorValue}
           prefixCls={prefixCls}
           disabled={disabled}
           colorCleared={colorCleared}
