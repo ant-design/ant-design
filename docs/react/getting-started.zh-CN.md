@@ -105,6 +105,6 @@ createRoot(document.getElementById('root')).render(<App />);
 
 ## 自行构建
 
-如果想自己维护工作流，我们推荐使用 [webpack](https://webpack.js.org) 进行构建和调试，可以使用 React 生态圈中的 [各种脚手架](https://github.com/enaqx/awesome-react#react-tools) 进行开发。
+如果想自己维护工作流，我们推荐使用 [webpack](https://webpack.js.org) 或者 [vite](https://cn.vitejs.dev/) 进行构建和调试，可以使用 React 生态圈中的 [各种脚手架](https://github.com/enaqx/awesome-react#react-tools) 进行开发。
 
 目前社区也有很多基于 antd 定制的 [React 脚手架](https://scaffold.ant.design/)，欢迎进行试用和贡献。

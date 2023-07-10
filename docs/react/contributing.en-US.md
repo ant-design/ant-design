@@ -55,6 +55,7 @@ The core team is monitoring for pull requests. We will review your pull request 
 5. Run `npm test -- -u` to update the [jest snapshots](https://jestjs.io/docs/snapshot-testing) and commit these changes as well (if there are any updates).
 6. Ensure the UI change passes `npm run test-image`，Run `npm run test-image -- -u` to update UI snapshots and commit these changes as well (if there are any updates), **UI test base on [Docker](https://docs.docker.com/get-docker/), need download the corresponding installation according to the platform**
 7. Make sure your code lints (npm run lint). Tip: Lint runs automatically when you `git commit` (Use [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)).
+8. Finally, please make sure that all GitHub CI checks pass, if they fail, you can click `detail` to enter the details to view the reason.
 
 Sending a Pull Request to [react-component](https://github.com/react-component/):
 

@@ -113,6 +113,6 @@ Jest does not support `esm` modules, and Ant Design uses them. In order to test 
 
 ## Customize your Workflow
 
-If you want to customize your workflow, we recommend using [webpack](https://webpack.js.org) to build and debug code. You can try out plenty of [boilerplates](https://github.com/enaqx/awesome-react#react-tools) available in the React ecosystem.
+If you want to customize your workflow, we recommend using [webpack](https://webpack.js.org) or [vite](https://vitejs.dev/) to build and debug code. You can try out plenty of [boilerplates](https://github.com/enaqx/awesome-react#react-tools) available in the React ecosystem.
 
 There are also some [scaffolds](https://scaffold.ant.design/) which have already been integrated into antd, so you can try and start with one of these and even contribute.
