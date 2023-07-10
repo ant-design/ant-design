@@ -150,7 +150,7 @@ Then add the corresponding CSS file on the HTML template side:
 </html>
 ```
 
-Click [here](https://github.com/ant-design/create-next-app-antd/tree/generate-css-on-demand) for complete implementation.
+Click [here](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-generate-css-on-demand) for complete implementation.
 
 Corresponding CSS will be generated when visiting different pages, and each CSS will have its corresponding Hash value. When the Hash hits, it means that the CSS file has been placed on the disk and can be used directly. Then, for the client, it is a normal CSS file access and also enjoys the caching capability.
 

@@ -859,6 +859,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         ['colorActiveBarWidth', 'activeBarWidth'],
         ['colorActiveBarHeight', 'activeBarHeight'],
         ['colorActiveBarBorderSize', 'activeBarBorderWidth'],
+        ['colorItemBgSelected', 'itemSelectedBg'],
       ],
     },
   );

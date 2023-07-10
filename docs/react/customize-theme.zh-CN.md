@@ -407,7 +407,7 @@ fs.writeFileSync(outputPath, css);
 
 你可以选择在启动开发命令或编译前执行这个脚本，运行上述脚本将会在当前项目的指定（如： public 目录）目录下直接生成一个全量的 antd.min.css 文件。
 
-以 Next.js 为例（[参考示例](https://github.com/ant-design/create-next-app-antd)）：
+以 Next.js 为例（[参考示例](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-inline-style)）：
 
 ```json
 // package.json
@@ -601,7 +601,7 @@ export default class MyDocument extends Document {
 }
 ```
 
-演示示例请看：[按需抽取样式示例](https://github.com/ant-design/create-next-app-antd/tree/generate-css-on-demand)
+演示示例请看：[按需抽取样式示例](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-generate-css-on-demand)
 
 ### 兼容旧版浏览器
 

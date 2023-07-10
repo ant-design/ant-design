@@ -55,6 +55,7 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 5. 运行 `npm test -- -u` 来更新 [jest snapshot](https://jestjs.io/zh-Hans/docs/snapshot-testing) 并且把这些更新也提交上来（如果有的话）。
 6. 确认所有的 UI 改动通过 `npm run test-image`，可以运行 `npm run test-image -- -u` 更新 UI 快照并且把这些更新也提交上来（如果有的话），**UI 测试基于 [Docker](https://docs.docker.com/get-docker/)，根据平台下载对应的安装程序。**
 7. 确保你的代码通过了 lint 检查 `npm run lint`. 小贴士: Lint 会在你 `git commit` 的时候自动运行（通过[Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)）。
+8. 最后请确保所有 GitHub CI 检查通过，如果失败，可点击 `detail` 进入详情查看原因。
 
 给 [react-component](https://github.com/react-component/) 发送 pull request：
 

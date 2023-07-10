@@ -24,15 +24,15 @@ Open the browser at http://localhost:3000/. if you see the NEXT logo, it is cons
 
 ## Import antd
 
-Now we install `antd` from yarn or npm.
+Now we install `antd` from yarn or npm or pnpm.
 
-```bash
-$ npm install antd --save
-```
+<InstallDependencies npm='$ npm install antd --save' yarn='$ yarn add antd' pnpm='$ pnpm install antd --save'></InstallDependencies>
 
 Modify `src/app/page.tsx`, import Button component from `antd`.
 
 ```jsx
+'use client';
+
 import React from 'react';
 import { Button } from 'antd';
 
