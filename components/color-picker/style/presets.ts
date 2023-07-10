@@ -73,7 +73,7 @@ const genPresetsStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
             boxSizing: 'border-box',
             position: 'absolute',
             top: '50%',
-            insetInlineStart: '22.5%',
+            insetInlineStart: '21.5%',
             display: 'table',
             width: (colorPickerPresetColorSize / 13) * 5,
             height: (colorPickerPresetColorSize / 13) * 8,

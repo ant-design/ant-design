@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
 import warning from '../_util/warning';
-import type { DirectionType } from '../config-provider';
+import type { ConfigConsumerProps, DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 
@@ -38,9 +38,14 @@ const Typography = React.forwardRef<
     setContentRef,
     children,
     direction: typographyDirection,
+    style,
     ...restProps
   } = props;
-  const { getPrefixCls, direction: contextDirection } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction: contextDirection,
+    typography,
+  } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
   const direction = typographyDirection ?? contextDirection;
 
@@ -57,6 +62,7 @@ const Typography = React.forwardRef<
 
   const componentClassName = classNames(
     prefixCls,
+    typography?.className,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
@@ -65,9 +71,11 @@ const Typography = React.forwardRef<
     hashId,
   );
 
+  const mergedStyle: React.CSSProperties = { ...typography?.style, ...style };
+
   return wrapSSR(
     // @ts-expect-error: Expression produces a union type that is too complex to represent.
-    <Component className={componentClassName} ref={mergedRef} {...restProps}>
+    <Component className={componentClassName} style={mergedStyle} ref={mergedRef} {...restProps}>
       {children}
     </Component>,
   );

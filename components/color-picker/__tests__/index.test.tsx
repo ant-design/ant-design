@@ -329,4 +329,87 @@ describe('ColorPicker', () => {
 
     expect(container.querySelector('.ant-color-picker-presets-color-bright')).toBeFalsy();
   });
+
+  it('Should showText as render function work', async () => {
+    const { container } = render(<ColorPicker showText={(color) => color.toHexString()} />);
+    const targetEle = container.querySelector('.ant-color-picker-trigger-text');
+    expect(targetEle).toBeTruthy();
+    expect(targetEle?.innerHTML).toBe('#1677ff');
+  });
+
+  it('Should showText work', async () => {
+    const { container } = render(<ColorPicker open showText />);
+    const targetEle = container.querySelector('.ant-color-picker-trigger-text');
+    expect(targetEle).toBeTruthy();
+
+    fireEvent.mouseDown(
+      container.querySelector('.ant-color-picker-format-select .ant-select-selector')!,
+    );
+    await waitFakeTimer();
+    fireEvent.click(container.querySelector('.ant-select-item[title="HSB"]')!);
+    await waitFakeTimer();
+    expect(targetEle?.innerHTML).toEqual('hsb(215, 91%, 100%)');
+
+    fireEvent.mouseDown(
+      container.querySelector('.ant-color-picker-format-select .ant-select-selector')!,
+    );
+    await waitFakeTimer();
+    fireEvent.click(container.querySelector('.ant-select-item[title="RGB"]')!);
+    await waitFakeTimer();
+    expect(targetEle?.innerHTML).toEqual('rgb(22, 119, 255)');
+
+    fireEvent.mouseDown(
+      container.querySelector('.ant-color-picker-format-select .ant-select-selector')!,
+    );
+    await waitFakeTimer();
+    fireEvent.click(container.querySelector('.ant-select-item[title="HEX"]')!);
+    await waitFakeTimer();
+    expect(targetEle?.innerHTML).toEqual('#1677FF');
+  });
+
+  it('Should size work', async () => {
+    const { container: lg } = render(<ColorPicker size="large" />);
+    expect(lg.querySelector('.ant-color-picker-lg')).toBeTruthy();
+    const { container: sm } = render(<ColorPicker size="small" />);
+    expect(sm.querySelector('.ant-color-picker-sm')).toBeTruthy();
+  });
+
+  it('Should panelRender work', async () => {
+    const { container: panelContainer } = render(
+      <ColorPicker open panelRender={(panel) => <div className="custom-panel">{panel}</div>} />,
+    );
+    expect(panelContainer.querySelector('.custom-panel')).toBeTruthy();
+    expect(panelContainer.querySelector('.ant-color-picker-inner-content')).toBeTruthy();
+    expect(panelContainer).toMatchSnapshot();
+
+    const { container: componentContainer } = render(
+      <ColorPicker
+        open
+        panelRender={(_, { components: { Picker, Presets } }) => (
+          <div className="custom-panel">
+            <Picker />
+            <Presets />
+          </div>
+        )}
+      />,
+    );
+    expect(componentContainer.querySelector('.custom-panel')).toBeTruthy();
+    expect(componentContainer.querySelector('.ant-color-picker-inner-content')).toBeTruthy();
+    expect(componentContainer).toMatchSnapshot();
+  });
+
+  it('Should onChangeComplete work', async () => {
+    spyElementPrototypes(HTMLElement, {
+      getBoundingClientRect: () => ({
+        x: 0,
+        y: 100,
+        width: 100,
+        height: 100,
+      }),
+    });
+    const handleChangeComplete = jest.fn();
+    const { container } = render(<ColorPicker open onChangeComplete={handleChangeComplete} />);
+    doMouseMove(container, 0, 999);
+    expect(handleChangeComplete).toHaveBeenCalledTimes(1);
+  });
 });

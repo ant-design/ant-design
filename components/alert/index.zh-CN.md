@@ -26,7 +26,6 @@ group:
 <code src="./demo/closable.tsx">可关闭的警告提示</code>
 <code src="./demo/description.tsx">含有辅助性文字介绍</code>
 <code src="./demo/icon.tsx">图标</code>
-<code src="./demo/close-text.tsx">自定义关闭</code>
 <code src="./demo/banner.tsx" iframe="250">顶部公告</code>
 <code src="./demo/loop-banner.tsx">轮播的公告</code>
 <code src="./demo/smooth-closed.tsx">平滑地卸载</code>
@@ -41,9 +40,7 @@ group:
 | action | 自定义操作项 | ReactNode | - | 4.9.0 |
 | afterClose | 关闭动画结束后触发的回调函数 | () => void | - |  |
 | banner | 是否用作顶部公告 | boolean | false |  |
-| closable | 默认不显示关闭按钮 | boolean | - |  |
-| closeText | 自定义关闭按钮 | ReactNode | - |  |
-| closeIcon | 自定义关闭 Icon | ReactNode | `<CloseOutlined />` | 4.18.0 |
+| closeIcon | 自定义关闭 Icon，>=5.7.0: 设置为 `null` 或 `false` 时隐藏关闭按钮 | boolean \| ReactNode | `<CloseOutlined />` |  |
 | description | 警告提示的辅助性文字介绍 | ReactNode | - |  |
 | icon | 自定义图标，`showIcon` 为 true 时有效 | ReactNode | - |  |
 | message | 警告提示内容 | ReactNode | - |  |

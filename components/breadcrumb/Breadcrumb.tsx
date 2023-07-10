@@ -89,7 +89,7 @@ const Breadcrumb = <T extends Record<PropertyKey, any> = any>(props: BreadcrumbP
     ...restProps
   } = props;
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, breadcrumb } = React.useContext(ConfigContext);
 
   let crumbs: React.ReactNode;
   const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
@@ -197,6 +197,7 @@ const Breadcrumb = <T extends Record<PropertyKey, any> = any>(props: BreadcrumbP
 
   const breadcrumbClassName = classNames(
     prefixCls,
+    breadcrumb?.className,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
@@ -205,8 +206,10 @@ const Breadcrumb = <T extends Record<PropertyKey, any> = any>(props: BreadcrumbP
     hashId,
   );
 
+  const mergedStyle: React.CSSProperties = { ...breadcrumb?.style, ...style };
+
   return wrapSSR(
-    <nav className={breadcrumbClassName} style={style} {...restProps}>
+    <nav className={breadcrumbClassName} style={mergedStyle} {...restProps}>
       <ol>{crumbs}</ol>
     </nav>,
   );

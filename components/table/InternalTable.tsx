@@ -175,6 +175,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const {
     locale: contextLocale = defaultLocale,
     direction,
+    table,
     renderEmpty,
     getPrefixCls,
     getPopupContainer: getContextPopupContainer,
@@ -516,6 +517,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   const wrapperClassNames = classNames(
     `${prefixCls}-wrapper`,
+    table?.className,
     {
       [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
     },
@@ -524,12 +526,14 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     hashId,
   );
 
+  const mergedStyle: React.CSSProperties = { ...table?.style, ...style };
+
   const emptyText = (locale && locale.emptyText) || renderEmpty?.('Table') || (
     <DefaultRenderEmpty componentName="Table" />
   );
 
   return wrapSSR(
-    <div ref={ref} className={wrapperClassNames} style={style}>
+    <div ref={ref} className={wrapperClassNames} style={mergedStyle}>
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
         <RcTable<RecordType>

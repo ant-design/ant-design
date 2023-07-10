@@ -41,13 +41,14 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   const override = React.useContext(OverrideContext);
   const overrideObj = override || {};
 
-  const { getPrefixCls, getPopupContainer, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, getPopupContainer, direction, menu } = React.useContext(ConfigContext);
 
   const rootPrefixCls = getPrefixCls();
 
   const {
     prefixCls: customizePrefixCls,
     className,
+    style,
     theme = 'light',
     expandIcon,
     _internalDisableMenuItemTitleTooltip,
@@ -119,7 +120,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('menu', customizePrefixCls || overrideObj.prefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls, !override);
-  const menuClassName = classNames(`${prefixCls}-${theme}`, className);
+  const menuClassName = classNames(`${prefixCls}-${theme}`, menu?.className, className);
 
   // ====================== Expand Icon ========================
   let mergedExpandIcon: MenuProps[`expandIcon`];
@@ -163,6 +164,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
           onClick={onItemClick}
           {...passedProps}
           inlineCollapsed={mergedInlineCollapsed}
+          style={{ ...menu?.style, ...style }}
           className={menuClassName}
           prefixCls={prefixCls}
           direction={direction}

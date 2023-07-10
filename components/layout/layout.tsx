@@ -82,12 +82,13 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
     children,
     hasSider,
     tagName: Tag,
+    style,
     ...others
   } = props;
 
   const passedProps = omit(others, ['suffixCls']);
 
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, layout } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('layout', customizePrefixCls);
 
   const [wrapSSR, hashId] = useStyle(prefixCls as string);
@@ -97,6 +98,7 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
       [`${prefixCls}-has-sider`]: typeof hasSider === 'boolean' ? hasSider : siders.length > 0,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
+    layout?.className,
     className,
     rootClassName,
     hashId,
@@ -118,7 +120,12 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
 
   return wrapSSR(
     <LayoutContext.Provider value={contextValue}>
-      <Tag ref={ref} className={classString} {...passedProps}>
+      <Tag
+        ref={ref}
+        className={classString}
+        style={{ ...layout?.style, ...style }}
+        {...passedProps}
+      >
         {children}
       </Tag>
     </LayoutContext.Provider>,
@@ -148,6 +155,6 @@ const Content = generator({
   displayName: 'Content',
 })(Basic);
 
-export { Header, Footer, Content };
+export { Content, Footer, Header };
 
 export default Layout;

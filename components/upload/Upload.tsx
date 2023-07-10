@@ -329,7 +329,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     upload: upload.current,
   }));
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, upload: ctxUpload } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
 
@@ -405,30 +405,30 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     );
   };
 
-  const rtlCls = {
+  const wrapperCls = classNames(`${prefixCls}-wrapper`, className, hashId, ctxUpload?.className, {
     [`${prefixCls}-rtl`]: direction === 'rtl',
-  };
+    [`${prefixCls}-picture-card-wrapper`]: listType === 'picture-card',
+    [`${prefixCls}-picture-circle-wrapper`]: listType === 'picture-circle',
+  });
+
+  const mergedStyle: React.CSSProperties = { ...ctxUpload?.style, ...style };
 
   if (type === 'drag') {
-    const dragCls = classNames(
-      prefixCls,
-      {
-        [`${prefixCls}-drag`]: true,
-        [`${prefixCls}-drag-uploading`]: mergedFileList.some((file) => file.status === 'uploading'),
-        [`${prefixCls}-drag-hover`]: dragState === 'dragover',
-        [`${prefixCls}-disabled`]: mergedDisabled,
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-      },
-      hashId,
-    );
+    const dragCls = classNames(hashId, prefixCls, `${prefixCls}-drag`, {
+      [`${prefixCls}-drag-uploading`]: mergedFileList.some((file) => file.status === 'uploading'),
+      [`${prefixCls}-drag-hover`]: dragState === 'dragover',
+      [`${prefixCls}-disabled`]: mergedDisabled,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    });
+
     return wrapSSR(
-      <span className={classNames(`${prefixCls}-wrapper`, rtlCls, className, hashId)}>
+      <span className={wrapperCls}>
         <div
           className={dragCls}
+          style={mergedStyle}
           onDrop={onFileDrop}
           onDragOver={onFileDrop}
           onDragLeave={onFileDrop}
-          style={style}
         >
           <RcUpload {...rcUploadProps} ref={upload} className={`${prefixCls}-btn`}>
             <div className={`${prefixCls}-drag-container`}>{children}</div>
@@ -453,25 +453,12 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   if (listType === 'picture-card' || listType === 'picture-circle') {
     return wrapSSR(
-      <span
-        className={classNames(
-          `${prefixCls}-wrapper`,
-          {
-            [`${prefixCls}-picture-card-wrapper`]: listType === 'picture-card',
-            [`${prefixCls}-picture-circle-wrapper`]: listType === 'picture-circle',
-          },
-          rtlCls,
-          className,
-          hashId,
-        )}
-      >
-        {renderUploadList(uploadButton, !!children)}
-      </span>,
+      <span className={wrapperCls}>{renderUploadList(uploadButton, !!children)}</span>,
     );
   }
 
   return wrapSSR(
-    <span className={classNames(`${prefixCls}-wrapper`, rtlCls, className, hashId)}>
+    <span className={wrapperCls}>
       {uploadButton}
       {renderUploadList()}
     </span>,

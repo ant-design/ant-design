@@ -5,9 +5,14 @@ import { warning } from 'rc-util';
 import { useContext } from 'react';
 import { ConfigContext } from '../../config-provider/context';
 import { genCommonStyle, genLinkStyle } from '../../style';
-import type { ComponentTokenMap, GlobalToken, OverrideToken } from '../interface';
-import type { UseComponentStyleResult } from '../internal';
-import { mergeToken, statisticToken, useToken } from '../internal';
+import type {
+  ComponentTokenMap,
+  GlobalToken,
+  OverrideToken,
+  UseComponentStyleResult,
+} from '../interface';
+import useToken from '../useToken';
+import statisticToken, { merge as mergeToken } from './statistic';
 
 export type OverrideTokenWithoutDerivative = ComponentTokenMap;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;

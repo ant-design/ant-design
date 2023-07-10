@@ -43,70 +43,74 @@ type CompoundedComponent = React.ForwardRefExoticComponent<
   __ANT_SWITCH: boolean;
 };
 
-const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
-  (
+const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => {
+  const {
+    prefixCls: customizePrefixCls,
+    size: customizeSize,
+    disabled: customDisabled,
+    loading,
+    className,
+    rootClassName,
+    style,
+    ...restProps
+  } = props;
+
+  warning(
+    'checked' in props || !('value' in props),
+    'Switch',
+    '`value` is not a valid prop, do you mean `checked`?',
+  );
+
+  const { getPrefixCls, direction, switch: SWITCH } = React.useContext(ConfigContext);
+
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = (customDisabled ?? disabled) || loading;
+
+  const prefixCls = getPrefixCls('switch', customizePrefixCls);
+
+  const loadingIcon = (
+    <div className={`${prefixCls}-handle`}>
+      {loading && <LoadingOutlined className={`${prefixCls}-loading-icon`} />}
+    </div>
+  );
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const mergedSize = useSize(customizeSize);
+
+  const classes = classNames(
+    SWITCH?.className,
     {
-      prefixCls: customizePrefixCls,
-      size: customizeSize,
-      disabled: customDisabled,
-      loading,
-      className,
-      rootClassName,
-      ...props
+      [`${prefixCls}-small`]: mergedSize === 'small',
+      [`${prefixCls}-loading`]: loading,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     },
-    ref,
-  ) => {
-    warning(
-      'checked' in props || !('value' in props),
-      'Switch',
-      '`value` is not a valid prop, do you mean `checked`?',
-    );
+    className,
+    rootClassName,
+    hashId,
+  );
 
-    const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const mergedStyle: React.CSSProperties = { ...SWITCH?.style, ...style };
 
-    // ===================== Disabled =====================
-    const disabled = React.useContext(DisabledContext);
-    const mergedDisabled = (customDisabled ?? disabled) || loading;
-
-    const prefixCls = getPrefixCls('switch', customizePrefixCls);
-    const loadingIcon = (
-      <div className={`${prefixCls}-handle`}>
-        {loading && <LoadingOutlined className={`${prefixCls}-loading-icon`} />}
-      </div>
-    );
-
-    // Style
-    const [wrapSSR, hashId] = useStyle(prefixCls);
-
-    const mergedSize = useSize(customizeSize);
-
-    const classes = classNames(
-      {
-        [`${prefixCls}-small`]: mergedSize === 'small',
-        [`${prefixCls}-loading`]: loading,
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-      },
-      className,
-      rootClassName,
-      hashId,
-    );
-
-    return wrapSSR(
-      <Wave>
-        <RcSwitch
-          {...props}
-          prefixCls={prefixCls}
-          className={classes}
-          disabled={mergedDisabled}
-          ref={ref}
-          loadingIcon={loadingIcon}
-        />
-      </Wave>,
-    );
-  },
-) as CompoundedComponent;
+  return wrapSSR(
+    <Wave>
+      <RcSwitch
+        {...restProps}
+        prefixCls={prefixCls}
+        className={classes}
+        style={mergedStyle}
+        disabled={mergedDisabled}
+        ref={ref}
+        loadingIcon={loadingIcon}
+      />
+    </Wave>,
+  );
+}) as CompoundedComponent;
 
 Switch.__ANT_SWITCH = true;
+
 if (process.env.NODE_ENV !== 'production') {
   Switch.displayName = 'Switch';
 }
