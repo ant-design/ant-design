@@ -5,8 +5,9 @@ import type {
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties, FC } from 'react';
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useMemo, useRef, useState } from 'react';
 import genPurePanel from '../_util/PurePanel';
+import warning from '../_util/warning';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
@@ -83,7 +84,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     size: customizeSize,
     rootClassName,
     styles,
-    disabledAlpha,
+    disabledAlpha = false,
     onFormatChange,
     onChange,
     onClear,
@@ -116,6 +117,8 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
+  const isAlphaColor = useMemo(() => getAlphaColor(colorValue) < 100, [colorValue]);
+
   // ===================== Style =====================
   const mergedSize = useSize(customizeSize);
   const [wrapSSR, hashId] = useStyle(prefixCls);
@@ -135,6 +138,15 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const popupAllowCloseRef = useRef(true);
 
+  // ===================== Warning ======================
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !(disabledAlpha && isAlphaColor),
+      'ColorPicker',
+      '`disabledAlpha` will make the alpha to be 100% when use alpha color.',
+    );
+  }
+
   const handleChange = (data: Color, type?: HsbaColorType, pickColor?: boolean) => {
     let color: Color = generateColor(data);
     if (colorCleared) {
@@ -145,7 +157,7 @@ const ColorPicker: CompoundedComponent = (props) => {
       }
     }
     // ignore alpha color
-    if (disabledAlpha && getAlphaColor(color) < 100) {
+    if (disabledAlpha && isAlphaColor) {
       color = genAlphaColor(color);
     }
     // Only for drag-and-drop color picking
@@ -166,7 +178,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     popupAllowCloseRef.current = true;
     let changeColor = generateColor(color);
     // ignore alpha color
-    if (disabledAlpha && getAlphaColor(color) < 100) {
+    if (disabledAlpha && isAlphaColor) {
       changeColor = genAlphaColor(color);
     }
     onChangeComplete?.(changeColor);
