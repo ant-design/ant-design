@@ -17,35 +17,21 @@ timeline: true
 
 ## 5.7.0
 
-`2023-07-10`
+`2023-07-11`
 
-- 🆕 ConfigProvider 支持所有组件的 className 和 style 属性控制。感谢 [@Yuiai01](https://github.com/Yuiai01)、[@li-jia-nan](https://github.com/li-jia-nan) 和 [@MuxinFeng](https://github.com/MuxinFeng) 的贡献。
+- 🆕 ConfigProvider 支持所有组件的 `className` 和 `style` 属性控制。感谢 [@Yuiai01](https://github.com/Yuiai01)、[@li-jia-nan](https://github.com/li-jia-nan) 和 [@MuxinFeng](https://github.com/MuxinFeng) 的贡献。
 - 🆕 ColorPicker 支持 `showText`、`destroyTooltipOnHide`、`onChangeComplete`、`panelRender`、`size` 等新特性。
   - [#42865](https://github.com/ant-design/ant-design/pull/42865) [@RedJue](https://github.com/RedJue)
   - [#42645](https://github.com/ant-design/ant-design/pull/42645) [@linxianxi](https://github.com/linxianxi)
   - [#43370](https://github.com/ant-design/ant-design/pull/43370) [@RedJue](https://github.com/RedJue)
   - [#43134](https://github.com/ant-design/ant-design/pull/43134) [@RedJue](https://github.com/RedJue)
   - [#43116](https://github.com/ant-design/ant-design/pull/43116) [@RedJue](https://github.com/RedJue)
-- 🆕 以下组件已支持通过设置 `closeIcon` 为 null 或 false 隐藏关闭按钮
-  - Drawer [#42993](https://github.com/ant-design/ant-design/pull/42993) [@kiner-tang](https://github.com/kiner-tang)
-  - Alert（同时废弃 `closeText` 属性）[#42962](https://github.com/ant-design/ant-design/pull/42962) [@kiner-tang](https://github.com/kiner-tang)
-  - Notifaction [#42927](https://github.com/ant-design/ant-design/pull/42927) [@kiner-tang](https://github.com/kiner-tang)
-  -  Tag [#43109](https://github.com/ant-design/ant-design/pull/43109) [@kiner-tang](https://github.com/kiner-tang)
-  -  Tabs [#43098](https://github.com/ant-design/ant-design/pull/43098) [@kiner-tang](https://github.com/kiner-tang)
-  -  Modal [#43017](https://github.com/ant-design/ant-design/pull/43017) [@kiner-tang](<https://github.com/kiner-tang>)
+- 🆕 Alert、Drawer、Modal、Notifaction、Tag、Tabs 均已支持通过设置 `closeIcon` 为 null 或 false 隐藏关闭按钮。 [#42828](https://github.com/ant-design/ant-design/discussions/42828) [@kiner-tang](https://github.com/kiner-tang)
 - 🆕 Badge 支持 `classNames` 属性和 `styles` 属性。[#43245](https://github.com/ant-design/ant-design/pull/43245) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🆕 为 Anchor 添加 `replace` 属性。[#43006](https://github.com/ant-design/ant-design/pull/43006) [@ds1371dani](https://github.com/ds1371dani)
-- 🛠 rc-input-number 用 baseInput 重构 (#42762)。[#42762](https://github.com/ant-design/ant-design/pull/42762) [@muxin](https://github.com/muxin)
-- 🛠 解决组件之间循环依赖问题
-  - Alert  [#42801](https://github.com/ant-design/ant-design/pull/42801) [@jrr997](https://github.com/jrr997)
-  - Checkbox [#42803](https://github.com/ant-design/ant-design/pull/42803) [@jrr997](https://github.com/jrr997)
-  - Color Picker [#42843](https://github.com/ant-design/ant-design/pull/42843) [@MuxinFeng](https://github.com/MuxinFeng)
-  - DatePicker [#42809](https://github.com/ant-design/ant-design/pull/42809) [@jrr997](https://github.com/jrr997)
-  - Description [#42812](https://github.com/ant-design/ant-design/pull/42812) [@jrr997](https://github.com/jrr997)
-  - Table [#42813](https://github.com/ant-design/ant-design/pull/42813) [@jrr997](https://github.com/jrr997)
-  - useSize [#42810](https://github.com/ant-design/ant-design/pull/42810) [@jrr997](https://github.com/jrr997)
-  - Theme [#42852](https://github.com/ant-design/ant-design/pull/42852) [@kiner-tang](https://github.com/kiner-tang)
-- 🐞 为已废弃的组件 Token `colorItemBgSelected` 添加警告。[#43461](https://github.com/ant-design/ant-design/pull/43461) [@MadCcc](https://github.com/MadCcc)
+- 🆕 Anchor 添加 `replace` 属性。[#43006](https://github.com/ant-design/ant-design/pull/43006) [@ds1371dani](https://github.com/ds1371dani)
+- 🛠 InputNumber 使用 rc-input 进行重构。[#42762](https://github.com/ant-design/ant-design/pull/42762) [@muxin](https://github.com/muxin)
+- 🛠 解决 vite、rollup、meteor、microbundle 等构建工具中遇到的循环依赖问题，并增加相关的检测。[#42750](https://github.com/ant-design/ant-design/pull/42750)，感谢 [@jrr997](https://github.com/jrr997)、[@kiner-tang](https://github.com/kiner-tang) 和 [@MuxinFeng](https://github.com/MuxinFeng) 的贡献。
+- 🐞 为 Menu 中组件 Token `colorItemBgSelected` 添加废弃警告。[#43461](https://github.com/ant-design/ant-design/pull/43461) [@MadCcc](https://github.com/MadCcc)
 - 🐞 修复一些浏览器因为未重绘导致出现滚动条的问题。[#43358](https://github.com/ant-design/ant-design/pull/43358) [@LeeeeeeM](https://github.com/LeeeeeeM)
 - 🐞 修复 Card `tabList` 为空时 Tab 完全不展示的问题。[#43416](https://github.com/ant-design/ant-design/pull/43416) [@linxianxi](https://github.com/linxianxi)
 - 🐞 修复 ConfigProvider 嵌套使用时，`form.validateMessages` 配置会丢失的问题。[#43239](https://github.com/ant-design/ant-design/pull/43239) [@Wxh16144](https://github.com/Wxh16144)
