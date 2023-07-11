@@ -1,10 +1,51 @@
-import React, { useState } from 'react';
 import { Descriptions, Divider, Radio, Switch } from 'antd';
+import type { DescriptionsProps } from 'antd/es/descriptions';
+import React, { useState } from 'react';
 
 const labelStyle: React.CSSProperties = { background: 'red' };
 const contentStyle: React.CSSProperties = { background: 'green' };
 
 type LayoutType = 'horizontal' | 'vertical' | undefined;
+
+const items: DescriptionsProps['items'] = [
+  {
+    key: '1',
+    label: 'Product',
+    children: 'Cloud Database',
+    labelStyle,
+    contentStyle,
+  },
+  {
+    key: '2',
+    label: 'Billing Mode',
+    children: 'Prepaid',
+  },
+  {
+    key: '3',
+    label: 'Automatic Renewal',
+    children: 'YES',
+  },
+];
+
+const rootStyleItems: DescriptionsProps['items'] = [
+  {
+    key: '1',
+    label: 'Product',
+    children: 'Cloud Database',
+  },
+  {
+    key: '2',
+    label: 'Billing Mode',
+    children: 'Prepaid',
+  },
+  {
+    key: '3',
+    label: 'Automatic Renewal',
+    children: 'YES',
+    labelStyle: { color: 'orange' },
+    contentStyle: { color: 'blue' },
+  },
+];
 
 const App: React.FC = () => {
   const [border, setBorder] = useState(true);
@@ -24,13 +65,7 @@ const App: React.FC = () => {
         <Radio value="vertical">vertical</Radio>
       </Radio.Group>
       <Divider />
-      <Descriptions title="User Info" bordered={border} layout={layout}>
-        <Descriptions.Item label="Product" labelStyle={labelStyle} contentStyle={contentStyle}>
-          Cloud Database
-        </Descriptions.Item>
-        <Descriptions.Item label="Billing Mode">Prepaid</Descriptions.Item>
-        <Descriptions.Item label="Automatic Renewal">YES</Descriptions.Item>
-      </Descriptions>
+      <Descriptions title="User Info" bordered={border} layout={layout} items={items} />
       <Divider />
       <Descriptions
         title="Root style"
@@ -38,17 +73,8 @@ const App: React.FC = () => {
         contentStyle={contentStyle}
         bordered={border}
         layout={layout}
-      >
-        <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
-        <Descriptions.Item label="Billing Mode">Prepaid</Descriptions.Item>
-        <Descriptions.Item
-          label="Automatic Renewal"
-          labelStyle={{ color: 'orange' }}
-          contentStyle={{ color: 'blue' }}
-        >
-          YES
-        </Descriptions.Item>
-      </Descriptions>
+        items={rootStyleItems}
+      />
     </>
   );
 };

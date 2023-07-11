@@ -12,6 +12,52 @@ Display multiple read-only fields in groups.
 
 Commonly displayed on the details page.
 
+```tsx | pure
+// works when >= 5.8.0, recommended ✅
+
+const items: DescriptionsProps['items'] = [
+  {
+    key: '1',
+    label: 'UserName',
+    children: <p>Zhou Maomao</p>,
+  },
+  {
+    key: '2',
+    label: 'Telephone',
+    children: <p>1810000000</p>,
+  },
+  {
+    key: '3',
+    label: 'Live',
+    children: <p>Hangzhou, Zhejiang</p>,
+  },
+  {
+    key: '4',
+    label: 'Remark',
+    children: <p>empty</p>,
+  },
+  {
+    key: '5',
+    label: 'Address',
+    children: <p>No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China</p>,
+  },
+];
+
+<Descriptions title="User Info" items={items} />;
+
+// works when <5.8.0 , deprecated when >=5.8.0 🙅🏻‍♀️
+
+<Descriptions title="User Info">
+  <Descriptions.Item label="UserName">Zhou Maomao</Descriptions.Item>
+  <Descriptions.Item label="Telephone">1810000000</Descriptions.Item>
+  <Descriptions.Item label="Live">Hangzhou, Zhejiang</Descriptions.Item>
+  <Descriptions.Item label="Remark">empty</Descriptions.Item>
+  <Descriptions.Item label="Address">
+    No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
+  </Descriptions.Item>
+</Descriptions>;
+```
+
 ## Examples
 
 <!-- prettier-ignore -->
@@ -36,6 +82,7 @@ Commonly displayed on the details page.
 | column | The number of `DescriptionItems` in a row,could be a number or a object like `{ xs: 8, sm: 16, md: 24}`,(Only set `bordered={true}` to take effect) | number \| [Record<Breakpoint, number>](https://github.com/ant-design/ant-design/blob/84ca0d23ae52e4f0940f20b0e22eabe743f90dca/components/descriptions/index.tsx#L111C21-L111C56) | 3 |  |
 | contentStyle | Customize content style | CSSProperties | - | 4.10.0 |
 | extra | The action area of the description list, placed at the top-right | ReactNode | - | 4.5.0 |
+| items | Describe the contents of the list item | [DescriptionsItem](/components/descriptions#descriptionitem)[] | - | 5.8.0 |
 | labelStyle | Customize label style | CSSProperties | - | 4.10.0 |
 | layout | Define description layout | `horizontal` \| `vertical` | `horizontal` |  |
 | size | Set the size of the list. Can be set to `middle`,`small`, or not filled | `default` \| `middle` \| `small` | - |  |

@@ -523,7 +523,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
               colspan="1"
             >
               <span>
-                time
+                Time
               </span>
             </th>
             <td
@@ -720,7 +720,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
                 <span
                   class="ant-descriptions-item-label"
                 >
-                  time
+                  Time
                 </span>
                 <span
                   class="ant-descriptions-item-content"
@@ -807,177 +807,176 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
 `;
 
 exports[`renders components/descriptions/demo/responsive.tsx extend context correctly 1`] = `
-<div>
+<div
+  class="ant-descriptions ant-descriptions-bordered"
+>
   <div
-    class="ant-descriptions ant-descriptions-bordered"
+    class="ant-descriptions-header"
   >
     <div
-      class="ant-descriptions-header"
+      class="ant-descriptions-title"
     >
-      <div
-        class="ant-descriptions-title"
-      >
-        Responsive Descriptions
-      </div>
+      Responsive Descriptions
     </div>
-    <div
-      class="ant-descriptions-view"
-    >
-      <table>
-        <tbody>
-          <tr
-            class="ant-descriptions-row"
+  </div>
+  <div
+    class="ant-descriptions-view"
+  >
+    <table>
+      <tbody>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
           >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                Product
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                Cloud Database
-              </span>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
+            <span>
+              Product
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
           >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                Billing
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                Prepaid
-              </span>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
+            <span>
+              Cloud Database
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
           >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                time
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                18:00:00
-              </span>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
+            <span>
+              Billing
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
           >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                Amount
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                $80.00
-              </span>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
+            <span>
+              Prepaid
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
           >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                Discount
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                $20.00
-              </span>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
+            <span>
+              Time
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
           >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                Official
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                $60.00
-              </span>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
+            <span>
+              18:00:00
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
           >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                Config Info
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                Data disk type: MongoDB
-                <br />
-                Database version: 3.4
-                <br />
-                Package: dds.mongo.mid
-                <br />
-                Storage space: 10 GB
-                <br />
-                Replication factor: 3
-                <br />
-                Region: East China 1
-              </span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+            <span>
+              Amount
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              $80.00
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Discount
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              $20.00
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Official
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              $60.00
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Config Info
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              Data disk type: MongoDB
+              <br />
+              Database version: 3.4
+              <br />
+              Package: dds.mongo.mid
+              <br />
+              Storage space: 10 GB
+              <br />
+              Replication factor: 3
+              <br />
+              Region: East China 1
+              <br />
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 `;
@@ -1125,7 +1124,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
               colspan="1"
             >
               <span>
-                time
+                Time
               </span>
             </th>
             <td
@@ -1322,7 +1321,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
                 <span
                   class="ant-descriptions-item-label"
                 >
-                  time
+                  Time
                 </span>
                 <span
                   class="ant-descriptions-item-content"

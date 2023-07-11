@@ -11,6 +11,7 @@ import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import DescriptionsContext from './DescriptionsContext';
+import type { DescriptionsItemProps } from './Item';
 import DescriptionsItem from './Item';
 import Row from './Row';
 import useStyle from './style';
@@ -98,6 +99,10 @@ interface CompoundedComponent {
   Item: typeof DescriptionsItem;
 }
 
+export interface DescriptionsItemType extends DescriptionsItemProps {
+  key?: string;
+}
+
 export interface DescriptionsProps {
   prefixCls?: string;
   className?: string;
@@ -105,6 +110,9 @@ export interface DescriptionsProps {
   style?: React.CSSProperties;
   bordered?: boolean;
   size?: 'middle' | 'small' | 'default';
+  /**
+   * @deprecated use `items` instead
+   */
   children?: React.ReactNode;
   title?: React.ReactNode;
   extra?: React.ReactNode;
@@ -113,6 +121,7 @@ export interface DescriptionsProps {
   colon?: boolean;
   labelStyle?: React.CSSProperties;
   contentStyle?: React.CSSProperties;
+  items?: DescriptionsItemType[];
 }
 
 const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) => {
@@ -131,6 +140,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     size: customizeSize,
     labelStyle,
     contentStyle,
+    items,
     ...restProps
   } = props;
   const { getPrefixCls, direction, descriptions } = React.useContext(ConfigContext);
@@ -157,8 +167,14 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     };
   }, []);
 
+  // ======================== Render ========================
+  let rowNode = children;
+  if (Array.isArray(items)) {
+    rowNode = items.map((item, index) => <DescriptionsItem {...item} key={item.key ?? index} />);
+  }
+
   // Children
-  const rows = getRows(children, mergedColumn);
+  const rows = getRows(rowNode, mergedColumn);
   const contextValue = React.useMemo(
     () => ({ labelStyle, contentStyle }),
     [labelStyle, contentStyle],
