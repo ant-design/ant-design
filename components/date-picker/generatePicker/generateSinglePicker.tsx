@@ -156,7 +156,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                 [`${prefixCls}-borderless`]: !bordered,
               },
               getStatusClassNames(
-                prefixCls as string,
+                prefixCls,
                 getMergedStatus(contextStatus, customStatus),
                 hasFeedback,
               ),
