@@ -46,7 +46,7 @@ Used when the user needs to customize the color selection.
 | children | Trigger of ColorPicker | React.ReactNode | - | |
 | defaultValue | Default value of color | string \| `Color` | - | |
 | disabled | Disable ColorPicker | boolean | - | |
-| disabledAlpha | Disable Alpha | boolean | - | 5.7.0 |
+| disabledAlpha | Disable Alpha | boolean | - | 5.8.0 |
 | destroyTooltipOnHide | Whether destroy popover when hidden | `boolean` | false | 5.7.0 |
 | format | Format of color | `rgb` \| `hex` \| `hsb` | `hex` | |
 | open | Whether to show popup | boolean | - | |
