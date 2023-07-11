@@ -367,4 +367,48 @@ describe('Modal.hook', () => {
 
     expect(afterClose).toHaveBeenCalledTimes(1);
   });
+
+  it('support await', async () => {
+    jest.useFakeTimers();
+
+    let notReady = true;
+    let lastResult: boolean | null = null;
+
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+
+      React.useEffect(() => {
+        (async () => {
+          lastResult = await modal.confirm({
+            content: <Input />,
+            onOk: async () => {
+              if (notReady) {
+                notReady = false;
+                return Promise.reject();
+              }
+            },
+          });
+        })();
+      }, []);
+
+      return contextHolder;
+    };
+
+    render(<Demo />);
+
+    // Wait for modal show
+    await waitFakeTimer();
+
+    // First time click should not close
+    fireEvent.click(document.querySelector('.ant-btn-primary')!);
+    await waitFakeTimer();
+    expect(lastResult).toBeFalsy();
+
+    // Second time click to close
+    fireEvent.click(document.querySelector('.ant-btn-primary')!);
+    await waitFakeTimer();
+    expect(lastResult).toBeTruthy();
+
+    jest.useRealTimers();
+  });
 });
