@@ -806,6 +806,145 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
 </div>
 `;
 
+exports[`renders components/descriptions/demo/jsx.tsx extend context correctly 1`] = `
+<div
+  class="ant-descriptions"
+>
+  <div
+    class="ant-descriptions-header"
+  >
+    <div
+      class="ant-descriptions-title"
+    >
+      User Info
+    </div>
+  </div>
+  <div
+    class="ant-descriptions-view"
+  >
+    <table>
+      <tbody>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                UserName
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                Zhou Maomao
+              </span>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                Telephone
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                1810000000
+              </span>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                Live
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                Hangzhou, Zhejiang
+              </span>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                Remark
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                empty
+              </span>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                Address
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
+              </span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
 exports[`renders components/descriptions/demo/responsive.tsx extend context correctly 1`] = `
 <div
   class="ant-descriptions ant-descriptions-bordered"

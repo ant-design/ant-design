@@ -70,6 +70,7 @@ const items: DescriptionsProps['items'] = [
 <code src="./demo/vertical.tsx">垂直</code>
 <code src="./demo/vertical-border.tsx">垂直带边框的</code>
 <code src="./demo/style.tsx" debug>自定义 label & wrapper 样式</code>
+<code src="./demo/jsx.tsx" debug>JSX demo</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
