@@ -51,7 +51,10 @@ export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent
 }
 
 const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProps> = (
-  {
+  props,
+  ref,
+) => {
+  const {
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
@@ -63,9 +66,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     skipGroup = false,
     disabled,
     ...restProps
-  },
-  ref,
-) => {
+  } = props;
   const { getPrefixCls, direction, checkbox } = React.useContext(ConfigContext);
   const checkboxGroup = React.useContext(GroupContext);
   const { isFormItemInput } = React.useContext(FormItemInputContext);
