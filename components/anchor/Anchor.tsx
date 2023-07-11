@@ -114,7 +114,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
   const {
     rootClassName,
     anchorPrefixCls: prefixCls,
-    className = '',
+    className,
     style,
     offsetTop,
     affix = true,
