@@ -242,7 +242,7 @@
     "inquirer": "^9.1.2",
     "isomorphic-fetch": "^3.0.0",
     "jest": "^29.4.1",
-    "jest-axe": "^7.0.0",
+    "jest-axe": "^8.0.0",
     "jest-canvas-mock": "^2.4.0",
     "jest-environment-jsdom": "^29.0.1",
     "jest-environment-node": "^29.0.0",
