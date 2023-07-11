@@ -1,6 +1,6 @@
-import { useNavigate } from 'dumi';
 import type { MouseEvent } from 'react';
 import React, { forwardRef, startTransition } from 'react';
+import { useNavigate } from 'dumi';
 
 export type LinkProps = {
   to?: string;
