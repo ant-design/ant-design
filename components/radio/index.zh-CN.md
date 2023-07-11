@@ -45,6 +45,7 @@ demo:
 | defaultChecked | 初始是否选中 | boolean | false |
 | disabled | 禁用 Radio | boolean | false |
 | value | 根据 value 进行比较，判断是否选中 | any | - |
+| name | input元素的name属性 | string | - |
 
 ### Radio.Group
 
@@ -57,7 +58,7 @@ demo:
 | defaultValue | 默认选中的值 | any | - |  |  |
 | disabled | 禁选所有子单选器 | boolean | false |  |  |
 | name | RadioGroup 下所有 `input[type="radio"]` 的 `name` 属性 | string | - |  |  |
-| options | 以配置形式设置子元素 | string\[] \| number\[] \| Array&lt;{ label: ReactNode; value: string; disabled?: boolean; }> | - |  |  |
+| options | 以配置形式设置子元素 | string\[] \| number\[] \| Array&lt;{ label: ReactNode; value: string; disabled?: boolean; name?: string; }> | - |  |  |
 | optionType | 用于设置 Radio `options` 类型 | `default` \| `button` | `default` | 4.4.0 |  |
 | size | 大小，只对按钮样式生效 | `large` \| `middle` \| `small` | - |  |  |
 | value | 用于设置当前选中的值 | any | - |  |  |

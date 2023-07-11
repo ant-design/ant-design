@@ -15,6 +15,7 @@ export interface CheckboxOptionType {
   value: CheckboxValueType;
   style?: React.CSSProperties;
   disabled?: boolean;
+  name?: string;
   title?: string;
   onChange?: (e: CheckboxChangeEvent) => void;
 }
@@ -69,6 +70,7 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
         return {
           label: option,
           value: option,
+          name: option,
         };
       }
       return option;
