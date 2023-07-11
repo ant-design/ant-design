@@ -34,19 +34,20 @@ export interface PaginationConfig extends Omit<PaginationProps, 'rootClassName'>
 
 export type { PaginationLocale };
 
-const Pagination: React.FC<PaginationProps> = ({
-  prefixCls: customizePrefixCls,
-  selectPrefixCls: customizeSelectPrefixCls,
-  className,
-  rootClassName,
-  style,
-  size: customizeSize,
-  locale: customLocale,
-  selectComponentClass,
-  responsive,
-  showSizeChanger,
-  ...restProps
-}) => {
+const Pagination: React.FC<PaginationProps> = (props) => {
+  const {
+    prefixCls: customizePrefixCls,
+    selectPrefixCls: customizeSelectPrefixCls,
+    className,
+    rootClassName,
+    style,
+    size: customizeSize,
+    locale: customLocale,
+    selectComponentClass,
+    responsive,
+    showSizeChanger,
+    ...restProps
+  } = props;
   const { xs } = useBreakpoint(responsive);
 
   const { getPrefixCls, direction, pagination = {} } = React.useContext(ConfigContext);
