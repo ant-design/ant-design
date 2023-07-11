@@ -113,7 +113,7 @@ const InternalGroup: React.ForwardRefRenderFunction<HTMLDivElement, CheckboxGrou
   const domProps = omit(restProps, ['value', 'disabled']);
 
   const childrenNode = options.length
-    ? memoOptions.map((option) => (
+    ? memoOptions.map<React.ReactNode>((option) => (
         <Checkbox
           prefixCls={prefixCls}
           key={option.value.toString()}
