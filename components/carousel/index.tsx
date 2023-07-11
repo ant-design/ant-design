@@ -29,98 +29,94 @@ export interface CarouselRef {
   innerSlider: any;
 }
 
-const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
-  (
-    {
-      dots = true,
-      arrows = false,
-      draggable = false,
-      waitForAnimate = false,
-      dotPosition = 'bottom',
-      vertical = dotPosition === 'left' || dotPosition === 'right',
-      rootClassName,
-      className: customClassName,
-      style,
-      ...props
-    },
+const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
+  const {
+    dots = true,
+    arrows = false,
+    draggable = false,
+    waitForAnimate = false,
+    dotPosition = 'bottom',
+    vertical = dotPosition === 'left' || dotPosition === 'right',
+    rootClassName,
+    className: customClassName,
+    style,
+    ...otherProps
+  } = props;
+  const { getPrefixCls, direction, carousel } = React.useContext(ConfigContext);
+  const slickRef = React.useRef<any>();
+
+  const goTo = (slide: number, dontAnimate = false) => {
+    slickRef.current.slickGoTo(slide, dontAnimate);
+  };
+
+  React.useImperativeHandle(
     ref,
-  ) => {
-    const { getPrefixCls, direction, carousel } = React.useContext(ConfigContext);
-    const slickRef = React.useRef<any>();
+    () => ({
+      goTo,
+      autoPlay: slickRef.current.innerSlider.autoPlay,
+      innerSlider: slickRef.current.innerSlider,
+      prev: slickRef.current.slickPrev,
+      next: slickRef.current.slickNext,
+    }),
+    [slickRef.current],
+  );
 
-    const goTo = (slide: number, dontAnimate = false) => {
-      slickRef.current.slickGoTo(slide, dontAnimate);
-    };
+  const prevCount = React.useRef(React.Children.count(props.children));
 
-    React.useImperativeHandle(
-      ref,
-      () => ({
-        goTo,
-        autoPlay: slickRef.current.innerSlider.autoPlay,
-        innerSlider: slickRef.current.innerSlider,
-        prev: slickRef.current.slickPrev,
-        next: slickRef.current.slickNext,
-      }),
-      [slickRef.current],
-    );
-
-    const prevCount = React.useRef(React.Children.count(props.children));
-
-    React.useEffect(() => {
-      if (prevCount.current !== React.Children.count(props.children)) {
-        goTo(props.initialSlide || 0, false);
-        prevCount.current = React.Children.count(props.children);
-      }
-    }, [props.children]);
-
-    const newProps = {
-      vertical,
-      className: classNames(customClassName, carousel?.className),
-      style: { ...carousel?.style, ...style },
-      ...props,
-    };
-
-    if (newProps.effect === 'fade') {
-      newProps.fade = true;
+  React.useEffect(() => {
+    if (prevCount.current !== React.Children.count(props.children)) {
+      goTo(props.initialSlide || 0, false);
+      prevCount.current = React.Children.count(props.children);
     }
+  }, [props.children]);
 
-    const prefixCls = getPrefixCls('carousel', newProps.prefixCls);
-    const dotsClass = 'slick-dots';
+  const newProps = {
+    vertical,
+    className: classNames(customClassName, carousel?.className),
+    style: { ...carousel?.style, ...style },
+    ...otherProps,
+  };
 
-    const enableDots = !!dots;
-    const dsClass = classNames(
-      dotsClass,
-      `${dotsClass}-${dotPosition}`,
-      typeof dots === 'boolean' ? false : dots?.className,
-    );
+  if (newProps.effect === 'fade') {
+    newProps.fade = true;
+  }
 
-    const [wrapSSR, hashId] = useStyle(prefixCls);
+  const prefixCls = getPrefixCls('carousel', newProps.prefixCls);
+  const dotsClass = 'slick-dots';
 
-    const className = classNames(
-      prefixCls,
-      {
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-        [`${prefixCls}-vertical`]: newProps.vertical,
-      },
-      hashId,
-      rootClassName,
-    );
+  const enableDots = !!dots;
+  const dsClass = classNames(
+    dotsClass,
+    `${dotsClass}-${dotPosition}`,
+    typeof dots === 'boolean' ? false : dots?.className,
+  );
 
-    return wrapSSR(
-      <div className={className}>
-        <SlickCarousel
-          ref={slickRef}
-          {...newProps}
-          dots={enableDots}
-          dotsClass={dsClass}
-          arrows={arrows}
-          draggable={draggable}
-          waitForAnimate={waitForAnimate}
-        />
-      </div>,
-    );
-  },
-);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const className = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-vertical`]: newProps.vertical,
+    },
+    hashId,
+    rootClassName,
+  );
+
+  return wrapSSR(
+    <div className={className}>
+      <SlickCarousel
+        ref={slickRef}
+        {...newProps}
+        dots={enableDots}
+        dotsClass={dsClass}
+        arrows={arrows}
+        draggable={draggable}
+        waitForAnimate={waitForAnimate}
+      />
+    </div>,
+  );
+});
 
 if (process.env.NODE_ENV !== 'production') {
   Carousel.displayName = 'Carousel';

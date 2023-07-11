@@ -10,7 +10,6 @@ import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 import PopoverPurePanel from '../popover/PurePanel';
-
 import useStyle from './style';
 
 export interface PopconfirmLocale {
@@ -100,7 +99,7 @@ export interface PurePanelProps
   prefixCls?: string;
 }
 
-export default function PurePanel(props: PurePanelProps) {
+const PurePanel: React.FC<PurePanelProps> = (props) => {
   const { prefixCls: customizePrefixCls, placement, className, style, ...restProps } = props;
 
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -115,4 +114,6 @@ export default function PurePanel(props: PurePanelProps) {
       content={<Overlay prefixCls={prefixCls} {...restProps} />}
     />,
   );
-}
+};
+
+export default PurePanel;
