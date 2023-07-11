@@ -20,6 +20,7 @@ timeline: true
 `2023-07-11`
 
 - 🆕 ConfigProvider 支持所有组件的 `className` 和 `style` 属性控制。感谢 [@Yuiai01](https://github.com/Yuiai01)、[@li-jia-nan](https://github.com/li-jia-nan) 和 [@MuxinFeng](https://github.com/MuxinFeng) 的贡献。
+- 🆕 Badge 支持 `classNames` 属性和 `styles` 属性。[#43245](https://github.com/ant-design/ant-design/pull/43245) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 ColorPicker 支持 `showText`、`destroyTooltipOnHide`、`onChangeComplete`、`panelRender`、`size` 等新特性。
   - [#42865](https://github.com/ant-design/ant-design/pull/42865) [@RedJue](https://github.com/RedJue)
   - [#42645](https://github.com/ant-design/ant-design/pull/42645) [@linxianxi](https://github.com/linxianxi)
@@ -27,20 +28,19 @@ timeline: true
   - [#43134](https://github.com/ant-design/ant-design/pull/43134) [@RedJue](https://github.com/RedJue)
   - [#43116](https://github.com/ant-design/ant-design/pull/43116) [@RedJue](https://github.com/RedJue)
 - 🆕 Alert、Drawer、Modal、Notifaction、Tag、Tabs 均已支持通过设置 `closeIcon` 为 null 或 false 隐藏关闭按钮。 [#42828](https://github.com/ant-design/ant-design/discussions/42828) [@kiner-tang](https://github.com/kiner-tang)
-- 🆕 Badge 支持 `classNames` 属性和 `styles` 属性。[#43245](https://github.com/ant-design/ant-design/pull/43245) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 Anchor 添加 `replace` 属性。[#43006](https://github.com/ant-design/ant-design/pull/43006) [@ds1371dani](https://github.com/ds1371dani)
+- 🆕 Image 支持 `imageRender`、`toolbarRender` 属性以支持预览图和工具栏的自定义渲染，Image.PreviewGroup 支持 `items` 属性传入列表数据，并修复了 img 标签的原生属性没有传递给预览图的问题。[#43075](https://github.com/ant-design/ant-design/pull/43075) [@linxianxi](https://github.com/linxianxi)
+- 🆕 修改 Image 预览图的布局风格，`preview` 属性支持 `closeIcon`，Image.PreviewGroup 支持 `fallback` 属性，修复加载预览资源提前加载的问题。[#43167](https://github.com/ant-design/ant-design/pull/43167) [@linxianxi](https://github.com/linxianxi)
 - 🛠 InputNumber 使用 rc-input 进行重构。[#42762](https://github.com/ant-design/ant-design/pull/42762) [@muxin](https://github.com/muxin)
 - 🛠 解决 vite、rollup、meteor、microbundle 等构建工具中遇到的循环依赖问题，并增加相关的检测。[#42750](https://github.com/ant-design/ant-design/pull/42750)，感谢 [@jrr997](https://github.com/jrr997)、[@kiner-tang](https://github.com/kiner-tang) 和 [@MuxinFeng](https://github.com/MuxinFeng) 的贡献。
 - 🐞 为 Menu 中组件 Token `colorItemBgSelected` 添加废弃警告。[#43461](https://github.com/ant-design/ant-design/pull/43461) [@MadCcc](https://github.com/MadCcc)
-- 🐞 修复一些浏览器因为未重绘导致出现滚动条的问题。[#43358](https://github.com/ant-design/ant-design/pull/43358) [@LeeeeeeM](https://github.com/LeeeeeeM)
+- 🐞 修复样式特性支持检测时部分浏览器因为未重绘导致出现滚动条的问题。[#43358](https://github.com/ant-design/ant-design/pull/43358) [@LeeeeeeM](https://github.com/LeeeeeeM)
 - 🐞 修复 Card `tabList` 为空时 Tab 完全不展示的问题。[#43416](https://github.com/ant-design/ant-design/pull/43416) [@linxianxi](https://github.com/linxianxi)
 - 🐞 修复 ConfigProvider 嵌套使用时，`form.validateMessages` 配置会丢失的问题。[#43239](https://github.com/ant-design/ant-design/pull/43239) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 修复 Tag 点击的水波纹效果有时候会和 Tag 元素产生偏移的问题。[#43402](https://github.com/ant-design/ant-design/pull/43402)
 - 🐞 修复 DatePicker 切换到年月面板时，`此刻` 点击无效的问题。[#43367](https://github.com/ant-design/ant-design/pull/43367) [@Yuiai01](https://github.com/Yuiai01)
 - 🐞 修复 TextArea 组件在屏幕大小变化时设置的高度失效的问题。[#43169](https://github.com/ant-design/ant-design/pull/43169) [@MadCcc](https://github.com/MadCcc)
-- 🐞 支持 imageRender、toolbarRender、onTransform、items、minScale、maxScale。修复 img 的原生属性没有传递给预览图的问题。[#43075](https://github.com/ant-design/ant-design/pull/43075) [@linxianxi](https://github.com/linxianxi)
 - 💄 Slider 中 `tooltip` 在内容很少时应该居中。[#43430](https://github.com/ant-design/ant-design/pull/43430) [@Jomorx](https://github.com/Jomorx)
-- 💄 修改布局风格，Preview 支持 closeIcon，PreviewGroup 支持 fallback，修复一开始会加载预览资源的问题。[#43167](https://github.com/ant-design/ant-design/pull/43167) [@linxianxi](https://github.com/linxianxi)
 - 💄 将 `colorLink` 添加至 seed token 中, `colorLinkHover` 和 `colorLinkActive` 将会由 `colorLink` 计算得出。[#43183](https://github.com/ant-design/ant-design/pull/43183) [@MadCcc](https://github.com/MadCcc)
 - 💄 调整 Slider 中部分 token 为 component token。[#42428](https://github.com/ant-design/ant-design/pull/42428) [@heiyu4585](https://github.com/heiyu4585)
 - RTL
