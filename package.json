@@ -204,7 +204,7 @@
     "@types/react-window": "^1.8.2",
     "@types/throttle-debounce": "^5.0.0",
     "@types/warning": "^3.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^5.40.0",
     "antd-img-crop": "^4.9.0",
     "antd-style": "^3.0.0",
