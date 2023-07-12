@@ -18,7 +18,7 @@ export default function getIcons({
   multiple,
   hasFeedback,
   prefixCls,
-  showArrow,
+  showSuffixIcon,
   feedbackIcon,
 }: {
   suffixIcon?: React.ReactNode;
@@ -30,7 +30,7 @@ export default function getIcons({
   hasFeedback?: boolean;
   feedbackIcon?: ReactNode;
   prefixCls: string;
-  showArrow?: boolean;
+  showSuffixIcon?: boolean;
 }) {
   // Clear Icon
   const mergedClearIcon = clearIcon ?? <CloseCircleFilled />;
@@ -38,7 +38,7 @@ export default function getIcons({
   // Validation Feedback Icon
   const getSuffixIconNode = (arrowIcon?: ReactNode) => (
     <>
-      {showArrow !== false && arrowIcon}
+      {showSuffixIcon !== false && arrowIcon}
       {hasFeedback && feedbackIcon}
     </>
   );

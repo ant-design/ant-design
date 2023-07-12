@@ -45,6 +45,11 @@ export interface InternalSelectProps<
   disabled?: boolean;
   mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE' | 'combobox';
   bordered?: boolean;
+  /**
+   * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
+   *   default behavior, you can hide it by setting `suffixIcon` to null.
+   */
+  showArrow?: boolean;
 }
 
 export interface SelectProps<
@@ -52,7 +57,7 @@ export interface SelectProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
     InternalSelectProps<ValueType, OptionType>,
-    'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill' | 'placement'
+    'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill' | 'placement'
   > {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
@@ -131,7 +136,7 @@ const InternalSelect = <
   }, [props.mode]);
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
-  const mergedShowArrow = useShowArrow(showArrow);
+  const showSuffixIcon = useShowArrow(props.suffixIcon);
 
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
@@ -161,7 +166,7 @@ const InternalSelect = <
     multiple: isMultiple,
     hasFeedback,
     feedbackIcon,
-    showArrow: mergedShowArrow,
+    showSuffixIcon,
     prefixCls,
   });
 
@@ -244,7 +249,7 @@ const InternalSelect = <
       prefixCls={prefixCls}
       placement={memoPlacement}
       direction={direction}
-      inputIcon={suffixIcon}
+      suffixIcon={suffixIcon}
       menuItemSelectedIcon={itemIcon}
       removeIcon={removeIcon}
       clearIcon={clearIcon}
@@ -252,7 +257,7 @@ const InternalSelect = <
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={rcSelectRtlDropdownClassName}
-      showArrow={hasFeedback || mergedShowArrow}
+      showSuffixIcon={hasFeedback || showSuffixIcon}
       disabled={mergedDisabled}
     />,
   );
