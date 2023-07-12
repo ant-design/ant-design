@@ -128,7 +128,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   const kids: React.ReactNode = iconNode ? (
     <>
       {iconNode}
-      <span>{children}</span>
+      {children && <span>{children}</span>}
     </>
   ) : (
     children
