@@ -3,6 +3,7 @@ import {
   Button,
   Checkbox,
   Col,
+  ColorPicker,
   Form,
   InputNumber,
   Radio,
@@ -40,7 +41,12 @@ const App: React.FC = () => (
     name="validate_other"
     {...formItemLayout}
     onFinish={onFinish}
-    initialValues={{ 'input-number': 3, 'checkbox-group': ['A', 'B'], rate: 3.5 }}
+    initialValues={{
+      'input-number': 3,
+      'checkbox-group': ['A', 'B'],
+      rate: 3.5,
+      'color-picker': null,
+    }}
     style={{ maxWidth: 600 }}
   >
     <Form.Item label="Plain Text">
@@ -168,7 +174,6 @@ const App: React.FC = () => (
         <Button icon={<UploadOutlined />}>Click to upload</Button>
       </Upload>
     </Form.Item>
-
     <Form.Item label="Dragger">
       <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
         <Upload.Dragger name="files" action="/upload.do">
@@ -179,6 +184,13 @@ const App: React.FC = () => (
           <p className="ant-upload-hint">Support for a single or bulk upload.</p>
         </Upload.Dragger>
       </Form.Item>
+    </Form.Item>
+    <Form.Item
+      name="color-picker"
+      label="ColorPicker"
+      rules={[{ required: true, message: 'color is required!' }]}
+    >
+      <ColorPicker />
     </Form.Item>
 
     <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
