@@ -2,18 +2,16 @@
 
 /* eslint-disable react/no-array-index-key */
 import classNames from 'classnames';
-import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';
-import { cloneElement } from '../_util/reactNode';
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
 import useResponsiveObserver, { responsiveArray } from '../_util/responsiveObserver';
-import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import DescriptionsContext from './DescriptionsContext';
 import type { DescriptionsItemProps } from './Item';
 import DescriptionsItem from './Item';
 import Row from './Row';
+import useRow from './hooks/useRow';
 import useStyle from './style';
 
 const DEFAULT_COLUMN_MAP: Record<Breakpoint, number> = {
@@ -40,59 +38,6 @@ function getColumn(column: DescriptionsProps['column'], screens: ScreenMap): num
   }
 
   return 3;
-}
-
-function getFilledItem(
-  node: React.ReactElement,
-  rowRestCol: number,
-  span?: number,
-): React.ReactElement {
-  let clone = node;
-
-  if (span === undefined || span > rowRestCol) {
-    clone = cloneElement(node, {
-      span: rowRestCol,
-    });
-    warning(
-      span === undefined,
-      'Descriptions',
-      'Sum of column `span` in a line not match `column` of Descriptions.',
-    );
-  }
-
-  return clone;
-}
-
-function getRows(children: React.ReactNode, column: number) {
-  const childNodes = toArray(children).filter((n) => n);
-  const rows: React.ReactElement[][] = [];
-
-  let tmpRow: React.ReactElement[] = [];
-  let rowRestCol = column;
-
-  childNodes.forEach((node, index) => {
-    const span: number = node.props?.span;
-    const mergedSpan = span || 1;
-
-    // Additional handle last one
-    if (index === childNodes.length - 1) {
-      tmpRow.push(getFilledItem(node, rowRestCol, span));
-      rows.push(tmpRow);
-      return;
-    }
-
-    if (mergedSpan < rowRestCol) {
-      rowRestCol -= mergedSpan;
-      tmpRow.push(node);
-    } else {
-      tmpRow.push(getFilledItem(node, rowRestCol, mergedSpan));
-      rows.push(tmpRow);
-      rowRestCol = column;
-      tmpRow = [];
-    }
-  });
-
-  return rows;
 }
 
 interface CompoundedComponent {
@@ -149,6 +94,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
   const mergedColumn = getColumn(column, screens);
 
   const mergedSize = useSize(customizeSize);
+  const [rows] = useRow(mergedColumn, items, children);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const responsiveObserver = useResponsiveObserver();
@@ -168,13 +114,6 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
   }, []);
 
   // ======================== Render ========================
-  let rowNode = children;
-  if (Array.isArray(items)) {
-    rowNode = items.map((item, index) => <DescriptionsItem {...item} key={item.key ?? index} />);
-  }
-
-  // Children
-  const rows = getRows(rowNode, mergedColumn);
   const contextValue = React.useMemo(
     () => ({ labelStyle, contentStyle }),
     [labelStyle, contentStyle],
