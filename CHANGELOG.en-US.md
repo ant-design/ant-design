@@ -31,7 +31,7 @@ timeline: true
 - 🆕 Image supports `imageRender`, `toolbarRender` attributes to support custom rendering of preview images and toolbars, also supports new props such as `onTransform`, `minScale`, `maxScale`. Image.PreviewGroup supports `items` attribute to pass in list data, and fixes that the native attributes of the img tag are not passed to preview images The problem. [#43075](https://github.com/ant-design/ant-design/pull/43075) [@linxianxi](https://github.com/linxianxi)
 - 🆕 Modify the layout style of the Image preview, the `preview` attribute supports `closeIcon`, Image.PreviewGroup supports the `fallback` attribute, and fixes the problem of loading preview resources in advance. [#43167](https://github.com/ant-design/ant-design/pull/43167) [@linxianxi](https://github.com/linxianxi)
 - 🆕 Changed the layout style, Preview now supports `closeIcon`, PreviewGroup now supports `fallback`, and fixed an issue where preview resources would be loaded at the beginning.[#43167](https://github.com/ant-design/ant-design/pull/43167) [@linxianxi](https://github.com/linxianxi)
-- 🛠 InputNumber was refactored to use rc-input. (#43000)。[#42762](https://github.com/ant-design/ant-design/pull/43000) [@muxin](https://github.com/muxin)
+- 🛠 InputNumber was refactored to use rc-input. (#43000)。[#42762](https://github.com/ant-design/ant-design/pull/43000) [@MuxinFeng](https://github.com/MuxinFeng)
 - 🛠 Resolved Circular dependency issue in vite, rollup, meteor and microbundle. [#42750](https://github.com/ant-design/ant-design/pull/42750). Thanks to [@jrr997](https://github.com/jrr997), [@kiner-tang](https://github.com/kiner-tang) and [@MuxinFeng](https://github.com/MuxinFeng) for their contributions.
 - 🐞 Remove default values (empty string) of `className` prop in Anchor, CollapsePanel, and Input.Group. [#43481](https://github.com/ant-design/ant-design/pull/43481) [@thinkasany](https://github.com/thinkasany)
 - 🐞 Fix Upload progress bar missing fade motion. [#43471](https://github.com/ant-design/ant-design/pull/43471)
@@ -838,7 +838,7 @@ timeline: true
 - 🐞 Fix Tree config `checkable` and `blockNode` not makes `title` stretch issue. [#39209](https://github.com/ant-design/ant-design/pull/39209) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 Fix Dropdown sub menu missing motion. [#39235](https://github.com/ant-design/ant-design/pull/39235)
 - 💄 Fix RangePicker time panel padding style. [#39228](https://github.com/ant-design/ant-design/pull/39228)
-- 🐞 Fix Card action button round style. [#39210](https://github.com/ant-design/ant-design/pull/39210) [@muxin](https://github.com/muxin)
+- 🐞 Fix Card action button round style. [#39210](https://github.com/ant-design/ant-design/pull/39210) [@MuxinFeng](https://github.com/MuxinFeng)
 - 🐞 Fix Badge wave effect color not follow `color`. [#39182](https://github.com/ant-design/ant-design/pull/39182) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 Fix Radio disabled status check style. [#39165](https://github.com/ant-design/ant-design/pull/39165) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 Fixed TextArea count style when `resize` is not `none`. [#39121](https://github.com/ant-design/ant-design/pull/39121) [@51wangping](https://github.com/51wangping)
