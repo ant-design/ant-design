@@ -5,6 +5,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import Form from '../../form';
 import theme from '../../theme';
 import ColorPicker from '../ColorPicker';
 import type { Color } from '../color';
@@ -398,7 +399,7 @@ describe('ColorPicker', () => {
     expect(componentContainer).toMatchSnapshot();
   });
 
-  it('Should onChangeComplete work', async () => {
+  it('Should null work as expect', async () => {
     spyElementPrototypes(HTMLElement, {
       getBoundingClientRect: () => ({
         x: 0,
@@ -407,6 +408,51 @@ describe('ColorPicker', () => {
         height: 100,
       }),
     });
+    const { container } = render(<ColorPicker value={null} open />);
+    expect(
+      container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
+    ).toEqual('0%');
+    expect(
+      container.querySelector('.ant-color-picker-hex-input input')?.getAttribute('value'),
+    ).toEqual('000000');
+    doMouseMove(container, 0, 999);
+    expect(
+      container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
+    ).toEqual('100%');
+  });
+
+  it('should support valid in form', async () => {
+    const Demo = () => {
+      const [form] = Form.useForm();
+      const submit = () => {
+        form.validateFields();
+      };
+      return (
+        <Form form={form} initialValues={{ 'color-picker': null }}>
+          <Form.Item
+            name="color-picker"
+            label="ColorPicker"
+            rules={[{ required: true, message: 'color is required!' }]}
+          >
+            <ColorPicker />
+          </Form.Item>
+          <button type="button" onClick={submit}>
+            submit
+          </button>
+        </Form>
+      );
+    };
+    const { container } = render(<Demo />);
+    expect(container.querySelector('.ant-color-picker-status-error')).toBeFalsy();
+    fireEvent.click(container.querySelector('button')!);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker-status-error')).toBeTruthy();
+    expect(container.querySelector('.ant-form-item-explain-error')?.innerHTML).toEqual(
+      'color is required!',
+    );
+  });
+
+  it('Should onChangeComplete work', async () => {
     const handleChangeComplete = jest.fn();
     const { container } = render(<ColorPicker open onChangeComplete={handleChangeComplete} />);
     doMouseMove(container, 0, 999);

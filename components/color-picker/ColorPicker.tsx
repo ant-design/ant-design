@@ -7,10 +7,12 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties, FC } from 'react';
 import React, { useContext, useRef, useState } from 'react';
 import genPurePanel from '../_util/PurePanel';
+import { getStatusClassNames } from '../_util/statusUtils';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
+import { FormItemInputContext, NoFormStyle } from '../form/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import theme from '../theme';
@@ -21,6 +23,7 @@ import useColorState from './hooks/useColorState';
 import type {
   ColorFormat,
   ColorPickerBaseProps,
+  ColorValueType,
   PresetsItem,
   TriggerPlacement,
   TriggerType,
@@ -32,8 +35,8 @@ export type ColorPickerProps = Omit<
   RcColorPickerProps,
   'onChange' | 'value' | 'defaultValue' | 'panelRender' | 'onChangeComplete'
 > & {
-  value?: Color | string;
-  defaultValue?: Color | string;
+  value?: ColorValueType;
+  defaultValue?: ColorValueType;
   children?: React.ReactNode;
   open?: boolean;
   disabled?: boolean;
@@ -114,12 +117,16 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
+  // ===================== Form Status =====================
+  const { status: contextStatus } = React.useContext(FormItemInputContext);
+
   // ===================== Style =====================
   const mergedSize = useSize(customizeSize);
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
   const mergeRootCls = classNames(rootClassName, rtlCls);
   const mergeCls = classNames(
+    getStatusClassNames(prefixCls, contextStatus),
     {
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-lg`]: mergedSize === 'large',
@@ -135,7 +142,8 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const handleChange = (data: Color, type?: HsbaColorType, pickColor?: boolean) => {
     let color: Color = generateColor(data);
-    if (colorCleared) {
+    const isNull = value === null || (!value && defaultValue === null);
+    if (colorCleared || isNull) {
       setColorCleared(false);
       const hsba = color.toHsb();
       // ignore alpha slider
@@ -199,7 +207,14 @@ const ColorPicker: CompoundedComponent = (props) => {
         }
       }}
       content={
-        <ColorPickerPanel {...colorBaseProps} onChange={handleChange} onClear={handleClear} />
+        <NoFormStyle override status>
+          <ColorPickerPanel
+            {...colorBaseProps}
+            onChange={handleChange}
+            onChangeComplete={handleChangeComplete}
+            onClear={handleClear}
+          />
+        </NoFormStyle>
       }
       overlayClassName={mergePopupCls}
       {...popoverProps}

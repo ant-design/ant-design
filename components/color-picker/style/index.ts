@@ -77,6 +77,45 @@ const genClearStyle = (
   };
 };
 
+const genStatusStyle = (token: ColorPickerToken): CSSObject => {
+  const {
+    componentCls,
+    colorError,
+    colorWarning,
+    colorErrorBorderHover,
+    colorWarningBorderHover,
+    colorErrorOutline,
+    colorWarningOutline,
+  } = token;
+  return {
+    [`&${componentCls}-status-error`]: {
+      borderColor: colorError,
+      '&:hover': {
+        borderColor: colorErrorBorderHover,
+      },
+      [`&${componentCls}-trigger-active`]: {
+        ...genActiveStyle(
+          mergeToken<ColorPickerToken>(token, {
+            controlOutline: colorErrorOutline,
+          }),
+        ),
+      },
+    },
+    [`&${componentCls}-status-warning`]: {
+      borderColor: colorWarning,
+      '&:hover': {
+        borderColor: colorWarningBorderHover,
+      },
+      [`&${componentCls}-trigger-active`]: {
+        ...genActiveStyle(
+          mergeToken<ColorPickerToken>(token, {
+            controlOutline: colorWarningOutline,
+          }),
+        ),
+      },
+    },
+  };
+};
 const genSizeStyle = (token: ColorPickerToken): CSSObject => {
   const {
     componentCls,
@@ -202,6 +241,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           },
           ...genClearStyle(token, controlHeightSM),
           ...genColorBlockStyle(token, controlHeightSM),
+          ...genStatusStyle(token),
           ...genSizeStyle(token),
         },
         ...genRtlStyle(token),
