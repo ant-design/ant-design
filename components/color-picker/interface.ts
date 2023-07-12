@@ -33,3 +33,5 @@ export interface ColorPickerBaseProps {
   onFormatChange?: ColorPickerProps['onFormatChange'];
   onChangeComplete?: ColorPickerProps['onChangeComplete'];
 }
+
+export type ColorValueType = Color | string | null;
