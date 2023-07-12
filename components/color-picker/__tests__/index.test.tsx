@@ -4,9 +4,11 @@ import React, { useMemo, useState } from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { waitFakeTimer } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 import theme from '../../theme';
+import type { ColorPickerProps } from '../ColorPicker';
 import ColorPicker from '../ColorPicker';
 import type { Color } from '../color';
 
@@ -35,11 +37,14 @@ function doMouseMove(
 describe('ColorPicker', () => {
   mountTest(ColorPicker);
   rtlTest(ColorPicker);
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   beforeEach(() => {
+    resetWarned();
     jest.useFakeTimers();
   });
 
   afterEach(() => {
+    errorSpy.mockReset();
     jest.useRealTimers();
   });
 
@@ -457,5 +462,53 @@ describe('ColorPicker', () => {
     const { container } = render(<ColorPicker open onChangeComplete={handleChangeComplete} />);
     doMouseMove(container, 0, 999);
     expect(handleChangeComplete).toHaveBeenCalledTimes(1);
+  });
+
+  it('Should disabledAlpha work', async () => {
+    const { container } = render(<ColorPicker open disabledAlpha />);
+    expect(container.querySelector('.ant-color-picker-slider-group-disabled-alpha')).toBeTruthy();
+    expect(container.querySelector('.ant-color-picker-slider-alpha')).toBeFalsy();
+    expect(container.querySelector('.ant-color-picker-alpha-input')).toBeFalsy();
+  });
+
+  it('Should disabledAlpha work with value', async () => {
+    spyElementPrototypes(HTMLElement, {
+      getBoundingClientRect: () => ({
+        x: 0,
+        y: 100,
+        width: 100,
+        height: 100,
+      }),
+    });
+    const Demo = () => {
+      const [value, setValue] = useState<ColorPickerProps['value']>('#1677ff86');
+      const [changedValue, setChangedValue] = useState<ColorPickerProps['value']>('#1677ff86');
+      return (
+        <ColorPicker
+          open
+          disabledAlpha
+          value={value}
+          onChange={setValue}
+          onChangeComplete={setChangedValue}
+        >
+          <div className="color-value">
+            {typeof value === 'string' ? value : value?.toHexString()}
+          </div>
+          <div className="color-value-changed">
+            {typeof changedValue === 'string' ? changedValue : changedValue?.toHexString()}
+          </div>
+        </ColorPicker>
+      );
+    };
+    const { container } = render(<Demo />);
+    expect(container.querySelector('.color-value')?.innerHTML).toEqual('#1677ff86');
+    doMouseMove(container, 0, 999);
+    expect(container.querySelector('.color-value')?.innerHTML).toEqual('#000000');
+    expect(container.querySelector('.color-value-changed')?.innerHTML).toEqual('#000000');
+  });
+
+  it('Should warning work when set disabledAlpha true and color is alpha color', () => {
+    render(<ColorPicker disabledAlpha value="#1677ff" />);
+    expect(errorSpy).not.toHaveBeenCalled();
   });
 });
