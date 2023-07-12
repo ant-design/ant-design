@@ -17,6 +17,7 @@ import { getMotion, getPlacementStyle } from './util';
 
 const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;
+const DEFAULT_PLACEMENT: NotificationPlacement = 'topRight';
 
 // ==============================================================================
 // ==                                  Holder                                  ==
@@ -38,6 +39,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     prefixCls: staticPrefixCls,
     getContainer: staticGetContainer,
     maxCount,
+    placement,
     rtl,
     onAllRemoved,
   } = props;
@@ -46,8 +48,12 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
 
   // =============================== Style ===============================
-  const getStyle = (placement: NotificationPlacement): React.CSSProperties =>
-    getPlacementStyle(placement, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET);
+  const getStyle = (): React.CSSProperties =>
+    getPlacementStyle(
+      placement ?? DEFAULT_PLACEMENT,
+      top ?? DEFAULT_OFFSET,
+      bottom ?? DEFAULT_OFFSET,
+    );
 
   // Style
   const [, hashId] = useStyle(prefixCls);
