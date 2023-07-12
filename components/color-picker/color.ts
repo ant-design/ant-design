@@ -19,6 +19,9 @@ export class ColorFactory {
 
   constructor(color: ColorGenInput<Color>) {
     this.metaColor = new RcColor(color as ColorGenInput);
+    if (!color) {
+      this.metaColor.setAlpha(0);
+    }
   }
 
   toHsb() {

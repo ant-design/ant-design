@@ -1,5 +1,6 @@
 import { Keyframes } from '@ant-design/cssinjs';
 import type { UploadToken } from '.';
+import { initFadeMotion } from '../../style/motion';
 import type { GenerateStyle } from '../../theme/internal';
 
 const uploadAnimateInlineIn = new Keyframes('uploadAnimateInlineIn', {
@@ -43,6 +44,9 @@ const genMotionStyle: GenerateStyle<UploadToken> = (token) => {
           animationName: uploadAnimateInlineOut,
         },
       },
+    },
+    {
+      [`${componentCls}-wrapper`]: initFadeMotion(token),
     },
     uploadAnimateInlineIn,
     uploadAnimateInlineOut,

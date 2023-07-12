@@ -96,25 +96,27 @@ const CloseIcon: React.FC<CloseIconProps> = (props) => {
   ) : null;
 };
 
-const Alert: React.FC<AlertProps> = ({
-  description,
-  prefixCls: customizePrefixCls,
-  message,
-  banner,
-  className,
-  rootClassName,
-  style,
-  onMouseEnter,
-  onMouseLeave,
-  onClick,
-  afterClose,
-  showIcon,
-  closable,
-  closeText,
-  closeIcon,
-  action,
-  ...props
-}) => {
+const Alert: React.FC<AlertProps> = (props) => {
+  const {
+    description,
+    prefixCls: customizePrefixCls,
+    message,
+    banner,
+    className,
+    rootClassName,
+    style,
+    onMouseEnter,
+    onMouseLeave,
+    onClick,
+    afterClose,
+    showIcon,
+    closable,
+    closeText,
+    closeIcon,
+    action,
+    ...otherProps
+  } = props;
+
   const [closed, setClosed] = React.useState(false);
   if (process.env.NODE_ENV !== 'production') {
     warning(!closeText, 'Alert', '`closeText` is deprecated. Please use `closeIcon` instead.');
@@ -129,14 +131,13 @@ const Alert: React.FC<AlertProps> = ({
     props.onClose?.(e);
   };
 
-  const getType = () => {
-    const { type } = props;
-    if (type !== undefined) {
-      return type;
+  const type = React.useMemo<AlertProps['type']>(() => {
+    if (props.type !== undefined) {
+      return props.type;
     }
     // banner mode defaults to 'warning'
     return banner ? 'warning' : 'info';
-  };
+  }, [props.type, banner]);
 
   // closeable when closeText or closeIcon is assigned
   const isClosable = React.useMemo(() => {
@@ -149,8 +150,6 @@ const Alert: React.FC<AlertProps> = ({
     // should be true when closeIcon is 0 or ''
     return closeIcon !== false && closeIcon !== null && closeIcon !== undefined;
   }, [closeText, closeIcon, closable]);
-
-  const type = getType();
 
   // banner mode defaults to Icon
   const isShowIcon = banner && showIcon === undefined ? true : showIcon;
@@ -170,10 +169,7 @@ const Alert: React.FC<AlertProps> = ({
     hashId,
   );
 
-  const dataOrAriaProps = pickAttrs(props, {
-    aria: true,
-    data: true,
-  });
+  const restProps = pickAttrs(otherProps, { aria: true, data: true });
 
   return wrapSSR(
     <CSSMotion
@@ -181,9 +177,7 @@ const Alert: React.FC<AlertProps> = ({
       motionName={`${prefixCls}-motion`}
       motionAppear={false}
       motionEnter={false}
-      onLeaveStart={(node) => ({
-        maxHeight: node.offsetHeight,
-      })}
+      onLeaveStart={(node) => ({ maxHeight: node.offsetHeight })}
       onLeaveEnd={afterClose}
     >
       {({ className: motionClassName, style: motionStyle }) => (
@@ -196,7 +190,7 @@ const Alert: React.FC<AlertProps> = ({
           onMouseLeave={onMouseLeave}
           onClick={onClick}
           role="alert"
-          {...dataOrAriaProps}
+          {...restProps}
         >
           {isShowIcon ? (
             <IconNode

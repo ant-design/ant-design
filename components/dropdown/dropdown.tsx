@@ -318,7 +318,7 @@ function postPureProps(props: DropdownProps) {
 const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls, postPureProps);
 
 /* istanbul ignore next */
-const WrapPurePanel = (props: DropdownProps) => (
+const WrapPurePanel: React.FC<DropdownProps> = (props) => (
   <PurePanel {...props}>
     <span />
   </PurePanel>
