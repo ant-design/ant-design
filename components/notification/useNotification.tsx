@@ -41,7 +41,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     prefixCls: staticPrefixCls,
     getContainer: staticGetContainer,
     maxCount,
-    placement,
+    placement: placementFromProps,
     rtl,
     onAllRemoved,
   } = props;
@@ -50,12 +50,11 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
 
   // =============================== Style ===============================
-  const getStyle = (): React.CSSProperties =>
-    getPlacementStyle(
-      placement ?? DEFAULT_PLACEMENT,
-      top ?? DEFAULT_OFFSET,
-      bottom ?? DEFAULT_OFFSET,
-    );
+  const placementValue = placementFromProps ?? DEFAULT_PLACEMENT;
+  // prioritize placement from global config but use value from props when global config is not available
+  // if both are undefined, use default placement of `DEFAULT_PLACEMENT`
+  const getStyle = (placement: NotificationPlacement): React.CSSProperties =>
+    getPlacementStyle(placement ?? placementValue, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET);
 
   // Style
   const [, hashId] = useStyle(prefixCls);
@@ -133,7 +132,8 @@ export function useInternalNotification(
       const realCloseIcon = getCloseIcon(noticePrefixCls, closeIcon);
 
       return originOpen({
-        placement: 'topRight',
+        // use placement from props instead of hard-coding "topRight"
+        placement: notificationConfig?.placement ?? DEFAULT_PLACEMENT,
         ...restConfig,
         content: (
           <PureContent
