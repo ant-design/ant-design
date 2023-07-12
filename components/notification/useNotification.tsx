@@ -1,17 +1,19 @@
+import * as React from 'react';
+
 import classNames from 'classnames';
 import { useNotification as useRcNotification } from 'rc-notification';
 import type { NotificationAPI } from 'rc-notification/lib';
-import * as React from 'react';
+
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { ComponentStyleConfig } from '../config-provider/context';
-import { PureContent, getCloseIcon } from './PurePanel';
 import type {
   ArgsProps,
   NotificationConfig,
   NotificationInstance,
   NotificationPlacement,
 } from './interface';
+import { getCloseIcon, PureContent } from './PurePanel';
 import useStyle from './style';
 import { getMotion, getPlacementStyle } from './util';
 
