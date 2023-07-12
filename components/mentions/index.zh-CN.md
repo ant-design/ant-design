@@ -55,7 +55,7 @@ return (
 | --- | --- | --- | --- | --- |
 | autoFocus | 自动获得焦点 | boolean | false |  |
 | autoSize | 自适应内容高度，可设置为 true \| false 或对象：{ minRows: 2, maxRows: 6 } | boolean \| object | false |  |
-| bordered | 是否有边框 | boolean | true | 5.6.0 |
+| bordered | 是否有边框 | boolean | true | 5.8.0 |
 | defaultValue | 默认值 | string | - |  |
 | filterOption | 自定义过滤逻辑 | false \| (input: string, option: OptionProps) => boolean | - |  |
 | getPopupContainer | 指定建议框挂载的 HTML 节点 | () => HTMLElement | - |  |

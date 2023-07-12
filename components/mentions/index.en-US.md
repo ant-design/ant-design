@@ -54,7 +54,7 @@ return (
 | --- | --- | --- | --- | --- |
 | autoFocus | Auto get focus when component mounted | boolean | false |  |
 | autoSize | Textarea height autosize feature, can be set to true \| false or an object { minRows: 2, maxRows: 6 } | boolean \| object | false |  |
-| bordered | Whether has border style | boolean | true | 5.6.0 |
+| bordered | Whether has border style | boolean | true | 5.8.0 |
 | defaultValue | Default value | string | - |  |
 | filterOption | Customize filter option logic | false \| (input: string, option: OptionProps) => boolean | - |  |
 | getPopupContainer | Set the mount HTML node for suggestions | () => HTMLElement | - |  |

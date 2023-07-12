@@ -44,7 +44,7 @@ export interface MentionProps extends Omit<RcMentionsProps, 'suffix'> {
   /**
    * Whether has border style
    * @default true
-   * @since 5.6.0
+   * @since 5.8.0
    */
   bordered?: boolean;
 }
