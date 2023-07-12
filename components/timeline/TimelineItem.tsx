@@ -39,8 +39,8 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
 
   const prefixCls = getPrefixCls('timeline', customizePrefixCls);
   const itemClassName = classNames(
+    `${prefixCls}-item`,
     {
-      [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-pending`]: pending,
     },
     className,
