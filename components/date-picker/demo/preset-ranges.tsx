@@ -44,7 +44,7 @@ const App: React.FC = () => (
       presets={[
         {
           label: <span aria-label="Current Time to End of Day">Now ~ EOD</span>,
-          value: () => [dayjs(), dayjs().endOf('day')], // 5.7.0+ support function
+          value: () => [dayjs(), dayjs().endOf('day')], // 5.8.0+ support function
         },
         ...rangePresets,
       ]}
