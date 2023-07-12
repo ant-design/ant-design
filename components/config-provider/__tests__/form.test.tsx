@@ -2,7 +2,7 @@ import React from 'react';
 import { act } from 'react-dom/test-utils';
 import type { ValidateMessages } from 'rc-field-form/es/interface';
 import ConfigProvider from '..';
-import { render } from '../../../tests/utils';
+import { render, waitFakeTimer, fireEvent } from '../../../tests/utils';
 import type { FormInstance } from '../../form';
 import Form from '../../form';
 import Button from '../../button';
@@ -167,18 +167,10 @@ describe('ConfigProvider.Form', () => {
 
       const submitButtons = getAllByRole('button');
       expect(submitButtons).toHaveLength(3);
-      submitButtons.forEach((button) => {
-        button.click();
-      });
 
-      await act(async () => {
-        jest.runAllTimers();
-        await Promise.resolve();
-      });
+      submitButtons.forEach((b) => fireEvent.click(b));
 
-      act(() => {
-        jest.runAllTimers();
-      });
+      await waitFakeTimer();
 
       expect(container.querySelectorAll('.ant-form-item-explain-error')).toHaveLength(3);
       expect(getAllByText('Please enter Name')).toHaveLength(1);
