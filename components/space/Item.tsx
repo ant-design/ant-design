@@ -12,17 +12,16 @@ export interface ItemProps {
   style?: React.CSSProperties;
 }
 
-const Item: React.FC<ItemProps> = (props) => {
-  const {
-    className,
-    direction,
-    index,
-    marginDirection,
-    children,
-    split,
-    wrap,
-    style: customStyle,
-  } = props;
+const Item: React.FC<ItemProps> = ({
+  className,
+  direction,
+  index,
+  marginDirection,
+  children,
+  split,
+  wrap,
+  style: customStyle,
+}) => {
   const { horizontalSize, verticalSize, latestIndex, supportFlexGap } =
     React.useContext(SpaceContext);
 
