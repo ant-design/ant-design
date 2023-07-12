@@ -10,7 +10,7 @@ import Item from './Item';
 import { SpaceContextProvider } from './context';
 import useStyle from './style';
 
-export type { SpaceContext } from './context';
+export { SpaceContext } from './context';
 
 export type SpaceSize = SizeType | number;
 

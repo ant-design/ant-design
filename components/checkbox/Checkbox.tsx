@@ -113,8 +113,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     checkboxProps.checked = checkboxGroup.value.includes(restProps.value);
   }
   const classString = classNames(
+    `${prefixCls}-wrapper`,
     {
-      [`${prefixCls}-wrapper`]: true,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-wrapper-checked`]: checkboxProps.checked,
       [`${prefixCls}-wrapper-disabled`]: mergedDisabled,

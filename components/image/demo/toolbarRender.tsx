@@ -12,6 +12,8 @@ import React from 'react';
 const src = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
 
 const App: React.FC = () => {
+  // or you can download flipped and rotated image
+  // https://codesandbox.io/s/zi-ding-yi-gong-ju-lan-antd-5-7-0-forked-c9jvmp
   const onDownload = () => {
     fetch(src)
       .then((response) => response.blob())
