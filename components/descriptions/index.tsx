@@ -45,7 +45,7 @@ interface CompoundedComponent {
 }
 
 export interface DescriptionsItemType extends DescriptionsItemProps {
-  key?: string;
+  key?: React.Key;
 }
 
 export interface DescriptionsProps {
