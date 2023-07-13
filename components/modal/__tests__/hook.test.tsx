@@ -1,10 +1,12 @@
 import CSSMotion from 'rc-motion';
 import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import KeyCode from 'rc-util/lib/KeyCode';
-import React from 'react';
+import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
 
 import Modal from '..';
+import Drawer from '../../drawer';
+import zhCN from '../../locale/zh_CN';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
@@ -366,5 +368,40 @@ describe('Modal.hook', () => {
     fireEvent.click(btns[btns.length - 1]);
 
     expect(afterClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('should be applied correctly locale', async () => {
+    jest.useFakeTimers();
+
+    const Demo: React.FC = () => {
+      const [open, setOpen] = useState(false);
+
+      return (
+        <>
+          <ConfigProvider locale={zhCN}>
+            <Button onClick={() => Modal.confirm({ okCancel: false })} />
+          </ConfigProvider>
+          <Button onClick={() => setOpen(true)} />
+          <Drawer open={open} onClose={() => setOpen(false)} destroyOnClose>
+            <ConfigProvider locale={zhCN}>
+              <div />
+            </ConfigProvider>
+          </Drawer>
+        </>
+      );
+    };
+
+    const { findByText } = render(<Demo />);
+    const buttons = document.querySelectorAll('.ant-btn');
+    fireEvent.click(buttons?.[0]);
+    await waitFakeTimer();
+    fireEvent.click(document.querySelector('.ant-modal-confirm-btns > .ant-btn')!);
+    fireEvent.click(buttons?.[1]);
+    await waitFakeTimer();
+    fireEvent.click(document.querySelector('.ant-drawer-close')!);
+    fireEvent.click(buttons?.[0]);
+    expect(await findByText(zhCN.Modal?.justOkText!)).toBeTruthy();
+
+    jest.useRealTimers();
   });
 });
