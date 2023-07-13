@@ -257,7 +257,6 @@ const InternalSelect = <
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={rcSelectRtlDropdownClassName}
-      showSuffixIcon={hasFeedback || showSuffixIcon}
       disabled={mergedDisabled}
     />,
   );

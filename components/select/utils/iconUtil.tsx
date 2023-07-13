@@ -36,12 +36,17 @@ export default function getIcons({
   const mergedClearIcon = clearIcon ?? <CloseCircleFilled />;
 
   // Validation Feedback Icon
-  const getSuffixIconNode = (arrowIcon?: ReactNode) => (
-    <>
-      {showSuffixIcon !== false && arrowIcon}
-      {hasFeedback && feedbackIcon}
-    </>
-  );
+  const getSuffixIconNode = (arrowIcon?: ReactNode) => {
+    if (suffixIcon === null && !hasFeedback) {
+      return null;
+    }
+    return (
+      <>
+        {showSuffixIcon !== false && arrowIcon}
+        {hasFeedback && feedbackIcon}
+      </>
+    );
+  };
 
   // Arrow item icon
   let mergedSuffixIcon = null;
