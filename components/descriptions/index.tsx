@@ -94,7 +94,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
   const mergedColumn = getColumn(column, screens);
 
   const mergedSize = useSize(customizeSize);
-  const [rows] = useRow(mergedColumn, items, children);
+  const rows = useRow(mergedColumn, items, children);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const responsiveObserver = useResponsiveObserver();

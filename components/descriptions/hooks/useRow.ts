@@ -26,13 +26,8 @@ function getFilledItem(
 }
 
 // Convert children into items
-function transChildren2Items(items?: DescriptionsItemType[], childNodes?: React.ReactNode) {
-  if (Array.isArray(items)) {
-    return items;
-  }
-
-  return toArray(childNodes).map((node) => node?.props);
-}
+const transChildren2Items = (childNodes?: React.ReactNode) =>
+  toArray(childNodes).map((node) => node?.props);
 
 // Calculate the sum of span in a row
 function getCalcRows(rowItems: DescriptionsItemType[], mergedColumn: number) {
@@ -40,27 +35,29 @@ function getCalcRows(rowItems: DescriptionsItemType[], mergedColumn: number) {
   let tmpRow: DescriptionsItemType[] = [];
   let rowRestCol = mergedColumn;
 
-  rowItems.forEach((rowItem, index) => {
-    const span = rowItem?.span;
-    const mergedSpan = span || 1;
+  rowItems
+    .filter((n) => n)
+    .forEach((rowItem, index) => {
+      const span = rowItem?.span;
+      const mergedSpan = span || 1;
 
-    // Additional handle last one
-    if (index === rowItems.length - 1) {
-      tmpRow.push(getFilledItem(rowItem, rowRestCol, span));
-      rows.push(tmpRow);
-      return;
-    }
+      // Additional handle last one
+      if (index === rowItems.length - 1) {
+        tmpRow.push(getFilledItem(rowItem, rowRestCol, span));
+        rows.push(tmpRow);
+        return;
+      }
 
-    if (mergedSpan < rowRestCol) {
-      rowRestCol -= mergedSpan;
-      tmpRow.push(rowItem);
-    } else {
-      tmpRow.push(getFilledItem(rowItem, rowRestCol, mergedSpan));
-      rows.push(tmpRow);
-      rowRestCol = mergedColumn;
-      tmpRow = [];
-    }
-  });
+      if (mergedSpan < rowRestCol) {
+        rowRestCol -= mergedSpan;
+        tmpRow.push(rowItem);
+      } else {
+        tmpRow.push(getFilledItem(rowItem, rowRestCol, mergedSpan));
+        rows.push(tmpRow);
+        rowRestCol = mergedColumn;
+        tmpRow = [];
+      }
+    });
 
   return rows;
 }
@@ -71,13 +68,13 @@ const useRow = (
   children?: React.ReactNode,
 ) => {
   const rows = useMemo(() => {
-    const rowItems = transChildren2Items(items, children)?.filter(
-      (n) => n,
-    ) as DescriptionsItemType[];
-    return getCalcRows(rowItems, mergedColumn);
+    if (Array.isArray(items)) {
+      return getCalcRows(items, mergedColumn);
+    }
+    return getCalcRows(transChildren2Items(children), mergedColumn);
   }, [items, children, mergedColumn]);
 
-  return [rows];
+  return rows;
 };
 
 export default useRow;
