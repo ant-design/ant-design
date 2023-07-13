@@ -62,6 +62,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         padding: 0,
         border: `${lineWidth}px ${lineType} ${colorBorder}`,
         borderRadius,
+        verticalAlign: 'bottom',
 
         '&-rtl': {
           direction: 'rtl',
