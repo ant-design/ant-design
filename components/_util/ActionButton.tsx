@@ -20,7 +20,7 @@ function isThenable(thing?: PromiseLike<any>): boolean {
   return !!(thing && !!thing.then);
 }
 
-const ActionButton: React.FC<ActionButtonProps> = props => {
+const ActionButton: React.FC<ActionButtonProps> = (props) => {
   const clickedRef = React.useRef<boolean>(false);
   const ref = React.useRef<HTMLInputElement>(null);
   const [loading, setLoading] = useState<ButtonProps['loading']>(false);
@@ -55,12 +55,10 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
         clickedRef.current = false;
       },
       (e: Error) => {
-        // Emit error when catch promise reject
-        // eslint-disable-next-line no-console
-        console.error(e);
         // See: https://github.com/ant-design/ant-design/issues/6183
         setLoading(false, true);
         clickedRef.current = false;
+        return Promise.reject(e);
       },
     );
   };
