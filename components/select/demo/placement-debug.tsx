@@ -3,11 +3,11 @@ import type { RadioChangeEvent } from 'antd';
 import { Button, Radio, Select, Space, Switch } from 'antd';
 import type { SelectCommonPlacement } from 'antd/es/_util/motion';
 
-const randomOptions = () => {
-  const len = Math.floor(Math.random() * 5);
+const randomOptions = (count?: number) => {
+  const length = count ?? Math.floor(Math.random() * 5) + 1;
 
   // Random 1 ~ 5 options
-  return Array.from({ length: len + 1 }).map((_, index) => ({
+  return Array.from({ length }).map((_, index) => ({
     value: index,
     label: `Option ${index}`,
   }));
@@ -16,7 +16,7 @@ const randomOptions = () => {
 const App: React.FC = () => {
   const [placement, SetPlacement] = useState<SelectCommonPlacement>('topLeft');
   const [open, setOpen] = useState(false);
-  const [options, setOptions] = useState(() => randomOptions());
+  const [options, setOptions] = useState(() => randomOptions(3));
 
   const placementChange = (e: RadioChangeEvent) => {
     SetPlacement(e.target.value);
