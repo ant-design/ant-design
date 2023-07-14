@@ -165,7 +165,10 @@ const InternalSelect = <
     prefixCls,
   });
 
-  const selectProps = omit(props as typeof props & { itemIcon: any }, ['suffixIcon', 'itemIcon']);
+  const selectProps = omit(props as typeof props & { itemIcon: React.ReactNode }, [
+    'suffixIcon',
+    'itemIcon',
+  ]);
 
   const rcSelectRtlDropdownClassName = classNames(
     popupClassName || dropdownClassName,
