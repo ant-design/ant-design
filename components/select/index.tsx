@@ -152,7 +152,7 @@ const InternalSelect = <
   } else if (mode === 'combobox') {
     mergedNotFound = null;
   } else {
-    mergedNotFound = renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />;
+    mergedNotFound = renderEmpty?.('Select') || <DefaultRenderEmpty componentName='Select' />;
   }
 
   // ===================== Icons =====================
@@ -165,7 +165,10 @@ const InternalSelect = <
     prefixCls,
   });
 
-  const selectProps = omit(props as typeof props & { itemIcon: any }, ['suffixIcon', 'itemIcon']);
+  const selectProps = omit(props as typeof props & { itemIcon: React.ReactNode }, [
+    'suffixIcon',
+    'itemIcon',
+  ]);
 
   const rcSelectRtlDropdownClassName = classNames(
     popupClassName || dropdownClassName,
