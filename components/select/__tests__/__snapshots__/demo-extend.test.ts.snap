@@ -6755,8 +6755,8 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
       style="margin-right: 8px;"
     >
       <button
-        aria-checked="true"
-        class="ant-switch ant-switch-checked"
+        aria-checked="false"
+        class="ant-switch"
         role="switch"
         type="button"
       >
@@ -6789,7 +6789,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
     </div>
   </div>
   <div
-    class="ant-select ant-select-single ant-select-show-arrow ant-select-open"
+    class="ant-select ant-select-single ant-select-show-arrow"
     style="width: 120px;"
   >
     <div
@@ -6802,7 +6802,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
           aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
-          aria-expanded="true"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
@@ -6822,7 +6822,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
     </div>
     <div
       class="ant-select-dropdown ant-slide-down-appear ant-slide-down-appear-prepare ant-slide-down ant-select-dropdown-placement-topLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; width: 200px; min-width: 0;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; width: 200px;"
     >
       <div>
         <div
@@ -6903,23 +6903,6 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
                     class="ant-select-item-option-content"
                   >
                     Option 2
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
-                </div>
-                <div
-                  aria-selected="false"
-                  class="ant-select-item ant-select-item-option"
-                  title="Option 3"
-                >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Option 3
                   </div>
                   <span
                     aria-hidden="true"

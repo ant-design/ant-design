@@ -15,7 +15,7 @@ const randomOptions = () => {
 
 const App: React.FC = () => {
   const [placement, SetPlacement] = useState<SelectCommonPlacement>('topLeft');
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [options, setOptions] = useState(() => randomOptions());
 
   const placementChange = (e: RadioChangeEvent) => {
