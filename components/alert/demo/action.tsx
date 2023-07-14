@@ -30,7 +30,7 @@ const App: React.FC = () => (
       type="warning"
       action={
         <Space>
-          <Button size="small" ghost>
+          <Button type="text" size="small" ghost>
             Done
           </Button>
         </Space>
