@@ -11,7 +11,6 @@ const App: React.FC = () => (
       message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
       type="warning"
       closable
-      closeIcon
       onClose={onClose}
     />
     <Alert
@@ -19,7 +18,6 @@ const App: React.FC = () => (
       description="Error Description Error Description Error Description Error Description Error Description Error Description"
       type="error"
       closable
-      closeIcon
       onClose={onClose}
     />
   </Space>
