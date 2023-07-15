@@ -160,7 +160,7 @@ const Spin: React.FC<SpinClassProps> = (props) => {
         {...divProps}
         className={classNames(`${prefixCls}-nested-loading`, wrapperClassName, hashId)}
       >
-        {spinning && <div key='loading'>{spinElement}</div>}
+        {spinning && <div key="loading">{spinElement}</div>}
         <div className={containerClassName} key='container'>
           {children}
         </div>
