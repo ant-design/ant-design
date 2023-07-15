@@ -102,4 +102,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 ```
 
+4. Use in page
+
+```tsx
+'use client';
+
+import React from 'react';
+import { Button } from 'antd';
+import withTheme from '../../theme';
+
+const Home = function Home() {
+  return (
+    <div className="App">
+      <Button type="primary">Button</Button>
+    </div>
+  );
+};
+
+const HomePage = () => {
+  return withTheme(<Home />);
+};
+
+export default HomePage;
+```
+
 For more detailed information, please refer to [with-nextjs-app-router-inline-style](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-app-router-inline-style)。
