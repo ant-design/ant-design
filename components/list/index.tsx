@@ -270,7 +270,7 @@ function List<T>({
     childrenContent = (
       <div className={`${prefixCls}-empty-text`}>
         {(locale && locale.emptyText) || renderEmpty?.('List') || (
-          <DefaultRenderEmpty componentName='List' />
+          <DefaultRenderEmpty componentName="List" />
         )}
       </div>
     );
