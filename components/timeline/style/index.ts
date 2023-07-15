@@ -4,10 +4,30 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
+  /**
+   * @desc 轨迹颜色
+   * @descEN Line color
+   */
   tailColor: string;
+  /**
+   * @desc 轨迹宽度
+   * @descEN Line width
+   */
   tailWidth: number;
+  /**
+   * @desc 节点边框宽度
+   * @descEN Border width of node
+   */
   dotBorderWidth: number;
+  /**
+   * @desc 节点背景色
+   * @descEN Background color of node
+   */
   dotBg: string;
+  /**
+   * @desc 时间项下间距
+   * @descEN Bottom padding of item
+   */
   itemPaddingBottom: number;
 }
 

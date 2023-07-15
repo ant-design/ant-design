@@ -1,4 +1,5 @@
 import type { DerivativeFunc } from '@ant-design/cssinjs';
+import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
 import type { BadgeProps } from '../badge';
@@ -89,26 +90,37 @@ export interface ConfigConsumerProps {
     requiredMark?: RequiredMark;
     colon?: boolean;
     scrollToFirstError?: Options | boolean;
+    validateMessages?: ValidateMessages;
   };
   theme?: ThemeConfig;
   select?: ComponentStyleConfig & {
     showSearch?: boolean;
   };
+  alert?: ComponentStyleConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
   divider?: ComponentStyleConfig;
+  drawer?: ComponentStyleConfig;
+  calendar?: ComponentStyleConfig;
+  carousel?: ComponentStyleConfig;
   cascader?: ComponentStyleConfig;
+  collapse?: ComponentStyleConfig;
   typography?: ComponentStyleConfig;
+  skeleton?: ComponentStyleConfig;
   spin?: ComponentStyleConfig;
   segmented?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;
+  statistic?: ComponentStyleConfig;
   image?: ComponentStyleConfig;
   layout?: ComponentStyleConfig;
+  list?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;
   modal?: ComponentStyleConfig;
+  progress?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;
+  menu?: ComponentStyleConfig;
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
   empty?: ComponentStyleConfig;
@@ -116,16 +128,20 @@ export interface ConfigConsumerProps {
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
   switch?: ComponentStyleConfig;
+  transfer?: ComponentStyleConfig;
   avatar?: ComponentStyleConfig;
   message?: ComponentStyleConfig;
   tag?: ComponentStyleConfig;
   table?: ComponentStyleConfig;
   card?: ComponentStyleConfig;
   tabs?: ComponentStyleConfig;
+  timeline?: ComponentStyleConfig;
+  timePicker?: ComponentStyleConfig;
   upload?: ComponentStyleConfig;
   notification?: ComponentStyleConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
+  datePicker?: ComponentStyleConfig;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {

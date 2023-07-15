@@ -43,11 +43,9 @@ $ npm run dev
 └── vite.config.js
 ```
 
-现在从 yarn 或 npm 安装并引入 antd。
+现在从 yarn 或 npm 或 pnpm 安装并引入 antd。
 
-```bash
-$ npm install antd --save
-```
+<InstallDependencies npm='$ npm install antd --save' yarn='$ yarn add antd' pnpm='$ pnpm install antd --save'></InstallDependencies>
 
 修改 `src/App.js`，引入 antd 的按钮组件。
 

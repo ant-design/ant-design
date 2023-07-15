@@ -1,3 +1,5 @@
+'use client';
+
 // TODO: 4.0 - codemod should help to change `filterOption` to support node props.
 import classNames from 'classnames';
 import type { BaseSelectRef, SelectProps as RcSelectProps } from 'rc-select';
@@ -43,7 +45,7 @@ export interface InternalSelectProps<
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;
-  mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
+  mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE' | 'combobox';
   bordered?: boolean;
 }
 
@@ -119,7 +121,7 @@ const InternalSelect = <
   const mode = React.useMemo(() => {
     const { mode: m } = props as InternalSelectProps<OptionType>;
 
-    if ((m as any) === 'combobox') {
+    if (m === 'combobox') {
       return undefined;
     }
 
@@ -165,7 +167,10 @@ const InternalSelect = <
     prefixCls,
   });
 
-  const selectProps = omit(props as typeof props & { itemIcon: any }, ['suffixIcon', 'itemIcon']);
+  const selectProps = omit(props as typeof props & { itemIcon: React.ReactNode }, [
+    'suffixIcon',
+    'itemIcon',
+  ]);
 
   const rcSelectRtlDropdownClassName = classNames(
     popupClassName || dropdownClassName,

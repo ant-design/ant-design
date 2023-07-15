@@ -1,10 +1,19 @@
-import { DownloadOutlined } from '@ant-design/icons';
-import { Image } from 'antd';
+import {
+  DownloadOutlined,
+  RotateLeftOutlined,
+  RotateRightOutlined,
+  SwapOutlined,
+  ZoomInOutlined,
+  ZoomOutOutlined,
+} from '@ant-design/icons';
+import { Image, Space } from 'antd';
 import React from 'react';
 
 const src = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
 
 const App: React.FC = () => {
+  // or you can download flipped and rotated image
+  // https://codesandbox.io/s/zi-ding-yi-gong-ju-lan-antd-5-7-0-forked-c9jvmp
   const onDownload = () => {
     fetch(src)
       .then((response) => response.blob())
@@ -12,7 +21,7 @@ const App: React.FC = () => {
         const url = URL.createObjectURL(new Blob([blob]));
         const link = document.createElement('a');
         link.href = url;
-        link.download = 'image.jpg';
+        link.download = 'image.png';
         document.body.appendChild(link);
         link.click();
         URL.revokeObjectURL(url);
@@ -23,36 +32,26 @@ const App: React.FC = () => {
   return (
     <Image
       width={200}
+      src={src}
       preview={{
         toolbarRender: (
           _,
           {
-            icons: {
-              flipYIcon,
-              flipXIcon,
-              rotateLeftIcon,
-              rotateRightIcon,
-              zoomOutIcon,
-              zoomInIcon,
-              closeIcon,
-            },
+            transform: { scale },
+            actions: { onFlipY, onFlipX, onRotateLeft, onRotateRight, onZoomOut, onZoomIn },
           },
         ) => (
-          <ul className="ant-image-preview-operations">
-            <li className="ant-image-preview-operations-operation" onClick={onDownload}>
-              <DownloadOutlined className="ant-image-preview-operations-icon" />
-            </li>
-            {flipYIcon}
-            {flipXIcon}
-            {rotateLeftIcon}
-            {rotateRightIcon}
-            {zoomOutIcon}
-            {zoomInIcon}
-            {closeIcon}
-          </ul>
+          <Space size={12} className="toolbar-wrapper">
+            <DownloadOutlined onClick={onDownload} />
+            <SwapOutlined rotate={90} onClick={onFlipY} />
+            <SwapOutlined onClick={onFlipX} />
+            <RotateLeftOutlined onClick={onRotateLeft} />
+            <RotateRightOutlined onClick={onRotateRight} />
+            <ZoomOutOutlined disabled={scale === 1} onClick={onZoomOut} />
+            <ZoomInOutlined disabled={scale === 50} onClick={onZoomIn} />
+          </Space>
         ),
       }}
-      src={src}
     />
   );
 };

@@ -22,8 +22,10 @@ Used when the user needs to customize the color selection.
 <code src="./demo/base.tsx">Basic Usage</code>
 <code src="./demo/size.tsx">Trigger size</code>
 <code src="./demo/controlled.tsx">controlled mode</code>
+<code src="./demo/change-completed.tsx">Color change completed</code>
 <code src="./demo/text-render.tsx">Rendering Trigger Text</code>
 <code src="./demo/disabled.tsx">Disable</code>
+<code src="./demo/disabled-alpha.tsx">Disabled Alpha</code>
 <code src="./demo/allowClear.tsx">Clear Color</code>
 <code src="./demo/trigger.tsx">Custom Trigger</code>
 <code src="./demo/trigger-event.tsx">Custom Trigger Event</code>
@@ -44,6 +46,7 @@ Used when the user needs to customize the color selection.
 | children | Trigger of ColorPicker | React.ReactNode | - | |
 | defaultValue | Default value of color | string \| `Color` | - | |
 | disabled | Disable ColorPicker | boolean | - | |
+| disabledAlpha | Disable Alpha | boolean | - | 5.8.0 |
 | destroyTooltipOnHide | Whether destroy popover when hidden | `boolean` | false | 5.7.0 |
 | format | Format of color | `rgb` \| `hex` \| `hsb` | `hex` | |
 | open | Whether to show popup | boolean | - | |
@@ -55,6 +58,7 @@ Used when the user needs to customize the color selection.
 | trigger | ColorPicker trigger mode | `hover` \| `click` | `click` | |
 | value | Value of color | string \| `Color` | - | |
 | onChange | Callback when `value` is changed | `(value: Color, hex: string) => void` | - | |
+| onChangeComplete | Called when color pick ends   | `(value: Color) => void` | - | 5.7.0 |
 | onFormatChange | Callback when `format` is changed | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - | |
 | onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - | |
 | onClear | Called when clear | `() => void` | - | 5.6.0 |

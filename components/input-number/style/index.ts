@@ -15,10 +15,26 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook } from '../../theme/internal';
 
 export interface ComponentToken {
+  /**
+   * @desc 输入框宽度
+   * @descEN Width of input
+   */
   controlWidth: number;
+  /**
+   * @desc 操作按钮宽度
+   * @descEN Width of control button
+   */
   handleWidth: number;
+  /**
+   * @desc 操作按钮图标大小
+   * @descEN Icon size of control button
+   */
   handleFontSize: number;
-  /** Default `auto`. Set `true` will always show the handle */
+  /**
+   * Default `auto`. Set `true` will always show the handle
+   * @desc 操作按钮可见性
+   * @descEN Handle visible
+   */
   handleVisible: 'auto' | true;
 }
 

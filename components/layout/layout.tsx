@@ -57,7 +57,7 @@ const Basic = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('layout', customizePrefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls as string);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const prefixWithSuffixCls = suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
 
@@ -91,7 +91,7 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
   const { getPrefixCls, layout } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('layout', customizePrefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls as string);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
   const classString = classNames(
     prefixCls,
     {

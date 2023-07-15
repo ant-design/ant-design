@@ -12,11 +12,9 @@ export interface PanelPresetsProps extends Pick<ColorPickerBaseProps, 'prefixCls
 
 const PanelPresets: FC = () => {
   const { prefixCls, value, presets, onChange } = useContext(PanelPresetsContext);
-  return (
-    Array.isArray(presets) && (
-      <ColorPresets value={value} presets={presets} prefixCls={prefixCls} onChange={onChange} />
-    )
-  );
+  return Array.isArray(presets) ? (
+    <ColorPresets value={value} presets={presets} prefixCls={prefixCls} onChange={onChange} />
+  ) : null;
 };
 
 export default PanelPresets;

@@ -16,6 +16,12 @@ import type { ModalFuncProps, ModalLocale } from './interface';
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
   close?: (...args: any[]) => void;
+  /**
+   * `close` prop support `...args` that pass to the developer
+   * that we can not break this.
+   * Provider `onClose` for internal usage
+   */
+  onConfirm?: (confirmed: boolean) => void;
   autoFocusButton?: null | 'ok' | 'cancel';
   rootPrefixCls: string;
   iconPrefixCls?: string;
@@ -23,6 +29,11 @@ interface ConfirmDialogProps extends ModalFuncProps {
 
   /** @private Internal Usage. Do not override this */
   locale?: ModalLocale;
+
+  /**
+   * Do not throw if is await mode
+   */
+  isSilent?: () => boolean;
 }
 
 export function ConfirmContent(
@@ -35,6 +46,8 @@ export function ConfirmContent(
     onCancel,
     onOk,
     close,
+    onConfirm,
+    isSilent,
     okText,
     okButtonProps,
     cancelText,
@@ -89,8 +102,12 @@ export function ConfirmContent(
 
   const cancelButton = mergedOkCancel && (
     <ActionButton
+      isSilent={isSilent}
       actionFn={onCancel}
-      close={close}
+      close={(...args: any[]) => {
+        close?.(...args);
+        onConfirm?.(false);
+      }}
       autoFocus={autoFocusButton === 'cancel'}
       buttonProps={cancelButtonProps}
       prefixCls={`${rootPrefixCls}-btn`}
@@ -112,9 +129,13 @@ export function ConfirmContent(
         <div className={`${confirmPrefixCls}-btns`}>
           {cancelButton}
           <ActionButton
+            isSilent={isSilent}
             type={okType}
             actionFn={onOk}
-            close={close}
+            close={(...args: any[]) => {
+              close?.(...args);
+              onConfirm?.(true);
+            }}
             autoFocus={autoFocusButton === 'ok'}
             buttonProps={okButtonProps}
             prefixCls={`${rootPrefixCls}-btn`}

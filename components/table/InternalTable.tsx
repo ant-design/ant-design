@@ -5,6 +5,7 @@ import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
+import type { AnyObject } from '../_util/type';
 import warning from '../_util/warning';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { ConfigConsumerProps } from '../config-provider/context';
@@ -19,7 +20,6 @@ import Spin from '../spin';
 import type { TooltipProps } from '../tooltip';
 import renderExpandIcon from './ExpandIcon';
 import RcTable from './RcTable';
-import type { AnyObject } from './Table';
 import type { FilterState } from './hooks/useFilter';
 import useFilter, { getFilterData } from './hooks/useFilter';
 import useLazyKVMap from './hooks/useLazyKVMap';
@@ -109,7 +109,7 @@ export interface TableProps<RecordType>
   showSorterTooltip?: boolean | TooltipProps;
 }
 
-const InternalTable = <RecordType extends AnyObject = any>(
+const InternalTable = <RecordType extends AnyObject = AnyObject>(
   props: InternalTableProps<RecordType>,
   ref: React.MutableRefObject<HTMLDivElement>,
 ) => {

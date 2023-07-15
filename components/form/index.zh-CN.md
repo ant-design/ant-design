@@ -544,6 +544,10 @@ validator(rule, value, callback) => {
 1. Form 的 `initialValues` 拥有最高优先级
 2. Field 的 `initialValue` 次之 \*. 多个同 `name` Item 都设置 `initialValue` 时，则 Item 的 `initialValue` 不生效
 
+### 为什么 `getFieldsValue` 在初次渲染的时候拿不到值？
+
+`getFieldsValue` 默认返回收集的字段数据，而在初次渲染时 Form.Item 节点尚未渲染，因而无法收集到数据。你可以通过 `getFieldsValue(true)` 来获取所有字段数据。
+
 ### 为什么字段设置 `rules` 后更改值 `onFieldsChange` 会触发三次？
 
 字段除了本身的值变化外，校验也是其状态之一。因而在触发字段变化会经历以下几个阶段：

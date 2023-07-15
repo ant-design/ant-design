@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import * as React from 'react';
 import warning from '../_util/warning';

@@ -41,6 +41,7 @@ demo:
 <code src="./demo/big-data.tsx">大数据</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/placement.tsx">弹出位置</code>
+<code src="./demo/placement-debug.tsx" debug>动态高度</code>
 <code src="./demo/debug.tsx" debug>4.0 Debug</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/option-label-center.tsx" debug>选项文本居中</code>

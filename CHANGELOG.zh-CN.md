@@ -15,6 +15,50 @@ timeline: true
 
 ---
 
+## 5.7.0
+
+`2023-07-11`
+
+- 🆕 ConfigProvider 支持所有组件的 `className` 和 `style` 属性控制。感谢 [@Yuiai01](https://github.com/Yuiai01)、[@li-jia-nan](https://github.com/li-jia-nan) 和 [@MuxinFeng](https://github.com/MuxinFeng) 的贡献。
+- 🆕 Badge 支持 `classNames` 属性和 `styles` 属性。[#43245](https://github.com/ant-design/ant-design/pull/43245) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 ColorPicker 支持 `showText`、`destroyTooltipOnHide`、`onChangeComplete`、`panelRender`、`size` 等新特性。
+  - [#42865](https://github.com/ant-design/ant-design/pull/42865) [@RedJue](https://github.com/RedJue)
+  - [#42645](https://github.com/ant-design/ant-design/pull/42645) [@linxianxi](https://github.com/linxianxi)
+  - [#43370](https://github.com/ant-design/ant-design/pull/43370) [@RedJue](https://github.com/RedJue)
+  - [#43134](https://github.com/ant-design/ant-design/pull/43134) [@RedJue](https://github.com/RedJue)
+  - [#43116](https://github.com/ant-design/ant-design/pull/43116) [@RedJue](https://github.com/RedJue)
+- 🆕 Alert、Drawer、Modal、Notifaction、Tag、Tabs 均已支持通过设置 `closeIcon` 为 null 或 false 隐藏关闭按钮。 [#42828](https://github.com/ant-design/ant-design/discussions/42828) [@kiner-tang](https://github.com/kiner-tang)
+- 🆕 Anchor 添加 `replace` 属性。[#43006](https://github.com/ant-design/ant-design/pull/43006) [@ds1371dani](https://github.com/ds1371dani)
+- 🆕 Image 支持 `imageRender`、`toolbarRender` 属性以支持预览图和工具栏的自定义渲染，还支持了 `onTransform`、`minScale`、`maxScale` 等新属性，Image.PreviewGroup 支持 `items` 属性传入列表数据，并修复了 img 标签的原生属性没有传递给预览图的问题。[#43075](https://github.com/ant-design/ant-design/pull/43075) [@linxianxi](https://github.com/linxianxi)
+- 🆕 修改 Image 预览图的布局风格，`preview` 属性支持 `closeIcon`，Image.PreviewGroup 支持 `fallback` 属性，修复加载预览资源提前加载的问题。[#43167](https://github.com/ant-design/ant-design/pull/43167) [@linxianxi](https://github.com/linxianxi)
+- 🛠 InputNumber 使用 rc-input 进行重构。[#43000](https://github.com/ant-design/ant-design/pull/43000) [@MuxinFeng](https://github.com/MuxinFeng)
+- 🛠 解决 vite、rollup、meteor、microbundle 等构建工具中遇到的循环依赖问题，并增加相关的检测。[#42750](https://github.com/ant-design/ant-design/pull/42750)，感谢 [@jrr997](https://github.com/jrr997)、[@kiner-tang](https://github.com/kiner-tang) 和 [@MuxinFeng](https://github.com/MuxinFeng) 的贡献。
+- 🐞 移除 Anchor/CollapsePanel/Input.Group 组件中 `className` 属性的默认值（空字符串）。 [#43481](https://github.com/ant-design/ant-design/pull/43481) [@thinkasany](https://github.com/thinkasany)
+- 🐞 修复 Upload 上传进度条延迟消失且丢失动画效果的问题。[#43471](https://github.com/ant-design/ant-design/pull/43471)
+- 🐞 为 Menu 中组件 Token `colorItemBgSelected` 添加废弃警告。[#43461](https://github.com/ant-design/ant-design/pull/43461) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复样式特性支持检测时部分浏览器因为未重绘导致出现滚动条的问题。[#43358](https://github.com/ant-design/ant-design/pull/43358) [@LeeeeeeM](https://github.com/LeeeeeeM)
+- 🐞 修复 Card `tabList` 为空时 Tab 完全不展示的问题。[#43416](https://github.com/ant-design/ant-design/pull/43416) [@linxianxi](https://github.com/linxianxi)
+- 🐞 修复 ConfigProvider 嵌套使用时，`form.validateMessages` 配置会丢失的问题。[#43239](https://github.com/ant-design/ant-design/pull/43239) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 Tag 点击的水波纹效果有时候会和 Tag 元素产生偏移的问题。[#43402](https://github.com/ant-design/ant-design/pull/43402)
+- 🐞 修复 DatePicker 切换到年月面板时，`此刻` 点击无效的问题。[#43367](https://github.com/ant-design/ant-design/pull/43367) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 修复 TextArea 组件在屏幕大小变化时设置的高度失效的问题。[#43169](https://github.com/ant-design/ant-design/pull/43169) [@MadCcc](https://github.com/MadCcc)
+- 💄 Slider 中 `tooltip` 在内容很少时应该居中。[#43430](https://github.com/ant-design/ant-design/pull/43430) [@Jomorx](https://github.com/Jomorx)
+- 💄 将 `colorLink` 添加至 seed token 中, `colorLinkHover` 和 `colorLinkActive` 将会由 `colorLink` 计算得出。[#43183](https://github.com/ant-design/ant-design/pull/43183) [@MadCcc](https://github.com/MadCcc)
+- 💄 调整 Slider 中部分 token 为 component token。[#42428](https://github.com/ant-design/ant-design/pull/42428) [@heiyu4585](https://github.com/heiyu4585)
+- RTL
+  - 🤖 Progress 支持 rtl 方向的动画。[#43316](https://github.com/ant-design/ant-design/pull/43316) [@Yuiai01](https://github.com/Yuiai01)
+- TypeScript
+  - 🤖 Popover 增加 `RawPurePanelProps` 接口描述。[#43453](https://github.com/ant-design/ant-design/pull/43453) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 Popconfirm 替换 `ref` 类型 `unknown` 为 `TooltipRef`。[#43452](https://github.com/ant-design/ant-design/pull/43452) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 Popover 替换 `ref` 类型 `unknown` 为 `TooltipRef`。[#43450](https://github.com/ant-design/ant-design/pull/43450) [@Negentropy247](https://github.com/Negentropy247)
+  - 🤖 改进 ButtonGroup 中 `GroupSizeContext` 的类型声明。[#43439](https://github.com/ant-design/ant-design/pull/43439) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 改进 Select 的 `mode` 属性的类型声明。[#43413](https://github.com/ant-design/ant-design/pull/43413) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 Checkbox 替换 `ref` 类型 `unknown` 为 `CheckboxRef`。[#43424](https://github.com/ant-design/ant-design/pull/43424) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🤖 改进 Table/Tag/Notification 内部类型实现。
+    - [#43366](https://github.com/ant-design/ant-design/pull/43366) [@li-jia-nan](https://github.com/li-jia-nan)
+    - [#43357](https://github.com/ant-design/ant-design/pull/43357) [@thinkasany](https://github.com/thinkasany)
+    - [#43351](https://github.com/ant-design/ant-design/pull/43351) [@thinkasany](https://github.com/thinkasany)
+
 ## 5.6.4
 
 `2023-07-03`
@@ -795,7 +839,7 @@ timeline: true
 - 🐞 修复 Tree `checkable` 与 `blockNode` 配合时，`title` 元素不拉伸的问题。[#39209](https://github.com/ant-design/ant-design/pull/39209) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 修复 Dropdown 二级菜单丢失动画的问题。[#39235](https://github.com/ant-design/ant-design/pull/39235)
 - 💄 修复 RangePicker 内时间面板的 padding 样式。[#39228](https://github.com/ant-design/ant-design/pull/39228)
-- 🐞 修复 Card 的按钮组圆角样式。[#39210](https://github.com/ant-design/ant-design/pull/39210) [@muxin](https://github.com/muxin)
+- 🐞 修复 Card 的按钮组圆角样式。[#39210](https://github.com/ant-design/ant-design/pull/39210) [@MuxinFeng](https://github.com/MuxinFeng)
 - 🐞 修复了 Badge 自定义颜色的时候，波纹的颜色不会跟着小圆点颜色发生变化的问题。[#39182](https://github.com/ant-design/ant-design/pull/39182) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 修复 Radio 禁用状态选中样式。[#39165](https://github.com/ant-design/ant-design/pull/39165) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 修复 TextArea `resize` 不是 `none` 时计数文字的样式问题。[#39121](https://github.com/ant-design/ant-design/pull/39121) [@51wangping](https://github.com/51wangping)

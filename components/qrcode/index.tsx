@@ -1,3 +1,5 @@
+'use client';
+
 import { ReloadOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import { QRCodeCanvas, QRCodeSVG } from 'qrcode.react';

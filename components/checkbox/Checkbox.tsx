@@ -51,7 +51,10 @@ export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent
 }
 
 const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProps> = (
-  {
+  props,
+  ref,
+) => {
+  const {
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
@@ -63,9 +66,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     skipGroup = false,
     disabled,
     ...restProps
-  },
-  ref,
-) => {
+  } = props;
   const { getPrefixCls, direction, checkbox } = React.useContext(ConfigContext);
   const checkboxGroup = React.useContext(GroupContext);
   const { isFormItemInput } = React.useContext(FormItemInputContext);
@@ -112,8 +113,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     checkboxProps.checked = checkboxGroup.value.includes(restProps.value);
   }
   const classString = classNames(
+    `${prefixCls}-wrapper`,
     {
-      [`${prefixCls}-wrapper`]: true,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-wrapper-checked`]: checkboxProps.checked,
       [`${prefixCls}-wrapper-disabled`]: mergedDisabled,
@@ -152,7 +153,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   );
 };
 
-const Checkbox = React.forwardRef<unknown, CheckboxProps>(InternalCheckbox);
+const Checkbox = React.forwardRef<CheckboxRef, CheckboxProps>(InternalCheckbox);
+
 if (process.env.NODE_ENV !== 'production') {
   Checkbox.displayName = 'Checkbox';
 }

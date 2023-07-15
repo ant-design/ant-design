@@ -1,3 +1,5 @@
+'use client';
+
 import { createTheme } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
@@ -138,21 +140,31 @@ export interface ConfigProviderProps {
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
+  alert?: ComponentStyleConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
+  calendar?: ComponentStyleConfig;
+  carousel?: ComponentStyleConfig;
   cascader?: ComponentStyleConfig;
+  collapse?: ComponentStyleConfig;
   divider?: ComponentStyleConfig;
+  drawer?: ComponentStyleConfig;
   typography?: ComponentStyleConfig;
+  skeleton?: ComponentStyleConfig;
   spin?: ComponentStyleConfig;
   segmented?: ComponentStyleConfig;
+  statistic?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;
   image?: ComponentStyleConfig;
   layout?: ComponentStyleConfig;
+  list?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;
   modal?: ComponentStyleConfig;
+  progress?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;
+  menu?: ComponentStyleConfig;
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
   empty?: ComponentStyleConfig;
@@ -160,16 +172,20 @@ export interface ConfigProviderProps {
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
   switch?: ComponentStyleConfig;
+  transfer?: ComponentStyleConfig;
   avatar?: ComponentStyleConfig;
   message?: ComponentStyleConfig;
   tag?: ComponentStyleConfig;
   table?: ComponentStyleConfig;
   card?: ComponentStyleConfig;
   tabs?: ComponentStyleConfig;
+  timeline?: ComponentStyleConfig;
+  timePicker?: ComponentStyleConfig;
   upload?: ComponentStyleConfig;
   notification?: ComponentStyleConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
+  datePicker?: ComponentStyleConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -245,6 +261,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     children,
     csp: customCsp,
     autoInsertSpaceInButton,
+    alert,
     anchor,
     form,
     locale,
@@ -261,20 +278,29 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     theme,
     componentDisabled,
     segmented,
+    statistic,
     spin,
+    calendar,
+    carousel,
     cascader,
+    collapse,
     typography,
     checkbox,
     descriptions,
     divider,
+    drawer,
+    skeleton,
     steps,
     image,
     layout,
+    list,
     mentions,
     modal,
+    progress,
     result,
     slider,
     breadcrumb,
+    menu,
     pagination,
     input,
     empty,
@@ -282,16 +308,20 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     radio,
     rate,
     switch: SWITCH,
+    transfer,
     avatar,
     message,
     tag,
     table,
     card,
     tabs,
+    timeline,
+    timePicker,
     upload,
     notification,
     tree,
     colorPicker,
+    datePicker,
   } = props;
 
   // =================================== Warning ===================================
@@ -334,6 +364,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   const baseConfig = {
     csp,
     autoInsertSpaceInButton,
+    alert,
     anchor,
     locale: locale || legacyLocale,
     direction,
@@ -345,37 +376,50 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     iconPrefixCls,
     theme: mergedTheme,
     segmented,
+    statistic,
     spin,
+    calendar,
+    carousel,
     cascader,
+    collapse,
     typography,
     checkbox,
     descriptions,
     divider,
+    drawer,
+    skeleton,
     steps,
     image,
     input,
     layout,
+    list,
     mentions,
     modal,
+    progress,
     result,
     slider,
     breadcrumb,
+    menu,
     pagination,
     empty,
     badge,
     radio,
     rate,
     switch: SWITCH,
+    transfer,
     avatar,
     message,
     tag,
     table,
     card,
     tabs,
+    timeline,
+    timePicker,
     upload,
     notification,
     tree,
     colorPicker,
+    datePicker,
   };
 
   const config = {
@@ -423,6 +467,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
       merge(
         defaultLocale.Form?.defaultValidateMessages || {},
         memoedConfig.locale?.Form?.defaultValidateMessages || {},
+        memoedConfig.form?.validateMessages || {},
         form?.validateMessages || {},
       ),
     [memoedConfig, form?.validateMessages],

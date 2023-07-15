@@ -23,8 +23,10 @@ group:
 <code src="./demo/base.tsx">基本使用</code>
 <code src="./demo/size.tsx">触发器尺寸大小</code>
 <code src="./demo/controlled.tsx">受控模式</code>
+<code src="./demo/change-completed.tsx">颜色完成选择</code>
 <code src="./demo/text-render.tsx">渲染触发器文本</code>
 <code src="./demo/disabled.tsx">禁用</code>
+<code src="./demo/disabled-alpha.tsx">禁用透明度</code>
 <code src="./demo/allowClear.tsx">清除颜色</code>
 <code src="./demo/trigger.tsx">自定义触发器</code>
 <code src="./demo/trigger-event.tsx">自定义触发事件</code>
@@ -45,6 +47,7 @@ group:
 | children | 颜色选择器的触发器 | React.ReactNode | - | |
 | defaultValue | 颜色默认的值 | string \| `Color` | - | |
 | disabled | 禁用颜色选择器 | boolean | - | |
+| disabledAlpha | 禁用透明度 | boolean | - | 5.8.0 |
 | destroyTooltipOnHide | 关闭后是否销毁弹窗 | `boolean` | false | 5.7.0 |
 | format | 颜色格式 | `rgb` \| `hex` \| `hsb` | `hex` | |
 | open | 是否显示弹出窗口 | boolean | - | |
@@ -56,6 +59,7 @@ group:
 | trigger | 颜色选择器的触发模式 | `hover` \| `click` | `click` | |
 | value | 颜色的值 | string \| `Color` | - | |
 | onChange | 颜色变化的回调 | `(value: Color, hex: string) => void` | - | |
+| onChangeComplete | 颜色选择完成的回调  | `(value: Color) => void` | - | 5.7.0 |
 | onFormatChange | 颜色格式变化的回调 | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - | |
 | onOpenChange | 当 `open` 被改变时的回调 | `(open: boolean) => void` | - | |
 | onClear | 清除的回调 | `() => void` | - | 5.6.0 |

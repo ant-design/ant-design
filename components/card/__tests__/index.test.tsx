@@ -132,6 +132,17 @@ describe('Card', () => {
     expect(cardRef.current).toHaveClass('ant-card');
   });
 
+  it('should show tab when tabList is empty', () => {
+    const { container } = render(
+      <Card title="Card title" tabList={[]} tabProps={{ type: 'editable-card' }}>
+        <p>Card content</p>
+      </Card>,
+    );
+
+    expect(container.querySelector('.ant-tabs')).toBeTruthy();
+    expect(container.querySelector('.ant-tabs-nav-add')).toBeTruthy();
+  });
+
   it('correct pass tabList props', () => {
     const { container } = render(
       <Card

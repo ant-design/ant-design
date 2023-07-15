@@ -1,3 +1,5 @@
+'use client';
+
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import classNames from 'classnames';
 import RcImage, { type ImageProps } from 'rc-image';
@@ -13,14 +15,15 @@ export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
 }
 
-const Image: CompositionImage<ImageProps> = ({
-  prefixCls: customizePrefixCls,
-  preview,
-  className,
-  rootClassName,
-  style,
-  ...otherProps
-}) => {
+const Image: CompositionImage<ImageProps> = (props) => {
+  const {
+    prefixCls: customizePrefixCls,
+    preview,
+    className,
+    rootClassName,
+    style,
+    ...otherProps
+  } = props;
   const {
     getPrefixCls,
     locale: contextLocale = defaultLocale,

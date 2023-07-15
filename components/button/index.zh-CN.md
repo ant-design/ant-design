@@ -72,7 +72,7 @@ group:
 | size | 设置按钮大小 | `large` \| `middle` \| `small` | `middle` |  |
 | styles | 语义化结构 style | Record<SemanticDOM, CSSProperties> | - | 5.4.0 |
 | target | 相当于 a 链接的 target 属性，href 存在时生效 | string | - |  |
-| type | 设置按钮类型 | `primary` \| `ghost` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
+| type | 设置按钮类型 | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
 | onClick | 点击按钮时的回调 | (event: MouseEvent) => void | - |  |
 
 支持原生 button 的其他所有属性。

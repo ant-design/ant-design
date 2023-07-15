@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import RcMentions from 'rc-mentions';
 import type {
@@ -64,7 +66,10 @@ type CompoundedComponent = React.ForwardRefExoticComponent<
 };
 
 const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps> = (
-  {
+  props,
+  ref,
+) => {
+  const {
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
@@ -78,9 +83,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     popupClassName,
     style,
     ...restProps
-  },
-  ref,
-) => {
+  } = props;
   const [focused, setFocused] = React.useState(false);
   const innerRef = React.useRef<MentionsRef>(null);
   const mergedRef = composeRef(ref, innerRef);

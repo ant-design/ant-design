@@ -14,6 +14,11 @@ export interface ActionButtonProps {
   emitEvent?: boolean;
   quitOnNullishReturnValue?: boolean;
   children?: React.ReactNode;
+
+  /**
+   * Do not throw if is await mode
+   */
+  isSilent?: () => boolean;
 }
 
 function isThenable<T extends any>(thing?: PromiseLike<T>): boolean {
@@ -29,6 +34,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
     close,
     autoFocus,
     emitEvent,
+    isSilent,
     quitOnNullishReturnValue,
     actionFn,
   } = props;
@@ -70,6 +76,12 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
         // See: https://github.com/ant-design/ant-design/issues/6183
         setLoading(false, true);
         clickedRef.current = false;
+
+        // Do not throw if is `await` mode
+        if (isSilent?.()) {
+          return;
+        }
+
         return Promise.reject(e);
       },
     );
