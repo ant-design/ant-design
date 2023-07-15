@@ -57,7 +57,7 @@ export default Home;
 
 <InstallDependencies npm='$ npm install @ant-design/cssinjs --save' yarn='$ yarn add @ant-design/cssinjs' pnpm='$ pnpm install @ant-design/cssinjs --save'></InstallDependencies>
 
-2. 创建 `lib/registry.tsx`
+2. 创建 `lib/AntdRegistry.tsx`
 
 ```tsx
 'use client';
@@ -84,7 +84,7 @@ export default function StyledComponentsRegistry({ children }: { children: React
 3. 在 `app/layout.tsx` 中使用
 
 ```tsx
-import StyledComponentsRegistry from '../lib/registry';
+import StyledComponentsRegistry from '../lib/AntdRegistry';
 import './globals.css';
 import { Inter } from 'next/font/google';
 
