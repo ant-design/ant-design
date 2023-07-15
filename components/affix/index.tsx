@@ -43,6 +43,7 @@ export interface AffixProps {
 
 interface InternalAffixProps extends AffixProps {
   affixPrefixCls: string;
+  onTestUpdatePosition?: () => void;
 }
 
 enum AffixStatus {
@@ -225,7 +226,7 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
 
     // Test if `updatePosition` called
     if (process.env.NODE_ENV === 'test') {
-      const { onTestUpdatePosition } = this.props as any;
+      const { onTestUpdatePosition } = this.props;
       onTestUpdatePosition?.();
     }
   };
@@ -288,7 +289,7 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
     return (
       <ResizeObserver onResize={this.updatePosition}>
         <div {...props} ref={this.placeholderNodeRef}>
-          {affixStyle && <div style={placeholderStyle} aria-hidden="true" />}
+          {affixStyle && <div style={placeholderStyle} aria-hidden='true' />}
           <div className={className} ref={this.fixedNodeRef} style={affixStyle}>
             <ResizeObserver onResize={this.updatePosition}>{children}</ResizeObserver>
           </div>
