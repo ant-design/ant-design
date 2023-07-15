@@ -146,7 +146,7 @@ const Spin: React.FC<SpinClassProps> = (props) => {
       {...divProps}
       style={mergedStyle}
       className={spinClassName}
-      aria-live='polite'
+      aria-live="polite"
       aria-busy={spinning}
     >
       {renderIndicator(prefixCls, props)}
