@@ -1,3 +1,5 @@
+'use client';
+
 // TODO: 4.0 - codemod should help to change `filterOption` to support node props.
 import classNames from 'classnames';
 import type { BaseSelectRef, SelectProps as RcSelectProps } from 'rc-select';
@@ -165,7 +167,10 @@ const InternalSelect = <
     prefixCls,
   });
 
-  const selectProps = omit(props as typeof props & { itemIcon: any }, ['suffixIcon', 'itemIcon']);
+  const selectProps = omit(props as typeof props & { itemIcon: React.ReactNode }, [
+    'suffixIcon',
+    'itemIcon',
+  ]);
 
   const rcSelectRtlDropdownClassName = classNames(
     popupClassName || dropdownClassName,

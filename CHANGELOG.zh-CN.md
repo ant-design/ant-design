@@ -31,7 +31,7 @@ timeline: true
 - 🆕 Anchor 添加 `replace` 属性。[#43006](https://github.com/ant-design/ant-design/pull/43006) [@ds1371dani](https://github.com/ds1371dani)
 - 🆕 Image 支持 `imageRender`、`toolbarRender` 属性以支持预览图和工具栏的自定义渲染，还支持了 `onTransform`、`minScale`、`maxScale` 等新属性，Image.PreviewGroup 支持 `items` 属性传入列表数据，并修复了 img 标签的原生属性没有传递给预览图的问题。[#43075](https://github.com/ant-design/ant-design/pull/43075) [@linxianxi](https://github.com/linxianxi)
 - 🆕 修改 Image 预览图的布局风格，`preview` 属性支持 `closeIcon`，Image.PreviewGroup 支持 `fallback` 属性，修复加载预览资源提前加载的问题。[#43167](https://github.com/ant-design/ant-design/pull/43167) [@linxianxi](https://github.com/linxianxi)
-- 🛠 InputNumber 使用 rc-input 进行重构。[#42762](https://github.com/ant-design/ant-design/pull/42762) [@muxin](https://github.com/muxin)
+- 🛠 InputNumber 使用 rc-input 进行重构。[#43000](https://github.com/ant-design/ant-design/pull/43000) [@MuxinFeng](https://github.com/MuxinFeng)
 - 🛠 解决 vite、rollup、meteor、microbundle 等构建工具中遇到的循环依赖问题，并增加相关的检测。[#42750](https://github.com/ant-design/ant-design/pull/42750)，感谢 [@jrr997](https://github.com/jrr997)、[@kiner-tang](https://github.com/kiner-tang) 和 [@MuxinFeng](https://github.com/MuxinFeng) 的贡献。
 - 🐞 移除 Anchor/CollapsePanel/Input.Group 组件中 `className` 属性的默认值（空字符串）。 [#43481](https://github.com/ant-design/ant-design/pull/43481) [@thinkasany](https://github.com/thinkasany)
 - 🐞 修复 Upload 上传进度条延迟消失且丢失动画效果的问题。[#43471](https://github.com/ant-design/ant-design/pull/43471)
@@ -839,7 +839,7 @@ timeline: true
 - 🐞 修复 Tree `checkable` 与 `blockNode` 配合时，`title` 元素不拉伸的问题。[#39209](https://github.com/ant-design/ant-design/pull/39209) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 修复 Dropdown 二级菜单丢失动画的问题。[#39235](https://github.com/ant-design/ant-design/pull/39235)
 - 💄 修复 RangePicker 内时间面板的 padding 样式。[#39228](https://github.com/ant-design/ant-design/pull/39228)
-- 🐞 修复 Card 的按钮组圆角样式。[#39210](https://github.com/ant-design/ant-design/pull/39210) [@muxin](https://github.com/muxin)
+- 🐞 修复 Card 的按钮组圆角样式。[#39210](https://github.com/ant-design/ant-design/pull/39210) [@MuxinFeng](https://github.com/MuxinFeng)
 - 🐞 修复了 Badge 自定义颜色的时候，波纹的颜色不会跟着小圆点颜色发生变化的问题。[#39182](https://github.com/ant-design/ant-design/pull/39182) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 修复 Radio 禁用状态选中样式。[#39165](https://github.com/ant-design/ant-design/pull/39165) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 修复 TextArea `resize` 不是 `none` 时计数文字的样式问题。[#39121](https://github.com/ant-design/ant-design/pull/39121) [@51wangping](https://github.com/51wangping)

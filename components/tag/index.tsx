@@ -1,3 +1,5 @@
+'use client';
+
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import * as React from 'react';
@@ -128,7 +130,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   const kids: React.ReactNode = iconNode ? (
     <>
       {iconNode}
-      <span>{children}</span>
+      {children && <span>{children}</span>}
     </>
   ) : (
     children
