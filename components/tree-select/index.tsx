@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import type { BaseSelectRef } from 'rc-select';
 import type { Placement } from 'rc-select/lib/BaseSelect';
@@ -184,7 +186,7 @@ const InternalTreeSelect = <
   if (notFoundContent !== undefined) {
     mergedNotFound = notFoundContent;
   } else {
-    mergedNotFound = renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />;
+    mergedNotFound = renderEmpty?.('Select') || <DefaultRenderEmpty componentName='Select' />;
   }
 
   // ==================== Render =====================

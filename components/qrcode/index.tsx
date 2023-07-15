@@ -1,3 +1,5 @@
+'use client';
+
 import { ReloadOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import { QRCodeCanvas, QRCodeSVG } from 'qrcode.react';
@@ -85,7 +87,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
             <>
               <p className={`${prefixCls}-expired`}>{locale?.expired}</p>
               {onRefresh && (
-                <Button type="link" icon={<ReloadOutlined />} onClick={onRefresh}>
+                <Button type='link' icon={<ReloadOutlined />} onClick={onRefresh}>
                   {locale?.refresh}
                 </Button>
               )}

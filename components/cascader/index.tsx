@@ -1,3 +1,5 @@
+'use client';
+
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
@@ -196,7 +198,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
 
   // =================== No Found ====================
   const mergedNotFoundContent = notFoundContent || renderEmpty?.('Cascader') || (
-    <DefaultRenderEmpty componentName="Cascader" />
+    <DefaultRenderEmpty componentName='Cascader' />
   );
 
   // ==================== Prefix =====================

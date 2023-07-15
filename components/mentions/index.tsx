@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import RcMentions from 'rc-mentions';
 import type {
@@ -127,14 +129,14 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     if (notFoundContent !== undefined) {
       return notFoundContent;
     }
-    return renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />;
+    return renderEmpty?.('Select') || <DefaultRenderEmpty componentName='Select' />;
   }, [notFoundContent, renderEmpty]);
 
   const mentionOptions = React.useMemo<React.ReactNode>(() => {
     if (loading) {
       return (
-        <Option value="ANTD_SEARCHING" disabled>
-          <Spin size="small" />
+        <Option value='ANTD_SEARCHING' disabled>
+          <Spin size='small' />
         </Option>
       );
     }
@@ -146,7 +148,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
         {
           value: 'ANTD_SEARCHING',
           disabled: true,
-          label: <Spin size="small" />,
+          label: <Spin size='small' />,
         },
       ]
     : options;

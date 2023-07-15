@@ -1,3 +1,5 @@
+'use client';
+
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import * as React from 'react';
 import warning from '../_util/warning';

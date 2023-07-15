@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable react/no-array-index-key */
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';

@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import type { DrawerProps as RcDrawerProps } from 'rc-drawer';
 import RcDrawer from 'rc-drawer';
@@ -15,7 +17,7 @@ import { NoCompactStyle } from '../space/Compact';
 import useStyle from './style';
 
 const SizeTypes = ['default', 'large'] as const;
-type sizeType = (typeof SizeTypes)[number];
+type sizeType = typeof SizeTypes[number];
 
 export interface PushState {
   distance: string | number;

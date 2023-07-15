@@ -1,3 +1,5 @@
+'use client';
+
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
@@ -111,7 +113,7 @@ const Steps: CompoundedComponent = (props) => {
       return (
         <div className={`${prefixCls}-progress-icon`}>
           <Progress
-            type="circle"
+            type='circle'
             percent={mergedPercent}
             size={progressWidth}
             strokeWidth={4}

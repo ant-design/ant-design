@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import * as React from 'react';
 import warning from '../_util/warning';
@@ -88,7 +90,7 @@ const Divider: React.FC<DividerProps> = (props) => {
       className={classString}
       style={{ ...divider?.style, ...style }}
       {...restProps}
-      role="separator"
+      role='separator'
     >
       {children && type !== 'vertical' && (
         <span className={`${prefixCls}-inner-text`} style={innerStyle}>

@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 // eslint-disable-next-line import/no-named-as-default
 import * as React from 'react';
@@ -268,7 +270,7 @@ function List<T>({
     childrenContent = (
       <div className={`${prefixCls}-empty-text`}>
         {(locale && locale.emptyText) || renderEmpty?.('List') || (
-          <DefaultRenderEmpty componentName="List" />
+          <DefaultRenderEmpty componentName='List' />
         )}
       </div>
     );

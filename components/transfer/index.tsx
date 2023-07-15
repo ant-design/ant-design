@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext } from 'react';
@@ -319,7 +321,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const getLocale = (transferLocale: TransferLocale) => ({
     ...transferLocale,
-    notFoundContent: renderEmpty?.('Transfer') || <DefaultRenderEmpty componentName="Transfer" />,
+    notFoundContent: renderEmpty?.('Transfer') || <DefaultRenderEmpty componentName='Transfer' />,
     ...locale,
   });
 

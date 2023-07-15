@@ -1,3 +1,5 @@
+'use client';
+
 // TODO: 4.0 - codemod should help to change `filterOption` to support node props.
 import classNames from 'classnames';
 import type { BaseSelectRef, SelectProps as RcSelectProps } from 'rc-select';
@@ -152,7 +154,7 @@ const InternalSelect = <
   } else if (mode === 'combobox') {
     mergedNotFound = null;
   } else {
-    mergedNotFound = renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />;
+    mergedNotFound = renderEmpty?.('Select') || <DefaultRenderEmpty componentName='Select' />;
   }
 
   // ===================== Icons =====================

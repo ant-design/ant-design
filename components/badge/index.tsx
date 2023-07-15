@@ -1,3 +1,5 @@
+'use client';
+
 import classnames from 'classnames';
 import CSSMotion from 'rc-motion';
 import * as React from 'react';
@@ -259,7 +261,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
               count={displayCount}
               title={titleNode}
               style={scrollNumberStyle}
-              key="scrollNumber"
+              key='scrollNumber'
               ref={scrollNumberRef}
             >
               {displayNode}

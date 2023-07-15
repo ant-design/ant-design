@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
@@ -9,7 +11,7 @@ import { ConfigContext } from '../config-provider';
 import useStyle from './style/index';
 
 const SpinSizes = ['small', 'default', 'large'] as const;
-export type SpinSize = (typeof SpinSizes)[number];
+export type SpinSize = typeof SpinSizes[number];
 export type SpinIndicator = React.ReactElement<HTMLElement>;
 
 export interface SpinProps {
@@ -144,7 +146,7 @@ const Spin: React.FC<SpinClassProps> = (props) => {
       {...divProps}
       style={mergedStyle}
       className={spinClassName}
-      aria-live="polite"
+      aria-live='polite'
       aria-busy={spinning}
     >
       {renderIndicator(prefixCls, props)}
@@ -158,8 +160,8 @@ const Spin: React.FC<SpinClassProps> = (props) => {
         {...divProps}
         className={classNames(`${prefixCls}-nested-loading`, wrapperClassName, hashId)}
       >
-        {spinning && <div key="loading">{spinElement}</div>}
-        <div className={containerClassName} key="container">
+        {spinning && <div key='loading'>{spinElement}</div>}
+        <div className={containerClassName} key='container'>
           {children}
         </div>
       </div>
