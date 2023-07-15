@@ -283,7 +283,12 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
     ]);
     // Omit this since `onTestUpdatePosition` only works on test.
     if (process.env.NODE_ENV === 'test') {
-      props = omit(props as typeof props & { onTestUpdatePosition: any }, ['onTestUpdatePosition']);
+      props = omit(
+        props as typeof props & {
+          onTestUpdatePosition: InternalAffixProps['onTestUpdatePosition'];
+        },
+        ['onTestUpdatePosition'],
+      );
     }
 
     return (
