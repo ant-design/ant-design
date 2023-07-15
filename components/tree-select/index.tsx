@@ -186,7 +186,7 @@ const InternalTreeSelect = <
   if (notFoundContent !== undefined) {
     mergedNotFound = notFoundContent;
   } else {
-    mergedNotFound = renderEmpty?.('Select') || <DefaultRenderEmpty componentName='Select' />;
+    mergedNotFound = renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />;
   }
 
   // ==================== Render =====================
