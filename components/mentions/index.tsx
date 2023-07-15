@@ -148,7 +148,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
         {
           value: 'ANTD_SEARCHING',
           disabled: true,
-          label: <Spin size='small' />,
+          label: <Spin size="small" />,
         },
       ]
     : options;
