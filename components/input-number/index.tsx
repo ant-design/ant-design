@@ -1,3 +1,5 @@
+'use client';
+
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import type { ValueType } from '@rc-component/mini-decimal';

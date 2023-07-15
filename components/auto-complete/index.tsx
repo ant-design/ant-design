@@ -1,10 +1,4 @@
-/**
- * TODO: 4.0
- *
- * - Remove `dataSource`
- * - `size` not work with customizeInput
- * - CustomizeInput not feedback `ENTER` key since accessibility enhancement
- */
+'use client';
 
 import classNames from 'classnames';
 import type { BaseSelectRef } from 'rc-select';

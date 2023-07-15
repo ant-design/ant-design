@@ -1,3 +1,5 @@
+'use client';
+
 import type { Settings } from '@ant-design/react-slick';
 import SlickCarousel from '@ant-design/react-slick';
 import classNames from 'classnames';
