@@ -763,7 +763,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
 export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResult => {
   const useOriginHook = genComponentStyleHook(
     'Menu',
-    (token) => {
+    (token, { overrideComponentToken }) => {
       // Dropdown will handle menu style self. We do not need to handle this.
       if (injectStyle === false) {
         return [];
@@ -810,7 +810,6 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         subMenuItemBg: darkSubMenuItemBg,
         itemActiveBg: 'transparent',
         itemSelectedBg: darkItemSelectedBg,
-        activeBarWidth: 0,
         activeBarHeight: 0,
         activeBarBorderWidth: 0,
         itemHoverBg: darkItemHoverBg,
@@ -949,7 +948,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         popupBg: colorBgElevated,
         itemMarginBlock: marginXXS,
         itemPaddingInline: padding,
-        horizontalLineHeight: controlHeightLG * 1.15,
+        horizontalLineHeight: `${controlHeightLG * 1.15}px`,
         iconSize: fontSize,
         iconMarginInlineEnd: controlHeightSM - fontSize,
         collapsedIconSize: fontSizeLG,
