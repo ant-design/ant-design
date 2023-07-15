@@ -1,5 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
+import type { CSSProperties } from 'react';
 import { clearFix, resetComponent, resetIcon } from '../../style';
 import { genCollapseMotion, initSlideMotion, initZoomMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../theme/internal';
@@ -30,6 +31,16 @@ export interface ComponentToken {
    * @descEN Color of group title text
    */
   groupTitleColor: string;
+  /**
+   * @desc 分组标题文字高度
+   * @descEN line-height of group title
+   */
+  groupTitleLineHeight: CSSProperties['lineHeight'];
+  /**
+   * @desc 分组标题文字大小
+   * @descEN font-size of group title
+   */
+  groupTitleFontSize: number;
 
   // radius
   /** @deprecated Use `itemBorderRadius` instead */
@@ -229,12 +240,97 @@ export interface ComponentToken {
    * @descEN Border radius of horizontal menu item
    */
   horizontalItemBorderRadius: number;
+  /**
+   * @desc 菜单项高度
+   * @descEN Height of menu item
+   */
+  itemHeight: number;
+  /**
+   * @desc 收起后的宽度
+   * @descEN Width when collapsed
+   */
+  collapsedWidth: number;
+  /**
+   * @desc 弹出框背景色
+   * @descEN Background color of popup
+   */
+  popupBg: string;
+  /**
+   * @desc 菜单项纵向外间距
+   * @descEN margin-block of menu item
+   */
+  itemMarginBlock: CSSProperties['marginBlock'];
+  /**
+   * @desc 菜单项横向内间距
+   * @descEN padding-inline of menu item
+   */
+  itemPaddingInline: CSSProperties['paddingInline'];
+  /**
+   * @desc 横向菜单行高
+   * @descEN LineHeight of horizontal menu item
+   */
+  horizontalLineHeight: CSSProperties['lineHeight'];
+  /**
+   * @desc 图标与文字间距
+   * @descEN Spacing between icon and text
+   */
+  iconMarginInlineEnd: CSSProperties['marginInlineEnd'];
+  /**
+   * @desc 图标尺寸
+   * @descEN Size of icon
+   */
+  iconSize: number;
+  /**
+   * @desc 收起时图标尺寸
+   * @descEN Size of icon when collapsed
+   */
+  collapsedIconSize: number;
+
+  // Dark
+  /**
+   * @desc 暗色模式下的菜单项文字颜色
+   * @descEN Color of menu item text in dark mode
+   */
+  darkItemColor: string;
+  /**
+   * @desc 暗色模式下的危险菜单项文字颜色
+   * @descEN Color of danger menu item text in dark mode
+   */
+  darkDangerItemColor: string;
+  /**
+   * @desc 暗色模式下的菜单项背景
+   * @descEN Background of menu item in dark mode
+   */
+  darkItemBg: string;
+  /**
+   * @desc 暗色模式下的子菜单项背景
+   * @descEN Background of submenu item in dark mode
+   */
+  darkSubMenuItemBg: string;
+  /**
+   * @desc 暗色模式下的菜单项选中颜色
+   * @descEN Color of selected menu item in dark mode
+   */
+  darkItemSelectedColor: string;
+  /**
+   * @desc 暗色模式下的菜单项选中背景
+   * @descEN Background of active menu item in dark mode
+   */
+  darkItemSelectedBg: string;
+  /**
+   * @desc 暗色模式下的菜单项悬浮背景
+   * @descEN Background of hovered menu item in dark mode
+   */
+  darkItemHoverBg: string;
+  /**
+   * @desc 暗色模式下的危险菜单项选中背景
+   * @descEN Background of active danger menu item in dark mode
+   */
+  darkDangerItemSelectedBg: string;
 }
 
 export interface MenuToken extends FullToken<'Menu'> {
-  menuItemHeight: number;
   menuHorizontalHeight: number;
-  menuItemPaddingInline: number;
   menuArrowSize: number;
   menuArrowOffset: string;
   menuPanelMaskInset: number;
@@ -244,13 +340,13 @@ export interface MenuToken extends FullToken<'Menu'> {
 const genMenuItemStyle = (token: MenuToken): CSSObject => {
   const {
     componentCls,
-    fontSize,
     motionDurationSlow,
     motionDurationMid,
     motionEaseInOut,
     motionEaseOut,
     iconCls,
-    controlHeightSM,
+    iconSize,
+    iconMarginInlineEnd,
   } = token;
 
   return {
@@ -268,8 +364,8 @@ const genMenuItemStyle = (token: MenuToken): CSSObject => {
       ].join(','),
 
       [`${componentCls}-item-icon, ${iconCls}`]: {
-        minWidth: fontSize,
-        fontSize,
+        minWidth: iconSize,
+        fontSize: iconSize,
         transition: [
           `font-size ${motionDurationMid} ${motionEaseOut}`,
           `margin ${motionDurationSlow} ${motionEaseInOut}`,
@@ -277,7 +373,7 @@ const genMenuItemStyle = (token: MenuToken): CSSObject => {
         ].join(','),
 
         '+ span': {
-          marginInlineStart: controlHeightSM - fontSize,
+          marginInlineStart: iconMarginInlineEnd,
           opacity: 1,
           transition: [
             `opacity ${motionDurationSlow} ${motionEaseInOut}`,
@@ -379,7 +475,6 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
     motionDurationSlow,
     motionDurationMid,
     motionEaseInOut,
-    lineHeight,
     paddingXS,
     padding,
     colorSplit,
@@ -391,6 +486,8 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
     menuArrowOffset,
     lineType,
     menuPanelMaskInset,
+    groupTitleLineHeight,
+    groupTitleFontSize,
   } = token;
 
   return [
@@ -444,8 +541,8 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
 
         [`${componentCls}-item-group-title`]: {
           padding: `${paddingXS}px ${padding}px`,
-          fontSize,
-          lineHeight,
+          fontSize: groupTitleFontSize,
+          lineHeight: groupTitleLineHeight,
           transition: `all ${motionDurationSlow}`,
         },
 
@@ -666,7 +763,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
 export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResult => {
   const useOriginHook = genComponentStyleHook(
     'Menu',
-    (token, { overrideComponentToken }) => {
+    (token) => {
       // Dropdown will handle menu style self. We do not need to handle this.
       if (injectStyle === false) {
         return [];
@@ -680,14 +777,20 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         colorTextLightSolid,
         controlHeightLG,
         fontSize,
+        darkItemColor,
+        darkDangerItemColor,
+        darkItemBg,
+        darkSubMenuItemBg,
+        darkItemSelectedColor,
+        darkItemSelectedBg,
+        darkDangerItemSelectedBg,
+        darkItemHoverBg,
       } = token;
 
       const menuArrowSize = (fontSize / 7) * 5;
 
       // Menu Token
       const menuToken = mergeToken<MenuToken>(token, {
-        menuItemHeight: controlHeightLG,
-        menuItemPaddingInline: token.margin,
         menuArrowSize,
         menuHorizontalHeight: controlHeightLG * 1.15,
         menuArrowOffset: `${menuArrowSize * 0.25}px`,
@@ -697,41 +800,37 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
 
       const colorTextDark = new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString();
 
-      const menuDarkToken = mergeToken<MenuToken>(
-        menuToken,
-        {
-          itemColor: colorTextDark,
-          itemHoverColor: colorTextLightSolid,
-          groupTitleColor: colorTextDark,
-          itemSelectedColor: colorTextLightSolid,
-          itemBg: '#001529',
-          subMenuItemBg: '#000c17',
-          itemActiveBg: 'transparent',
-          itemSelectedBg: colorPrimary,
-          activeBarWidth: 0,
-          activeBarHeight: 0,
-          activeBarBorderWidth: 0,
+      const menuDarkToken = mergeToken<MenuToken>(menuToken, {
+        itemColor: darkItemColor,
+        itemHoverColor: colorTextLightSolid,
+        groupTitleColor: colorTextDark,
+        itemSelectedColor: darkItemSelectedColor,
+        itemBg: darkItemBg,
+        popupBg: darkItemBg,
+        subMenuItemBg: darkSubMenuItemBg,
+        itemActiveBg: 'transparent',
+        itemSelectedBg: darkItemSelectedBg,
+        activeBarWidth: 0,
+        activeBarHeight: 0,
+        activeBarBorderWidth: 0,
+        itemHoverBg: darkItemHoverBg,
 
-          // Disabled
-          itemDisabledColor: new TinyColor(colorTextLightSolid).setAlpha(0.25).toRgbString(),
+        // Disabled
+        itemDisabledColor: new TinyColor(colorTextLightSolid).setAlpha(0.25).toRgbString(),
 
-          // Danger
-          dangerItemColor: colorError,
-          dangerItemHoverColor: colorErrorHover,
-          dangerItemSelectedColor: colorTextLightSolid,
-          dangerItemActiveBg: colorError,
-          dangerItemSelectedBg: colorError,
+        // Danger
+        dangerItemColor: darkDangerItemColor,
+        dangerItemHoverColor: colorErrorHover,
+        dangerItemSelectedColor: colorTextLightSolid,
+        dangerItemActiveBg: colorError,
+        dangerItemSelectedBg: darkDangerItemSelectedBg,
 
-          menuSubMenuBg: '#001529',
+        menuSubMenuBg: darkSubMenuItemBg,
 
-          // Horizontal
-          horizontalItemSelectedColor: colorTextLightSolid,
-          horizontalItemSelectedBg: colorPrimary,
-        },
-        {
-          ...overrideComponentToken,
-        },
-      );
+        // Horizontal
+        horizontalItemSelectedColor: colorTextLightSolid,
+        horizontalItemSelectedBg: colorPrimary,
+      });
 
       return [
         // Basic
@@ -773,7 +872,18 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         lineWidthBold,
         controlItemBgActive,
         colorBgTextHover,
+        controlHeightLG,
+        lineHeight,
+        colorBgElevated,
+        marginXXS,
+        padding,
+        fontSize,
+        controlHeightSM,
+        fontSizeLG,
+        colorTextLightSolid,
       } = token;
+
+      const colorTextDark = new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString();
 
       return {
         dropdownWidth: 160,
@@ -833,6 +943,27 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
 
         horizontalItemBorderRadius: 0,
         horizontalItemHoverBg: 'transparent',
+        itemHeight: controlHeightLG,
+        groupTitleLineHeight: lineHeight,
+        collapsedWidth: 80,
+        popupBg: colorBgElevated,
+        itemMarginBlock: marginXXS,
+        itemPaddingInline: padding,
+        horizontalLineHeight: '46px',
+        iconSize: fontSize,
+        iconMarginInlineEnd: controlHeightSM - fontSize,
+        collapsedIconSize: fontSizeLG,
+        groupTitleFontSize: fontSize,
+
+        // Dark
+        darkItemColor: colorTextDark,
+        darkDangerItemColor: colorError,
+        darkItemBg: '#001529',
+        darkSubMenuItemBg: '#000c17',
+        darkItemSelectedColor: colorTextLightSolid,
+        darkItemSelectedBg: colorPrimary,
+        darkDangerItemSelectedBg: colorError,
+        darkItemHoverBg: 'transparent',
       };
     },
     {
