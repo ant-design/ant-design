@@ -321,7 +321,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const getLocale = (transferLocale: TransferLocale) => ({
     ...transferLocale,
-    notFoundContent: renderEmpty?.('Transfer') || <DefaultRenderEmpty componentName='Transfer' />,
+    notFoundContent: renderEmpty?.('Transfer') || <DefaultRenderEmpty componentName="Transfer" />,
     ...locale,
   });
 
