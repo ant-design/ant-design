@@ -136,7 +136,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     if (loading) {
       return (
         <Option value="ANTD_SEARCHING" disabled>
-          <Spin size='small' />
+          <Spin size="small" />
         </Option>
       );
     }
