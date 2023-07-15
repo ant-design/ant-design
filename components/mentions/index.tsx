@@ -135,7 +135,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
   const mentionOptions = React.useMemo<React.ReactNode>(() => {
     if (loading) {
       return (
-        <Option value='ANTD_SEARCHING' disabled>
+        <Option value="ANTD_SEARCHING" disabled>
           <Spin size='small' />
         </Option>
       );
