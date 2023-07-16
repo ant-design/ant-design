@@ -237,10 +237,13 @@ const InternalButton: React.ForwardRefRenderFunction<
     button?.className,
   );
 
-  const fullStyle = { ...button?.style, ...customStyle };
+  const fullStyle: React.CSSProperties = { ...button?.style, ...customStyle };
 
   const iconClasses = classNames(customClassNames?.icon, button?.classNames?.icon);
-  const iconStyle = { ...(styles?.icon || {}), ...(button?.styles?.icon || {}) };
+  const iconStyle: React.CSSProperties = {
+    ...(styles?.icon || {}),
+    ...(button?.styles?.icon || {}),
+  };
 
   const iconNode =
     icon && !innerLoading ? (
