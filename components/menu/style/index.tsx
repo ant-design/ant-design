@@ -327,6 +327,16 @@ export interface ComponentToken {
    * @descEN Background of active danger menu item in dark mode
    */
   darkDangerItemSelectedBg: string;
+  /**
+   * @desc 暗色模式下的分组标题文字颜色
+   * @descEN Color of group title text in dark mode
+   */
+  darkGroupTitleColor: string;
+  /**
+   * @desc 暗色模式下的菜单项悬浮颜色
+   * @descEN Color of hovered menu item in dark mode
+   */
+  darkItemHoverColor: string;
 }
 
 export interface MenuToken extends FullToken<'Menu'> {
@@ -763,7 +773,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
 export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResult => {
   const useOriginHook = genComponentStyleHook(
     'Menu',
-    (token, { overrideComponentToken }) => {
+    (token) => {
       // Dropdown will handle menu style self. We do not need to handle this.
       if (injectStyle === false) {
         return [];
@@ -785,6 +795,8 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         darkItemSelectedBg,
         darkDangerItemSelectedBg,
         darkItemHoverBg,
+        darkGroupTitleColor,
+        darkItemHoverColor,
       } = token;
 
       const menuArrowSize = (fontSize / 7) * 5;
@@ -798,12 +810,10 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         menuSubMenuBg: colorBgElevated,
       });
 
-      const colorTextDark = new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString();
-
       const menuDarkToken = mergeToken<MenuToken>(menuToken, {
         itemColor: darkItemColor,
-        itemHoverColor: colorTextLightSolid,
-        groupTitleColor: colorTextDark,
+        itemHoverColor: darkItemHoverColor,
+        groupTitleColor: darkGroupTitleColor,
         itemSelectedColor: darkItemSelectedColor,
         itemBg: darkItemBg,
         popupBg: darkItemBg,
@@ -963,6 +973,8 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         darkItemSelectedBg: colorPrimary,
         darkDangerItemSelectedBg: colorError,
         darkItemHoverBg: 'transparent',
+        darkGroupTitleColor: colorTextDark,
+        darkItemHoverColor: colorTextLightSolid,
       };
     },
     {
