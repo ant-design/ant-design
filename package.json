@@ -160,7 +160,7 @@
   "devDependencies": {
     "@ant-design/tools": "^17.0.0",
     "@antv/g6": "^4.8.13",
-    "@argos-ci/core": "^0.8.0",
+    "@argos-ci/core": "^0.9.0",
     "@babel/eslint-plugin": "^7.19.1",
     "@dnd-kit/core": "^6.0.7",
     "@dnd-kit/modifiers": "^6.0.1",
