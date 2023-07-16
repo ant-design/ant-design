@@ -141,7 +141,7 @@ const Sidebar: React.FC = () => {
         items={menuItems}
         inlineIndent={30}
         css={styles.asideContainer}
-        mode='inline'
+        mode="inline"
         theme={isDark ? 'dark' : 'light'}
         selectedKeys={[selectedKey]}
         defaultOpenKeys={sidebarData?.map(({ title }) => title).filter((item) => item) as string[]}
@@ -150,10 +150,10 @@ const Sidebar: React.FC = () => {
   );
 
   return isMobile ? (
-    <MobileMenu key='Mobile-menu'>{menuChild}</MobileMenu>
+    <MobileMenu key="Mobile-menu">{menuChild}</MobileMenu>
   ) : (
     <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} css={styles.mainMenu}>
-      <section className='main-menu-inner'>{menuChild}</section>
+      <section className="main-menu-inner">{menuChild}</section>
     </Col>
   );
 };
