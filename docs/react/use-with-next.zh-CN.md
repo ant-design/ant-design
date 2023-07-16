@@ -102,7 +102,40 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 ```
 
-4. 在页面中使用
+4. 在 `theme/*.tsx` 中自定义主题
+
+```tsx
+'use client';
+
+// theme/index.tsx
+import React from 'react';
+import { ConfigProvider } from 'antd';
+
+const withTheme = (node: JSX.Element) => (
+  <ConfigProvider
+    theme={{
+      token: {
+        colorPrimary: '#52c41a',
+      },
+    }}
+  >
+    {/* nesting */}
+    <ConfigProvider
+      theme={{
+        token: {
+          borderRadius: 16,
+        },
+      }}
+    >
+      {node}
+    </ConfigProvider>
+  </ConfigProvider>
+);
+
+export default withTheme;
+```
+
+5. 在页面中使用
 
 ```tsx
 'use client';
