@@ -67,6 +67,11 @@ export interface TreeSelectProps<
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
+  /**
+   * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
+   *   default behavior, you can hide it by setting `suffixIcon` to null.
+   */
+  showArrow?: boolean;
 }
 
 const InternalTreeSelect = <
@@ -96,6 +101,7 @@ const InternalTreeSelect = <
     choiceTransitionName = '',
     status: customStatus,
     treeExpandAction,
+    showArrow,
     builtinPlacements,
     dropdownMatchSelectWidth,
     popupMatchSelectWidth,
@@ -131,6 +137,12 @@ const InternalTreeSelect = <
       'Select',
       '`dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
     );
+
+    warning(
+      showArrow === undefined,
+      'TreeSelect',
+      '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+    );
   }
 
   const rootPrefixCls = getPrefixCls();
@@ -153,7 +165,7 @@ const InternalTreeSelect = <
   );
 
   const isMultiple = !!(treeCheckable || multiple);
-  const showSuffixIcon = useShowArrow(props.suffixIcon);
+  const showSuffixIcon = useShowArrow(props.suffixIcon, showArrow);
 
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;

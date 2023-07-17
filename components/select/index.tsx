@@ -136,7 +136,7 @@ const InternalSelect = <
   }, [props.mode]);
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
-  const showSuffixIcon = useShowArrow(props.suffixIcon);
+  const showSuffixIcon = useShowArrow(props.suffixIcon, showArrow);
 
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
@@ -168,6 +168,7 @@ const InternalSelect = <
     feedbackIcon,
     showSuffixIcon,
     prefixCls,
+    showArrow,
   });
 
   const selectProps = omit(props as typeof props & { itemIcon: any }, ['suffixIcon', 'itemIcon']);
@@ -225,6 +226,12 @@ const InternalSelect = <
       dropdownMatchSelectWidth === undefined,
       'Select',
       '`dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
+    );
+
+    warning(
+      showArrow === undefined,
+      'Select',
+      '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );
   }
 

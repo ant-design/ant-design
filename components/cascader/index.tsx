@@ -117,6 +117,11 @@ export type CascaderProps<DataNodeType extends BaseOptionType = any> =
   UnionCascaderProps<DataNodeType> & {
     multiple?: boolean;
     size?: SizeType;
+    /**
+     * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
+     *   default behavior, you can hide it by setting `suffixIcon` to null.
+     */
+    showArrow?: boolean;
     disabled?: boolean;
     bordered?: boolean;
     placement?: SelectCommonPlacement;
@@ -156,6 +161,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     direction,
     getPopupContainer,
     status: customStatus,
+    showArrow,
     builtinPlacements,
     style,
     ...rest
@@ -190,6 +196,12 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
       !dropdownClassName,
       'Cascader',
       '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+    );
+
+    warning(
+      showArrow === undefined,
+      'Cascader',
+      '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );
   }
 
@@ -264,7 +276,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   );
 
   // ===================== Icons =====================
-  const showSuffixIcon = useShowArrow(props.suffixIcon);
+  const showSuffixIcon = useShowArrow(props.suffixIcon, showArrow);
   const { suffixIcon, removeIcon, clearIcon } = getIcons({
     ...props,
     hasFeedback,
