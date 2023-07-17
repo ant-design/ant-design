@@ -85,7 +85,7 @@ const px2rem = px2remTransformer({
 
 export default () => (
   <StyleProvider transformers={[px2rem]}>
-    <Demo />
+    <MyApp />
   </StyleProvider>
 );
 ```
@@ -94,18 +94,18 @@ The resulting transformed styles:
 
 ```diff
  .px2rem-box {
--  width: '400px';
+-  width: 400px;
 +  width: 12.5rem;
-   background-color: 'green';
--  font-size: '32px';
+   background-color: green;
+-  font-size: 32px;
 +  font-size: 1rem;
-   border: '10PX solid #f0f';
+   border: 10PX solid #f0f;
  }
 
  @media only screen and (max-width: 600px) {
    .px2rem-box {
-     background-color: 'red';
--    margin: '10px';
+     background-color: red;
+-    margin: 10px;
 +    margin: 0.3125rem;
    }
  }
