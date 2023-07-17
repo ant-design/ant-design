@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable import/prefer-default-export */
 import getDesignToken from './getDesignToken';
 import type { GlobalToken } from './interface';

@@ -70,6 +70,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     type = 'line',
     status,
     format,
+    style,
     ...restProps
   } = props;
 
@@ -88,7 +89,11 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     return status || 'normal';
   }, [status, percentNumber]);
 
-  const { getPrefixCls, direction } = React.useContext<ConfigConsumerProps>(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    progress: progressStyle,
+  } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('progress', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
@@ -167,6 +172,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
       [`${prefixCls}-${size}`]: typeof size === 'string',
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
+    progressStyle?.className,
     className,
     rootClassName,
     hashId,
@@ -175,6 +181,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   return wrapSSR(
     <div
       ref={ref}
+      style={{ ...progressStyle?.style, ...style }}
       className={classString}
       role="progressbar"
       aria-valuenow={percentNumber}

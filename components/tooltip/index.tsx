@@ -1,3 +1,5 @@
+'use client';
+
 import type { BuildInPlacements } from '@rc-component/trigger';
 import classNames from 'classnames';
 import RcTooltip from 'rc-tooltip';
@@ -10,6 +12,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties } from 'react';
 import * as React from 'react';
 import type { PresetColorType } from '../_util/colors';
+import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import getPlacements from '../_util/placements';
@@ -109,8 +112,6 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
   children?: React.ReactNode;
   destroyTooltipOnHide?: boolean | { keepParent?: boolean };
 }
-
-export type RenderFunction = () => React.ReactNode;
 
 export interface TooltipPropsWithOverlay extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;

@@ -384,4 +384,19 @@ describe('Breadcrumb', () => {
     );
     expect(document.querySelector('.ant-dropdown')).toBeTruthy();
   });
+
+  it('Breadcrumb params type test', () => {
+    interface Params {
+      key1?: number;
+      key2?: string;
+    }
+    expect(
+      <Breadcrumb<Params>
+        params={{
+          key1: 1,
+          key2: 'test',
+        }}
+      />,
+    ).toBeTruthy();
+  });
 });

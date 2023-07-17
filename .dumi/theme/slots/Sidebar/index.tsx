@@ -134,7 +134,9 @@ const Sidebar: React.FC = () => {
   } = useSiteToken();
 
   const menuChild = (
-    <ConfigProvider theme={{ components: { Menu: { itemBg: colorBgContainer } } }}>
+    <ConfigProvider
+      theme={{ components: { Menu: { itemBg: colorBgContainer, darkItemBg: colorBgContainer } } }}
+    >
       <Menu
         items={menuItems}
         inlineIndent={30}

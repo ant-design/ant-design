@@ -37,7 +37,7 @@ export interface BreadcrumbItemProps extends SeparatorType {
   overlay?: DropdownProps['overlay'];
 }
 
-export const InternalBreadcrumbItem = (props: BreadcrumbItemProps) => {
+export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => {
   const { prefixCls, separator = '/', children, menu, overlay, dropdownProps, href } = props;
 
   // Warning for deprecated usage
@@ -103,11 +103,15 @@ export const InternalBreadcrumbItem = (props: BreadcrumbItemProps) => {
   return null;
 };
 
-const BreadcrumbItem = (props: BreadcrumbItemProps) => {
+type CompoundedComponent = React.FC<BreadcrumbItemProps> & {
+  /** @internal */
+  __ANT_BREADCRUMB_ITEM: boolean;
+};
+
+const BreadcrumbItem: CompoundedComponent = (props) => {
   const { prefixCls: customizePrefixCls, children, href, ...restProps } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
-
   return (
     <InternalBreadcrumbItem {...restProps} prefixCls={prefixCls}>
       {renderItem(prefixCls, restProps as ItemType, children, href)}

@@ -243,7 +243,45 @@ Mentions 提及
 | `@mentions-dropdown-bg` | `colorBgElevated` | - |
 | `@mentions-dropdown-menu-item-hover-bg` | - | 已废弃 |
 
-<!-- ### Menu 导航菜单 -->
+### Menu 导航菜单
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@menu-inline-toplevel-item-height` | `itemHeight` | 同 `@menu-item-height` |
+| `@menu-item-height` | `itemHeight` | - |
+| `@menu-item-group-height` | `groupTitleLineHeight` | - |
+| `@menu-collapsed-width` | `collapsedWidth` | - |
+| `@menu-bg` | `itemBg` | - |
+| `@menu-popup-bg` | `popupBg` | - |
+| `@menu-item-color` | `itemColor` | - |
+| `@menu-inline-submenu-bg` | `subMenuItemBg` | - |
+| `@menu-highlight-color` | `itemSelectedColor` | - |
+| `@menu-highlight-danger-color` | `dangerItemSelectedColor` | - |
+| `@menu-item-active-bg` | `itemActiveBg` | - |
+| `@menu-item-active-danger-bg` | `dangerItemActiveBg` | - |
+| `@menu-item-active-border-width` | `activeBarBorderWidth` | - |
+| `@menu-item-group-title-color` | `groupTitleColor` | - |
+| `@menu-item-vertical-margin` | `itemMarginBlock` | - |
+| `@menu-item-font-size` | `fontSize` | 全局 Token |
+| `@menu-item-boundary-margin` | - | 因样式调整已废弃，可使用 `itemMarginBlock` 替代 |
+| `@menu-item-padding-horizontal` | `itemPaddingInline` | - |
+| `@menu-item-padding` | - | 已废弃，使用 `itemPaddingInline` 和 `itemHeight` 替代 |
+| `@menu-horizontal-line-height` | `horizontalLineHeight` | - |
+| `@menu-icon-margin-right` | `iconMarginInlineEnd` | - |
+| `@menu-icon-size` | `iconSize` | - |
+| `@menu-icon-size-lg` | `horizontalLineHeight` | - |
+| `@menu-dark-color` | `darkItemColor` | - |
+| `@menu-dark-danger-color` | `darkDangerItemColor` | - |
+| `@menu-dark-bg` | `darkItemBg` | - |
+| `@menu-dark-arrow-color` | - | 已废弃，和文字颜色相同 |
+| `@menu-dark-inline-submenu-bg` | `darkSubMenuItemBg` | - |
+| `@menu-dark-highlight-color` | `darkItemSelectedColor` | - |
+| `@menu-dark-item-active-bg` | `darkItemSelectedBg` | - |
+| `@menu-dark-item-active-danger-bg` | `darkDangerItemSelectedBg` | - |
+| `@menu-dark-selected-item-icon-color` | - | 已废弃，同 `darkItemSelectedColor` |
+| `@menu-dark-selected-item-text-color` | - | 已废弃，同 `darkItemSelectedColor` |
+| `@menu-dark-item-hover-bg` | `darkItemHoverBg` | - |
 
 ### Message 全局提示
 
@@ -388,7 +426,31 @@ Mentions 提及
 | `@skeleton-paragraph-li-height` | `paragraphLiHeight` | - |
 | `@skeleton-paragraph-li-margin-top` | - | 由于样式变化已废弃 |
 
-<!-- ### Slider 滑动输入条 -->
+### Slider 滑动输入条
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@slider-margin` | - | 可由 `className` 或 `style` 直接修改 |
+| `@slider-rail-background-color` | `railBg` | - |
+| `@slider-rail-background-color-hover` | `railHoverBg` | - |
+| `@slider-track-background-color` | `trackBg` | - |
+| `@slider-track-background-color-hover` | `trackHoverBg` | - |
+| `@slider-handle-border-width` | `handleLineWidth` | - |
+| `@slider-handle-background-color` | - | 已废弃 |
+| `@slider-handle-color` | `handleColor` | - |
+| `@slider-handle-color-hover` | `handleActiveColor` | - |
+| `@slider-handle-color-focus` | `handleActiveColor` | - |
+| `@slider-handle-color-focus-shadow` | - | 已废弃 |
+| `@slider-handle-color-tooltip-open` | `handleActiveColor` | - |
+| `@slider-handle-size` | `handleSize` | - |
+| `@slider-handle-margin-top` | - | 已废弃 |
+| `@slider-handle-margin-left` | - | 已废弃 |
+| `@slider-handle-shadow` | - | 已废弃 |
+| `@slider-dot-border-color` | `dotBorderColor` | - |
+| `@slider-dot-border-color-active` | `dotActiveBorderColor` | - |
+| `@slider-disabled-color` | `trackBgDisabled` | - |
+| `@slider-disabled-background-color` | - | 已废弃 |
 
 ### Statistic 统计数值
 

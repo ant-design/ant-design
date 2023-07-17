@@ -9,8 +9,8 @@ import pickAttrs from 'rc-util/lib/pickAttrs';
 import type { ReactElement } from 'react';
 import * as React from 'react';
 import { replaceElement } from '../_util/reactNode';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import ErrorBoundary from './ErrorBoundary';
 
 // CSSINJS
 import useStyle from './style';
@@ -20,7 +20,10 @@ export interface AlertProps {
   type?: 'success' | 'info' | 'warning' | 'error';
   /** Whether Alert can be closed */
   closable?: boolean;
-  /** Close text to show */
+  /**
+   * @deprecated please use `closeIcon` instead.
+   * Close text to show
+   */
   closeText?: React.ReactNode;
   /** Content of Alert */
   message?: React.ReactNode;
@@ -41,7 +44,7 @@ export interface AlertProps {
   banner?: boolean;
   icon?: React.ReactNode;
   /** Custom closeIcon */
-  closeIcon?: React.ReactNode;
+  closeIcon?: boolean | React.ReactNode;
   action?: React.ReactNode;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
@@ -78,47 +81,48 @@ const IconNode: React.FC<IconNodeProps> = (props) => {
 interface CloseIconProps {
   isClosable: boolean;
   prefixCls: AlertProps['prefixCls'];
-  closeText: AlertProps['closeText'];
   closeIcon: AlertProps['closeIcon'];
   handleClose: AlertProps['onClose'];
 }
 
 const CloseIcon: React.FC<CloseIconProps> = (props) => {
-  const { isClosable, closeText, prefixCls, closeIcon, handleClose } = props;
+  const { isClosable, prefixCls, closeIcon, handleClose } = props;
+  const mergedCloseIcon =
+    closeIcon === true || closeIcon === undefined ? <CloseOutlined /> : closeIcon;
   return isClosable ? (
     <button type="button" onClick={handleClose} className={`${prefixCls}-close-icon`} tabIndex={0}>
-      {closeText ? <span className={`${prefixCls}-close-text`}>{closeText}</span> : closeIcon}
+      {mergedCloseIcon}
     </button>
   ) : null;
 };
 
-type CompoundedComponent = React.FC<AlertProps> & {
-  ErrorBoundary: typeof ErrorBoundary;
-};
+const Alert: React.FC<AlertProps> = (props) => {
+  const {
+    description,
+    prefixCls: customizePrefixCls,
+    message,
+    banner,
+    className,
+    rootClassName,
+    style,
+    onMouseEnter,
+    onMouseLeave,
+    onClick,
+    afterClose,
+    showIcon,
+    closable,
+    closeText,
+    closeIcon,
+    action,
+    ...otherProps
+  } = props;
 
-const Alert: CompoundedComponent = ({
-  description,
-  prefixCls: customizePrefixCls,
-  message,
-  banner,
-  className,
-  rootClassName,
-  style,
-  onMouseEnter,
-  onMouseLeave,
-  onClick,
-  afterClose,
-  showIcon,
-  closable,
-  closeText,
-  closeIcon = <CloseOutlined />,
-  action,
-  ...props
-}) => {
   const [closed, setClosed] = React.useState(false);
-
+  if (process.env.NODE_ENV !== 'production') {
+    warning(!closeText, 'Alert', '`closeText` is deprecated. Please use `closeIcon` instead.');
+  }
   const ref = React.useRef<HTMLDivElement>(null);
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, alert } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
@@ -127,18 +131,25 @@ const Alert: CompoundedComponent = ({
     props.onClose?.(e);
   };
 
-  const getType = () => {
-    const { type } = props;
-    if (type !== undefined) {
-      return type;
+  const type = React.useMemo<AlertProps['type']>(() => {
+    if (props.type !== undefined) {
+      return props.type;
     }
     // banner mode defaults to 'warning'
     return banner ? 'warning' : 'info';
-  };
+  }, [props.type, banner]);
 
-  // closeable when closeText is assigned
-  const isClosable = closeText ? true : closable;
-  const type = getType();
+  // closeable when closeText or closeIcon is assigned
+  const isClosable = React.useMemo(() => {
+    if (closeText) {
+      return true;
+    }
+    if (typeof closable === 'boolean') {
+      return closable;
+    }
+    // should be true when closeIcon is 0 or ''
+    return closeIcon !== false && closeIcon !== null && closeIcon !== undefined;
+  }, [closeText, closeIcon, closable]);
 
   // banner mode defaults to Icon
   const isShowIcon = banner && showIcon === undefined ? true : showIcon;
@@ -152,15 +163,13 @@ const Alert: CompoundedComponent = ({
       [`${prefixCls}-banner`]: !!banner,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
+    alert?.className,
     className,
     rootClassName,
     hashId,
   );
 
-  const dataOrAriaProps = pickAttrs(props, {
-    aria: true,
-    data: true,
-  });
+  const restProps = pickAttrs(otherProps, { aria: true, data: true });
 
   return wrapSSR(
     <CSSMotion
@@ -168,9 +177,7 @@ const Alert: CompoundedComponent = ({
       motionName={`${prefixCls}-motion`}
       motionAppear={false}
       motionEnter={false}
-      onLeaveStart={(node) => ({
-        maxHeight: node.offsetHeight,
-      })}
+      onLeaveStart={(node) => ({ maxHeight: node.offsetHeight })}
       onLeaveEnd={afterClose}
     >
       {({ className: motionClassName, style: motionStyle }) => (
@@ -178,12 +185,12 @@ const Alert: CompoundedComponent = ({
           ref={ref}
           data-show={!closed}
           className={classNames(alertCls, motionClassName)}
-          style={{ ...style, ...motionStyle }}
+          style={{ ...alert?.style, ...style, ...motionStyle }}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
           onClick={onClick}
           role="alert"
-          {...dataOrAriaProps}
+          {...restProps}
         >
           {isShowIcon ? (
             <IconNode
@@ -199,10 +206,9 @@ const Alert: CompoundedComponent = ({
           </div>
           {action ? <div className={`${prefixCls}-action`}>{action}</div> : null}
           <CloseIcon
-            isClosable={!!isClosable}
-            closeText={closeText}
+            isClosable={isClosable}
             prefixCls={prefixCls}
-            closeIcon={closeIcon}
+            closeIcon={closeText || closeIcon}
             handleClose={handleClose}
           />
         </div>
@@ -210,8 +216,6 @@ const Alert: CompoundedComponent = ({
     </CSSMotion>,
   );
 };
-
-Alert.ErrorBoundary = ErrorBoundary;
 
 if (process.env.NODE_ENV !== 'production') {
   Alert.displayName = 'Alert';

@@ -47,8 +47,7 @@ Additionally, if you need show a simple confirmation dialog, you can use [`App.u
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#api) | - |  |
 | cancelText | Text of the Cancel button | ReactNode | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |
-| closable | Whether a close (x) button is visible on top right of the modal dialog or not | boolean | true |  |
-| closeIcon | Custom close icon | ReactNode | &lt;CloseOutlined /> |  |
+| closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | boolean \| ReactNode | &lt;CloseOutlined /> |  |
 | confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |  |
 | destroyOnClose | Whether to unmount child components on onClose | boolean | false |  |
 | focusTriggerAfterClose | Whether need to focus trigger element after dialog is closed | boolean | true | 4.9.0 |
@@ -100,8 +99,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | cancelText | Text of the Cancel button with Modal.confirm | string | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |
 | className | The className of container | string | - |  |
-| closable | Whether a close (x) button is visible on top right of the confirm dialog or not | boolean | false | 4.9.0 |
-| closeIcon | Custom close icon | ReactNode | undefined | 4.9.0 |
+| closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | boolean \| ReactNode | &lt;CloseOutlined /> |  |
 | content | Content | ReactNode | - |  |
 | footer | Footer content, set as `footer: null` when you don't need default buttons | ReactNode | - | 5.1.0 |
 | getContainer | Return the mount node for Modal | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |

@@ -4,11 +4,35 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
+  /**
+   * @desc 列表宽度
+   * @descEN Width of list
+   */
   listWidth: number;
+  /**
+   * @desc 大号列表宽度
+   * @descEN Width of large list
+   */
   listWidthLG: number;
+  /**
+   * @desc 列表高度
+   * @descEN Height of list
+   */
   listHeight: number;
+  /**
+   * @desc 列表项高度
+   * @descEN Height of list item
+   */
   itemHeight: number;
+  /**
+   * @desc 列表项纵向内边距
+   * @descEN Vertical padding of list item
+   */
   itemPaddingBlock: number;
+  /**
+   * @desc 顶部高度
+   * @descEN Height of header
+   */
   headerHeight: number;
 }
 
@@ -101,6 +125,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     marginXS,
     paddingSM,
     lineType,
+    antCls,
     iconCls,
     motionDurationSlow,
     controlItemBgHover,
@@ -174,8 +199,9 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       display: 'flex',
       flex: 'auto',
       flexDirection: 'column',
-      overflow: 'hidden',
       fontSize: token.fontSize,
+      // https://blog.csdn.net/qq449245884/article/details/107373672/
+      minHeight: 0,
 
       '&-search-wrapper': {
         position: 'relative',
@@ -262,6 +288,10 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       padding: `${token.paddingXS}px 0`,
       textAlign: 'end',
       borderTop: `${lineWidth}px ${lineType} ${colorSplit}`,
+
+      [`${antCls}-pagination-options`]: {
+        paddingInlineEnd: token.paddingXS,
+      },
     },
 
     '&-body-not-found': {

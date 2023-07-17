@@ -48,3 +48,39 @@ exports[`renders components/app/demo/basic.tsx extend context correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/app/demo/config.tsx extend context correctly 1`] = `
+<div
+  class="ant-app"
+>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-right: 8px;"
+    >
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Message for only one
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Notification for bottomLeft
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;

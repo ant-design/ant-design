@@ -1,3 +1,5 @@
+'use client';
+
 import Button from './button';
 
 export type { SizeType as ButtonSize } from '../config-provider/SizeContext';

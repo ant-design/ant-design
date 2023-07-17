@@ -63,6 +63,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     requiredMark,
     onFinishFailed,
     name,
+    style,
     ...restFormProps
   } = props;
 
@@ -100,13 +101,14 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
 
   const formClassName = classNames(
     prefixCls,
+    `${prefixCls}-${layout}`,
     {
-      [`${prefixCls}-${layout}`]: true,
       [`${prefixCls}-hide-required-mark`]: mergedRequiredMark === false,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-${mergedSize}`]: mergedSize,
     },
     hashId,
+    contextForm?.className,
     className,
     rootClassName,
   );
@@ -174,6 +176,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
               name={name}
               onFinishFailed={onInternalFinishFailed}
               form={wrapForm}
+              style={{ ...contextForm?.style, ...style }}
               className={formClassName}
             />
           </FormContext.Provider>

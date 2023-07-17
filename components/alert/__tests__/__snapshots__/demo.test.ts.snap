@@ -165,7 +165,7 @@ exports[`renders components/alert/demo/action.tsx correctly 1`] = `
             class="ant-space-item"
           >
             <button
-              class="ant-btn ant-btn-ghost ant-btn-sm"
+              class="ant-btn ant-btn-text ant-btn-sm"
               type="button"
             >
               <span>
@@ -247,7 +247,7 @@ exports[`renders components/alert/demo/action.tsx correctly 1`] = `
             class="ant-space-item"
           >
             <button
-              class="ant-btn ant-btn-ghost ant-btn-sm ant-btn-dangerous"
+              class="ant-btn ant-btn-default ant-btn-sm ant-btn-background-ghost ant-btn-dangerous"
               type="button"
             >
               <span>
@@ -573,35 +573,6 @@ exports[`renders components/alert/demo/closable.tsx correctly 1`] = `
       </button>
     </div>
   </div>
-</div>
-`;
-
-exports[`renders components/alert/demo/close-text.tsx correctly 1`] = `
-<div
-  class="ant-alert ant-alert-info ant-alert-no-icon"
-  data-show="true"
-  role="alert"
->
-  <div
-    class="ant-alert-content"
-  >
-    <div
-      class="ant-alert-message"
-    >
-      Info Text
-    </div>
-  </div>
-  <button
-    class="ant-alert-close-icon"
-    tabindex="0"
-    type="button"
-  >
-    <span
-      class="ant-alert-close-text"
-    >
-      Close Now
-    </span>
-  </button>
 </div>
 `;
 

@@ -1,5 +1,4 @@
 import type { ColorGenInput } from '@rc-component/color-picker';
-import { getRoundNumber } from '@rc-component/color-picker/lib/util';
 import type { Color } from './color';
 import { ColorFactory } from './color';
 
@@ -12,9 +11,6 @@ export const generateColor = (color: ColorGenInput<Color>): Color => {
   return new ColorFactory(color);
 };
 
+export const getRoundNumber = (value: number) => Math.round(Number(value || 0));
+
 export const getAlphaColor = (color: Color) => getRoundNumber(color.toHsb().a * 100);
-
-export const toHexFormat = (value?: string, alpha?: boolean) =>
-  value?.replace(/[^\w/]/gi, '').slice(0, alpha ? 8 : 6) || '';
-
-export const getHex = (value?: string, alpha?: boolean) => (value ? toHexFormat(value, alpha) : '');

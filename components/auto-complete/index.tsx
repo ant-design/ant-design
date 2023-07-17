@@ -1,10 +1,4 @@
-/**
- * TODO: 4.0
- *
- * - Remove `dataSource`
- * - `size` not work with customizeInput
- * - CustomizeInput not feedback `ENTER` key since accessibility enhancement
- */
+'use client';
 
 import classNames from 'classnames';
 import type { BaseSelectRef } from 'rc-select';
@@ -22,6 +16,7 @@ import type {
   DefaultOptionType,
   InternalSelectProps,
   RefSelectProps,
+  SelectProps,
 } from '../select';
 import Select from '../select';
 
@@ -152,7 +147,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       prefixCls={prefixCls}
       popupClassName={popupClassName || dropdownClassName}
       className={classNames(`${prefixCls}-auto-complete`, className)}
-      mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as any}
+      mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
       {...{
         // Internal api
         getInputElement,

@@ -165,8 +165,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
-  const listClassNames = classNames({
-    [`${prefixCls}-list`]: true,
+  const listClassNames = classNames(`${prefixCls}-list`, {
     [`${prefixCls}-list-${listType}`]: true,
   });
 

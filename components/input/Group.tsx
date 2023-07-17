@@ -1,10 +1,10 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { useContext, useMemo } from 'react';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
-import warning from '../_util/warning';
 import useStyle from './style';
 
 export interface GroupProps {
@@ -22,7 +22,7 @@ export interface GroupProps {
 
 const Group: React.FC<GroupProps> = (props) => {
   const { getPrefixCls, direction } = useContext(ConfigContext);
-  const { prefixCls: customizePrefixCls, className = '' } = props;
+  const { prefixCls: customizePrefixCls, className } = props;
   const prefixCls = getPrefixCls('input-group', customizePrefixCls);
   const inputPrefixCls = getPrefixCls('input');
   const [wrapSSR, hashId] = useStyle(inputPrefixCls);

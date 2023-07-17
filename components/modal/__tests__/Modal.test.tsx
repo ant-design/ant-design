@@ -33,6 +33,13 @@ describe('Modal', () => {
     expect(document.body.querySelectorAll('.ant-modal-root')[0]).toMatchSnapshot();
   });
 
+  it('support hide close button when setting closeIcon to null or false', () => {
+    const { baseElement, rerender } = render(<Modal closeIcon={null} open />);
+    expect(baseElement.querySelector('.ant-modal-close')).toBeFalsy();
+    rerender(<Modal closeIcon={false} open />);
+    expect(baseElement.querySelector('.ant-modal-close')).toBeFalsy();
+  });
+
   it('render correctly', () => {
     const { asFragment } = render(<ModalTester />);
     expect(asFragment().firstChild).toMatchSnapshot();

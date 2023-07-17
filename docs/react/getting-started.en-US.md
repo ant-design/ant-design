@@ -94,7 +94,7 @@ OK! Now that you know the basics of using antd components, you are welcome to ex
 During actual real-world project development, you will most likely need a development workflow consisting of `compile/build/deploy/lint/debug/` deployment. You can read the following documents on the subject or use the following scaffolds and examples provided below:
 
 - [Ant Design Pro](https://pro.ant.design/)
-- [create-next-app](https://github.com/ant-design/create-next-app-antd)
+- [create-next-app](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-inline-style)
 - More scaffolds at [Scaffold Market](https://scaffold.ant.design/)
 
 ## Test with Jest
@@ -113,6 +113,6 @@ Jest does not support `esm` modules, and Ant Design uses them. In order to test 
 
 ## Customize your Workflow
 
-If you want to customize your workflow, we recommend using [webpack](https://webpack.js.org) to build and debug code. You can try out plenty of [boilerplates](https://github.com/enaqx/awesome-react#react-tools) available in the React ecosystem.
+If you want to customize your workflow, we recommend using [webpack](https://webpack.js.org) or [vite](https://vitejs.dev/) to build and debug code. You can try out plenty of [boilerplates](https://github.com/enaqx/awesome-react#react-tools) available in the React ecosystem.
 
 There are also some [scaffolds](https://scaffold.ant.design/) which have already been integrated into antd, so you can try and start with one of these and even contribute.

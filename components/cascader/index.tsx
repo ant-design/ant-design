@@ -1,3 +1,5 @@
+'use client';
+
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
@@ -158,6 +160,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     status: customStatus,
     showArrow,
     builtinPlacements,
+    style,
     ...rest
   } = props;
 
@@ -169,6 +172,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     renderEmpty,
     direction: rootDirection,
     popupOverflow,
+    cascader,
   } = React.useContext(ConfigContext);
 
   const mergedDirection = direction || rootDirection;
@@ -298,11 +302,13 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
         },
         getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
         compactItemClassnames,
+        cascader?.className,
         className,
         rootClassName,
         hashId,
       )}
       disabled={mergedDisabled}
+      style={{ ...cascader?.style, ...style }}
       {...(restProps as any)}
       builtinPlacements={mergedBuiltinPlacements}
       direction={mergedDirection}

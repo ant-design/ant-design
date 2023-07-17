@@ -9,8 +9,20 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   // Component token here
+  /**
+   * @desc 提示框 z-index
+   * @descEN z-index of Message
+   */
   zIndexPopup: number;
+  /**
+   * @desc 提示框背景色
+   * @descEN Background color of Message
+   */
   contentBg: string;
+  /**
+   * @desc 提示框内边距
+   * @descEN Padding of Message
+   */
   contentPadding: CSSProperties['padding'];
 }
 

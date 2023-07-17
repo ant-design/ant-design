@@ -21,7 +21,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
     motionDurationSlow,
     motionEaseInOut,
     motionEaseOut,
-    menuItemPaddingInline,
+    itemPaddingInline,
     motionDurationMid,
     itemHoverColor,
     lineType,
@@ -45,6 +45,8 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
     horizontalItemSelectedBg,
     horizontalItemBorderRadius,
     horizontalItemHoverBg,
+
+    popupBg,
   } = token;
 
   return {
@@ -155,7 +157,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
       },
 
       [`&${componentCls}-popup > ${componentCls}`]: {
-        backgroundColor: itemBg,
+        backgroundColor: popupBg,
       },
 
       // ====================== Horizontal ======================
@@ -174,7 +176,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
 
           '&::after': {
             position: 'absolute',
-            insetInline: menuItemPaddingInline,
+            insetInline: itemPaddingInline,
             bottom: 0,
             borderBottom: `${activeBarHeight}px solid transparent`,
             transition: `border-color ${motionDurationSlow} ${motionEaseInOut}`,
