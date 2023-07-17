@@ -168,6 +168,7 @@ const RefAutoComplete = React.forwardRef<RefSelectProps, AutoCompleteProps>(
     ref?: React.Ref<BaseSelectRef>;
   },
 ) => React.ReactElement) & {
+  displayName?: string;
   Option: typeof Option;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
@@ -180,7 +181,7 @@ RefAutoComplete.Option = Option;
 RefAutoComplete._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 if (process.env.NODE_ENV !== 'production') {
-  AutoComplete.displayName = 'AutoComplete';
+  RefAutoComplete.displayName = 'AutoComplete';
 }
 
 export default RefAutoComplete;

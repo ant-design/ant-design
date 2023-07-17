@@ -292,6 +292,7 @@ const TreeSelectRef = React.forwardRef(InternalTreeSelect) as <
 type InternalTreeSelectType = typeof TreeSelectRef;
 
 type CompoundedComponent = InternalTreeSelectType & {
+  displayName?: string;
   TreeNode: typeof TreeNode;
   SHOW_ALL: typeof SHOW_ALL;
   SHOW_PARENT: typeof SHOW_PARENT;
@@ -310,6 +311,10 @@ TreeSelect.SHOW_ALL = SHOW_ALL;
 TreeSelect.SHOW_PARENT = SHOW_PARENT;
 TreeSelect.SHOW_CHILD = SHOW_CHILD;
 TreeSelect._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+
+if (process.env.NODE_ENV !== 'production') {
+  TreeSelect.displayName = 'TreeSelect';
+}
 
 export { TreeNode };
 

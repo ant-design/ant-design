@@ -101,13 +101,13 @@ const FloatButton: React.ForwardRefRenderFunction<
   );
 };
 
-if (process.env.NODE_ENV !== 'production') {
-  FloatButton.displayName = 'FloatButton';
-}
-
 const ForwardFloatButton = React.forwardRef<
   HTMLAnchorElement | HTMLButtonElement,
   FloatButtonProps
 >(FloatButton) as CompoundedComponent;
+
+if (process.env.NODE_ENV !== 'production') {
+  ForwardFloatButton.displayName = 'FloatButton';
+}
 
 export default ForwardFloatButton;
