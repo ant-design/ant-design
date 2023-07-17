@@ -71,3 +71,53 @@ export default () => (
 ++ left: 0;
 }
 ```
+
+### rem 适配
+
+在响应式网页开发中，需要一种方便且灵活的方式来实现页面的适配和响应式设计。`px2remTransformer` 转换器可以快速而准确地将样式表中的像素单位转换为相对于根元素（HTML 标签）的 rem 单位，实现页面的自适应和响应式布局。
+
+```tsx
+import { StyleProvider, px2remTransformer } from '@ant-design/cssinjs';
+
+const px2rem = px2remTransformer({
+  rootValue: 32, // 32px = 1rem; @default 16
+});
+
+export default () => (
+  <StyleProvider transformers={[px2rem]}>
+    <MyApp />
+  </StyleProvider>
+);
+```
+
+最终转换后的样式：
+
+```diff
+ .px2rem-box {
+-  width: 400px;
++  width: 12.5rem;
+   background-color: green;
+-  font-size: 32px;
++  font-size: 1rem;
+   border: 10PX solid #f0f;
+ }
+
+ @media only screen and (max-width: 600px) {
+   .px2rem-box {
+     background-color: red;
+-    margin: 10px;
++    margin: 0.3125rem;
+   }
+ }
+```
+
+#### 配置项
+
+<!-- prettier-ignore -->
+| 参数 | 说明  | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| rootValue | 根元素字体大小 | `number` | 16 |
+| precision | 转换后的小数点位数 | `number` | 5 |
+| mediaQuery | 是否转换媒体查询中的 px | `boolean` | false |
+
+详细请参考: [px2rem.ts#Options](https://github.com/ant-design/cssinjs/blob/master/src/transformers/px2rem.ts)
