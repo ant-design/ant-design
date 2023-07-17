@@ -323,11 +323,6 @@ export interface ComponentToken {
    */
   darkItemHoverBg: string;
   /**
-   * @desc 暗色模式下的危险菜单项选中背景
-   * @descEN Background of active danger menu item in dark mode
-   */
-  darkDangerItemSelectedBg: string;
-  /**
    * @desc 暗色模式下的分组标题文字颜色
    * @descEN Color of group title text in dark mode
    */
@@ -337,6 +332,31 @@ export interface ComponentToken {
    * @descEN Color of hovered menu item in dark mode
    */
   darkItemHoverColor: string;
+  /**
+   * @desc 暗色模式下的菜单项禁用颜色
+   * @descEN Color of disabled menu item in dark mode
+   */
+  darkItemDisabledColor: string;
+  /**
+   * @desc 暗色模式下的危险菜单项选中背景
+   * @descEN Background of active danger menu item in dark mode
+   */
+  darkDangerItemSelectedBg: string;
+  /**
+   * @desc 暗色模式下的危险菜单项悬浮文字背景
+   * @descEN Background of hovered danger menu item in dark mode
+   */
+  darkDangerItemHoverColor: string;
+  /**
+   * @desc 暗色模式下的危险菜单项选中文字颜色
+   * @descEN Color of selected danger menu item in dark mode
+   */
+  darkDangerItemSelectedColor: string;
+  /**
+   * @desc 暗色模式下的危险菜单项激活态背景
+   * @descEN Background of active danger menu item in dark mode
+   */
+  darkDangerItemActiveBg: string;
 }
 
 export interface MenuToken extends FullToken<'Menu'> {
@@ -782,8 +802,6 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
       const {
         colorBgElevated,
         colorPrimary,
-        colorError,
-        colorErrorHover,
         colorTextLightSolid,
         controlHeightLG,
         fontSize,
@@ -797,6 +815,10 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         darkItemHoverBg,
         darkGroupTitleColor,
         darkItemHoverColor,
+        darkItemDisabledColor,
+        darkDangerItemHoverColor,
+        darkDangerItemSelectedColor,
+        darkDangerItemActiveBg,
       } = token;
 
       const menuArrowSize = (fontSize / 7) * 5;
@@ -825,13 +847,13 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         itemHoverBg: darkItemHoverBg,
 
         // Disabled
-        itemDisabledColor: new TinyColor(colorTextLightSolid).setAlpha(0.25).toRgbString(),
+        itemDisabledColor: darkItemDisabledColor,
 
         // Danger
         dangerItemColor: darkDangerItemColor,
-        dangerItemHoverColor: colorErrorHover,
-        dangerItemSelectedColor: colorTextLightSolid,
-        dangerItemActiveBg: colorError,
+        dangerItemHoverColor: darkDangerItemHoverColor,
+        dangerItemSelectedColor: darkDangerItemSelectedColor,
+        dangerItemActiveBg: darkDangerItemActiveBg,
         dangerItemSelectedBg: darkDangerItemSelectedBg,
 
         menuSubMenuBg: darkSubMenuItemBg,
@@ -890,6 +912,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         controlHeightSM,
         fontSizeLG,
         colorTextLightSolid,
+        colorErrorHover,
       } = token;
 
       const colorTextDark = new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString();
@@ -964,6 +987,9 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         collapsedIconSize: fontSizeLG,
         groupTitleFontSize: fontSize,
 
+        // Disabled
+        darkItemDisabledColor: new TinyColor(colorTextLightSolid).setAlpha(0.25).toRgbString(),
+
         // Dark
         darkItemColor: colorTextDark,
         darkDangerItemColor: colorError,
@@ -975,6 +1001,9 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         darkItemHoverBg: 'transparent',
         darkGroupTitleColor: colorTextDark,
         darkItemHoverColor: colorTextLightSolid,
+        darkDangerItemHoverColor: colorErrorHover,
+        darkDangerItemSelectedColor: colorTextLightSolid,
+        darkDangerItemActiveBg: colorError,
       };
     },
     {
