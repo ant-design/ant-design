@@ -275,6 +275,7 @@ const Select = React.forwardRef(InternalSelect) as unknown as (<
     ref?: React.Ref<BaseSelectRef>;
   },
 ) => React.ReactElement) & {
+  displayName?: string;
   SECRET_COMBOBOX_MODE_DO_NOT_USE: string;
   Option: typeof Option;
   OptGroup: typeof OptGroup;
@@ -289,5 +290,9 @@ Select.SECRET_COMBOBOX_MODE_DO_NOT_USE = SECRET_COMBOBOX_MODE_DO_NOT_USE;
 Select.Option = Option;
 Select.OptGroup = OptGroup;
 Select._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+
+if (process.env.NODE_ENV !== 'production') {
+  Select.displayName = 'Select';
+}
 
 export default Select;
