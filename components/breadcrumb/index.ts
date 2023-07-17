@@ -1,3 +1,5 @@
+'use client';
+
 import Breadcrumb from './Breadcrumb';
 
 export type { BreadcrumbProps } from './Breadcrumb';

@@ -165,7 +165,7 @@ exports[`renders components/alert/demo/action.tsx extend context correctly 1`] =
             class="ant-space-item"
           >
             <button
-              class="ant-btn ant-btn-ghost ant-btn-sm"
+              class="ant-btn ant-btn-text ant-btn-sm"
               type="button"
             >
               <span>
@@ -247,7 +247,7 @@ exports[`renders components/alert/demo/action.tsx extend context correctly 1`] =
             class="ant-space-item"
           >
             <button
-              class="ant-btn ant-btn-ghost ant-btn-sm ant-btn-dangerous"
+              class="ant-btn ant-btn-default ant-btn-sm ant-btn-background-ghost ant-btn-dangerous"
               type="button"
             >
               <span>
