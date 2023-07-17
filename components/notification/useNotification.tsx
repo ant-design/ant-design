@@ -39,7 +39,6 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     prefixCls: staticPrefixCls,
     getContainer: staticGetContainer,
     maxCount,
-    placement: placementFromProps,
     rtl,
     onAllRemoved,
   } = props;
@@ -48,11 +47,8 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
 
   // =============================== Style ===============================
-  const placementValue = placementFromProps ?? DEFAULT_PLACEMENT;
-  // prioritize placement from global config but use value from props when global config is not available
-  // if both are undefined, use default placement of `DEFAULT_PLACEMENT`
   const getStyle = (placement: NotificationPlacement): React.CSSProperties =>
-    getPlacementStyle(placement ?? placementValue, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET);
+    getPlacementStyle(placement, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET);
 
   // Style
   const [, hashId] = useStyle(prefixCls);

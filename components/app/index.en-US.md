@@ -18,7 +18,8 @@ Application wrapper for some global usages.
 ## Examples
 
 <!-- prettier-ignore -->
-<code src="./demo/basic.tsx">basic</code>
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/config.tsx">Hooks config</code>
 
 ## How to use
 
