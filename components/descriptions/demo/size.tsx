@@ -1,6 +1,93 @@
-import React, { useState } from 'react';
 import type { RadioChangeEvent } from 'antd';
 import { Button, Descriptions, Radio } from 'antd';
+import type { DescriptionsProps } from 'antd/es/descriptions';
+import React, { useState } from 'react';
+
+const borderedItems: DescriptionsProps['items'] = [
+  {
+    key: '1',
+    label: 'Product',
+    children: 'Cloud Database',
+  },
+  {
+    key: '2',
+    label: 'Billing',
+    children: 'Prepaid',
+  },
+  {
+    key: '3',
+    label: 'Time',
+    children: '18:00:00',
+  },
+  {
+    key: '4',
+    label: 'Amount',
+    children: '$80.00',
+  },
+  {
+    key: '5',
+    label: 'Discount',
+    children: '$20.00',
+  },
+  {
+    key: '6',
+    label: 'Official',
+    children: '$60.00',
+  },
+  {
+    key: '7',
+    label: 'Config Info',
+    children: (
+      <>
+        Data disk type: MongoDB
+        <br />
+        Database version: 3.4
+        <br />
+        Package: dds.mongo.mid
+        <br />
+        Storage space: 10 GB
+        <br />
+        Replication factor: 3
+        <br />
+        Region: East China 1
+        <br />
+      </>
+    ),
+  },
+];
+
+const items: DescriptionsProps['items'] = [
+  {
+    key: '1',
+    label: 'Product',
+    children: 'Cloud Database',
+  },
+  {
+    key: '2',
+    label: 'Billing',
+    children: 'Prepaid',
+  },
+  {
+    key: '3',
+    label: 'Time',
+    children: '18:00:00',
+  },
+  {
+    key: '4',
+    label: 'Amount',
+    children: '$80.00',
+  },
+  {
+    key: '5',
+    label: 'Discount',
+    children: '$20.00',
+  },
+  {
+    key: '6',
+    label: 'Official',
+    children: '$60.00',
+  },
+];
 
 const App: React.FC = () => {
   const [size, setSize] = useState<'default' | 'middle' | 'small'>('default');
@@ -24,38 +111,16 @@ const App: React.FC = () => {
         title="Custom Size"
         size={size}
         extra={<Button type="primary">Edit</Button>}
-      >
-        <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
-        <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
-        <Descriptions.Item label="time">18:00:00</Descriptions.Item>
-        <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
-        <Descriptions.Item label="Discount">$20.00</Descriptions.Item>
-        <Descriptions.Item label="Official">$60.00</Descriptions.Item>
-        <Descriptions.Item label="Config Info">
-          Data disk type: MongoDB
-          <br />
-          Database version: 3.4
-          <br />
-          Package: dds.mongo.mid
-          <br />
-          Storage space: 10 GB
-          <br />
-          Replication factor: 3
-          <br />
-          Region: East China 1
-          <br />
-        </Descriptions.Item>
-      </Descriptions>
+        items={borderedItems}
+      />
       <br />
       <br />
-      <Descriptions title="Custom Size" size={size} extra={<Button type="primary">Edit</Button>}>
-        <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
-        <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
-        <Descriptions.Item label="time">18:00:00</Descriptions.Item>
-        <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
-        <Descriptions.Item label="Discount">$20.00</Descriptions.Item>
-        <Descriptions.Item label="Official">$60.00</Descriptions.Item>
-      </Descriptions>
+      <Descriptions
+        title="Custom Size"
+        size={size}
+        extra={<Button type="primary">Edit</Button>}
+        items={items}
+      />
     </div>
   );
 };
