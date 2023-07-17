@@ -199,7 +199,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     );
 
     warning(
-      showArrow === undefined,
+      !('showArrow' in props),
       'Cascader',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );

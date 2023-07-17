@@ -229,7 +229,7 @@ const InternalSelect = <
     );
 
     warning(
-      showArrow === undefined,
+      !('showArrow' in props),
       'Select',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );

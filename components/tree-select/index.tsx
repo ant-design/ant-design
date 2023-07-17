@@ -139,7 +139,7 @@ const InternalTreeSelect = <
     );
 
     warning(
-      showArrow === undefined,
+      !('showArrow' in props),
       'TreeSelect',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );
