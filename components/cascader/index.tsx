@@ -137,7 +137,7 @@ export interface CascaderRef {
   blur: () => void;
 }
 
-const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<CascaderRef>) => {
+const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     size: customizeSize,
@@ -198,7 +198,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
 
   // =================== No Found ====================
   const mergedNotFoundContent = notFoundContent || renderEmpty?.('Cascader') || (
-    <DefaultRenderEmpty componentName="Cascader" />
+    <DefaultRenderEmpty componentName='Cascader' />
   );
 
   // ==================== Prefix =====================

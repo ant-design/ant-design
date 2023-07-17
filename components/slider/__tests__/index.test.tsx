@@ -6,7 +6,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 import ConfigProvider from '../../config-provider';
-import type { TooltipProps } from '../../tooltip';
+import type { TooltipProps, TooltipRef } from '../../tooltip';
 import SliderTooltip from '../SliderTooltip';
 
 function tooltipProps(): TooltipProps {
@@ -14,10 +14,10 @@ function tooltipProps(): TooltipProps {
 }
 
 jest.mock('../../tooltip', () => {
-  const ReactReal = jest.requireActual('react');
+  const ReactReal: typeof React = jest.requireActual('react');
   const Tooltip = jest.requireActual('../../tooltip');
   const TooltipComponent = Tooltip.default;
-  return ReactReal.forwardRef((props: TooltipProps, ref: any) => {
+  return ReactReal.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     (global as any).tooltipProps = props;
     return <TooltipComponent {...props} ref={ref} />;
   });
@@ -126,7 +126,7 @@ describe('Slider', () => {
 
   it('should render in RTL direction', () => {
     const { container } = render(
-      <ConfigProvider direction="rtl">
+      <ConfigProvider direction='rtl'>
         <Slider defaultValue={30} tooltip={{ open: true }} />
       </ConfigProvider>,
     );
@@ -135,7 +135,7 @@ describe('Slider', () => {
 
   it('should keepAlign by calling forceAlign', async () => {
     const ref = React.createRef<any>();
-    render(<SliderTooltip title="30" open ref={ref} />);
+    render(<SliderTooltip title='30' open ref={ref} />);
     ref.current.forceAlign = jest.fn();
     act(() => {
       jest.runAllTimers();
@@ -160,7 +160,7 @@ describe('Slider', () => {
 
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    const { container, rerender } = render(<TSSlider tooltipPrefixCls="xxx" />);
+    const { container, rerender } = render(<TSSlider tooltipPrefixCls='xxx' />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: Slider] `tooltipPrefixCls` is deprecated, please use `tooltip.prefixCls` instead.',
     );
@@ -180,7 +180,7 @@ describe('Slider', () => {
       'Warning: [antd: Slider] `tooltipVisible` is deprecated, please use `tooltip.open` instead.',
     );
 
-    rerender(<TSSlider tooltipPlacement="left" />);
+    rerender(<TSSlider tooltipPlacement='left' />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: Slider] `tooltipPlacement` is deprecated, please use `tooltip.placement` instead.',
     );
@@ -194,10 +194,10 @@ describe('Slider', () => {
 
     rerender(
       <TSSlider
-        tooltipPrefixCls="bamboo"
+        tooltipPrefixCls='bamboo'
         getTooltipPopupContainer={getTooltipPopupContainer}
         tipFormatter={() => 'little'}
-        tooltipPlacement="bottom"
+        tooltipPlacement='bottom'
         tooltipVisible
       />,
     );
