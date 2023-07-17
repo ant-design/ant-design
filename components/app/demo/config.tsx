@@ -3,7 +3,7 @@ import { App, Button, Space } from 'antd';
 
 // Sub page
 const MyPage = () => {
-  const { message, modal, notification } = App.useApp();
+  const { message, notification } = App.useApp();
 
   const showMessage = () => {
     message.success('Success!');
