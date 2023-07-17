@@ -19,14 +19,15 @@ timeline: true
 
 `2023-07-17`
 
-- 🐞 Fix that antd components usage in Next.js App Router. [#43573](https://github.com/ant-design/ant-design/pull/43573) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix that antd components usage in Next.js App Router, check the [documentation](/docs/react/use-with-next#using-nextjs-app-router). [#43573](https://github.com/ant-design/ant-design/pull/43573) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix notification `placement` not being respected when passed via App component. [#43522](https://github.com/ant-design/ant-design/pull/43522) [@Rajil1213](https://github.com/Rajil1213)
 - 🐞 Fix Pagination jumpy page size select when search in it. [#43556](https://github.com/ant-design/ant-design/pull/43556)
 - 🐞 Fix Button disabled style of deprecated usage `type="ghost"`. [#43558](https://github.com/ant-design/ant-design/pull/43558) [@kiner-tang](https://github.com/kiner-tang)
 - 🐞 Fix Tag extra margin when there is only `icon` inside it. [#43518](https://github.com/ant-design/ant-design/pull/43518) [@Yuiai01](https://github.com/Yuiai01)
 - 🐞 Fix ColorPicker that status style is missing inside Form.Item. [#42880](https://github.com/ant-design/ant-design/pull/42880) [@RedJue](https://github.com/RedJue)
 - TypeScript
   - 🤖 Fix `SpaceContext` don't exported correctly. [#43501](https://github.com/ant-design/ant-design/pull/43501) [@VovkaGoodwin](https://github.com/VovkaGoodwin)
-  - 🤖 Improve TS definitions of Select/List/AutoComplete. [#43581](https://github.com/ant-design/ant-design/pull/43581) [#43545](https://github.com/ant-design/ant-design/pull/43545) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 Improve TS definitions of Select/List/AutoComplete/Button. [#43581](https://github.com/ant-design/ant-design/pull/43581) [#43545](https://github.com/ant-design/ant-design/pull/43545) [#43588](https://github.com/ant-design/ant-design/pull/43588) [@thinkasany](https://github.com/thinkasany)
 
 ## 5.7.0
 
