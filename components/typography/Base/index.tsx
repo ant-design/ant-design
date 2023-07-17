@@ -54,8 +54,12 @@ export interface EllipsisConfig {
   rows?: number;
   expandable?: boolean;
   suffix?: string;
+  /** @deprecated Place use `expand` instead */
   symbol?: React.ReactNode;
+  expand?: React.ReactNode;
+  collapse?: React.ReactNode;
   onExpand?: React.MouseEventHandler<HTMLElement>;
+  onCollapse?: React.MouseEventHandler<HTMLElement>;
   onEllipsis?: (ellipsis: boolean) => void;
   tooltip?: React.ReactNode | TooltipProps;
 }
@@ -285,6 +289,11 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     setExpanded(true);
     ellipsisConfig.onExpand?.(e);
   };
+  // >>>>> Collapse
+  const onCollapseClick: React.MouseEventHandler<HTMLElement> = (e) => {
+    setExpanded(false);
+    ellipsisConfig.onCollapse?.(e);
+  };
 
   const [ellipsisWidth, setEllipsisWidth] = React.useState(0);
   const [ellipsisFontSize, setEllipsisFontSize] = React.useState(0);
@@ -402,12 +411,14 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   // >>>>>>>>>>> Typography
   // Expand
   const renderExpand = () => {
-    const { expandable, symbol } = ellipsisConfig;
+    const { expandable, symbol, expand } = ellipsisConfig;
 
     if (!expandable) return null;
 
     let expandContent: React.ReactNode;
-    if (symbol) {
+    if (expand) {
+      expandContent = expand;
+    } else if (symbol) {
       expandContent = symbol;
     } else {
       expandContent = textLocale?.expand;
@@ -421,6 +432,30 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         aria-label={textLocale?.expand}
       >
         {expandContent}
+      </a>
+    );
+  };
+  // Collapse
+  const renderCollapse = () => {
+    const { expandable, collapse } = ellipsisConfig;
+
+    if (!expandable) return null;
+
+    let collapseContent: React.ReactNode;
+    if (collapse) {
+      collapseContent = collapse;
+    } else {
+      collapseContent = textLocale?.collapse;
+    }
+
+    return (
+      <a
+        key="collapse"
+        className={`${prefixCls}-collapse`}
+        onClick={onCollapseClick}
+        aria-label={textLocale?.collapse}
+      >
+        {collapseContent}
       </a>
     );
   };
@@ -478,8 +513,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     );
   };
 
-  const renderOperations = (renderExpanded: boolean) => [
-    renderExpanded && renderExpand(),
+  const renderOperations = () => [
+    expanded ? renderCollapse() : renderExpand(),
     renderEdit(),
     renderCopy(),
   ];
@@ -491,7 +526,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       </span>
     ),
     ellipsisConfig.suffix,
-    renderOperations(needEllipsis),
+    renderOperations(),
   ];
 
   return (

@@ -79,6 +79,7 @@ const localeValues: Locale = {
     copy: '复制',
     copied: '复制成功',
     expand: '展开',
+    collapse: '收起',
   },
   PageHeader: {
     back: '返回',

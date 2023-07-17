@@ -138,8 +138,11 @@ Basic text writing, including headings, body text, lists, and more.
       expandable: boolean,
       suffix: string,
       symbol: ReactNode,
+      expand: React.ReactNode,
+      collapse: React.ReactNode,
       tooltip: boolean | ReactNode | TooltipProps,
       onExpand: function(event),
+      onCollapse: function(event),
       onEllipsis: function(ellipsis),
     }
 
@@ -148,7 +151,9 @@ Basic text writing, including headings, body text, lists, and more.
 | expandable | Whether to be expandable | boolean | - |  |
 | rows | Max rows of content | number | - |  |
 | suffix | Suffix of ellipsis content | string | - |  |
-| symbol | Custom description of ellipsis | ReactNode | `Expand` |  |
+| symbol | Place use `expand` instead | ReactNode | `Expand` |  |
+| expand | Custom description of expand | ReactNode | `Expand` |  |
+| collapse | Custom description of collapse | ReactNode | `Collase` |  |
 | tooltip | Show tooltip when ellipsis | boolean \| ReactNode \| [TooltipProps](/components/tooltip/#api) | - | 4.11.0 |
 | onEllipsis | Called when enter or leave ellipsis state | function(ellipsis) | - | 4.2.0 |
 | onExpand | Called when expand content | function(event) | - |  |
