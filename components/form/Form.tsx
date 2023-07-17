@@ -186,9 +186,13 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
   );
 };
 
-const Form = React.forwardRef<FormInstance, FormProps>(InternalForm) as <Values = any>(
+const Form = React.forwardRef<FormInstance, FormProps>(InternalForm) as (<Values = any>(
   props: React.PropsWithChildren<FormProps<Values>> & { ref?: React.Ref<FormInstance<Values>> },
-) => React.ReactElement;
+) => React.ReactElement) & { displayName?: string };
+
+if (process.env.NODE_ENV !== 'production') {
+  Form.displayName = 'Form';
+}
 
 export { List, useForm, useWatch, type FormInstance };
 
