@@ -5,7 +5,7 @@ import CommonHelmet from '../../common/CommonHelmet';
 import Content from '../../slots/Content';
 import Sidebar from '../../slots/Sidebar';
 
-const useStyle = createStyles(({ token, css }) => ({
+const useStyle = createStyles(({ css }) => ({
   main: css`
     display: flex;
     margin-top: 40px;

@@ -38,7 +38,7 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token, css }) => ({
+const useStyle = createStyles(({ css }) => ({
   header: css({
     display: 'flex',
     height: 56,
