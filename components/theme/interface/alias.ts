@@ -61,7 +61,7 @@ export interface AliasToken extends MapToken {
   colorBorderBg: string;
   /**
    * @nameZH 分割线颜色
-   * @nameEN Separator color
+   * @nameEN Separator Color
    * @desc 用于作为分割线的颜色，此颜色和 colorBorderSecondary 的颜色一致，但是用的是透明色。
    * @descEN Used as the color of separator, this color is the same as colorBorderSecondary but with transparency.
    */
@@ -70,21 +70,21 @@ export interface AliasToken extends MapToken {
   // Text
   /**
    * @nameZH 占位文本颜色
-   * @nameEN Placeholder text color
+   * @nameEN Placeholder Text Color
    * @desc 控制占位文本的颜色。
    * @descEN Control the color of placeholder text.
    */
   colorTextPlaceholder: string;
   /**
    * @nameZH 禁用字体颜色
-   * @nameEN Disabled text color
+   * @nameEN Disabled Text Color
    * @desc 控制禁用状态下的字体颜色。
    * @descEN Control the color of text in disabled state.
    */
   colorTextDisabled: string;
   /**
    * @nameZH 标题字体颜色
-   * @nameEN Heading font color
+   * @nameEN Heading Text Color
    * @desc 控制标题字体颜色。
    * @descEN Control the font color of heading.
    */
