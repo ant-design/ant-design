@@ -21,7 +21,7 @@ title: 巧用过渡
 
 <br>
 
-<video class="transition-video-player" alt="传送带示例" src="https://os.alipayobjects.com/rmsportal/GIutPgZMTyfFfrH.mp4"></video>
+<video autoplay class="transition-video-player" alt="传送带示例" src="https://os.alipayobjects.com/rmsportal/GIutPgZMTyfFfrH.mp4"></video>
 
 传送带：可极大地扩展虚拟空间。
 

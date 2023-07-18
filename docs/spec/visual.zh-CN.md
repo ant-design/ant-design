@@ -87,7 +87,7 @@ title: 可视化
 
 AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
-获取更多色板，请前往 [AntV - 设计语言 - 视觉](https://antv.vision/zh/docs/specification/principles/visual/)
+获取更多色板，请前往 [AntV - 设计语言 - 视觉](https://antv.vision/specification/language/palette)
 
 ### 组件使用建议
 
