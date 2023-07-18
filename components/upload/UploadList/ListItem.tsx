@@ -44,7 +44,7 @@ export interface ListItemProps {
   progress?: UploadListProgressProps;
 }
 
-const ListItem = React.forwardRef(
+const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
   (
     {
       prefixCls,
@@ -68,8 +68,8 @@ const ListItem = React.forwardRef(
       onPreview,
       onDownload,
       onClose,
-    }: ListItemProps,
-    ref: React.Ref<HTMLDivElement>,
+    },
+    ref,
   ) => {
     // Status: which will ignore `removed` status
     const { status } = file;
@@ -111,8 +111,7 @@ const ListItem = React.forwardRef(
         ) : (
           iconNode
         );
-        const aClassName = classNames({
-          [`${prefixCls}-list-item-thumbnail`]: true,
+        const aClassName = classNames(`${prefixCls}-list-item-thumbnail`, {
           [`${prefixCls}-list-item-file`]: isImgUrl && !isImgUrl(file),
         });
         icon = (
