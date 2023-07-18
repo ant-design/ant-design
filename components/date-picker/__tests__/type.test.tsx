@@ -18,7 +18,7 @@ describe('DatePicker.typescript', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/33417
-  it('DatePicker ref methods with forwardRef', () => {
+  it('DatePicker ref methods forwardRef', () => {
     const MyDatePicker = React.forwardRef((props: DatePickerProps, ref: DatePickRef<Dayjs>) => (
       <DatePicker {...props} ref={ref} />
     ));
@@ -63,9 +63,9 @@ describe('DatePicker.typescript', () => {
   });
 
   it('DatePicker and RangePicker supports popupClassName', () => {
-    const datePicker = <DatePicker popupClassName='popupClassName' />;
+    const datePicker = <DatePicker popupClassName="popupClassName" />;
     expect(datePicker).toBeTruthy();
-    const rangePicker = <DatePicker.RangePicker popupClassName='popupClassName' />;
+    const rangePicker = <DatePicker.RangePicker popupClassName="popupClassName" />;
     expect(rangePicker).toBeTruthy();
   });
 });
