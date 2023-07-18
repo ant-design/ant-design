@@ -54,7 +54,7 @@ describe('ConfigProvider.Popup', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('disable virtual if dropdownMatchSelectWidth false', () => {
+  it('disable virtual if dropdownMatchSelectWidth is false', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(
