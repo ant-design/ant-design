@@ -6,7 +6,7 @@ import toArray from 'rc-util/lib/Children/toArray';
 interface ImagePreviewProps {
   children: React.ReactNode[];
   className?: string;
-  /** 不展示边框和背景 */
+  /** Do not show padding & background */
   pure?: boolean;
 }
 
