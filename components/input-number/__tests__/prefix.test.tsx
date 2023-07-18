@@ -4,7 +4,7 @@ import InputNumber from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import { fireEvent, render } from '../../../tests/utils';
 
-describe('prefix ', () => {
+describe('prefix', () => {
   focusTest(
     forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => (
       <InputNumber {...props} prefix="A" ref={ref} />
