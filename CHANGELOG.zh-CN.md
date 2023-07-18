@@ -17,7 +17,7 @@ timeline: true
 
 ## 5.7.1
 
-`2023-07-18`
+`2023-07-19`
 
 - 💄 补全 Menu 主题定制 token。[#43573](https://github.com/ant-design/ant-design/pull/43573) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 修复 QRCode 在 Next.js 13 中报错 `Can't resolve 'antd/lib/qr-code'` 的问题。[#43572](https://github.com/ant-design/ant-design/issues/43572)
