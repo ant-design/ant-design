@@ -17,7 +17,7 @@ timeline: true
 
 ## 5.7.1
 
-`2023-07-17`
+`2023-07-18`
 
 - 🐞 Fix that antd components usage in Next.js App Router, check the [documentation](/docs/react/use-with-next#using-nextjs-app-router). [#43573](https://github.com/ant-design/ant-design/pull/43573) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 Fix notification `placement` not being respected when passed via App component. [#43522](https://github.com/ant-design/ant-design/pull/43522) [@Rajil1213](https://github.com/Rajil1213)

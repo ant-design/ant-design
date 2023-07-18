@@ -17,7 +17,7 @@ timeline: true
 
 ## 5.7.1
 
-`2023-07-17`
+`2023-07-18`
 
 - 🐞 修复 antd 不支持在 Next.js App Router 中使用的问题，查看[使用文档](/docs/react/use-with-next#使用-nextjs-的-app-router)。[#43573](https://github.com/ant-design/ant-design/pull/43573) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 修复 App.useApp 方式调用 notification 组件时 `placement` 属性不生效的问题。[#43522](https://github.com/ant-design/ant-design/pull/43522) [@Rajil1213](https://github.com/Rajil1213)
