@@ -343,4 +343,15 @@ describe('Button', () => {
     );
     expect(window.getComputedStyle(container.querySelector('#link')!).pointerEvents).toBe('none');
   });
+
+  it('Correct type', () => {
+    const onBtnClick: React.MouseEventHandler<HTMLButtonElement> = () => {};
+    const onAnchorClick: React.MouseEventHandler<HTMLAnchorElement> = () => {};
+
+    const button = <Button onClick={onBtnClick} />;
+    const anchor = <Button href="https://ant.design" onClick={onAnchorClick} />;
+
+    expect(button).toBeTruthy();
+    expect(anchor).toBeTruthy();
+  });
 });
