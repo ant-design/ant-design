@@ -222,7 +222,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
           },
 
           [`&${formItemCls}-no-colon::after`]: {
-            content: '" "',
+            content: '"\\a0"',
           },
         },
       },
@@ -397,7 +397,7 @@ const makeVerticalLayoutLabel = (token: FormToken): CSSObject => ({
     margin: 0,
 
     '&::after': {
-      display: 'none',
+      visibility: 'hidden',
     },
   },
 });
