@@ -15,6 +15,24 @@ timeline: true
 
 ---
 
+## 5.7.1
+
+`2023-07-19`
+
+- 💄 Migrate Component Token of Menu from 4.x less variables. [#43573](https://github.com/ant-design/ant-design/pull/43573) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix QRCode throws `Can't resolve 'antd/lib/qr-code'` in Next.js 13. [#43572](https://github.com/ant-design/ant-design/issues/43572)
+- 🐞 Fix that antd components usage in Next.js App Router, check the [documentation](/docs/react/use-with-next#using-nextjs-app-router). [#43573](https://github.com/ant-design/ant-design/pull/43573) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix Checkbox both set `checked` and `indeterminate` prop will not show as `indeterminate` style. [#43626](https://github.com/ant-design/ant-design/pull/43626)
+- 🐞 Fix Form.Item set `label=""` will break the line align. [#43614](https://github.com/ant-design/ant-design/pull/43614)
+- 🐞 Fix notification `placement` not being respected when passed via App component. [#43522](https://github.com/ant-design/ant-design/pull/43522) [@Rajil1213](https://github.com/Rajil1213)
+- 🐞 Fix Pagination jumpy page size select when search in it. [#43556](https://github.com/ant-design/ant-design/pull/43556)
+- 🐞 Fix Button disabled style is missing when use with the deprecated usage of `type="ghost"`. [#43558](https://github.com/ant-design/ant-design/pull/43558) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Fix Tag extra margin when there is only `icon` inside it. [#43518](https://github.com/ant-design/ant-design/pull/43518) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 Fix ColorPicker that status style is missing inside Form.Item. [#42880](https://github.com/ant-design/ant-design/pull/42880) [@RedJue](https://github.com/RedJue)
+- TypeScript
+  - 🤖 Fix `SpaceContext` don't exported correctly. [#43501](https://github.com/ant-design/ant-design/pull/43501) [@VovkaGoodwin](https://github.com/VovkaGoodwin)
+  - 🤖 Improve TS definitions for some components. [#43581](https://github.com/ant-design/ant-design/pull/43581) [#43545](https://github.com/ant-design/ant-design/pull/43545) [#43588](https://github.com/ant-design/ant-design/pull/43588) [#43610](https://github.com/ant-design/ant-design/pull/43610) [#43629](https://github.com/ant-design/ant-design/pull/43629). Thanks to [@thinkasany](https://github.com/thinkasany)、[@li-jia-nan](https://github.com/li-jia-nan) for the contributions.
+
 ## 5.7.0
 
 `2023-07-11`
