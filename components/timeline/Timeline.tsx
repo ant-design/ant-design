@@ -34,6 +34,7 @@ const Timeline: CompoundedComponent = (props) => {
   const prefixCls = getPrefixCls('timeline', customizePrefixCls);
 
   // =================== Warning =====================
+  
   if (process.env.NODE_ENV !== 'production') {
     warning(!children, 'Timeline', '`Timeline.Item` is deprecated. Please use `items` instead.');
   }
