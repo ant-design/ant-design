@@ -18,7 +18,7 @@ describe('DatePicker.typescript', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/33417
-  it('DatePicker ref methods forwardRef', () => {
+  it('DatePicker ref methods with forwardRef', () => {
     const MyDatePicker = React.forwardRef((props: DatePickerProps, ref: DatePickRef<Dayjs>) => (
       <DatePicker {...props} ref={ref} />
     ));
