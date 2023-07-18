@@ -2,8 +2,15 @@ import { extractStyle } from '@ant-design/cssinjs';
 import type { IApi, IRoute } from 'dumi';
 import ReactTechStack from 'dumi/dist/techStacks/react';
 import fs from 'fs';
+import path from 'path';
+import chalk from 'chalk';
 import sylvanas from 'sylvanas';
+import { extractStaticStyle } from 'antd-style';
+import { createHash } from 'crypto';
 import localPackage from '../../package.json';
+
+export const getHash = (str: string, length = 8) =>
+  createHash('md5').update(str).digest('hex').slice(0, length);
 
 /**
  * extends dumi internal tech stack, for customize previewer props
@@ -45,6 +52,24 @@ const resolve = (path: string): string => require.resolve(path);
 const RoutesPlugin = (api: IApi) => {
   const ssrCssFileName = `ssr-${Date.now()}.css`;
 
+  const writeCSSFile = (key: string, hashKey: string, cssString: string) => {
+    const fileName = `emotion-${key}.${getHash(hashKey)}.css`;
+
+    const filePath = path.join(api.paths.absOutputPath, fileName);
+
+    if (!fs.existsSync(filePath)) {
+      api.logger.event(chalk.grey(`write to: ${filePath}`));
+      fs.writeFileSync(filePath, cssString, 'utf8');
+    }
+
+    return fileName;
+  };
+
+  const addLinkStyle = (html: string, cssFile: string) => {
+    const prefix = api.userConfig.publicPath || api.config.publicPath;
+    return html.replace('</head>', `<link rel="stylesheet" href="${prefix + cssFile}"></head>`);
+  };
+
   api.registerTechStack(() => new AntdReactTechStack());
 
   api.modifyRoutes((routes) => {
@@ -81,18 +106,36 @@ const RoutesPlugin = (api: IApi) => {
       // FIXME: workaround to make emotion support react 18 pipeableStream
       // ref: https://github.com/emotion-js/emotion/issues/2800#issuecomment-1221296308
       .map((file) => {
-        let styles = '';
+        // let styles = '';
+        //
+        // // extract all emotion style tags from body
+        // file.content = file.content.replace(/<style data-emotion[\S\s]+?<\/style>/g, (s) => {
+        //   styles += s;
+        //
+        //   return '';
+        // });
+        //
+        // // insert emotion style tags to head
+        // file.content = file.content.replace('</head>', `${styles}</head>`);
 
-        // extract all emotion style tags from body
-        file.content = file.content.replace(/<style data-emotion[\S\s]+?<\/style>/g, (s) => {
-          styles += s;
+        const antdCache = (global as any).styleCache;
 
-          return '';
+        // 1. 提取 antd-style 样式
+        const styles = extractStaticStyle(file.content, { antdCache, includeAntd: false });
+        api.logger.event(`@@@@@@@@@@@style amount ${styles.length}`);
+
+        // 2. 提取每个样式到独立 css 文件
+        styles.forEach((result) => {
+          api.logger.event(
+            `${chalk.yellow(file.path)} include ${chalk.blue`[${result.key}]`} ${chalk.yellow(
+              result.ids.length,
+            )} styles`,
+          );
+
+          const cssFile = writeCSSFile(result.key, result.ids.join(''), result.css);
+
+          file.content = addLinkStyle(file.content, cssFile);
         });
-
-        // insert emotion style tags to head
-        file.content = file.content.replace('</head>', `${styles}</head>`);
-
         return file;
       }),
   );

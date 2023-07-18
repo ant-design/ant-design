@@ -3,12 +3,12 @@ import {
   legacyNotSelectorLinter,
   logicalPropertiesLinter,
   parentSelectorLinter,
-  StyleProvider,
 } from '@ant-design/cssinjs';
 import { App, theme as antdTheme } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
 import { createSearchParams, useOutlet, useSearchParams } from 'dumi';
 import React, { useCallback, useEffect, useMemo } from 'react';
+import { StyleProvider as AntdStyleProvider } from 'antd-style';
 import useLayoutState from '../../hooks/useLayoutState';
 import SiteThemeProvider from '../SiteThemeProvider';
 import useLocation from '../../hooks/useLocation';
@@ -108,7 +108,7 @@ const GlobalLayout: React.FC = () => {
   );
 
   return (
-    <StyleProvider
+    <AntdStyleProvider
       cache={styleCache}
       linters={[logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter]}
     >
@@ -132,7 +132,7 @@ const GlobalLayout: React.FC = () => {
           </App>
         </SiteThemeProvider>
       </SiteContext.Provider>
-    </StyleProvider>
+    </AntdStyleProvider>
   );
 };
 
