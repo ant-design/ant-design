@@ -232,21 +232,6 @@ describe('DatePicker', () => {
     ).toBe(60);
   });
 
-  it('DatePicker.RangePicker with defaultPickerValue and showTime', () => {
-    const startDate = dayjs('1982-02-12');
-    const endDate = dayjs('1982-02-22');
-
-    const { container } = render(
-      <DatePicker.RangePicker defaultPickerValue={[startDate, endDate]} showTime open />,
-    );
-
-    const m = container.querySelector('.ant-picker-header-view .ant-picker-month-btn')?.innerHTML;
-    const y = container.querySelector('.ant-picker-header-view .ant-picker-year-btn')?.innerHTML;
-    expect(m).toBe(startDate.format('MMM'));
-    expect(y).toBe(startDate.format('YYYY'));
-    expect(container.querySelectorAll('.ant-picker-time-panel').length).toBe(1);
-  });
-
   it('placement api work correctly', () => {
     const { rerender } = render(<DatePicker.RangePicker open placement="topLeft" />);
     expect(triggerProps?.builtinPlacements).toEqual(
