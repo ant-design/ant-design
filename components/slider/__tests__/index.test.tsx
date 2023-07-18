@@ -23,7 +23,7 @@ jest.mock('../../tooltip', () => {
   });
 });
 
-describe('Slider ', () => {
+describe('Slider', () => {
   mountTest(Slider);
   rtlTest(Slider);
   focusTest(Slider);
