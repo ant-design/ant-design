@@ -4,8 +4,8 @@ import type { MenuProps } from 'antd';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 import type { ReactElement } from 'react';
 import React, { useMemo } from 'react';
-import useMenu from '../../hooks/useMenu';
 import classNames from 'classnames';
+import useMenu from '../../hooks/useMenu';
 
 const useStyle = createStyles(({ token, css }) => {
   const { colorSplit, iconCls, fontSizeIcon } = token;

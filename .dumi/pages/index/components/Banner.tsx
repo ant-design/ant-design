@@ -2,11 +2,11 @@ import { createStyles, css, useTheme } from 'antd-style';
 import { Button, Space, Typography } from 'antd';
 import { Link, useLocation } from 'dumi';
 import * as React from 'react';
+import classNames from 'classnames';
 import useLocale from '../../../hooks/useLocale';
 import SiteContext from '../../../theme/slots/SiteContext';
 import * as utils from '../../../theme/utils';
 import { GroupMask } from './Group';
-import classNames from 'classnames';
 
 const locales = {
   cn: {
@@ -25,13 +25,13 @@ const locales = {
 const useStyle = () => {
   const { isMobile } = React.useContext(SiteContext);
   return createStyles(({ token }) => ({
-      titleBase: css`
+    titleBase: css`
       h1& {
         font-family: AliPuHui, ${token.fontFamily};
       }
     `,
-      title: isMobile
-        ? css`
+    title: isMobile
+      ? css`
           h1& {
             margin-bottom: ${token.margin}px;
             font-weight: normal;
@@ -39,14 +39,14 @@ const useStyle = () => {
             line-height: ${token.lineHeightHeading2};
           }
         `
-        : css`
+      : css`
           h1& {
             margin-bottom: ${token.marginMD}px;
             font-weight: 900;
             font-size: 68px;
           }
         `,
-    }))();
+  }))();
 };
 
 export interface BannerProps {

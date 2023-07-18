@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useContext } from 'react';
 import { Typography } from 'antd';
-import SiteContext from '../../../theme/slots/SiteContext';
 import { useTheme } from 'antd-style';
+import SiteContext from '../../../theme/slots/SiteContext';
 
 export interface GroupMaskProps {
   style?: React.CSSProperties;

@@ -4,8 +4,8 @@ import type { Color, ColorPickerProps } from 'antd/es/color-picker';
 import { generateColor } from 'antd/es/color-picker/util';
 import type { FC } from 'react';
 import React, { useEffect, useState } from 'react';
-import { PRESET_COLORS } from './colorUtil';
 import classNames from 'classnames';
+import { PRESET_COLORS } from './colorUtil';
 
 const useStyle = createStyles(({ token, css }) => ({
   color: css`

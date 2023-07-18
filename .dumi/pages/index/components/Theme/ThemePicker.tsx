@@ -1,8 +1,8 @@
 import { createStyles, useTheme } from 'antd-style';
 import { Space } from 'antd';
 import * as React from 'react';
-import useLocale from '../../../../hooks/useLocale';
 import classNames from 'classnames';
+import useLocale from '../../../../hooks/useLocale';
 
 export const THEMES = {
   default: 'https://gw.alipayobjects.com/zos/bmw-prod/ae669a89-0c65-46db-b14b-72d1c7dd46d6.svg',
