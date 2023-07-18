@@ -29,7 +29,7 @@ timeline: true
 - 🐞 Fix ColorPicker that status style is missing inside Form.Item. [#42880](https://github.com/ant-design/ant-design/pull/42880) [@RedJue](https://github.com/RedJue)
 - TypeScript
   - 🤖 Fix `SpaceContext` don't exported correctly. [#43501](https://github.com/ant-design/ant-design/pull/43501) [@VovkaGoodwin](https://github.com/VovkaGoodwin)
-  - 🤖 Improve TS definitions of Select/List/AutoComplete/Button. [#43581](https://github.com/ant-design/ant-design/pull/43581) [#43545](https://github.com/ant-design/ant-design/pull/43545) [#43588](https://github.com/ant-design/ant-design/pull/43588) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 Improve TS definitions of Select/List/AutoComplete/Button. [#43581](https://github.com/ant-design/ant-design/pull/43581) [#43545](https://github.com/ant-design/ant-design/pull/43545) [#43588](https://github.com/ant-design/ant-design/pull/43588) [#43610](https://github.com/ant-design/ant-design/pull/43610). Thanks to [@thinkasany](https://github.com/thinkasany)、[@li-jia-nan](https://github.com/li-jia-nan) for the contributions.
 
 ## 5.7.0
 

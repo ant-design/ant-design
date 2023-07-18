@@ -29,7 +29,7 @@ timeline: true
 - 🐞 修复 ColorPicker 不跟随表单校验状态改变 UI 的问题。[#42880](https://github.com/ant-design/ant-design/pull/42880) [@RedJue](https://github.com/RedJue)
 - TypeScript
   - 🤖 修复 `SpaceContext` 没有正确导出的问题。[#43501](https://github.com/ant-design/ant-design/pull/43501) [@VovkaGoodwin](https://github.com/VovkaGoodwin)
-  - 🤖 优化部分组件 TS 定义实现。[#43581](https://github.com/ant-design/ant-design/pull/43581) [#43545](https://github.com/ant-design/ant-design/pull/43545) [#43588](https://github.com/ant-design/ant-design/pull/43588) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 优化部分组件 TS 定义实现。[#43581](https://github.com/ant-design/ant-design/pull/43581) [#43545](https://github.com/ant-design/ant-design/pull/43545) [#43588](https://github.com/ant-design/ant-design/pull/43588) [#43610](https://github.com/ant-design/ant-design/pull/43610)，感谢 [@thinkasany](https://github.com/thinkasany)、[@li-jia-nan](https://github.com/li-jia-nan) 的贡献。
 
 ## 5.7.0
 
