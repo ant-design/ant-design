@@ -1,12 +1,11 @@
 import { RightOutlined } from '@ant-design/icons';
-import { css } from '@emotion/react';
+import { createStyles, css, useTheme } from 'antd-style';
 import { ConfigProvider, Table } from 'antd';
 import { getDesignToken } from 'antd-token-previewer';
 import tokenMeta from 'antd/es/version/token-meta.json';
 import tokenData from 'antd/es/version/token.json';
 import React, { useMemo, useState } from 'react';
 import useLocale from '../../../hooks/useLocale';
-import useSiteToken from '../../../hooks/useSiteToken';
 import { useColumns } from '../TokenTable';
 
 const defaultToken = getDesignToken();
@@ -30,7 +29,7 @@ const locales = {
   },
 };
 
-const useStyle = () => ({
+const useStyle = createStyles(() => ({
   tableTitle: css`
     cursor: pointer;
     position: relative;
@@ -46,7 +45,7 @@ const useStyle = () => ({
       transition: all 0.3s;
     }
   `,
-});
+}));
 
 interface SubTokenTableProps {
   defaultOpen?: boolean;
@@ -57,12 +56,12 @@ interface SubTokenTableProps {
 
 const SubTokenTable: React.FC<SubTokenTableProps> = ({ defaultOpen, tokens, title, component }) => {
   const [, lang] = useLocale(locales);
-  const { token } = useSiteToken();
+  const token = useTheme();
   const columns = useColumns();
 
   const [open, setOpen] = useState<boolean>(defaultOpen || process.env.NODE_ENV !== 'production');
 
-  const { tableTitle, arrowIcon } = useStyle();
+  const { styles } = useStyle();
 
   if (!tokens.length) {
     return null;
@@ -107,8 +106,8 @@ const SubTokenTable: React.FC<SubTokenTableProps> = ({ defaultOpen, tokens, titl
 
   return (
     <div>
-      <div css={tableTitle} onClick={() => setOpen(!open)}>
-        <RightOutlined css={arrowIcon} rotate={open ? 90 : 0} />
+      <div className={styles.tableTitle} onClick={() => setOpen(!open)}>
+        <RightOutlined className={styles.arrowIcon} rotate={open ? 90 : 0} />
         <h3>{title}</h3>
       </div>
       {open && (

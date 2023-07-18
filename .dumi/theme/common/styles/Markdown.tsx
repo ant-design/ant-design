@@ -1,10 +1,10 @@
 import { TinyColor } from '@ctrl/tinycolor';
 import { css, Global } from '@emotion/react';
 import React from 'react';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { useTheme } from 'antd-style';
 
 const GlobalStyle: React.FC = () => {
-  const { token } = useSiteToken();
+  const token = useTheme();
 
   const { antCls } = token;
 

@@ -3,11 +3,10 @@ import { FormattedMessage, Link, useFullSidebarData, useLocation } from 'dumi';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
-import { css } from '@emotion/react';
+import { createStyles, css } from 'antd-style';
 import { getEcosystemGroup } from './More';
 import * as utils from '../../utils';
 import type { SharedProps } from './interface';
-import useSiteToken from '../../../hooks/useSiteToken';
 import useLocale from '../../../hooks/useLocale';
 
 // ============================= Theme =============================
@@ -29,9 +28,7 @@ const locales = {
 };
 
 // ============================= Style =============================
-const useStyle = () => {
-  const { token } = useSiteToken();
-
+const useStyle = createStyles(({ token }) => {
   const { antCls, iconCls, fontFamily, headerHeight, menuItemBorder, colorPrimary } = token;
 
   return {
@@ -95,7 +92,7 @@ const useStyle = () => {
       }
     `,
   };
-};
+});
 
 export interface NavigationProps extends SharedProps {
   isMobile: boolean;
@@ -121,7 +118,7 @@ export default ({
   const sidebarData = useFullSidebarData();
   const blogList = sidebarData['/docs/blog']?.[0]?.children || [];
 
-  const style = useStyle();
+  const { styles } = useStyle();
 
   const menuMode = isMobile ? 'inline' : 'horizontal';
 
@@ -268,7 +265,7 @@ export default ({
     <Menu
       mode={menuMode}
       selectedKeys={[activeMenuItem]}
-      css={style.nav}
+      className={styles.nav}
       disabledOverflow
       items={items}
       style={{ borderRight: 0 }}

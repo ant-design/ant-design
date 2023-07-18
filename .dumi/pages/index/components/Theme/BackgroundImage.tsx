@@ -1,6 +1,5 @@
-import { css } from '@emotion/react';
+import { createStyles, css } from 'antd-style';
 import React, { useMemo } from 'react';
-import useSiteToken from '../../../../hooks/useSiteToken';
 import { COLOR_IMAGES, getClosetColor } from './colorUtil';
 
 export interface BackgroundImageProps {
@@ -8,10 +7,8 @@ export interface BackgroundImageProps {
   isLight?: boolean;
 }
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-  return {
-    image: css`
+const useStyle = createStyles(({ token }) => ({
+  image: css`
       transition: all ${token.motionDurationSlow};
       position: absolute;
       left: 0;
@@ -21,19 +18,18 @@ const useStyle = () => {
       object-fit: cover;
       object-position: right top;
     `,
-  };
-};
+}));
 
 const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight }) => {
   const activeColor = useMemo(() => getClosetColor(colorPrimary), [colorPrimary]);
 
-  const { image } = useStyle();
+  const { styles } = useStyle();
 
   return (
     <>
       {COLOR_IMAGES.filter(({ url }) => url).map(({ color, url }) => (
         <img
-          css={image}
+          className={styles.image}
           style={{ opacity: isLight && activeColor === color ? 1 : 0 }}
           key={color}
           src={url}

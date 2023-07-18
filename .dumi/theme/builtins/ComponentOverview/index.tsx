@@ -1,51 +1,48 @@
 import React, { memo, useContext, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { Link, useIntl, useSidebarData, useLocation } from 'dumi';
-import { css } from '@emotion/react';
+import { createStyles, useTheme } from 'antd-style';
 import debounce from 'lodash/debounce';
 import { Card, Col, Divider, Input, Row, Space, Tag, Typography, Affix } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import type { Component } from './ProComponentsList';
 import proComponentsList from './ProComponentsList';
-import useSiteToken from '../../../hooks/useSiteToken';
 import SiteContext from '../../slots/SiteContext';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-  return {
-    componentsOverviewGroupTitle: css`
+const useStyle = createStyles(({ token, css }) => ({
+  componentsOverviewGroupTitle: css`
       margin-bottom: 24px !important;
     `,
-    componentsOverviewTitle: css`
+  componentsOverviewTitle: css`
       overflow: hidden;
       color: ${token.colorTextHeading};
       text-overflow: ellipsis;
     `,
-    componentsOverviewImg: css`
+  componentsOverviewImg: css`
       display: flex;
       align-items: center;
       justify-content: center;
       height: 152px;
     `,
-    componentsOverviewCard: css`
+  componentsOverviewCard: css`
       cursor: pointer;
       transition: all 0.5s;
       &:hover {
         box-shadow: 0 6px 16px -8px #00000014, 0 9px 28px #0000000d, 0 12px 48px 16px #00000008;
       }
     `,
-    componentsOverviewAffix: css`
+  componentsOverviewAffix: css`
       display: flex;
       transition: all 0.3s;
       justify-content: space-between;
     `,
-    componentsOverviewSearch: css`
+  componentsOverviewSearch: css`
       padding: 0;
       .anticon-search {
         color: ${token.colorTextDisabled};
       }
     `,
-    componentsOverviewContent: css`
+  componentsOverviewContent: css`
       &:empty:after {
         display: block;
         padding: 16px 0 40px;
@@ -55,8 +52,7 @@ const useStyle = () => {
         content: 'Not Found';
       }
     `,
-  };
-};
+}));
 
 const onClickCard = (pathname: string) => {
   if (window.gtag) {
@@ -79,13 +75,13 @@ const reportSearch = debounce<(value: string) => void>((value) => {
 const { Title } = Typography;
 
 const Overview: React.FC = () => {
-  const style = useStyle();
+  const { styles } = useStyle();
   const { theme } = useContext(SiteContext);
 
   const data = useSidebarData();
   const [searchBarAffixed, setSearchBarAffixed] = useState<boolean>(false);
 
-  const { token } = useSiteToken();
+  const token = useTheme();
   const { borderRadius, colorBgContainer, fontSizeXL } = token;
 
   const affixedStyle: CSSProperties = {
@@ -144,12 +140,15 @@ const Overview: React.FC = () => {
     <section className="markdown" ref={sectionRef}>
       <Divider />
       <Affix offsetTop={24} onChange={setSearchBarAffixed}>
-        <div css={style.componentsOverviewAffix} style={searchBarAffixed ? affixedStyle : {}}>
+        <div
+          className={styles.componentsOverviewAffix}
+          style={searchBarAffixed ? affixedStyle : {}}
+        >
           <Input
             autoFocus
             value={search}
             placeholder={formatMessage({ id: 'app.components.overview.search' })}
-            css={style.componentsOverviewSearch}
+            className={styles.componentsOverviewSearch}
             onChange={(e) => {
               setSearch(e.target.value);
               reportSearch(e.target.value);
@@ -162,7 +161,7 @@ const Overview: React.FC = () => {
         </div>
       </Affix>
       <Divider />
-      <div css={style.componentsOverviewContent}>
+      <div className={styles.componentsOverviewContent}>
         {groups
           .filter((i) => i?.title)
           .map((group) => {
@@ -174,7 +173,7 @@ const Overview: React.FC = () => {
             );
             return components?.length ? (
               <div key={group?.title}>
-                <Title level={2} css={style.componentsOverviewGroupTitle}>
+                <Title level={2} className={styles.componentsOverviewGroupTitle}>
                   <Space align="center">
                     <span style={{ fontSize: 24 }}>{group?.title}</span>
                     <Tag style={{ display: 'block' }}>{components.length}</Tag>
@@ -203,14 +202,14 @@ const Overview: React.FC = () => {
                               backgroundImage: `url(${component?.tag || ''})`,
                             }}
                             size="small"
-                            css={style.componentsOverviewCard}
+                            className={styles.componentsOverviewCard}
                             title={
-                              <div css={style.componentsOverviewTitle}>
+                              <div className={styles.componentsOverviewTitle}>
                                 {component?.title} {component.subtitle}
                               </div>
                             }
                           >
-                            <div css={style.componentsOverviewImg}>
+                            <div className={styles.componentsOverviewImg}>
                               <img
                                 src={
                                   theme.includes('dark') && component.coverDark

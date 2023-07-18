@@ -14,11 +14,11 @@ import {
 } from 'antd';
 import dayjs from 'dayjs';
 import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
-import { css } from '@emotion/react';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { createStyles, css, useTheme } from 'antd-style';
+import classNames from 'classnames';
 import useLocale from '../../../hooks/useLocale';
 import SiteContext from '../../../theme/slots/SiteContext';
-import { useCarouselStyle } from './util';
+import { getCarouselStyle } from './util';
 
 const SAMPLE_CONTENT_EN =
   'Ant Design 5.0 use CSS-in-JS technology to provide dynamic & mix theme ability. And which use component level CSS-in-JS solution get your application a better performance.';
@@ -55,9 +55,8 @@ const locales = {
   },
 };
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-  const { carousel } = useCarouselStyle();
+const useStyle = createStyles(({ token }) => {
+  const { carousel } = getCarouselStyle();
 
   return {
     card: css`
@@ -89,7 +88,7 @@ const useStyle = () => {
     `,
     carousel,
   };
-};
+});
 
 interface ComponentItemProps {
   title: React.ReactNode;
@@ -99,8 +98,8 @@ interface ComponentItemProps {
 }
 
 export default function ComponentsList() {
-  const { token } = useSiteToken();
-  const styles = useStyle();
+  const token = useTheme();
+  const { styles } = useStyle();
   const [locale] = useLocale(locales);
   const { isMobile } = useContext(SiteContext);
 
@@ -239,10 +238,10 @@ export default function ComponentsList() {
     const tagText = type === 'new' ? locale.new : locale.update;
 
     return (
-      <div key={index} css={[styles.card, isMobile && styles.mobileCard]}>
+      <div key={index} className={classNames(styles.card, isMobile && styles.mobileCard)}>
         {/* Decorator */}
         <div
-          css={styles.cardCircle}
+          className={styles.cardCircle}
           style={{
             right: (index % 2) * -20 - 20,
             bottom: (index % 3) * -40 - 20,
@@ -274,7 +273,7 @@ export default function ComponentsList() {
 
   return isMobile ? (
     <div style={{ margin: '0 16px' }}>
-      <Carousel css={styles.carousel}>
+      <Carousel className={styles.carousel}>
         {COMPONENTS.map(({ title, node, type }, index) => (
           <ComponentItem title={title} node={node} type={type} index={index} key={index} />
         ))}

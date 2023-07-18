@@ -4,14 +4,13 @@ import Icon, * as AntdIcons from '@ant-design/icons';
 import type { SegmentedProps } from 'antd';
 import type { IntlShape } from 'react-intl';
 import { Segmented, Input, Empty, Affix } from 'antd';
-import { css } from '@emotion/react';
+import { createStyles, useTheme } from 'antd-style';
 import { useIntl } from 'dumi';
 import debounce from 'lodash/debounce';
 import Category from './Category';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import type { CategoriesKeys } from './fields';
 import { categories } from './fields';
-import useSiteToken from '../../../hooks/useSiteToken';
 
 export enum ThemeType {
   Filled = 'Filled',
@@ -21,13 +20,13 @@ export enum ThemeType {
 
 const allIcons: { [key: string]: any } = AntdIcons;
 
-const useStyle = () => ({
+const useStyle = createStyles(({ css }) => ({
   iconSearchAffix: css`
     display: flex;
     transition: all 0.3s;
     justify-content: space-between;
   `,
-});
+}));
 
 const options = (intl: IntlShape): SegmentedProps['options'] => [
   {
@@ -54,7 +53,7 @@ interface IconSearchState {
 
 const IconSearch: React.FC = () => {
   const intl = useIntl();
-  const { iconSearchAffix } = useStyle();
+  const { styles } = useStyle();
   const [displayState, setDisplayState] = useState<IconSearchState>({
     searchKey: '',
     theme: ThemeType.Outlined,
@@ -112,7 +111,7 @@ const IconSearch: React.FC = () => {
   }, [displayState.searchKey, displayState.theme]);
 
   const [searchBarAffixed, setSearchBarAffixed] = useState<boolean>(false);
-  const { token } = useSiteToken();
+  const token = useTheme();
   const { borderRadius, colorBgContainer } = token;
 
   const affixedStyle: CSSProperties = {
@@ -124,11 +123,11 @@ const IconSearch: React.FC = () => {
   };
 
   return (
-    <div className='markdown'>
+    <div className="markdown">
       <Affix offsetTop={24} onChange={setSearchBarAffixed}>
-        <div css={iconSearchAffix} style={searchBarAffixed ? affixedStyle : {}}>
+        <div className={styles.iconSearchAffix} style={searchBarAffixed ? affixedStyle : {}}>
           <Segmented
-            size='large'
+            size="large"
             value={displayState.theme}
             options={options(intl)}
             onChange={handleChangeTheme}
@@ -138,7 +137,7 @@ const IconSearch: React.FC = () => {
             style={{ flex: 1, marginInlineStart: 16 }}
             allowClear
             autoFocus
-            size='large'
+            size="large"
             onChange={handleSearchIcon}
           />
         </div>

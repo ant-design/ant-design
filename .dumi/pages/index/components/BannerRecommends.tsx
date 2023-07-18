@@ -1,15 +1,13 @@
 import * as React from 'react';
 import { Typography, Skeleton, Carousel } from 'antd';
-import type { SerializedStyles } from '@emotion/react';
-import { css } from '@emotion/react';
+import { createStyles, css, useTheme } from 'antd-style';
+import classNames from 'classnames';
 import type { Extra, Icon } from './util';
-import useSiteToken from '../../../hooks/useSiteToken';
 import SiteContext from '../../../theme/slots/SiteContext';
-import { useCarouselStyle } from './util';
+import { getCarouselStyle } from './util';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-  const { carousel } = useCarouselStyle();
+const useStyle = createStyles(({ token }) => {
+  const { carousel } = getCarouselStyle();
 
   return {
     itemBase: css`
@@ -47,17 +45,17 @@ const useStyle = () => {
     `,
     carousel,
   };
-};
+});
 
 interface RecommendItemProps {
   extra: Extra;
   index: number;
   icons: Icon[];
-  itemCss: SerializedStyles;
+  className?: string;
 }
-const RecommendItem = ({ extra, index, icons, itemCss }: RecommendItemProps) => {
-  const style = useStyle();
-  const { token } = useSiteToken();
+const RecommendItem = ({ extra, index, icons, className }: RecommendItemProps) => {
+  const token = useTheme();
+  const { styles } = useStyle();
 
   if (!extra) {
     return <Skeleton key={index} />;
@@ -69,7 +67,7 @@ const RecommendItem = ({ extra, index, icons, itemCss }: RecommendItemProps) => 
       key={extra?.title}
       href={extra.href}
       target="_blank"
-      css={[style.itemBase, itemCss]}
+      className={classNames(styles.itemBase, className)}
       rel="noreferrer"
     >
       <Typography.Title level={5}>{extra?.title}</Typography.Title>
@@ -90,33 +88,33 @@ export interface BannerRecommendsProps {
 }
 
 export default function BannerRecommends({ extras = [], icons = [] }: BannerRecommendsProps) {
-  const styles = useStyle();
+  const { styles } = useStyle();
   const { isMobile } = React.useContext(SiteContext);
   const first3 = extras.length === 0 ? Array(3).fill(null) : extras.slice(0, 3);
 
   return (
     <div>
       {isMobile ? (
-        <Carousel css={styles.carousel}>
+        <Carousel className={styles.carousel}>
           {first3.map((extra, index) => (
             <div key={index}>
               <RecommendItem
                 extra={extra}
                 index={index}
                 icons={icons}
-                itemCss={styles.sliderItem}
+                className={styles.sliderItem}
               />
             </div>
           ))}
         </Carousel>
       ) : (
-        <div css={styles.container}>
+        <div className={styles.container}>
           {first3.map((extra, index) => (
             <RecommendItem
               extra={extra}
               index={index}
               icons={icons}
-              itemCss={styles.cardItem}
+              className={styles.cardItem}
               key={index}
             />
           ))}

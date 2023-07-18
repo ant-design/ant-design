@@ -166,8 +166,6 @@
     "@dnd-kit/modifiers": "^6.0.1",
     "@dnd-kit/sortable": "^7.0.2",
     "@dnd-kit/utilities": "^3.2.1",
-    "@emotion/babel-preset-css-prop": "^11.10.0",
-    "@emotion/css": "^11.10.5",
     "@emotion/react": "^11.10.4",
     "@emotion/server": "^11.4.0",
     "@qixian.cs/github-contributors-list": "^1.1.0",

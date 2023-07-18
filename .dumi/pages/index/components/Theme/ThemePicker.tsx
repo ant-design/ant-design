@@ -1,8 +1,8 @@
-import { css } from '@emotion/react';
+import { createStyles, useTheme } from 'antd-style';
 import { Space } from 'antd';
 import * as React from 'react';
-import useSiteToken from '../../../../hooks/useSiteToken';
 import useLocale from '../../../../hooks/useLocale';
+import classNames from 'classnames';
 
 export const THEMES = {
   default: 'https://gw.alipayobjects.com/zos/bmw-prod/ae669a89-0c65-46db-b14b-72d1c7dd46d6.svg',
@@ -28,11 +28,8 @@ const locales = {
   },
 };
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-
-  return {
-    themeCard: css`
+const useStyle = createStyles(({ token, css }) => ({
+  themeCard: css`
       border-radius: ${token.borderRadius}px;
       cursor: pointer;
       transition: all ${token.motionDurationSlow};
@@ -57,7 +54,7 @@ const useStyle = () => {
       }
     `,
 
-    themeCardActive: css`
+  themeCardActive: css`
       box-shadow: 0 0 0 1px ${token.colorBgContainer},
         0 0 0 ${token.controlOutlineWidth * 2 + 1}px ${token.colorPrimary};
 
@@ -66,8 +63,7 @@ const useStyle = () => {
         transform: scale(1);
       }
     `,
-  };
-};
+}));
 
 export interface ThemePickerProps {
   value?: string;
@@ -75,8 +71,8 @@ export interface ThemePickerProps {
 }
 
 export default function ThemePicker({ value, onChange }: ThemePickerProps) {
-  const { token } = useSiteToken();
-  const style = useStyle();
+  const token = useTheme();
+  const { styles } = useStyle();
 
   const [locale] = useLocale(locales);
 
@@ -89,7 +85,7 @@ export default function ThemePicker({ value, onChange }: ThemePickerProps) {
           <Space key={theme} direction="vertical" align="center">
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label
-              css={[style.themeCard, value === theme && style.themeCardActive]}
+              className={classNames(styles.themeCard, value === theme && styles.themeCardActive)}
               onClick={() => {
                 onChange?.(theme);
               }}
