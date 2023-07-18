@@ -198,7 +198,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   // =================== No Found ====================
   const mergedNotFoundContent = notFoundContent || renderEmpty?.('Cascader') || (
-    <DefaultRenderEmpty componentName='Cascader' />
+    <DefaultRenderEmpty componentName="Cascader" />
   );
 
   // ==================== Prefix =====================
@@ -251,7 +251,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   // ===================== Icon ======================
   let mergedExpandIcon = expandIcon;
   if (!expandIcon) {
-    mergedExpandIcon = isRtl ? <LeftOutlined /> : <RightOutlined />;
+    mergedExpandIcon = !isRtl ? <LeftOutlined /> : <RightOutlined />;
   }
 
   const loadingIcon = (
