@@ -23,7 +23,7 @@ timeline: true
 - 🐞 修复 QRCode 在 Next.js 13 中报错 `Can't resolve 'antd/lib/qr-code'` 的问题。[#43572](https://github.com/ant-design/ant-design/issues/43572)
 - 🐞 修复 antd 不支持在 Next.js App Router 中使用的问题，查看[使用文档](/docs/react/use-with-next#使用-nextjs-的-app-router)。[#43576](https://github.com/ant-design/ant-design/pull/43576)
 - 🐞 修复 App.useApp 方式调用 notification 组件时 `placement` 属性不生效的问题。[#43522](https://github.com/ant-design/ant-design/pull/43522) [@Rajil1213](https://github.com/Rajil1213)
-- 🐞 修复 Pagination 分页选择器弹层抖动的问题，类 Select 在页面高度变化时都不再抖动。[#43556](https://github.com/ant-design/ant-design/pull/43556)
+- 🐞 修复 Pagination 分页选择器弹层抖动的问题。[#43556](https://github.com/ant-design/ant-design/pull/43556)
 - 🐞 修复 Button 幽灵按钮禁用状态丢失的问题。[#43558](https://github.com/ant-design/ant-design/pull/43558) [@kiner-tang](https://github.com/kiner-tang)
 - 🐞 修复 Tag 仅传入 `icon` 时渲染多余间距的问题。[#43518](https://github.com/ant-design/ant-design/pull/43518) [@Yuiai01](https://github.com/Yuiai01)
 - 🐞 修复 ColorPicker 不跟随表单校验状态改变 UI 的问题。[#42880](https://github.com/ant-design/ant-design/pull/42880) [@RedJue](https://github.com/RedJue)
