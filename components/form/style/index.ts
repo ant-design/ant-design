@@ -397,6 +397,7 @@ const makeVerticalLayoutLabel = (token: FormToken): CSSObject => ({
     margin: 0,
 
     '&::after': {
+      // https://github.com/ant-design/ant-design/issues/43538
       visibility: 'hidden',
     },
   },
