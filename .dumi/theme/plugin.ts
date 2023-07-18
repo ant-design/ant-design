@@ -115,13 +115,13 @@ const RoutesPlugin = (api: IApi) => {
         //   return '';
         // });
         //
+        // api.logger.event(`@@@@@@@@@@@style amount ${styles}`);
+        //
         // // insert emotion style tags to head
         // file.content = file.content.replace('</head>', `${styles}</head>`);
 
-        const antdCache = (global as any).styleCache;
-
         // 1. 提取 antd-style 样式
-        const styles = extractStaticStyle(file.content, { antdCache, includeAntd: false });
+        const styles = extractStaticStyle(file.content, { includeAntd: false });
         api.logger.event(`@@@@@@@@@@@style amount ${styles.length}`);
 
         // 2. 提取每个样式到独立 css 文件
@@ -136,6 +136,7 @@ const RoutesPlugin = (api: IApi) => {
 
           file.content = addLinkStyle(file.content, cssFile);
         });
+
         return file;
       }),
   );
