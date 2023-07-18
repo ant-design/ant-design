@@ -24,8 +24,7 @@ const locales = {
 
 const useStyle = () => {
   const { isMobile } = React.useContext(SiteContext);
-  return createStyles(({ token }) => {
-    return {
+  return createStyles(({ token }) => ({
       titleBase: css`
       h1& {
         font-family: AliPuHui, ${token.fontFamily};
@@ -47,8 +46,7 @@ const useStyle = () => {
             font-size: 68px;
           }
         `,
-    };
-  })();
+    }))();
 };
 
 export interface BannerProps {
