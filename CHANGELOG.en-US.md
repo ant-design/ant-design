@@ -17,7 +17,7 @@ timeline: true
 
 ## 5.7.1
 
-`2023-07-18`
+`2023-07-19`
 
 - 💄 Migrate Component Token of Menu from 4.x less variables. [#43573](https://github.com/ant-design/ant-design/pull/43573) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 Fix QRCode throws `Can't resolve 'antd/lib/qr-code'` in Next.js 13. [#43572](https://github.com/ant-design/ant-design/issues/43572)
