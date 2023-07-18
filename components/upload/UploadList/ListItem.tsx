@@ -111,8 +111,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         ) : (
           iconNode
         );
-        const aClassName = classNames({
-          [`${prefixCls}-list-item-thumbnail`]: true,
+        const aClassName = classNames(`${prefixCls}-list-item-thumbnail`, {
           [`${prefixCls}-list-item-file`]: isImgUrl && !isImgUrl(file),
         });
         icon = (
@@ -120,8 +119,8 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
             className={aClassName}
             onClick={(e) => onPreview(file, e)}
             href={file.url || file.thumbUrl}
-            target='_blank'
-            rel='noopener noreferrer'
+            target="_blank"
+            rel="noopener noreferrer"
           >
             {thumbnail}
           </a>
@@ -160,7 +159,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         : null;
     const downloadOrDelete = listType !== 'picture-card' && listType !== 'picture-circle' && (
       <span
-        key='download-delete'
+        key="download-delete"
         className={classNames(`${prefixCls}-list-item-actions`, {
           picture: listType === 'picture',
         })}
@@ -173,9 +172,9 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     const fileName = file.url
       ? [
           <a
-            key='view'
-            target='_blank'
-            rel='noopener noreferrer'
+            key="view"
+            target="_blank"
+            rel="noopener noreferrer"
             className={listItemNameClass}
             title={file.name}
             {...linkProps}
@@ -188,7 +187,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         ]
       : [
           <span
-            key='view'
+            key="view"
             className={listItemNameClass}
             onClick={(e) => onPreview(file, e)}
             title={file.name}
@@ -205,8 +204,8 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     const previewIcon = showPreviewIcon ? (
       <a
         href={file.url || file.thumbUrl}
-        target='_blank'
-        rel='noopener noreferrer'
+        target="_blank"
+        rel="noopener noreferrer"
         style={file.url || file.thumbUrl ? undefined : previewStyle}
         onClick={(e) => onPreview(file, e)}
         title={locale.previewFile}
@@ -246,7 +245,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
                 'percent' in file ? (
                   <Progress
                     {...progressProps}
-                    type='line'
+                    type="line"
                     percent={file.percent}
                     aria-label={file['aria-label']}
                     aria-labelledby={file['aria-labelledby']}
