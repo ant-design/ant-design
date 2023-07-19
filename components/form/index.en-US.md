@@ -602,7 +602,7 @@ See similar issues: [#28370](https://github.com/ant-design/ant-design/issues/283
 
 2. multiple forms on same page
 
-If there are multiple forms on the page, and there are duplicate same `name` form item , the form scroll probably may find the form item with the same name in another form. You need to set a different `name` for the `Form` component to distinguish it.
+If there are multiple forms on the page, and there are duplicate same `name` form item, the form scroll probably may find the form item with the same name in another form. You need to set a different `name` for the `Form` component to distinguish it.
 
 ### Continue, why not use `ref` to bind element?
 
