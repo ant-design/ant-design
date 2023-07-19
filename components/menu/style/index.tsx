@@ -941,7 +941,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         colorItemBgHover: colorBgTextHover,
         itemHoverBg: colorBgTextHover,
         colorItemBgActive: colorFillContent,
-        itemActiveBg: colorFillContent,
+        itemActiveBg: controlItemBgActive,
         colorSubItemBg: colorFillAlter,
         subMenuItemBg: colorFillAlter,
         colorItemBgSelected: controlItemBgActive,
