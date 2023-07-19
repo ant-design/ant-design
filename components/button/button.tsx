@@ -65,7 +65,9 @@ export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
   htmlType?: ButtonHTMLType;
 }
 
-type CompoundedComponent = React.ForwardRefExoticComponent<ButtonProps> & {
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  ButtonProps & React.RefAttributes<HTMLElement>
+> & {
   Group: typeof Group;
   /** @internal */
   __ANT_BUTTON: boolean;

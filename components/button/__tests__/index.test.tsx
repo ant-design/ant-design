@@ -368,9 +368,21 @@ describe('Button', () => {
       />
     );
 
+    const btnRef = React.createRef<HTMLButtonElement>();
+    const refBtn = <Button ref={btnRef} />;
+
+    const anchorRef = React.createRef<HTMLAnchorElement>();
+    const refAnchor = <Button ref={anchorRef} />;
+
+    const htmlRef = React.createRef<HTMLElement>();
+    const refHtml = <Button ref={htmlRef} />;
+
     expect(button).toBeTruthy();
     expect(anchor).toBeTruthy();
     expect(defaultBtn).toBeTruthy();
     expect(defaultABtn).toBeTruthy();
+    expect(refBtn).toBeTruthy();
+    expect(refAnchor).toBeTruthy();
+    expect(refHtml).toBeTruthy();
   });
 });
