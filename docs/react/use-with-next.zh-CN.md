@@ -49,6 +49,187 @@ export default Home;
 
 我们现在已经把 antd 组件成功运行起来了，开始开发你的应用吧！
 
+## 使用 Next.js 的 Pages Router
+
+如果你在 Next.js 当中使用了 Pages Router, 并使用 antd 作为页面组件库，为了让 antd 组件库在你的 Next.js 应用中能够更好的工作，提供更好的用户体验，你可以尝试使用下面的方式将 antd 首屏样式按需抽离并植入到 HTML 中，以避免页面闪动的情况。
+
+1. 安装 `@ant-design/cssinjs`
+
+<InstallDependencies npm='$ npm install @ant-design/cssinjs --save' yarn='$ yarn add @ant-design/cssinjs' pnpm='$ pnpm install @ant-design/cssinjs --save'></InstallDependencies>
+
+2. 改写 `pages/_document.tsx`
+
+```tsx
+import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
+import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
+export default class MyDocument extends Document {
+  static async getInitialProps(ctx: DocumentContext) {
+    const cache = createCache();
+    const originalRenderPage = ctx.renderPage;
+    ctx.renderPage = () =>
+      originalRenderPage({
+        enhanceApp: (App) => (props) => (
+          <StyleProvider cache={cache}>
+            <App {...props} />
+          </StyleProvider>
+        ),
+      });
+
+    const initialProps = await Document.getInitialProps(ctx);
+    // 1.1 extract style which had been used
+    const style = extractStyle(cache, true);
+    return {
+      ...initialProps,
+      styles: (
+        <>
+          {initialProps.styles}
+          {/* 1.2 inject css */}
+          <style dangerouslySetInnerHTML={{ __html: style }}></style>
+        </>
+      ),
+    };
+  }
+
+  render() {
+    return (
+      <Html lang="en">
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
+}
+```
+
+3. 支持自定义主题
+
+```tsx
+import React from 'react';
+import { ConfigProvider } from 'antd';
+
+const withTheme = (node: JSX.Element) => (
+  <>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: '#52c41a',
+        },
+      }}
+    >
+      <ConfigProvider
+        theme={{
+          token: {
+            borderRadius: 16,
+          },
+        }}
+      >
+        {node}
+      </ConfigProvider>
+    </ConfigProvider>
+  </>
+);
+
+export default withTheme;
+```
+
+4. 改写 `pages/_app.tsx`
+
+```tsx
+import '../styles/globals.css';
+import type { AppProps } from 'next/app';
+import withTheme from '../theme';
+
+export default function App({ Component, pageProps }: AppProps) {
+  return withTheme(<Component {...pageProps} />);
+}
+```
+
+5. 在页面中使用 antd
+
+```tsx
+import {
+  Form,
+  Select,
+  InputNumber,
+  DatePicker,
+  Switch,
+  Slider,
+  Button,
+  Rate,
+  Typography,
+  Space,
+  Divider,
+} from 'antd';
+
+const { Option } = Select;
+const { Title } = Typography;
+
+export default function Home() {
+  return (
+    <>
+      <section style={{ textAlign: 'center', marginTop: 48, marginBottom: 40 }}>
+        <Space align="start">
+          <img
+            style={{ width: 40, height: 40 }}
+            src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+            alt="Ant Design"
+          />
+          <Title level={2} style={{ marginBottom: 0 }}>
+            Ant Design
+          </Title>
+        </Space>
+      </section>
+      <Divider style={{ marginBottom: 60 }}>Form</Divider>
+      <Form labelCol={{ span: 8 }} wrapperCol={{ span: 8 }}>
+        <Form.Item label="数字输入框">
+          <InputNumber min={1} max={10} defaultValue={3} />
+          <span className="ant-form-text"> 台机器</span>
+          <a href="https://ant.design">链接文字</a>
+        </Form.Item>
+        <Form.Item label="开关">
+          <Switch defaultChecked />
+        </Form.Item>
+        <Form.Item label="滑动输入条">
+          <Slider defaultValue={70} />
+        </Form.Item>
+        <Form.Item label="选择器">
+          <Select defaultValue="lucy" style={{ width: 192 }}>
+            <Option value="jack">jack</Option>
+            <Option value="lucy">lucy</Option>
+            <Option value="disabled" disabled>
+              disabled
+            </Option>
+            <Option value="yiminghe">yiminghe</Option>
+          </Select>
+        </Form.Item>
+        <Form.Item label="日期选择框">
+          <DatePicker />
+        </Form.Item>
+        <Form.Item label="日期范围选择框">
+          <DatePicker.RangePicker />
+        </Form.Item>
+        <Form.Item label="评分">
+          <Rate defaultValue={5} />
+        </Form.Item>
+        <Form.Item wrapperCol={{ span: 8, offset: 8 }}>
+          <Space>
+            <Button type="primary" htmlType="submit">
+              Submit
+            </Button>
+            <Button>Cancel</Button>
+          </Space>
+        </Form.Item>
+      </Form>
+    </>
+  );
+}
+```
+
+更多详细的细节可以参考 [with-nextjs-inline-style](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-inline-style)。
+
 ## 使用 Next.js 的 App Router
 
 如果你在 Next.js 当中使用了 App Router, 并使用 antd 作为页面组件库，为了让 antd 组件库在你的 Next.js 应用中能够更好的工作，提供更好的用户体验，你可以尝试使用下面的方式将 antd 首屏样式按需抽离并植入到 HTML 中，以避免页面闪动的情况。
@@ -60,8 +241,6 @@ export default Home;
 2. 创建 `lib/AntdRegistry.tsx`
 
 ```tsx
-'use client';
-
 import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
 import { useServerInsertedHTML } from 'next/navigation';
 import React from 'react';
@@ -122,8 +301,6 @@ export default theme;
 5. 在页面中使用
 
 ```tsx
-'use client';
-
 import { Button, ConfigProvider } from 'antd';
 import React from 'react';
 import theme from './themeConfig';
@@ -138,5 +315,7 @@ const HomePage: React.FC = () => (
 
 export default HomePage;
 ```
+
+> 注意: 上述方式没有在页面中使用如：`Select.Option` 、 `Typography.Text` 等子组件，因此可以正常使用。但如果你的页面中有使用类似这样的子组件，目前在 Next.js 中会看到如下警告：`Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.`，目前需等待 Next.js 官方解决。再次之前，如果你的页面中使用了上述子组件，可在页面组件第一行加上 `"use client";` 来避免警告。更多细节可以参考示例：[with-sub-components](https://github.com/ant-design/ant-design-examples/blob/main/examples/with-nextjs-app-router-inline-style/src/app/with-sub-components/page.tsx)。
 
 更多详细的细节可以参考 [with-nextjs-app-router-inline-style](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-app-router-inline-style)。
