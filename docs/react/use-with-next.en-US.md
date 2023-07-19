@@ -51,7 +51,7 @@ We are successfully running antd components now, go build your own application!
 
 If you are using the Pages Router in Next.js and using antd as your component library, to make the antd component library work better in your Next.js application and provide a better user experience, you can try using the following method to extract and inject antd's first-screen styles into HTML to avoid page flicker.
 
-1. 安装 `@ant-design/cssinjs`
+1. Install `@ant-design/cssinjs`
 
 <InstallDependencies npm='$ npm install @ant-design/cssinjs --save' yarn='$ yarn add @ant-design/cssinjs' pnpm='$ pnpm install @ant-design/cssinjs --save'></InstallDependencies>
 
