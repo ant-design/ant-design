@@ -265,3 +265,30 @@ If you encounter the above error, please check the current project `tsconfig.jso
 ```
 
 The above problem occurs if `strictNullChecks` is set to `true`, If you can determine the project don't need this configuration (see [strictNullChecks](https://www.typescriptlang.org/zh/tsconfig#strictNullChecks) to judge whether need the configuration). You can try changing to `false` to turn off the control strict check. However, if you do need to enable this feature, you can avoid this situation by using other types instead of `null` when designing types
+
+## The antd component reported an error when using the App Router of Next.js
+
+If you are using the App Router of Next.js, when you use the sub-components provided by some antd components, such as `Select.Option `, `Form.Item`, etc., you may get the following error:
+
+```bash
+Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.
+```
+
+At present, this problem is waiting for Next.js to give an official solution, before this, if you use sub-components in your page, you can try to add the following client tag at the top of the page to solve this problem:
+
+```tsx
+'use client';
+
+// This is not real world code, just for explain
+export default () => {
+  return (
+    <div className="App">
+      <Form>
+        <Form.Item>
+          <Button type="primary">Button</Button>
+        </Form.Item>
+      </Form>
+    </div>
+  );
+};
+```
