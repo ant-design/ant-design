@@ -55,8 +55,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     colorTextDescription,
     motionDurationMid,
     colorPrimary,
-    controlHeight,
     inputPaddingHorizontal,
+    inputPaddingVertical,
     colorBgContainer,
     colorTextDisabled,
     borderRadiusSM,
@@ -164,8 +164,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           '&-input': {
             ...resetComponent(token),
             width: '100%',
-            height: controlHeight - 2 * lineWidth,
-            padding: `0 ${inputPaddingHorizontal}px`,
+            padding: `${inputPaddingVertical}px ${inputPaddingHorizontal}px`,
             textAlign: 'start',
             backgroundColor: 'transparent',
             border: 0,
@@ -320,6 +319,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
   const {
     componentCls,
+    inputPaddingVertical,
     inputPaddingHorizontal,
     inputAffixPadding,
     controlWidth,
@@ -370,7 +370,7 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
       },
 
       [`input${componentCls}-input`]: {
-        padding: 0,
+        padding: `${inputPaddingVertical}px 0`,
       },
 
       '&::before': {
