@@ -175,6 +175,85 @@ useLayoutEffect(() => {
 
 测量的 `useLayoutEffect` 先于注入样式执行，导致获取了错误的尺寸信息。也可以预测到这会对开发者产生影响。因而我们退而求其次，在 React 17 版本时会降级为原先的 `useMemo` 插入。
 
+## 新的兼容问题
+
+在上面的方案中，我们启用了 `useInsertionEffect` 从而完美解决了渲染问题。但在 React 17 及以下版本，我们仍然会在 render 阶段插入样式，但是会在 effect 阶段让引用计数加一。但是这带来了新的问题，我们来看一段代码 ([CodeSandbox](https://codesandbox.io/s/aged-cdn-qjxmpz?file=/src/App.tsx:23-886))：
+
+```tsx
+import React from 'react';
+
+const A = () => {
+  React.useMemo(() => {
+    console.log('A render');
+  }, []);
+
+  React.useEffect(() => {
+    console.log('A mounted');
+    return () => {
+      console.log('A unmounted');
+    };
+  }, []);
+
+  return <div>A</div>;
+};
+
+const B = () => {
+  React.useMemo(() => {
+    console.log('B render');
+  }, []);
+
+  React.useEffect(() => {
+    console.log('B mounted');
+    return () => {
+      console.log('B unmounted');
+    };
+  }, []);
+
+  return <div>B</div>;
+};
+
+export default function App() {
+  const [show, setShow] = React.useState(true);
+
+  const toggle = () => {
+    setShow((prev) => !prev);
+  };
+
+  return (
+    <div>
+      <button onClick={toggle}>toggle</button>
+      <div>{show ? <A /> : <B />}</div>
+    </div>
+  );
+}
+```
+
+在这段代码（严格模式）中，点击按钮会切换 A 与 B 的渲染。那么从 A 切换到 B 时，顺序会是什么样的呢？答案是:
+
+```
+B render
+B render
+A unmounted
+B mounted
+B unmounted
+B mounted
+```
+
+可以看到新组件的渲染是在旧组件的卸载回调之前的。还记得 cssinjs 在 React 17 一下的处理逻辑吗？我们来标记一下：
+
+```
+B render      // 写入 cache，插入样式
+B render      // 写入 cache，插入样式（虽然是重复的，但是有缓存，不会有冗余）
+A unmounted   // **引用计数减一** （此时原本的计数是 1，执行后变为 0，触发了样式卸载）
+B mounted     // 引用计数加一 （此时计数是 1，但是样式已经被 A 连带卸载）
+B unmounted   // 引用计数减一
+B mounted     // 引用计数加一
+```
+
+这样就可以发现，当 A 与 B 共用一段样式时，由于计数没有几十更新，导致样式先被卸载了，后续也并没有触发插入逻辑，所以依然会导致丢失。
+
+解决方案也很简单，当计数从 0 变为 1 时，重新插入样式即可。
+
 ## 总结
 
 Suspense 在带来渲染能力提升的同时也让时序变得十分重要，仅仅对 StrictMode 进行处理并不是一个最优的方式。针对不同的 React 版本使用不同的逻辑其实会存在不同版本之间的时序问题，`render` 会从父节点到子节点依次触发，而 `useInsertionEffect` 则相反。不过从 antd 角度来说，组件样式之间相互独立，所以这种时序问题并不会对我们产生影响。
