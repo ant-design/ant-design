@@ -38,6 +38,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
     dangerItemSelectedBg,
 
     itemHoverBg,
+    itemActiveBg,
     menuSubMenuBg,
 
     // Horizontal
@@ -75,11 +76,12 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
       },
 
       // Hover
-      [`${componentCls}-item:hover, ${componentCls}-submenu-title:hover`]: {
-        [`&:not(${componentCls}-item-selected):not(${componentCls}-submenu-selected)`]: {
-          color: itemHoverColor,
+      [`${componentCls}-item:not(${componentCls}-item-selected):not(${componentCls}-submenu-selected)`]:
+        {
+          [`&:hover, > ${componentCls}-submenu-title:hover`]: {
+            color: itemHoverColor,
+          },
         },
-      },
 
       [`&:not(${componentCls}-horizontal)`]: {
         [`${componentCls}-item:not(${componentCls}-item-selected)`]: {
@@ -88,7 +90,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           },
 
           '&:active': {
-            backgroundColor: itemSelectedBg,
+            backgroundColor: itemActiveBg,
           },
         },
 
@@ -98,7 +100,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           },
 
           '&:active': {
-            backgroundColor: itemSelectedBg,
+            backgroundColor: itemActiveBg,
           },
         },
       },
@@ -193,6 +195,9 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           [`&-selected`]: {
             color: horizontalItemSelectedColor,
             backgroundColor: horizontalItemSelectedBg,
+            '&:hover': {
+              backgroundColor: horizontalItemSelectedBg,
+            },
             '&::after': {
               borderBottomWidth: activeBarHeight,
               borderBottomColor: horizontalItemSelectedColor,
