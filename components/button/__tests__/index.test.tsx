@@ -351,7 +351,26 @@ describe('Button', () => {
     const button = <Button onClick={onBtnClick} />;
     const anchor = <Button href="https://ant.design" onClick={onAnchorClick} />;
 
+    const defaultBtn = (
+      <Button
+        onClick={(e) => {
+          expect(e).toBeTruthy();
+        }}
+      />
+    );
+
+    const defaultABtn = (
+      <Button
+        href="https://ant.design"
+        onClick={(e) => {
+          expect(e).toBeTruthy();
+        }}
+      />
+    );
+
     expect(button).toBeTruthy();
     expect(anchor).toBeTruthy();
+    expect(defaultBtn).toBeTruthy();
+    expect(defaultABtn).toBeTruthy();
   });
 });
