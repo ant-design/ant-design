@@ -592,11 +592,17 @@ React can not get correct interaction of controlled component with async value u
 }
 </style>
 
-### `scrollToFirstError` and `scrollToField` not working on custom form control?
+### `scrollToFirstError` and `scrollToField` not working?
+
+1. use custom form control
 
 See similar issues: [#28370](https://github.com/ant-design/ant-design/issues/28370) [#27994](https://github.com/ant-design/ant-design/issues/27994)
 
 `scrollToFirstError` and `scrollToField` deps on `id` attribute passed to form control, please make sure that it hasn't been ignored in your custom form control. Check [codesandbox](https://codesandbox.io/s/antd-reproduction-template-forked-25nul?file=/index.js) for solution.
+
+2. multiple forms on same page
+
+If there are multiple forms on the page, and there are duplicate same `name` form item, the form scroll probably may find the form item with the same name in another form. You need to set a different `name` for the `Form` component to distinguish it.
 
 ### Continue, why not use `ref` to bind element?
 
