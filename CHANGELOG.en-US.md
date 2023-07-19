@@ -22,6 +22,7 @@ timeline: true
 - 💄 Migrate Component Token of Menu from 4.x less variables. [#43576](https://github.com/ant-design/ant-design/pull/43576)
 - 🐞 Fix QRCode throws `Can't resolve 'antd/lib/qr-code'` in Next.js 13. [#43572](https://github.com/ant-design/ant-design/issues/43572)
 - 🐞 Fix that antd components usage in Next.js App Router, check the [documentation](/docs/react/use-with-next#using-nextjs-app-router). [#43573](https://github.com/ant-design/ant-design/pull/43573) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix InputNumber Phantom dependency issue: `Cannot find module 'rc-component/mini-decimal'`. [#43635](https://github.com/ant-design/ant-design/pull/43635)
 - 🐞 Fix Checkbox both set `checked` and `indeterminate` prop will not show as `indeterminate` style. [#43626](https://github.com/ant-design/ant-design/pull/43626)
 - 🐞 Fix Form.Item set `label=""` will break the line align. [#43614](https://github.com/ant-design/ant-design/pull/43614)
 - 🐞 Fix notification `placement` not being respected when passed via App component. [#43522](https://github.com/ant-design/ant-design/pull/43522) [@Rajil1213](https://github.com/Rajil1213)
