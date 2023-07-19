@@ -101,7 +101,6 @@ const InternalTreeSelect = <
     choiceTransitionName = '',
     status: customStatus,
     treeExpandAction,
-    showArrow,
     builtinPlacements,
     dropdownMatchSelectWidth,
     popupMatchSelectWidth,
@@ -165,7 +164,7 @@ const InternalTreeSelect = <
   );
 
   const isMultiple = !!(treeCheckable || multiple);
-  const showSuffixIcon = useShowArrow(props.suffixIcon, showArrow);
+  const showSuffixIcon = useShowArrow(props.suffixIcon, props.showArrow);
 
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;

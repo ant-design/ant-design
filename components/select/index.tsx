@@ -92,7 +92,6 @@ const InternalSelect = <
     disabled: customDisabled,
     notFoundContent,
     status: customStatus,
-    showArrow,
     builtinPlacements,
     dropdownMatchSelectWidth,
     popupMatchSelectWidth,
@@ -136,7 +135,7 @@ const InternalSelect = <
   }, [props.mode]);
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
-  const showSuffixIcon = useShowArrow(props.suffixIcon, showArrow);
+  const showSuffixIcon = useShowArrow(props.suffixIcon, props.showArrow);
 
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
@@ -168,7 +167,7 @@ const InternalSelect = <
     feedbackIcon,
     showSuffixIcon,
     prefixCls,
-    showArrow,
+    showArrow: props.showArrow,
   });
 
   const selectProps = omit(props as typeof props & { itemIcon: any }, ['suffixIcon', 'itemIcon']);
