@@ -21,7 +21,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
     motionDurationSlow,
     motionEaseInOut,
     motionEaseOut,
-    menuItemPaddingInline,
+    itemPaddingInline,
     motionDurationMid,
     itemHoverColor,
     lineType,
@@ -38,6 +38,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
     dangerItemSelectedBg,
 
     itemHoverBg,
+    itemActiveBg,
     menuSubMenuBg,
 
     // Horizontal
@@ -45,6 +46,8 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
     horizontalItemSelectedBg,
     horizontalItemBorderRadius,
     horizontalItemHoverBg,
+
+    popupBg,
   } = token;
 
   return {
@@ -73,11 +76,12 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
       },
 
       // Hover
-      [`${componentCls}-item:hover, ${componentCls}-submenu-title:hover`]: {
-        [`&:not(${componentCls}-item-selected):not(${componentCls}-submenu-selected)`]: {
-          color: itemHoverColor,
+      [`${componentCls}-item:not(${componentCls}-item-selected):not(${componentCls}-submenu-selected)`]:
+        {
+          [`&:hover, > ${componentCls}-submenu-title:hover`]: {
+            color: itemHoverColor,
+          },
         },
-      },
 
       [`&:not(${componentCls}-horizontal)`]: {
         [`${componentCls}-item:not(${componentCls}-item-selected)`]: {
@@ -86,7 +90,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           },
 
           '&:active': {
-            backgroundColor: itemSelectedBg,
+            backgroundColor: itemActiveBg,
           },
         },
 
@@ -96,7 +100,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           },
 
           '&:active': {
-            backgroundColor: itemSelectedBg,
+            backgroundColor: itemActiveBg,
           },
         },
       },
@@ -155,7 +159,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
       },
 
       [`&${componentCls}-popup > ${componentCls}`]: {
-        backgroundColor: itemBg,
+        backgroundColor: popupBg,
       },
 
       // ====================== Horizontal ======================
@@ -174,7 +178,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
 
           '&::after': {
             position: 'absolute',
-            insetInline: menuItemPaddingInline,
+            insetInline: itemPaddingInline,
             bottom: 0,
             borderBottom: `${activeBarHeight}px solid transparent`,
             transition: `border-color ${motionDurationSlow} ${motionEaseInOut}`,
@@ -191,6 +195,9 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           [`&-selected`]: {
             color: horizontalItemSelectedColor,
             backgroundColor: horizontalItemSelectedBg,
+            '&:hover': {
+              backgroundColor: horizontalItemSelectedBg,
+            },
             '&::after': {
               borderBottomWidth: activeBarHeight,
               borderBottomColor: horizontalItemSelectedColor,

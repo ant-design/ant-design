@@ -15,6 +15,25 @@ timeline: true
 
 ---
 
+## 5.7.1
+
+`2023-07-19`
+
+- 💄 补全 Menu 主题定制 token。[#43576](https://github.com/ant-design/ant-design/pull/43576)
+- 🐞 修复 QRCode 在 Next.js 13 中报错 `Can't resolve 'antd/lib/qr-code'` 的问题。[#43572](https://github.com/ant-design/ant-design/issues/43572)
+- 🐞 修复 antd 不支持在 Next.js App Router 中使用的问题，查看[使用文档](/docs/react/use-with-next#使用-nextjs-的-app-router)。[#43573](https://github.com/ant-design/ant-design/pull/43573)
+- 🐞 修复 InputNumber 幽灵依赖报错 `Cannot find module 'rc-component/mini-decimal'`。[#43635](https://github.com/ant-design/ant-design/pull/43635)
+- 🐞 修复 App.useApp 方式调用 notification 组件时 `placement` 属性不生效的问题。[#43522](https://github.com/ant-design/ant-design/pull/43522) [@Rajil1213](https://github.com/Rajil1213)
+- 🐞 修复 Checkbox 同时配置 `checked` 和 `indeterminate` 时没有展示为 `indeterminate` 样式的问题。[#43626](https://github.com/ant-design/ant-design/pull/43626)
+- 🐞 修复 Form.Item 设置 `label=""` 时垂直方向对齐偏移的问题。[#43614](https://github.com/ant-design/ant-design/pull/43614)
+- 🐞 修复 Pagination 分页选择器弹层抖动的问题。[#43556](https://github.com/ant-design/ant-design/pull/43556)
+- 🐞 修复 Button 幽灵按钮禁用状态丢失的问题。[#43558](https://github.com/ant-design/ant-design/pull/43558) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 修复 Tag 仅传入 `icon` 时渲染多余间距的问题。[#43518](https://github.com/ant-design/ant-design/pull/43518) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 修复 ColorPicker 不跟随表单校验状态改变 UI 的问题。[#42880](https://github.com/ant-design/ant-design/pull/42880) [@RedJue](https://github.com/RedJue)
+- TypeScript
+  - 🤖 修复 `SpaceContext` 没有正确导出的问题。[#43501](https://github.com/ant-design/ant-design/pull/43501) [@VovkaGoodwin](https://github.com/VovkaGoodwin)
+  - 🤖 优化部分组件 TS 定义实现。[#43581](https://github.com/ant-design/ant-design/pull/43581) [#43545](https://github.com/ant-design/ant-design/pull/43545) [#43588](https://github.com/ant-design/ant-design/pull/43588) [#43610](https://github.com/ant-design/ant-design/pull/43610) [#43629](https://github.com/ant-design/ant-design/pull/43629)，感谢 [@thinkasany](https://github.com/thinkasany)、[@li-jia-nan](https://github.com/li-jia-nan) 的贡献。
+
 ## 5.7.0
 
 `2023-07-11`

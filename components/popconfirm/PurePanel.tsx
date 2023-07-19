@@ -77,7 +77,11 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
           </Button>
         )}
         <ActionButton
-          buttonProps={{ size: 'small', ...convertLegacyProps(okType), ...okButtonProps }}
+          buttonProps={{
+            size: 'small',
+            ...convertLegacyProps(okType),
+            ...okButtonProps,
+          }}
           actionFn={onConfirm}
           close={close}
           prefixCls={getPrefixCls('btn')}

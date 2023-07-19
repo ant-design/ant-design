@@ -35,7 +35,6 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | autoFocus | 自动获取焦点 | boolean | false |  |
-| allowClear | 支持清除, 单选模式有效 | boolean | false |  |
 | defaultValue | 设置初始取值。当 `range` 为 false 时，使用 number，否则用 \[number, number] | number \| \[number, number] | 0 \| \[0, 0] |  |
 | disabled | 值为 true 时，滑块为禁用状态 | boolean | false |  |
 | keyboard | 支持使用键盘操作 handler | boolean | true | 5.2.0+ |

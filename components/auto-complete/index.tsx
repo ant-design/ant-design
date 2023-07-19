@@ -16,6 +16,7 @@ import type {
   DefaultOptionType,
   InternalSelectProps,
   RefSelectProps,
+  SelectProps,
 } from '../select';
 import Select from '../select';
 
@@ -146,7 +147,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       prefixCls={prefixCls}
       popupClassName={popupClassName || dropdownClassName}
       className={classNames(`${prefixCls}-auto-complete`, className)}
-      mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as any}
+      mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
       {...{
         // Internal api
         getInputElement,
@@ -167,6 +168,7 @@ const RefAutoComplete = React.forwardRef<RefSelectProps, AutoCompleteProps>(
     ref?: React.Ref<BaseSelectRef>;
   },
 ) => React.ReactElement) & {
+  displayName?: string;
   Option: typeof Option;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
@@ -179,7 +181,7 @@ RefAutoComplete.Option = Option;
 RefAutoComplete._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 if (process.env.NODE_ENV !== 'production') {
-  AutoComplete.displayName = 'AutoComplete';
+  RefAutoComplete.displayName = 'AutoComplete';
 }
 
 export default RefAutoComplete;
