@@ -58,8 +58,8 @@ If you are using the Pages Router in Next.js and using antd as your component li
 2. Rewrite `pages/_document.tsx`
 
 ```tsx
-import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
+import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
 
 const MyDocument = () => (
   <Html lang="en">
@@ -76,11 +76,12 @@ MyDocument.getInitialProps = async (ctx: DocumentContext) => {
   const originalRenderPage = ctx.renderPage;
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App) => (props) => (
-        <StyleProvider cache={cache}>
-          <App {...props} />
-        </StyleProvider>
-      ),
+      enhanceApp: (App) => (props) =>
+        (
+          <StyleProvider cache={cache}>
+            <App {...props} />
+          </StyleProvider>
+        ),
     });
 
   const initialProps = await Document.getInitialProps(ctx);
@@ -103,37 +104,34 @@ export default MyDocument;
 
 3. Supports custom themes
 
-```tsx
-import React from 'react';
-import { ConfigProvider } from 'antd';
+```ts
+// theme/themeConfig.ts
+import type { ThemeConfig } from 'antd';
 
-const withTheme = (node: JSX.Element) => (
-  <>
-    <ConfigProvider
-      theme={{
-        token: {
-          colorPrimary: '#52c41a',
-        },
-      }}
-    >
-      {node}
-    </ConfigProvider>
-  </>
-);
+const theme: ThemeConfig = {
+  token: {
+    fontSize: 16,
+    colorPrimary: '#52c41a',
+  },
+};
 
-export default withTheme;
+export default theme;
 ```
 
 4. Rewrite `pages/_app.tsx`
 
 ```tsx
-import '../styles/globals.css';
+import { ConfigProvider } from 'antd';
 import type { AppProps } from 'next/app';
-import withTheme from '../theme';
+import theme from './themeConfig';
 
-export default function App({ Component, pageProps }: AppProps) {
-  return withTheme(<Component {...pageProps} />);
-}
+const App = ({ Component, pageProps }: AppProps) => (
+  <ConfigProvider theme={theme}>
+    <Component {...pageProps} />
+  </ConfigProvider>
+);
+
+export default App;
 ```
 
 5. Use antd in page component
@@ -141,13 +139,13 @@ export default function App({ Component, pageProps }: AppProps) {
 ```tsx
 import { Button } from 'antd';
 
-export default function Home() {
-  return (
-    <div className="App">
-      <Button type="primary">Button</Button>
-    </div>
-  );
-}
+const Home = () => (
+  <div className="App">
+    <Button type="primary">Button</Button>
+  </div>
+);
+
+export default Home;
 ```
 
 For more detailed information, please refer to [with-nextjs-inline-style](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-inline-style).
@@ -240,6 +238,6 @@ const HomePage: React.FC = () => (
 export default HomePage;
 ```
 
-> Tips: The above method does not use sub-components such as `Select.Option` and `Typography.text` in the page, so it can be used normally. However, if you use a sub-component like this in your page, you will currently see the following warning in next.js: `Error:  Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the  imported name through.`, currently need to wait for Next.js official solution. Before again, if you use the above sub-components in your page, you can add "use client" to the first line of the page component to avoid warnings. See examples for more details: [with-sub-components](https://github.com/ant-design/ant-design-examples/blob/main/examples/with-nextjs-app-router-inline-style/src/app/with-sub-components/page.tsx).
+> Tips: The above method does not use sub-components such as `Select.Option` and `Typography.text` in the page, so it can be used normally. However, if you use a sub-component like this in your page, you will currently see the following warning in next.js: `Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.`, currently need to wait for Next.js official solution. Before again, if you use the above sub-components in your page, you can add "use client" to the first line of the page component to avoid warnings. See examples for more details: [with-sub-components](https://github.com/ant-design/ant-design-examples/blob/main/examples/with-nextjs-app-router-inline-style/src/app/with-sub-components/page.tsx).
 
 For more detailed information, please refer to [with-nextjs-app-router-inline-style](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-app-router-inline-style)。
