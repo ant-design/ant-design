@@ -55,22 +55,15 @@ export interface BaseButtonProps {
   styles?: { icon: React.CSSProperties };
 }
 
-export type AnchorButtonProps = {
-  href: string;
-  target?: React.HTMLAttributeAnchorTarget;
-  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
-} & BaseButtonProps &
-  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, 'type' | 'onClick'>;
+type MergedHTMLAttributes = Omit<
+  React.HTMLAttributes<HTMLElement> & React.AnchorHTMLAttributes<HTMLElement>,
+  'type'
+>;
 
-export type NativeButtonProps = {
+export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
+  href?: string;
   htmlType?: ButtonHTMLType;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-} & BaseButtonProps &
-  Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'onClick'>;
-
-export type ButtonProps = AnchorButtonProps | NativeButtonProps;
-
-type InternalButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
+}
 
 type CompoundedComponent = React.ForwardRefExoticComponent<
   ButtonProps & React.RefAttributes<HTMLElement>
@@ -125,7 +118,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     classNames: customClassNames,
     style: customStyle = {},
     ...rest
-  } = props as InternalButtonProps;
+  } = props;
 
   const { getPrefixCls, autoInsertSpaceInButton, direction, button } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
@@ -218,7 +211,7 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const iconType = innerLoading ? 'loading' : icon;
 
-  const linkButtonRestProps = omit(rest as InternalButtonProps & { navigate: any }, ['navigate']);
+  const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
 
   const classes = classNames(
     prefixCls,
@@ -280,7 +273,7 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   let buttonNode = (
     <button
-      {...(rest as NativeButtonProps)}
+      {...rest}
       type={htmlType}
       className={classes}
       style={fullStyle}

@@ -39,6 +39,7 @@ const DEPRECIATED_VERSION = {
   ],
   '5.6.2': ['https://github.com/ant-design/ant-design/issues/43113'],
   '5.6.3': ['https://github.com/ant-design/ant-design/issues/43190'],
+  '5.7.1': ['https://github.com/ant-design/ant-design/issues/43654'],
 };
 
 function matchDeprecated(version) {
