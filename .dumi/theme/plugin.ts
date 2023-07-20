@@ -103,26 +103,21 @@ const RoutesPlugin = (api: IApi) => {
     files
       // exclude dynamic route path, to avoid deploy failed by `:id` directory
       .filter((f) => !f.path.includes(':'))
-      // FIXME: workaround to make emotion support react 18 pipeableStream
-      // ref: https://github.com/emotion-js/emotion/issues/2800#issuecomment-1221296308
       .map((file) => {
-        // let styles = '';
-        //
-        // // extract all emotion style tags from body
-        // file.content = file.content.replace(/<style data-emotion[\S\s]+?<\/style>/g, (s) => {
-        //   styles += s;
-        //
-        //   return '';
-        // });
-        //
-        // api.logger.event(`@@@@@@@@@@@style amount ${styles}`);
-        //
-        // // insert emotion style tags to head
-        // file.content = file.content.replace('</head>', `${styles}</head>`);
+        let globalStyles = '';
+
+        // extract all emotion style tags from body
+        file.content = file.content.replace(/<style data-emotion[\S\s]+?<\/style>/g, (s) => {
+          globalStyles += s;
+
+          return '';
+        });
+
+        // insert emotion style tags to head
+        file.content = file.content.replace('</head>', `${globalStyles}</head>`);
 
         // 1. 提取 antd-style 样式
         const styles = extractStaticStyle(file.content, { includeAntd: false });
-        api.logger.event(`@@@@@@@@@@@style amount ${styles.length}`);
 
         // 2. 提取每个样式到独立 css 文件
         styles.forEach((result) => {

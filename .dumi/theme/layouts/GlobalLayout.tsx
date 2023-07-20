@@ -16,7 +16,6 @@ import type { ThemeName } from '../common/ThemeSwitch';
 import ThemeSwitch from '../common/ThemeSwitch';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
-import { StyleProvider as EmotionProvider } from 'antd-style';
 
 type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
@@ -109,33 +108,31 @@ const GlobalLayout: React.FC = () => {
   );
 
   return (
-    <EmotionProvider>
-      <StyleProvider
-        cache={styleCache}
-        linters={[logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter]}
-      >
-        <SiteContext.Provider value={siteContextValue}>
-          <SiteThemeProvider
-            theme={{
-              algorithm: getAlgorithm(theme),
-              token: {
-                motion: !theme.includes('motion-off'),
-              },
-            }}
-          >
-            <App>
-              {outlet}
-              {!pathname.startsWith('/~demos') && (
-                <ThemeSwitch
-                  value={theme}
-                  onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
-                />
-              )}
-            </App>
-          </SiteThemeProvider>
-        </SiteContext.Provider>
-      </StyleProvider>
-    </EmotionProvider>
+    <StyleProvider
+      cache={styleCache}
+      linters={[logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter]}
+    >
+      <SiteContext.Provider value={siteContextValue}>
+        <SiteThemeProvider
+          theme={{
+            algorithm: getAlgorithm(theme),
+            token: {
+              motion: !theme.includes('motion-off'),
+            },
+          }}
+        >
+          <App>
+            {outlet}
+            {!pathname.startsWith('/~demos') && (
+              <ThemeSwitch
+                value={theme}
+                onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
+              />
+            )}
+          </App>
+        </SiteThemeProvider>
+      </SiteContext.Provider>
+    </StyleProvider>
   );
 };
 
