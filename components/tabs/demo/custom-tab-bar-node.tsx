@@ -7,17 +7,15 @@ import {
   useSortable,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { css } from '@emotion/css';
 import { Tabs } from 'antd';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 interface DraggableTabPaneProps extends React.HTMLAttributes<HTMLDivElement> {
   'data-node-key': string;
-  onActiveBarTransform: (className: string) => void;
 }
 
-const DraggableTabNode = ({ className, onActiveBarTransform, ...props }: DraggableTabPaneProps) => {
-  const { attributes, listeners, setNodeRef, transform, transition, isSorting } = useSortable({
+const DraggableTabNode = ({ className, ...props }: DraggableTabPaneProps) => {
+  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
     id: props['data-node-key'],
   });
 
@@ -27,21 +25,6 @@ const DraggableTabNode = ({ className, onActiveBarTransform, ...props }: Draggab
     transition,
     cursor: 'move',
   };
-
-  useEffect(() => {
-    if (!isSorting) {
-      onActiveBarTransform('');
-    } else if (className?.includes('ant-tabs-tab-active')) {
-      onActiveBarTransform(
-        css`
-          .ant-tabs-ink-bar {
-            transform: ${CSS.Transform.toString(transform)};
-            transition: ${transition} !important;
-          }
-        `,
-      );
-    }
-  }, [className, isSorting, transform]);
 
   return React.cloneElement(props.children as React.ReactElement, {
     ref: setNodeRef,
@@ -70,8 +53,6 @@ const App: React.FC = () => {
     },
   ]);
 
-  const [className, setClassName] = useState('');
-
   const sensor = useSensor(PointerSensor, { activationConstraint: { distance: 10 } });
 
   const onDragEnd = ({ active, over }: DragEndEvent) => {
@@ -86,18 +67,13 @@ const App: React.FC = () => {
 
   return (
     <Tabs
-      className={className}
       items={items}
       renderTabBar={(tabBarProps, DefaultTabBar) => (
         <DndContext sensors={[sensor]} onDragEnd={onDragEnd}>
           <SortableContext items={items.map((i) => i.key)} strategy={horizontalListSortingStrategy}>
             <DefaultTabBar {...tabBarProps}>
               {(node) => (
-                <DraggableTabNode
-                  {...node.props}
-                  key={node.key}
-                  onActiveBarTransform={setClassName}
-                >
+                <DraggableTabNode {...node.props} key={node.key}>
                   {node}
                 </DraggableTabNode>
               )}
