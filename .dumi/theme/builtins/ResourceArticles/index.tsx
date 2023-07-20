@@ -2,14 +2,12 @@
 import * as React from 'react';
 import dayjs from 'dayjs';
 import { FormattedMessage, useIntl } from 'dumi';
-import { Tabs, Skeleton, Avatar, Divider, Empty } from 'antd';
-import { css } from '@emotion/react';
-import { useSiteData } from '../../../pages/index/components/util';
+import { Avatar, Divider, Empty, Skeleton, Tabs } from 'antd';
+import { createStyles } from 'antd-style';
 import type { Article, Authors } from '../../../pages/index/components/util';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { useSiteData } from '../../../pages/index/components/util';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
+const useStyle = createStyles(({ token, css }) => {
   const { antCls } = token;
 
   return {
@@ -58,7 +56,7 @@ const useStyle = () => {
       }
     `,
   };
-};
+});
 
 interface ArticleListProps {
   name: React.ReactNode;
@@ -67,11 +65,11 @@ interface ArticleListProps {
 }
 
 const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = [] }) => {
-  const { articleList } = useStyle();
+  const { styles } = useStyle();
   return (
     <td>
       <h4>{name}</h4>
-      <ul css={articleList}>
+      <ul className={styles.articleList}>
         {data.length === 0 ? (
           <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
         ) : (
@@ -100,7 +98,7 @@ export default () => {
   const isZhCN = locale === 'zh-CN';
   const [{ articles = { cn: [], en: [] }, authors = [] }, loading] = useSiteData();
 
-  const styles = useStyle();
+  const { styles } = useStyle();
 
   // ========================== Data ==========================
   const mergedData = React.useMemo(() => {
@@ -147,7 +145,7 @@ export default () => {
   }
 
   return (
-    <div id="articles" css={styles.articles}>
+    <div id="articles" className={styles.articles}>
       {content}
     </div>
   );

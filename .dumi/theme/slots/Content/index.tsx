@@ -1,5 +1,5 @@
 import { CalendarOutlined } from '@ant-design/icons';
-import { css } from '@emotion/react';
+import { createStyles, useTheme } from 'antd-style';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import { Affix, Anchor, Avatar, Col, Skeleton, Space, Tooltip, Typography } from 'antd';
 import classNames from 'classnames';
@@ -9,7 +9,6 @@ import type { ReactNode } from 'react';
 import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocation from '../../../hooks/useLocation';
-import useSiteToken from '../../../hooks/useSiteToken';
 import EditButton from '../../common/EditButton';
 import PrevAndNext from '../../common/PrevAndNext';
 import type { DemoContextProps } from '../DemoContext';
@@ -18,9 +17,7 @@ import Footer from '../Footer';
 import SiteContext from '../SiteContext';
 import ColumnCard from './ColumnCard';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-
+const useStyle = createStyles(({ token, css }) => {
   const { antCls } = token;
 
   return {
@@ -96,7 +93,7 @@ const useStyle = () => {
       }
     `,
   };
-};
+});
 
 type AnchorItem = {
   id: string;
@@ -136,8 +133,8 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   const tab = useTabMeta();
   const { pathname, hash } = useLocation();
   const { formatMessage } = useIntl();
-  const styles = useStyle();
-  const { token } = useSiteToken();
+  const { styles } = useStyle();
+  const token = useTheme();
   const { direction } = useContext(SiteContext);
 
   const [showDebug, setShowDebug] = useLayoutState(false);
@@ -206,9 +203,9 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
     <DemoContext.Provider value={contextValue}>
       <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
         <Affix>
-          <section css={styles.tocWrapper}>
+          <section className={styles.tocWrapper}>
             <Anchor
-              css={styles.toc}
+              className={styles.toc}
               affix={false}
               targetOffset={token.marginXXL}
               showInkInFixed
@@ -231,7 +228,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
             />
           </section>
         </Affix>
-        <article css={styles.articleWrapper} className={classNames({ rtl: isRTL })}>
+        <article className={classNames(styles.articleWrapper, { rtl: isRTL })}>
           {meta.frontmatter?.title ? (
             <Typography.Title style={{ fontSize: 30 }}>
               {meta.frontmatter?.title}
@@ -286,7 +283,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
             <ContributorsList
               repo="ant-design"
               owner="ant-design"
-              css={styles.contributorsList}
+              className={styles.contributorsList}
               cache
               fileName={meta.frontmatter.filename}
               renderItem={(item, loading) => {

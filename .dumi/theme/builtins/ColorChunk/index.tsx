@@ -1,25 +1,21 @@
 import { TinyColor, type ColorInput } from '@ctrl/tinycolor';
-import { css } from '@emotion/react';
+import { createStyles } from 'antd-style';
 import * as React from 'react';
-import useSiteToken from '../../../hooks/useSiteToken';
 
 interface ColorChunkProps {
   children?: React.ReactNode;
   color?: ColorInput;
 }
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-
-  return {
-    codeSpan: css`
+const useStyle = createStyles(({ token, css }) => ({
+  codeSpan: css`
       padding: 0.2em 0.4em;
       font-size: 0.9em;
       background: ${token.siteMarkdownCodeBg};
       border-radius: ${token.borderRadius}px;
       font-family: monospace;
     `,
-    dot: css`
+  dot: css`
       display: inline-block;
       width: 6px;
       height: 6px;
@@ -27,11 +23,10 @@ const useStyle = () => {
       margin-inline-end: 4px;
       border: 1px solid ${token.colorSplit};
     `,
-  };
-};
+}));
 
 const ColorChunk: React.FC<ColorChunkProps> = (props) => {
-  const styles = useStyle();
+  const { styles } = useStyle();
   const { color, children } = props;
 
   const dotColor = React.useMemo(() => {
@@ -40,8 +35,8 @@ const ColorChunk: React.FC<ColorChunkProps> = (props) => {
   }, [color]);
 
   return (
-    <span css={styles.codeSpan}>
-      <span css={styles.dot} style={{ backgroundColor: dotColor }} />
+    <span className={styles.codeSpan}>
+      <span className={styles.dot} style={{ backgroundColor: dotColor }} />
       {children ?? dotColor}
     </span>
   );

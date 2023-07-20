@@ -1,13 +1,11 @@
 import type { FC } from 'react';
 import * as React from 'react';
-/* eslint import/no-unresolved: 0 */
-import { css } from '@emotion/react';
+import { createStyles } from 'antd-style';
 import type { TableProps } from 'antd';
 import { Table } from 'antd';
 import { getDesignToken } from 'antd-token-previewer';
 import tokenMeta from 'antd/es/version/token-meta.json';
 import useLocale from '../../../hooks/useLocale';
-import useSiteToken from '../../../hooks/useSiteToken';
 import ColorChunk from '../ColorChunk';
 
 type TokenTableProps = {
@@ -39,11 +37,8 @@ const locales = {
   },
 };
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-
-  return {
-    codeSpan: css`
+const useStyle = createStyles(({ token, css }) => ({
+  codeSpan: css`
       margin: 0 1px;
       padding: 0.2em 0.4em;
       font-size: 0.9em;
@@ -52,12 +47,11 @@ const useStyle = () => {
       border-radius: 3px;
       font-family: monospace;
     `,
-  };
-};
+}));
 
 export function useColumns(): Exclude<TableProps<TokenData>['columns'], undefined> {
   const [locale] = useLocale(locales);
-  const styles = useStyle();
+  const { styles } = useStyle();
 
   return [
     {
@@ -74,7 +68,7 @@ export function useColumns(): Exclude<TableProps<TokenData>['columns'], undefine
       title: locale.type,
       key: 'type',
       dataIndex: 'type',
-      render: (_, record) => <span css={styles.codeSpan}>{record.type}</span>,
+      render: (_, record) => <span className={styles.codeSpan}>{record.type}</span>,
     },
     {
       title: locale.value,

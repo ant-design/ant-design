@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { createStyles } from 'antd-style';
 import { Button, ConfigProvider, Modal, Spin, Typography, message } from 'antd';
 import { ThemeEditor, enUS, zhCN } from 'antd-token-previewer';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
@@ -38,7 +38,7 @@ const locales = {
   },
 };
 
-const useStyle = () => ({
+const useStyle = createStyles(({ css }) => ({
   header: css({
     display: 'flex',
     height: 56,
@@ -47,7 +47,7 @@ const useStyle = () => ({
     justifyContent: 'space-between',
     borderBottom: '1px solid #F0F0F0',
   }),
-});
+}));
 
 const ANT_DESIGN_V5_THEME_EDITOR_THEME = 'ant-design-v5-theme-editor-theme';
 
@@ -77,7 +77,7 @@ const CustomTheme = () => {
     }
   }, []);
 
-  const styles = useStyle();
+  const { styles } = useStyle();
 
   const handleSave = () => {
     localStorage.setItem(ANT_DESIGN_V5_THEME_EDITOR_THEME, JSON.stringify(theme));
@@ -140,7 +140,7 @@ const CustomTheme = () => {
       </Helmet>
       {contextHolder}
       <ConfigProvider theme={{ inherit: false }}>
-        <div css={styles.header}>
+        <div className={styles.header}>
           <Typography.Title level={5} style={{ margin: 0 }}>
             {locale.title}
           </Typography.Title>
