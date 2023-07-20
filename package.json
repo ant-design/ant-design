@@ -258,7 +258,7 @@
     "node-notifier": "^10.0.1",
     "open": "^9.0.0",
     "prettier": "^3.0.0",
-    "prettier-plugin-jsdoc": "^0.4.2",
+    "prettier-plugin-jsdoc": "^1.0.1",
     "pretty-format": "^29.0.0",
     "prismjs": "^1.29.0",
     "progress": "^2.0.3",
