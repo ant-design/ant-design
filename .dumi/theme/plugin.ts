@@ -47,7 +47,7 @@ class AntdReactTechStack extends ReactTechStack {
   }
 }
 
-const resolve = (path: string): string => require.resolve(path);
+const resolve = (p: string): string => require.resolve(p);
 
 const RoutesPlugin = (api: IApi) => {
   const ssrCssFileName = `ssr-${Date.now()}.css`;
