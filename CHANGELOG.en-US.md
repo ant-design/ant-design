@@ -15,6 +15,19 @@ timeline: true
 
 ---
 
+## 5.7.2
+
+`2023-07-20`
+
+- 💄 Fix Menu miss hover style issue. [#43656](https://github.com/ant-design/ant-design/pull/43656) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix Notification throwPurePanel definition missing error. [#43687](https://github.com/ant-design/ant-design/pull/43687) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix Button `onClick` missing `event` definition. [#43666](https://github.com/ant-design/ant-design/pull/43666)
+- 🐞 Fix Input and InputNumber align issue. [#43548](https://github.com/ant-design/ant-design/pull/43548) [@bbb169](https://github.com/bbb169)
+- 🐞 Fix DatePicker suffix use wrong token. [#43646](https://github.com/ant-design/ant-design/pull/43646) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix Steps with clickable can not trigger by keyboard. [#43644](https://github.com/ant-design/ant-design/pull/43644)
+- TypeScript
+  - 🤖 Remove Button type `ghost` from TS definition. [#43675](https://github.com/ant-design/ant-design/pull/43675)
+
 ## 5.7.1
 
 `2023-07-19`
