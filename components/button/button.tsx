@@ -55,15 +55,20 @@ export interface BaseButtonProps {
   styles?: { icon: React.CSSProperties };
 }
 
-type MergedHTMLAttributes = Omit<
-  React.HTMLAttributes<HTMLElement> & React.AnchorHTMLAttributes<HTMLElement>,
-  'type'
->;
+export type AnchorButtonProps = {
+  href: string;
+  target?: React.HTMLAttributeAnchorTarget;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+} & BaseButtonProps &
+  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, 'type' | 'onClick'>;
 
-export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
-  href?: string;
+export type NativeButtonProps = {
   htmlType?: ButtonHTMLType;
-}
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+} & BaseButtonProps &
+  Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'onClick'>;
+
+export type ButtonProps = AnchorButtonProps | NativeButtonProps;
 
 type CompoundedComponent = React.ForwardRefExoticComponent<
   ButtonProps & React.RefAttributes<HTMLElement>
