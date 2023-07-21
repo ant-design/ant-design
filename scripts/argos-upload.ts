@@ -41,7 +41,7 @@ async function run() {
   );
 
   // eslint-disable-next-line no-console -- pipe stdout
-  console.log('Chunk Size:', chunks.length);
+  console.log('Chunk Size:', chunks.length, '/', 'Total Snapshots:', screenshots.length);
 
   for (let i = 0; i < chunks.length; i += 1) {
     // eslint-disable-next-line no-await-in-loop
