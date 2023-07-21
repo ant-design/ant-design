@@ -152,10 +152,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
         <InternalBreadcrumbItem
           key={mergedKey}
           {...itemProps}
-          {...pickAttrs(item, {
-            data: true,
-            aria: true,
-          })}
+          {...pickAttrs(item, { data: true, aria: true })}
           className={itemClassName}
           dropdownProps={dropdownProps}
           href={href}
