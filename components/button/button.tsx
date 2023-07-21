@@ -56,7 +56,9 @@ export interface BaseButtonProps {
 }
 
 type MergedHTMLAttributes = Omit<
-  React.HTMLAttributes<HTMLElement> & React.AnchorHTMLAttributes<HTMLElement>,
+  React.HTMLAttributes<HTMLElement> &
+    React.ButtonHTMLAttributes<HTMLElement> &
+    React.AnchorHTMLAttributes<HTMLElement>,
   'type'
 >;
 
