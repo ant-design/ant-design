@@ -13,7 +13,7 @@ import type { DropdownProps } from '../dropdown';
 import useStyle from './style';
 import useItemRender from './useItemRender';
 import useItems from './useItems';
-import { AnyObject } from '../_util/type';
+import type { AnyObject } from '../_util/type';
 
 export interface BreadcrumbItemType {
   key?: React.Key;
