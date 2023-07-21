@@ -19,7 +19,7 @@ function execFile(command: string, args: string[]) {
 
 const screenshotsBase = 'imageSnapshots';
 const screenshotsChunks = `imageSnapshots-chunks`;
-const BATCH_SIZE = 200;
+const BATCH_SIZE = 128;
 
 async function cpToTemp(screenshot: string, target: string) {
   await execFile('mkdir', ['-p', target]);
@@ -40,6 +40,9 @@ async function run() {
     ),
   );
 
+  // eslint-disable-next-line no-console -- pipe stdout
+  console.log('Chunk Size:', chunks.length, '/', 'Total Snapshots:', screenshots.length);
+
   for (let i = 0; i < chunks.length; i += 1) {
     // eslint-disable-next-line no-await-in-loop
     const result = await argos.upload({
@@ -51,7 +54,7 @@ async function run() {
       },
     });
     // eslint-disable-next-line no-console -- pipe stdout
-    console.log(result);
+    console.log(i, '>', result);
   }
 }
 

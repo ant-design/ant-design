@@ -318,6 +318,7 @@ const Header: React.FC = () => {
       label2={<DirectionIcon className={styles.dataDirectionIcon} direction="rtl" />}
       tooltip2="RTL"
       pure
+      aria-label="RTL Switch Button"
     />,
     <a
       key="github"
