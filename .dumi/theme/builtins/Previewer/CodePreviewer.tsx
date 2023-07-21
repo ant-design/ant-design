@@ -412,7 +412,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 rel="noreferrer"
                 href={docsOnlineUrl}
               >
-                <LinkOutlined className="code-box-online" />
+                <LinkOutlined aria-label="open in new tab" className="code-box-online" />
               </a>
             </Tooltip>
           )}
