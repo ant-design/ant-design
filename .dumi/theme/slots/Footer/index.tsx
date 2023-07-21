@@ -199,6 +199,8 @@ const Footer: React.FC = () => {
           icon: (
             <img
               src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
+              width={16}
+              height={16}
               alt="yuque"
             />
           ),
@@ -222,6 +224,8 @@ const Footer: React.FC = () => {
           icon: (
             <img
               src="https://gw.alipayobjects.com/zos/rmsportal/mZBWtboYbnMkTBaRIuWQ.png"
+              width={16}
+              height={16}
               alt="seeconf"
             />
           ),
@@ -303,6 +307,8 @@ const Footer: React.FC = () => {
       icon: (
         <img
           src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg"
+          width={22}
+          height={22}
           alt="Ant XTech"
         />
       ),
@@ -312,6 +318,8 @@ const Footer: React.FC = () => {
           icon: (
             <img
               src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
+              width={16}
+              height={16}
               alt="yuque"
             />
           ),
@@ -324,6 +332,8 @@ const Footer: React.FC = () => {
           icon: (
             <img
               src="https://gw.alipayobjects.com/zos/antfincdn/nc7Fc0XBg5/8a6844f5-a6ed-4630-9177-4fa5d0b7dd47.png"
+              width={16}
+              height={16}
               alt="AntV"
             />
           ),
@@ -333,7 +343,7 @@ const Footer: React.FC = () => {
           openExternal: true,
         },
         {
-          icon: <img src="https://www.eggjs.org/logo.svg" alt="Egg" />,
+          icon: <img src="https://www.eggjs.org/logo.svg" alt="Egg" width={16} height={16} />,
           title: 'Egg',
           url: 'https://eggjs.org',
           description: <FormattedMessage id="app.footer.egg.slogan" />,
@@ -343,6 +353,8 @@ const Footer: React.FC = () => {
           icon: (
             <img
               src="https://gw.alipayobjects.com/zos/rmsportal/DMDOlAUhmktLyEODCMBR.ico"
+              width={16}
+              height={16}
               alt="kitchen"
             />
           ),
@@ -355,6 +367,8 @@ const Footer: React.FC = () => {
           icon: (
             <img
               src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg"
+              width={16}
+              height={16}
               alt="xtech"
             />
           ),
