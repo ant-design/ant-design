@@ -67,7 +67,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
 
   return wrapSSR(
     <RcImage
-      prefixCls={`${prefixCls}`}
+      prefixCls={prefixCls}
       preview={mergedPreview}
       rootClassName={mergedRootClassName}
       className={mergedClassName}
