@@ -26,13 +26,14 @@ const useStyle = createStyles(({ token, css }) => {
       flex-wrap: wrap;
       margin-top: 120px !important;
       clear: both;
-      a,
+
+      li,
       ${antCls}-avatar + ${antCls}-avatar {
         transition: all ${token.motionDurationSlow};
         margin-inline-end: -8px;
       }
       &:hover {
-        a,
+        li,
         ${antCls}-avatar {
           margin-inline-end: 0;
         }
@@ -102,11 +103,11 @@ type AnchorItem = {
 };
 
 const AvatarPlaceholder: React.FC<{ num?: number }> = ({ num = 3 }) => (
-  <>
+  <li>
     {Array.from({ length: num }).map((_, i) => (
       <Skeleton.Avatar size="small" active key={i} style={{ marginLeft: i === 0 ? 0 : -8 }} />
     ))}
-  </>
+  </li>
 );
 
 const AuthorAvatar = ({ name, avatar }: { name: string; avatar: string }) => {
@@ -299,15 +300,17 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                     title={`${formatMessage({ id: 'app.content.contributors' })}: ${item.username}`}
                     key={item.username}
                   >
-                    <a
-                      href={`https://github.com/${item.username}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Avatar size="small" src={item.url}>
-                        {item.username}
-                      </Avatar>
-                    </a>
+                    <li>
+                      <a
+                        href={`https://github.com/${item.username}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Avatar size="small" src={item.url} alt={item.username}>
+                          {item.username}
+                        </Avatar>
+                      </a>
+                    </li>
                   </Tooltip>
                 );
               }}

@@ -94,7 +94,7 @@ const LangBtn: React.FC<LangBtnProps> = (props) => {
   } = useStyle();
 
   const node = (
-    <button onClick={onClick} className={btn} key="lang-button">
+    <button onClick={onClick} className={btn} key="lang-button" aria-label={props['aria-label']}>
       <div className="btn-inner">
         {pure && (value === 1 ? label1 : label2)}
         {!pure && (
