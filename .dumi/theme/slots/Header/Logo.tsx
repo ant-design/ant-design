@@ -54,7 +54,12 @@ const Logo: React.FC<LogoProps> = ({ isZhCN }) => {
   return (
     <h1>
       <Link to={utils.getLocalizedPathname('/', isZhCN, search)} className={styles.logo}>
-        <img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" alt="logo" />
+        <img
+          src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+          height={32}
+          width={32}
+          alt="logo"
+        />
         <span className={styles.title}>Ant Design</span>
       </Link>
     </h1>

@@ -304,7 +304,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Avatar size="small" src={item.url}>
+                      <Avatar size="small" src={item.url} alt={item.username}>
                         {item.username}
                       </Avatar>
                     </a>
