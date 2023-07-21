@@ -85,12 +85,12 @@ const FloatButton: React.ForwardRefRenderFunction<
 
   return wrapSSR(
     props.href ? (
-      <a ref={ref as React.LegacyRef<HTMLAnchorElement>} {...restProps} className={classString}>
+      <a ref={ref as React.RefObject<HTMLAnchorElement>} {...restProps} className={classString}>
         {buttonNode}
       </a>
     ) : (
       <button
-        ref={ref as React.LegacyRef<HTMLButtonElement>}
+        ref={ref as React.RefObject<HTMLButtonElement>}
         {...restProps}
         className={classString}
         type="button"
