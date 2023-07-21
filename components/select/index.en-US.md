@@ -61,7 +61,7 @@ Select component to select value from options.
 | defaultOpen | Initial open state of dropdown | boolean | - |  |
 | defaultValue | Initial selected option | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
 | disabled | Whether disabled select | boolean | false |  |
-| popupClassName | The className of dropdown menu | string | - | 4.23.0 |
+| classNames | Additional className in Select | [classNames](#classNames) | - | 5.8.0 |
 | popupMatchSelectWidth | Determine whether the popup menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | 5.5.0 |
 | dropdownRender | Customize dropdown content | (originNode: ReactNode) => ReactNode | - |  |
 | dropdownStyle | The style of dropdown menu | CSSProperties | - |  |
@@ -131,6 +131,13 @@ Select component to select value from options.
 | -------- | ----------- | ----------------------- | ------- | ------- |
 | key      | Group key   | string                  | -       |         |
 | label    | Group label | string \| React.Element | -       |         |
+
+### classNames
+
+| Property | Description                    | Type   | Default | Version |
+| -------- | ------------------------------ | ------ | ------- | ------- |
+| popup    | The className of dropdown menu | string | -       | 5.8.0   |
+| root     | The className of Select root   | string | -       | 5.8.0   |
 
 ## Design Token
 

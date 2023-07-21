@@ -62,7 +62,7 @@ demo:
 | defaultOpen | 是否默认展开下拉菜单 | boolean | - |  |
 | defaultValue | 指定默认选中的条目 | string \| string\[] \|<br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
 | disabled | 是否禁用 | boolean | false |  |
-| popupClassName | 下拉菜单的 className 属性 | string | - | 4.23.0 |
+| classNames | `Select` 中额外的className | [classNames](#classNames) | - | 5.8.0 |
 | popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true | 5.5.0 |
 | dropdownRender | 自定义下拉框内容 | (originNode: ReactNode) => ReactNode | - |  |
 | dropdownStyle | 下拉菜单的 style 属性 | CSSProperties | - |  |
@@ -132,6 +132,13 @@ demo:
 | ----- | ---- | ----------------------- | ------ | ---- |
 | key   | Key  | string                  | -      |      |
 | label | 组名 | string \| React.Element | -      |      |
+
+### classNames
+
+| 参数  | 说明                             | 类型   | 默认值 | 版本  |
+| ----- | -------------------------------- | ------ | ------ | ----- |
+| popup | 下拉菜单的 className 属性        | string | -      | 5.8.0 |
+| root  | `Select` 根节点的 className 属性 | string | -      | 5.8.0 |
 
 ## Design Token
 

@@ -141,7 +141,7 @@ describe('Select', () => {
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Select dropdownClassName="legacy" open />);
       expect(errSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Select] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+        'Warning: [antd: Select] `dropdownClassName` is deprecated. Please use `classNames.popup` instead.',
       );
       expect(container.querySelector('.legacy')).toBeTruthy();
 
@@ -169,6 +169,32 @@ describe('Select', () => {
         'Warning: [antd: Select] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
       );
       expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
+
+      errSpy.mockRestore();
+    });
+
+    it('deprecate popupClassName', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Select popupClassName="customer-popup" open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `popupClassName` is deprecated. Please use `classNames.popup` instead.',
+      );
+      expect(container.querySelector('.ant-select-dropdown')).toHaveClass('customer-popup');
+
+      errSpy.mockRestore();
+    });
+
+    it('deprecate rootClassName', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Select rootClassName="customer-root" />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `rootClassName` is deprecated. Please use `classNames.root` instead.',
+      );
+      expect(container.querySelector('.ant-select')).toHaveClass('customer-root');
 
       errSpy.mockRestore();
     });

@@ -1,7 +1,7 @@
 'use client';
 
 // TODO: 4.0 - codemod should help to change `filterOption` to support node props.
-import classNames from 'classnames';
+import cls from 'classnames';
 import type { BaseSelectRef, SelectProps as RcSelectProps } from 'rc-select';
 import RcSelect, { OptGroup, Option } from 'rc-select';
 import type { OptionProps } from 'rc-select/lib/Option';
@@ -64,13 +64,19 @@ export interface SelectProps<
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
+  /** @deprecated Please use `classNames.popup` instead */
   popupClassName?: string;
   /** @deprecated Please use `popupClassName` instead */
   dropdownClassName?: string;
+  /** @deprecated Please use `classNames.root` instead */
   rootClassName?: string;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
+  classNames?: {
+    popup?: string;
+    root?: string;
+  };
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -83,6 +89,7 @@ const InternalSelect = <
     prefixCls: customizePrefixCls,
     bordered = true,
     className,
+    classNames,
     rootClassName,
     getPopupContainer,
     popupClassName,
@@ -177,12 +184,12 @@ const InternalSelect = <
     'itemIcon',
   ]);
 
-  const rcSelectRtlDropdownClassName = classNames(
-    popupClassName || dropdownClassName,
+  const rcSelectRtlDropdownClassName = cls(
+    (classNames?.popup ?? popupClassName) || dropdownClassName,
     {
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
     },
-    rootClassName,
+    classNames?.root ?? rootClassName,
     hashId,
   );
 
@@ -192,7 +199,7 @@ const InternalSelect = <
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
-  const mergedClassName = classNames(
+  const mergedClassName = cls(
     {
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
@@ -204,7 +211,7 @@ const InternalSelect = <
     compactItemClassnames,
     select?.className,
     className,
-    rootClassName,
+    classNames?.root ?? rootClassName,
     hashId,
   );
 
@@ -223,7 +230,7 @@ const InternalSelect = <
     warning(
       !dropdownClassName,
       'Select',
-      '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+      '`dropdownClassName` is deprecated. Please use `classNames.popup` instead.',
     );
 
     warning(
@@ -236,6 +243,18 @@ const InternalSelect = <
       !('showArrow' in props),
       'Select',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+    );
+
+    warning(
+      !popupClassName,
+      'Select',
+      '`popupClassName` is deprecated. Please use `classNames.popup` instead.',
+    );
+
+    warning(
+      !rootClassName,
+      'Select',
+      '`rootClassName` is deprecated. Please use `classNames.root` instead.',
     );
   }
 
