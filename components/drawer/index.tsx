@@ -168,6 +168,7 @@ const Drawer: React.FC<DrawerProps> & {
 interface PurePanelInterface {
   prefixCls?: string;
   style?: React.CSSProperties;
+  children?: React.ReactNode;
   className?: string;
   placement?: Placement;
 }
