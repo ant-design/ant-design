@@ -88,14 +88,12 @@ MyDocument.getInitialProps = async (ctx: DocumentContext) => {
     });
 
   const initialProps = await Document.getInitialProps(ctx);
-  // 1.1 extract style which had been used
   const style = extractStyle(cache, true);
   return {
     ...initialProps,
     styles: (
       <>
         {initialProps.styles}
-        {/* 1.2 inject css */}
         <style dangerouslySetInnerHTML={{ __html: style }} />
       </>
     ),
