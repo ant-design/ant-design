@@ -31,7 +31,7 @@ $ npm run dev
 修改 `src/app/page.tsx`，引入 antd 的按钮组件。
 
 ```jsx
-'use client';
+'use client'; // 如果是在 Pages Router 中使用，则不需要加这一行
 
 import React from 'react';
 import { Button } from 'antd';
@@ -78,12 +78,11 @@ MyDocument.getInitialProps = async (ctx: DocumentContext) => {
   const originalRenderPage = ctx.renderPage;
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App) => (props) =>
-        (
-          <StyleProvider cache={cache}>
-            <App {...props} />
-          </StyleProvider>
-        ),
+      enhanceApp: (App) => (props) => (
+        <StyleProvider cache={cache}>
+          <App {...props} />
+        </StyleProvider>
+      ),
     });
 
   const initialProps = await Document.getInitialProps(ctx);
@@ -163,6 +162,8 @@ export default Home;
 2. 创建 `lib/AntdRegistry.tsx`
 
 ```tsx
+'use client';
+
 import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
 import { useServerInsertedHTML } from 'next/navigation';
 import React from 'react';
@@ -238,6 +239,6 @@ const HomePage: React.FC = () => (
 export default HomePage;
 ```
 
-> 注意: 上述方式没有在页面中使用如：`Select.Option` 、 `Typography.Text` 等子组件，因此可以正常使用。但如果你的页面中有使用类似这样的子组件，目前在 Next.js 中会看到如下警告：`Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.`，目前需等待 Next.js 官方解决。在此之前，如果你的页面中使用了上述子组件，可在页面组件第一行加上 `"use client";` 来避免警告。更多细节可以参考示例：[with-sub-components](https://github.com/ant-design/ant-design-examples/blob/main/examples/with-nextjs-app-router-inline-style/src/app/with-sub-components/page.tsx)。
+> 注意: 上述方式没有在页面中使用类似 `<Select.Option />`、`<Typography.Text />` 等子组件，因此可以正常使用。但如果你的页面中有使用类似这样的子组件，目前在 Next.js 中会看到如下警告：`Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.`，目前需等待 Next.js 官方解决。在此之前，如果你的页面中使用了上述子组件，可在页面组件第一行加上 `"use client"` 来避免警告。更多细节可以参考示例：[with-sub-components](https://github.com/ant-design/ant-design-examples/blob/main/examples/with-nextjs-app-router-inline-style/src/app/with-sub-components/page.tsx)。
 
 更多详细的细节可以参考 [with-nextjs-app-router-inline-style](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-app-router-inline-style)。

@@ -31,6 +31,8 @@ Now we install `antd` from yarn or npm or pnpm.
 Modify `src/app/page.tsx`, import Button component from `antd`.
 
 ```jsx
+'use client'; // If used in Pages Router, is no need to add this line
+
 import React from 'react';
 import { Button } from 'antd';
 
@@ -76,12 +78,11 @@ MyDocument.getInitialProps = async (ctx: DocumentContext) => {
   const originalRenderPage = ctx.renderPage;
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App) => (props) =>
-        (
-          <StyleProvider cache={cache}>
-            <App {...props} />
-          </StyleProvider>
-        ),
+      enhanceApp: (App) => (props) => (
+        <StyleProvider cache={cache}>
+          <App {...props} />
+        </StyleProvider>
+      ),
     });
 
   const initialProps = await Document.getInitialProps(ctx);
@@ -238,6 +239,6 @@ const HomePage: React.FC = () => (
 export default HomePage;
 ```
 
-> Tips: The above method does not use sub-components such as `Select.Option` and `Typography.text` in the page, so it can be used normally. However, if you use a sub-component like this in your page, you will currently see the following warning in next.js: `Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.`, currently need to wait for Next.js official solution. Before again, if you use the above sub-components in your page, you can add "use client" to the first line of the page component to avoid warnings. See examples for more details: [with-sub-components](https://github.com/ant-design/ant-design-examples/blob/main/examples/with-nextjs-app-router-inline-style/src/app/with-sub-components/page.tsx).
+> Tips: The above method does not use sub-components such as `<Select.Option />` and `<Typography.text />` in the page, so it can be used normally. However, if you use a sub-component like this in your page, you will currently see the following warning in next.js: `Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.`, currently need to wait for Next.js official solution. Before again, if you use the above sub-components in your page, you can add `"use client"` to the first line of the page component to avoid warnings. See examples for more details: [with-sub-components](https://github.com/ant-design/ant-design-examples/blob/main/examples/with-nextjs-app-router-inline-style/src/app/with-sub-components/page.tsx).
 
 For more detailed information, please refer to [with-nextjs-app-router-inline-style](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-app-router-inline-style)。
