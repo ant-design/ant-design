@@ -69,9 +69,8 @@ const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
     : {};
 
   const hasCarousel = imgs.length > 1 && !comparable;
-  const previewClassName = classNames(rootClassName, {
-    'preview-image-boxes': true,
-    clearfix: true,
+
+  const previewClassName = classNames(rootClassName, 'clearfix', 'preview-image-boxes', {
     'preview-image-boxes-compare': comparable,
     'preview-image-boxes-with-carousel': hasCarousel,
   });
