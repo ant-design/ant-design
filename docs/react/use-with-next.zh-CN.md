@@ -60,8 +60,8 @@ export default Home;
 2. 改写 `pages/_document.tsx`
 
 ```tsx
-import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
+import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
 
 const MyDocument = () => (
   <Html lang="en">
@@ -78,11 +78,12 @@ MyDocument.getInitialProps = async (ctx: DocumentContext) => {
   const originalRenderPage = ctx.renderPage;
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App) => (props) => (
-        <StyleProvider cache={cache}>
-          <App {...props} />
-        </StyleProvider>
-      ),
+      enhanceApp: (App) => (props) =>
+        (
+          <StyleProvider cache={cache}>
+            <App {...props} />
+          </StyleProvider>
+        ),
     });
 
   const initialProps = await Document.getInitialProps(ctx);
@@ -105,37 +106,34 @@ export default MyDocument;
 
 3. 支持自定义主题
 
-```tsx
-import React from 'react';
-import { ConfigProvider } from 'antd';
+```ts
+// theme/themeConfig.ts
+import type { ThemeConfig } from 'antd';
 
-const withTheme = (node: JSX.Element) => (
-  <>
-    <ConfigProvider
-      theme={{
-        token: {
-          colorPrimary: '#52c41a',
-        },
-      }}
-    >
-      {node}
-    </ConfigProvider>
-  </>
-);
+const theme: ThemeConfig = {
+  token: {
+    fontSize: 16,
+    colorPrimary: '#52c41a',
+  },
+};
 
-export default withTheme;
+export default theme;
 ```
 
 4. 改写 `pages/_app.tsx`
 
 ```tsx
-import '../styles/globals.css';
+import { ConfigProvider } from 'antd';
 import type { AppProps } from 'next/app';
-import withTheme from '../theme';
+import theme from './themeConfig';
 
-export default function App({ Component, pageProps }: AppProps) {
-  return withTheme(<Component {...pageProps} />);
-}
+const App = ({ Component, pageProps }: AppProps) => (
+  <ConfigProvider theme={theme}>
+    <Component {...pageProps} />
+  </ConfigProvider>
+);
+
+export default App;
 ```
 
 5. 在页面中使用 antd
@@ -143,13 +141,13 @@ export default function App({ Component, pageProps }: AppProps) {
 ```tsx
 import { Button } from 'antd';
 
-export default function Home() {
-  return (
-    <div className="App">
-      <Button type="primary">Button</Button>
-    </div>
-  );
-}
+const Home = () => (
+  <div className="App">
+    <Button type="primary">Button</Button>
+  </div>
+);
+
+export default Home;
 ```
 
 更多详细的细节可以参考 [with-nextjs-inline-style](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-inline-style)。

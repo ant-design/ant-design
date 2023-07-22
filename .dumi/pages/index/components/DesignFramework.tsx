@@ -1,9 +1,8 @@
 import { Col, Row, Typography } from 'antd';
 import React, { useContext } from 'react';
-import { css } from '@emotion/react';
+import { createStyles, useTheme } from 'antd-style';
 import { Link, useLocation } from 'dumi';
 import useLocale from '../../../hooks/useLocale';
-import useSiteToken from '../../../hooks/useSiteToken';
 import * as utils from '../../../theme/utils';
 import SiteContext from '../../../theme/slots/SiteContext';
 
@@ -61,11 +60,8 @@ const locales = {
   },
 };
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-
-  return {
-    card: css`
+const useStyle = createStyles(({ token, css }) => ({
+  card: css`
       padding: ${token.paddingSM}px;
       border-radius: ${token.borderRadius * 2}px;
       background: #fff;
@@ -79,7 +75,7 @@ const useStyle = () => {
       }
     `,
 
-    cardMini: css`
+  cardMini: css`
       display: block;
       border-radius: ${token.borderRadius * 2}px;
       padding: ${token.paddingMD}px ${token.paddingLG}px;
@@ -90,13 +86,12 @@ const useStyle = () => {
         height: 48px;
       }
     `,
-  };
-};
+}));
 
 export default function DesignFramework() {
   const [locale] = useLocale(locales);
-  const { token } = useSiteToken();
-  const style = useStyle();
+  const token = useTheme();
+  const { styles } = useStyle();
   const { pathname, search } = useLocation();
   const isZhCN = utils.isZhCN(pathname);
   const { isMobile } = useContext(SiteContext);
@@ -129,7 +124,7 @@ export default function DesignFramework() {
         return (
           <Col key={index} span={colSpan}>
             <Link to={path}>
-              <div css={style.card}>
+              <div className={styles.card}>
                 <img alt={title} src={img} />
 
                 <Typography.Title
@@ -153,7 +148,7 @@ export default function DesignFramework() {
 
         return (
           <Col key={index} span={colSpan}>
-            <a css={style.cardMini} target="_blank" href={url} rel="noreferrer">
+            <a className={styles.cardMini} target="_blank" href={url} rel="noreferrer">
               <img alt={title} src={img} style={{ transform: `scale(${imgScale})` }} />
 
               <Typography.Title

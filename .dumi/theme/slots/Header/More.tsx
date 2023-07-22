@@ -1,12 +1,12 @@
 import { DownOutlined } from '@ant-design/icons';
-import { css } from '@emotion/react';
+import { createStyles } from 'antd-style';
 import type { MenuProps } from 'antd';
 import { Button, Dropdown } from 'antd';
 import { FormattedMessage } from 'dumi';
 import React from 'react';
 import type { SharedProps } from './interface';
 
-const useStyle = (rtl?: boolean) => ({
+const useStyle = createStyles(({ css }) => ({
   smallStyle: css`
     font-size: 12px;
     color: #777;
@@ -14,15 +14,20 @@ const useStyle = (rtl?: boolean) => ({
   `,
   downOutlined: css`
     font-size: 9px;
-    margin: ${rtl ? '-1px 2px 0 0' : '-1px 0 0 2px'};
+    margin: -1px 0 0 2px;
     vertical-align: middle;
   `,
-});
+  downOutlinedRTL: css`
+    font-size: 9px;
+    margin: -1px 2px 0 0;
+    vertical-align: middle;
+  `,
+}));
 
 const Community: React.FC = () => {
-  const { smallStyle } = useStyle();
+  const { styles } = useStyle();
   return (
-    <span css={smallStyle}>
+    <span className={styles.smallStyle}>
       (<FormattedMessage id="app.implementation.community" />)
     </span>
   );
@@ -74,12 +79,12 @@ export const getEcosystemGroup = (): MenuProps['items'] => [
 ];
 
 const More: React.FC<SharedProps> = ({ isRTL }) => {
-  const { downOutlined } = useStyle(isRTL);
+  const { styles } = useStyle();
   return (
     <Dropdown menu={{ items: getEcosystemGroup() }} placement="bottomRight">
       <Button size="small">
         <FormattedMessage id="app.header.menu.more" />
-        <DownOutlined css={downOutlined} />
+        <DownOutlined className={isRTL ? styles.downOutlinedRTL : styles.downOutlined} />
       </Button>
     </Dropdown>
   );

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { css } from '@emotion/react';
+import { css } from 'antd-style';
 
 export interface Author {
   avatar: string;
@@ -99,7 +99,7 @@ export function useSiteData(): [Partial<SiteData>, boolean] {
   return [data, loading];
 }
 
-export const useCarouselStyle = () => ({
+export const getCarouselStyle = () => ({
   carousel: css`
     .slick-dots.slick-dots-bottom {
       bottom: -22px;

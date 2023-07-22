@@ -45,7 +45,7 @@ const GlobalLayout: React.FC = () => {
   const [{ theme = [], direction, isMobile }, setSiteState] = useLayoutState<SiteState>({
     isMobile: false,
     direction: 'ltr',
-    theme: ['light', 'motion-off'],
+    theme: [],
   });
 
   const updateSiteConfig = useCallback(

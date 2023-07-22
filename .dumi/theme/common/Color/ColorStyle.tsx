@@ -1,6 +1,6 @@
 import React from 'react';
 import { Global, css } from '@emotion/react';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { useTheme } from 'antd-style';
 
 const gray = {
   1: '#fff',
@@ -19,7 +19,7 @@ const gray = {
 };
 
 const ColorStyle = () => {
-  const { token } = useSiteToken();
+  const token = useTheme();
 
   const makePalette = (color: string, index: number = 1): string => {
     if (index <= 10) {

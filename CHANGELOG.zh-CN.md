@@ -15,6 +15,19 @@ timeline: true
 
 ---
 
+## 5.7.2
+
+`2023-07-20`
+
+- 💄 修复 Menu 组件悬浮态样式丢失的问题。[#43656](https://github.com/ant-design/ant-design/pull/43656) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Notification 报错 PurePanel 定义未找到的问题。[#43687](https://github.com/ant-design/ant-design/pull/43687) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 修复 Button `onClick` 事件丢失 `event` 定义的问题。[#43666](https://github.com/ant-design/ant-design/pull/43666)
+- 🐞 修复 Input 和 InputNumber 行内对齐问题。[#43548](https://github.com/ant-design/ant-design/pull/43548) [@bbb169](https://github.com/bbb169)
+- 🐞 修复 DatePicker 后缀颜色使用 `token` 不当的问题。[#43646](https://github.com/ant-design/ant-design/pull/43646) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Steps 配置可点击时不能通过键盘操作的问题。[#43644](https://github.com/ant-design/ant-design/pull/43644)
+- TypeScript
+  - 🤖 移除 Button 无用的 `type="ghost"` 属性定义。[#43675](https://github.com/ant-design/ant-design/pull/43675)
+
 ## 5.7.1
 
 `2023-07-19`
