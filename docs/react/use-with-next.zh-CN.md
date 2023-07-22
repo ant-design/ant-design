@@ -31,7 +31,7 @@ $ npm run dev
 修改 `src/app/page.tsx`，引入 antd 的按钮组件。
 
 ```jsx
-'use client';
+'use client'; // 如果是在 Pages Router 中使用，则不需要加这行
 
 import React from 'react';
 import { Button } from 'antd';
@@ -60,8 +60,10 @@ export default Home;
 2. 改写 `pages/_document.tsx`
 
 ```tsx
+import React from 'react';
 import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
-import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
+import type { DocumentContext } from 'next/document';
 
 const MyDocument = () => (
   <Html lang="en">
@@ -78,24 +80,21 @@ MyDocument.getInitialProps = async (ctx: DocumentContext) => {
   const originalRenderPage = ctx.renderPage;
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App) => (props) =>
-        (
-          <StyleProvider cache={cache}>
-            <App {...props} />
-          </StyleProvider>
-        ),
+      enhanceApp: (App) => (props) => (
+        <StyleProvider cache={cache}>
+          <App {...props} />
+        </StyleProvider>
+      ),
     });
 
   const initialProps = await Document.getInitialProps(ctx);
-  // 1.1 extract style which had been used
   const style = extractStyle(cache, true);
   return {
     ...initialProps,
     styles: (
       <>
         {initialProps.styles}
-        {/* 1.2 inject css */}
-        <style dangerouslySetInnerHTML={{ __html: style }}></style>
+        <style dangerouslySetInnerHTML={{ __html: style }} />
       </>
     ),
   };
@@ -123,6 +122,7 @@ export default theme;
 4. 改写 `pages/_app.tsx`
 
 ```tsx
+import React from 'react';
 import { ConfigProvider } from 'antd';
 import type { AppProps } from 'next/app';
 import theme from './themeConfig';
@@ -139,6 +139,7 @@ export default App;
 5. 在页面中使用 antd
 
 ```tsx
+import React from 'react';
 import { Button } from 'antd';
 
 const Home = () => (
@@ -163,9 +164,11 @@ export default Home;
 2. 创建 `lib/AntdRegistry.tsx`
 
 ```tsx
+'use client';
+
+import React from 'react';
 import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
 import { useServerInsertedHTML } from 'next/navigation';
-import React from 'react';
 
 const StyledComponentsRegistry = ({ children }: { children: React.ReactNode }) => {
   const cache = createCache();
@@ -181,10 +184,10 @@ export default StyledComponentsRegistry;
 3. 在 `app/layout.tsx` 中使用
 
 ```tsx
-import { Inter } from 'next/font/google';
 import React from 'react';
+import { Inter } from 'next/font/google';
 import StyledComponentsRegistry from '../lib/AntdRegistry';
-import './globals.css';
+import '@/globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -223,11 +226,11 @@ export default theme;
 5. 在页面中使用
 
 ```tsx
-import { Button, ConfigProvider } from 'antd';
 import React from 'react';
+import { Button, ConfigProvider } from 'antd';
 import theme from './themeConfig';
 
-const HomePage: React.FC = () => (
+const HomePage = () => (
   <ConfigProvider theme={theme}>
     <div className="App">
       <Button type="primary">Button</Button>
@@ -238,6 +241,6 @@ const HomePage: React.FC = () => (
 export default HomePage;
 ```
 
-> 注意: 上述方式没有在页面中使用如：`Select.Option` 、 `Typography.Text` 等子组件，因此可以正常使用。但如果你的页面中有使用类似这样的子组件，目前在 Next.js 中会看到如下警告：`Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.`，目前需等待 Next.js 官方解决。在此之前，如果你的页面中使用了上述子组件，可在页面组件第一行加上 `"use client";` 来避免警告。更多细节可以参考示例：[with-sub-components](https://github.com/ant-design/ant-design-examples/blob/main/examples/with-nextjs-app-router-inline-style/src/app/with-sub-components/page.tsx)。
+> 注意: 上述方式没有在页面中使用类似 `<Select.Option />`、`<Typography.Text />` 等子组件，因此可以正常使用。但如果你的页面中有使用类似这样的子组件，目前在 Next.js 中会看到如下警告：`Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.`，目前需等待 Next.js 官方解决。在此之前，如果你的页面中使用了上述子组件，可在页面组件第一行加上 `"use client"` 来避免警告。更多细节可以参考示例：[with-sub-components](https://github.com/ant-design/ant-design-examples/blob/main/examples/with-nextjs-app-router-inline-style/src/app/with-sub-components/page.tsx)。
 
 更多详细的细节可以参考 [with-nextjs-app-router-inline-style](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-app-router-inline-style)。
