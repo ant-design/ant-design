@@ -339,9 +339,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   const childProps = child.props;
   const childCls =
     !childProps.className || typeof childProps.className === 'string'
-      ? classNames(childProps.className, {
-          [openClassName || `${prefixCls}-open`]: true,
-        })
+      ? classNames(childProps.className, openClassName || `${prefixCls}-open`)
       : childProps.className;
 
   // Style
@@ -349,8 +347,11 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
 
   // Color
   const colorInfo = parseColor(prefixCls, color);
-  const formattedOverlayInnerStyle = { ...overlayInnerStyle, ...colorInfo.overlayStyle };
   const arrowContentStyle = colorInfo.arrowStyle;
+  const formattedOverlayInnerStyle: React.CSSProperties = {
+    ...overlayInnerStyle,
+    ...colorInfo.overlayStyle,
+  };
 
   const customOverlayClassName = classNames(
     overlayClassName,
