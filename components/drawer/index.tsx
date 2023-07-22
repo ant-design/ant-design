@@ -168,13 +168,12 @@ const Drawer: React.FC<DrawerProps> & {
 interface PurePanelInterface {
   prefixCls?: string;
   style?: React.CSSProperties;
-  children?: React.ReactNode;
   className?: string;
   placement?: Placement;
 }
 
 /** @private Internal Component. Do not use in your production. */
-const PurePanel: React.FC<PurePanelInterface> = (props) => {
+const PurePanel: React.FC<Omit<DrawerPanelProps, 'prefixCls'> & PurePanelInterface> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     style,
