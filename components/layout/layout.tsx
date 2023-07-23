@@ -45,7 +45,7 @@ function generator({ suffixCls, tagName, displayName }: GeneratorProps) {
   };
 }
 
-const Basic = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) => {
+const Basic = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     suffixCls,
@@ -70,7 +70,7 @@ const Basic = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) 
   );
 });
 
-const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) => {
+const BasicLayout = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, ref) => {
   const { direction } = React.useContext(ConfigContext);
 
   const [siders, setSiders] = React.useState<string[]>([]);
