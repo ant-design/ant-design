@@ -341,7 +341,7 @@ exports[`renders components/progress/demo/circle-micro.tsx extend context correc
 Array [
   <div
     aria-valuenow="60"
-    class="ant-progress ant-progress-status-normal ant-progress-inline-circle ant-progress-circle ant-progress-show-info"
+    class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-inline-circle ant-progress-show-info"
     role="progressbar"
   >
     <div
@@ -2080,7 +2080,7 @@ Array [
     >
       <div
         aria-valuenow="50"
-        class="ant-progress ant-progress-status-normal ant-progress-inline-circle ant-progress-circle ant-progress-show-info"
+        class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-inline-circle ant-progress-show-info"
         role="progressbar"
       >
         <div
