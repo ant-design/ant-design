@@ -6,7 +6,7 @@ import useStyle from './style';
 
 export interface GeneratorProps {
   suffixCls?: string;
-  tagName: 'header' | 'footer' | 'main' | 'section';
+  tagName: 'header' | 'footer' | 'main' | 'div';
   displayName: string;
 }
 export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -30,7 +30,7 @@ export const LayoutContext = React.createContext<LayoutContextProps>({
 });
 
 interface BasicPropsWithTagName extends BasicProps {
-  tagName: 'header' | 'footer' | 'main' | 'section';
+  tagName: 'header' | 'footer' | 'main' | 'div';
 }
 
 function generator({ suffixCls, tagName, displayName }: GeneratorProps) {
@@ -133,7 +133,7 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
 });
 
 const Layout = generator({
-  tagName: 'section',
+  tagName: 'div',
   displayName: 'Layout',
 })(BasicLayout);
 
