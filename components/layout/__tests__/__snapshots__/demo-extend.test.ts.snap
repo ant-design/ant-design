@@ -9,7 +9,7 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
     class="ant-space-item"
     style="margin-bottom: 0px;"
   >
-    <section
+    <div
       class="ant-layout"
     >
       <header
@@ -30,13 +30,13 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
       >
         Footer
       </footer>
-    </section>
+    </div>
   </div>
   <div
     class="ant-space-item"
     style="margin-bottom: 0px;"
   >
-    <section
+    <div
       class="ant-layout"
     >
       <header
@@ -45,7 +45,7 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
       >
         Header
       </header>
-      <section
+      <div
         class="ant-layout ant-layout-has-sider"
       >
         <aside
@@ -64,20 +64,20 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
         >
           Content
         </main>
-      </section>
+      </div>
       <footer
         class="ant-layout-footer"
         style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(125, 188, 234);"
       >
         Footer
       </footer>
-    </section>
+    </div>
   </div>
   <div
     class="ant-space-item"
     style="margin-bottom: 0px;"
   >
-    <section
+    <div
       class="ant-layout"
     >
       <header
@@ -86,7 +86,7 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
       >
         Header
       </header>
-      <section
+      <div
         class="ant-layout ant-layout-has-sider"
       >
         <main
@@ -105,19 +105,19 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
             Sider
           </div>
         </aside>
-      </section>
+      </div>
       <footer
         class="ant-layout-footer"
         style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(125, 188, 234);"
       >
         Footer
       </footer>
-    </section>
+    </div>
   </div>
   <div
     class="ant-space-item"
   >
-    <section
+    <div
       class="ant-layout ant-layout-has-sider"
     >
       <aside
@@ -130,7 +130,7 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
           Sider
         </div>
       </aside>
-      <section
+      <div
         class="ant-layout"
       >
         <header
@@ -151,14 +151,14 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
         >
           Footer
         </footer>
-      </section>
-    </section>
+      </div>
+    </div>
   </div>
 </div>
 `;
 
 exports[`renders components/layout/demo/custom-trigger.tsx extend context correctly 1`] = `
-<section
+<div
   class="ant-layout ant-layout-has-sider"
 >
   <aside
@@ -383,7 +383,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
       </div>
     </div>
   </aside>
-  <section
+  <div
     class="ant-layout"
   >
     <header
@@ -426,12 +426,12 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
     >
       Content
     </main>
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] = `
-<section
+<div
   class="ant-layout"
 >
   <header
@@ -699,11 +699,11 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
   >
     Ant Design ©2023 Created by Ant UED
   </footer>
-</section>
+</div>
 `;
 
 exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly 1`] = `
-<section
+<div
   class="ant-layout ant-layout-has-sider"
 >
   <aside
@@ -1258,7 +1258,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
       </div>
     </div>
   </aside>
-  <section
+  <div
     class="ant-layout site-layout"
     style="margin-left: 200px;"
   >
@@ -1484,12 +1484,12 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
     >
       Ant Design ©2023 Created by Ant UED
     </footer>
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`renders components/layout/demo/responsive.tsx extend context correctly 1`] = `
-<section
+<div
   class="ant-layout ant-layout-has-sider"
 >
   <aside
@@ -1819,7 +1819,7 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
       </span>
     </span>
   </aside>
-  <section
+  <div
     class="ant-layout"
   >
     <header
@@ -1842,12 +1842,12 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
     >
       Ant Design ©2023 Created by Ant UED
     </footer>
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = `
-<section
+<div
   class="ant-layout ant-layout-has-sider"
   style="min-height: 100vh;"
 >
@@ -2442,7 +2442,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
       </span>
     </div>
   </aside>
-  <section
+  <div
     class="ant-layout"
   >
     <header
@@ -2492,12 +2492,12 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
     >
       Ant Design ©2023 Created by Ant UED
     </footer>
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
-<section
+<div
   class="ant-layout layout"
 >
   <header
@@ -3318,11 +3318,11 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
   >
     Ant Design ©2023 Created by Ant UED
   </footer>
-</section>
+</div>
 `;
 
 exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`] = `
-<section
+<div
   class="ant-layout"
 >
   <header
@@ -3578,7 +3578,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
         </li>
       </ol>
     </nav>
-    <section
+    <div
       class="ant-layout ant-layout-has-sider"
       style="padding: 24px 0px; background: rgb(255, 255, 255);"
     >
@@ -4466,7 +4466,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
       >
         Content
       </main>
-    </section>
+    </div>
   </main>
   <footer
     class="ant-layout-footer"
@@ -4474,11 +4474,11 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
   >
     Ant Design ©2023 Created by Ant UED
   </footer>
-</section>
+</div>
 `;
 
 exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 1`] = `
-<section
+<div
   class="ant-layout"
 >
   <header
@@ -4690,7 +4690,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
       </div>
     </div>
   </header>
-  <section
+  <div
     class="ant-layout ant-layout-has-sider"
   >
     <aside
@@ -5571,7 +5571,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
         </div>
       </div>
     </aside>
-    <section
+    <div
       class="ant-layout"
       style="padding: 0px 24px 24px;"
     >
@@ -5621,7 +5621,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
       >
         Content
       </main>
-    </section>
-  </section>
-</section>
+    </div>
+  </div>
+</div>
 `;
