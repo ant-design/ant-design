@@ -6,6 +6,7 @@ import type { BaseSelectRef, SelectProps as RcSelectProps } from 'rc-select';
 import RcSelect, { OptGroup, Option } from 'rc-select';
 import type { OptionProps } from 'rc-select/lib/Option';
 import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
+import type { BuiltinPlacements } from 'rc-menu/lib/interface';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import genPurePanel from '../_util/PurePanel';
@@ -154,7 +155,7 @@ const InternalSelect = <
   } else if (mode === 'combobox') {
     mergedNotFound = null;
   } else {
-    mergedNotFound = renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />;
+    mergedNotFound = renderEmpty?.('Select') || <DefaultRenderEmpty componentName='Select' />;
   }
 
   // ===================== Icons =====================
@@ -211,7 +212,10 @@ const InternalSelect = <
     return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
   }, [placement, direction]);
 
-  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements, popupOverflow);
+  const mergedBuiltinPlacements: BuiltinPlacements = useBuiltinPlacements(
+    builtinPlacements,
+    popupOverflow,
+  );
 
   // ====================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
