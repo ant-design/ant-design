@@ -165,17 +165,10 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
-  const listClassNames = classNames(`${prefixCls}-list`, {
-    [`${prefixCls}-list-${listType}`]: true,
-  });
+  const listClassNames = classNames(`${prefixCls}-list`, `${prefixCls}-list-${listType}`);
 
   // >>> Motion config
-  const motionKeyList = [
-    ...items.map((file) => ({
-      key: file.uid,
-      file,
-    })),
-  ];
+  const motionKeyList = [...items.map((file) => ({ key: file.uid, file }))];
 
   const animationDirection =
     listType === 'picture-card' || listType === 'picture-circle' ? 'animate-inline' : 'animate';
