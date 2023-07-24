@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 5.7.3
+
+`2023-07-24`
+
+- 🐞 修复 Tour 当 `target` 为 `null` 时弹出位置不居中的问题。[#43694](https://github.com/ant-design/ant-design/pull/43694) [@linxianxi](https://github.com/linxianxi)
+- 🐞 修复 Button 丢失部分 `React.ButtonHTMLAttributes` 定义的问题。[#43716](https://github.com/ant-design/ant-design/pull/43716)
+- 💄 Watermark 将固定的颜色替换成 Design Token 以适应暗黑主题。[#43754](https://github.com/ant-design/ant-design/pull/43754)
+- TypeScript
+  - 🤖 Button `ref` 类型优化。[#43703](https://github.com/ant-design/ant-design/pull/43703) [@Negentropy247](https://github.com/Negentropy247)
+
 ## 5.7.2
 
 `2023-07-20`
