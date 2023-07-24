@@ -94,7 +94,7 @@ const DocLayout: React.FC = () => {
     <>
       <Helmet encodeSpecialCharacters={false}>
         <html
-          lang={lang}
+          lang={lang === 'cn' ? 'zh-CN' : lang}
           data-direction={direction}
           className={classNames({ rtl: direction === 'rtl' })}
         />

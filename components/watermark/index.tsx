@@ -2,6 +2,7 @@ import MutateObserver from '@rc-component/mutate-observer';
 import classNames from 'classnames';
 import React, { useEffect, useRef } from 'react';
 import { getPixelRatio, getStyleStr, reRendering, rotateWatermark } from './utils';
+import theme from '../theme';
 
 /**
  * Base size of the canvas, 1 for parallel layout and 2 for alternate layout
@@ -52,10 +53,10 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     offset,
     children,
   } = props;
-
+  const { token } = theme.useToken();
   const {
-    color = 'rgba(0,0,0,.15)',
-    fontSize = 16,
+    color = token.colorFill,
+    fontSize = token.fontSizeLG,
     fontWeight = 'normal',
     fontStyle = 'normal',
     fontFamily = 'sans-serif',
