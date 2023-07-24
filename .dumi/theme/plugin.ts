@@ -53,7 +53,7 @@ const RoutesPlugin = (api: IApi) => {
   const ssrCssFileName = `ssr-${Date.now()}.css`;
 
   const writeCSSFile = (key: string, hashKey: string, cssString: string) => {
-    const fileName = `emotion-${key}.${getHash(hashKey)}.css`;
+    const fileName = `style-${key}.${getHash(hashKey)}.css`;
 
     const filePath = path.join(api.paths.absOutputPath, fileName);
 
@@ -65,8 +65,13 @@ const RoutesPlugin = (api: IApi) => {
     return fileName;
   };
 
-  const addLinkStyle = (html: string, cssFile: string) => {
+  const addLinkStyle = (html: string, cssFile: string, prepend = false) => {
     const prefix = api.userConfig.publicPath || api.config.publicPath;
+
+    if (prepend) {
+      return html.replace('<head>', `<head><link rel="stylesheet" href="${prefix + cssFile}">`);
+    }
+
     return html.replace('</head>', `<link rel="stylesheet" href="${prefix + cssFile}"></head>`);
   };
 
@@ -132,6 +137,20 @@ const RoutesPlugin = (api: IApi) => {
           file.content = addLinkStyle(file.content, cssFile);
         });
 
+        // Insert antd style to head
+        const matchRegex = /<style data-type="antd-cssinjs">(.*)<\/style>/;
+        const matchList = file.content.match(matchRegex) || [];
+
+        let antdStyle = '';
+
+        matchList.forEach((text) => {
+          file.content = file.content.replace(text, '');
+          antdStyle = text.replace(matchRegex, '$1');
+        });
+
+        const cssFile = writeCSSFile('antd', antdStyle, antdStyle);
+        file.content = addLinkStyle(file.content, cssFile, true);
+
         return file;
       }),
   );
@@ -144,9 +163,11 @@ const RoutesPlugin = (api: IApi) => {
     return memo;
   });
 
+  // zombieJ: Unique CSS file is large, we move to build css for each page.
+  // See the `modifyExportHTMLFiles` above.
+
   // generate ssr css file
   // api.onBuildHtmlComplete(() => {
-  //   // FIXME: This should not be empty @peachScript
   //   const styleCache = (global as any)?.styleCache;
   //   const styleText = styleCache ? extractStyle(styleCache) : '';
   //   const styleTextWithoutStyleTag = styleText

@@ -323,5 +323,11 @@
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": "rome format --write",
     "*.{json,less,md}": "prettier --ignore-unknown --write"
+  },
+  "overrides": {
+    "umi": "4.0.0-canary.20230724.1"
+  },
+  "resolutions": {
+    "umi": "4.0.0-canary.20230724.1"
   }
 }

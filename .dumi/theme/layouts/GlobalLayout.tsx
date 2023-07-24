@@ -113,7 +113,7 @@ const GlobalLayout: React.FC = () => {
 
   useServerInsertedHTML(() => {
     const styleText = extractStyle(styleCache, true);
-    return <style data-type="antd-cssinjs">{styleText.length}</style>
+    return <style data-type="antd-cssinjs" dangerouslySetInnerHTML={{ __html: styleText }} />;
   });
 
   return (
