@@ -19,10 +19,11 @@ timeline: true
 
 `2023-07-24`
 
-- 🐞 Fix placement should be center when `target` is `null` [#43694](https://github.com/ant-design/ant-design/pull/43694) [@linxianxi](https://github.com/linxianxi)
-- 🐞 Fix Button missing part React.`ButtonHTMLAttributes` issue. [#43716](https://github.com/ant-design/ant-design/pull/43716)
+- 🐞 修复 Tour 当 `target` 为 `null` 时，位置不居中的问题。[#43694](https://github.com/ant-design/ant-design/pull/43694) [@linxianxi](https://github.com/linxianxi)
+- 💄 Watermark 将写死的颜色替换成 token 以适应暗黑主题。[#43754](https://github.com/ant-design/ant-design/pull/43754)
+- 🐞 修复 Button 丢失部分 `React.ButtonHTMLAttributes` 定义的问题。[#43716](https://github.com/ant-design/ant-design/pull/43716)
 - TypeScript
-  - 🤖 Button `ref` type optimization. [#43703](https://github.com/ant-design/ant-design/pull/43703) [@Negentropy247](https://github.com/Negentropy247)
+  - 🤖 Button `ref` 类型优化。[#43703](https://github.com/ant-design/ant-design/pull/43703) [@Negentropy247](https://github.com/Negentropy247)
 
 ## 5.7.2
 
