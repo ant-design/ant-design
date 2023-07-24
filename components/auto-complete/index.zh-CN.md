@@ -34,6 +34,7 @@ demo:
 <code src="./demo/uncertain-category.tsx">查询模式 - 不确定类目</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/borderless.tsx">无边框</code>
+<code src="./demo/allowClear.tsx">自定义清除按钮</code>
 <code src="./demo/form-debug.tsx" debug>在 Form 中 Debug</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
@@ -41,7 +42,7 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| allowClear | 支持清除 | boolean | false |  |
+| allowClear | 支持清除，5.8.0: `{ clearIcon?: ReactNode }` | boolean \| { clearIcon?: ReactNode } | false |  |
 | autoFocus | 自动获取焦点 | boolean | false |  |
 | backfill | 使用键盘选择选项的时候把选中项回填到输入框中 | boolean | false |  |
 | bordered | 是否有边框 | boolean | true |  |
