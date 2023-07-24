@@ -1,7 +1,7 @@
 import { createStyles, css } from 'antd-style';
 import { ConfigProvider } from 'antd';
 import { useLocale as useDumiLocale } from 'dumi';
-import React from 'react';
+import React, { Suspense } from 'react';
 import useLocale from '../../hooks/useLocale';
 import Banner from './components/Banner';
 import BannerRecommends from './components/BannerRecommends';
@@ -37,16 +37,15 @@ const locales = {
 
 const Homepage: React.FC = () => {
   const [locale] = useLocale(locales);
-  const { id: localeId } = useDumiLocale();
-  const localeStr = localeId === 'zh-CN' ? 'cn' : 'en';
   const { styles } = useStyle();
-  const [siteData] = useSiteData();
 
   return (
     <ConfigProvider theme={{ algorithm: undefined }}>
       <section>
         <Banner>
-          <BannerRecommends extras={siteData?.extras?.[localeStr]} icons={siteData?.icons} />
+          <Suspense fallback="loading">
+            <BannerRecommends />
+          </Suspense>
         </Banner>
         <div>
           <Theme />

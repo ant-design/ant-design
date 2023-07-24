@@ -4,7 +4,8 @@ import { createStyles, css, useTheme } from 'antd-style';
 import classNames from 'classnames';
 import type { Extra, Icon } from './util';
 import SiteContext from '../../../theme/slots/SiteContext';
-import { getCarouselStyle } from './util';
+import { getCarouselStyle, useSiteData } from './util';
+import useLocale from '../../../hooks/useLocale';
 
 const useStyle = createStyles(({ token }) => {
   const { carousel } = getCarouselStyle();
@@ -87,9 +88,13 @@ export interface BannerRecommendsProps {
   icons?: Icon[];
 }
 
-export default function BannerRecommends({ extras = [], icons = [] }: BannerRecommendsProps) {
+export default function BannerRecommends() {
   const { styles } = useStyle();
+  const [, lang] = useLocale();
   const { isMobile } = React.useContext(SiteContext);
+  const data = useSiteData();
+  const extras = data?.extras?.[lang];
+  const icons = data?.icons;
   const first3 = extras.length === 0 ? Array(3).fill(null) : extras.slice(0, 3);
 
   return (
