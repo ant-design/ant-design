@@ -6,6 +6,7 @@ import type { Extra, Icon } from './util';
 import SiteContext from '../../../theme/slots/SiteContext';
 import { getCarouselStyle, useSiteData } from './util';
 import useLocale from '../../../hooks/useLocale';
+import { FC, useContext } from 'react';
 
 const useStyle = createStyles(({ token }) => {
   const { carousel } = getCarouselStyle();
@@ -83,10 +84,28 @@ const RecommendItem = ({ extra, index, icons, className }: RecommendItemProps) =
   );
 };
 
-export interface BannerRecommendsProps {
-  extras?: Extra[];
-  icons?: Icon[];
-}
+export const BannerRecommendsFallback: FC = () => {
+  const { isMobile } = useContext(SiteContext);
+  const { styles } = useStyle();
+
+  const list = Array(3).fill(1);
+
+  return isMobile ? (
+    <Carousel className={styles.carousel}>
+      {list.map((extra, index) => (
+        <div key={index}>
+          <Skeleton active style={{ padding: '0 24px' }} />
+        </div>
+      ))}
+    </Carousel>
+  ) : (
+    <div className={styles.container}>
+      {list.map((_, index) => (
+        <Skeleton key={index} active />
+      ))}
+    </div>
+  );
+};
 
 export default function BannerRecommends() {
   const { styles } = useStyle();

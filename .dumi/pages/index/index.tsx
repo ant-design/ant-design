@@ -3,7 +3,7 @@ import { ConfigProvider } from 'antd';
 import React, { Suspense } from 'react';
 import useLocale from '../../hooks/useLocale';
 import Banner from './components/Banner';
-import BannerRecommends from './components/BannerRecommends';
+import BannerRecommends, { BannerRecommendsFallback } from './components/BannerRecommends';
 import ComponentsList from './components/ComponentsList';
 import DesignFramework from './components/DesignFramework';
 import Group from './components/Group';
@@ -41,7 +41,7 @@ const Homepage: React.FC = () => {
     <ConfigProvider theme={{ algorithm: undefined }}>
       <section>
         <Banner>
-          <Suspense fallback="loading">
+          <Suspense fallback={<BannerRecommendsFallback />}>
             <BannerRecommends />
           </Suspense>
         </Banner>
