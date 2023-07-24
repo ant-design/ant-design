@@ -715,4 +715,17 @@ describe('Cascader', () => {
     fireEvent.click(container.querySelector('.ant-cascader-checkbox')!);
     expect(container.querySelectorAll('.ant-cascader-checkbox-checked')).toHaveLength(3);
   });
+
+  it('deprecate showArrow', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<Cascader showArrow />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Cascader] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+    );
+    expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
+
+    errSpy.mockRestore();
+  });
 });

@@ -1,5 +1,6 @@
-import React from 'react';
 import { Badge, Descriptions, Table } from 'antd';
+import type { DescriptionsProps } from 'antd/es/descriptions';
+import React from 'react';
 
 const dataSource = [
   {
@@ -34,42 +35,86 @@ const columns = [
   },
 ];
 
-const App: React.FC = () => (
-  <Descriptions title="User Info" column={2}>
-    <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
-    <Descriptions.Item label={<div style={{ display: 'flex' }}>Billing Mode</div>}>
-      Prepaid
-    </Descriptions.Item>
-    <Descriptions.Item label="Automatic Renewal">YES</Descriptions.Item>
-    <Descriptions.Item label="Order time">2018-04-24 18:00:00</Descriptions.Item>
-    <Descriptions.Item label="Usage Time" span={2}>
-      2019-04-24 18:00:00
-    </Descriptions.Item>
-    <Descriptions.Item label="Status" span={3}>
-      <Badge status="processing" text="Running" />
-    </Descriptions.Item>
-    <Descriptions.Item label="Negotiated Amount">$80.00</Descriptions.Item>
-    <Descriptions.Item label="Discount">$20.00</Descriptions.Item>
-    <Descriptions.Item label="Official Receipts">$60.00</Descriptions.Item>
-    <Descriptions.Item label="Config Info">
-      Data disk type: MongoDB
-      <br />
-      Database version: 3.4
-      <br />
-      Package: dds.mongo.mid
-      <br />
-      Storage space: 10 GB
-      <br />
-      Replication factor: 3
-      <br />
-      Region: East China 1
-      <br />
-    </Descriptions.Item>
-    <Descriptions.Item label="Official Receipts">$60.00</Descriptions.Item>
-    <Descriptions.Item label="Config Info">
-      <Table size="small" pagination={false} dataSource={dataSource} columns={columns} />
-    </Descriptions.Item>
-  </Descriptions>
-);
+const items: DescriptionsProps['items'] = [
+  {
+    key: '1',
+    label: 'Product',
+    children: 'Cloud Database',
+  },
+  {
+    key: '2',
+    label: <div style={{ display: 'flex' }}>Billing Mode</div>,
+    children: 'Prepaid',
+  },
+  {
+    key: '3',
+    label: 'Automatic Renewal',
+    children: 'YES',
+  },
+  {
+    key: '4',
+    label: 'Order time',
+    children: '2018-04-24 18:00:00',
+  },
+  {
+    key: '5',
+    label: 'Usage Time',
+    span: 2,
+    children: '2019-04-24 18:00:00',
+  },
+  {
+    key: '6',
+    label: 'Status',
+    span: 3,
+    children: <Badge status="processing" text="Running" />,
+  },
+  {
+    key: '7',
+    label: 'Negotiated Amount',
+    children: '$80.00',
+  },
+  {
+    key: '8',
+    label: 'Discount',
+    children: '$20.00',
+  },
+  {
+    key: '9',
+    label: 'Official Receipts',
+    children: '$60.00',
+  },
+  {
+    key: '10',
+    label: 'Config Info',
+    children: (
+      <>
+        Data disk type: MongoDB
+        <br />
+        Database version: 3.4
+        <br />
+        Package: dds.mongo.mid
+        <br />
+        Storage space: 10 GB
+        <br />
+        Replication factor: 3
+        <br />
+        Region: East China 1
+        <br />
+      </>
+    ),
+  },
+  {
+    key: '11',
+    label: 'Official Receipts',
+    children: '$60.00',
+  },
+  {
+    key: '12',
+    label: 'Config Info',
+    children: <Table size="small" pagination={false} dataSource={dataSource} columns={columns} />,
+  },
+];
+
+const App: React.FC = () => <Descriptions title="User Info" column={2} items={items} />;
 
 export default App;

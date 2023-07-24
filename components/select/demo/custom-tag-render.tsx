@@ -26,7 +26,6 @@ const tagRender = (props: CustomTagProps) => {
 const App: React.FC = () => (
   <Select
     mode="multiple"
-    showArrow
     tagRender={tagRender}
     defaultValue={['gold', 'cyan']}
     style={{ width: '100%' }}

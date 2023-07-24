@@ -47,7 +47,6 @@ export interface TreeSelectProps<
     RcTreeSelectProps<ValueType, OptionType>,
     | 'showTreeIcon'
     | 'treeMotion'
-    | 'inputIcon'
     | 'mode'
     | 'getInputElement'
     | 'backfill'
@@ -70,6 +69,11 @@ export interface TreeSelectProps<
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
+  /**
+   * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
+   *   default behavior, you can hide it by setting `suffixIcon` to null.
+   */
+  showArrow?: boolean;
 }
 
 const InternalTreeSelect = <
@@ -98,7 +102,6 @@ const InternalTreeSelect = <
     transitionName,
     choiceTransitionName = '',
     status: customStatus,
-    showArrow,
     treeExpandAction,
     builtinPlacements,
     dropdownMatchSelectWidth,
@@ -135,6 +138,12 @@ const InternalTreeSelect = <
       'Select',
       '`dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
     );
+
+    warning(
+      !('showArrow' in props),
+      'TreeSelect',
+      '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+    );
   }
 
   const rootPrefixCls = getPrefixCls();
@@ -157,7 +166,7 @@ const InternalTreeSelect = <
   );
 
   const isMultiple = !!(treeCheckable || multiple);
-  const mergedShowArrow = useShowArrow(showArrow);
+  const showSuffixIcon = useShowArrow(props.suffixIcon, props.showArrow);
 
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
@@ -175,7 +184,7 @@ const InternalTreeSelect = <
   const { suffixIcon, removeIcon, clearIcon } = getIcons({
     ...props,
     multiple: isMultiple,
-    showArrow: mergedShowArrow,
+    showSuffixIcon,
     hasFeedback,
     feedbackIcon,
     prefixCls,
@@ -255,7 +264,7 @@ const InternalTreeSelect = <
         treeCheckable ? <span className={`${prefixCls}-tree-checkbox-inner`} /> : treeCheckable
       }
       treeLine={!!treeLine}
-      inputIcon={suffixIcon}
+      suffixIcon={suffixIcon}
       multiple={isMultiple}
       placement={memoizedPlacement}
       removeIcon={removeIcon}
@@ -272,7 +281,6 @@ const InternalTreeSelect = <
         getTransitionDirection(placement),
         transitionName,
       )}
-      showArrow={hasFeedback || mergedShowArrow}
       treeExpandAction={treeExpandAction}
     />
   );
