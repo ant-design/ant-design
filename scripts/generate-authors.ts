@@ -30,7 +30,7 @@ async function execute() {
   logs = _.sortBy(_.unionBy(logs, 'author_email'), 'author_name');
   fs.writeFileSync(
     path.join(cwd, 'AUTHORS.txt'),
-    Array.from(new Set(logs.map((item) => `${item.author_name}`))).join('\n'),
+    Array.from(new Set(logs.map((item) => item.author_name))).join('\n'),
   );
 }
 
