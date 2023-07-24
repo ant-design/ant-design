@@ -26,7 +26,10 @@ const useStyle = createStyles(({ token, css }) => {
       flex-wrap: wrap;
       margin-top: 120px !important;
       clear: both;
-      height: 24px;
+
+      li {
+        height: 24px;
+      }
 
       li,
       ${antCls}-avatar + ${antCls}-avatar {
@@ -271,7 +274,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
             </Typography.Paragraph>
           ) : null}
           {!meta.frontmatter.__autoDescription && meta.frontmatter.description}
-          {children}
+          <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
           {(meta.frontmatter?.zhihu_url ||
             meta.frontmatter?.yuque_url ||
             meta.frontmatter?.juejin_url) && (
