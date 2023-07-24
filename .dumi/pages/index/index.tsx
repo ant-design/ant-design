@@ -1,6 +1,5 @@
 import { createStyles, css } from 'antd-style';
 import { ConfigProvider } from 'antd';
-import { useLocale as useDumiLocale } from 'dumi';
 import React, { Suspense } from 'react';
 import useLocale from '../../hooks/useLocale';
 import Banner from './components/Banner';
@@ -9,7 +8,6 @@ import ComponentsList from './components/ComponentsList';
 import DesignFramework from './components/DesignFramework';
 import Group from './components/Group';
 import Theme from './components/Theme';
-import { useSiteData } from './components/util';
 
 const useStyle = createStyles(() => ({
   image: css`

@@ -1,7 +1,5 @@
-import * as React from 'react';
 import { css } from 'antd-style';
 import fetch from 'cross-fetch';
-import axios from 'axios';
 import use from '../../../hooks/use';
 
 export interface Author {
