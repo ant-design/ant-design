@@ -20,7 +20,7 @@ timeline: true
 
 `2023-07-24`
 
-- 🐞 Fix placement should be center when Tour `target` is `null` [#43694](https://github.com/ant-design/ant-design/pull/43694) [@linxianxi](https://github.com/linxianxi)
+- 🐞 Fix placement should be center when Tour `target` is `null`. [#43694](https://github.com/ant-design/ant-design/pull/43694) [@linxianxi](https://github.com/linxianxi)
 - 💄 Watermark use theme token for support dark theme. [#43754](https://github.com/ant-design/ant-design/pull/43754)
 - 🐞 Fix Button missing part React.`ButtonHTMLAttributes` issue. [#43716](https://github.com/ant-design/ant-design/pull/43716)
 - TypeScript
