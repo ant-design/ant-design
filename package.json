@@ -211,6 +211,7 @@
     "cheerio": "1.0.0-rc.12",
     "circular-dependency-plugin": "^5.2.2",
     "cross-env": "^7.0.0",
+    "cross-fetch": "^4.0.0",
     "crypto": "^1.0.1",
     "dekko": "^0.2.1",
     "dumi": "^2.1.17",
