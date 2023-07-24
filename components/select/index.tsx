@@ -10,7 +10,7 @@ import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import genPurePanel from '../_util/PurePanel';
 import type { SelectCommonPlacement } from '../_util/motion';
-import { getTransitionDirection, getTransitionName } from '../_util/motion';
+import { getTransitionName } from '../_util/motion';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';
@@ -238,11 +238,7 @@ const InternalSelect = <
       style={{ ...select?.style, ...style }}
       dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
       builtinPlacements={mergedBuiltinPlacements}
-      transitionName={getTransitionName(
-        rootPrefixCls,
-        getTransitionDirection(placement),
-        props.transitionName,
-      )}
+      transitionName={getTransitionName(rootPrefixCls, 'slide-up', props.transitionName)}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       mode={mode}
