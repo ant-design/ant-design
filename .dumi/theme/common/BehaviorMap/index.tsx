@@ -11,6 +11,7 @@ const useStyle = createStyles(({ token, css }) => ({
     width: 100%;
     > ${token.antCls}-skeleton {
       width: 100%;
+      border-radius: 8px;
     }
   `,
   placeholder: css`
@@ -25,7 +26,7 @@ const BehaviorMapFallback = () => {
   return (
     <div className={styles.fallback}>
       <Skeleton.Node active style={{ height: 600, width: '100%' }}>
-        <span className={styles.placeholder}>正在载入行为模式图...</span>
+        <span className={styles.placeholder}>正在载入行为模式地图...</span>
       </Skeleton.Node>
     </div>
   );
