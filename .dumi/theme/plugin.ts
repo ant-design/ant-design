@@ -145,16 +145,16 @@ const RoutesPlugin = (api: IApi) => {
   });
 
   // generate ssr css file
-  api.onBuildHtmlComplete(() => {
-    // FIXME: This should not be empty @peachScript
-    const styleCache = (global as any)?.styleCache;
-    const styleText = styleCache ? extractStyle(styleCache) : '';
-    const styleTextWithoutStyleTag = styleText
-      .replace(/<style\s[^>]*>/g, '')
-      .replace(/<\/style>/g, '');
+  // api.onBuildHtmlComplete(() => {
+  //   // FIXME: This should not be empty @peachScript
+  //   const styleCache = (global as any)?.styleCache;
+  //   const styleText = styleCache ? extractStyle(styleCache) : '';
+  //   const styleTextWithoutStyleTag = styleText
+  //     .replace(/<style\s[^>]*>/g, '')
+  //     .replace(/<\/style>/g, '');
 
-    fs.writeFileSync(`./_site/${ssrCssFileName}`, styleTextWithoutStyleTag, 'utf8');
-  });
+  //   fs.writeFileSync(`./_site/${ssrCssFileName}`, styleTextWithoutStyleTag, 'utf8');
+  // });
 };
 
 export default RoutesPlugin;

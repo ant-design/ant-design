@@ -109,7 +109,7 @@ const GlobalLayout: React.FC = () => {
 
   return (
     <StyleProvider
-      cache={styleCache}
+      // cache={styleCache}
       linters={[logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter]}
     >
       <SiteContext.Provider value={siteContextValue}>
