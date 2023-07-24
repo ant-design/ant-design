@@ -26,6 +26,7 @@ const useStyle = createStyles(({ token, css }) => {
       flex-wrap: wrap;
       margin-top: 120px !important;
       clear: both;
+      height: 24px;
 
       li,
       ${antCls}-avatar + ${antCls}-avatar {
