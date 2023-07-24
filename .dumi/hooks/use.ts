@@ -1,7 +1,8 @@
 export default function use(promise: any) {
   if (promise.status === 'fulfilled') {
     return promise.value;
-  } else if (promise.status === 'rejected') {
+  }
+  if (promise.status === 'rejected') {
     throw promise.reason;
   } else if (promise.status === 'pending') {
     throw promise;
