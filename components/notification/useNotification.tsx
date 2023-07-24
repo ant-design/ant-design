@@ -11,7 +11,7 @@ import type {
   NotificationInstance,
   NotificationPlacement,
 } from './interface';
-import { getCloseIcon, PureContent } from './PurePanel';
+import { NotifCloseIcon, PureContent } from './PurePanel';
 import useStyle from './style';
 import { getMotion, getPlacementStyle } from './util';
 
@@ -65,7 +65,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     className: getClassName,
     motion: getNotificationMotion,
     closable: true,
-    closeIcon: getCloseIcon(prefixCls),
+    closeIcon: <NotifCloseIcon prefixCls={prefixCls} />,
     duration: DEFAULT_DURATION,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
@@ -123,8 +123,6 @@ export function useInternalNotification(
         ...restConfig
       } = config;
 
-      const realCloseIcon = getCloseIcon(noticePrefixCls, closeIcon);
-
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
         placement: notificationConfig?.placement ?? DEFAULT_PLACEMENT,
@@ -147,8 +145,8 @@ export function useInternalNotification(
           notification?.className,
         ),
         style: { ...notification?.style, ...style },
-        closeIcon: realCloseIcon,
-        closable: !!realCloseIcon,
+        closeIcon: <NotifCloseIcon prefixCls={noticePrefixCls} closeIcon={closeIcon} />,
+        closable: closeIcon !== null && closeIcon !== false,
       });
     };
 

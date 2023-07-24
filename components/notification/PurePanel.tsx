@@ -20,18 +20,22 @@ export const TypeIcon = {
   loading: <LoadingOutlined />,
 };
 
-export function getCloseIcon(prefixCls: string, closeIcon?: React.ReactNode): React.ReactNode {
+interface CloseIconProps {
+  prefixCls?: string;
+  closeIcon?: React.ReactNode;
+}
+
+export const NotifCloseIcon: React.FC<CloseIconProps> = ({ prefixCls, closeIcon }) => {
   if (closeIcon === null || closeIcon === false) {
     return null;
   }
-  return (
-    closeIcon || (
-      <span className={`${prefixCls}-close-x`}>
-        <CloseOutlined className={`${prefixCls}-close-icon`} />
-      </span>
-    )
+  const defaultCloseIcon = (
+    <span className={`${prefixCls}-close-x`}>
+      <CloseOutlined className={`${prefixCls}-close-icon`} />
+    </span>
   );
-}
+  return closeIcon || defaultCloseIcon;
+};
 
 export interface PureContentProps {
   prefixCls: string;
@@ -105,7 +109,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
       eventKey="pure"
       duration={null}
       closable={closable}
-      closeIcon={getCloseIcon(prefixCls, closeIcon)}
+      closeIcon={<NotifCloseIcon prefixCls={prefixCls} closeIcon={closeIcon} />}
       content={
         <PureContent
           prefixCls={noticePrefixCls}
