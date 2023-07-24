@@ -4,6 +4,7 @@ import { globSync } from 'glob';
 import path from 'path';
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
+import { kebabCase } from 'lodash';
 import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
 import { excludeWarning } from './excludeWarning';
@@ -17,6 +18,10 @@ export type Options = {
   skip?: boolean | string[];
   testingLib?: boolean;
   testRootProps?: false | object;
+  /**
+   * Not check component `displayName`, check path only
+   */
+  nameCheckPathOnly?: boolean;
 };
 
 function baseText(doInject: boolean, component: string, options: Options = {}) {
@@ -71,12 +76,32 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
   });
 }
 
+/**
+ * Inject Trigger to force open in test snapshots
+ */
 export function extendTest(component: string, options: Options = {}) {
   baseText(true, component, options);
 }
 
+/**
+ * Test all the demo snapshots
+ */
 export default function demoTest(component: string, options: Options = {}) {
   baseText(false, component, options);
+
+  // Test component name is match the kebab-case
+  const testName = test;
+  testName('component name is match the kebab-case', () => {
+    const kebabName = kebabCase(component);
+
+    // Path should exist
+    // eslint-disable-next-line global-require, import/no-dynamic-require
+    const { default: Component } = require(`../../components/${kebabName}`);
+
+    if (options.nameCheckPathOnly !== true) {
+      expect(kebabCase(Component.displayName || '')).toEqual(kebabName);
+    }
+  });
 
   if (options?.testRootProps !== false) {
     rootPropsTest(component, null!, {

@@ -6,7 +6,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 import ConfigProvider from '../../config-provider';
-import type { TooltipProps } from '../../tooltip';
+import type { TooltipProps, TooltipRef } from '../../tooltip';
 import SliderTooltip from '../SliderTooltip';
 
 function tooltipProps(): TooltipProps {
@@ -14,10 +14,10 @@ function tooltipProps(): TooltipProps {
 }
 
 jest.mock('../../tooltip', () => {
-  const ReactReal = jest.requireActual('react');
+  const ReactReal: typeof React = jest.requireActual('react');
   const Tooltip = jest.requireActual('../../tooltip');
   const TooltipComponent = Tooltip.default;
-  return ReactReal.forwardRef((props: TooltipProps, ref: any) => {
+  return ReactReal.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     (global as any).tooltipProps = props;
     return <TooltipComponent {...props} ref={ref} />;
   });

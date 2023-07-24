@@ -146,5 +146,9 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
     );
   });
 
+  if (process.env.NODE_ENV !== 'production') {
+    RangePicker.displayName = 'RangePicker';
+  }
+
   return RangePicker as unknown as PickerComponentClass<DateRangePickerProps>;
 }

@@ -71,3 +71,53 @@ When toggled, styles will downgrade CSS logical properties:
 ++ left: 0;
 }
 ```
+
+### Rem Adaptation
+
+In responsive web development, there is a need for a convenient and flexible way to achieve page adaptation and responsive design. The `px2remTransformer` transformer can quickly and accurately convert pixel units in style sheets to rem units relative to the root element (HTML tag), enabling the implementation of adaptive and responsive layouts.
+
+```tsx
+import { StyleProvider, px2remTransformer } from '@ant-design/cssinjs';
+
+const px2rem = px2remTransformer({
+  rootValue: 32, // 32px = 1rem; @default 16
+});
+
+export default () => (
+  <StyleProvider transformers={[px2rem]}>
+    <MyApp />
+  </StyleProvider>
+);
+```
+
+The resulting transformed styles:
+
+```diff
+ .px2rem-box {
+-  width: 400px;
++  width: 12.5rem;
+   background-color: green;
+-  font-size: 32px;
++  font-size: 1rem;
+   border: 10PX solid #f0f;
+ }
+
+ @media only screen and (max-width: 600px) {
+   .px2rem-box {
+     background-color: red;
+-    margin: 10px;
++    margin: 0.3125rem;
+   }
+ }
+```
+
+#### Options
+
+<!-- prettier-ignore -->
+| Parameter | Description  | Type | Default |
+| --- | --- | --- | --- |
+| rootValue | Font size of the root element | `number` | 16 |
+| precision | Decimal places for the converted value | `number` | 5 |
+| mediaQuery | Whether to convert px in media queries | `boolean` | false |
+
+For more details, please refer to: [px2rem.ts#Options](https://github.com/ant-design/cssinjs/blob/master/src/transformers/px2rem.ts)

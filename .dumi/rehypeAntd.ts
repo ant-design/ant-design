@@ -64,6 +64,8 @@ function rehypeAntd(): UnifiedTransformer<HastRoot> {
         const { tagName } = node;
         node.properties.sourceType = tagName;
         node.tagName = 'LocaleLink';
+      } else if (node.type === 'element' && node.tagName === 'video') {
+        node.tagName = 'VideoPlayer';
       }
     });
   };

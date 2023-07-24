@@ -23,6 +23,7 @@ const Table = <RecordType extends AnyObject = AnyObject>(
 };
 
 const ForwardTable = React.forwardRef(Table) as unknown as RefTable & {
+  displayName?: string;
   SELECTION_COLUMN: typeof SELECTION_COLUMN;
   EXPAND_COLUMN: typeof EXPAND_COLUMN;
   SELECTION_ALL: typeof SELECTION_ALL;
@@ -41,5 +42,9 @@ ForwardTable.SELECTION_NONE = SELECTION_NONE;
 ForwardTable.Column = Column;
 ForwardTable.ColumnGroup = ColumnGroup;
 ForwardTable.Summary = Summary;
+
+if (process.env.NODE_ENV !== 'production') {
+  ForwardTable.displayName = 'Table';
+}
 
 export default ForwardTable;

@@ -20,6 +20,7 @@ demo:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本用法</code>
+<code src="./demo/config.tsx">Hooks 配置</code>
 
 ## 如何使用
 

@@ -3,7 +3,7 @@ import { FloatButton } from 'antd';
 import { CompactTheme, DarkTheme, Motion } from 'antd-token-previewer/es/icons';
 import { FormattedMessage, Link, useLocation } from 'dumi';
 import React from 'react';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { useTheme } from 'antd-style';
 import { getLocalizedPathname, isZhCN } from '../../utils';
 import ThemeIcon from './ThemeIcon';
 
@@ -16,7 +16,7 @@ export type ThemeSwitchProps = {
 
 const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
   const { value = ['light'], onChange } = props;
-  const { token } = useSiteToken();
+  const token = useTheme();
   const { pathname, search } = useLocation();
 
   const isMotionOff = value.includes('motion-off');

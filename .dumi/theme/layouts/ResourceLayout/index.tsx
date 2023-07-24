@@ -1,9 +1,8 @@
-import { css } from '@emotion/react';
+import { createStyles } from 'antd-style';
 import { ConfigProvider, Layout, Typography } from 'antd';
 import { FormattedMessage, useRouteMeta } from 'dumi';
 import type { PropsWithChildren } from 'react';
 import React from 'react';
-import useSiteToken from '../../../hooks/useSiteToken';
 import CommonHelmet from '../../common/CommonHelmet';
 import EditButton from '../../common/EditButton';
 import Footer from '../../slots/Footer';
@@ -15,8 +14,7 @@ const resourcePadding = 40;
 const articleMaxWidth = 1208;
 const resourcePaddingXS = 24;
 
-const useStyle = () => {
-  const { token } = useSiteToken();
+const useStyle = createStyles(({ token, css }) => {
   const { antCls } = token;
   return {
     resourcePage: css`
@@ -107,18 +105,18 @@ const useStyle = () => {
       }
     `,
   };
-};
+});
 
 const ResourceLayout: React.FC<ResourceLayoutProps> = ({ children }) => {
-  const styles = useStyle();
+  const { styles } = useStyle();
   const meta = useRouteMeta();
   return (
     <ConfigProvider theme={{ token: { colorBgLayout: '#fff' } }}>
       <Layout>
         <CommonHelmet />
-        <div id="resources-page" css={styles.resourcePage}>
+        <div id="resources-page" className={styles.resourcePage}>
           <AffixTabs />
-          <div css={styles.banner}>
+          <div className={styles.banner}>
             <Typography.Title style={{ fontSize: 30 }}>
               {meta.frontmatter?.title}
               <EditButton
@@ -128,7 +126,7 @@ const ResourceLayout: React.FC<ResourceLayoutProps> = ({ children }) => {
             </Typography.Title>
             <section>{meta.frontmatter.description}</section>
           </div>
-          <div css={styles.resourceContent}>{children}</div>
+          <div className={styles.resourceContent}>{children}</div>
           <Footer />
         </div>
       </Layout>

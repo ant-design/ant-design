@@ -89,4 +89,17 @@ describe('TreeSelect', () => {
       container.querySelector('.ant-select-tree-treenode-leaf-last')?.getAttribute('aria-label'),
     ).toBe('label');
   });
+
+  it('deprecate showArrow', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<TreeSelect showArrow />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: TreeSelect] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+    );
+    expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
+
+    errSpy.mockRestore();
+  });
 });

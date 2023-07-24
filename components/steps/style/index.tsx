@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
-import { resetComponent } from '../../style';
+import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genStepsCustomIconStyle from './custom-icon';
@@ -171,6 +171,7 @@ const genStepsItemStatusStyle = (status: StepItemStatusEnum, token: StepsToken):
 const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const { componentCls, motionDurationSlow } = token;
   const stepsItemCls = `${componentCls}-item`; // .ant-steps-item
+  const stepItemIconCls = `${stepsItemCls}-icon`;
 
   return {
     [stepsItemCls]: {
@@ -189,12 +190,18 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
     },
     [`${stepsItemCls}-container`]: {
       outline: 'none',
+
+      [`&:focus-visible`]: {
+        [stepItemIconCls]: {
+          ...genFocusOutline(token),
+        },
+      },
     },
-    [`${stepsItemCls}-icon, ${stepsItemCls}-content`]: {
+    [`${stepItemIconCls}, ${stepsItemCls}-content`]: {
       display: 'inline-block',
       verticalAlign: 'top',
     },
-    [`${stepsItemCls}-icon`]: {
+    [stepItemIconCls]: {
       width: token.iconSize,
       height: token.iconSize,
       marginTop: 0,

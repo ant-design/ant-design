@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { createStyles, css } from 'antd-style';
 import { ConfigProvider } from 'antd';
 import { useLocale as useDumiLocale } from 'dumi';
 import React from 'react';
@@ -11,14 +11,14 @@ import Group from './components/Group';
 import Theme from './components/Theme';
 import { useSiteData } from './components/util';
 
-const useStyle = () => ({
+const useStyle = createStyles(() => ({
   image: css`
     position: absolute;
     left: 0;
     top: -50px;
     height: 160px;
   `,
-});
+}));
 
 const locales = {
   cn: {
@@ -39,7 +39,7 @@ const Homepage: React.FC = () => {
   const [locale] = useLocale(locales);
   const { id: localeId } = useDumiLocale();
   const localeStr = localeId === 'zh-CN' ? 'cn' : 'en';
-  const { image } = useStyle();
+  const { styles } = useStyle();
   const [siteData] = useSiteData();
 
   return (
@@ -65,7 +65,7 @@ const Homepage: React.FC = () => {
             background="#F5F8FF"
             decoration={
               <img
-                css={image}
+                className={styles.image}
                 src="https://gw.alipayobjects.com/zos/bmw-prod/ba37a413-28e6-4be4-b1c5-01be1a0ebb1c.svg"
                 alt=""
               />
