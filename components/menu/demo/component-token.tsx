@@ -143,8 +143,8 @@ const App: React.FC = () => {
         <Menu
           defaultSelectedKeys={['1']}
           defaultOpenKeys={['sub1']}
-          mode="inline"
-          theme="dark"
+          mode='inline'
+          theme='dark'
           items={items2}
           style={{
             width: 256,
