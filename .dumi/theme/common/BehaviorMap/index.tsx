@@ -9,7 +9,7 @@ const InternalBehaviorMap = React.lazy(() => import('./BehaviorMap'));
 const useStyle = createStyles(({ token, css }) => ({
   fallback: css`
     width: 100%;
-    > ${token.antCls}-skeleton {
+    > * {
       width: 100%;
       border-radius: 8px;
     }
