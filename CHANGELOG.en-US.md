@@ -14,6 +14,14 @@ timeline: true
 - Major version release is not included in this schedule for breaking change and new features.
 
 ---
+## 5.7.3
+
+`2023-07-24`
+
+- 🐞 当 `target` 为 `null` 时，位置应该居中。[#43694](https://github.com/ant-design/ant-design/pull/43694) [@linxianxi](https://github.com/linxianxi)
+- 🐞 修复 Button 丢失部分 `React.ButtonHTMLAttributes` 定义的问题。[#43716](https://github.com/ant-design/ant-design/pull/43716)
+- TypeScript
+  - 🤖 Button `ref` 类型优化。[#43703](https://github.com/ant-design/ant-design/pull/43703) [@Negentropy247](https://github.com/Negentropy247)
 
 ## 5.7.2
 

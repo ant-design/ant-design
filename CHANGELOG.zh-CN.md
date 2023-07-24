@@ -15,6 +15,15 @@ timeline: true
 
 ---
 
+## 5.7.3
+
+`2023-07-24`
+
+- 🐞 Fix placement should be center when `target` is `null` [#43694](https://github.com/ant-design/ant-design/pull/43694) [@linxianxi](https://github.com/linxianxi)
+- 🐞 Fix Button missing part React.`ButtonHTMLAttributes` issue. [#43716](https://github.com/ant-design/ant-design/pull/43716)
+- TypeScript
+  - 🤖 Button `ref` type optimization. [#43703](https://github.com/ant-design/ant-design/pull/43703) [@Negentropy247](https://github.com/Negentropy247)
+
 ## 5.7.2
 
 `2023-07-20`
