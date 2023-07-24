@@ -17157,7 +17157,7 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
 `;
 
 exports[`ConfigProvider components Layout configProvider 1`] = `
-<section
+<div
   class="config-layout config-layout-has-sider"
 >
   <aside
@@ -17168,7 +17168,7 @@ exports[`ConfigProvider components Layout configProvider 1`] = `
       class="config-layout-sider-children"
     />
   </aside>
-  <section
+  <div
     class="config-layout"
   >
     <header
@@ -17180,12 +17180,12 @@ exports[`ConfigProvider components Layout configProvider 1`] = `
     <footer
       class="config-layout-footer"
     />
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`ConfigProvider components Layout configProvider componentDisabled 1`] = `
-<section
+<div
   class="config-layout config-layout-has-sider"
 >
   <aside
@@ -17196,7 +17196,7 @@ exports[`ConfigProvider components Layout configProvider componentDisabled 1`] =
       class="config-layout-sider-children"
     />
   </aside>
-  <section
+  <div
     class="config-layout"
   >
     <header
@@ -17208,12 +17208,12 @@ exports[`ConfigProvider components Layout configProvider componentDisabled 1`] =
     <footer
       class="config-layout-footer"
     />
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`ConfigProvider components Layout configProvider componentSize large 1`] = `
-<section
+<div
   class="config-layout config-layout-has-sider"
 >
   <aside
@@ -17224,7 +17224,7 @@ exports[`ConfigProvider components Layout configProvider componentSize large 1`]
       class="config-layout-sider-children"
     />
   </aside>
-  <section
+  <div
     class="config-layout"
   >
     <header
@@ -17236,12 +17236,12 @@ exports[`ConfigProvider components Layout configProvider componentSize large 1`]
     <footer
       class="config-layout-footer"
     />
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`ConfigProvider components Layout configProvider componentSize middle 1`] = `
-<section
+<div
   class="config-layout config-layout-has-sider"
 >
   <aside
@@ -17252,7 +17252,7 @@ exports[`ConfigProvider components Layout configProvider componentSize middle 1`
       class="config-layout-sider-children"
     />
   </aside>
-  <section
+  <div
     class="config-layout"
   >
     <header
@@ -17264,12 +17264,12 @@ exports[`ConfigProvider components Layout configProvider componentSize middle 1`
     <footer
       class="config-layout-footer"
     />
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`ConfigProvider components Layout configProvider componentSize small 1`] = `
-<section
+<div
   class="config-layout config-layout-has-sider"
 >
   <aside
@@ -17280,7 +17280,7 @@ exports[`ConfigProvider components Layout configProvider componentSize small 1`]
       class="config-layout-sider-children"
     />
   </aside>
-  <section
+  <div
     class="config-layout"
   >
     <header
@@ -17292,12 +17292,12 @@ exports[`ConfigProvider components Layout configProvider componentSize small 1`]
     <footer
       class="config-layout-footer"
     />
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`ConfigProvider components Layout normal 1`] = `
-<section
+<div
   class="ant-layout ant-layout-has-sider"
 >
   <aside
@@ -17308,7 +17308,7 @@ exports[`ConfigProvider components Layout normal 1`] = `
       class="ant-layout-sider-children"
     />
   </aside>
-  <section
+  <div
     class="ant-layout"
   >
     <header
@@ -17320,12 +17320,12 @@ exports[`ConfigProvider components Layout normal 1`] = `
     <footer
       class="ant-layout-footer"
     />
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`ConfigProvider components Layout prefixCls 1`] = `
-<section
+<div
   class="prefix-Layout prefix-Layout-has-sider"
 >
   <aside
@@ -17336,7 +17336,7 @@ exports[`ConfigProvider components Layout prefixCls 1`] = `
       class="prefix-sider-children"
     />
   </aside>
-  <section
+  <div
     class="prefix-Layout"
   >
     <header
@@ -17348,8 +17348,8 @@ exports[`ConfigProvider components Layout prefixCls 1`] = `
     <footer
       class="prefix-footer"
     />
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`ConfigProvider components List configProvider 1`] = `
