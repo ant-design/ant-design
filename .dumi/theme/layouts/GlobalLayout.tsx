@@ -4,10 +4,12 @@ import {
   logicalPropertiesLinter,
   parentSelectorLinter,
   StyleProvider,
+  extractStyle,
 } from '@ant-design/cssinjs';
 import { App, theme as antdTheme } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
 import { createSearchParams, useOutlet, useSearchParams } from 'dumi';
+import { useServerInsertedHTML } from 'umi';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import useLayoutState from '../../hooks/useLayoutState';
 import SiteThemeProvider from '../SiteThemeProvider';
@@ -22,10 +24,10 @@ type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
 
 const RESPONSIVE_MOBILE = 768;
 
-const styleCache = createCache();
-if (typeof global !== 'undefined') {
-  (global as any).styleCache = styleCache;
-}
+// const styleCache = createCache();
+// if (typeof global !== 'undefined') {
+//   (global as any).styleCache = styleCache;
+// }
 
 const getAlgorithm = (themes: ThemeName[] = []) =>
   themes.map((theme) => {
@@ -107,9 +109,16 @@ const GlobalLayout: React.FC = () => {
     [isMobile, direction, updateSiteConfig, theme],
   );
 
+  const [styleCache] = React.useState(() => createCache());
+
+  useServerInsertedHTML(() => {
+    const styleText = extractStyle(styleCache, true);
+    return <style data-type="antd-cssinjs">{styleText.length}</style>
+  });
+
   return (
     <StyleProvider
-      // cache={styleCache}
+      cache={styleCache}
       linters={[logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter]}
     >
       <SiteContext.Provider value={siteContextValue}>
