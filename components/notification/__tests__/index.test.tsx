@@ -1,9 +1,10 @@
 import { UserOutlined } from '@ant-design/icons';
 import React from 'react';
 import notification, { actWrapper } from '..';
-import { act, fireEvent } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
+import { NotifCloseIcon } from '../PurePanel';
 
 describe('notification', () => {
   beforeAll(() => {
@@ -347,5 +348,10 @@ describe('notification', () => {
     expect(document.querySelectorAll('.custom .custom-close-icon').length).toBe(1);
     expect(document.querySelectorAll('.with-null .ant-notification-notice-close').length).toBe(0);
     expect(document.querySelectorAll('.with-false .ant-notification-notice-close').length).toBe(0);
+  });
+
+  it('notification closeIcon render correctly when closeIcon is null', () => {
+    const { container } = render(<NotifCloseIcon closeIcon={null} />);
+    expect(container.childElementCount).toBe(0);
   });
 });
