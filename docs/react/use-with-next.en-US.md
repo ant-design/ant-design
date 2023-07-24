@@ -31,6 +31,8 @@ Now we install `antd` from yarn or npm or pnpm.
 Modify `src/app/page.tsx`, import Button component from `antd`.
 
 ```jsx
+'use client'; // If used in Pages Router, is no need to add this line
+
 import React from 'react';
 import { Button } from 'antd';
 
@@ -58,8 +60,10 @@ If you are using the Pages Router in Next.js and using antd as your component li
 2. Rewrite `pages/_document.tsx`
 
 ```tsx
+import React from 'react';
 import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
-import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
+import type { DocumentContext } from 'next/document';
 
 const MyDocument = () => (
   <Html lang="en">
@@ -76,24 +80,21 @@ MyDocument.getInitialProps = async (ctx: DocumentContext) => {
   const originalRenderPage = ctx.renderPage;
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App) => (props) =>
-        (
-          <StyleProvider cache={cache}>
-            <App {...props} />
-          </StyleProvider>
-        ),
+      enhanceApp: (App) => (props) => (
+        <StyleProvider cache={cache}>
+          <App {...props} />
+        </StyleProvider>
+      ),
     });
 
   const initialProps = await Document.getInitialProps(ctx);
-  // 1.1 extract style which had been used
   const style = extractStyle(cache, true);
   return {
     ...initialProps,
     styles: (
       <>
         {initialProps.styles}
-        {/* 1.2 inject css */}
-        <style dangerouslySetInnerHTML={{ __html: style }}></style>
+        <style dangerouslySetInnerHTML={{ __html: style }} />
       </>
     ),
   };
@@ -121,6 +122,7 @@ export default theme;
 4. Rewrite `pages/_app.tsx`
 
 ```tsx
+import React from 'react';
 import { ConfigProvider } from 'antd';
 import type { AppProps } from 'next/app';
 import theme from './themeConfig';
@@ -137,6 +139,7 @@ export default App;
 5. Use antd in page component
 
 ```tsx
+import React from 'react';
 import { Button } from 'antd';
 
 const Home = () => (
@@ -163,9 +166,9 @@ If you are using the App Router in Next.js and using antd as your component libr
 ```tsx
 'use client';
 
+import React from 'react';
 import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
 import { useServerInsertedHTML } from 'next/navigation';
-import React from 'react';
 
 const StyledComponentsRegistry = ({ children }: { children: React.ReactNode }) => {
   const cache = createCache();
@@ -181,10 +184,10 @@ export default StyledComponentsRegistry;
 3. Use it in `app/layout.tsx`
 
 ```tsx
-import { Inter } from 'next/font/google';
 import React from 'react';
+import { Inter } from 'next/font/google';
 import StyledComponentsRegistry from '../lib/AntdRegistry';
-import './globals.css';
+import '@/globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -223,11 +226,11 @@ export default theme;
 5. Use in page
 
 ```tsx
-import { Button, ConfigProvider } from 'antd';
 import React from 'react';
+import { Button, ConfigProvider } from 'antd';
 import theme from './themeConfig';
 
-const HomePage: React.FC = () => (
+const HomePage = () => (
   <ConfigProvider theme={theme}>
     <div className="App">
       <Button type="primary">Button</Button>
@@ -238,6 +241,6 @@ const HomePage: React.FC = () => (
 export default HomePage;
 ```
 
-> Tips: The above method does not use sub-components such as `Select.Option` and `Typography.text` in the page, so it can be used normally. However, if you use a sub-component like this in your page, you will currently see the following warning in next.js: `Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.`, currently need to wait for Next.js official solution. Before again, if you use the above sub-components in your page, you can add "use client" to the first line of the page component to avoid warnings. See examples for more details: [with-sub-components](https://github.com/ant-design/ant-design-examples/blob/main/examples/with-nextjs-app-router-inline-style/src/app/with-sub-components/page.tsx).
+> Tips: The above method does not use sub-components such as `<Select.Option />` and `<Typography.text />` in the page, so it can be used normally. However, if you use a sub-component like this in your page, you will currently see the following warning in next.js: `Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.`, currently need to wait for Next.js official solution. Before again, if you use the above sub-components in your page, you can add `"use client"` to the first line of the page component to avoid warnings. See examples for more details: [with-sub-components](https://github.com/ant-design/ant-design-examples/blob/main/examples/with-nextjs-app-router-inline-style/src/app/with-sub-components/page.tsx).
 
 For more detailed information, please refer to [with-nextjs-app-router-inline-style](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-app-router-inline-style)。
