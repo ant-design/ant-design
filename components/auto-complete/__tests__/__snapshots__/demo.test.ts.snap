@@ -13,7 +13,6 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
           aria-expanded="false"
@@ -46,7 +45,6 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
           aria-expanded="false"
@@ -82,7 +80,6 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
           aria-expanded="false"
@@ -115,7 +112,6 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
           aria-expanded="false"
@@ -150,7 +146,6 @@ exports[`renders components/auto-complete/demo/borderless.tsx correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="false"
@@ -190,7 +185,6 @@ exports[`renders components/auto-complete/demo/certain-category.tsx correctly 1`
           class="ant-input-wrapper ant-input-group"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -257,7 +251,6 @@ exports[`renders components/auto-complete/demo/custom.tsx correctly 1`] = `
       class="ant-select-selection-search"
     >
       <textarea
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="false"
@@ -318,7 +311,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="undefined_list_0"
                     aria-autocomplete="list"
                     aria-controls="undefined_list"
                     aria-expanded="false"
@@ -522,7 +514,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="undefined_list_0"
                       aria-autocomplete="list"
                       aria-controls="undefined_list"
                       aria-expanded="false"
@@ -584,7 +575,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                     class="ant-input-affix-wrapper ant-select-selection-search-input"
                   >
                     <input
-                      aria-activedescendant="undefined_list_0"
                       aria-autocomplete="list"
                       aria-controls="undefined_list"
                       aria-expanded="false"
@@ -729,7 +719,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                       class="ant-input-affix-wrapper ant-select-selection-search-input"
                     >
                       <input
-                        aria-activedescendant="undefined_list_0"
                         aria-autocomplete="list"
                         aria-controls="undefined_list"
                         aria-expanded="false"
@@ -878,7 +867,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                         class="ant-input-wrapper ant-input-group"
                       >
                         <input
-                          aria-activedescendant="undefined_list_0"
                           aria-autocomplete="list"
                           aria-controls="undefined_list"
                           aria-expanded="false"
@@ -1037,7 +1025,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                         class="ant-input-wrapper ant-input-group"
                       >
                         <input
-                          aria-activedescendant="undefined_list_0"
                           aria-autocomplete="list"
                           aria-controls="undefined_list"
                           aria-expanded="false"
@@ -1141,7 +1128,6 @@ exports[`renders components/auto-complete/demo/non-case-sensitive.tsx correctly 
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="false"
@@ -1175,7 +1161,6 @@ exports[`renders components/auto-complete/demo/options.tsx correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="false"
@@ -1244,7 +1229,6 @@ exports[`renders components/auto-complete/demo/render-panel.tsx correctly 1`] = 
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
               aria-expanded="false"
@@ -1284,7 +1268,6 @@ exports[`renders components/auto-complete/demo/status.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -1317,7 +1300,6 @@ exports[`renders components/auto-complete/demo/status.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -1357,7 +1339,6 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx correctly 
           class="ant-input-wrapper ant-input-group"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"

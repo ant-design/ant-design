@@ -4881,7 +4881,6 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
                   aria-expanded="false"
@@ -8098,7 +8097,6 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
                   aria-expanded="false"
@@ -9359,7 +9357,6 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
                   aria-expanded="false"
@@ -10390,7 +10387,6 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
                   aria-expanded="false"
@@ -12090,7 +12086,6 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="undefined_list_0"
                     aria-autocomplete="list"
                     aria-controls="undefined_list"
                     aria-expanded="false"
@@ -22707,7 +22702,6 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
                   aria-expanded="false"
