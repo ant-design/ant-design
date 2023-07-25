@@ -59,6 +59,8 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight
           return null;
         }
 
+        const { opacity } = style || {};
+
         return (
           <picture>
             <source srcSet={entity.webp} type="image/webp" />
@@ -67,7 +69,7 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight
               className={cls}
               style={{
                 ...style,
-                opacity: isLight && activeColor === color ? 1 : 0,
+                opacity: isLight ? opacity : 0,
               }}
               src={entity.url}
               alt=""
