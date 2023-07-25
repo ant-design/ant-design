@@ -8,6 +8,7 @@ export const COLOR_IMAGES = [
     color: DEFAULT_COLOR,
     // url: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QEAoSL8uVi4AAAAAAAAAAAAAARQnAQ',
     url: null,
+    webp: null,
   },
   {
     color: '#5A54F9',
