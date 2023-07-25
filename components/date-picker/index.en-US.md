@@ -121,7 +121,7 @@ The following APIs are shared by DatePicker, RangePicker.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| defaultPickerValue | To set default picker date | [dayjs](https://day.js.org/) | - |  |
+| defaultPickerValue | To set default picker date(deprecated, use `defaultValue` instead) | [dayjs](https://day.js.org/) | - |  |
 | defaultValue | To set default date, if start time or end time is null or undefined, the date range will be an open interval | [dayjs](https://day.js.org/) | - |  |
 | disabledTime | To specify the time that cannot be selected | function(date) | - |  |
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-MM-DD` |  |
@@ -139,7 +139,7 @@ The following APIs are shared by DatePicker, RangePicker.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| defaultPickerValue | To set default picker date | [dayjs](https://day.js.org/) | - |  |
+| defaultPickerValue | To set default picker date(deprecated, use `defaultValue` instead) | [dayjs](https://day.js.org/) | - |  |
 | defaultValue | To set default date | [dayjs](https://day.js.org/) | - |  |
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY` |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
@@ -152,7 +152,7 @@ Added in `4.1.0`.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| defaultPickerValue | To set default picker date | [dayjs](https://day.js.org/) | - |  |
+| defaultPickerValue | To set default picker date(deprecated, use `defaultValue` instead) | [dayjs](https://day.js.org/) | - |  |
 | defaultValue | To set default date | [dayjs](https://day.js.org/) | - |  |
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-\QQ` |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
@@ -163,7 +163,7 @@ Added in `4.1.0`.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| defaultPickerValue | To set default picker date | [dayjs](https://day.js.org/) | - |  |
+| defaultPickerValue | To set default picker date(deprecated, use `defaultValue` instead) | [dayjs](https://day.js.org/) | - |  |
 | defaultValue | To set default date | [dayjs](https://day.js.org/) | - |  |
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-MM` |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
@@ -174,7 +174,7 @@ Added in `4.1.0`.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| defaultPickerValue | To set default picker date | [dayjs](https://day.js.org/) | - |  |
+| defaultPickerValue | To set default picker date(deprecated, use `defaultValue` instead) | [dayjs](https://day.js.org/) | - |  |
 | defaultValue | To set default date | [dayjs](https://day.js.org/) | - |  |
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-wo` |  |
 | renderExtraFooter | Render extra footer in panel | (mode) => React.ReactNode | - |  |
@@ -188,7 +188,7 @@ Added in `4.1.0`.
 | allowEmpty | Allow start or end input leave empty | \[boolean, boolean] | \[false, false] |  |
 | dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |
 | cellRender | Custom rendering function for picker cells | (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
-| defaultPickerValue | To set default picker date | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  |
+| defaultPickerValue | To set default picker date(deprecated, use `defaultValue` instead) | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  |
 | defaultValue | To set default date | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  |
 | disabled | If disable start or end | \[boolean, boolean] | - |  |
 | disabledTime | To specify the time that cannot be selected | function(date: dayjs, partial: `start` \| `end`) | - |  |
