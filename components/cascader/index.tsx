@@ -92,16 +92,16 @@ const defaultSearchRender: ShowSearchType['render'] = (inputValue, path, prefixC
   return optionList;
 };
 
-type SingleCascaderProps = Omit<RcSingleCascaderProps, 'checkable' | 'options'> & {
+type SingleCascaderProps<T> = Omit<RcSingleCascaderProps<T>, 'checkable' | 'options'> & {
   multiple?: false;
 };
-type MultipleCascaderProps = Omit<RcMultipleCascaderProps, 'checkable' | 'options'> & {
+type MultipleCascaderProps<T> = Omit<RcMultipleCascaderProps<T>, 'checkable' | 'options'> & {
   multiple: true;
 };
 
-type UnionCascaderProps = SingleCascaderProps | MultipleCascaderProps;
+type UnionCascaderProps<T> = SingleCascaderProps<T> | MultipleCascaderProps<T>;
 
-export type CascaderProps<DataNodeType = any> = UnionCascaderProps & {
+export type CascaderProps<DataNodeType = any> = UnionCascaderProps<DataNodeType> & {
   multiple?: boolean;
   size?: SizeType;
   disabled?: boolean;
