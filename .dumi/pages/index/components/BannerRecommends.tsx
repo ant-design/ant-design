@@ -2,9 +2,12 @@ import * as React from 'react';
 import { Typography, Skeleton, Carousel } from 'antd';
 import { createStyles, css, useTheme } from 'antd-style';
 import classNames from 'classnames';
+import type { FC } from 'react';
+import { useContext } from 'react';
 import type { Extra, Icon } from './util';
 import SiteContext from '../../../theme/slots/SiteContext';
-import { getCarouselStyle } from './util';
+import { getCarouselStyle, useSiteData } from './util';
+import useLocale from '../../../hooks/useLocale';
 
 const useStyle = createStyles(({ token }) => {
   const { carousel } = getCarouselStyle();
@@ -82,14 +85,36 @@ const RecommendItem = ({ extra, index, icons, className }: RecommendItemProps) =
   );
 };
 
-export interface BannerRecommendsProps {
-  extras?: Extra[];
-  icons?: Icon[];
-}
-
-export default function BannerRecommends({ extras = [], icons = [] }: BannerRecommendsProps) {
+export const BannerRecommendsFallback: FC = () => {
+  const { isMobile } = useContext(SiteContext);
   const { styles } = useStyle();
+
+  const list = Array(3).fill(1);
+
+  return isMobile ? (
+    <Carousel className={styles.carousel}>
+      {list.map((extra, index) => (
+        <div key={index}>
+          <Skeleton active style={{ padding: '0 24px' }} />
+        </div>
+      ))}
+    </Carousel>
+  ) : (
+    <div className={styles.container}>
+      {list.map((_, index) => (
+        <Skeleton key={index} active />
+      ))}
+    </div>
+  );
+};
+
+export default function BannerRecommends() {
+  const { styles } = useStyle();
+  const [, lang] = useLocale();
   const { isMobile } = React.useContext(SiteContext);
+  const data = useSiteData();
+  const extras = data?.extras?.[lang];
+  const icons = data?.icons;
   const first3 = extras.length === 0 ? Array(3).fill(null) : extras.slice(0, 3);
 
   return (

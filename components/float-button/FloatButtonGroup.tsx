@@ -114,6 +114,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
               shape={shape}
               icon={open ? closeIcon : icon}
               description={description}
+              aria-label={props['aria-label']}
             />
           </>
         ) : (
