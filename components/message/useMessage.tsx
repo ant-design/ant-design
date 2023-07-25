@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { useNotification as useRcNotification } from 'rc-notification';
 import type { NotificationAPI } from 'rc-notification/lib';
 import * as React from 'react';
+import { flushSync } from 'react-dom';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { ComponentStyleConfig } from '../config-provider/context';
@@ -96,6 +97,35 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
 });
 
 // ==============================================================================
+// ==                               Lazy Holder                                ==
+// ==============================================================================
+type LazyHolderRef = HolderRef & {
+  init: VoidFunction;
+};
+
+// Only render holder when first message come in
+const LazyHolder = React.forwardRef<LazyHolderRef, HolderProps>((props, ref) => {
+  const holderRef = React.useRef<HolderRef>(null);
+
+  const [rendered, setRendered] = React.useState(false);
+
+  React.useImperativeHandle(ref, () => ({
+    init: () => {
+      flushSync(() => {
+        setRendered(true);
+      });
+    },
+    ...holderRef.current!,
+  }));
+
+  return rendered ? <Holder ref={holderRef} {...props} /> : null;
+});
+
+if (process.env.NODE_ENV !== 'production') {
+  LazyHolder.displayName = 'LazyHolder';
+}
+
+// ==============================================================================
 // ==                                   Hook                                   ==
 // ==============================================================================
 let keyIndex = 0;
@@ -103,7 +133,7 @@ let keyIndex = 0;
 export function useInternalMessage(
   messageConfig?: HolderProps,
 ): readonly [MessageInstance, React.ReactElement] {
-  const holderRef = React.useRef<HolderRef>(null);
+  const holderRef = React.useRef<LazyHolderRef>(null);
 
   // ================================ API ================================
   const wrapAPI = React.useMemo<MessageInstance>(() => {
@@ -111,6 +141,7 @@ export function useInternalMessage(
 
     // >>> close
     const close = (key: React.Key) => {
+      holderRef.current?.init();
       holderRef.current?.close(key);
     };
 
@@ -127,6 +158,8 @@ export function useInternalMessage(
         fakeResult.then = () => {};
         return fakeResult;
       }
+
+      holderRef.current?.init();
 
       const { open: originOpen, prefixCls, hashId, message } = holderRef.current;
       const noticePrefixCls = `${prefixCls}-notice`;
@@ -171,6 +204,8 @@ export function useInternalMessage(
 
     // >>> destroy
     const destroy = (key?: React.Key) => {
+      holderRef.current?.init();
+
       if (key !== undefined) {
         close(key);
       } else {
@@ -222,7 +257,7 @@ export function useInternalMessage(
   }, []);
 
   // ============================== Return ===============================
-  return [wrapAPI, <Holder key="message-holder" {...messageConfig} ref={holderRef} />] as const;
+  return [wrapAPI, <LazyHolder key="message-holder" {...messageConfig} ref={holderRef} />] as const;
 }
 
 export default function useMessage(messageConfig?: ConfigOptions) {

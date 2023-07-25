@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
 import message, { actWrapper } from '..';
-import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
-import { awaitPromise, triggerMotionEnd } from './util';
+import { act, render } from '../../../tests/utils';
+import { awaitPromise } from './util';
 
 describe('message.style', () => {
   beforeAll(() => {
