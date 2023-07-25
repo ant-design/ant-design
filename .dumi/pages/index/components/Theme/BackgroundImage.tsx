@@ -1,8 +1,8 @@
 import { createStyles, css } from 'antd-style';
 import React, { useMemo, useState } from 'react';
 import { CSSMotionList } from 'rc-motion';
-import { COLOR_IMAGES, getClosetColor } from './colorUtil';
 import classNames from 'classnames';
+import { COLOR_IMAGES, getClosetColor } from './colorUtil';
 
 export interface BackgroundImageProps {
   colorPrimary?: string;
@@ -51,9 +51,9 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight
       onLeaveActive={onHide}
       motionDeadline={500}
     >
-      {({ key, className, style }) => {
+      {({ key: color, className, style }) => {
         const cls = classNames(styles.image, className);
-        const entity = COLOR_IMAGES.find(({ color }) => color === key);
+        const entity = COLOR_IMAGES.find((ent) => ent.color === color);
 
         if (!entity || !entity.url) {
           return null;
@@ -63,7 +63,15 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight
           <picture>
             <source srcSet={entity.webp} type="image/webp" />
             <source srcSet={entity.url} type="image/jpeg" />
-            <img className={cls} style={style} src={entity.url} alt="" />
+            <img
+              className={cls}
+              style={{
+                ...style,
+                opacity: isLight && activeColor === color ? 1 : 0,
+              }}
+              src={entity.url}
+              alt=""
+            />
           </picture>
         );
       }}
