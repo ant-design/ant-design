@@ -5,9 +5,12 @@ type WaveConfig = NonNullable<Parameters<typeof ConfigProvider>[0]['wave']>;
 
 // Prepare effect holder
 const createHolder = (node: HTMLElement) => {
+  const { borderWidth } = getComputedStyle(node);
+  const borderWidthNum = parseInt(borderWidth, 10);
+
   const div = document.createElement('div');
   div.style.position = 'absolute';
-  div.style.inset = '0';
+  div.style.inset = `-${borderWidthNum}px`;
   div.style.borderRadius = 'inherit';
   div.style.background = 'transparent';
   div.style.zIndex = '999';
