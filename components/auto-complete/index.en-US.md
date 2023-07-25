@@ -41,7 +41,7 @@ The differences with Select are:
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| allowClear | Show clear button, 5.8.0: `{ clearIcon?: ReactNode }` | boolean \| { clearIcon?: ReactNode } | false |  |
+| allowClear | Show clear button | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support Object type |
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | backfill | If backfill selected item the input when using keyboard | boolean | false |  |
 | bordered | Whether has border style | boolean | true |  |

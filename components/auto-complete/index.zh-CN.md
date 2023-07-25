@@ -42,7 +42,7 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| allowClear | 支持清除，5.8.0: `{ clearIcon?: ReactNode }` | boolean \| { clearIcon?: ReactNode } | false |  |
+| allowClear | 支持清除 | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: 支持对象形式 |
 | autoFocus | 自动获取焦点 | boolean | false |  |
 | backfill | 使用键盘选择选项的时候把选中项回填到输入框中 | boolean | false |  |
 | bordered | 是否有边框 | boolean | true |  |
