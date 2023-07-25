@@ -9,15 +9,15 @@ export interface BackgroundImageProps {
 
 const useStyle = createStyles(({ token }) => ({
   image: css`
-      transition: all ${token.motionDurationSlow};
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      object-position: right top;
-    `,
+    transition: all ${token.motionDurationSlow};
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: right top;
+  `,
 }));
 
 const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight }) => {
@@ -27,14 +27,17 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight
 
   return (
     <>
-      {COLOR_IMAGES.filter(({ url }) => url).map(({ color, url }) => (
-        <img
-          className={styles.image}
-          style={{ opacity: isLight && activeColor === color ? 1 : 0 }}
-          key={color}
-          src={url}
-          alt=""
-        />
+      {COLOR_IMAGES.filter(({ url }) => url).map(({ color, url, webp }) => (
+        <picture key={color}>
+          <source srcSet={webp} type="image/webp" />
+          <source srcSet={url} type="image/jpeg" />
+          <img
+            className={styles.image}
+            style={{ opacity: isLight && activeColor === color ? 1 : 0 }}
+            src={url}
+            alt=""
+          />
+        </picture>
       ))}
     </>
   );
