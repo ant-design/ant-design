@@ -190,13 +190,7 @@ message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲�
 
 1. 使用官方提供的 [message.useMessage](/components/message-cn/#components-message-demo-hooks)、[notification.useNotification](/components/notification-cn#%E4%B8%BA%E4%BB%80%E4%B9%88-notification-%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux-%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-%E7%9A%84-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 和 [Modal.useModal](/components/modal-cn/#%E4%B8%BA%E4%BB%80%E4%B9%88-Modal-%E6%96%B9%E6%B3%95%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux%E3%80%81%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 来调用这些方法。
 
-2. 使用 `ConfigProvider.config` 方法全局设置 `prefixCls`。
-
-```js
-ConfigProvider.config({
-  prefixCls: 'ant',
-});
-```
+2. 使用 [App.useApp](/components/app-cn#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95) 直接调用 message、notification、modal 实例方法。
 
 ## 为什么我不应该通过 ref 访问组件内部的 props 和 state？
 
