@@ -1,3 +1,4 @@
+import { TinyColor } from '@ctrl/tinycolor';
 import {
   BellOutlined,
   FolderOutlined,
@@ -177,12 +178,6 @@ const useStyle = createStyles(({ token, cx }) => {
       }
     `,
 
-    logoImgPureColor: css`
-      img {
-        transform: translate3d(-30px, 0, 0);
-      }
-    `,
-
     transBg: css`
       background: transparent !important;
     `,
@@ -282,6 +277,27 @@ const ThemesInfo: Record<THEME, Partial<ThemeData>> = {
     borderRadius: 16,
   },
 };
+
+function rgbToColorMatrix(color: string) {
+  const rgb = new TinyColor(color).toRgb();
+  const { r, g, b } = rgb;
+
+  const normalize = (value) => value / 255;
+  const invertValue = normalize(r) * 100;
+  const sepiaValue = 100;
+  const saturateValue = Math.max(normalize(r), normalize(g), normalize(b)) * 10000;
+  const hueRotateValue =
+    ((Math.atan2(
+      Math.sqrt(3) * (normalize(g) - normalize(b)),
+      2 * normalize(r) - normalize(g) - normalize(b),
+    ) *
+      180) /
+      Math.PI +
+      360) %
+    360;
+
+  return `invert(${invertValue}%) sepia(${sepiaValue}%) saturate(${saturateValue}%) hue-rotate(${hueRotateValue}deg)`;
+}
 
 export default function Theme() {
   const { styles } = useStyle();
@@ -403,19 +419,15 @@ export default function Theme() {
           >
             {/* Logo */}
             <div className={styles.logo}>
-              <div
-                className={classNames(
-                  styles.logoImg,
-                  closestColor !== DEFAULT_COLOR && styles.logoImgPureColor,
-                )}
-              >
+              <div className={styles.logoImg}>
                 <img
                   src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
                   style={{
                     filter:
                       closestColor === DEFAULT_COLOR
                         ? undefined
-                        : `drop-shadow(30px 0 0 ${logoColor})`,
+                        : // : `drop-shadow(30px 0 0 ${logoColor})`,
+                          rgbToColorMatrix(logoColor),
                   }}
                   alt=""
                 />
