@@ -76,7 +76,7 @@ const DocLayout: React.FC = () => {
     ) {
       return (
         <>
-          {outlet}
+          <div style={{ minHeight: '100vh' }}>{outlet}</div>
           <Footer />
         </>
       );
@@ -115,7 +115,7 @@ const DocLayout: React.FC = () => {
       <ConfigProvider direction={direction} locale={lang === 'cn' ? zhCN : undefined}>
         <GlobalStyles />
         <Header />
-        <div style={{ minHeight: 'calc(100vh - 64px)' }}>{content}</div>
+        {content}
       </ConfigProvider>
     </>
   );
