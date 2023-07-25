@@ -34,7 +34,7 @@ function getEnabledItemKeys<RecordType extends KeyWiseTransferItem>(items: Recor
   return items.filter((data) => !data.disabled).map((data) => data.key);
 }
 
-const isValidIcon = (icon: React.ReactNode) => icon !== undefined && icon !== false;
+const isValidIcon = (icon: React.ReactNode) => icon !== undefined;
 
 export interface RenderedItem<RecordType> {
   renderedText: string;
@@ -74,7 +74,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   selectAllLabel?: SelectAllLabel;
   showRemove?: boolean;
   pagination?: PaginationType;
-  dropdownIcon?: React.ReactNode;
+  selectionIcon?: React.ReactNode;
 }
 
 const TransferList = <RecordType extends KeyWiseTransferItem>(
@@ -102,7 +102,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     itemsUnit,
     itemUnit,
     selectAllLabel,
-    dropdownIcon,
+    selectionIcon,
     footer,
     renderList,
     onItemSelectAll,
@@ -356,7 +356,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   const dropdown: React.ReactNode = (
     <Dropdown className={`${prefixCls}-header-dropdown`} menu={{ items }} disabled={disabled}>
-      {isValidIcon(dropdownIcon) ? dropdownIcon : <DownOutlined />}
+      {isValidIcon(selectionIcon) ? selectionIcon : <DownOutlined />}
     </Dropdown>
   );
 
