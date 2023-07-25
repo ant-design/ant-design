@@ -1,13 +1,13 @@
 /* eslint-disable react/no-array-index-key */
 import * as React from 'react';
+import { Suspense } from 'react';
 import dayjs from 'dayjs';
-import { FormattedMessage, useIntl } from 'dumi';
+import { FormattedMessage } from 'dumi';
 import { Avatar, Divider, Empty, Skeleton, Tabs } from 'antd';
 import { createStyles } from 'antd-style';
 import type { Article, Authors } from '../../../pages/index/components/util';
 import { useSiteData } from '../../../pages/index/components/util';
 import useLocale from '../../../hooks/useLocale';
-import { Suspense } from 'react';
 
 const useStyle = createStyles(({ token, css }) => {
   const { antCls } = token;
