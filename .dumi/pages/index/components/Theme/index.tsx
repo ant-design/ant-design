@@ -87,12 +87,12 @@ const useStyle = createStyles(({ token, cx }) => {
   const { carousel } = getCarouselStyle();
 
   const demo = css`
-      overflow: hidden;
-      background: rgba(240, 242, 245, 0.25);
-      backdrop-filter: blur(50px);
-      box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.1);
-      transition: all ${token.motionDurationSlow};
-    `;
+    overflow: hidden;
+    background: rgba(240, 242, 245, 0.25);
+    backdrop-filter: blur(50px);
+    box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.1);
+    transition: all ${token.motionDurationSlow};
+  `;
 
   return {
     demo,
@@ -244,6 +244,10 @@ function getTitleColor(colorPrimary: string | Color, isLight?: boolean) {
     case PINK_COLOR:
     case '#F2BD27':
       return undefined;
+
+    case '#5A54F9':
+    case '#E0282E':
+      return '#FFF';
 
     default:
       return color.toHsb().b < 0.7 ? '#FFF' : undefined;

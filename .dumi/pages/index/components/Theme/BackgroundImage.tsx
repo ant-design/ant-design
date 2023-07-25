@@ -1,6 +1,8 @@
 import { createStyles, css } from 'antd-style';
 import React, { useMemo, useState } from 'react';
+import { CSSMotionList } from 'rc-motion';
 import { COLOR_IMAGES, getClosetColor } from './colorUtil';
+import classNames from 'classnames';
 
 export interface BackgroundImageProps {
   colorPrimary?: string;
@@ -20,41 +22,52 @@ const useStyle = createStyles(({ token }) => ({
   `,
 }));
 
+const onShow = () => ({
+  opacity: 1,
+});
+const onHide = () => ({
+  opacity: 0,
+});
+
 const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight }) => {
   const activeColor = useMemo(() => getClosetColor(colorPrimary), [colorPrimary]);
-  const [visitedColor, setVisitedColor] = useState<string[]>([]);
-
-  React.useLayoutEffect(() => {
-    if (!visitedColor.includes(activeColor)) {
-      setVisitedColor((ori) => [...ori, activeColor]);
-    }
-  }, [activeColor]);
-
   const { styles } = useStyle();
 
-  return (
-    <>
-      {COLOR_IMAGES.filter(({ url }) => url).map(({ color, url, webp }) => {
-        const loaded = visitedColor.includes(color);
+  const [keyList, setKeyList] = useState<string[]>([]);
 
-        if (!loaded) {
+  React.useLayoutEffect(() => {
+    setKeyList([activeColor]);
+  }, [activeColor]);
+
+  return (
+    <CSSMotionList
+      keys={keyList}
+      motionName="transition"
+      onEnterStart={onHide}
+      onAppearStart={onHide}
+      onEnterActive={onShow}
+      onAppearActive={onShow}
+      onLeaveStart={onShow}
+      onLeaveActive={onHide}
+      motionDeadline={500}
+    >
+      {({ key, className, style }) => {
+        const cls = classNames(styles.image, className);
+        const entity = COLOR_IMAGES.find(({ color }) => color === key);
+
+        if (!entity || !entity.url) {
           return null;
         }
 
         return (
-          <picture key={color}>
-            <source srcSet={webp} type="image/webp" />
-            <source srcSet={url} type="image/jpeg" />
-            <img
-              className={styles.image}
-              style={{ opacity: isLight && activeColor === color ? 1 : 0 }}
-              src={url}
-              alt=""
-            />
+          <picture>
+            <source srcSet={entity.webp} type="image/webp" />
+            <source srcSet={entity.url} type="image/jpeg" />
+            <img className={cls} style={style} src={entity.url} alt="" />
           </picture>
         );
-      })}
-    </>
+      }}
+    </CSSMotionList>
   );
 };
 

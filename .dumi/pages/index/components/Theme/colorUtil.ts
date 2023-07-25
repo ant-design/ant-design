@@ -12,8 +12,8 @@ export const COLOR_IMAGES = [
   },
   {
     color: '#5A54F9',
-    url: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*MtVDSKukKj8AAAAAAAAAAAAAARQnAQ',
-    webp: 'https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*BQtZT4ca8H0AAAAAAAAAAAAADrJ8AQ/fmt.webp',
+    url: 'https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*H8nRT7_q0EwAAAAAAAAAAAAADrJ8AQ/original',
+    webp: 'https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*H8nRT7_q0EwAAAAAAAAAAAAADrJ8AQ/fmt.webp',
   },
   {
     color: '#9E339F',
