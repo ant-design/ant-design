@@ -54,7 +54,7 @@ Please find below some of the design resources and tools about Ant Design that w
   - Free open source Figma library with complete accurate to code components
   - https://www.figma.com/community/file/831698976089873405
 - Ruyi Design Assistant
-  - https://qcloudimg.tencent-cloud.cn/raw/07306cd4397a706432caaf2c1680ead4.svg
+  - https://github.com/ant-design/ant-design/assets/507615/45201521-37d0-4360-b81e-a1260dedad7a
   - Figma Plugin,Design using Antd code component library and deliver component code that is friendly to developers
   - https://www.figma.com/community/plugin/1192146318523533547
 - Ant Design Chart
