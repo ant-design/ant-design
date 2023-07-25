@@ -274,7 +274,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
             </Typography.Paragraph>
           ) : null}
           {!meta.frontmatter.__autoDescription && meta.frontmatter.description}
-          <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
+          {children}
           {(meta.frontmatter?.zhihu_url ||
             meta.frontmatter?.yuque_url ||
             meta.frontmatter?.juejin_url) && (

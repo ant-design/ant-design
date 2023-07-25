@@ -115,7 +115,7 @@ const DocLayout: React.FC = () => {
       <ConfigProvider direction={direction} locale={lang === 'cn' ? zhCN : undefined}>
         <GlobalStyles />
         <Header />
-        {content}
+        <div style={{ minHeight: 'calc(100vh - 64px)' }}>{content}</div>
       </ConfigProvider>
     </>
   );
