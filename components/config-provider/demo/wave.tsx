@@ -67,8 +67,8 @@ const showInsetEffect: WaveConfig['showEffect'] = (node, { event, component }) =
   });
 };
 
-// Scale Effect
-const showScaleEffect: WaveConfig['showEffect'] = (node, { component }) => {
+// Shake Effect
+const showShakeEffect: WaveConfig['showEffect'] = (node, { component }) => {
   if (component !== 'Button') {
     return;
   }
@@ -118,7 +118,7 @@ const App = () => (
     <Wrapper name="Disabled" disabled />
     <Wrapper name="Default" />
     <Wrapper name="Inset" showEffect={showInsetEffect} />
-    <Wrapper name="Scale" showEffect={showScaleEffect} />
+    <Wrapper name="Shake" showEffect={showShakeEffect} />
   </Space>
 );
 
