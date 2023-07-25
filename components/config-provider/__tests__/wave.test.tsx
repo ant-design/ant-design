@@ -14,6 +14,23 @@ describe('ConfigProvider.Wave', () => {
     jest.useRealTimers();
   });
 
+  it('disable', async () => {
+    const showEffect = jest.fn();
+    const onClick = jest.fn();
+
+    const { container } = render(
+      <ConfigProvider wave={{ disabled: true, showEffect }}>
+        <Button onClick={onClick} />
+      </ConfigProvider>,
+    );
+
+    fireEvent.click(container.querySelector('button')!);
+    await waitFakeTimer();
+
+    expect(onClick).toHaveBeenCalled();
+    expect(showEffect).not.toHaveBeenCalled();
+  });
+
   it('support customize effect', async () => {
     const showEffect = jest.fn();
     const onClick = jest.fn();
