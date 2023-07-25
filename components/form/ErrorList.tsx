@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import type { CSSMotionProps } from 'rc-motion';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
 import * as React from 'react';
 import { useMemo } from 'react';
@@ -55,7 +56,7 @@ const ErrorList: React.FC<ErrorListProps> = ({
 
   const [, hashId] = useStyle(prefixCls);
 
-  const collapseMotion = useMemo(() => initCollapseMotion(prefixCls), [prefixCls]);
+  const collapseMotion: CSSMotionProps = useMemo(() => initCollapseMotion(prefixCls), [prefixCls]);
 
   // We have to debounce here again since somewhere use ErrorList directly still need no shaking
   // ref: https://github.com/ant-design/ant-design/issues/36336
