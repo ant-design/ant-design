@@ -76,7 +76,7 @@ const DocLayout: React.FC = () => {
     ) {
       return (
         <>
-          {outlet}
+          <div style={{ minHeight: '100vh' }}>{outlet}</div>
           <Footer />
         </>
       );
