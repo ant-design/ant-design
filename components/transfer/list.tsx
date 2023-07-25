@@ -74,7 +74,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   selectAllLabel?: SelectAllLabel;
   showRemove?: boolean;
   pagination?: PaginationType;
-  selectionIcon?: React.ReactNode;
+  selectionsIcon?: React.ReactNode;
 }
 
 const TransferList = <RecordType extends KeyWiseTransferItem>(
@@ -102,7 +102,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     itemsUnit,
     itemUnit,
     selectAllLabel,
-    selectionIcon,
+    selectionsIcon,
     footer,
     renderList,
     onItemSelectAll,
@@ -356,7 +356,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   const dropdown: React.ReactNode = (
     <Dropdown className={`${prefixCls}-header-dropdown`} menu={{ items }} disabled={disabled}>
-      {isValidIcon(selectionIcon) ? selectionIcon : <DownOutlined />}
+      {isValidIcon(selectionsIcon) ? selectionsIcon : <DownOutlined />}
     </Dropdown>
   );
 

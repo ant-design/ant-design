@@ -105,7 +105,7 @@ export interface TransferProps<RecordType> {
   oneWay?: boolean;
   pagination?: PaginationType;
   status?: InputStatus;
-  selectionIcon?: React.ReactNode;
+  selectionsIcon?: React.ReactNode;
 }
 
 const Transfer = <RecordType extends TransferItem = TransferItem>(
@@ -131,7 +131,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
-    selectionIcon,
+    selectionsIcon,
     filterOption,
     render,
     footer,
@@ -376,7 +376,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         showSelectAll={showSelectAll}
         selectAllLabel={selectAllLabels[0]}
         pagination={mergedPagination}
-        selectionIcon={selectionIcon}
+        selectionsIcon={selectionsIcon}
         {...listLocale}
       />
       <Operation
@@ -415,7 +415,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         selectAllLabel={selectAllLabels[1]}
         showRemove={oneWay}
         pagination={mergedPagination}
-        selectionIcon={selectionIcon}
+        selectionsIcon={selectionsIcon}
         {...listLocale}
       />
     </div>,

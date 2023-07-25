@@ -69,7 +69,7 @@ describe('Transfer.List', () => {
     const { container } = render(
       <List
         {...listCommonProps}
-        selectionIcon={<span className="test-dropdown-icon">test</span>}
+        selectionsIcon={<span className="test-dropdown-icon">test</span>}
       />,
     );
     expect(
