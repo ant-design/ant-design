@@ -145,7 +145,10 @@ export function useInternalNotification(
           notification?.className,
         ),
         style: { ...notification?.style, ...style },
-        closeIcon: <NotifCloseIcon prefixCls={noticePrefixCls} closeIcon={closeIcon} />,
+        closeIcon:
+          closeIcon !== null && closeIcon !== false ? (
+            <NotifCloseIcon prefixCls={prefixCls} closeIcon={closeIcon} />
+          ) : null,
         closable: closeIcon !== null && closeIcon !== false,
       });
     };
