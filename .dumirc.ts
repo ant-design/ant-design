@@ -40,6 +40,9 @@ export default defineConfig({
   analytics: {
     ga_v2: 'UA-72788897-1',
   },
+  analyze: {
+    analyzerPort: 'auto',
+  },
   links: [
     {
       rel: 'preload',
