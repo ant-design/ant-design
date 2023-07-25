@@ -497,11 +497,16 @@ createRoot(document.getElementById('container')).render(<Demo />);
             </Tooltip>
           </CopyToClipboard>
           <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
-            <a className="code-box-code-action" target="_blank" rel="noreferrer" href={demoUrl}>
+            <a
+              className="code-box-code-action"
+              aria-label="open in new tab"
+              target="_blank"
+              rel="noreferrer"
+              href={demoUrl}
+            >
               <ExternalLinkIcon className="code-box-separate" />
             </a>
           </Tooltip>
-
           <Tooltip
             title={<FormattedMessage id={`app.demo.code.${codeExpand ? 'hide' : 'show'}`} />}
           >
