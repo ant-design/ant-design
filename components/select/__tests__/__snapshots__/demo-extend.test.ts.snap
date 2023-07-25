@@ -6544,7 +6544,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-down-appear ant-slide-down-appear-prepare ant-slide-down ant-select-dropdown-placement-topLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-topLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -6821,7 +6821,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
       />
     </div>
     <div
-      class="ant-select-dropdown ant-slide-down-appear ant-slide-down-appear-prepare ant-slide-down ant-select-dropdown-placement-topLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-topLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; width: 200px;"
     >
       <div>

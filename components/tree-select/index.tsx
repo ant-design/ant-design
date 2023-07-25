@@ -10,7 +10,7 @@ import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import genPurePanel from '../_util/PurePanel';
 import type { SelectCommonPlacement } from '../_util/motion';
-import { getTransitionDirection, getTransitionName } from '../_util/motion';
+import { getTransitionName } from '../_util/motion';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';
@@ -267,11 +267,7 @@ const InternalTreeSelect = <
       treeMotion={null}
       dropdownClassName={mergedDropdownClassName}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
-      transitionName={getTransitionName(
-        rootPrefixCls,
-        getTransitionDirection(placement),
-        transitionName,
-      )}
+      transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       showArrow={hasFeedback || mergedShowArrow}
       treeExpandAction={treeExpandAction}
     />
