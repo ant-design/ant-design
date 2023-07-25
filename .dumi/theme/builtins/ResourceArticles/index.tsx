@@ -1,11 +1,13 @@
 /* eslint-disable react/no-array-index-key */
 import * as React from 'react';
+import { Suspense } from 'react';
 import dayjs from 'dayjs';
-import { FormattedMessage, useIntl } from 'dumi';
+import { FormattedMessage } from 'dumi';
 import { Avatar, Divider, Empty, Skeleton, Tabs } from 'antd';
 import { createStyles } from 'antd-style';
 import type { Article, Authors } from '../../../pages/index/components/util';
 import { useSiteData } from '../../../pages/index/components/util';
+import useLocale from '../../../hooks/useLocale';
 
 const useStyle = createStyles(({ token, css }) => {
   const { antCls } = token;
@@ -93,17 +95,15 @@ const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = []
   );
 };
 
-export default () => {
-  const { locale } = useIntl();
-  const isZhCN = locale === 'zh-CN';
-  const [{ articles = { cn: [], en: [] }, authors = [] }, loading] = useSiteData();
-
-  const { styles } = useStyle();
+const Articles = () => {
+  const [, lang] = useLocale();
+  const isZhCN = lang === 'cn';
+  const { articles = { cn: [], en: [] }, authors = [] } = useSiteData();
 
   // ========================== Data ==========================
   const mergedData = React.useMemo(() => {
     const yearData: Record<number | string, Record<string, Article[]>> = {};
-    articles[isZhCN ? 'cn' : 'en']?.forEach((article) => {
+    articles[lang]?.forEach((article) => {
       const year = dayjs(article.date).year();
       yearData[year] = yearData[year] || {};
       yearData[year][article.type] = [...(yearData[year][article.type] || []), article];
@@ -111,42 +111,42 @@ export default () => {
     return yearData;
   }, [articles]);
 
-  // ========================= Render =========================
-  let content: React.ReactNode;
+  const yearList = Object.keys(mergedData).sort((a, b) => Number(b) - Number(a));
 
-  if (loading) {
-    content = <Skeleton active />;
-  } else {
-    const yearList = Object.keys(mergedData).sort((a, b) => Number(b) - Number(a));
-    content = yearList.length ? (
-      <Tabs>
-        {yearList.map((year) => (
-          <Tabs.TabPane tab={`${year}${isZhCN ? ' 年' : ''}`} key={year}>
-            <table>
-              <tbody>
-                <tr>
-                  <ArticleList
-                    name={<FormattedMessage id="app.docs.resource.design" />}
-                    data={mergedData[year].design}
-                    authors={authors}
-                  />
-                  <ArticleList
-                    name={<FormattedMessage id="app.docs.resource.develop" />}
-                    data={mergedData[year].develop}
-                    authors={authors}
-                  />
-                </tr>
-              </tbody>
-            </table>
-          </Tabs.TabPane>
-        ))}
-      </Tabs>
-    ) : null;
-  }
+  return yearList.length ? (
+    <Tabs>
+      {yearList.map((year) => (
+        <Tabs.TabPane tab={`${year}${isZhCN ? ' 年' : ''}`} key={year}>
+          <table>
+            <tbody>
+              <tr>
+                <ArticleList
+                  name={<FormattedMessage id="app.docs.resource.design" />}
+                  data={mergedData[year].design}
+                  authors={authors}
+                />
+                <ArticleList
+                  name={<FormattedMessage id="app.docs.resource.develop" />}
+                  data={mergedData[year].develop}
+                  authors={authors}
+                />
+              </tr>
+            </tbody>
+          </table>
+        </Tabs.TabPane>
+      ))}
+    </Tabs>
+  ) : null;
+};
+
+export default () => {
+  const { styles } = useStyle();
 
   return (
     <div id="articles" className={styles.articles}>
-      {content}
+      <Suspense fallback={<Skeleton active />}>
+        <Articles />
+      </Suspense>
     </div>
   );
 };
