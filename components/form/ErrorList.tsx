@@ -40,7 +40,7 @@ export interface ErrorListProps {
   onVisibleChanged?: (visible: boolean) => void;
 }
 
-export default function ErrorList({
+const ErrorList: React.FC<ErrorListProps> = ({
   help,
   helpStatus,
   errors = EMPTY_LIST,
@@ -48,7 +48,7 @@ export default function ErrorList({
   className: rootClassName,
   fieldId,
   onVisibleChanged,
-}: ErrorListProps) {
+}) => {
   const { prefixCls } = React.useContext(FormItemPrefixContext);
 
   const baseClassName = `${prefixCls}-item-explain`;
@@ -96,7 +96,7 @@ export default function ErrorList({
             {...helpProps}
             className={classNames(baseClassName, holderClassName, rootClassName, hashId)}
             style={holderStyle}
-            role="alert"
+            role='alert'
           >
             <CSSMotionList
               keys={fullKeyList}
@@ -131,4 +131,6 @@ export default function ErrorList({
       }}
     </CSSMotion>
   );
-}
+};
+
+export default ErrorList;
