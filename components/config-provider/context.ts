@@ -11,6 +11,7 @@ import type { SpaceProps } from '../space';
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../theme/interface';
 import type { SizeType } from './SizeContext';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import type { ShowWaveEffect } from '../_util/wave/useWave';
 
 export const defaultIconPrefixCls = 'anticon';
 
@@ -55,6 +56,11 @@ export interface ButtonConfig extends ComponentStyleConfig {
 }
 
 export type PopupOverflow = 'viewport' | 'scroll';
+
+export interface WaveConfig {
+  disabled?: boolean;
+  showEffect?: ShowWaveEffect;
+}
 
 export interface ConfigConsumerProps {
   getTargetContainer?: () => HTMLElement;
@@ -142,6 +148,8 @@ export interface ConfigConsumerProps {
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
   datePicker?: ComponentStyleConfig;
+
+  wave?: WaveConfig;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
