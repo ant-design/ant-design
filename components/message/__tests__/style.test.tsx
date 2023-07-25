@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
 import message, { actWrapper } from '..';
-import { act, render } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import { awaitPromise } from './util';
 
 describe('message.style', () => {
@@ -26,15 +26,32 @@ describe('message.style', () => {
     const Demo = () => {
       const [msg, holder] = message.useMessage();
 
-      return <StyleProvider cache={cache}>{holder}</StyleProvider>;
+      return (
+        <StyleProvider cache={cache}>
+          {holder}
+          <button
+            type="button"
+            onClick={() => {
+              msg.success('2333');
+            }}
+          >
+            Show
+          </button>
+        </StyleProvider>
+      );
     };
 
     const { container } = render(<Demo />);
+    await waitFakeTimer();
 
     const styleText = extractStyle(cache, true);
-
-    console.log(styleText);
-
     expect(styleText).not.toContain('.ant-message');
+
+    // Render style
+    fireEvent.click(container.querySelector('button')!);
+    await waitFakeTimer();
+
+    const styleText2 = extractStyle(cache, true);
+    expect(styleText2).toContain('.ant-message');
   });
 });
