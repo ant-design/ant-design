@@ -30,8 +30,7 @@ export default defineConfig({
     'antd/lib': path.join(__dirname, 'components'),
     'antd/es': path.join(__dirname, 'components'),
     'antd/locale': path.join(__dirname, 'components/locale'),
-    // Change antd from `index.js` to `.dumi/theme/antd.js` to remove deps of root style
-    antd: require.resolve('./.dumi/theme/antd.js'),
+    antd: path.join(__dirname, 'components'),
   },
   extraRehypePlugins: [rehypeAntd],
   extraRemarkPlugins: [remarkAntd],
@@ -39,6 +38,9 @@ export default defineConfig({
   metas: [{ name: 'theme-color', content: '#1677ff' }],
   analytics: {
     ga_v2: 'UA-72788897-1',
+  },
+  analyze: {
+    analyzerPort: 'auto',
   },
   links: [
     {

@@ -155,6 +155,11 @@ const RoutesPlugin = (api: IApi) => {
 
     fs.writeFileSync(`./_site/${ssrCssFileName}`, styleTextWithoutStyleTag, 'utf8');
   });
+
+  api.modifyHTML(($) => {
+    $('head meta[name="viewport"]').attr('content', 'width=device-width');
+    return $;
+  });
 };
 
 export default RoutesPlugin;

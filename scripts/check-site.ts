@@ -75,6 +75,18 @@ describe('site test', () => {
     expect($('h1').text()).toMatch(`组件总览`);
   });
 
+  it('Resource en', async () => {
+    const { status, $ } = await render('/docs/resources');
+    expect(status).toBe(200);
+    expect($('h1').text()).toMatch(`Resources`);
+  });
+
+  it('Resource zh', async () => {
+    const { status, $ } = await render('/docs/resources-cn');
+    expect(status).toBe(200);
+    expect($('h1').text()).toMatch(`资源`);
+  });
+
   for (const component of components) {
     if (component.split('/').length < 3) {
       it(`Component ${component} zh Page`, async () => {
