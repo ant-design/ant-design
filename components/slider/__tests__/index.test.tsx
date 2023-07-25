@@ -57,6 +57,15 @@ describe('Slider', () => {
     expect(tooltipProps().placement).toEqual('left');
   });
 
+  it('support autoAdjustOverflow', () => {
+    const { container } = render(
+      <Slider vertical defaultValue={30} tooltip={{ autoAdjustOverflow: false }} />,
+    );
+
+    fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+    expect(tooltipProps().autoAdjustOverflow).toBe(false);
+  });
+
   it('when tooltip.open is true, tooltip should show always, or should never show', () => {
     const { container: container1 } = render(<Slider defaultValue={30} tooltip={{ open: true }} />);
     expect(
