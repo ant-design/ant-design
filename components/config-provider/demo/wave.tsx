@@ -41,7 +41,11 @@ const createDot = (
 };
 
 // Inset Effect
-const showInsetEffect: WaveConfig['showEffect'] = (node, { event }) => {
+const showInsetEffect: WaveConfig['showEffect'] = (node, { event, component }) => {
+  if (component !== 'Button') {
+    return;
+  }
+
   const holder = createHolder(node);
 
   const rect = holder.getBoundingClientRect();
@@ -64,7 +68,11 @@ const showInsetEffect: WaveConfig['showEffect'] = (node, { event }) => {
 };
 
 // Scale Effect
-const showScaleEffect: WaveConfig['showEffect'] = (node) => {
+const showScaleEffect: WaveConfig['showEffect'] = (node, { component }) => {
+  if (component !== 'Button') {
+    return;
+  }
+
   const seq = [0, -15, 15, -5, 5, 0];
   const itv = 10;
 

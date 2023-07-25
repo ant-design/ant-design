@@ -153,7 +153,7 @@ const {
 | tree | Set Tree common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | typography | Set Typography common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | upload | Set Upload common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| wave | Config wave effect | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token }) => void } | - | 5.8.0 |
+| wave | Config wave effect | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void } | - | 5.8.0 |
 
 ## FAQ
 
