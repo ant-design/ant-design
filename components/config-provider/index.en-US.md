@@ -43,6 +43,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 <code src="./demo/direction.tsx">Direction</code>
 <code src="./demo/size.tsx">Component size</code>
 <code src="./demo/theme.tsx">Theme</code>
+<code src="./demo/wave.tsx">Custom Wave</code>
 <code src="./demo/prefixCls.tsx" debug>prefixCls</code>
 <code src="./demo/useConfig.tsx" debug>useConfig</code>
 
@@ -152,6 +153,7 @@ const {
 | tree | Set Tree common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | typography | Set Typography common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | upload | Set Upload common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| wave | Config wave effect | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void } | - | 5.8.0 |
 
 ## FAQ
 
