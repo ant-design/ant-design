@@ -98,7 +98,7 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
   placement?: TooltipPlacement;
   builtinPlacements?: typeof Placements;
   openClassName?: string;
-  /** @deprecated Please use `arrow` instead. */
+  /** @deprecated Please use `arrow={{ pointAtCenter: true }}` instead. */
   arrowPointAtCenter?: boolean;
   arrow?:
     | boolean
@@ -240,7 +240,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       ['defaultVisible', 'defaultOpen'],
       ['onVisibleChange', 'onOpenChange'],
       ['afterVisibleChange', 'afterOpenChange'],
-      ['arrowPointAtCenter', 'arrow'],
+      ['arrowPointAtCenter', 'arrow={{ pointAtCenter: true }}'],
     ].forEach(([deprecatedName, newName]) => {
       warning(
         !(deprecatedName in props),

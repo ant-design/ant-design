@@ -20,7 +20,6 @@ exports[`renders components/select/demo/automatic-tokenization.tsx correctly 1`]
           style="width:0"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -93,7 +92,6 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -159,7 +157,6 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -226,7 +223,6 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -292,7 +288,6 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -461,7 +456,6 @@ Array [
             style="width:0"
           >
             <input
-              aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
               aria-expanded="false"
@@ -549,7 +543,6 @@ exports[`renders components/select/demo/bordered.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -615,7 +608,6 @@ exports[`renders components/select/demo/bordered.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -690,7 +682,6 @@ exports[`renders components/select/demo/coordinate.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -756,7 +747,6 @@ exports[`renders components/select/demo/coordinate.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -822,7 +812,6 @@ exports[`renders components/select/demo/custom-dropdown-menu.tsx correctly 1`] =
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="false"
@@ -959,7 +948,6 @@ exports[`renders components/select/demo/custom-tag-render.tsx correctly 1`] = `
           style="width:0"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -1043,7 +1031,6 @@ exports[`renders components/select/demo/debug.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -1154,7 +1141,6 @@ exports[`renders components/select/demo/debug.tsx correctly 1`] = `
               style="width:0"
             >
               <input
-                aria-activedescendant="undefined_list_0"
                 aria-autocomplete="list"
                 aria-controls="undefined_list"
                 aria-expanded="false"
@@ -1244,7 +1230,6 @@ exports[`renders components/select/demo/debug-flip-shift.tsx correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="false"
@@ -1313,7 +1298,6 @@ exports[`renders components/select/demo/hide-selected.tsx correctly 1`] = `
           style="width:0"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -1383,7 +1367,6 @@ exports[`renders components/select/demo/label-in-value.tsx correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="false"
@@ -1545,7 +1528,6 @@ exports[`renders components/select/demo/multiple.tsx correctly 1`] = `
               style="width:0"
             >
               <input
-                aria-activedescendant="undefined_list_0"
                 aria-autocomplete="list"
                 aria-controls="undefined_list"
                 aria-expanded="false"
@@ -1675,7 +1657,6 @@ exports[`renders components/select/demo/multiple.tsx correctly 1`] = `
               style="width:0"
             >
               <input
-                aria-activedescendant="undefined_list_0"
                 aria-autocomplete="list"
                 aria-controls="undefined_list"
                 aria-expanded="false"
@@ -1743,7 +1724,6 @@ exports[`renders components/select/demo/optgroup.tsx correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="false"
@@ -1815,7 +1795,6 @@ exports[`renders components/select/demo/option-label-center.tsx correctly 1`] = 
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -1956,7 +1935,6 @@ exports[`renders components/select/demo/option-label-prop.tsx correctly 1`] = `
           style="width:0"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -2105,7 +2083,6 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
           aria-expanded="false"
@@ -2301,7 +2278,6 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
           aria-expanded="false"
@@ -2395,7 +2371,6 @@ exports[`renders components/select/demo/responsive.tsx correctly 1`] = `
               style="width:0"
             >
               <input
-                aria-activedescendant="undefined_list_0"
                 aria-autocomplete="list"
                 aria-controls="undefined_list"
                 aria-expanded="false"
@@ -2485,7 +2460,6 @@ exports[`renders components/select/demo/responsive.tsx correctly 1`] = `
               style="width:0"
             >
               <input
-                aria-activedescendant="undefined_list_0"
                 aria-autocomplete="list"
                 aria-controls="undefined_list"
                 aria-expanded="false"
@@ -2552,7 +2526,6 @@ exports[`renders components/select/demo/search.tsx correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="false"
@@ -2612,7 +2585,6 @@ exports[`renders components/select/demo/search-box.tsx correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="false"
@@ -2646,7 +2618,6 @@ exports[`renders components/select/demo/search-sort.tsx correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="false"
@@ -2714,7 +2685,6 @@ exports[`renders components/select/demo/select-users.tsx correctly 1`] = `
           style="width:0"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -2857,7 +2827,6 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
               aria-expanded="false"
@@ -3013,7 +2982,6 @@ Array [
                 style="width:0"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
                   aria-expanded="false"
@@ -3169,7 +3137,6 @@ Array [
                 style="width:0"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
                   aria-expanded="false"
@@ -3242,7 +3209,6 @@ exports[`renders components/select/demo/status.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -3304,7 +3270,6 @@ exports[`renders components/select/demo/status.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -3375,7 +3340,6 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -3441,7 +3405,6 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -3516,7 +3479,6 @@ exports[`renders components/select/demo/tags.tsx correctly 1`] = `
           style="width:0"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"

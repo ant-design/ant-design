@@ -132,7 +132,6 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"

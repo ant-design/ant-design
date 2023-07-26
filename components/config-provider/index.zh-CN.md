@@ -44,6 +44,7 @@ export default Demo;
 <code src="./demo/direction.tsx">方向</code>
 <code src="./demo/size.tsx">组件尺寸</code>
 <code src="./demo/theme.tsx">主题</code>
+<code src="./demo/wave.tsx">自定义波纹</code>
 <code src="./demo/prefixCls.tsx" debug>前缀</code>
 <code src="./demo/useConfig.tsx" debug>useConfig</code>
 
@@ -154,6 +155,7 @@ const {
 | tree | 设置 Tree 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | typography | 设置 Typography 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | upload | 设置 Upload 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| wave | 设置水波纹特效 | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void } | - | 5.8.0 |
 
 ## FAQ
 

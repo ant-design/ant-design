@@ -459,7 +459,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
@@ -687,7 +686,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
               style="width: 0px;"
             >
               <input
-                aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                 aria-autocomplete="list"
                 aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
@@ -1056,7 +1054,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
@@ -4285,7 +4282,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
@@ -4426,7 +4422,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
@@ -4572,7 +4567,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
@@ -4741,7 +4735,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
@@ -4883,7 +4876,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
@@ -9678,7 +9670,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                     aria-autocomplete="list"
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
@@ -9828,7 +9819,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                     aria-autocomplete="list"
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
@@ -11401,7 +11391,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
@@ -11631,7 +11620,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -13349,7 +13337,6 @@ Array [
               class="ant-select-selection-search"
             >
               <input
-                aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                 aria-autocomplete="list"
                 aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"

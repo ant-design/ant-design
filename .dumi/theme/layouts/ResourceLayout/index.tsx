@@ -34,6 +34,7 @@ const useStyle = createStyles(({ token, css }) => {
       max-width: ${articleMaxWidth}px;
       margin: 0 auto;
       box-sizing: content-box;
+      min-height: 100vh;
 
       > .markdown {
         > p {

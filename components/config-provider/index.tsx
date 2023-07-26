@@ -30,6 +30,7 @@ import type {
   PopupOverflow,
   Theme,
   ThemeConfig,
+  WaveConfig,
 } from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
 import { registerTheme } from './cssVariables';
@@ -186,6 +187,11 @@ export interface ConfigProviderProps {
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
   datePicker?: ComponentStyleConfig;
+
+  /**
+   * Wave is special component which only patch on the effect of component interaction.
+   */
+  wave?: WaveConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -322,6 +328,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tree,
     colorPicker,
     datePicker,
+    wave,
   } = props;
 
   // =================================== Warning ===================================
@@ -420,6 +427,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tree,
     colorPicker,
     datePicker,
+    wave,
   };
 
   const config = {
