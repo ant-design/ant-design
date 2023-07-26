@@ -92,7 +92,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
 
   const {
     prefixCls: customizePrefixCls,
-    shape = 'circle',
+    shape,
     size: customSize = 'default',
     src,
     srcSet,
@@ -147,7 +147,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
 
   const hasImageElement = React.isValidElement(src);
 
-  const mergedShape = shape || avatarContext?.shape;
+  const mergedShape = shape || avatarContext?.shape || 'circle';
 
   const classString = classNames(
     prefixCls,
