@@ -156,7 +156,10 @@ describe('Calendar', () => {
   it('validRange should work with disabledDate function', () => {
     const validRange: [Moment.Moment, Moment.Moment] = [Moment('2018-02-02'), Moment('2018-05-18')];
     render(
-      <Calendar validRange={validRange} disabledDate={data => data.isSame(Moment('2018-02-03'))} />,
+      <Calendar
+        validRange={validRange}
+        disabledDate={(data) => data.isSame(Moment('2018-02-03'))}
+      />,
     );
 
     expect(ref.calendarProps?.disabledDate?.(Moment('2018-02-01'))).toBe(true);
@@ -400,7 +403,7 @@ describe('Calendar', () => {
 
       for (let index = start; index < end; index += 1) {
         monthOptions.push(
-          <Select.Option className="month-item" key={`${index}`} value={index}>
+          <Select.Option className="month-item" key={index} value={index}>
             {months[index]}
           </Select.Option>,
         );
