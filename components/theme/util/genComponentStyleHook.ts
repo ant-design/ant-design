@@ -58,6 +58,10 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
     resetStyle?: boolean;
     // Deprecated token key map [["oldTokenKey", "newTokenKey"], ["oldTokenKey", "newTokenKey"]]
     deprecatedTokens?: [ComponentTokenKey<ComponentName>, ComponentTokenKey<ComponentName>][];
+    /**
+     * Only use component style in client side. Ignore in SSR.
+     */
+    clientOnly?: boolean;
   },
 ) {
   return (prefixCls: string): UseComponentStyleResult => {
@@ -71,6 +75,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
       token,
       hashId,
       nonce: () => csp?.nonce!,
+      clientOnly: options?.clientOnly,
     };
 
     // Generate style for all a tags in antd component.
