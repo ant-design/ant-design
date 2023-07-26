@@ -311,7 +311,8 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
       // Reset all
       insetInlineStart: 0,
       top: 0,
-      [markInset]: handleSize,
+      // https://github.com/ant-design/ant-design/issues/43731
+      [markInset]: railSize * 3 + (horizontal ? 0 : token.marginFull),
       [full]: '100%',
     },
 
