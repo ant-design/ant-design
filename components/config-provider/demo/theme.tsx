@@ -8,7 +8,6 @@ import {
   InputNumber,
   Space,
   Switch,
-  theme,
 } from 'antd';
 import type { Color } from 'antd/es/color-picker';
 import React from 'react';
@@ -35,8 +34,6 @@ export default () => {
 
   const [data, setData] = React.useState<ThemeData>(defaultData);
 
-  console.log(data);
-
   return (
     <div>
       <ConfigProvider
@@ -49,12 +46,6 @@ export default () => {
             Button: {
               colorPrimary: data.Button?.colorPrimary,
               algorithm: data.Button?.algorithm,
-            },
-            InputNumber: {
-              colorPrimary: 'green',
-              colorBgBase: '#000',
-              colorTextBase: '#fff',
-              algorithm: theme.darkAlgorithm,
             },
           },
         }}

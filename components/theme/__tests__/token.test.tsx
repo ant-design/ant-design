@@ -6,6 +6,9 @@ import ConfigProvider from '../../config-provider';
 import type { ThemeConfig } from '../../config-provider/context';
 import Row from '../../row';
 import genRadius from '../themes/shared/genRadius';
+import Button from '../../button';
+import { Input } from 'antd';
+import { fireEvent } from '@testing-library/react';
 
 const { useToken } = theme;
 
@@ -301,5 +304,31 @@ describe('Theme', () => {
       expect(token.colorLinkHover).toEqual('#69c8ff');
       expect(token.colorLinkActive).toEqual('#0978d9');
     });
+  });
+
+  it('component token should support algorithm', () => {
+    const Demo = ({ algorithm }: { algorithm?: boolean | typeof theme.darkAlgorithm }) => (
+      <ConfigProvider
+        theme={{
+          components: {
+            Input: {
+              colorPrimary: '#00B96B',
+              algorithm,
+            },
+          },
+        }}
+      >
+        <Input />
+      </ConfigProvider>
+    );
+
+    const { container, rerender } = render(<Demo />);
+    expect(container.querySelector('input')).toHaveStyle({ 'border-color': '#4096ff' });
+
+    rerender(<Demo algorithm />);
+    expect(container.querySelector('input')).toHaveStyle({ 'border-color': '#20c77c' });
+
+    rerender(<Demo algorithm={theme.darkAlgorithm} />);
+    expect(container.querySelector('input')).toHaveStyle({ 'border-color': '#1fb572' });
   });
 });

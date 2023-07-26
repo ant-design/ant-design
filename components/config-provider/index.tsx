@@ -42,6 +42,7 @@ import MotionWrapper from './MotionWrapper';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
+import { defaultTheme } from 'antd/es/theme/context';
 
 /**
  * Since too many feedback using static method like `Modal.confirm` not getting theme, we record the
@@ -516,7 +517,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     const themeObj =
       algorithm && (!Array.isArray(algorithm) || algorithm.length > 0)
         ? createTheme(algorithm)
-        : undefined;
+        : defaultTheme;
 
     const parsedComponents: any = {};
     Object.entries(components || {}).forEach(([componentName, componentToken]) => {
