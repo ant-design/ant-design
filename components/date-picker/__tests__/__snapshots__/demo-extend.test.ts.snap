@@ -32580,6 +32580,13 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
             >
               <ul>
                 <li>
+                  <span
+                    aria-label="Current Time to End of Day"
+                  >
+                    Now ~ EOD
+                  </span>
+                </li>
+                <li>
                   Last 7 Days
                 </li>
                 <li>

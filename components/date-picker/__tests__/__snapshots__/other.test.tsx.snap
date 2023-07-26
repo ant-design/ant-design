@@ -436,7 +436,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                 </thead>
                 <tbody>
                   <tr
-                    class="ant-picker-week-panel-row ant-picker-week-panel-row-selected"
+                    class="ant-picker-week-panel-row"
                   >
                     <td
                       class="ant-picker-cell ant-picker-cell-week"
