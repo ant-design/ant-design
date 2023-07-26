@@ -134,7 +134,6 @@ Array [
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
@@ -516,7 +515,6 @@ Array [
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
@@ -900,7 +898,6 @@ exports[`renders components/color-picker/demo/change-completed.tsx extend contex
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
@@ -1282,7 +1279,6 @@ Array [
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
@@ -1669,7 +1665,6 @@ Array [
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
@@ -2030,7 +2025,6 @@ Array [
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
@@ -2356,7 +2350,6 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                               class="ant-select-selection-search"
                             >
                               <input
-                                aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                 aria-autocomplete="list"
                                 aria-controls="rc_select_TEST_OR_SSR_list"
                                 aria-expanded="false"
@@ -2767,7 +2760,6 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                               class="ant-select-selection-search"
                             >
                               <input
-                                aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                 aria-autocomplete="list"
                                 aria-controls="rc_select_TEST_OR_SSR_list"
                                 aria-expanded="false"
@@ -3395,7 +3387,6 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                               class="ant-select-selection-search"
                             >
                               <input
-                                aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                 aria-autocomplete="list"
                                 aria-controls="rc_select_TEST_OR_SSR_list"
                                 aria-expanded="false"
@@ -4046,7 +4037,6 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                 class="ant-select-selection-search"
                               >
                                 <input
-                                  aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                   aria-autocomplete="list"
                                   aria-controls="rc_select_TEST_OR_SSR_list"
                                   aria-expanded="false"
@@ -4879,7 +4869,6 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                     aria-autocomplete="list"
                                     aria-controls="rc_select_TEST_OR_SSR_list"
                                     aria-expanded="false"
@@ -5268,7 +5257,6 @@ Array [
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
@@ -6027,7 +6015,6 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                       class="ant-select-selection-search"
                     >
                       <input
-                        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
                         aria-expanded="false"
@@ -6423,7 +6410,6 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-select-selection-search"
                         >
                           <input
-                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                             aria-autocomplete="list"
                             aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
@@ -6805,7 +6791,6 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-select-selection-search"
                         >
                           <input
-                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                             aria-autocomplete="list"
                             aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
@@ -7186,7 +7171,6 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-select-selection-search"
                         >
                           <input
-                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                             aria-autocomplete="list"
                             aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
@@ -7581,7 +7565,6 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-select-selection-search"
                         >
                           <input
-                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                             aria-autocomplete="list"
                             aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
@@ -7968,7 +7951,6 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-select-selection-search"
                         >
                           <input
-                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                             aria-autocomplete="list"
                             aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
@@ -8354,7 +8336,6 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-select-selection-search"
                         >
                           <input
-                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                             aria-autocomplete="list"
                             aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
@@ -8750,7 +8731,6 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       class="ant-select-selection-search"
                     >
                       <input
-                        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
                         aria-expanded="false"
@@ -9139,7 +9119,6 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       class="ant-select-selection-search"
                     >
                       <input
-                        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
                         aria-expanded="false"
@@ -9544,7 +9523,6 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       class="ant-select-selection-search"
                     >
                       <input
-                        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
                         aria-expanded="false"
@@ -9924,7 +9902,6 @@ Array [
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
@@ -10306,7 +10283,6 @@ Array [
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"

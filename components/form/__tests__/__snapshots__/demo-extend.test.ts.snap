@@ -96,7 +96,6 @@ Array [
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="advanced_search_field-1_list_0"
                           aria-autocomplete="list"
                           aria-controls="advanced_search_field-1_list"
                           aria-expanded="false"
@@ -363,7 +362,6 @@ Array [
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="advanced_search_field-4_list_0"
                           aria-autocomplete="list"
                           aria-controls="advanced_search_field-4_list"
                           aria-expanded="false"
@@ -1008,7 +1006,6 @@ Array [
                         style="width: 0px;"
                       >
                         <input
-                          aria-activedescendant="basic_select_list_0"
                           aria-autocomplete="list"
                           aria-controls="basic_select_list"
                           aria-expanded="false"
@@ -1438,7 +1435,6 @@ Array [
                         style="width: 0px;"
                       >
                         <input
-                          aria-activedescendant="select_list_0"
                           aria-autocomplete="list"
                           aria-controls="select_list"
                           aria-expanded="false"
@@ -1722,7 +1718,6 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="control-hooks_gender_list_0"
                     aria-autocomplete="list"
                     aria-controls="control-hooks_gender_list"
                     aria-expanded="false"
@@ -2003,7 +1998,6 @@ exports[`renders components/form/demo/control-ref.tsx extend context correctly 1
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="control-ref_gender_list_0"
                     aria-autocomplete="list"
                     aria-controls="control-ref_gender_list"
                     aria-expanded="false"
@@ -2252,7 +2246,6 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
@@ -2641,7 +2634,6 @@ Array [
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
@@ -6260,7 +6252,6 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend cont
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="dynamic_form_complex_area_list_0"
                     aria-autocomplete="list"
                     aria-controls="dynamic_form_complex_area_list"
                     aria-expanded="false"
@@ -8790,7 +8781,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="register_prefix_list_0"
                           aria-autocomplete="list"
                           aria-controls="register_prefix_list"
                           aria-expanded="false"
@@ -9058,7 +9048,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="register_suffix_list_0"
                           aria-autocomplete="list"
                           aria-controls="register_suffix_list"
                           aria-expanded="false"
@@ -9231,7 +9220,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="register_website_list_-1"
                     aria-autocomplete="list"
                     aria-controls="register_website_list"
                     aria-expanded="false"
@@ -9357,7 +9345,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="register_gender_list_0"
                     aria-autocomplete="list"
                     aria-controls="register_gender_list"
                     aria-expanded="false"
@@ -10116,7 +10103,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                     aria-autocomplete="list"
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
@@ -19331,7 +19317,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="validate_other_select_list_0"
                     aria-autocomplete="list"
                     aria-controls="validate_other_select_list"
                     aria-expanded="false"
@@ -19512,7 +19497,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                       style="width: 0px;"
                     >
                       <input
-                        aria-activedescendant="validate_other_select-multiple_list_0"
                         aria-autocomplete="list"
                         aria-controls="validate_other_select-multiple_list"
                         aria-expanded="false"
@@ -20997,7 +20981,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                               class="ant-select-selection-search"
                             >
                               <input
-                                aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                 aria-autocomplete="list"
                                 aria-controls="rc_select_TEST_OR_SSR_list"
                                 aria-expanded="false"
@@ -25129,7 +25112,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                     aria-autocomplete="list"
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
