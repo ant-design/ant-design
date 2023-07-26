@@ -147,7 +147,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
 
   const hasImageElement = React.isValidElement(src);
 
-  const mergedShape = avatarContext?.shape || shape;
+  const mergedShape = shape || avatarContext?.shape;
 
   const classString = classNames(
     prefixCls,
