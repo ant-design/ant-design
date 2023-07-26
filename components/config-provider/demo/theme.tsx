@@ -1,4 +1,4 @@
-import { Button, ColorPicker, ConfigProvider, Form, InputNumber } from 'antd';
+import { Button, ColorPicker, ConfigProvider, Form, InputNumber, theme } from 'antd';
 import type { Color } from 'antd/es/color-picker';
 import React from 'react';
 
@@ -19,7 +19,25 @@ export default () => {
 
   return (
     <ConfigProvider
-      theme={{ token: { colorPrimary: data.colorPrimary, borderRadius: data.borderRadius } }}
+      theme={{
+        token: {
+          colorPrimary: data.colorPrimary,
+          borderRadius: data.borderRadius,
+        },
+        components: {
+          Button: {
+            colorPrimary: 'red',
+            borderRadius: 0,
+            algorithm: true,
+          },
+          InputNumber: {
+            colorPrimary: 'green',
+            colorBgBase: '#000',
+            colorTextBase: '#fff',
+            algorithm: theme.darkAlgorithm,
+          },
+        },
+      }}
     >
       <Form
         form={form}
@@ -40,9 +58,11 @@ export default () => {
         <Form.Item valuePropName="color" name="colorPrimary" label="Primary Color">
           <ColorPicker />
         </Form.Item>
-        <Form.Item name="borderRadius" label="Border Radius">
-          <InputNumber />
-        </Form.Item>
+        <div style={{ background: 'rgb(20, 20, 20)', padding: 24 }}>
+          <Form.Item name="borderRadius" label="Border Radius">
+            <InputNumber />
+          </Form.Item>
+        </div>
         <Form.Item name="submit" wrapperCol={{ offset: 4, span: 20 }}>
           <Button type="primary">Submit</Button>
         </Form.Item>

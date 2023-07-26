@@ -504,11 +504,29 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   // ================================ Dynamic theme ================================
   const memoTheme = React.useMemo(() => {
-    const { algorithm, token, ...rest } = mergedTheme || {};
+    const { algorithm, token, components, ...rest } = mergedTheme || {};
     const themeObj =
       algorithm && (!Array.isArray(algorithm) || algorithm.length > 0)
         ? createTheme(algorithm)
         : undefined;
+
+    const parsedComponents: any = {};
+    Object.entries(components || {}).forEach(([componentName, componentToken]) => {
+      parsedComponents[componentName] = { ...componentToken };
+      if ('algorithm' in parsedComponents[componentName]) {
+        if (parsedComponents[componentName].algorithm === true) {
+          parsedComponents[componentName].theme = themeObj;
+        } else if (
+          Array.isArray(parsedComponents[componentName].algorithm) ||
+          typeof parsedComponents[componentName].algorithm === 'function'
+        ) {
+          parsedComponents[componentName].theme = createTheme(
+            parsedComponents[componentName].algorithm,
+          );
+        }
+        delete parsedComponents[componentName].algorithm;
+      }
+    });
 
     return {
       ...rest,
@@ -518,6 +536,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
         ...defaultSeedToken,
         ...token,
       },
+
+      components: parsedComponents,
     };
   }, [mergedTheme]);
 
