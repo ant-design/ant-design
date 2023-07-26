@@ -263,12 +263,7 @@ describe('message.hooks', () => {
     const Demo = () => {
       const [, holder] = message.useMessage();
 
-      return (
-        <StyleProvider cache={cache}>
-          {holder}
-          <button type="button">Show</button>
-        </StyleProvider>
-      );
+      return <StyleProvider cache={cache}>{holder}</StyleProvider>;
     };
 
     render(<Demo />);
