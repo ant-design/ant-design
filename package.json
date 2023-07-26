@@ -118,7 +118,7 @@
   "dependencies": {
     "@ant-design/colors": "^6.0.0",
     "@ant-design/icons": "^4.7.0",
-    "@ant-design/react-slick": "~0.29.1",
+    "@ant-design/react-slick": "~1.0.0",
     "@babel/runtime": "^7.18.3",
     "@ctrl/tinycolor": "^3.4.0",
     "classnames": "^2.2.6",
