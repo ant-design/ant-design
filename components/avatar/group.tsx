@@ -24,6 +24,7 @@ export interface GroupProps {
    * or a custom number size
    * */
   size?: AvatarSize;
+  shape?: 'circle' | 'square';
 }
 
 const Group: React.FC<GroupProps> = (props) => {
@@ -32,9 +33,14 @@ const Group: React.FC<GroupProps> = (props) => {
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
+    style,
     maxCount,
     maxStyle,
     size,
+    shape,
+    maxPopoverPlacement = 'top',
+    maxPopoverTrigger = 'hover',
+    children,
   } = props;
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
@@ -51,11 +57,8 @@ const Group: React.FC<GroupProps> = (props) => {
     hashId,
   );
 
-  const { children, maxPopoverPlacement = 'top', maxPopoverTrigger = 'hover' } = props;
   const childrenWithProps = toArray(children).map((child, index) =>
-    cloneElement(child, {
-      key: `avatar-key-${index}`,
-    }),
+    cloneElement(child, { key: `avatar-key-${index}` }),
   );
 
   const numOfChildren = childrenWithProps.length;
@@ -74,8 +77,8 @@ const Group: React.FC<GroupProps> = (props) => {
       </Popover>,
     );
     return wrapSSR(
-      <SizeContextProvider size={size}>
-        <div className={cls} style={props.style}>
+      <SizeContextProvider size={size} shape={shape}>
+        <div className={cls} style={style}>
           {childrenShow}
         </div>
       </SizeContextProvider>,
@@ -83,8 +86,8 @@ const Group: React.FC<GroupProps> = (props) => {
   }
 
   return wrapSSR(
-    <SizeContextProvider size={size}>
-      <div className={cls} style={props.style}>
+    <SizeContextProvider size={size} shape={shape}>
+      <div className={cls} style={style}>
         {childrenWithProps}
       </div>
     </SizeContextProvider>,

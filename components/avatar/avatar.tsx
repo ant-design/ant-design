@@ -7,7 +7,7 @@ import { responsiveArray } from '../_util/responsiveObserver';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
-import type { AvatarSize } from './SizeContext';
+import type { AvatarContext, AvatarSize } from './SizeContext';
 import SizeContext from './SizeContext';
 import useStyle from './style';
 
@@ -44,7 +44,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   props,
   ref,
 ) => {
-  const contextSize = React.useContext<AvatarSize>(SizeContext);
+  const avatarContext = React.useContext<AvatarContext>(SizeContext);
 
   const [scale, setScale] = React.useState(1);
   const [mounted, setMounted] = React.useState(false);
@@ -106,7 +106,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     ...others
   } = props;
 
-  const size = customSize === 'default' ? contextSize : customSize;
+  const size = customSize === 'default' ? avatarContext?.size : customSize;
 
   const needResponsive = Object.keys(typeof size === 'object' ? size || {} : {}).some((key) =>
     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),
@@ -118,6 +118,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     }
 
     const currentBreakpoint: Breakpoint = responsiveArray.find((screen) => screens[screen])!;
+
     const currentSize = size[currentBreakpoint];
 
     return currentSize
@@ -146,12 +147,14 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
 
   const hasImageElement = React.isValidElement(src);
 
+  const mergedShape = avatarContext?.shape || shape;
+
   const classString = classNames(
     prefixCls,
     sizeCls,
     avatar?.className,
+    `${prefixCls}-${mergedShape}`,
     {
-      [`${prefixCls}-${shape}`]: !!shape,
       [`${prefixCls}-image`]: hasImageElement || (src && isImgExist),
       [`${prefixCls}-icon`]: !!icon,
     },
