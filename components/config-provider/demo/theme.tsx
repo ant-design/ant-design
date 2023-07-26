@@ -67,13 +67,9 @@ export default () => {
       <Divider />
       <Form
         form={form}
-        onValuesChange={(changedValues, allValues) => {
-          const colorObj = changedValues?.colorPrimary
-            ? { colorPrimary: (allValues?.colorPrimary as Color)?.toHexString() }
-            : {};
+        onValuesChange={(_, allValues) => {
           setData({
             ...allValues,
-            ...colorObj,
           });
         }}
         name="theme"
@@ -81,7 +77,12 @@ export default () => {
         labelCol={{ span: 4 }}
         wrapperCol={{ span: 20 }}
       >
-        <Form.Item valuePropName="color" name="colorPrimary" label="Primary Color">
+        <Form.Item
+          name="colorPrimary"
+          label="Primary Color"
+          trigger="onChangeComplete"
+          getValueFromEvent={(color: Color) => color.toHexString()}
+        >
           <ColorPicker />
         </Form.Item>
         <Form.Item name="borderRadius" label="Border Radius">
@@ -91,7 +92,12 @@ export default () => {
           <Form.Item name={['Button', 'algorithm']} valuePropName="checked" label="algorithm">
             <Switch />
           </Form.Item>
-          <Form.Item name={['Button', 'colorPrimary']} label="Primary Color">
+          <Form.Item
+            name={['Button', 'colorPrimary']}
+            label="Primary Color"
+            trigger="onChangeComplete"
+            getValueFromEvent={(color: Color) => color.toHexString()}
+          >
             <ColorPicker />
           </Form.Item>
         </Form.Item>
