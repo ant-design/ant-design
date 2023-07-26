@@ -189,4 +189,19 @@ describe('Avatar Render', () => {
     fireEvent.click(container.querySelector('.ant-avatar-string')!);
     expect(onClick).toHaveBeenCalled();
   });
+
+  it('Avatar.Group support shape props', () => {
+    const { container } = render(
+      <Avatar.Group shape="square">
+        <Avatar>A</Avatar>
+        <Avatar>B</Avatar>
+        <Avatar>C</Avatar>
+      </Avatar.Group>,
+    );
+    expect(
+      container
+        ?.querySelector<HTMLDivElement>('.ant-avatar-group')
+        ?.querySelectorAll<HTMLSpanElement>('.ant-avatar.ant-avatar-square').length,
+    ).toBe(3);
+  });
 });
