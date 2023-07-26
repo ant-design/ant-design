@@ -194,14 +194,15 @@ describe('Avatar Render', () => {
     const { container } = render(
       <Avatar.Group shape="square">
         <Avatar>A</Avatar>
-        <Avatar>B</Avatar>
+        <Avatar shape="circle">B</Avatar>
         <Avatar>C</Avatar>
+        <Avatar shape="circle">D</Avatar>
       </Avatar.Group>,
     );
-    expect(
-      container
-        ?.querySelector<HTMLDivElement>('.ant-avatar-group')
-        ?.querySelectorAll<HTMLSpanElement>('.ant-avatar.ant-avatar-square').length,
-    ).toBe(3);
+    const avatars = container?.querySelectorAll<HTMLSpanElement>('.ant-avatar-group .ant-avatar');
+    expect(avatars?.[0]).toHaveClass('ant-avatar-square');
+    expect(avatars?.[1]).toHaveClass('ant-avatar-circle');
+    expect(avatars?.[2]).toHaveClass('ant-avatar-square');
+    expect(avatars?.[3]).toHaveClass('ant-avatar-circle');
   });
 });
