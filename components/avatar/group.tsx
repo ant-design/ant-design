@@ -6,7 +6,7 @@ import Popover from '../popover';
 import { cloneElement } from '../_util/reactNode';
 import Avatar from './avatar';
 import type { AvatarSize } from './SizeContext';
-import { SizeContextProvider } from './SizeContext';
+import { AvatarContextProvider } from './SizeContext';
 import useStyle from './style';
 
 export interface GroupProps {
@@ -77,20 +77,20 @@ const Group: React.FC<GroupProps> = (props) => {
       </Popover>,
     );
     return wrapSSR(
-      <SizeContextProvider size={size} shape={shape}>
+      <AvatarContextProvider size={size} shape={shape}>
         <div className={cls} style={style}>
           {childrenShow}
         </div>
-      </SizeContextProvider>,
+      </AvatarContextProvider>,
     );
   }
 
   return wrapSSR(
-    <SizeContextProvider size={size} shape={shape}>
+    <AvatarContextProvider size={size} shape={shape}>
       <div className={cls} style={style}>
         {childrenWithProps}
       </div>
-    </SizeContextProvider>,
+    </AvatarContextProvider>,
   );
 };
 

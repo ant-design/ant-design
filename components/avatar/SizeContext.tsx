@@ -3,12 +3,12 @@ import type { ScreenSizeMap } from '../_util/responsiveObserver';
 
 export type AvatarSize = 'large' | 'small' | 'default' | number | ScreenSizeMap;
 
-export interface AvatarContext {
+export interface AvatarContextType {
   size?: AvatarSize;
   shape?: 'circle' | 'square';
 }
 
-const SizeContext = React.createContext<AvatarContext>({ size: 'default', shape: undefined });
+const AvatarContext = React.createContext<AvatarContextType>({ size: 'default', shape: undefined });
 
 export interface SizeContextProps {
   size?: AvatarSize;
@@ -16,12 +16,12 @@ export interface SizeContextProps {
   children?: React.ReactNode;
 }
 
-export const SizeContextProvider: React.FC<SizeContextProps> = ({ children, size, shape }) => (
-  <SizeContext.Provider
-    value={React.useMemo<AvatarContext>(() => ({ size, shape }), [size, shape])}
+export const AvatarContextProvider: React.FC<SizeContextProps> = ({ children, size, shape }) => (
+  <AvatarContext.Provider
+    value={React.useMemo<AvatarContextType>(() => ({ size, shape }), [size, shape])}
   >
     {children}
-  </SizeContext.Provider>
+  </AvatarContext.Provider>
 );
 
-export default SizeContext;
+export default AvatarContext;
