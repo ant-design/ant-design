@@ -16,7 +16,7 @@ const downloadQRCode = () => {
 
 const App: React.FC = () => (
   <div id="myqrcode">
-    <QRCode value="https://ant.design/" style={{ marginBottom: 16 }} />
+    <QRCode value="https://ant.design/" bgColor="#fff" style={{ marginBottom: 16 }} />
     <Button type="primary" onClick={downloadQRCode}>
       Download
     </Button>

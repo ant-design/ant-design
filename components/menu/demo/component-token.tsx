@@ -1,7 +1,16 @@
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import {
+  AppstoreOutlined,
+  ContainerOutlined,
+  DesktopOutlined,
+  MailOutlined,
+  PieChartOutlined,
+  SettingOutlined,
+} from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { ConfigProvider, Menu } from 'antd';
+import { ConfigProvider, Menu, Space } from 'antd';
 import React, { useState } from 'react';
+
+type MenuItem = Required<MenuProps>['items'][number];
 
 const items: MenuProps['items'] = [
   {
@@ -60,6 +69,42 @@ const items: MenuProps['items'] = [
   },
 ];
 
+function getItem(
+  label: React.ReactNode,
+  key: React.Key,
+  icon?: React.ReactNode,
+  children?: MenuItem[],
+  type?: 'group',
+): MenuItem {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+  } as MenuItem;
+}
+
+const items2: MenuProps['items'] = [
+  getItem('Option 1', '1', <PieChartOutlined />),
+  getItem('Option 2', '2', <DesktopOutlined />),
+  getItem('Option 3', '3', <ContainerOutlined />),
+
+  getItem('Navigation One', 'sub1', <MailOutlined />, [
+    getItem('Option 5', '5'),
+    getItem('Option 6', '6'),
+    getItem('Option 7', '7'),
+    getItem('Option 8', '8'),
+  ]),
+
+  getItem('Navigation Two', 'sub2', <AppstoreOutlined />, [
+    getItem('Option 9', '9'),
+    getItem('Option 10', '10'),
+
+    getItem('Submenu', 'sub3', null, [getItem('Option 11', '11'), getItem('Option 12', '12')]),
+  ]),
+];
+
 const App: React.FC = () => {
   const [current, setCurrent] = useState('mail');
 
@@ -69,18 +114,44 @@ const App: React.FC = () => {
   };
 
   return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Menu: {
-            horizontalItemBorderRadius: 6,
-            horizontalItemHoverBg: '#f5f5f5',
+    <Space direction="vertical">
+      <ConfigProvider
+        theme={{
+          components: {
+            Menu: {
+              horizontalItemBorderRadius: 6,
+              horizontalItemHoverBg: '#f5f5f5',
+            },
           },
-        },
-      }}
-    >
-      <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />
-    </ConfigProvider>
+        }}
+      >
+        <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />
+      </ConfigProvider>
+      <ConfigProvider
+        theme={{
+          components: {
+            Menu: {
+              darkItemColor: '#91daff',
+              darkItemBg: '#d48806',
+              darkSubMenuItemBg: '#faad14',
+              darkItemSelectedColor: '#ffccc7',
+              darkItemSelectedBg: '#52c41a',
+            },
+          },
+        }}
+      >
+        <Menu
+          defaultSelectedKeys={['1']}
+          defaultOpenKeys={['sub1']}
+          mode='inline'
+          theme='dark'
+          items={items2}
+          style={{
+            width: 256,
+          }}
+        />
+      </ConfigProvider>
+    </Space>
   );
 };
 

@@ -8,7 +8,6 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { css } from '@emotion/css';
 import { Button, Upload } from 'antd';
 import type { UploadFile, UploadProps } from 'antd/es/upload/interface';
 import React, { useState } from 'react';
@@ -29,17 +28,15 @@ const DraggableUploadListItem = ({ originNode, file }: DraggableUploadListItemPr
     cursor: 'move',
   };
 
-  // prevent preview event when drag end
-  const className = isDragging
-    ? css`
-        a {
-          pointer-events: none;
-        }
-      `
-    : '';
-
   return (
-    <div ref={setNodeRef} style={style} className={className} {...attributes} {...listeners}>
+    <div
+      ref={setNodeRef}
+      style={style}
+      // prevent preview event when drag end
+      className={isDragging ? 'is-dragging' : ''}
+      {...attributes}
+      {...listeners}
+    >
       {/* hide error tooltip when dragging */}
       {file.status === 'error' && isDragging ? originNode.props.children : originNode}
     </div>

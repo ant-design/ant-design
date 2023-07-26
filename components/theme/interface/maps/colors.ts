@@ -13,6 +13,7 @@ export interface ColorNeutralMapToken {
 
   /**
    * @nameZH 一级文本色
+   * @nameEN Text Color
    * @desc 最深的文本色。为了符合W3C标准，默认的文本颜色使用了该色，同时这个颜色也是最深的中性色。
    * @descEN Default text color which comply with W3C standards, and this color is also the darkest neutral color.
    */
@@ -20,6 +21,7 @@ export interface ColorNeutralMapToken {
 
   /**
    * @nameZH 二级文本色
+   * @nameEN Secondary Text Color
    * @desc 作为第二梯度的文本色，一般用在不那么需要强化文本颜色的场景，例如 Label 文本、Menu 的文本选中态等场景。
    * @descEN The second level of text color is generally used in scenarios where text color is not emphasized, such as label text, menu text selection state, etc.
    */
@@ -91,6 +93,7 @@ export interface ColorNeutralMapToken {
 
   /**
    * @nameZH 布局背景色
+   * @nameEN Layout Background Color
    * @desc 该色用于页面整体布局的背景色，只有需要在页面中处于 B1 的视觉层级时才会使用该 token，其他用法都是错误的
    * @descEN This color is used for the background color of the overall layout of the page. This token will only be used when it is necessary to be at the B1 visual level in the page. Other usages are wrong.
    */

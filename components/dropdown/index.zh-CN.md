@@ -84,6 +84,6 @@ demo:
 
 ## FAQ
 
-### Dropdown 在水平方向超出屏幕时会被挤压改怎么办？
+### Dropdown 在水平方向超出屏幕时会被挤压该怎么办？
 
 你可以通过 `width: max-content` 来解决这个问题，参考 [#43025](https://github.com/ant-design/ant-design/issues/43025#issuecomment-1594394135)。

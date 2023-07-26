@@ -39,6 +39,7 @@ export default function imageTest(component: React.ReactElement) {
     page.on('request', onRequestHandle);
     await page.goto(`file://${process.cwd()}/tests/index.html`);
     await page.addStyleTag({ path: `${process.cwd()}/dist/reset.css` });
+    await page.addStyleTag({ content: '*{animation: none!important;}' });
 
     const cache = createCache();
 

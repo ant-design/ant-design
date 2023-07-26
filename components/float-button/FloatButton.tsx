@@ -85,12 +85,12 @@ const FloatButton: React.ForwardRefRenderFunction<
 
   return wrapSSR(
     props.href ? (
-      <a ref={ref as React.LegacyRef<HTMLAnchorElement>} {...restProps} className={classString}>
+      <a ref={ref as React.RefObject<HTMLAnchorElement>} {...restProps} className={classString}>
         {buttonNode}
       </a>
     ) : (
       <button
-        ref={ref as React.LegacyRef<HTMLButtonElement>}
+        ref={ref as React.RefObject<HTMLButtonElement>}
         {...restProps}
         className={classString}
         type="button"
@@ -101,13 +101,13 @@ const FloatButton: React.ForwardRefRenderFunction<
   );
 };
 
-if (process.env.NODE_ENV !== 'production') {
-  FloatButton.displayName = 'FloatButton';
-}
-
 const ForwardFloatButton = React.forwardRef<
   HTMLAnchorElement | HTMLButtonElement,
   FloatButtonProps
 >(FloatButton) as CompoundedComponent;
+
+if (process.env.NODE_ENV !== 'production') {
+  ForwardFloatButton.displayName = 'FloatButton';
+}
 
 export default ForwardFloatButton;

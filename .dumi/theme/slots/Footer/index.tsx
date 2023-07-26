@@ -13,7 +13,7 @@ import {
   ZhihuOutlined,
 } from '@ant-design/icons';
 import { TinyColor } from '@ctrl/tinycolor';
-import { css } from '@emotion/react';
+import { createStyles } from 'antd-style';
 import getAlphaColor from 'antd/es/theme/util/getAlphaColor';
 import { FormattedMessage, Link } from 'dumi';
 import RcFooter from 'rc-footer';
@@ -21,7 +21,6 @@ import type { FooterColumn } from 'rc-footer/lib/column';
 import React, { useContext } from 'react';
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
-import useSiteToken from '../../../hooks/useSiteToken';
 import SiteContext from '../SiteContext';
 import AdditionalInfo from './AdditionalInfo';
 
@@ -35,18 +34,18 @@ const locales = {
 };
 
 const useStyle = () => {
-  const { token } = useSiteToken();
   const { isMobile } = useContext(SiteContext);
-  const background = new TinyColor(getAlphaColor('#f0f3fa', '#fff'))
-    .onBackground(token.colorBgContainer)
-    .toHexString();
+  return createStyles(({ token, css }) => {
+    const background = new TinyColor(getAlphaColor('#f0f3fa', '#fff'))
+      .onBackground(token.colorBgContainer)
+      .toHexString();
 
-  return {
-    holder: css`
+    return {
+      holder: css`
       background: ${background};
     `,
 
-    footer: css`
+      footer: css`
       background: ${background};
       color: ${token.colorTextSecondary};
       box-shadow: inset 0 106px 36px -116px rgba(0, 0, 0, 0.14);
@@ -84,13 +83,14 @@ const useStyle = () => {
         }
       }
     `,
-  };
+    };
+  })();
 };
 
 const Footer: React.FC = () => {
   const location = useLocation();
   const [locale, lang] = useLocale(locales);
-  const style = useStyle();
+  const { styles } = useStyle();
 
   const { getLink } = location;
 
@@ -199,6 +199,8 @@ const Footer: React.FC = () => {
           icon: (
             <img
               src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
+              width={16}
+              height={16}
               alt="yuque"
             />
           ),
@@ -222,6 +224,8 @@ const Footer: React.FC = () => {
           icon: (
             <img
               src="https://gw.alipayobjects.com/zos/rmsportal/mZBWtboYbnMkTBaRIuWQ.png"
+              width={16}
+              height={16}
               alt="seeconf"
             />
           ),
@@ -303,6 +307,8 @@ const Footer: React.FC = () => {
       icon: (
         <img
           src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg"
+          width={22}
+          height={22}
           alt="Ant XTech"
         />
       ),
@@ -312,6 +318,8 @@ const Footer: React.FC = () => {
           icon: (
             <img
               src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
+              width={16}
+              height={16}
               alt="yuque"
             />
           ),
@@ -324,6 +332,8 @@ const Footer: React.FC = () => {
           icon: (
             <img
               src="https://gw.alipayobjects.com/zos/antfincdn/nc7Fc0XBg5/8a6844f5-a6ed-4630-9177-4fa5d0b7dd47.png"
+              width={16}
+              height={16}
               alt="AntV"
             />
           ),
@@ -333,7 +343,7 @@ const Footer: React.FC = () => {
           openExternal: true,
         },
         {
-          icon: <img src="https://www.eggjs.org/logo.svg" alt="Egg" />,
+          icon: <img src="https://www.eggjs.org/logo.svg" alt="Egg" width={16} height={16} />,
           title: 'Egg',
           url: 'https://eggjs.org',
           description: <FormattedMessage id="app.footer.egg.slogan" />,
@@ -343,6 +353,8 @@ const Footer: React.FC = () => {
           icon: (
             <img
               src="https://gw.alipayobjects.com/zos/rmsportal/DMDOlAUhmktLyEODCMBR.ico"
+              width={16}
+              height={16}
               alt="kitchen"
             />
           ),
@@ -355,6 +367,8 @@ const Footer: React.FC = () => {
           icon: (
             <img
               src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg"
+              width={16}
+              height={16}
               alt="xtech"
             />
           ),
@@ -377,7 +391,7 @@ const Footer: React.FC = () => {
     <>
       <RcFooter
         columns={getColumns}
-        css={style.footer}
+        className={styles.footer}
         bottom={
           <>
             <div style={{ opacity: '0.4' }}>

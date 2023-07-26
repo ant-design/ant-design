@@ -76,7 +76,7 @@ const DocLayout: React.FC = () => {
     ) {
       return (
         <>
-          {outlet}
+          <div style={{ minHeight: '100vh' }}>{outlet}</div>
           <Footer />
         </>
       );
@@ -94,7 +94,7 @@ const DocLayout: React.FC = () => {
     <>
       <Helmet encodeSpecialCharacters={false}>
         <html
-          lang={lang}
+          lang={lang === 'cn' ? 'zh-CN' : lang}
           data-direction={direction}
           className={classNames({ rtl: direction === 'rtl' })}
         />

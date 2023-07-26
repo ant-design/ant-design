@@ -1024,6 +1024,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     presetsWidth,
     presetsMaxWidth,
     boxShadowPopoverArrow,
+    colorTextQuaternary,
   } = token;
 
   return [
@@ -1054,7 +1055,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           cursor: 'not-allowed',
 
           [`${componentCls}-suffix`]: {
-            color: colorTextDisabled,
+            color: colorTextQuaternary,
           },
         },
 

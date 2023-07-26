@@ -1,12 +1,11 @@
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
-import { ClassNames, css } from '@emotion/react';
+import { createStyles } from 'antd-style';
 import { Col, Modal, Popover, Row, Select } from 'antd';
 import classNames from 'classnames';
 import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import useLocale from '../../../hooks/useLocale';
-import useSiteToken from '../../../hooks/useSiteToken';
 import DirectionIcon from '../../common/DirectionIcon';
 import * as utils from '../../utils';
 import { getThemeConfig, ping } from '../../utils';
@@ -21,8 +20,7 @@ import type { SharedProps } from './interface';
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
 
-const useStyle = () => {
-  const { token } = useSiteToken();
+const useStyle = createStyles(({ token, css }) => {
   const searchIconColor = '#ced4d9';
 
   return {
@@ -107,7 +105,7 @@ const useStyle = () => {
       },
     },
   };
-};
+});
 
 const SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
 
@@ -143,7 +141,7 @@ const Header: React.FC = () => {
   const location = useLocation();
   const { pathname, search } = location;
 
-  const style = useStyle();
+  const { styles } = useStyle();
 
   const handleHideMenu = useCallback(() => {
     setHeaderState((prev) => ({ ...prev, menuVisible: false }));
@@ -266,8 +264,7 @@ const Header: React.FC = () => {
     responsive = 'narrow';
   }
 
-  const headerClassName = classNames({
-    clearfix: true,
+  const headerClassName = classNames(styles.header, 'clearfix', {
     'home-header': isHome,
   });
 
@@ -316,11 +313,12 @@ const Header: React.FC = () => {
       key="direction"
       onClick={onDirectionChange}
       value={direction === 'rtl' ? 2 : 1}
-      label1={<DirectionIcon css={style.dataDirectionIcon} direction="ltr" />}
+      label1={<DirectionIcon className={styles.dataDirectionIcon} direction="ltr" />}
       tooltip1="LTR"
-      label2={<DirectionIcon css={style.dataDirectionIcon} direction="rtl" />}
+      label2={<DirectionIcon className={styles.dataDirectionIcon} direction="rtl" />}
       tooltip2="RTL"
       pure
+      aria-label="RTL Switch Button"
     />,
     <a
       key="github"
@@ -346,29 +344,25 @@ const Header: React.FC = () => {
       ];
 
   return (
-    <header css={style.header} className={headerClassName}>
+    <header className={headerClassName}>
       {isMobile && (
-        <ClassNames>
-          {({ css: cssFn }) => (
-            <Popover
-              overlayClassName={cssFn(style.popoverMenu)}
-              placement="bottomRight"
-              content={menu}
-              trigger="click"
-              open={menuVisible}
-              arrow={{ arrowPointAtCenter: true }}
-              onOpenChange={onMenuVisibleChange}
-            >
-              <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />
-            </Popover>
-          )}
-        </ClassNames>
+        <Popover
+          overlayClassName={styles.popoverMenu}
+          placement="bottomRight"
+          content={menu}
+          trigger="click"
+          open={menuVisible}
+          arrow={{ arrowPointAtCenter: true }}
+          onOpenChange={onMenuVisibleChange}
+        >
+          <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />
+        </Popover>
       )}
       <Row style={{ flexFlow: 'nowrap', height: 64 }}>
         <Col {...colProps[0]}>
           <Logo {...sharedProps} location={location} />
         </Col>
-        <Col {...colProps[1]} css={style.menuRow}>
+        <Col {...colProps[1]} className={styles.menuRow}>
           <div className="nav-search-wrapper">
             <DumiSearchBar />
           </div>

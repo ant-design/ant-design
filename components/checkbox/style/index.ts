@@ -146,28 +146,6 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
       },
     },
 
-    // ================= Indeterminate =================
-    {
-      [checkboxCls]: {
-        '&-indeterminate': {
-          // Wrapper > Checkbox > inner
-          [`${checkboxCls}-inner`]: {
-            '&:after': {
-              top: '50%',
-              insetInlineStart: '50%',
-              width: token.fontSizeLG / 2,
-              height: token.fontSizeLG / 2,
-              backgroundColor: token.colorPrimary,
-              border: 0,
-              transform: 'translate(-50%, -50%) scale(1)',
-              opacity: 1,
-              content: '""',
-            },
-          },
-        },
-      },
-    },
-
     // ===================== Hover =====================
     {
       // Wrapper
@@ -241,6 +219,31 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         },
         [`&:hover ${checkboxCls}:after`]: {
           borderColor: token.colorPrimaryHover,
+        },
+      },
+    },
+
+    // ================= Indeterminate =================
+    {
+      [checkboxCls]: {
+        '&-indeterminate': {
+          // Wrapper > Checkbox > inner
+          [`${checkboxCls}-inner`]: {
+            backgroundColor: token.colorBgContainer,
+            borderColor: token.colorBorder,
+
+            '&:after': {
+              top: '50%',
+              insetInlineStart: '50%',
+              width: token.fontSizeLG / 2,
+              height: token.fontSizeLG / 2,
+              backgroundColor: token.colorPrimary,
+              border: 0,
+              transform: 'translate(-50%, -50%) scale(1)',
+              opacity: 1,
+              content: '""',
+            },
+          },
         },
       },
     },

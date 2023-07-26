@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useContext } from 'react';
 import { Typography } from 'antd';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { useTheme } from 'antd-style';
 import SiteContext from '../../../theme/slots/SiteContext';
 
 export interface GroupMaskProps {
@@ -50,7 +50,7 @@ export interface GroupProps {
 
 export default function Group(props: GroupProps) {
   const { id, title, titleColor, description, children, decoration, background, collapse } = props;
-  const { token } = useSiteToken();
+  const token = useTheme();
   const { isMobile } = useContext(SiteContext);
 
   const marginStyle: React.CSSProperties = collapse
