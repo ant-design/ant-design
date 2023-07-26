@@ -373,34 +373,40 @@ describe('Modal.hook', () => {
   it('should be applied correctly locale', async () => {
     jest.useFakeTimers();
 
-    const Demo: React.FC = () => {
-      const [open, setOpen] = useState(false);
+    const Demo = ({ count }: { count: number }) => {
+      React.useEffect(() => {
+        const instance = Modal.confirm({});
+        return () => {
+          instance.destroy();
+        };
+      }, [count]);
 
-      return (
-        <>
-          <ConfigProvider locale={zhCN}>
-            <Button onClick={() => Modal.confirm({ okCancel: false })} />
-          </ConfigProvider>
-          <Button onClick={() => setOpen(true)} />
-          <Drawer open={open} onClose={() => setOpen(false)} destroyOnClose>
-            <ConfigProvider locale={zhCN}>
-              <div />
-            </ConfigProvider>
-          </Drawer>
-        </>
-      );
+      let node = null;
+
+      for (let i = 0; i < count; i += 1) {
+        node = <ConfigProvider locale={zhCN}>{node}</ConfigProvider>;
+      }
+
+      return node;
     };
 
-    const { findByText } = render(<Demo />);
-    const buttons = document.querySelectorAll('.ant-btn');
-    fireEvent.click(buttons?.[0]);
+    const { rerender } = render(<div />);
+
+    for (let i = 10; i > 0; i -= 1) {
+      rerender(<Demo count={i} />);
+      // eslint-disable-next-line no-await-in-loop
+      await waitFakeTimer();
+
+      expect(document.body.querySelector('.ant-btn-primary')!.textContent).toEqual('确 定');
+      fireEvent.click(document.body.querySelector('.ant-btn-primary')!);
+
+      // eslint-disable-next-line no-await-in-loop
+      await waitFakeTimer();
+    }
+
+    rerender(<Demo count={0} />);
     await waitFakeTimer();
-    fireEvent.click(document.querySelector('.ant-modal-confirm-btns > .ant-btn')!);
-    fireEvent.click(buttons?.[1]);
-    await waitFakeTimer();
-    fireEvent.click(document.querySelector('.ant-drawer-close')!);
-    fireEvent.click(buttons?.[0]);
-    expect(await findByText(zhCN.Modal?.justOkText!)).toBeTruthy();
+    expect(document.body.querySelector('.ant-btn-primary')!.textContent).toEqual('OK');
 
     jest.useRealTimers();
   });
