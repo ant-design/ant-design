@@ -1,12 +1,12 @@
 import { Theme } from '@ant-design/cssinjs';
 import * as React from 'react';
+import { Input } from 'antd';
 import theme from '..';
 import { render, renderHook } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { ThemeConfig } from '../../config-provider/context';
 import Row from '../../row';
 import genRadius from '../themes/shared/genRadius';
-import { Input } from 'antd';
 
 const { useToken } = theme;
 
