@@ -6,9 +6,7 @@ import ConfigProvider from '../../config-provider';
 import type { ThemeConfig } from '../../config-provider/context';
 import Row from '../../row';
 import genRadius from '../themes/shared/genRadius';
-import Button from '../../button';
 import { Input } from 'antd';
-import { fireEvent } from '@testing-library/react';
 
 const { useToken } = theme;
 

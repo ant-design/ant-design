@@ -42,7 +42,7 @@ import MotionWrapper from './MotionWrapper';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
-import { defaultTheme } from 'antd/es/theme/context';
+import { defaultTheme } from '../theme/context';
 
 /**
  * Since too many feedback using static method like `Modal.confirm` not getting theme, we record the
