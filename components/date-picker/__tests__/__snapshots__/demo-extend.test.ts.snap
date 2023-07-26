@@ -11004,6 +11004,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
       </span>
       <span
         class="ant-picker-clear"
+        role="button"
       >
         <span
           aria-label="close-circle"
@@ -25342,6 +25343,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
       </span>
       <span
         class="ant-picker-clear"
+        role="button"
       >
         <span
           aria-label="close-circle"

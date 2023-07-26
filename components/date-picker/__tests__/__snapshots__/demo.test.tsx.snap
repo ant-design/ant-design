@@ -1156,6 +1156,7 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
       </span>
       <span
         class="ant-picker-clear"
+        role="button"
       >
         <span
           aria-label="close-circle"
@@ -2120,6 +2121,7 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
       </span>
       <span
         class="ant-picker-clear"
+        role="button"
       >
         <span
           aria-label="close-circle"
