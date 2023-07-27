@@ -1,5 +1,6 @@
 import { Theme } from '@ant-design/cssinjs';
 import * as React from 'react';
+import { Input } from 'antd';
 import theme from '..';
 import { render, renderHook } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
@@ -301,5 +302,31 @@ describe('Theme', () => {
       expect(token.colorLinkHover).toEqual('#69c8ff');
       expect(token.colorLinkActive).toEqual('#0978d9');
     });
+  });
+
+  it('component token should support algorithm', () => {
+    const Demo = ({ algorithm }: { algorithm?: boolean | typeof theme.darkAlgorithm }) => (
+      <ConfigProvider
+        theme={{
+          components: {
+            Input: {
+              colorPrimary: '#00B96B',
+              algorithm,
+            },
+          },
+        }}
+      >
+        <Input />
+      </ConfigProvider>
+    );
+
+    const { container, rerender } = render(<Demo />);
+    expect(container.querySelector('input')).toHaveStyle({ 'border-color': '#4096ff' });
+
+    rerender(<Demo algorithm />);
+    expect(container.querySelector('input')).toHaveStyle({ 'border-color': '#20c77c' });
+
+    rerender(<Demo algorithm={theme.darkAlgorithm} />);
+    expect(container.querySelector('input')).toHaveStyle({ 'border-color': '#1fb572' });
   });
 });
