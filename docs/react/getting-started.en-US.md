@@ -15,7 +15,22 @@ Finally, if you are working in a local development environment, please refer to 
 
 Here is a simple online codesandbox demo of an Ant Design component to show the usage of Ant Design React.
 
-<Sandpack />
+```sandpack
+import React from 'react';
+import { Button, Space, DatePicker, version } from 'antd';
+
+const App = () => (
+  <div style={{ padding: '0 24px' }}>
+    <h1>antd version: {version}</h1>
+    <Space>
+      <DatePicker />
+      <Button type="primary">Primary Button</Button>
+    </Space>
+  </div>
+);
+
+export default App;
+```
 
 Follow the steps below to play around with Ant Design yourself:
 
