@@ -162,6 +162,7 @@
     "@antv/g6": "^4.8.13",
     "@argos-ci/core": "^0.9.0",
     "@babel/eslint-plugin": "^7.19.1",
+    "@codesandbox/sandpack-react": "^2.6.9",
     "@dnd-kit/core": "^6.0.7",
     "@dnd-kit/modifiers": "^6.0.1",
     "@dnd-kit/sortable": "^7.0.2",
