@@ -8,14 +8,15 @@ author: zombieJ
 
 ## 动态样式去哪儿了？
 
-如果你研究过 Ant Design 的官网，你或许会发现官网虽然用了 Ant Design 的组件库。但是它并没有组件 CSS-in-JS 特有的 `<style />` 样式，当我们单独打开一个 Demo 页面会更加明显：
+如果你研究过 Ant Design 的官网，你会发现 Ant Design 的组件并没有动态插入 `<style />` 来控制样式，而是通过 CSS 文件来控制样式：
 
-<img height="450" alt="no-cssinjs" src="https://github.com/ant-design/ant-design/assets/5378891/ae0a209c-85ab-4a63-9fe1-8e9b14348de0" />
+- <img width="376" alt="button" src="https://github.com/ant-design/ant-design/assets/5378891/82fc5e7a-8d68-4c37-b892-e75097f80ff8" />
+- <img width="480" alt="style" src="https://github.com/ant-design/ant-design/assets/5378891/ab31820e-6602-4421-9101-50cb70738058" />
 
-`document.head` 里并没有 `<style />` 标签，取而代之只有两个 `css` 文件引用：
+`document.head` 里有几个 `css` 文件引用：
 
 - umi.[hash].css
-- ssr-[hash].css
+- style-acss.[hash].css
 
 前者为 dumi 生成的样式内容，例如 Demo 块、搜索框样式等等。而后者则是 SSR 生成的样式文件。在[定制主题](/docs/react/customize-theme)文档中，我们提过可以通过整体导出的方式将页面中用到的组件进行预先烘焙，从而生成 css 文件以供缓存命中从而提升下一次打开速度。这也是我们在官网中使用的方式。所以 Demo 中的组件，其实就是复用了这部分样式。
 
@@ -43,7 +44,7 @@ author: zombieJ
 
 在 `@ant-design/cssinjs` 中，Cache 本身包含了每个元素对应的 style 和 hash 信息。过去的 `extractStyle` 方法只取 Cache 中 style 的内容进行封装：
 
-```json
+```tsx
 // e.g. Real world path is much more complex
 {
   "bAMbOo|Button": ["LItTlE", ":where(.bAMbOo).ant-btn { color: red }"],
@@ -98,7 +99,7 @@ const { content } = getComputedStyle(measure);
 
 在组件渲染阶段，`useStyleRegister` 在计算 CSS Object 之前，会先在 HashMap 中查找 path 是否存在。如果存在，则说明该数据已经通过服务端生成。我们只需要将样式从现有的 `<style />` 里提取出来即可：
 
-```json
+```tsx
 // e.g. Real world path is much more complex
 {
   "bAMbOo|Button": ["LItTlE", "READ_FROM_INLINE_STYLE"],
@@ -108,7 +109,7 @@ const { content } = getComputedStyle(measure);
 
 而对于 CSS 文件提供的样式（比如官网的使用方式），它不像 `<style />` 会被移除，我们直接标记为来自于 CSS 文件即可。和 inline style 一样，它们会在 `useInsertionEffect` 阶段被跳过。
 
-```json
+```tsx
 // e.g. Real world path is much more complex
 {
   "bAMbOo|Button": ["LItTlE", "__FROM_CSS_FILE__"],
