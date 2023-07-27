@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.7.2",
+  "version": "5.7.3",
   "packageManager": "^npm@9.0.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
@@ -109,14 +109,14 @@
   ],
   "dependencies": {
     "@ant-design/colors": "^7.0.0",
-    "@ant-design/cssinjs": "^1.13.2",
+    "@ant-design/cssinjs": "^1.14.0",
     "@ant-design/icons": "^5.1.0",
     "@ant-design/react-slick": "~1.0.0",
     "@babel/runtime": "^7.18.3",
     "@ctrl/tinycolor": "^3.6.0",
     "@rc-component/color-picker": "~1.4.0",
     "@rc-component/mutate-observer": "^1.0.0",
-    "@rc-component/tour": "~1.8.0",
+    "@rc-component/tour": "~1.8.1",
     "@rc-component/trigger": "^1.13.0",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
@@ -211,6 +211,7 @@
     "cheerio": "1.0.0-rc.12",
     "circular-dependency-plugin": "^5.2.2",
     "cross-env": "^7.0.0",
+    "cross-fetch": "^4.0.0",
     "crypto": "^1.0.1",
     "dekko": "^0.2.1",
     "dumi": "^2.1.17",
@@ -323,11 +324,5 @@
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": "rome format --write",
     "*.{json,less,md}": "prettier --ignore-unknown --write"
-  },
-  "overrides": {
-    "umi": "4.0.0-canary.20230724.1"
-  },
-  "resolutions": {
-    "umi": "4.0.0-canary.20230724.1"
   }
 }

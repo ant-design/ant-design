@@ -5,6 +5,7 @@ import React from 'react';
 import { act } from 'react-dom/test-utils';
 
 import Modal from '..';
+import zhCN from '../../locale/zh_CN';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
@@ -366,5 +367,46 @@ describe('Modal.hook', () => {
     fireEvent.click(btns[btns.length - 1]);
 
     expect(afterClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('should be applied correctly locale', async () => {
+    jest.useFakeTimers();
+
+    const Demo = ({ count }: { count: number }) => {
+      React.useEffect(() => {
+        const instance = Modal.confirm({});
+        return () => {
+          instance.destroy();
+        };
+      }, [count]);
+
+      let node = null;
+
+      for (let i = 0; i < count; i += 1) {
+        node = <ConfigProvider locale={zhCN}>{node}</ConfigProvider>;
+      }
+
+      return node;
+    };
+
+    const { rerender } = render(<div />);
+
+    for (let i = 10; i > 0; i -= 1) {
+      rerender(<Demo count={i} />);
+      // eslint-disable-next-line no-await-in-loop
+      await waitFakeTimer();
+
+      expect(document.body.querySelector('.ant-btn-primary')!.textContent).toEqual('确 定');
+      fireEvent.click(document.body.querySelector('.ant-btn-primary')!);
+
+      // eslint-disable-next-line no-await-in-loop
+      await waitFakeTimer();
+    }
+
+    rerender(<Demo count={0} />);
+    await waitFakeTimer();
+    expect(document.body.querySelector('.ant-btn-primary')!.textContent).toEqual('OK');
+
+    jest.useRealTimers();
   });
 });

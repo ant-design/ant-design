@@ -116,6 +116,24 @@ const GlobalLayout: React.FC = () => {
     return <style data-type="antd-cssinjs" dangerouslySetInnerHTML={{ __html: styleText }} />;
   });
 
+  const demoPage = pathname.startsWith('/~demos');
+
+  // ============================ Render ============================
+  let content: React.ReactNode = outlet;
+
+  // Demo page should not contain App component
+  if (!demoPage) {
+    content = (
+      <App>
+        {outlet}
+        <ThemeSwitch
+          value={theme}
+          onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
+        />
+      </App>
+    );
+  }
+
   return (
     <StyleProvider
       cache={styleCache}
@@ -130,15 +148,7 @@ const GlobalLayout: React.FC = () => {
             },
           }}
         >
-          <App>
-            {outlet}
-            {!pathname.startsWith('/~demos') && (
-              <ThemeSwitch
-                value={theme}
-                onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
-              />
-            )}
-          </App>
+          {content}
         </SiteThemeProvider>
       </SiteContext.Provider>
     </StyleProvider>
