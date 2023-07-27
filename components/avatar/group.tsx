@@ -5,8 +5,8 @@ import { ConfigContext } from '../config-provider';
 import Popover from '../popover';
 import { cloneElement } from '../_util/reactNode';
 import Avatar from './avatar';
-import type { AvatarSize } from './avatarContext';
-import { AvatarContextProvider } from './avatarContext';
+import AvatarContext from './avatarContext';
+import type { AvatarContextType, AvatarSize } from './avatarContext';
 import useStyle from './style';
 
 export interface GroupProps {
@@ -61,6 +61,8 @@ const Group: React.FC<GroupProps> = (props) => {
     cloneElement(child, { key: `avatar-key-${index}` }),
   );
 
+  const contextValue = React.useMemo<AvatarContextType>(() => ({ size, shape }), [size, shape]);
+
   const numOfChildren = childrenWithProps.length;
   if (maxCount && maxCount < numOfChildren) {
     const childrenShow = childrenWithProps.slice(0, maxCount);
@@ -77,20 +79,20 @@ const Group: React.FC<GroupProps> = (props) => {
       </Popover>,
     );
     return wrapSSR(
-      <AvatarContextProvider size={size} shape={shape}>
+      <AvatarContext.Provider value={contextValue}>
         <div className={cls} style={style}>
           {childrenShow}
         </div>
-      </AvatarContextProvider>,
+      </AvatarContext.Provider>,
     );
   }
 
   return wrapSSR(
-    <AvatarContextProvider size={size} shape={shape}>
+    <AvatarContext.Provider value={contextValue}>
       <div className={cls} style={style}>
         {childrenWithProps}
       </div>
-    </AvatarContextProvider>,
+    </AvatarContext.Provider>,
   );
 };
 
