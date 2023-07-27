@@ -35,7 +35,7 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| allowClear | 显示清除按钮 | boolean | false |  |
+| allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: 支持对象形式 |
 | autoClearSearchValue | 当多选模式下值被选择，自动清空搜索框 | boolean | true |  |
 | bordered | 是否显示边框 | boolean | true |  |
 | defaultValue | 指定默认选中的条目 | string \| string\[] | - |  |
