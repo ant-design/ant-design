@@ -3,6 +3,7 @@ import React, { Suspense } from 'react';
 import { useSearchParams, useServerInsertedHTML } from 'dumi';
 import { Skeleton } from 'antd';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
+import { createStyles } from 'antd-style';
 
 const OriginSandpack = React.lazy(() => import('./Sandpack'));
 
@@ -35,6 +36,32 @@ const root = createRoot(document.getElementById("root"));
 root.render(<App />);
 `;
 
+const useStyle = createStyles(({ token, css }) => ({
+  fallback: css`
+    width: 100%;
+    > * {
+      width: 100% !important;
+      border-radius: 8px;
+    }
+  `,
+  placeholder: css`
+    color: ${token.colorTextDescription};
+    font-size: 16px;
+  `,
+}));
+
+const SandpackFallback = () => {
+  const { styles } = useStyle();
+
+  return (
+    <div className={styles.fallback}>
+      <Skeleton.Node active style={{ height: 500, width: '100%' }}>
+        <span className={styles.placeholder}>Loading Demo...</span>
+      </Skeleton.Node>
+    </div>
+  );
+};
+
 const Sandpack = ({ children }: { children: ReactNode }) => {
   const [searchParams] = useSearchParams();
 
@@ -43,7 +70,7 @@ const Sandpack = ({ children }: { children: ReactNode }) => {
   ));
 
   return (
-    <Suspense fallback={<Skeleton />}>
+    <Suspense fallback={<SandpackFallback />}>
       <OriginSandpack
         theme={searchParams.getAll('theme').includes('dark') ? 'dark' : undefined}
         customSetup={setup}

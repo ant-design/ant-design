@@ -8,8 +8,7 @@ import {
 } from '@ant-design/cssinjs';
 import { App, theme as antdTheme } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
-import { createSearchParams, useOutlet, useSearchParams } from 'dumi';
-import { useServerInsertedHTML } from 'umi';
+import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import useLayoutState from '../../hooks/useLayoutState';
 import SiteThemeProvider from '../SiteThemeProvider';
