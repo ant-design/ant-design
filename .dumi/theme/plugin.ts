@@ -158,6 +158,7 @@ const RoutesPlugin = (api: IApi) => {
 
   api.modifyHTML(($) => {
     $('head meta[name="viewport"]').attr('content', 'width=device-width');
+    $('script[src^="/umi."]').attr('defer', '');
     return $;
   });
 };
