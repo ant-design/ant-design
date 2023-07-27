@@ -76,6 +76,9 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
       hashId,
       nonce: () => csp?.nonce!,
       clientOnly: options?.clientOnly,
+
+      // antd is always at top of styles
+      order: -999,
     };
 
     // Generate style for all a tags in antd component.
