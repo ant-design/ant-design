@@ -56,6 +56,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | visible | 是否显示 | boolean | - | - |
 | src | 自定义预览 src | string | - | 4.10.0 |
 | getContainer | 指定预览挂载的节点，但依旧为全屏展示，false 为挂载在当前位置 | string \| HTMLElement \| (() => HTMLElement) \| false | - | 4.8.0 |
+| movable | 是否可移动 | boolean | true | 5.8.0 |
 | mask | 缩略图遮罩 | ReactNode | - | 4.9.0 |
 | maskClassName | 缩略图遮罩类名 | string | - | 4.11.0 |
 | rootClassName | 预览图的根 DOM 类名 | string | - | 5.4.0 |
@@ -83,6 +84,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | --- | --- | --- | --- | --- |
 | visible | 是否显示 | boolean | - | - |
 | getContainer | 指定预览挂载的节点，但依旧为全屏展示，false 为挂载在当前位置 | string \| HTMLElement \| (() => HTMLElement) \| false | - | 4.8.0 |
+| movable | 是否可移动 | boolean | true | 5.8.0 |
 | current | 当前预览图的 index | number | - | 4.12.0 |
 | mask | 缩略图遮罩 | ReactNode | - | 4.9.0 |
 | maskClassName | 缩略图遮罩类名 | string | - | 4.11.0 |

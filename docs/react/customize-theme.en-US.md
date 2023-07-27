@@ -558,8 +558,10 @@ Export on demand using the above tools in `_document.tsx`
 ```tsx
 // _document.tsx
 import { StyleProvider, createCache } from '@ant-design/cssinjs';
-import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
+import type { DocumentContext } from 'next/document';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
 import { doExtraStyle } from '../scripts/genAntdCss';
+
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const cache = createCache();
@@ -636,13 +638,15 @@ root.render(
 | token | Modify Design Token | `AliasToken` | - |
 | inherit | Inherit theme configured in upper ConfigProvider | boolean | true |
 | algorithm | Modify the algorithms of theme | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` |
-| components | Modify Component Token and Alias Token applied to components | OverrideToken | - |
+| components | Modify Component Token and Alias Token applied to components | `ComponentsConfig` | - |
 
-### OverrideToken
+### ComponentsConfig
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| `Component` (Can be any antd Component name like `Button`) | Modify Component Token or override Component used Alias Token | `ComponentToken & AliasToken` | - |
+| `Component` (Can be any antd Component name like `Button`) | Modify Component Token or override Component used Alias Token | `ComponentToken & AliasToken & { algorithm: boolean \| (token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]}` | - |
+
+> `algorithm` of component is `false` by default, which means tokens of component will only override global token. When it is set with `true`, the algorithm will be the same as global. You can also pass algorithm or Array of algorithm, and it will override algorithm of global.
 
 ### SeedToken
 

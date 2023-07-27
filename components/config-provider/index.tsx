@@ -42,6 +42,7 @@ import MotionWrapper from './MotionWrapper';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
+import { defaultTheme } from '../theme/context';
 
 /**
  * Since too many feedback using static method like `Modal.confirm` not getting theme, we record the
@@ -512,11 +513,30 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   // ================================ Dynamic theme ================================
   const memoTheme = React.useMemo(() => {
-    const { algorithm, token, ...rest } = mergedTheme || {};
+    const { algorithm, token, components, ...rest } = mergedTheme || {};
     const themeObj =
       algorithm && (!Array.isArray(algorithm) || algorithm.length > 0)
         ? createTheme(algorithm)
-        : undefined;
+        : defaultTheme;
+
+    const parsedComponents: any = {};
+    Object.entries(components || {}).forEach(([componentName, componentToken]) => {
+      const parsedToken: typeof componentToken & { theme?: typeof defaultTheme } = {
+        ...componentToken,
+      };
+      if ('algorithm' in parsedToken) {
+        if (parsedToken.algorithm === true) {
+          parsedToken.theme = themeObj;
+        } else if (
+          Array.isArray(parsedToken.algorithm) ||
+          typeof parsedToken.algorithm === 'function'
+        ) {
+          parsedToken.theme = createTheme(parsedToken.algorithm);
+        }
+        delete parsedToken.algorithm;
+      }
+      parsedComponents[componentName] = parsedToken;
+    });
 
     return {
       ...rest,
@@ -526,6 +546,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
         ...defaultSeedToken,
         ...token,
       },
+
+      components: parsedComponents,
     };
   }, [mergedTheme]);
 

@@ -554,8 +554,10 @@ export function doExtraStyle({
 ```tsx
 // _document.tsx
 import { StyleProvider, createCache } from '@ant-design/cssinjs';
-import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
+import type { DocumentContext } from 'next/document';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
 import { doExtraStyle } from '../scripts/genAntdCss';
+
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const cache = createCache();
@@ -636,13 +638,15 @@ root.render(
 | token | 用于修改 Design Token | `AliasToken` | - |
 | inherit | 继承上层 ConfigProvider 中配置的主题。 | boolean | true |
 | algorithm | 用于修改 Seed Token 到 Map Token 的算法 | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` |
-| components | 用于修改各个组件的 Component Token 以及覆盖该组件消费的 Alias Token | OverrideToken | - |
+| components | 用于修改各个组件的 Component Token 以及覆盖该组件消费的 Alias Token | `ComponentsConfig` | - |
 
-### OverrideToken
+### ComponentsConfig
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| `Component` (可以是任意 antd 组件名，如 `Button`) | 用于修改 Component Token 以及覆盖该组件消费的 Alias Token | `ComponentToken & AliasToken` | - |
+| `Component` (可以是任意 antd 组件名，如 `Button`) | 用于修改 Component Token 以及覆盖该组件消费的 Alias Token | `ComponentToken & AliasToken & { algorithm: boolean \| (token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]}` | - |
+
+> 组件级别的 `algorithm` 默认为 `false`，此时组件 Token 仅仅会覆盖该组件使用的 token，不会进行派生计算。设置为 `true` 时会继承当前全局算法；也可以和全局的 `algorithm` 一样传入一个或多个算法，这将会针对该组件覆盖全局的算法。
 
 ### SeedToken
 

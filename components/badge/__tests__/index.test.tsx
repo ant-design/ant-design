@@ -247,6 +247,6 @@ describe('Badge', () => {
 
     // styles
     expect(element).toHaveStyle({ backgroundColor: 'yellow' });
-    expect(element?.querySelector<HTMLElement>('sup')).toHaveStyle({ backgroundColor: 'bule' });
+    expect(element?.querySelector<HTMLElement>('sup')).toHaveStyle({ backgroundColor: 'blue' });
   });
 });

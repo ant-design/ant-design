@@ -46,7 +46,7 @@ Cascade selection box.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| allowClear | Show clear button, 5.8.0: `{ clearIcon?: ReactNode }` | boolean \| { clearIcon?: ReactNode } | false |  |
+| allowClear | Show clear button | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support object type |
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | bordered | Whether has border style | boolean | true |  |
 | changeOnSelect | (Work on single select) Change value on each selection if set to true, see above demo for details | boolean | false |  |
