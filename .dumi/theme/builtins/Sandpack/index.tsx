@@ -1,13 +1,16 @@
-import React, { Suspense, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import React, { Suspense } from 'react';
+import { useSearchParams } from 'dumi';
 
 const OriginSandpack = React.lazy(() => import('./Sandpack'));
 
 const Sandpack = ({ children }: { children: ReactNode }) => {
-  console.log(children);
+  const [searchParams] = useSearchParams();
 
   return (
     <Suspense fallback="loading">
       <OriginSandpack
+        theme={searchParams.getAll('theme').includes('dark') ? 'dark' : undefined}
         customSetup={{
           dependencies: {
             react: '^18.0.0',
@@ -25,7 +28,7 @@ const Sandpack = ({ children }: { children: ReactNode }) => {
           activeFile: 'app.tsx' as never,
           visibleFiles: ['index.tsx', 'app.tsx', 'package.json'] as any,
           showLineNumbers: true,
-          editorHeight: '400px',
+          editorHeight: '500px',
         }}
         files={{
           'index.tsx': `import React from 'react';
