@@ -177,6 +177,10 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
         margin: '0 auto',
         paddingBottom: token.paddingLG,
 
+        [`${componentCls}-text-box`]: {
+          maxWidth: `calc(100% - ${token.modalConfirmIconSize + token.marginSM}px)`,
+        },
+
         [`${componentCls}-title`]: {
           margin: 0,
           color: token.titleColor,
@@ -311,7 +315,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
       [`${confirmComponentCls}-body`]: {
         display: 'flex',
         flexWrap: 'wrap',
-        alignItems: 'center',
+        alignItems: 'flex-start',
 
         [`${confirmComponentCls}-title`]: {
           flex: '0 0 100%',
@@ -327,7 +331,6 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
           [`+ ${confirmComponentCls}-content`]: {
             marginBlockStart: token.marginXS,
             flexBasis: '100%',
-            maxWidth: `calc(100% - ${token.modalConfirmIconSize + token.marginSM}px)`,
           },
         },
 
@@ -338,6 +341,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
 
         [`> ${token.iconCls}`]: {
           flex: 'none',
+          marginBlockStart: 0.5,
           marginInlineEnd: token.marginSM,
           fontSize: token.modalConfirmIconSize,
 

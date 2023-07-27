@@ -103,10 +103,12 @@ export function ConfirmContent(
     <div className={`${confirmPrefixCls}-body-wrapper`}>
       <div className={`${confirmPrefixCls}-body`}>
         {mergedIcon}
-        {props.title === undefined ? null : (
-          <span className={`${confirmPrefixCls}-title`}>{props.title}</span>
-        )}
-        <div className={`${confirmPrefixCls}-content`}>{props.content}</div>
+        <div className={`${confirmPrefixCls}-text-box`}>
+          {props.title === undefined ? null : (
+            <span className={`${confirmPrefixCls}-title`}>{props.title}</span>
+          )}
+          <div className={`${confirmPrefixCls}-content`}>{props.content}</div>
+        </div>
       </div>
       {footer === undefined ? (
         <div className={`${confirmPrefixCls}-btns`}>
