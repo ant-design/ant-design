@@ -7,8 +7,8 @@ import { responsiveArray } from '../_util/responsiveObserver';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
-import type { AvatarContextType, AvatarSize } from './AvatarContexts';
-import AvatarContext from './AvatarContexts';
+import type { AvatarContextType, AvatarSize } from './AvatarContext';
+import AvatarContext from './AvatarContext';
 import useStyle from './style';
 
 export interface AvatarProps {

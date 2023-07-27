@@ -5,8 +5,8 @@ import { ConfigContext } from '../config-provider';
 import Popover from '../popover';
 import { cloneElement } from '../_util/reactNode';
 import Avatar from './avatar';
-import AvatarContext from './AvatarContexts';
-import type { AvatarContextType, AvatarSize } from './AvatarContexts';
+import AvatarContext from './AvatarContext';
+import type { AvatarContextType, AvatarSize } from './AvatarContext';
 import useStyle from './style';
 
 interface ContextProps {
