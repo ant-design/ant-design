@@ -150,6 +150,7 @@ export default function ItemHolder(props: ItemHolderProps) {
   return (
     <div className={itemClassName} style={style} ref={itemRef}>
       <Row
+        prefixCls={prefixCls}
         className={`${itemPrefixCls}-row`}
         {...omit(restProps, [
           '_internalItemRender' as any,
