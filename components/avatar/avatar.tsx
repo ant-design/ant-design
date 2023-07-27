@@ -7,8 +7,8 @@ import { responsiveArray } from '../_util/responsiveObserver';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
-import type { AvatarContextType, AvatarSize } from './avatarContext';
-import SizeContext from './avatarContext';
+import type { AvatarContextType, AvatarSize } from './AvatarContexts';
+import AvatarContext from './AvatarContexts';
 import useStyle from './style';
 
 export interface AvatarProps {
@@ -44,8 +44,6 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   props,
   ref,
 ) => {
-  const avatarCtx = React.useContext<AvatarContextType>(SizeContext);
-
   const [scale, setScale] = React.useState(1);
   const [mounted, setMounted] = React.useState(false);
   const [isImgExist, setIsImgExist] = React.useState(true);
@@ -55,6 +53,8 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   const avatarNodeMergeRef = composeRef<HTMLSpanElement>(ref, avatarNodeRef);
 
   const { getPrefixCls, avatar } = React.useContext(ConfigContext);
+
+  const avatarCtx = React.useContext<AvatarContextType>(AvatarContext);
 
   const setScaleParam = () => {
     if (!avatarChildrenRef.current || !avatarNodeRef.current) {

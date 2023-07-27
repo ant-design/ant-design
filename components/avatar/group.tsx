@@ -5,9 +5,24 @@ import { ConfigContext } from '../config-provider';
 import Popover from '../popover';
 import { cloneElement } from '../_util/reactNode';
 import Avatar from './avatar';
-import AvatarContext from './avatarContext';
-import type { AvatarContextType, AvatarSize } from './avatarContext';
+import AvatarContext from './AvatarContexts';
+import type { AvatarContextType, AvatarSize } from './AvatarContexts';
 import useStyle from './style';
+
+interface ContextProps {
+  children?: React.ReactNode;
+}
+
+const AvatarContextProvider: React.FC<AvatarContextType & ContextProps> = (props) => {
+  const { size, shape } = React.useContext<AvatarContextType>(AvatarContext);
+  const avatarContextValue = React.useMemo<AvatarContextType>(
+    () => ({ size: props.size || size, shape: props.shape || shape }),
+    [props.size, props.shape, size, shape],
+  );
+  return (
+    <AvatarContext.Provider value={avatarContextValue}>{props.children}</AvatarContext.Provider>
+  );
+};
 
 export interface GroupProps {
   className?: string;
@@ -61,8 +76,6 @@ const Group: React.FC<GroupProps> = (props) => {
     cloneElement(child, { key: `avatar-key-${index}` }),
   );
 
-  const contextValue = React.useMemo<AvatarContextType>(() => ({ size, shape }), [size, shape]);
-
   const numOfChildren = childrenWithProps.length;
   if (maxCount && maxCount < numOfChildren) {
     const childrenShow = childrenWithProps.slice(0, maxCount);
@@ -79,20 +92,20 @@ const Group: React.FC<GroupProps> = (props) => {
       </Popover>,
     );
     return wrapSSR(
-      <AvatarContext.Provider value={contextValue}>
+      <AvatarContextProvider shape={shape} size={size}>
         <div className={cls} style={style}>
           {childrenShow}
         </div>
-      </AvatarContext.Provider>,
+      </AvatarContextProvider>,
     );
   }
 
   return wrapSSR(
-    <AvatarContext.Provider value={contextValue}>
+    <AvatarContextProvider shape={shape} size={size}>
       <div className={cls} style={style}>
         {childrenWithProps}
       </div>
-    </AvatarContext.Provider>,
+    </AvatarContextProvider>,
   );
 };
 
