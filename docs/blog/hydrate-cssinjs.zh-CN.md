@@ -15,8 +15,8 @@ author: zombieJ
 
 `document.head` 里有几个 `css` 文件引用：
 
-- umi.[hash].css
-- style-acss.[hash].css
+- umi.\[hash].css
+- style-acss.\[hash].css
 
 前者为 dumi 生成的样式内容，例如 Demo 块、搜索框样式等等。而后者则是 SSR 生成的样式文件。在[定制主题](/docs/react/customize-theme)文档中，我们提过可以通过整体导出的方式将页面中用到的组件进行预先烘焙，从而生成 css 文件以供缓存命中从而提升下一次打开速度。这也是我们在官网中使用的方式。所以 Demo 中的组件，其实就是复用了这部分样式。
 
