@@ -70,7 +70,6 @@ export default function useToken(): [Theme<SeedToken, MapToken>, GlobalToken, st
     {
       salt,
       override: { override: rootDesignToken, ...components },
-      formatToken,
       getComputedToken,
     },
   );

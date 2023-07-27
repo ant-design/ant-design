@@ -521,20 +521,21 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
     const parsedComponents: any = {};
     Object.entries(components || {}).forEach(([componentName, componentToken]) => {
-      parsedComponents[componentName] = { ...componentToken };
-      if ('algorithm' in parsedComponents[componentName]) {
-        if (parsedComponents[componentName].algorithm === true) {
-          parsedComponents[componentName].theme = themeObj;
+      const parsedToken: typeof componentToken & { theme?: typeof defaultTheme } = {
+        ...componentToken,
+      };
+      if ('algorithm' in parsedToken) {
+        if (parsedToken.algorithm === true) {
+          parsedToken.theme = themeObj;
         } else if (
-          Array.isArray(parsedComponents[componentName].algorithm) ||
-          typeof parsedComponents[componentName].algorithm === 'function'
+          Array.isArray(parsedToken.algorithm) ||
+          typeof parsedToken.algorithm === 'function'
         ) {
-          parsedComponents[componentName].theme = createTheme(
-            parsedComponents[componentName].algorithm,
-          );
+          parsedToken.theme = createTheme(parsedToken.algorithm);
         }
-        delete parsedComponents[componentName].algorithm;
+        delete parsedToken.algorithm;
       }
+      parsedComponents[componentName] = parsedToken;
     });
 
     return {
