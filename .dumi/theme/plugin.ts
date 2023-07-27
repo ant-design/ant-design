@@ -49,7 +49,7 @@ class AntdReactTechStack extends ReactTechStack {
 const resolve = (p: string): string => require.resolve(p);
 
 const RoutesPlugin = (api: IApi) => {
-  const ssrCssFileName = `ssr-${Date.now()}.css`;
+  // const ssrCssFileName = `ssr-${Date.now()}.css`;
 
   const writeCSSFile = (key: string, hashKey: string, cssString: string) => {
     const fileName = `style-${key}.${getHash(hashKey)}.css`;
@@ -157,7 +157,7 @@ const RoutesPlugin = (api: IApi) => {
   // add ssr css file to html
   api.modifyConfig((memo) => {
     memo.styles ??= [];
-    memo.styles.push(`/${ssrCssFileName}`);
+    // memo.styles.push(`/${ssrCssFileName}`);
 
     return memo;
   });
