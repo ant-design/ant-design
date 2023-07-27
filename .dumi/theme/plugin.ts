@@ -1,4 +1,3 @@
-import { extractStyle } from '@ant-design/cssinjs';
 import type { IApi, IRoute } from 'dumi';
 import ReactTechStack from 'dumi/dist/techStacks/react';
 import fs from 'fs';
