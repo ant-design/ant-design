@@ -22,7 +22,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
   const isMotionOff = value.includes('motion-off');
 
   return (
-    <FloatButton.Group trigger="click" icon={<ThemeIcon />}>
+    <FloatButton.Group trigger="click" icon={<ThemeIcon />} aria-label="Theme Switcher">
       <Link
         to={getLocalizedPathname('/theme-editor', isZhCN(pathname), search)}
         style={{ display: 'block', marginBottom: token.margin }}

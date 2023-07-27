@@ -46,3 +46,7 @@ demo:
 ## Design Token
 
 <ComponentTokenTable component="Popover"></ComponentTokenTable>
+
+## FAQ
+
+请参考 [Tooltip FAQ](/components/tooltip#faq)。

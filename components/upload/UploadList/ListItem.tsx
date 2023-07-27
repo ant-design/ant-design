@@ -95,8 +95,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     let icon = <div className={`${prefixCls}-icon`}>{iconNode}</div>;
     if (listType === 'picture' || listType === 'picture-card' || listType === 'picture-circle') {
       if (mergedStatus === 'uploading' || (!file.thumbUrl && !file.url)) {
-        const uploadingClassName = classNames({
-          [`${prefixCls}-list-item-thumbnail`]: true,
+        const uploadingClassName = classNames(`${prefixCls}-list-item-thumbnail`, {
           [`${prefixCls}-list-item-file`]: mergedStatus !== 'uploading',
         });
         icon = <div className={uploadingClassName}>{iconNode}</div>;

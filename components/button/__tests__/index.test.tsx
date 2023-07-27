@@ -377,6 +377,8 @@ describe('Button', () => {
     const htmlRef = React.createRef<HTMLElement>();
     const refHtml = <Button ref={htmlRef} />;
 
+    const btnAttr = <Button name="hello" />;
+
     expect(button).toBeTruthy();
     expect(anchor).toBeTruthy();
     expect(defaultBtn).toBeTruthy();
@@ -384,5 +386,6 @@ describe('Button', () => {
     expect(refBtn).toBeTruthy();
     expect(refAnchor).toBeTruthy();
     expect(refHtml).toBeTruthy();
+    expect(btnAttr).toBeTruthy();
   });
 });

@@ -13,6 +13,7 @@ import type { DropdownProps } from '../dropdown';
 import useStyle from './style';
 import useItemRender from './useItemRender';
 import useItems from './useItems';
+import type { AnyObject } from '../_util/type';
 
 export interface BreadcrumbItemType {
   key?: React.Key;
@@ -46,7 +47,7 @@ export type ItemType = Partial<BreadcrumbItemType & BreadcrumbSeparatorType>;
 
 export type InternalRouteType = Partial<BreadcrumbItemType & BreadcrumbSeparatorType>;
 
-export interface BreadcrumbProps<T extends Record<PropertyKey, any> = any> {
+export interface BreadcrumbProps<T extends AnyObject = AnyObject> {
   prefixCls?: string;
   params?: T;
   separator?: React.ReactNode;
@@ -63,7 +64,7 @@ export interface BreadcrumbProps<T extends Record<PropertyKey, any> = any> {
   itemRender?: (route: ItemType, params: T, routes: ItemType[], paths: string[]) => React.ReactNode;
 }
 
-const getPath = <T extends Record<PropertyKey, any> = any>(params: T, path?: string) => {
+const getPath = <T extends AnyObject = AnyObject>(params: T, path?: string) => {
   if (path === undefined) {
     return path;
   }
@@ -74,7 +75,7 @@ const getPath = <T extends Record<PropertyKey, any> = any>(params: T, path?: str
   return mergedPath;
 };
 
-const Breadcrumb = <T extends Record<PropertyKey, any> = any>(props: BreadcrumbProps<T>) => {
+const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) => {
   const {
     prefixCls: customizePrefixCls,
     separator = '/',
@@ -151,10 +152,7 @@ const Breadcrumb = <T extends Record<PropertyKey, any> = any>(props: BreadcrumbP
         <InternalBreadcrumbItem
           key={mergedKey}
           {...itemProps}
-          {...pickAttrs(item, {
-            data: true,
-            aria: true,
-          })}
+          {...pickAttrs(item, { data: true, aria: true })}
           className={itemClassName}
           dropdownProps={dropdownProps}
           href={href}

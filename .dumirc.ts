@@ -30,8 +30,7 @@ export default defineConfig({
     'antd/lib': path.join(__dirname, 'components'),
     'antd/es': path.join(__dirname, 'components'),
     'antd/locale': path.join(__dirname, 'components/locale'),
-    // Change antd from `index.js` to `.dumi/theme/antd.js` to remove deps of root style
-    antd: require.resolve('./.dumi/theme/antd.js'),
+    antd: path.join(__dirname, 'components'),
   },
   extraRehypePlugins: [rehypeAntd],
   extraRemarkPlugins: [remarkAntd],
@@ -40,6 +39,67 @@ export default defineConfig({
   analytics: {
     ga_v2: 'UA-72788897-1',
   },
+  analyze: {
+    analyzerPort: 'auto',
+  },
+  links: [
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '//at.alicdn.com/t/webfont_6e11e43nfj.woff2',
+      type: 'font/woff2',
+      crossorigin: true,
+    },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '//at.alicdn.com/t/webfont_6e11e43nfj.woff',
+      type: 'font/woff',
+      crossorigin: true,
+    },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '//at.alicdn.com/t/webfont_6e11e43nfj.ttf',
+      type: 'font/ttf',
+      crossorigin: true,
+    },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '//at.alicdn.com/t/webfont_exesdog9toj.woff2',
+      type: 'font/woff2',
+      crossorigin: true,
+    },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '//at.alicdn.com/t/webfont_exesdog9toj.woff',
+      type: 'font/woff',
+      crossorigin: true,
+    },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '//at.alicdn.com/t/webfont_exesdog9toj.ttf',
+      type: 'font/ttf',
+      crossorigin: true,
+    },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '//at.alicdn.com/wf/webfont/exMpJIukiCms/Gsw2PSKrftc1yNWMNlXgw.woff2',
+      type: 'font/woff2',
+      crossorigin: true,
+    },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '//at.alicdn.com/wf/webfont/exMpJIukiCms/vtu73by4O2gEBcvBuLgeu.woff',
+      type: 'font/woff2',
+      crossorigin: true,
+    },
+  ],
   headScripts: [
     `
     (function () {

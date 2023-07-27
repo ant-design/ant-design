@@ -2583,7 +2583,7 @@ Array [
           >
             <div
               aria-valuenow="60"
-              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
+              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
             >
               <div
@@ -3350,7 +3350,7 @@ exports[`renders components/steps/demo/progress.tsx extend context correctly 1`]
         >
           <div
             aria-valuenow="60"
-            class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
+            class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
             role="progressbar"
           >
             <div
@@ -3598,7 +3598,7 @@ Array [
           >
             <div
               aria-valuenow="0"
-              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
+              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
             >
               <div
@@ -3781,7 +3781,7 @@ Array [
           >
             <div
               aria-valuenow="0"
-              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
+              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
             >
               <div
@@ -3964,7 +3964,7 @@ Array [
           >
             <div
               aria-valuenow="0"
-              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
+              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
             >
               <div
@@ -4147,7 +4147,7 @@ Array [
           >
             <div
               aria-valuenow="0"
-              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
+              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
             >
               <div

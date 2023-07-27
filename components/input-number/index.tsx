@@ -183,16 +183,9 @@ const TypedInputNumber = InputNumber as unknown as (<T extends ValueType = Value
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PureInputNumber;
 };
 
-const PureInputNumber = (props: InputNumberProps<any>) => (
-  <ConfigProvider
-    theme={{
-      components: {
-        InputNumber: {
-          handleVisible: true,
-        },
-      },
-    }}
-  >
+/** @private Internal Component. Do not use in your production. */
+const PureInputNumber: React.FC<InputNumberProps> = (props) => (
+  <ConfigProvider theme={{ components: { InputNumber: { handleVisible: true } } }}>
     <InputNumber {...props} />
   </ConfigProvider>
 );
