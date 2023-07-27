@@ -65,7 +65,7 @@ jobs:
         env:
           NODE_OPTIONS: --max_old_space_size=4096
 
-      - name: size-limit
+      - name: site-size-limit
         uses: ant-design/size-limit-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
