@@ -1,43 +1,55 @@
 import type { ReactNode } from 'react';
 import React, { Suspense } from 'react';
-import { useSearchParams } from 'dumi';
+import { useSearchParams, useServerInsertedHTML } from 'dumi';
+import { Skeleton } from 'antd';
+import { getSandpackCssText } from '@codesandbox/sandpack-react';
 
 const OriginSandpack = React.lazy(() => import('./Sandpack'));
 
-const Sandpack = ({ children }: { children: ReactNode }) => {
-  const [searchParams] = useSearchParams();
+const setup = {
+  dependencies: {
+    react: '^18.0.0',
+    'react-dom': '^18.0.0',
+    antd: '^5.0.0',
+  },
+  devDependencies: {
+    '@types/react': '^18.0.0',
+    '@types/react-dom': '^18.0.0',
+    typescript: '^5',
+  },
+  entry: 'index.tsx',
+};
 
-  return (
-    <Suspense fallback="loading">
-      <OriginSandpack
-        theme={searchParams.getAll('theme').includes('dark') ? 'dark' : undefined}
-        customSetup={{
-          dependencies: {
-            react: '^18.0.0',
-            'react-dom': '^18.0.0',
-            antd: '^5.0.0',
-          },
-          devDependencies: {
-            '@types/react': '^18.0.0',
-            '@types/react-dom': '^18.0.0',
-            typescript: '^5',
-          },
-          entry: 'index.tsx',
-        }}
-        options={{
-          activeFile: 'app.tsx' as never,
-          visibleFiles: ['index.tsx', 'app.tsx', 'package.json'] as any,
-          showLineNumbers: true,
-          editorHeight: '500px',
-        }}
-        files={{
-          'index.tsx': `import React from 'react';
+const options = {
+  activeFile: 'app.tsx' as never,
+  visibleFiles: ['index.tsx', 'app.tsx', 'package.json'] as any,
+  showLineNumbers: true,
+  editorHeight: '500px',
+};
+
+const indexContent = `import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './app';
 
 const root = createRoot(document.getElementById("root"));
 root.render(<App />);
-        `,
+`;
+
+const Sandpack = ({ children }: { children: ReactNode }) => {
+  const [searchParams] = useSearchParams();
+
+  useServerInsertedHTML(() => (
+    <style dangerouslySetInnerHTML={{ __html: getSandpackCssText() }} id="sandpack" />
+  ));
+
+  return (
+    <Suspense fallback={<Skeleton />}>
+      <OriginSandpack
+        theme={searchParams.getAll('theme').includes('dark') ? 'dark' : undefined}
+        customSetup={setup}
+        options={options}
+        files={{
+          'index.tsx': indexContent,
           'app.tsx': children,
         }}
       />
