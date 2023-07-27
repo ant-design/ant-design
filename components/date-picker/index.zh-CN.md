@@ -78,7 +78,7 @@ import locale from 'antd/locale/zh_CN';
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| allowClear | 是否显示清除按钮 | boolean | true |  |
+| allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象类型 |
 | autoFocus | 自动获取焦点 | boolean | false |  |
 | bordered | 是否有边框 | boolean | true |  |
 | className | 选择器 className | string | - |  |
