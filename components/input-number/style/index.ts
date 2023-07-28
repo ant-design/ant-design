@@ -275,6 +275,32 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           borderEndEndRadius: borderRadius,
         },
 
+        '&-lg': {
+          [`${componentCls}-handler-wrap`]: {
+            borderStartEndRadius: borderRadiusLG,
+            borderEndEndRadius: borderRadiusLG,
+          },
+          [`${componentCls}-handler-up`]: {
+            borderStartEndRadius: borderRadiusLG,
+          },
+          [`${componentCls}-handler-down`]: {
+            borderEndEndRadius: borderRadiusLG,
+          },
+        },
+
+        '&-sm': {
+          [`${componentCls}-handler-wrap`]: {
+            borderStartEndRadius: borderRadiusSM,
+            borderEndEndRadius: borderRadiusSM,
+          },
+          [`${componentCls}-handler-up`]: {
+            borderStartEndRadius: borderRadiusSM,
+          },
+          [`${componentCls}-handler-down`]: {
+            borderEndEndRadius: borderRadiusSM,
+          },
+        },
+
         // Disabled
         '&-disabled, &-readonly': {
           [`${componentCls}-handler-wrap`]: {
