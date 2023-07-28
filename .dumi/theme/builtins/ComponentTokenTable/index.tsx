@@ -1,10 +1,10 @@
 import { RightOutlined } from '@ant-design/icons';
 import { createStyles, css, useTheme } from 'antd-style';
-import { ConfigProvider, Table } from 'antd';
 import { getDesignToken } from 'antd-token-previewer';
+import React, { useMemo, useState } from 'react';
 import tokenMeta from 'antd/es/version/token-meta.json';
 import tokenData from 'antd/es/version/token.json';
-import React, { useMemo, useState } from 'react';
+import { ConfigProvider, Table } from 'antd';
 import useLocale from '../../../hooks/useLocale';
 import { useColumns } from '../TokenTable';
 

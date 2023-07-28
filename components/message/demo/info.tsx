@@ -1,5 +1,5 @@
-import { Button, message } from 'antd';
 import React from 'react';
+import { Button, message } from 'antd';
 
 const info = () => {
   message.info('This is a normal message');

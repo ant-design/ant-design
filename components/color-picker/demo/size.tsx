@@ -1,5 +1,5 @@
-import { ColorPicker, Space } from 'antd';
 import React from 'react';
+import { ColorPicker, Space } from 'antd';
 
 const Demo = () => (
   <Space>

@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
+const { spawnSync } = require('child_process');
 const fetch = require('isomorphic-fetch');
 const semver = require('semver');
 const dayjs = require('dayjs');
 const chalk = require('chalk');
-const { spawnSync } = require('child_process');
 const relativeTime = require('dayjs/plugin/relativeTime');
 
 dayjs.extend(relativeTime);

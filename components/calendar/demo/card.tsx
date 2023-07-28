@@ -1,7 +1,7 @@
-import { Calendar, theme } from 'antd';
-import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
 import type { Dayjs } from 'dayjs';
 import React from 'react';
+import { Calendar, theme } from 'antd';
+import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
 
 const onPanelChange = (value: Dayjs, mode: CalendarMode) => {
   console.log(value.format('YYYY-MM-DD'), mode);

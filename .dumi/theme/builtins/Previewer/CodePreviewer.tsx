@@ -6,7 +6,6 @@ import {
 } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
-import { Alert, Badge, Space, Tooltip } from 'antd';
 import classNames from 'classnames';
 import { FormattedMessage, useSiteData } from 'dumi';
 import toReactElement from 'jsonml-to-react-element';
@@ -15,6 +14,7 @@ import LZString from 'lz-string';
 import Prism from 'prismjs';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import { Alert, Badge, Space, Tooltip } from 'antd';
 import type { AntdPreviewerProps } from '.';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';

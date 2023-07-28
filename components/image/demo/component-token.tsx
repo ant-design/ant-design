@@ -1,5 +1,5 @@
-import { ConfigProvider, Image } from 'antd';
 import React from 'react';
+import { ConfigProvider, Image } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider

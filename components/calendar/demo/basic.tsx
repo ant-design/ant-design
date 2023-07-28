@@ -1,6 +1,6 @@
 import React from 'react';
-import { Calendar } from 'antd';
 import type { Dayjs } from 'dayjs';
+import { Calendar } from 'antd';
 import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
 
 const App: React.FC = () => {

@@ -1,5 +1,5 @@
-import { Avatar, List } from 'antd';
 import React from 'react';
+import { Avatar, List } from 'antd';
 
 const data = [
   {

@@ -1,10 +1,10 @@
 import { createStyles } from 'antd-style';
-import { Button, ConfigProvider, Modal, Spin, Typography, message } from 'antd';
 import { ThemeEditor, enUS, zhCN } from 'antd-token-previewer';
-import type { ThemeConfig } from 'antd/es/config-provider/context';
 import { Helmet } from 'dumi';
 import React, { Suspense, useCallback, useEffect, useState } from 'react';
 import type { JSONContent, TextContent } from 'vanilla-jsoneditor';
+import type { ThemeConfig } from 'antd/es/config-provider/context';
+import { Button, ConfigProvider, Modal, Spin, Typography, message } from 'antd';
 import useLocale from '../../hooks/useLocale';
 
 const JSONEditor = React.lazy(() => import('../../theme/common/JSONEditor'));

@@ -6,9 +6,9 @@ import {
   horizontalListSortingStrategy,
   useSortable,
 } from '@dnd-kit/sortable';
-import { Tag } from 'antd';
 import type { FC } from 'react';
 import React, { useState } from 'react';
+import { Tag } from 'antd';
 
 type Item = {
   id: number;
