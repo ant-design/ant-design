@@ -29,6 +29,7 @@ demo:
 <code src="./demo/colorful.tsx">多彩文字提示</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug.tsx" debug>Debug</code>
+<code src="./demo/disabled.tsx" debug>禁用</code>
 
 ## API
 
@@ -68,7 +69,7 @@ demo:
 
 ### 为何有时候 HOC 组件无法生效？
 
-请确保 `Tooltip` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onFocus`、`onClick` 事件。
+请确保 `Tooltip` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onPointerEnter`、`onPointerLeave`、`onFocus`、`onClick` 事件。
 
 ### placement 的行为逻辑是什么？
 
