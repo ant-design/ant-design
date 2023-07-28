@@ -82,12 +82,15 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
     };
 
     // Generate style for all a tags in antd component.
-    useStyleRegister({ ...sharedConfig, path: ['Shared', rootPrefixCls] }, () => [
-      {
-        // Link
-        '&': genLinkStyle(token),
-      },
-    ]);
+    useStyleRegister(
+      { ...sharedConfig, clientOnly: false, path: ['Shared', rootPrefixCls] },
+      () => [
+        {
+          // Link
+          '&': genLinkStyle(token),
+        },
+      ],
+    );
 
     return [
       useStyleRegister({ ...sharedConfig, path: [component, prefixCls, iconPrefixCls] }, () => {

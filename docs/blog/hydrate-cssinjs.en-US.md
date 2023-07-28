@@ -30,8 +30,6 @@ Application level CSS-in-JS solutions will calculate the hash value of the gener
 
 Every dynamically inserted style is also identified by hash. If the `<style />` with the hash already exists in the page, it means that inline style injection has been done in SSR. Then `<style />` does not need to be created again.
 
-你可以发现，虽然 `<style />` 的节点创建可以省略。但是因为 hash 依赖于计算出的样式内容，所以即便页面中已经有可以复用的样式内容，它仍然免不了需要计算一次。实属不划算。
-
 You can find that although the `<style />` node can be omitted, hash still deps on the calculated style content. So even if there is reusable style in the page, it still needs to be calculated once. It's really not cost-effective.
 
 ## Component-level CSS-in-JS
