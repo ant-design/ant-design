@@ -56,6 +56,7 @@ export interface FormItemProps<Values = any>
     FormItemInputProps,
     RcFieldProps<Values> {
   prefixCls?: string;
+  rowPrefixCls?: string;
   noStyle?: boolean;
   style?: React.CSSProperties;
   className?: string;
