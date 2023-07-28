@@ -6,10 +6,10 @@ import {
   StyleProvider,
   extractStyle,
 } from '@ant-design/cssinjs';
+import React, { useCallback, useEffect, useMemo } from 'react';
+import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
 import { App, theme as antdTheme } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
-import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
-import React, { useCallback, useEffect, useMemo } from 'react';
 import useLayoutState from '../../hooks/useLayoutState';
 import SiteThemeProvider from '../SiteThemeProvider';
 import useLocation from '../../hooks/useLocation';
