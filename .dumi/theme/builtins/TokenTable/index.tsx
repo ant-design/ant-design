@@ -3,8 +3,8 @@ import * as React from 'react';
 import { createStyles } from 'antd-style';
 import { getDesignToken } from 'antd-token-previewer';
 import type { TableProps } from 'antd';
-import { Table } from 'antd';
 import tokenMeta from 'antd/es/version/token-meta.json';
+import { Table } from 'antd';
 import useLocale from '../../../hooks/useLocale';
 import ColorChunk from '../ColorChunk';
 

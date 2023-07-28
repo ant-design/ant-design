@@ -3,8 +3,8 @@ import React from 'react';
 import classNames from 'classnames';
 import { TinyColor } from '@ctrl/tinycolor';
 import { createStyles } from 'antd-style';
-import { theme, Space } from 'antd';
 import tokenMeta from 'antd/es/version/token-meta.json';
+import { theme, Space } from 'antd';
 import useLocale from '../../../hooks/useLocale';
 
 const useStyle = createStyles(({ token, css }) => {
