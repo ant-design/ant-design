@@ -142,14 +142,14 @@ const RoutesPlugin = (api: IApi) => {
         });
 
         // Insert antd style to head
-        const matchRegex = /<style data-type="antd-cssinjs">(.*)<\/style>/;
+        const matchRegex = /<style data-type="antd-cssinjs">(.*?)<\/style>/;
         const matchList = file.content.match(matchRegex) || [];
 
         let antdStyle = '';
 
         matchList.forEach((text) => {
           file.content = file.content.replace(text, '');
-          antdStyle = text.replace(matchRegex, '$1');
+          antdStyle += text.replace(matchRegex, '$1');
         });
 
         const cssFile = writeCSSFile('antd', antdStyle, antdStyle);
