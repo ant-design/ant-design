@@ -1,7 +1,7 @@
 import { createStyles, useTheme } from 'antd-style';
-import { Space } from 'antd';
 import * as React from 'react';
 import classNames from 'classnames';
+import { Space } from 'antd';
 import useLocale from '../../../../hooks/useLocale';
 
 export const THEMES = {

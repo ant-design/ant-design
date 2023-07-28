@@ -1,5 +1,5 @@
-import { Card } from 'antd';
 import React, { useState } from 'react';
+import { Card } from 'antd';
 
 const tabList = [
   {

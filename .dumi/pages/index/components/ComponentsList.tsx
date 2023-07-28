@@ -1,5 +1,9 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { useContext } from 'react';
+import dayjs from 'dayjs';
+import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
+import { createStyles, css, useTheme } from 'antd-style';
+import classNames from 'classnames';
 import {
   Space,
   Typography,
@@ -12,10 +16,6 @@ import {
   Progress,
   Carousel,
 } from 'antd';
-import dayjs from 'dayjs';
-import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
-import { createStyles, css, useTheme } from 'antd-style';
-import classNames from 'classnames';
 import useLocale from '../../../hooks/useLocale';
 import SiteContext from '../../../theme/slots/SiteContext';
 import { getCarouselStyle } from './util';

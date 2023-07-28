@@ -6,9 +6,9 @@ import {
   PieChartOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
+import React, { useState } from 'react';
 import type { MenuProps } from 'antd';
 import { ConfigProvider, Menu, Space } from 'antd';
-import React, { useState } from 'react';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -143,8 +143,8 @@ const App: React.FC = () => {
         <Menu
           defaultSelectedKeys={['1']}
           defaultOpenKeys={['sub1']}
-          mode='inline'
-          theme='dark'
+          mode="inline"
+          theme="dark"
           items={items2}
           style={{
             width: 256,

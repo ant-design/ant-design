@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Row, Col, Typography } from 'antd';
 import { createStyles, css, useTheme } from 'antd-style';
+import { Row, Col, Typography } from 'antd';
 import type { Recommendation } from './util';
 
 const useStyle = createStyles(({ token }) => ({

@@ -1,6 +1,6 @@
 import { DownOutlined } from '@ant-design/icons';
-import { ColorPicker, Space } from 'antd';
 import React, { useState } from 'react';
+import { ColorPicker, Space } from 'antd';
 
 const Demo = () => {
   const [open, setOpen] = useState(false);

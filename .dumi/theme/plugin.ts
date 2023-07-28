@@ -1,11 +1,11 @@
-import type { IApi, IRoute } from 'dumi';
-import ReactTechStack from 'dumi/dist/techStacks/react';
 import fs from 'fs';
 import path from 'path';
+import { createHash } from 'crypto';
+import type { IApi, IRoute } from 'dumi';
+import ReactTechStack from 'dumi/dist/techStacks/react';
 import chalk from 'chalk';
 import sylvanas from 'sylvanas';
 import { extractStaticStyle } from 'antd-style';
-import { createHash } from 'crypto';
 import localPackage from '../../package.json';
 
 export const getHash = (str: string, length = 8) =>

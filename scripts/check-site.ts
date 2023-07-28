@@ -1,13 +1,13 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
+import type http from 'http';
+import type https from 'https';
+import { join } from 'path';
 import cheerio from 'cheerio';
 import { globSync } from 'glob';
-import type http from 'http';
 import { createServer } from 'http-server';
-import type https from 'https';
 import fetch from 'isomorphic-fetch';
 import uniq from 'lodash/uniq';
-import { join } from 'path';
 
 const components = uniq(
   globSync('components/!(overview)/*.md', { cwd: join(process.cwd()), dot: false }).map((path) =>

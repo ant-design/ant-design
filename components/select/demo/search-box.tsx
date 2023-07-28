@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Select } from 'antd';
 import jsonp from 'fetch-jsonp';
 import qs from 'qs';
+import { Select } from 'antd';
 import type { SelectProps } from 'antd';
 
 let timeout: ReturnType<typeof setTimeout> | null;

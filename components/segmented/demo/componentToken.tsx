@@ -1,5 +1,5 @@
-import { ConfigProvider, Segmented } from 'antd';
 import React from 'react';
+import { ConfigProvider, Segmented } from 'antd';
 
 export default () => (
   <ConfigProvider
