@@ -2,8 +2,8 @@ import type { ReactNode } from 'react';
 import React, { Suspense } from 'react';
 import { useSearchParams, useServerInsertedHTML } from 'dumi';
 import { Skeleton } from 'antd';
-import { getSandpackCssText } from '@codesandbox/sandpack-react';
 import { createStyles } from 'antd-style';
+import { getSandpackCssText } from '@codesandbox/sandpack-react';
 
 const OriginSandpack = React.lazy(() => import('./Sandpack'));
 
@@ -66,7 +66,7 @@ const Sandpack = ({ children }: { children: ReactNode }) => {
   const [searchParams] = useSearchParams();
 
   useServerInsertedHTML(() => (
-    <style dangerouslySetInnerHTML={{ __html: getSandpackCssText() }} id="sandpack" />
+    <style id="sandpack" dangerouslySetInnerHTML={{ __html: getSandpackCssText() }} />
   ));
 
   return (
