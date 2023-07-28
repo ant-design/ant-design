@@ -154,16 +154,6 @@ const ColorPicker: CompoundedComponent = (props) => {
     );
   }
 
-  const handleChangeComplete: ColorPickerProps['onChangeComplete'] = (color) => {
-    popupAllowCloseRef.current = true;
-    let changeColor = generateColor(color);
-    // ignore alpha color
-    if (disabledAlpha && isAlphaColor) {
-      changeColor = genAlphaColor(color);
-    }
-    onChangeComplete?.(changeColor);
-  };
-
   const handleChange = (data: Color, type?: HsbaColorType, pickColor?: boolean) => {
     let color: Color = generateColor(data);
     const isNull = value === null || (!value && defaultValue === null);
@@ -183,7 +173,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     if (pickColor) {
       popupAllowCloseRef.current = false;
     } else {
-      handleChangeComplete?.(color);
+      onChangeComplete?.(color);
     }
 
     setColorValue(color);
@@ -193,6 +183,16 @@ const ColorPicker: CompoundedComponent = (props) => {
   const handleClear = () => {
     setColorCleared(true);
     onClear?.();
+  };
+
+  const handleChangeComplete: ColorPickerProps['onChangeComplete'] = (color) => {
+    popupAllowCloseRef.current = true;
+    let changeColor = generateColor(color);
+    // ignore alpha color
+    if (disabledAlpha && isAlphaColor) {
+      changeColor = genAlphaColor(color);
+    }
+    onChangeComplete?.(changeColor);
   };
 
   const popoverProps: PopoverProps = {
