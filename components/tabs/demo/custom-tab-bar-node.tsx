@@ -7,8 +7,8 @@ import {
   useSortable,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { Tabs } from 'antd';
 import React, { useState } from 'react';
+import { Tabs } from 'antd';
 
 interface DraggableTabPaneProps extends React.HTMLAttributes<HTMLDivElement> {
   'data-node-key': string;
@@ -21,7 +21,7 @@ const DraggableTabNode = ({ className, ...props }: DraggableTabPaneProps) => {
 
   const style: React.CSSProperties = {
     ...props.style,
-    transform: CSS.Transform.toString(transform),
+    transform: CSS.Transform.toString(transform && { ...transform, scaleX: 1 }),
     transition,
     cursor: 'move',
   };

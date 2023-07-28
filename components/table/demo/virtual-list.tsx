@@ -1,9 +1,9 @@
-import type { TableProps } from 'antd';
-import { Table, theme } from 'antd';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import React, { useEffect, useRef, useState } from 'react';
 import { VariableSizeGrid as Grid } from 'react-window';
+import { Table, theme } from 'antd';
+import type { TableProps } from 'antd';
 
 const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) => {
   const { columns, scroll } = props;

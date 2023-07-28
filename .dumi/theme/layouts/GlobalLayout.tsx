@@ -4,11 +4,13 @@ import {
   logicalPropertiesLinter,
   parentSelectorLinter,
   StyleProvider,
+  extractStyle,
 } from '@ant-design/cssinjs';
-import { App, theme as antdTheme } from 'antd';
-import type { DirectionType } from 'antd/es/config-provider';
 import { createSearchParams, useOutlet, useSearchParams } from 'dumi';
+import { useServerInsertedHTML } from 'umi';
 import React, { useCallback, useEffect, useMemo } from 'react';
+import type { DirectionType } from 'antd/es/config-provider';
+import { App, theme as antdTheme } from 'antd';
 import useLayoutState from '../../hooks/useLayoutState';
 import SiteThemeProvider from '../SiteThemeProvider';
 import useLocation from '../../hooks/useLocation';
@@ -22,10 +24,10 @@ type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
 
 const RESPONSIVE_MOBILE = 768;
 
-const styleCache = createCache();
-if (typeof global !== 'undefined') {
-  (global as any).styleCache = styleCache;
-}
+// const styleCache = createCache();
+// if (typeof global !== 'undefined') {
+//   (global as any).styleCache = styleCache;
+// }
 
 const getAlgorithm = (themes: ThemeName[] = []) =>
   themes.map((theme) => {
@@ -107,6 +109,31 @@ const GlobalLayout: React.FC = () => {
     [isMobile, direction, updateSiteConfig, theme],
   );
 
+  const [styleCache] = React.useState(() => createCache());
+
+  useServerInsertedHTML(() => {
+    const styleText = extractStyle(styleCache, true);
+    return <style data-type="antd-cssinjs" dangerouslySetInnerHTML={{ __html: styleText }} />;
+  });
+
+  const demoPage = pathname.startsWith('/~demos');
+
+  // ============================ Render ============================
+  let content: React.ReactNode = outlet;
+
+  // Demo page should not contain App component
+  if (!demoPage) {
+    content = (
+      <App>
+        {outlet}
+        <ThemeSwitch
+          value={theme}
+          onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
+        />
+      </App>
+    );
+  }
+
   return (
     <StyleProvider
       cache={styleCache}
@@ -121,15 +148,7 @@ const GlobalLayout: React.FC = () => {
             },
           }}
         >
-          <App>
-            {outlet}
-            {!pathname.startsWith('/~demos') && (
-              <ThemeSwitch
-                value={theme}
-                onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
-              />
-            )}
-          </App>
+          {content}
         </SiteThemeProvider>
       </SiteContext.Provider>
     </StyleProvider>

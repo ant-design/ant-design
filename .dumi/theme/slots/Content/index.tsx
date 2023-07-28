@@ -1,12 +1,12 @@
 import { CalendarOutlined } from '@ant-design/icons';
 import { createStyles, useTheme } from 'antd-style';
 import ContributorsList from '@qixian.cs/github-contributors-list';
-import { Affix, Anchor, Avatar, Col, Skeleton, Space, Tooltip, Typography } from 'antd';
 import classNames from 'classnames';
 import DayJS from 'dayjs';
 import { FormattedMessage, useIntl, useRouteMeta, useTabMeta } from 'dumi';
 import type { ReactNode } from 'react';
 import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
+import { Affix, Anchor, Avatar, Col, Skeleton, Space, Tooltip, Typography } from 'antd';
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocation from '../../../hooks/useLocation';
 import EditButton from '../../common/EditButton';

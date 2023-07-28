@@ -9,8 +9,8 @@ import {
   Space,
   Switch,
 } from 'antd';
-import type { Color } from 'antd/es/color-picker';
 import React from 'react';
+import type { Color } from 'antd/es/color-picker';
 
 type ThemeData = {
   borderRadius: number;

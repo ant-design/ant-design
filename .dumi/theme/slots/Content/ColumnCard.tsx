@@ -1,7 +1,7 @@
 import { RightOutlined, YuqueOutlined, ZhihuOutlined } from '@ant-design/icons';
 import { createStyles } from 'antd-style';
-import { Button, Card, Divider } from 'antd';
 import React from 'react';
+import { Button, Card, Divider } from 'antd';
 import useLocale from '../../../hooks/useLocale';
 import JuejinLogo from './JuejinLogo';
 

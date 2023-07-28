@@ -1,8 +1,8 @@
 import { createStyles } from 'antd-style';
-import { Tabs } from 'antd';
 import throttle from 'lodash/throttle';
 import * as React from 'react';
 import classNames from 'classnames';
+import { Tabs } from 'antd';
 import scrollTo from '../../../../components/_util/scrollTo';
 
 const listenerEvents = ['scroll', 'resize'] as const;

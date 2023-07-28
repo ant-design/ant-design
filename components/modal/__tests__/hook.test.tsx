@@ -5,6 +5,7 @@ import React from 'react';
 import { act } from 'react-dom/test-utils';
 
 import Modal from '..';
+import zhCN from '../../locale/zh_CN';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
@@ -368,46 +369,43 @@ describe('Modal.hook', () => {
     expect(afterClose).toHaveBeenCalledTimes(1);
   });
 
-  it('support await', async () => {
+  it('should be applied correctly locale', async () => {
     jest.useFakeTimers();
 
-    let notReady = true;
-    let lastResult: boolean | null = null;
-
-    const Demo = () => {
-      const [modal, contextHolder] = Modal.useModal();
-
+    const Demo = ({ count }: { count: number }) => {
       React.useEffect(() => {
-        (async () => {
-          lastResult = await modal.confirm({
-            content: <Input />,
-            onOk: async () => {
-              if (notReady) {
-                notReady = false;
-                return Promise.reject();
-              }
-            },
-          });
-        })();
-      }, []);
+        const instance = Modal.confirm({});
+        return () => {
+          instance.destroy();
+        };
+      }, [count]);
 
-      return contextHolder;
+      let node = null;
+
+      for (let i = 0; i < count; i += 1) {
+        node = <ConfigProvider locale={zhCN}>{node}</ConfigProvider>;
+      }
+
+      return node;
     };
 
-    render(<Demo />);
+    const { rerender } = render(<div />);
 
-    // Wait for modal show
-    await waitFakeTimer();
+    for (let i = 10; i > 0; i -= 1) {
+      rerender(<Demo count={i} />);
+      // eslint-disable-next-line no-await-in-loop
+      await waitFakeTimer();
 
-    // First time click should not close
-    fireEvent.click(document.querySelector('.ant-btn-primary')!);
-    await waitFakeTimer();
-    expect(lastResult).toBeFalsy();
+      expect(document.body.querySelector('.ant-btn-primary')!.textContent).toEqual('确 定');
+      fireEvent.click(document.body.querySelector('.ant-btn-primary')!);
 
-    // Second time click to close
-    fireEvent.click(document.querySelector('.ant-btn-primary')!);
+      // eslint-disable-next-line no-await-in-loop
+      await waitFakeTimer();
+    }
+
+    rerender(<Demo count={0} />);
     await waitFakeTimer();
-    expect(lastResult).toBeTruthy();
+    expect(document.body.querySelector('.ant-btn-primary')!.textContent).toEqual('OK');
 
     jest.useRealTimers();
   });
