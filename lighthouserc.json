@@ -1,0 +1,7 @@
+{
+  "ci": {
+    "collect": {
+      "staticDistDir": "./_site"
+    }
+  }
+}

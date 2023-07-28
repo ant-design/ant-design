@@ -94,3 +94,9 @@ jobs:
         with:
           name: pr
           path: ./pr-id.txt
+
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          # no urls needed, since it uses local folder to scan .html files
+          configPath: './lighthouserc.json'
