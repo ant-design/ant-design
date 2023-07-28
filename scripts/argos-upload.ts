@@ -1,11 +1,11 @@
 // Thanks to material-ui ❤️
 // Create chunks for Argos: https://github.com/mui/material-ui/pull/23518
 // https://github.com/mui/material-ui/blob/af81aae3b292ed180e7652a665fad1be2b38a7b3/scripts/pushArgos.js
-import argos from '@argos-ci/core';
 import childProcess from 'child_process';
+import util from 'util';
+import argos from '@argos-ci/core';
 import glob from 'fast-glob';
 import lodashChunk from 'lodash/chunk';
-import util from 'util';
 
 const execFileNode = util.promisify(childProcess.execFile);
 

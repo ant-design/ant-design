@@ -1,9 +1,9 @@
 import { DownOutlined } from '@ant-design/icons';
 import { createStyles } from 'antd-style';
-import type { MenuProps } from 'antd';
-import { Button, Dropdown } from 'antd';
 import { FormattedMessage } from 'dumi';
 import React from 'react';
+import type { MenuProps } from 'antd';
+import { Button, Dropdown } from 'antd';
 import type { SharedProps } from './interface';
 
 const useStyle = createStyles(({ css }) => ({

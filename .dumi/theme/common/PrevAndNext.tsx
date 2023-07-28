@@ -1,10 +1,10 @@
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { createStyles } from 'antd-style';
-import type { MenuProps } from 'antd';
-import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 import type { ReactElement } from 'react';
 import React, { useMemo } from 'react';
 import classNames from 'classnames';
+import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
+import type { MenuProps } from 'antd';
 import useMenu from '../../hooks/useMenu';
 
 const useStyle = createStyles(({ token, css }) => {

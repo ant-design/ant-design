@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useState } from 'react';
-import { Mentions } from 'antd';
 import debounce from 'lodash/debounce';
+import { Mentions } from 'antd';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);

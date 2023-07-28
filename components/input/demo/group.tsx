@@ -1,4 +1,5 @@
 import { CopyOutlined } from '@ant-design/icons';
+import React from 'react';
 import {
   AutoComplete,
   Button,
@@ -11,7 +12,6 @@ import {
   Select,
   Tooltip,
 } from 'antd';
-import React from 'react';
 
 const { Option } = Select;
 

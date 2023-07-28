@@ -1,8 +1,8 @@
 import { createStyles } from 'antd-style';
-import { ConfigProvider, Layout, Typography } from 'antd';
 import { FormattedMessage, useRouteMeta } from 'dumi';
 import type { PropsWithChildren } from 'react';
 import React from 'react';
+import { ConfigProvider, Layout, Typography } from 'antd';
 import CommonHelmet from '../../common/CommonHelmet';
 import EditButton from '../../common/EditButton';
 import Footer from '../../slots/Footer';
