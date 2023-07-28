@@ -442,7 +442,7 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
     {
       [`${componentCls}${sizePrefixCls}`]: {
         fontSize,
-        height: controlHeight,
+        minHeight: controlHeight,
         padding: `${paddingVertical}px ${paddingHorizontal}px`,
         borderRadius,
 
