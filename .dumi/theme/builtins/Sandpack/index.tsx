@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import React, { Suspense } from 'react';
-import { useSearchParams, useServerInsertedHTML } from 'dumi';
+import { useServerInsertedHTML } from 'dumi';
 import { createStyles } from 'antd-style';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
 import { Skeleton } from 'antd';
@@ -63,8 +63,6 @@ const SandpackFallback = () => {
 };
 
 const Sandpack = ({ children }: { children: ReactNode }) => {
-  const [searchParams] = useSearchParams();
-
   useServerInsertedHTML(() => (
     <style id="sandpack" dangerouslySetInnerHTML={{ __html: getSandpackCssText() }} />
   ));
@@ -72,7 +70,6 @@ const Sandpack = ({ children }: { children: ReactNode }) => {
   return (
     <Suspense fallback={<SandpackFallback />}>
       <OriginSandpack
-        theme={searchParams.getAll('theme').includes('dark') ? 'dark' : undefined}
         customSetup={setup}
         options={options}
         files={{
