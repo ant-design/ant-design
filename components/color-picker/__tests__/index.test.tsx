@@ -459,9 +459,16 @@ describe('ColorPicker', () => {
 
   it('Should onChangeComplete work', async () => {
     const handleChangeComplete = jest.fn();
-    const { container } = render(<ColorPicker open onChangeComplete={handleChangeComplete} />);
+    const { container } = render(
+      <ColorPicker open onChangeComplete={handleChangeComplete} allowClear />,
+    );
+
     doMouseMove(container, 0, 999);
-    expect(handleChangeComplete).toHaveBeenCalledTimes(1);
+    fireEvent.click(container.querySelector('.ant-color-picker-clear')!);
+    fireEvent.change(container.querySelector('.ant-color-picker-hex-input input')!, {
+      target: { value: '#273B57' },
+    });
+    expect(handleChangeComplete).toHaveBeenCalledTimes(3);
   });
 
   it('Should disabledAlpha work', async () => {
