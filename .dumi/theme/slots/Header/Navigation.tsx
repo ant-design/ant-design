@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { FormattedMessage, Link, useFullSidebarData, useLocation } from 'dumi';
-import type { MenuProps } from 'antd';
-import { Menu } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 import { createStyles, css } from 'antd-style';
+import type { MenuProps } from 'antd';
+import { Menu } from 'antd';
 import { getEcosystemGroup } from './More';
 import * as utils from '../../utils';
 import type { SharedProps } from './interface';

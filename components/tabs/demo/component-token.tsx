@@ -1,5 +1,5 @@
-import { Button, ConfigProvider, Tabs } from 'antd';
 import React from 'react';
+import { Button, ConfigProvider, Tabs } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider

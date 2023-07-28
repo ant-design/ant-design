@@ -1,8 +1,8 @@
-import { ConfigProvider, theme as antdTheme } from 'antd';
 import type { ThemeProviderProps } from 'antd-style';
 import { ThemeProvider } from 'antd-style';
 import type { FC } from 'react';
 import React, { useContext } from 'react';
+import { ConfigProvider, theme as antdTheme } from 'antd';
 
 interface NewToken {
   headerHeight: number;

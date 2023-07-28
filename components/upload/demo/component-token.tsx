@@ -1,7 +1,7 @@
 import { UploadOutlined } from '@ant-design/icons';
+import React from 'react';
 import type { UploadProps } from 'antd';
 import { Button, ConfigProvider, Upload } from 'antd';
-import React from 'react';
 
 const props: UploadProps = {
   action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',

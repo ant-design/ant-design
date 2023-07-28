@@ -1,5 +1,5 @@
-import { Col, ColorPicker, Divider, Row, Space } from 'antd';
 import React from 'react';
+import { Col, ColorPicker, Divider, Row, Space } from 'antd';
 
 const Demo = () => (
   <Space direction="vertical">
