@@ -110,6 +110,11 @@ const RoutesPlugin = (api: IApi) => {
       .map((file) => {
         let globalStyles = '';
 
+        // Debug for file content: uncomment this if need check raw out
+        // const tmpFileName = `_${file.path.replace(/\//g, '-')}`;
+        // const tmpFilePath = path.join(api.paths.absOutputPath, tmpFileName);
+        // fs.writeFileSync(tmpFilePath, file.content, 'utf8');
+
         // extract all emotion style tags from body
         file.content = file.content.replace(/<style data-emotion[\S\s]+?<\/style>/g, (s) => {
           globalStyles += s;
