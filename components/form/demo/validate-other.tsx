@@ -1,4 +1,5 @@
 import { InboxOutlined, UploadOutlined } from '@ant-design/icons';
+import React from 'react';
 import {
   Button,
   Checkbox,
@@ -15,7 +16,6 @@ import {
   Switch,
   Upload,
 } from 'antd';
-import React from 'react';
 
 const { Option } = Select;
 

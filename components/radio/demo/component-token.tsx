@@ -1,5 +1,5 @@
-import { ConfigProvider, Radio, Space } from 'antd';
 import React from 'react';
+import { ConfigProvider, Radio, Space } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Col, Row, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
+import { Col, Row, Tooltip } from 'antd';
 import useLocale from '../../../hooks/useLocale';
 
 const useStyle = createStyles(({ token, css }) => {

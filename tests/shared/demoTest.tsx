@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
+import path from 'path';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import { globSync } from 'glob';
-import path from 'path';
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 import { kebabCase } from 'lodash';
