@@ -1,6 +1,6 @@
-import { Badge, Descriptions, Table } from 'antd';
-import type { DescriptionsProps } from 'antd/es/descriptions';
 import React from 'react';
+import { Badge, Descriptions, Table } from 'antd';
+import type { DescriptionsProps } from 'antd';
 
 const dataSource = [
   {

@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Button,
   ColorPicker,
@@ -9,7 +10,6 @@ import {
   Space,
   Switch,
 } from 'antd';
-import React from 'react';
 import type { Color } from 'antd/es/color-picker';
 
 type ThemeData = {

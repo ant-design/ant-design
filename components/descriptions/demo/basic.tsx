@@ -1,6 +1,6 @@
-import { Descriptions } from 'antd';
-import type { DescriptionsProps } from 'antd/es/descriptions';
 import React from 'react';
+import { Descriptions } from 'antd';
+import type { DescriptionsProps } from 'antd';
 
 const items: DescriptionsProps['items'] = [
   {
