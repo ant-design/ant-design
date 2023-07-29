@@ -31,7 +31,6 @@ const locale: PickerLocale = {
       'Нояб',
       'Дек',
     ],
-
     ...CalendarLocale,
   },
   timePickerLocale: {
