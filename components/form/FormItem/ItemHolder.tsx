@@ -49,6 +49,7 @@ export default function ItemHolder(props: ItemHolderProps) {
     validateStatus,
     meta,
     hasFeedback,
+    customFeedbackIcons,
     hidden,
     children,
     fieldId,
@@ -111,6 +112,13 @@ export default function ItemHolder(props: ItemHolderProps) {
   const formItemStatusContext = React.useMemo<FormItemStatusContextProps>(() => {
     let feedbackIcon: React.ReactNode;
     if (hasFeedback) {
+      const customIconNode =
+        mergedValidateStatus &&
+        (customFeedbackIcons
+          ? customFeedbackIcons({ status: mergedValidateStatus, errors, warnings })?.[
+              mergedValidateStatus
+            ]
+          : null);
       const IconNode = mergedValidateStatus && iconMap[mergedValidateStatus];
       feedbackIcon = IconNode ? (
         <span
@@ -119,7 +127,7 @@ export default function ItemHolder(props: ItemHolderProps) {
             `${itemPrefixCls}-feedback-icon-${mergedValidateStatus}`,
           )}
         >
-          <IconNode />
+          {customIconNode || <IconNode />}
         </span>
       ) : null;
     }

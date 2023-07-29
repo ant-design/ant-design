@@ -53,6 +53,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/label-debug.tsx" debug>测试 label 省略</code>
 <code src="./demo/col-24-debug.tsx" debug>测试特殊 col 24 用法</code>
 <code src="./demo/ref-item.tsx" debug>引用字段</code>
+<code src="./demo/custom-feedback-icons.tsx" debug>Custom feedback icons</code>
 
 ## API
 
@@ -121,6 +122,7 @@ const validateMessages = {
 | getValueFromEvent | 设置如何将 event 的值转换成字段值 | (..args: any\[]) => any | - |  |
 | getValueProps | 为子元素添加额外的属性 | (value: any) => any | - | 4.2.0 |
 | hasFeedback | 配合 `validateStatus` 属性使用，展示校验状态图标，建议只配合 Input 组件使用 | boolean | false |  |
+| customFeedbackIcons | Used with `hasFeedback`, this option replaces the feedback icons with the given ones. | ({status:ValidateStatus, errors: ReactNode, warnings: ReactNode}) => [ValidateStatus]ReactNode | - | 5.7.3 |
 | help | 提示信息，如不设置，则会根据校验规则自动生成 | ReactNode | - |  |
 | hidden | 是否隐藏字段（依然会收集和校验字段） | boolean | false | 4.4.0 |
 | htmlFor | 设置子元素 label `htmlFor` 属性 | string | - |  |
