@@ -29,8 +29,11 @@ const GlobalStyle: React.FC = () => {
         }
 
         .markdown p > img {
-          margin: 34px 0;
+          margin: 34px auto;
           box-shadow: 0 8px 20px rgba(143, 168, 191, 0.35);
+          max-width: 1024px;
+          width: 100%;
+          display: block;
         }
 
         .markdown p > img.markdown-inline-image {

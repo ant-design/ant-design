@@ -1,6 +1,6 @@
 import fs from 'fs';
-import _ from 'lodash';
 import path from 'path';
+import _ from 'lodash';
 import simpleGit from 'simple-git';
 
 const cwd = process.cwd();

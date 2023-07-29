@@ -1,6 +1,6 @@
 import { UserOutlined } from '@ant-design/icons';
-import { Avatar, Space } from 'antd';
 import React from 'react';
+import { Avatar, Space } from 'antd';
 
 const App: React.FC = () => (
   <Space direction="vertical" size={16}>

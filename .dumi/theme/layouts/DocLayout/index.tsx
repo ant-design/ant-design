@@ -1,10 +1,10 @@
-import ConfigProvider from 'antd/es/config-provider';
-import zhCN from 'antd/es/locale/zh_CN';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import { Helmet, useOutlet, useSiteData } from 'dumi';
 import React, { useContext, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
+import zhCN from 'antd/es/locale/zh_CN';
+import ConfigProvider from 'antd/es/config-provider';
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
 import GlobalStyles from '../../common/GlobalStyles';

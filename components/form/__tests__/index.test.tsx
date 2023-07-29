@@ -1,8 +1,8 @@
-import type { ColProps } from 'antd/es/grid';
 import classNames from 'classnames';
 import type { ChangeEventHandler } from 'react';
 import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
+import type { ColProps } from 'antd/es/grid';
 import type { FormInstance } from '..';
 import Form from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -1583,7 +1583,7 @@ describe('Form', () => {
   it('item customize margin', async () => {
     const computeSpy = jest
       .spyOn(window, 'getComputedStyle')
-      .mockImplementation(() => ({ marginBottom: 24 } as unknown as CSSStyleDeclaration));
+      .mockImplementation(() => ({ marginBottom: 24 }) as unknown as CSSStyleDeclaration);
 
     const { container } = render(
       <Form>

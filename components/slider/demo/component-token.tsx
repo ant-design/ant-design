@@ -1,5 +1,5 @@
-import { ConfigProvider, Slider } from 'antd';
 import React from 'react';
+import { ConfigProvider, Slider } from 'antd';
 
 const style: React.CSSProperties = {
   display: 'inline-block',

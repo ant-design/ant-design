@@ -1,5 +1,5 @@
-import { Button, ConfigProvider, Space } from 'antd';
 import React from 'react';
+import { Button, ConfigProvider, Space } from 'antd';
 
 type WaveConfig = NonNullable<Parameters<typeof ConfigProvider>[0]['wave']>;
 

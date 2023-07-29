@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Button,
   ColorPicker,
@@ -10,7 +11,6 @@ import {
   Switch,
 } from 'antd';
 import type { Color } from 'antd/es/color-picker';
-import React from 'react';
 
 type ThemeData = {
   borderRadius: number;

@@ -1,6 +1,6 @@
+import React, { useMemo, useState } from 'react';
 import { Col, ColorPicker, Row, Space } from 'antd';
 import type { Color, ColorPickerProps } from 'antd/es/color-picker';
-import React, { useMemo, useState } from 'react';
 
 export default () => {
   const [colorHex, setColorHex] = useState<Color | string>('#1677ff');

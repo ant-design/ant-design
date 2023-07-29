@@ -1,5 +1,5 @@
-import { globSync } from 'glob';
 import path from 'path';
+import { globSync } from 'glob';
 import React from 'react';
 
 type StyleFn = (prefix?: string) => void;
