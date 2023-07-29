@@ -17,6 +17,21 @@ const locale: PickerLocale = {
     rangeMonthPlaceholder: ['Начальный месяц', 'Конечный месяц'],
     rangeWeekPlaceholder: ['Начальная неделя', 'Конечная неделя'],
     shortWeekDays: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
+    shortMonths: [
+      'Янв',
+      'Февр',
+      'Март',
+      'Апр',
+      'Май',
+      'Июнь',
+      'Июль',
+      'Авг',
+      'Сент',
+      'Окт',
+      'Нояб',
+      'Дек',
+    ],
+
     ...CalendarLocale,
   },
   timePickerLocale: {
