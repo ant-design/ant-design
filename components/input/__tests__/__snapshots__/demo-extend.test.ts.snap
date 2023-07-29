@@ -55,6 +55,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                 class="ant-select-selection-search"
               >
                 <input
+                  aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                   aria-autocomplete="list"
                   aria-controls="rc_select_TEST_OR_SSR_list"
                   aria-expanded="false"
@@ -165,24 +166,8 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
               unselectable="on"
             >
               <span
-                aria-label="down"
-                class="anticon anticon-down ant-select-suffix"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="down"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                  />
-                </svg>
-              </span>
+                class="ant-select-arrow-icon"
+              />
             </span>
           </div>
         </span>
@@ -204,6 +189,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                 class="ant-select-selection-search"
               >
                 <input
+                  aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                   aria-autocomplete="list"
                   aria-controls="rc_select_TEST_OR_SSR_list"
                   aria-expanded="false"
@@ -348,24 +334,8 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
               unselectable="on"
             >
               <span
-                aria-label="down"
-                class="anticon anticon-down ant-select-suffix"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="down"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                  />
-                </svg>
-              </span>
+                class="ant-select-arrow-icon"
+              />
             </span>
           </div>
         </span>
@@ -569,24 +539,8 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
               unselectable="on"
             >
               <span
-                aria-label="down"
-                class="anticon anticon-down ant-select-suffix"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="down"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                  />
-                </svg>
-              </span>
+                class="ant-select-arrow-icon"
+              />
             </span>
           </div>
         </span>
@@ -2817,6 +2771,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
@@ -2961,24 +2916,8 @@ Array [
       unselectable="on"
     >
       <span
-        aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="down"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-          />
-        </svg>
-      </span>
+        class="ant-select-arrow-icon"
+      />
     </span>
   </div>,
   <div
@@ -3076,24 +3015,8 @@ Array [
       unselectable="on"
     >
       <span
-        aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="down"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-          />
-        </svg>
-      </span>
+        class="ant-select-arrow-icon"
+      />
     </span>
   </div>,
   <div
@@ -3224,24 +3147,8 @@ Array [
       unselectable="on"
     >
       <span
-        aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="down"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-          />
-        </svg>
-      </span>
+        class="ant-select-arrow-icon"
+      />
     </span>
     <span
       aria-hidden="true"
@@ -4737,6 +4644,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
@@ -5315,6 +5223,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
             class="ant-select-selection-search"
           >
             <input
+              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -5425,24 +5334,8 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
           unselectable="on"
         >
           <span
-            aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </span>
+            class="ant-select-arrow-icon"
+          />
         </span>
       </div>
       <input
@@ -5898,6 +5791,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           class="ant-select-selection-search"
         >
           <input
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
@@ -6008,24 +5902,8 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         unselectable="on"
       >
         <span
-          aria-label="down"
-          class="anticon anticon-down ant-select-suffix"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </span>
+          class="ant-select-arrow-icon"
+        />
       </span>
     </div>
     <input
@@ -6212,6 +6090,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           class="ant-select-selection-search"
         >
           <input
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
@@ -6322,24 +6201,8 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         unselectable="on"
       >
         <span
-          aria-label="down"
-          class="anticon anticon-down ant-select-suffix"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </span>
+          class="ant-select-arrow-icon"
+        />
       </span>
     </div>
     <input
@@ -8246,6 +8109,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           class="ant-select-selection-search"
         >
           <input
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
@@ -8356,24 +8220,8 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         unselectable="on"
       >
         <span
-          aria-label="down"
-          class="anticon anticon-down ant-select-suffix"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </span>
+          class="ant-select-arrow-icon"
+        />
       </span>
     </div>
     <div
@@ -8386,6 +8234,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           class="ant-select-selection-search"
         >
           <input
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
@@ -8496,24 +8345,8 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         unselectable="on"
       >
         <span
-          aria-label="down"
-          class="anticon anticon-down ant-select-suffix"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </span>
+          class="ant-select-arrow-icon"
+        />
       </span>
     </div>
   </span>
@@ -8531,6 +8364,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           class="ant-select-selection-search"
         >
           <input
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
@@ -8641,24 +8475,8 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         unselectable="on"
       >
         <span
-          aria-label="down"
-          class="anticon anticon-down ant-select-suffix"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </span>
+          class="ant-select-arrow-icon"
+        />
       </span>
     </div>
     <input
@@ -8699,6 +8517,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           class="ant-select-selection-search"
         >
           <input
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
@@ -8809,24 +8628,8 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         unselectable="on"
       >
         <span
-          aria-label="down"
-          class="anticon anticon-down ant-select-suffix"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </span>
+          class="ant-select-arrow-icon"
+        />
       </span>
     </div>
     <div
@@ -8840,6 +8643,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           class="ant-select-selection-search"
         >
           <input
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
@@ -8947,6 +8751,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           class="ant-select-selection-search"
         >
           <input
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
@@ -9057,24 +8862,8 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         unselectable="on"
       >
         <span
-          aria-label="down"
-          class="anticon anticon-down ant-select-suffix"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </span>
+          class="ant-select-arrow-icon"
+        />
       </span>
     </div>
     <div
@@ -9205,24 +8994,8 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         unselectable="on"
       >
         <span
-          aria-label="down"
-          class="anticon anticon-down ant-select-suffix"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </span>
+          class="ant-select-arrow-icon"
+        />
       </span>
     </div>
   </span>
