@@ -372,7 +372,7 @@ describe('Modal.hook', () => {
   it('should be applied correctly locale', async () => {
     jest.useFakeTimers();
 
-    const Demo = ({ count }: { count: number }) => {
+    const Demo: React.FC<{ count: number }> = ({ count }) => {
       React.useEffect(() => {
         const instance = Modal.confirm({});
         return () => {
@@ -406,6 +406,47 @@ describe('Modal.hook', () => {
     rerender(<Demo count={0} />);
     await waitFakeTimer();
     expect(document.body.querySelector('.ant-btn-primary')!.textContent).toEqual('OK');
+
+    jest.useRealTimers();
+  });
+
+  it('support await', async () => {
+    jest.useFakeTimers();
+
+    let notReady = true;
+    let lastResult: boolean | null = null;
+
+    const Demo: React.FC = () => {
+      const [modal, contextHolder] = Modal.useModal();
+
+      React.useEffect(() => {
+        (async () => {
+          lastResult = await modal.confirm({
+            content: <Input />,
+            onOk: async () => {
+              if (notReady) {
+                notReady = false;
+                return Promise.reject();
+              }
+            },
+          });
+        })();
+      }, []);
+
+      return contextHolder;
+    };
+
+    render(<Demo />); // Wait for modal show
+
+    await waitFakeTimer(); // First time click should not close
+
+    fireEvent.click(document.querySelector('.ant-btn-primary')!);
+    await waitFakeTimer();
+    expect(lastResult).toBeFalsy(); // Second time click to close
+
+    fireEvent.click(document.querySelector('.ant-btn-primary')!);
+    await waitFakeTimer();
+    expect(lastResult).toBeTruthy();
 
     jest.useRealTimers();
   });
