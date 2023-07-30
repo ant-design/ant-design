@@ -436,14 +436,17 @@ describe('Modal.hook', () => {
       return contextHolder;
     };
 
-    render(<Demo />); // Wait for modal show
+    render(<Demo />);
 
-    await waitFakeTimer(); // First time click should not close
+    // Wait for modal show
+    await waitFakeTimer();
 
+    // First time click should not close
     fireEvent.click(document.querySelector('.ant-btn-primary')!);
     await waitFakeTimer();
-    expect(lastResult).toBeFalsy(); // Second time click to close
+    expect(lastResult).toBeFalsy();
 
+    // Second time click to close
     fireEvent.click(document.querySelector('.ant-btn-primary')!);
     await waitFakeTimer();
     expect(lastResult).toBeTruthy();
