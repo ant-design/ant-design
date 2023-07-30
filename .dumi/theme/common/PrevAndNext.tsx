@@ -138,16 +138,14 @@ const PrevAndNext: React.FC<{ rtl?: boolean }> = ({ rtl }) => {
 
   return (
     <section className={styles.prevNextNav}>
-      {prev
-        ? React.cloneElement(prev.label as ReactElement, {
-            className: classNames(styles.pageNav, styles.prevNav, prev.className),
-          })
-        : null}
-      {next
-        ? React.cloneElement(next.label as ReactElement, {
-            className: classNames(styles.pageNav, styles.nextNav, next.className),
-          })
-        : null}
+      {prev &&
+        React.cloneElement(prev.label as ReactElement, {
+          className: classNames(styles.pageNav, styles.prevNav, prev.className),
+        })}
+      {next &&
+        React.cloneElement(next.label as ReactElement, {
+          className: classNames(styles.pageNav, styles.nextNav, next.className),
+        })}
     </section>
   );
 };
