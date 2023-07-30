@@ -190,13 +190,7 @@ message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲�
 
 1. 使用官方提供的 [message.useMessage](/components/message-cn/#components-message-demo-hooks)、[notification.useNotification](/components/notification-cn#%E4%B8%BA%E4%BB%80%E4%B9%88-notification-%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux-%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-%E7%9A%84-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 和 [Modal.useModal](/components/modal-cn/#%E4%B8%BA%E4%BB%80%E4%B9%88-Modal-%E6%96%B9%E6%B3%95%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux%E3%80%81%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 来调用这些方法。
 
-2. 使用 `ConfigProvider.config` 方法全局设置 `prefixCls`。
-
-```js
-ConfigProvider.config({
-  prefixCls: 'ant',
-});
-```
+2. 使用 [App.useApp](/components/app-cn#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95) 直接调用 message、notification、modal 实例方法。
 
 ## 为什么我不应该通过 ref 访问组件内部的 props 和 state？
 
@@ -287,3 +281,30 @@ export default () => {
 ```
 
 如果 `strictNullChecks` 的值被设置为 `true` 就会出现上述问题，如果你确定项目中可以不需要这个检测配置（查看[strictNullChecks](https://www.typescriptlang.org/zh/tsconfig#strictNullChecks)判断是否需要该配置），可以尝试改为 `false` 关闭控制严格检查功能。但如果你确实需要开启这个功能，那么，你可以在设计类型时，使用其他类型替代 `null` 以避免出现这种情况。
+
+## 使用 Next.js 的 App Router 时 antd 组件报错
+
+如果你在使用 Next.js 的 App Router，当你使用 antd 中某些组件提供的子组件，如：`Select.Option`、`Form.Item` 等，可能会出现如下报错：
+
+```bash
+Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.
+```
+
+目前这个问题等待 Next.js 给出官方的解决方案，在此之前，如果在你的页面中有使用子组件的话，可以尝试在页面顶部增加如下客户端标签解决这个问题：
+
+```tsx
+'use client';
+
+// This is not real world code, just for explain
+export default () => {
+  return (
+    <div className="App">
+      <Form>
+        <Form.Item>
+          <Button type="primary">Button</Button>
+        </Form.Item>
+      </Form>
+    </div>
+  );
+};
+```

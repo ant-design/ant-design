@@ -1,5 +1,5 @@
-import { ConfigProvider, Divider, Typography } from 'antd';
 import React from 'react';
+import { ConfigProvider, Divider, Typography } from 'antd';
 
 const { Title, Paragraph, Text, Link } = Typography;
 

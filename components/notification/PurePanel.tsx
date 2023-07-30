@@ -76,7 +76,7 @@ export interface PurePanelProps
   prefixCls?: string;
 }
 
-/** @internal Internal Component. Do not use in your production. */
+/** @private Internal Component. Do not use in your production. */
 const PurePanel: React.FC<PurePanelProps> = (props) => {
   const {
     prefixCls: staticPrefixCls,

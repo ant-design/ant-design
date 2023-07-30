@@ -1,15 +1,14 @@
 import { CalendarOutlined } from '@ant-design/icons';
-import { css } from '@emotion/react';
+import { createStyles, useTheme } from 'antd-style';
 import ContributorsList from '@qixian.cs/github-contributors-list';
-import { Affix, Anchor, Avatar, Col, Skeleton, Space, Tooltip, Typography } from 'antd';
 import classNames from 'classnames';
 import DayJS from 'dayjs';
 import { FormattedMessage, useIntl, useRouteMeta, useTabMeta } from 'dumi';
 import type { ReactNode } from 'react';
 import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
+import { Affix, Anchor, Avatar, Col, Skeleton, Space, Tooltip, Typography } from 'antd';
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocation from '../../../hooks/useLocation';
-import useSiteToken from '../../../hooks/useSiteToken';
 import EditButton from '../../common/EditButton';
 import PrevAndNext from '../../common/PrevAndNext';
 import type { DemoContextProps } from '../DemoContext';
@@ -18,9 +17,7 @@ import Footer from '../Footer';
 import SiteContext from '../SiteContext';
 import ColumnCard from './ColumnCard';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-
+const useStyle = createStyles(({ token, css }) => {
   const { antCls } = token;
 
   return {
@@ -29,17 +26,25 @@ const useStyle = () => {
       flex-wrap: wrap;
       margin-top: 120px !important;
       clear: both;
-      a,
+
+      li {
+        height: 24px;
+      }
+
+      li,
       ${antCls}-avatar + ${antCls}-avatar {
         transition: all ${token.motionDurationSlow};
         margin-inline-end: -8px;
       }
       &:hover {
-        a,
+        li,
         ${antCls}-avatar {
           margin-inline-end: 0;
         }
       }
+    `,
+    listMobile: css`
+      margin: 1em 0 !important;
     `,
     toc: css`
       ${antCls}-anchor {
@@ -96,7 +101,7 @@ const useStyle = () => {
       }
     `,
   };
-};
+});
 
 type AnchorItem = {
   id: string;
@@ -105,14 +110,14 @@ type AnchorItem = {
 };
 
 const AvatarPlaceholder: React.FC<{ num?: number }> = ({ num = 3 }) => (
-  <>
+  <li>
     {Array.from({ length: num }).map((_, i) => (
       <Skeleton.Avatar size="small" active key={i} style={{ marginLeft: i === 0 ? 0 : -8 }} />
     ))}
-  </>
+  </li>
 );
 
-const AuthorAvatar = ({ name, avatar }: { name: string; avatar: string }) => {
+const AuthorAvatar: React.FC<{ name: string; avatar: string }> = ({ name, avatar }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   useLayoutEffect(() => {
@@ -121,9 +126,12 @@ const AuthorAvatar = ({ name, avatar }: { name: string; avatar: string }) => {
     img.onload = () => setLoading(false);
     img.onerror = () => setError(true);
   }, []);
-
-  if (error) return null;
-  if (loading) return <Skeleton.Avatar size="small" active />;
+  if (error) {
+    return null;
+  }
+  if (loading) {
+    return <Skeleton.Avatar size="small" active />;
+  }
   return (
     <Avatar size="small" src={avatar} alt={name}>
       {name}
@@ -136,9 +144,9 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   const tab = useTabMeta();
   const { pathname, hash } = useLocation();
   const { formatMessage } = useIntl();
-  const styles = useStyle();
-  const { token } = useSiteToken();
-  const { direction } = useContext(SiteContext);
+  const { styles } = useStyle();
+  const token = useTheme();
+  const { direction, isMobile } = useContext(SiteContext);
 
   const [showDebug, setShowDebug] = useLayoutState(false);
   const debugDemos = useMemo(
@@ -176,15 +184,6 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   const isRTL = direction === 'rtl';
 
-  // support custom author info in frontmatter
-  // e.g.
-  // ---
-  // author:
-  //   - name: qixian
-  //     avatar: https://avatars.githubusercontent.com/u/11746742?v=4
-  //   - name: yutingzhao1991
-  //     avatar: https://avatars.githubusercontent.com/u/5378891?v=4
-  // ---
   const mergedAuthorInfos = useMemo(() => {
     const { author } = meta.frontmatter;
     if (!author) {
@@ -206,9 +205,9 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
     <DemoContext.Provider value={contextValue}>
       <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
         <Affix>
-          <section css={styles.tocWrapper}>
+          <section className={styles.tocWrapper}>
             <Anchor
-              css={styles.toc}
+              className={styles.toc}
               affix={false}
               targetOffset={token.marginXXL}
               showInkInFixed
@@ -231,7 +230,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
             />
           </section>
         </Affix>
-        <article css={styles.articleWrapper} className={classNames({ rtl: isRTL })}>
+        <article className={classNames(styles.articleWrapper, { rtl: isRTL })}>
           {meta.frontmatter?.title ? (
             <Typography.Title style={{ fontSize: 30 }}>
               {meta.frontmatter?.title}
@@ -272,7 +271,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
             </Typography.Paragraph>
           ) : null}
           {!meta.frontmatter.__autoDescription && meta.frontmatter.description}
-          {children}
+          <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
           {(meta.frontmatter?.zhihu_url ||
             meta.frontmatter?.yuque_url ||
             meta.frontmatter?.juejin_url) && (
@@ -284,10 +283,10 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
           )}
           {meta.frontmatter.filename && (
             <ContributorsList
+              cache
               repo="ant-design"
               owner="ant-design"
-              css={styles.contributorsList}
-              cache
+              className={classNames(styles.contributorsList, { [styles.listMobile]: isMobile })}
               fileName={meta.frontmatter.filename}
               renderItem={(item, loading) => {
                 if (!item || loading) {
@@ -302,15 +301,17 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                     title={`${formatMessage({ id: 'app.content.contributors' })}: ${item.username}`}
                     key={item.username}
                   >
-                    <a
-                      href={`https://github.com/${item.username}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Avatar size="small" src={item.url}>
-                        {item.username}
-                      </Avatar>
-                    </a>
+                    <li>
+                      <a
+                        href={`https://github.com/${item.username}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Avatar size="small" src={item.url} alt={item.username}>
+                          {item.username}
+                        </Avatar>
+                      </a>
+                    </li>
                   </Tooltip>
                 );
               }}

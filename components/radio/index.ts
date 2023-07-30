@@ -1,3 +1,5 @@
+'use client';
+
 import type * as React from 'react';
 import Group from './group';
 import type { RadioProps } from './interface';

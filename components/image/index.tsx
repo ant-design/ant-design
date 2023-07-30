@@ -1,3 +1,5 @@
+'use client';
+
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import classNames from 'classnames';
 import RcImage, { type ImageProps } from 'rc-image';
@@ -65,7 +67,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
 
   return wrapSSR(
     <RcImage
-      prefixCls={`${prefixCls}`}
+      prefixCls={prefixCls}
       preview={mergedPreview}
       rootClassName={mergedRootClassName}
       className={mergedClassName}

@@ -1,9 +1,9 @@
-import { css } from '@emotion/react';
-import { Button, Space, Typography } from 'antd';
+import { createStyles, css, useTheme } from 'antd-style';
 import { Link, useLocation } from 'dumi';
 import * as React from 'react';
+import classNames from 'classnames';
+import { Button, Space, Typography } from 'antd';
 import useLocale from '../../../hooks/useLocale';
-import useSiteToken from '../../../hooks/useSiteToken';
 import SiteContext from '../../../theme/slots/SiteContext';
 import * as utils from '../../../theme/utils';
 import { GroupMask } from './Group';
@@ -23,10 +23,8 @@ const locales = {
 };
 
 const useStyle = () => {
-  const { token } = useSiteToken();
   const { isMobile } = React.useContext(SiteContext);
-
-  return {
+  return createStyles(({ token }) => ({
     titleBase: css`
       h1& {
         font-family: AliPuHui, ${token.fontFamily};
@@ -48,7 +46,7 @@ const useStyle = () => {
             font-size: 68px;
           }
         `,
-  };
+  }))();
 };
 
 export interface BannerProps {
@@ -58,8 +56,8 @@ export interface BannerProps {
 export default function Banner({ children }: BannerProps) {
   const [locale] = useLocale(locales);
   const { pathname, search } = useLocation();
-  const { token } = useSiteToken();
-  const styles = useStyle();
+  const token = useTheme();
+  const { styles } = useStyle();
   const { isMobile } = React.useContext(SiteContext);
 
   const isZhCN = utils.isZhCN(pathname);
@@ -146,7 +144,7 @@ export default function Banner({ children }: BannerProps) {
             alt="bg"
           />
 
-          <Typography.Title level={1} css={[styles.titleBase, styles.title]}>
+          <Typography.Title level={1} className={classNames(styles.titleBase, styles.title)}>
             Ant Design 5.0
           </Typography.Title>
           <Typography.Paragraph

@@ -5,6 +5,7 @@ import RcTree from 'rc-tree';
 import type { DataNode, Key } from 'rc-tree/lib/interface';
 import type { Component } from 'react';
 import React from 'react';
+import type { CSSMotionProps } from 'rc-motion';
 import initCollapseMotion from '../_util/motion';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
@@ -175,7 +176,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
-  const motion = customMotion ?? {
+  const motion: CSSMotionProps = customMotion ?? {
     ...initCollapseMotion(rootPrefixCls),
     motionAppear: false,
   };

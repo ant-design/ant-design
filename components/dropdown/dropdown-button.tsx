@@ -12,7 +12,7 @@ import type { ButtonProps, ButtonHTMLType } from '../button';
 import type { ButtonGroupProps } from '../button/button-group';
 import type { DropdownProps } from './dropdown';
 
-export type DropdownButtonType = 'default' | 'primary' | 'ghost' | 'dashed' | 'link' | 'text';
+export type DropdownButtonType = 'default' | 'primary' | 'dashed' | 'link' | 'text';
 
 export interface DropdownButtonProps extends ButtonGroupProps, DropdownProps {
   type?: DropdownButtonType;

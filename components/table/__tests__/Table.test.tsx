@@ -1,5 +1,5 @@
-import { ConfigProvider } from 'antd';
 import React, { useRef } from 'react';
+import { ConfigProvider } from 'antd';
 import type { TableProps } from '..';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';

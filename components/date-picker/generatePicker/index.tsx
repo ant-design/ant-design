@@ -17,7 +17,7 @@ import generateRangePicker from './generateRangePicker';
 import generateSinglePicker from './generateSinglePicker';
 
 const DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;
-type DataPickerPlacement = (typeof DataPickerPlacements)[number];
+type DataPickerPlacement = typeof DataPickerPlacements[number];
 
 type InjectDefaultProps<Props> = Omit<
   Props,
@@ -85,6 +85,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
 
   // =========================== Export ===========================
   type MergedDatePickerType = typeof DatePicker & {
+    displayName?: string;
     WeekPicker: typeof WeekPicker;
     MonthPicker: typeof MonthPicker;
     YearPicker: typeof YearPicker;
@@ -100,6 +101,10 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   MergedDatePicker.RangePicker = RangePicker;
   MergedDatePicker.TimePicker = TimePicker;
   MergedDatePicker.QuarterPicker = QuarterPicker;
+
+  if (process.env.NODE_ENV !== 'production') {
+    MergedDatePicker.displayName = 'DatePicker';
+  }
 
   return MergedDatePicker;
 }

@@ -1,3 +1,5 @@
+'use client';
+
 import InternalDropdown from './dropdown';
 import DropdownButton from './dropdown-button';
 

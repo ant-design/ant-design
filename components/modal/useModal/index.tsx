@@ -112,7 +112,6 @@ function useModal(): readonly [
     }),
     [],
   );
-
   return [fns, <ElementsHolder key="modal-holder" ref={holderRef} />] as const;
 }
 

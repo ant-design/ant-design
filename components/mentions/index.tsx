@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import RcMentions from 'rc-mentions';
 import type {

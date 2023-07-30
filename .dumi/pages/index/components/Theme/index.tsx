@@ -1,10 +1,13 @@
+import { TinyColor } from '@ctrl/tinycolor';
 import {
   BellOutlined,
   FolderOutlined,
   HomeOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
-import { css } from '@emotion/react';
+import { createStyles, css, useTheme } from 'antd-style';
+import * as React from 'react';
+import classNames from 'classnames';
 import type { MenuProps } from 'antd';
 import {
   Breadcrumb,
@@ -21,12 +24,10 @@ import {
 } from 'antd';
 import type { Color } from 'antd/es/color-picker';
 import { generateColor } from 'antd/es/color-picker/util';
-import * as React from 'react';
 import useLocale from '../../../../hooks/useLocale';
-import useSiteToken from '../../../../hooks/useSiteToken';
 import SiteContext from '../../../../theme/slots/SiteContext';
 import Group from '../Group';
-import { useCarouselStyle } from '../util';
+import { getCarouselStyle } from '../util';
 import BackgroundImage from './BackgroundImage';
 import ColorPicker from './ColorPicker';
 import MobileCarousel from './MobileCarousel';
@@ -83,35 +84,44 @@ const locales = {
 };
 
 // ============================= Style =============================
-const useStyle = () => {
-  const { token } = useSiteToken();
-  const { carousel } = useCarouselStyle();
+const useStyle = createStyles(({ token, cx }) => {
+  const { carousel } = getCarouselStyle();
+
+  const demo = css`
+    overflow: hidden;
+    background: rgba(240, 242, 245, 0.25);
+    backdrop-filter: blur(50px);
+    box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.1);
+    transition: all ${token.motionDurationSlow};
+  `;
 
   return {
-    demo: css`
-      overflow: hidden;
-      background: rgba(240, 242, 245, 0.25);
-      backdrop-filter: blur(50px);
-      box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.1);
-      transition: all ${token.motionDurationSlow};
-    `,
+    demo,
 
     otherDemo: css`
-      backdrop-filter: blur(10px);
-      background: rgba(247, 247, 247, 0.5);
+      &.${cx(demo)} {
+        backdrop-filter: blur(10px);
+        background: rgba(247, 247, 247, 0.5);
+      }
     `,
 
     darkDemo: css`
-      background: #000;
+      &.${cx(demo)} {
+        background: #000;
+      }
     `,
 
     larkDemo: css`
-      // background: #f7f7f7;
-      background: rgba(240, 242, 245, 0.65);
+      &.${cx(demo)} {
+        // background: #f7f7f7;
+        background: rgba(240, 242, 245, 0.65);
+      }
     `,
     comicDemo: css`
-      // background: #ffe4e6;
-      background: rgba(240, 242, 245, 0.65);
+      &.${cx(demo)} {
+        // background: #ffe4e6;
+        background: rgba(240, 242, 245, 0.65);
+      }
     `,
 
     menu: css`
@@ -168,12 +178,6 @@ const useStyle = () => {
       }
     `,
 
-    logoImgPureColor: css`
-      img {
-        transform: translate3d(-30px, 0, 0);
-      }
-    `,
-
     transBg: css`
       background: transparent !important;
     `,
@@ -184,7 +188,7 @@ const useStyle = () => {
     `,
     carousel,
   };
-};
+});
 
 // ========================== Menu Config ==========================
 const subMenuItems: MenuProps['items'] = [
@@ -236,6 +240,10 @@ function getTitleColor(colorPrimary: string | Color, isLight?: boolean) {
     case '#F2BD27':
       return undefined;
 
+    case '#5A54F9':
+    case '#E0282E':
+      return '#FFF';
+
     default:
       return color.toHsb().b < 0.7 ? '#FFF' : undefined;
   }
@@ -270,9 +278,30 @@ const ThemesInfo: Record<THEME, Partial<ThemeData>> = {
   },
 };
 
+function rgbToColorMatrix(color: string) {
+  const rgb = new TinyColor(color).toRgb();
+  const { r, g, b } = rgb;
+
+  const normalize = (value) => value / 255;
+  const invertValue = normalize(r) * 100;
+  const sepiaValue = 100;
+  const saturateValue = Math.max(normalize(r), normalize(g), normalize(b)) * 10000;
+  const hueRotateValue =
+    ((Math.atan2(
+      Math.sqrt(3) * (normalize(g) - normalize(b)),
+      2 * normalize(r) - normalize(g) - normalize(b),
+    ) *
+      180) /
+      Math.PI +
+      360) %
+    360;
+
+  return `invert(${invertValue}%) sepia(${sepiaValue}%) saturate(${saturateValue}%) hue-rotate(${hueRotateValue}deg)`;
+}
+
 export default function Theme() {
-  const style = useStyle();
-  const { token } = useSiteToken();
+  const { styles } = useStyle();
+  const token = useTheme();
   const [locale] = useLocale(locales);
 
   const [themeData, setThemeData] = React.useState<ThemeData>(ThemeDefault);
@@ -348,25 +377,11 @@ export default function Theme() {
       theme={{
         token: {
           ...themeToken,
-          ...(isLight
-            ? {}
-            : {
-                // colorBgContainer: '#474C56',
-                // colorBorderSecondary: 'rgba(255,255,255,0.06)',
-              }),
           colorPrimary: colorPrimaryValue,
         },
         hashed: true,
         algorithm: algorithmFn,
         components: {
-          Slider: {
-            // 1677FF
-          },
-          Card: isLight
-            ? {}
-            : {
-                // colorBgContainer: '#474C56',
-              },
           Layout: isLight
             ? {
                 colorBgHeader: 'transparent',
@@ -379,7 +394,7 @@ export default function Theme() {
             ? {
                 itemBg: 'transparent',
                 subMenuItemBg: 'transparent',
-                colorActiveBarWidth: 0,
+                activeBarBorderWidth: 0,
               }
             : {
                 // colorItemBg: 'transparent',
@@ -392,25 +407,27 @@ export default function Theme() {
     >
       <TokenChecker />
       <div
-        css={[
-          style.demo,
-          isLight && closestColor !== DEFAULT_COLOR && style.otherDemo,
-          !isLight && style.darkDemo,
-        ]}
+        className={classNames(styles.demo, {
+          [styles.otherDemo]: isLight && closestColor !== DEFAULT_COLOR && styles.otherDemo,
+          [styles.darkDemo]: !isLight,
+        })}
         style={{ borderRadius: themeData.borderRadius }}
       >
-        <Layout css={style.transBg}>
-          <Header css={[style.header, style.transBg, !isLight && style.headerDark]}>
+        <Layout className={styles.transBg}>
+          <Header
+            className={classNames(styles.header, styles.transBg, !isLight && styles.headerDark)}
+          >
             {/* Logo */}
-            <div css={style.logo}>
-              <div css={[style.logoImg, closestColor !== DEFAULT_COLOR && style.logoImgPureColor]}>
+            <div className={styles.logo}>
+              <div className={styles.logoImg}>
                 <img
                   src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
                   style={{
                     filter:
                       closestColor === DEFAULT_COLOR
                         ? undefined
-                        : `drop-shadow(30px 0 0 ${logoColor})`,
+                        : // : `drop-shadow(30px 0 0 ${logoColor})`,
+                          rgbToColorMatrix(logoColor),
                   }}
                   alt=""
                 />
@@ -418,11 +435,11 @@ export default function Theme() {
               <h1>Ant Design 5.0</h1>
             </div>
 
-            <Space css={style.menu} size="middle">
+            <Space className={styles.menu} size="middle">
               <BellOutlined />
               <QuestionCircleOutlined />
               <div
-                css={[style.avatar, themeType === 'dark' && style.avatarDark]}
+                className={classNames(styles.avatar, themeType === 'dark' && styles.avatarDark)}
                 style={{
                   backgroundColor: avatarColor,
                   backgroundImage: `url(${getAvatarURL(closestColor)})`,
@@ -432,25 +449,26 @@ export default function Theme() {
               />
             </Space>
           </Header>
-          <Layout css={style.transBg} hasSider>
-            <Sider css={style.transBg} width={200} className="site-layout-background">
+          <Layout className={styles.transBg} hasSider>
+            <Sider className={classNames(styles.transBg, 'site-layout-background')} width={200}>
               <Menu
                 mode="inline"
-                css={[style.transBg, !isLight && style.darkSideMenu]}
+                className={classNames(styles.transBg, !isLight && styles.darkSideMenu)}
                 selectedKeys={['Themes']}
                 openKeys={['Design']}
                 style={{ height: '100%', borderRight: 0 }}
                 items={sideMenuItems}
               />
             </Sider>
-            <Layout css={style.transBg} style={{ padding: '0 24px 24px' }}>
-              <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>
-                  <HomeOutlined />
-                </Breadcrumb.Item>
-                <Breadcrumb.Item overlay={<Menu items={subMenuItems} />}>Design</Breadcrumb.Item>
-                <Breadcrumb.Item>Themes</Breadcrumb.Item>
-              </Breadcrumb>
+            <Layout className={styles.transBg} style={{ padding: '0 24px 24px' }}>
+              <Breadcrumb
+                style={{ margin: '16px 0' }}
+                items={[
+                  { title: <HomeOutlined /> },
+                  { title: 'Design', menu: { items: subMenuItems } },
+                  { title: 'Themes' },
+                ]}
+              />
               <Content>
                 <Typography.Title level={2}>{locale.customizeTheme}</Typography.Title>
                 <Card
@@ -468,7 +486,7 @@ export default function Theme() {
                     onValuesChange={onThemeChange}
                     labelCol={{ span: 4 }}
                     wrapperCol={{ span: 20 }}
-                    css={style.form}
+                    className={styles.form}
                   >
                     <Form.Item label={locale.titleTheme} name="themeType">
                       <ThemePicker />

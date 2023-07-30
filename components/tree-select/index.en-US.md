@@ -139,3 +139,7 @@ In earlier version, `loadData` will be triggered when searching. But we got feed
   }}
 />
 ```
+
+### Why can't popup scroll horizontally?
+
+Just turn off virtual scrolling, because the `scrollWidth` of the complete list cannot be accurately measured when virtual scrolling is turned on.

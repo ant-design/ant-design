@@ -1,3 +1,5 @@
+'use client';
+
 import Link from './Link';
 import Paragraph from './Paragraph';
 import Text from './Text';

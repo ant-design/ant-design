@@ -1,3 +1,5 @@
+'use client';
+
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import * as React from 'react';

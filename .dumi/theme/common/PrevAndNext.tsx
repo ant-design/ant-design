@@ -1,14 +1,15 @@
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import { css } from '@emotion/react';
-import type { MenuProps } from 'antd';
-import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
+import { createStyles } from 'antd-style';
 import type { ReactElement } from 'react';
-import React, { useMemo } from 'react';
+import React, { useMemo, useContext } from 'react';
+import classNames from 'classnames';
+import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
+import type { MenuProps } from 'antd';
 import useMenu from '../../hooks/useMenu';
-import useSiteToken from '../../hooks/useSiteToken';
+import SiteContext from '../slots/SiteContext';
+import type { SiteContextProps } from '../slots/SiteContext';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
+const useStyle = createStyles(({ token, css }) => {
   const { colorSplit, iconCls, fontSizeIcon } = token;
 
   return {
@@ -85,7 +86,7 @@ const useStyle = () => {
       }
     `,
   };
-};
+});
 
 const flattenMenu = (menuItems: MenuProps['items']): MenuProps['items'] | null => {
   if (Array.isArray(menuItems)) {
@@ -103,7 +104,7 @@ const flattenMenu = (menuItems: MenuProps['items']): MenuProps['items'] | null =
 };
 
 const PrevAndNext: React.FC<{ rtl?: boolean }> = ({ rtl }) => {
-  const styles = useStyle();
+  const { styles } = useStyle();
   const beforeProps = { className: 'footer-nav-icon-before' };
   const afterProps = { className: 'footer-nav-icon-after' };
 
@@ -111,6 +112,8 @@ const PrevAndNext: React.FC<{ rtl?: boolean }> = ({ rtl }) => {
   const after = rtl ? <LeftOutlined {...afterProps} /> : <RightOutlined {...afterProps} />;
 
   const [menuItems, selectedKey] = useMenu({ before, after });
+
+  const { isMobile } = useContext<SiteContextProps>(SiteContext);
 
   const [prev, next] = useMemo(() => {
     const flatMenu = flattenMenu(menuItems);
@@ -129,15 +132,19 @@ const PrevAndNext: React.FC<{ rtl?: boolean }> = ({ rtl }) => {
     ];
   }, [menuItems, selectedKey]);
 
+  if (isMobile) {
+    return null;
+  }
+
   return (
-    <section css={styles.prevNextNav}>
+    <section className={styles.prevNextNav}>
       {prev &&
         React.cloneElement(prev.label as ReactElement, {
-          css: [styles.pageNav, styles.prevNav],
+          className: classNames(styles.pageNav, styles.prevNav, prev.className),
         })}
       {next &&
         React.cloneElement(next.label as ReactElement, {
-          css: [styles.pageNav, styles.nextNav],
+          className: classNames(styles.pageNav, styles.nextNav, next.className),
         })}
     </section>
   );

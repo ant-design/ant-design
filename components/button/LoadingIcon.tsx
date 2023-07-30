@@ -64,13 +64,7 @@ const LoadingIcon: React.FC<LoadingIconProps> = (props) => {
       onLeaveStart={getRealWidth}
       onLeaveActive={getCollapsedWidth}
     >
-      {(
-        {
-          className: motionCls,
-          style: motionStyle,
-        }: { className?: string; style?: React.CSSProperties },
-        ref: any,
-      ) => (
+      {({ className: motionCls, style: motionStyle }, ref: React.Ref<HTMLSpanElement>) => (
         <InnerLoadingIcon
           prefixCls={prefixCls}
           className={className}
