@@ -1,11 +1,13 @@
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { createStyles } from 'antd-style';
 import type { ReactElement } from 'react';
-import React, { useMemo } from 'react';
+import React, { useMemo, useContext } from 'react';
 import classNames from 'classnames';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 import type { MenuProps } from 'antd';
 import useMenu from '../../hooks/useMenu';
+import SiteContext from '../slots/SiteContext';
+import type { SiteContextProps } from '../slots/SiteContext';
 
 const useStyle = createStyles(({ token, css }) => {
   const { colorSplit, iconCls, fontSizeIcon } = token;
@@ -111,6 +113,8 @@ const PrevAndNext: React.FC<{ rtl?: boolean }> = ({ rtl }) => {
 
   const [menuItems, selectedKey] = useMenu({ before, after });
 
+  const { isMobile } = useContext<SiteContextProps>(SiteContext);
+
   const [prev, next] = useMemo(() => {
     const flatMenu = flattenMenu(menuItems);
     if (!flatMenu) {
@@ -127,6 +131,10 @@ const PrevAndNext: React.FC<{ rtl?: boolean }> = ({ rtl }) => {
       flatMenu[activeMenuItemIndex + 1] as MenuItemType,
     ];
   }, [menuItems, selectedKey]);
+
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <section className={styles.prevNextNav}>
