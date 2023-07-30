@@ -133,7 +133,6 @@ function useModal(): readonly [instance: HookAPI, contextHolder: React.ReactElem
     }),
     [],
   );
-
   return [fns, <ElementsHolder key="modal-holder" ref={holderRef} />] as const;
 }
 
