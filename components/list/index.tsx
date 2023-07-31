@@ -71,7 +71,7 @@ export interface ListLocale {
 }
 
 function List<T>({
-  pagination = false as ListProps<any>['pagination'],
+  pagination = false as ListProps<T>['pagination'],
   prefixCls: customizePrefixCls,
   bordered = false,
   split = true,
@@ -111,7 +111,7 @@ function List<T>({
       setPaginationCurrent(page);
       setPaginationSize(pageSize);
       if (pagination) {
-        (pagination as PaginationConfig)?.[eventName]?.(page, pageSize);
+        pagination?.[eventName]?.(page, pageSize);
       }
     };
 
