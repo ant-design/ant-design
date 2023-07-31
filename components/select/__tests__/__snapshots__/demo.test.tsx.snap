@@ -2,7 +2,7 @@
 
 exports[`renders components/select/demo/automatic-tokenization.tsx correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-search"
+  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width:100%"
 >
   <div
@@ -20,7 +20,6 @@ exports[`renders components/select/demo/automatic-tokenization.tsx correctly 1`]
           style="width:0"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -44,6 +43,32 @@ exports[`renders components/select/demo/automatic-tokenization.tsx correctly 1`]
       class="ant-select-selection-placeholder"
     />
   </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select:none;-webkit-user-select:none"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
 </div>
 `;
 
@@ -67,7 +92,6 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -97,8 +121,24 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="ant-select-arrow-icon"
-        />
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
       </span>
     </div>
   </div>
@@ -117,7 +157,6 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -148,8 +187,24 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="ant-select-arrow-icon"
-        />
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
       </span>
     </div>
   </div>
@@ -160,7 +215,6 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
     <div
       class="ant-select ant-select-single ant-select-show-arrow ant-select-loading"
       style="width:120px"
-      suffixicon="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -169,7 +223,6 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -199,8 +252,24 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="ant-select-arrow-icon ant-select-arrow-loading-icon"
-        />
+          aria-label="loading"
+          class="anticon anticon-loading anticon-spin"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="loading"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+            />
+          </svg>
+        </span>
       </span>
     </div>
   </div>
@@ -219,7 +288,6 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -249,8 +317,24 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="ant-select-arrow-icon"
-        />
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
       </span>
       <span
         aria-hidden="true"
@@ -298,7 +382,7 @@ Array [
      Items
   </h4>,
   <div
-    class="ant-select ant-select-multiple ant-select-show-search"
+    class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
     style="width:100%"
   >
     <div
@@ -372,7 +456,6 @@ Array [
             style="width:0"
           >
             <input
-              aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
               aria-expanded="false"
@@ -396,6 +479,32 @@ Array [
         </div>
       </div>
     </div>
+    <span
+      aria-hidden="true"
+      class="ant-select-arrow"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-select-suffix"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
   </div>,
   <div
     class="ant-divider ant-divider-horizontal"
@@ -434,7 +543,6 @@ exports[`renders components/select/demo/bordered.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -464,8 +572,24 @@ exports[`renders components/select/demo/bordered.tsx correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="ant-select-arrow-icon"
-        />
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
       </span>
     </div>
   </div>
@@ -484,7 +608,6 @@ exports[`renders components/select/demo/bordered.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -515,8 +638,24 @@ exports[`renders components/select/demo/bordered.tsx correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="ant-select-arrow-icon"
-        />
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
       </span>
     </div>
   </div>
@@ -543,7 +682,6 @@ exports[`renders components/select/demo/coordinate.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -573,8 +711,24 @@ exports[`renders components/select/demo/coordinate.tsx correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="ant-select-arrow-icon"
-        />
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
       </span>
     </div>
   </div>
@@ -593,7 +747,6 @@ exports[`renders components/select/demo/coordinate.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -623,8 +776,24 @@ exports[`renders components/select/demo/coordinate.tsx correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="ant-select-arrow-icon"
-        />
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
       </span>
     </div>
   </div>
@@ -643,7 +812,6 @@ exports[`renders components/select/demo/custom-dropdown-menu.tsx correctly 1`] =
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="false"
@@ -672,15 +840,31 @@ exports[`renders components/select/demo/custom-dropdown-menu.tsx correctly 1`] =
     unselectable="on"
   >
     <span
-      class="ant-select-arrow-icon"
-    />
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
   </span>
 </div>
 `;
 
 exports[`renders components/select/demo/custom-tag-render.tsx correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-search"
+  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width:100%"
 >
   <div
@@ -764,7 +948,6 @@ exports[`renders components/select/demo/custom-tag-render.tsx correctly 1`] = `
           style="width:0"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -788,6 +971,32 @@ exports[`renders components/select/demo/custom-tag-render.tsx correctly 1`] = `
       </div>
     </div>
   </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select:none;-webkit-user-select:none"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
 </div>
 `;
 
@@ -822,7 +1031,6 @@ exports[`renders components/select/demo/debug.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -848,8 +1056,24 @@ exports[`renders components/select/demo/debug.tsx correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="ant-select-arrow-icon"
-        />
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
       </span>
     </div>
   </div>
@@ -858,7 +1082,7 @@ exports[`renders components/select/demo/debug.tsx correctly 1`] = `
     style="margin-right:8px;padding-bottom:8px"
   >
     <div
-      class="ant-select ant-select-multiple ant-select-show-search"
+      class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
       style="width:120px"
     >
       <div
@@ -917,7 +1141,6 @@ exports[`renders components/select/demo/debug.tsx correctly 1`] = `
               style="width:0"
             >
               <input
-                aria-activedescendant="undefined_list_0"
                 aria-autocomplete="list"
                 aria-controls="undefined_list"
                 aria-expanded="false"
@@ -941,6 +1164,32 @@ exports[`renders components/select/demo/debug.tsx correctly 1`] = `
           </div>
         </div>
       </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
   </div>
   <div
@@ -981,7 +1230,6 @@ exports[`renders components/select/demo/debug-flip-shift.tsx correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="false"
@@ -1008,15 +1256,31 @@ exports[`renders components/select/demo/debug-flip-shift.tsx correctly 1`] = `
     unselectable="on"
   >
     <span
-      class="ant-select-arrow-icon"
-    />
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
   </span>
 </div>
 `;
 
 exports[`renders components/select/demo/hide-selected.tsx correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-search"
+  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width:100%"
 >
   <div
@@ -1034,7 +1298,6 @@ exports[`renders components/select/demo/hide-selected.tsx correctly 1`] = `
           style="width:0"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -1063,6 +1326,32 @@ exports[`renders components/select/demo/hide-selected.tsx correctly 1`] = `
       Inserted are removed
     </span>
   </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select:none;-webkit-user-select:none"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
 </div>
 `;
 
@@ -1078,7 +1367,6 @@ exports[`renders components/select/demo/label-in-value.tsx correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="false"
@@ -1108,8 +1396,24 @@ exports[`renders components/select/demo/label-in-value.tsx correctly 1`] = `
     unselectable="on"
   >
     <span
-      class="ant-select-arrow-icon"
-    />
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
   </span>
 </div>
 `;
@@ -1124,7 +1428,7 @@ exports[`renders components/select/demo/multiple.tsx correctly 1`] = `
     style="margin-bottom:8px"
   >
     <div
-      class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+      class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
       style="width:100%"
     >
       <div
@@ -1224,7 +1528,6 @@ exports[`renders components/select/demo/multiple.tsx correctly 1`] = `
               style="width:0"
             >
               <input
-                aria-activedescendant="undefined_list_0"
                 aria-autocomplete="list"
                 aria-controls="undefined_list"
                 aria-expanded="false"
@@ -1248,6 +1551,32 @@ exports[`renders components/select/demo/multiple.tsx correctly 1`] = `
           </div>
         </div>
       </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
       <span
         aria-hidden="true"
         class="ant-select-clear"
@@ -1280,7 +1609,7 @@ exports[`renders components/select/demo/multiple.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-multiple ant-select-disabled ant-select-show-search"
+      class="ant-select ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
       style="width:100%"
     >
       <div
@@ -1328,7 +1657,6 @@ exports[`renders components/select/demo/multiple.tsx correctly 1`] = `
               style="width:0"
             >
               <input
-                aria-activedescendant="undefined_list_0"
                 aria-autocomplete="list"
                 aria-controls="undefined_list"
                 aria-expanded="false"
@@ -1353,6 +1681,32 @@ exports[`renders components/select/demo/multiple.tsx correctly 1`] = `
           </div>
         </div>
       </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
   </div>
 </div>
@@ -1370,7 +1724,6 @@ exports[`renders components/select/demo/optgroup.tsx correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="false"
@@ -1400,8 +1753,24 @@ exports[`renders components/select/demo/optgroup.tsx correctly 1`] = `
     unselectable="on"
   >
     <span
-      class="ant-select-arrow-icon"
-    />
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
   </span>
 </div>
 `;
@@ -1426,7 +1795,6 @@ exports[`renders components/select/demo/option-label-center.tsx correctly 1`] = 
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -1456,8 +1824,24 @@ exports[`renders components/select/demo/option-label-center.tsx correctly 1`] = 
         unselectable="on"
       >
         <span
-          class="ant-select-arrow-icon"
-        />
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
       </span>
       <span
         aria-hidden="true"
@@ -1492,7 +1876,7 @@ exports[`renders components/select/demo/option-label-center.tsx correctly 1`] = 
 
 exports[`renders components/select/demo/option-label-prop.tsx correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-search"
+  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width:100%"
 >
   <div
@@ -1551,7 +1935,6 @@ exports[`renders components/select/demo/option-label-prop.tsx correctly 1`] = `
           style="width:0"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -1575,6 +1958,32 @@ exports[`renders components/select/demo/option-label-prop.tsx correctly 1`] = `
       </div>
     </div>
   </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select:none;-webkit-user-select:none"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
 </div>
 `;
 
@@ -1674,7 +2083,6 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
           aria-expanded="false"
@@ -1704,8 +2112,24 @@ Array [
       unselectable="on"
     >
       <span
-        class="ant-select-arrow-icon"
-      />
+        aria-label="down"
+        class="anticon anticon-down ant-select-suffix"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
     </span>
   </div>,
 ]
@@ -1854,7 +2278,6 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
           aria-expanded="false"
@@ -1881,8 +2304,24 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
       unselectable="on"
     >
       <span
-        class="ant-select-arrow-icon"
-      />
+        aria-label="down"
+        class="anticon anticon-down ant-select-suffix"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
     </span>
   </div>
 </div>
@@ -1898,7 +2337,7 @@ exports[`renders components/select/demo/responsive.tsx correctly 1`] = `
     style="margin-bottom:8px"
   >
     <div
-      class="ant-select ant-select-multiple ant-select-show-search"
+      class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
       style="width:100%"
     >
       <div
@@ -1932,7 +2371,6 @@ exports[`renders components/select/demo/responsive.tsx correctly 1`] = `
               style="width:0"
             >
               <input
-                aria-activedescendant="undefined_list_0"
                 aria-autocomplete="list"
                 aria-controls="undefined_list"
                 aria-expanded="false"
@@ -1956,13 +2394,39 @@ exports[`renders components/select/demo/responsive.tsx correctly 1`] = `
           </div>
         </div>
       </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
   </div>
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-multiple ant-select-disabled ant-select-show-search"
+      class="ant-select ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
       style="width:100%"
     >
       <div
@@ -1996,7 +2460,6 @@ exports[`renders components/select/demo/responsive.tsx correctly 1`] = `
               style="width:0"
             >
               <input
-                aria-activedescendant="undefined_list_0"
                 aria-autocomplete="list"
                 aria-controls="undefined_list"
                 aria-expanded="false"
@@ -2021,6 +2484,32 @@ exports[`renders components/select/demo/responsive.tsx correctly 1`] = `
           </div>
         </div>
       </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
   </div>
 </div>
@@ -2037,7 +2526,6 @@ exports[`renders components/select/demo/search.tsx correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="false"
@@ -2063,15 +2551,31 @@ exports[`renders components/select/demo/search.tsx correctly 1`] = `
     unselectable="on"
   >
     <span
-      class="ant-select-arrow-icon"
-    />
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
   </span>
 </div>
 `;
 
 exports[`renders components/select/demo/search-box.tsx correctly 1`] = `
 <div
-  class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-select-single ant-select-show-search"
   style="width:200px"
 >
   <div
@@ -2081,7 +2585,6 @@ exports[`renders components/select/demo/search-box.tsx correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="false"
@@ -2100,16 +2603,6 @@ exports[`renders components/select/demo/search-box.tsx correctly 1`] = `
       input search text
     </span>
   </div>
-  <span
-    aria-hidden="true"
-    class="ant-select-arrow"
-    style="user-select:none;-webkit-user-select:none"
-    unselectable="on"
-  >
-    <span
-      class="ant-select-arrow-icon"
-    />
-  </span>
 </div>
 `;
 
@@ -2125,7 +2618,6 @@ exports[`renders components/select/demo/search-sort.tsx correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="false"
@@ -2151,15 +2643,31 @@ exports[`renders components/select/demo/search-sort.tsx correctly 1`] = `
     unselectable="on"
   >
     <span
-      class="ant-select-arrow-icon"
-    />
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
   </span>
 </div>
 `;
 
 exports[`renders components/select/demo/select-users.tsx correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-search"
+  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width:100%"
 >
   <div
@@ -2177,7 +2685,6 @@ exports[`renders components/select/demo/select-users.tsx correctly 1`] = `
           style="width:0"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -2206,6 +2713,32 @@ exports[`renders components/select/demo/select-users.tsx correctly 1`] = `
       Select users
     </span>
   </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select:none;-webkit-user-select:none"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
 </div>
 `;
 
@@ -2294,7 +2827,6 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
               aria-expanded="false"
@@ -2324,8 +2856,24 @@ Array [
           unselectable="on"
         >
           <span
-            class="ant-select-arrow-icon"
-          />
+            aria-label="down"
+            class="anticon anticon-down ant-select-suffix"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
         </span>
       </div>
     </div>
@@ -2334,7 +2882,7 @@ Array [
       style="margin-bottom:8px"
     >
       <div
-        class="ant-select ant-select-multiple ant-select-show-search"
+        class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
         style="width:100%"
       >
         <div
@@ -2434,7 +2982,6 @@ Array [
                 style="width:0"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
                   aria-expanded="false"
@@ -2458,13 +3005,39 @@ Array [
             </div>
           </div>
         </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down ant-select-suffix"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
     </div>
     <div
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-select-multiple ant-select-show-search"
+        class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
         style="width:100%"
       >
         <div
@@ -2564,7 +3137,6 @@ Array [
                 style="width:0"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
                   aria-expanded="false"
@@ -2585,6 +3157,32 @@ Array [
             </div>
           </div>
         </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down ant-select-suffix"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
     </div>
   </div>,
@@ -2611,7 +3209,6 @@ exports[`renders components/select/demo/status.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -2638,8 +3235,24 @@ exports[`renders components/select/demo/status.tsx correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="ant-select-arrow-icon"
-        />
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
       </span>
     </div>
   </div>
@@ -2657,7 +3270,6 @@ exports[`renders components/select/demo/status.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -2684,8 +3296,24 @@ exports[`renders components/select/demo/status.tsx correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="ant-select-arrow-icon"
-        />
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
       </span>
     </div>
   </div>
@@ -2704,7 +3332,6 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
     <div
       class="ant-select ant-select-single ant-select-show-arrow"
       style="width:120px"
-      suffixicon="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -2713,7 +3340,6 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -2743,8 +3369,24 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="ant-select-arrow-icon"
-        />
+          aria-label="smile"
+          class="anticon anticon-smile"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="smile"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+            />
+          </svg>
+        </span>
       </span>
     </div>
   </div>
@@ -2755,7 +3397,6 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
     <div
       class="ant-select ant-select-single ant-select-show-arrow ant-select-disabled"
       style="width:120px"
-      suffixicon="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -2764,7 +3405,6 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -2795,8 +3435,24 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="ant-select-arrow-icon"
-        />
+          aria-label="meh"
+          class="anticon anticon-meh"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="meh"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 565H360c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h304c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z"
+            />
+          </svg>
+        </span>
       </span>
     </div>
   </div>
@@ -2805,7 +3461,7 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
 
 exports[`renders components/select/demo/tags.tsx correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-search"
+  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width:100%"
 >
   <div
@@ -2823,7 +3479,6 @@ exports[`renders components/select/demo/tags.tsx correctly 1`] = `
           style="width:0"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -2849,5 +3504,31 @@ exports[`renders components/select/demo/tags.tsx correctly 1`] = `
       Tags Mode
     </span>
   </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select:none;-webkit-user-select:none"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
 </div>
 `;
