@@ -40,6 +40,27 @@ export interface ComponentToken {
 
 type InputNumberToken = InputToken<FullToken<'InputNumber'>>;
 
+export const genRadiusStyle = (
+  { componentCls, borderRadiusSM, borderRadiusLG }: InputNumberToken,
+  size: 'lg' | 'sm',
+) => {
+  const borderRadius = size === 'lg' ? borderRadiusLG : borderRadiusSM;
+  return {
+    [`&-${size}`]: {
+      [`${componentCls}-handler-wrap`]: {
+        borderStartEndRadius: borderRadius,
+        borderEndEndRadius: borderRadius,
+      },
+      [`${componentCls}-handler-up`]: {
+        borderStartEndRadius: borderRadius,
+      },
+      [`${componentCls}-handler-down`]: {
+        borderEndEndRadius: borderRadius,
+      },
+    },
+  };
+};
+
 const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
   const {
     componentCls,
@@ -275,31 +296,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           borderEndEndRadius: borderRadius,
         },
 
-        '&-lg': {
-          [`${componentCls}-handler-wrap`]: {
-            borderStartEndRadius: borderRadiusLG,
-            borderEndEndRadius: borderRadiusLG,
-          },
-          [`${componentCls}-handler-up`]: {
-            borderStartEndRadius: borderRadiusLG,
-          },
-          [`${componentCls}-handler-down`]: {
-            borderEndEndRadius: borderRadiusLG,
-          },
-        },
-
-        '&-sm': {
-          [`${componentCls}-handler-wrap`]: {
-            borderStartEndRadius: borderRadiusSM,
-            borderEndEndRadius: borderRadiusSM,
-          },
-          [`${componentCls}-handler-up`]: {
-            borderStartEndRadius: borderRadiusSM,
-          },
-          [`${componentCls}-handler-down`]: {
-            borderEndEndRadius: borderRadiusSM,
-          },
-        },
+        ...genRadiusStyle(token, 'lg'),
+        ...genRadiusStyle(token, 'sm'),
 
         // Disabled
         '&-disabled, &-readonly': {
