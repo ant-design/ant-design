@@ -233,7 +233,7 @@ export default function ComponentsList() {
     [isMobile],
   );
 
-  const ComponentItem = ({ title, node, type, index }: ComponentItemProps) => {
+  const ComponentItem: React.FC<ComponentItemProps> = ({ title, node, type, index }) => {
     const tagColor = type === 'new' ? 'processing' : 'warning';
     const tagText = type === 'new' ? locale.new : locale.update;
 

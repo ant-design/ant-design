@@ -43,6 +43,9 @@ const useStyle = createStyles(({ token, css }) => {
         }
       }
     `,
+    listMobile: css`
+      margin: 1em 0 !important;
+    `,
     toc: css`
       ${antCls}-anchor {
         ${antCls}-anchor-link-title {
@@ -114,7 +117,7 @@ const AvatarPlaceholder: React.FC<{ num?: number }> = ({ num = 3 }) => (
   </li>
 );
 
-const AuthorAvatar = ({ name, avatar }: { name: string; avatar: string }) => {
+const AuthorAvatar: React.FC<{ name: string; avatar: string }> = ({ name, avatar }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   useLayoutEffect(() => {
@@ -123,9 +126,12 @@ const AuthorAvatar = ({ name, avatar }: { name: string; avatar: string }) => {
     img.onload = () => setLoading(false);
     img.onerror = () => setError(true);
   }, []);
-
-  if (error) return null;
-  if (loading) return <Skeleton.Avatar size="small" active />;
+  if (error) {
+    return null;
+  }
+  if (loading) {
+    return <Skeleton.Avatar size="small" active />;
+  }
   return (
     <Avatar size="small" src={avatar} alt={name}>
       {name}
@@ -140,7 +146,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   const { formatMessage } = useIntl();
   const { styles } = useStyle();
   const token = useTheme();
-  const { direction } = useContext(SiteContext);
+  const { direction, isMobile } = useContext(SiteContext);
 
   const [showDebug, setShowDebug] = useLayoutState(false);
   const debugDemos = useMemo(
@@ -178,15 +184,6 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   const isRTL = direction === 'rtl';
 
-  // support custom author info in frontmatter
-  // e.g.
-  // ---
-  // author:
-  //   - name: qixian
-  //     avatar: https://avatars.githubusercontent.com/u/11746742?v=4
-  //   - name: yutingzhao1991
-  //     avatar: https://avatars.githubusercontent.com/u/5378891?v=4
-  // ---
   const mergedAuthorInfos = useMemo(() => {
     const { author } = meta.frontmatter;
     if (!author) {
@@ -286,10 +283,10 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
           )}
           {meta.frontmatter.filename && (
             <ContributorsList
+              cache
               repo="ant-design"
               owner="ant-design"
-              className={styles.contributorsList}
-              cache
+              className={classNames(styles.contributorsList, { [styles.listMobile]: isMobile })}
               fileName={meta.frontmatter.filename}
               renderItem={(item, loading) => {
                 if (!item || loading) {
