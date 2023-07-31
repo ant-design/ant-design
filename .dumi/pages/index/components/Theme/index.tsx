@@ -336,7 +336,7 @@ export default function Theme() {
       ...ThemeDefault,
       themeType,
       ...ThemesInfo[themeType],
-    } as any;
+    };
 
     setThemeData(mergedData);
     form.setFieldsValue(mergedData);
@@ -517,13 +517,13 @@ export default function Theme() {
   const posStyle: React.CSSProperties = {
     position: 'absolute',
   };
-  const leftTopImageStyle = {
+  const leftTopImageStyle: React.CSSProperties = {
     left: '50%',
     transform: 'translate3d(-900px, 0, 0)',
     top: -100,
     height: 500,
   };
-  const rightBottomImageStyle = {
+  const rightBottomImageStyle: React.CSSProperties = {
     right: '50%',
     transform: 'translate3d(750px, 0, 0)',
     bottom: -100,
