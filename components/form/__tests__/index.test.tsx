@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import type { ChangeEventHandler } from 'react';
 import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
+import { AlertFilled } from '@ant-design/icons';
 import type { ColProps } from 'antd/es/grid';
 import type { FormInstance } from '..';
 import Form from '..';
@@ -1776,6 +1777,47 @@ describe('Form', () => {
     expect(container.querySelector('.ant-form-item-is-validating')).toBeTruthy();
     expect(container.querySelector('.ant-form-item-has-warning')).toBeTruthy();
     expect(container.querySelector('.ant-form-item-has-error')).toBeTruthy();
+  });
+
+  it('custom feedback icons should display when pass hasFeedback prop', async () => {
+    const App = ({ trigger = false }: { trigger?: boolean }) => {
+      const form = useRef<FormInstance<any>>(null);
+
+      useEffect(() => {
+        if (!trigger) return;
+        form.current?.validateFields();
+      }, [trigger]);
+
+      return (
+        <Form ref={form}>
+          <Form.Item
+            label="Success"
+            name="name1"
+            hasFeedback
+            customFeedbackIcons={() => ({
+              error: <AlertFilled id="custom-error-icon" />,
+            })}
+            rules={[
+              {
+                required: true,
+                message: 'Please input your value',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+        </Form>
+      );
+    };
+    const { container, rerender } = render(<App />);
+
+    expect(container.querySelectorAll('.ant-form-item-has-feedback').length).toBe(0);
+
+    rerender(<App trigger />);
+    await waitFakeTimer();
+
+    expect(container.querySelectorAll('.ant-form-item-has-feedback').length).toBe(1);
+    expect(container.querySelectorAll('#custom-error-icon').length).toBe(1);
   });
 
   // https://github.com/ant-design/ant-design/issues/41621
