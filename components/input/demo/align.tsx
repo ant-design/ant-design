@@ -18,7 +18,7 @@ const { Text } = Typography;
 const { Option } = Select;
 const { RangePicker } = DatePicker;
 
-const narrowStyle = {
+const narrowStyle: React.CSSProperties = {
   width: 50,
 };
 

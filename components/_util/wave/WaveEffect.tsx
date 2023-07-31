@@ -130,8 +130,8 @@ const showWaveEffect: ShowWaveEffect = (node, { className }) => {
   // Create holder
   const holder = document.createElement('div');
   holder.style.position = 'absolute';
-  holder.style.left = `0px`;
-  holder.style.top = `0px`;
+  holder.style.left = '0px';
+  holder.style.top = '0px';
   node?.insertBefore(holder, node?.firstChild);
 
   render(<WaveEffect target={node} className={className} />, holder);

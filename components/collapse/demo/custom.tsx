@@ -34,7 +34,7 @@ const getItems: (panelStyle: CSSProperties) => CollapseProps['items'] = (panelSt
 const App: React.FC = () => {
   const { token } = theme.useToken();
 
-  const panelStyle = {
+  const panelStyle: React.CSSProperties = {
     marginBottom: 24,
     background: token.colorFillAlter,
     borderRadius: token.borderRadiusLG,
