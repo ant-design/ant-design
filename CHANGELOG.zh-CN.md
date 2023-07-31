@@ -15,6 +15,23 @@ timeline: true
 
 ---
 
+## 5.8.0
+
+`2023-07-31`
+
+- 🐞 修复 Anchor 在滚动时无法触发 `getCurrentAnchor` 的问题。[#43916](https://github.com/ant-design/ant-design/pull/43916)
+- 🐞 修复 Tooltip `hover` 无法在 `disabled` 元素上触发的问题。[#43872](https://github.com/ant-design/ant-design/pull/43872)
+- 🐞 解决 `Modal.confirm` 的 `locale` 设置被重置。[#43277](https://github.com/ant-design/ant-design/pull/43277) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 修复 Slider 中描述信息和滑块手柄重叠问题。[#43780](https://github.com/ant-design/ant-design/pull/43780) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 Select 弹出框翻转时动画不正确的问题。[#43764](https://github.com/ant-design/ant-design/pull/43764)
+- 💄 修复 InputNumber 在圆角不同下的样式异常。[#43875](https://github.com/ant-design/ant-design/pull/43875) [@yee94](https://github.com/yee94)
+- 💄 修复和其他使用 `@ant-design/cssinjs` 的组件库混合使用，antd 的样式总是会插入在最前面，以避免加载顺序导致的样式覆盖问题。[#43847](https://github.com/ant-design/ant-design/pull/43847)
+- 💄 优化 message 和 notification 渲染逻辑，现在在 SSR 环境下不会导出样式。[#43808](https://github.com/ant-design/ant-design/pull/43808)
+- TypeScript
+  - 🤖 优化 List 中 `triggerPaginationEvent` 的类型。[#43905](https://github.com/ant-design/ant-design/pull/43905) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 改进 Typography 组件的类型。[#43831](https://github.com/ant-design/ant-design/pull/43831) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 改进 Form 组件的类型。[#43793](https://github.com/ant-design/ant-design/pull/43793) [@thinkasany](https://github.com/thinkasany)
+
 ## 5.7.3
 
 `2023-07-24`

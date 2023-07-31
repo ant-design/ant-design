@@ -15,6 +15,23 @@ timeline: true
 
 ---
 
+## 5.8.0
+
+`2023-07-31`
+
+- 🐞 Fix Anchor not trigger `getCurrentAnchor` when scroll. [#43916](https://github.com/ant-design/ant-design/pull/43916)
+- 🐞 Fix Tooltip `hover` not trigger on `disabled` element. [#43872](https://github.com/ant-design/ant-design/pull/43872)
+- 🐞 Fix `Modal.confirm` `locale` setting were reset. [#43277](https://github.com/ant-design/ant-design/pull/43277) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 Fix Slider description info and slider handle overlap issue. [#43780](https://github.com/ant-design/ant-design/pull/43780) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix Select popup flip position motion not correct. [#43764](https://github.com/ant-design/ant-design/pull/43764)
+- 💄 Fix the input number handle style in large size. [#43875](https://github.com/ant-design/ant-design/pull/43875) [@yee94](https://github.com/yee94)
+- 💄 Fix when using with other component libraries that use `@ant-design/cssinjs`, antd styles will always be inserted at the top to avoid style override issues caused by loading order. [#43847](https://github.com/ant-design/ant-design/pull/43847)
+- 💄 Optimize message and notification to not to extract style in SSR. [#43808](https://github.com/ant-design/ant-design/pull/43808)
+- TypeScript
+  - 🤖 Optimize `triggerPaginationEvent` type in List. [#43905](https://github.com/ant-design/ant-design/pull/43905) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 Improve type for Typography. [#43831](https://github.com/ant-design/ant-design/pull/43831) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 Improve type for Form. [#43793](https://github.com/ant-design/ant-design/pull/43793) [@thinkasany](https://github.com/thinkasany)
+
 ## 5.7.3
 
 `2023-07-24`
