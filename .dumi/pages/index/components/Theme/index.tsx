@@ -461,13 +461,14 @@ export default function Theme() {
               />
             </Sider>
             <Layout className={styles.transBg} style={{ padding: '0 24px 24px' }}>
-              <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>
-                  <HomeOutlined />
-                </Breadcrumb.Item>
-                <Breadcrumb.Item menu={{ items: subMenuItems }}>Design</Breadcrumb.Item>
-                <Breadcrumb.Item>Themes</Breadcrumb.Item>
-              </Breadcrumb>
+              <Breadcrumb
+                style={{ margin: '16px 0' }}
+                items={[
+                  { title: <HomeOutlined /> },
+                  { title: 'Design', menu: { items: subMenuItems } },
+                  { title: 'Themes' },
+                ]}
+              />
               <Content>
                 <Typography.Title level={2}>{locale.customizeTheme}</Typography.Title>
                 <Card
