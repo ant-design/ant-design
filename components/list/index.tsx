@@ -110,7 +110,7 @@ function List<T>({
     (eventName: 'onChange' | 'onShowSizeChange') => (page: number, pageSize: number) => {
       setPaginationCurrent(page);
       setPaginationSize(pageSize);
-      if (pagination) {
+      if (pagination && pagination[eventName]) {
         pagination?.[eventName]?.(page, pageSize);
       }
     };
