@@ -216,6 +216,8 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
   };
 
   const setCurrentActiveLink = useEvent((link: string) => {
+    // FIXME: Seems a bug since this compare is not equals
+    // `activeLinkRef` is parsed value which will always trigger `onChange` event.
     if (activeLinkRef.current === link) {
       return;
     }
@@ -234,14 +236,13 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     if (animating.current) {
       return;
     }
-    if (typeof getCurrentAnchor === 'function') {
-      return;
-    }
+
     const currentActiveLink = getInternalCurrentAnchor(
       links,
       targetOffset !== undefined ? targetOffset : offsetTop || 0,
       bounds,
     );
+
     setCurrentActiveLink(currentActiveLink);
   }, [dependencyListItem, targetOffset, offsetTop]);
 

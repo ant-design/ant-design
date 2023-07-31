@@ -31,7 +31,7 @@ For displaying anchor hyperlinks on page and jumping between them.
 <code src="./demo/onChange.tsx">Listening for anchor link change</code>
 <code src="./demo/replace.tsx" iframe="200">Replace href in history</code>
 <code src="./demo/legacy-anchor.tsx" debug>Deprecated JSX demo</code>
-<code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/component-token.tsx" iframe="800" debug>Component Token</code>
 
 ## API
 
