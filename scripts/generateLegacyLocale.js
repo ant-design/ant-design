@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
 /** Generate legacy locale file as shadow of `/locale` to `/locale-provider`. */
 
-const glob = require('glob');
 const fs = require('fs');
+const glob = require('glob');
 const chalk = require('chalk');
 
 glob('components/locale/@(*_*|default).tsx', (er, files) => {
-  files.forEach(filePath => {
+  files.forEach((filePath) => {
     const modulePath = filePath.replace(/^components/, '..').replace('.tsx', '');
     const legacyModulePath = filePath.replace('locale', 'locale-provider');
 

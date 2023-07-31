@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
+const { spawnSync } = require('child_process');
 const fetch = require('isomorphic-fetch');
 const semver = require('semver');
 const moment = require('moment');
 const chalk = require('chalk');
-const { spawnSync } = require('child_process');
 
 const DEPRECIATED_VERSION = {
   '>= 4.21.6 < 4.22.0': ['https://github.com/ant-design/ant-design/pull/36682'],
