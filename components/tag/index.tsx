@@ -143,7 +143,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     </span>
   );
 
-  return wrapSSR(isNeedWave ? <Wave>{tagNode}</Wave> : tagNode);
+  return wrapSSR(isNeedWave ? <Wave component="Tag">{tagNode}</Wave> : tagNode);
 };
 
 const Tag = React.forwardRef<HTMLSpanElement, TagProps>(InternalTag) as TagType;

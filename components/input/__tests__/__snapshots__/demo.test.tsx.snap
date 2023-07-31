@@ -55,7 +55,6 @@ exports[`renders components/input/demo/addon.tsx correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
                   aria-expanded="false"
@@ -124,7 +123,6 @@ exports[`renders components/input/demo/addon.tsx correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
                   aria-expanded="false"
@@ -608,7 +606,6 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
           aria-expanded="false"
@@ -974,7 +971,6 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
           aria-expanded="false"
@@ -1537,7 +1533,6 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
               aria-expanded="false"
@@ -2021,7 +2016,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -2255,7 +2249,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -2552,7 +2545,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -2612,7 +2604,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -2677,7 +2668,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -2765,7 +2755,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -2826,7 +2815,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
@@ -2862,7 +2850,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"

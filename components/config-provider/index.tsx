@@ -30,6 +30,7 @@ import type {
   PopupOverflow,
   Theme,
   ThemeConfig,
+  WaveConfig,
 } from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
 import { registerTheme } from './cssVariables';
@@ -41,6 +42,7 @@ import MotionWrapper from './MotionWrapper';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
+import { defaultTheme } from '../theme/context';
 
 /**
  * Since too many feedback using static method like `Modal.confirm` not getting theme, we record the
@@ -186,6 +188,11 @@ export interface ConfigProviderProps {
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
   datePicker?: ComponentStyleConfig;
+
+  /**
+   * Wave is special component which only patch on the effect of component interaction.
+   */
+  wave?: WaveConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -322,6 +329,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tree,
     colorPicker,
     datePicker,
+    wave,
   } = props;
 
   // =================================== Warning ===================================
@@ -420,6 +428,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tree,
     colorPicker,
     datePicker,
+    wave,
   };
 
   const config = {
@@ -504,11 +513,30 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   // ================================ Dynamic theme ================================
   const memoTheme = React.useMemo(() => {
-    const { algorithm, token, ...rest } = mergedTheme || {};
+    const { algorithm, token, components, ...rest } = mergedTheme || {};
     const themeObj =
       algorithm && (!Array.isArray(algorithm) || algorithm.length > 0)
         ? createTheme(algorithm)
-        : undefined;
+        : defaultTheme;
+
+    const parsedComponents: any = {};
+    Object.entries(components || {}).forEach(([componentName, componentToken]) => {
+      const parsedToken: typeof componentToken & { theme?: typeof defaultTheme } = {
+        ...componentToken,
+      };
+      if ('algorithm' in parsedToken) {
+        if (parsedToken.algorithm === true) {
+          parsedToken.theme = themeObj;
+        } else if (
+          Array.isArray(parsedToken.algorithm) ||
+          typeof parsedToken.algorithm === 'function'
+        ) {
+          parsedToken.theme = createTheme(parsedToken.algorithm);
+        }
+        delete parsedToken.algorithm;
+      }
+      parsedComponents[componentName] = parsedToken;
+    });
 
     return {
       ...rest,
@@ -518,6 +546,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
         ...defaultSeedToken,
         ...token,
       },
+
+      components: parsedComponents,
     };
   }, [mergedTheme]);
 

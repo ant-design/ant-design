@@ -1,6 +1,6 @@
 import * as React from 'react';
 import usePatchElement from '../../_util/hooks/usePatchElement';
-import type { ModalStaticFunctions } from '../confirm';
+import type { ModalFunc, ModalStaticFunctions } from '../confirm';
 import { withConfirm, withError, withInfo, withSuccess, withWarn } from '../confirm';
 import destroyFns from '../destroyFns';
 import type { ModalFuncProps } from '../interface';
@@ -12,6 +12,13 @@ let uuid = 0;
 interface ElementsHolderRef {
   patchElement: ReturnType<typeof usePatchElement>[1];
 }
+
+// Add `then` field for `ModalFunc` return instance.
+export type ModalFuncWithPromise = (...args: Parameters<ModalFunc>) => ReturnType<ModalFunc> & {
+  then<T>(resolve: (confirmed: boolean) => T, reject: VoidFunction): Promise<T>;
+};
+
+export type HookAPI = Omit<Record<keyof ModalStaticFunctions, ModalFuncWithPromise>, 'warn'>;
 
 const ElementsHolder = React.memo(
   React.forwardRef<ElementsHolderRef>((_props, ref) => {
@@ -28,10 +35,7 @@ const ElementsHolder = React.memo(
   }),
 );
 
-function useModal(): readonly [
-  instance: Omit<ModalStaticFunctions, 'warn'>,
-  contextHolder: React.ReactElement,
-] {
+function useModal(): readonly [instance: HookAPI, contextHolder: React.ReactElement] {
   const holderRef = React.useRef<ElementsHolderRef>(null);
 
   // ========================== Effect ==========================
@@ -56,6 +60,13 @@ function useModal(): readonly [
 
         const modalRef = React.createRef<HookModalRef>();
 
+        // Proxy to promise with `onClose`
+        let resolvePromise: (confirmed: boolean) => void;
+        const promise = new Promise<boolean>((resolve) => {
+          resolvePromise = resolve;
+        });
+        let silent = false;
+
         let closeFunc: Function | undefined;
         const modal = (
           <HookModal
@@ -64,6 +75,10 @@ function useModal(): readonly [
             ref={modalRef}
             afterClose={() => {
               closeFunc?.();
+            }}
+            isSilent={() => silent}
+            onConfirm={(confirmed) => {
+              resolvePromise(confirmed);
             }}
           />
         );
@@ -74,7 +89,7 @@ function useModal(): readonly [
           destroyFns.push(closeFunc);
         }
 
-        return {
+        const instance: ReturnType<ModalFuncWithPromise> = {
           destroy: () => {
             function destroyAction() {
               modalRef.current?.destroy();
@@ -97,12 +112,18 @@ function useModal(): readonly [
               setActionQueue((prev) => [...prev, updateAction]);
             }
           },
+          then: (resolve) => {
+            silent = true;
+            return promise.then(resolve);
+          },
         };
+
+        return instance;
       },
     [],
   );
 
-  const fns = React.useMemo<Omit<ModalStaticFunctions, 'warn'>>(
+  const fns = React.useMemo<HookAPI>(
     () => ({
       info: getConfirmFunc(withInfo),
       success: getConfirmFunc(withSuccess),

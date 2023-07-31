@@ -221,7 +221,7 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 | --- | --- | --- | --- | --- |
 | children | 渲染函数 | (fields: Field\[], operation: { add, remove, move }, meta: { errors }) => React.ReactNode | - |  |
 | initialValue | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准 | any\[] | - | 4.9.0 |
-| name | 字段名，支持数组 | [NamePath](#namepath) | - |  |
+| name | 字段名，支持数组。List 本身也是字段，因而 `getFieldsValue()` 默认会返回 List 下所有值，你可以通过[参数](#getfieldsvalue)改变这一行为 | [NamePath](#namepath) | - |  |
 | rules | 校验规则，仅支持自定义规则。需要配合 [ErrorList](#formerrorlist) 一同使用。 | { validator, message }\[] | - | 4.7.0 |
 
 ```tsx
@@ -285,7 +285,7 @@ Form.List 渲染表单相关操作函数。
 | getFieldError | 获取对应字段名的错误信息 | (name: [NamePath](#namepath)) => string\[] |  |
 | getFieldInstance | 获取对应字段实例 | (name: [NamePath](#namepath)) => any | 4.4.0 |
 | getFieldsError | 获取一组字段名对应的错误信息，返回为数组形式 | (nameList?: [NamePath](#namepath)\[]) => FieldError\[] |  |
-| getFieldsValue | 获取一组字段名对应的值，会按照对应结构返回。默认返回现存字段值，当调用 `getFieldsValue(true)` 时返回所有值 | (nameList?: [NamePath](#namepath)\[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |  |
+| getFieldsValue | 获取一组字段名对应的值，会按照对应结构返回。默认返回现存字段值，当调用 `getFieldsValue(true)` 时返回所有值 | [GetFieldsValue](#getfieldsvalue) |  |
 | getFieldValue | 获取对应字段名的值 | (name: [NamePath](#namepath)) => any |  |
 | isFieldsTouched | 检查一组字段是否被用户操作过，`allTouched` 为 `true` 时检查是否所有字段都被操作过 | (nameList?: [NamePath](#namepath)\[], allTouched?: boolean) => boolean |  |
 | isFieldTouched | 检查对应字段是否被用户操作过 | (name: [NamePath](#namepath)) => boolean |  |
@@ -444,6 +444,41 @@ Form 仅会对变更的 Field 进行刷新，从而避免完整的组件刷新�
 #### NamePath
 
 `string | number | (string | number)[]`
+
+#### GetFieldsValue
+
+`getFieldsValue` 提供了多种重载方法：
+
+##### getFieldsValue(nameList?: true | [NamePath](#namepath)\[], filterFunc?: FilterFunc)
+
+当不提供 `nameList` 时，返回所有注册字段，这也包含 List 下所有的值（即便 List 下没有绑定 Item）。
+
+当 `nameList` 为 `true` 时，返回 store 中所有的值，包含未注册字段。例如通过 `setFieldsValue` 设置了不存在的 Item 的值，也可以通过 `true` 全部获取。
+
+当 `nameList` 为数组时，返回规定路径的值。需要注意的是，`nameList` 为嵌套数组。例如你需要某路径值应该如下：
+
+```tsx
+// 单个路径
+form.getFieldsValue([['user', 'age']]);
+
+// 多个路径
+form.getFieldsValue([
+  ['user', 'age'],
+  ['preset', 'account'],
+]);
+```
+
+##### getFieldsValue({ strict?: boolean, filter?: FilterFunc })
+
+`5.8.0` 新增接受配置参数。当 `strict` 为 `true` 时会仅匹配 Item 的值。例如 `{ list: [{ bamboo: 1, little: 2 }] }` 中，如果 List 仅绑定了 `bamboo` 字段，那么 `getFieldsValue({ strict: true })` 会只获得 `{ list: [{ bamboo: 1 }] }`。
+
+#### FilterFunc
+
+用于过滤一些字段值，`meta` 会返回字段相关信息。例如可以用来获取仅被用户修改过的值等等。
+
+```tsx
+type FilterFunc = (meta: { touched: boolean; validating: boolean }) => boolean;
+```
 
 #### FieldData
 

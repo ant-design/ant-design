@@ -58,14 +58,23 @@ const genPickerStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
         boxShadow: colorPickerInsetShadow,
       },
       '&-alpha': getTransBg(`${colorPickerSliderHeight}px`, token.colorFillSecondary),
-      marginBottom: marginSM,
+      '&-hue': { marginBottom: marginSM },
     },
 
     [`${componentCls}-slider-container`]: {
       display: 'flex',
       gap: marginSM,
+      marginBottom: marginSM,
       [`${componentCls}-slider-group`]: {
         flex: 1,
+        '&-disabled-alpha': {
+          display: 'flex',
+          alignItems: 'center',
+          [`${componentCls}-slider`]: {
+            flex: 1,
+            marginBottom: 0,
+          },
+        },
       },
     },
   };

@@ -78,7 +78,7 @@ import locale from 'antd/locale/zh_CN';
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| allowClear | 是否显示清除按钮 | boolean | true |  |
+| allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象类型 |
 | autoFocus | 自动获取焦点 | boolean | false |  |
 | bordered | 是否有边框 | boolean | true |  |
 | className | 选择器 className | string | - |  |
@@ -101,7 +101,7 @@ import locale from 'antd/locale/zh_CN';
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | popupStyle | 额外的弹出日历样式 | CSSProperties | {} |  |
 | prevIcon | 自定义上一个图标 | ReactNode | - | 4.17.0 |
-| presets | 预设时间范围快捷选择 | { label: React.ReactNode, value: [dayjs](https://day.js.org/) }[] | - |  |
+| presets | 预设时间范围快捷选择, 自 `5.8.0` 起 value 支持函数返回值 | { label: React.ReactNode, value: Dayjs \| (() => Dayjs) }\[] | - |  |
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `middle` \| `small` | - |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | style | 自定义输入框样式 | CSSProperties | {} |  |
@@ -194,7 +194,7 @@ import locale from 'antd/locale/zh_CN';
 | disabled | 禁用起始项 | \[boolean, boolean] | - |  |
 | disabledTime | 不可选择的时间 | function(date: dayjs, partial: `start` \| `end`) | - |  |
 | format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY-MM-DD HH:mm:ss` |  |
-| presets | 预设时间范围快捷选择 | { label: React.ReactNode, value: [dayjs](https://day.js.org/)\[] }[] | - |  |
+| presets | 预设时间范围快捷选择，自 `5.8.0` 起 value 支持函数返回值 | { label: React.ReactNode, value: (Dayjs \| (() => Dayjs))\[] }\[] | - |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
 | separator | 设置分隔符 | React.ReactNode | `<SwapRightOutlined />` |  |
 | showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker-cn#api) |  |

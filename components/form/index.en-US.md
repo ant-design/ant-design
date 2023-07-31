@@ -220,7 +220,7 @@ Provides array management for fields.
 | --- | --- | --- | --- | --- |
 | children | Render function | (fields: Field\[], operation: { add, remove, move }, meta: { errors }) => React.ReactNode | - |  |
 | initialValue | Config sub default value. Form `initialValues` get higher priority when conflict | any\[] | - | 4.9.0 |
-| name | Field name, support array | [NamePath](#namepath) | - |  |
+| name | Field name, support array. List is also a field, so it will return all the values by `getFieldsValue`. You can change this logic by [config](#getfieldsvalue) | [NamePath](#namepath) | - |  |
 | rules | Validate rules, only support customize validator. Should work with [ErrorList](#formerrorlist) | { validator, message }\[] | - | 4.7.0 |
 
 ```tsx
@@ -286,7 +286,7 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 | getFieldError | Get the error messages by the field name | (name: [NamePath](#namepath)) => string\[] |  |
 | getFieldInstance | Get field instance | (name: [NamePath](#namepath)) => any | 4.4.0 |
 | getFieldsError | Get the error messages by the fields name. Return as an array | (nameList?: [NamePath](#namepath)\[]) => FieldError\[] |  |
-| getFieldsValue | Get values by a set of field names. Return according to the corresponding structure. Default return mounted field value, but you can use `getFieldsValue(true)` to get all values | (nameList?: [NamePath](#namepath)\[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |  |
+| getFieldsValue | Get values by a set of field names. Return according to the corresponding structure. Default return mounted field value, but you can use `getFieldsValue(true)` to get all values | [GetFieldsValue](#getfieldsvalue) |  |
 | getFieldValue | Get the value by the field name | (name: [NamePath](#namepath)) => any |  |
 | isFieldsTouched | Check if fields have been operated. Check if all fields is touched when `allTouched` is `true` | (nameList?: [NamePath](#namepath)\[], allTouched?: boolean) => boolean |  |
 | isFieldTouched | Check if a field has been operated | (name: [NamePath](#namepath)) => boolean |  |
@@ -445,6 +445,41 @@ Form only update the Field which changed to avoid full refresh perf issue. Thus 
 #### NamePath
 
 `string | number | (string | number)[]`
+
+#### GetFieldsValue
+
+`getFieldsValue` provides overloaded methods:
+
+##### getFieldsValue(nameList?: true | [NamePath](#namepath)\[], filterFunc?: FilterFunc)
+
+When `nameList` is empty, return all registered fields, including values of List (even if List has no Item children).
+
+When `nameList` is `true`, return all values in store, including unregistered fields. For example, if you set the value of an unregistered Item through `setFieldsValue`, you can also get all values through `true`.
+
+When `nameList` is an array, return the value of the specified path. Note that `nameList` is a nested array. For example, you need the value of a certain path as follows:
+
+```tsx
+// Single path
+form.getFieldsValue([['user', 'age']]);
+
+// multiple path
+form.getFieldsValue([
+  ['user', 'age'],
+  ['preset', 'account'],
+]);
+```
+
+##### getFieldsValue({ strict?: boolean, filter?: FilterFunc })
+
+New in `5.8.0`. Accept configuration parameters. When `strict` is `true`, only the value of Item will be matched. For example, in `{ list: [{ bamboo: 1, little: 2 }] }`, if List is only bound to the `bamboo` field, then `getFieldsValue({ strict: true })` will only get `{ list: [{ bamboo: 1 }] }`.
+
+#### FilterFunc
+
+用于过滤一些字段值，`meta` 会返回字段相关信息。例如可以用来获取仅被用户修改过的值等等。
+
+```tsx
+type FilterFunc = (meta: { touched: boolean; validating: boolean }) => boolean;
+```
 
 #### FieldData
 

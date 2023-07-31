@@ -189,4 +189,20 @@ describe('Avatar Render', () => {
     fireEvent.click(container.querySelector('.ant-avatar-string')!);
     expect(onClick).toHaveBeenCalled();
   });
+
+  it('Avatar.Group support shape props', () => {
+    const { container } = render(
+      <Avatar.Group shape="square">
+        <Avatar>A</Avatar>
+        <Avatar shape="circle">B</Avatar>
+        <Avatar>C</Avatar>
+        <Avatar shape="circle">D</Avatar>
+      </Avatar.Group>,
+    );
+    const avatars = container?.querySelectorAll<HTMLSpanElement>('.ant-avatar-group .ant-avatar');
+    expect(avatars?.[0]).toHaveClass('ant-avatar-square');
+    expect(avatars?.[1]).toHaveClass('ant-avatar-circle');
+    expect(avatars?.[2]).toHaveClass('ant-avatar-square');
+    expect(avatars?.[3]).toHaveClass('ant-avatar-circle');
+  });
 });

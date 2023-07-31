@@ -22,16 +22,16 @@ Additionally, if you need show a simple confirmation dialog, you can use [`App.u
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/async.tsx">Asynchronously close</code>
 <code src="./demo/footer.tsx">Customized Footer</code>
-<code src="./demo/confirm.tsx">Confirmation modal dialog</code>
+<code src="./demo/hooks.tsx">Use hooks to get context</code>
 <code src="./demo/locale.tsx">Internationalization</code>
 <code src="./demo/manual.tsx">Manual to update destroy</code>
 <code src="./demo/position.tsx">To customize the position of modal</code>
 <code src="./demo/dark.tsx" debug>Dark Bg</code>
 <code src="./demo/button-props.tsx">Customize footer buttons props</code>
-<code src="./demo/hooks.tsx">Use hooks to get context</code>
 <code src="./demo/modal-render.tsx">Custom modal content render</code>
 <code src="./demo/width.tsx">To customize the width of modal</code>
 <code src="./demo/static-info.tsx">Static Method</code>
+<code src="./demo/confirm.tsx">Static confirmation</code>
 <code src="./demo/confirm-router.tsx">destroy confirmation modal dialog</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/custom-mouse-position.tsx" debug>Control modal's animation origin position</code>
@@ -165,6 +165,17 @@ React.useEffect(() => {
 }, []);
 
 return <div>{contextHolder}</div>;
+```
+
+`modal.confirm` return method:
+
+- `destroy`: Destroy current modal
+- `update`: Update current modal
+- `then`: (Hooks only) Promise chain call, support `await` operation
+
+```tsx
+// Return `true` when click `onOk` and `false` when click `onCancel`
+const confirmed = await modal.confirm({ ... });
 ```
 
 ## Design Token

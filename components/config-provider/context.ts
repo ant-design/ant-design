@@ -1,4 +1,3 @@
-import type { DerivativeFunc } from '@ant-design/cssinjs';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
@@ -8,9 +7,10 @@ import type { RequiredMark } from '../form/Form';
 import type { InputProps } from '../input';
 import type { Locale } from '../locale';
 import type { SpaceProps } from '../space';
-import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../theme/interface';
+import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { SizeType } from './SizeContext';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import type { ShowWaveEffect } from '../_util/wave/useWave';
 
 export const defaultIconPrefixCls = 'anticon';
 
@@ -29,11 +29,15 @@ export interface CSPConfig {
 
 export type DirectionType = 'ltr' | 'rtl' | undefined;
 
-export type MappingAlgorithm = DerivativeFunc<SeedToken, MapToken>;
+type ComponentsConfig = {
+  [key in keyof OverrideToken]?: OverrideToken[key] & {
+    algorithm?: boolean | MappingAlgorithm | MappingAlgorithm[];
+  };
+};
 
 export interface ThemeConfig {
   token?: Partial<AliasToken>;
-  components?: OverrideToken;
+  components?: ComponentsConfig;
   algorithm?: MappingAlgorithm | MappingAlgorithm[];
   hashed?: boolean;
   inherit?: boolean;
@@ -55,6 +59,11 @@ export interface ButtonConfig extends ComponentStyleConfig {
 }
 
 export type PopupOverflow = 'viewport' | 'scroll';
+
+export interface WaveConfig {
+  disabled?: boolean;
+  showEffect?: ShowWaveEffect;
+}
 
 export interface ConfigConsumerProps {
   getTargetContainer?: () => HTMLElement;
@@ -142,6 +151,8 @@ export interface ConfigConsumerProps {
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
   datePicker?: ComponentStyleConfig;
+
+  wave?: WaveConfig;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {

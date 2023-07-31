@@ -279,4 +279,31 @@ describe('Descriptions', () => {
     );
     expect(container.querySelectorAll('.ant-descriptions-small')).toHaveLength(1);
   });
+
+  it('should items work', () => {
+    const { container } = render(
+      <Descriptions
+        items={[
+          {
+            key: '1',
+            label: 'UserName',
+            children: 'Zhou Maomao',
+          },
+          {
+            key: '2',
+            label: 'Telephone',
+            children: '1810000000',
+          },
+          {
+            key: '3',
+            label: 'Live',
+            children: 'Hangzhou, Zhejiang',
+          },
+        ]}
+      />,
+    );
+    expect(container.querySelector('.ant-descriptions-item')).toBeTruthy();
+    expect(container.querySelectorAll('.ant-descriptions-item')).toHaveLength(3);
+    expect(container).toMatchSnapshot();
+  });
 });

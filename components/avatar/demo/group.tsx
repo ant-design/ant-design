@@ -50,6 +50,13 @@ const App: React.FC = () => (
       </Tooltip>
       <Avatar style={{ backgroundColor: '#1677ff' }} icon={<AntDesignOutlined />} />
     </Avatar.Group>
+    <Divider />
+    <Avatar.Group shape="square">
+      <Avatar style={{ backgroundColor: '#fde3cf' }}>A</Avatar>
+      <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
+      <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
+      <Avatar style={{ backgroundColor: '#1677ff' }} icon={<AntDesignOutlined />} />
+    </Avatar.Group>
   </>
 );
 

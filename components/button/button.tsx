@@ -289,7 +289,11 @@ const InternalButton: React.ForwardRefRenderFunction<
   );
 
   if (!isUnBorderedButtonType(type)) {
-    buttonNode = <Wave disabled={!!innerLoading}>{buttonNode}</Wave>;
+    buttonNode = (
+      <Wave component="Button" disabled={!!innerLoading}>
+        {buttonNode}
+      </Wave>
+    );
   }
 
   return wrapSSR(buttonNode);

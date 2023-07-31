@@ -5,9 +5,10 @@ import type {
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties, FC } from 'react';
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useMemo, useRef, useState } from 'react';
 import genPurePanel from '../_util/PurePanel';
 import { getStatusClassNames } from '../_util/statusUtils';
+import warning from '../_util/warning';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
@@ -29,11 +30,11 @@ import type {
   TriggerType,
 } from './interface';
 import useStyle from './style/index';
-import { customizePrefixCls, generateColor } from './util';
+import { customizePrefixCls, genAlphaColor, generateColor, getAlphaColor } from './util';
 
 export type ColorPickerProps = Omit<
   RcColorPickerProps,
-  'onChange' | 'value' | 'defaultValue' | 'panelRender' | 'onChangeComplete'
+  'onChange' | 'value' | 'defaultValue' | 'panelRender' | 'disabledAlpha' | 'onChangeComplete'
 > & {
   value?: ColorValueType;
   defaultValue?: ColorValueType;
@@ -54,6 +55,7 @@ export type ColorPickerProps = Omit<
   size?: SizeType;
   styles?: { popup?: CSSProperties; popupOverlayInner?: CSSProperties };
   rootClassName?: string;
+  disabledAlpha?: boolean;
   onOpenChange?: (open: boolean) => void;
   onFormatChange?: (format: ColorFormat) => void;
   onChange?: (value: Color, hex: string) => void;
@@ -85,6 +87,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     size: customizeSize,
     rootClassName,
     styles,
+    disabledAlpha = false,
     onFormatChange,
     onChange,
     onClear,
@@ -117,6 +120,8 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
+  const isAlphaColor = useMemo(() => getAlphaColor(colorValue) < 100, [colorValue]);
+
   // ===================== Form Status =====================
   const { status: contextStatus } = React.useContext(FormItemInputContext);
 
@@ -140,21 +145,35 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const popupAllowCloseRef = useRef(true);
 
+  // ===================== Warning ======================
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !(disabledAlpha && isAlphaColor),
+      'ColorPicker',
+      '`disabledAlpha` will make the alpha to be 100% when use alpha color.',
+    );
+  }
+
   const handleChange = (data: Color, type?: HsbaColorType, pickColor?: boolean) => {
     let color: Color = generateColor(data);
     const isNull = value === null || (!value && defaultValue === null);
     if (colorCleared || isNull) {
       setColorCleared(false);
-      const hsba = color.toHsb();
       // ignore alpha slider
-      if (colorValue.toHsb().a === 0 && type !== 'alpha') {
-        hsba.a = 1;
-        color = generateColor(hsba);
+      if (getAlphaColor(colorValue) === 0 && type !== 'alpha') {
+        color = genAlphaColor(color);
       }
     }
+    // ignore alpha color
+    if (disabledAlpha && isAlphaColor) {
+      color = genAlphaColor(color);
+    }
+
     // Only for drag-and-drop color picking
     if (pickColor) {
       popupAllowCloseRef.current = false;
+    } else {
+      onChangeComplete?.(color);
     }
 
     setColorValue(color);
@@ -168,7 +187,12 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const handleChangeComplete: ColorPickerProps['onChangeComplete'] = (color) => {
     popupAllowCloseRef.current = true;
-    onChangeComplete?.(generateColor(color));
+    let changeColor = generateColor(color);
+    // ignore alpha color
+    if (disabledAlpha && isAlphaColor) {
+      changeColor = genAlphaColor(color);
+    }
+    onChangeComplete?.(changeColor);
   };
 
   const popoverProps: PopoverProps = {
@@ -188,6 +212,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     allowClear,
     colorCleared,
     disabled,
+    disabledAlpha,
     presets,
     panelRender,
     format: formatValue,

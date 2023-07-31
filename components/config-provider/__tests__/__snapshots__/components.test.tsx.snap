@@ -361,7 +361,6 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
       class="config-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
@@ -393,7 +392,6 @@ exports[`ConfigProvider components AutoComplete configProvider componentDisabled
       class="config-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
@@ -426,7 +424,6 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize lar
       class="config-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
@@ -458,7 +455,6 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize mid
       class="config-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
@@ -490,7 +486,6 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize sma
       class="config-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
@@ -522,7 +517,6 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
@@ -554,7 +548,6 @@ exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
       class="prefix-AutoComplete-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
@@ -1590,7 +1583,6 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -1651,7 +1643,6 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -2533,7 +2524,6 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -2881,7 +2871,6 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -2943,7 +2932,6 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -3828,7 +3816,6 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -4179,7 +4166,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -4240,7 +4226,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -5122,7 +5107,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -5470,7 +5454,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -5531,7 +5514,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -6413,7 +6395,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -6761,7 +6742,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -6822,7 +6802,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -7704,7 +7683,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -8052,7 +8030,6 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -8113,7 +8090,6 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -8995,7 +8971,6 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -9343,7 +9318,6 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -9404,7 +9378,6 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -10286,7 +10259,6 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -17157,7 +17129,7 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
 `;
 
 exports[`ConfigProvider components Layout configProvider 1`] = `
-<section
+<div
   class="config-layout config-layout-has-sider"
 >
   <aside
@@ -17168,7 +17140,7 @@ exports[`ConfigProvider components Layout configProvider 1`] = `
       class="config-layout-sider-children"
     />
   </aside>
-  <section
+  <div
     class="config-layout"
   >
     <header
@@ -17180,12 +17152,12 @@ exports[`ConfigProvider components Layout configProvider 1`] = `
     <footer
       class="config-layout-footer"
     />
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`ConfigProvider components Layout configProvider componentDisabled 1`] = `
-<section
+<div
   class="config-layout config-layout-has-sider"
 >
   <aside
@@ -17196,7 +17168,7 @@ exports[`ConfigProvider components Layout configProvider componentDisabled 1`] =
       class="config-layout-sider-children"
     />
   </aside>
-  <section
+  <div
     class="config-layout"
   >
     <header
@@ -17208,12 +17180,12 @@ exports[`ConfigProvider components Layout configProvider componentDisabled 1`] =
     <footer
       class="config-layout-footer"
     />
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`ConfigProvider components Layout configProvider componentSize large 1`] = `
-<section
+<div
   class="config-layout config-layout-has-sider"
 >
   <aside
@@ -17224,7 +17196,7 @@ exports[`ConfigProvider components Layout configProvider componentSize large 1`]
       class="config-layout-sider-children"
     />
   </aside>
-  <section
+  <div
     class="config-layout"
   >
     <header
@@ -17236,12 +17208,12 @@ exports[`ConfigProvider components Layout configProvider componentSize large 1`]
     <footer
       class="config-layout-footer"
     />
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`ConfigProvider components Layout configProvider componentSize middle 1`] = `
-<section
+<div
   class="config-layout config-layout-has-sider"
 >
   <aside
@@ -17252,7 +17224,7 @@ exports[`ConfigProvider components Layout configProvider componentSize middle 1`
       class="config-layout-sider-children"
     />
   </aside>
-  <section
+  <div
     class="config-layout"
   >
     <header
@@ -17264,12 +17236,12 @@ exports[`ConfigProvider components Layout configProvider componentSize middle 1`
     <footer
       class="config-layout-footer"
     />
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`ConfigProvider components Layout configProvider componentSize small 1`] = `
-<section
+<div
   class="config-layout config-layout-has-sider"
 >
   <aside
@@ -17280,7 +17252,7 @@ exports[`ConfigProvider components Layout configProvider componentSize small 1`]
       class="config-layout-sider-children"
     />
   </aside>
-  <section
+  <div
     class="config-layout"
   >
     <header
@@ -17292,12 +17264,12 @@ exports[`ConfigProvider components Layout configProvider componentSize small 1`]
     <footer
       class="config-layout-footer"
     />
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`ConfigProvider components Layout normal 1`] = `
-<section
+<div
   class="ant-layout ant-layout-has-sider"
 >
   <aside
@@ -17308,7 +17280,7 @@ exports[`ConfigProvider components Layout normal 1`] = `
       class="ant-layout-sider-children"
     />
   </aside>
-  <section
+  <div
     class="ant-layout"
   >
     <header
@@ -17320,12 +17292,12 @@ exports[`ConfigProvider components Layout normal 1`] = `
     <footer
       class="ant-layout-footer"
     />
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`ConfigProvider components Layout prefixCls 1`] = `
-<section
+<div
   class="prefix-Layout prefix-Layout-has-sider"
 >
   <aside
@@ -17336,7 +17308,7 @@ exports[`ConfigProvider components Layout prefixCls 1`] = `
       class="prefix-sider-children"
     />
   </aside>
-  <section
+  <div
     class="prefix-Layout"
   >
     <header
@@ -17348,8 +17320,8 @@ exports[`ConfigProvider components Layout prefixCls 1`] = `
     <footer
       class="prefix-footer"
     />
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`ConfigProvider components List configProvider 1`] = `
@@ -18997,7 +18969,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -19140,7 +19111,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -19288,7 +19258,6 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -19432,7 +19401,6 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -19581,7 +19549,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -19724,7 +19691,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -19872,7 +19838,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -20015,7 +19980,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -20163,7 +20127,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -20306,7 +20269,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
             class="config-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -20454,7 +20416,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -20597,7 +20558,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -20745,7 +20705,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -20888,7 +20847,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -24521,7 +24479,6 @@ exports[`ConfigProvider components Select configProvider componentDisabled 1`] =
       class="config-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
