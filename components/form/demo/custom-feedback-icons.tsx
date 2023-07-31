@@ -36,6 +36,7 @@ const App: React.FC = () => {
               <AlertFilled />
             </Tooltip>
           ),
+          success: false,
         })}
       >
         <Input />

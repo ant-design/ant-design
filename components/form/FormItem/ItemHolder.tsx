@@ -120,16 +120,17 @@ export default function ItemHolder(props: ItemHolderProps) {
             ]
           : null);
       const IconNode = mergedValidateStatus && iconMap[mergedValidateStatus];
-      feedbackIcon = IconNode ? (
-        <span
-          className={classNames(
-            `${itemPrefixCls}-feedback-icon`,
-            `${itemPrefixCls}-feedback-icon-${mergedValidateStatus}`,
-          )}
-        >
-          {customIconNode || <IconNode />}
-        </span>
-      ) : null;
+      feedbackIcon =
+        customIconNode !== false && IconNode ? (
+          <span
+            className={classNames(
+              `${itemPrefixCls}-feedback-icon`,
+              `${itemPrefixCls}-feedback-icon-${mergedValidateStatus}`,
+            )}
+          >
+            {customIconNode || <IconNode />}
+          </span>
+        ) : null;
     }
 
     return {
