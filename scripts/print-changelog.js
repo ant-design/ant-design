@@ -1,12 +1,12 @@
 /* eslint-disable no-await-in-loop, no-console */
-const chalk = require('chalk');
 const { spawn } = require('child_process');
+const path = require('path');
+const chalk = require('chalk');
 const jsdom = require('jsdom');
 const jQuery = require('jquery');
 const fetch = require('isomorphic-fetch');
 const open = require('open');
 const fs = require('fs-extra');
-const path = require('path');
 const simpleGit = require('simple-git');
 
 const { JSDOM } = jsdom;
