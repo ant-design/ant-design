@@ -35,7 +35,7 @@ type RenderChildren<Values = any> = (form: FormInstance<Values>) => React.ReactN
 type RcFieldProps<Values = any> = Omit<FieldProps<Values>, 'children'>;
 type ChildrenType<Values = any> = RenderChildren<Values> | React.ReactNode;
 
-export type CustomFeedbackIconsType = (itemStatus: {
+export type HasFeedbackIcons = (itemStatus: {
   status: ValidateStatus;
   errors?: React.ReactNode[];
   warnings?: React.ReactNode[];
@@ -68,8 +68,7 @@ export interface FormItemProps<Values = any>
   rootClassName?: string;
   children?: ChildrenType<Values>;
   id?: string;
-  hasFeedback?: boolean;
-  customFeedbackIcons?: CustomFeedbackIconsType;
+  hasFeedback?: boolean | { icons: HasFeedbackIcons };
   validateStatus?: ValidateStatus;
   required?: boolean;
   hidden?: boolean;

@@ -1793,10 +1793,11 @@ describe('Form', () => {
           <Form.Item
             label="Success"
             name="name1"
-            hasFeedback
-            customFeedbackIcons={() => ({
-              error: <AlertFilled id="custom-error-icon" />,
-            })}
+            hasFeedback={{
+              icons: () => ({
+                error: <AlertFilled id="custom-error-icon" />,
+              }),
+            }}
             rules={[
               {
                 required: true,

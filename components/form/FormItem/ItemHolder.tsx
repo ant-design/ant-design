@@ -49,7 +49,6 @@ export default function ItemHolder(props: ItemHolderProps) {
     validateStatus,
     meta,
     hasFeedback,
-    customFeedbackIcons,
     hidden,
     children,
     fieldId,
@@ -114,8 +113,8 @@ export default function ItemHolder(props: ItemHolderProps) {
     if (hasFeedback) {
       const customIconNode =
         mergedValidateStatus &&
-        (customFeedbackIcons
-          ? customFeedbackIcons({ status: mergedValidateStatus, errors, warnings })?.[
+        (hasFeedback !== true
+          ? hasFeedback.icons({ status: mergedValidateStatus, errors, warnings })?.[
               mergedValidateStatus
             ]
           : null);
@@ -137,7 +136,7 @@ export default function ItemHolder(props: ItemHolderProps) {
       status: mergedValidateStatus,
       errors,
       warnings,
-      hasFeedback,
+      hasFeedback: !!hasFeedback,
       feedbackIcon,
       isFormItemInput: true,
     };

@@ -18,26 +18,27 @@ const App: React.FC = () => {
   const { styles } = useStyle();
 
   return (
-    <Form form={form} style={{ maxWidth: 600 }}>
+    <Form name="custom-feedback-icons" form={form} style={{ maxWidth: 600 }}>
       <Form.Item
         name="custom-feedback-test-item"
         label="Test"
         className={styles['custom-feedback-icons']}
         rules={[{ required: true, type: 'email' }, { min: 10 }]}
         help=""
-        hasFeedback
-        customFeedbackIcons={({ errors }) => ({
-          error: (
-            <Tooltip
-              key="tooltipKey"
-              title={errors?.map((error) => <div key={uniqueId()}>{error}</div>)}
-              color="red"
-            >
-              <AlertFilled />
-            </Tooltip>
-          ),
-          success: false,
-        })}
+        hasFeedback={{
+          icons: ({ errors }) => ({
+            error: (
+              <Tooltip
+                key="tooltipKey"
+                title={errors?.map((error) => <div key={uniqueId()}>{error}</div>)}
+                color="red"
+              >
+                <AlertFilled />
+              </Tooltip>
+            ),
+            success: false,
+          }),
+        }}
       >
         <Input />
       </Form.Item>
