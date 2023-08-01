@@ -15,6 +15,8 @@ exports[`renders components/color-picker/demo/allowClear.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/color-picker/demo/allowClear.tsx correctly 2`] = `[]`;
+
 exports[`renders components/color-picker/demo/base.tsx correctly 1`] = `
 <div
   class="ant-color-picker-trigger"
@@ -29,6 +31,8 @@ exports[`renders components/color-picker/demo/base.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/color-picker/demo/base.tsx correctly 2`] = `[]`;
 
 exports[`renders components/color-picker/demo/change-completed.tsx correctly 1`] = `
 <div
@@ -49,6 +53,8 @@ exports[`renders components/color-picker/demo/change-completed.tsx correctly 1`]
 </div>
 `;
 
+exports[`renders components/color-picker/demo/change-completed.tsx correctly 2`] = `[]`;
+
 exports[`renders components/color-picker/demo/controlled.tsx correctly 1`] = `
 <div
   class="ant-color-picker-trigger"
@@ -63,6 +69,8 @@ exports[`renders components/color-picker/demo/controlled.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/color-picker/demo/controlled.tsx correctly 2`] = `[]`;
 
 exports[`renders components/color-picker/demo/disabled.tsx correctly 1`] = `
 <div
@@ -84,6 +92,8 @@ exports[`renders components/color-picker/demo/disabled.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/color-picker/demo/disabled.tsx correctly 2`] = `[]`;
+
 exports[`renders components/color-picker/demo/disabled-alpha.tsx correctly 1`] = `
 <div
   class="ant-color-picker-trigger"
@@ -98,6 +108,8 @@ exports[`renders components/color-picker/demo/disabled-alpha.tsx correctly 1`] =
   </div>
 </div>
 `;
+
+exports[`renders components/color-picker/demo/disabled-alpha.tsx correctly 2`] = `[]`;
 
 exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
 <div
@@ -244,6 +256,8 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/color-picker/demo/format.tsx correctly 2`] = `[]`;
+
 exports[`renders components/color-picker/demo/panel-render.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -332,6 +346,8 @@ exports[`renders components/color-picker/demo/panel-render.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/color-picker/demo/panel-render.tsx correctly 2`] = `[]`;
+
 exports[`renders components/color-picker/demo/presets.tsx correctly 1`] = `
 <div
   class="ant-color-picker-trigger"
@@ -346,6 +362,8 @@ exports[`renders components/color-picker/demo/presets.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/color-picker/demo/presets.tsx correctly 2`] = `[]`;
 
 exports[`renders components/color-picker/demo/pure-panel.tsx correctly 1`] = `
 <div
@@ -370,6 +388,8 @@ exports[`renders components/color-picker/demo/pure-panel.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/color-picker/demo/pure-panel.tsx correctly 2`] = `[]`;
 
 exports[`renders components/color-picker/demo/size.tsx correctly 1`] = `
 <div
@@ -510,6 +530,8 @@ exports[`renders components/color-picker/demo/size.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/color-picker/demo/size.tsx correctly 2`] = `[]`;
+
 exports[`renders components/color-picker/demo/text-render.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -607,6 +629,8 @@ exports[`renders components/color-picker/demo/text-render.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/color-picker/demo/text-render.tsx correctly 2`] = `[]`;
+
 exports[`renders components/color-picker/demo/trigger.tsx correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -618,6 +642,8 @@ exports[`renders components/color-picker/demo/trigger.tsx correctly 1`] = `
   </span>
 </button>
 `;
+
+exports[`renders components/color-picker/demo/trigger.tsx correctly 2`] = `[]`;
 
 exports[`renders components/color-picker/demo/trigger-event.tsx correctly 1`] = `
 <div
@@ -633,3 +659,5 @@ exports[`renders components/color-picker/demo/trigger-event.tsx correctly 1`] = 
   </div>
 </div>
 `;
+
+exports[`renders components/color-picker/demo/trigger-event.tsx correctly 2`] = `[]`;

@@ -9,6 +9,8 @@ exports[`renders components/qr-code/demo/Popover.tsx correctly 1`] = `
 />
 `;
 
+exports[`renders components/qr-code/demo/Popover.tsx correctly 2`] = `[]`;
+
 exports[`renders components/qr-code/demo/base.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical ant-space-align-center"
@@ -41,6 +43,8 @@ exports[`renders components/qr-code/demo/base.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/qr-code/demo/base.tsx correctly 2`] = `[]`;
 
 exports[`renders components/qr-code/demo/customColor.tsx correctly 1`] = `
 <div
@@ -77,6 +81,8 @@ exports[`renders components/qr-code/demo/customColor.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/qr-code/demo/customColor.tsx correctly 2`] = `[]`;
 
 exports[`renders components/qr-code/demo/customSize.tsx correctly 1`] = `
 Array [
@@ -170,6 +176,8 @@ Array [
 ]
 `;
 
+exports[`renders components/qr-code/demo/customSize.tsx correctly 2`] = `[]`;
+
 exports[`renders components/qr-code/demo/download.tsx correctly 1`] = `
 <div
   id="myqrcode"
@@ -194,6 +202,8 @@ exports[`renders components/qr-code/demo/download.tsx correctly 1`] = `
   </button>
 </div>
 `;
+
+exports[`renders components/qr-code/demo/download.tsx correctly 2`] = `[]`;
 
 exports[`renders components/qr-code/demo/errorlevel.tsx correctly 1`] = `
 Array [
@@ -275,6 +285,8 @@ Array [
 ]
 `;
 
+exports[`renders components/qr-code/demo/errorlevel.tsx correctly 2`] = `[]`;
+
 exports[`renders components/qr-code/demo/icon.tsx correctly 1`] = `
 <div
   class="ant-qrcode"
@@ -291,6 +303,8 @@ exports[`renders components/qr-code/demo/icon.tsx correctly 1`] = `
   />
 </div>
 `;
+
+exports[`renders components/qr-code/demo/icon.tsx correctly 2`] = `[]`;
 
 exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
 <div
@@ -396,6 +410,8 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/qr-code/demo/status.tsx correctly 2`] = `[]`;
+
 exports[`renders components/qr-code/demo/type.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -442,3 +458,5 @@ exports[`renders components/qr-code/demo/type.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/qr-code/demo/type.tsx correctly 2`] = `[]`;

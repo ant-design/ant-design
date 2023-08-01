@@ -11,6 +11,8 @@ exports[`renders components/drawer/demo/basic-right.tsx correctly 1`] = `
 </button>
 `;
 
+exports[`renders components/drawer/demo/basic-right.tsx correctly 2`] = `[]`;
+
 exports[`renders components/drawer/demo/component-token.tsx correctly 1`] = `
 <div
   style="padding:32px;background:#e6e6e6"
@@ -75,6 +77,8 @@ exports[`renders components/drawer/demo/component-token.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/drawer/demo/component-token.tsx correctly 2`] = `[]`;
+
 exports[`renders components/drawer/demo/config-provider.tsx correctly 1`] = `
 <div
   class="site-drawer-render-in-current-wrapper"
@@ -89,6 +93,8 @@ exports[`renders components/drawer/demo/config-provider.tsx correctly 1`] = `
   </button>
 </div>
 `;
+
+exports[`renders components/drawer/demo/config-provider.tsx correctly 2`] = `[]`;
 
 exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
 <div
@@ -195,6 +201,8 @@ exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/drawer/demo/extra.tsx correctly 2`] = `[]`;
+
 exports[`renders components/drawer/demo/form-in-drawer.tsx correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -235,6 +243,8 @@ exports[`renders components/drawer/demo/form-in-drawer.tsx correctly 1`] = `
 </button>
 `;
 
+exports[`renders components/drawer/demo/form-in-drawer.tsx correctly 2`] = `[]`;
+
 exports[`renders components/drawer/demo/multi-level-drawer.tsx correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -246,6 +256,8 @@ exports[`renders components/drawer/demo/multi-level-drawer.tsx correctly 1`] = `
 </button>
 `;
 
+exports[`renders components/drawer/demo/multi-level-drawer.tsx correctly 2`] = `[]`;
+
 exports[`renders components/drawer/demo/no-mask.tsx correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -256,6 +268,8 @@ exports[`renders components/drawer/demo/no-mask.tsx correctly 1`] = `
   </span>
 </button>
 `;
+
+exports[`renders components/drawer/demo/no-mask.tsx correctly 2`] = `[]`;
 
 exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
 <div
@@ -362,6 +376,8 @@ exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/drawer/demo/placement.tsx correctly 2`] = `[]`;
+
 exports[`renders components/drawer/demo/render-in-current.tsx correctly 1`] = `
 <div
   style="position:relative;height:200px;padding:48px;overflow:hidden;text-align:center;background:rgba(0, 0, 0, 0.02);border:1px solid #f0f0f0;border-radius:8px"
@@ -381,6 +397,8 @@ exports[`renders components/drawer/demo/render-in-current.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/drawer/demo/render-in-current.tsx correctly 2`] = `[]`;
 
 exports[`renders components/drawer/demo/render-panel.tsx correctly 1`] = `
 <div
@@ -445,6 +463,8 @@ exports[`renders components/drawer/demo/render-panel.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/drawer/demo/render-panel.tsx correctly 2`] = `[]`;
 
 exports[`renders components/drawer/demo/scroll-debug.tsx correctly 1`] = `
 <div
@@ -572,6 +592,8 @@ exports[`renders components/drawer/demo/scroll-debug.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/drawer/demo/scroll-debug.tsx correctly 2`] = `[]`;
+
 exports[`renders components/drawer/demo/size.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -603,6 +625,8 @@ exports[`renders components/drawer/demo/size.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/drawer/demo/size.tsx correctly 2`] = `[]`;
 
 exports[`renders components/drawer/demo/user-profile.tsx correctly 1`] = `
 <div
@@ -714,3 +738,5 @@ exports[`renders components/drawer/demo/user-profile.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/drawer/demo/user-profile.tsx correctly 2`] = `[]`;

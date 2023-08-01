@@ -62,6 +62,12 @@ exports[`renders components/tree-select/demo/async.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/tree-select/demo/async.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/tree-select/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
@@ -119,6 +125,12 @@ exports[`renders components/tree-select/demo/basic.tsx correctly 1`] = `
     </span>
   </span>
 </div>
+`;
+
+exports[`renders components/tree-select/demo/basic.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/tree-select/demo/checkable.tsx correctly 1`] = `
@@ -234,6 +246,12 @@ exports[`renders components/tree-select/demo/checkable.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/tree-select/demo/checkable.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/tree-select/demo/multiple.tsx correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
@@ -309,6 +327,12 @@ exports[`renders components/tree-select/demo/multiple.tsx correctly 1`] = `
     </span>
   </span>
 </div>
+`;
+
+exports[`renders components/tree-select/demo/multiple.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/tree-select/demo/placement.tsx correctly 1`] = `
@@ -454,6 +478,13 @@ Array [
 ]
 `;
 
+exports[`renders components/tree-select/demo/placement.tsx correctly 2`] = `
+[
+  "Warning: [antd: Select] \`dropdownMatchSelectWidth\` is deprecated. Please use \`popupMatchSelectWidth\` instead.",
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/tree-select/demo/render-panel.tsx correctly 1`] = `
 <div
   style="padding-bottom:0;position:relative;min-width:0"
@@ -519,6 +550,17 @@ exports[`renders components/tree-select/demo/render-panel.tsx correctly 1`] = `
     </span>
   </div>
 </div>
+`;
+
+exports[`renders components/tree-select/demo/render-panel.tsx correctly 2`] = `
+[
+  "Warning: Received \`%s\` for a non-boolean attribute \`%s\`.
+
+If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.
+
+If you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.%s",
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/tree-select/demo/status.tsx correctly 1`] = `
@@ -671,6 +713,12 @@ exports[`renders components/tree-select/demo/status.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/tree-select/demo/status.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/tree-select/demo/suffix.tsx correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
@@ -728,6 +776,12 @@ exports[`renders components/tree-select/demo/suffix.tsx correctly 1`] = `
     </span>
   </span>
 </div>
+`;
+
+exports[`renders components/tree-select/demo/suffix.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/tree-select/demo/treeData.tsx correctly 1`] = `
@@ -790,6 +844,12 @@ exports[`renders components/tree-select/demo/treeData.tsx correctly 1`] = `
     </span>
   </span>
 </div>
+`;
+
+exports[`renders components/tree-select/demo/treeData.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/tree-select/demo/treeLine.tsx correctly 1`] = `
@@ -916,4 +976,10 @@ exports[`renders components/tree-select/demo/treeLine.tsx correctly 1`] = `
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/tree-select/demo/treeLine.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;

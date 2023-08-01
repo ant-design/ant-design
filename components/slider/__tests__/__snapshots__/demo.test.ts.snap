@@ -84,6 +84,8 @@ Array [
 ]
 `;
 
+exports[`renders components/slider/demo/basic.tsx correctly 2`] = `[]`;
+
 exports[`renders components/slider/demo/component-token.tsx correctly 1`] = `
 Array [
   <div
@@ -297,6 +299,8 @@ Array [
 ]
 `;
 
+exports[`renders components/slider/demo/component-token.tsx correctly 2`] = `[]`;
+
 exports[`renders components/slider/demo/draggableTrack.tsx correctly 1`] = `
 <div
   class="ant-slider ant-slider-horizontal"
@@ -333,6 +337,8 @@ exports[`renders components/slider/demo/draggableTrack.tsx correctly 1`] = `
   />
 </div>
 `;
+
+exports[`renders components/slider/demo/draggableTrack.tsx correctly 2`] = `[]`;
 
 exports[`renders components/slider/demo/event.tsx correctly 1`] = `
 Array [
@@ -396,6 +402,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/slider/demo/event.tsx correctly 2`] = `[]`;
 
 exports[`renders components/slider/demo/icon-slider.tsx correctly 1`] = `
 <div
@@ -465,6 +473,8 @@ exports[`renders components/slider/demo/icon-slider.tsx correctly 1`] = `
   </span>
 </div>
 `;
+
+exports[`renders components/slider/demo/icon-slider.tsx correctly 2`] = `[]`;
 
 exports[`renders components/slider/demo/input-number.tsx correctly 1`] = `
 <div
@@ -708,6 +718,8 @@ exports[`renders components/slider/demo/input-number.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/slider/demo/input-number.tsx correctly 2`] = `[]`;
 
 exports[`renders components/slider/demo/mark.tsx correctly 1`] = `
 Array [
@@ -1087,6 +1099,8 @@ Array [
 ]
 `;
 
+exports[`renders components/slider/demo/mark.tsx correctly 2`] = `[]`;
+
 exports[`renders components/slider/demo/reverse.tsx correctly 1`] = `
 Array [
   <div
@@ -1171,6 +1185,8 @@ Array [
 ]
 `;
 
+exports[`renders components/slider/demo/reverse.tsx correctly 2`] = `[]`;
+
 exports[`renders components/slider/demo/tip-formatter.tsx correctly 1`] = `
 Array [
   <div
@@ -1223,6 +1239,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/slider/demo/tip-formatter.tsx correctly 2`] = `[]`;
 
 exports[`renders components/slider/demo/vertical.tsx correctly 1`] = `
 Array [
@@ -1379,3 +1397,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/slider/demo/vertical.tsx correctly 2`] = `[]`;

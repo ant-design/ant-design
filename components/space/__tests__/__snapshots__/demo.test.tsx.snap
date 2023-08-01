@@ -151,6 +151,8 @@ exports[`renders components/space/demo/align.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/space/demo/align.tsx correctly 2`] = `[]`;
+
 exports[`renders components/space/demo/base.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -246,6 +248,8 @@ exports[`renders components/space/demo/base.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/space/demo/base.tsx correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/compact.tsx correctly 1`] = `
 <div
@@ -1747,6 +1751,12 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/space/demo/compact.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/space/demo/compact-button-vertical.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -1851,6 +1861,8 @@ exports[`renders components/space/demo/compact-button-vertical.tsx correctly 1`]
   </div>
 </div>
 `;
+
+exports[`renders components/space/demo/compact-button-vertical.tsx correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
 <div>
@@ -2292,6 +2304,12 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
     </button>
   </div>
 </div>
+`;
+
+exports[`renders components/space/demo/compact-buttons.tsx correctly 2`] = `
+[
+  "Warning: [antd: Dropdown] \`overlay\` is deprecated. Please use \`menu\` instead.",
+]
 `;
 
 exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
@@ -3522,6 +3540,12 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/space/demo/compact-debug.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/space/demo/compact-nested.tsx correctly 1`] = `
 Array [
   <div
@@ -3948,6 +3972,12 @@ Array [
 ]
 `;
 
+exports[`renders components/space/demo/compact-nested.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/space/demo/customize.tsx correctly 1`] = `
 Array [
   <div
@@ -4034,6 +4064,8 @@ Array [
 ]
 `;
 
+exports[`renders components/space/demo/customize.tsx correctly 2`] = `[]`;
+
 exports[`renders components/space/demo/debug.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -4110,6 +4142,8 @@ exports[`renders components/space/demo/debug.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/space/demo/debug.tsx correctly 2`] = `[]`;
+
 exports[`renders components/space/demo/gap-in-line.tsx correctly 1`] = `
 Array [
   <button
@@ -4175,6 +4209,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/space/demo/gap-in-line.tsx correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/size.tsx correctly 1`] = `
 Array [
@@ -4300,6 +4336,8 @@ Array [
 ]
 `;
 
+exports[`renders components/space/demo/size.tsx correctly 2`] = `[]`;
+
 exports[`renders components/space/demo/split.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -4353,6 +4391,8 @@ exports[`renders components/space/demo/split.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/space/demo/split.tsx correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/vertical.tsx correctly 1`] = `
 <div
@@ -4456,6 +4496,8 @@ exports[`renders components/space/demo/vertical.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/space/demo/vertical.tsx correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
 <div
@@ -4724,3 +4766,5 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/space/demo/wrap.tsx correctly 2`] = `[]`;

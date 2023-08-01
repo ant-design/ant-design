@@ -180,6 +180,8 @@ exports[`renders components/popover/demo/arrow.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/popover/demo/arrow.tsx correctly 2`] = `[]`;
+
 exports[`renders components/popover/demo/arrow-point-at-center.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -214,6 +216,12 @@ exports[`renders components/popover/demo/arrow-point-at-center.tsx correctly 1`]
 </div>
 `;
 
+exports[`renders components/popover/demo/arrow-point-at-center.tsx correctly 2`] = `
+[
+  "Warning: [antd: Tooltip] \`arrowPointAtCenter\` is deprecated, please use \`arrow={{ pointAtCenter: true }}\` instead.",
+]
+`;
+
 exports[`renders components/popover/demo/basic.tsx correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -224,6 +232,8 @@ exports[`renders components/popover/demo/basic.tsx correctly 1`] = `
   </span>
 </button>
 `;
+
+exports[`renders components/popover/demo/basic.tsx correctly 2`] = `[]`;
 
 exports[`renders components/popover/demo/component-token.tsx correctly 1`] = `
 Array [
@@ -298,6 +308,8 @@ Array [
 ]
 `;
 
+exports[`renders components/popover/demo/component-token.tsx correctly 2`] = `[]`;
+
 exports[`renders components/popover/demo/control.tsx correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -309,6 +321,8 @@ exports[`renders components/popover/demo/control.tsx correctly 1`] = `
 </button>
 `;
 
+exports[`renders components/popover/demo/control.tsx correctly 2`] = `[]`;
+
 exports[`renders components/popover/demo/hover-with-click.tsx correctly 1`] = `
 <button
   class="ant-btn ant-btn-default"
@@ -319,6 +333,8 @@ exports[`renders components/popover/demo/hover-with-click.tsx correctly 1`] = `
   </span>
 </button>
 `;
+
+exports[`renders components/popover/demo/hover-with-click.tsx correctly 2`] = `[]`;
 
 exports[`renders components/popover/demo/placement.tsx correctly 1`] = `
 <div>
@@ -437,6 +453,8 @@ exports[`renders components/popover/demo/placement.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/popover/demo/placement.tsx correctly 2`] = `[]`;
+
 exports[`renders components/popover/demo/render-panel.tsx correctly 1`] = `
 Array [
   <div
@@ -510,6 +528,8 @@ Array [
 ]
 `;
 
+exports[`renders components/popover/demo/render-panel.tsx correctly 2`] = `[]`;
+
 exports[`renders components/popover/demo/triggerType.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -556,6 +576,8 @@ exports[`renders components/popover/demo/triggerType.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/popover/demo/triggerType.tsx correctly 2`] = `[]`;
 
 exports[`renders components/popover/demo/wireframe.tsx correctly 1`] = `
 Array [
@@ -629,3 +651,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/popover/demo/wireframe.tsx correctly 2`] = `[]`;

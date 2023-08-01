@@ -61,6 +61,12 @@ exports[`renders components/cascader/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/cascader/demo/basic.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/cascader/demo/change-on-select.tsx correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
@@ -118,6 +124,12 @@ exports[`renders components/cascader/demo/change-on-select.tsx correctly 1`] = `
     </span>
   </span>
 </div>
+`;
+
+exports[`renders components/cascader/demo/change-on-select.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/cascader/demo/custom-dropdown.tsx correctly 1`] = `
@@ -179,6 +191,12 @@ exports[`renders components/cascader/demo/custom-dropdown.tsx correctly 1`] = `
     </span>
   </span>
 </div>
+`;
+
+exports[`renders components/cascader/demo/custom-dropdown.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/cascader/demo/custom-render.tsx correctly 1`] = `
@@ -287,6 +305,12 @@ exports[`renders components/cascader/demo/custom-render.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/cascader/demo/custom-render.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/cascader/demo/custom-trigger.tsx correctly 1`] = `
 <span>
   Unselect
@@ -297,6 +321,12 @@ exports[`renders components/cascader/demo/custom-trigger.tsx correctly 1`] = `
     Change city
   </a>
 </span>
+`;
+
+exports[`renders components/cascader/demo/custom-trigger.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/cascader/demo/default-value.tsx correctly 1`] = `
@@ -387,6 +417,12 @@ exports[`renders components/cascader/demo/default-value.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/cascader/demo/default-value.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/cascader/demo/disabled-option.tsx correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
@@ -444,6 +480,12 @@ exports[`renders components/cascader/demo/disabled-option.tsx correctly 1`] = `
     </span>
   </span>
 </div>
+`;
+
+exports[`renders components/cascader/demo/disabled-option.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/cascader/demo/fields-name.tsx correctly 1`] = `
@@ -507,6 +549,12 @@ exports[`renders components/cascader/demo/fields-name.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/cascader/demo/fields-name.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/cascader/demo/hover.tsx correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
@@ -566,6 +614,12 @@ exports[`renders components/cascader/demo/hover.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/cascader/demo/hover.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/cascader/demo/lazy.tsx correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
@@ -623,6 +677,12 @@ exports[`renders components/cascader/demo/lazy.tsx correctly 1`] = `
     </span>
   </span>
 </div>
+`;
+
+exports[`renders components/cascader/demo/lazy.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/cascader/demo/multiple.tsx correctly 1`] = `
@@ -698,6 +758,12 @@ exports[`renders components/cascader/demo/multiple.tsx correctly 1`] = `
     </span>
   </span>
 </div>
+`;
+
+exports[`renders components/cascader/demo/multiple.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/cascader/demo/placement.tsx correctly 1`] = `
@@ -846,6 +912,12 @@ Array [
 ]
 `;
 
+exports[`renders components/cascader/demo/placement.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/cascader/demo/render-panel.tsx correctly 1`] = `
 <div
   style="padding-bottom:0;position:relative;min-width:0"
@@ -912,6 +984,17 @@ exports[`renders components/cascader/demo/render-panel.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/cascader/demo/render-panel.tsx correctly 2`] = `
+[
+  "Warning: Received \`%s\` for a non-boolean attribute \`%s\`.
+
+If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.
+
+If you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.%s",
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/cascader/demo/search.tsx correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
@@ -968,6 +1051,12 @@ exports[`renders components/cascader/demo/search.tsx correctly 1`] = `
     </span>
   </span>
 </div>
+`;
+
+exports[`renders components/cascader/demo/search.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/cascader/demo/showCheckedStrategy.tsx correctly 1`] = `
@@ -1199,6 +1288,12 @@ Array [
 ]
 `;
 
+exports[`renders components/cascader/demo/showCheckedStrategy.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/cascader/demo/size.tsx correctly 1`] = `
 Array [
   <div
@@ -1378,6 +1473,12 @@ Array [
 ]
 `;
 
+exports[`renders components/cascader/demo/size.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/cascader/demo/status.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -1523,6 +1624,12 @@ exports[`renders components/cascader/demo/status.tsx correctly 1`] = `
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/cascader/demo/status.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/cascader/demo/suffix.tsx correctly 1`] = `
@@ -1747,5 +1854,11 @@ Array [
       </span>
     </span>
   </div>,
+]
+`;
+
+exports[`renders components/cascader/demo/suffix.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
 ]
 `;

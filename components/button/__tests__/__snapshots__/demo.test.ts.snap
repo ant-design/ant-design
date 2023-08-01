@@ -73,11 +73,7 @@ exports[`renders components/button/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/button/demo/basic.tsx correctly 2`] = `
-[
-  "Warning: hello world!",
-]
-`;
+exports[`renders components/button/demo/basic.tsx correctly 2`] = `[]`;
 
 exports[`renders components/button/demo/block.tsx correctly 1`] = `
 <div

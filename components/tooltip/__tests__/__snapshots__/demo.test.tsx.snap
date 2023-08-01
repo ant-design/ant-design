@@ -186,6 +186,8 @@ exports[`renders components/tooltip/demo/arrow.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/tooltip/demo/arrow.tsx correctly 2`] = `[]`;
+
 exports[`renders components/tooltip/demo/arrow-point-at-center.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -216,6 +218,12 @@ exports[`renders components/tooltip/demo/arrow-point-at-center.tsx correctly 1`]
     </button>
   </div>
 </div>
+`;
+
+exports[`renders components/tooltip/demo/arrow-point-at-center.tsx correctly 2`] = `
+[
+  "Warning: [antd: Tooltip] \`arrowPointAtCenter\` is deprecated, please use \`arrow={{ pointAtCenter: true }}\` instead.",
+]
 `;
 
 exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx correctly 1`] = `
@@ -283,11 +291,15 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx correctly 1`] 
 </div>
 `;
 
+exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx correctly 2`] = `[]`;
+
 exports[`renders components/tooltip/demo/basic.tsx correctly 1`] = `
 <span>
   Tooltip will show on mouse enter.
 </span>
 `;
+
+exports[`renders components/tooltip/demo/basic.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tooltip/demo/colorful.tsx correctly 1`] = `
 Array [
@@ -545,11 +557,15 @@ Array [
 ]
 `;
 
+exports[`renders components/tooltip/demo/colorful.tsx correctly 2`] = `[]`;
+
 exports[`renders components/tooltip/demo/destroy-tooltip-on-hide.tsx correctly 1`] = `
 <span>
   Tooltip will destroy when hidden.
 </span>
 `;
+
+exports[`renders components/tooltip/demo/destroy-tooltip-on-hide.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tooltip/demo/disabled.tsx correctly 1`] = `
 <div
@@ -751,6 +767,12 @@ exports[`renders components/tooltip/demo/disabled.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/tooltip/demo/disabled.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/tooltip/demo/placement.tsx correctly 1`] = `
 <div>
   <div
@@ -868,6 +890,8 @@ exports[`renders components/tooltip/demo/placement.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/tooltip/demo/placement.tsx correctly 2`] = `[]`;
+
 exports[`renders components/tooltip/demo/render-panel.tsx correctly 1`] = `
 Array [
   <div
@@ -926,3 +950,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/tooltip/demo/render-panel.tsx correctly 2`] = `[]`;

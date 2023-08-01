@@ -313,6 +313,8 @@ exports[`renders components/result/demo/403.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/result/demo/403.tsx correctly 2`] = `[]`;
+
 exports[`renders components/result/demo/404.tsx correctly 1`] = `
 <div
   class="ant-result ant-result-404"
@@ -643,6 +645,8 @@ exports[`renders components/result/demo/404.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/result/demo/404.tsx correctly 2`] = `[]`;
 
 exports[`renders components/result/demo/500.tsx correctly 1`] = `
 <div
@@ -1022,6 +1026,8 @@ exports[`renders components/result/demo/500.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/result/demo/500.tsx correctly 2`] = `[]`;
+
 exports[`renders components/result/demo/component-token.tsx correctly 1`] = `
 <div
   class="ant-result ant-result-success"
@@ -1082,6 +1088,8 @@ exports[`renders components/result/demo/component-token.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/result/demo/component-token.tsx correctly 2`] = `[]`;
+
 exports[`renders components/result/demo/customIcon.tsx correctly 1`] = `
 <div
   class="ant-result ant-result-info"
@@ -1128,6 +1136,8 @@ exports[`renders components/result/demo/customIcon.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/result/demo/customIcon.tsx correctly 2`] = `[]`;
 
 exports[`renders components/result/demo/error.tsx correctly 1`] = `
 <div
@@ -1269,6 +1279,8 @@ exports[`renders components/result/demo/error.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/result/demo/error.tsx correctly 2`] = `[]`;
+
 exports[`renders components/result/demo/info.tsx correctly 1`] = `
 <div
   class="ant-result ant-result-info"
@@ -1315,6 +1327,8 @@ exports[`renders components/result/demo/info.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/result/demo/info.tsx correctly 2`] = `[]`;
 
 exports[`renders components/result/demo/success.tsx correctly 1`] = `
 <div
@@ -1376,6 +1390,8 @@ exports[`renders components/result/demo/success.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/result/demo/success.tsx correctly 2`] = `[]`;
+
 exports[`renders components/result/demo/warning.tsx correctly 1`] = `
 <div
   class="ant-result ant-result-warning"
@@ -1422,3 +1438,5 @@ exports[`renders components/result/demo/warning.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/result/demo/warning.tsx correctly 2`] = `[]`;

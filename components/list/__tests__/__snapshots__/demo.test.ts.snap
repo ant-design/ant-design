@@ -167,6 +167,8 @@ exports[`renders components/list/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/list/demo/basic.tsx correctly 2`] = `[]`;
+
 exports[`renders components/list/demo/component-token.tsx correctly 1`] = `
 Array [
   <div
@@ -826,6 +828,8 @@ Array [
 ]
 `;
 
+exports[`renders components/list/demo/component-token.tsx correctly 2`] = `[]`;
+
 exports[`renders components/list/demo/grid.tsx correctly 1`] = `
 <div
   class="ant-list ant-list-split ant-list-grid"
@@ -985,6 +989,8 @@ exports[`renders components/list/demo/grid.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/list/demo/grid.tsx correctly 2`] = `[]`;
 
 exports[`renders components/list/demo/grid-test.tsx correctly 1`] = `
 Array [
@@ -1678,6 +1684,8 @@ Array [
 ]
 `;
 
+exports[`renders components/list/demo/grid-test.tsx correctly 2`] = `[]`;
+
 exports[`renders components/list/demo/infinite-load.tsx correctly 1`] = `
 <div
   id="scrollableDiv"
@@ -1780,6 +1788,8 @@ exports[`renders components/list/demo/infinite-load.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/list/demo/infinite-load.tsx correctly 2`] = `[]`;
+
 exports[`renders components/list/demo/loadmore.tsx correctly 1`] = `
 <div
   class="ant-list ant-list-split ant-list-loading demo-loadmore-list"
@@ -1821,6 +1831,8 @@ exports[`renders components/list/demo/loadmore.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/list/demo/loadmore.tsx correctly 2`] = `[]`;
 
 exports[`renders components/list/demo/pagination.tsx correctly 1`] = `
 Array [
@@ -2244,6 +2256,8 @@ Array [
 ]
 `;
 
+exports[`renders components/list/demo/pagination.tsx correctly 2`] = `[]`;
+
 exports[`renders components/list/demo/responsive.tsx correctly 1`] = `
 <div
   class="ant-list ant-list-split ant-list-grid"
@@ -2461,6 +2475,8 @@ exports[`renders components/list/demo/responsive.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/list/demo/responsive.tsx correctly 2`] = `[]`;
 
 exports[`renders components/list/demo/simple.tsx correctly 1`] = `
 Array [
@@ -2701,6 +2717,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/list/demo/simple.tsx correctly 2`] = `[]`;
 
 exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
 <div
@@ -3404,6 +3422,8 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/list/demo/vertical.tsx correctly 2`] = `[]`;
 
 exports[`renders components/list/demo/virtual-list.tsx correctly 1`] = `
 <div

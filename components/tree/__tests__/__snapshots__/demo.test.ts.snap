@@ -318,6 +318,8 @@ exports[`renders components/tree/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/tree/demo/basic.tsx correctly 2`] = `[]`;
+
 exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
@@ -857,6 +859,8 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/tree/demo/basic-controlled.tsx correctly 2`] = `[]`;
+
 exports[`renders components/tree/demo/block-node.tsx correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide ant-tree-block-node"
@@ -1019,6 +1023,8 @@ exports[`renders components/tree/demo/block-node.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/tree/demo/block-node.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tree/demo/customized-icon.tsx correctly 1`] = `
 <div
@@ -1230,6 +1236,8 @@ exports[`renders components/tree/demo/customized-icon.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/tree/demo/customized-icon.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tree/demo/directory.tsx correctly 1`] = `
 <div
@@ -1607,6 +1615,8 @@ exports[`renders components/tree/demo/directory.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/tree/demo/directory.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tree/demo/drag-debug.tsx correctly 1`] = `
 Array [
@@ -2492,6 +2502,8 @@ Array [
 ]
 `;
 
+exports[`renders components/tree/demo/drag-debug.tsx correctly 2`] = `[]`;
+
 exports[`renders components/tree/demo/draggable.tsx correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide ant-tree-block-node draggable-tree"
@@ -3064,6 +3076,8 @@ exports[`renders components/tree/demo/draggable.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/tree/demo/draggable.tsx correctly 2`] = `[]`;
+
 exports[`renders components/tree/demo/dynamic.tsx correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
@@ -3217,6 +3231,8 @@ exports[`renders components/tree/demo/dynamic.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/tree/demo/dynamic.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tree/demo/line.tsx correctly 1`] = `
 <div>
@@ -3773,6 +3789,12 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/tree/demo/line.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/tree/demo/search.tsx correctly 1`] = `
 <div>
   <span
@@ -3990,6 +4012,8 @@ exports[`renders components/tree/demo/search.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/tree/demo/search.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tree/demo/switcher-icon.tsx correctly 1`] = `
 <div
@@ -4321,3 +4345,5 @@ exports[`renders components/tree/demo/switcher-icon.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/tree/demo/switcher-icon.tsx correctly 2`] = `[]`;

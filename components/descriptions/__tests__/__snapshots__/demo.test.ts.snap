@@ -127,6 +127,8 @@ exports[`renders components/descriptions/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/descriptions/demo/basic.tsx correctly 2`] = `[]`;
+
 exports[`renders components/descriptions/demo/border.tsx correctly 1`] = `
 <div
   class="ant-descriptions ant-descriptions-bordered"
@@ -352,6 +354,8 @@ exports[`renders components/descriptions/demo/border.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/descriptions/demo/border.tsx correctly 2`] = `[]`;
 
 exports[`renders components/descriptions/demo/component-token.tsx correctly 1`] = `
 <div>
@@ -742,6 +746,8 @@ exports[`renders components/descriptions/demo/component-token.tsx correctly 1`] 
 </div>
 `;
 
+exports[`renders components/descriptions/demo/component-token.tsx correctly 2`] = `[]`;
+
 exports[`renders components/descriptions/demo/jsx.tsx correctly 1`] = `
 <div
   class="ant-descriptions"
@@ -868,6 +874,8 @@ exports[`renders components/descriptions/demo/jsx.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/descriptions/demo/jsx.tsx correctly 2`] = `[]`;
 
 exports[`renders components/descriptions/demo/responsive.tsx correctly 1`] = `
 <div
@@ -1027,6 +1035,8 @@ exports[`renders components/descriptions/demo/responsive.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/descriptions/demo/responsive.tsx correctly 2`] = `[]`;
 
 exports[`renders components/descriptions/demo/size.tsx correctly 1`] = `
 <div>
@@ -1422,6 +1432,8 @@ exports[`renders components/descriptions/demo/size.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/descriptions/demo/size.tsx correctly 2`] = `[]`;
+
 exports[`renders components/descriptions/demo/style.tsx correctly 1`] = `
 Array [
   <button
@@ -1659,6 +1671,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/descriptions/demo/style.tsx correctly 2`] = `[]`;
 
 exports[`renders components/descriptions/demo/text.tsx correctly 1`] = `
 <div
@@ -2062,6 +2076,12 @@ exports[`renders components/descriptions/demo/text.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/descriptions/demo/text.tsx correctly 2`] = `
+[
+  "Warning: [antd: Descriptions] Sum of column \`span\` in a line not match \`column\` of Descriptions.",
+]
+`;
+
 exports[`renders components/descriptions/demo/vertical.tsx correctly 1`] = `
 <div
   class="ant-descriptions"
@@ -2241,6 +2261,8 @@ exports[`renders components/descriptions/demo/vertical.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/descriptions/demo/vertical.tsx correctly 2`] = `[]`;
 
 exports[`renders components/descriptions/demo/vertical-border.tsx correctly 1`] = `
 <div
@@ -2487,3 +2509,5 @@ exports[`renders components/descriptions/demo/vertical-border.tsx correctly 1`] 
   </div>
 </div>
 `;
+
+exports[`renders components/descriptions/demo/vertical-border.tsx correctly 2`] = `[]`;

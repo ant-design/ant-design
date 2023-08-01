@@ -103,6 +103,8 @@ exports[`renders components/badge/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/badge/demo/basic.tsx correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/change.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -302,6 +304,8 @@ exports[`renders components/badge/demo/change.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/badge/demo/change.tsx correctly 2`] = `[]`;
 
 exports[`renders components/badge/demo/colorful.tsx correctly 1`] = `
 Array [
@@ -626,6 +630,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/badge/demo/colorful.tsx correctly 2`] = `[]`;
 
 exports[`renders components/badge/demo/colorful-with-count-debug.tsx correctly 1`] = `
 Array [
@@ -1383,6 +1389,8 @@ Array [
 ]
 `;
 
+exports[`renders components/badge/demo/colorful-with-count-debug.tsx correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/dot.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -1440,6 +1448,8 @@ exports[`renders components/badge/demo/dot.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/badge/demo/dot.tsx correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/link.tsx correctly 1`] = `
 <a
   href="#"
@@ -1474,6 +1484,8 @@ exports[`renders components/badge/demo/link.tsx correctly 1`] = `
   </span>
 </a>
 `;
+
+exports[`renders components/badge/demo/link.tsx correctly 2`] = `[]`;
 
 exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
 <div
@@ -1818,6 +1830,8 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/badge/demo/mix.tsx correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/no-wrapper.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -1969,6 +1983,8 @@ exports[`renders components/badge/demo/no-wrapper.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/badge/demo/no-wrapper.tsx correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/offset.tsx correctly 1`] = `
 <span
   class="ant-badge"
@@ -2000,6 +2016,8 @@ exports[`renders components/badge/demo/offset.tsx correctly 1`] = `
   </sup>
 </span>
 `;
+
+exports[`renders components/badge/demo/offset.tsx correctly 2`] = `[]`;
 
 exports[`renders components/badge/demo/overflow.tsx correctly 1`] = `
 <div
@@ -2121,6 +2139,8 @@ exports[`renders components/badge/demo/overflow.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/badge/demo/overflow.tsx correctly 2`] = `[]`;
 
 exports[`renders components/badge/demo/ribbon.tsx correctly 1`] = `
 <div
@@ -2473,6 +2493,8 @@ exports[`renders components/badge/demo/ribbon.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/badge/demo/ribbon.tsx correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/ribbon-debug.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -2636,6 +2658,8 @@ exports[`renders components/badge/demo/ribbon-debug.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/badge/demo/ribbon-debug.tsx correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/size.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2707,6 +2731,8 @@ exports[`renders components/badge/demo/size.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/badge/demo/size.tsx correctly 2`] = `[]`;
 
 exports[`renders components/badge/demo/status.tsx correctly 1`] = `
 Array [
@@ -2865,6 +2891,8 @@ Array [
 ]
 `;
 
+exports[`renders components/badge/demo/status.tsx correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/title.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2946,3 +2974,5 @@ exports[`renders components/badge/demo/title.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/badge/demo/title.tsx correctly 2`] = `[]`;

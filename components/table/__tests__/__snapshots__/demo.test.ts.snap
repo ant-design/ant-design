@@ -329,6 +329,8 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/table/demo/basic.tsx correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/bordered.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -547,6 +549,8 @@ exports[`renders components/table/demo/bordered.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/bordered.tsx correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/colspan-rowspan.tsx correctly 1`] = `
 <div
@@ -866,6 +870,8 @@ exports[`renders components/table/demo/colspan-rowspan.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/colspan-rowspan.tsx correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/custom-filter-panel.tsx correctly 1`] = `
 <div
@@ -1249,6 +1255,8 @@ exports[`renders components/table/demo/custom-filter-panel.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/table/demo/custom-filter-panel.tsx correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/drag-sorting.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -1465,6 +1473,8 @@ exports[`renders components/table/demo/drag-sorting.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/drag-sorting.tsx correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = `
 <div
@@ -1754,6 +1764,8 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = 
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/dynamic-settings.tsx correctly 1`] = `
 Array [
@@ -4111,6 +4123,8 @@ Array [
 ]
 `;
 
+exports[`renders components/table/demo/dynamic-settings.tsx correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/edit-cell.tsx correctly 1`] = `
 <div>
   <button
@@ -4334,6 +4348,8 @@ exports[`renders components/table/demo/edit-cell.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/edit-cell.tsx correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
 <div
@@ -4935,6 +4951,12 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/table/demo/edit-row.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/table/demo/ellipsis.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -5225,6 +5247,8 @@ exports[`renders components/table/demo/ellipsis.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/ellipsis.tsx correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`] = `
 <div
@@ -5529,6 +5553,8 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
 </div>
 `;
 
+exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/expand.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -5828,6 +5854,8 @@ exports[`renders components/table/demo/expand.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/expand.tsx correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/filter-in-tree.tsx correctly 1`] = `
 <div
@@ -6179,6 +6207,8 @@ exports[`renders components/table/demo/filter-in-tree.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/table/demo/filter-in-tree.tsx correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/filter-search.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -6528,6 +6558,8 @@ exports[`renders components/table/demo/filter-search.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/filter-search.tsx correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
 <div
@@ -7018,6 +7050,8 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/fixed-columns.tsx correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = `
 <div
@@ -8149,6 +8183,12 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/table/demo/fixed-columns-header.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
@@ -9411,6 +9451,12 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/table/demo/fixed-header.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -10441,6 +10487,12 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/table/demo/grouping-columns.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/table/demo/head.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -10821,6 +10873,8 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/table/demo/head.tsx correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -11177,6 +11231,8 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/jsx.tsx correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
 <div
@@ -11593,6 +11649,8 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/multiple-sorter.tsx correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
 <div
@@ -12141,6 +12199,12 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/table/demo/narrow.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/table/demo/nest-table-border-debug.tsx correctly 1`] = `
 Array [
   <form
@@ -12583,6 +12647,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/table/demo/nest-table-border-debug.tsx correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/nested-table.tsx correctly 1`] = `
 Array [
@@ -14584,6 +14650,8 @@ Array [
 ]
 `;
 
+exports[`renders components/table/demo/nested-table.tsx correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -14955,6 +15023,8 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/order-column.tsx correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
 <div>
@@ -15538,6 +15608,8 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/table/demo/pagination.tsx correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/reset-filter.tsx correctly 1`] = `
 Array [
   <div
@@ -16054,6 +16126,8 @@ Array [
 ]
 `;
 
+exports[`renders components/table/demo/reset-filter.tsx correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/resizable-column.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -16383,6 +16457,8 @@ exports[`renders components/table/demo/resizable-column.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/table/demo/resizable-column.tsx correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/responsive.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -16521,6 +16597,8 @@ exports[`renders components/table/demo/responsive.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/responsive.tsx correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
 <div>
@@ -16907,6 +16985,8 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/row-selection.tsx correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/row-selection-and-operation.tsx correctly 1`] = `
 <div>
@@ -17527,6 +17607,8 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/row-selection-and-operation.tsx correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = `
 <div
@@ -18157,6 +18239,8 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
 </div>
 `;
 
+exports[`renders components/table/demo/row-selection-custom.tsx correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -18570,6 +18654,12 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 2`] = `
+[
+  "Warning: \`columns.render\` return cell props is deprecated with perf issue, please use \`onCell\` instead.",
+]
 `;
 
 exports[`renders components/table/demo/row-selection-debug.tsx correctly 1`] = `
@@ -20837,6 +20927,8 @@ Array [
 ]
 `;
 
+exports[`renders components/table/demo/row-selection-debug.tsx correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -21148,6 +21240,8 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/selections-debug.tsx correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/size.tsx correctly 1`] = `
 Array [
@@ -21565,6 +21659,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/table/demo/size.tsx correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
 <div
@@ -22756,6 +22852,12 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/table/demo/sticky.tsx correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/table/demo/summary.tsx correctly 1`] = `
 Array [
   <div
@@ -23381,6 +23483,8 @@ Array [
 ]
 `;
 
+exports[`renders components/table/demo/summary.tsx correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/tree-data.tsx correctly 1`] = `
 Array [
   <div
@@ -23690,6 +23794,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/table/demo/tree-data.tsx correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/tree-table-ellipsis.tsx correctly 1`] = `
 Array [
@@ -24414,6 +24520,8 @@ Array [
 ]
 `;
 
+exports[`renders components/table/demo/tree-table-ellipsis.tsx correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/virtual-list.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper virtual-table"
@@ -24600,3 +24708,5 @@ exports[`renders components/table/demo/virtual-list.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/virtual-list.tsx correctly 2`] = `[]`;
