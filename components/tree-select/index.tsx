@@ -189,6 +189,7 @@ const InternalTreeSelect = <
     hasFeedback,
     feedbackIcon,
     prefixCls,
+    componentName: 'TreeSelect',
   });
 
   const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;

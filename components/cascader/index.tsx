@@ -286,6 +286,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     showSuffixIcon,
     multiple,
     prefixCls,
+    componentName: 'Cascader',
   });
 
   // ===================== Placement =====================

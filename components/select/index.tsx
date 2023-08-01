@@ -171,6 +171,7 @@ const InternalSelect = <
     showSuffixIcon,
     prefixCls,
     showArrow: props.showArrow,
+    componentName: 'Select',
   });
 
   const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
