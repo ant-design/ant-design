@@ -19,17 +19,17 @@ timeline: true
 
 `2023-08-01`
 
-- 🆕 Descriptions 实现 `items` API [#43483](https://github.com/ant-design/ant-design/pull/43483) [@RedJue](https://github.com/RedJue)
-- 🆕 ColorPicker 实现 `disabledAlpha` API。[#43355](https://github.com/ant-design/ant-design/pull/43355) [@RedJue](https://github.com/RedJue)
-- 🆕 Modal hooks 方法支持 `await` 调用。[#43470](https://github.com/ant-design/ant-design/pull/43470)
+- 🔥 组件 Token 支持配置 `algorithm`，和全局 Token 一样可用算法计算派生。[#43810](https://github.com/ant-design/ant-design/pull/43810) [@MadCcc](https://github.com/MadCcc)
+- 🔥 Modal hooks 方法支持 `await` 调用。[#43470](https://github.com/ant-design/ant-design/pull/43470)
+- 🔥 ConfigProvider 支持 `wave` 配置以自定义水波纹效果。[#43784](https://github.com/ant-design/ant-design/pull/43784)
+- 🆕 Form 新增 `getFieldsValue({ strict: true })` 以支持获取仅通过 Item 绑定的字段。[#43828](https://github.com/ant-design/ant-design/pull/43828)
+- 🆕 Descriptions 支持 `items` 属性。 [#43483](https://github.com/ant-design/ant-design/pull/43483) [@RedJue](https://github.com/RedJue)
+- 🆕 ColorPicker 支持 `disabledAlpha` 属性。[#43355](https://github.com/ant-design/ant-design/pull/43355) [@RedJue](https://github.com/RedJue)
 - 🆕 Avatar.Group 支持设置形状。[#43817](https://github.com/ant-design/ant-design/pull/43817) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 AutoComplete/Cascader/DatePicker/Input.Textarea/TimePicker/TreeSelect 组件均已 `allowClear` 属性支持自定义。[#43582](https://github.com/ant-design/ant-design/discussions/43582) [@kiner-tang](https://github.com/kiner-tang)
-- 🆕 组件 Token 支持配置 `algorithm`，和全局 Token 一样可用算法计算派生。[#43810](https://github.com/ant-design/ant-design/pull/43810) [@MadCcc](https://github.com/MadCcc)
-- 🆕 Form 新增 `getFieldsValue({ strict: true })` 以支持获取仅通过 Item 绑定的字段。[#43828](https://github.com/ant-design/ant-design/pull/43828)
 - 🆕 RangePicker `presets` 属性支持回调函数。[#43476](https://github.com/ant-design/ant-design/pull/43476) [@Wxh16144](https://github.com/Wxh16144)
 - 🆕 Image `PreviewType` 支持 `movable` 属性。[#43823](https://github.com/ant-design/ant-design/pull/43823) [@linxianxi](https://github.com/linxianxi)
 - 🆕 Slider `tooltip` 支持配置 `autoAdjustOverflow` 属性。[#43788](https://github.com/ant-design/ant-design/pull/43788)
-- 🆕 ConfigProvider 支持 `wave` 配置以自定义水波纹效果。[#43784](https://github.com/ant-design/ant-design/pull/43784)
 - 🆕 Transfer 组件新增 `selectionsIcon` 属性以支持自定义下拉菜单图标。[#43773](https://github.com/ant-design/ant-design/pull/43773) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🗑 Select、Tree-Select 和 Cascader 组件废弃 `showArrow` 属性，可由 `suffixIcon` 统一配置。[#43520](https://github.com/ant-design/ant-design/pull/43520) [@MuxinFeng](https://github.com/MuxinFeng)
 - 🐞 优化 `@ant-design/icon` 导入写法以避免全部引入。[#43915](https://github.com/ant-design/ant-design/pull/43915) [@ssxenon01](https://github.com/ssxenon01)

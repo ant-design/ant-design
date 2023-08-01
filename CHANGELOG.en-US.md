@@ -19,17 +19,17 @@ timeline: true
 
 `2023-08-01`
 
-- 🆕 Descriptions implement `items` API. [#43483](https://github.com/ant-design/ant-design/pull/43483) [@RedJue](https://github.com/RedJue)
-- 🆕 ColorPicker implement `disabledAlpha` API. [#43355](https://github.com/ant-design/ant-design/pull/43355) [@RedJue](https://github.com/RedJue)
-- 🆕 Modal hooks function support `await` call. [#43470](https://github.com/ant-design/ant-design/pull/43470)
+- 🔥 Component Token support `algorithm` to calculate derivative tokens same as global. [#43810](https://github.com/ant-design/ant-design/pull/43810) [@MadCcc](https://github.com/MadCcc)
+- 🔥 Modal hooks function support `await` call. [#43470](https://github.com/ant-design/ant-design/pull/43470)
+- 🔥 ConfigProvider support `wave` to customize wave effect. [#43784](https://github.com/ant-design/ant-design/pull/43784)
+- 🆕 Form support `getFieldsValue({ strict: true })` to support only Item bind values. [#43828](https://github.com/ant-design/ant-design/pull/43828)
+- 🆕 Descriptions support `items` prop. [#43483](https://github.com/ant-design/ant-design/pull/43483) [@RedJue](https://github.com/RedJue)
+- 🆕 ColorPicker support `disabledAlpha` prop. [#43355](https://github.com/ant-design/ant-design/pull/43355) [@RedJue](https://github.com/RedJue)
 - 🆕 Avatar.Group support `shape` props. [#43817](https://github.com/ant-design/ant-design/pull/43817) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 AutoComplete/Cascader/DatePicker/Input.Textarea/TimePicker/TreeSelect support `allowClear` prop to customize clear button。[#43582](https://github.com/ant-design/ant-design/discussions/43582) [@kiner-tang](https://github.com/kiner-tang)
-- 🆕 Component Token support `algorithm` to calculate derivative tokens same as global. [#43810](https://github.com/ant-design/ant-design/pull/43810) [@MadCcc](https://github.com/MadCcc)
-- 🆕 Form support `getFieldsValue({ strict: true })` to support only Item bind values. [#43828](https://github.com/ant-design/ant-design/pull/43828)
 - 🆕 RangePicker `presets` support callback functions. [#43476](https://github.com/ant-design/ant-design/pull/43476) [@Wxh16144](https://github.com/Wxh16144)
 - 🆕 Image `PreviewType` support `movable`. [#43823](https://github.com/ant-design/ant-design/pull/43823) [@linxianxi](https://github.com/linxianxi)
 - 🆕 Slider `tooltip` support `autoAdjustOverflow` prop. [#43788](https://github.com/ant-design/ant-design/pull/43788)
-- 🆕 ConfigProvider support `wave` to customize wave effect. [#43784](https://github.com/
 - 🆕 Added the `selectionsIcon` property to the Transfer component to support custom icons for the dropdown menu. [#43773](https://github.com/ant-design/ant-design/pull/43773) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🗑 Select, Tree-Select and Cascader deprecated `showArrow` prop. Now suffix arrow should be configured with `suffixIcon`. [#43520](https://github.com/ant-design/ant-design/pull/43520) [@MuxinFeng](https://github.com/MuxinFeng)
 - 🐞 Optimized the import method for `@ant-design/icons` to avoid importing all icons. [#43915](https://github.com/ant-design/ant-design/pull/43915) [@ssxenon01](https://github.com/ssxenon01)
