@@ -73,6 +73,12 @@ exports[`renders components/button/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/button/demo/basic.tsx correctly 2`] = `
+[
+  "Warning: hello world!",
+]
+`;
+
 exports[`renders components/button/demo/block.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -158,6 +164,8 @@ exports[`renders components/button/demo/block.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/button/demo/block.tsx correctly 2`] = `[]`;
 
 exports[`renders components/button/demo/chinese-chars-loading.tsx correctly 1`] = `
 <div
@@ -377,6 +385,8 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx correctly 1`] 
 </div>
 `;
 
+exports[`renders components/button/demo/chinese-chars-loading.tsx correctly 2`] = `[]`;
+
 exports[`renders components/button/demo/danger.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -450,6 +460,8 @@ exports[`renders components/button/demo/danger.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/button/demo/danger.tsx correctly 2`] = `[]`;
+
 exports[`renders components/button/demo/debug-block.tsx correctly 1`] = `
 <div
   class="ant-form-item"
@@ -509,6 +521,8 @@ exports[`renders components/button/demo/debug-block.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/button/demo/debug-block.tsx correctly 2`] = `[]`;
 
 exports[`renders components/button/demo/debug-icon.tsx correctly 1`] = `
 Array [
@@ -964,6 +978,8 @@ Array [
 ]
 `;
 
+exports[`renders components/button/demo/debug-icon.tsx correctly 2`] = `[]`;
+
 exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -1319,6 +1335,8 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/button/demo/disabled.tsx correctly 2`] = `[]`;
+
 exports[`renders components/button/demo/ghost.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center site-button-ghost-wrapper"
@@ -1378,6 +1396,8 @@ exports[`renders components/button/demo/ghost.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/button/demo/ghost.tsx correctly 2`] = `[]`;
 
 exports[`renders components/button/demo/icon.tsx correctly 1`] = `
 <div
@@ -1727,6 +1747,8 @@ exports[`renders components/button/demo/icon.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/button/demo/icon.tsx correctly 2`] = `[]`;
+
 exports[`renders components/button/demo/legacy-group.tsx correctly 1`] = `
 Array [
   <div
@@ -1983,6 +2005,8 @@ Array [
 ]
 `;
 
+exports[`renders components/button/demo/legacy-group.tsx correctly 2`] = `[]`;
+
 exports[`renders components/button/demo/loading.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -2196,6 +2220,8 @@ exports[`renders components/button/demo/loading.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/button/demo/loading.tsx correctly 2`] = `[]`;
+
 exports[`renders components/button/demo/multiple.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -2272,6 +2298,8 @@ exports[`renders components/button/demo/multiple.tsx correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/button/demo/multiple.tsx correctly 2`] = `[]`;
 
 exports[`renders components/button/demo/size.tsx correctly 1`] = `
 Array [
@@ -2595,3 +2623,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/button/demo/size.tsx correctly 2`] = `[]`;

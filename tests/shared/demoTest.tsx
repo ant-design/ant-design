@@ -7,7 +7,7 @@ import { renderToString } from 'react-dom/server';
 import { kebabCase } from 'lodash';
 import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
-import { excludeWarning } from './excludeWarning';
+import { excludeWarning, isSafeWarning } from './excludeWarning';
 import rootPropsTest from './rootPropsTest';
 import { resetWarned } from '../../components/_util/warning';
 
@@ -76,7 +76,9 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         // Snapshot of warning info
         if (!doInject) {
           const errorMessageSet = new Set(errSpy.mock.calls.map((args) => args[0]));
-          const errorMessages = Array.from(errorMessageSet).sort();
+          const errorMessages = Array.from(errorMessageSet)
+            .filter((msg) => !isSafeWarning(msg))
+            .sort();
 
           expect(errorMessages).toMatchSnapshot();
         }
