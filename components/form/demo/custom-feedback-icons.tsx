@@ -2,7 +2,7 @@ import React from 'react';
 import { uniqueId } from 'lodash';
 
 import { createStyles, css } from 'antd-style';
-import { AlertFilled } from '@ant-design/icons';
+import { AlertFilled, CloseSquareFilled } from '@ant-design/icons';
 import { Button, Form, Input, Tooltip } from 'antd';
 
 const useStyle = createStyles(() => ({
@@ -18,9 +18,34 @@ const App: React.FC = () => {
   const { styles } = useStyle();
 
   return (
-    <Form name="custom-feedback-icons" form={form} style={{ maxWidth: 600 }}>
+    <Form
+      name="custom-feedback-icons"
+      form={form}
+      style={{ maxWidth: 600 }}
+      feedbackIcons={({ errors }) => ({
+        error: (
+          <Tooltip
+            key="tooltipKey"
+            title={errors?.map((error) => <div key={uniqueId()}>{error}</div>)}
+            color="red"
+          >
+            <CloseSquareFilled />
+          </Tooltip>
+        ),
+      })}
+    >
       <Form.Item
         name="custom-feedback-test-item"
+        label="Test"
+        className={styles['custom-feedback-icons']}
+        rules={[{ required: true, type: 'email' }, { min: 10 }]}
+        help=""
+        hasFeedback
+      >
+        <Input />
+      </Form.Item>
+      <Form.Item
+        name="custom-feedback-test-item2"
         label="Test"
         className={styles['custom-feedback-icons']}
         rules={[{ required: true, type: 'email' }, { min: 10 }]}
@@ -31,7 +56,7 @@ const App: React.FC = () => {
               <Tooltip
                 key="tooltipKey"
                 title={errors?.map((error) => <div key={uniqueId()}>{error}</div>)}
-                color="red"
+                color="pink"
               >
                 <AlertFilled />
               </Tooltip>

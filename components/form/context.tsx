@@ -7,7 +7,7 @@ import * as React from 'react';
 import { useContext, useMemo } from 'react';
 import type { ColProps } from '../grid/col';
 import type { FormInstance, RequiredMark } from './Form';
-import type { ValidateStatus } from './FormItem';
+import type { ValidateStatus, FeedbackIcons } from './FormItem';
 import type { FormLabelAlign } from './interface';
 
 /** Form Context. Set top form style and pass to Form Item usage. */
@@ -22,6 +22,7 @@ export interface FormContextProps {
   requiredMark?: RequiredMark;
   itemRef: (name: (string | number)[]) => (node: React.ReactElement) => void;
   form?: FormInstance;
+  feedbackIcons?: FeedbackIcons;
 }
 
 export const FormContext = React.createContext<FormContextProps>({

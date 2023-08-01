@@ -1789,19 +1789,37 @@ describe('Form', () => {
       }, [trigger]);
 
       return (
-        <Form ref={form}>
+        <Form
+          ref={form}
+          feedbackIcons={() => ({
+            error: <AlertFilled id="custom-error-icon" />,
+          })}
+        >
+          <Form.Item
+            label="Success"
+            name="name1"
+            hasFeedback
+            rules={[
+              {
+                required: true,
+                message: 'Please input your value',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
           <Form.Item
             label="Success"
             name="name1"
             hasFeedback={{
               icons: () => ({
-                error: <AlertFilled id="custom-error-icon" />,
+                error: <AlertFilled id="custom-error-icon2" />,
               }),
             }}
             rules={[
               {
                 required: true,
-                message: 'Please input your value',
+                message: 'Please input your value 2',
               },
             ]}
           >
@@ -1817,8 +1835,8 @@ describe('Form', () => {
     rerender(<App trigger />);
     await waitFakeTimer();
 
-    expect(container.querySelectorAll('.ant-form-item-has-feedback').length).toBe(1);
-    expect(container.querySelectorAll('#custom-error-icon').length).toBe(1);
+    expect(container.querySelectorAll('.ant-form-item-has-feedback').length).toBe(2);
+    expect(container.querySelectorAll('#custom-error-icon, #custom-error-icon2').length).toBe(2);
   });
 
   // https://github.com/ant-design/ant-design/issues/41621
