@@ -8,7 +8,7 @@ function rehypeAntd(): UnifiedTransformer<HastRoot> {
   return (tree, vFile) => {
     const { filename } = vFile.data.frontmatter as any;
 
-    unistUtilVisit.visit(tree, 'element', (node) => {
+    unistUtilVisit.visit(tree, 'element', (node, i, parent) => {
       if (node.tagName === 'DumiDemoGrid') {
         // replace DumiDemoGrid to DemoWrapper, to implement demo toolbar
         node.tagName = 'DemoWrapper';
@@ -66,6 +66,20 @@ function rehypeAntd(): UnifiedTransformer<HastRoot> {
         node.tagName = 'LocaleLink';
       } else if (node.type === 'element' && node.tagName === 'video') {
         node.tagName = 'VideoPlayer';
+      } else if (node.tagName === 'SourceCode') {
+        const { lang } = node.properties;
+        if (lang === 'sandpack') {
+          parent!.children.splice(i!, 1, {
+            type: 'element',
+            tagName: 'Sandpack',
+            children: [
+              {
+                type: 'text',
+                value: (node.children[0] as any).value,
+              },
+            ],
+          });
+        }
       }
     });
   };
