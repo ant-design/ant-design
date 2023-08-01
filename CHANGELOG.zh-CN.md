@@ -19,7 +19,7 @@ timeline: true
 
 `2023-08-01`
 
-- 🔥 组件 Token 支持配置 `algorithm`，和全局 Token 一样可用算法计算派生。[#43810](https://github.com/ant-design/ant-design/pull/43810) [@MadCcc](https://github.com/MadCcc)
+- 🔥 组件 Token 支持配置 `algorithm` 参数，添加配置即可像全局 Token 一样由部分修改的 token 计算派生 token 的值并用于组件样式中。[#43810](https://github.com/ant-design/ant-design/pull/43810) [@MadCcc](https://github.com/MadCcc)
 - 🔥 Modal hooks 方法支持 `await` 调用。[#43470](https://github.com/ant-design/ant-design/pull/43470)
 - 🔥 ConfigProvider 支持 `wave` 配置以自定义水波纹效果。[#43784](https://github.com/ant-design/ant-design/pull/43784)
 - 🆕 Form 新增 `getFieldsValue({ strict: true })` 以支持获取仅通过 Item 绑定的字段。[#43828](https://github.com/ant-design/ant-design/pull/43828)
