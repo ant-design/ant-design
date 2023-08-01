@@ -23,7 +23,7 @@ timeline: true
 - 🆕 ColorPicker implement `disabledAlpha` API. [#43355](https://github.com/ant-design/ant-design/pull/43355) [@RedJue](https://github.com/RedJue)
 - 🆕 Modal hooks function support `await` call. [#43470](https://github.com/ant-design/ant-design/pull/43470)
 - 🆕 Avatar.Group support `shape` props. [#43817](https://github.com/ant-design/ant-design/pull/43817) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🆕 AutoComplete/Cascader/DatePicker/Input/Input.Textarea/TimePicker/TreeSelect support `allowClear` prop to customize clear button。[#43582](https://github.com/ant-design/ant-design/discussions/43582) [@kiner-tang](https://github.com/kiner-tang)
+- 🆕 AutoComplete/Cascader/DatePicker/Input.Textarea/TimePicker/TreeSelect support `allowClear` prop to customize clear button。[#43582](https://github.com/ant-design/ant-design/discussions/43582) [@kiner-tang](https://github.com/kiner-tang)
 - 🆕 Component Token support `algorithm` to calculate derivative tokens same as global. [#43810](https://github.com/ant-design/ant-design/pull/43810) [@MadCcc](https://github.com/MadCcc)
 - 🆕 Form support `getFieldsValue({ strict: true })` to support only Item bind values. [#43828](https://github.com/ant-design/ant-design/pull/43828)
 - 🆕 RangePicker `presets` support callback functions. [#43476](https://github.com/ant-design/ant-design/pull/43476) [@Wxh16144](https://github.com/Wxh16144)
