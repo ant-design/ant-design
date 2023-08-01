@@ -1819,7 +1819,7 @@ describe('Form', () => {
             rules={[
               {
                 required: true,
-                message: 'Please input your value 2',
+                message: 'Please input your value 3',
               },
             ]}
           >
