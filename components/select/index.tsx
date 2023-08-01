@@ -99,6 +99,7 @@ const InternalSelect = <
     popupMatchSelectWidth,
     direction: propDirection,
     style,
+    allowClear,
     ...props
   }: SelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -171,6 +172,8 @@ const InternalSelect = <
     prefixCls,
     showArrow: props.showArrow,
   });
+
+  const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
   const selectProps = omit(props as typeof props & { itemIcon: React.ReactNode }, [
     'suffixIcon',
@@ -259,7 +262,7 @@ const InternalSelect = <
       suffixIcon={suffixIcon}
       menuItemSelectedIcon={itemIcon}
       removeIcon={removeIcon}
-      clearIcon={clearIcon}
+      allowClear={mergedAllowClear}
       notFoundContent={mergedNotFound}
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}

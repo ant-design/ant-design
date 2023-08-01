@@ -106,6 +106,7 @@ const InternalTreeSelect = <
     builtinPlacements,
     dropdownMatchSelectWidth,
     popupMatchSelectWidth,
+    allowClear,
     ...props
   }: TreeSelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -190,6 +191,8 @@ const InternalTreeSelect = <
     prefixCls,
   });
 
+  const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
+
   // ===================== Empty =====================
   let mergedNotFound: React.ReactNode;
   if (notFoundContent !== undefined) {
@@ -268,7 +271,7 @@ const InternalTreeSelect = <
       multiple={isMultiple}
       placement={memoizedPlacement}
       removeIcon={removeIcon}
-      clearIcon={clearIcon}
+      allowClear={mergedAllowClear}
       switcherIcon={renderSwitcherIcon}
       showTreeIcon={treeIcon as any}
       notFoundContent={mergedNotFound}

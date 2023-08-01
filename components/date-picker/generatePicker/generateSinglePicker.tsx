@@ -139,12 +139,11 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
             placeholder={getPlaceholder(locale, mergedPicker, placeholder)}
             suffixIcon={suffixNode}
             dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
-            clearIcon={<CloseCircleFilled />}
             prevIcon={<span className={`${prefixCls}-prev-icon`} />}
             nextIcon={<span className={`${prefixCls}-next-icon`} />}
             superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
             superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-            allowClear
+            allowClear={{ clearIcon: <CloseCircleFilled /> }}
             transitionName={`${rootPrefixCls}-slide-up`}
             {...additionalProps}
             {...restProps}

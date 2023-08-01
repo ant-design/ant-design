@@ -116,12 +116,11 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
         dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
         placeholder={getRangePlaceholder(locale, picker, placeholder)}
         suffixIcon={suffixNode}
-        clearIcon={<CloseCircleFilled />}
         prevIcon={<span className={`${prefixCls}-prev-icon`} />}
         nextIcon={<span className={`${prefixCls}-next-icon`} />}
         superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
         superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-        allowClear
+        allowClear={{ clearIcon: <CloseCircleFilled /> }}
         transitionName={`${rootPrefixCls}-slide-up`}
         {...restProps}
         {...additionalOverrideProps}
