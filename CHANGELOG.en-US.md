@@ -31,7 +31,7 @@ timeline: true
 - 🆕 Slider `tooltip` support `autoAdjustOverflow` prop. [#43788](https://github.com/ant-design/ant-design/pull/43788)
 - 🆕 ConfigProvider support `wave` to customize wave effect. [#43784](https://github.com/
 - 🆕 Added the `selectionsIcon` property to the Transfer component to support custom icons for the dropdown menu. [#43773](https://github.com/ant-design/ant-design/pull/43773) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🗑 Select, Tree-Select and Cascader component deprecated `showArrow` prop. [#43520](https://github.com/ant-design/ant-design/pull/43520) [@MuxinFeng](https://github.com/MuxinFeng)
+- 🗑 Select, Tree-Select and Cascader deprecated `showArrow` prop. Now suffix arrow should be configured with `suffixIcon`. [#43520](https://github.com/ant-design/ant-design/pull/43520) [@MuxinFeng](https://github.com/MuxinFeng)
 - 🐞 Optimized the import method for `@ant-design/icons` to avoid importing all icons. [#43915](https://github.com/ant-design/ant-design/pull/43915) [@ssxenon01](https://github.com/ssxenon01)
 - 🐞 Fix Anchor not trigger `getCurrentAnchor` when scroll. [#43916](https://github.com/ant-design/ant-design/pull/43916)
 - 🐞 Fix Tooltip `hover` not trigger on `disabled` element. [#43872](https://github.com/ant-design/ant-design/pull/43872)
