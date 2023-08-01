@@ -26,7 +26,7 @@ timeline: true
 - 🆕 Descriptions 支持 `items` 属性。[#43483](https://github.com/ant-design/ant-design/pull/43483) [@RedJue](https://github.com/RedJue)
 - 🆕 ColorPicker 支持 `disabledAlpha` 属性。[#43355](https://github.com/ant-design/ant-design/pull/43355) [@RedJue](https://github.com/RedJue)
 - 🆕 Avatar.Group 支持设置形状。[#43817](https://github.com/ant-design/ant-design/pull/43817) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🆕 AutoComplete/Cascader/DatePicker/Input.Textarea/TimePicker/TreeSelect 组件均已支持通过 `allowClear` 属性的自定义渲染清除按钮。[#43582](https://github.com/ant-design/ant-design/discussions/43582) [@kiner-tang](https://github.com/kiner-tang)
+- 🆕 AutoComplete/Cascader/DatePicker/Input.Textarea/TimePicker/TreeSelect 组件均已支持通过 `allowClear.clearIcon` 属性自定义清除按钮。[#43582](https://github.com/ant-design/ant-design/discussions/43582) [@kiner-tang](https://github.com/kiner-tang)
 - 🆕 RangePicker `presets` 属性支持回调函数。[#43476](https://github.com/ant-design/ant-design/pull/43476) [@Wxh16144](https://github.com/Wxh16144)
 - 🆕 Image `PreviewType` 支持 `movable` 属性。[#43823](https://github.com/ant-design/ant-design/pull/43823) [@linxianxi](https://github.com/linxianxi)
 - 🆕 Slider `tooltip` 支持配置 `autoAdjustOverflow` 属性。[#43788](https://github.com/ant-design/ant-design/pull/43788)
