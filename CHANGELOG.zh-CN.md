@@ -41,7 +41,7 @@ timeline: true
 - 🐞 修复 Select `aria-activedescendant` 缺少有效值的问题。[#43800](https://github.com/ant-design/ant-design/pull/43800)
 - 🐞 修复 Select 弹出框翻转时动画不正确的问题。[#43764](https://github.com/ant-design/ant-design/pull/43764)
 - 🐞 修复 `Layout.Header` a11y `role` 属性。[#43749](https://github.com/ant-design/ant-design/pull/43749) [@khalibloo](https://github.com/khalibloo)
-- 💄 修复 InputNumber 在圆角不同下的样式异常。[#43875](https://github.com/ant-design/ant-design/pull/43875) [@yee94](https://github.com/yee94)
+- 🐞 修复 InputNumber 在圆角不同下的样式异常。[#43875](https://github.com/ant-design/ant-design/pull/43875) [@yee94](https://github.com/yee94)
 - 💄 修复和其他使用 `@ant-design/cssinjs` 的组件库混合使用，antd 的样式总是会插入在最前面，以避免加载顺序导致的样式覆盖问题。[#43847](https://github.com/ant-design/ant-design/pull/43847)
 - 💄 优化 message 和 notification 渲染逻辑，现在在 SSR 环境下不会导出样式。[#43808](https://github.com/ant-design/ant-design/pull/43808)
 - TypeScript
