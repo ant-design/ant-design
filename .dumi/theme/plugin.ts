@@ -116,11 +116,14 @@ const RoutesPlugin = (api: IApi) => {
         // fs.writeFileSync(tmpFilePath, file.content, 'utf8');
 
         // extract all emotion style tags from body
-        file.content = file.content.replace(/<style data-emotion[\S\s]+?<\/style>/g, (s) => {
-          globalStyles += s;
+        file.content = file.content.replace(
+          /<style (data-emotion|data-sandpack)[\S\s]+?<\/style>/g,
+          (s) => {
+            globalStyles += s;
 
-          return '';
-        });
+            return '';
+          },
+        );
 
         // insert emotion style tags to head
         file.content = file.content.replace('</head>', `${globalStyles}</head>`);
