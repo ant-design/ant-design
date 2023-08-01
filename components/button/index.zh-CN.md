@@ -11,6 +11,8 @@ group:
   order: 1
 ---
 
+<ComponentChangelog component="Button"></ComponentChangelog>
+
 按钮用于开始一个即时操作。
 
 ## 何时使用
