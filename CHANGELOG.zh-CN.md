@@ -32,7 +32,7 @@ timeline: true
 - 🆕 Slider `tooltip` 支持配置 `autoAdjustOverflow` 属性。[#43788](https://github.com/ant-design/ant-design/pull/43788)
 - 🆕 Transfer 组件新增 `selectionsIcon` 属性以支持自定义下拉菜单图标。[#43773](https://github.com/ant-design/ant-design/pull/43773) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🗑 Select、Tree-Select 和 Cascader 组件废弃 `showArrow` 属性，可由 `suffixIcon` 统一配置。[#43520](https://github.com/ant-design/ant-design/pull/43520) [@MuxinFeng](https://github.com/MuxinFeng)
-- 🐞 优化 `@ant-design/icons` 导入写法以避免 Tree Shaking 在 Next.js 中失效的问题。。[#43915](https://github.com/ant-design/ant-design/pull/43915) [@ssxenon01](https://github.com/ssxenon01)
+- 🐞 优化 `@ant-design/icons` 导入写法以避免 Tree Shaking 在 Next.js 中失效的问题。[#43915](https://github.com/ant-design/ant-design/pull/43915) [@ssxenon01](https://github.com/ssxenon01)
 - 🐞 修复 Anchor 在滚动时无法触发 `getCurrentAnchor` 的问题。[#43916](https://github.com/ant-design/ant-design/pull/43916)
 - 🐞 修复 Tooltip hover 时无法在 `disabled` 元素上触发的问题。[#43872](https://github.com/ant-design/ant-design/pull/43872)
 - 🐞 修复 ColorPicker 在更改值时未调用 `onChangeComplete` 回调的问题。[#43867](https://github.com/ant-design/ant-design/pull/43867) [@RedJue](https://github.com/RedJue)
