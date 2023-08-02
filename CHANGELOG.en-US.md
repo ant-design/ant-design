@@ -40,6 +40,7 @@ timeline: true
 - 🐞 Fix Slide description info and slider handle overlap issue. [#43780](https://github.com/ant-design/ant-design/pull/43780) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 Fix InputNumber handler style in large size. [#43875](https://github.com/ant-design/ant-design/pull/43875) [@yee94](https://github.com/yee94)
 - 🐞 Fix Select popup flip position motion not correct. [#43764](https://github.com/ant-design/ant-design/pull/43764)
+- 💄 Optimized the design of icons including CloseCircleFilled/CloseSquareFilled/CloseOutlined/CloseCircleOutlined/CloseSquareOutlined/ExportOutlined/ImportOutlined. [824500](https://github.com/ant-design/ant-design-icons/commit/824500349894a87562f033dbdc5e3c5d301a2f5c)
 - 💄 Fix when using with other component libraries that use `@ant-design/cssinjs`, antd styles will always be inserted at the top to avoid style override issues caused by loading order. [#43847](https://github.com/ant-design/ant-design/pull/43847)
 - 💄 Optimize message and notification to not to extract style in SSR. [#43808](https://github.com/ant-design/ant-design/pull/43808)
 - ⌨️ Fix Select `aria-activedescendant` didn't conform to valid value. [#43800](https://github.com/ant-design/ant-design/pull/43800)
