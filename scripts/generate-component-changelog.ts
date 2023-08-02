@@ -89,6 +89,7 @@ const miscKeys = [
     // Group check
     if (line.startsWith('- ') && lines[i + 1].startsWith('  - ')) {
       lastGroup = line.replace('- ', '');
+      console.log('Group:', lastGroup);
       continue;
     }
 
