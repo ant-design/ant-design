@@ -103,6 +103,8 @@ exports[`renders components/badge/demo/basic.tsx extend context correctly 1`] = 
 </div>
 `;
 
+exports[`renders components/badge/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/change.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -302,6 +304,8 @@ exports[`renders components/badge/demo/change.tsx extend context correctly 1`] =
   </div>
 </div>
 `;
+
+exports[`renders components/badge/demo/change.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/badge/demo/colorful.tsx extend context correctly 1`] = `
 Array [
@@ -625,6 +629,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/badge/demo/colorful.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/badge/demo/colorful-with-count-debug.tsx extend context correctly 1`] = `
 Array [
@@ -1382,6 +1388,8 @@ Array [
 ]
 `;
 
+exports[`renders components/badge/demo/colorful-with-count-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/dot.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -1439,6 +1447,8 @@ exports[`renders components/badge/demo/dot.tsx extend context correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/badge/demo/dot.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/link.tsx extend context correctly 1`] = `
 <a
   href="#"
@@ -1473,6 +1483,8 @@ exports[`renders components/badge/demo/link.tsx extend context correctly 1`] = `
   </span>
 </a>
 `;
+
+exports[`renders components/badge/demo/link.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
 <div
@@ -1817,6 +1829,8 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/badge/demo/mix.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -1968,6 +1982,8 @@ exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 1
 </div>
 `;
 
+exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/offset.tsx extend context correctly 1`] = `
 <span
   class="ant-badge"
@@ -1999,6 +2015,8 @@ exports[`renders components/badge/demo/offset.tsx extend context correctly 1`] =
   </sup>
 </span>
 `;
+
+exports[`renders components/badge/demo/offset.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`] = `
 <div
@@ -2120,6 +2138,8 @@ exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`]
   </div>
 </div>
 `;
+
+exports[`renders components/badge/demo/overflow.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] = `
 <div
@@ -2472,6 +2492,8 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
 </div>
 `;
 
+exports[`renders components/badge/demo/ribbon.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -2635,6 +2657,8 @@ exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/size.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2706,6 +2730,8 @@ exports[`renders components/badge/demo/size.tsx extend context correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/badge/demo/size.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/badge/demo/status.tsx extend context correctly 1`] = `
 Array [
@@ -2864,6 +2890,8 @@ Array [
 ]
 `;
 
+exports[`renders components/badge/demo/status.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/title.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2945,3 +2973,5 @@ exports[`renders components/badge/demo/title.tsx extend context correctly 1`] = 
   </div>
 </div>
 `;
+
+exports[`renders components/badge/demo/title.tsx extend context correctly 2`] = `[]`;

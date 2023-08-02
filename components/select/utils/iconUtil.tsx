@@ -6,6 +6,7 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import type { ReactNode } from 'react';
 import * as React from 'react';
+import warning from '../../_util/warning';
 
 type RenderNode = React.ReactNode | ((props: any) => React.ReactNode);
 
@@ -21,6 +22,7 @@ export default function getIcons({
   showSuffixIcon,
   feedbackIcon,
   showArrow,
+  componentName,
 }: {
   suffixIcon?: React.ReactNode;
   clearIcon?: RenderNode;
@@ -33,7 +35,16 @@ export default function getIcons({
   prefixCls: string;
   showSuffixIcon?: boolean;
   showArrow?: boolean;
+  componentName: string;
 }) {
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !clearIcon,
+      componentName,
+      '`clearIcon` is deprecated, please use `allowClear={{ clearIcon: React.ReactNode }}` instead.',
+    );
+  }
+
   // Clear Icon
   const mergedClearIcon = clearIcon ?? <CloseCircleFilled />;
 

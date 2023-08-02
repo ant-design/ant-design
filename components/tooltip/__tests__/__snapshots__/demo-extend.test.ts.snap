@@ -438,6 +438,8 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
 </div>
 `;
 
+exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -506,6 +508,12 @@ exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend contex
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Tooltip] \`arrowPointAtCenter\` is deprecated, please use \`arrow={{ pointAtCenter: true }}\` instead.",
+]
 `;
 
 exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context correctly 1`] = `
@@ -649,6 +657,8 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context
 </div>
 `;
 
+exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tooltip/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <span>
@@ -675,6 +685,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/tooltip/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tooltip/demo/colorful.tsx extend context correctly 1`] = `
 Array [
@@ -1259,6 +1271,8 @@ Array [
 ]
 `;
 
+exports[`renders components/tooltip/demo/colorful.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tooltip/demo/destroy-tooltip-on-hide.tsx extend context correctly 1`] = `
 Array [
   <span>
@@ -1285,6 +1299,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/tooltip/demo/destroy-tooltip-on-hide.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tooltip/demo/disabled.tsx extend context correctly 1`] = `
 <div
@@ -1639,6 +1655,8 @@ exports[`renders components/tooltip/demo/disabled.tsx extend context correctly 1
   </div>
 </div>
 `;
+
+exports[`renders components/tooltip/demo/disabled.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tooltip/demo/placement.tsx extend context correctly 1`] = `
 <div>
@@ -2009,6 +2027,8 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/tooltip/demo/placement.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tooltip/demo/render-panel.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -2067,3 +2087,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/tooltip/demo/render-panel.tsx extend context correctly 2`] = `[]`;

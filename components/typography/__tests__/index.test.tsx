@@ -251,7 +251,7 @@ describe('Typography', () => {
           const onChange = jest.fn();
 
           const className = 'test';
-          const style = { padding: 'unset' };
+          const style: React.CSSProperties = { padding: 'unset' };
 
           const { container: wrapper } = render(
             <Paragraph

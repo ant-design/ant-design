@@ -196,7 +196,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const { childrenColumnName = 'children' } = mergedExpandable;
 
   const expandType = React.useMemo<ExpandType>(() => {
-    if (rawData.some((item) => (item as any)?.[childrenColumnName])) {
+    if (rawData.some((item) => item?.[childrenColumnName])) {
       return 'nest';
     }
 

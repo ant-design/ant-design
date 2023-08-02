@@ -137,7 +137,7 @@ export type { TabPaneProps, TabsProps } from './tabs';
 export { default as Tag } from './tag';
 export type { TagProps, TagType } from './tag';
 export { default as theme } from './theme';
-export type { GlobalToken } from './theme';
+export type { GlobalToken, MappingAlgorithm } from './theme';
 export { default as TimePicker } from './time-picker';
 export type { TimePickerProps, TimeRangePickerProps } from './time-picker';
 export { default as Timeline } from './timeline';

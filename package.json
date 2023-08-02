@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.7.3",
+  "version": "5.8.1",
   "packageManager": "^npm@9.0.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
@@ -110,7 +110,7 @@
   "dependencies": {
     "@ant-design/colors": "^7.0.0",
     "@ant-design/cssinjs": "^1.16.0",
-    "@ant-design/icons": "^5.1.0",
+    "@ant-design/icons": "^5.2.2",
     "@ant-design/react-slick": "~1.0.0",
     "@babel/runtime": "^7.18.3",
     "@ctrl/tinycolor": "^3.6.0",
@@ -162,6 +162,7 @@
     "@antv/g6": "^4.8.13",
     "@argos-ci/core": "^0.9.0",
     "@babel/eslint-plugin": "^7.19.1",
+    "@codesandbox/sandpack-react": "^2.6.9",
     "@dnd-kit/core": "^6.0.7",
     "@dnd-kit/modifiers": "^6.0.1",
     "@dnd-kit/sortable": "^7.0.2",
@@ -257,6 +258,7 @@
     "lz-string": "^1.4.4",
     "mockdate": "^3.0.0",
     "node-notifier": "^10.0.1",
+    "nprogress": "^0.2.0",
     "open": "^9.0.0",
     "prettier": "^3.0.0",
     "prettier-plugin-jsdoc": "^1.0.1",
@@ -311,11 +313,11 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "385 KiB"
+      "limit": "386 KiB"
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "445 KiB"
+      "limit": "446 KiB"
     }
   ],
   "tnpm": {

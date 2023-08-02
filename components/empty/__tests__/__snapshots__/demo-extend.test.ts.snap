@@ -75,6 +75,8 @@ exports[`renders components/empty/demo/basic.tsx extend context correctly 1`] = 
 </div>
 `;
 
+exports[`renders components/empty/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/empty/demo/config-provider.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -1081,6 +1083,8 @@ Array [
 ]
 `;
 
+exports[`renders components/empty/demo/config-provider.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/empty/demo/customize.tsx extend context correctly 1`] = `
 <div
   class="ant-empty"
@@ -1120,6 +1124,8 @@ exports[`renders components/empty/demo/customize.tsx extend context correctly 1`
   </div>
 </div>
 `;
+
+exports[`renders components/empty/demo/customize.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/empty/demo/description.tsx extend context correctly 1`] = `
 <div
@@ -1191,6 +1197,8 @@ exports[`renders components/empty/demo/description.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/empty/demo/description.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/empty/demo/simple.tsx extend context correctly 1`] = `
 <div
   class="ant-empty ant-empty-normal"
@@ -1238,3 +1246,5 @@ exports[`renders components/empty/demo/simple.tsx extend context correctly 1`] =
   </div>
 </div>
 `;
+
+exports[`renders components/empty/demo/simple.tsx extend context correctly 2`] = `[]`;

@@ -60,7 +60,7 @@ const App: React.FC = () => {
 
   const tagChild = tags.map(forMap);
 
-  const tagPlusStyle = {
+  const tagPlusStyle: React.CSSProperties = {
     background: token.colorBgContainer,
     borderStyle: 'dashed',
   };

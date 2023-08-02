@@ -93,6 +93,8 @@ Array [
 ]
 `;
 
+exports[`renders components/auto-complete/demo/allowClear.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/auto-complete/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -186,6 +188,8 @@ Array [
 ]
 `;
 
+exports[`renders components/auto-complete/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/auto-complete/demo/borderless.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-borderless ant-select-auto-complete ant-select-single ant-select-show-search"
@@ -231,6 +235,8 @@ exports[`renders components/auto-complete/demo/borderless.tsx extend context cor
   </div>
 </div>
 `;
+
+exports[`renders components/auto-complete/demo/borderless.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 1`] = `
 <div
@@ -595,6 +601,12 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
 </div>
 `;
 
+exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Select] \`dropdownMatchSelectWidth\` is deprecated. Please use \`popupMatchSelectWidth\` instead.",
+]
+`;
+
 exports[`renders components/auto-complete/demo/custom.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
@@ -639,6 +651,8 @@ exports[`renders components/auto-complete/demo/custom.tsx extend context correct
   </div>
 </div>
 `;
+
+exports[`renders components/auto-complete/demo/custom.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/form-debug.tsx extend context correctly 1`] = `
 <form
@@ -1853,6 +1867,12 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
 </form>
 `;
 
+exports[`renders components/auto-complete/demo/form-debug.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Input.Group] 'Input.Group' is deprecated. Please use 'Space.Compact' instead.",
+]
+`;
+
 exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
@@ -1975,6 +1995,8 @@ exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend con
 </div>
 `;
 
+exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/auto-complete/demo/options.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
@@ -2020,6 +2042,8 @@ exports[`renders components/auto-complete/demo/options.tsx extend context correc
   </div>
 </div>
 `;
+
+exports[`renders components/auto-complete/demo/options.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/render-panel.tsx extend context correctly 1`] = `
 <div
@@ -2194,6 +2218,16 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
 </div>
 `;
 
+exports[`renders components/auto-complete/demo/render-panel.tsx extend context correctly 2`] = `
+[
+  "Warning: Received \`%s\` for a non-boolean attribute \`%s\`.
+
+If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.
+
+If you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.%s",
+]
+`;
+
 exports[`renders components/auto-complete/demo/status.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -2293,6 +2327,8 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
 </div>
 `;
 
+exports[`renders components/auto-complete/demo/status.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
@@ -2376,4 +2412,10 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx extend con
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Select] \`dropdownMatchSelectWidth\` is deprecated. Please use \`popupMatchSelectWidth\` instead.",
+]
 `;
