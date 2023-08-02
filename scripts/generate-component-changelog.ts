@@ -4,7 +4,7 @@ import path from 'path';
 import fs from 'fs-extra';
 import { globSync } from 'glob';
 
-const output = '.dumi/public';
+const output = '.dumi/preset';
 
 // Collect components
 const componentNames = globSync(
@@ -60,90 +60,98 @@ const miscKeys = [
   '🇱🇹',
 ];
 
-function syncChangelog(sourceFile: string, targetFile: string) {
-  const content = fs.readFileSync(sourceFile).toString();
+(() => {
+  const missingChangelog = [];
 
-  // let lastGroup = '';
-  let lastVersion = '';
+  // Read & write components changelog
+  function syncChangelog(sourceFile: string, targetFile: string) {
+    const content = fs.readFileSync(sourceFile).toString();
 
-  // Split with lines
-  const lines = content.split(/[\n\r]+/).filter((line) => line.trim());
+    // let lastGroup = '';
+    let lastVersion = '';
 
-  // Changelog map
-  const componentChangelog: Record<string, { version: string; changelog: string }[]> = {};
-  Object.keys(componentNameMap).forEach((name) => {
-    componentChangelog[name] = [];
-  });
+    // Split with lines
+    const lines = content.split(/[\n\r]+/).filter((line) => line.trim());
 
-  for (let i = 0; i < lines.length; i += 1) {
-    const line = lines[i];
-
-    // Skip for v5 release
-    if (line === '## 5.0.0') {
-      break;
-    }
-
-    // Get version
-    if (line.startsWith('## ')) {
-      lastVersion = line.replace('## ', '');
-      continue;
-    }
-
-    // Start when get version
-    if (!lastVersion) {
-      continue;
-    }
-
-    // Group end
-    if (line.startsWith('- ')) {
-      // lastGroup = '';
-    }
-
-    // Group check
-    if (line.startsWith('- ') && lines[i + 1].startsWith('  - ')) {
-      // lastGroup = line.replace('- ', '');
-      continue;
-    }
-
-    // Filter not is changelog
-    if (!line.trim().startsWith('-') && !line.includes('github.')) {
-      continue;
-    }
-
-    // Collect Components
-    let matched = false;
+    // Changelog map
+    const componentChangelog: Record<string, { version: string; changelog: string }[]> = {};
     Object.keys(componentNameMap).forEach((name) => {
-      const matchKeys = componentNameMap[name];
-
-      if (matchKeys.some((key) => line.includes(key))) {
-        componentChangelog[name].push({
-          version: lastVersion,
-          changelog: line,
-        });
-        matched = true;
-      }
+      componentChangelog[name] = [];
     });
 
-    if (matched) {
-      continue;
+    for (let i = 0; i < lines.length; i += 1) {
+      const line = lines[i];
+
+      // Skip for v5 release
+      if (line === '## 5.0.0') {
+        break;
+      }
+
+      // Get version
+      if (line.startsWith('## ')) {
+        lastVersion = line.replace('## ', '');
+        continue;
+      }
+
+      // Start when get version
+      if (!lastVersion) {
+        continue;
+      }
+
+      // Group end
+      if (line.startsWith('- ')) {
+        // lastGroup = '';
+      }
+
+      // Group check
+      if (line.startsWith('- ') && lines[i + 1].startsWith('  - ')) {
+        // lastGroup = line.replace('- ', '');
+        continue;
+      }
+
+      // Filter not is changelog
+      if (!line.trim().startsWith('-') && !line.includes('github.')) {
+        continue;
+      }
+
+      // Collect Components
+      let matched = false;
+      Object.keys(componentNameMap).forEach((name) => {
+        const matchKeys = componentNameMap[name];
+
+        if (matchKeys.some((key) => line.includes(key))) {
+          componentChangelog[name].push({
+            version: lastVersion,
+            changelog: line,
+          });
+          matched = true;
+        }
+      });
+
+      if (matched) {
+        continue;
+      }
+
+      // Misc
+      if (miscKeys.some((key) => line.includes(key))) {
+        continue;
+      }
+
+      if (!matched) {
+        console.log('Miss Match:', line);
+        missingChangelog.push(line);
+      }
     }
 
-    // Misc
-    if (miscKeys.some((key) => line.includes(key))) {
-      continue;
-    }
+    // console.log(componentChangelog);
 
-    if (!matched) {
-      console.log(line);
-    }
+    fs.writeFileSync(path.join(output, targetFile), JSON.stringify(componentChangelog), 'utf-8');
   }
 
-  // console.log(componentChangelog);
-
-  fs.writeFileSync(path.join(output, targetFile), JSON.stringify(componentChangelog), 'utf-8');
-}
-
-(() => {
   syncChangelog('CHANGELOG.zh-CN.md', 'components-changelog-cn.json');
   syncChangelog('CHANGELOG.en-US.md', 'components-changelog-en.json');
+
+  if (missingChangelog.length) {
+    throw new Error('Component changelog miss match!');
+  }
 })();
