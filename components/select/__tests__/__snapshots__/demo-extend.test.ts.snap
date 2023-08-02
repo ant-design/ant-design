@@ -405,11 +405,7 @@ exports[`renders components/select/demo/automatic-tokenization.tsx extend contex
 </div>
 `;
 
-exports[`renders components/select/demo/automatic-tokenization.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/automatic-tokenization.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/basic.tsx extend context correctly 1`] = `
 <div
@@ -990,11 +986,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders components/select/demo/basic.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/bordered.tsx extend context correctly 1`] = `
 <div
@@ -1289,11 +1281,7 @@ exports[`renders components/select/demo/bordered.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders components/select/demo/bordered.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/bordered.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/coordinate.tsx extend context correctly 1`] = `
 <div
@@ -1612,11 +1600,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders components/select/demo/coordinate.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/coordinate.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context correctly 1`] = `
 <div
@@ -1823,11 +1807,7 @@ exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context 
 </div>
 `;
 
-exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/custom-tag-render.tsx extend context correctly 1`] = `
 <div
@@ -2110,11 +2090,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
 </div>
 `;
 
-exports[`renders components/select/demo/custom-tag-render.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/custom-tag-render.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/debug.tsx extend context correctly 1`] = `
 <div
@@ -2595,11 +2571,7 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders components/select/demo/debug.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/debug.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/debug-flip-shift.tsx extend context correctly 1`] = `
 <div
@@ -4407,11 +4379,7 @@ exports[`renders components/select/demo/debug-flip-shift.tsx extend context corr
 </div>
 `;
 
-exports[`renders components/select/demo/debug-flip-shift.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/debug-flip-shift.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/hide-selected.tsx extend context correctly 1`] = `
 <div
@@ -4581,11 +4549,7 @@ exports[`renders components/select/demo/hide-selected.tsx extend context correct
 </div>
 `;
 
-exports[`renders components/select/demo/hide-selected.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/hide-selected.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/label-in-value.tsx extend context correctly 1`] = `
 <div
@@ -4731,11 +4695,7 @@ exports[`renders components/select/demo/label-in-value.tsx extend context correc
 </div>
 `;
 
-exports[`renders components/select/demo/label-in-value.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/label-in-value.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/multiple.tsx extend context correctly 1`] = `
 <div
@@ -5804,11 +5764,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders components/select/demo/multiple.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/multiple.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/optgroup.tsx extend context correctly 1`] = `
 <div
@@ -5988,11 +5944,7 @@ exports[`renders components/select/demo/optgroup.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders components/select/demo/optgroup.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/optgroup.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/option-label-center.tsx extend context correctly 1`] = `
 <div
@@ -6179,11 +6131,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
 </div>
 `;
 
-exports[`renders components/select/demo/option-label-center.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/option-label-center.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/option-label-prop.tsx extend context correctly 1`] = `
 <div
@@ -6490,11 +6438,7 @@ exports[`renders components/select/demo/option-label-prop.tsx extend context cor
 </div>
 `;
 
-exports[`renders components/select/demo/option-label-prop.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/option-label-prop.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/placement.tsx extend context correctly 1`] = `
 Array [
@@ -6731,7 +6675,6 @@ Array [
 exports[`renders components/select/demo/placement.tsx extend context correctly 2`] = `
 [
   "Warning: [antd: Select] \`dropdownMatchSelectWidth\` is deprecated. Please use \`popupMatchSelectWidth\` instead.",
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
 ]
 `;
 
@@ -7025,11 +6968,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
 </div>
 `;
 
-exports[`renders components/select/demo/placement-debug.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/placement-debug.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/responsive.tsx extend context correctly 1`] = `
 <div
@@ -8145,11 +8084,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders components/select/demo/responsive.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/responsive.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/search.tsx extend context correctly 1`] = `
 <div
@@ -8307,11 +8242,7 @@ exports[`renders components/select/demo/search.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders components/select/demo/search.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/search.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/search-box.tsx extend context correctly 1`] = `
 <div
@@ -8359,11 +8290,7 @@ exports[`renders components/select/demo/search-box.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders components/select/demo/search-box.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/search-box.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/search-sort.tsx extend context correctly 1`] = `
 <div
@@ -8573,11 +8500,7 @@ exports[`renders components/select/demo/search-sort.tsx extend context correctly
 </div>
 `;
 
-exports[`renders components/select/demo/search-sort.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/search-sort.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/select-users.tsx extend context correctly 1`] = `
 <div
@@ -8669,11 +8592,7 @@ exports[`renders components/select/demo/select-users.tsx extend context correctl
 </div>
 `;
 
-exports[`renders components/select/demo/select-users.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/select-users.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/size.tsx extend context correctly 1`] = `
 Array [
@@ -10385,11 +10304,7 @@ Array [
 ]
 `;
 
-exports[`renders components/select/demo/size.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/size.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/status.tsx extend context correctly 1`] = `
 <div
@@ -10640,11 +10555,7 @@ exports[`renders components/select/demo/status.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders components/select/demo/status.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/status.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] = `
 <div
@@ -10956,11 +10867,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders components/select/demo/suffix.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/suffix.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/tags.tsx extend context correctly 1`] = `
 <div
@@ -11369,8 +11276,4 @@ exports[`renders components/select/demo/tags.tsx extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders components/select/demo/tags.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/select/demo/tags.tsx extend context correctly 2`] = `[]`;
