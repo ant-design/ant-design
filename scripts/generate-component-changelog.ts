@@ -144,6 +144,6 @@ function syncChangelog(sourceFile: string, targetFile: string) {
 }
 
 (() => {
-  // syncChangelog('CHANGELOG.zh-CN.md', 'components-changelog-cn.json');
+  syncChangelog('CHANGELOG.zh-CN.md', 'components-changelog-cn.json');
   syncChangelog('CHANGELOG.en-US.md', 'components-changelog-en.json');
 })();
