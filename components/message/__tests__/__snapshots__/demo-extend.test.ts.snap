@@ -75,6 +75,8 @@ Array [
 ]
 `;
 
+exports[`renders components/message/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/message/demo/custom-style.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-default"
@@ -85,6 +87,8 @@ exports[`renders components/message/demo/custom-style.tsx extend context correct
   </span>
 </button>
 `;
+
+exports[`renders components/message/demo/custom-style.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/message/demo/duration.tsx extend context correctly 1`] = `
 <button
@@ -97,6 +101,8 @@ exports[`renders components/message/demo/duration.tsx extend context correctly 1
 </button>
 `;
 
+exports[`renders components/message/demo/duration.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/message/demo/hooks.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -107,6 +113,8 @@ exports[`renders components/message/demo/hooks.tsx extend context correctly 1`] 
   </span>
 </button>
 `;
+
+exports[`renders components/message/demo/hooks.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/message/demo/info.tsx extend context correctly 1`] = `
 <button
@@ -119,6 +127,8 @@ exports[`renders components/message/demo/info.tsx extend context correctly 1`] =
 </button>
 `;
 
+exports[`renders components/message/demo/info.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/message/demo/loading.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-default"
@@ -129,6 +139,8 @@ exports[`renders components/message/demo/loading.tsx extend context correctly 1`
   </span>
 </button>
 `;
+
+exports[`renders components/message/demo/loading.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/message/demo/other.tsx extend context correctly 1`] = `
 <div
@@ -175,6 +187,8 @@ exports[`renders components/message/demo/other.tsx extend context correctly 1`] 
 </div>
 `;
 
+exports[`renders components/message/demo/other.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/message/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   class="ant-message-notice ant-message-notice-pure-panel"
@@ -213,6 +227,8 @@ exports[`renders components/message/demo/render-panel.tsx extend context correct
 </div>
 `;
 
+exports[`renders components/message/demo/render-panel.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/message/demo/thenable.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-default"
@@ -224,6 +240,8 @@ exports[`renders components/message/demo/thenable.tsx extend context correctly 1
 </button>
 `;
 
+exports[`renders components/message/demo/thenable.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/message/demo/update.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -234,3 +252,5 @@ exports[`renders components/message/demo/update.tsx extend context correctly 1`]
   </span>
 </button>
 `;
+
+exports[`renders components/message/demo/update.tsx extend context correctly 2`] = `[]`;

@@ -233,6 +233,8 @@ Array [
 ]
 `;
 
+exports[`renders components/steps/demo/clickable.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/steps/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -944,6 +946,8 @@ Array [
 ]
 `;
 
+exports[`renders components/steps/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/steps/demo/customized-progress-dot.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical ant-steps-dot"
@@ -1195,6 +1199,8 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
 </div>
 `;
 
+exports[`renders components/steps/demo/customized-progress-dot.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/steps/demo/error.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical"
@@ -1340,6 +1346,8 @@ exports[`renders components/steps/demo/error.tsx extend context correctly 1`] = 
   </div>
 </div>
 `;
+
+exports[`renders components/steps/demo/error.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/steps/demo/icon.tsx extend context correctly 1`] = `
 <div
@@ -1535,6 +1543,8 @@ exports[`renders components/steps/demo/icon.tsx extend context correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/steps/demo/icon.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] = `
 <div>
@@ -2385,6 +2395,8 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
 </div>
 `;
 
+exports[`renders components/steps/demo/inline.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/steps/demo/label-placement.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -2816,6 +2828,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/steps/demo/label-placement.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/steps/demo/nav.tsx extend context correctly 1`] = `
 Array [
@@ -3278,6 +3292,8 @@ Array [
 ]
 `;
 
+exports[`renders components/steps/demo/nav.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/steps/demo/progress.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical ant-steps-with-progress"
@@ -3463,6 +3479,8 @@ exports[`renders components/steps/demo/progress.tsx extend context correctly 1`]
   </div>
 </div>
 `;
+
+exports[`renders components/steps/demo/progress.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/steps/demo/progress-debug.tsx extend context correctly 1`] = `
 Array [
@@ -4262,6 +4280,8 @@ Array [
 ]
 `;
 
+exports[`renders components/steps/demo/progress-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/steps/demo/progress-dot.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -4566,6 +4586,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/steps/demo/progress-dot.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/steps/demo/progress-dot-small.tsx extend context correctly 1`] = `
 Array [
@@ -4872,6 +4894,8 @@ Array [
 ]
 `;
 
+exports[`renders components/steps/demo/progress-dot-small.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/steps/demo/simple.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical"
@@ -5005,6 +5029,8 @@ exports[`renders components/steps/demo/simple.tsx extend context correctly 1`] =
 </div>
 `;
 
+exports[`renders components/steps/demo/simple.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/steps/demo/small-size.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical ant-steps-small"
@@ -5116,6 +5142,8 @@ exports[`renders components/steps/demo/small-size.tsx extend context correctly 1
   </div>
 </div>
 `;
+
+exports[`renders components/steps/demo/small-size.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/steps/demo/step-next.tsx extend context correctly 1`] = `
 Array [
@@ -5229,6 +5257,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/steps/demo/step-next.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/steps/demo/steps-in-steps.tsx extend context correctly 1`] = `
 Array [
@@ -5498,6 +5528,8 @@ Array [
 ]
 `;
 
+exports[`renders components/steps/demo/steps-in-steps.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/steps/demo/vertical.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical"
@@ -5625,6 +5657,8 @@ exports[`renders components/steps/demo/vertical.tsx extend context correctly 1`]
 </div>
 `;
 
+exports[`renders components/steps/demo/vertical.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/steps/demo/vertical-small.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical ant-steps-small"
@@ -5751,6 +5785,8 @@ exports[`renders components/steps/demo/vertical-small.tsx extend context correct
   </div>
 </div>
 `;
+
+exports[`renders components/steps/demo/vertical-small.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/steps/demo/wireframe.tsx extend context correctly 1`] = `
 <div
@@ -5884,3 +5920,5 @@ exports[`renders components/steps/demo/wireframe.tsx extend context correctly 1`
   </div>
 </div>
 `;
+
+exports[`renders components/steps/demo/wireframe.tsx extend context correctly 2`] = `[]`;

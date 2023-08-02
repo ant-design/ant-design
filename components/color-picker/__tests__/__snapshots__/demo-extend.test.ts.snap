@@ -384,6 +384,12 @@ Array [
 ]
 `;
 
+exports[`renders components/color-picker/demo/allowClear.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/color-picker/demo/base.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -762,6 +768,12 @@ Array [
       </div>
     </div>
   </div>,
+]
+`;
+
+exports[`renders components/color-picker/demo/base.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
 ]
 `;
 
@@ -1148,6 +1160,12 @@ exports[`renders components/color-picker/demo/change-completed.tsx extend contex
 </div>
 `;
 
+exports[`renders components/color-picker/demo/change-completed.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/color-picker/demo/controlled.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -1526,6 +1544,12 @@ Array [
       </div>
     </div>
   </div>,
+]
+`;
+
+exports[`renders components/color-picker/demo/controlled.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
 ]
 `;
 
@@ -1915,6 +1939,12 @@ Array [
 ]
 `;
 
+exports[`renders components/color-picker/demo/disabled.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/color-picker/demo/disabled-alpha.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -2196,6 +2226,12 @@ Array [
       </div>
     </div>
   </div>,
+]
+`;
+
+exports[`renders components/color-picker/demo/disabled-alpha.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
 ]
 `;
 
@@ -3872,6 +3908,12 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
 </div>
 `;
 
+exports[`renders components/color-picker/demo/format.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/color-picker/demo/panel-render.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -5126,6 +5168,12 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
 </div>
 `;
 
+exports[`renders components/color-picker/demo/panel-render.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/color-picker/demo/presets.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -5878,6 +5926,12 @@ Array [
 ]
 `;
 
+exports[`renders components/color-picker/demo/presets.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/color-picker/demo/pure-panel.tsx extend context correctly 1`] = `
 <div
   style="padding-left: 100px;"
@@ -6264,6 +6318,12 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/color-picker/demo/pure-panel.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/color-picker/demo/size.tsx extend context correctly 1`] = `
@@ -8589,6 +8649,12 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/color-picker/demo/size.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/color-picker/demo/text-render.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -9774,6 +9840,12 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
 </div>
 `;
 
+exports[`renders components/color-picker/demo/text-render.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/color-picker/demo/trigger.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -10149,6 +10221,12 @@ Array [
       </div>
     </div>
   </div>,
+]
+`;
+
+exports[`renders components/color-picker/demo/trigger.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
 ]
 `;
 
@@ -10530,5 +10608,11 @@ Array [
       </div>
     </div>
   </div>,
+]
+`;
+
+exports[`renders components/color-picker/demo/trigger-event.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
 ]
 `;

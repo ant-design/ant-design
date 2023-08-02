@@ -1231,6 +1231,8 @@ exports[`renders components/menu/demo/component-token.tsx extend context correct
 </div>
 `;
 
+exports[`renders components/menu/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/menu/demo/horizontal.tsx extend context correctly 1`] = `
 Array [
   <ul
@@ -1591,6 +1593,8 @@ Array [
 ]
 `;
 
+exports[`renders components/menu/demo/horizontal.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/menu/demo/horizontal-dark.tsx extend context correctly 1`] = `
 Array [
   <ul
@@ -1950,6 +1954,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/menu/demo/horizontal-dark.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/menu/demo/inline.tsx extend context correctly 1`] = `
 Array [
@@ -3043,6 +3049,8 @@ Array [
 ]
 `;
 
+exports[`renders components/menu/demo/inline.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/menu/demo/inline-collapsed.tsx extend context correctly 1`] = `
 <div
   style="width: 256px;"
@@ -3933,6 +3941,8 @@ exports[`renders components/menu/demo/inline-collapsed.tsx extend context correc
   </div>
 </div>
 `;
+
+exports[`renders components/menu/demo/inline-collapsed.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/menu/demo/menu-v4.tsx extend context correctly 1`] = `
 Array [
@@ -4864,6 +4874,8 @@ Array [
 ]
 `;
 
+exports[`renders components/menu/demo/menu-v4.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/menu/demo/sider-current.tsx extend context correctly 1`] = `
 Array [
   <ul
@@ -5774,6 +5786,8 @@ Array [
 ]
 `;
 
+exports[`renders components/menu/demo/sider-current.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/menu/demo/style-debug.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -6091,6 +6105,8 @@ Array [
   />,
 ]
 `;
+
+exports[`renders components/menu/demo/style-debug.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/menu/demo/submenu-theme.tsx extend context correctly 1`] = `
 Array [
@@ -6420,6 +6436,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/menu/demo/submenu-theme.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/menu/demo/switch-mode.tsx extend context correctly 1`] = `
 Array [
@@ -7376,6 +7394,8 @@ Array [
 ]
 `;
 
+exports[`renders components/menu/demo/switch-mode.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/menu/demo/theme.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -8312,6 +8332,8 @@ Array [
 ]
 `;
 
+exports[`renders components/menu/demo/theme.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/menu/demo/vertical.tsx extend context correctly 1`] = `
 Array [
   <ul
@@ -9112,3 +9134,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/menu/demo/vertical.tsx extend context correctly 2`] = `[]`;

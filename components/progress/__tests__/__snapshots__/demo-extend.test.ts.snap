@@ -214,6 +214,8 @@ exports[`renders components/progress/demo/circle.tsx extend context correctly 1`
 </div>
 `;
 
+exports[`renders components/progress/demo/circle.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/progress/demo/circle-dynamic.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -338,6 +340,8 @@ Array [
 ]
 `;
 
+exports[`renders components/progress/demo/circle-dynamic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/progress/demo/circle-micro.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -420,6 +424,8 @@ Array [
   </span>,
 ]
 `;
+
+exports[`renders components/progress/demo/circle-micro.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/progress/demo/circle-mini.tsx extend context correctly 1`] = `
 <div
@@ -635,6 +641,8 @@ exports[`renders components/progress/demo/circle-mini.tsx extend context correct
 </div>
 `;
 
+exports[`renders components/progress/demo/circle-mini.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/progress/demo/dashboard.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -757,6 +765,8 @@ exports[`renders components/progress/demo/dashboard.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/progress/demo/dashboard.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/progress/demo/dynamic.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -852,6 +862,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/progress/demo/dynamic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/progress/demo/format.tsx extend context correctly 1`] = `
 <div
@@ -974,6 +986,8 @@ exports[`renders components/progress/demo/format.tsx extend context correctly 1`
   </div>
 </div>
 `;
+
+exports[`renders components/progress/demo/format.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/progress/demo/gradient-line.tsx extend context correctly 1`] = `
 Array [
@@ -1204,6 +1218,8 @@ Array [
 ]
 `;
 
+exports[`renders components/progress/demo/gradient-line.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/progress/demo/line.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -1363,6 +1379,8 @@ Array [
 ]
 `;
 
+exports[`renders components/progress/demo/line.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/progress/demo/line-mini.tsx extend context correctly 1`] = `
 <div
   style="width: 170px;"
@@ -1504,6 +1522,8 @@ exports[`renders components/progress/demo/line-mini.tsx extend context correctly
   </div>
 </div>
 `;
+
+exports[`renders components/progress/demo/line-mini.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/progress/demo/linecap.tsx extend context correctly 1`] = `
 Array [
@@ -1654,6 +1674,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/progress/demo/linecap.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/progress/demo/segment.tsx extend context correctly 1`] = `
 Array [
@@ -1864,6 +1886,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/progress/demo/segment.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/progress/demo/size.tsx extend context correctly 1`] = `
 Array [
@@ -2494,6 +2518,8 @@ Array [
 ]
 `;
 
+exports[`renders components/progress/demo/size.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/progress/demo/steps.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -2654,3 +2680,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/progress/demo/steps.tsx extend context correctly 2`] = `[]`;

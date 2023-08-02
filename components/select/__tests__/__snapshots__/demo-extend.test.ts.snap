@@ -405,6 +405,12 @@ exports[`renders components/select/demo/automatic-tokenization.tsx extend contex
 </div>
 `;
 
+exports[`renders components/select/demo/automatic-tokenization.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/select/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -984,6 +990,12 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
 </div>
 `;
 
+exports[`renders components/select/demo/basic.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/select/demo/bordered.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -1275,6 +1287,12 @@ exports[`renders components/select/demo/bordered.tsx extend context correctly 1`
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/select/demo/bordered.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/select/demo/coordinate.tsx extend context correctly 1`] = `
@@ -1594,6 +1612,12 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/select/demo/coordinate.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow"
@@ -1797,6 +1821,12 @@ exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context 
     </span>
   </span>
 </div>
+`;
+
+exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/select/demo/custom-tag-render.tsx extend context correctly 1`] = `
@@ -2078,6 +2108,12 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
     </span>
   </span>
 </div>
+`;
+
+exports[`renders components/select/demo/custom-tag-render.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/select/demo/debug.tsx extend context correctly 1`] = `
@@ -2557,6 +2593,12 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
     </button>
   </div>
 </div>
+`;
+
+exports[`renders components/select/demo/debug.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/select/demo/debug-flip-shift.tsx extend context correctly 1`] = `
@@ -4365,6 +4407,12 @@ exports[`renders components/select/demo/debug-flip-shift.tsx extend context corr
 </div>
 `;
 
+exports[`renders components/select/demo/debug-flip-shift.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/select/demo/hide-selected.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
@@ -4533,6 +4581,12 @@ exports[`renders components/select/demo/hide-selected.tsx extend context correct
 </div>
 `;
 
+exports[`renders components/select/demo/hide-selected.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/select/demo/label-in-value.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow"
@@ -4675,6 +4729,12 @@ exports[`renders components/select/demo/label-in-value.tsx extend context correc
     </span>
   </span>
 </div>
+`;
+
+exports[`renders components/select/demo/label-in-value.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/select/demo/multiple.tsx extend context correctly 1`] = `
@@ -5744,6 +5804,12 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
 </div>
 `;
 
+exports[`renders components/select/demo/multiple.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/select/demo/optgroup.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow"
@@ -5920,6 +5986,12 @@ exports[`renders components/select/demo/optgroup.tsx extend context correctly 1`
     </span>
   </span>
 </div>
+`;
+
+exports[`renders components/select/demo/optgroup.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/select/demo/option-label-center.tsx extend context correctly 1`] = `
@@ -6105,6 +6177,12 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/select/demo/option-label-center.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/select/demo/option-label-prop.tsx extend context correctly 1`] = `
@@ -6412,6 +6490,12 @@ exports[`renders components/select/demo/option-label-prop.tsx extend context cor
 </div>
 `;
 
+exports[`renders components/select/demo/option-label-prop.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/select/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -6641,6 +6725,13 @@ Array [
       </span>
     </span>
   </div>,
+]
+`;
+
+exports[`renders components/select/demo/placement.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Select] \`dropdownMatchSelectWidth\` is deprecated. Please use \`popupMatchSelectWidth\` instead.",
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
 ]
 `;
 
@@ -6932,6 +7023,12 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
     </span>
   </div>
 </div>
+`;
+
+exports[`renders components/select/demo/placement-debug.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/select/demo/responsive.tsx extend context correctly 1`] = `
@@ -8048,6 +8145,12 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/select/demo/responsive.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/select/demo/search.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
@@ -8204,6 +8307,12 @@ exports[`renders components/select/demo/search.tsx extend context correctly 1`] 
 </div>
 `;
 
+exports[`renders components/select/demo/search.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/select/demo/search-box.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-search"
@@ -8248,6 +8357,12 @@ exports[`renders components/select/demo/search-box.tsx extend context correctly 
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/select/demo/search-box.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/select/demo/search-sort.tsx extend context correctly 1`] = `
@@ -8458,6 +8573,12 @@ exports[`renders components/select/demo/search-sort.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/select/demo/search-sort.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/select/demo/select-users.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
@@ -8546,6 +8667,12 @@ exports[`renders components/select/demo/select-users.tsx extend context correctl
     </span>
   </span>
 </div>
+`;
+
+exports[`renders components/select/demo/select-users.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/select/demo/size.tsx extend context correctly 1`] = `
@@ -10258,6 +10385,12 @@ Array [
 ]
 `;
 
+exports[`renders components/select/demo/size.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/select/demo/status.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -10505,6 +10638,12 @@ exports[`renders components/select/demo/status.tsx extend context correctly 1`] 
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/select/demo/status.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] = `
@@ -10815,6 +10954,12 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/select/demo/suffix.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/select/demo/tags.tsx extend context correctly 1`] = `
@@ -11222,4 +11367,10 @@ exports[`renders components/select/demo/tags.tsx extend context correctly 1`] = 
     </span>
   </span>
 </div>
+`;
+
+exports[`renders components/select/demo/tags.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;

@@ -1580,6 +1580,12 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
 </div>
 `;
 
+exports[`renders components/calendar/demo/basic.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] = `
 <div
   style="width: 300px; border: 1px solid #f0f0f0; border-radius: 8px;"
@@ -3162,6 +3168,12 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/calendar/demo/card.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/calendar/demo/component-token.tsx extend context correctly 1`] = `
@@ -6324,6 +6336,12 @@ Array [
 ]
 `;
 
+exports[`renders components/calendar/demo/component-token.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/calendar/demo/customize-header.tsx extend context correctly 1`] = `
 <div
   style="width: 300px; border: 1px solid #f0f0f0; border-radius: 8px;"
@@ -7955,6 +7973,13 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/calendar/demo/customize-header.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Select] \`dropdownMatchSelectWidth\` is deprecated. Please use \`popupMatchSelectWidth\` instead.",
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/calendar/demo/notice-calendar.tsx extend context correctly 1`] = `
@@ -9934,6 +9959,12 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
 </div>
 `;
 
+exports[`renders components/calendar/demo/notice-calendar.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/calendar/demo/select.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -11528,5 +11559,11 @@ Array [
       </div>
     </div>
   </div>,
+]
+`;
+
+exports[`renders components/calendar/demo/select.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
 ]
 `;

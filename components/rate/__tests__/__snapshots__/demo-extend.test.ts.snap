@@ -299,6 +299,8 @@ exports[`renders components/rate/demo/basic.tsx extend context correctly 1`] = `
 </ul>
 `;
 
+exports[`renders components/rate/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/rate/demo/character.tsx extend context correctly 1`] = `
 Array [
   <ul
@@ -835,6 +837,8 @@ Array [
 ]
 `;
 
+exports[`renders components/rate/demo/character.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/rate/demo/character-function.tsx extend context correctly 1`] = `
 Array [
   <ul
@@ -1252,6 +1256,8 @@ Array [
   </ul>,
 ]
 `;
+
+exports[`renders components/rate/demo/character-function.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/rate/demo/clear.tsx extend context correctly 1`] = `
 Array [
@@ -1861,6 +1867,8 @@ Array [
 ]
 `;
 
+exports[`renders components/rate/demo/clear.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/rate/demo/component-token.tsx extend context correctly 1`] = `
 <ul
   class="ant-rate"
@@ -2159,6 +2167,8 @@ exports[`renders components/rate/demo/component-token.tsx extend context correct
   </li>
 </ul>
 `;
+
+exports[`renders components/rate/demo/component-token.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/rate/demo/disabled.tsx extend context correctly 1`] = `
 <ul
@@ -2459,6 +2469,8 @@ exports[`renders components/rate/demo/disabled.tsx extend context correctly 1`] 
 </ul>
 `;
 
+exports[`renders components/rate/demo/disabled.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/rate/demo/half.tsx extend context correctly 1`] = `
 <ul
   class="ant-rate"
@@ -2757,6 +2769,8 @@ exports[`renders components/rate/demo/half.tsx extend context correctly 1`] = `
   </li>
 </ul>
 `;
+
+exports[`renders components/rate/demo/half.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
 <span>
@@ -3158,3 +3172,5 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
   </span>
 </span>
 `;
+
+exports[`renders components/rate/demo/text.tsx extend context correctly 2`] = `[]`;
