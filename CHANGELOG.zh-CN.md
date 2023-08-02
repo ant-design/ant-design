@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 5.8.1
+
+`2023-08-02`
+
+- 🐞 修复预期外的 `clearIcon` 废弃报错。[#43945](https://github.com/ant-design/ant-design/pull/43945) [@kiner-tang](https://github.com/kiner-tang)
+
 ## 5.8.0
 
 `2023-08-01`
