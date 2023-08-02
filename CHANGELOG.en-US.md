@@ -19,9 +19,9 @@ timeline: true
 
 `2023-08-02`
 
-- 🐞 Fix unexpected warning of deprecated `clearIcon` [#43945](https://github.com/ant-design/ant-design/pull/43945) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Fix Select, TreeSelect, Cascader, DatePicker unexpected warning of deprecated `clearIcon` [#43945](https://github.com/ant-design/ant-design/pull/43945) [@kiner-tang](https://github.com/kiner-tang)
 - TypeScript
-  - 🤖 Export `MappingAlgorithm` as type of theme algorithm. [#43953](https://github.com/ant-design/ant-design/pull/43953)
+  - 🤖 Export Design Token `MappingAlgorithm` as type of theme algorithm. [#43953](https://github.com/ant-design/ant-design/pull/43953)
 
 ## 5.8.0
 
