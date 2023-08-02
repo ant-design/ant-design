@@ -21,7 +21,7 @@ const camelComponentNames = componentNames.map((componentName) =>
 // Convert a mapping logic
 const componentNameMap: Record<string, string[]> = {};
 camelComponentNames.forEach((name) => {
-  componentNameMap[name] = [name, 'Global'];
+  componentNameMap[name] = [name, '[Global]'];
 });
 
 componentNameMap.ConfigProvider.push('Wave');
@@ -29,11 +29,10 @@ componentNameMap.Grid.push('Row', 'Col');
 componentNameMap.Message.push('message');
 componentNameMap.Notification.push('notification');
 
-console.log(componentNameMap);
-
 // Collect misc. When ComponentName not match will fallback to misc
 const miscKeys = [
   'ComponentToken',
+  'Component Token',
   'Design Token',
   'Arrow',
   '箭头',
@@ -61,8 +60,8 @@ const miscKeys = [
   '🇱🇹',
 ];
 
-(() => {
-  const content = fs.readFileSync('CHANGELOG.zh-CN.md').toString();
+function syncChangelog(sourceFile: string, targetFile: string) {
+  const content = fs.readFileSync(sourceFile).toString();
 
   // let lastGroup = '';
   let lastVersion = '';
@@ -80,7 +79,7 @@ const miscKeys = [
     const line = lines[i];
 
     // Skip for v5 release
-    if (line === '#### 升级必读' || line === '#### Read it before migration') {
+    if (line === '## 5.0.0') {
       break;
     }
 
@@ -129,27 +128,22 @@ const miscKeys = [
       continue;
     }
 
-    // const matchComponents = camelComponentNames.filter((componentName) =>
-    //   line.includes(componentName),
-    // );
-
     // Misc
     if (miscKeys.some((key) => line.includes(key))) {
       continue;
     }
-
-    // console.log(line, matchComponents);
 
     if (!matched) {
       console.log(line);
     }
   }
 
-  console.log(componentChangelog);
+  // console.log(componentChangelog);
 
-  fs.writeFileSync(
-    path.join(output, 'components-changelog-cn.json'),
-    JSON.stringify(componentChangelog),
-    'utf-8',
-  );
+  fs.writeFileSync(path.join(output, targetFile), JSON.stringify(componentChangelog), 'utf-8');
+}
+
+(() => {
+  // syncChangelog('CHANGELOG.zh-CN.md', 'components-changelog-cn.json');
+  syncChangelog('CHANGELOG.en-US.md', 'components-changelog-en.json');
 })();
