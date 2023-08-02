@@ -7,8 +7,9 @@ import { renderToString } from 'react-dom/server';
 import { kebabCase } from 'lodash';
 import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
-import { excludeWarning } from './excludeWarning';
+import { excludeWarning, isSafeWarning } from './excludeWarning';
 import rootPropsTest from './rootPropsTest';
+import { resetWarned } from '../../components/_util/warning';
 
 export { rootPropsTest };
 
@@ -39,6 +40,8 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
     testMethod(
       doInject ? `renders ${file} extend context correctly` : `renders ${file} correctly`,
       () => {
+        resetWarned();
+
         const errSpy = excludeWarning();
 
         Date.now = jest.fn(() => new Date('2016-11-22').getTime());
@@ -69,6 +72,17 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         }
 
         jest.clearAllTimers();
+
+        // Snapshot of warning info
+        if (doInject) {
+          const errorMessageSet = new Set(errSpy.mock.calls.map((args) => args[0]));
+          const errorMessages = Array.from(errorMessageSet)
+            .filter((msg) => !isSafeWarning(msg, true))
+            .sort();
+
+          expect(errorMessages).toMatchSnapshot();
+        }
+
         errSpy.mockRestore();
       },
     );

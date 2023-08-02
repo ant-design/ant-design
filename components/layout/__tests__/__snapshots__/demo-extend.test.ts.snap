@@ -157,6 +157,8 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
 </div>
 `;
 
+exports[`renders components/layout/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/layout/demo/custom-trigger.tsx extend context correctly 1`] = `
 <div
   class="ant-layout ant-layout-has-sider"
@@ -430,6 +432,8 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
 </div>
 `;
 
+exports[`renders components/layout/demo/custom-trigger.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] = `
 <div
   class="ant-layout"
@@ -700,6 +704,12 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
     Ant Design ©2023 Created by Ant UED
   </footer>
 </div>
+`;
+
+exports[`renders components/layout/demo/fixed.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Breadcrumb] \`Breadcrumb.Item and Breadcrumb.Separator\` is deprecated. Please use \`items\` instead.",
+]
 `;
 
 exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly 1`] = `
@@ -1488,6 +1498,8 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/layout/demo/responsive.tsx extend context correctly 1`] = `
 <div
   class="ant-layout ant-layout-has-sider"
@@ -1845,6 +1857,8 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
   </div>
 </div>
 `;
+
+exports[`renders components/layout/demo/responsive.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = `
 <div
@@ -2494,6 +2508,12 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
     </footer>
   </div>
 </div>
+`;
+
+exports[`renders components/layout/demo/side.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Breadcrumb] \`Breadcrumb.Item and Breadcrumb.Separator\` is deprecated. Please use \`items\` instead.",
+]
 `;
 
 exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
@@ -3319,6 +3339,12 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
     Ant Design ©2023 Created by Ant UED
   </footer>
 </div>
+`;
+
+exports[`renders components/layout/demo/top.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Breadcrumb] \`Breadcrumb.Item and Breadcrumb.Separator\` is deprecated. Please use \`items\` instead.",
+]
 `;
 
 exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`] = `
@@ -4477,6 +4503,12 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
 </div>
 `;
 
+exports[`renders components/layout/demo/top-side.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Breadcrumb] \`Breadcrumb.Item and Breadcrumb.Separator\` is deprecated. Please use \`items\` instead.",
+]
+`;
+
 exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 1`] = `
 <div
   class="ant-layout"
@@ -5624,4 +5656,10 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Breadcrumb] \`Breadcrumb.Item and Breadcrumb.Separator\` is deprecated. Please use \`items\` instead.",
+]
 `;

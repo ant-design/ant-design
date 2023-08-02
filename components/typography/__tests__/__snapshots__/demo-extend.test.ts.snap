@@ -215,6 +215,8 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
 </article>
 `;
 
+exports[`renders components/typography/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/typography/demo/componentToken-debug.tsx extend context correctly 1`] = `
 <article
   class="ant-typography"
@@ -430,6 +432,8 @@ exports[`renders components/typography/demo/componentToken-debug.tsx extend cont
 </article>
 `;
 
+exports[`renders components/typography/demo/componentToken-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/typography/demo/ellipsis.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -512,6 +516,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/typography/demo/ellipsis.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/typography/demo/ellipsis-debug.tsx extend context correctly 1`] = `
 Array [
@@ -1161,6 +1167,8 @@ Array [
 ]
 `;
 
+exports[`renders components/typography/demo/ellipsis-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/typography/demo/ellipsis-middle.tsx extend context correctly 1`] = `
 <span
   aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of"
@@ -1187,6 +1195,8 @@ exports[`renders components/typography/demo/ellipsis-middle.tsx extend context c
   </span>
 </span>
 `;
+
+exports[`renders components/typography/demo/ellipsis-middle.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/typography/demo/interactive.tsx extend context correctly 1`] = `
 Array [
@@ -2192,6 +2202,8 @@ Array [
 ]
 `;
 
+exports[`renders components/typography/demo/interactive.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/typography/demo/paragraph-debug.tsx extend context correctly 1`] = `
 Array [
   <h1
@@ -2393,6 +2405,8 @@ Array [
 ]
 `;
 
+exports[`renders components/typography/demo/paragraph-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/typography/demo/suffix.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -2470,6 +2484,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/typography/demo/suffix.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/typography/demo/text.tsx extend context correctly 1`] = `
 <div
@@ -2634,6 +2650,8 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
 </div>
 `;
 
+exports[`renders components/typography/demo/text.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/typography/demo/title.tsx extend context correctly 1`] = `
 Array [
   <h1
@@ -2663,3 +2681,5 @@ Array [
   </h5>,
 ]
 `;
+
+exports[`renders components/typography/demo/title.tsx extend context correctly 2`] = `[]`;
