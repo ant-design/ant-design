@@ -9,7 +9,9 @@ const output = '.dumi/preset';
 // Collect components
 const componentNames = globSync(
   path.join(process.cwd(), 'components/!(version|icon|col|row)/index.zh-CN.md'),
-).map((filePath) => filePath.match(/components\/([^/]*)\//)![1]);
+)
+  .map((filePath) => filePath.match(/components\/([^/]*)\//)![1])
+  .filter((name) => name !== 'overview');
 
 const camelComponentNames = componentNames.map((componentName) =>
   componentName
@@ -21,7 +23,7 @@ const camelComponentNames = componentNames.map((componentName) =>
 // Convert a mapping logic
 const componentNameMap: Record<string, string[]> = {};
 camelComponentNames.forEach((name) => {
-  componentNameMap[name] = [name, '[Global]'];
+  componentNameMap[name] = [` ${name}`, `\`${name}`, '[Global]'];
 });
 
 componentNameMap.ConfigProvider.push('Wave');
@@ -74,7 +76,10 @@ const miscKeys = [
     const lines = content.split(/[\n\r]+/).filter((line) => line.trim());
 
     // Changelog map
-    const componentChangelog: Record<string, { version: string; changelog: string }[]> = {};
+    const componentChangelog: Record<
+      string,
+      { version: string; changelog: string; refs: string[] }[]
+    > = {};
     Object.keys(componentNameMap).forEach((name) => {
       componentChangelog[name] = [];
     });
@@ -116,13 +121,27 @@ const miscKeys = [
 
       // Collect Components
       let matched = false;
+      const refs: string[] = [];
+
+      let changelogLine = line.trim().replace('- ', '');
+      changelogLine = changelogLine
+        .replace(/\[([^\]]+)]\(([^)]+)\)/g, (...match) => {
+          const [, , ref] = match;
+          if (ref.includes('/pull/')) {
+            refs.push(ref);
+          }
+          return '';
+        })
+        .trim();
+
       Object.keys(componentNameMap).forEach((name) => {
         const matchKeys = componentNameMap[name];
 
         if (matchKeys.some((key) => line.includes(key))) {
           componentChangelog[name].push({
             version: lastVersion,
-            changelog: line,
+            changelog: changelogLine,
+            refs,
           });
           matched = true;
         }

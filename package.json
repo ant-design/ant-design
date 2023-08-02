@@ -57,7 +57,7 @@
     "collect-token-statistic": "ts-node --esm --project tsconfig.node.json scripts/collect-token-statistic.ts",
     "token-meta": "ts-node --esm --project tsconfig.node.json scripts/generate-token-meta.ts",
     "component-changelog": "ts-node --esm --project tsconfig.node.json scripts/generate-component-changelog.ts",
-    "prestart": "npm run version && npm run collect-token-statistic && npm run token-meta",
+    "prestart": "npm run version && npm run collect-token-statistic && npm run token-meta && npm run component-changelog",
     "precompile": "npm run prestart",
     "pretest": "npm run version",
     "predist": "npm run version",
