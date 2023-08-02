@@ -1,4 +1,4 @@
-import DownOutlined from '@ant-design/icons/DownOutlined';
+import { DownOutlined } from '@ant-design/icons';
 import * as React from 'react';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';

@@ -1,4 +1,4 @@
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import { ExclamationCircleFilled } from '@ant-design/icons';
 import classNames from 'classnames';
 import * as React from 'react';
 import type { PopconfirmProps } from '.';

@@ -1,8 +1,6 @@
 'use client';
 
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
-import PlusOutlined from '@ant-design/icons/PlusOutlined';
+import { CloseOutlined, EllipsisOutlined, PlusOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import type { TabsProps as RcTabsProps } from 'rc-tabs';
 import RcTabs from 'rc-tabs';

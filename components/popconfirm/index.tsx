@@ -1,6 +1,6 @@
 'use client';
 
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import { ExclamationCircleFilled } from '@ant-design/icons';
 import classNames from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';

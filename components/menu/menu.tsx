@@ -1,4 +1,4 @@
-import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+import { EllipsisOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import type { MenuProps as RcMenuProps, MenuRef as RcMenuRef } from 'rc-menu';
 import RcMenu from 'rc-menu';

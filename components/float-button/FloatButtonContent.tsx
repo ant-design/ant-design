@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
+import { FileTextOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import type { FloatButtonContentProps } from './interface';
 

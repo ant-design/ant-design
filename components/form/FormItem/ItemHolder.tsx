@@ -1,7 +1,9 @@
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import {
+  CheckCircleFilled,
+  CloseCircleFilled,
+  ExclamationCircleFilled,
+  LoadingOutlined,
+} from '@ant-design/icons';
 import classNames from 'classnames';
 import type { Meta } from 'rc-field-form/lib/interface';
 import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';

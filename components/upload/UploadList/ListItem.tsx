@@ -1,6 +1,4 @@
-import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
-import DownloadOutlined from '@ant-design/icons/DownloadOutlined';
-import EyeOutlined from '@ant-design/icons/EyeOutlined';
+import { DeleteOutlined, DownloadOutlined, EyeOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import * as React from 'react';

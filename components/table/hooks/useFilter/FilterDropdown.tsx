@@ -1,4 +1,4 @@
-import FilterFilled from '@ant-design/icons/FilterFilled';
+import { FilterFilled } from '@ant-design/icons';
 import classNames from 'classnames';
 import type { FieldDataNode } from 'rc-tree';
 import isEqual from 'rc-util/lib/isEqual';

@@ -1,4 +1,4 @@
-import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import * as React from 'react';
 import type { ColProps } from '../grid/col';

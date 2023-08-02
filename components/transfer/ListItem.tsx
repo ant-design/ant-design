@@ -1,4 +1,4 @@
-import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
+import { DeleteOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import * as React from 'react';
 import type { KeyWiseTransferItem } from '.';

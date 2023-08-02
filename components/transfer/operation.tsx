@@ -1,5 +1,4 @@
-import LeftOutlined from '@ant-design/icons/LeftOutlined';
-import RightOutlined from '@ant-design/icons/RightOutlined';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import * as React from 'react';
 import Button from '../button';
 import type { DirectionType } from '../config-provider';

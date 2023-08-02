@@ -1,4 +1,4 @@
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import { CloseOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import type { ReactNode } from 'react';
 import React from 'react';

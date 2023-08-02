@@ -1,5 +1,4 @@
-import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
-import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
+import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
 import * as React from 'react';

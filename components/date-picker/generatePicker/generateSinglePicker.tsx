@@ -1,6 +1,4 @@
-import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
-import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import { CalendarOutlined, ClockCircleOutlined, CloseCircleFilled } from '@ant-design/icons';
 import classNames from 'classnames';
 import RCPicker from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';

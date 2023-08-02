@@ -1,9 +1,11 @@
 'use client';
 
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import WarningFilled from '@ant-design/icons/WarningFilled';
+import {
+  CheckCircleFilled,
+  CloseCircleFilled,
+  ExclamationCircleFilled,
+  WarningFilled,
+} from '@ant-design/icons';
 import classNames from 'classnames';
 import * as React from 'react';
 
@@ -49,7 +51,7 @@ export interface ResultProps {
 const ExceptionStatus = Object.keys(ExceptionMap);
 
 /**
- * Render icon if ExceptionStatus includes ,render svg image else render iconNode
+ * Render icon if ExceptionStatus includes,render svg image else render iconNode
  *
  * @param prefixCls
  * @param {status, icon}

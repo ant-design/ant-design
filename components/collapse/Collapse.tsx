@@ -1,4 +1,4 @@
-import RightOutlined from '@ant-design/icons/RightOutlined';
+import { RightOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import type { CollapseProps as RcCollapseProps } from 'rc-collapse';
 import RcCollapse from 'rc-collapse';

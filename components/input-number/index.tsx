@@ -1,7 +1,6 @@
 'use client';
 
-import DownOutlined from '@ant-design/icons/DownOutlined';
-import UpOutlined from '@ant-design/icons/UpOutlined';
+import { DownOutlined, UpOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import type { InputNumberProps as RcInputNumberProps, ValueType } from 'rc-input-number';
 import RcInputNumber from 'rc-input-number';

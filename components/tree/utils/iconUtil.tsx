@@ -1,8 +1,10 @@
-import CaretDownFilled from '@ant-design/icons/CaretDownFilled';
-import FileOutlined from '@ant-design/icons/FileOutlined';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import MinusSquareOutlined from '@ant-design/icons/MinusSquareOutlined';
-import PlusSquareOutlined from '@ant-design/icons/PlusSquareOutlined';
+import {
+  CaretDownFilled,
+  FileOutlined,
+  LoadingOutlined,
+  MinusSquareOutlined,
+  PlusSquareOutlined,
+} from '@ant-design/icons';
 import classNames from 'classnames';
 import * as React from 'react';
 import { cloneElement, isValidElement } from '../../_util/reactNode';

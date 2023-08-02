@@ -1,4 +1,4 @@
-import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import { SearchOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';

@@ -1,4 +1,4 @@
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import { CloseOutlined } from '@ant-design/icons';
 import React from 'react';
 import Button from '../button';
 import { convertLegacyProps } from '../button/button';

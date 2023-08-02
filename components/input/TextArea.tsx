@@ -1,4 +1,4 @@
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import { CloseCircleFilled } from '@ant-design/icons';
 import classNames from 'classnames';
 import type { BaseInputProps } from 'rc-input/lib/interface';
 import type { TextAreaRef as RcTextAreaRef } from 'rc-textarea';

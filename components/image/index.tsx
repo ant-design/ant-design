@@ -1,6 +1,6 @@
 'use client';
 
-import EyeOutlined from '@ant-design/icons/EyeOutlined';
+import { EyeOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import RcImage, { type ImageProps } from 'rc-image';
 import * as React from 'react';

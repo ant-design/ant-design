@@ -1,4 +1,4 @@
-import DownOutlined from '@ant-design/icons/DownOutlined';
+import { DownOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import { INTERNAL_COL_DEFINE } from 'rc-table';
 import type { FixedType } from 'rc-table/lib/interface';

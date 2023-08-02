@@ -1,4 +1,4 @@
-import HolderOutlined from '@ant-design/icons/HolderOutlined';
+import { HolderOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import type { BasicDataNode, TreeProps as RcTreeProps } from 'rc-tree';
 import RcTree from 'rc-tree';

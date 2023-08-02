@@ -1,4 +1,4 @@
-import DotChartOutlined from '@ant-design/icons/DotChartOutlined';
+import { DotChartOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';

@@ -1,7 +1,6 @@
 'use client';
 
-import CheckOutlined from '@ant-design/icons/CheckOutlined';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import RcSteps from 'rc-steps';
 import type {

@@ -1,4 +1,4 @@
-import RightOutlined from '@ant-design/icons/RightOutlined';
+import { RightOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import RcDropdown from 'rc-dropdown';
 import useEvent from 'rc-util/lib/hooks/useEvent';
@@ -28,7 +28,7 @@ const Placements = [
   'bottom',
 ] as const;
 
-type Placement = (typeof Placements)[number];
+type Placement = typeof Placements[number];
 type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
 type OverlayFunc = () => React.ReactElement;

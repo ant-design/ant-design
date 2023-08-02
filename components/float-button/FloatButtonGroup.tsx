@@ -1,5 +1,4 @@
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
+import { CloseOutlined, FileTextOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';

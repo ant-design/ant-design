@@ -1,9 +1,11 @@
-import CheckOutlined from '@ant-design/icons/CheckOutlined';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import DownOutlined from '@ant-design/icons/DownOutlined';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import {
+  CheckOutlined,
+  CloseCircleFilled,
+  CloseOutlined,
+  DownOutlined,
+  LoadingOutlined,
+  SearchOutlined,
+} from '@ant-design/icons';
 import type { ReactNode } from 'react';
 import * as React from 'react';
 

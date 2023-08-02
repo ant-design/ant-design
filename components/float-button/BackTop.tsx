@@ -1,4 +1,4 @@
-import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
+import { VerticalAlignTopOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import React, { memo, useContext, useEffect, useRef, useState } from 'react';

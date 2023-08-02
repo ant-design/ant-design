@@ -1,4 +1,4 @@
-import EnterOutlined from '@ant-design/icons/EnterOutlined';
+import { EnterOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import type { AutoSizeType } from 'rc-textarea';
 import KeyCode from 'rc-util/lib/KeyCode';

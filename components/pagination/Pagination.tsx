@@ -1,7 +1,9 @@
-import DoubleLeftOutlined from '@ant-design/icons/DoubleLeftOutlined';
-import DoubleRightOutlined from '@ant-design/icons/DoubleRightOutlined';
-import LeftOutlined from '@ant-design/icons/LeftOutlined';
-import RightOutlined from '@ant-design/icons/RightOutlined';
+import {
+  DoubleLeftOutlined,
+  DoubleRightOutlined,
+  LeftOutlined,
+  RightOutlined,
+} from '@ant-design/icons';
 import classNames from 'classnames';
 import type { PaginationLocale, PaginationProps as RcPaginationProps } from 'rc-pagination';
 import RcPagination from 'rc-pagination';

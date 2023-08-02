@@ -1,6 +1,6 @@
 'use client';
 
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import { CloseOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import * as React from 'react';
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';

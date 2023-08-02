@@ -1,6 +1,4 @@
-import BarsOutlined from '@ant-design/icons/BarsOutlined';
-import LeftOutlined from '@ant-design/icons/LeftOutlined';
-import RightOutlined from '@ant-design/icons/RightOutlined';
+import { BarsOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';

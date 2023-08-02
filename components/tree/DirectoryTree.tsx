@@ -1,6 +1,4 @@
-import FileOutlined from '@ant-design/icons/FileOutlined';
-import FolderOpenOutlined from '@ant-design/icons/FolderOpenOutlined';
-import FolderOutlined from '@ant-design/icons/FolderOutlined';
+import { FileOutlined, FolderOpenOutlined, FolderOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import type RcTree from 'rc-tree';
 import type { BasicDataNode } from 'rc-tree';

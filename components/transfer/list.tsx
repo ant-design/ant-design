@@ -1,4 +1,4 @@
-import DownOutlined from '@ant-design/icons/DownOutlined';
+import { DownOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import React, { useMemo, useRef, useState } from 'react';

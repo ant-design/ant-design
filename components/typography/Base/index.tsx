@@ -1,6 +1,4 @@
-import CheckOutlined from '@ant-design/icons/CheckOutlined';
-import CopyOutlined from '@ant-design/icons/CopyOutlined';
-import EditOutlined from '@ant-design/icons/EditOutlined';
+import { CheckOutlined, CopyOutlined, EditOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import copy from 'copy-to-clipboard';
 import ResizeObserver from 'rc-resize-observer';
