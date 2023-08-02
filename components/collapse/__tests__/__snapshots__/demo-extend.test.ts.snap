@@ -1102,11 +1102,7 @@ Array [
 ]
 `;
 
-exports[`renders components/collapse/demo/extra.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/collapse/demo/extra.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/collapse/demo/ghost.tsx extend context correctly 1`] = `
 <div

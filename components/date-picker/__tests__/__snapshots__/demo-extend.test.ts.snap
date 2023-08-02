@@ -1888,11 +1888,7 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders components/date-picker/demo/basic.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/date-picker/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/bordered.tsx extend context correctly 1`] = `
 <div
@@ -7094,11 +7090,7 @@ exports[`renders components/date-picker/demo/bordered.tsx extend context correct
 </div>
 `;
 
-exports[`renders components/date-picker/demo/bordered.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/date-picker/demo/bordered.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/cell-render.tsx extend context correctly 1`] = `
 <div
@@ -8899,11 +8891,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
 </div>
 `;
 
-exports[`renders components/date-picker/demo/cell-render.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/date-picker/demo/cell-render.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/disabled.tsx extend context correctly 1`] = `
 <div
@@ -12151,11 +12139,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
 </div>
 `;
 
-exports[`renders components/date-picker/demo/disabled.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/date-picker/demo/disabled.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/disabled-date.tsx extend context correctly 1`] = `
 <div
@@ -17071,11 +17055,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
 </div>
 `;
 
-exports[`renders components/date-picker/demo/disabled-date.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/date-picker/demo/disabled-date.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/extra-footer.tsx extend context correctly 1`] = `
 <div
@@ -23092,11 +23072,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
 </div>
 `;
 
-exports[`renders components/date-picker/demo/extra-footer.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/date-picker/demo/extra-footer.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/format.tsx extend context correctly 1`] = `
 <div
@@ -27137,11 +27113,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
 </div>
 `;
 
-exports[`renders components/date-picker/demo/format.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/date-picker/demo/format.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1`] = `
 <div
@@ -28832,11 +28804,7 @@ exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders components/date-picker/demo/mode.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/date-picker/demo/mode.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/placement.tsx extend context correctly 1`] = `
 Array [
@@ -30705,11 +30673,7 @@ Array [
 ]
 `;
 
-exports[`renders components/date-picker/demo/placement.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/date-picker/demo/placement.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/preset-ranges.tsx extend context correctly 1`] = `
 <div
@@ -34563,11 +34527,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
 </div>
 `;
 
-exports[`renders components/date-picker/demo/preset-ranges.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/date-picker/demo/preset-ranges.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/range-picker.tsx extend context correctly 1`] = `
 <div
@@ -40341,11 +40301,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
 </div>
 `;
 
-exports[`renders components/date-picker/demo/range-picker.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/date-picker/demo/range-picker.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/render-panel.tsx extend context correctly 1`] = `
 <div
@@ -40950,11 +40906,7 @@ exports[`renders components/date-picker/demo/render-panel.tsx extend context cor
 </div>
 `;
 
-exports[`renders components/date-picker/demo/render-panel.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/date-picker/demo/render-panel.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/select-in-range.tsx extend context correctly 1`] = `
 Array [
@@ -42143,11 +42095,7 @@ Array [
 ]
 `;
 
-exports[`renders components/date-picker/demo/select-in-range.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/date-picker/demo/select-in-range.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/size.tsx extend context correctly 1`] = `
 <div
@@ -44905,11 +44853,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders components/date-picker/demo/size.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/date-picker/demo/size.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/start-end.tsx extend context correctly 1`] = `
 <div
@@ -48821,11 +48765,7 @@ exports[`renders components/date-picker/demo/start-end.tsx extend context correc
 </div>
 `;
 
-exports[`renders components/date-picker/demo/start-end.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/date-picker/demo/start-end.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/status.tsx extend context correctly 1`] = `
 <div
@@ -52412,11 +52352,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
 </div>
 `;
 
-exports[`renders components/date-picker/demo/status.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/date-picker/demo/status.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/suffix.tsx extend context correctly 1`] = `
 <div
@@ -57718,11 +57654,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
 </div>
 `;
 
-exports[`renders components/date-picker/demo/suffix.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/date-picker/demo/suffix.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/switchable.tsx extend context correctly 1`] = `
 <div
@@ -59357,11 +59289,7 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
 </div>
 `;
 
-exports[`renders components/date-picker/demo/switchable.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/date-picker/demo/switchable.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/time.tsx extend context correctly 1`] = `
 <div
@@ -62777,8 +62705,4 @@ exports[`renders components/date-picker/demo/time.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders components/date-picker/demo/time.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/date-picker/demo/time.tsx extend context correctly 2`] = `[]`;

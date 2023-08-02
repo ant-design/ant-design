@@ -1083,11 +1083,7 @@ Array [
 ]
 `;
 
-exports[`renders components/empty/demo/config-provider.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/empty/demo/config-provider.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/empty/demo/customize.tsx extend context correctly 1`] = `
 <div

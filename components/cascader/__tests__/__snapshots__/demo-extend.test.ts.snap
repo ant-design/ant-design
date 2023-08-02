@@ -150,11 +150,7 @@ exports[`renders components/cascader/demo/basic.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders components/cascader/demo/basic.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/cascader/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/cascader/demo/change-on-select.tsx extend context correctly 1`] = `
 <div
@@ -304,11 +300,7 @@ exports[`renders components/cascader/demo/change-on-select.tsx extend context co
 </div>
 `;
 
-exports[`renders components/cascader/demo/change-on-select.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/cascader/demo/change-on-select.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/cascader/demo/custom-dropdown.tsx extend context correctly 1`] = `
 <div
@@ -472,11 +464,7 @@ exports[`renders components/cascader/demo/custom-dropdown.tsx extend context cor
 </div>
 `;
 
-exports[`renders components/cascader/demo/custom-dropdown.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/cascader/demo/custom-dropdown.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/cascader/demo/custom-render.tsx extend context correctly 1`] = `
 <div
@@ -668,11 +656,7 @@ exports[`renders components/cascader/demo/custom-render.tsx extend context corre
 </div>
 `;
 
-exports[`renders components/cascader/demo/custom-render.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/cascader/demo/custom-render.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/cascader/demo/custom-trigger.tsx extend context correctly 1`] = `
 <span>
@@ -773,11 +757,7 @@ exports[`renders components/cascader/demo/custom-trigger.tsx extend context corr
 </span>
 `;
 
-exports[`renders components/cascader/demo/custom-trigger.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/cascader/demo/custom-trigger.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/cascader/demo/default-value.tsx extend context correctly 1`] = `
 <div
@@ -957,11 +937,7 @@ exports[`renders components/cascader/demo/default-value.tsx extend context corre
 </div>
 `;
 
-exports[`renders components/cascader/demo/default-value.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/cascader/demo/default-value.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/cascader/demo/disabled-option.tsx extend context correctly 1`] = `
 <div
@@ -1111,11 +1087,7 @@ exports[`renders components/cascader/demo/disabled-option.tsx extend context cor
 </div>
 `;
 
-exports[`renders components/cascader/demo/disabled-option.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/cascader/demo/disabled-option.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/cascader/demo/fields-name.tsx extend context correctly 1`] = `
 <div
@@ -1267,11 +1239,7 @@ exports[`renders components/cascader/demo/fields-name.tsx extend context correct
 </div>
 `;
 
-exports[`renders components/cascader/demo/fields-name.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/cascader/demo/fields-name.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/cascader/demo/hover.tsx extend context correctly 1`] = `
 <div
@@ -1421,11 +1389,7 @@ exports[`renders components/cascader/demo/hover.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders components/cascader/demo/hover.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/cascader/demo/hover.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/cascader/demo/lazy.tsx extend context correctly 1`] = `
 <div
@@ -1575,11 +1539,7 @@ exports[`renders components/cascader/demo/lazy.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders components/cascader/demo/lazy.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/cascader/demo/lazy.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/cascader/demo/multiple.tsx extend context correctly 1`] = `
 <div
@@ -1759,11 +1719,7 @@ exports[`renders components/cascader/demo/multiple.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders components/cascader/demo/multiple.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/cascader/demo/multiple.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/cascader/demo/placement.tsx extend context correctly 1`] = `
 Array [
@@ -2000,11 +1956,7 @@ Array [
 ]
 `;
 
-exports[`renders components/cascader/demo/placement.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/cascader/demo/placement.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/cascader/demo/render-panel.tsx extend context correctly 1`] = `
 <div
@@ -2168,7 +2120,6 @@ exports[`renders components/cascader/demo/render-panel.tsx extend context correc
 If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.
 
 If you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.%s",
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
 ]
 `;
 
@@ -2319,11 +2270,7 @@ exports[`renders components/cascader/demo/search.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders components/cascader/demo/search.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/cascader/demo/search.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/cascader/demo/showCheckedStrategy.tsx extend context correctly 1`] = `
 Array [
@@ -2762,11 +2709,7 @@ Array [
 ]
 `;
 
-exports[`renders components/cascader/demo/showCheckedStrategy.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/cascader/demo/showCheckedStrategy.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/cascader/demo/size.tsx extend context correctly 1`] = `
 Array [
@@ -3214,11 +3157,7 @@ Array [
 ]
 `;
 
-exports[`renders components/cascader/demo/size.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/cascader/demo/size.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/cascader/demo/status.tsx extend context correctly 1`] = `
 <div
@@ -3513,11 +3452,7 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders components/cascader/demo/status.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/cascader/demo/status.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/cascader/demo/suffix.tsx extend context correctly 1`] = `
 Array [
@@ -4064,8 +3999,4 @@ Array [
 ]
 `;
 
-exports[`renders components/cascader/demo/suffix.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/cascader/demo/suffix.tsx extend context correctly 2`] = `[]`;
