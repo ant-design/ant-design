@@ -23,7 +23,7 @@ const camelComponentNames = componentNames.map((componentName) =>
 // Convert a mapping logic
 const componentNameMap: Record<string, string[]> = {};
 camelComponentNames.forEach((name) => {
-  componentNameMap[name] = [` ${name}`, `\`${name}`, '[Global]'];
+  componentNameMap[name] = [` ${name}`, `\`${name}`, 'Global:'];
 });
 
 componentNameMap.ConfigProvider.push('Wave');
