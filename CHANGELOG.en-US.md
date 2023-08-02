@@ -22,7 +22,7 @@ timeline: true
 - 🔥 Component Token support `algorithm` to calculate derivative tokens same as global. [#43810](https://github.com/ant-design/ant-design/pull/43810) [@MadCcc](https://github.com/MadCcc)
 - 🔥 Modal hooks function support `await` call. [#43470](https://github.com/ant-design/ant-design/pull/43470)
 - 🔥 ConfigProvider support `wave` to customize wave effect. [#43784](https://github.com/ant-design/ant-design/pull/43784)
-- 🆕 Optimized the design of icons including CloseCircleFilled/CloseSquareFilled/CloseOutlined/CloseCircleOutlined/CloseSquareOutlined/ExportOutlined/ImportOutlined. [824500](https://github.com/ant-design/ant-design-icons/commit/824500349894a87562f033dbdc5e3c5d301a2f5c)
+- 💄 Optimized the design of icons including CloseCircleFilled/CloseSquareFilled/CloseOutlined/CloseCircleOutlined/CloseSquareOutlined/ExportOutlined/ImportOutlined. [824500](https://github.com/ant-design/ant-design-icons/commit/824500349894a87562f033dbdc5e3c5d301a2f5c)
 - 🆕 Form support `getFieldsValue({ strict: true })` to support only Item bind values. [#43828](https://github.com/ant-design/ant-design/pull/43828)
 - 🆕 Descriptions support `items` prop. [#43483](https://github.com/ant-design/ant-design/pull/43483) [@RedJue](https://github.com/RedJue)
 - 🆕 ColorPicker support `disabledAlpha` prop. [#43355](https://github.com/ant-design/ant-design/pull/43355) [@RedJue](https://github.com/RedJue)
