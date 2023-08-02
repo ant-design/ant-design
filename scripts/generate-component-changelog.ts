@@ -7,6 +7,7 @@ import { globSync } from 'glob';
 // const componentNames = Object.keys(antd);
 // console.log('>>>', componentNames);
 
+// Collect components
 const componentNames = globSync(
   path.join(process.cwd(), 'components/!(version|icon|col|row)/index.zh-CN.md'),
 ).map((filePath) => filePath.match(/components\/([^/]*)\//)![1]);
@@ -19,6 +20,9 @@ const camelComponentNames = componentNames.map((componentName) =>
 );
 
 console.log(camelComponentNames);
+
+// Collect misc. When ComponentName not match will fallback to misc
+const miscKeys = ['Token'];
 
 (() => {
   const content = fs.readFileSync('CHANGELOG.zh-CN.md').toString();
@@ -51,6 +55,11 @@ console.log(camelComponentNames);
     const matchComponents = camelComponentNames.filter((componentName) =>
       line.toUpperCase().includes(componentName.toUpperCase()),
     );
+
+    // Misc
+    if (miscKeys.some((key) => line.includes(key))) {
+      return false;
+    }
 
     // console.log(line, matchComponents);
 
