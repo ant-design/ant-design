@@ -19,7 +19,7 @@ const camelComponentNames = componentNames.map((componentName) =>
     .join(''),
 );
 
-camelComponentNames.push('Wave', 'Row', 'Col', 'message', 'notification');
+camelComponentNames.push('Global', 'Wave', 'Row', 'Col', 'message', 'notification');
 
 console.log(camelComponentNames);
 
@@ -27,10 +27,13 @@ console.log(camelComponentNames);
 const miscKeys = [
   'ComponentToken',
   'Design Token',
+  'Arrow',
+  '箭头',
   '@ant-design/cssinjs',
   '@ant-design/icons',
   ' IE ',
   'reset.css',
+  '📖',
   '🛠',
   '🌐',
   ' locale ',
@@ -76,6 +79,11 @@ const miscKeys = [
     // Start when get version
     if (!lastVersion) {
       continue;
+    }
+
+    // Group end
+    if (line.startsWith('- ')) {
+      lastGroup = '';
     }
 
     // Group check
