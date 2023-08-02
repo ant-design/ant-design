@@ -157,7 +157,7 @@ const miscKeys = [
       }
 
       if (!matched) {
-        console.log('Miss Match:', line);
+        console.log('🚨 Miss Component:', line);
         missingChangelog.push(line);
       }
     }
