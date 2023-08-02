@@ -838,11 +838,7 @@ exports[`renders components/tree-select/demo/checkable.tsx extend context correc
 </div>
 `;
 
-exports[`renders components/tree-select/demo/checkable.tsx extend context correctly 2`] = `
-[
-  "Warning: Invalid DOM property \`%s\`. Did you mean \`%s\`?%s",
-]
-`;
+exports[`renders components/tree-select/demo/checkable.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tree-select/demo/multiple.tsx extend context correctly 1`] = `
 <div

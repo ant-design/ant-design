@@ -27113,11 +27113,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
 </div>
 `;
 
-exports[`renders components/date-picker/demo/format.tsx extend context correctly 2`] = `
-[
-  "Warning: Invalid DOM property \`%s\`. Did you mean \`%s\`?%s",
-]
-`;
+exports[`renders components/date-picker/demo/format.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1`] = `
 <div

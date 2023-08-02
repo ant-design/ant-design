@@ -20535,11 +20535,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders components/time-picker/demo/size.tsx extend context correctly 2`] = `
-[
-  "Warning: Invalid DOM property \`%s\`. Did you mean \`%s\`?%s",
-]
-`;
+exports[`renders components/time-picker/demo/size.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/time-picker/demo/status.tsx extend context correctly 1`] = `
 <div
