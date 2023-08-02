@@ -3450,6 +3450,12 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
 </div>
 `;
 
+exports[`renders components/time-picker/demo/12hours.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/time-picker/demo/addon.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -4876,6 +4882,12 @@ Array [
 ]
 `;
 
+exports[`renders components/time-picker/demo/addon.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/time-picker/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -6286,6 +6298,13 @@ Array [
       </div>
     </div>
   </div>,
+]
+`;
+
+exports[`renders components/time-picker/demo/basic.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+  "Warning: \`defaultOpenValue\` may confuse user for the current value status. Please use \`defaultValue\` instead.",
 ]
 `;
 
@@ -9161,6 +9180,12 @@ Array [
 ]
 `;
 
+exports[`renders components/time-picker/demo/bordered.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/time-picker/demo/colored-popup.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -10571,6 +10596,13 @@ Array [
       </div>
     </div>
   </div>,
+]
+`;
+
+exports[`renders components/time-picker/demo/colored-popup.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+  "Warning: \`defaultOpenValue\` may confuse user for the current value status. Please use \`defaultValue\` instead.",
 ]
 `;
 
@@ -11988,6 +12020,12 @@ Array [
 ]
 `;
 
+exports[`renders components/time-picker/demo/disabled.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/time-picker/demo/hide-column.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -12881,6 +12919,12 @@ Array [
 ]
 `;
 
+exports[`renders components/time-picker/demo/hide-column.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/time-picker/demo/interval-options.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -13302,6 +13346,12 @@ Array [
       </div>
     </div>
   </div>,
+]
+`;
+
+exports[`renders components/time-picker/demo/interval-options.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
 ]
 `;
 
@@ -14768,6 +14818,12 @@ Array [
 ]
 `;
 
+exports[`renders components/time-picker/demo/range-picker.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/time-picker/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   style="padding-bottom: 0px; position: relative; min-width: 0;"
@@ -16183,6 +16239,12 @@ exports[`renders components/time-picker/demo/render-panel.tsx extend context cor
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/time-picker/demo/render-panel.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/time-picker/demo/size.tsx extend context correctly 1`] = `
@@ -20505,6 +20567,12 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/time-picker/demo/size.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/time-picker/demo/status.tsx extend context correctly 1`] = `
@@ -26267,6 +26335,12 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/time-picker/demo/status.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/time-picker/demo/suffix.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -27674,6 +27748,13 @@ Array [
       </div>
     </div>
   </div>,
+]
+`;
+
+exports[`renders components/time-picker/demo/suffix.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+  "Warning: \`defaultOpenValue\` may confuse user for the current value status. Please use \`defaultValue\` instead.",
 ]
 `;
 
@@ -29088,5 +29169,11 @@ Array [
       </div>
     </div>
   </div>,
+]
+`;
+
+exports[`renders components/time-picker/demo/value.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
 ]
 `;

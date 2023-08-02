@@ -168,6 +168,8 @@ Array [
 ]
 `;
 
+exports[`renders components/tour/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tour/demo/indicator.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -321,6 +323,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/tour/demo/indicator.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tour/demo/mask.tsx extend context correctly 1`] = `
 Array [
@@ -490,6 +494,8 @@ Array [
 ]
 `;
 
+exports[`renders components/tour/demo/mask.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tour/demo/non-modal.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -658,6 +664,8 @@ Array [
 ]
 `;
 
+exports[`renders components/tour/demo/non-modal.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tour/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -747,6 +755,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/tour/demo/placement.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tour/demo/render-panel.tsx extend context correctly 1`] = `
 <div
@@ -1066,3 +1076,5 @@ exports[`renders components/tour/demo/render-panel.tsx extend context correctly 
   </div>
 </div>
 `;
+
+exports[`renders components/tour/demo/render-panel.tsx extend context correctly 2`] = `[]`;

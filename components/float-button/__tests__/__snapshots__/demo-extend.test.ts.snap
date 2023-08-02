@@ -28,6 +28,8 @@ exports[`renders components/float-button/demo/back-top.tsx extend context correc
 </div>
 `;
 
+exports[`renders components/float-button/demo/back-top.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/float-button/demo/badge.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -490,6 +492,8 @@ Array [
 ]
 `;
 
+exports[`renders components/float-button/demo/badge.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/float-button/demo/badge-debug.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -600,6 +604,8 @@ Array [
 ]
 `;
 
+exports[`renders components/float-button/demo/badge-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/float-button/demo/basic.tsx extend context correctly 1`] = `
 <button
   class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
@@ -659,6 +665,8 @@ exports[`renders components/float-button/demo/basic.tsx extend context correctly
   </div>
 </button>
 `;
+
+exports[`renders components/float-button/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/float-button/demo/controlled.tsx extend context correctly 1`] = `
 Array [
@@ -876,6 +884,8 @@ Array [
 ]
 `;
 
+exports[`renders components/float-button/demo/controlled.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/float-button/demo/description.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -1046,6 +1056,8 @@ Array [
   </button>,
 ]
 `;
+
+exports[`renders components/float-button/demo/description.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/float-button/demo/group.tsx extend context correctly 1`] = `
 Array [
@@ -1467,6 +1479,8 @@ Array [
 ]
 `;
 
+exports[`renders components/float-button/demo/group.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/float-button/demo/group-menu.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -1595,6 +1609,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/float-button/demo/group-menu.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/float-button/demo/render-panel.tsx extend context correctly 1`] = `
 <div
@@ -2200,6 +2216,8 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
 </div>
 `;
 
+exports[`renders components/float-button/demo/render-panel.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/float-button/demo/shape.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -2321,6 +2339,8 @@ Array [
 ]
 `;
 
+exports[`renders components/float-button/demo/shape.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/float-button/demo/tooltip.tsx extend context correctly 1`] = `
 <button
   class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
@@ -2384,6 +2404,8 @@ exports[`renders components/float-button/demo/tooltip.tsx extend context correct
   </div>
 </button>
 `;
+
+exports[`renders components/float-button/demo/tooltip.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/float-button/demo/type.tsx extend context correctly 1`] = `
 Array [
@@ -2511,3 +2533,5 @@ Array [
   </button>,
 ]
 `;
+
+exports[`renders components/float-button/demo/type.tsx extend context correctly 2`] = `[]`;

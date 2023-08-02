@@ -41,6 +41,8 @@ exports[`renders components/image/demo/basic.tsx extend context correctly 1`] = 
 </div>
 `;
 
+exports[`renders components/image/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/image/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -121,6 +123,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/image/demo/component-token.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/image/demo/controlled-preview.tsx extend context correctly 1`] = `
 Array [
@@ -255,6 +259,8 @@ Array [
 ]
 `;
 
+exports[`renders components/image/demo/controlled-preview.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/image/demo/fallback.tsx extend context correctly 1`] = `
 <div
   class="ant-image"
@@ -298,6 +304,8 @@ exports[`renders components/image/demo/fallback.tsx extend context correctly 1`]
 </div>
 `;
 
+exports[`renders components/image/demo/fallback.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/image/demo/imageRender.tsx extend context correctly 1`] = `
 <div
   class="ant-image"
@@ -338,6 +346,8 @@ exports[`renders components/image/demo/imageRender.tsx extend context correctly 
   </div>
 </div>
 `;
+
+exports[`renders components/image/demo/imageRender.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/image/demo/placeholder.tsx extend context correctly 1`] = `
 <div
@@ -415,6 +425,8 @@ exports[`renders components/image/demo/placeholder.tsx extend context correctly 
   </div>
 </div>
 `;
+
+exports[`renders components/image/demo/placeholder.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/image/demo/preview-group.tsx extend context correctly 1`] = `
 Array [
@@ -496,6 +508,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/image/demo/preview-group.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/image/demo/preview-group-top-progress.tsx extend context correctly 1`] = `
 Array [
@@ -616,6 +630,8 @@ Array [
 ]
 `;
 
+exports[`renders components/image/demo/preview-group-top-progress.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/image/demo/preview-group-visible.tsx extend context correctly 1`] = `
 <div
   class="ant-image"
@@ -656,6 +672,8 @@ exports[`renders components/image/demo/preview-group-visible.tsx extend context 
   </div>
 </div>
 `;
+
+exports[`renders components/image/demo/preview-group-visible.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/image/demo/preview-mask.tsx extend context correctly 1`] = `
 <div
@@ -707,6 +725,8 @@ exports[`renders components/image/demo/preview-mask.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/image/demo/preview-mask.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/image/demo/previewSrc.tsx extend context correctly 1`] = `
 <div
   class="ant-image"
@@ -748,6 +768,8 @@ exports[`renders components/image/demo/previewSrc.tsx extend context correctly 1
 </div>
 `;
 
+exports[`renders components/image/demo/previewSrc.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/image/demo/toolbarRender.tsx extend context correctly 1`] = `
 <div
   class="ant-image"
@@ -788,3 +810,5 @@ exports[`renders components/image/demo/toolbarRender.tsx extend context correctl
   </div>
 </div>
 `;
+
+exports[`renders components/image/demo/toolbarRender.tsx extend context correctly 2`] = `[]`;

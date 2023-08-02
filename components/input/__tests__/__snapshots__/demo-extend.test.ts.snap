@@ -601,6 +601,12 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
 </div>
 `;
 
+exports[`renders components/input/demo/addon.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/input/demo/align.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -4842,6 +4848,12 @@ Array [
 ]
 `;
 
+exports[`renders components/input/demo/align.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/input/demo/allowClear.tsx extend context correctly 1`] = `
 Array [
   <span
@@ -4927,6 +4939,8 @@ Array [
 ]
 `;
 
+exports[`renders components/input/demo/allowClear.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/input/demo/autosize-textarea.tsx extend context correctly 1`] = `
 Array [
   <textarea
@@ -4953,6 +4967,8 @@ Array [
 ]
 `;
 
+exports[`renders components/input/demo/autosize-textarea.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/input/demo/basic.tsx extend context correctly 1`] = `
 <input
   class="ant-input"
@@ -4962,6 +4978,8 @@ exports[`renders components/input/demo/basic.tsx extend context correctly 1`] = 
 />
 `;
 
+exports[`renders components/input/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/input/demo/borderless.tsx extend context correctly 1`] = `
 <input
   class="ant-input ant-input-borderless"
@@ -4970,6 +4988,8 @@ exports[`renders components/input/demo/borderless.tsx extend context correctly 1
   value=""
 />
 `;
+
+exports[`renders components/input/demo/borderless.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/input/demo/borderless-debug.tsx extend context correctly 1`] = `
 <div
@@ -5148,6 +5168,8 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
   </span>
 </div>
 `;
+
+exports[`renders components/input/demo/borderless-debug.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/input/demo/compact-style.tsx extend context correctly 1`] = `
 <div
@@ -5513,6 +5535,12 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
 </div>
 `;
 
+exports[`renders components/input/demo/compact-style.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/input/demo/debug-addon.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -5649,6 +5677,8 @@ exports[`renders components/input/demo/debug-addon.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/input/demo/debug-addon.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -5763,6 +5793,8 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = 
   </div>
 </div>
 `;
+
+exports[`renders components/input/demo/focus.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/input/demo/group.tsx extend context correctly 1`] = `
 <div
@@ -9238,6 +9270,13 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
 </div>
 `;
 
+exports[`renders components/input/demo/group.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Input.Group] 'Input.Group' is deprecated. Please use 'Space.Compact' instead.",
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/input/demo/password-input.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -9392,6 +9431,8 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
 </div>
 `;
 
+exports[`renders components/input/demo/password-input.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/input/demo/presuffix.tsx extend context correctly 1`] = `
 Array [
   <span
@@ -9518,6 +9559,8 @@ Array [
   </span>,
 ]
 `;
+
+exports[`renders components/input/demo/presuffix.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/input/demo/search-input.tsx extend context correctly 1`] = `
 <div
@@ -9929,6 +9972,8 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/input/demo/search-input.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/input/demo/search-input-loading.tsx extend context correctly 1`] = `
 Array [
   <span
@@ -10080,6 +10125,8 @@ Array [
 ]
 `;
 
+exports[`renders components/input/demo/search-input-loading.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/input/demo/show-count.tsx extend context correctly 1`] = `
 Array [
   <span
@@ -10122,6 +10169,8 @@ Array [
   </span>,
 ]
 `;
+
+exports[`renders components/input/demo/show-count.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/input/demo/size.tsx extend context correctly 1`] = `
 Array [
@@ -10230,6 +10279,8 @@ Array [
   </span>,
 ]
 `;
+
+exports[`renders components/input/demo/size.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/input/demo/status.tsx extend context correctly 1`] = `
 <div
@@ -10342,6 +10393,8 @@ exports[`renders components/input/demo/status.tsx extend context correctly 1`] =
 </div>
 `;
 
+exports[`renders components/input/demo/status.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/input/demo/textarea.tsx extend context correctly 1`] = `
 Array [
   <textarea
@@ -10357,6 +10410,8 @@ Array [
   />,
 ]
 `;
+
+exports[`renders components/input/demo/textarea.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/input/demo/textarea-resize.tsx extend context correctly 1`] = `
 Array [
@@ -10416,6 +10471,8 @@ Array [
 ]
 `;
 
+exports[`renders components/input/demo/textarea-resize.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/input/demo/textarea-show-count.tsx extend context correctly 1`] = `
 Array [
   <span
@@ -10460,6 +10517,8 @@ Array [
 ]
 `;
 
+exports[`renders components/input/demo/textarea-show-count.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/input/demo/tooltip.tsx extend context correctly 1`] = `
 Array [
   <input
@@ -10491,3 +10550,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/input/demo/tooltip.tsx extend context correctly 2`] = `[]`;

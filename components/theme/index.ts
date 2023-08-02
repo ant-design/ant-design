@@ -2,7 +2,7 @@
 
 /* eslint-disable import/prefer-default-export */
 import getDesignToken from './getDesignToken';
-import type { GlobalToken } from './interface';
+import type { GlobalToken, MappingAlgorithm } from './interface';
 import { defaultConfig, useToken as useInternalToken } from './internal';
 import compactAlgorithm from './themes/compact';
 import darkAlgorithm from './themes/dark';
@@ -18,7 +18,7 @@ function useToken() {
   return { theme, token, hashId };
 }
 
-export { type GlobalToken };
+export type { GlobalToken, MappingAlgorithm };
 
 export default {
   /** @private Test Usage. Do not use in production. */

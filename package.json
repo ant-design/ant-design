@@ -258,6 +258,7 @@
     "lz-string": "^1.4.4",
     "mockdate": "^3.0.0",
     "node-notifier": "^10.0.1",
+    "nprogress": "^0.2.0",
     "open": "^9.0.0",
     "prettier": "^3.0.0",
     "prettier-plugin-jsdoc": "^1.0.1",
@@ -312,11 +313,11 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "385 KiB"
+      "limit": "386 KiB"
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "445 KiB"
+      "limit": "446 KiB"
     }
   ],
   "tnpm": {

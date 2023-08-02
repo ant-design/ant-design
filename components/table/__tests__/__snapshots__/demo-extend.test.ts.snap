@@ -323,6 +323,8 @@ exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = 
 </div>
 `;
 
+exports[`renders components/table/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/bordered.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -541,6 +543,8 @@ exports[`renders components/table/demo/bordered.tsx extend context correctly 1`]
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/bordered.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/colspan-rowspan.tsx extend context correctly 1`] = `
 <div
@@ -860,6 +864,8 @@ exports[`renders components/table/demo/colspan-rowspan.tsx extend context correc
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/colspan-rowspan.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/custom-filter-panel.tsx extend context correctly 1`] = `
 <div
@@ -1562,6 +1568,8 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
 </div>
 `;
 
+exports[`renders components/table/demo/custom-filter-panel.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/drag-sorting.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -1795,6 +1803,8 @@ Array [
   />,
 ]
 `;
+
+exports[`renders components/table/demo/drag-sorting.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/drag-sorting-handler.tsx extend context correctly 1`] = `
 Array [
@@ -2101,6 +2111,8 @@ Array [
   />,
 ]
 `;
+
+exports[`renders components/table/demo/drag-sorting-handler.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/dynamic-settings.tsx extend context correctly 1`] = `
 Array [
@@ -4666,6 +4678,8 @@ Array [
 ]
 `;
 
+exports[`renders components/table/demo/dynamic-settings.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`] = `
 <div>
   <button
@@ -5053,6 +5067,8 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/edit-cell.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`] = `
 <div
@@ -5757,6 +5773,12 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
 </div>
 `;
 
+exports[`renders components/table/demo/edit-row.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/table/demo/ellipsis.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -6047,6 +6069,8 @@ exports[`renders components/table/demo/ellipsis.tsx extend context correctly 1`]
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/ellipsis.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend context correctly 1`] = `
 <div
@@ -6579,6 +6603,8 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
 </div>
 `;
 
+exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/expand.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -6878,6 +6904,8 @@ exports[`renders components/table/demo/expand.tsx extend context correctly 1`] =
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/expand.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/filter-in-tree.tsx extend context correctly 1`] = `
 <div
@@ -7852,6 +7880,8 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
 </div>
 `;
 
+exports[`renders components/table/demo/filter-in-tree.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/filter-search.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -8649,6 +8679,8 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
 </div>
 `;
 
+exports[`renders components/table/demo/filter-search.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/fixed-columns.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -9157,6 +9189,8 @@ exports[`renders components/table/demo/fixed-columns.tsx extend context correctl
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/fixed-columns.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/fixed-columns-header.tsx extend context correctly 1`] = `
 <div
@@ -10391,6 +10425,12 @@ exports[`renders components/table/demo/fixed-columns-header.tsx extend context c
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/table/demo/fixed-columns-header.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
 `;
 
 exports[`renders components/table/demo/fixed-header.tsx extend context correctly 1`] = `
@@ -11756,6 +11796,12 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/table/demo/fixed-header.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/table/demo/grouping-columns.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -13076,6 +13122,12 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
 </div>
 `;
 
+exports[`renders components/table/demo/grouping-columns.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -14011,6 +14063,8 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/table/demo/head.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -14361,6 +14415,8 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/jsx.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/multiple-sorter.tsx extend context correctly 1`] = `
 <div
@@ -14834,6 +14890,8 @@ exports[`renders components/table/demo/multiple-sorter.tsx extend context correc
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/multiple-sorter.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] = `
 <div
@@ -15485,6 +15543,12 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
 </div>
 `;
 
+exports[`renders components/table/demo/narrow.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/table/demo/nest-table-border-debug.tsx extend context correctly 1`] = `
 Array [
   <form
@@ -15927,6 +15991,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/table/demo/nest-table-border-debug.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/nested-table.tsx extend context correctly 1`] = `
 Array [
@@ -18909,6 +18975,8 @@ Array [
 ]
 `;
 
+exports[`renders components/table/demo/nested-table.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/order-column.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -19280,6 +19348,8 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/order-column.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/pagination.tsx extend context correctly 1`] = `
 <div>
@@ -19856,6 +19926,8 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/pagination.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/reset-filter.tsx extend context correctly 1`] = `
 Array [
@@ -20766,6 +20838,8 @@ Array [
 ]
 `;
 
+exports[`renders components/table/demo/reset-filter.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/resizable-column.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -21114,6 +21188,8 @@ exports[`renders components/table/demo/resizable-column.tsx extend context corre
 </div>
 `;
 
+exports[`renders components/table/demo/resizable-column.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/responsive.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -21252,6 +21328,8 @@ exports[`renders components/table/demo/responsive.tsx extend context correctly 1
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/responsive.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/row-selection.tsx extend context correctly 1`] = `
 <div>
@@ -21638,6 +21716,8 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/row-selection.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/row-selection-and-operation.tsx extend context correctly 1`] = `
 <div>
@@ -22258,6 +22338,8 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/row-selection-and-operation.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/row-selection-custom.tsx extend context correctly 1`] = `
 <div
@@ -23135,6 +23217,8 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
 </div>
 `;
 
+exports[`renders components/table/demo/row-selection-custom.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/row-selection-custom-debug.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -23538,6 +23622,12 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/table/demo/row-selection-custom-debug.tsx extend context correctly 2`] = `
+[
+  "Warning: \`columns.render\` return cell props is deprecated with perf issue, please use \`onCell\` instead.",
+]
 `;
 
 exports[`renders components/table/demo/row-selection-debug.tsx extend context correctly 1`] = `
@@ -25805,6 +25895,8 @@ Array [
 ]
 `;
 
+exports[`renders components/table/demo/row-selection-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/selections-debug.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -26272,6 +26364,8 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
 </div>
 `;
 
+exports[`renders components/table/demo/selections-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -26688,6 +26782,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/table/demo/size.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/sticky.tsx extend context correctly 1`] = `
 <div
@@ -27982,6 +28078,12 @@ exports[`renders components/table/demo/sticky.tsx extend context correctly 1`] =
 </div>
 `;
 
+exports[`renders components/table/demo/sticky.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/table/demo/summary.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -28607,6 +28709,8 @@ Array [
 ]
 `;
 
+exports[`renders components/table/demo/summary.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/tree-data.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -28916,6 +29020,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/table/demo/tree-data.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/tree-table-ellipsis.tsx extend context correctly 1`] = `
 Array [
@@ -29640,6 +29746,8 @@ Array [
 ]
 `;
 
+exports[`renders components/table/demo/tree-table-ellipsis.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/virtual-list.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper virtual-table"
@@ -29826,3 +29934,5 @@ exports[`renders components/table/demo/virtual-list.tsx extend context correctly
   </div>
 </div>
 `;
+
+exports[`renders components/table/demo/virtual-list.tsx extend context correctly 2`] = `[]`;

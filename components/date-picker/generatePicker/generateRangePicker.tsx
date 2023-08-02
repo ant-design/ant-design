@@ -49,6 +49,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
       popupClassName,
       dropdownClassName,
       status: customStatus,
+      clearIcon,
       ...restProps
     } = props;
 
@@ -116,12 +117,10 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
         dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
         placeholder={getRangePlaceholder(locale, picker, placeholder)}
         suffixIcon={suffixNode}
-        clearIcon={<CloseCircleFilled />}
         prevIcon={<span className={`${prefixCls}-prev-icon`} />}
         nextIcon={<span className={`${prefixCls}-next-icon`} />}
         superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
         superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-        allowClear
         transitionName={`${rootPrefixCls}-slide-up`}
         {...restProps}
         {...additionalOverrideProps}
@@ -142,6 +141,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
         components={Components}
         direction={direction}
         dropdownClassName={classNames(hashId, popupClassName || dropdownClassName)}
+        allowClear={{ clearIcon: clearIcon ?? <CloseCircleFilled /> }}
       />,
     );
   });

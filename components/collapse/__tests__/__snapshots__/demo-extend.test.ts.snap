@@ -128,6 +128,8 @@ exports[`renders components/collapse/demo/accordion.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/collapse/demo/accordion.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/collapse/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
@@ -269,6 +271,8 @@ exports[`renders components/collapse/demo/basic.tsx extend context correctly 1`]
 </div>
 `;
 
+exports[`renders components/collapse/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/collapse/demo/borderless.tsx extend context correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless"
@@ -409,6 +413,8 @@ exports[`renders components/collapse/demo/borderless.tsx extend context correctl
   </div>
 </div>
 `;
+
+exports[`renders components/collapse/demo/borderless.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/collapse/demo/collapsible.tsx extend context correctly 1`] = `
 <div
@@ -587,6 +593,8 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
 </div>
 `;
 
+exports[`renders components/collapse/demo/collapsible.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/collapse/demo/custom.tsx extend context correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless"
@@ -731,6 +739,8 @@ exports[`renders components/collapse/demo/custom.tsx extend context correctly 1`
   </div>
 </div>
 `;
+
+exports[`renders components/collapse/demo/custom.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/collapse/demo/extra.tsx extend context correctly 1`] = `
 Array [
@@ -1092,6 +1102,12 @@ Array [
 ]
 `;
 
+exports[`renders components/collapse/demo/extra.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/collapse/demo/ghost.tsx extend context correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start ant-collapse-ghost"
@@ -1233,6 +1249,8 @@ exports[`renders components/collapse/demo/ghost.tsx extend context correctly 1`]
 </div>
 `;
 
+exports[`renders components/collapse/demo/ghost.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/collapse/demo/mix.tsx extend context correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
@@ -1360,6 +1378,8 @@ exports[`renders components/collapse/demo/mix.tsx extend context correctly 1`] =
 </div>
 `;
 
+exports[`renders components/collapse/demo/mix.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/collapse/demo/noarrow.tsx extend context correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
@@ -1437,6 +1457,8 @@ exports[`renders components/collapse/demo/noarrow.tsx extend context correctly 1
   </div>
 </div>
 `;
+
+exports[`renders components/collapse/demo/noarrow.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/collapse/demo/size.tsx extend context correctly 1`] = `
 Array [
@@ -1604,3 +1626,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/collapse/demo/size.tsx extend context correctly 2`] = `[]`;
