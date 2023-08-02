@@ -3886,11 +3886,7 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/tree/demo/line.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/tree/demo/line.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tree/demo/search.tsx extend context correctly 1`] = `
 <div>

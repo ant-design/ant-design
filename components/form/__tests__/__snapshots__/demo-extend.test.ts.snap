@@ -615,11 +615,7 @@ Array [
 ]
 `;
 
-exports[`renders components/form/demo/advanced-search.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/form/demo/advanced-search.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
 <form
@@ -1647,11 +1643,7 @@ Array [
 ]
 `;
 
-exports[`renders components/form/demo/col-24-debug.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/form/demo/col-24-debug.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/control-hooks.tsx extend context correctly 1`] = `
 <form
@@ -1933,11 +1925,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
 </form>
 `;
 
-exports[`renders components/form/demo/control-hooks.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/form/demo/control-hooks.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/control-ref.tsx extend context correctly 1`] = `
 <form
@@ -2219,11 +2207,7 @@ exports[`renders components/form/demo/control-ref.tsx extend context correctly 1
 </form>
 `;
 
-exports[`renders components/form/demo/control-ref.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/form/demo/control-ref.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/customized-form-controls.tsx extend context correctly 1`] = `
 <form
@@ -2441,11 +2425,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
 </form>
 `;
 
-exports[`renders components/form/demo/customized-form-controls.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/form/demo/customized-form-controls.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/disabled.tsx extend context correctly 1`] = `
 Array [
@@ -5328,11 +5308,7 @@ Array [
 ]
 `;
 
-exports[`renders components/form/demo/disabled.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/form/demo/disabled.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/disabled-input-debug.tsx extend context correctly 1`] = `
 <form
@@ -6519,11 +6495,7 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend cont
 </form>
 `;
 
-exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/dynamic-form-items-no-style.tsx extend context correctly 1`] = `
 <form
@@ -9716,11 +9688,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
 </form>
 `;
 
-exports[`renders components/form/demo/register.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/form/demo/register.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/required-mark.tsx extend context correctly 1`] = `
 <form
@@ -11437,11 +11405,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
 </form>
 `;
 
-exports[`renders components/form/demo/size.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/form/demo/size.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/time-related-controls.tsx extend context correctly 1`] = `
 <form
@@ -19038,11 +19002,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
 </form>
 `;
 
-exports[`renders components/form/demo/time-related-controls.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/form/demo/time-related-controls.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/useWatch.tsx extend context correctly 1`] = `
 Array [
@@ -21388,11 +21348,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
 </form>
 `;
 
-exports[`renders components/form/demo/validate-other.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/form/demo/validate-other.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/validate-static.tsx extend context correctly 1`] = `
 <form
@@ -27692,11 +27648,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
 </form>
 `;
 
-exports[`renders components/form/demo/validate-static.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/form/demo/validate-static.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/warning-only.tsx extend context correctly 1`] = `
 <form
