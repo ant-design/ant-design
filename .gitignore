@@ -54,6 +54,7 @@ components/version/token-meta.json
 .dumi/tmp
 .dumi/tmp-test
 .dumi/tmp-production
+.dumi/public/components-changelog*
 
 # Image snapshot diff
 __diff_output__/

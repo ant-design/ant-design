@@ -3,10 +3,8 @@
 import path from 'path';
 import fs from 'fs-extra';
 import { globSync } from 'glob';
-// import * as antd from 'antd';
 
-// const componentNames = Object.keys(antd);
-// console.log('>>>', componentNames);
+const output = '.dumi/public';
 
 // Collect components
 const componentNames = globSync(
@@ -148,4 +146,10 @@ const miscKeys = [
   }
 
   console.log(componentChangelog);
+
+  fs.writeFileSync(
+    path.join(output, 'components-changelog-cn.json'),
+    JSON.stringify(componentChangelog),
+    'utf-8',
+  );
 })();
