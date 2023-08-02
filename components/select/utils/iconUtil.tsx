@@ -41,7 +41,7 @@ export default function getIcons({
     warning(
       !clearIcon,
       componentName,
-      '`clearIcon` will be removed in future. Please use `allowClear` instead.',
+      '`clearIcon` is deprecated, please use `allowClear={{ clearIcon: React.ReactNode }}` instead.',
     );
   }
 
