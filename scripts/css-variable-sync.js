@@ -3,8 +3,8 @@
  * `variable.less` from the `default.less`
  */
 
-const fse = require('fs-extra');
 const path = require('path');
+const fse = require('fs-extra');
 const chalk = require('chalk');
 
 const folderPath = path.resolve(__dirname, '..', 'components', 'style', 'themes');
@@ -25,8 +25,10 @@ function replaceVariable(key, value) {
 
 function replaceVariableContent(key, content) {
   const lines = variableContent.split(/\n/);
-  const startIndex = lines.findIndex(line => line.includes(`[CSS-VARIABLE-REPLACE-BEGIN: ${key}]`));
-  const endIndex = lines.findIndex(line => line.includes(`[CSS-VARIABLE-REPLACE-END: ${key}]`));
+  const startIndex = lines.findIndex((line) =>
+    line.includes(`[CSS-VARIABLE-REPLACE-BEGIN: ${key}]`),
+  );
+  const endIndex = lines.findIndex((line) => line.includes(`[CSS-VARIABLE-REPLACE-END: ${key}]`));
 
   if (startIndex !== -1 && endIndex !== -1) {
     variableContent = [...lines.slice(0, startIndex), content, ...lines.slice(endIndex + 1)].join(

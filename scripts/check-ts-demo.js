@@ -1,10 +1,10 @@
 /* eslint-disable no-await-in-loop, no-console */
 
 const path = require('path');
+const { spawn } = require('child_process');
 const glob = require('glob');
 const fs = require('fs-extra');
 const chalk = require('chalk');
-const { spawn } = require('child_process');
 
 (async () => {
   console.time('Execution...');
@@ -18,7 +18,7 @@ const { spawn } = require('child_process');
   function getTypescriptDemo(content, demoPath) {
     const lines = content.split(/[\n\r]/);
 
-    const tsxStartLine = lines.findIndex(line =>
+    const tsxStartLine = lines.findIndex((line) =>
       line.replace(/\s/g).toLowerCase().includes('```tsx'),
     );
 
@@ -72,7 +72,7 @@ const { spawn } = require('child_process');
   child.stdout.pipe(process.stdout);
   child.stderr.pipe(process.stderr);
 
-  child.on('exit', async code => {
+  child.on('exit', async (code) => {
     console.timeEnd('Execution...');
 
     if (code) {
