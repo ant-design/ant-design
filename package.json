@@ -258,6 +258,7 @@
     "lz-string": "^1.4.4",
     "mockdate": "^3.0.0",
     "node-notifier": "^10.0.1",
+    "nprogress": "^0.2.0",
     "open": "^9.0.0",
     "prettier": "^3.0.0",
     "prettier-plugin-jsdoc": "^1.0.1",
