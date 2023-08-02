@@ -19,46 +19,82 @@ const camelComponentNames = componentNames.map((componentName) =>
     .join(''),
 );
 
+camelComponentNames.push('Wave', 'Row', 'Col', 'message', 'notification');
+
 console.log(camelComponentNames);
 
 // Collect misc. When ComponentName not match will fallback to misc
-const miscKeys = ['Token'];
+const miscKeys = [
+  'Design Token',
+  '@ant-design/cssinjs',
+  '@ant-design/icons',
+  ' IE ',
+  'reset.css',
+  '🛠',
+  '🌐',
+  ' locale ',
+  ' RTL ',
+  '🇧🇪',
+  '🇨🇦',
+  '🇪🇸',
+  '🇷🇺',
+  '🇺🇦',
+  '🇲🇲',
+  '🇸🇪',
+  '🇻🇳',
+  '🇮🇳',
+  '🇮🇷',
+  '🇰🇷',
+  '🇩🇪',
+];
 
 (() => {
   const content = fs.readFileSync('CHANGELOG.zh-CN.md').toString();
 
+  let lastGroup = '';
   let lastVersion = '';
 
   // Split with lines
-  content.split(/[\n\r]+/).some((line) => {
-    if (line === '## 4.x') {
-      return true;
+  const lines = content.split(/[\n\r]+/).filter((line) => line.trim());
+
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i];
+
+    // Skip for v5 release
+    if (line === '#### 升级必读' || line === '#### Read it before migration') {
+      break;
     }
 
     // Get version
     if (line.startsWith('## ')) {
       lastVersion = line.replace('## ', '');
-      return false;
+      continue;
     }
 
     // Start when get version
     if (!lastVersion) {
-      return false;
+      continue;
+    }
+
+    // Group check
+    if (line.startsWith('- ') && lines[i + 1].startsWith('  - ')) {
+      lastGroup = line.replace('- ', '');
+      continue;
     }
 
     // Filter not is changelog
     if (!line.trim().startsWith('-') && !line.includes('github.')) {
-      return false;
+      continue;
     }
 
     // Collect Components
     const matchComponents = camelComponentNames.filter((componentName) =>
-      line.toUpperCase().includes(componentName.toUpperCase()),
+      line.includes(componentName),
     );
 
     // Misc
     if (miscKeys.some((key) => line.includes(key))) {
-      return false;
+      continue;
     }
 
     // console.log(line, matchComponents);
@@ -66,7 +102,5 @@ const miscKeys = ['Token'];
     if (!matchComponents.length) {
       console.log(line);
     }
-
-    return false;
-  });
+  }
 })();
