@@ -224,11 +224,7 @@ exports[`renders components/tree-select/demo/async.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders components/tree-select/demo/async.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/tree-select/demo/async.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tree-select/demo/basic.tsx extend context correctly 1`] = `
 <div
@@ -573,11 +569,7 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders components/tree-select/demo/basic.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/tree-select/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tree-select/demo/checkable.tsx extend context correctly 1`] = `
 <div
@@ -846,11 +838,7 @@ exports[`renders components/tree-select/demo/checkable.tsx extend context correc
 </div>
 `;
 
-exports[`renders components/tree-select/demo/checkable.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/tree-select/demo/checkable.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tree-select/demo/multiple.tsx extend context correctly 1`] = `
 <div
@@ -1213,11 +1201,7 @@ exports[`renders components/tree-select/demo/multiple.tsx extend context correct
 </div>
 `;
 
-exports[`renders components/tree-select/demo/multiple.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/tree-select/demo/multiple.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tree-select/demo/placement.tsx extend context correctly 1`] = `
 Array [
@@ -1649,7 +1633,6 @@ Array [
 exports[`renders components/tree-select/demo/placement.tsx extend context correctly 2`] = `
 [
   "Warning: [antd: Select] \`dropdownMatchSelectWidth\` is deprecated. Please use \`popupMatchSelectWidth\` instead.",
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
 ]
 `;
 
@@ -1846,7 +1829,6 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
 If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.
 
 If you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.%s",
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
 ]
 `;
 
@@ -2116,11 +2098,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
 </div>
 `;
 
-exports[`renders components/tree-select/demo/status.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/tree-select/demo/status.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tree-select/demo/suffix.tsx extend context correctly 1`] = `
 <div
@@ -2465,11 +2443,7 @@ exports[`renders components/tree-select/demo/suffix.tsx extend context correctly
 </div>
 `;
 
-exports[`renders components/tree-select/demo/suffix.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/tree-select/demo/suffix.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tree-select/demo/treeData.tsx extend context correctly 1`] = `
 <div
@@ -2706,11 +2680,7 @@ exports[`renders components/tree-select/demo/treeData.tsx extend context correct
 </div>
 `;
 
-exports[`renders components/tree-select/demo/treeData.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/tree-select/demo/treeData.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tree-select/demo/treeLine.tsx extend context correctly 1`] = `
 <div
@@ -2937,8 +2907,4 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
 </div>
 `;
 
-exports[`renders components/tree-select/demo/treeLine.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/tree-select/demo/treeLine.tsx extend context correctly 2`] = `[]`;

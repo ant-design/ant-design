@@ -1501,11 +1501,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
 </div>
 `;
 
-exports[`renders components/segmented/demo/size-consistent.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/segmented/demo/size-consistent.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/segmented/demo/with-icon.tsx extend context correctly 1`] = `
 <div

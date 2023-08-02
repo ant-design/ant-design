@@ -286,6 +286,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     showSuffixIcon,
     multiple,
     prefixCls,
+    componentName: 'Cascader',
   });
 
   // ===================== Placement =====================
@@ -297,6 +298,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   }, [placement, isRtl]);
 
   const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements, popupOverflow);
+
+  const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
   // ==================== Render =====================
   const renderNode = (
@@ -325,12 +328,11 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       direction={mergedDirection}
       placement={memoPlacement}
       notFoundContent={mergedNotFoundContent}
-      allowClear={allowClear}
+      allowClear={mergedAllowClear}
       showSearch={mergedShowSearch}
       expandIcon={mergedExpandIcon}
       suffixIcon={suffixIcon}
       removeIcon={removeIcon}
-      clearIcon={clearIcon}
       loadingIcon={loadingIcon}
       checkable={checkable}
       dropdownClassName={mergedDropdownClassName}
