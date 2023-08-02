@@ -1,6 +1,7 @@
+/* eslint-disable no-loop-func */
 // Collect from `changelog.md` to get all components changelog
-import fs from 'fs-extra';
 import path from 'path';
+import fs from 'fs-extra';
 import { globSync } from 'glob';
 // import * as antd from 'antd';
 
@@ -19,9 +20,18 @@ const camelComponentNames = componentNames.map((componentName) =>
     .join(''),
 );
 
-camelComponentNames.push('Global', 'Wave', 'Row', 'Col', 'message', 'notification');
+// Convert a mapping logic
+const componentNameMap: Record<string, string[]> = {};
+camelComponentNames.forEach((name) => {
+  componentNameMap[name] = [name, 'Global'];
+});
 
-console.log(camelComponentNames);
+componentNameMap.ConfigProvider.push('Wave');
+componentNameMap.Grid.push('Row', 'Col');
+componentNameMap.Message.push('message');
+componentNameMap.Notification.push('notification');
+
+console.log(componentNameMap);
 
 // Collect misc. When ComponentName not match will fallback to misc
 const miscKeys = [
@@ -56,11 +66,17 @@ const miscKeys = [
 (() => {
   const content = fs.readFileSync('CHANGELOG.zh-CN.md').toString();
 
-  let lastGroup = '';
+  // let lastGroup = '';
   let lastVersion = '';
 
   // Split with lines
   const lines = content.split(/[\n\r]+/).filter((line) => line.trim());
+
+  // Changelog map
+  const componentChangelog: Record<string, { version: string; changelog: string }[]> = {};
+  Object.keys(componentNameMap).forEach((name) => {
+    componentChangelog[name] = [];
+  });
 
   for (let i = 0; i < lines.length; i += 1) {
     const line = lines[i];
@@ -83,13 +99,12 @@ const miscKeys = [
 
     // Group end
     if (line.startsWith('- ')) {
-      lastGroup = '';
+      // lastGroup = '';
     }
 
     // Group check
     if (line.startsWith('- ') && lines[i + 1].startsWith('  - ')) {
-      lastGroup = line.replace('- ', '');
-      console.log('Group:', lastGroup);
+      // lastGroup = line.replace('- ', '');
       continue;
     }
 
@@ -99,9 +114,26 @@ const miscKeys = [
     }
 
     // Collect Components
-    const matchComponents = camelComponentNames.filter((componentName) =>
-      line.includes(componentName),
-    );
+    let matched = false;
+    Object.keys(componentNameMap).forEach((name) => {
+      const matchKeys = componentNameMap[name];
+
+      if (matchKeys.some((key) => line.includes(key))) {
+        componentChangelog[name].push({
+          version: lastVersion,
+          changelog: line,
+        });
+        matched = true;
+      }
+    });
+
+    if (matched) {
+      continue;
+    }
+
+    // const matchComponents = camelComponentNames.filter((componentName) =>
+    //   line.includes(componentName),
+    // );
 
     // Misc
     if (miscKeys.some((key) => line.includes(key))) {
@@ -110,8 +142,10 @@ const miscKeys = [
 
     // console.log(line, matchComponents);
 
-    if (!matchComponents.length) {
+    if (!matched) {
       console.log(line);
     }
   }
+
+  console.log(componentChangelog);
 })();
