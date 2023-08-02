@@ -356,11 +356,7 @@ exports[`renders components/pagination/demo/all.tsx extend context correctly 1`]
 </ul>
 `;
 
-exports[`renders components/pagination/demo/all.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/pagination/demo/all.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/pagination/demo/basic.tsx extend context correctly 1`] = `
 <ul
@@ -1171,11 +1167,7 @@ Array [
 ]
 `;
 
-exports[`renders components/pagination/demo/changer.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/pagination/demo/changer.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/pagination/demo/component-token.tsx extend context correctly 1`] = `
 Array [
@@ -1830,11 +1822,7 @@ Array [
 ]
 `;
 
-exports[`renders components/pagination/demo/component-token.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/pagination/demo/component-token.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/pagination/demo/controlled.tsx extend context correctly 1`] = `
 <ul
@@ -2261,11 +2249,7 @@ exports[`renders components/pagination/demo/itemRender.tsx extend context correc
 </ul>
 `;
 
-exports[`renders components/pagination/demo/itemRender.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/pagination/demo/itemRender.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/pagination/demo/jump.tsx extend context correctly 1`] = `
 Array [
@@ -2971,11 +2955,7 @@ Array [
 ]
 `;
 
-exports[`renders components/pagination/demo/jump.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/pagination/demo/jump.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`] = `
 Array [
@@ -3838,11 +3818,7 @@ Array [
 ]
 `;
 
-exports[`renders components/pagination/demo/mini.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/pagination/demo/mini.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/pagination/demo/more.tsx extend context correctly 1`] = `
 <ul
@@ -4233,11 +4209,7 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 1`
 </ul>
 `;
 
-exports[`renders components/pagination/demo/more.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/pagination/demo/more.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/pagination/demo/simple.tsx extend context correctly 1`] = `
 Array [
@@ -5008,11 +4980,7 @@ Array [
 ]
 `;
 
-exports[`renders components/pagination/demo/total.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/pagination/demo/total.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/pagination/demo/wireframe.tsx extend context correctly 1`] = `
 Array [
@@ -5695,8 +5663,4 @@ Array [
 ]
 `;
 
-exports[`renders components/pagination/demo/wireframe.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/pagination/demo/wireframe.tsx extend context correctly 2`] = `[]`;

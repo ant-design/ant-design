@@ -5773,11 +5773,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders components/table/demo/edit-row.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/table/demo/edit-row.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/ellipsis.tsx extend context correctly 1`] = `
 <div
@@ -10427,11 +10423,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx extend context c
 </div>
 `;
 
-exports[`renders components/table/demo/fixed-columns-header.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/table/demo/fixed-columns-header.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/fixed-header.tsx extend context correctly 1`] = `
 <div
@@ -11796,11 +11788,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
 </div>
 `;
 
-exports[`renders components/table/demo/fixed-header.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/table/demo/fixed-header.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/grouping-columns.tsx extend context correctly 1`] = `
 <div
@@ -13122,11 +13110,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
 </div>
 `;
 
-exports[`renders components/table/demo/grouping-columns.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/table/demo/grouping-columns.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
 <div
@@ -15543,11 +15527,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders components/table/demo/narrow.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/table/demo/narrow.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/nest-table-border-debug.tsx extend context correctly 1`] = `
 Array [
@@ -28078,11 +28058,7 @@ exports[`renders components/table/demo/sticky.tsx extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders components/table/demo/sticky.tsx extend context correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
+exports[`renders components/table/demo/sticky.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/summary.tsx extend context correctly 1`] = `
 Array [
