@@ -25,6 +25,7 @@ console.log(camelComponentNames);
 
 // Collect misc. When ComponentName not match will fallback to misc
 const miscKeys = [
+  'ComponentToken',
   'Design Token',
   '@ant-design/cssinjs',
   '@ant-design/icons',
@@ -46,6 +47,7 @@ const miscKeys = [
   '🇮🇷',
   '🇰🇷',
   '🇩🇪',
+  '🇱🇹',
 ];
 
 (() => {

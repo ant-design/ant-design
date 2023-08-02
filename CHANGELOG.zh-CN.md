@@ -19,7 +19,7 @@ timeline: true
 
 `2023-08-01`
 
-- 🔥 组件 Token 支持配置 `algorithm` 参数，添加配置即可像全局 Token 一样由部分修改的 token 计算派生 token 的值并用于组件样式中。[#43810](https://github.com/ant-design/ant-design/pull/43810) [@MadCcc](https://github.com/MadCcc)
+- 🔥 组件 ComponentToken 支持配置 `algorithm` 参数，添加配置即可像全局 Token 一样由部分修改的 token 计算派生 token 的值并用于组件样式中。[#43810](https://github.com/ant-design/ant-design/pull/43810) [@MadCcc](https://github.com/MadCcc)
 - 🔥 Modal hooks 方法支持 `await` 调用。[#43470](https://github.com/ant-design/ant-design/pull/43470)
 - 🔥 ConfigProvider 支持 `wave` 配置以自定义水波纹效果。[#43784](https://github.com/ant-design/ant-design/pull/43784)
 - 🆕 Form 新增 `getFieldsValue({ strict: true })` 以支持获取仅通过 Item 绑定的字段。[#43828](https://github.com/ant-design/ant-design/pull/43828)
@@ -206,7 +206,7 @@ timeline: true
 
 - 🆕 ColorPicker 添加 `onClear` 属性，清除选中颜色时不自动关闭弹窗。[#42634](https://github.com/ant-design/ant-design/pull/42634) [@linxianxi](https://github.com/linxianxi)
 - 🆕 Collapse 支持通过 `items` 属性来配置面板内容。[#42545](https://github.com/ant-design/ant-design/pull/42545) [@kiner-tang](https://github.com/kiner-tang)
-- 🆕 新增静态方法 `getDesignToken` 用于获取完整的主题 token。[#42723](https://github.com/ant-design/ant-design/pull/42723) [@MadCcc](https://github.com/MadCcc)
+- 🆕 Design Token 新增静态方法 `getDesignToken` 用于获取完整的主题 token。[#42723](https://github.com/ant-design/ant-design/pull/42723) [@MadCcc](https://github.com/MadCcc)
 - 🆕 ConfigProvider 支持配置 Space 组件的 `classNames` 和 `styles` 属性。[#42748](https://github.com/ant-design/ant-design/pull/42748) [@RedJue](https://github.com/RedJue)
 - 🆕 Space 组件支持 `classNames` 和 `styles` 属性。[#42743](https://github.com/ant-design/ant-design/pull/42743) [@RedJue](https://github.com/RedJue)
 - 🆕 Drawer 抽屉面板支持事件监听，包裹元素支持传入 `data-*` 属性。[#42718](https://github.com/ant-design/ant-design/pull/42718) [@kiner-tang](https://github.com/kiner-tang)
@@ -283,7 +283,7 @@ timeline: true
 - 💄 修复 Tag 无边框样式在 `error` 等状态下不生效的问题。[#42619](https://github.com/ant-design/ant-design/pull/42619) [@li-jia-nan](https://github.com/li-jia-nan)
 - 💄 修复 Table `rowSpan` 悬浮高亮背景颜色丢失的问题。[#42572](https://github.com/ant-design/ant-design/pull/42572)
 - 💄 修复 Pagination 在禁用状态下 link 图标和 ellipsis hover 时的样式。[#42541](https://github.com/ant-design/ant-design/pull/42541) [@qmhc](https://github.com/qmhc)
-- 💄 修复部分全局 Token 无法覆盖组件样式的问题。[#42535](https://github.com/ant-design/ant-design/pull/42535) [@MadCcc](https://github.com/MadCcc)
+- 💄 修复部分全局 Design Token 无法覆盖组件样式的问题。[#42535](https://github.com/ant-design/ant-design/pull/42535) [@MadCcc](https://github.com/MadCcc)
 - 🇱🇹 为 `lt_LT` 添加缺失的部分文案。[#42664](https://github.com/ant-design/ant-design/pull/42664) [@Digital-512](https://github.com/Digital-512)
 - RTL
   - 💄 修复 ColorPicker 组件 RTL 模式样式。[#42716](https://github.com/ant-design/ant-design/pull/42716) [@RedJue](https://github.com/RedJue)
@@ -343,7 +343,7 @@ timeline: true
 - 💄 完善 Menu 溢出时样式。[#42294](https://github.com/ant-design/ant-design/pull/42294) [@dhalenok](https://github.com/dhalenok)
 - 💄 完善 Segmented 鼠标 active 样式。[#42249](https://github.com/ant-design/ant-design/pull/42249)
 - 🤖 Spin 添加在非嵌套下使用 `tip` 的警告提示。[#42293](https://github.com/ant-design/ant-design/pull/42293)
-- 🤖 组件 Token 名称规范化。[#42184](https://github.com/ant-design/ant-design/pull/42184)
+- 🤖 组件 ComponentToken 名称规范化。[#42184](https://github.com/ant-design/ant-design/pull/42184)
 - TypeScript
   - 🤖 完善 Tag 的类型定义。[#42235](https://github.com/ant-design/ant-design/pull/42235) [@gaoqiiii](https://github.com/gaoqiiii)
   - 🤖 完善 Notification `getContainer` 类型定义。[#40206](https://github.com/ant-design/ant-design/pull/40206) [@leshalv](https://github.com/leshalv)
@@ -374,7 +374,7 @@ timeline: true
 - 🐞 修复 Carousel `goTo` 在动画播放时无效的问题。[#41969](https://github.com/ant-design/ant-design/pull/41969) [@guan404ming](https://github.com/guan404ming)
 - Form
 - 🐞 修复 Form 触发重置事件后反馈图标未重置的问题。[#41976](https://github.com/ant-design/ant-design/pull/41976)
-- 🐞 修复 `onValuesChange` 收集到的数据不准确的问题。[#41976](https://github.com/ant-design/ant-design/pull/41976)
+- 🐞 修复 Form `onValuesChange` 收集到的数据不准确的问题。[#41976](https://github.com/ant-design/ant-design/pull/41976)
 - TypeScript
   - 🤖 修复 Menu 报错 OverrideContext 类型定义不存在的问题。[#41907](https://github.com/ant-design/ant-design/pull/41907)
   - 🤖 修复 TreeSelect 定义不支持 `aria-*` 的问题。[#41978](https://github.com/ant-design/ant-design/pull/41978) [@guan404ming](https://github.com/guan404ming)
@@ -395,7 +395,7 @@ timeline: true
 `2023-04-20`
 
 - 💄 修复 Message hooks 的图标样式不跟随动态主题 token 切换的问题。[#41899](https://github.com/ant-design/ant-design/pull/41899)
-- 🐞 修复 CSS 属性值为 `undefined` 时 cssinjs 报错的问题。[#41896](https://github.com/ant-design/ant-design/pull/41896)
+- 🐞 修复 `@ant-design/cssinjs` 中 CSS 属性值为 `undefined` 时 cssinjs 报错的问题。[#41896](https://github.com/ant-design/ant-design/pull/41896)
 
 ## 5.4.3
 
@@ -585,7 +585,7 @@ timeline: true
 - 🐞 修复 ConfigProvider 注入的 `getPopupContainer` 属性 不生效的问题。[#40871](https://github.com/ant-design/ant-design/pull/40871) [@RedJue](https://github.com/RedJue)
 - 🐞 修复 Descriptions 不接受 `data-*` 和 `aria-*` 等属性的问题。[#40859](https://github.com/ant-design/ant-design/pull/40859) [@goveo](https://github.com/goveo)
 - 🛠 修改 Separator 的 dom 由 `span` 改为 `li`。[#40867](https://github.com/ant-design/ant-design/pull/40867) [@heiyu4585](https://github.com/heiyu4585)
-- 💄 修改组件聚焦下的 `outline` 为默认 `4px`。[#40839](https://github.com/ant-design/ant-design/pull/40839)
+- 💄 Design Token 修改组件聚焦下的 `outline` 为默认 `4px`。[#40839](https://github.com/ant-design/ant-design/pull/40839)
 - 🐞 修复 Layout.Header 单独使用时，`Layout.colorBgHeader` token 配置不生效的问题。[#40933](https://github.com/ant-design/ant-design/pull/40933)
 - 🐞 修复 Badge 颜色显示异常问题。[#40848](https://github.com/ant-design/ant-design/pull/40848) [@kiner-tang](https://github.com/kiner-tang)
 - 🐞 修复 Timeline 的子项的 `className` 错误。[#40835](https://github.com/ant-design/ant-design/pull/40835) [@Yuiai01](https://github.com/Yuiai01)
@@ -620,7 +620,7 @@ timeline: true
 - 🐞 修复 TimeLine 中 `className` 传给子节点的问题。[#40700](https://github.com/ant-design/ant-design/pull/40700) [@any1024](https://github.com/any1024)
 - 🐞 修复 Slider 中的标记点在边缘无法点击的问题。[#40679](https://github.com/ant-design/ant-design/pull/40679) [@LongHaoo](https://github.com/LongHaoo)
 - 🐞 修复 Tour 不支持 `0` 作为节点的问题。[#40631](https://github.com/ant-design/ant-design/pull/40631) [@li-jia-nan](https://github.com/li-jia-nan)
-- 💄 修复 DataPicker.RangePicker 的 hover 范围样式。[#40607](https://github.com/ant-design/ant-design/pull/40607) [@Yuiai01](https://github.com/Yuiai01)
+- 💄 修复 DatePicker.RangePicker 的 hover 范围样式。[#40607](https://github.com/ant-design/ant-design/pull/40607) [@Yuiai01](https://github.com/Yuiai01)
 - 💄 优化 Steps 组件自定义 `icon` 的大小。[#40672](https://github.com/ant-design/ant-design/pull/40672)
 - TypeScript
   - 🤖 Upload 组件支持泛型。[#40634](https://github.com/ant-design/ant-design/pull/40634) [@riyadelberkawy](https://github.com/riyadelberkawy)
@@ -651,7 +651,7 @@ timeline: true
   - 🆕 Tour 支持通过 `scrollIntoViewOptions` 改变`scrollIntoView` 的选项。[#39980](https://github.com/ant-design/ant-design/pull/39980) [@kiner-tang](https://github.com/kiner-tang)
   - 🆕 Tour 遮罩支持传递自定义样式和填充颜色。[#39919](https://github.com/ant-design/ant-design/pull/39919) [@kiner-tang](https://github.com/kiner-tang)
   - 🐞 修复 Tour 在严格模式下调用 `findDomNode` 抛出警告问题。[#40160](https://github.com/ant-design/ant-design/pull/40160) [@kiner-tang](https://github.com/kiner-tang)
-  - 💄 删除了最后一个指示器的 margin。[#40624](https://github.com/ant-design/ant-design/pull/40624)
+  - 💄 优化 Tour 样式，删除了最后一个指示器的 margin。[#40624](https://github.com/ant-design/ant-design/pull/40624)
 - 🆕 新增 Design token `fontFamilyCode` 并应用到 Typography 的 `code` `kbd` `pre` 等元素上。[#39823](https://github.com/ant-design/ant-design/pull/39823)
 - 🆕 ConfigProvider 新增 Form `scrollToFirstError`。[#39509](https://github.com/ant-design/ant-design/pull/39509) [@linxianxi](https://github.com/linxianxi)
 - 🐞 为全部组件补足 `rootClassName` 属性。[#40217](https://github.com/ant-design/ant-design/pull/40217)
