@@ -78,8 +78,6 @@ exports[`renders components/anchor/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/anchor/demo/basic.tsx correctly 2`] = `[]`;
-
 exports[`renders components/anchor/demo/component-token.tsx correctly 1`] = `
 <div
   class="ant-row"
@@ -158,8 +156,6 @@ exports[`renders components/anchor/demo/component-token.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/anchor/demo/component-token.tsx correctly 2`] = `[]`;
-
 exports[`renders components/anchor/demo/customizeHighlight.tsx correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
@@ -229,8 +225,6 @@ exports[`renders components/anchor/demo/customizeHighlight.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/anchor/demo/customizeHighlight.tsx correctly 2`] = `[]`;
 
 exports[`renders components/anchor/demo/horizontal.tsx correctly 1`] = `
 Array [
@@ -351,8 +345,6 @@ Array [
 ]
 `;
 
-exports[`renders components/anchor/demo/horizontal.tsx correctly 2`] = `[]`;
-
 exports[`renders components/anchor/demo/legacy-anchor.tsx correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
@@ -421,12 +413,6 @@ exports[`renders components/anchor/demo/legacy-anchor.tsx correctly 1`] = `
     </div>
   </div>
 </div>
-`;
-
-exports[`renders components/anchor/demo/legacy-anchor.tsx correctly 2`] = `
-[
-  "Warning: [antd: Anchor] \`Anchor children\` is deprecated. Please use \`items\` instead.",
-]
 `;
 
 exports[`renders components/anchor/demo/onChange.tsx correctly 1`] = `
@@ -499,8 +485,6 @@ exports[`renders components/anchor/demo/onChange.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/anchor/demo/onChange.tsx correctly 2`] = `[]`;
-
 exports[`renders components/anchor/demo/onClick.tsx correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
@@ -570,8 +554,6 @@ exports[`renders components/anchor/demo/onClick.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/anchor/demo/onClick.tsx correctly 2`] = `[]`;
 
 exports[`renders components/anchor/demo/replace.tsx correctly 1`] = `
 <div
@@ -651,8 +633,6 @@ exports[`renders components/anchor/demo/replace.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/anchor/demo/replace.tsx correctly 2`] = `[]`;
-
 exports[`renders components/anchor/demo/static.tsx correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
@@ -722,8 +702,6 @@ exports[`renders components/anchor/demo/static.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/anchor/demo/static.tsx correctly 2`] = `[]`;
 
 exports[`renders components/anchor/demo/targetOffset.tsx correctly 1`] = `
 <div>
@@ -817,5 +795,3 @@ exports[`renders components/anchor/demo/targetOffset.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/anchor/demo/targetOffset.tsx correctly 2`] = `[]`;

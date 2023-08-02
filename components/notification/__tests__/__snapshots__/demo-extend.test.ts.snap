@@ -11,6 +11,8 @@ exports[`renders components/notification/demo/basic.tsx extend context correctly
 </button>
 `;
 
+exports[`renders components/notification/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/notification/demo/custom-icon.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -21,6 +23,8 @@ exports[`renders components/notification/demo/custom-icon.tsx extend context cor
   </span>
 </button>
 `;
+
+exports[`renders components/notification/demo/custom-icon.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/notification/demo/custom-style.tsx extend context correctly 1`] = `
 <button
@@ -33,6 +37,8 @@ exports[`renders components/notification/demo/custom-style.tsx extend context co
 </button>
 `;
 
+exports[`renders components/notification/demo/custom-style.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/notification/demo/duration.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -43,6 +49,8 @@ exports[`renders components/notification/demo/duration.tsx extend context correc
   </span>
 </button>
 `;
+
+exports[`renders components/notification/demo/duration.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/notification/demo/hooks.tsx extend context correctly 1`] = `
 Array [
@@ -202,6 +210,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/notification/demo/hooks.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/notification/demo/placement.tsx extend context correctly 1`] = `
 Array [
@@ -441,6 +451,8 @@ Array [
 ]
 `;
 
+exports[`renders components/notification/demo/placement.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/notification/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   class="ant-notification-notice ant-notification-notice-pure-panel ant-notification-notice-closable"
@@ -527,6 +539,8 @@ exports[`renders components/notification/demo/render-panel.tsx extend context co
 </div>
 `;
 
+exports[`renders components/notification/demo/render-panel.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/notification/demo/update.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -538,6 +552,8 @@ exports[`renders components/notification/demo/update.tsx extend context correctl
 </button>
 `;
 
+exports[`renders components/notification/demo/update.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/notification/demo/with-btn.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -548,6 +564,8 @@ exports[`renders components/notification/demo/with-btn.tsx extend context correc
   </span>
 </button>
 `;
+
+exports[`renders components/notification/demo/with-btn.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/notification/demo/with-icon.tsx extend context correctly 1`] = `
 <div
@@ -606,3 +624,5 @@ exports[`renders components/notification/demo/with-icon.tsx extend context corre
   </div>
 </div>
 `;
+
+exports[`renders components/notification/demo/with-icon.tsx extend context correctly 2`] = `[]`;

@@ -72,12 +72,6 @@ exports[`renders components/select/demo/automatic-tokenization.tsx correctly 1`]
 </div>
 `;
 
-exports[`renders components/select/demo/automatic-tokenization.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/select/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -374,12 +368,6 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/select/demo/basic.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/select/demo/big-data.tsx correctly 1`] = `
 Array [
   <h3
@@ -537,12 +525,6 @@ Array [
 ]
 `;
 
-exports[`renders components/select/demo/big-data.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/select/demo/bordered.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -680,12 +662,6 @@ exports[`renders components/select/demo/bordered.tsx correctly 1`] = `
     </div>
   </div>
 </div>
-`;
-
-exports[`renders components/select/demo/bordered.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/select/demo/coordinate.tsx correctly 1`] = `
@@ -826,12 +802,6 @@ exports[`renders components/select/demo/coordinate.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/select/demo/coordinate.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/select/demo/custom-dropdown-menu.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow"
@@ -892,12 +862,6 @@ exports[`renders components/select/demo/custom-dropdown-menu.tsx correctly 1`] =
     </span>
   </span>
 </div>
-`;
-
-exports[`renders components/select/demo/custom-dropdown-menu.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/select/demo/custom-tag-render.tsx correctly 1`] = `
@@ -1038,12 +1002,6 @@ exports[`renders components/select/demo/custom-tag-render.tsx correctly 1`] = `
     </span>
   </span>
 </div>
-`;
-
-exports[`renders components/select/demo/custom-tag-render.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/select/demo/debug.tsx correctly 1`] = `
@@ -1265,12 +1223,6 @@ exports[`renders components/select/demo/debug.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/select/demo/debug.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/select/demo/debug-flip-shift.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow"
@@ -1329,12 +1281,6 @@ exports[`renders components/select/demo/debug-flip-shift.tsx correctly 1`] = `
     </span>
   </span>
 </div>
-`;
-
-exports[`renders components/select/demo/debug-flip-shift.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/select/demo/hide-selected.tsx correctly 1`] = `
@@ -1414,12 +1360,6 @@ exports[`renders components/select/demo/hide-selected.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/select/demo/hide-selected.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/select/demo/label-in-value.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow"
@@ -1481,12 +1421,6 @@ exports[`renders components/select/demo/label-in-value.tsx correctly 1`] = `
     </span>
   </span>
 </div>
-`;
-
-exports[`renders components/select/demo/label-in-value.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/select/demo/multiple.tsx correctly 1`] = `
@@ -1786,12 +1720,6 @@ exports[`renders components/select/demo/multiple.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/select/demo/multiple.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/select/demo/optgroup.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow"
@@ -1853,12 +1781,6 @@ exports[`renders components/select/demo/optgroup.tsx correctly 1`] = `
     </span>
   </span>
 </div>
-`;
-
-exports[`renders components/select/demo/optgroup.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/select/demo/option-label-center.tsx correctly 1`] = `
@@ -1959,12 +1881,6 @@ exports[`renders components/select/demo/option-label-center.tsx correctly 1`] = 
     </div>
   </div>
 </div>
-`;
-
-exports[`renders components/select/demo/option-label-center.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/select/demo/option-label-prop.tsx correctly 1`] = `
@@ -2079,12 +1995,6 @@ exports[`renders components/select/demo/option-label-prop.tsx correctly 1`] = `
     </span>
   </span>
 </div>
-`;
-
-exports[`renders components/select/demo/option-label-prop.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/select/demo/placement.tsx correctly 1`] = `
@@ -2232,13 +2142,6 @@ Array [
       </span>
     </span>
   </div>,
-]
-`;
-
-exports[`renders components/select/demo/placement.tsx correctly 2`] = `
-[
-  "Warning: [antd: Select] \`dropdownMatchSelectWidth\` is deprecated. Please use \`popupMatchSelectWidth\` instead.",
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
 ]
 `;
 
@@ -2434,12 +2337,6 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/select/demo/placement-debug.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/select/demo/responsive.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -2628,12 +2525,6 @@ exports[`renders components/select/demo/responsive.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/select/demo/responsive.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/select/demo/search.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
@@ -2692,12 +2583,6 @@ exports[`renders components/select/demo/search.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/select/demo/search.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/select/demo/search-box.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-search"
@@ -2729,12 +2614,6 @@ exports[`renders components/select/demo/search-box.tsx correctly 1`] = `
     </span>
   </div>
 </div>
-`;
-
-exports[`renders components/select/demo/search-box.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/select/demo/search-sort.tsx correctly 1`] = `
@@ -2794,12 +2673,6 @@ exports[`renders components/select/demo/search-sort.tsx correctly 1`] = `
     </span>
   </span>
 </div>
-`;
-
-exports[`renders components/select/demo/search-sort.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/select/demo/select-users.tsx correctly 1`] = `
@@ -2877,12 +2750,6 @@ exports[`renders components/select/demo/select-users.tsx correctly 1`] = `
     </span>
   </span>
 </div>
-`;
-
-exports[`renders components/select/demo/select-users.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/select/demo/size.tsx correctly 1`] = `
@@ -3336,12 +3203,6 @@ Array [
 ]
 `;
 
-exports[`renders components/select/demo/size.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/select/demo/status.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -3471,12 +3332,6 @@ exports[`renders components/select/demo/status.tsx correctly 1`] = `
     </div>
   </div>
 </div>
-`;
-
-exports[`renders components/select/demo/status.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
@@ -3618,12 +3473,6 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/select/demo/suffix.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/select/demo/tags.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
@@ -3696,10 +3545,4 @@ exports[`renders components/select/demo/tags.tsx correctly 1`] = `
     </span>
   </span>
 </div>
-`;
-
-exports[`renders components/select/demo/tags.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;

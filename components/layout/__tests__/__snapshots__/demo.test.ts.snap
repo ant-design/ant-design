@@ -157,8 +157,6 @@ exports[`renders components/layout/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/layout/demo/basic.tsx correctly 2`] = `[]`;
-
 exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
 <div
   class="ant-layout"
@@ -326,8 +324,6 @@ exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/layout/demo/custom-trigger.tsx correctly 2`] = `[]`;
-
 exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
 <div
   class="ant-layout"
@@ -481,12 +477,6 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
     Ant Design ©2023 Created by Ant UED
   </footer>
 </div>
-`;
-
-exports[`renders components/layout/demo/fixed.tsx correctly 2`] = `
-[
-  "Warning: [antd: Breadcrumb] \`Breadcrumb.Item and Breadcrumb.Separator\` is deprecated. Please use \`items\` instead.",
-]
 `;
 
 exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
@@ -994,8 +984,6 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/layout/demo/fixed-sider.tsx correctly 2`] = `[]`;
-
 exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
 <div
   class="ant-layout"
@@ -1173,8 +1161,6 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/layout/demo/responsive.tsx correctly 2`] = `[]`;
 
 exports[`renders components/layout/demo/side.tsx correctly 1`] = `
 <div
@@ -1455,12 +1441,6 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
     </footer>
   </div>
 </div>
-`;
-
-exports[`renders components/layout/demo/side.tsx correctly 2`] = `
-[
-  "Warning: [antd: Breadcrumb] \`Breadcrumb.Item and Breadcrumb.Separator\` is deprecated. Please use \`items\` instead.",
-]
 `;
 
 exports[`renders components/layout/demo/top.tsx correctly 1`] = `
@@ -1761,12 +1741,6 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
     Ant Design ©2023 Created by Ant UED
   </footer>
 </div>
-`;
-
-exports[`renders components/layout/demo/top.tsx correctly 2`] = `
-[
-  "Warning: [antd: Breadcrumb] \`Breadcrumb.Item and Breadcrumb.Separator\` is deprecated. Please use \`items\` instead.",
-]
 `;
 
 exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
@@ -2128,12 +2102,6 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/layout/demo/top-side.tsx correctly 2`] = `
-[
-  "Warning: [antd: Breadcrumb] \`Breadcrumb.Item and Breadcrumb.Separator\` is deprecated. Please use \`items\` instead.",
-]
-`;
-
 exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
 <div
   class="ant-layout"
@@ -2484,10 +2452,4 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
     </div>
   </div>
 </div>
-`;
-
-exports[`renders components/layout/demo/top-side-2.tsx correctly 2`] = `
-[
-  "Warning: [antd: Breadcrumb] \`Breadcrumb.Item and Breadcrumb.Separator\` is deprecated. Please use \`items\` instead.",
-]
 `;

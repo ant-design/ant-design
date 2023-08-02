@@ -151,6 +151,8 @@ exports[`renders components/icon/demo/basic.tsx extend context correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/icon/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/icon/demo/custom.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -286,6 +288,8 @@ exports[`renders components/icon/demo/custom.tsx extend context correctly 1`] = 
 </div>
 `;
 
+exports[`renders components/icon/demo/custom.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/icon/demo/iconfont.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -357,6 +361,8 @@ exports[`renders components/icon/demo/iconfont.tsx extend context correctly 1`] 
   </div>
 </div>
 `;
+
+exports[`renders components/icon/demo/iconfont.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/icon/demo/scriptUrl.tsx extend context correctly 1`] = `
 <div
@@ -451,6 +457,8 @@ exports[`renders components/icon/demo/scriptUrl.tsx extend context correctly 1`]
   </div>
 </div>
 `;
+
+exports[`renders components/icon/demo/scriptUrl.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/icon/demo/two-tone.tsx extend context correctly 1`] = `
 <div
@@ -552,3 +560,5 @@ exports[`renders components/icon/demo/two-tone.tsx extend context correctly 1`] 
   </div>
 </div>
 `;
+
+exports[`renders components/icon/demo/two-tone.tsx extend context correctly 2`] = `[]`;

@@ -145,8 +145,6 @@ exports[`renders components/timeline/demo/alternate.tsx correctly 1`] = `
 </ul>
 `;
 
-exports[`renders components/timeline/demo/alternate.tsx correctly 2`] = `[]`;
-
 exports[`renders components/timeline/demo/basic.tsx correctly 1`] = `
 <ul
   class="ant-timeline"
@@ -213,8 +211,6 @@ exports[`renders components/timeline/demo/basic.tsx correctly 1`] = `
   </li>
 </ul>
 `;
-
-exports[`renders components/timeline/demo/basic.tsx correctly 2`] = `[]`;
 
 exports[`renders components/timeline/demo/color.tsx correctly 1`] = `
 <ul
@@ -383,8 +379,6 @@ exports[`renders components/timeline/demo/color.tsx correctly 1`] = `
 </ul>
 `;
 
-exports[`renders components/timeline/demo/color.tsx correctly 2`] = `[]`;
-
 exports[`renders components/timeline/demo/component-token.tsx correctly 1`] = `
 <ul
   class="ant-timeline"
@@ -451,8 +445,6 @@ exports[`renders components/timeline/demo/component-token.tsx correctly 1`] = `
   </li>
 </ul>
 `;
-
-exports[`renders components/timeline/demo/component-token.tsx correctly 2`] = `[]`;
 
 exports[`renders components/timeline/demo/custom.tsx correctly 1`] = `
 <ul
@@ -543,8 +535,6 @@ exports[`renders components/timeline/demo/custom.tsx correctly 1`] = `
   </li>
 </ul>
 `;
-
-exports[`renders components/timeline/demo/custom.tsx correctly 2`] = `[]`;
 
 exports[`renders components/timeline/demo/label.tsx correctly 1`] = `
 Array [
@@ -693,8 +683,6 @@ Array [
 ]
 `;
 
-exports[`renders components/timeline/demo/label.tsx correctly 2`] = `[]`;
-
 exports[`renders components/timeline/demo/pending.tsx correctly 1`] = `
 <div>
   <ul
@@ -793,8 +781,6 @@ exports[`renders components/timeline/demo/pending.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/timeline/demo/pending.tsx correctly 2`] = `[]`;
-
 exports[`renders components/timeline/demo/right.tsx correctly 1`] = `
 <ul
   class="ant-timeline ant-timeline-right"
@@ -886,8 +872,6 @@ exports[`renders components/timeline/demo/right.tsx correctly 1`] = `
 </ul>
 `;
 
-exports[`renders components/timeline/demo/right.tsx correctly 2`] = `[]`;
-
 exports[`renders components/timeline/demo/wireframe.tsx correctly 1`] = `
 <ul
   class="ant-timeline"
@@ -954,5 +938,3 @@ exports[`renders components/timeline/demo/wireframe.tsx correctly 1`] = `
   </li>
 </ul>
 `;
-
-exports[`renders components/timeline/demo/wireframe.tsx correctly 2`] = `[]`;

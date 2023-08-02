@@ -12,8 +12,6 @@ exports[`renders components/mentions/demo/async.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/mentions/demo/async.tsx correctly 2`] = `[]`;
-
 exports[`renders components/mentions/demo/autoSize.tsx correctly 1`] = `
 <div
   class="ant-mentions"
@@ -25,8 +23,6 @@ exports[`renders components/mentions/demo/autoSize.tsx correctly 1`] = `
   />
 </div>
 `;
-
-exports[`renders components/mentions/demo/autoSize.tsx correctly 2`] = `[]`;
 
 exports[`renders components/mentions/demo/basic.tsx correctly 1`] = `
 <div
@@ -41,8 +37,6 @@ exports[`renders components/mentions/demo/basic.tsx correctly 1`] = `
   </textarea>
 </div>
 `;
-
-exports[`renders components/mentions/demo/basic.tsx correctly 2`] = `[]`;
 
 exports[`renders components/mentions/demo/component-token.tsx correctly 1`] = `
 <div
@@ -61,8 +55,6 @@ exports[`renders components/mentions/demo/component-token.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/mentions/demo/component-token.tsx correctly 2`] = `[]`;
 
 exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
 <form
@@ -204,8 +196,6 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders components/mentions/demo/form.tsx correctly 2`] = `[]`;
-
 exports[`renders components/mentions/demo/placement.tsx correctly 1`] = `
 <div
   class="ant-mentions"
@@ -217,8 +207,6 @@ exports[`renders components/mentions/demo/placement.tsx correctly 1`] = `
   />
 </div>
 `;
-
-exports[`renders components/mentions/demo/placement.tsx correctly 2`] = `[]`;
 
 exports[`renders components/mentions/demo/prefix.tsx correctly 1`] = `
 <div
@@ -232,8 +220,6 @@ exports[`renders components/mentions/demo/prefix.tsx correctly 1`] = `
   />
 </div>
 `;
-
-exports[`renders components/mentions/demo/prefix.tsx correctly 2`] = `[]`;
 
 exports[`renders components/mentions/demo/readonly.tsx correctly 1`] = `
 Array [
@@ -266,8 +252,6 @@ Array [
 ]
 `;
 
-exports[`renders components/mentions/demo/readonly.tsx correctly 2`] = `[]`;
-
 exports[`renders components/mentions/demo/render-panel.tsx correctly 1`] = `
 <div
   style="padding-bottom:0;position:relative;min-width:0"
@@ -284,16 +268,6 @@ exports[`renders components/mentions/demo/render-panel.tsx correctly 1`] = `
     </textarea>
   </div>
 </div>
-`;
-
-exports[`renders components/mentions/demo/render-panel.tsx correctly 2`] = `
-[
-  "Warning: Received \`%s\` for a non-boolean attribute \`%s\`.
-
-If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.
-
-If you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.%s",
-]
 `;
 
 exports[`renders components/mentions/demo/status.tsx correctly 1`] = `
@@ -331,5 +305,3 @@ exports[`renders components/mentions/demo/status.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/mentions/demo/status.tsx correctly 2`] = `[]`;

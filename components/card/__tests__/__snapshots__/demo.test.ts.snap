@@ -96,8 +96,6 @@ exports[`renders components/card/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/card/demo/basic.tsx correctly 2`] = `[]`;
-
 exports[`renders components/card/demo/border-less.tsx correctly 1`] = `
 <div
   class="ant-card"
@@ -131,8 +129,6 @@ exports[`renders components/card/demo/border-less.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/card/demo/border-less.tsx correctly 2`] = `[]`;
 
 exports[`renders components/card/demo/component-token.tsx correctly 1`] = `
 Array [
@@ -389,8 +385,6 @@ Array [
 ]
 `;
 
-exports[`renders components/card/demo/component-token.tsx correctly 2`] = `[]`;
-
 exports[`renders components/card/demo/flexible-content.tsx correctly 1`] = `
 <div
   class="ant-card ant-card-bordered ant-card-hoverable"
@@ -428,8 +422,6 @@ exports[`renders components/card/demo/flexible-content.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/card/demo/flexible-content.tsx correctly 2`] = `[]`;
 
 exports[`renders components/card/demo/grid-card.tsx correctly 1`] = `
 <div
@@ -496,8 +488,6 @@ exports[`renders components/card/demo/grid-card.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/card/demo/grid-card.tsx correctly 2`] = `[]`;
 
 exports[`renders components/card/demo/in-column.tsx correctly 1`] = `
 <div
@@ -588,8 +578,6 @@ exports[`renders components/card/demo/in-column.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/card/demo/in-column.tsx correctly 2`] = `[]`;
-
 exports[`renders components/card/demo/inner.tsx correctly 1`] = `
 <div
   class="ant-card ant-card-bordered"
@@ -676,8 +664,6 @@ exports[`renders components/card/demo/inner.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/card/demo/inner.tsx correctly 2`] = `[]`;
 
 exports[`renders components/card/demo/loading.tsx correctly 1`] = `
 Array [
@@ -844,8 +830,6 @@ Array [
 ]
 `;
 
-exports[`renders components/card/demo/loading.tsx correctly 2`] = `[]`;
-
 exports[`renders components/card/demo/meta.tsx correctly 1`] = `
 <div
   class="ant-card ant-card-bordered"
@@ -974,8 +958,6 @@ exports[`renders components/card/demo/meta.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/card/demo/meta.tsx correctly 2`] = `[]`;
-
 exports[`renders components/card/demo/simple.tsx correctly 1`] = `
 <div
   class="ant-card ant-card-bordered"
@@ -996,8 +978,6 @@ exports[`renders components/card/demo/simple.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/card/demo/simple.tsx correctly 2`] = `[]`;
 
 exports[`renders components/card/demo/tabs.tsx correctly 1`] = `
 Array [
@@ -1272,5 +1252,3 @@ Array [
   </div>,
 ]
 `;
-
-exports[`renders components/card/demo/tabs.tsx correctly 2`] = `[]`;

@@ -54,8 +54,6 @@ Array [
 ]
 `;
 
-exports[`renders components/dropdown/demo/arrow.tsx correctly 2`] = `[]`;
-
 exports[`renders components/dropdown/demo/arrow-center.tsx correctly 1`] = `
 Array [
   <button
@@ -110,8 +108,6 @@ Array [
 ]
 `;
 
-exports[`renders components/dropdown/demo/arrow-center.tsx correctly 2`] = `[]`;
-
 exports[`renders components/dropdown/demo/basic.tsx correctly 1`] = `
 <a
   class="ant-dropdown-trigger"
@@ -152,8 +148,6 @@ exports[`renders components/dropdown/demo/basic.tsx correctly 1`] = `
 </a>
 `;
 
-exports[`renders components/dropdown/demo/basic.tsx correctly 2`] = `[]`;
-
 exports[`renders components/dropdown/demo/context-menu.tsx correctly 1`] = `
 <div
   class="ant-dropdown-trigger"
@@ -162,8 +156,6 @@ exports[`renders components/dropdown/demo/context-menu.tsx correctly 1`] = `
   Right Click on here
 </div>
 `;
-
-exports[`renders components/dropdown/demo/context-menu.tsx correctly 2`] = `[]`;
 
 exports[`renders components/dropdown/demo/custom-dropdown.tsx correctly 1`] = `
 <a
@@ -204,8 +196,6 @@ exports[`renders components/dropdown/demo/custom-dropdown.tsx correctly 1`] = `
   </div>
 </a>
 `;
-
-exports[`renders components/dropdown/demo/custom-dropdown.tsx correctly 2`] = `[]`;
 
 exports[`renders components/dropdown/demo/dropdown-button.tsx correctly 1`] = `
 <div
@@ -485,8 +475,6 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/dropdown/demo/dropdown-button.tsx correctly 2`] = `[]`;
-
 exports[`renders components/dropdown/demo/event.tsx correctly 1`] = `
 <a
   class="ant-dropdown-trigger"
@@ -526,8 +514,6 @@ exports[`renders components/dropdown/demo/event.tsx correctly 1`] = `
   </div>
 </a>
 `;
-
-exports[`renders components/dropdown/demo/event.tsx correctly 2`] = `[]`;
 
 exports[`renders components/dropdown/demo/icon-debug.tsx correctly 1`] = `
 <div
@@ -580,8 +566,6 @@ exports[`renders components/dropdown/demo/icon-debug.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/dropdown/demo/icon-debug.tsx correctly 2`] = `[]`;
-
 exports[`renders components/dropdown/demo/item.tsx correctly 1`] = `
 <a
   class="ant-dropdown-trigger"
@@ -621,8 +605,6 @@ exports[`renders components/dropdown/demo/item.tsx correctly 1`] = `
   </div>
 </a>
 `;
-
-exports[`renders components/dropdown/demo/item.tsx correctly 2`] = `[]`;
 
 exports[`renders components/dropdown/demo/loading.tsx correctly 1`] = `
 <div
@@ -856,8 +838,6 @@ exports[`renders components/dropdown/demo/loading.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/dropdown/demo/loading.tsx correctly 2`] = `[]`;
-
 exports[`renders components/dropdown/demo/menu-full.tsx correctly 1`] = `
 <a
   class="ant-dropdown-trigger"
@@ -898,8 +878,6 @@ exports[`renders components/dropdown/demo/menu-full.tsx correctly 1`] = `
 </a>
 `;
 
-exports[`renders components/dropdown/demo/menu-full.tsx correctly 2`] = `[]`;
-
 exports[`renders components/dropdown/demo/overlay-open.tsx correctly 1`] = `
 <a
   class="ant-dropdown-trigger"
@@ -939,8 +917,6 @@ exports[`renders components/dropdown/demo/overlay-open.tsx correctly 1`] = `
   </div>
 </a>
 `;
-
-exports[`renders components/dropdown/demo/overlay-open.tsx correctly 2`] = `[]`;
 
 exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
 <div
@@ -1046,8 +1022,6 @@ exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/dropdown/demo/placement.tsx correctly 2`] = `[]`;
-
 exports[`renders components/dropdown/demo/render-panel.tsx correctly 1`] = `
 <div
   style="padding-bottom:0;position:relative;min-width:0"
@@ -1056,13 +1030,6 @@ exports[`renders components/dropdown/demo/render-panel.tsx correctly 1`] = `
     class="ant-dropdown-trigger"
   />
 </div>
-`;
-
-exports[`renders components/dropdown/demo/render-panel.tsx correctly 2`] = `
-[
-  "Warning: [antd: Dropdown] \`visible\` is deprecated which will be removed in next major version, please use \`open\` instead.",
-  "Warning: [antd: Dropdown] \`visible\` is deprecated, please use \`open\` instead.",
-]
 `;
 
 exports[`renders components/dropdown/demo/selectable.tsx correctly 1`] = `
@@ -1105,8 +1072,6 @@ exports[`renders components/dropdown/demo/selectable.tsx correctly 1`] = `
 </a>
 `;
 
-exports[`renders components/dropdown/demo/selectable.tsx correctly 2`] = `[]`;
-
 exports[`renders components/dropdown/demo/sub-menu.tsx correctly 1`] = `
 <a
   class="ant-dropdown-trigger"
@@ -1147,8 +1112,6 @@ exports[`renders components/dropdown/demo/sub-menu.tsx correctly 1`] = `
 </a>
 `;
 
-exports[`renders components/dropdown/demo/sub-menu.tsx correctly 2`] = `[]`;
-
 exports[`renders components/dropdown/demo/trigger.tsx correctly 1`] = `
 <a
   class="ant-dropdown-trigger"
@@ -1188,5 +1151,3 @@ exports[`renders components/dropdown/demo/trigger.tsx correctly 1`] = `
   </div>
 </a>
 `;
-
-exports[`renders components/dropdown/demo/trigger.tsx correctly 2`] = `[]`;

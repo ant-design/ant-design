@@ -21,6 +21,8 @@ exports[`renders components/checkbox/demo/basic.tsx extend context correctly 1`]
 </label>
 `;
 
+exports[`renders components/checkbox/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/checkbox/demo/check-all.tsx extend context correctly 1`] = `
 Array [
   <label
@@ -112,6 +114,8 @@ Array [
 ]
 `;
 
+exports[`renders components/checkbox/demo/check-all.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/checkbox/demo/controller.tsx extend context correctly 1`] = `
 Array [
   <p
@@ -159,6 +163,8 @@ Array [
 ]
 `;
 
+exports[`renders components/checkbox/demo/controller.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend context correctly 1`] = `
 <div
   style="padding: 56px;"
@@ -204,6 +210,12 @@ exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend conte
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend context correctly 2`] = `
+[
+  "Warning: %s is deprecated in StrictMode. %s was passed an instance of %s which is inside StrictMode. Instead, add a ref directly to the element you want to reference. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-find-node%s",
+]
 `;
 
 exports[`renders components/checkbox/demo/debug-line.tsx extend context correctly 1`] = `
@@ -453,6 +465,12 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
 </div>
 `;
 
+exports[`renders components/checkbox/demo/debug-line.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Checkbox] \`value\` is not a valid prop, do you mean \`checked\`?",
+]
+`;
+
 exports[`renders components/checkbox/demo/disabled.tsx extend context correctly 1`] = `
 Array [
   <label
@@ -509,6 +527,8 @@ Array [
   </label>,
 ]
 `;
+
+exports[`renders components/checkbox/demo/disabled.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/checkbox/demo/group.tsx extend context correctly 1`] = `
 Array [
@@ -708,6 +728,8 @@ Array [
 ]
 `;
 
+exports[`renders components/checkbox/demo/group.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`] = `
 <div
   class="ant-checkbox-group"
@@ -834,3 +856,5 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
   </div>
 </div>
 `;
+
+exports[`renders components/checkbox/demo/layout.tsx extend context correctly 2`] = `[]`;

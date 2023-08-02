@@ -455,12 +455,6 @@ Array [
 ]
 `;
 
-exports[`renders components/form/demo/advanced-search.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/form/demo/basic.tsx correctly 1`] = `
 <form
   autocomplete="off"
@@ -645,8 +639,6 @@ exports[`renders components/form/demo/basic.tsx correctly 1`] = `
   </div>
 </form>
 `;
-
-exports[`renders components/form/demo/basic.tsx correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/col-24-debug.tsx correctly 1`] = `
 Array [
@@ -1277,12 +1269,6 @@ Array [
 ]
 `;
 
-exports[`renders components/form/demo/col-24-debug.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -1464,12 +1450,6 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
     </div>
   </div>
 </form>
-`;
-
-exports[`renders components/form/demo/control-hooks.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/form/demo/control-ref.tsx correctly 1`] = `
@@ -1655,12 +1635,6 @@ exports[`renders components/form/demo/control-ref.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders components/form/demo/control-ref.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/form/demo/customized-form-controls.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-inline"
@@ -1794,12 +1768,6 @@ exports[`renders components/form/demo/customized-form-controls.tsx correctly 1`]
     </div>
   </div>
 </form>
-`;
-
-exports[`renders components/form/demo/customized-form-controls.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/form/demo/disabled.tsx correctly 1`] = `
@@ -2802,12 +2770,6 @@ Array [
 ]
 `;
 
-exports[`renders components/form/demo/disabled.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -3318,8 +3280,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders components/form/demo/disabled-input-debug.tsx correctly 2`] = `[]`;
-
 exports[`renders components/form/demo/dynamic-form-item.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -3453,8 +3413,6 @@ exports[`renders components/form/demo/dynamic-form-item.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders components/form/demo/dynamic-form-item.tsx correctly 2`] = `[]`;
-
 exports[`renders components/form/demo/dynamic-form-items.tsx correctly 1`] = `
 <form
   autocomplete="off"
@@ -3549,8 +3507,6 @@ exports[`renders components/form/demo/dynamic-form-items.tsx correctly 1`] = `
   </div>
 </form>
 `;
-
-exports[`renders components/form/demo/dynamic-form-items.tsx correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/dynamic-form-items-complex.tsx correctly 1`] = `
 <form
@@ -3737,12 +3693,6 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx correctly 1
 </form>
 `;
 
-exports[`renders components/form/demo/dynamic-form-items-complex.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/form/demo/dynamic-form-items-no-style.tsx correctly 1`] = `
 <form
   autocomplete="off"
@@ -3867,8 +3817,6 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx correctly 
   </div>
 </form>
 `;
-
-exports[`renders components/form/demo/dynamic-form-items-no-style.tsx correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
 <form
@@ -4022,8 +3970,6 @@ exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders components/form/demo/dynamic-rule.tsx correctly 2`] = `[]`;
-
 exports[`renders components/form/demo/form-context.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -4163,8 +4109,6 @@ exports[`renders components/form/demo/form-context.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders components/form/demo/form-context.tsx correctly 2`] = `[]`;
-
 exports[`renders components/form/demo/form-in-modal.tsx correctly 1`] = `
 <div>
   <button
@@ -4177,8 +4121,6 @@ exports[`renders components/form/demo/form-in-modal.tsx correctly 1`] = `
   </button>
 </div>
 `;
-
-exports[`renders components/form/demo/form-in-modal.tsx correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/form-item-path.tsx correctly 1`] = `
 <form
@@ -4307,8 +4249,6 @@ exports[`renders components/form/demo/form-item-path.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders components/form/demo/form-item-path.tsx correctly 2`] = `[]`;
-
 exports[`renders components/form/demo/global-state.tsx correctly 1`] = `
 Array [
   <form
@@ -4373,8 +4313,6 @@ Array [
   </div>,
 ]
 `;
-
-exports[`renders components/form/demo/global-state.tsx correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/inline-login.tsx correctly 1`] = `
 <form
@@ -4521,8 +4459,6 @@ exports[`renders components/form/demo/inline-login.tsx correctly 1`] = `
   </div>
 </form>
 `;
-
-exports[`renders components/form/demo/inline-login.tsx correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/label-debug.tsx correctly 1`] = `
 <form
@@ -4679,8 +4615,6 @@ exports[`renders components/form/demo/label-debug.tsx correctly 1`] = `
   </div>
 </form>
 `;
-
-exports[`renders components/form/demo/label-debug.tsx correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/layout.tsx correctly 1`] = `
 <form
@@ -4884,8 +4818,6 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders components/form/demo/layout.tsx correctly 2`] = `[]`;
-
 exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -5013,8 +4945,6 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
   </div>
 </form>
 `;
-
-exports[`renders components/form/demo/layout-can-wrap.tsx correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
 <form
@@ -5305,8 +5235,6 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders components/form/demo/nest-messages.tsx correctly 2`] = `[]`;
-
 exports[`renders components/form/demo/normal-login.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal login-form"
@@ -5505,8 +5433,6 @@ exports[`renders components/form/demo/normal-login.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders components/form/demo/normal-login.tsx correctly 2`] = `[]`;
-
 exports[`renders components/form/demo/ref-item.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -5593,8 +5519,6 @@ exports[`renders components/form/demo/ref-item.tsx correctly 1`] = `
   </button>
 </form>
 `;
-
-exports[`renders components/form/demo/ref-item.tsx correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/register.tsx correctly 1`] = `
 <form
@@ -6593,12 +6517,6 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders components/form/demo/register.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-vertical"
@@ -6857,8 +6775,6 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
   </div>
 </form>
 `;
-
-exports[`renders components/form/demo/required-mark.tsx correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/size.tsx correctly 1`] = `
 <form
@@ -7515,12 +7431,6 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders components/form/demo/size.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -8077,12 +7987,6 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
 </form>
 `;
 
-exports[`renders components/form/demo/time-related-controls.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/form/demo/useWatch.tsx correctly 1`] = `
 Array [
   <form
@@ -8242,8 +8146,6 @@ Array [
 ]
 `;
 
-exports[`renders components/form/demo/useWatch.tsx correctly 2`] = `[]`;
-
 exports[`renders components/form/demo/validate-only.tsx correctly 1`] = `
 <form
   autocomplete="off"
@@ -8378,8 +8280,6 @@ exports[`renders components/form/demo/validate-only.tsx correctly 1`] = `
   </div>
 </form>
 `;
-
-exports[`renders components/form/demo/validate-only.tsx correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
 <form
@@ -9883,12 +9783,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
 </form>
-`;
-
-exports[`renders components/form/demo/validate-other.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
@@ -11695,12 +11589,6 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders components/form/demo/validate-static.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/form/demo/warning-only.tsx correctly 1`] = `
 <form
   autocomplete="off"
@@ -11796,8 +11684,6 @@ exports[`renders components/form/demo/warning-only.tsx correctly 1`] = `
   </div>
 </form>
 `;
-
-exports[`renders components/form/demo/warning-only.tsx correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/without-form-create.tsx correctly 1`] = `
 <form
@@ -11912,5 +11798,3 @@ exports[`renders components/form/demo/without-form-create.tsx correctly 1`] = `
   </div>
 </form>
 `;
-
-exports[`renders components/form/demo/without-form-create.tsx correctly 2`] = `[]`;

@@ -82,8 +82,6 @@ exports[`renders components/segmented/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/segmented/demo/basic.tsx correctly 2`] = `[]`;
-
 exports[`renders components/segmented/demo/block.tsx correctly 1`] = `
 <div
   class="ant-segmented ant-segmented-block"
@@ -137,8 +135,6 @@ exports[`renders components/segmented/demo/block.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/segmented/demo/block.tsx correctly 2`] = `[]`;
 
 exports[`renders components/segmented/demo/componentToken.tsx correctly 1`] = `
 <div
@@ -222,8 +218,6 @@ exports[`renders components/segmented/demo/componentToken.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/segmented/demo/componentToken.tsx correctly 2`] = `[]`;
-
 exports[`renders components/segmented/demo/controlled.tsx correctly 1`] = `
 <div
   class="ant-segmented"
@@ -277,8 +271,6 @@ exports[`renders components/segmented/demo/controlled.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/segmented/demo/controlled.tsx correctly 2`] = `[]`;
 
 exports[`renders components/segmented/demo/controlled-two.tsx correctly 1`] = `
 Array [
@@ -387,8 +379,6 @@ Array [
   </div>,
 ]
 `;
-
-exports[`renders components/segmented/demo/controlled-two.tsx correctly 2`] = `[]`;
 
 exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
 <div
@@ -611,8 +601,6 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/segmented/demo/custom.tsx correctly 2`] = `[]`;
-
 exports[`renders components/segmented/demo/disabled.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -764,8 +752,6 @@ exports[`renders components/segmented/demo/disabled.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/segmented/demo/disabled.tsx correctly 2`] = `[]`;
-
 exports[`renders components/segmented/demo/dynamic.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -840,8 +826,6 @@ exports[`renders components/segmented/demo/dynamic.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/segmented/demo/dynamic.tsx correctly 2`] = `[]`;
 
 exports[`renders components/segmented/demo/icon-only.tsx correctly 1`] = `
 <div
@@ -924,8 +908,6 @@ exports[`renders components/segmented/demo/icon-only.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/segmented/demo/icon-only.tsx correctly 2`] = `[]`;
 
 exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
 <div
@@ -1185,8 +1167,6 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/segmented/demo/size.tsx correctly 2`] = `[]`;
-
 exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -1445,12 +1425,6 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/segmented/demo/size-consistent.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/segmented/demo/with-icon.tsx correctly 1`] = `
 <div
   class="ant-segmented"
@@ -1538,5 +1512,3 @@ exports[`renders components/segmented/demo/with-icon.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/segmented/demo/with-icon.tsx correctly 2`] = `[]`;

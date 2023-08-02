@@ -132,8 +132,6 @@ Array [
 ]
 `;
 
-exports[`renders components/tag/demo/animation.tsx correctly 2`] = `[]`;
-
 exports[`renders components/tag/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -230,8 +228,6 @@ exports[`renders components/tag/demo/basic.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/tag/demo/basic.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tag/demo/borderless.tsx correctly 1`] = `
 Array [
@@ -484,8 +480,6 @@ Array [
 ]
 `;
 
-exports[`renders components/tag/demo/borderless.tsx correctly 2`] = `[]`;
-
 exports[`renders components/tag/demo/borderlessLayout.tsx correctly 1`] = `
 <div
   style="background-color:#f5f5f5;padding:16px"
@@ -699,8 +693,6 @@ exports[`renders components/tag/demo/borderlessLayout.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/tag/demo/borderlessLayout.tsx correctly 2`] = `[]`;
-
 exports[`renders components/tag/demo/checkable.tsx correctly 1`] = `
 Array [
   <span
@@ -755,8 +747,6 @@ Array [
   </div>,
 ]
 `;
-
-exports[`renders components/tag/demo/checkable.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tag/demo/colorful.tsx correctly 1`] = `
 Array [
@@ -947,8 +937,6 @@ Array [
 ]
 `;
 
-exports[`renders components/tag/demo/colorful.tsx correctly 2`] = `[]`;
-
 exports[`renders components/tag/demo/colorful-inverse.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -1066,8 +1054,6 @@ exports[`renders components/tag/demo/colorful-inverse.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/tag/demo/colorful-inverse.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tag/demo/component-token.tsx correctly 1`] = `
 <div
@@ -1205,8 +1191,6 @@ exports[`renders components/tag/demo/component-token.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/tag/demo/component-token.tsx correctly 2`] = `[]`;
-
 exports[`renders components/tag/demo/control.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -1342,8 +1326,6 @@ exports[`renders components/tag/demo/control.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/tag/demo/control.tsx correctly 2`] = `[]`;
-
 exports[`renders components/tag/demo/customize.tsx correctly 1`] = `
 Array [
   <span
@@ -1388,8 +1370,6 @@ Array [
 ]
 `;
 
-exports[`renders components/tag/demo/customize.tsx correctly 2`] = `[]`;
-
 exports[`renders components/tag/demo/draggable.tsx correctly 1`] = `
 Array [
   <span
@@ -1412,8 +1392,6 @@ Array [
   </span>,
 ]
 `;
-
-exports[`renders components/tag/demo/draggable.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tag/demo/icon.tsx correctly 1`] = `
 <div
@@ -1550,8 +1528,6 @@ exports[`renders components/tag/demo/icon.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/tag/demo/icon.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tag/demo/status.tsx correctly 1`] = `
 Array [
@@ -1836,5 +1812,3 @@ Array [
   </div>,
 ]
 `;
-
-exports[`renders components/tag/demo/status.tsx correctly 2`] = `[]`;

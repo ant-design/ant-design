@@ -71,8 +71,6 @@ Array [
 ]
 `;
 
-exports[`renders components/grid/demo/basic.tsx correctly 2`] = `[]`;
-
 exports[`renders components/grid/demo/flex.tsx correctly 1`] = `
 Array [
   <div
@@ -282,8 +280,6 @@ Array [
 ]
 `;
 
-exports[`renders components/grid/demo/flex.tsx correctly 2`] = `[]`;
-
 exports[`renders components/grid/demo/flex-align.tsx correctly 1`] = `
 Array [
   <div
@@ -439,8 +435,6 @@ Array [
 ]
 `;
 
-exports[`renders components/grid/demo/flex-align.tsx correctly 2`] = `[]`;
-
 exports[`renders components/grid/demo/flex-order.tsx correctly 1`] = `
 Array [
   <div
@@ -513,8 +507,6 @@ Array [
   </div>,
 ]
 `;
-
-exports[`renders components/grid/demo/flex-order.tsx correctly 2`] = `[]`;
 
 exports[`renders components/grid/demo/flex-stretch.tsx correctly 1`] = `
 Array [
@@ -618,8 +610,6 @@ Array [
   </div>,
 ]
 `;
-
-exports[`renders components/grid/demo/flex-stretch.tsx correctly 2`] = `[]`;
 
 exports[`renders components/grid/demo/gutter.tsx correctly 1`] = `
 Array [
@@ -831,8 +821,6 @@ Array [
 ]
 `;
 
-exports[`renders components/grid/demo/gutter.tsx correctly 2`] = `[]`;
-
 exports[`renders components/grid/demo/offset.tsx correctly 1`] = `
 Array [
   <div
@@ -874,8 +862,6 @@ Array [
   </div>,
 ]
 `;
-
-exports[`renders components/grid/demo/offset.tsx correctly 2`] = `[]`;
 
 exports[`renders components/grid/demo/playground.tsx correctly 1`] = `
 Array [
@@ -1301,8 +1287,6 @@ Array [
 ]
 `;
 
-exports[`renders components/grid/demo/playground.tsx correctly 2`] = `[]`;
-
 exports[`renders components/grid/demo/responsive.tsx correctly 1`] = `
 <div
   class="ant-row"
@@ -1324,8 +1308,6 @@ exports[`renders components/grid/demo/responsive.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/grid/demo/responsive.tsx correctly 2`] = `[]`;
 
 exports[`renders components/grid/demo/responsive-more.tsx correctly 1`] = `
 <div
@@ -1349,8 +1331,6 @@ exports[`renders components/grid/demo/responsive-more.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/grid/demo/responsive-more.tsx correctly 2`] = `[]`;
-
 exports[`renders components/grid/demo/sort.tsx correctly 1`] = `
 <div
   class="ant-row"
@@ -1368,8 +1348,6 @@ exports[`renders components/grid/demo/sort.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/grid/demo/sort.tsx correctly 2`] = `[]`;
-
 exports[`renders components/grid/demo/useBreakpoint.tsx correctly 1`] = `
 Array [
   Current break point:,
@@ -1377,5 +1355,3 @@ Array [
    ,
 ]
 `;
-
-exports[`renders components/grid/demo/useBreakpoint.tsx correctly 2`] = `[]`;

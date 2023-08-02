@@ -291,6 +291,12 @@ exports[`renders components/alert/demo/action.tsx extend context correctly 1`] =
 </div>
 `;
 
+exports[`renders components/alert/demo/action.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Button] \`link\` or \`text\` button can't be a \`ghost\` button.",
+]
+`;
+
 exports[`renders components/alert/demo/banner.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -462,6 +468,8 @@ exports[`renders components/alert/demo/banner.tsx extend context correctly 1`] =
 </div>
 `;
 
+exports[`renders components/alert/demo/banner.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/alert/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-alert ant-alert-success ant-alert-no-icon"
@@ -479,6 +487,8 @@ exports[`renders components/alert/demo/basic.tsx extend context correctly 1`] = 
   </div>
 </div>
 `;
+
+exports[`renders components/alert/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/alert/demo/closable.tsx extend context correctly 1`] = `
 <div
@@ -583,6 +593,8 @@ exports[`renders components/alert/demo/closable.tsx extend context correctly 1`]
   </div>
 </div>
 `;
+
+exports[`renders components/alert/demo/closable.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/alert/demo/custom-icon.tsx extend context correctly 1`] = `
 <div
@@ -943,6 +955,8 @@ exports[`renders components/alert/demo/custom-icon.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/alert/demo/custom-icon.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/alert/demo/description.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -1050,6 +1064,8 @@ exports[`renders components/alert/demo/description.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/alert/demo/description.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/alert/demo/error-boundary.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-default ant-btn-dangerous"
@@ -1060,6 +1076,8 @@ exports[`renders components/alert/demo/error-boundary.tsx extend context correct
   </span>
 </button>
 `;
+
+exports[`renders components/alert/demo/error-boundary.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/alert/demo/icon.tsx extend context correctly 1`] = `
 <div
@@ -1454,6 +1472,8 @@ exports[`renders components/alert/demo/icon.tsx extend context correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/alert/demo/icon.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/alert/demo/smooth-closed.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -1541,6 +1561,8 @@ exports[`renders components/alert/demo/smooth-closed.tsx extend context correctl
 </div>
 `;
 
+exports[`renders components/alert/demo/smooth-closed.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/alert/demo/style.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -1627,3 +1649,5 @@ exports[`renders components/alert/demo/style.tsx extend context correctly 1`] = 
   </div>
 </div>
 `;
+
+exports[`renders components/alert/demo/style.tsx extend context correctly 2`] = `[]`;

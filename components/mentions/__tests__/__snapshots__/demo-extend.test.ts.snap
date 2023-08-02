@@ -12,6 +12,8 @@ exports[`renders components/mentions/demo/async.tsx extend context correctly 1`]
 </div>
 `;
 
+exports[`renders components/mentions/demo/async.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/mentions/demo/autoSize.tsx extend context correctly 1`] = `
 <div
   class="ant-mentions"
@@ -23,6 +25,12 @@ exports[`renders components/mentions/demo/autoSize.tsx extend context correctly 
     style="resize: none;"
   />
 </div>
+`;
+
+exports[`renders components/mentions/demo/autoSize.tsx extend context correctly 2`] = `
+[
+  "Warning: \`NaN\` is an invalid value for the \`%s\` css style property.%s",
+]
 `;
 
 exports[`renders components/mentions/demo/basic.tsx extend context correctly 1`] = `
@@ -38,6 +46,8 @@ exports[`renders components/mentions/demo/basic.tsx extend context correctly 1`]
   </textarea>
 </div>
 `;
+
+exports[`renders components/mentions/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/mentions/demo/component-token.tsx extend context correctly 1`] = `
 <div
@@ -94,6 +104,12 @@ exports[`renders components/mentions/demo/component-token.tsx extend context cor
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/mentions/demo/component-token.tsx extend context correctly 2`] = `
+[
+  "Warning: \`open\` of Mentions is only used for debug usage. Do not use in you production.",
+]
 `;
 
 exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] = `
@@ -236,6 +252,8 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
 </form>
 `;
 
+exports[`renders components/mentions/demo/form.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/mentions/demo/placement.tsx extend context correctly 1`] = `
 <div
   class="ant-mentions"
@@ -247,6 +265,8 @@ exports[`renders components/mentions/demo/placement.tsx extend context correctly
   />
 </div>
 `;
+
+exports[`renders components/mentions/demo/placement.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/mentions/demo/prefix.tsx extend context correctly 1`] = `
 <div
@@ -260,6 +280,8 @@ exports[`renders components/mentions/demo/prefix.tsx extend context correctly 1`
   />
 </div>
 `;
+
+exports[`renders components/mentions/demo/prefix.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/mentions/demo/readonly.tsx extend context correctly 1`] = `
 Array [
@@ -291,6 +313,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/mentions/demo/readonly.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/mentions/demo/render-panel.tsx extend context correctly 1`] = `
 <div
@@ -349,6 +373,17 @@ exports[`renders components/mentions/demo/render-panel.tsx extend context correc
 </div>
 `;
 
+exports[`renders components/mentions/demo/render-panel.tsx extend context correctly 2`] = `
+[
+  "Warning: Received \`%s\` for a non-boolean attribute \`%s\`.
+
+If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.
+
+If you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.%s",
+  "Warning: \`open\` of Mentions is only used for debug usage. Do not use in you production.",
+]
+`;
+
 exports[`renders components/mentions/demo/status.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -384,3 +419,5 @@ exports[`renders components/mentions/demo/status.tsx extend context correctly 1`
   </div>
 </div>
 `;
+
+exports[`renders components/mentions/demo/status.tsx extend context correctly 2`] = `[]`;

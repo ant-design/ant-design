@@ -23,6 +23,8 @@ exports[`renders components/switch/demo/basic.tsx extend context correctly 1`] =
 </button>
 `;
 
+exports[`renders components/switch/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/switch/demo/disabled.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -67,6 +69,8 @@ exports[`renders components/switch/demo/disabled.tsx extend context correctly 1`
   </div>
 </div>
 `;
+
+exports[`renders components/switch/demo/disabled.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/switch/demo/loading.tsx extend context correctly 1`] = `
 Array [
@@ -156,6 +160,8 @@ Array [
 ]
 `;
 
+exports[`renders components/switch/demo/loading.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/switch/demo/size.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -201,6 +207,8 @@ Array [
   </button>,
 ]
 `;
+
+exports[`renders components/switch/demo/size.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/switch/demo/text.tsx extend context correctly 1`] = `
 <div
@@ -331,3 +339,5 @@ exports[`renders components/switch/demo/text.tsx extend context correctly 1`] = 
   </div>
 </div>
 `;
+
+exports[`renders components/switch/demo/text.tsx extend context correctly 2`] = `[]`;

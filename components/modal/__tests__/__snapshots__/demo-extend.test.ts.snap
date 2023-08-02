@@ -11,6 +11,8 @@ exports[`renders components/modal/demo/async.tsx extend context correctly 1`] = 
 </button>
 `;
 
+exports[`renders components/modal/demo/async.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/modal/demo/basic.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -22,6 +24,8 @@ exports[`renders components/modal/demo/basic.tsx extend context correctly 1`] = 
 </button>
 `;
 
+exports[`renders components/modal/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/modal/demo/button-props.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -32,6 +36,8 @@ exports[`renders components/modal/demo/button-props.tsx extend context correctly
   </span>
 </button>
 `;
+
+exports[`renders components/modal/demo/button-props.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/modal/demo/component-token.tsx extend context correctly 1`] = `
 <div
@@ -361,6 +367,8 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
 </div>
 `;
 
+exports[`renders components/modal/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/modal/demo/confirm.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -421,6 +429,8 @@ exports[`renders components/modal/demo/confirm.tsx extend context correctly 1`] 
 </div>
 `;
 
+exports[`renders components/modal/demo/confirm.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/modal/demo/confirm-router.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-default"
@@ -431,6 +441,8 @@ exports[`renders components/modal/demo/confirm-router.tsx extend context correct
   </span>
 </button>
 `;
+
+exports[`renders components/modal/demo/confirm-router.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/modal/demo/custom-mouse-position.tsx extend context correctly 1`] = `
 <button
@@ -443,6 +455,8 @@ exports[`renders components/modal/demo/custom-mouse-position.tsx extend context 
 </button>
 `;
 
+exports[`renders components/modal/demo/custom-mouse-position.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/modal/demo/dark.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -454,6 +468,8 @@ exports[`renders components/modal/demo/dark.tsx extend context correctly 1`] = `
 </button>
 `;
 
+exports[`renders components/modal/demo/dark.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/modal/demo/footer.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -464,6 +480,8 @@ exports[`renders components/modal/demo/footer.tsx extend context correctly 1`] =
   </span>
 </button>
 `;
+
+exports[`renders components/modal/demo/footer.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/modal/demo/hooks.tsx extend context correctly 1`] = `
 <div
@@ -523,6 +541,8 @@ exports[`renders components/modal/demo/hooks.tsx extend context correctly 1`] = 
 </div>
 `;
 
+exports[`renders components/modal/demo/hooks.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/modal/demo/locale.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -555,6 +575,8 @@ exports[`renders components/modal/demo/locale.tsx extend context correctly 1`] =
 </div>
 `;
 
+exports[`renders components/modal/demo/locale.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/modal/demo/manual.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-default"
@@ -566,6 +588,8 @@ exports[`renders components/modal/demo/manual.tsx extend context correctly 1`] =
 </button>
 `;
 
+exports[`renders components/modal/demo/manual.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/modal/demo/modal-render.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-default"
@@ -576,6 +600,8 @@ exports[`renders components/modal/demo/modal-render.tsx extend context correctly
   </span>
 </button>
 `;
+
+exports[`renders components/modal/demo/modal-render.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/modal/demo/position.tsx extend context correctly 1`] = `
 Array [
@@ -599,6 +625,8 @@ Array [
   </button>,
 ]
 `;
+
+exports[`renders components/modal/demo/position.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/modal/demo/render-panel.tsx extend context correctly 1`] = `
 <div
@@ -843,6 +871,8 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/modal/demo/render-panel.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/modal/demo/static-info.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -903,6 +933,8 @@ exports[`renders components/modal/demo/static-info.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/modal/demo/static-info.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/modal/demo/width.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -913,6 +945,8 @@ exports[`renders components/modal/demo/width.tsx extend context correctly 1`] = 
   </span>
 </button>
 `;
+
+exports[`renders components/modal/demo/width.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`] = `
 <div
@@ -1156,3 +1190,5 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
   </div>
 </div>
 `;
+
+exports[`renders components/modal/demo/wireframe.tsx extend context correctly 2`] = `[]`;

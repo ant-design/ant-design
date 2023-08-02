@@ -253,12 +253,6 @@ exports[`renders components/pagination/demo/all.tsx correctly 1`] = `
 </ul>
 `;
 
-exports[`renders components/pagination/demo/all.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/pagination/demo/basic.tsx correctly 1`] = `
 <ul
   class="ant-pagination"
@@ -384,8 +378,6 @@ exports[`renders components/pagination/demo/basic.tsx correctly 1`] = `
   </li>
 </ul>
 `;
-
-exports[`renders components/pagination/demo/basic.tsx correctly 2`] = `[]`;
 
 exports[`renders components/pagination/demo/changer.tsx correctly 1`] = `
 Array [
@@ -862,12 +854,6 @@ Array [
 ]
 `;
 
-exports[`renders components/pagination/demo/changer.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/pagination/demo/component-token.tsx correctly 1`] = `
 Array [
   <ul
@@ -1315,12 +1301,6 @@ Array [
 ]
 `;
 
-exports[`renders components/pagination/demo/component-token.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/pagination/demo/controlled.tsx correctly 1`] = `
 <ul
   class="ant-pagination"
@@ -1446,8 +1426,6 @@ exports[`renders components/pagination/demo/controlled.tsx correctly 1`] = `
   </li>
 </ul>
 `;
-
-exports[`renders components/pagination/demo/controlled.tsx correctly 2`] = `[]`;
 
 exports[`renders components/pagination/demo/itemRender.tsx correctly 1`] = `
 <ul
@@ -1641,12 +1619,6 @@ exports[`renders components/pagination/demo/itemRender.tsx correctly 1`] = `
     </div>
   </li>
 </ul>
-`;
-
-exports[`renders components/pagination/demo/itemRender.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/pagination/demo/jump.tsx correctly 1`] = `
@@ -2144,12 +2116,6 @@ Array [
       </div>
     </li>
   </ul>,
-]
-`;
-
-exports[`renders components/pagination/demo/jump.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
 ]
 `;
 
@@ -2808,12 +2774,6 @@ Array [
 ]
 `;
 
-exports[`renders components/pagination/demo/mini.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/pagination/demo/more.tsx correctly 1`] = `
 <ul
   class="ant-pagination"
@@ -3100,12 +3060,6 @@ exports[`renders components/pagination/demo/more.tsx correctly 1`] = `
 </ul>
 `;
 
-exports[`renders components/pagination/demo/more.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/pagination/demo/simple.tsx correctly 1`] = `
 Array [
   <ul
@@ -3280,8 +3234,6 @@ Array [
   </ul>,
 ]
 `;
-
-exports[`renders components/pagination/demo/simple.tsx correctly 2`] = `[]`;
 
 exports[`renders components/pagination/demo/total.tsx correctly 1`] = `
 Array [
@@ -3666,12 +3618,6 @@ Array [
       </div>
     </li>
   </ul>,
-]
-`;
-
-exports[`renders components/pagination/demo/total.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
 ]
 `;
 
@@ -4147,11 +4093,5 @@ Array [
       </div>
     </li>
   </ul>,
-]
-`;
-
-exports[`renders components/pagination/demo/wireframe.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
 ]
 `;

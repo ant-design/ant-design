@@ -1110,6 +1110,8 @@ Array [
 ]
 `;
 
+exports[`renders components/dropdown/demo/arrow.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/dropdown/demo/arrow-center.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -2220,6 +2222,8 @@ Array [
 ]
 `;
 
+exports[`renders components/dropdown/demo/arrow-center.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/dropdown/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <a
@@ -2500,6 +2504,8 @@ Array [
 ]
 `;
 
+exports[`renders components/dropdown/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/dropdown/demo/context-menu.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -2665,6 +2671,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/dropdown/demo/context-menu.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/dropdown/demo/custom-dropdown.tsx extend context correctly 1`] = `
 Array [
@@ -2909,6 +2917,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/dropdown/demo/custom-dropdown.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/dropdown/demo/dropdown-button.tsx extend context correctly 1`] = `
 <div
@@ -4869,6 +4879,8 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
 </div>
 `;
 
+exports[`renders components/dropdown/demo/dropdown-button.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/dropdown/demo/event.tsx extend context correctly 1`] = `
 Array [
   <a
@@ -5066,6 +5078,8 @@ Array [
 ]
 `;
 
+exports[`renders components/dropdown/demo/event.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/dropdown/demo/icon-debug.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -5131,6 +5145,8 @@ exports[`renders components/dropdown/demo/icon-debug.tsx extend context correctl
   </div>
 </div>
 `;
+
+exports[`renders components/dropdown/demo/icon-debug.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/dropdown/demo/item.tsx extend context correctly 1`] = `
 Array [
@@ -5343,6 +5359,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/dropdown/demo/item.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1`] = `
 <div
@@ -5829,6 +5847,8 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
   </div>
 </div>
 `;
+
+exports[`renders components/dropdown/demo/loading.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/dropdown/demo/menu-full.tsx extend context correctly 1`] = `
 Array [
@@ -6861,6 +6881,8 @@ Array [
 ]
 `;
 
+exports[`renders components/dropdown/demo/menu-full.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/dropdown/demo/overlay-open.tsx extend context correctly 1`] = `
 Array [
   <a
@@ -7057,6 +7079,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/dropdown/demo/overlay-open.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/dropdown/demo/placement.tsx extend context correctly 1`] = `
 <div
@@ -8200,6 +8224,8 @@ exports[`renders components/dropdown/demo/placement.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/dropdown/demo/placement.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/dropdown/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   style="padding-bottom: 0px; position: relative; min-width: 0;"
@@ -8448,6 +8474,13 @@ exports[`renders components/dropdown/demo/render-panel.tsx extend context correc
 </div>
 `;
 
+exports[`renders components/dropdown/demo/render-panel.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Dropdown] \`visible\` is deprecated which will be removed in next major version, please use \`open\` instead.",
+  "Warning: [antd: Dropdown] \`visible\` is deprecated, please use \`open\` instead.",
+]
+`;
+
 exports[`renders components/dropdown/demo/selectable.tsx extend context correctly 1`] = `
 Array [
   <a
@@ -8644,6 +8677,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/dropdown/demo/selectable.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/dropdown/demo/sub-menu.tsx extend context correctly 1`] = `
 Array [
@@ -9107,6 +9142,8 @@ Array [
 ]
 `;
 
+exports[`renders components/dropdown/demo/sub-menu.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/dropdown/demo/trigger.tsx extend context correctly 1`] = `
 Array [
   <a
@@ -9314,3 +9351,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/dropdown/demo/trigger.tsx extend context correctly 2`] = `[]`;

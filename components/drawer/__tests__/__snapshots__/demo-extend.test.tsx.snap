@@ -100,6 +100,8 @@ Array [
 ]
 `;
 
+exports[`renders components/drawer/demo/basic-right.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/drawer/demo/component-token.tsx extend context correctly 1`] = `
 <div
   style="padding: 32px; background: rgb(230, 230, 230);"
@@ -164,6 +166,8 @@ exports[`renders components/drawer/demo/component-token.tsx extend context corre
   </div>
 </div>
 `;
+
+exports[`renders components/drawer/demo/component-token.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/drawer/demo/config-provider.tsx extend context correctly 1`] = `
 <div
@@ -267,6 +271,8 @@ exports[`renders components/drawer/demo/config-provider.tsx extend context corre
   </div>
 </div>
 `;
+
+exports[`renders components/drawer/demo/config-provider.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/drawer/demo/extra.tsx extend context correctly 1`] = `
 Array [
@@ -494,6 +500,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/drawer/demo/extra.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/drawer/demo/form-in-drawer.tsx extend context correctly 1`] = `
 Array [
@@ -2575,6 +2583,12 @@ Array [
 ]
 `;
 
+exports[`renders components/drawer/demo/form-in-drawer.tsx extend context correctly 2`] = `
+[
+  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
+]
+`;
+
 exports[`renders components/drawer/demo/multi-level-drawer.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -2701,6 +2715,8 @@ Array [
 ]
 `;
 
+exports[`renders components/drawer/demo/multi-level-drawer.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/drawer/demo/no-mask.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -2797,6 +2813,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/drawer/demo/no-mask.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/drawer/demo/placement.tsx extend context correctly 1`] = `
 Array [
@@ -2966,6 +2984,8 @@ Array [
 ]
 `;
 
+exports[`renders components/drawer/demo/placement.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/drawer/demo/render-in-current.tsx extend context correctly 1`] = `
 <div
   style="position: relative; height: 200px; padding: 48px; overflow: hidden; text-align: center; background: rgba(0, 0, 0, 0.02); border: 1px solid #f0f0f0; border-radius: 8px;"
@@ -3041,6 +3061,8 @@ exports[`renders components/drawer/demo/render-in-current.tsx extend context cor
 </div>
 `;
 
+exports[`renders components/drawer/demo/render-in-current.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/drawer/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   style="padding: 32px; background: rgb(230, 230, 230);"
@@ -3105,6 +3127,8 @@ exports[`renders components/drawer/demo/render-panel.tsx extend context correctl
   </div>
 </div>
 `;
+
+exports[`renders components/drawer/demo/render-panel.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctly 1`] = `
 <div
@@ -3469,6 +3493,8 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
 </div>
 `;
 
+exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/drawer/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -3622,6 +3648,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/drawer/demo/size.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/drawer/demo/user-profile.tsx extend context correctly 1`] = `
 Array [
@@ -4055,3 +4083,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/drawer/demo/user-profile.tsx extend context correctly 2`] = `[]`;

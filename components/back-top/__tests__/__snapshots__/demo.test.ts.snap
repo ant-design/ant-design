@@ -15,12 +15,6 @@ Array [
 ]
 `;
 
-exports[`renders components/back-top/demo/basic.tsx correctly 2`] = `
-[
-  "Warning: [antd: BackTop] \`BackTop\` is deprecated, please use \`FloatButton.BackTop\` instead.",
-]
-`;
-
 exports[`renders components/back-top/demo/custom.tsx correctly 1`] = `
 <div
   style="height:600vh;padding:8px"
@@ -50,10 +44,4 @@ exports[`renders components/back-top/demo/custom.tsx correctly 1`] = `
     class="ant-back-top"
   />
 </div>
-`;
-
-exports[`renders components/back-top/demo/custom.tsx correctly 2`] = `
-[
-  "Warning: [antd: BackTop] \`BackTop\` is deprecated, please use \`FloatButton.BackTop\` instead.",
-]
 `;

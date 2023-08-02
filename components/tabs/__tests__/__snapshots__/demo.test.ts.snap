@@ -178,8 +178,6 @@ Array [
 ]
 `;
 
-exports[`renders components/tabs/demo/animated.tsx correctly 2`] = `[]`;
-
 exports[`renders components/tabs/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
@@ -294,8 +292,6 @@ exports[`renders components/tabs/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/tabs/demo/basic.tsx correctly 2`] = `[]`;
-
 exports[`renders components/tabs/demo/card.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-card"
@@ -409,8 +405,6 @@ exports[`renders components/tabs/demo/card.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/tabs/demo/card.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tabs/demo/card-top.tsx correctly 1`] = `
 <div
@@ -544,8 +538,6 @@ exports[`renders components/tabs/demo/card-top.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/tabs/demo/card-top.tsx correctly 2`] = `[]`;
-
 exports[`renders components/tabs/demo/centered.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-centered"
@@ -659,8 +651,6 @@ exports[`renders components/tabs/demo/centered.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/tabs/demo/centered.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tabs/demo/component-token.tsx correctly 1`] = `
 <div>
@@ -1502,8 +1492,6 @@ exports[`renders components/tabs/demo/component-token.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/tabs/demo/component-token.tsx correctly 2`] = `[]`;
-
 exports[`renders components/tabs/demo/custom-add-trigger.tsx correctly 1`] = `
 <div>
   <div
@@ -1673,8 +1661,6 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/tabs/demo/custom-add-trigger.tsx correctly 2`] = `[]`;
-
 exports[`renders components/tabs/demo/custom-tab-bar.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
@@ -1795,8 +1781,6 @@ exports[`renders components/tabs/demo/custom-tab-bar.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/tabs/demo/custom-tab-bar.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tabs/demo/custom-tab-bar-node.tsx correctly 1`] = `
 <div
@@ -1930,8 +1914,6 @@ exports[`renders components/tabs/demo/custom-tab-bar-node.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/tabs/demo/custom-tab-bar-node.tsx correctly 2`] = `[]`;
-
 exports[`renders components/tabs/demo/disabled.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
@@ -2045,8 +2027,6 @@ exports[`renders components/tabs/demo/disabled.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/tabs/demo/disabled.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tabs/demo/editable-card.tsx correctly 1`] = `
 <div
@@ -2277,8 +2257,6 @@ exports[`renders components/tabs/demo/editable-card.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/tabs/demo/editable-card.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tabs/demo/extra.tsx correctly 1`] = `
 Array [
@@ -2599,8 +2577,6 @@ Array [
 ]
 `;
 
-exports[`renders components/tabs/demo/extra.tsx correctly 2`] = `[]`;
-
 exports[`renders components/tabs/demo/icon.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
@@ -2747,8 +2723,6 @@ exports[`renders components/tabs/demo/icon.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/tabs/demo/icon.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tabs/demo/nest.tsx correctly 1`] = `
 <div>
@@ -3413,12 +3387,6 @@ exports[`renders components/tabs/demo/nest.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/tabs/demo/nest.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/tabs/demo/position.tsx correctly 1`] = `
 Array [
   <div
@@ -3630,8 +3598,6 @@ Array [
   </div>,
 ]
 `;
-
-exports[`renders components/tabs/demo/position.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
 <div>
@@ -3923,8 +3889,6 @@ exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/tabs/demo/size.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tabs/demo/slide.tsx correctly 1`] = `
 <div>
@@ -4466,5 +4430,3 @@ exports[`renders components/tabs/demo/slide.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/tabs/demo/slide.tsx correctly 2`] = `[]`;

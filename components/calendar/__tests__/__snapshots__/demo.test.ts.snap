@@ -942,12 +942,6 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/calendar/demo/basic.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
 <div
   style="width:300px;border:1px solid #f0f0f0;border-radius:8px"
@@ -1892,12 +1886,6 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
     </div>
   </div>
 </div>
-`;
-
-exports[`renders components/calendar/demo/card.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/calendar/demo/component-token.tsx correctly 1`] = `
@@ -3784,12 +3772,6 @@ Array [
 ]
 `;
 
-exports[`renders components/calendar/demo/component-token.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
 <div
   style="width:300px;border:1px solid #f0f0f0;border-radius:8px"
@@ -4759,13 +4741,6 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
     </div>
   </div>
 </div>
-`;
-
-exports[`renders components/calendar/demo/customize-header.tsx correctly 2`] = `
-[
-  "Warning: [antd: Select] \`dropdownMatchSelectWidth\` is deprecated. Please use \`popupMatchSelectWidth\` instead.",
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
@@ -6107,12 +6082,6 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/calendar/demo/notice-calendar.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/calendar/demo/select.tsx correctly 1`] = `
 Array [
   <div
@@ -7069,11 +7038,5 @@ Array [
       </div>
     </div>
   </div>,
-]
-`;
-
-exports[`renders components/calendar/demo/select.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
 ]
 `;

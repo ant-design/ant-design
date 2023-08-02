@@ -90,8 +90,6 @@ exports[`renders components/avatar/demo/badge.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/avatar/demo/badge.tsx correctly 2`] = `[]`;
-
 exports[`renders components/avatar/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -344,8 +342,6 @@ exports[`renders components/avatar/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/avatar/demo/basic.tsx correctly 2`] = `[]`;
-
 exports[`renders components/avatar/demo/component-token.tsx correctly 1`] = `
 Array [
   <div
@@ -494,8 +490,6 @@ Array [
 ]
 `;
 
-exports[`renders components/avatar/demo/component-token.tsx correctly 2`] = `[]`;
-
 exports[`renders components/avatar/demo/dynamic.tsx correctly 1`] = `
 Array [
   <span
@@ -530,8 +524,6 @@ Array [
 ]
 `;
 
-exports[`renders components/avatar/demo/dynamic.tsx correctly 2`] = `[]`;
-
 exports[`renders components/avatar/demo/fallback.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -561,8 +553,6 @@ exports[`renders components/avatar/demo/fallback.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/avatar/demo/fallback.tsx correctly 2`] = `[]`;
 
 exports[`renders components/avatar/demo/group.tsx correctly 1`] = `
 Array [
@@ -832,8 +822,6 @@ Array [
 ]
 `;
 
-exports[`renders components/avatar/demo/group.tsx correctly 2`] = `[]`;
-
 exports[`renders components/avatar/demo/responsive.tsx correctly 1`] = `
 <span
   class="ant-avatar ant-avatar-circle ant-avatar-icon"
@@ -859,8 +847,6 @@ exports[`renders components/avatar/demo/responsive.tsx correctly 1`] = `
   </span>
 </span>
 `;
-
-exports[`renders components/avatar/demo/responsive.tsx correctly 2`] = `[]`;
 
 exports[`renders components/avatar/demo/toggle-debug.tsx correctly 1`] = `
 Array [
@@ -956,8 +942,6 @@ Array [
   </div>,
 ]
 `;
-
-exports[`renders components/avatar/demo/toggle-debug.tsx correctly 2`] = `[]`;
 
 exports[`renders components/avatar/demo/type.tsx correctly 1`] = `
 <div
@@ -1095,5 +1079,3 @@ exports[`renders components/avatar/demo/type.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/avatar/demo/type.tsx correctly 2`] = `[]`;

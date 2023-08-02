@@ -226,12 +226,6 @@ exports[`renders components/date-picker/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/date-picker/demo/basic.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/date-picker/demo/bordered.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -758,12 +752,6 @@ exports[`renders components/date-picker/demo/bordered.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/date-picker/demo/bordered.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/date-picker/demo/cell-render.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -898,12 +886,6 @@ exports[`renders components/date-picker/demo/cell-render.tsx correctly 1`] = `
     </div>
   </div>
 </div>
-`;
-
-exports[`renders components/date-picker/demo/cell-render.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
@@ -1202,12 +1184,6 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/date-picker/demo/disabled.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/date-picker/demo/disabled-date.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -1472,12 +1448,6 @@ exports[`renders components/date-picker/demo/disabled-date.tsx correctly 1`] = `
     </div>
   </div>
 </div>
-`;
-
-exports[`renders components/date-picker/demo/disabled-date.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/date-picker/demo/extra-footer.tsx correctly 1`] = `
@@ -1788,12 +1758,6 @@ exports[`renders components/date-picker/demo/extra-footer.tsx correctly 1`] = `
     </div>
   </div>
 </div>
-`;
-
-exports[`renders components/date-picker/demo/extra-footer.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
@@ -2258,12 +2222,6 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/date-picker/demo/format.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/date-picker/demo/mode.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -2398,12 +2356,6 @@ exports[`renders components/date-picker/demo/mode.tsx correctly 1`] = `
     </div>
   </div>
 </div>
-`;
-
-exports[`renders components/date-picker/demo/mode.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/date-picker/demo/placement.tsx correctly 1`] = `
@@ -2613,12 +2565,6 @@ Array [
       </span>
     </span>
   </div>,
-]
-`;
-
-exports[`renders components/date-picker/demo/placement.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
 ]
 `;
 
@@ -2842,12 +2788,6 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx correctly 1`] = `
     </div>
   </div>
 </div>
-`;
-
-exports[`renders components/date-picker/demo/preset-ranges.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
@@ -3372,12 +3312,6 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/date-picker/demo/range-picker.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/date-picker/demo/render-panel.tsx correctly 1`] = `
 <div
   style="padding-bottom:0;position:relative;min-width:0"
@@ -3423,12 +3357,6 @@ exports[`renders components/date-picker/demo/render-panel.tsx correctly 1`] = `
     </div>
   </div>
 </div>
-`;
-
-exports[`renders components/date-picker/demo/render-panel.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/date-picker/demo/select-in-range.tsx correctly 1`] = `
@@ -3513,12 +3441,6 @@ exports[`renders components/date-picker/demo/select-in-range.tsx correctly 1`] =
     </span>
   </span>
 </div>
-`;
-
-exports[`renders components/date-picker/demo/select-in-range.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/date-picker/demo/size.tsx correctly 1`] = `
@@ -3812,12 +3734,6 @@ exports[`renders components/date-picker/demo/size.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/date-picker/demo/size.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/date-picker/demo/start-end.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -3910,12 +3826,6 @@ exports[`renders components/date-picker/demo/start-end.tsx correctly 1`] = `
     </div>
   </div>
 </div>
-`;
-
-exports[`renders components/date-picker/demo/start-end.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/date-picker/demo/status.tsx correctly 1`] = `
@@ -4187,12 +4097,6 @@ exports[`renders components/date-picker/demo/status.tsx correctly 1`] = `
     </div>
   </div>
 </div>
-`;
-
-exports[`renders components/date-picker/demo/status.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
@@ -4565,12 +4469,6 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/date-picker/demo/suffix.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/date-picker/demo/switchable.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -4686,12 +4584,6 @@ exports[`renders components/date-picker/demo/switchable.tsx correctly 1`] = `
     </div>
   </div>
 </div>
-`;
-
-exports[`renders components/date-picker/demo/switchable.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;
 
 exports[`renders components/date-picker/demo/time.tsx correctly 1`] = `
@@ -4828,10 +4720,4 @@ exports[`renders components/date-picker/demo/time.tsx correctly 1`] = `
     </div>
   </div>
 </div>
-`;
-
-exports[`renders components/date-picker/demo/time.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
 `;

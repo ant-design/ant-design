@@ -75,8 +75,6 @@ exports[`renders components/empty/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/empty/demo/basic.tsx correctly 2`] = `[]`;
-
 exports[`renders components/empty/demo/config-provider.tsx correctly 1`] = `
 Array [
   <button
@@ -735,12 +733,6 @@ Array [
 ]
 `;
 
-exports[`renders components/empty/demo/config-provider.tsx correctly 2`] = `
-[
-  "Warning: \`clearIcon\` will be removed in future. Please use \`allowClear\` instead.",
-]
-`;
-
 exports[`renders components/empty/demo/customize.tsx correctly 1`] = `
 <div
   class="ant-empty"
@@ -780,8 +772,6 @@ exports[`renders components/empty/demo/customize.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/empty/demo/customize.tsx correctly 2`] = `[]`;
 
 exports[`renders components/empty/demo/description.tsx correctly 1`] = `
 <div
@@ -853,8 +843,6 @@ exports[`renders components/empty/demo/description.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/empty/demo/description.tsx correctly 2`] = `[]`;
-
 exports[`renders components/empty/demo/simple.tsx correctly 1`] = `
 <div
   class="ant-empty ant-empty-normal"
@@ -902,5 +890,3 @@ exports[`renders components/empty/demo/simple.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/empty/demo/simple.tsx correctly 2`] = `[]`;

@@ -79,8 +79,6 @@ Array [
 ]
 `;
 
-exports[`renders components/tour/demo/basic.tsx correctly 2`] = `[]`;
-
 exports[`renders components/tour/demo/indicator.tsx correctly 1`] = `
 Array [
   <button
@@ -159,8 +157,6 @@ Array [
   </div>,
 ]
 `;
-
-exports[`renders components/tour/demo/indicator.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tour/demo/mask.tsx correctly 1`] = `
 Array [
@@ -241,8 +237,6 @@ Array [
 ]
 `;
 
-exports[`renders components/tour/demo/mask.tsx correctly 2`] = `[]`;
-
 exports[`renders components/tour/demo/non-modal.tsx correctly 1`] = `
 Array [
   <button
@@ -322,8 +316,6 @@ Array [
 ]
 `;
 
-exports[`renders components/tour/demo/non-modal.tsx correctly 2`] = `[]`;
-
 exports[`renders components/tour/demo/placement.tsx correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -334,8 +326,6 @@ exports[`renders components/tour/demo/placement.tsx correctly 1`] = `
   </span>
 </button>
 `;
-
-exports[`renders components/tour/demo/placement.tsx correctly 2`] = `[]`;
 
 exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
 <div
@@ -655,5 +645,3 @@ exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders components/tour/demo/render-panel.tsx correctly 2`] = `[]`;

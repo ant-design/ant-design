@@ -11,8 +11,6 @@ exports[`renders components/watermark/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/watermark/demo/basic.tsx correctly 2`] = `[]`;
-
 exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
 <div
   style="display:flex"
@@ -776,8 +774,6 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/watermark/demo/custom.tsx correctly 2`] = `[]`;
-
 exports[`renders components/watermark/demo/image.tsx correctly 1`] = `
 <div
   class=""
@@ -789,8 +785,6 @@ exports[`renders components/watermark/demo/image.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/watermark/demo/image.tsx correctly 2`] = `[]`;
-
 exports[`renders components/watermark/demo/multi-line.tsx correctly 1`] = `
 <div
   class=""
@@ -801,5 +795,3 @@ exports[`renders components/watermark/demo/multi-line.tsx correctly 1`] = `
   />
 </div>
 `;
-
-exports[`renders components/watermark/demo/multi-line.tsx correctly 2`] = `[]`;

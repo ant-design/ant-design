@@ -139,6 +139,8 @@ exports[`renders components/descriptions/demo/basic.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/descriptions/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/descriptions/demo/border.tsx extend context correctly 1`] = `
 <div
   class="ant-descriptions ant-descriptions-bordered"
@@ -383,6 +385,12 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
     </table>
   </div>
 </div>
+`;
+
+exports[`renders components/descriptions/demo/border.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Descriptions] Sum of column \`span\` in a line not match \`column\` of Descriptions.",
+]
 `;
 
 exports[`renders components/descriptions/demo/component-token.tsx extend context correctly 1`] = `
@@ -806,6 +814,8 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
 </div>
 `;
 
+exports[`renders components/descriptions/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/descriptions/demo/jsx.tsx extend context correctly 1`] = `
 <div
   class="ant-descriptions"
@@ -944,6 +954,8 @@ exports[`renders components/descriptions/demo/jsx.tsx extend context correctly 1
   </div>
 </div>
 `;
+
+exports[`renders components/descriptions/demo/jsx.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/descriptions/demo/responsive.tsx extend context correctly 1`] = `
 <div
@@ -1119,6 +1131,8 @@ exports[`renders components/descriptions/demo/responsive.tsx extend context corr
   </div>
 </div>
 `;
+
+exports[`renders components/descriptions/demo/responsive.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/descriptions/demo/size.tsx extend context correctly 1`] = `
 <div>
@@ -1546,6 +1560,8 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/descriptions/demo/size.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/descriptions/demo/style.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -1799,6 +1815,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/descriptions/demo/style.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/descriptions/demo/text.tsx extend context correctly 1`] = `
 <div
@@ -2202,6 +2220,12 @@ exports[`renders components/descriptions/demo/text.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/descriptions/demo/text.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Descriptions] Sum of column \`span\` in a line not match \`column\` of Descriptions.",
+]
+`;
+
 exports[`renders components/descriptions/demo/vertical.tsx extend context correctly 1`] = `
 <div
   class="ant-descriptions"
@@ -2404,6 +2428,12 @@ exports[`renders components/descriptions/demo/vertical.tsx extend context correc
     </table>
   </div>
 </div>
+`;
+
+exports[`renders components/descriptions/demo/vertical.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Descriptions] Sum of column \`span\` in a line not match \`column\` of Descriptions.",
+]
 `;
 
 exports[`renders components/descriptions/demo/vertical-border.tsx extend context correctly 1`] = `
@@ -2690,4 +2720,10 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
     </table>
   </div>
 </div>
+`;
+
+exports[`renders components/descriptions/demo/vertical-border.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Descriptions] Sum of column \`span\` in a line not match \`column\` of Descriptions.",
+]
 `;
