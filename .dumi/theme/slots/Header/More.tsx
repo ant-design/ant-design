@@ -2,15 +2,19 @@ import { DownOutlined } from '@ant-design/icons';
 import { createStyles } from 'antd-style';
 import { FormattedMessage } from 'dumi';
 import React from 'react';
+import classnames from 'classnames';
 import type { MenuProps } from 'antd';
 import { Button, Dropdown } from 'antd';
 import type { SharedProps } from './interface';
 
-const useStyle = createStyles(({ css }) => ({
+const useStyle = createStyles(({ css, token }) => ({
   smallStyle: css`
     font-size: 12px;
     color: #777;
     margin-left: 0.3em;
+  `,
+  down: css`
+    color: ${token.colorTextQuaternary};
   `,
   downOutlined: css`
     font-size: 9px;
@@ -84,7 +88,9 @@ const More: React.FC<SharedProps> = ({ isRTL }) => {
     <Dropdown menu={{ items: getEcosystemGroup() }} placement="bottomRight">
       <Button size="small">
         <FormattedMessage id="app.header.menu.more" />
-        <DownOutlined className={isRTL ? styles.downOutlinedRTL : styles.downOutlined} />
+        <DownOutlined
+          className={classnames(isRTL ? styles.downOutlinedRTL : styles.downOutlined, styles.down)}
+        />
       </Button>
     </Dropdown>
   );
