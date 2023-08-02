@@ -980,11 +980,7 @@ Array [
 ]
 `;
 
-exports[`renders components/popover/demo/hover-with-click.tsx extend context correctly 2`] = `
-[
-  "Warning: %s is deprecated in StrictMode. %s was passed an instance of %s which is inside StrictMode. Instead, add a ref directly to the element you want to reference. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-find-node%s",
-]
-`;
+exports[`renders components/popover/demo/hover-with-click.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/popover/demo/placement.tsx extend context correctly 1`] = `
 <div>

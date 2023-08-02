@@ -1,8 +1,14 @@
 // eslint-disable-next-line no-console
 const originError = console.error;
 
-export function isSafeWarning(message: boolean) {
-  return String(message).includes('useLayoutEffect does nothing on the server');
+export function isSafeWarning(message: boolean, all = false) {
+  const list = ['useLayoutEffect does nothing on the server'];
+
+  if (all) {
+    list.push('is deprecated in StrictMode');
+  }
+
+  return list.some((msg) => String(message).includes(msg));
 }
 
 /** This function will remove `useLayoutEffect` server side warning. Since it's useless. */

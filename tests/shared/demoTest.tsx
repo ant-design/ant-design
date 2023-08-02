@@ -77,7 +77,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         if (doInject) {
           const errorMessageSet = new Set(errSpy.mock.calls.map((args) => args[0]));
           const errorMessages = Array.from(errorMessageSet)
-            .filter((msg) => !isSafeWarning(msg))
+            .filter((msg) => !isSafeWarning(msg, true))
             .sort();
 
           expect(errorMessages).toMatchSnapshot();
