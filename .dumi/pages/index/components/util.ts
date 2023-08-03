@@ -1,6 +1,4 @@
 import { css } from 'antd-style';
-import fetch from 'cross-fetch';
-import use from '../../../hooks/use';
 import useFetch from '../../../hooks/useFetch';
 
 export interface Author {
