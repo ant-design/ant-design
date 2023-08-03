@@ -3,6 +3,7 @@ import React, { useMemo } from 'react';
 import { createStyles } from 'antd-style';
 import { HistoryOutlined } from '@ant-design/icons';
 import { Button, Drawer, Timeline, Typography } from 'antd';
+import Link from '../common/Link';
 import useLocale from '../../../hooks/useLocale';
 import useFetch from '../../../hooks/useFetch';
 
