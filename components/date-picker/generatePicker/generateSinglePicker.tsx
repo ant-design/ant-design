@@ -55,6 +55,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           disabled: customDisabled,
           status: customStatus,
           clearIcon,
+          allowClear,
           ...restProps
         } = props;
 
@@ -134,6 +135,11 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
         const locale = { ...contextLocale, ...props.locale! };
 
+        const mergedAllowClear =
+          allowClear === false && typeof clearIcon === 'undefined'
+            ? false
+            : { clearIcon: clearIcon ?? <CloseCircleFilled /> };
+
         return wrapSSR(
           <RCPicker<DateType>
             ref={innerRef}
@@ -177,7 +183,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
               rootClassName,
               popupClassName || dropdownClassName,
             )}
-            allowClear={{ clearIcon: clearIcon ?? <CloseCircleFilled /> }}
+            allowClear={mergedAllowClear}
           />,
         );
       },

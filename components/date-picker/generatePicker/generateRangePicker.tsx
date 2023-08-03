@@ -50,6 +50,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
       dropdownClassName,
       status: customStatus,
       clearIcon,
+      allowClear,
       ...restProps
     } = props;
 
@@ -105,6 +106,11 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
 
     const locale = { ...contextLocale, ...props.locale! };
 
+    const mergedAllowClear =
+      allowClear === false && typeof clearIcon === 'undefined'
+        ? false
+        : { clearIcon: clearIcon ?? <CloseCircleFilled /> };
+
     return wrapSSR(
       <RCRangePicker<DateType>
         separator={
@@ -141,7 +147,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
         components={Components}
         direction={direction}
         dropdownClassName={classNames(hashId, popupClassName || dropdownClassName)}
-        allowClear={{ clearIcon: clearIcon ?? <CloseCircleFilled /> }}
+        allowClear={mergedAllowClear}
       />,
     );
   });
