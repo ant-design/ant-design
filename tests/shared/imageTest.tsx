@@ -55,7 +55,7 @@ export default function imageTest(component: React.ReactElement) {
             </div>
           ))}
         </App>
-        <div id="end-of-screen" style={{ height: 0, margin: 0, padding: 0 }}>
+        <div id="end-of-screen" style={{ height: 0, margin: 0, padding: 0, overflow: 'hidden' }}>
           end of screen
         </div>
       </StyleProvider>
