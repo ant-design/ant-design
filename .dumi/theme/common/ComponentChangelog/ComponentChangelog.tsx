@@ -1,9 +1,10 @@
 /* eslint-disable global-require */
-import React from 'react';
+import React, { useMemo } from 'react';
 import { createStyles } from 'antd-style';
 import { HistoryOutlined } from '@ant-design/icons';
-import { Timeline, Button, Drawer, Typography } from 'antd';
+import { Button, Drawer, Timeline, Typography } from 'antd';
 import useLocale from '../../../hooks/useLocale';
+import useFetch from '../../../hooks/useFetch';
 
 const useStyle = createStyles(({ token, css }) => ({
   history: css`
@@ -85,26 +86,27 @@ function ParseChangelog(props: { changelog: string; refs: string[]; styles: any 
 }
 
 function useChangelog(componentPath, lang) {
-  const [list, setList] =
-    React.useState<{ version: string; changelog: string; refs: string[] }[]>(null);
+  const data = useFetch(
+    lang === 'cn'
+      ? {
+          key: 'component-changelog-cn',
+          request: () => import('../../../preset/components-changelog-cn.json'),
+        }
+      : {
+          key: 'component-changelog-en',
+          request: () => import('../../../preset/components-changelog-en.json'),
+        },
+  );
 
-  React.useEffect(() => {
-    const cnData = require('../../../preset/components-changelog-cn.json');
-    const enData = require('../../../preset/components-changelog-en.json');
-
+  return useMemo(() => {
     const component = componentPath.replace(/-/g, '');
 
-    const mergedData = lang === 'cn' ? cnData : enData;
-    const componentName = Object.keys(mergedData).find(
+    const componentName = Object.keys(data).find(
       (name) => name.toLowerCase() === component.toLowerCase(),
     );
 
-    const componentChangelog = mergedData[componentName];
-
-    setList(componentChangelog || []);
-  }, [componentPath]);
-
-  return list || [];
+    return data[componentName];
+  }, [data, componentPath]);
 }
 
 export default function ComponentChangelog(props: ComponentChangelogProps) {
