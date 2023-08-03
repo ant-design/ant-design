@@ -67,6 +67,7 @@ const miscKeys = [
 
 (() => {
   const missingChangelog = [];
+  const miscChangelog: string[] = [];
 
   // Read & write components changelog
   function syncChangelog(sourceFile: string, targetFile: string) {
@@ -156,6 +157,7 @@ const miscKeys = [
 
       // Misc
       if (miscKeys.some((key) => line.includes(key))) {
+        miscChangelog.push(line);
         continue;
       }
 
@@ -165,13 +167,16 @@ const miscKeys = [
       }
     }
 
-    // console.log(componentChangelog);
-
     fs.writeFileSync(path.join(output, targetFile), JSON.stringify(componentChangelog), 'utf-8');
   }
 
   syncChangelog('CHANGELOG.zh-CN.md', 'components-changelog-cn.json');
   syncChangelog('CHANGELOG.en-US.md', 'components-changelog-en.json');
+  fs.writeFileSync(
+    path.join(output, 'misc-changelog.json'),
+    JSON.stringify(miscChangelog),
+    'utf-8',
+  );
 
   if (missingChangelog.length) {
     console.log('\nMISC key word should be:');

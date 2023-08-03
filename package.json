@@ -59,7 +59,7 @@
     "component-changelog": "ts-node --esm --project tsconfig.node.json scripts/generate-component-changelog.ts",
     "prestart": "npm run version && npm run collect-token-statistic && npm run token-meta && npm run component-changelog",
     "precompile": "npm run prestart",
-    "pretest": "npm run version",
+    "pretest": "npm run version && npm run component-changelog",
     "predist": "npm run version",
     "presite": "npm run prestart",
     "compile": "npm run clean && antd-tools run compile",
