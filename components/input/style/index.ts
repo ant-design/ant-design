@@ -207,7 +207,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
 
   return {
     position: 'relative',
-    display: 'table',
+    display: 'flex',
     width: '100%',
     borderCollapse: 'separate',
     borderSpacing: 0,
@@ -240,7 +240,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
     },
 
     [`> ${componentCls}`]: {
-      display: 'table-cell',
+      display: 'flex',
 
       '&:not(:first-child):not(:last-child)': {
         borderRadius: 0,
@@ -249,10 +249,9 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
 
     [`${componentCls}-group`]: {
       [`&-addon, &-wrap`]: {
-        display: 'table-cell',
-        width: 1,
+        display: 'flex',
+        alignItems: 'center',
         whiteSpace: 'nowrap',
-        verticalAlign: 'middle',
 
         '&:not(:first-child):not(:last-child)': {
           borderRadius: 0,

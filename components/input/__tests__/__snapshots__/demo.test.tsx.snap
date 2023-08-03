@@ -1910,7 +1910,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
   >
     <div
       class="ant-row"
-      style="margin-left:-4px;margin-right:-4px"
+      style="margin-left:-4px;margin-right:-4px;flex-grow:1"
     >
       <div
         class="ant-col ant-col-5"
