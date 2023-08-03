@@ -20,16 +20,34 @@ const camelComponentNames = componentNames.map((componentName) =>
     .join(''),
 );
 
+function fillComponentKey(componentName: string) {
+  return [
+    ` ${componentName} `,
+    ` ${componentName}.`,
+    ` ${componentName},`,
+    ` ${componentName}，`,
+    ` ${componentName}。`,
+    ` ${componentName}、`,
+    ` ${componentName})`,
+    ` ${componentName}）`,
+    ` ${componentName}'`,
+    ` ${componentName}/`,
+    `\`${componentName}\``,
+    `\`${componentName}.`,
+  ];
+}
+
 // Convert a mapping logic
 const componentNameMap: Record<string, string[]> = {};
 camelComponentNames.forEach((name) => {
-  componentNameMap[name] = [` ${name}`, `\`${name}`, 'Global:'];
+  componentNameMap[name] = [...fillComponentKey(name), 'Global:'];
 });
 
-componentNameMap.ConfigProvider.push('Wave');
-componentNameMap.Grid.push('Row', 'Col');
-componentNameMap.Message.push('message');
-componentNameMap.Notification.push('notification');
+componentNameMap.ConfigProvider.push(...fillComponentKey('Wave'));
+componentNameMap.Grid.push(...fillComponentKey('Row'));
+componentNameMap.Grid.push(...fillComponentKey('Col'));
+componentNameMap.Message.push(...fillComponentKey('message'));
+componentNameMap.Notification.push(...fillComponentKey('notification'));
 
 // Collect misc. When ComponentName not match will fallback to misc
 const miscKeys = [

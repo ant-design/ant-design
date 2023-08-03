@@ -96,7 +96,7 @@ timeline: true
 - 🐞 Fix Tag extra margin when there is only `icon` inside it. [#43518](https://github.com/ant-design/ant-design/pull/43518) [@Yuiai01](https://github.com/Yuiai01)
 - 🐞 Fix ColorPicker that status style is missing inside Form.Item. [#42880](https://github.com/ant-design/ant-design/pull/42880) [@RedJue](https://github.com/RedJue)
 - TypeScript
-  - 🤖 Fix `SpaceContext` don't exported correctly. [#43501](https://github.com/ant-design/ant-design/pull/43501) [@VovkaGoodwin](https://github.com/VovkaGoodwin)
+  - 🤖 Fix Space `SpaceContext` don't exported correctly. [#43501](https://github.com/ant-design/ant-design/pull/43501) [@VovkaGoodwin](https://github.com/VovkaGoodwin)
   - 🤖 Improve AutoComplete definitions. [#43581](https://github.com/ant-design/ant-design/pull/43581) [@thinkasany](https://github.com/thinkasany)
   - 🤖 Improve Select and List definitions. [#43545](https://github.com/ant-design/ant-design/pull/43545) [@thinkasany](https://github.com/thinkasany)
   - 🤖 Improve Button definitions. [#43588](https://github.com/ant-design/ant-design/pull/43588) [#43629](https://github.com/ant-design/ant-design/pull/43629) [@thinkasany](https://github.com/thinkasany)
@@ -138,7 +138,7 @@ timeline: true
   - 🤖 Added `RawPurePanelProps` interface description for Popover. [#43453](https://github.com/ant-design/ant-design/pull/43453) [@thinkasany](https://github.com/thinkasany)
   - 🤖 Replaced `ref` type with `TooltipRef` instead of `unknown` for `Popconfirm`. [#43452](https://github.com/ant-design/ant-design/pull/43452) [@thinkasany](https://github.com/thinkasany)
   - 🤖 Replaced `ref` type with `TooltipRef` instead of `unknown` for Popover. [#43450](https://github.com/ant-design/ant-design/pull/43450) [@Negentropy247](https://github.com/Negentropy247)
-  - 🤖 Improved type declaration of `GroupSizeContext` in ButtonGroup. [#43439](https://github.com/ant-design/ant-design/pull/43439) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 Improved type declaration of `GroupSizeContext` in Button.ButtonGroup. [#43439](https://github.com/ant-design/ant-design/pull/43439) [@thinkasany](https://github.com/thinkasany)
   - 🤖 Improved type declaration of `mode` property in Select. [#43413](https://github.com/ant-design/ant-design/pull/43413) [@thinkasany](https://github.com/thinkasany)
   - 🤖 Replaced `ref` type with `CheckboxRef` instead of `unknown` for Checkbox. [#43424](https://github.com/ant-design/ant-design/pull/43424) [@li-jia-nan](https://github.com/li-jia-nan)
   - 🤖 Improved Table internal type implementation. [#43366](https://github.com/ant-design/ant-design/pull/43366) [@li-jia-nan](https://github.com/li-jia-nan)
@@ -290,7 +290,7 @@ timeline: true
 - 🐞 Fix InputNumber cannot align well by baseline. [#42580](https://github.com/ant-design/ant-design/pull/42580)
 - 🐞 Fix spinning icon animation in Badge. [#42575](https://github.com/ant-design/ant-design/pull/42575) [@MadCcc](https://github.com/MadCcc)
 - 📦 Optimize Form `setFieldsValue` logic to reduce bundle size. [#42635](https://github.com/ant-design/ant-design/pull/42635)
-- 💄 Optimize ImagePreviewGroup style. [#42675](https://github.com/ant-design/ant-design/pull/42675) [@kiner-tang](https://github.com/kiner-tang)
+- 💄 Optimize Image.ImagePreviewGroup style. [#42675](https://github.com/ant-design/ant-design/pull/42675) [@kiner-tang](https://github.com/kiner-tang)
 - 💄 Fix Tag borderless style with `error` and other status. [#42619](https://github.com/ant-design/ant-design/pull/42619) [@li-jia-nan](https://github.com/li-jia-nan)
 - 💄 Fix Table `rowSpan` hover highlight style missing. [#42572](https://github.com/ant-design/ant-design/pull/42572)
 - 💄 Fix Pagination's link icon and ellipsis hover style when disabled. [#42541](https://github.com/ant-design/ant-design/pull/42541) [@qmhc](https://github.com/qmhc)
@@ -436,7 +436,7 @@ timeline: true
 
 `2023-04-11`
 
-- 💄 Optimize Select-like component popup logic. Now always try to display it in the visible area first to reduce the user's extra scrolling cost. [#41619](https://github.com/ant-design/ant-design/pull/41619)
+- 💄 Optimize Select-like component popup logic (e.g. Select, TreeSelect, Cascader). Now always try to display it in the visible area first to reduce the user's extra scrolling cost. [#41619](https://github.com/ant-design/ant-design/pull/41619)
 - 💄 Remove fixed height in Badge.Ribbon. [#41661](https://github.com/ant-design/ant-design/pull/41661) [@MuxinFeng](https://github.com/MuxinFeng)
 - 🐞 Fix Select width becomes 0px when search after select something. [#41722](https://github.com/ant-design/ant-design/pull/41722)
 - 🐞 Fix Empty style in small width container. [#41727](https://github.com/ant-design/ant-design/pull/41727)
@@ -859,13 +859,13 @@ timeline: true
 - 🐞 Fix Drawer unexpected warning about `DefaultProps`. [#39562](https://github.com/ant-design/ant-design/pull/39562)
 - Menu
   - 🐞 Fix Menu.Submenu will flicker when use `createRoot` to render. [#38855](https://github.com/ant-design/ant-design/pull/38855) [@JarvisArt](https://github.com/JarvisArt)
-  - 🛠 Refactor MenuItem to Function Component. [#38751](https://github.com/ant-design/ant-design/pull/38751)
+  - 🛠 Refactor Menu.MenuItem to Function Component. [#38751](https://github.com/ant-design/ant-design/pull/38751)
   - 💄 Optimize Menu item style when selected. [#39439](https://github.com/ant-design/ant-design/pull/39439)
 - 🛠 LocaleProvider has been deprecated in 4.x (use `<ConfigProvider locale />` instead), we removed the related folder antd/es/locale-provider and antd/lib/locale-provider in 5.x. [#39373](https://github.com/ant-design/ant-design/pull/39373)
 - 🛠 Simplified lodash method introduction. [#39599](https://github.com/ant-design/ant-design/pull/39599) [#39602](https://github.com/ant-design/ant-design/pull/39602)
 - TypeScript
   - 🤖 Optimize Button DropDown Modal Popconfirm Select Transfer mouse event type definition. [#39533](https://github.com/ant-design/ant-design/pull/39533)
-  - 🤖 New export type `FloatButtonGroupProps`. [#39553](https://github.com/ant-design/ant-design/pull/39553)
+  - 🤖 New export FloatButton type `FloatButtonGroupProps`. [#39553](https://github.com/ant-design/ant-design/pull/39553)
 - 🌐 Localization
   - 🇧🇪 Add `fr_BE` locale. [#39415](https://github.com/ant-design/ant-design/pull/39415) [@azro352](https://github.com/azro352)
   - 🇨🇦 Add `fr_CA` locale. [#39416](https://github.com/ant-design/ant-design/pull/39416) [@azro352](https://github.com/azro352)
