@@ -72,6 +72,8 @@ export default function imageTest(component: React.ReactElement) {
       styleStr,
     );
 
+    await page.waitFor(500);
+
     const image = await page.screenshot({
       fullPage: true,
     });
