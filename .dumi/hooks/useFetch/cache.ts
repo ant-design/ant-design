@@ -9,7 +9,7 @@ export default class FetchCache {
     this.cache.set(key, value);
   }
 
-  promise(key: string, promiseFn: () => PromiseLike<any>) {
+  promise<T>(key: string, promiseFn: () => PromiseLike<T>): PromiseLike<T> {
     const cached = this.get(key);
     if (cached) {
       return cached;

@@ -14,7 +14,7 @@ const useFetch = <T>(options: string | { request: () => PromiseLike<T>; key: str
     request = options.request;
     key = options.key;
   }
-  return use(cache.promise(key, request)) as T;
+  return use(cache.promise<T>(key, request));
 };
 
 export default useFetch;
