@@ -3,6 +3,7 @@ import React, { useMemo } from 'react';
 import { createStyles } from 'antd-style';
 import { HistoryOutlined } from '@ant-design/icons';
 import { Button, Drawer, Timeline, Typography } from 'antd';
+import Link from '../Link';
 import useLocale from '../../../hooks/useLocale';
 import useFetch from '../../../hooks/useFetch';
 
@@ -28,11 +29,13 @@ export interface ComponentChangelogProps {
 
 const locales = {
   cn: {
+    full: '完整更新日志',
     changelog: '更新日志',
     loading: '加载中...',
     empty: '暂无更新',
   },
   en: {
+    full: 'Full Changelog',
     changelog: 'Changelog',
     loading: 'loading...',
     empty: 'Nothing update',
@@ -165,8 +168,13 @@ export default function ComponentChangelog(props: ComponentChangelogProps) {
       </Button>
       <Drawer
         title={locale.changelog}
+        extra={
+          <Link style={{ fontSize: 14 }} to={`/changelog${lang === 'cn' ? '-cn' : ''}`}>
+            {locale.full}
+          </Link>
+        }
         open={show}
-        width={520}
+        width="40vw"
         onClose={() => {
           setShow(false);
         }}
