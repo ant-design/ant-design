@@ -123,11 +123,11 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   const menuClassName = classNames(`${prefixCls}-${theme}`, menu?.className, className);
 
   // ====================== Expand Icon ========================
-  let mergedExpandIcon: MenuProps[`expandIcon`];
+  let mergedExpandIcon: MenuProps['expandIcon'];
   if (typeof expandIcon === 'function') {
     mergedExpandIcon = expandIcon;
   } else {
-    const beClone = expandIcon || overrideObj.expandIcon;
+    const beClone: React.ReactNode = expandIcon || overrideObj.expandIcon;
     mergedExpandIcon = cloneElement(beClone, {
       className: classNames(
         `${prefixCls}-submenu-expand-icon`,
