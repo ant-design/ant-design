@@ -245,7 +245,6 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                   />
                 )}
               </Space>
-
               {pathname.startsWith('/components/') && <ComponentChangelog pathname={pathname} />}
             </Typography.Title>
           ) : null}
