@@ -82,3 +82,7 @@ demo:
 ### 为何动态修改 `min` 和 `max` 让 `value` 超出范围不会触发 `onChange` 事件？
 
 `onChange` 事件为用户触发事件，自行触发会导致表单库误以为变更来自用户操作。我们以错误样式展示超出范围的数值。
+
+### 为何 `onBlur` 等事件获取不到正确的 value？
+
+InputNumber 的值由内部逻辑封装而成，通过 `onBlur` 等事件获取的 `event.target.value` 仅为 DOM 元素的 `value` 而非 InputNumber 的实际值。例如通过 `formatter` 或者 `decimalSeparator` 更改展示格式，DOM 中得到的就是格式化后的字符串。你总是应该通过 `onChange` 获取当前值。
