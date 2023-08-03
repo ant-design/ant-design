@@ -183,11 +183,6 @@ const RoutesPlugin = (api: IApi) => {
 
   //   fs.writeFileSync(`./_site/${ssrCssFileName}`, styleTextWithoutStyleTag, 'utf8');
   // });
-
-  api.modifyHTML(($) => {
-    $('script[src^="/umi."]').attr('defer', '');
-    return $;
-  });
 };
 
 export default RoutesPlugin;
