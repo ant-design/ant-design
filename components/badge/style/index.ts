@@ -280,6 +280,9 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         [`${componentCls}-count, ${componentCls}-dot, ${numberPrefixCls}-custom-component`]: {
           transform: 'translate(-50%, -50%)',
         },
+        [`${numberPrefixCls}-only`]: {
+          float: 'right',
+        },
       },
     },
     [`${ribbonWrapperPrefixCls}`]: { position: 'relative' },
