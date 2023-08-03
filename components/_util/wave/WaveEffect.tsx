@@ -4,7 +4,7 @@ import { render, unmount } from 'rc-util/lib/React/render';
 import raf from 'rc-util/lib/raf';
 import * as React from 'react';
 import { getTargetWaveColor } from './util';
-import type { ShowWaveEffect } from './useWave';
+import { type ShowWaveEffect, TARGET_CLS } from './interface';
 
 function validateNum(value: number) {
   return Number.isNaN(value) ? 0 : value;
@@ -104,7 +104,8 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
     return null;
   }
 
-  const isSmallComponent = component === 'Checkbox' || component === 'Radio';
+  const isSmallComponent =
+    (component === 'Checkbox' || component === 'Radio') && target?.classList.contains(TARGET_CLS);
 
   return (
     <CSSMotion
@@ -140,8 +141,11 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
 };
 
 const showWaveEffect: ShowWaveEffect = (target, info) => {
+  const { component } = info;
+  const targetNode = target.querySelector('input');
+
   // Skip for unchecked checkbox
-  if (info.component === 'Checkbox' && !target.querySelector('input')?.checked) {
+  if (component === 'Checkbox' && !targetNode?.checked) {
     return;
   }
 

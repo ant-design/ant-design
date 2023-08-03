@@ -4,21 +4,7 @@ import raf from 'rc-util/lib/raf';
 import showWaveEffect from './WaveEffect';
 import { ConfigContext } from '../../config-provider';
 import useToken from '../../theme/useToken';
-import type { GlobalToken } from '../../theme';
-
-export const TARGET_CLS = 'ant-wave-target';
-
-export type ShowWaveEffect = (
-  element: HTMLElement,
-  info: {
-    className: string;
-    token: GlobalToken;
-    component?: string;
-    event: MouseEvent;
-  },
-) => void;
-
-type ShowWave = (event: MouseEvent) => void;
+import { TARGET_CLS, type ShowWave } from './interface';
 
 export default function useWave(
   nodeRef: React.RefObject<HTMLElement>,

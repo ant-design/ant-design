@@ -10,7 +10,7 @@ import GroupContext from './GroupContext';
 
 import useStyle from './style';
 import Wave from '../_util/wave';
-import { TARGET_CLS } from '../_util/wave/useWave';
+import { TARGET_CLS } from '../_util/wave/interface';
 
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;

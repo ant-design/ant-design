@@ -28,10 +28,6 @@ const genWaveStyle: GenerateStyle<WaveToken> = (token) => {
         '&-active': {
           boxShadow: `0 0 0 6px currentcolor`,
           opacity: 0,
-
-          // '&.wave-quick': {
-          //   boxShadow: `0 0 0 4px currentcolor`,
-          // },
         },
 
         '&.wave-quick': {
