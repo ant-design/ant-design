@@ -86,9 +86,6 @@ function ParseChangelog(props: { changelog: string; refs: string[]; styles: any 
   );
 }
 
-// const cnDataPromise = import('../../../preset/components-changelog-cn.json');
-// const enDataPromise = import('../../../preset/components-changelog-en.json');
-
 function useChangelog(componentPath, lang) {
   const data = useFetch(
     lang === 'cn'
