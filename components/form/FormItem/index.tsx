@@ -257,7 +257,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
       validateTrigger={mergedValidateTrigger}
       onMetaChange={onMetaChange}
     >
-      {(control, renderMeta, context) => {
+      {(control, renderMeta, context: FormInstance<Values>) => {
         const mergedName = toArray(name).length && renderMeta ? renderMeta.name : [];
         const fieldId = getFieldId(mergedName, formName);
 
