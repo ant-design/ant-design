@@ -20,25 +20,12 @@ const camelComponentNames = componentNames.map((componentName) =>
     .join(''),
 );
 
-function fillComponentKey(componentName: string) {
-  return [
-    ` ${componentName} `,
-    ` ${componentName}.`,
-    ` ${componentName},`,
-    ` ${componentName}，`,
-    ` ${componentName}。`,
-    ` ${componentName}、`,
-    ` ${componentName})`,
-    ` ${componentName}）`,
-    ` ${componentName}'`,
-    ` ${componentName}/`,
-    `\`${componentName}\``,
-    `\`${componentName}.`,
-  ];
+function fillComponentKey(componentName: string): RegExp[] {
+  return [new RegExp(`\\b${componentName}\\b`)];
 }
 
 // Convert a mapping logic
-const componentNameMap: Record<string, string[]> = {};
+const componentNameMap: Record<string, (string | RegExp)[]> = {};
 camelComponentNames.forEach((name) => {
   componentNameMap[name] = [...fillComponentKey(name), 'Global:'];
 });
@@ -157,7 +144,14 @@ const miscKeys = [
       Object.keys(componentNameMap).forEach((name) => {
         const matchKeys = componentNameMap[name];
 
-        if (matchKeys.some((key) => line.includes(key))) {
+        if (
+          matchKeys.some((key) => {
+            if (typeof key === 'string') {
+              return line.includes(key);
+            }
+            return key.test(line);
+          })
+        ) {
           componentChangelog[name].push({
             version: lastVersion,
             changelog: changelogLine,
