@@ -79,7 +79,7 @@ const ScrollNumber = React.forwardRef<HTMLElement, ScrollNumberProps>((props, re
 
   return (
     <Component {...newProps} ref={ref}>
-      {numberNodes}
+      <bdi>{numberNodes}</bdi>
     </Component>
   );
 });

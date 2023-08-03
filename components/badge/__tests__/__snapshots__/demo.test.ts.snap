@@ -24,16 +24,18 @@ exports[`renders components/badge/demo/basic.tsx correctly 1`] = `
         data-show="true"
         title="5"
       >
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
+        <bdi>
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition:none"
           >
-            5
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              5
+            </span>
           </span>
-        </span>
+        </bdi>
       </sup>
     </span>
   </div>
@@ -57,7 +59,9 @@ exports[`renders components/badge/demo/basic.tsx correctly 1`] = `
         data-show="true"
         title="0"
       >
-        0
+        <bdi>
+          0
+        </bdi>
       </sup>
     </span>
   </div>
@@ -134,16 +138,18 @@ exports[`renders components/badge/demo/change.tsx correctly 1`] = `
             data-show="true"
             title="5"
           >
-            <span
-              class="ant-scroll-number-only"
-              style="transition:none"
-            >
+            <bdi>
               <span
-                class="ant-scroll-number-only-unit current"
+                class="ant-scroll-number-only"
+                style="transition:none"
               >
-                5
+                <span
+                  class="ant-scroll-number-only-unit current"
+                >
+                  5
+                </span>
               </span>
-            </span>
+            </bdi>
           </sup>
         </span>
       </div>
@@ -271,7 +277,9 @@ exports[`renders components/badge/demo/change.tsx correctly 1`] = `
           <sup
             class="ant-scroll-number ant-badge-dot"
             data-show="true"
-          />
+          >
+            <bdi />
+          </sup>
         </span>
       </div>
       <div
@@ -650,26 +658,28 @@ Array [
           data-show="true"
           title="44"
         >
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
+          <bdi>
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
+          </bdi>
         </sup>
       </span>
     </div>
@@ -690,26 +700,28 @@ Array [
           data-show="true"
           title="44"
         >
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
+          <bdi>
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
+          </bdi>
         </sup>
       </span>
     </div>
@@ -730,26 +742,28 @@ Array [
           data-show="true"
           title="44"
         >
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
+          <bdi>
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
+          </bdi>
         </sup>
       </span>
     </div>
@@ -770,26 +784,28 @@ Array [
           data-show="true"
           title="44"
         >
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
+          <bdi>
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
+          </bdi>
         </sup>
       </span>
     </div>
@@ -810,26 +826,28 @@ Array [
           data-show="true"
           title="44"
         >
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
+          <bdi>
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
+          </bdi>
         </sup>
       </span>
     </div>
@@ -850,26 +868,28 @@ Array [
           data-show="true"
           title="44"
         >
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
+          <bdi>
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
+          </bdi>
         </sup>
       </span>
     </div>
@@ -890,26 +910,28 @@ Array [
           data-show="true"
           title="44"
         >
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
+          <bdi>
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
+          </bdi>
         </sup>
       </span>
     </div>
@@ -930,26 +952,28 @@ Array [
           data-show="true"
           title="44"
         >
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
+          <bdi>
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
+          </bdi>
         </sup>
       </span>
     </div>
@@ -970,26 +994,28 @@ Array [
           data-show="true"
           title="44"
         >
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
+          <bdi>
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
+          </bdi>
         </sup>
       </span>
     </div>
@@ -1010,26 +1036,28 @@ Array [
           data-show="true"
           title="44"
         >
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
+          <bdi>
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
+          </bdi>
         </sup>
       </span>
     </div>
@@ -1050,26 +1078,28 @@ Array [
           data-show="true"
           title="44"
         >
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
+          <bdi>
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
+          </bdi>
         </sup>
       </span>
     </div>
@@ -1090,26 +1120,28 @@ Array [
           data-show="true"
           title="44"
         >
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
+          <bdi>
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
+          </bdi>
         </sup>
       </span>
     </div>
@@ -1130,26 +1162,28 @@ Array [
           data-show="true"
           title="44"
         >
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
+          <bdi>
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition:none"
             >
-              4
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
             </span>
-          </span>
+          </bdi>
         </sup>
       </span>
     </div>
@@ -1417,7 +1451,9 @@ exports[`renders components/badge/demo/dot.tsx correctly 1`] = `
       <sup
         class="ant-scroll-number ant-badge-dot"
         data-show="true"
-      />
+      >
+        <bdi />
+      </sup>
     </span>
   </div>
   <div
@@ -1434,7 +1470,9 @@ exports[`renders components/badge/demo/dot.tsx correctly 1`] = `
       <sup
         class="ant-scroll-number ant-badge-dot"
         data-show="true"
-      />
+      >
+        <bdi />
+      </sup>
     </span>
   </div>
 </div>
@@ -1460,16 +1498,18 @@ exports[`renders components/badge/demo/link.tsx correctly 1`] = `
       data-show="true"
       title="5"
     >
-      <span
-        class="ant-scroll-number-only"
-        style="transition:none"
-      >
+      <bdi>
         <span
-          class="ant-scroll-number-only-unit current"
+          class="ant-scroll-number-only"
+          style="transition:none"
         >
-          5
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            5
+          </span>
         </span>
-      </span>
+      </bdi>
     </sup>
   </span>
 </a>
@@ -1508,16 +1548,18 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
             data-show="true"
             title="5"
           >
-            <span
-              class="ant-scroll-number-only"
-              style="transition:none"
-            >
+            <bdi>
               <span
-                class="ant-scroll-number-only-unit current"
+                class="ant-scroll-number-only"
+                style="transition:none"
               >
-                5
+                <span
+                  class="ant-scroll-number-only-unit current"
+                >
+                  5
+                </span>
               </span>
-            </span>
+            </bdi>
           </sup>
         </span>
       </div>
@@ -1541,16 +1583,18 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
             data-show="true"
             title="5"
           >
-            <span
-              class="ant-scroll-number-only"
-              style="transition:none"
-            >
+            <bdi>
               <span
-                class="ant-scroll-number-only-unit current"
+                class="ant-scroll-number-only"
+                style="transition:none"
               >
-                5
+                <span
+                  class="ant-scroll-number-only-unit current"
+                >
+                  5
+                </span>
               </span>
-            </span>
+            </bdi>
           </sup>
         </span>
       </div>
@@ -1574,16 +1618,18 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
             data-show="true"
             title="5"
           >
-            <span
-              class="ant-scroll-number-only"
-              style="transition:none"
-            >
+            <bdi>
               <span
-                class="ant-scroll-number-only-unit current"
+                class="ant-scroll-number-only"
+                style="transition:none"
               >
-                5
+                <span
+                  class="ant-scroll-number-only-unit current"
+                >
+                  5
+                </span>
               </span>
-            </span>
+            </bdi>
           </sup>
         </span>
       </div>
@@ -1608,16 +1654,18 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
             style="background:#fa541c"
             title="5"
           >
-            <span
-              class="ant-scroll-number-only"
-              style="transition:none"
-            >
+            <bdi>
               <span
-                class="ant-scroll-number-only-unit current"
+                class="ant-scroll-number-only"
+                style="transition:none"
               >
-                5
+                <span
+                  class="ant-scroll-number-only-unit current"
+                >
+                  5
+                </span>
               </span>
-            </span>
+            </bdi>
           </sup>
         </span>
       </div>
@@ -1639,7 +1687,9 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
           <sup
             class="ant-scroll-number ant-badge-dot ant-badge-status-success"
             data-show="true"
-          />
+          >
+            <bdi />
+          </sup>
         </span>
       </div>
       <div
@@ -1660,7 +1710,9 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
           <sup
             class="ant-scroll-number ant-badge-dot ant-badge-status-warning"
             data-show="true"
-          />
+          >
+            <bdi />
+          </sup>
         </span>
       </div>
       <div
@@ -1681,7 +1733,9 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
           <sup
             class="ant-scroll-number ant-badge-dot ant-badge-color-blue"
             data-show="true"
-          />
+          >
+            <bdi />
+          </sup>
         </span>
       </div>
       <div
@@ -1703,7 +1757,9 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
             class="ant-scroll-number ant-badge-dot"
             data-show="true"
             style="background:#fa541c"
-          />
+          >
+            <bdi />
+          </sup>
         </span>
       </div>
     </div>
@@ -1728,7 +1784,9 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
             data-show="true"
             title="0"
           >
-            0
+            <bdi>
+              0
+            </bdi>
           </sup>
         </span>
       </div>
@@ -1744,7 +1802,9 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
             data-show="true"
             title="0"
           >
-            0
+            <bdi>
+              0
+            </bdi>
           </sup>
         </span>
       </div>
@@ -1761,7 +1821,9 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
             style="background:#f0f"
             title="0"
           >
-            0
+            <bdi>
+              0
+            </bdi>
           </sup>
         </span>
       </div>
@@ -1785,7 +1847,9 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
             data-show="true"
             title="0"
           >
-            0
+            <bdi>
+              0
+            </bdi>
           </sup>
         </span>
       </div>
@@ -1809,7 +1873,9 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
             data-show="true"
             title="0"
           >
-            0
+            <bdi>
+              0
+            </bdi>
           </sup>
         </span>
       </div>
@@ -1860,26 +1926,28 @@ exports[`renders components/badge/demo/no-wrapper.tsx correctly 1`] = `
         style="background:#faad14"
         title="11"
       >
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
+        <bdi>
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition:none"
           >
-            1
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              1
+            </span>
           </span>
-        </span>
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition:none"
           >
-            1
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              1
+            </span>
           </span>
-        </span>
+        </bdi>
       </sup>
     </span>
   </div>
@@ -1895,26 +1963,28 @@ exports[`renders components/badge/demo/no-wrapper.tsx correctly 1`] = `
         data-show="true"
         title="25"
       >
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
+        <bdi>
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition:none"
           >
-            2
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              2
+            </span>
           </span>
-        </span>
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition:none"
           >
-            5
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              5
+            </span>
           </span>
-        </span>
+        </bdi>
       </sup>
     </span>
   </div>
@@ -1962,7 +2032,9 @@ exports[`renders components/badge/demo/no-wrapper.tsx correctly 1`] = `
         style="background-color:#52c41a"
         title="109"
       >
-        99+
+        <bdi>
+          99+
+        </bdi>
       </sup>
     </span>
   </div>
@@ -1987,16 +2059,18 @@ exports[`renders components/badge/demo/offset.tsx correctly 1`] = `
     style="margin-top:10px;right:-10px"
     title="5"
   >
-    <span
-      class="ant-scroll-number-only"
-      style="transition:none"
-    >
+    <bdi>
       <span
-        class="ant-scroll-number-only-unit current"
+        class="ant-scroll-number-only"
+        style="transition:none"
       >
-        5
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          5
+        </span>
       </span>
-    </span>
+    </bdi>
   </sup>
 </span>
 `;
@@ -2025,26 +2099,28 @@ exports[`renders components/badge/demo/overflow.tsx correctly 1`] = `
         data-show="true"
         title="99"
       >
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
+        <bdi>
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition:none"
           >
-            9
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              9
+            </span>
           </span>
-        </span>
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition:none"
           >
-            9
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              9
+            </span>
           </span>
-        </span>
+        </bdi>
       </sup>
     </span>
   </div>
@@ -2068,7 +2144,9 @@ exports[`renders components/badge/demo/overflow.tsx correctly 1`] = `
         data-show="true"
         title="100"
       >
-        99+
+        <bdi>
+          99+
+        </bdi>
       </sup>
     </span>
   </div>
@@ -2092,7 +2170,9 @@ exports[`renders components/badge/demo/overflow.tsx correctly 1`] = `
         data-show="true"
         title="99"
       >
-        10+
+        <bdi>
+          10+
+        </bdi>
       </sup>
     </span>
   </div>
@@ -2115,7 +2195,9 @@ exports[`renders components/badge/demo/overflow.tsx correctly 1`] = `
         data-show="true"
         title="1000"
       >
-        999+
+        <bdi>
+          999+
+        </bdi>
       </sup>
     </span>
   </div>
@@ -2660,16 +2742,18 @@ exports[`renders components/badge/demo/size.tsx correctly 1`] = `
         data-show="true"
         title="5"
       >
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
+        <bdi>
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition:none"
           >
-            5
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              5
+            </span>
           </span>
-        </span>
+        </bdi>
       </sup>
     </span>
   </div>
@@ -2692,16 +2776,18 @@ exports[`renders components/badge/demo/size.tsx correctly 1`] = `
         data-show="true"
         title="5"
       >
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
+        <bdi>
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition:none"
           >
-            5
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              5
+            </span>
           </span>
-        </span>
+        </bdi>
       </sup>
     </span>
   </div>
@@ -2889,16 +2975,18 @@ exports[`renders components/badge/demo/title.tsx correctly 1`] = `
         data-show="true"
         title="Custom hover text"
       >
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
+        <bdi>
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition:none"
           >
-            5
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              5
+            </span>
           </span>
-        </span>
+        </bdi>
       </sup>
     </span>
   </div>
@@ -2921,26 +3009,28 @@ exports[`renders components/badge/demo/title.tsx correctly 1`] = `
         data-show="true"
         title="Negative"
       >
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
+        <bdi>
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition:none"
           >
-            -
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              -
+            </span>
           </span>
-        </span>
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition:none"
           >
-            5
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              5
+            </span>
           </span>
-        </span>
+        </bdi>
       </sup>
     </span>
   </div>
