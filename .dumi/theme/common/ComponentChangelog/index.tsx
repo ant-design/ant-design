@@ -1,7 +1,6 @@
 import React from 'react';
 import type { ComponentChangelogProps } from './ComponentChangelog';
-
-const ComponentChangelog = React.lazy(() => import('./ComponentChangelog'));
+import ComponentChangelog from './ComponentChangelog';
 
 export default (props: ComponentChangelogProps) => (
   <React.Suspense fallback={null}>
