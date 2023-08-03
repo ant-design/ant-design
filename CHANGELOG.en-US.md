@@ -123,7 +123,7 @@ timeline: true
 - 🐞 Remove default values (empty string) of `className` prop in Anchor, CollapsePanel, and Input.Group. [#43481](https://github.com/ant-design/ant-design/pull/43481) [@thinkasany](https://github.com/thinkasany)
 - 🐞 Fix Upload progress bar missing fade motion. [#43471](https://github.com/ant-design/ant-design/pull/43471)
 - 🐞 Added warning for deprecated Token `colorItemBgSelected` in Menu. [#43461](https://github.com/ant-design/ant-design/pull/43461) [@MadCcc](https://github.com/MadCcc)
-- 🐞 Global: Fixed an issue where some browsers had scroll bars that were not redrawn when style feature support was detected. [#43358](https://github.com/ant-design/ant-design/pull/43358) [@LeeeeeeM](https://github.com/LeeeeeeM)
+- 🐞 MISC: Fixed an issue where some browsers had scroll bars that were not redrawn when style feature support was detected. [#43358](https://github.com/ant-design/ant-design/pull/43358) [@LeeeeeeM](https://github.com/LeeeeeeM)
 - 🐞 Fixed an issue where the Tab component of Card would not be displayed at all when tabList is empty. [#43416](https://github.com/ant-design/ant-design/pull/43416) [@linxianxi](https://github.com/linxianxi)
 - 🐞 Fixed an issue where the `form.validateMessages` configuration would be lost when using ConfigProvider nestedly. [#43239](https://github.com/ant-design/ant-design/pull/43239) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 Fixed an issue where the ripple effect of Tag click would sometimes be offset from the Tag element .[#43402](https://github.com/ant-design/ant-design/pull/43402)
@@ -570,7 +570,7 @@ timeline: true
 - 💄 DatePicker.WeekPicker support hover style. [#40772](https://github.com/ant-design/ant-design/pull/40772)
 - 💄 Adjust Select, TreeSelect, Cascader always show the `arrow` by default when multiple. [#41028](https://github.com/ant-design/ant-design/pull/41028)
 - 🐞 Fix Form `Form.Item.useStatus` problem with sever-side-rendering. [#40977](https://github.com/ant-design/ant-design/pull/40977) [@AndyBoat](https://github.com/AndyBoat)
-- 🐞 Global: Fix arrow shape in some components. [#40971](https://github.com/ant-design/ant-design/pull/40971)
+- 🐞 MISC: Fix arrow shape in some components. [#40971](https://github.com/ant-design/ant-design/pull/40971)
 - 🐞 Fix Layout throw `React does not recognize the `suffixCls` prop on a DOM element` warning. [#40969](https://github.com/ant-design/ant-design/pull/40969)
 - 🐞 Fix Watermark that text will be displayed when the picture loads abnormally. [#40770](https://github.com/ant-design/ant-design/pull/40770) [@OriginRing](https://github.com/OriginRing)
 - 🐞 Image support flip function in preview mode. Fix Image `fallback` when used in ssr. [#40660](https://github.com/ant-design/ant-design/pull/40660)
@@ -693,7 +693,7 @@ timeline: true
 - 💄 Optimize Design Token `boxShadow` tokens. [#40516](https://github.com/ant-design/ant-design/pull/40516)
 - TypeScript
   - 🤖 Optimize Badge Tag Tooltip `color` type definition. [#39871](https://github.com/ant-design/ant-design/pull/39871)
-  - 🤖 Global: Add `Breakpoint` `ThmeConfig` `GlobalToken` type export. [#40508](https://github.com/ant-design/ant-design/pull/40508) [@Kamahl19](https://github.com/Kamahl19)
+  - 🤖 MISC: Add `Breakpoint` `ThmeConfig` `GlobalToken` type export. [#40508](https://github.com/ant-design/ant-design/pull/40508) [@Kamahl19](https://github.com/Kamahl19)
   - 🤖 Update Upload `fileList` type. [#40585](https://github.com/ant-design/ant-design/pull/40585)
   - 🤖 Remove Tour ForwardRefRenderFunction. [#39924](https://github.com/ant-design/ant-design/pull/39924)
 - 🌐 Localization
@@ -733,7 +733,7 @@ timeline: true
 - 🐞 Fix Button text color when containing an `a` tag. [#40269](https://github.com/ant-design/ant-design/pull/40269) [@ds1371dani](https://github.com/ds1371dani)
 - 🐞 Fix Radio displaying wrong text color and cursor when `disabled`. [#40273](https://github.com/ant-design/ant-design/pull/40273) [@ds1371dani](https://github.com/ds1371dani)
 - 💄 Optimize Design Token calculation logic of focus `outline`, replace `lineWidth` with `lineWidthBold`. [#40291](https://github.com/ant-design/ant-design/pull/40291) [@simonpfish](https://github.com/simonpfish)
-- 💄 Global: Rewrite part component style to compatible the browser that not support concat `:not` selector. [#40264](https://github.com/ant-design/ant-design/pull/40264)
+- 💄 MISC: Rewrite part component style to compatible the browser that not support concat `:not` selector. [#40264](https://github.com/ant-design/ant-design/pull/40264)
 - 🌐 Fix missing translation for `pt_BR`. [#40270](https://github.com/ant-design/ant-design/pull/40270) [@rafaelncarvalho](https://github.com/rafaelncarvalho)
 
 ## 5.1.5
@@ -759,7 +759,7 @@ timeline: true
 
 - 🐞 Fix missing locale file. [#40116](https://github.com/ant-design/ant-design/pull/40116)
 - 🐞 Fix Cascader dropdown `placement` in RTL mode. [#40109](https://github.com/ant-design/ant-design/pull/40109) [@3hson](https://github.com/3hson)
-- 🐞 Global: Fix animation flicking in some components. [react-component/motion#39](https://github.com/react-component/motion/pull/39)
+- 🐞 Fix `rc-motion` animation flicking in some components. [react-component/motion#39](https://github.com/react-component/motion/pull/39)
 
 ## 5.1.3
 

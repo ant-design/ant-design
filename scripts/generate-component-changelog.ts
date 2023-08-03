@@ -36,10 +36,13 @@ const miscKeys = [
   'ComponentToken',
   'Component Token',
   'Design Token',
+  'MISC:',
+  '杂项：',
   'Arrow',
   '箭头',
   '@ant-design/cssinjs',
   '@ant-design/icons',
+  'rc-motion',
   ' IE ',
   'reset.css',
   '📖',
@@ -171,6 +174,8 @@ const miscKeys = [
   syncChangelog('CHANGELOG.en-US.md', 'components-changelog-en.json');
 
   if (missingChangelog.length) {
-    throw new Error('Component changelog miss match!');
+    console.log('\nMISC key word should be:');
+    console.log(miscKeys.join(' , '), '\n');
+    throw new Error(`Component changelog miss match!`);
   }
 })();
