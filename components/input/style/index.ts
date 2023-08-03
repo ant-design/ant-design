@@ -700,11 +700,13 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         '&-lg': {
           [`${componentCls}-group-addon`]: {
             borderRadius: borderRadiusLG,
+            fontSize: token.fontSizeLG,
           },
         },
         '&-sm': {
           [`${componentCls}-group-addon`]: {
             borderRadius: borderRadiusSM,
+            fontSize: token.fontSizeSM,
           },
         },
 
