@@ -142,10 +142,9 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
 
 const showWaveEffect: ShowWaveEffect = (target, info) => {
   const { component } = info;
-  const targetNode = target.querySelector('input');
 
   // Skip for unchecked checkbox
-  if (component === 'Checkbox' && !targetNode?.checked) {
+  if (component === 'Checkbox' && !target.querySelector('input')?.checked) {
     return;
   }
 

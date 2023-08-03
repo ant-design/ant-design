@@ -12,7 +12,7 @@ export default function useWave(
   component?: string,
 ) {
   const { wave } = React.useContext(ConfigContext);
-  const [, token] = useToken();
+  const [, token, hashId] = useToken();
 
   const showWave = useEvent<ShowWave>((event) => {
     const node = nodeRef.current!;
@@ -26,7 +26,7 @@ export default function useWave(
     const { showEffect } = wave || {};
 
     // Customize wave effect
-    (showEffect || showWaveEffect)(targetNode, { className, token, component, event });
+    (showEffect || showWaveEffect)(targetNode, { className, token, component, event, hashId });
   });
 
   const rafId = React.useRef<number>();

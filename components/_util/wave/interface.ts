@@ -9,6 +9,7 @@ export type ShowWaveEffect = (
     token: GlobalToken;
     component?: string;
     event: MouseEvent;
+    hashId: string;
   },
 ) => void;
 
