@@ -5,6 +5,7 @@ import { HistoryOutlined } from '@ant-design/icons';
 import { Timeline, Button, Drawer, Typography } from 'antd';
 import useLocale from '../../../hooks/useLocale';
 import use from '../../../hooks/use';
+import useFetch from '../../../hooks/useFetch';
 
 const useStyle = createStyles(({ token, css }) => ({
   history: css`
@@ -85,23 +86,31 @@ function ParseChangelog(props: { changelog: string; refs: string[]; styles: any 
   );
 }
 
-const cnDataPromise = import('../../../preset/components-changelog-cn.json');
-const enDataPromise = import('../../../preset/components-changelog-en.json');
+// const cnDataPromise = import('../../../preset/components-changelog-cn.json');
+// const enDataPromise = import('../../../preset/components-changelog-en.json');
 
 function useChangelog(componentPath, lang) {
-  const cnData = use(cnDataPromise);
-  const enData = use(enDataPromise);
+  const data = useFetch(
+    lang === 'cn'
+      ? {
+          key: 'component-changelog-cn',
+          request: () => import('../../../preset/components-changelog-cn.json'),
+        }
+      : {
+          key: 'component-changelog-en',
+          request: () => import('../../../preset/components-changelog-en.json'),
+        },
+  );
 
   return useMemo(() => {
     const component = componentPath.replace(/-/g, '');
 
-    const mergedData = lang === 'cn' ? cnData : enData;
-    const componentName = Object.keys(mergedData).find(
+    const componentName = Object.keys(data).find(
       (name) => name.toLowerCase() === component.toLowerCase(),
     );
 
-    return mergedData[componentName];
-  }, [cnData, enData]);
+    return data[componentName];
+  }, [data, componentPath]);
 }
 
 export default function ComponentChangelog(props: ComponentChangelogProps) {
