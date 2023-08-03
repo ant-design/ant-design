@@ -45,7 +45,7 @@ describe('Typography.Ellipsis', () => {
 
     computeSpy = jest
       .spyOn(window, 'getComputedStyle')
-      .mockImplementation(() => ({ fontSize: 12 } as unknown as CSSStyleDeclaration));
+      .mockImplementation(() => ({ fontSize: 12 }) as unknown as CSSStyleDeclaration);
   });
 
   afterEach(() => {
@@ -231,7 +231,7 @@ describe('Typography.Ellipsis', () => {
 
     fireEvent.click(wrapper.querySelector('.ant-typography-expand')!);
     expect(onExpand).toHaveBeenCalled();
-    expect(wrapper.querySelector('p')?.textContent).toEqual(fullStr);
+    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}Collapse`);
   });
 
   it('should have custom expand style', async () => {
