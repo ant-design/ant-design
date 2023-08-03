@@ -55,6 +55,9 @@ export default function imageTest(component: React.ReactElement) {
             </div>
           ))}
         </App>
+        <div id="end-of-screen" style={{ height: 0, margin: 0, padding: 0 }}>
+          end of screen
+        </div>
       </StyleProvider>
     );
 
@@ -72,7 +75,7 @@ export default function imageTest(component: React.ReactElement) {
       styleStr,
     );
 
-    await page.waitFor(500);
+    await page.waitForSelector('#end-of-screen');
 
     const image = await page.screenshot({
       fullPage: true,
