@@ -706,7 +706,6 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         '&-sm': {
           [`${componentCls}-group-addon`]: {
             borderRadius: borderRadiusSM,
-            fontSize: token.fontSizeSM,
           },
         },
 

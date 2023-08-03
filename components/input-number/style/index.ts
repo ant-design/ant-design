@@ -169,7 +169,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             '&-sm': {
               [`${componentCls}-group-addon`]: {
                 borderRadius: borderRadiusSM,
-                fontSize: token.fontSizeSM,
               },
             },
 
