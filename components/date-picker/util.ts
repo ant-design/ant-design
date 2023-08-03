@@ -3,7 +3,7 @@ import type { PickerMode } from 'rc-picker/lib/interface';
 import type { SharedTimeProps } from 'rc-picker/lib/panels/TimePanel';
 import type { SelectCommonPlacement } from '../_util/motion';
 import type { DirectionType } from '../config-provider';
-import type { PickerLocale } from './generatePicker';
+import type { PickerLocale, PickerProps } from './generatePicker';
 
 export function getPlaceholder(
   locale: PickerLocale,
@@ -159,4 +159,15 @@ export function getTimeProps<DateType, DisabledTime>(
   return {
     showTime: showTimeObj,
   };
+}
+
+export type MergeAllowClearProps = Pick<PickerProps<unknown>, 'clearIcon' | 'allowClear'>;
+
+export function mergeAllowClear(
+  { clearIcon, allowClear }: MergeAllowClearProps,
+  defaultClearIcon: MergeAllowClearProps['clearIcon'],
+) {
+  return allowClear === false || (typeof allowClear === 'object' && 'clearIcon' in allowClear)
+    ? allowClear
+    : ({ clearIcon: clearIcon ?? defaultClearIcon } as const);
 }

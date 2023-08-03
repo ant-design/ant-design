@@ -6,6 +6,7 @@ import MockDate from 'mockdate';
 import dayJsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import React from 'react';
 import userEvent from '@testing-library/user-event';
+import { CloseCircleFilled } from '@ant-design/icons';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import { fireEvent, render, screen, waitFor } from '../../../tests/utils';
@@ -315,12 +316,15 @@ describe('DatePicker', () => {
     ).toBe(60);
   });
 
-  it('allows clear by default, but disallows once allowClear set false', async () => {
+  it('allows clear by default, and when clearIcon nested within allowClear, but disallows when allowClear false', async () => {
     const somepoint = dayjs('2023-08-01');
     const { rerender } = render(<DatePicker value={somepoint} />);
 
     const { role, options } = closeCircleByRole;
     await userEvent.hover(screen.getByRole(role, options));
+    expectCloseCircle(true);
+
+    rerender(<DatePicker value={somepoint} allowClear={{ clearIcon: <CloseCircleFilled /> }} />);
     expectCloseCircle(true);
 
     rerender(<DatePicker value={somepoint} allowClear={false} />);

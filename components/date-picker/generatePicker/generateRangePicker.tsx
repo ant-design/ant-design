@@ -18,7 +18,12 @@ import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
-import { getRangePlaceholder, getTimeProps, transPlacement2DropdownAlign } from '../util';
+import {
+  getRangePlaceholder,
+  getTimeProps,
+  mergeAllowClear,
+  transPlacement2DropdownAlign,
+} from '../util';
 import Components from './Components';
 import type { CommonPickerMethods, PickerComponentClass } from './interface';
 
@@ -106,11 +111,6 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
 
     const locale = { ...contextLocale, ...props.locale! };
 
-    const mergedAllowClear =
-      allowClear === false && typeof clearIcon === 'undefined'
-        ? false
-        : { clearIcon: clearIcon ?? <CloseCircleFilled /> };
-
     return wrapSSR(
       <RCRangePicker<DateType>
         separator={
@@ -147,7 +147,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
         components={Components}
         direction={direction}
         dropdownClassName={classNames(hashId, popupClassName || dropdownClassName)}
-        allowClear={mergedAllowClear}
+        allowClear={mergeAllowClear({ clearIcon, allowClear }, <CloseCircleFilled />)}
       />,
     );
   });

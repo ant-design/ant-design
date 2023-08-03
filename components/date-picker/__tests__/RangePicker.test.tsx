@@ -3,6 +3,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import type { RangeValue } from 'rc-picker/lib/interface';
 import React, { useState } from 'react';
 import userEvent from '@testing-library/user-event';
+import { CloseCircleFilled } from '@ant-design/icons';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import { render, resetMockDate, setMockDate, screen, waitFor } from '../../../tests/utils';
@@ -128,12 +129,21 @@ describe('RangePicker', () => {
     errSpy.mockRestore();
   });
 
-  it('allows clear by default, but disallows once allowClear set false', async () => {
+  it('allows clear by default, and when clearIcon nested within allowClear, but disallows when allowClear false', async () => {
     const somepoint = dayjs('2023-08-01');
     const { rerender } = render(<RangePicker locale={enUS} value={[somepoint, somepoint]} />);
 
     const { role, options } = closeCircleByRole;
     await userEvent.hover(screen.getByRole(role, options));
+    expectCloseCircle(true);
+
+    rerender(
+      <RangePicker
+        locale={enUS}
+        value={[somepoint, somepoint]}
+        allowClear={{ clearIcon: <CloseCircleFilled /> }}
+      />,
+    );
     expectCloseCircle(true);
 
     rerender(<RangePicker locale={enUS} value={[somepoint, somepoint]} allowClear={false} />);
