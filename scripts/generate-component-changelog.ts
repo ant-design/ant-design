@@ -38,8 +38,6 @@ const miscKeys = [
   'Design Token',
   'MISC:',
   '杂项：',
-  'Arrow',
-  '箭头',
   '@ant-design/cssinjs',
   '@ant-design/icons',
   'rc-motion',
