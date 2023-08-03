@@ -21,7 +21,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     editInputRef.current?.focus();
-  }, [inputValue]);
+  }, [editInputValue]);
 
   const handleClose = (removedTag: string) => {
     const newTags = tags.filter((tag) => tag !== removedTag);
