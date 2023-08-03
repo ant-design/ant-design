@@ -12,7 +12,7 @@ An enterprise-class UI design language and React UI library.
 
 [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
-[![][bundlephobia-image]][bundlephobia-url] [![][bundlesize-js-image]][unpkg-js-url] [![FOSSA Status][fossa-image]][fossa-url]
+[![][bundlephobia-image]][bundlephobia-url] [![][bundlesize-js-image]][unpkg-js-url] [![FOSSA Status][fossa-image]][fossa-url] [![Covered by Argos Visual Testing][argos-ci-image]][argos-ci-url]
 
 [![Follow Twitter][twitter-image]][twitter-url] [![Renovate status][renovate-image]][renovate-dashboard-url] [![][issues-helper-image]][issues-helper-url] [![dumi][dumi-image]][dumi-url] [![Issues need help][help-wanted-image]][help-wanted-url]
 
@@ -40,6 +40,8 @@ An enterprise-class UI design language and React UI library.
 [renovate-dashboard-url]: https://github.com/ant-design/ant-design/issues/32498
 [dumi-image]: https://img.shields.io/badge/docs%20by-dumi-blue?style=flat-square
 [dumi-url]: https://github.com/umijs/dumi
+[argos-ci-image]: https://argos-ci.com/badge.svg
+[argos-ci-url]: https://app.argos-ci.com/ant-design/ant-design/reference
 
 </div>
 
