@@ -54,7 +54,7 @@ const App: React.FC = () => {
     newTags[editInputIndex] = editInputValue;
     setTags(newTags);
     setEditInputIndex(-1);
-    setInputValue('');
+    setEditInputValue('');
   };
 
   const tagInputStyle: React.CSSProperties = {
