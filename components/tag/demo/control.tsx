@@ -58,11 +58,14 @@ const App: React.FC = () => {
   };
 
   const tagInputStyle: React.CSSProperties = {
-    width: 78,
+    width: 64,
+    height: 22,
+    marginInlineEnd: 8,
     verticalAlign: 'top',
   };
 
   const tagPlusStyle: React.CSSProperties = {
+    height: 22,
     background: token.colorBgContainer,
     borderStyle: 'dashed',
   };
@@ -114,23 +117,23 @@ const App: React.FC = () => {
             tagElem
           );
         })}
+        {inputVisible ? (
+          <Input
+            ref={inputRef}
+            type="text"
+            size="small"
+            style={tagInputStyle}
+            value={inputValue}
+            onChange={handleInputChange}
+            onBlur={handleInputConfirm}
+            onPressEnter={handleInputConfirm}
+          />
+        ) : (
+          <Tag style={tagPlusStyle} onClick={showInput}>
+            <PlusOutlined /> New Tag
+          </Tag>
+        )}
       </Space>
-      {inputVisible ? (
-        <Input
-          ref={inputRef}
-          type="text"
-          size="small"
-          style={tagInputStyle}
-          value={inputValue}
-          onChange={handleInputChange}
-          onBlur={handleInputConfirm}
-          onPressEnter={handleInputConfirm}
-        />
-      ) : (
-        <Tag style={tagPlusStyle} onClick={showInput}>
-          <PlusOutlined /> New Tag
-        </Tag>
-      )}
     </Space>
   );
 };
