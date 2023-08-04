@@ -37,15 +37,6 @@ const root = createRoot(document.getElementById("root"));
 root.render(<App />);
 `;
 
-const cssContent = `html, body {
-  padding: 0;
-  margin: 0;
-}
-
-#root {
-  padding: 24px;
-}`;
-
 const useStyle = createStyles(({ token, css }) => ({
   fallback: css`
     width: 100%;
