@@ -2400,7 +2400,7 @@ Array [
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
       <span
-        class="ant-checkbox ant-checkbox-checked"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
@@ -2420,7 +2420,7 @@ Array [
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
       <span
-        class="ant-checkbox ant-checkbox-checked"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""

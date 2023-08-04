@@ -10,7 +10,7 @@ import type { SpaceProps } from '../space';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { SizeType } from './SizeContext';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
-import type { ShowWaveEffect } from '../_util/wave/useWave';
+import type { ShowWaveEffect } from '../_util/wave/interface';
 
 export const defaultIconPrefixCls = 'anticon';
 

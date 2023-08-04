@@ -12032,7 +12032,7 @@ exports[`ConfigProvider components Checkbox configProvider 1`] = `
     class="config-checkbox-wrapper"
   >
     <span
-      class="config-checkbox"
+      class="config-checkbox ant-wave-target"
     >
       <input
         class="config-checkbox-input"
@@ -12057,7 +12057,7 @@ exports[`ConfigProvider components Checkbox configProvider componentDisabled 1`]
     class="config-checkbox-wrapper config-checkbox-wrapper-disabled"
   >
     <span
-      class="config-checkbox config-checkbox-disabled"
+      class="config-checkbox ant-wave-target config-checkbox-disabled"
     >
       <input
         class="config-checkbox-input"
@@ -12083,7 +12083,7 @@ exports[`ConfigProvider components Checkbox configProvider componentSize large 1
     class="config-checkbox-wrapper"
   >
     <span
-      class="config-checkbox"
+      class="config-checkbox ant-wave-target"
     >
       <input
         class="config-checkbox-input"
@@ -12108,7 +12108,7 @@ exports[`ConfigProvider components Checkbox configProvider componentSize middle 
     class="config-checkbox-wrapper"
   >
     <span
-      class="config-checkbox"
+      class="config-checkbox ant-wave-target"
     >
       <input
         class="config-checkbox-input"
@@ -12133,7 +12133,7 @@ exports[`ConfigProvider components Checkbox configProvider componentSize small 1
     class="config-checkbox-wrapper"
   >
     <span
-      class="config-checkbox"
+      class="config-checkbox ant-wave-target"
     >
       <input
         class="config-checkbox-input"
@@ -12158,7 +12158,7 @@ exports[`ConfigProvider components Checkbox normal 1`] = `
     class="ant-checkbox-wrapper"
   >
     <span
-      class="ant-checkbox"
+      class="ant-checkbox ant-wave-target"
     >
       <input
         class="ant-checkbox-input"
@@ -12183,7 +12183,7 @@ exports[`ConfigProvider components Checkbox prefixCls 1`] = `
     class="prefix-Checkbox-wrapper"
   >
     <span
-      class="prefix-Checkbox"
+      class="prefix-Checkbox ant-wave-target"
     >
       <input
         class="prefix-Checkbox-input"
@@ -21912,7 +21912,7 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
       class="config-radio-wrapper config-radio-wrapper-checked"
     >
       <span
-        class="config-radio config-radio-checked"
+        class="config-radio ant-wave-target config-radio-checked"
       >
         <input
           checked=""
@@ -21963,7 +21963,7 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
       class="config-radio-wrapper config-radio-wrapper-checked config-radio-wrapper-disabled"
     >
       <span
-        class="config-radio config-radio-checked config-radio-disabled"
+        class="config-radio ant-wave-target config-radio-checked config-radio-disabled"
       >
         <input
           checked=""
@@ -22016,7 +22016,7 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
       class="config-radio-wrapper config-radio-wrapper-checked"
     >
       <span
-        class="config-radio config-radio-checked"
+        class="config-radio ant-wave-target config-radio-checked"
       >
         <input
           checked=""
@@ -22067,7 +22067,7 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
       class="config-radio-wrapper config-radio-wrapper-checked"
     >
       <span
-        class="config-radio config-radio-checked"
+        class="config-radio ant-wave-target config-radio-checked"
       >
         <input
           checked=""
@@ -22118,7 +22118,7 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
       class="config-radio-wrapper config-radio-wrapper-checked"
     >
       <span
-        class="config-radio config-radio-checked"
+        class="config-radio ant-wave-target config-radio-checked"
       >
         <input
           checked=""
@@ -22169,7 +22169,7 @@ exports[`ConfigProvider components Radio normal 1`] = `
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
@@ -22220,7 +22220,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
       class="prefix-Radio-wrapper prefix-Radio-wrapper-checked"
     >
       <span
-        class="prefix-Radio prefix-Radio-checked"
+        class="prefix-Radio ant-wave-target prefix-Radio-checked"
       >
         <input
           checked=""
@@ -26606,7 +26606,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                   class="config-checkbox-wrapper"
                                 >
                                   <span
-                                    class="config-checkbox"
+                                    class="config-checkbox ant-wave-target"
                                   >
                                     <input
                                       class="config-checkbox-input"
@@ -26910,7 +26910,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                                   class="config-checkbox-wrapper config-checkbox-wrapper-disabled"
                                 >
                                   <span
-                                    class="config-checkbox config-checkbox-disabled"
+                                    class="config-checkbox ant-wave-target config-checkbox-disabled"
                                   >
                                     <input
                                       class="config-checkbox-input"
@@ -27216,7 +27216,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                                   class="config-checkbox-wrapper"
                                 >
                                   <span
-                                    class="config-checkbox"
+                                    class="config-checkbox ant-wave-target"
                                   >
                                     <input
                                       class="config-checkbox-input"
@@ -27520,7 +27520,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                                   class="config-checkbox-wrapper"
                                 >
                                   <span
-                                    class="config-checkbox"
+                                    class="config-checkbox ant-wave-target"
                                   >
                                     <input
                                       class="config-checkbox-input"
@@ -27824,7 +27824,7 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                                   class="config-checkbox-wrapper"
                                 >
                                   <span
-                                    class="config-checkbox"
+                                    class="config-checkbox ant-wave-target"
                                   >
                                     <input
                                       class="config-checkbox-input"
@@ -28128,7 +28128,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                                   class="ant-checkbox-wrapper"
                                 >
                                   <span
-                                    class="ant-checkbox"
+                                    class="ant-checkbox ant-wave-target"
                                   >
                                     <input
                                       class="ant-checkbox-input"
@@ -28432,7 +28432,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                   class="ant-checkbox-wrapper"
                                 >
                                   <span
-                                    class="ant-checkbox"
+                                    class="ant-checkbox ant-wave-target"
                                   >
                                     <input
                                       class="ant-checkbox-input"
@@ -38221,7 +38221,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
         class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox config-checkbox-disabled"
+          class="config-checkbox ant-wave-target config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
@@ -38388,7 +38388,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
         class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox config-checkbox-disabled"
+          class="config-checkbox ant-wave-target config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
@@ -38500,7 +38500,7 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
         class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox config-checkbox-disabled"
+          class="config-checkbox ant-wave-target config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
@@ -38667,7 +38667,7 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
         class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox config-checkbox-disabled"
+          class="config-checkbox ant-wave-target config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
@@ -38779,7 +38779,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
         class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox config-checkbox-disabled"
+          class="config-checkbox ant-wave-target config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
@@ -38946,7 +38946,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
         class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox config-checkbox-disabled"
+          class="config-checkbox ant-wave-target config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
@@ -39058,7 +39058,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
         class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox config-checkbox-disabled"
+          class="config-checkbox ant-wave-target config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
@@ -39225,7 +39225,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
         class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox config-checkbox-disabled"
+          class="config-checkbox ant-wave-target config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
@@ -39337,7 +39337,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
         class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox config-checkbox-disabled"
+          class="config-checkbox ant-wave-target config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
@@ -39504,7 +39504,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
         class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox config-checkbox-disabled"
+          class="config-checkbox ant-wave-target config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
@@ -39616,7 +39616,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
         class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox ant-checkbox-disabled"
+          class="ant-checkbox ant-wave-target ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
@@ -39783,7 +39783,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
         class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox ant-checkbox-disabled"
+          class="ant-checkbox ant-wave-target ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
@@ -39895,7 +39895,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
         class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled prefix-Transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox ant-checkbox-disabled"
+          class="ant-checkbox ant-wave-target ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
@@ -40062,7 +40062,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
         class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled prefix-Transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox ant-checkbox-disabled"
+          class="ant-checkbox ant-wave-target ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
