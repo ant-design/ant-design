@@ -1,5 +1,8 @@
 ---
-order: 8
+group:
+  title: Migration
+  order: 2
+order: 0
 title: V4 to V5
 ---
 
@@ -196,8 +199,8 @@ pnpm --package=@ant-design/codemod-v5 dlx antd5-codemod src
 If you using antd less variables, you can use compatible package to covert it into v4 less variables and use less-loader to inject them:
 
 ```js
-const { theme } = require('antd/lib');
 const { convertLegacyToken } = require('@ant-design/compatible/lib');
+const { theme } = require('antd/lib');
 
 const { defaultAlgorithm, defaultSeed } = theme;
 

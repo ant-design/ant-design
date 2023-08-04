@@ -68,10 +68,13 @@ function rehypeAntd(): UnifiedTransformer<HastRoot> {
         node.tagName = 'VideoPlayer';
       } else if (node.tagName === 'SourceCode') {
         const { lang } = node.properties;
-        if (lang === 'sandpack') {
+        if (typeof lang === 'string' && lang.startsWith('sandpack')) {
           parent!.children.splice(i!, 1, {
             type: 'element',
             tagName: 'Sandpack',
+            properties: {
+              dark: lang === 'sandpackdark',
+            },
             children: [
               {
                 type: 'text',

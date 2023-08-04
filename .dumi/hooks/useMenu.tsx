@@ -1,7 +1,7 @@
 import { useFullSidebarData, useSidebarData } from 'dumi';
 import React, { useMemo } from 'react';
 import type { MenuProps } from 'antd';
-import { Tag, theme } from 'antd';
+import { Tag, version } from 'antd';
 import Link from '../theme/common/Link';
 import useLocation from './useLocation';
 
@@ -15,7 +15,6 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
   const { pathname, search } = useLocation();
   const sidebarData = useSidebarData();
   const { before, after } = options;
-  const { token } = theme.useToken();
 
   const menuItems = useMemo<MenuProps['items']>(() => {
     const sidebarItems = [...(sidebarData ?? [])];
@@ -32,7 +31,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
         key.startsWith('/changelog'),
       )?.[1];
       if (changelogData) {
-        sidebarItems.push(...changelogData);
+        sidebarItems.splice(1, 0, changelogData[0]);
       }
     }
     if (pathname.startsWith('/changelog')) {
@@ -40,9 +39,22 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
         key.startsWith('/docs/react'),
       )?.[1];
       if (reactDocData) {
-        sidebarItems.unshift(...reactDocData);
+        sidebarItems.unshift(reactDocData[0]);
+        sidebarItems.push(...reactDocData.slice(1));
       }
     }
+
+    const getItemTag = (tag: string, show = true) =>
+      tag &&
+      show && (
+        <Tag
+          color={tag === 'New' ? 'success' : 'orange'}
+          bordered={false}
+          style={{ marginInlineStart: 'auto', marginInlineEnd: 0, marginTop: -2 }}
+        >
+          {tag.replace('VERSION', version)}
+        </Tag>
+      );
 
     return (
       sidebarItems?.reduce<Exclude<MenuProps['items'], undefined>>((result, group) => {
@@ -103,17 +115,16 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
               key: group?.title,
               children: group.children?.map((item) => ({
                 label: (
-                  <Link to={`${item.link}${search}`}>
+                  <Link
+                    to={`${item.link}${search}`}
+                    style={{ display: 'flex', alignItems: 'center' }}
+                  >
                     {before}
                     <span key="english">{item?.title}</span>
                     <span className="chinese" key="chinese">
                       {item.frontmatter?.subtitle}
                     </span>
-                    {item.frontmatter?.tag && (
-                      <Tag color="warning" style={{ marginInlineStart: token.marginXS }}>
-                        {item.frontmatter?.tag}
-                      </Tag>
-                    )}
+                    {getItemTag(item.frontmatter?.tag, !before && !after)}
                     {after}
                   </Link>
                 ),
@@ -131,9 +142,13 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
           result.push(
             ...list.map((item) => ({
               label: (
-                <Link to={`${item.link}${search}`}>
+                <Link
+                  to={`${item.link}${search}`}
+                  style={{ display: 'flex', alignItems: 'center' }}
+                >
                   {before}
                   {item?.title}
+                  {getItemTag((item.frontmatter as any).tag, !before && !after)}
                   {after}
                 </Link>
               ),

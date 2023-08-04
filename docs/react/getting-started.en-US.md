@@ -1,5 +1,8 @@
 ---
-order: 2
+group:
+  title: Basic Usage
+  order: 0
+order: 0
 title: Getting Started
 ---
 
