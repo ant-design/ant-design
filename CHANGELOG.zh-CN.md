@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 5.8.2
+
+`2023-08-04`
+
+- 🐞 修复 Checkbox 与 Radio 不支持自定义水波纹效果的问题，并添加 `ant-wave-target` className 到对应元素上。[#44014](https://github.com/ant-design/ant-design/pull/44014)
+- 🐞 调整 Form.Item renderProps 定义，现在会返回正确的 `FormInstance`。[#43996](https://github.com/ant-design/ant-design/pull/43996)
+- 🐞 修复 Table 在 `direction` 为 `rlt` 时展开图标的方向和展开行的缩进有误的问题。[#43977](https://github.com/ant-design/ant-design/pull/43977) [@Yuiai01](https://github.com/Yuiai01)
+- 💄 修复 Pagination 组件禁用状态仍然有悬浮和聚焦样式的问题。[#43970](https://github.com/ant-design/ant-design/pull/43970) [@MadCcc](https://github.com/MadCcc)
+- TypeScript
+  - 🤖 修正 Drawer 和 Anchor 部分 Design Token 的 TS 描述信息错误的问题。[#43994](https://github.com/ant-design/ant-design/pull/43994) [@wving5](https://github.com/wving5)
+
 ## 5.8.1
 
 `2023-08-02`

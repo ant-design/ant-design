@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 5.8.2
+
+`2023-08-04`
+
+- 🐞 Fix Checkbox & Radio not support customize wave and add className `ant-wave-target` for this case. [#44014](https://github.com/ant-design/ant-design/pull/44014)
+- 🐞 Adjust Form.Item renderProps definition to return correct `FormInstance`. [#43996](https://github.com/ant-design/ant-design/pull/43996)
+- 🐞 Fixed Table incorrect expand icon direction and row indentation in RTL. [#43977](https://github.com/ant-design/ant-design/pull/43977) [@Yuiai01](https://github.com/Yuiai01)
+- 💄 Fix Pagination that should not have hover and focus style when disabled. [#43970](https://github.com/ant-design/ant-design/pull/43970) [@MadCcc](https://github.com/MadCcc)
+- TypeScript
+  - 🤖 Fix Drawer & Anchor part Design Token TS description not correct issue. [#43994](https://github.com/ant-design/ant-design/pull/43994) [@wving5](https://github.com/wving5)
+
 ## 5.8.1
 
 `2023-08-02`
