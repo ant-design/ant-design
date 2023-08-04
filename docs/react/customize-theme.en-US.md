@@ -1,6 +1,10 @@
 ---
-order: 7
+group:
+  title: Advanced
+  order: 1
+order: 0
 title: Customize Theme
+tag: Updated
 ---
 
 Ant Design allows you to customize our design tokens to satisfy UI diversity from business or brand requirements, including primary color, border radius, border color, etc.

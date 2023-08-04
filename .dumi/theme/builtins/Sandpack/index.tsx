@@ -26,6 +26,7 @@ const options = {
   visibleFiles: ['index.tsx', 'app.tsx', 'package.json', 'index.css'] as any,
   showLineNumbers: true,
   editorHeight: '500px',
+  autoRun: false,
 };
 
 const indexContent = `import React from 'react';

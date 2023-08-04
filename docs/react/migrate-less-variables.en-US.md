@@ -1,6 +1,8 @@
 ---
-order: 9
-title: Migrate Less variables to Component Token
+group:
+  title: Migration
+order: 1
+title: Less variables to Component Token
 ---
 
 This document contains the correspondence between all the less variables related to components in version 4.x and the Component Token in version 5.x. If you are upgrading from version 4.x to version 5.x, you can quickly find the corresponding Component Token through this comparison table.
