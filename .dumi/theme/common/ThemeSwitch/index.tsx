@@ -57,7 +57,8 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
         }}
         tooltip={<FormattedMessage id="app.theme.switch.compact" />}
       />
-      <FloatButton
+      {/* Too many float button. Hide motion one */}
+      {/* <FloatButton
         icon={<Motion />}
         type={!isMotionOff ? 'primary' : 'default'}
         onClick={() => {
@@ -72,7 +73,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
             id={isMotionOff ? 'app.theme.switch.motion.off' : 'app.theme.switch.motion.on'}
           />
         }
-      />
+      /> */}
       <FloatButton
         icon={<SmileOutlined />}
         type={isHappyWork ? 'primary' : 'default'}
