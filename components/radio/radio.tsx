@@ -11,6 +11,8 @@ import RadioGroupContext, { RadioOptionTypeContext } from './context';
 import type { RadioChangeEvent, RadioProps } from './interface';
 
 import useStyle from './style';
+import Wave from '../_util/wave';
+import { TARGET_CLS } from '../_util/wave/interface';
 
 const InternalRadio: React.ForwardRefRenderFunction<CheckboxRef, RadioProps> = (props, ref) => {
   const groupContext = React.useContext(RadioGroupContext);
@@ -37,10 +39,9 @@ const InternalRadio: React.ForwardRefRenderFunction<CheckboxRef, RadioProps> = (
     ...restProps
   } = props;
   const radioPrefixCls = getPrefixCls('radio', customizePrefixCls);
-  const prefixCls =
-    (groupContext?.optionType || radioOptionTypeContext) === 'button'
-      ? `${radioPrefixCls}-button`
-      : radioPrefixCls;
+
+  const isButtonType = (groupContext?.optionType || radioOptionTypeContext) === 'button';
+  const prefixCls = isButtonType ? `${radioPrefixCls}-button` : radioPrefixCls;
 
   // Style
   const [wrapSSR, hashId] = useStyle(radioPrefixCls);
@@ -73,16 +74,24 @@ const InternalRadio: React.ForwardRefRenderFunction<CheckboxRef, RadioProps> = (
   );
 
   return wrapSSR(
-    // eslint-disable-next-line jsx-a11y/label-has-associated-control
-    <label
-      className={wrapperClassString}
-      style={{ ...radio?.style, ...style }}
-      onMouseEnter={props.onMouseEnter}
-      onMouseLeave={props.onMouseLeave}
-    >
-      <RcCheckbox {...radioProps} type="radio" prefixCls={prefixCls} ref={mergedRef} />
-      {children !== undefined ? <span>{children}</span> : null}
-    </label>,
+    <Wave component="Radio" disabled={radioProps.disabled}>
+      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+      <label
+        className={wrapperClassString}
+        style={{ ...radio?.style, ...style }}
+        onMouseEnter={props.onMouseEnter}
+        onMouseLeave={props.onMouseLeave}
+      >
+        <RcCheckbox
+          {...radioProps}
+          className={classNames(radioProps.className, !isButtonType && TARGET_CLS)}
+          type="radio"
+          prefixCls={prefixCls}
+          ref={mergedRef}
+        />
+        {children !== undefined ? <span>{children}</span> : null}
+      </label>
+    </Wave>,
   );
 };
 
