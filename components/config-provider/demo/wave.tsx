@@ -112,9 +112,7 @@ const showShakeEffect: WaveConfig['showEffect'] = (node, { component }) => {
 // Component
 const Wrapper = ({ name, ...wave }: WaveConfig & { name: string }) => (
   <ConfigProvider wave={wave}>
-    <Button style={{ width: 90 }} type="primary">
-      {name}
-    </Button>
+    <Button type="primary">{name}</Button>
   </ConfigProvider>
 );
 
