@@ -1,5 +1,6 @@
 import { BgColorsOutlined, SmileOutlined } from '@ant-design/icons';
-import { CompactTheme, DarkTheme, Motion } from 'antd-token-previewer/es/icons';
+import { CompactTheme, DarkTheme } from 'antd-token-previewer/es/icons';
+// import { Motion } from 'antd-token-previewer/es/icons';
 import { FormattedMessage, Link, useLocation } from 'dumi';
 import React from 'react';
 import { useTheme } from 'antd-style';
@@ -19,7 +20,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
   const token = useTheme();
   const { pathname, search } = useLocation();
 
-  const isMotionOff = value.includes('motion-off');
+  // const isMotionOff = value.includes('motion-off');
   const isHappyWork = value.includes('happy-work');
 
   return (
