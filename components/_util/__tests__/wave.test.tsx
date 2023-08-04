@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import mountTest from '../../../tests/shared/mountTest';
 import { act, fireEvent, getByText, render, waitFakeTimer } from '../../../tests/utils';
 import Wave from '../wave';
-import { DATA_WAVE_TARGET } from '../wave/interface';
+import { TARGET_CLS } from '../wave/interface';
 
 (global as any).isVisible = true;
 
