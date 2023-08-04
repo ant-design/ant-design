@@ -648,7 +648,18 @@ React 中异步更新会导致受控组件交互行为异常。当用户交互�
 
 ### 为什么 Form.Item 嵌套子组件后，不更新表单值？
 
-Form.Item 在渲染时会注入 `value` 与 `onChange` 事件给子元素，当你的字段组件被包裹时属性将无法传递。你可以通过 HOC 自定义组件形式来解决这个问题：
+Form.Item 在渲染时会注入 `value` 与 `onChange` 事件给子元素，当你的字段组件被包裹时属性将无法传递。所以以下代码是不会生效的：
+
+```jsx
+<Form.Item name="input">
+  <div>
+    <h3>I am a wrapped Input</h3>
+    <Input />
+  </div>
+</Form.Item>
+```
+
+你可以通过 HOC 自定义组件形式来解决这个问题：
 
 ```jsx
 const MyInput = (props) => (

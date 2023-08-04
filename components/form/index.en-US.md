@@ -649,7 +649,18 @@ It's by design. Only user interactive can trigger the change event. This design 
 
 ### Why Form.Item not update value when children is nest?
 
-Form.Item will inject `value` and `onChange` to children when render. Once your field component is wrapped, props will not pass to the correct node. You can use HOC to solve this problem:
+Form.Item will inject `value` and `onChange` to children when render. Once your field component is wrapped, props will not pass to the correct node. Follow code will not work as expect:
+
+```jsx
+<Form.Item name="input">
+  <div>
+    <h3>I am a wrapped Input</h3>
+    <Input />
+  </div>
+</Form.Item>
+```
+
+You can use HOC to solve this problem:
 
 ```jsx
 const MyInput = (props) => (
