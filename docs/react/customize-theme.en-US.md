@@ -24,7 +24,9 @@ In version 5.0 we call the smallest element that affects the theme **Design Toke
 :::warning 
 `ConfigProvider` will not take effect on static methods such as `message.xxx`, `Modal.xxx`, `notification.xxx`, because in these methods, antd will dynamically create new ones through `ReactDOM.render` React entities. Its context is not the same as the context of the current code, so context information cannot be obtained.
 
-When you need context information (such as the content configured by ConfigProvider), you can use the `Modal.useModal` method to return the modal entity and the contextHolder node. Just insert it where you need to get the context, or you can use [App Component](/components/app) to simplify the problem of usingModal and other methods that need to manually implant the contextHolder. :::
+<!-- prettier-ignore -->
+When you need context information (such as the content configured by ConfigProvider), you can use the `Modal.useModal` method to return the modal entity and the contextHolder node. Just insert it where you need to get the context, or you can use [App Component](/components/app) to simplify the problem of usingModal and other methods that need to manually implant the contextHolder. 
+:::
 
 ### Customize Design Token
 
@@ -99,7 +101,9 @@ In addition to Design Token, each component will also have its own Component Tok
 :::info{title=Algorithm of Component Token} 
 By default, all component tokens can only override global token and will not be derived based on Seed Token.
 
-In version `>= 5.8.0`, component tokens support the `algorithm` property, which can be used to enable algorithm or pass in other algorithms. :::
+<!-- prettier-ignore -->
+In version `>= 5.8.0`, component tokens support the `algorithm` property, which can be used to enable algorithm or pass in other algorithms. 
+:::
 
 ```sandpack
 import React from 'react';

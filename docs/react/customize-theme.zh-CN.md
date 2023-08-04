@@ -24,7 +24,9 @@ Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务
 :::warning 
 `ConfigProvider` 对 `message.xxx`、`Modal.xxx`、`notification.xxx` 等静态方法不会生效，原因是在这些方法中，antd 会通过 `ReactDOM.render` 动态创建新的 React 实体。其 context 与当前代码所在 context 并不相同，因而无法获取 context 信息。
 
-当你需要 context 信息（例如 ConfigProvider 配置的内容）时，可以通过 `Modal.useModal` 方法返回 modal 实体以及 contextHolder 节点，将其插入到你需要获取 context 位置即可。也可通过 [App 包裹组件](/components/app-cn) 简化 useModal 等方法需要手动植入 contextHolder 的问题。:::
+<!-- prettier-ignore -->
+当你需要 context 信息（例如 ConfigProvider 配置的内容）时，可以通过 `Modal.useModal` 方法返回 modal 实体以及 contextHolder 节点，将其插入到你需要获取 context 位置即可。也可通过 [App 包裹组件](/components/app-cn) 简化 useModal 等方法需要手动植入 contextHolder 的问题。
+:::
 
 ### 修改主题变量
 
@@ -99,7 +101,9 @@ export default App;
 :::info{title=组件级别的主题算法} 
 默认情况下，所有组件变量都仅仅是覆盖，不会基于 Seed Token 计算派生变量。
 
-在 `>= 5.8.0` 版本中，组件变量支持传入 `algorithm` 属性，可以开启派生计算或者传入其他算法。:::
+<!-- prettier-ignore -->
+在 `>= 5.8.0` 版本中，组件变量支持传入 `algorithm` 属性，可以开启派生计算或者传入其他算法。
+:::
 
 ```sandpack
 import React from 'react';
