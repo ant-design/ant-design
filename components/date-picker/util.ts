@@ -174,5 +174,5 @@ export function mergeAllowClear(
   }
 
   const defaults = { clearIcon: clearIcon ?? defaultClearIcon };
-  return typeof allowClear === 'object' && allowClear ? { ...defaults, ...allowClear } : defaults;
+  return typeof allowClear === 'object' ? { ...defaults, ...allowClear } : defaults;
 }
