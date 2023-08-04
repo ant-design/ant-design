@@ -4,6 +4,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import { act, fireEvent, getByText, render, waitFakeTimer } from '../../../tests/utils';
 import Wave from '../wave';
 import { TARGET_CLS } from '../wave/interface';
+import Checkbox from '../../checkbox';
 
 (global as any).isVisible = true;
 
@@ -335,5 +336,17 @@ describe('Wave component', () => {
     waitRaf();
 
     expect(container.querySelector('.ant-wave')).toBeTruthy();
+  });
+
+  it('Checkbox with uncheck should not trigger wave', () => {
+    const onChange = jest.fn();
+    const { container } = render(<Checkbox defaultChecked onChange={onChange} />);
+
+    // Click
+    fireEvent.click(container.querySelector('input')!);
+    waitRaf();
+
+    expect(onChange).toHaveBeenCalled();
+    expect(container.querySelector('.ant-wave')).toBeFalsy();
   });
 });
