@@ -1940,7 +1940,7 @@ exports[`renders components/input-number/demo/keyboard.tsx extend context correc
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
     >
       <span
-        class="ant-checkbox ant-checkbox-checked"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
