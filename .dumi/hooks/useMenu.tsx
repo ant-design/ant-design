@@ -52,7 +52,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
             const childrenGroup = group.children.reduce<
               Record<string, ReturnType<typeof useSidebarData>[number]['children']>
             >((childrenResult, child) => {
-              const type = (child.frontmatter as any).type ?? 'default';
+              const type = child.frontmatter?.type ?? 'default';
               if (!childrenResult[type]) {
                 childrenResult[type] = [];
               }
@@ -107,11 +107,11 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
                     {before}
                     <span key="english">{item?.title}</span>
                     <span className="chinese" key="chinese">
-                      {(item.frontmatter as any).subtitle}
+                      {item.frontmatter?.subtitle}
                     </span>
-                    {(item.frontmatter as any).tag && (
+                    {item.frontmatter?.tag && (
                       <Tag color="warning" style={{ marginInlineStart: token.marginXS }}>
-                        {(item.frontmatter as any).tag}
+                        {item.frontmatter?.tag}
                       </Tag>
                     )}
                     {after}
