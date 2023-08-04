@@ -22,8 +22,9 @@ Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务
 
 <!-- prettier-ignore -->
 :::warning 
-`ConfigProvider` 对 `message.xxx`、`Modal.xxx`、`notification.xxx` 等静态方法不会生效，原因是在这些方法中，antd 会通过 `ReactDOM.render` 动态创建新的 React 实体。其 context 与当前代码所在 context 并不相同，因而无法获取 context 信息。当你需要 context 信息（例如 ConfigProvider 配置的内容）时，可以通过 `Modal.useModal` 方法返回 modal 实体以及 contextHolder 节点，将其插入到你需要获取 context 位置即可。也可通过 [App 包裹组件](/components/app-cn) 简化 useModal 等方法需要手动植入 contextHolder 的问题。
-:::
+`ConfigProvider` 对 `message.xxx`、`Modal.xxx`、`notification.xxx` 等静态方法不会生效，原因是在这些方法中，antd 会通过 `ReactDOM.render` 动态创建新的 React 实体。其 context 与当前代码所在 context 并不相同，因而无法获取 context 信息。
+
+当你需要 context 信息（例如 ConfigProvider 配置的内容）时，可以通过 `Modal.useModal` 方法返回 modal 实体以及 contextHolder 节点，将其插入到你需要获取 context 位置即可。也可通过 [App 包裹组件](/components/app-cn) 简化 useModal 等方法需要手动植入 contextHolder 的问题。:::
 
 ### 修改主题变量
 
@@ -96,8 +97,9 @@ export default App;
 
 <!-- prettier-ignore -->
 :::info{title=组件级别的主题算法} 
-默认情况下，所有组件变量都仅仅是覆盖，不会基于 Seed Token 计算派生变量。在 `>= 5.8.0` 版本中，组件变量支持传入 `algorithm` 属性，可以开启派生计算或者传入其他算法。
-:::
+默认情况下，所有组件变量都仅仅是覆盖，不会基于 Seed Token 计算派生变量。
+
+在 `>= 5.8.0` 版本中，组件变量支持传入 `algorithm` 属性，可以开启派生计算或者传入其他算法。:::
 
 ```sandpack
 import React from 'react';
@@ -252,7 +254,7 @@ const App: React.FC = () => (
     }}
   >
     <Space>
-      <Button>Theme 1</Button>
+      <Button type="primary">Theme 1</Button>
       <ConfigProvider
         theme={{
           token: {
@@ -260,7 +262,7 @@ const App: React.FC = () => (
           },
         }}
       >
-        <Button>Theme 2</Button>
+        <Button type="primary">Theme 2</Button>
       </ConfigProvider>
     </Space>
   </ConfigProvider>
@@ -288,6 +290,8 @@ const App: React.FC = () => {
         backgroundColor: token.colorPrimaryBg,
         padding: token.padding,
         borderRadius: token.borderRadius,
+        color: token.colorPrimaryText,
+        fontSize: token.fontSize,
       }}
     >
       使用 Design Token
@@ -461,9 +465,3 @@ const theme = {
 ### 为什么 `theme` 从 `undefined` 变为对象或者变为 `undefined` 时组件重新 mount 了？
 
 在 ConfigProvider 中我们通过 `DesignTokenContext` 传递 context，`theme` 为 `undefined` 时不会套一层 Provider，所以从无到有或者从有到无时 React 的 VirtualDOM 结构变化，导致组件重新 mount。解决方法：将 `undefined` 替换为空对象 `{}` 即可。
-
-<div style="display: none;">
-- 在 Umi 4 中定制主题
-- 与 V4 定制主题的区别
-- less 变量与 Design Token 对照表
-</div>

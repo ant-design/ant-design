@@ -14,8 +14,8 @@ This document contains the correspondence between all the less variables related
 We could configure global token and component token for each component through the `theme` property of ConfigProvider.
 
 ```tsx
-import { Checkbox, ConfigProvider, Radio } from 'antd';
 import React from 'react';
+import { Checkbox, ConfigProvider, Radio } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -75,7 +75,7 @@ export default App;
 
 <!-- ### Badge -->
 
-### BreadCrumb 面包屑
+### BreadCrumb
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
@@ -497,7 +497,7 @@ export default App;
 
 <!-- ### Table -->
 
-### Tabs 标签页
+### Tabs
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
