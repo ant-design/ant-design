@@ -1214,7 +1214,7 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
 >
   <div
     class="ant-space-item"
-    style="margin-right: 0px; padding-bottom: 8px;"
+    style="padding-bottom: 8px;"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
@@ -1269,7 +1269,7 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom: 8px;"
+        style="margin-right: 0px; padding-bottom: 8px;"
       >
         <span
           class="ant-tag"
@@ -1301,43 +1301,43 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
           </span>
         </span>
       </div>
-    </div>
-  </div>
-  <div
-    class="ant-space-item"
-    style="padding-bottom: 8px;"
-  >
-    <span
-      class="ant-tag"
-      style="background: rgb(255, 255, 255); border-style: dashed;"
-    >
-      <span
-        aria-label="plus"
-        class="anticon anticon-plus"
-        role="img"
+      <div
+        class="ant-space-item"
+        style="padding-bottom: 8px;"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="plus"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          class="ant-tag"
+          style="height: 22px; background: rgb(255, 255, 255); border-style: dashed;"
         >
-          <defs>
-            <style />
-          </defs>
-          <path
-            d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-          />
-          <path
-            d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-          />
-        </svg>
-      </span>
-       New Tag
-    </span>
+          <span
+            aria-label="plus"
+            class="anticon anticon-plus"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="plus"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <defs>
+                <style />
+              </defs>
+              <path
+                d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+              />
+              <path
+                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+              />
+            </svg>
+          </span>
+           New Tag
+        </span>
+      </div>
+    </div>
   </div>
 </div>
 `;
