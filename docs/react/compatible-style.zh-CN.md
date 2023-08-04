@@ -1,6 +1,9 @@
 ---
-order: 6.5
+group:
+  title: 进阶使用
+order: 1
 title: 样式兼容
+tag: Updated
 ---
 
 Ant Design 支持最近 2 个版本的现代浏览器。如果你需要兼容旧版浏览器，请根据实际需求进行降级处理：
@@ -121,3 +124,23 @@ export default () => (
 | mediaQuery | 是否转换媒体查询中的 px | `boolean` | false |
 
 详细请参考: [px2rem.ts#Options](https://github.com/ant-design/cssinjs/blob/master/src/transformers/px2rem.ts)
+
+### Shadow DOM 场景
+
+在 Shadow DOM 场景中，由于其添加 `<style />` 标签的方式与普通 DOM 不同，所以需要使用 `@ant-design/cssinjs` 的 `StyleProvider` 配置 `container` 属性用于设置插入位置：
+
+```tsx
+import { StyleProvider } from '@ant-design/cssinjs';
+import { createRoot } from 'react-dom/client';
+
+const shadowRoot = someEle.attachShadow({ mode: 'open' });
+const container = document.createElement('div');
+shadowRoot.appendChild(container);
+const root = createRoot(container);
+
+root.render(
+  <StyleProvider container={shadowRoot}>
+    <MyApp />
+  </StyleProvider>,
+);
+```

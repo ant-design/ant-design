@@ -1,5 +1,7 @@
 ---
-order: 4
+group:
+  title: 如何使用
+order: 3
 title: 在 Vite 中使用
 ---
 

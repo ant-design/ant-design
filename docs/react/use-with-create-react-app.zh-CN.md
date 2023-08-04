@@ -1,5 +1,7 @@
 ---
-order: 4
+group:
+  title: 如何使用
+order: 1
 title: 在 create-react-app 中使用
 ---
 
@@ -51,8 +53,8 @@ $ npm run start
 修改 `src/App.js`，引入 antd 的按钮组件。
 
 ```tsx
-import { Button } from 'antd';
 import React from 'react';
+import { Button } from 'antd';
 
 const App: React.FC = () => (
   <div className="App">
@@ -70,8 +72,8 @@ export default App;
 参考 [配置主题](/docs/react/customize-theme)，通过 ConfigProvider 进行主题配置：
 
 ```tsx
-import { ConfigProvider } from 'antd';
 import React from 'react';
+import { ConfigProvider } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider theme={{ token: { colorPrimary: '#00b96b' } }}>
