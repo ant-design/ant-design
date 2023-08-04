@@ -588,7 +588,7 @@ exports[`renders components/form/demo/basic.tsx correctly 1`] = `
               class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
             >
               <span
-                class="ant-checkbox ant-checkbox-checked"
+                class="ant-checkbox ant-wave-target ant-checkbox-checked"
               >
                 <input
                   checked=""
@@ -1776,7 +1776,7 @@ Array [
     class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
   >
     <span
-      class="ant-checkbox ant-checkbox-checked"
+      class="ant-checkbox ant-wave-target ant-checkbox-checked"
     >
       <input
         checked=""
@@ -1825,7 +1825,7 @@ Array [
                 class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item"
               >
                 <span
-                  class="ant-checkbox ant-checkbox-disabled"
+                  class="ant-checkbox ant-wave-target ant-checkbox-disabled"
                 >
                   <input
                     class="ant-checkbox-input"
@@ -1878,7 +1878,7 @@ Array [
                   class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item"
                 >
                   <span
-                    class="ant-radio ant-radio-disabled"
+                    class="ant-radio ant-wave-target ant-radio-disabled"
                   >
                     <input
                       class="ant-radio-input"
@@ -1898,7 +1898,7 @@ Array [
                   class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item"
                 >
                   <span
-                    class="ant-radio ant-radio-disabled"
+                    class="ant-radio ant-wave-target ant-radio-disabled"
                   >
                     <input
                       class="ant-radio-input"
@@ -3920,7 +3920,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
               class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
             >
               <span
-                class="ant-checkbox"
+                class="ant-checkbox ant-wave-target"
               >
                 <input
                   class="ant-checkbox-input"
@@ -5369,7 +5369,7 @@ exports[`renders components/form/demo/normal-login.tsx correctly 1`] = `
               class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
             >
               <span
-                class="ant-checkbox ant-checkbox-checked"
+                class="ant-checkbox ant-wave-target ant-checkbox-checked"
               >
                 <input
                   checked=""
@@ -6461,7 +6461,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
               class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
             >
               <span
-                class="ant-checkbox"
+                class="ant-checkbox ant-wave-target"
               >
                 <input
                   class="ant-checkbox-input"
@@ -8840,7 +8840,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
               >
                 <span
-                  class="ant-radio"
+                  class="ant-radio ant-wave-target"
                 >
                   <input
                     class="ant-radio-input"
@@ -8859,7 +8859,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
               >
                 <span
-                  class="ant-radio"
+                  class="ant-radio ant-wave-target"
                 >
                   <input
                     class="ant-radio-input"
@@ -8878,7 +8878,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
               >
                 <span
-                  class="ant-radio"
+                  class="ant-radio ant-wave-target"
                 >
                   <input
                     class="ant-radio-input"
@@ -9034,7 +9034,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     style="line-height:32px"
                   >
                     <span
-                      class="ant-checkbox ant-checkbox-checked"
+                      class="ant-checkbox ant-wave-target ant-checkbox-checked"
                     >
                       <input
                         checked=""
@@ -9059,7 +9059,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     style="line-height:32px"
                   >
                     <span
-                      class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
+                      class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled"
                     >
                       <input
                         checked=""
@@ -9085,7 +9085,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     style="line-height:32px"
                   >
                     <span
-                      class="ant-checkbox"
+                      class="ant-checkbox ant-wave-target"
                     >
                       <input
                         class="ant-checkbox-input"
@@ -9109,7 +9109,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     style="line-height:32px"
                   >
                     <span
-                      class="ant-checkbox"
+                      class="ant-checkbox ant-wave-target"
                     >
                       <input
                         class="ant-checkbox-input"
@@ -9133,7 +9133,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     style="line-height:32px"
                   >
                     <span
-                      class="ant-checkbox"
+                      class="ant-checkbox ant-wave-target"
                     >
                       <input
                         class="ant-checkbox-input"
@@ -9157,7 +9157,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     style="line-height:32px"
                   >
                     <span
-                      class="ant-checkbox"
+                      class="ant-checkbox ant-wave-target"
                     >
                       <input
                         class="ant-checkbox-input"
