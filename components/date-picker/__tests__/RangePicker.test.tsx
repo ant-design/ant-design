@@ -129,13 +129,16 @@ describe('RangePicker', () => {
     errSpy.mockRestore();
   });
 
-  it('allows clear by default, and when clearIcon nested within allowClear, but disallows when allowClear false', async () => {
+  it('allows or prohibits clearing as applicable', async () => {
     const somepoint = dayjs('2023-08-01');
     const { rerender } = render(<RangePicker locale={enUS} value={[somepoint, somepoint]} />);
 
     const { role, options } = closeCircleByRole;
     await userEvent.hover(screen.getByRole(role, options));
-    expectCloseCircle(true);
+    await waitFor(() => expectCloseCircle(true));
+
+    rerender(<RangePicker locale={enUS} value={[somepoint, somepoint]} allowClear={false} />);
+    await waitFor(() => expectCloseCircle(false));
 
     rerender(
       <RangePicker
@@ -144,9 +147,19 @@ describe('RangePicker', () => {
         allowClear={{ clearIcon: <CloseCircleFilled /> }}
       />,
     );
-    expectCloseCircle(true);
+    await waitFor(() => expectCloseCircle(true));
 
-    rerender(<RangePicker locale={enUS} value={[somepoint, somepoint]} allowClear={false} />);
+    rerender(
+      <RangePicker
+        locale={enUS}
+        value={[somepoint, somepoint]}
+        allowClear={{ clearIcon: <div data-testid="custom-clear" /> }}
+      />,
+    );
     await waitFor(() => expectCloseCircle(false));
+    await userEvent.hover(screen.getByTestId('custom-clear'));
+
+    rerender(<RangePicker locale={enUS} value={[somepoint, somepoint]} allowClear={{}} />);
+    await waitFor(() => expectCloseCircle(true));
   });
 });

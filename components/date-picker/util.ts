@@ -161,13 +161,18 @@ export function getTimeProps<DateType, DisabledTime>(
   };
 }
 
-export type MergeAllowClearProps = Pick<PickerProps<unknown>, 'clearIcon' | 'allowClear'>;
+type AllowClear = PickerProps<unknown>['allowClear'];
+type ClearIcon = PickerProps<unknown>['clearIcon'];
 
 export function mergeAllowClear(
-  { clearIcon, allowClear }: MergeAllowClearProps,
-  defaultClearIcon: MergeAllowClearProps['clearIcon'],
+  allowClear: AllowClear,
+  clearIcon: ClearIcon,
+  defaultClearIcon: NonNullable<ClearIcon>,
 ) {
-  return allowClear === false || (typeof allowClear === 'object' && 'clearIcon' in allowClear)
-    ? allowClear
-    : ({ clearIcon: clearIcon ?? defaultClearIcon } as const);
+  if (allowClear === false) {
+    return false;
+  }
+
+  const defaults = { clearIcon: clearIcon ?? defaultClearIcon };
+  return typeof allowClear === 'object' && allowClear ? { ...defaults, ...allowClear } : defaults;
 }

@@ -147,7 +147,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
         components={Components}
         direction={direction}
         dropdownClassName={classNames(hashId, popupClassName || dropdownClassName)}
-        allowClear={mergeAllowClear({ clearIcon, allowClear }, <CloseCircleFilled />)}
+        allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
       />,
     );
   });

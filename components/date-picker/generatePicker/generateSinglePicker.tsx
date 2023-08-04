@@ -183,7 +183,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
               rootClassName,
               popupClassName || dropdownClassName,
             )}
-            allowClear={mergeAllowClear({ clearIcon, allowClear }, <CloseCircleFilled />)}
+            allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
           />,
         );
       },
