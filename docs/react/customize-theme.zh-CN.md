@@ -101,7 +101,7 @@ export default App;
 antd 默认内置了一些组件交互动效让企业级页面更加富有细节，在一些极端场景可能会影响页面交互性能，如需关闭动画可以使用下面的方式：
 
 <!-- prettier-ignore -->
-<code src="./demo/motion.tsx">动画控制</code>
+<code src="./_demo/motion.tsx">动画控制</code>
 
 ## 动态主题的其他使用方式
 
