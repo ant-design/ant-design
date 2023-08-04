@@ -646,7 +646,7 @@ React 中异步更新会导致受控组件交互行为异常。当用户交互�
 
 是的，change 事件仅当用户交互才会触发。该设计是为了防止在 change 事件中调用 `setFieldsValue` 导致的循环问题。如果仅仅需要组件内消费，可以通过 `useWatch` 或者 `Field.renderProps` 来实现。
 
-### 为什么 Form.Item 关联的字段组件在嵌套下会失效？
+### 为什么 Form.Item 嵌套子组件后，不更新表单值？
 
 Form.Item 在渲染时会注入 `value` 与 `onChange` 事件给子元素，当你的字段组件被包裹时属性将无法传递。你可以通过 HOC 自定义组件形式来解决这个问题：
 
