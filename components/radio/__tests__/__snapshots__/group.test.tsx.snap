@@ -8,7 +8,7 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
     class="my-radio-wrapper"
   >
     <span
-      class="my-radio"
+      class="my-radio ant-wave-target"
     >
       <input
         class="my-radio-input"
@@ -28,7 +28,7 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
     style="font-size: 12px;"
   >
     <span
-      class="my-radio"
+      class="my-radio ant-wave-target"
     >
       <input
         class="my-radio-input"

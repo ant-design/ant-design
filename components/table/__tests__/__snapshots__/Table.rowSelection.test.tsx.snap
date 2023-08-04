@@ -51,7 +51,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             aria-label="Select all"
@@ -129,7 +129,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -170,7 +170,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -211,7 +211,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -252,7 +252,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -403,7 +403,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             aria-label="Select all"
@@ -462,7 +462,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -492,7 +492,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -522,7 +522,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -552,7 +552,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -703,7 +703,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             aria-label="Select all"
@@ -763,7 +763,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -794,7 +794,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -825,7 +825,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -856,7 +856,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -1061,7 +1061,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             aria-label="Custom selection"
@@ -1176,7 +1176,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -1205,7 +1205,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -1234,7 +1234,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -1263,7 +1263,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -1412,7 +1412,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             aria-label="Custom selection"
@@ -1527,7 +1527,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -1556,7 +1556,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -1585,7 +1585,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -1614,7 +1614,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -1763,7 +1763,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             aria-label="Select all"
@@ -1799,7 +1799,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -1828,7 +1828,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -1857,7 +1857,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -1886,7 +1886,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
