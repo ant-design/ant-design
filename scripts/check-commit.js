@@ -1,6 +1,6 @@
 /* eslint-disable import/no-dynamic-require, no-console */
-const chalk = require('chalk');
 const path = require('path');
+const chalk = require('chalk');
 const fetch = require('isomorphic-fetch');
 const simpleGit = require('simple-git');
 

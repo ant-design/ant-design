@@ -31,7 +31,8 @@ To input a value in a range.
 | vertical | If true, the slider will be vertical | boolean | false |  |
 | onAfterChange | Fire when onmouseup is fired | (value) => void | - |  |
 | onChange | Callback function that is fired when the user changes the slider's value | (value) => void | - |  |
-| trackStyle | The style of slider track | CSSProperties | - |  |
+| trackStyle | The style of slider track (the active range) | CSSProperties | - |  |
+| railStyle | The style of slider rail (the background) | CSSProperties | - |  |
 | handleStyle | The style of slider handle | CSSProperties | - |  |
 
 ### range
@@ -42,7 +43,7 @@ To input a value in a range.
 
 ### tooltip
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | open | If true, Tooltip will show always, or it will not show anyway, even if dragging or hovering | boolean | - | 4.23.0 |
 | placement | Set Tooltip display position. Ref [Tooltip](/components/tooltip/) | string | - | 4.23.0 |

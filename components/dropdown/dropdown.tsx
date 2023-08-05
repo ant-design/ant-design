@@ -8,11 +8,13 @@ import Menu from '../menu';
 import type { MenuProps } from '../menu';
 import { ConfigContext } from '../config-provider';
 import { OverrideProvider } from '../menu/OverrideContext';
+import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import { cloneElement } from '../_util/reactNode';
 import { tuple } from '../_util/type';
 import warning from '../_util/warning';
 import DropdownButton from './dropdown-button';
+import { NoCompactStyle } from '../space/Compact';
 
 const Placements = tuple(
   'topLeft',
@@ -69,6 +71,7 @@ export interface DropdownProps {
   mouseLeaveDelay?: number;
   openClassName?: string;
   children?: React.ReactNode;
+  autoAdjustOverflow?: boolean | AdjustOverflow;
 
   // Deprecated
   /** @deprecated Please use `menu` instead */
@@ -79,11 +82,11 @@ export interface DropdownProps {
   onVisibleChange?: (open: boolean) => void;
 }
 
-interface DropdownInterface extends React.FC<DropdownProps> {
+type CompoundedComponent = React.FC<DropdownProps> & {
   Button: typeof DropdownButton;
-}
+};
 
-const Dropdown: DropdownInterface = props => {
+const Dropdown: CompoundedComponent = (props) => {
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -157,6 +160,7 @@ const Dropdown: DropdownInterface = props => {
     onOpenChange,
     mouseEnterDelay = 0.15,
     mouseLeaveDelay = 0.1,
+    autoAdjustOverflow = true,
   } = props;
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
@@ -197,7 +201,7 @@ const Dropdown: DropdownInterface = props => {
 
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
-    autoAdjustOverflow: true,
+    autoAdjustOverflow,
   });
 
   const onMenuClick = React.useCallback(() => {
@@ -244,7 +248,7 @@ const Dropdown: DropdownInterface = props => {
           );
         }}
       >
-        {overlayNode}
+        <NoCompactStyle>{overlayNode}</NoCompactStyle>
       </OverrideProvider>
     );
   };

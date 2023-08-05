@@ -29,6 +29,7 @@
 
   &-horizontal&-with-text {
     display: flex;
+    align-items: center;
     margin: 16px 0;
     color: @heading-color;
     font-weight: 500;
@@ -41,7 +42,6 @@
     &::before,
     &::after {
       position: relative;
-      top: 50%;
       width: 50%;
       border-top: @border-width-base solid transparent;
       // Chrome not accept `inherit` in `border-top`
@@ -54,24 +54,20 @@
 
   &-horizontal&-with-text-left {
     &::before {
-      top: 50%;
       width: @divider-orientation-margin;
     }
 
     &::after {
-      top: 50%;
       width: 100% - @divider-orientation-margin;
     }
   }
 
   &-horizontal&-with-text-right {
     &::before {
-      top: 50%;
       width: 100% - @divider-orientation-margin;
     }
 
     &::after {
-      top: 50%;
       width: @divider-orientation-margin;
     }
   }

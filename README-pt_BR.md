@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://ant.design">
+  <a href="https://4x.ant.design">
     <img width="200" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
   </a>
 </p>
@@ -45,7 +45,7 @@ Uma solução empresarial de design e biblioteca UI para React.
 
 </div>
 
-[![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yl83RJhUE7kAAAAAAAAAAABkARQnAQ)](https://ant.design)
+[![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yl83RJhUE7kAAAAAAAAAAABkARQnAQ)](https://4x.ant.design)
 
 [English](./README.md) | Português | [简体中文](./README-zh_CN.md) | [Українською](./README-uk_UA.md) | [Spanish](./README-sp_MX.md) | [日本語](./README-ja_JP.md)
 
@@ -60,7 +60,7 @@ Uma solução empresarial de design e biblioteca UI para React.
 
 ## 🖥 Suporte aos ambientes
 
-- Navegadores modernos e Internet Explorer 11 (com [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
+- Navegadores modernos e Internet Explorer 11 (com [polyfills](https://4x.ant.design/docs/react/getting-started#Compatibility))
 - Renderização no lado do servidor (server-side)
 - [Electron](https://www.electronjs.org/)
 
@@ -99,16 +99,16 @@ import 'antd/dist/antd.css'; // ou 'antd/dist/antd.less'
 
 ### TypeScript
 
-Veja [Uso no Typescript](https://ant.design/docs/react/use-in-typescript).
+Veja [Uso no Typescript](https://4x.ant.design/docs/react/use-in-typescript).
 
 ## 🌍 Internacionalização
 
-Veja [i18n](https://ant.design/docs/react/i18n).
+Veja [i18n](https://4x.ant.design/docs/react/i18n).
 
 ## 🔗 Links
 
-- [Página inicial](https://ant.design/)
-- [Componentes](https://ant.design/components/overview)
+- [Página inicial](https://4x.ant.design/)
+- [Componentes](https://4x.ant.design/components/overview)
 - [Ant Design Pro](http://pro.ant.design/)
 - [Ant Design Charts](https://charts.ant.design)
 - [Change Log](CHANGELOG.en-US.md)
@@ -124,10 +124,10 @@ Veja [i18n](https://ant.design/docs/react/i18n).
 - [Mercado de páginas](http://scaffold.ant.design)
 - [Instruções ao desenvolvedor](https://github.com/ant-design/ant-design/wiki/Development)
 - [Versionando as notas de atualização](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
-- [FAQ](https://ant.design/docs/react/faq)
-- [CodeSandbox Template](https://u.ant.design/codesandbox-repro) para relatório de erros
+- [FAQ](https://4x.ant.design/docs/react/faq)
+- [CodeSandbox Template](https://u.ant.design/codesandbox-repro-4x) para relatório de erros
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
-- [Customize Theme](https://ant.design/docs/react/customize-theme)
+- [Customize Theme](https://4x.ant.design/docs/react/customize-theme)
 - [How to Apply for Being A Collaborator](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
 ## ⌨️ Desenvolvimento

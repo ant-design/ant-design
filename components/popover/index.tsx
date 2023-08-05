@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import type { AbstractTooltipProps } from '../tooltip';
-import Tooltip from '../tooltip';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { getTransitionName } from '../_util/motion';
+import { ConfigContext } from '../config-provider';
+import type { AbstractTooltipProps } from '../tooltip';
+import Tooltip from '../tooltip';
 
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
@@ -19,17 +19,12 @@ interface OverlayPorps {
   content?: PopoverProps['content'];
 }
 
-const Overlay: React.FC<OverlayPorps> = ({ title, content, prefixCls }) => {
-  if (!title && !content) {
-    return null;
-  }
-  return (
-    <>
-      {title && <div className={`${prefixCls}-title`}>{getRenderPropValue(title)}</div>}
-      <div className={`${prefixCls}-inner-content`}>{getRenderPropValue(content)}</div>
-    </>
-  );
-};
+const Overlay: React.FC<OverlayPorps> = ({ title, content, prefixCls }) => (
+  <>
+    {title && <div className={`${prefixCls}-title`}>{getRenderPropValue(title)}</div>}
+    <div className={`${prefixCls}-inner-content`}>{getRenderPropValue(content)}</div>
+  </>
+);
 
 const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
   const {
@@ -49,6 +44,16 @@ const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
+  const mergedOverlay = React.useMemo<React.ReactNode>(() => {
+    if (_overlay) {
+      return _overlay;
+    }
+    if (!title && !content) {
+      return null;
+    }
+    return <Overlay prefixCls={prefixCls} title={title} content={content} />;
+  }, [_overlay, title, content, prefixCls]);
+
   return (
     <Tooltip
       placement={placement}
@@ -59,7 +64,7 @@ const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
       {...otherProps}
       prefixCls={prefixCls}
       ref={ref}
-      overlay={_overlay || <Overlay prefixCls={prefixCls} title={title} content={content} />}
+      overlay={mergedOverlay}
       transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
     />
   );

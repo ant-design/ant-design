@@ -109,7 +109,6 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
               }
               disabled={mergedDisabled}
               ref={innerRef}
-              dropdownClassName={popupClassName || dropdownClassName}
               dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
               placeholder={getRangePlaceholder(picker, locale, placeholder)}
               suffixIcon={suffixNode}
@@ -141,6 +140,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
               generateConfig={generateConfig}
               components={Components}
               direction={direction}
+              dropdownClassName={popupClassName || dropdownClassName}
             />
           );
         }}

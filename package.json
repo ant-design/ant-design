@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.24.3",
+  "version": "4.24.13",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -50,7 +50,7 @@
     "api-collection": "antd-tools run api-collection",
     "authors": "node ./scripts/generate-authors",
     "build": "npm run compile && NODE_OPTIONS='--max-old-space-size=4096' npm run dist",
-    "bundlesize": "bundlesize",
+    "bundlesize": "bundlesize --enable-github-checks",
     "size-limit": "size-limit",
     "check-commit": "node ./scripts/check-commit",
     "check-ts-demo": "node ./scripts/check-ts-demo",
@@ -61,6 +61,7 @@
     "pretest": "npm run version",
     "predist": "npm run version",
     "presite": "npm run version",
+    "pretsc": "npm run version",
     "compile": "npm run clean && antd-tools run compile",
     "changelog": "node ./scripts/print-changelog",
     "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && npm run site:test",
@@ -117,7 +118,7 @@
   "dependencies": {
     "@ant-design/colors": "^6.0.0",
     "@ant-design/icons": "^4.7.0",
-    "@ant-design/react-slick": "~0.29.1",
+    "@ant-design/react-slick": "~1.0.0",
     "@babel/runtime": "^7.18.3",
     "@ctrl/tinycolor": "^3.4.0",
     "classnames": "^2.2.6",
@@ -125,17 +126,17 @@
     "lodash": "^4.17.21",
     "moment": "^2.29.2",
     "rc-cascader": "~3.7.0",
-    "rc-checkbox": "~2.3.0",
+    "rc-checkbox": "~3.0.0",
     "rc-collapse": "~3.4.2",
     "rc-dialog": "~9.0.2",
-    "rc-drawer": "~6.0.0",
+    "rc-drawer": "~6.3.0",
     "rc-dropdown": "~4.0.0",
-    "rc-field-form": "~1.27.0",
-    "rc-image": "~5.12.0",
+    "rc-field-form": "~1.34.0",
+    "rc-image": "~5.13.0",
     "rc-input": "~0.1.4",
     "rc-input-number": "~7.3.9",
-    "rc-mentions": "~1.11.0",
-    "rc-menu": "~9.7.2",
+    "rc-mentions": "~1.13.1",
+    "rc-menu": "~9.8.0",
     "rc-motion": "^2.6.1",
     "rc-notification": "~4.6.0",
     "rc-pagination": "~3.2.0",
@@ -144,12 +145,12 @@
     "rc-rate": "~2.9.0",
     "rc-resize-observer": "^1.2.0",
     "rc-segmented": "~2.1.0",
-    "rc-select": "~14.1.13",
+    "rc-select": "~14.1.17",
     "rc-slider": "~10.0.0",
     "rc-steps": "~5.0.0-alpha.2",
     "rc-switch": "~3.2.0",
     "rc-table": "~7.26.0",
-    "rc-tabs": "~12.3.0",
+    "rc-tabs": "~12.5.6",
     "rc-textarea": "~0.4.5",
     "rc-tooltip": "~5.2.0",
     "rc-tree": "~5.7.0",
@@ -166,7 +167,8 @@
     "@docsearch/css": "^3.0.0",
     "@qixian.cs/github-contributors-list": "^1.0.3",
     "@size-limit/file": "^8.0.0",
-    "@stackblitz/sdk": "^1.3.0",
+    "@stackblitz/sdk": "~1.8.2",
+    "@testing-library/dom": "^9.0.0",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^14.4.2",
@@ -198,7 +200,7 @@
     "bisheng-plugin-description": "^0.1.4",
     "bisheng-plugin-react": "^1.2.0",
     "bisheng-plugin-toc": "^0.4.4",
-    "bundlesize": "^0.18.0",
+    "bundlesize2": "^0.0.31",
     "chalk": "^4.0.0",
     "cheerio": "1.0.0-rc.12",
     "concurrently": "^7.0.0",
@@ -214,18 +216,19 @@
     "eslint-config-airbnb": "^19.0.0",
     "eslint-config-prettier": "^8.0.0",
     "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-compat": "^4.0.0",
+    "eslint-plugin-compat": "~4.0.0",
     "eslint-plugin-import": "^2.21.1",
     "eslint-plugin-jest": "^27.0.1",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-markdown": "^3.0.0",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.1.2",
-    "eslint-plugin-unicorn": "^44.0.0",
+    "eslint-plugin-unicorn": "^47.0.0",
     "fast-glob": "^3.2.11",
     "fetch-jsonp": "^1.1.3",
     "fs-extra": "^10.0.0",
     "full-icu": "^1.3.0",
+    "gh-pages": "^5.0.0",
     "glob": "^8.0.1",
     "http-server": "^14.0.0",
     "husky": "^8.0.1",
@@ -236,7 +239,7 @@
     "inquirer": "^9.1.2",
     "intersection-observer": "^0.12.0",
     "isomorphic-fetch": "^3.0.0",
-    "jest": "^29.0.0",
+    "jest": "^29.4.1",
     "jest-axe": "^7.0.0",
     "jest-environment-jsdom": "^29.0.1",
     "jest-environment-node": "^29.0.0",
@@ -309,45 +312,45 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "282 kB"
+      "limit": "285 KiB"
     },
     {
       "path": "./dist/antd.min.css",
-      "limit": "66 kB"
+      "limit": "70 KiB"
     },
     {
       "path": "./dist/antd.dark.min.css",
-      "limit": "67.5 kB"
+      "limit": "70 KiB"
     },
     {
       "path": "./dist/antd.compact.min.css",
-      "limit": "66 kB"
+      "limit": "70 KiB"
     },
     {
       "path": "./dist/antd.variable.min.css",
-      "limit": "67 kB"
+      "limit": "70 KiB"
     }
   ],
   "bundlesize": [
     {
       "path": "./dist/antd.min.js",
-      "maxSize": "283 kB"
+      "maxSize": "285 kB"
     },
     {
       "path": "./dist/antd.min.css",
-      "maxSize": "66.5 kB"
+      "maxSize": "70 kB"
     },
     {
       "path": "./dist/antd.dark.min.css",
-      "maxSize": "68 kB"
+      "maxSize": "70 kB"
     },
     {
       "path": "./dist/antd.compact.min.css",
-      "maxSize": "66.5 kB"
+      "maxSize": "70 kB"
     },
     {
       "path": "./dist/antd.variable.min.css",
-      "maxSize": "67 kB"
+      "maxSize": "70 kB"
     }
   ],
   "tnpm": {

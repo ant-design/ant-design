@@ -3,6 +3,8 @@
   .make-motion(@name, @keyframeName);
   .@{name}-enter,
   .@{name}-appear {
+    transform: scale(0);
+    transform-origin: 0% 0%;
     opacity: 0;
     animation-timing-function: @ease-out-quint;
   }

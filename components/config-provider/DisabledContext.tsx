@@ -12,7 +12,7 @@ export interface DisabledContextProps {
 export const DisabledContextProvider: React.FC<DisabledContextProps> = ({ children, disabled }) => {
   const originDisabled = React.useContext(DisabledContext);
   return (
-    <DisabledContext.Provider value={disabled || originDisabled}>
+    <DisabledContext.Provider value={disabled ?? originDisabled}>
       {children}
     </DisabledContext.Provider>
   );

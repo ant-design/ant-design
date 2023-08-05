@@ -54,6 +54,7 @@
         width: 0;
         margin: @select-multiple-item-spacing-half 0;
         line-height: @select-multiple-item-height;
+        visibility: hidden;
         content: '\a0';
       }
     }
@@ -102,7 +103,8 @@
 
       &-remove {
         .iconfont-mixin();
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
         color: @text-color-secondary;
         font-weight: bold;
         font-size: 10px;
@@ -206,12 +208,6 @@
       // https://github.com/ant-design/ant-design/issues/29559
       .@{select-prefix-cls}-selection-search {
         margin-inline-start: 3px;
-      }
-    }
-    &.@{select-prefix-cls}-lg {
-      .@{select-prefix-cls}-selection-item {
-        height: @select-multiple-item-height-lg;
-        line-height: @select-multiple-item-height-lg;
       }
     }
   }

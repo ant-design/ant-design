@@ -32,6 +32,9 @@ function useMergePropByScreen(oriProp: RowProps['align'] | RowProps['justify'], 
   const [prop, setProp] = React.useState(typeof oriProp === 'string' ? oriProp : '');
 
   const clacMergeAlignOrJustify = () => {
+    if (typeof oriProp === 'string') {
+      setProp(oriProp);
+    }
     if (typeof oriProp !== 'object') {
       return;
     }

@@ -1,7 +1,7 @@
 /* eslint no-console: 0 */
-const chalk = require('chalk');
 const fs = require('fs');
 const { join } = require('path');
+const chalk = require('chalk');
 const moment = require('moment');
 
 const getChangelogByVersion = (content, version) => {

@@ -185,4 +185,21 @@ describe('Badge', () => {
 
     expect(container.querySelectorAll('.ant-badge > .ant-badge-status-text')).toHaveLength(0);
   });
+
+  // https://github.com/ant-design/ant-design/issues/38965
+  it('Badge should display 0 when count is 0', () => {
+    const { container } = render(
+      <>
+        <Badge count={0} showZero />
+        <Badge count={0} showZero color="blue" />
+        <Badge count={0} showZero color="#f0f" />
+        <Badge count={0} showZero>
+          <div>children</div>
+        </Badge>
+      </>,
+    );
+
+    expect(container).toMatchSnapshot();
+    expect(container.querySelectorAll('[title="0"]')).toHaveLength(4);
+  });
 });

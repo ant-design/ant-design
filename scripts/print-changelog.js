@@ -1,12 +1,12 @@
 /* eslint-disable no-await-in-loop, no-console */
-const chalk = require('chalk');
 const { spawn } = require('child_process');
+const path = require('path');
+const chalk = require('chalk');
 const jsdom = require('jsdom');
 const jQuery = require('jquery');
 const fetch = require('isomorphic-fetch');
 const open = require('open');
 const fs = require('fs-extra');
-const path = require('path');
 const simpleGit = require('simple-git');
 
 const { JSDOM } = jsdom;
@@ -73,7 +73,7 @@ async function printLog() {
       type: 'list',
       name: 'toVersion',
       message: `🔀 Please choose branch to compare with ${chalk.magenta(fromVersion)}:`,
-      choices: ['master', '3.x-stable', 'feature', 'custom input ⌨️'],
+      choices: ['master', '4.x-stable', '3.x-stable', 'feature', 'custom input ⌨️'],
     },
   ]);
 

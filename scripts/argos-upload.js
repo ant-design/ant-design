@@ -2,9 +2,9 @@
 // Create chunks for Argos: https://github.com/mui/material-ui/pull/23518
 // https://github.com/mui/material-ui/blob/af81aae3b292ed180e7652a665fad1be2b38a7b3/scripts/pushArgos.js
 const util = require('util');
+const childProcess = require('child_process');
 const glob = require('fast-glob');
 const lodashChunk = require('lodash/chunk');
-const childProcess = require('child_process');
 
 // eslint-disable-next-line import/no-unresolved
 const argos = require('@argos-ci/core');
@@ -35,7 +35,7 @@ async function run() {
   await Promise.all(
     chunks.map((chunk, chunkIndex) =>
       Promise.all(
-        chunk.map(screenshot => cpToTemp(screenshot, `${screenshotsChunks}/${chunkIndex}`)),
+        chunk.map((screenshot) => cpToTemp(screenshot, `${screenshotsChunks}/${chunkIndex}`)),
       ),
     ),
   );
@@ -55,7 +55,7 @@ async function run() {
   }
 }
 
-run().catch(error => {
+run().catch((error) => {
   // eslint-disable-next-line no-console
   console.error(error);
   process.exit(1);

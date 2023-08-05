@@ -4,7 +4,7 @@ import type { Key } from 'react';
 import type RcTree from 'rc-tree';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Tree from '../index';
 import type { TreeProps } from '../index';
 
@@ -33,13 +33,13 @@ describe('Directory Tree', () => {
   function createTree(props?: TreeProps & { ref?: React.Ref<RcTree> }) {
     return (
       <DirectoryTree {...props}>
-        <TreeNode key="0-0">
-          <TreeNode key="0-0-0" />
-          <TreeNode key="0-0-1" />
+        <TreeNode key='0-0'>
+          <TreeNode key='0-0-0' />
+          <TreeNode key='0-0-1' />
         </TreeNode>
-        <TreeNode key="0-1">
-          <TreeNode key="0-1-0" />
-          <TreeNode key="0-1-1" />
+        <TreeNode key='0-1'>
+          <TreeNode key='0-1-0' />
+          <TreeNode key='0-1-1' />
         </TreeNode>
       </DirectoryTree>
     );
@@ -94,7 +94,7 @@ describe('Directory Tree', () => {
           expandedKeys: [],
         };
 
-        onExpand: TreeProps['onExpand'] = expandedKeys => {
+        onExpand: TreeProps['onExpand'] = (expandedKeys) => {
           this.setState({ expandedKeys });
         };
 
@@ -103,26 +103,26 @@ describe('Directory Tree', () => {
 
           return (
             <DirectoryTree expandedKeys={expandedKeys} onExpand={this.onExpand} {...this.props}>
-              <TreeNode key="0-0" title="parent">
-                <TreeNode key="0-0-0" title="children" />
+              <TreeNode key='0-0' title='parent'>
+                <TreeNode key='0-0-0' title='children' />
               </TreeNode>
             </DirectoryTree>
           );
         }
       }
 
-      it('click', () => {
-        const { container, asFragment } = render(<StateDirTree expandAction="click" />);
+      it('click', async () => {
+        const { container, asFragment } = render(<StateDirTree expandAction='click' />);
 
         fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper')!);
-        jest.runAllTimers();
+        await waitFakeTimer();
         expect(asFragment().firstChild).toMatchSnapshot();
       });
-      it('doubleClick', () => {
-        const { container, asFragment } = render(<StateDirTree expandAction="doubleClick" />);
+      it('doubleClick', async () => {
+        const { container, asFragment } = render(<StateDirTree expandAction='doubleClick' />);
 
         fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper')!);
-        jest.runAllTimers();
+        await waitFakeTimer();
         expect(asFragment().firstChild).toMatchSnapshot();
       });
     });
@@ -162,10 +162,10 @@ describe('Directory Tree', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('expandedKeys update', () => {
+  it('expandedKeys update', async () => {
     const { rerender, asFragment } = render(createTree());
     rerender(createTree({ expandedKeys: ['0-1'] }));
-    jest.runAllTimers();
+    await waitFakeTimer();
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 

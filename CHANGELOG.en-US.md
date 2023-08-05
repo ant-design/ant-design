@@ -15,6 +15,115 @@ timeline: true
 
 ---
 
+## 4.24.13
+
+`2023-08-03`
+
+- 🐞 Fix Anchor not trigger `getCurrentAnchor` when scroll. [#43917](https://github.com/ant-design/ant-design/pull/43917)
+- 🛠 Carousel remove `lodash` dependencies. [2b43f73](https://github.com/ant-design/ant-design/commit/2b43f73) [@taozhou-glean](https://github.com/taozhou-glean)
+- 🐞 Fix Select selector remove icon align. [#43667](https://github.com/ant-design/ant-design/pull/43667) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Allow users to handle promise rejections in Modal's `onOk` callback. [#43536](https://github.com/ant-design/ant-design/pull/43536) [@maroon1](https://github.com/maroon1)
+- 🐞 fix: ConfigProvider form `validateMessages` nesting error. [#43480](https://github.com/ant-design/ant-design/pull/43480) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Sync `@checkbox-border-radius` to variable.less. [#43356](https://github.com/ant-design/ant-design/pull/43356)
+
+## 4.24.12
+
+`2023-06-30`
+
+- 🐞 Fix Form submit trigger wrong `onFieldsChange` event even all the fields do not config `rules`. [#43292](https://github.com/ant-design/ant-design/pull/43292)
+- 🐞 Fix Form.List nested Form event bubble not correct. [#43292](https://github.com/ant-design/ant-design/pull/43292)
+
+## 4.24.11
+
+`2023-06-27`
+
+- 🆕 Drawer panel support event listener. [#42712](https://github.com/ant-design/ant-design/pull/42712) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Fix Upload `onChange` sometime not sync when in React 18. [#43200](https://github.com/ant-design/ant-design/pull/43200)
+- 🐞 Fix Notification cannot hide close icon by `closeIcon={null}`. [#42791](https://github.com/ant-design/ant-design/pull/42791)
+- 🐞 Fix Drawer `id` was passed in incorrectly, and now is always added to the popup panel. [#43124](https://github.com/ant-design/ant-design/pull/43124) [@MuxinFeng](https://github.com/MuxinFeng)
+- 🐞 Fix InputNumber with `prefix` abnormal height under Form.Item of `hasFeedBack`. [#43048](https://github.com/ant-design/ant-design/pull/43048)
+- 🐞 Fix Popover with `getPopupContainer` sometime makes width too narrow. [#42697](https://github.com/ant-design/ant-design/pull/42697)
+- 🐞 Fix Select will display the letter A under some circumstances. [#42654](https://github.com/ant-design/ant-design/pull/42654) [@tchen-l](https://github.com/tchen-l)
+- 🐞 Fix ConfigProvider that import useless modules from `rc-field-form` when importing `FormProvider` . [#42502](https://github.com/ant-design/ant-design/pull/42502) [@BanShan-Alec](https://github.com/BanShan-Alec)
+- 🐞 Fix Popconfirm trigger `onVisibleChange` twice. [#42351](https://github.com/ant-design/ant-design/pull/42351)
+- 🐞 Fix Form `onFieldsChange` missing `validating` status change. [#42263](https://github.com/ant-design/ant-design/pull/42263)
+- 🐞 Fix Popover that display empty `div` when `title` and `content` is null. [19f8505](https://github.com/ant-design/ant-design/commit/19f8505) [@MaHui](https://github.com/MaHui)
+- 🐞 Fix Upload `disabled` logic. [#42143](https://github.com/ant-design/ant-design/pull/42143) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix RangePicker wrong panel position under some circumstances. [#43179](https://github.com/ant-design/ant-design/pull/43179) [@cooljser](https://github.com/cooljser)
+- 🐞 Fix ConfigProvider makes Form component in the bundle even not use it. [#43207](https://github.com/ant-design/ant-design/pull/43207) [@yoyo837](https://github.com/yoyo837)
+- 💄 Optimize Spin style to keep height of container the same as child element. [#42163](https://github.com/ant-design/ant-design/pull/42163) [@cheapCoder](https://github.com/cheapCoder)
+
+## 4.24.10
+
+`2023-05-04`
+
+- 🐞 Fix `version` always shows `5.2.2`. [#42101](https://github.com/ant-design/ant-design/pull/42101)
+- 🐞 Fix Popover width collapse when show on the screen edge. [#41953](https://github.com/ant-design/ant-design/pull/41953)
+
+## 4.24.9
+
+`2023-04-19`
+
+- 🆕 Slider add missing `railStyle` for custom style. [#40942](https://github.com/ant-design/ant-design/pull/40942) [@c01nd01r](https://github.com/c01nd01r)
+- 🐞 Fix Select width becomes 0px when search after select something. [#41646](https://github.com/ant-design/ant-design/pull/41646)
+- 🐞 The `displayRender` prompt cannot be used when deleting `multiple`. [#40940](https://github.com/ant-design/ant-design/pull/40940) [@crazyair](https://github.com/crazyair)
+- 💄 Checkbox should use @border-radius-sm. [#40823](https://github.com/ant-design/ant-design/pull/40823)
+- 🐞 Fix TextArea missing active style when focused. [#41281](https://github.com/ant-design/ant-design/pull/41281) [@MuxinFeng](https://github.com/MuxinFeng)
+- 🛠 Adjust Checkbox to remove `checked` when unchecked. [#41888](https://github.com/ant-design/ant-design/pull/41888)
+- TypeScript
+  - 🤖 Adjust CascaderProps definition which has default generic now. [#40960](https://github.com/ant-design/ant-design/pull/40960) [@crazyair](https://github.com/crazyair)
+
+## 4.24.8
+
+`2023-02-13`
+
+- 🐞 Fix Tabs that throw error in some cases. [df09516](https://github.com/ant-design/ant-design/commit/df09516ee542159eb3fa40927eec8981d4581bd0)
+- 🌐 Add missing translation for `pt_BR`. [#40019](https://github.com/ant-design/ant-design/pull/40019) [@rafaelncarvalho](https://github.com/rafaelncarvalho)
+- TypeScript
+  - 🤖 Fix `CompoundedComponent` type error from external module. [#39058](https://github.com/ant-design/ant-design/pull/39058) [@wangcch](https://github.com/wangcch)
+
+## 4.24.7
+
+`2022-12-30`
+
+- 🐞 Fix Tabs slider that cannot resize. [#39867](https://github.com/ant-design/ant-design/pull/39867)
+- 🐞 Fix Input text is missing when `suffix` is applied in Safari. [#39830](https://github.com/ant-design/ant-design/pull/39830) [@ifujustayup](https://github.com/ifujustayup)
+
+## 4.24.6
+
+`2022-12-26`
+
+- 🆕 Dropdown support `autoAdjustOverflow`. [#39741](https://github.com/ant-design/ant-design/pull/39741)
+- 🐞 Fix `justify` and `align` properties are not reactive for Row. [#39706](https://github.com/ant-design/ant-design/pull/39706) [@candy4290](https://github.com/candy4290)
+- 🐞 Fix Drawer that could not be close with `open={false}`. [#39561](https://github.com/ant-design/ant-design/pull/39561)
+- 🐞 Fix Divider `horizontal` align issue in flex layout. [#39334](https://github.com/ant-design/ant-design/pull/39334)
+- 💄 Fix `Dropdown` component dange and disabled style priority issue. [#39434](https://github.com/ant-design/ant-design/pull/39434) [@Wxh16144](https://github.com/Wxh16144)
+- ⌨️ Reset aria-label in Table column. [#39747](https://github.com/ant-design/ant-design/pull/39747) [@kiner-tang](https://github.com/kiner-tang)
+- 🌐 Localization
+  - 🇺🇿 Add uz_UZ locale. [#39353](https://github.com/ant-design/ant-design/pull/39353) [@nodkz](https://github.com/nodkz)
+
+## 4.24.5
+
+`2022-12-05`
+
+- 🐞 Fix Menu.Item with `disabled` not prevent a element clickable. [aa8d7f5](https://github.com/ant-design/ant-design/commit/aa8d7f5) [@二货机器人](https://github.com/二货机器人)
+- 💄 Tweak Popconfirm icon position when `title` have multiple lines. [#39027](https://github.com/ant-design/ant-design/pull/39027) [@justanotheranonymoususer](https://github.com/justanotheranonymoususer)
+- 🐞 Fix Badge the color cannot be customized when `count` is `0`. [#39062](https://github.com/ant-design/ant-design/pull/39062) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix Card.Meta width is not 100%. [#39039](https://github.com/ant-design/ant-design/pull/39039) [@justanotheranonymoususer](https://github.com/justanotheranonymoususer)
+- 🐞 Fix TimePicker pass to 'popupClassName' will display unexpected warning. [#39010](https://github.com/ant-design/ant-design/pull/39010) [@kiner-tang](https://github.com/kiner-tang)
+- 💄 Fix Steps set `size="small"` with progress not fully display. [#39103](https://github.com/ant-design/ant-design/pull/39103) [@Wxh16144](https://github.com/Wxh16144)
+
+## 4.24.4
+
+`2022-11-25`
+
+- Space.Compact
+  - 💄 Optimize Space.Compact style when wrapping a single child component. [#38913](https://github.com/ant-design/ant-design/pull/38913) [@foryuki](https://github.com/foryuki)
+  - 💄 Optimize Space.Compact style when wrapping Modal, Dropdown, Drawer and other components. [#38887](https://github.com/ant-design/ant-design/pull/38887) [@foryuki](https://github.com/foryuki)
+- 🆕 Mentions support `options` prop. [#38876](https://github.com/ant-design/ant-design/pull/38876) [@heiyu4585](https://github.com/heiyu4585)
+- 🐞 Fix ConfigProvider that `componentDisabled` is not work. [#38886](https://github.com/ant-design/ant-design/pull/38886) [@lidianhao123](https://github.com/lidianhao123)
+- 🐞 Fix Message that `onClose` didn't triggered when `duration` is `0`. [#38669](https://github.com/ant-design/ant-design/pull/38669) [@kiner-tang](https://github.com/kiner-tang)
+
 ## 4.24.3
 
 `2022-11-17`

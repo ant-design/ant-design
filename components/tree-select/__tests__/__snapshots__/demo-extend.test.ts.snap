@@ -54,7 +54,7 @@ exports[`renders ./components/tree-select/demo/async.md extend context correctly
             <div
               aria-hidden="true"
               class="ant-select-tree-treenode"
-              style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+              style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
             >
               <div
                 class="ant-select-tree-indent"
@@ -275,7 +275,7 @@ exports[`renders ./components/tree-select/demo/basic.md extend context correctly
             <div
               aria-hidden="true"
               class="ant-select-tree-treenode"
-              style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+              style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
             >
               <div
                 class="ant-select-tree-indent"
@@ -606,13 +606,14 @@ exports[`renders ./components/tree-select/demo/checkable.md extend context corre
                 aria-hidden="true"
                 data-icon="close"
                 fill="currentColor"
+                fill-rule="evenodd"
                 focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
                 />
               </svg>
             </span>
@@ -672,7 +673,7 @@ exports[`renders ./components/tree-select/demo/checkable.md extend context corre
             <div
               aria-hidden="true"
               class="ant-select-tree-treenode"
-              style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+              style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
             >
               <div
                 class="ant-select-tree-indent"
@@ -876,7 +877,7 @@ exports[`renders ./components/tree-select/demo/multiple.md extend context correc
             <div
               aria-hidden="true"
               class="ant-select-tree-treenode"
-              style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+              style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
             >
               <div
                 class="ant-select-tree-indent"
@@ -1276,7 +1277,7 @@ Array [
               <div
                 aria-hidden="true"
                 class="ant-select-tree-treenode"
-                style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+                style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
               >
                 <div
                   class="ant-select-tree-indent"
@@ -1862,7 +1863,7 @@ exports[`renders ./components/tree-select/demo/suffix.md extend context correctl
             <div
               aria-hidden="true"
               class="ant-select-tree-treenode"
-              style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+              style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
             >
               <div
                 class="ant-select-tree-indent"
@@ -2208,7 +2209,7 @@ exports[`renders ./components/tree-select/demo/treeData.md extend context correc
             <div
               aria-hidden="true"
               class="ant-select-tree-treenode"
-              style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+              style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
             >
               <div
                 class="ant-select-tree-indent"
@@ -2487,7 +2488,7 @@ exports[`renders ./components/tree-select/demo/treeLine.md extend context correc
                 <div
                   aria-hidden="true"
                   class="ant-select-tree-treenode"
-                  style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+                  style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
                 >
                   <div
                     class="ant-select-tree-indent"

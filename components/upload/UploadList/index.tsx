@@ -49,6 +49,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     appendAction,
     appendActionVisible = true,
     itemRender,
+    disabled,
   } = props;
   const forceUpdate = useForceUpdate();
   const [motionAppear, setMotionAppear] = React.useState(false);
@@ -130,6 +131,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
       type: 'text',
       size: 'small',
       title,
+      disabled,
       onClick: (e: React.MouseEvent<HTMLElement>) => {
         callback();
         if (isValidElement(customIcon) && customIcon.props.onClick) {

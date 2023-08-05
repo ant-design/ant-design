@@ -1,8 +1,25 @@
-const React = require('react');
 const util = require('util');
+const React = require('react');
 
 // eslint-disable-next-line no-console
 console.log('Current React Version:', React.version);
+
+// eslint-disable-next-line no-console
+const originConsoleErr = console.error;
+
+// Hack off React warning to avoid too large log in CI.
+// eslint-disable-next-line no-console
+console.error = (...args) => {
+  const str = args.join('').replace(/\n/g, '');
+
+  if (
+    ['validateDOMNesting', 'on an unmounted component', 'not wrapped in act'].every(
+      (warn) => !str.includes(warn),
+    )
+  ) {
+    originConsoleErr(...args);
+  }
+};
 
 /* eslint-disable global-require */
 if (typeof window !== 'undefined') {
@@ -17,7 +34,7 @@ if (typeof window !== 'undefined') {
     Object.defineProperty(global.window, 'matchMedia', {
       writable: true,
       configurable: true,
-      value: jest.fn(query => ({
+      value: jest.fn((query) => ({
         matches: query.includes('max-width'),
         addListener: jest.fn(),
         removeListener: jest.fn(),

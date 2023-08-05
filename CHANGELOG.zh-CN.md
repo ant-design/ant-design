@@ -15,6 +15,115 @@ timeline: true
 
 ---
 
+## 4.24.13
+
+`2023-08-03`
+
+- 🐞 修复 Anchor 在滚动时无法触发 `getCurrentAnchor` 的问题。[#43917](https://github.com/ant-design/ant-design/pull/43917)
+- 🛠 Carousel 移除 `lodash` 依赖。[2b43f73](https://github.com/ant-design/ant-design/commit/2b43f73) [@taozhou-glean](https://github.com/taozhou-glean)
+- 🐞 修复 Select 选中时移除图标未对齐错误。[#43667](https://github.com/ant-design/ant-design/pull/43667) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 让用户能够处理 Modal 中 `onOk` 回调中的 Promise 异常。[#43536](https://github.com/ant-design/ant-design/pull/43536) [@maroon1](https://github.com/maroon1)
+- 🐞 修复 ConfigProvider 表单校验信息 `validateMessages` 嵌套使用错误。[#43480](https://github.com/ant-design/ant-design/pull/43480) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 variable.less 没有同步改动 `@checkbox-border-radius` 导致变量表现不一致的问题。[#43356](https://github.com/ant-design/ant-design/pull/43356)
+
+## 4.24.12
+
+`2023-06-30`
+
+- 🐞 修复 Form 在提交时，字段没有配置 `rules` 时仍会错误触发 `onFieldsChange` 事件的问题。[#43292](https://github.com/ant-design/ant-design/pull/43292)
+- 🐞 修复 Form 嵌套 Form.List 嵌套 Form 的场景下，事件触发不正确的问题。[#43292](https://github.com/ant-design/ant-design/pull/43292)
+
+## 4.24.11
+
+`2023-06-27`
+
+- 🆕 Drawer 组件面板支持事件监听。[#42712](https://github.com/ant-design/ant-design/pull/42712) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 修复 Upload 在 React 18 下 `onChange` 有时数据不正确的问题。[#43200](https://github.com/ant-design/ant-design/pull/43200)
+- 🐞 修复 Notification 设置 `closeIcon={null}` 时关闭图标没有消失的问题。[#42791](https://github.com/ant-design/ant-design/pull/42791)
+- 🐞 修复 Drawer `id` 传入位置不正确的问题，现在始终会添加至弹出面板上。[#43124](https://github.com/ant-design/ant-design/pull/43124) [@MuxinFeng](https://github.com/MuxinFeng)
+- 🐞 修复 InputNumber 带有 `prefix` 时在 Form.Item `hasFeedBack` 内高度异常的问题。[#43048](https://github.com/ant-design/ant-design/pull/43048)
+- 🐞 修复 Popover 设置 `getPopupContainer` 后，某些时候宽度会过窄的问题。[#42697](https://github.com/ant-design/ant-design/pull/42697)
+- 🐞 修复 Select 在某些情况下会显示字母 A 的问题。[#42654](https://github.com/ant-design/ant-design/pull/42654) [@tchen-l](https://github.com/tchen-l)
+- 🐞 修复 ConfigProvider 引入 `FormProvider` 时，错误引入 'rc-field-form' 其他的无关依赖的问题。[#42502](https://github.com/ant-design/ant-design/pull/42502) [@BanShan-Alec](https://github.com/BanShan-Alec)
+- 🐞 修复 Popconfirm 的 `onVisibleChange` 会重复触发的问题。[#42351](https://github.com/ant-design/ant-design/pull/42351)
+- 🐞 修复 Form `onFieldsChange` 丢失一次 `validating` 状态变更的更新事件。[#42263](https://github.com/ant-design/ant-design/pull/42263)
+- 🐞 修复 Popover 组件当 `title` 和 `content` 都为空时展示空气泡的问题[19f8505](https://github.com/ant-design/ant-design/commit/19f8505) [@MaHui](https://github.com/MaHui)
+- 🐞 修复 Upload 禁用状态逻辑。[#42143](https://github.com/ant-design/ant-design/pull/42143) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 RangePicker 在某些情况下面板打开未知不正确的问题。[#43179](https://github.com/ant-design/ant-design/pull/43179) [@cooljser](https://github.com/cooljser)
+- 🐞 修复使用 ConfigProvider 会导致未使用的 Form 组件也被打包的问题。[#43207](https://github.com/ant-design/ant-design/pull/43207) [@yoyo837](https://github.com/yoyo837)
+- 💄 优化 Spin 样式，保持容器与子元素图标高度一致。[#42163](https://github.com/ant-design/ant-design/pull/42163) [@cheapCoder](https://github.com/cheapCoder)
+
+## 4.24.10
+
+`2023-05-04`
+
+- 🐞 修复 `version` 总是返回 `5.2.2` 的问题。[#42101](https://github.com/ant-design/ant-design/pull/42101)
+- 🐞 修复 Popover 在屏幕边缘时宽度塌缩的问题。[#41953](https://github.com/ant-design/ant-design/pull/41953)
+
+## 4.24.9
+
+`2023-04-19`
+
+- 🆕 Slider 补充丢失的 `railStyle` 属性用于自定义样式。[#40942](https://github.com/ant-design/ant-design/pull/40942) [@c01nd01r](https://github.com/c01nd01r)
+- 🐞 修复 Select 在搜索时宽度变为 `0px` 的问题。[#41646](https://github.com/ant-design/ant-design/pull/41646)
+- 🐞 删除 `multiple` 不能使用 displayRender 提示。[#40940](https://github.com/ant-design/ant-design/pull/40940) [@crazyair](https://github.com/crazyair)
+- 💄 Checkbox 默认使用 `@border-radius-sm` 小号圆角。[#40823](https://github.com/ant-design/ant-design/pull/40823)
+- 🐞 修复 TextArea 在聚焦时丢失高亮样式的问题。[#41281](https://github.com/ant-design/ant-design/pull/41281) [@MuxinFeng](https://github.com/MuxinFeng)
+- 🛠 调整 Checkbox 行为，现在未勾选时不再会添加 `checked` 属性。[#41888](https://github.com/ant-design/ant-design/pull/41888)
+- TypeScript
+  - 🤖 调整 Cascader 的 CascaderProps 定义，为泛型提供默认值。[#40960](https://github.com/ant-design/ant-design/pull/40960) [@crazyair](https://github.com/crazyair)
+
+## 4.24.8
+
+`2023-02-13`
+
+- 🐞 修复 Tabs 组件某些情况下报错的问题。[df09516](https://github.com/ant-design/ant-design/commit/df09516ee542159eb3fa40927eec8981d4581bd0)
+- 🌐 补全 `pt_BR` 国际化。[#40019](https://github.com/ant-design/ant-design/pull/40019) [@rafaelncarvalho](https://github.com/rafaelncarvalho)
+- TypeScript
+  - 🤖 修复部分组件 `CompoundedComponent` 类型报错。[#39058](https://github.com/ant-design/ant-design/pull/39058) [@wangcch](https://github.com/wangcch)
+
+## 4.24.7
+
+`2022-12-30`
+
+- 🐞 修复 Tabs 组件滑块不能自动适应宽度的问题。[#39867](https://github.com/ant-design/ant-design/pull/39867)
+- 🐞 修复 Input 在 Safari 下使用 `suffix` 时文字内容丢失的问题。[#39830](https://github.com/ant-design/ant-design/pull/39830) [@ifujustayup](https://github.com/ifujustayup)
+
+## 4.24.6
+
+`2022-12-26`
+
+- 🆕 Dropdown 组件支持 `autoAdjustOverflow` 属性。 (#39741)[62cefca](https://github.com/ant-design/ant-design/commit/62cefca)
+- 🐞 修复 Row 组件 `justify` 和 `align` 属性，动态改变不生效的问题。[#39706](https://github.com/ant-design/ant-design/pull/39706) [@candy4290](https://github.com/candy4290)
+- 🐞 修复 Drawer 组件 `open` 为 false 时无法关闭的问题。[#39561](https://github.com/ant-design/ant-design/pull/39561)
+- 🐞 修复 Divider `horizontal` 在 flex 布局下的对齐问题。[#39334](https://github.com/ant-design/ant-design/pull/39334)
+- 💄 修复 `Dropdown` 组件 `danger` 和 `disabled` 属性同时使用样式问题。[#39434](https://github.com/ant-design/ant-design/pull/39434) [@Wxh16144](https://github.com/Wxh16144)
+- ⌨️ 重置 Table 中列的 aria-label 属性值。[#39747](https://github.com/ant-design/ant-design/pull/39747) [@kiner-tang](https://github.com/kiner-tang)
+- 🌐 国际化
+  - 🇺🇿 支持 uz_UZ 语言。[#39353](https://github.com/ant-design/ant-design/pull/39353) [@nodkz](https://github.com/nodkz)
+
+## 4.24.5
+
+`2022-12-05`
+
+- 🐞 修复 Menu.Item 配置 `disabled` 属性时其中的 a 标签仍可以点击的问题。[aa8d7f5](https://github.com/ant-design/ant-design/commit/aa8d7f5) [@二货机器人](https://github.com/二货机器人)
+- 💄 优化 Popconfirm 内容换行时的图标位置。[#39027](https://github.com/ant-design/ant-design/pull/39027) [@justanotheranonymoususer](https://github.com/justanotheranonymoususer)
+- 🐞 修复 Badge `count` 为 `0` 时无法自定义颜色问题。[#39062](https://github.com/ant-design/ant-design/pull/39062) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 Card.Meta 宽度没有默认填满容器的问题。[#39039](https://github.com/ant-design/ant-design/pull/39039) [@justanotheranonymoususer](https://github.com/justanotheranonymoususer)
+- 🐞 解决当 TimePicker 传递 `popupClassName` 属性会显示异常警告的问题。[#39010](https://github.com/ant-design/ant-design/pull/39010) [@kiner-tang](https://github.com/kiner-tang)
+- 💄 修复 Steps `size="small"` 第一项带有进度时，进度条显示不全的问题。[#39103](https://github.com/ant-design/ant-design/pull/39103) [@Wxh16144](https://github.com/Wxh16144)
+
+## 4.24.4
+
+`2022-11-25`
+
+- Space.Compact
+  - 💄 优化 Space.Compact 包裹单个子组件时子组件的样式。[#38913](https://github.com/ant-design/ant-design/pull/38913) [@foryuki](https://github.com/foryuki)
+  - 💄 优化 Space.Compact 组件嵌套 Modal，Dropdown，Drawer 等组件时的样式。[#38887](https://github.com/ant-design/ant-design/pull/38887) [@foryuki](https://github.com/foryuki)
+- 🆕 Mentions 支持 `options` 数据驱动。[#38876](https://github.com/ant-design/ant-design/pull/38876) [@heiyu4585](https://github.com/heiyu4585)
+- 🐞 修复 ConfigProvider 组件 `componentDisabled` 失效问题。[#38886](https://github.com/ant-design/ant-design/pull/38886) [@lidianhao123](https://github.com/lidianhao123)
+- 🐞 修复 Message 组件 `duration` 为 `0` 时手动关闭不触发 `onClose` 的问题。[#38669](https://github.com/ant-design/ant-design/pull/38669) [@kiner-tang](https://github.com/kiner-tang)
+
 ## 4.24.3
 
 `2022-11-17`

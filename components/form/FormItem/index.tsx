@@ -83,6 +83,7 @@ function genEmptyMeta(): Meta {
     warnings: [],
     touched: false,
     validating: false,
+    validated: false,
     name: [],
   };
 }
@@ -158,7 +159,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   // >>>>> Collect noStyle Field error to the top FormItem
   const onSubItemMetaChange = (subMeta: Meta & { destroy: boolean }, uniqueKeys: React.Key[]) => {
     // Only `noStyle` sub item will trigger
-    setSubFieldErrors(prevSubFieldErrors => {
+    setSubFieldErrors((prevSubFieldErrors) => {
       const clone = {
         ...prevSubFieldErrors,
       };
@@ -184,7 +185,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     const errorList: string[] = [...meta.errors];
     const warningList: string[] = [...meta.warnings];
 
-    Object.values(subFieldErrors).forEach(subFieldError => {
+    Object.values(subFieldErrors).forEach((subFieldError) => {
       errorList.push(...(subFieldError.errors || []));
       warningList.push(...(subFieldError.warnings || []));
     });
@@ -254,7 +255,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
             ? required
             : !!(
                 rules &&
-                rules.some(rule => {
+                rules.some((rule) => {
                   if (rule && typeof rule === 'object' && rule.required && !rule.warningOnly) {
                     return true;
                   }
@@ -294,7 +295,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           warning(
             !hasName,
             'Form.Item',
-            "A `Form.Item` with a render function cannot be a field, and thus cannot have a `name` prop.",
+            'A `Form.Item` with a render function cannot be a field, and thus cannot have a `name` prop.',
           );
         } else if (dependencies && !isRenderProps && !hasName) {
           warning(
@@ -343,7 +344,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
             ...toArray(mergedValidateTrigger),
           ]);
 
-          triggers.forEach(eventName => {
+          triggers.forEach((eventName) => {
             childProps[eventName] = (...args: any[]) => {
               mergedControl[eventName]?.(...args);
               children.props[eventName]?.(...args);
@@ -385,11 +386,11 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
 
 type InternalFormItemType = typeof InternalFormItem;
 
-interface FormItemInterface extends InternalFormItemType {
+type CompoundedComponent = InternalFormItemType & {
   useStatus: typeof useFormItemStatus;
-}
+};
 
-const FormItem = InternalFormItem as FormItemInterface;
+const FormItem = InternalFormItem as CompoundedComponent;
 FormItem.useStatus = useFormItemStatus;
 
 export default FormItem;

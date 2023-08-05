@@ -105,9 +105,7 @@ describe('Table.sorter', () => {
 
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
-    expect(getNameColumn()?.getAttribute('aria-label')).toEqual(
-      "this column's title is Name,this column is sortable",
-    );
+    expect(getNameColumn()?.getAttribute('aria-label')).toEqual('Name');
   });
 
   it('sort records', () => {

@@ -1,3 +1,6 @@
+const chineseMirror =
+  typeof location !== 'undefined' && location.hostname.includes('.antgroup.com');
+
 module.exports = {
   categoryOrder: {
     'Ant Design': 0,
@@ -50,5 +53,8 @@ module.exports = {
     '0.11.x': 'http://011x.ant.design',
     '0.10.x': 'http://010x.ant.design',
     '0.9.x': 'http://09x.ant.design',
+  },
+  docNewVersions: {
+    '5.x': chineseMirror ? 'https://ant-design.antgroup.com' : 'https://ant.design',
   },
 };

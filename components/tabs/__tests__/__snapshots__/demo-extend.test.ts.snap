@@ -61,6 +61,7 @@ Array [
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-selected="true"
@@ -73,6 +74,7 @@ Array [
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="2"
           >
             <div
               aria-selected="false"
@@ -85,6 +87,7 @@ Array [
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="3"
           >
             <div
               aria-selected="false"
@@ -193,6 +196,7 @@ exports[`renders ./components/tabs/demo/basic.md extend context correctly 1`] = 
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="1"
         >
           <div
             aria-selected="true"
@@ -205,6 +209,7 @@ exports[`renders ./components/tabs/demo/basic.md extend context correctly 1`] = 
         </div>
         <div
           class="ant-tabs-tab"
+          data-node-key="2"
         >
           <div
             aria-selected="false"
@@ -217,6 +222,7 @@ exports[`renders ./components/tabs/demo/basic.md extend context correctly 1`] = 
         </div>
         <div
           class="ant-tabs-tab"
+          data-node-key="3"
         >
           <div
             aria-selected="false"
@@ -323,6 +329,7 @@ exports[`renders ./components/tabs/demo/card.md extend context correctly 1`] = `
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="1"
         >
           <div
             aria-selected="true"
@@ -335,6 +342,7 @@ exports[`renders ./components/tabs/demo/card.md extend context correctly 1`] = `
         </div>
         <div
           class="ant-tabs-tab"
+          data-node-key="2"
         >
           <div
             aria-selected="false"
@@ -347,6 +355,7 @@ exports[`renders ./components/tabs/demo/card.md extend context correctly 1`] = `
         </div>
         <div
           class="ant-tabs-tab"
+          data-node-key="3"
         >
           <div
             aria-selected="false"
@@ -456,6 +465,7 @@ exports[`renders ./components/tabs/demo/card-top.md extend context correctly 1`]
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-selected="true"
@@ -468,6 +478,7 @@ exports[`renders ./components/tabs/demo/card-top.md extend context correctly 1`]
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="2"
           >
             <div
               aria-selected="false"
@@ -480,6 +491,7 @@ exports[`renders ./components/tabs/demo/card-top.md extend context correctly 1`]
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="3"
           >
             <div
               aria-selected="false"
@@ -601,6 +613,7 @@ exports[`renders ./components/tabs/demo/centered.md extend context correctly 1`]
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="1"
         >
           <div
             aria-selected="true"
@@ -613,6 +626,7 @@ exports[`renders ./components/tabs/demo/centered.md extend context correctly 1`]
         </div>
         <div
           class="ant-tabs-tab"
+          data-node-key="2"
         >
           <div
             aria-selected="false"
@@ -625,6 +639,7 @@ exports[`renders ./components/tabs/demo/centered.md extend context correctly 1`]
         </div>
         <div
           class="ant-tabs-tab"
+          data-node-key="3"
         >
           <div
             aria-selected="false"
@@ -744,6 +759,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md extend context cor
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-with-remove ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-selected="true"
@@ -768,13 +784,14 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md extend context cor
                   aria-hidden="true"
                   data-icon="close"
                   fill="currentColor"
+                  fill-rule="evenodd"
                   focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
                   />
                 </svg>
               </span>
@@ -782,6 +799,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md extend context cor
           </div>
           <div
             class="ant-tabs-tab ant-tabs-tab-with-remove"
+            data-node-key="2"
           >
             <div
               aria-selected="false"
@@ -806,13 +824,14 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md extend context cor
                   aria-hidden="true"
                   data-icon="close"
                   fill="currentColor"
+                  fill-rule="evenodd"
                   focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
                   />
                 </svg>
               </span>
@@ -918,6 +937,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md extend context correct
           >
             <div
               class="ant-tabs-tab ant-tabs-tab-active"
+              data-node-key="1"
             >
               <div
                 aria-selected="true"
@@ -930,6 +950,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md extend context correct
             </div>
             <div
               class="ant-tabs-tab"
+              data-node-key="2"
             >
               <div
                 aria-selected="false"
@@ -942,6 +963,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md extend context correct
             </div>
             <div
               class="ant-tabs-tab"
+              data-node-key="3"
             >
               <div
                 aria-selected="false"
@@ -1055,6 +1077,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md extend context co
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-selected="true"
@@ -1072,6 +1095,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md extend context co
         >
           <div
             class="ant-tabs-tab"
+            data-node-key="2"
           >
             <div
               aria-selected="false"
@@ -1089,6 +1113,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md extend context co
         >
           <div
             class="ant-tabs-tab"
+            data-node-key="3"
           >
             <div
               aria-selected="false"
@@ -1196,6 +1221,7 @@ exports[`renders ./components/tabs/demo/deprecated.md extend context correctly 1
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="1"
         >
           <div
             aria-selected="true"
@@ -1208,6 +1234,7 @@ exports[`renders ./components/tabs/demo/deprecated.md extend context correctly 1
         </div>
         <div
           class="ant-tabs-tab"
+          data-node-key="2"
         >
           <div
             aria-selected="false"
@@ -1220,6 +1247,7 @@ exports[`renders ./components/tabs/demo/deprecated.md extend context correctly 1
         </div>
         <div
           class="ant-tabs-tab"
+          data-node-key="3"
         >
           <div
             aria-selected="false"
@@ -1326,6 +1354,7 @@ exports[`renders ./components/tabs/demo/disabled.md extend context correctly 1`]
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="1"
         >
           <div
             aria-selected="true"
@@ -1338,6 +1367,7 @@ exports[`renders ./components/tabs/demo/disabled.md extend context correctly 1`]
         </div>
         <div
           class="ant-tabs-tab ant-tabs-tab-disabled"
+          data-node-key="2"
         >
           <div
             aria-disabled="true"
@@ -1350,6 +1380,7 @@ exports[`renders ./components/tabs/demo/disabled.md extend context correctly 1`]
         </div>
         <div
           class="ant-tabs-tab"
+          data-node-key="3"
         >
           <div
             aria-selected="false"
@@ -1456,6 +1487,7 @@ exports[`renders ./components/tabs/demo/editable-card.md extend context correctl
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-with-remove ant-tabs-tab-active"
+          data-node-key="1"
         >
           <div
             aria-selected="true"
@@ -1480,13 +1512,14 @@ exports[`renders ./components/tabs/demo/editable-card.md extend context correctl
                 aria-hidden="true"
                 data-icon="close"
                 fill="currentColor"
+                fill-rule="evenodd"
                 focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
                 />
               </svg>
             </span>
@@ -1494,6 +1527,7 @@ exports[`renders ./components/tabs/demo/editable-card.md extend context correctl
         </div>
         <div
           class="ant-tabs-tab ant-tabs-tab-with-remove"
+          data-node-key="2"
         >
           <div
             aria-selected="false"
@@ -1518,13 +1552,14 @@ exports[`renders ./components/tabs/demo/editable-card.md extend context correctl
                 aria-hidden="true"
                 data-icon="close"
                 fill="currentColor"
+                fill-rule="evenodd"
                 focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
                 />
               </svg>
             </span>
@@ -1532,6 +1567,7 @@ exports[`renders ./components/tabs/demo/editable-card.md extend context correctl
         </div>
         <div
           class="ant-tabs-tab"
+          data-node-key="3"
         >
           <div
             aria-selected="false"
@@ -1701,6 +1737,7 @@ Array [
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-selected="true"
@@ -1713,6 +1750,7 @@ Array [
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="2"
           >
             <div
               aria-selected="false"
@@ -1725,6 +1763,7 @@ Array [
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="3"
           >
             <div
               aria-selected="false"
@@ -1908,6 +1947,7 @@ Array [
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-selected="true"
@@ -1920,6 +1960,7 @@ Array [
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="2"
           >
             <div
               aria-selected="false"
@@ -1932,6 +1973,7 @@ Array [
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="3"
           >
             <div
               aria-selected="false"
@@ -2051,6 +2093,7 @@ exports[`renders ./components/tabs/demo/icon.md extend context correctly 1`] = `
       >
         <div
           class="ant-tabs-tab"
+          data-node-key="1"
         >
           <div
             aria-selected="false"
@@ -2086,6 +2129,7 @@ exports[`renders ./components/tabs/demo/icon.md extend context correctly 1`] = `
         </div>
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="2"
         >
           <div
             aria-selected="true"
@@ -2878,6 +2922,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-selected="true"
@@ -2890,6 +2935,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="2"
           >
             <div
               aria-selected="false"
@@ -2989,6 +3035,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                 >
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="0"
                   >
                     <div
                       aria-selected="false"
@@ -3001,6 +3048,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab ant-tabs-tab-active"
+                    data-node-key="1"
                   >
                     <div
                       aria-selected="true"
@@ -3013,6 +3061,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="2"
                   >
                     <div
                       aria-selected="false"
@@ -3025,6 +3074,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="3"
                   >
                     <div
                       aria-selected="false"
@@ -3037,6 +3087,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="4"
                   >
                     <div
                       aria-selected="false"
@@ -3049,6 +3100,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="5"
                   >
                     <div
                       aria-selected="false"
@@ -3061,6 +3113,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="6"
                   >
                     <div
                       aria-selected="false"
@@ -3073,6 +3126,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="7"
                   >
                     <div
                       aria-selected="false"
@@ -3085,6 +3139,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="8"
                   >
                     <div
                       aria-selected="false"
@@ -3097,6 +3152,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="9"
                   >
                     <div
                       aria-selected="false"
@@ -3109,6 +3165,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="10"
                   >
                     <div
                       aria-selected="false"
@@ -3121,6 +3178,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="11"
                   >
                     <div
                       aria-selected="false"
@@ -3133,6 +3191,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="12"
                   >
                     <div
                       aria-selected="false"
@@ -3145,6 +3204,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="13"
                   >
                     <div
                       aria-selected="false"
@@ -3157,6 +3217,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="14"
                   >
                     <div
                       aria-selected="false"
@@ -3169,6 +3230,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="15"
                   >
                     <div
                       aria-selected="false"
@@ -3181,6 +3243,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="16"
                   >
                     <div
                       aria-selected="false"
@@ -3193,6 +3256,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="17"
                   >
                     <div
                       aria-selected="false"
@@ -3205,6 +3269,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="18"
                   >
                     <div
                       aria-selected="false"
@@ -3217,6 +3282,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="19"
                   >
                     <div
                       aria-selected="false"
@@ -3425,6 +3491,7 @@ Array [
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-selected="true"
@@ -3437,6 +3504,7 @@ Array [
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="2"
           >
             <div
               aria-selected="false"
@@ -3449,6 +3517,7 @@ Array [
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="3"
           >
             <div
               aria-selected="false"
@@ -3621,6 +3690,7 @@ exports[`renders ./components/tabs/demo/size.md extend context correctly 1`] = `
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-selected="true"
@@ -3633,6 +3703,7 @@ exports[`renders ./components/tabs/demo/size.md extend context correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="2"
           >
             <div
               aria-selected="false"
@@ -3645,6 +3716,7 @@ exports[`renders ./components/tabs/demo/size.md extend context correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="3"
           >
             <div
               aria-selected="false"
@@ -3748,6 +3820,7 @@ exports[`renders ./components/tabs/demo/size.md extend context correctly 1`] = `
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-selected="true"
@@ -3760,6 +3833,7 @@ exports[`renders ./components/tabs/demo/size.md extend context correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="2"
           >
             <div
               aria-selected="false"
@@ -3772,6 +3846,7 @@ exports[`renders ./components/tabs/demo/size.md extend context correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="3"
           >
             <div
               aria-selected="false"
@@ -3925,6 +4000,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
         >
           <div
             class="ant-tabs-tab"
+            data-node-key="0"
           >
             <div
               aria-disabled="false"
@@ -3938,6 +4014,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-disabled="false"
@@ -3951,6 +4028,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="2"
           >
             <div
               aria-disabled="false"
@@ -3964,6 +4042,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="3"
           >
             <div
               aria-disabled="false"
@@ -3977,6 +4056,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="4"
           >
             <div
               aria-disabled="false"
@@ -3990,6 +4070,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="5"
           >
             <div
               aria-disabled="false"
@@ -4003,6 +4084,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="6"
           >
             <div
               aria-disabled="false"
@@ -4016,6 +4098,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="7"
           >
             <div
               aria-disabled="false"
@@ -4029,6 +4112,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="8"
           >
             <div
               aria-disabled="false"
@@ -4042,6 +4126,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="9"
           >
             <div
               aria-disabled="false"
@@ -4055,6 +4140,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="10"
           >
             <div
               aria-disabled="false"
@@ -4068,6 +4154,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="11"
           >
             <div
               aria-disabled="false"
@@ -4081,6 +4168,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="12"
           >
             <div
               aria-disabled="false"
@@ -4094,6 +4182,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="13"
           >
             <div
               aria-disabled="false"
@@ -4107,6 +4196,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="14"
           >
             <div
               aria-disabled="false"
@@ -4120,6 +4210,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="15"
           >
             <div
               aria-disabled="false"
@@ -4133,6 +4224,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="16"
           >
             <div
               aria-disabled="false"
@@ -4146,6 +4238,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="17"
           >
             <div
               aria-disabled="false"
@@ -4159,6 +4252,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="18"
           >
             <div
               aria-disabled="false"
@@ -4172,6 +4266,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="19"
           >
             <div
               aria-disabled="false"
@@ -4185,6 +4280,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="20"
           >
             <div
               aria-disabled="false"
@@ -4198,6 +4294,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="21"
           >
             <div
               aria-disabled="false"
@@ -4211,6 +4308,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="22"
           >
             <div
               aria-disabled="false"
@@ -4224,6 +4322,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="23"
           >
             <div
               aria-disabled="false"
@@ -4237,6 +4336,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="24"
           >
             <div
               aria-disabled="false"
@@ -4250,6 +4350,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="25"
           >
             <div
               aria-disabled="false"
@@ -4263,6 +4364,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="26"
           >
             <div
               aria-disabled="false"
@@ -4276,6 +4378,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="27"
           >
             <div
               aria-disabled="false"
@@ -4289,6 +4392,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab ant-tabs-tab-disabled"
+            data-node-key="28"
           >
             <div
               aria-disabled="true"
@@ -4301,6 +4405,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="29"
           >
             <div
               aria-disabled="false"

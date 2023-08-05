@@ -272,6 +272,30 @@ describe('notification', () => {
     expect(document.querySelectorAll('.test-customize-icon').length).toBe(1);
   });
 
+  it('support closeIcon to be null', () => {
+    act(() => {
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        closeIcon: null,
+      });
+    });
+
+    expect(document.querySelectorAll('.test-customize-icon').length).toBe(0);
+  });
+
+  it('support closeIcon to be false', () => {
+    act(() => {
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        closeIcon: false,
+      });
+    });
+
+    expect(document.querySelectorAll('.test-customize-icon').length).toBe(0);
+  });
+
   it('support config closeIcon', () => {
     notification.config({
       closeIcon: <span className="test-customize-icon" />,

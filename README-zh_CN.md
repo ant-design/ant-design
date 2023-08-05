@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://ant.design">
+  <a href="https://4x.ant.design">
     <img width="200" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
   </a>
 </p>
@@ -45,7 +45,7 @@
 
 </div>
 
-[![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Ey3wTo-5__QAAAAAAAAAAABkARQnAQ)](https://ant.design/index-cn)
+[![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Ey3wTo-5__QAAAAAAAAAAABkARQnAQ)](https://4x.ant.design/index-cn)
 
 [English](./README.md) | [Português](./README-pt_BR.md) | 简体中文 | [Українською](./README-uk_UA.md) | [Spanish](./README-sp_MX.md) | [日本語](./README-ja_JP.md)
 
@@ -60,7 +60,7 @@
 
 ## 🖥 兼容环境
 
-- 现代浏览器和 IE11（需要 [polyfills](https://ant.design/docs/react/getting-started-cn#兼容性)）。
+- 现代浏览器和 IE11（需要 [polyfills](https://4x.ant.design/docs/react/getting-started-cn#兼容性)）。
 - 支持服务端渲染。
 - [Electron](https://www.electronjs.org/)
 
@@ -99,22 +99,22 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 ### 🌈 定制主题
 
-参考 [定制主题](https://ant.design/docs/react/customize-theme-cn) 文档。
+参考 [定制主题](https://4x.ant.design/docs/react/customize-theme-cn) 文档。
 
 ### 🛡 TypeScript
 
-参考 [在 TypeScript 中使用](https://ant.design/docs/react/use-in-typescript-cn)。
+参考 [在 TypeScript 中使用](https://4x.ant.design/docs/react/use-in-typescript-cn)。
 
 ## 🌍 国际化
 
-参考 [国际化文档](https://ant.design/docs/react/i18n-cn)。
+参考 [国际化文档](https://4x.ant.design/docs/react/i18n-cn)。
 
 ## 🔗 链接
 
-- [首页](https://ant.design/)
-- [所有组件](https://ant.design/components/overview-cn)
+- [首页](https://4x.ant.design/)
+- [所有组件](https://4x.ant.design/components/overview-cn)
 - [Ant Design Pro](http://pro.ant.design/)
-- [更新日志](CHANGELOG.en-US.md)
+- [更新日志](CHANGELOG.zh-CN.md)
 - [React 底层基础组件](http://react-component.github.io/)
 - [移动端组件](http://mobile.ant.design)
 - [页面级组件](https://procomponents.ant.design)
@@ -127,10 +127,10 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 - [设计规范速查手册](https://github.com/ant-design/ant-design/wiki/Ant-Design-%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%E7%AE%80%E7%89%88)
 - [开发者说明](https://github.com/ant-design/ant-design/wiki/Development)
 - [版本发布规则](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
-- [常见问题](https://ant.design/docs/react/faq-cn)
-- [CodeSandbox 模板](https://u.ant.design/codesandbox-repro) for bug reports
-- [定制主题](https://ant.design/docs/react/customize-theme-cn)
-- [国际化](https://ant.design/docs/react/i18n-cn)
+- [常见问题](https://4x.ant.design/docs/react/faq-cn)
+- [CodeSandbox 模板](https://u.ant.design/codesandbox-repro-4x) for bug reports
+- [定制主题](https://4x.ant.design/docs/react/customize-theme-cn)
+- [国际化](https://4x.ant.design/docs/react/i18n-cn)
 - [成为社区协作成员](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
 ## ⌨️ 本地开发
