@@ -221,7 +221,7 @@
     "esbuild-loader": "^3.0.0",
     "eslint": "^8.40.0",
     "eslint-config-airbnb": "^19.0.0",
-    "eslint-config-prettier": "^8.0.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-compat": "^4.1.1",
     "eslint-plugin-import": "^2.28.0",
