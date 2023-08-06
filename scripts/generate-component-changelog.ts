@@ -8,9 +8,9 @@ const output = '.dumi/preset';
 
 // Collect components
 const componentNames = globSync(
-  path.join(process.cwd(), 'components/!(version|icon|col|row)/index.zh-CN.md'),
+  path.join(process.cwd(), 'components/!(version|icon|col|row)/index.zh-CN.md').split(path.sep).join('/'),
 )
-  .map((filePath) => filePath.match(/components\/([^/]*)\//)![1])
+  .map((filePath) => filePath.replace(/\\/g, '/').match(/components\/([^/]*)\//)![1])
   .filter((name) => name !== 'overview');
 
 const camelComponentNames = componentNames.map((componentName) =>
