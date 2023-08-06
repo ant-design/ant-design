@@ -25,3 +25,35 @@ exports[`Upload rtl render component should be rendered correctly in RTL directi
   />
 </span>
 `;
+
+exports[`Upload should support rootClassName 1`] = `
+<div>
+  <span
+    class="ant-upload-wrapper custom-class-name"
+  >
+    <div
+      class="ant-upload ant-upload-select"
+    >
+      <span
+        class="ant-upload"
+        role="button"
+        tabindex="0"
+      >
+        <input
+          accept=""
+          style="display: none;"
+          type="file"
+        />
+        <button
+          type="button"
+        >
+          upload
+        </button>
+      </span>
+    </div>
+    <div
+      class="ant-upload-list ant-upload-list-text"
+    />
+  </span>
+</div>
+`;
