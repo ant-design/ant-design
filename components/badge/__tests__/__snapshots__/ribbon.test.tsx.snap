@@ -16,3 +16,27 @@ exports[`Ribbon rtl render component should be rendered correctly in RTL directi
   </div>
 </div>
 `;
+
+exports[`Ribbon text support rootClassName 1`] = `
+<div>
+  <div
+    class="ant-ribbon-wrapper custom-root-class"
+  >
+    <div />
+    <div
+      class="ant-ribbon ant-ribbon-placement-end"
+    >
+      <span
+        class="ant-ribbon-text"
+      >
+        <span
+          class="cool"
+        />
+      </span>
+      <div
+        class="ant-ribbon-corner"
+      />
+    </div>
+  </div>
+</div>
+`;
