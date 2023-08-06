@@ -52,7 +52,11 @@ export const getComputedToken = (
 };
 
 // ================================== Hook ==================================
-export default function useToken(): [Theme<SeedToken, MapToken>, GlobalToken, string] {
+export default function useToken(): [
+  theme: Theme<SeedToken, MapToken>,
+  token: GlobalToken,
+  hashId: string,
+] {
   const {
     token: rootDesignToken,
     hashed,

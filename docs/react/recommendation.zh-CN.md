@@ -1,5 +1,8 @@
 ---
-order: 9
+group:
+  title: 其他
+  order: 3
+order: 0
 title: 社区精选组件
 ---
 

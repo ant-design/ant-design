@@ -18,7 +18,12 @@ import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
-import { getRangePlaceholder, getTimeProps, transPlacement2DropdownAlign } from '../util';
+import {
+  getRangePlaceholder,
+  getTimeProps,
+  mergeAllowClear,
+  transPlacement2DropdownAlign,
+} from '../util';
 import Components from './Components';
 import type { CommonPickerMethods, PickerComponentClass } from './interface';
 
@@ -50,6 +55,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
       dropdownClassName,
       status: customStatus,
       clearIcon,
+      allowClear,
       ...restProps
     } = props;
 
@@ -141,7 +147,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
         components={Components}
         direction={direction}
         dropdownClassName={classNames(hashId, popupClassName || dropdownClassName)}
-        allowClear={{ clearIcon: clearIcon ?? <CloseCircleFilled /> }}
+        allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
       />,
     );
   });

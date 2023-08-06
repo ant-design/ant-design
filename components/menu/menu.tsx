@@ -7,7 +7,7 @@ import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import { forwardRef } from 'react';
 import initCollapseMotion from '../_util/motion';
-import { cloneElement } from '../_util/reactNode';
+import { cloneElement, isValidElement } from '../_util/reactNode';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { SiderContextProps } from '../layout/Sider';
@@ -123,13 +123,16 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   const menuClassName = classNames(`${prefixCls}-${theme}`, menu?.className, className);
 
   // ====================== Expand Icon ========================
-  let mergedExpandIcon: MenuProps[`expandIcon`];
+  let mergedExpandIcon: MenuProps['expandIcon'];
   if (typeof expandIcon === 'function') {
     mergedExpandIcon = expandIcon;
   } else {
-    const beClone: any = expandIcon || overrideObj.expandIcon;
+    const beClone: React.ReactNode = expandIcon || overrideObj.expandIcon;
     mergedExpandIcon = cloneElement(beClone, {
-      className: classNames(`${prefixCls}-submenu-expand-icon`, beClone?.props?.className),
+      className: classNames(
+        `${prefixCls}-submenu-expand-icon`,
+        isValidElement(beClone) ? beClone.props?.className : '',
+      ),
     });
   }
 

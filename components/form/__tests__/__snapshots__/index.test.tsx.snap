@@ -131,7 +131,7 @@ exports[`Form form should support disabled 1`] = `
               class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item"
             >
               <span
-                class="ant-checkbox ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
               >
                 <input
                   class="ant-checkbox-input"
@@ -184,7 +184,7 @@ exports[`Form form should support disabled 1`] = `
                 class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item"
               >
                 <span
-                  class="ant-radio ant-radio-disabled"
+                  class="ant-radio ant-wave-target ant-radio-disabled"
                 >
                   <input
                     class="ant-radio-input"
@@ -204,7 +204,7 @@ exports[`Form form should support disabled 1`] = `
                 class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item"
               >
                 <span
-                  class="ant-radio ant-radio-disabled"
+                  class="ant-radio ant-wave-target ant-radio-disabled"
                 >
                   <input
                     class="ant-radio-input"

@@ -2786,7 +2786,7 @@ Array [
                           class="ant-checkbox-wrapper"
                         >
                           <span
-                            class="ant-checkbox"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               aria-label="Select all"
@@ -2997,7 +2997,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -3101,7 +3101,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -3205,7 +3205,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -3309,7 +3309,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -3413,7 +3413,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -3517,7 +3517,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -3621,7 +3621,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -3725,7 +3725,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -3829,7 +3829,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -3933,7 +3933,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -14646,7 +14646,7 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             aria-label="Select all"
@@ -14702,7 +14702,7 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -14751,7 +14751,7 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -14800,7 +14800,7 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -14849,7 +14849,7 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -14967,7 +14967,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
         class="ant-radio-wrapper ant-radio-wrapper-checked"
       >
         <span
-          class="ant-radio ant-radio-checked"
+          class="ant-radio ant-wave-target ant-radio-checked"
         >
           <input
             checked=""
@@ -14987,7 +14987,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
         class="ant-radio-wrapper"
       >
         <span
-          class="ant-radio"
+          class="ant-radio ant-wave-target"
         >
           <input
             class="ant-radio-input"
@@ -15006,7 +15006,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
         class="ant-radio-wrapper"
       >
         <span
-          class="ant-radio"
+          class="ant-radio ant-wave-target"
         >
           <input
             class="ant-radio-input"
@@ -15025,7 +15025,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
         class="ant-radio-wrapper"
       >
         <span
-          class="ant-radio"
+          class="ant-radio ant-wave-target"
         >
           <input
             class="ant-radio-input"
@@ -15050,7 +15050,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -15069,7 +15069,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -15088,7 +15088,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
@@ -15108,7 +15108,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -16531,7 +16531,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
@@ -16551,7 +16551,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -16612,7 +16612,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                           class="ant-checkbox-wrapper"
                         >
                           <span
-                            class="ant-checkbox"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               aria-label="Select all"
@@ -16660,7 +16660,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -16702,7 +16702,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -16744,7 +16744,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -16786,7 +16786,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                         class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
                       >
                         <span
-                          class="ant-checkbox ant-checkbox-disabled"
+                          class="ant-checkbox ant-wave-target ant-checkbox-disabled"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -16967,7 +16967,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           class="ant-checkbox-wrapper"
                         >
                           <span
-                            class="ant-checkbox"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               aria-label="Select all"
@@ -17015,7 +17015,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -17054,7 +17054,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -17093,7 +17093,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -17132,7 +17132,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -17171,7 +17171,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -17210,7 +17210,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -17249,7 +17249,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -17288,7 +17288,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -17327,7 +17327,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -17366,7 +17366,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -17570,7 +17570,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             aria-label="Custom selection"
@@ -17645,7 +17645,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -17684,7 +17684,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -17723,7 +17723,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -17762,7 +17762,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -17801,7 +17801,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -17840,7 +17840,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -17879,7 +17879,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -17918,7 +17918,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -17957,7 +17957,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -17996,7 +17996,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -18199,7 +18199,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             aria-label="Select all"
@@ -18239,7 +18239,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -18282,7 +18282,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -18325,7 +18325,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -18368,7 +18368,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -18411,7 +18411,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -18689,7 +18689,7 @@ Array [
                           class="ant-checkbox-wrapper"
                         >
                           <span
-                            class="ant-checkbox"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               aria-label="Select all"
@@ -18737,7 +18737,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -18779,7 +18779,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -18821,7 +18821,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -18863,7 +18863,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -18905,7 +18905,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -18947,7 +18947,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -18989,7 +18989,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19031,7 +19031,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19073,7 +19073,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19115,7 +19115,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19157,7 +19157,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19199,7 +19199,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19241,7 +19241,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19283,7 +19283,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19325,7 +19325,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19367,7 +19367,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19409,7 +19409,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19451,7 +19451,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19493,7 +19493,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19535,7 +19535,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19577,7 +19577,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19619,7 +19619,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19661,7 +19661,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19703,7 +19703,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19745,7 +19745,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19787,7 +19787,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19829,7 +19829,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19871,7 +19871,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19913,7 +19913,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19955,7 +19955,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19997,7 +19997,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -20039,7 +20039,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -20081,7 +20081,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -20123,7 +20123,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -20165,7 +20165,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -20207,7 +20207,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -20249,7 +20249,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -20291,7 +20291,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -20333,7 +20333,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -20375,7 +20375,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -20417,7 +20417,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -20459,7 +20459,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -20501,7 +20501,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -20543,7 +20543,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -20585,7 +20585,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -20627,7 +20627,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -20669,7 +20669,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -20711,7 +20711,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -20753,7 +20753,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -20795,7 +20795,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -20879,7 +20879,7 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             aria-label="Custom selection"
@@ -20954,7 +20954,7 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -20993,7 +20993,7 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -21032,7 +21032,7 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
                       class="ant-checkbox-wrapper"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -23466,7 +23466,7 @@ Array [
                           class="ant-checkbox-wrapper"
                         >
                           <span
-                            class="ant-checkbox"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               aria-label="Select all"
@@ -23514,7 +23514,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -23563,7 +23563,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -23777,7 +23777,7 @@ Array [
                           class="ant-checkbox-wrapper"
                         >
                           <span
-                            class="ant-checkbox"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               aria-label="Select all"
@@ -23832,7 +23832,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -23888,7 +23888,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -23944,7 +23944,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -24000,7 +24000,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -24056,7 +24056,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -24112,7 +24112,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -24168,7 +24168,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -24224,7 +24224,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -24280,7 +24280,7 @@ Array [
                         class="ant-checkbox-wrapper"
                       >
                         <span
-                          class="ant-checkbox"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"

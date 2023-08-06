@@ -5,11 +5,14 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import MockDate from 'mockdate';
 import dayJsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import React from 'react';
+import userEvent from '@testing-library/user-event';
+import { CloseCircleFilled } from '@ant-design/icons';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, screen, waitFor } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 import type { PickerLocale } from '../generatePicker';
+import { closeCircleByRole, expectCloseCircle } from './utils';
 
 dayjs.extend(customParseFormat);
 
@@ -311,5 +314,32 @@ describe('DatePicker', () => {
         .querySelectorAll('.ant-picker-time-panel-column')?.[1]
         .querySelectorAll('.ant-picker-time-panel-cell').length,
     ).toBe(60);
+  });
+
+  it('allows or prohibits clearing as applicable', async () => {
+    const somepoint = dayjs('2023-08-01');
+    const { rerender } = render(<DatePicker value={somepoint} />);
+
+    const { role, options } = closeCircleByRole;
+    await userEvent.hover(screen.getByRole(role, options));
+    await waitFor(() => expectCloseCircle(true));
+
+    rerender(<DatePicker value={somepoint} allowClear={false} />);
+    await waitFor(() => expectCloseCircle(false));
+
+    rerender(<DatePicker value={somepoint} allowClear={{ clearIcon: <CloseCircleFilled /> }} />);
+    await waitFor(() => expectCloseCircle(true));
+
+    rerender(
+      <DatePicker
+        value={somepoint}
+        allowClear={{ clearIcon: <div data-testid="custom-clear" /> }}
+      />,
+    );
+    await waitFor(() => expectCloseCircle(false));
+    await userEvent.hover(screen.getByTestId('custom-clear'));
+
+    rerender(<DatePicker value={somepoint} allowClear={{}} />);
+    await waitFor(() => expectCloseCircle(true));
   });
 });

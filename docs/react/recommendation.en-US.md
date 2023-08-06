@@ -1,5 +1,8 @@
 ---
-order: 9
+group:
+  title: Other
+  order: 3
+order: 0
 title: Third-Party Libraries
 ---
 

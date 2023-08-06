@@ -1,5 +1,7 @@
 ---
-order: 11
+group:
+  title: 其他
+order: 2
 title: FAQ
 ---
 
@@ -131,7 +133,7 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 antd 会透出组件定义，但是随着重构可能导致内部一些定义命名或者属性变化。因而更推荐直接使用 Typescript 原生能力获取：
 
 ```tsx
-import { Table } from 'antd';
+import type { Table } from 'antd';
 
 type Props<T extends (...args: any) => any> = Parameters<T>[0];
 
@@ -296,15 +298,13 @@ Error: Cannot access .Option on the server. You cannot dot into a client module 
 'use client';
 
 // This is not real world code, just for explain
-export default () => {
-  return (
-    <div className="App">
-      <Form>
-        <Form.Item>
-          <Button type="primary">Button</Button>
-        </Form.Item>
-      </Form>
-    </div>
-  );
-};
+export default () => (
+  <div className="App">
+    <Form>
+      <Form.Item>
+        <Button type="primary">Button</Button>
+      </Form.Item>
+    </Form>
+  </div>
+);
 ```

@@ -1,11 +1,18 @@
 ---
-order: 6.5
+group:
+  title: Advanced
+order: 1
 title: CSS Compatible
+tag: Updated
 ---
 
 Ant Design supports the last 2 versions of modern browsers. If you need to be compatible with legacy browsers, please perform downgrade processing according to actual needs:
 
-### Compatible adjustment
+## StyleProvider
+
+Please ref [`@ant-design/cssinjs`](https://github.com/ant-design/cssinjs#styleprovider).
+
+## Compatible adjustment
 
 Ant Design default using CSS-in-JS with `:where` Selector to reduce priority to avoid user additional adjust style cost when updating. If you want to support old browser (or some other CSS framework selector priority conflict like TailwindCSS), you can use `@ant-design/cssinjs` to adjust this behavior (Please note keep version align with antd):
 
@@ -45,7 +52,7 @@ Raise priority through plugin:
     }
 ```
 
-### CSS Logical Properties
+## CSS Logical Properties
 
 To unify LTR and RTL styles, Ant Design uses CSS logical properties. For example, the original `margin-left` is replaced by `margin-inline-start`, so that it is the starting position spacing under both LTR and RTL. If you need to be compatible with older browsers, you can configure `transformers` through the `StyleProvider` of `@ant-design/cssinjs`:
 
@@ -72,7 +79,7 @@ When toggled, styles will downgrade CSS logical properties:
 }
 ```
 
-### Rem Adaptation
+## Rem Adaptation
 
 In responsive web development, there is a need for a convenient and flexible way to achieve page adaptation and responsive design. The `px2remTransformer` transformer can quickly and accurately convert pixel units in style sheets to rem units relative to the root element (HTML tag), enabling the implementation of adaptive and responsive layouts.
 
@@ -111,7 +118,7 @@ The resulting transformed styles:
  }
 ```
 
-#### Options
+### Options
 
 <!-- prettier-ignore -->
 | Parameter | Description  | Type | Default |
@@ -121,3 +128,23 @@ The resulting transformed styles:
 | mediaQuery | Whether to convert px in media queries | `boolean` | false |
 
 For more details, please refer to: [px2rem.ts#Options](https://github.com/ant-design/cssinjs/blob/master/src/transformers/px2rem.ts)
+
+## Shadow DOM Usage
+
+Since `<style />` tag insertion is different from normal DOM in Shadow DOM scenario, you need to use `StyleProvider` of `@ant-design/cssinjs` to configure the `container` property to set the insertion position:
+
+```tsx
+import { StyleProvider } from '@ant-design/cssinjs';
+import { createRoot } from 'react-dom/client';
+
+const shadowRoot = someEle.attachShadow({ mode: 'open' });
+const container = document.createElement('div');
+shadowRoot.appendChild(container);
+const root = createRoot(container);
+
+root.render(
+  <StyleProvider container={shadowRoot}>
+    <MyApp />
+  </StyleProvider>,
+);
+```
