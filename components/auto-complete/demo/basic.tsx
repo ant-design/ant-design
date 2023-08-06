@@ -33,6 +33,7 @@ const App: React.FC = () => {
       <br />
       <br />
       <AutoComplete
+        rootClassName="custom-root-class"
         value={value}
         options={anotherOptions}
         style={{ width: 200 }}

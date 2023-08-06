@@ -116,4 +116,12 @@ describe('AutoComplete', () => {
 
     errSpy.mockRestore();
   });
+  it('should support rootClassName', () => {
+    const { baseElement } = render(
+      <AutoComplete rootClassName="custom-root-class">
+        <Input />
+      </AutoComplete>,
+    );
+    expect(baseElement.querySelector('.custom-root-class')).toBeTruthy();
+  });
 });

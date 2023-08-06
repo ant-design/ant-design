@@ -143,7 +143,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
+    class="ant-select ant-select-auto-complete custom-root-class ant-select-single ant-select-show-search"
     style="width: 200px;"
   >
     <div
@@ -173,7 +173,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up custom-root-class custom-root-class ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
