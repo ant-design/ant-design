@@ -338,6 +338,17 @@ describe('TextArea', () => {
   });
 });
 
+it('support rootClassName', () => {
+  const { container, rerender } = render(<TextArea rootClassName="custom-class-name" />);
+  expect(container.querySelector('.ant-input')?.className).toContain('custom-class-name');
+  expect(container).toMatchSnapshot();
+  rerender(<TextArea rootClassName="custom-class-name" showCount />);
+  expect(container.querySelector('.ant-input-affix-wrapper')?.className).toContain(
+    'custom-class-name',
+  );
+  expect(container).toMatchSnapshot();
+});
+
 describe('TextArea allowClear', () => {
   it('should change type when click', () => {
     const { asFragment, container } = render(<TextArea allowClear />);
