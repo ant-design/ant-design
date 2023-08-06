@@ -123,5 +123,6 @@ describe('AutoComplete', () => {
       </AutoComplete>,
     );
     expect(baseElement.querySelector('.custom-root-class')).toBeTruthy();
+    expect(baseElement).toMatchSnapshot();
   });
 });
