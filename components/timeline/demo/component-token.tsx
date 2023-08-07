@@ -1,5 +1,5 @@
-import { ConfigProvider, Timeline } from 'antd';
 import React from 'react';
+import { ConfigProvider, Timeline } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider

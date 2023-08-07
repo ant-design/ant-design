@@ -30,7 +30,7 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = (token) => {
         {
           [treeCls]: {
             borderRadius: 0,
-            '&-list-holder-inner': {
+            [`${treeCls}-list-holder-inner`]: {
               alignItems: 'stretch',
 
               [`${treeCls}-treenode`]: {

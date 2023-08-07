@@ -398,7 +398,7 @@ describe('Input allowClear', () => {
 
   // https://github.com/ant-design/ant-design/issues/31927
   it('should correctly when useState', () => {
-    const App = () => {
+    const App: React.FC = () => {
       const [query, setQuery] = useState('');
       return (
         <Input

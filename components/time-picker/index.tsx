@@ -1,3 +1,5 @@
+'use client';
+
 import type { Dayjs } from 'dayjs';
 import * as React from 'react';
 import genPurePanel from '../_util/PurePanel';

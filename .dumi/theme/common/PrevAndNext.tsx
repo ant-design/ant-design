@@ -1,13 +1,15 @@
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import { createStyles, css } from 'antd-style';
-import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
-import classNames from 'classnames';
+import { createStyles } from 'antd-style';
 import type { ReactElement } from 'react';
-import React, { useMemo } from 'react';
+import React, { useMemo, useContext } from 'react';
+import classNames from 'classnames';
+import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
+import type { MenuProps } from 'antd';
 import useMenu from '../../hooks/useMenu';
+import SiteContext from '../slots/SiteContext';
+import type { SiteContextProps } from '../slots/SiteContext';
 
-const useStyle = createStyles(({ token }) => {
+const useStyle = createStyles(({ token, css }) => {
   const { colorSplit, iconCls, fontSizeIcon } = token;
 
   return {
@@ -27,6 +29,7 @@ const useStyle = createStyles(({ token }) => {
       text-decoration: none;
 
       ${iconCls} {
+        color: #999;
         font-size: ${fontSizeIcon}px;
         transition: all 0.3s;
       }
@@ -40,7 +43,7 @@ const useStyle = createStyles(({ token }) => {
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      
+
       .footer-nav-icon-after {
         display: none;
       }
@@ -63,7 +66,7 @@ const useStyle = createStyles(({ token }) => {
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      
+
       .footer-nav-icon-before {
         display: none;
       }
@@ -102,7 +105,6 @@ const flattenMenu = (menuItems: MenuProps['items']): MenuProps['items'] | null =
 
 const PrevAndNext: React.FC<{ rtl?: boolean }> = ({ rtl }) => {
   const { styles } = useStyle();
-
   const beforeProps = { className: 'footer-nav-icon-before' };
   const afterProps = { className: 'footer-nav-icon-after' };
 
@@ -110,6 +112,8 @@ const PrevAndNext: React.FC<{ rtl?: boolean }> = ({ rtl }) => {
   const after = rtl ? <LeftOutlined {...afterProps} /> : <RightOutlined {...afterProps} />;
 
   const [menuItems, selectedKey] = useMenu({ before, after });
+
+  const { isMobile } = useContext<SiteContextProps>(SiteContext);
 
   const [prev, next] = useMemo(() => {
     const flatMenu = flattenMenu(menuItems);
@@ -128,15 +132,19 @@ const PrevAndNext: React.FC<{ rtl?: boolean }> = ({ rtl }) => {
     ];
   }, [menuItems, selectedKey]);
 
+  if (isMobile) {
+    return null;
+  }
+
   return (
     <section className={styles.prevNextNav}>
       {prev &&
         React.cloneElement(prev.label as ReactElement, {
-          className: classNames(styles.pageNav, styles.prevNav),
+          className: classNames(styles.pageNav, styles.prevNav, prev.className),
         })}
       {next &&
         React.cloneElement(next.label as ReactElement, {
-          className: classNames(styles.pageNav, styles.nextNav),
+          className: classNames(styles.pageNav, styles.nextNav, next.className),
         })}
     </section>
   );

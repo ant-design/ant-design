@@ -26,6 +26,7 @@ const seedToken: SeedToken = {
   colorWarning: '#faad14',
   colorError: '#ff4d4f',
   colorInfo: '#1677ff',
+  colorLink: '',
   colorTextBase: '',
 
   colorBgBase: '',

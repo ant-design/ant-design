@@ -1888,6 +1888,8 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/date-picker/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/date-picker/demo/bordered.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -7088,6 +7090,8 @@ exports[`renders components/date-picker/demo/bordered.tsx extend context correct
 </div>
 `;
 
+exports[`renders components/date-picker/demo/bordered.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/date-picker/demo/cell-render.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -8886,6 +8890,8 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
   </div>
 </div>
 `;
+
+exports[`renders components/date-picker/demo/cell-render.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/disabled.tsx extend context correctly 1`] = `
 <div
@@ -11004,6 +11010,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
       </span>
       <span
         class="ant-picker-clear"
+        role="button"
       >
         <span
           aria-label="close-circle"
@@ -11014,13 +11021,14 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
             aria-hidden="true"
             data-icon="close-circle"
             fill="currentColor"
+            fill-rule="evenodd"
             focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
             />
           </svg>
         </span>
@@ -12130,6 +12138,8 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
   </div>
 </div>
 `;
+
+exports[`renders components/date-picker/demo/disabled.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/disabled-date.tsx extend context correctly 1`] = `
 <div
@@ -17044,6 +17054,8 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
   </div>
 </div>
 `;
+
+exports[`renders components/date-picker/demo/disabled-date.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/extra-footer.tsx extend context correctly 1`] = `
 <div
@@ -23060,6 +23072,8 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
 </div>
 `;
 
+exports[`renders components/date-picker/demo/extra-footer.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/date-picker/demo/format.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -23118,13 +23132,14 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
               aria-hidden="true"
               data-icon="close-circle"
               fill="currentColor"
+              fill-rule="evenodd"
               focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
             >
               <path
-                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
               />
             </svg>
           </span>
@@ -23742,13 +23757,14 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
               aria-hidden="true"
               data-icon="close-circle"
               fill="currentColor"
+              fill-rule="evenodd"
               focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
             >
               <path
-                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
               />
             </svg>
           </span>
@@ -24366,13 +24382,14 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
               aria-hidden="true"
               data-icon="close-circle"
               fill="currentColor"
+              fill-rule="evenodd"
               focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
             >
               <path
-                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
               />
             </svg>
           </span>
@@ -24626,13 +24643,14 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
               aria-hidden="true"
               data-icon="close-circle"
               fill="currentColor"
+              fill-rule="evenodd"
               focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
             >
               <path
-                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
               />
             </svg>
           </span>
@@ -25342,6 +25360,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
       </span>
       <span
         class="ant-picker-clear"
+        role="button"
       >
         <span
           aria-label="close-circle"
@@ -25352,13 +25371,14 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
             aria-hidden="true"
             data-icon="close-circle"
             fill="currentColor"
+            fill-rule="evenodd"
             focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
             />
           </svg>
         </span>
@@ -26519,13 +26539,14 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
               aria-hidden="true"
               data-icon="close-circle"
               fill="currentColor"
+              fill-rule="evenodd"
               focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
             >
               <path
-                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
               />
             </svg>
           </span>
@@ -27091,6 +27112,8 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
   </div>
 </div>
 `;
+
+exports[`renders components/date-picker/demo/format.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1`] = `
 <div
@@ -28480,36 +28503,6 @@ exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1
                 </ul>
               </div>
             </div>
-            <div
-              class="ant-picker-footer"
-            >
-              <ul
-                class="ant-picker-ranges"
-              >
-                <li
-                  class="ant-picker-now"
-                >
-                  <a
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
-                >
-                  <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
-                    disabled=""
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
@@ -28810,6 +28803,8 @@ exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1
   </div>
 </div>
 `;
+
+exports[`renders components/date-picker/demo/mode.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/placement.tsx extend context correctly 1`] = `
 Array [
@@ -30677,6 +30672,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/date-picker/demo/placement.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/preset-ranges.tsx extend context correctly 1`] = `
 <div
@@ -32610,6 +32607,13 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
             >
               <ul>
                 <li>
+                  <span
+                    aria-label="Current Time to End of Day"
+                  >
+                    Now ~ EOD
+                  </span>
+                </li>
+                <li>
                   Last 7 Days
                 </li>
                 <li>
@@ -34522,6 +34526,8 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
   </div>
 </div>
 `;
+
+exports[`renders components/date-picker/demo/preset-ranges.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/range-picker.tsx extend context correctly 1`] = `
 <div
@@ -40295,6 +40301,8 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
 </div>
 `;
 
+exports[`renders components/date-picker/demo/range-picker.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/date-picker/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   style="padding-bottom: 0px; position: relative; min-width: 0;"
@@ -40897,6 +40905,8 @@ exports[`renders components/date-picker/demo/render-panel.tsx extend context cor
   </div>
 </div>
 `;
+
+exports[`renders components/date-picker/demo/render-panel.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/select-in-range.tsx extend context correctly 1`] = `
 Array [
@@ -42084,6 +42094,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/date-picker/demo/select-in-range.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/size.tsx extend context correctly 1`] = `
 <div
@@ -44840,6 +44852,8 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
   </div>
 </div>
 `;
+
+exports[`renders components/date-picker/demo/size.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/start-end.tsx extend context correctly 1`] = `
 <div
@@ -48751,6 +48765,8 @@ exports[`renders components/date-picker/demo/start-end.tsx extend context correc
 </div>
 `;
 
+exports[`renders components/date-picker/demo/start-end.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/date-picker/demo/status.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -52335,6 +52351,8 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
   </div>
 </div>
 `;
+
+exports[`renders components/date-picker/demo/status.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/suffix.tsx extend context correctly 1`] = `
 <div
@@ -57636,6 +57654,8 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/date-picker/demo/suffix.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/date-picker/demo/switchable.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -57654,7 +57674,6 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
@@ -59269,6 +59288,8 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
   </div>
 </div>
 `;
+
+exports[`renders components/date-picker/demo/switchable.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/time.tsx extend context correctly 1`] = `
 <div
@@ -62683,3 +62704,5 @@ exports[`renders components/date-picker/demo/time.tsx extend context correctly 1
   </div>
 </div>
 `;
+
+exports[`renders components/date-picker/demo/time.tsx extend context correctly 2`] = `[]`;

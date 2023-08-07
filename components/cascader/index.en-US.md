@@ -46,10 +46,9 @@ Cascade selection box.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| allowClear | Whether allow clear | boolean | true |  |
+| allowClear | Show clear button | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support object type |
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | bordered | Whether has border style | boolean | true |  |
-| clearIcon | The custom clear icon | ReactNode | - |  |
 | changeOnSelect | (Work on single select) Change value on each selection if set to true, see above demo for details | boolean | false |  |
 | className | The additional css class | string | - |  |
 | defaultValue | Initial selected value | string\[] \| number\[] | \[] |  |

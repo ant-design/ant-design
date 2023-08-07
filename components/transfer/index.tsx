@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext } from 'react';
@@ -103,6 +105,7 @@ export interface TransferProps<RecordType> {
   oneWay?: boolean;
   pagination?: PaginationType;
   status?: InputStatus;
+  selectionsIcon?: React.ReactNode;
 }
 
 const Transfer = <RecordType extends TransferItem = TransferItem>(
@@ -128,6 +131,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
+    selectionsIcon,
     filterOption,
     render,
     footer,
@@ -143,6 +147,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     getPrefixCls,
     renderEmpty,
     direction: dir,
+    transfer,
   } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('transfer', customizePrefixCls);
 
@@ -336,6 +341,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       [`${prefixCls}-rtl`]: dir === 'rtl',
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
+    transfer?.className,
     className,
     rootClassName,
     hashId,
@@ -348,7 +354,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const [leftTitle, rightTitle] = getTitles(listLocale);
 
   return wrapSSR(
-    <div className={cls} style={style}>
+    <div className={cls} style={{ ...transfer?.style, ...style }}>
       <List<KeyWise<RecordType>>
         prefixCls={`${prefixCls}-list`}
         titleText={leftTitle}
@@ -370,6 +376,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         showSelectAll={showSelectAll}
         selectAllLabel={selectAllLabels[0]}
         pagination={mergedPagination}
+        selectionsIcon={selectionsIcon}
         {...listLocale}
       />
       <Operation
@@ -408,6 +415,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         selectAllLabel={selectAllLabels[1]}
         showRemove={oneWay}
         pagination={mergedPagination}
+        selectionsIcon={selectionsIcon}
         {...listLocale}
       />
     </div>,

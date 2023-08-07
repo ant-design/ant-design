@@ -34,6 +34,8 @@ Array [
 ]
 `;
 
+exports[`renders components/affix/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/affix/demo/debug.tsx extend context correctly 1`] = `
 <div
   style="height: 10000px;"
@@ -65,6 +67,8 @@ exports[`renders components/affix/demo/debug.tsx extend context correctly 1`] = 
 </div>
 `;
 
+exports[`renders components/affix/demo/debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/affix/demo/on-change.tsx extend context correctly 1`] = `
 <div>
   <div
@@ -81,6 +85,8 @@ exports[`renders components/affix/demo/on-change.tsx extend context correctly 1`
   </div>
 </div>
 `;
+
+exports[`renders components/affix/demo/on-change.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/affix/demo/target.tsx extend context correctly 1`] = `
 <div
@@ -106,3 +112,5 @@ exports[`renders components/affix/demo/target.tsx extend context correctly 1`] =
   </div>
 </div>
 `;
+
+exports[`renders components/affix/demo/target.tsx extend context correctly 2`] = `[]`;

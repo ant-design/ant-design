@@ -53,5 +53,5 @@ describe('Locale Provider demo', () => {
     expect(document.body.querySelectorAll('.ant-btn-primary span')[0]?.textContent).toBe('确 定');
     Modal.destroyAll();
     jest.useRealTimers();
-  });
+  }, 500000);
 });

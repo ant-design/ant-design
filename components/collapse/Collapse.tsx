@@ -57,12 +57,13 @@ interface PanelProps {
 }
 
 const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, collapse } = React.useContext(ConfigContext);
 
   const {
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
+    style,
     bordered = true,
     ghost,
     size: customizeSize,
@@ -101,7 +102,10 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     ) as React.ReactNode;
 
     return cloneElement(icon, () => ({
-      className: classNames((icon as any).props.className, `${prefixCls}-arrow`),
+      className: classNames(
+        (icon as React.ReactElement<any>).props.className,
+        `${prefixCls}-arrow`,
+      ),
     }));
   };
 
@@ -113,6 +117,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       [`${prefixCls}-ghost`]: !!ghost,
       [`${prefixCls}-${mergedSize}`]: mergedSize !== 'middle',
     },
+    collapse?.className,
     className,
     rootClassName,
     hashId,
@@ -151,6 +156,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       expandIcon={renderExpandIcon}
       prefixCls={prefixCls}
       className={collapseClassName}
+      style={{ ...collapse?.style, ...style }}
     >
       {items}
     </RcCollapse>,

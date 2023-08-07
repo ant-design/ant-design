@@ -1,16 +1,16 @@
 import type { DragEndEvent } from '@dnd-kit/core';
-import { DndContext } from '@dnd-kit/core';
+import { DndContext, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import {
-  arrayMove,
   SortableContext,
+  arrayMove,
   useSortable,
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
+import React, { useState } from 'react';
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import React, { useState } from 'react';
 
 interface DataType {
   key: string;
@@ -77,6 +77,15 @@ const App: React.FC = () => {
     },
   ]);
 
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        // https://docs.dndkit.com/api-documentation/sensors/pointer#activation-constraints
+        distance: 1,
+      },
+    }),
+  );
+
   const onDragEnd = ({ active, over }: DragEndEvent) => {
     if (active.id !== over?.id) {
       setDataSource((prev) => {
@@ -88,7 +97,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <DndContext modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd}>
+    <DndContext sensors={sensors} modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd}>
       <SortableContext
         // rowKey array
         items={dataSource.map((i) => i.key)}

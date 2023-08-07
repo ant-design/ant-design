@@ -33,6 +33,7 @@ The differences with Select are:
 <code src="./demo/uncertain-category.tsx">Lookup-Patterns - Uncertain Category</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/borderless.tsx">Borderless</code>
+<code src="./demo/allowClear.tsx">Customize clear button</code>
 <code src="./demo/form-debug.tsx" debug>Debug in Form</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
@@ -40,7 +41,7 @@ The differences with Select are:
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| allowClear | Show clear button | boolean | false |  |
+| allowClear | Show clear button | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support Object type |
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | backfill | If backfill selected item the input when using keyboard | boolean | false |  |
 | bordered | Whether has border style | boolean | true |  |

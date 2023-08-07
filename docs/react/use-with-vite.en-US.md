@@ -1,5 +1,7 @@
 ---
-order: 4
+group:
+  title: Basic Usage
+order: 3
 title: Usage with Vite
 ---
 
@@ -43,11 +45,9 @@ Below is the default directory structure.
 └── vite.config.ts
 ```
 
-Now we install `antd` from yarn or npm.
+Now we install `antd` from yarn or npm or pnpm.
 
-```bash
-$ npm install antd --save
-```
+<InstallDependencies npm='$ npm install antd --save' yarn='$ yarn add antd' pnpm='$ pnpm install antd --save'></InstallDependencies>
 
 Modify `src/App.js`, import Button component from `antd`.
 

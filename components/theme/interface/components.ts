@@ -33,7 +33,7 @@ import type { ComponentToken as PaginationComponentToken } from '../../paginatio
 import type { ComponentToken as PopconfirmComponentToken } from '../../popconfirm/style';
 import type { ComponentToken as PopoverComponentToken } from '../../popover/style';
 import type { ComponentToken as ProgressComponentToken } from '../../progress/style';
-import type { ComponentToken as QRCodeComponentToken } from '../../qrcode/style';
+import type { ComponentToken as QRCodeComponentToken } from '../../qr-code/style';
 import type { ComponentToken as RadioComponentToken } from '../../radio/style';
 import type { ComponentToken as RateComponentToken } from '../../rate/style';
 import type { ComponentToken as ResultComponentToken } from '../../result/style';

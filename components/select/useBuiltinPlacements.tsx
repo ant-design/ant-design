@@ -4,13 +4,16 @@ import type { PopupOverflow } from '../config-provider/context';
 const getBuiltInPlacements = (popupOverflow?: PopupOverflow): Record<string, AlignType> => {
   const htmlRegion: AlignType['htmlRegion'] = popupOverflow === 'scroll' ? 'scroll' : 'visible';
 
-  const sharedConfig = {
+  const sharedConfig: AlignType = {
     overflow: {
       adjustX: true,
       adjustY: true,
       shiftY: true,
     },
     htmlRegion,
+    _experimental: {
+      dynamicInset: true,
+    },
   };
 
   return {

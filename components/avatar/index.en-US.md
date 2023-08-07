@@ -53,6 +53,7 @@ Avatars can be used to represent people or objects. It supports images, `Icon`s,
 | maxPopoverTrigger | Set the trigger of excess avatar Popover | `hover` \| `focus` \| `click` | `hover` | 4.17.0 |
 | maxStyle | The style of excess avatar style | CSSProperties | - |  |
 | size | The size of the avatar | number \| `large` \| `small` \| `default` \| { xs: number, sm: number, ...} | `default` | 4.8.0 |
+| shape | The shape of the avatar | `circle` \| `square` | `circle` | 5.8.0 |
 
 ## Design Token
 

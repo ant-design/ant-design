@@ -63,6 +63,14 @@ export interface SeedToken extends PresetColorType {
    */
   colorBgBase: string;
 
+  /**
+   * @nameZH 超链接颜色
+   * @nameEN Hyperlink color
+   * @desc 控制超链接的颜色。
+   * @descEN Control the color of hyperlink.
+   */
+  colorLink: string;
+
   //  ----------   Font   ---------- //
 
   /**

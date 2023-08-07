@@ -1,10 +1,10 @@
 import { TinyColor } from '@ctrl/tinycolor';
 import { css, Global } from '@emotion/react';
 import React from 'react';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { useTheme } from 'antd-style';
 
 const GlobalStyle: React.FC = () => {
-  const { token } = useSiteToken();
+  const token = useTheme();
 
   const { antCls } = token;
 
@@ -29,8 +29,11 @@ const GlobalStyle: React.FC = () => {
         }
 
         .markdown p > img {
-          margin: 34px 0;
+          margin: 34px auto;
           box-shadow: 0 8px 20px rgba(143, 168, 191, 0.35);
+          max-width: 1024px;
+          width: 100%;
+          display: block;
         }
 
         .markdown p > img.markdown-inline-image {

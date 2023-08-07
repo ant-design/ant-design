@@ -1,10 +1,10 @@
-import { css } from '@emotion/react';
-import { Button, ConfigProvider, Modal, Spin, Typography, message } from 'antd';
+import { createStyles } from 'antd-style';
 import { ThemeEditor, enUS, zhCN } from 'antd-token-previewer';
-import type { ThemeConfig } from 'antd/es/config-provider/context';
 import { Helmet } from 'dumi';
 import React, { Suspense, useCallback, useEffect, useState } from 'react';
 import type { JSONContent, TextContent } from 'vanilla-jsoneditor';
+import type { ThemeConfig } from 'antd/es/config-provider/context';
+import { Button, ConfigProvider, Modal, Spin, Typography, message } from 'antd';
 import useLocale from '../../hooks/useLocale';
 
 const JSONEditor = React.lazy(() => import('../../theme/common/JSONEditor'));
@@ -38,7 +38,7 @@ const locales = {
   },
 };
 
-const useStyle = () => ({
+const useStyle = createStyles(({ css }) => ({
   header: css({
     display: 'flex',
     height: 56,
@@ -47,7 +47,7 @@ const useStyle = () => ({
     justifyContent: 'space-between',
     borderBottom: '1px solid #F0F0F0',
   }),
-});
+}));
 
 const ANT_DESIGN_V5_THEME_EDITOR_THEME = 'ant-design-v5-theme-editor-theme';
 
@@ -77,7 +77,7 @@ const CustomTheme = () => {
     }
   }, []);
 
-  const styles = useStyle();
+  const { styles } = useStyle();
 
   const handleSave = () => {
     localStorage.setItem(ANT_DESIGN_V5_THEME_EDITOR_THEME, JSON.stringify(theme));
@@ -140,7 +140,7 @@ const CustomTheme = () => {
       </Helmet>
       {contextHolder}
       <ConfigProvider theme={{ inherit: false }}>
-        <div css={styles.header}>
+        <div className={styles.header}>
           <Typography.Title level={5} style={{ margin: 0 }}>
             {locale.title}
           </Typography.Title>
@@ -183,6 +183,10 @@ const CustomTheme = () => {
           style={{ height: 'calc(100vh - 64px - 56px)' }}
           onThemeChange={(newTheme) => {
             setTheme(newTheme.config);
+            setThemeConfigContent({
+              json: newTheme.config,
+              text: undefined,
+            });
           }}
           locale={lang === 'cn' ? zhCN : enUS}
         />

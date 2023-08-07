@@ -9,6 +9,10 @@ import { genPictureCardStyle, genPictureStyle } from './picture';
 import genRtlStyle from './rtl';
 
 export interface ComponentToken {
+  /**
+   * @desc 操作按扭颜色
+   * @descEN Action button color
+   */
   actionsColor: string;
 }
 

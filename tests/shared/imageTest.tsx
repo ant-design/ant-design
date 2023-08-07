@@ -39,6 +39,7 @@ export default function imageTest(component: React.ReactElement) {
     page.on('request', onRequestHandle);
     await page.goto(`file://${process.cwd()}/tests/index.html`);
     await page.addStyleTag({ path: `${process.cwd()}/dist/reset.css` });
+    await page.addStyleTag({ content: '*{animation: none!important;}' });
 
     const cache = createCache();
 
@@ -54,6 +55,9 @@ export default function imageTest(component: React.ReactElement) {
             </div>
           ))}
         </App>
+        <div id="end-of-screen" style={{ height: 0, margin: 0, padding: 0, overflow: 'hidden' }}>
+          end of screen
+        </div>
       </StyleProvider>
     );
 
@@ -70,6 +74,8 @@ export default function imageTest(component: React.ReactElement) {
       html,
       styleStr,
     );
+
+    await page.waitForSelector('#end-of-screen');
 
     const image = await page.screenshot({
       fullPage: true,
