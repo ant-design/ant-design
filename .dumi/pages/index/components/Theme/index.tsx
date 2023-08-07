@@ -8,6 +8,8 @@ import {
 import { createStyles, css, useTheme } from 'antd-style';
 import * as React from 'react';
 import classNames from 'classnames';
+import { defaultTheme, defaultAlgorithm } from '@ant-design/compatible';
+import { useLocation } from 'dumi';
 import type { MenuProps } from 'antd';
 import {
   Breadcrumb,
@@ -24,6 +26,7 @@ import {
 } from 'antd';
 import type { Color } from 'antd/es/color-picker';
 import { generateColor } from 'antd/es/color-picker/util';
+import * as utils from '../../../../theme/utils';
 import useLocale from '../../../../hooks/useLocale';
 import SiteContext from '../../../../theme/slots/SiteContext';
 import Group from '../Group';
@@ -35,6 +38,7 @@ import RadiusPicker from './RadiusPicker';
 import type { THEME } from './ThemePicker';
 import ThemePicker from './ThemePicker';
 import { DEFAULT_COLOR, PINK_COLOR, getAvatarURL, getClosetColor } from './colorUtil';
+import Link from '../../../../theme/common/Link';
 
 const { Header, Content, Sider } = Layout;
 
@@ -276,6 +280,9 @@ const ThemesInfo: Record<THEME, Partial<ThemeData>> = {
     colorPrimary: PINK_COLOR,
     borderRadius: 16,
   },
+  v4: {
+    ...defaultTheme.token,
+  },
 };
 
 function rgbToColorMatrix(color: string) {
@@ -302,12 +309,14 @@ function rgbToColorMatrix(color: string) {
 export default function Theme() {
   const { styles } = useStyle();
   const token = useTheme();
-  const [locale] = useLocale(locales);
+  const [locale, lang] = useLocale(locales);
+  const isZhCN = lang === 'cn';
+  const { search } = useLocation();
 
   const [themeData, setThemeData] = React.useState<ThemeData>(ThemeDefault);
 
   const onThemeChange = (_: Partial<ThemeData>, nextThemeData: ThemeData) => {
-    setThemeData(nextThemeData);
+    setThemeData({ ...ThemesInfo[nextThemeData.themeType], ...nextThemeData });
   };
 
   const { compact, themeType, colorPrimary, ...themeToken } = themeData;
@@ -327,8 +336,12 @@ export default function Theme() {
       algorithms.push(theme.compactAlgorithm);
     }
 
+    if (themeType === 'v4') {
+      algorithms.push(defaultAlgorithm);
+    }
+
     return algorithms;
-  }, [isLight, compact]);
+  }, [isLight, compact, themeType]);
 
   // ================================ Themes ================================
   React.useEffect(() => {
@@ -402,6 +415,7 @@ export default function Theme() {
                 // colorItemBgActive: 'rgba(255,255,255,0.2)',
                 // colorItemBgSelected: 'rgba(255,255,255,0.2)',
               },
+          ...(themeType === 'v4' ? defaultTheme.components : {}),
         },
       }}
     >
@@ -475,8 +489,18 @@ export default function Theme() {
                   title={locale.myTheme}
                   extra={
                     <Space>
-                      <Button type="default">{locale.toDef}</Button>
-                      <Button type="primary">{locale.toUse}</Button>
+                      <Link to={utils.getLocalizedPathname('/theme-editor', isZhCN, search)}>
+                        <Button type="default">{locale.toDef}</Button>
+                      </Link>
+                      <Link
+                        to={utils.getLocalizedPathname(
+                          '/docs/react/customize-theme',
+                          isZhCN,
+                          search,
+                        )}
+                      >
+                        <Button type="primary">{locale.toUse}</Button>
+                      </Link>
                     </Space>
                   }
                 >
@@ -484,8 +508,8 @@ export default function Theme() {
                     form={form}
                     initialValues={themeData}
                     onValuesChange={onThemeChange}
-                    labelCol={{ span: 4 }}
-                    wrapperCol={{ span: 20 }}
+                    labelCol={{ span: 3 }}
+                    wrapperCol={{ span: 21 }}
                     className={styles.form}
                   >
                     <Form.Item label={locale.titleTheme} name="themeType">

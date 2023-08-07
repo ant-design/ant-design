@@ -159,6 +159,8 @@
     "throttle-debounce": "^5.0.0"
   },
   "devDependencies": {
+    "@ant-design/compatible": "^5.1.1",
+    "@ant-design/happy-work-theme": "^1.0.0",
     "@ant-design/tools": "^17.0.0",
     "@antv/g6": "^4.8.13",
     "@argos-ci/core": "^0.9.0",
@@ -216,12 +218,12 @@
     "cross-fetch": "^4.0.0",
     "crypto": "^1.0.1",
     "dekko": "^0.2.1",
-    "dumi": "^2.1.17",
+    "dumi": "^2.1.23",
     "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "esbuild-loader": "^3.0.0",
     "eslint": "^8.40.0",
     "eslint-config-airbnb": "^19.0.0",
-    "eslint-config-prettier": "^8.0.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-compat": "^4.1.1",
     "eslint-plugin-import": "^2.28.0",

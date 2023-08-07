@@ -48,7 +48,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
       tag &&
       show && (
         <Tag
-          color={tag === 'New' ? 'success' : 'orange'}
+          color={tag === 'New' ? 'success' : 'processing'}
           bordered={false}
           style={{ marginInlineStart: 'auto', marginInlineEnd: 0, marginTop: -2 }}
         >

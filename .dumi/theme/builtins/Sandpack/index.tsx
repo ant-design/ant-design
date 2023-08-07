@@ -1,33 +1,10 @@
-import type { ReactNode } from 'react';
+import type { FC, ReactNode } from 'react';
 import React, { Suspense } from 'react';
-import { useSearchParams, useServerInsertedHTML } from 'dumi';
+import { useSearchParams } from 'dumi';
 import { createStyles } from 'antd-style';
-import { getSandpackCssText } from '@codesandbox/sandpack-react';
 import { Skeleton } from 'antd';
 
 const OriginSandpack = React.lazy(() => import('./Sandpack'));
-
-const setup = {
-  dependencies: {
-    react: '^18.0.0',
-    'react-dom': '^18.0.0',
-    antd: '^5.0.0',
-  },
-  devDependencies: {
-    '@types/react': '^18.0.0',
-    '@types/react-dom': '^18.0.0',
-    typescript: '^5',
-  },
-  entry: 'index.tsx',
-};
-
-const options = {
-  activeFile: 'app.tsx' as never,
-  visibleFiles: ['index.tsx', 'app.tsx', 'package.json', 'index.css'] as any,
-  showLineNumbers: true,
-  editorHeight: '500px',
-  autorun: false,
-};
 
 const indexContent = `import React from 'react';
 import { createRoot } from 'react-dom/client';
@@ -64,16 +41,44 @@ const SandpackFallback = () => {
   );
 };
 
-const Sandpack = ({ children, dark }: { children: ReactNode; dark: boolean }) => {
-  const [searchParams] = useSearchParams();
+type SandpackProps = {
+  children?: ReactNode;
+  dark?: boolean;
+  autorun?: boolean;
+  dependencies?: string;
+};
 
-  useServerInsertedHTML(() => (
-    <style
-      data-sandpack="true"
-      id="sandpack"
-      dangerouslySetInnerHTML={{ __html: getSandpackCssText() }}
-    />
-  ));
+const Sandpack: FC<SandpackProps> = ({
+  children,
+  dark,
+  dependencies: extraDeps,
+  autorun = false,
+}) => {
+  const [searchParams] = useSearchParams();
+  const dependencies = extraDeps && JSON.parse(extraDeps);
+
+  const setup = {
+    dependencies: {
+      react: '^18.0.0',
+      'react-dom': '^18.0.0',
+      antd: '^5.0.0',
+      ...dependencies,
+    },
+    devDependencies: {
+      '@types/react': '^18.0.0',
+      '@types/react-dom': '^18.0.0',
+      typescript: '^5',
+    },
+    entry: 'index.tsx',
+  };
+
+  const options = {
+    activeFile: 'app.tsx' as never,
+    visibleFiles: ['index.tsx', 'app.tsx', 'package.json', 'index.css'] as any,
+    showLineNumbers: true,
+    editorHeight: '500px',
+    autorun,
+  };
 
   return (
     <Suspense fallback={<SandpackFallback />}>
