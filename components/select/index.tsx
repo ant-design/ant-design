@@ -42,6 +42,7 @@ export interface InternalSelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<RcSelectProps<ValueType, OptionType>, 'mode'> {
+  rootClassName?: string;
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;

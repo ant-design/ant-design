@@ -35,7 +35,6 @@ export interface AutoCompleteProps<
     InternalSelectProps<ValueType, OptionType>,
     'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'
   > {
-  rootClassName?: string;
   dataSource?: DataSourceItemType[];
   status?: InputStatus;
   popupClassName?: string;
@@ -146,7 +145,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       suffixIcon={null}
       {...omit(props, ['dataSource', 'dropdownClassName'])}
       prefixCls={prefixCls}
-      popupClassName={classNames(popupClassName || dropdownClassName)}
+      popupClassName={popupClassName || dropdownClassName}
       className={classNames(`${prefixCls}-auto-complete`, className)}
       mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
       {...{
