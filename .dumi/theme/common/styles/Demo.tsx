@@ -323,6 +323,9 @@ const GlobalDemoStyles: React.FC = () => {
               background: ${token.colorBgContainer};
               border: none;
               box-shadow: unset;
+              padding: 12px 16px;
+              margin-top: -16px;
+              font-size: 13px;
             }
           }
 
