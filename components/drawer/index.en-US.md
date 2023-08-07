@@ -64,7 +64,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | maskStyle | Style for Drawer's mask element | CSSProperties | {} |  |
 | placement | The placement of the Drawer | `top` \| `right` \| `bottom` \| `left` | `right` |  |
 | push | Nested drawers push behavior | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
-| rootClassName | The class name of the container of the Drawer dialog | string | - |  |
 | rootStyle | Style of wrapper element which **contains mask** compare to `style` | CSSProperties | - |  |
 | style | Style of Drawer panel. Use `bodyStyle` if want to config body only | CSSProperties | - |  |
 | size | preset size of drawer, default `378px` and large `736px` | 'default' \| 'large' | 'default' | 4.17.0 |

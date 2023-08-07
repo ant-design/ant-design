@@ -46,7 +46,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | src | Image path | string | - | 4.6.0 |
 | width | Image width | string \| number | - | 4.6.0 |
 | onError | Load failed callback | (event: Event) => void | - | 4.12.0 |
-| rootClassName | Add custom className for image root DOM and preview mode root DOM | string | - | 4.20.0 |
 
 Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
 
