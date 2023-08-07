@@ -19,7 +19,10 @@ import type { FormLabelAlign } from './interface';
 import useStyle from './style';
 import ValidateMessagesContext from './validateMessagesContext';
 
-export type RequiredMark = boolean | 'optional';
+export type RequiredMark =
+  | boolean
+  | 'optional'
+  | ((labelNode: React.ReactNode, info: { required: boolean }) => React.ReactNode);
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
 
 export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form'> {
