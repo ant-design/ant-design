@@ -108,7 +108,7 @@ export function previewImage(file: File | Blob): Promise<string> {
       ctx!.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
       const dataURL = canvas.toDataURL();
       document.body.removeChild(canvas);
-
+      window.URL.revokeObjectURL(img.src);
       resolve(dataURL);
     };
     img.crossOrigin = 'anonymous';
