@@ -62,6 +62,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     action = '',
     accept = '',
     supportServerRender = true,
+    rootClassName,
   } = props;
 
   // ===================== Disabled =====================
@@ -405,11 +406,18 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     );
   };
 
-  const wrapperCls = classNames(`${prefixCls}-wrapper`, className, hashId, ctxUpload?.className, {
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-    [`${prefixCls}-picture-card-wrapper`]: listType === 'picture-card',
-    [`${prefixCls}-picture-circle-wrapper`]: listType === 'picture-circle',
-  });
+  const wrapperCls = classNames(
+    `${prefixCls}-wrapper`,
+    className,
+    rootClassName,
+    hashId,
+    ctxUpload?.className,
+    {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-picture-card-wrapper`]: listType === 'picture-card',
+      [`${prefixCls}-picture-circle-wrapper`]: listType === 'picture-circle',
+    },
+  );
 
   const mergedStyle: React.CSSProperties = { ...ctxUpload?.style, ...style };
 
