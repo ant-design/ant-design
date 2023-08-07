@@ -44,7 +44,7 @@ const { Header, Content, Sider } = Layout;
 
 const TokenChecker = () => {
   if (process.env.NODE_ENV !== 'production') {
-    // console.log('Demo Token:', theme.useToken());
+    console.log('Demo Token:', theme.useToken());
   }
   return null;
 };
