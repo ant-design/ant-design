@@ -21,8 +21,8 @@ const genWaveStyle: GenerateStyle<WaveToken> = (token) => {
       // =================== Motion ===================
       '&.wave-motion-appear': {
         transition: [
-          `box-shadow 0.4s ${token.motionEaseOutCirc}`,
-          `opacity 2s ${token.motionEaseOutCirc}`,
+          `box-shadow ${token.motion ? 0.4 : 0}s ${token.motionEaseOutCirc}`,
+          `opacity ${token.motion ? 2 : 0}s ${token.motionEaseOutCirc}`,
         ].join(','),
 
         '&-active': {
@@ -32,8 +32,8 @@ const genWaveStyle: GenerateStyle<WaveToken> = (token) => {
 
         '&.wave-quick': {
           transition: [
-            `box-shadow 0.3s ${token.motionEaseInOut}`,
-            `opacity 0.35s ${token.motionEaseInOut}`,
+            `box-shadow ${token.motion ? 0.3 : 0}s ${token.motionEaseInOut}`,
+            `opacity ${token.motion ? 0.35 : 0}s ${token.motionEaseInOut}`,
           ].join(','),
         },
       },
