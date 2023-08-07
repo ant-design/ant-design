@@ -1,9 +1,10 @@
 import MutateObserver from '@rc-component/mutate-observer';
 import classNames from 'classnames';
 import React, { useEffect, useRef } from 'react';
-import { getPixelRatio, getStyleStr, reRendering, rotateWatermark } from './utils';
+import { getPixelRatio, reRendering, rotateWatermark } from './utils';
 import theme from '../theme';
 import useWatermark, { BaseSize, FontGap } from './useWatermark';
+import useRafDebounce from './useRafDebounce';
 
 export interface WatermarkProps {
   zIndex?: number;
@@ -93,36 +94,8 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   }, [zIndex, offsetLeft, gapXCenter, offsetTop, gapYCenter]);
 
   const containerRef = useRef<HTMLDivElement>(null);
-  // const watermarkRef = useRef<HTMLDivElement>();
-  // const stopObservation = useRef(false);
 
-  const [appendWatermark, destroyWatermark] = useWatermark(markStyle, gapX, containerRef);
-
-  // const destroyWatermark = () => {
-  //   if (watermarkRef.current) {
-  //     watermarkRef.current.remove();
-  //     watermarkRef.current = undefined;
-  //   }
-  // };
-
-  // const appendWatermark = (base64Url: string, markWidth: number) => {
-  //   if (containerRef.current && watermarkRef.current) {
-  //     stopObservation.current = true;
-  //     watermarkRef.current.setAttribute(
-  //       'style',
-  //       getStyleStr({
-  //         ...getMarkStyle(),
-  //         backgroundImage: `url('${base64Url}')`,
-  //         backgroundSize: `${(gapX + markWidth) * BaseSize}px`,
-  //       }),
-  //     );
-  //     containerRef.current?.append(watermarkRef.current);
-  //     // Delayed execution
-  //     setTimeout(() => {
-  //       stopObservation.current = false;
-  //     });
-  //   }
-  // };
+  const [appendWatermark, watermarkRef] = useWatermark(markStyle, gapX, containerRef);
 
   /**
    * Get the width and height of the watermark. The default values are as follows
@@ -187,10 +160,6 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     const ctx = canvas.getContext('2d');
 
     if (ctx) {
-      // if (!watermarkRef.current) {
-      //   watermarkRef.current = document.createElement('div');
-      // }
-
       const ratio = getPixelRatio();
       const [markWidth, markHeight] = getMarkSize(ctx);
       const canvasWidth = (gapX + markWidth) * ratio;
@@ -258,19 +227,19 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     }
   };
 
+  // ============================= Drawer =============================
+  const syncWatermark = useRafDebounce(renderWatermark);
+
+  // ============================= Update =============================
   const onMutate = (mutations: MutationRecord[]) => {
-    // if (stopObservation.current) {
-    //   return;
-    // }
-    // mutations.forEach((mutation) => {
-    //   if (reRendering(mutation, watermarkRef.current)) {
-    //     destroyWatermark();
-    //     renderWatermark();
-    //   }
-    // });
+    mutations.forEach((mutation) => {
+      if (reRendering(mutation, watermarkRef.current)) {
+        syncWatermark();
+      }
+    });
   };
 
-  useEffect(renderWatermark, [
+  useEffect(syncWatermark, [
     rotate,
     zIndex,
     width,
@@ -288,6 +257,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     offsetTop,
   ]);
 
+  // ============================= Render =============================
   return (
     <MutateObserver onMutate={onMutate}>
       <div

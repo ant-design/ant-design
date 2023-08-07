@@ -27,7 +27,7 @@ export function rotateWatermark(
 }
 
 /** Whether to re-render the watermark */
-export const reRendering = (mutation: MutationRecord, watermarkElement?: HTMLElement) => {
+export const reRendering = (mutation: MutationRecord, watermarkElement?: HTMLElement | null) => {
   let flag = false;
   // Whether to delete the watermark node
   if (mutation.removedNodes.length) {

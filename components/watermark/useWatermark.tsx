@@ -14,19 +14,15 @@ export default function useWatermark(
   markStyle: React.CSSProperties,
   gapX: number,
   containerRef: React.RefObject<HTMLDivElement>,
-): [appendWatermark: AppendWatermark, destroyWatermark: VoidFunction] {
+): [appendWatermark: AppendWatermark, watermarkRef: React.RefObject<HTMLDivElement | undefined>] {
   const watermarkRef = React.useRef<HTMLDivElement>();
 
-  const destroyWatermark = () => {
-    if (watermarkRef.current) {
-      watermarkRef.current.remove();
-      watermarkRef.current = undefined;
-    }
-  };
-
   const appendWatermark = (base64Url: string, markWidth: number) => {
-    if (containerRef.current && watermarkRef.current) {
-      // stopObservation.current = true;
+    if (!watermarkRef.current) {
+      watermarkRef.current = document.createElement('div');
+    }
+
+    if (containerRef.current) {
       watermarkRef.current.setAttribute(
         'style',
         getStyleStr({
@@ -36,12 +32,8 @@ export default function useWatermark(
         }),
       );
       containerRef.current?.append(watermarkRef.current);
-      // // Delayed execution
-      // setTimeout(() => {
-      //   stopObservation.current = false;
-      // });
     }
   };
 
-  return [appendWatermark, destroyWatermark];
+  return [appendWatermark, watermarkRef];
 }
