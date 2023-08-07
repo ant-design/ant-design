@@ -96,4 +96,4 @@ demo:
 1. `open` 或 `defaultOpen` 的值为 `true`
 2. `options` 的值为非空数组
 
-如果 `options` 为空数组，那么无论 `open` 或 `defaultOpen` 的值为何，面板都不会展示。
+如果 `options` 为空数组，那么无论 `open` 或 `defaultOpen` 的值为何，面板都不会自动展示。
