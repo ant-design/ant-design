@@ -1,8 +1,7 @@
 import type { FC, ReactNode } from 'react';
-import React, { Suspense, useMemo } from 'react';
-import { useSearchParams, useServerInsertedHTML } from 'dumi';
+import React, { Suspense } from 'react';
+import { useSearchParams } from 'dumi';
 import { createStyles } from 'antd-style';
-import { getSandpackCssText } from '@codesandbox/sandpack-react';
 import { Skeleton } from 'antd';
 
 const OriginSandpack = React.lazy(() => import('./Sandpack'));

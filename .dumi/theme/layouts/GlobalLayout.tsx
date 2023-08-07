@@ -8,6 +8,7 @@ import {
 } from '@ant-design/cssinjs';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
+import { getSandpackCssText } from '@codesandbox/sandpack-react';
 import { App, theme as antdTheme } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
 import useLayoutState from '../../hooks/useLayoutState';
@@ -17,7 +18,6 @@ import type { ThemeName } from '../common/ThemeSwitch';
 import ThemeSwitch from '../common/ThemeSwitch';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
-import { getSandpackCssText } from '@codesandbox/sandpack-react';
 
 type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
