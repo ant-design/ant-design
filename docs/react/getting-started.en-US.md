@@ -19,6 +19,10 @@ Finally, if you are working in a local development environment, please refer to 
 Here is a simple online codesandbox demo of an Ant Design component to show the usage of Ant Design React.
 
 ```sandpack
+const sandpackConfig = {
+  autorun: true,
+};
+
 import React from 'react';
 import { Button, Space, DatePicker, version } from 'antd';
 

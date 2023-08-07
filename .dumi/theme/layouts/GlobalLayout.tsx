@@ -17,6 +17,7 @@ import type { ThemeName } from '../common/ThemeSwitch';
 import ThemeSwitch from '../common/ThemeSwitch';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
+import { getSandpackCssText } from '@codesandbox/sandpack-react';
 
 type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
@@ -114,6 +115,14 @@ const GlobalLayout: React.FC = () => {
     const styleText = extractStyle(styleCache, true);
     return <style data-type="antd-cssinjs" dangerouslySetInnerHTML={{ __html: styleText }} />;
   });
+
+  useServerInsertedHTML(() => (
+    <style
+      data-sandpack="true"
+      id="sandpack"
+      dangerouslySetInnerHTML={{ __html: getSandpackCssText() }}
+    />
+  ));
 
   const demoPage = pathname.startsWith('/~demos');
 
