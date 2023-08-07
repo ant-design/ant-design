@@ -660,7 +660,7 @@ Form.Item will inject `value` and `onChange` to children when render. Once your 
 </Form.Item>
 ```
 
-You can use HOC to solve this problem:
+You can use HOC to solve this problem, don't forget passing props to form control component:
 
 ```jsx
 const MyInput = (props) => (
