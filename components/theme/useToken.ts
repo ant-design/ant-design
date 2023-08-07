@@ -75,6 +75,7 @@ export default function useToken(): [
       salt,
       override: { override: rootDesignToken, ...components },
       getComputedToken,
+      formatToken,
     },
   );
 
