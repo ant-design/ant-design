@@ -86,3 +86,12 @@ The differences with Select are:
 Please use `onChange` to manage control state. `onSearch` is used for searching input which is not the same as `onChange`. Besides, clicking on the option will not trigger the `onSearch` event.
 
 Related issue: [#18230](https://github.com/ant-design/ant-design/issues/18230) [#17916](https://github.com/ant-design/ant-design/issues/17916)
+
+### Why can't the dropdown menu be automatically expanded when open or defaultOpen is set?
+
+In AutoComplete, whether the panel is displayed depends on two aspects:
+
+1. The value of open or defaultOpen is true
+2. The value of options is a non-empty array
+
+If options is an empty array, then no matter what the value of open or defaultOpen is, the panel will not be automatically displayed.

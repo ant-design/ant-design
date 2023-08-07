@@ -88,3 +88,12 @@ demo:
 请使用 `onChange` 进行受控管理。`onSearch` 触发于搜索输入，与 `onChange` 时机不同。此外，点击选项时也不会触发 `onSearch` 事件。
 
 相关 issue：[#18230](https://github.com/ant-design/ant-design/issues/18230) [#17916](https://github.com/ant-design/ant-design/issues/17916)
+
+### 为何设置了 `open` 或 `defaultOpen` 时无法自动展开下拉菜单？
+
+在 AutoComplete 中，面板是否展示依赖于两个方面：
+
+1. `open` 或 `defaultOpen` 的值为 `true`
+2. `options` 的值为非空数组
+
+如果 `options` 为空数组，那么无论 `open` 或 `defaultOpen` 的值为何，面板都不会展示。
