@@ -205,32 +205,34 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <DemoContext.Provider value={contextValue}>
       <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
-        <Affix>
-          <section className={styles.tocWrapper}>
-            <Anchor
-              className={styles.toc}
-              affix={false}
-              targetOffset={token.marginXXL}
-              showInkInFixed
-              items={anchorItems.map((item) => ({
-                href: `#${item.id}`,
-                title: item.title,
-                key: item.id,
-                children: item.children
-                  ?.filter((child) => showDebug || !debugDemos.includes(child.id))
-                  .map((child) => ({
-                    key: child.id,
-                    href: `#${child.id}`,
-                    title: (
-                      <span className={classNames(debugDemos.includes(child.id) && 'toc-debug')}>
-                        {child?.title}
-                      </span>
-                    ),
-                  })),
-              }))}
-            />
-          </section>
-        </Affix>
+        {!!meta.frontmatter.toc && (
+          <Affix>
+            <section className={styles.tocWrapper}>
+              <Anchor
+                className={styles.toc}
+                affix={false}
+                targetOffset={token.marginXXL}
+                showInkInFixed
+                items={anchorItems.map((item) => ({
+                  href: `#${item.id}`,
+                  title: item.title,
+                  key: item.id,
+                  children: item.children
+                    ?.filter((child) => showDebug || !debugDemos.includes(child.id))
+                    .map((child) => ({
+                      key: child.id,
+                      href: `#${child.id}`,
+                      title: (
+                        <span className={classNames(debugDemos.includes(child.id) && 'toc-debug')}>
+                          {child?.title}
+                        </span>
+                      ),
+                    })),
+                }))}
+              />
+            </section>
+          </Affix>
+        )}
         <article className={classNames(styles.articleWrapper, { rtl: isRTL })}>
           {meta.frontmatter?.title ? (
             <Typography.Title style={{ fontSize: 30, position: 'relative' }}>

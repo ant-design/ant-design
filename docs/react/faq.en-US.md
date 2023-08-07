@@ -1,5 +1,7 @@
 ---
-order: 11
+group:
+  title: Other
+order: 2
 title: FAQ
 ---
 

@@ -422,7 +422,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
         border: `${token.lineWidth}px ${token.lineType} transparent`,
         borderRadius: token.borderRadius,
         outline: 'none',
-        transition: `border ${token.motionDurationMid}`,
+        transition: `all ${token.motionDurationMid}`,
       },
 
       [`&:hover ${componentCls}-item-link`]: {
@@ -502,7 +502,6 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token
         display: 'block',
         padding: `0 ${token.paginationItemPaddingInline}px`,
         color: token.colorText,
-        transition: 'none',
 
         '&:hover': {
           textDecoration: 'none',

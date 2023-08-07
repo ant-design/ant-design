@@ -1,8 +1,9 @@
 ---
 order: 6
-title: Change Log
+title: Changelog
 toc: false
 timeline: true
+tag: vVERSION
 ---
 
 `antd` follows [Semantic Versioning 2.0.0](http://semver.org/).

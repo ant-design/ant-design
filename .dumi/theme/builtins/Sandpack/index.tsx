@@ -23,14 +23,16 @@ const setup = {
 
 const options = {
   activeFile: 'app.tsx' as never,
-  visibleFiles: ['index.tsx', 'app.tsx', 'package.json'] as any,
+  visibleFiles: ['index.tsx', 'app.tsx', 'package.json', 'index.css'] as any,
   showLineNumbers: true,
   editorHeight: '500px',
+  autorun: false,
 };
 
 const indexContent = `import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './app';
+import './index.css';
 
 const root = createRoot(document.getElementById("root"));
 root.render(<App />);
@@ -62,7 +64,7 @@ const SandpackFallback = () => {
   );
 };
 
-const Sandpack = ({ children }: { children: ReactNode }) => {
+const Sandpack = ({ children, dark }: { children: ReactNode; dark: boolean }) => {
   const [searchParams] = useSearchParams();
 
   useServerInsertedHTML(() => (
@@ -81,6 +83,15 @@ const Sandpack = ({ children }: { children: ReactNode }) => {
         options={options}
         files={{
           'index.tsx': indexContent,
+          'index.css': `html, body {
+  padding: 0;
+  margin: 0;
+  background: ${dark ? '#000' : '#fff'};
+}
+
+#root {
+  padding: 24px;
+}`,
           'app.tsx': children,
         }}
       />
