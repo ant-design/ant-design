@@ -36,6 +36,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
      */
     dropdownClassName?: string;
     popupClassName?: string;
+    rootClassName?: string;
   };
 
   const RangePicker = forwardRef<
@@ -56,6 +57,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
       status: customStatus,
       clearIcon,
       allowClear,
+      rootClassName,
       ...restProps
     } = props;
 
@@ -139,6 +141,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
           hashId,
           compactItemClassnames,
           className,
+          rootClassName,
         )}
         locale={locale.lang}
         prefixCls={prefixCls}
@@ -146,7 +149,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
         generateConfig={generateConfig}
         components={Components}
         direction={direction}
-        dropdownClassName={classNames(hashId, popupClassName || dropdownClassName)}
+        dropdownClassName={classNames(hashId, popupClassName || dropdownClassName, rootClassName)}
         allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
       />,
     );
