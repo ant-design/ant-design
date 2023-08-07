@@ -162,9 +162,4 @@ describe('RangePicker', () => {
     rerender(<RangePicker locale={enUS} value={[somepoint, somepoint]} allowClear={{}} />);
     await waitFor(() => expectCloseCircle(true));
   });
-  it('support rootClassName', () => {
-    const { container } = render(<RangePicker rootClassName="custom-class-name" />);
-    expect(container.firstChild).toMatchSnapshot();
-    expect(container.firstChild).toHaveClass('custom-class-name');
-  });
 });
