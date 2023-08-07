@@ -6,6 +6,7 @@ import {
   StyleProvider,
   extractStyle,
 } from '@ant-design/cssinjs';
+import { HappyProvider } from '@ant-design/happy-work-theme';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
 import { App, theme as antdTheme } from 'antd';
@@ -147,7 +148,7 @@ const GlobalLayout: React.FC = () => {
             },
           }}
         >
-          {content}
+          <HappyProvider disabled={!theme.includes('happy-work')}>{content}</HappyProvider>
         </SiteThemeProvider>
       </SiteContext.Provider>
     </StyleProvider>
