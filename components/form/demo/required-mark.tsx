@@ -29,9 +29,9 @@ const App: React.FC = () => {
     >
       <Form.Item label="Required Mark" name="requiredMarkValue">
         <Radio.Group>
-          <Radio.Button value={false}>Hidden</Radio.Button>
+          <Radio.Button value>Default</Radio.Button>
           <Radio.Button value="optional">Optional</Radio.Button>
-          <Radio.Button value>Required</Radio.Button>
+          <Radio.Button value={false}>Hidden</Radio.Button>
           <Radio.Button value="customize">Customize</Radio.Button>
         </Radio.Group>
       </Form.Item>

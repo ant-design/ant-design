@@ -1840,29 +1840,56 @@ describe('Form', () => {
     expect(onChange).toHaveBeenNthCalledWith(idx++, 'success');
   });
 
-  // https://user-images.githubusercontent.com/32004925/230819163-464fe90d-422d-4a6d-9e35-44a25d4c64f1.png
-  it('should not render `requiredMark` when Form.Item has no required prop', () => {
-    // Escaping TypeScript error
-    const genProps = (value: any) => ({ ...value });
+  describe('requiredMark', () => {
+    // https://user-images.githubusercontent.com/32004925/230819163-464fe90d-422d-4a6d-9e35-44a25d4c64f1.png
+    it('should not render `requiredMark` when Form.Item has no required prop', () => {
+      // Escaping TypeScript error
+      const genProps = (value: any) => ({ ...value });
 
-    const { container } = render(
-      <Form name="basic" requiredMark="optional">
-        <Form.Item
-          label="First Name"
-          name="firstName"
-          required
-          {...genProps({ requiredMark: false })}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item label="Last Name" name="lastName" required {...genProps({ requiredMark: true })}>
-          <Input />
-        </Form.Item>
-      </Form>,
-    );
+      const { container } = render(
+        <Form name="basic" requiredMark="optional">
+          <Form.Item
+            label="First Name"
+            name="firstName"
+            required
+            {...genProps({ requiredMark: false })}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label="Last Name"
+            name="lastName"
+            required
+            {...genProps({ requiredMark: true })}
+          >
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
 
-    expect(container.querySelectorAll('.ant-form-item-required')).toHaveLength(2);
-    expect(container.querySelectorAll('.ant-form-item-required-mark-optional')).toHaveLength(2);
+      expect(container.querySelectorAll('.ant-form-item-required')).toHaveLength(2);
+      expect(container.querySelectorAll('.ant-form-item-required-mark-optional')).toHaveLength(2);
+    });
+
+    it('customize logic', () => {
+      const { container } = render(
+        <Form name="basic" requiredMark={(label, info) => `${label}: ${info.required}`}>
+          <Form.Item label="Required" required>
+            <Input />
+          </Form.Item>
+          <Form.Item label="Optional">
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(container.querySelectorAll('.ant-form-item-label')[0].textContent).toEqual(
+        'Required: true',
+      );
+      expect(container.querySelectorAll('.ant-form-item-label')[1].textContent).toEqual(
+        'Optional: false',
+      );
+    });
   });
 
   it('children support comment', () => {
