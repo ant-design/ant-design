@@ -47,7 +47,6 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| rootClassName | ClassName on the root element | string | - | 5.9.0 |
 | accept | File types that can be accepted. See [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) | string | - |  |
 | action | Uploading URL | string \| (file) => Promise&lt;string> | - |  |
 | beforeUpload | Hook function which will be executed before uploading. Uploading will be stopped with `false` or a rejected Promise returned. When returned value is `Upload.LIST_IGNORE`, the list of files that have been uploaded will ignore it. **Warning：this function is not supported in IE9** | (file, fileList) => boolean \| Promise&lt;File> \| `Upload.LIST_IGNORE` | - |  |

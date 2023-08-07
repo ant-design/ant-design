@@ -1034,15 +1034,4 @@ describe('Upload', () => {
       expect(file.status).toBe('done');
     });
   });
-
-  it('should support rootClassName', () => {
-    const { container } = render(
-      <Upload rootClassName="custom-class-name">
-        <button type="button">upload</button>
-      </Upload>,
-    );
-
-    expect(container.querySelector('.custom-class-name')).toBeTruthy();
-    expect(container).toMatchSnapshot();
-  });
 });
