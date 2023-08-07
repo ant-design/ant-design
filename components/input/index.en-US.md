@@ -75,7 +75,6 @@ The rest of the props of Input are exactly the same as the original [input](http
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| rootClassName | ClassName on the root element | string | - | 5.9.0 |
 | allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support object type |
 | autoSize | Height autosize feature, can be set to true \| false or an object { minRows: 2, maxRows: 6 } | boolean \| object | false |  |
 | bordered | Whether has border style | boolean | true | 4.5.0 |

@@ -76,7 +76,6 @@ Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-el
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| rootClassName | 添加在组件最外层的 className | string | - | 5.9.0 |
 | allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: 支持对象类型 |
 | autoSize | 自适应内容高度，可设置为 true \| false 或对象：{ minRows: 2, maxRows: 6 } | boolean \| object | false |  |
 | bordered | 是否有边框 | boolean | true | 4.5.0 |
