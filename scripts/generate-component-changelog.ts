@@ -21,7 +21,7 @@ const camelComponentNames = componentNames.map((componentName) =>
 );
 
 function fillComponentKey(componentName: string): RegExp[] {
-  return [new RegExp(`\\b${componentName}\\b`)];
+  return [new RegExp(`(?<!\\.)\\b${componentName}\\b`)];
 }
 
 // Convert a mapping logic
