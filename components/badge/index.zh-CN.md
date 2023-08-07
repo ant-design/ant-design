@@ -57,7 +57,6 @@ group: 数据展示
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| rootClassName | 添加在组件最外层的 className | string | - | 5.9.0 |
 | color | 自定义缎带的颜色 | string | - |  |
 | placement | 缎带的位置，`start` 和 `end` 随文字方向（RTL 或 LTR）变动 | `start` \| `end` | `end` |  |
 | text | 缎带中填入的内容 | ReactNode | - |  |

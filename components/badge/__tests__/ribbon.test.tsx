@@ -78,14 +78,5 @@ describe('Ribbon', () => {
       );
       expect(container.querySelectorAll('.cool').length).toEqual(1);
     });
-    it('support rootClassName', () => {
-      const { container } = render(
-        <Badge.Ribbon text={<span className="cool" />} rootClassName="custom-root-class">
-          <div />
-        </Badge.Ribbon>,
-      );
-      expect(container.querySelector('.custom-root-class')).toBeTruthy();
-      expect(container).toMatchSnapshot();
-    });
   });
 });
