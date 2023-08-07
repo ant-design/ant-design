@@ -30,38 +30,3 @@ exports[`AutoComplete rtl render component should be rendered correctly in RTL d
   </div>
 </div>
 `;
-
-exports[`AutoComplete should support rootClassName 1`] = `
-<body>
-  <div>
-    <div
-      class="ant-select ant-select-auto-complete custom-root-class ant-select-single ant-select-customize-input ant-select-show-search"
-    >
-      <div
-        class="ant-select-selector"
-      >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-input ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        />
-      </div>
-    </div>
-  </div>
-</body>
-`;
