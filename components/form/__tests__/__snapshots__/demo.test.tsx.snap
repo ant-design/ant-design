@@ -6558,6 +6558,25 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
               id="requiredMarkValue"
             >
               <label
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+              >
+                <span
+                  class="ant-radio-button"
+                >
+                  <input
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="true"
+                  />
+                  <span
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  Default
+                </span>
+              </label>
+              <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
               >
                 <span
@@ -6586,14 +6605,14 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                   <input
                     class="ant-radio-button-input"
                     type="radio"
-                    value="true"
+                    value="false"
                   />
                   <span
                     class="ant-radio-button-inner"
                   />
                 </span>
                 <span>
-                  Required
+                  Hidden
                 </span>
               </label>
               <label
@@ -6605,14 +6624,14 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                   <input
                     class="ant-radio-button-input"
                     type="radio"
-                    value="false"
+                    value="customize"
                   />
                   <span
                     class="ant-radio-button-inner"
                   />
                 </span>
                 <span>
-                  Hidden
+                  Customize
                 </span>
               </label>
             </div>
