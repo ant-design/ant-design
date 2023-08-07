@@ -6,6 +6,7 @@ import theme from '../theme';
 import useWatermark from './useWatermark';
 import useRafDebounce from './useRafDebounce';
 import useContent from './useContent';
+import WatermarkContext from './context';
 
 export interface WatermarkProps {
   zIndex?: number;
@@ -96,8 +97,10 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Append watermark to the container
-  const [appendWatermark, watermarkRef] = useWatermark(markStyle, gapX, containerRef);
+  // ============================ Content =============================
+  const [watermarkInfo, setWatermarkInfo] = React.useState<[base64: string, contentWidth: number]>(
+    null!,
+  );
 
   // Generate new Watermark content
   const renderWatermark = useContent(
@@ -106,13 +109,24 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
       rotate,
       gap,
     },
-    appendWatermark,
+    (base64, contentWidth) => {
+      setWatermarkInfo([base64, contentWidth]);
+    },
   );
 
-  // ============================= Drawer =============================
   const syncWatermark = useRafDebounce(renderWatermark);
 
-  // ============================= Update =============================
+  // ============================= Effect =============================
+  // Append watermark to the container
+  const [appendWatermark, watermarkRef] = useWatermark(markStyle, gapX);
+
+  useEffect(() => {
+    if (watermarkInfo) {
+      appendWatermark(watermarkInfo[0], watermarkInfo[1], containerRef.current!);
+    }
+  }, [watermarkInfo]);
+
+  // ============================ Observe =============================
   const onMutate = (mutations: MutationRecord[]) => {
     mutations.forEach((mutation) => {
       if (reRendering(mutation, watermarkRef.current)) {
@@ -147,7 +161,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         className={classNames(className, rootClassName)}
         style={{ position: 'relative', ...style }}
       >
-        {children}
+        <WatermarkContext.Provider value={null}>{children}</WatermarkContext.Provider>
       </div>
     </MutateObserver>
   );

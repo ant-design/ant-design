@@ -8,21 +8,24 @@ import { getStyleStr } from './utils';
 export const BaseSize = 2;
 export const FontGap = 3;
 
-export type AppendWatermark = (base64Url: string, markWidth: number) => void;
+export type AppendWatermark = (
+  base64Url: string,
+  markWidth: number,
+  container: HTMLElement,
+) => void;
 
 export default function useWatermark(
   markStyle: React.CSSProperties,
   gapX: number,
-  containerRef: React.RefObject<HTMLDivElement>,
 ): [appendWatermark: AppendWatermark, watermarkRef: React.RefObject<HTMLDivElement | undefined>] {
   const watermarkRef = React.useRef<HTMLDivElement>();
 
-  const appendWatermark = (base64Url: string, markWidth: number) => {
+  const appendWatermark = (base64Url: string, markWidth: number, container: HTMLElement) => {
     if (!watermarkRef.current) {
       watermarkRef.current = document.createElement('div');
     }
 
-    if (containerRef.current) {
+    if (container) {
       watermarkRef.current.setAttribute(
         'style',
         getStyleStr({
@@ -31,7 +34,7 @@ export default function useWatermark(
           backgroundSize: `${(gapX + markWidth) * BaseSize}px`,
         }),
       );
-      containerRef.current?.append(watermarkRef.current);
+      container.append(watermarkRef.current);
     }
   };
 
