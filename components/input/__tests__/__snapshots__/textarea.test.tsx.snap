@@ -369,33 +369,3 @@ exports[`TextArea should support size 1`] = `
   class="ant-input ant-input-lg"
 />
 `;
-
-exports[`support rootClassName 1`] = `
-<div>
-  <textarea
-    class="ant-input custom-class-name"
-  />
-</div>
-`;
-
-exports[`support rootClassName 2`] = `
-<div>
-  <span
-    class="ant-input-affix-wrapper custom-class-name ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count"
-    data-count="0"
-  >
-    <textarea
-      class="ant-input"
-    />
-    <span
-      class="ant-input-suffix"
-    >
-      <span
-        class="ant-input-data-count"
-      >
-        0
-      </span>
-    </span>
-  </span>
-</div>
-`;
