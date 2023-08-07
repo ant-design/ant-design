@@ -280,6 +280,40 @@ module.exports = {
 };
 ```
 
+### Switch to theme of v4 <Badge>Updated</Badge>
+
+If you don't want the style to change after upgrade, we have provided a v4 theme in `@ant-design/compatible` that can restore v4 style.
+
+````diff
+
+```sandpack
+const sandpackConfig = {
+  dependencies: {
+    '@ant-design/compatible': 'v5-compatible-v4',
+  },
+};
+
+import {
+  defaultTheme,   // Default theme
+  darkTheme,      // Dark theme
+} from '@ant-design/compatible';
+import { ConfigProvider, Button, Radio, Space } from 'antd';
+
+export default () => (
+  <ConfigProvider theme={defaultTheme}>
+    <Space direction="vertical">
+      <Button type="primary">Button</Button>
+      <Radio.Group>
+        <Radio value={1}>A</Radio>
+        <Radio value={2}>B</Radio>
+        <Radio value={3}>C</Radio>
+        <Radio value={4}>D</Radio>
+      </Radio.Group>
+    </Space>
+  </ConfigProvider>
+);
+````
+
 ### Legacy browser support
 
 Ant Design v5 using `:where` css selector to reduce CSS-in-JS hash priority. You can use `@ant-design/cssinjs` `StyleProvider` to cancel this function. Please ref [Compatible adjustment](/docs/react/customize-theme#compatible-adjustment).
