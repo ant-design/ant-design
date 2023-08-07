@@ -21,9 +21,9 @@ const App: React.FC = () => {
         </Modal>
       </Watermark>
       <Watermark content="Ant Design">
-        <Modal open={showDrawer} title="Drawer" onCancel={closeDrawer} onOk={closeDrawer}>
+        <Drawer open={showDrawer} title="Drawer" onClose={closeDrawer}>
           Drawer Content
-        </Modal>
+        </Drawer>
       </Watermark>
     </>
   );
