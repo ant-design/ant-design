@@ -159,6 +159,7 @@
     "throttle-debounce": "^5.0.0"
   },
   "devDependencies": {
+    "@ant-design/compatible": "^5.1.1",
     "@ant-design/happy-work-theme": "^1.0.0",
     "@ant-design/tools": "^17.0.0",
     "@antv/g6": "^4.8.13",

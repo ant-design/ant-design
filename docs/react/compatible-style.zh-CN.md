@@ -3,7 +3,6 @@ group:
   title: 进阶使用
 order: 1
 title: 样式兼容
-tag: Updated
 ---
 
 Ant Design 支持最近 2 个版本的现代浏览器。如果你需要兼容旧版浏览器，请根据实际需求进行降级处理：
