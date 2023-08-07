@@ -25,6 +25,8 @@ Add specific text or patterns to the page.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Watermark
 
 | Property | Description | Type | Default | Version |

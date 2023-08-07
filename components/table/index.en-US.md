@@ -108,6 +108,8 @@ const columns = [
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Table
 
 | Property | Description | Type | Default | Version |

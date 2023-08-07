@@ -30,6 +30,8 @@ Tree selection control.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Tree props
 
 | Property | Description | Type | Default | Version |

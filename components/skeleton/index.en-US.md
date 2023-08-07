@@ -28,6 +28,8 @@ Provide a placeholder while you wait for content to load, or to visualize conten
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Skeleton
 
 | Property | Description | Type | Default |

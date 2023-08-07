@@ -33,6 +33,8 @@ Almost anything can be represented in a tree structure. Examples include directo
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Tree props
 
 | Property | Description | Type | Default | Version |

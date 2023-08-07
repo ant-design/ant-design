@@ -33,6 +33,8 @@ FloatButton. Available since `5.0.0`.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 > This component is available since `antd@5.0.0`.
 
 ### common API

@@ -55,6 +55,8 @@ High performance Form component with data scope management. Including data colle
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Form
 
 | Property | Description | Type | Default | Version |
