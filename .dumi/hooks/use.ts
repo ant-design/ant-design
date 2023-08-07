@@ -1,23 +1,28 @@
-export default function use(promise: any) {
-  if (promise.status === 'fulfilled') {
-    return promise.value;
+export default function use<T>(promise: PromiseLike<T>): T {
+  const internal: PromiseLike<T> & {
+    status?: 'pending' | 'fulfilled' | 'rejected';
+    value?: T;
+    reason?: any;
+  } = promise;
+  if (internal.status === 'fulfilled') {
+    return internal.value;
   }
-  if (promise.status === 'rejected') {
-    throw promise.reason;
-  } else if (promise.status === 'pending') {
-    throw promise;
+  if (internal.status === 'rejected') {
+    throw internal.reason;
+  } else if (internal.status === 'pending') {
+    throw internal;
   } else {
-    promise.status = 'pending';
-    promise.then(
+    internal.status = 'pending';
+    internal.then(
       (result) => {
-        promise.status = 'fulfilled';
-        promise.value = result;
+        internal.status = 'fulfilled';
+        internal.value = result;
       },
       (reason) => {
-        promise.status = 'rejected';
-        promise.reason = reason;
+        internal.status = 'rejected';
+        internal.reason = reason;
       },
     );
-    throw promise;
+    throw internal;
   }
 }

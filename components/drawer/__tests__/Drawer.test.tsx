@@ -128,7 +128,7 @@ describe('Drawer', () => {
   });
 
   it('style/drawerStyle/headerStyle/bodyStyle should work', () => {
-    const style = {
+    const style: React.CSSProperties = {
       backgroundColor: '#08c',
     };
     const { container: wrapper } = render(

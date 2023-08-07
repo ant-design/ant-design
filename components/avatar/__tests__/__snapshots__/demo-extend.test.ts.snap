@@ -90,6 +90,8 @@ exports[`renders components/avatar/demo/badge.tsx extend context correctly 1`] =
 </div>
 `;
 
+exports[`renders components/avatar/demo/badge.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -342,6 +344,8 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
 </div>
 `;
 
+exports[`renders components/avatar/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/avatar/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -579,6 +583,8 @@ Array [
 ]
 `;
 
+exports[`renders components/avatar/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/avatar/demo/dynamic.tsx extend context correctly 1`] = `
 Array [
   <span
@@ -613,6 +619,8 @@ Array [
 ]
 `;
 
+exports[`renders components/avatar/demo/dynamic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/avatar/demo/fallback.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -642,6 +650,8 @@ exports[`renders components/avatar/demo/fallback.tsx extend context correctly 1`
   </div>
 </div>
 `;
+
+exports[`renders components/avatar/demo/fallback.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/avatar/demo/group.tsx extend context correctly 1`] = `
 Array [
@@ -1197,6 +1207,8 @@ Array [
 ]
 `;
 
+exports[`renders components/avatar/demo/group.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/avatar/demo/responsive.tsx extend context correctly 1`] = `
 <span
   class="ant-avatar ant-avatar-circle ant-avatar-icon"
@@ -1223,6 +1235,8 @@ exports[`renders components/avatar/demo/responsive.tsx extend context correctly 
   </span>
 </span>
 `;
+
+exports[`renders components/avatar/demo/responsive.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/avatar/demo/toggle-debug.tsx extend context correctly 1`] = `
 Array [
@@ -1318,6 +1332,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/avatar/demo/toggle-debug.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = `
 <div
@@ -1455,3 +1471,5 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
   </div>
 </div>
 `;
+
+exports[`renders components/avatar/demo/type.tsx extend context correctly 2`] = `[]`;

@@ -18,7 +18,12 @@ import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
-import { getRangePlaceholder, getTimeProps, transPlacement2DropdownAlign } from '../util';
+import {
+  getRangePlaceholder,
+  getTimeProps,
+  mergeAllowClear,
+  transPlacement2DropdownAlign,
+} from '../util';
 import Components from './Components';
 import type { CommonPickerMethods, PickerComponentClass } from './interface';
 
@@ -31,6 +36,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
      */
     dropdownClassName?: string;
     popupClassName?: string;
+    rootClassName?: string;
   };
 
   const RangePicker = forwardRef<
@@ -49,6 +55,9 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
       popupClassName,
       dropdownClassName,
       status: customStatus,
+      clearIcon,
+      allowClear,
+      rootClassName,
       ...restProps
     } = props;
 
@@ -116,12 +125,10 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
         dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
         placeholder={getRangePlaceholder(locale, picker, placeholder)}
         suffixIcon={suffixNode}
-        clearIcon={<CloseCircleFilled />}
         prevIcon={<span className={`${prefixCls}-prev-icon`} />}
         nextIcon={<span className={`${prefixCls}-next-icon`} />}
         superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
         superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-        allowClear
         transitionName={`${rootPrefixCls}-slide-up`}
         {...restProps}
         {...additionalOverrideProps}
@@ -134,6 +141,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
           hashId,
           compactItemClassnames,
           className,
+          rootClassName,
         )}
         locale={locale.lang}
         prefixCls={prefixCls}
@@ -141,7 +149,8 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
         generateConfig={generateConfig}
         components={Components}
         direction={direction}
-        dropdownClassName={classNames(hashId, popupClassName || dropdownClassName)}
+        dropdownClassName={classNames(hashId, popupClassName || dropdownClassName, rootClassName)}
+        allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
       />,
     );
   });

@@ -96,6 +96,8 @@ exports[`renders components/card/demo/basic.tsx extend context correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/card/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/card/demo/border-less.tsx extend context correctly 1`] = `
 <div
   class="ant-card"
@@ -129,6 +131,8 @@ exports[`renders components/card/demo/border-less.tsx extend context correctly 1
   </div>
 </div>
 `;
+
+exports[`renders components/card/demo/border-less.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/card/demo/component-token.tsx extend context correctly 1`] = `
 Array [
@@ -408,6 +412,8 @@ Array [
 ]
 `;
 
+exports[`renders components/card/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/card/demo/flexible-content.tsx extend context correctly 1`] = `
 <div
   class="ant-card ant-card-bordered ant-card-hoverable"
@@ -445,6 +451,8 @@ exports[`renders components/card/demo/flexible-content.tsx extend context correc
   </div>
 </div>
 `;
+
+exports[`renders components/card/demo/flexible-content.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/card/demo/grid-card.tsx extend context correctly 1`] = `
 <div
@@ -511,6 +519,8 @@ exports[`renders components/card/demo/grid-card.tsx extend context correctly 1`]
   </div>
 </div>
 `;
+
+exports[`renders components/card/demo/grid-card.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/card/demo/in-column.tsx extend context correctly 1`] = `
 <div
@@ -601,6 +611,8 @@ exports[`renders components/card/demo/in-column.tsx extend context correctly 1`]
 </div>
 `;
 
+exports[`renders components/card/demo/in-column.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/card/demo/inner.tsx extend context correctly 1`] = `
 <div
   class="ant-card ant-card-bordered"
@@ -687,6 +699,8 @@ exports[`renders components/card/demo/inner.tsx extend context correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/card/demo/inner.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/card/demo/loading.tsx extend context correctly 1`] = `
 Array [
@@ -853,6 +867,8 @@ Array [
 ]
 `;
 
+exports[`renders components/card/demo/loading.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/card/demo/meta.tsx extend context correctly 1`] = `
 <div
   class="ant-card ant-card-bordered"
@@ -981,6 +997,8 @@ exports[`renders components/card/demo/meta.tsx extend context correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/card/demo/meta.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/card/demo/simple.tsx extend context correctly 1`] = `
 <div
   class="ant-card ant-card-bordered"
@@ -1001,6 +1019,8 @@ exports[`renders components/card/demo/simple.tsx extend context correctly 1`] = 
   </div>
 </div>
 `;
+
+exports[`renders components/card/demo/simple.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/card/demo/tabs.tsx extend context correctly 1`] = `
 Array [
@@ -1323,3 +1343,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/card/demo/tabs.tsx extend context correctly 2`] = `[]`;

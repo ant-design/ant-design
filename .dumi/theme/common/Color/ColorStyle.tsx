@@ -25,7 +25,7 @@ const ColorStyle = () => {
     if (index <= 10) {
       return `
 .palette-${color}-${index} {
-  background: ${(token as any)[`${color}-${index}`]};
+  background: ${token[`${color}-${index}`]};
 }
 ${makePalette(color, index + 1)}
     `;
@@ -37,7 +37,7 @@ ${makePalette(color, index + 1)}
     if (index <= 13) {
       return `
 .palette-gray-${index} {
-  background: ${(gray as any)[index]};
+  background: ${gray[index]};
 }
 ${makeGrayPalette(index + 1)}
     `;

@@ -318,6 +318,8 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/tree/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tree/demo/basic-controlled.tsx extend context correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
@@ -857,6 +859,8 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
 </div>
 `;
 
+exports[`renders components/tree/demo/basic-controlled.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tree/demo/block-node.tsx extend context correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide ant-tree-block-node"
@@ -1019,6 +1023,8 @@ exports[`renders components/tree/demo/block-node.tsx extend context correctly 1`
   </div>
 </div>
 `;
+
+exports[`renders components/tree/demo/block-node.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tree/demo/customized-icon.tsx extend context correctly 1`] = `
 <div
@@ -1230,6 +1236,8 @@ exports[`renders components/tree/demo/customized-icon.tsx extend context correct
   </div>
 </div>
 `;
+
+exports[`renders components/tree/demo/customized-icon.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tree/demo/directory.tsx extend context correctly 1`] = `
 <div
@@ -1607,6 +1615,8 @@ exports[`renders components/tree/demo/directory.tsx extend context correctly 1`]
   </div>
 </div>
 `;
+
+exports[`renders components/tree/demo/directory.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tree/demo/drag-debug.tsx extend context correctly 1`] = `
 Array [
@@ -2492,6 +2502,8 @@ Array [
 ]
 `;
 
+exports[`renders components/tree/demo/drag-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tree/demo/draggable.tsx extend context correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide ant-tree-block-node draggable-tree"
@@ -3064,6 +3076,8 @@ exports[`renders components/tree/demo/draggable.tsx extend context correctly 1`]
 </div>
 `;
 
+exports[`renders components/tree/demo/draggable.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tree/demo/dynamic.tsx extend context correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
@@ -3217,6 +3231,8 @@ exports[`renders components/tree/demo/dynamic.tsx extend context correctly 1`] =
   </div>
 </div>
 `;
+
+exports[`renders components/tree/demo/dynamic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
 <div>
@@ -3870,6 +3886,8 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/tree/demo/line.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tree/demo/search.tsx extend context correctly 1`] = `
 <div>
   <span
@@ -4087,6 +4105,8 @@ exports[`renders components/tree/demo/search.tsx extend context correctly 1`] = 
   </div>
 </div>
 `;
+
+exports[`renders components/tree/demo/search.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tree/demo/switcher-icon.tsx extend context correctly 1`] = `
 <div
@@ -4418,3 +4438,5 @@ exports[`renders components/tree/demo/switcher-icon.tsx extend context correctly
   </div>
 </div>
 `;
+
+exports[`renders components/tree/demo/switcher-icon.tsx extend context correctly 2`] = `[]`;
