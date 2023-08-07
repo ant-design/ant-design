@@ -98,15 +98,4 @@ describe('TimePicker', () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
-  it('should support rootClassName', () => {
-    const { container } = render(
-      <TimePicker
-        rootClassName="custom-class-name"
-        defaultValue={dayjs('2000-01-01 00:00:00')}
-        bordered={false}
-      />,
-    );
-    expect(container.firstChild).toMatchSnapshot();
-    expect(container.querySelector('.custom-class-name')).toBeTruthy();
-  });
 });

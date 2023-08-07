@@ -47,7 +47,6 @@ dayjs.extend(customParseFormat)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| rootClassName | ClassName on the root element | string | - | 5.9.0 |
 | allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type |
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | bordered | Whether has border style | boolean | true |  |
