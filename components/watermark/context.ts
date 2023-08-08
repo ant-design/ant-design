@@ -1,5 +1,15 @@
 import * as React from 'react';
 
-const WatermarkContext = React.createContext(null);
+export interface WatermarkContextProps {
+  add: (ele: HTMLElement) => void;
+  remove: (ele: HTMLElement) => void;
+}
+
+function voidFunc() {}
+
+const WatermarkContext = React.createContext<WatermarkContextProps>({
+  add: voidFunc,
+  remove: voidFunc,
+});
 
 export default WatermarkContext;

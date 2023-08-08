@@ -12,6 +12,8 @@ import { NoCompactStyle } from '../space/Compact';
 import type { ModalProps, MousePosition } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
+import WatermarkContext from '../watermark/context';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 
 let mousePosition: MousePosition;
 
@@ -41,6 +43,8 @@ const Modal: React.FC<ModalProps> = (props) => {
     direction,
     modal,
   } = React.useContext(ConfigContext);
+
+  const watermark = React.useContext(WatermarkContext);
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { onCancel } = props;
@@ -103,6 +107,18 @@ const Modal: React.FC<ModalProps> = (props) => {
     true,
   );
 
+  // ============================ Refs ============================
+  const panelEleRef = React.useRef<HTMLElement>();
+  const panelRef = useEvent((ele: HTMLElement | null) => {
+    if (ele) {
+      watermark.add(ele);
+      panelEleRef.current = ele;
+    } else {
+      watermark.remove(panelEleRef.current!);
+    }
+  });
+
+  // =========================== Render ===========================
   return wrapSSR(
     <NoCompactStyle>
       <NoFormStyle status override>
@@ -124,6 +140,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
           className={classNames(hashId, className, modal?.className)}
           style={{ ...modal?.style, ...style }}
+          panelRef={panelRef}
         />
       </NoFormStyle>
     </NoCompactStyle>,

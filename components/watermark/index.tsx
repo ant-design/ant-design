@@ -1,12 +1,13 @@
-import MutateObserver from '@rc-component/mutate-observer';
+import { useMutateObserver } from '@rc-component/mutate-observer';
 import classNames from 'classnames';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { reRendering } from './utils';
 import theme from '../theme';
 import useWatermark from './useWatermark';
 import useRafDebounce from './useRafDebounce';
 import useContent from './useContent';
 import WatermarkContext from './context';
+import type { WatermarkContextProps } from './context';
 
 export interface WatermarkProps {
   zIndex?: number;
@@ -95,7 +96,10 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     return mergedStyle;
   }, [zIndex, offsetLeft, gapXCenter, offsetTop, gapYCenter]);
 
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [container, setContainer] = React.useState<HTMLDivElement | null>();
+
+  // Used for nest case like Modal, Drawer
+  const [subElements, setSubElements] = React.useState(new Set<HTMLElement>());
 
   // ============================ Content =============================
   const [watermarkInfo, setWatermarkInfo] = React.useState<[base64: string, contentWidth: number]>(
@@ -122,7 +126,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
   useEffect(() => {
     if (watermarkInfo) {
-      appendWatermark(watermarkInfo[0], watermarkInfo[1], containerRef.current!);
+      appendWatermark(watermarkInfo[0], watermarkInfo[1], container!);
     }
   }, [watermarkInfo]);
 
@@ -134,6 +138,14 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
       }
     });
   };
+
+  // Nest elements should also support watermark
+  const targetElements = React.useMemo(() => {
+    const list = container ? [container] : [];
+    return [...list, ...Array.from(subElements)];
+  }, [container, subElements]);
+
+  useMutateObserver(targetElements, onMutate);
 
   useEffect(syncWatermark, [
     rotate,
@@ -153,17 +165,44 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     offsetTop,
   ]);
 
+  // ============================ Context =============================
+  const watermarkContext = React.useMemo<WatermarkContextProps>(
+    () => ({
+      add: (ele) => {
+        setSubElements((prev) => {
+          if (prev.has(ele)) {
+            return prev;
+          }
+
+          const clone = new Set(prev);
+          clone.add(ele);
+          return clone;
+        });
+      },
+      remove: (ele) => {
+        setSubElements((prev) => {
+          if (!prev.has(ele)) {
+            return prev;
+          }
+
+          const clone = new Set(prev);
+          clone.delete(ele);
+          return clone;
+        });
+      },
+    }),
+    [],
+  );
+
   // ============================= Render =============================
   return (
-    <MutateObserver onMutate={onMutate}>
-      <div
-        ref={containerRef}
-        className={classNames(className, rootClassName)}
-        style={{ position: 'relative', ...style }}
-      >
-        <WatermarkContext.Provider value={null}>{children}</WatermarkContext.Provider>
-      </div>
-    </MutateObserver>
+    <div
+      ref={setContainer}
+      className={classNames(className, rootClassName)}
+      style={{ position: 'relative', ...style }}
+    >
+      <WatermarkContext.Provider value={watermarkContext}>{children}</WatermarkContext.Provider>
+    </div>
   );
 };
 

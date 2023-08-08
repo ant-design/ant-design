@@ -16,11 +16,15 @@ const App: React.FC = () => {
       </Space>
 
       <Watermark content="Ant Design">
-        <Modal open={showModal} title="Modal" onCancel={closeModal} onOk={closeModal}>
+        <Modal
+          destroyOnClose
+          open={showModal}
+          title="Modal"
+          onCancel={closeModal}
+          onOk={closeModal}
+        >
           Modal Content
         </Modal>
-      </Watermark>
-      <Watermark content="Ant Design">
         <Drawer open={showDrawer} title="Drawer" onClose={closeDrawer}>
           Drawer Content
         </Drawer>
