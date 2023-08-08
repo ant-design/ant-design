@@ -39,7 +39,7 @@ const App: React.FC = () => {
         >
           {placeholder}
         </Modal>
-        <Drawer open={showDrawer} title="Drawer" onClose={closeDrawer}>
+        <Drawer destroyOnClose open={showDrawer} title="Drawer" onClose={closeDrawer}>
           {placeholder}
         </Drawer>
       </Watermark>

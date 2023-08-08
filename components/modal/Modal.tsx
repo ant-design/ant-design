@@ -12,8 +12,7 @@ import { NoCompactStyle } from '../space/Compact';
 import type { ModalProps, MousePosition } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
-import WatermarkContext from '../watermark/context';
-import useEvent from 'rc-util/lib/hooks/useEvent';
+import { usePanelRef } from '../watermark/context';
 
 let mousePosition: MousePosition;
 
@@ -43,8 +42,6 @@ const Modal: React.FC<ModalProps> = (props) => {
     direction,
     modal,
   } = React.useContext(ConfigContext);
-
-  const watermark = React.useContext(WatermarkContext);
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { onCancel } = props;
@@ -108,16 +105,8 @@ const Modal: React.FC<ModalProps> = (props) => {
   );
 
   // ============================ Refs ============================
-  const panelEleRef = React.useRef<HTMLElement>();
-  const panelRef = useEvent((ele: HTMLElement | null) => {
-    if (ele) {
-      const innerContentEle = ele.querySelector<HTMLElement>(`.${prefixCls}-content`)!;
-      watermark.add(innerContentEle);
-      panelEleRef.current = innerContentEle;
-    } else {
-      watermark.remove(panelEleRef.current!);
-    }
-  });
+  // Select `ant-modal-content` by `panelRef`
+  const panelRef = usePanelRef(`.${prefixCls}-content`);
 
   // =========================== Render ===========================
   return wrapSSR(

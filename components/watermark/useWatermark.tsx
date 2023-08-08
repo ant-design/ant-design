@@ -22,16 +22,16 @@ export default function useWatermark(
   removeWatermark: (container: HTMLElement) => void,
   isWatermarkEle: (ele: Node) => boolean,
 ] {
-  const [watermarkElements] = React.useState(() => new Map<HTMLElement, HTMLDivElement>());
+  const [watermarkMap] = React.useState(() => new Map<HTMLElement, HTMLDivElement>());
 
   const appendWatermark = (base64Url: string, markWidth: number, container: HTMLElement) => {
     if (container) {
-      if (!watermarkElements.get(container)) {
+      if (!watermarkMap.get(container)) {
         const newWatermarkEle = document.createElement('div');
-        watermarkElements.set(container, newWatermarkEle);
+        watermarkMap.set(container, newWatermarkEle);
       }
 
-      const watermarkEle = watermarkElements.get(container)!;
+      const watermarkEle = watermarkMap.get(container)!;
 
       watermarkEle.setAttribute(
         'style',
@@ -46,14 +46,16 @@ export default function useWatermark(
   };
 
   const removeWatermark = (container: HTMLElement) => {
-    const watermarkEle = watermarkElements.get(container);
+    const watermarkEle = watermarkMap.get(container);
 
     if (watermarkEle && container) {
       container.removeChild(watermarkEle);
     }
+
+    watermarkMap.delete(container);
   };
 
-  const isWatermarkEle = (ele: any) => Array.from(watermarkElements.values()).includes(ele);
+  const isWatermarkEle = (ele: any) => Array.from(watermarkMap.values()).includes(ele);
 
   return [appendWatermark, removeWatermark, isWatermarkEle];
 }
