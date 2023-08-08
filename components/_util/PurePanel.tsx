@@ -92,25 +92,16 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
     }
 
     return (
-      <ConfigProvider
-        theme={{
-          token: {
-            motion: false,
-            zIndexPopupBase: 0,
-          },
+      <div
+        ref={holderRef}
+        style={{
+          paddingBottom: popupHeight,
+          position: 'relative',
+          minWidth: popupWidth,
         }}
       >
-        <div
-          ref={holderRef}
-          style={{
-            paddingBottom: popupHeight,
-            position: 'relative',
-            minWidth: popupWidth,
-          }}
-        >
-          <Component {...mergedProps} />
-        </div>
-      </ConfigProvider>
+        <Component {...mergedProps} />
+      </div>
     );
   }
 
