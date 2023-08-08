@@ -1,5 +1,7 @@
 import React from 'react';
 import Watermark from '..';
+import Modal from '../../modal';
+import Drawer from '../../drawer';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, waitFakeTimer, waitFor } from '../../../tests/utils';
@@ -93,5 +95,35 @@ describe('Watermark', () => {
     target?.setAttribute('style', '');
     await waitFor(() => expect(target).toBeTruthy());
     expect(container).toMatchSnapshot();
+  });
+
+  describe('nest component', () => {
+    function test(name: string, children: React.ReactNode, getWatermarkElement: () => Node) {
+      it(name, async () => {
+        const { rerender } = render(<Watermark className="test">{children}</Watermark>);
+        await waitFakeTimer();
+
+        const watermark = getWatermarkElement();
+
+        expect(watermark).toHaveStyle({
+          zIndex: '9',
+        });
+
+        // Not crash when children removed
+        rerender(<Watermark className="test" />);
+      });
+    }
+
+    test(
+      'Modal',
+      <Modal open />,
+      () => document.body.querySelector('.ant-modal-content')!.lastChild!,
+    );
+
+    test(
+      'Drawer',
+      <Drawer open />,
+      () => document.body.querySelector('.ant-drawer-content')!.lastChild!,
+    );
   });
 });
