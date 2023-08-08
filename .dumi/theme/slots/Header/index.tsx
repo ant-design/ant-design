@@ -25,11 +25,13 @@ const useStyle = createStyles(({ token, css }) => {
 
   return {
     header: css`
-      position: relative;
-      z-index: 10;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
       max-width: 100%;
       background: ${token.colorBgContainer};
       box-shadow: ${token.boxShadowTertiary};
+      backdrop-filter: blur(8px);
 
       @media only screen and (max-width: ${token.mobileMaxWidth}px) {
         text-align: center;

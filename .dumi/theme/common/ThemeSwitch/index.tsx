@@ -24,7 +24,12 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
   const isHappyWork = value.includes('happy-work');
 
   return (
-    <FloatButton.Group trigger="click" icon={<ThemeIcon />} aria-label="Theme Switcher">
+    <FloatButton.Group
+      trigger="click"
+      icon={<ThemeIcon />}
+      aria-label="Theme Switcher"
+      badge={{ dot: true }}
+    >
       <Link
         to={getLocalizedPathname('/theme-editor', isZhCN(pathname), search)}
         style={{ display: 'block', marginBottom: token.margin }}
@@ -76,6 +81,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
         }
       /> */}
       <FloatButton
+        badge={{ dot: true }}
         icon={<SmileOutlined />}
         type={isHappyWork ? 'primary' : 'default'}
         onClick={() => {

@@ -9,6 +9,7 @@ demo:
 group:
   title: 数据展示
   order: 5
+tag: New
 ---
 
 能够将文本转换生成二维码的组件，支持自定义配色和 Logo 配置，自 `antd@5.1.0` 版本开始提供该组件。

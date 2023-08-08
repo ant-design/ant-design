@@ -2,6 +2,23 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import ConfigProvider, { ConfigContext } from '../config-provider';
 
+export function withPureRenderTheme(Component: any) {
+  return function PureRenderThemeComponent(props: any) {
+    return (
+      <ConfigProvider
+        theme={{
+          token: {
+            motion: false,
+            zIndexPopupBase: 0,
+          },
+        }}
+      >
+        <Component {...props} />
+      </ConfigProvider>
+    );
+  };
+}
+
 export interface BaseProps {
   prefixCls?: string;
   style?: React.CSSProperties;
@@ -16,7 +33,7 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
 ) {
   type WrapProps = Omit<ComponentProps, 'open' | 'visible'> & { open?: boolean };
 
-  return function PurePanel(props: WrapProps) {
+  function PurePanel(props: WrapProps) {
     const { prefixCls: customizePrefixCls, style } = props;
 
     const holderRef = React.useRef<HTMLDivElement>(null);
@@ -79,6 +96,7 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
         theme={{
           token: {
             motion: false,
+            zIndexPopupBase: 0,
           },
         }}
       >
@@ -94,5 +112,7 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
         </div>
       </ConfigProvider>
     );
-  } as typeof Component;
+  }
+
+  return withPureRenderTheme(PurePanel);
 }

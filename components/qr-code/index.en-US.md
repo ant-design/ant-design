@@ -8,6 +8,7 @@ demo:
 group:
   title: Data Display
   order: 5
+tag: New
 ---
 
 Components that can convert text into QR codes, and support custom color and logo. Available since `antd@5.1.0`.
