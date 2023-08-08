@@ -4,7 +4,7 @@ import { cloneElement, isFragment } from '../_util/reactNode';
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 export const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
 
-export function isString(str: any) {
+export function isString(str: any): str is string {
   return typeof str === 'string';
 }
 
@@ -30,7 +30,7 @@ function splitCNCharsBySpace(child: React.ReactElement | string | number, needIn
     });
   }
 
-  if (typeof child === 'string') {
+  if (isString(child)) {
     return isTwoCNChar(child) ? <span>{child.split('').join(SPACE)}</span> : <span>{child}</span>;
   }
 
