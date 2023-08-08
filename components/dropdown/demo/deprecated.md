@@ -28,7 +28,7 @@ const menu = (
     </Menu.Item>
     <Menu.Item disabled icon={<SmileOutlined />}>
       <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com/">
-        2rd menu item (disabled)
+        2nd menu item (disabled)
       </a>
     </Menu.Item>
     <Menu.Item disabled>
