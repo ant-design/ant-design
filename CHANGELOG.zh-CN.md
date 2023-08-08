@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 4.24.13
+
+`2023-08-03`
+
+- 🐞 修复 Anchor 在滚动时无法触发 `getCurrentAnchor` 的问题。[#43917](https://github.com/ant-design/ant-design/pull/43917)
+- 🛠 Carousel 移除 `lodash` 依赖。[2b43f73](https://github.com/ant-design/ant-design/commit/2b43f73) [@taozhou-glean](https://github.com/taozhou-glean)
+- 🐞 修复 Select 选中时移除图标未对齐错误。[#43667](https://github.com/ant-design/ant-design/pull/43667) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 让用户能够处理 Modal 中 `onOk` 回调中的 Promise 异常。[#43536](https://github.com/ant-design/ant-design/pull/43536) [@maroon1](https://github.com/maroon1)
+- 🐞 修复 ConfigProvider 表单校验信息 `validateMessages` 嵌套使用错误。[#43480](https://github.com/ant-design/ant-design/pull/43480) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 variable.less 没有同步改动 `@checkbox-border-radius` 导致变量表现不一致的问题。[#43356](https://github.com/ant-design/ant-design/pull/43356)
+
 ## 4.24.12
 
 `2023-06-30`
