@@ -87,11 +87,6 @@ Please use `onChange` to manage control state. `onSearch` is used for searching 
 
 Related issue: [#18230](https://github.com/ant-design/ant-design/issues/18230) [#17916](https://github.com/ant-design/ant-design/issues/17916)
 
-### Why can't the dropdown menu be automatically expanded when open or defaultOpen is set?
+### Why won't a controlled open AutoComplete display a drop-down menu when options are empty?
 
-In AutoComplete, whether the panel is displayed depends on two aspects:
-
-1. The value of open or defaultOpen is true
-2. The value of options is a non-empty array
-
-If options is an empty array, then no matter what the value of open or defaultOpen is, the panel will not be automatically displayed.
+The AutoComplete component is essentially an extension of the Input form element. When the `options` property is empty, displaying empty text could mislead the user into believing the component is not operational, when in fact they are still able to input text. To avoid confusion, the `open` property will not display the drop-down menu when set to `true` and in combination with an empty `options` property. The `open` property must be used in conjunction with the `options` property.

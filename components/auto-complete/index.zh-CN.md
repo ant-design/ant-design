@@ -89,11 +89,6 @@ demo:
 
 相关 issue：[#18230](https://github.com/ant-design/ant-design/issues/18230) [#17916](https://github.com/ant-design/ant-design/issues/17916)
 
-### 为何设置了 `open` 或 `defaultOpen` 时无法自动展开下拉菜单？
+### 为何 options 为空时，受控 open 展开不会显示下拉菜单？
 
-在 AutoComplete 中，面板是否展示依赖于两个方面：
-
-1. `open` 或 `defaultOpen` 的值为 `true`
-2. `options` 的值为非空数组
-
-如果 `options` 为空数组，那么无论 `open` 或 `defaultOpen` 的值为何，面板都不会自动展示。
+AutoComplete 组件本质上是 Input 输入框的一种扩展，当 options 为空时，显示空文本会让用户误以为该组件不可操作，实际上它仍然可以进行文本输入操作。因此，为了避免给用户带来困惑，当 options 为空时，open 属性为 true 也不会展示下拉菜单，需要与 options 属性配合使用。
