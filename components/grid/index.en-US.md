@@ -51,6 +51,8 @@ Layout uses a 24 grid layout to define the width of each "box", but does not rig
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 If the Ant Design grid layout component does not meet your needs, you can use the excellent layout components of the community:
 
 - [react-flexbox-grid](http://roylee0704.github.io/react-flexbox-grid/)

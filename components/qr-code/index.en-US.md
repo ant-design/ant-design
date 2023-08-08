@@ -33,6 +33,8 @@ Used when the text needs to be converted into a QR Code.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 > This component is available since `antd@5.1.0`
 
 | Property | Description | Type | Default | Version |

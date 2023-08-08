@@ -26,6 +26,8 @@ Switching Selector.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | autoFocus | Whether get focus when component mounted | boolean | false |

@@ -72,6 +72,8 @@ const items: CollapseProps['items'] = [
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Collapse
 
 | Property | Description | Type | Default | Version |

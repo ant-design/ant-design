@@ -26,6 +26,8 @@ Use when you want to guide users through a product.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Tour
 
 | Property | Description | Type | Default | Version |

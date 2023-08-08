@@ -122,6 +122,8 @@ export default () => {
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### App
 
 | Property | Description | Type | Default | Version |

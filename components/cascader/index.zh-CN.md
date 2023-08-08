@@ -41,6 +41,8 @@ demo:
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 ```jsx
 <Cascader options={options} onChange={onChange} />
 ```

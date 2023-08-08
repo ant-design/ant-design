@@ -27,6 +27,8 @@ Avatars can be used to represent people or objects. It supports images, `Icon`s,
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Avatar
 
 | Property | Description | Type | Default | Version |

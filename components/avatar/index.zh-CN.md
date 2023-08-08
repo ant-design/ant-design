@@ -32,6 +32,8 @@ group:
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 ### Avatar
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
