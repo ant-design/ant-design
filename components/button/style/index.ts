@@ -35,6 +35,21 @@ export interface ComponentToken {
    */
   primaryColor: string;
   /**
+   * @desc 默认按钮文本颜色
+   * @descEN Text color of default button
+   */
+  defaultColor: string;
+  /**
+   * @desc 默认按钮背景色
+   * @descEN Background color of default button
+   */
+  defaultBg: string;
+  /**
+   * @desc 默认按钮边框颜色
+   * @descEN Border color of default button
+   */
+  defaultBorderColor: string;
+  /**
    * @desc 危险按钮文本颜色
    * @descEN Text color of danger button
    */
@@ -302,8 +317,9 @@ const genPureDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token
 const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   ...genSolidButtonStyle(token),
 
-  backgroundColor: token.colorBgContainer,
-  borderColor: token.colorBorder,
+  backgroundColor: token.defaultBg,
+  borderColor: token.defaultBorderColor,
+  color: token.defaultColor,
 
   boxShadow: token.defaultShadow,
 
@@ -674,5 +690,9 @@ export default genComponentStyleHook(
     groupBorderColor: token.colorPrimaryHover,
     linkHoverBg: 'transparent',
     textHoverBg: token.colorBgTextHover,
+    defaultColor: token.colorText,
+    defaultBg: token.colorBgContainer,
+    defaultBorderColor: token.colorBorder,
+    defaultBorderColorDisabled: token.colorBorder,
   }),
 );

@@ -104,9 +104,9 @@ export default App;
 | `@btn-text-shadow` | - | 已废弃，v5 中不再有 `text-shadow` |
 | `@btn-primary-color` | `primaryColor` | - |
 | `@btn-primary-bg` | `colorPrimary` | 全局 Token |
-| `@btn-default-color` | `colorText` | 全局 Token |
-| `@btn-default-bg` | `colorBgContainer` | 全局 Token |
-| `@btn-default-border` | `colorBorder` | 全局 Token |
+| `@btn-default-color` | `defaultColor` | - |
+| `@btn-default-bg` | `defaultBg` | - |
+| `@btn-default-border` | `defaultBorderColor` | - |
 | `@btn-danger-color` | `dangerColor` | - |
 | `@btn-danger-bg` | `colorError` | 全局 Token |
 | `@btn-danger-border` | `colorError` | 全局 Token |
