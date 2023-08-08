@@ -17,16 +17,23 @@ export type AppendWatermark = (
 export default function useWatermark(
   markStyle: React.CSSProperties,
   gapX: number,
-): [appendWatermark: AppendWatermark, watermarkRef: React.RefObject<HTMLDivElement | undefined>] {
-  const watermarkRef = React.useRef<HTMLDivElement>();
+): [
+  appendWatermark: AppendWatermark,
+  removeWatermark: (container: HTMLElement) => void,
+  isWatermarkEle: (ele: Node) => boolean,
+] {
+  const [watermarkElements] = React.useState(() => new Map<HTMLElement, HTMLDivElement>());
 
   const appendWatermark = (base64Url: string, markWidth: number, container: HTMLElement) => {
-    if (!watermarkRef.current) {
-      watermarkRef.current = document.createElement('div');
-    }
-
     if (container) {
-      watermarkRef.current.setAttribute(
+      if (!watermarkElements.get(container)) {
+        const newWatermarkEle = document.createElement('div');
+        watermarkElements.set(container, newWatermarkEle);
+      }
+
+      const watermarkEle = watermarkElements.get(container)!;
+
+      watermarkEle.setAttribute(
         'style',
         getStyleStr({
           ...markStyle,
@@ -34,9 +41,19 @@ export default function useWatermark(
           backgroundSize: `${(gapX + markWidth) * BaseSize}px`,
         }),
       );
-      container.append(watermarkRef.current);
+      container.append(watermarkEle);
     }
   };
 
-  return [appendWatermark, watermarkRef];
+  const removeWatermark = (container: HTMLElement) => {
+    const watermarkEle = watermarkElements.get(container);
+
+    if (watermarkEle && container) {
+      container.removeChild(watermarkEle);
+    }
+  };
+
+  const isWatermarkEle = (ele: any) => Array.from(watermarkElements.values()).includes(ele);
+
+  return [appendWatermark, removeWatermark, isWatermarkEle];
 }

@@ -111,8 +111,9 @@ const Modal: React.FC<ModalProps> = (props) => {
   const panelEleRef = React.useRef<HTMLElement>();
   const panelRef = useEvent((ele: HTMLElement | null) => {
     if (ele) {
-      watermark.add(ele);
-      panelEleRef.current = ele;
+      const innerContentEle = ele.querySelector<HTMLElement>(`.${prefixCls}-content`)!;
+      watermark.add(innerContentEle);
+      panelEleRef.current = innerContentEle;
     } else {
       watermark.remove(panelEleRef.current!);
     }

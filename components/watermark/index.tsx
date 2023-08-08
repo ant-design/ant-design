@@ -101,6 +101,12 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   // Used for nest case like Modal, Drawer
   const [subElements, setSubElements] = React.useState(new Set<HTMLElement>());
 
+  // Nest elements should also support watermark
+  const targetElements = React.useMemo(() => {
+    const list = container ? [container] : [];
+    return [...list, ...Array.from(subElements)];
+  }, [container, subElements]);
+
   // ============================ Content =============================
   const [watermarkInfo, setWatermarkInfo] = React.useState<[base64: string, contentWidth: number]>(
     null!,
@@ -122,28 +128,24 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
   // ============================= Effect =============================
   // Append watermark to the container
-  const [appendWatermark, watermarkRef] = useWatermark(markStyle, gapX);
+  const [appendWatermark, removeWatermark, isWatermarkEle] = useWatermark(markStyle, gapX);
 
   useEffect(() => {
     if (watermarkInfo) {
-      appendWatermark(watermarkInfo[0], watermarkInfo[1], container!);
+      targetElements.forEach((holder) => {
+        appendWatermark(watermarkInfo[0], watermarkInfo[1], holder);
+      });
     }
-  }, [watermarkInfo]);
+  }, [watermarkInfo, targetElements]);
 
   // ============================ Observe =============================
   const onMutate = (mutations: MutationRecord[]) => {
     mutations.forEach((mutation) => {
-      if (reRendering(mutation, watermarkRef.current)) {
+      if (reRendering(mutation, isWatermarkEle)) {
         syncWatermark();
       }
     });
   };
-
-  // Nest elements should also support watermark
-  const targetElements = React.useMemo(() => {
-    const list = container ? [container] : [];
-    return [...list, ...Array.from(subElements)];
-  }, [container, subElements]);
 
   useMutateObserver(targetElements, onMutate);
 
@@ -180,6 +182,8 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         });
       },
       remove: (ele) => {
+        removeWatermark(ele);
+
         setSubElements((prev) => {
           if (!prev.has(ele)) {
             return prev;
@@ -187,6 +191,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
           const clone = new Set(prev);
           clone.delete(ele);
+
           return clone;
         });
       },
