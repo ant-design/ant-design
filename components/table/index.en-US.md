@@ -238,7 +238,7 @@ Properties for expandable.
 | indentSize | Indent size in pixels of tree data | number | 15 |  |
 | rowExpandable | Enable row can be expandable | (record) => boolean | - |  |
 | showExpandColumn | Show expand column | boolean | true | 4.18.0 |
-| onExpand | Callback executed when the row expand icon is clicked | function(expanded, record) | - |  |
+| onExpand | Callback executed when the row expand icon is clicked | function(record, event) | - |  |
 | onExpandedRowsChange | Callback executed when the expanded rows change | function(expandedRows) | - |  |
 
 ### rowSelection
