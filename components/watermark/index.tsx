@@ -31,6 +31,14 @@ export interface WatermarkProps {
   children?: React.ReactNode;
 }
 
+/**
+ * Only return `next` when size changed.
+ * This is only used for elements compare, not a shallow equal!
+ */
+function getSizeDiff<T>(prev: Set<T>, next: Set<T>) {
+  return prev.size === next.size ? prev : next;
+}
+
 const Watermark: React.FC<WatermarkProps> = (props) => {
   const {
     /**
@@ -172,27 +180,19 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     () => ({
       add: (ele) => {
         setSubElements((prev) => {
-          if (prev.has(ele)) {
-            return prev;
-          }
-
           const clone = new Set(prev);
           clone.add(ele);
-          return clone;
+          return getSizeDiff(prev, clone);
         });
       },
       remove: (ele) => {
         removeWatermark(ele);
 
         setSubElements((prev) => {
-          if (!prev.has(ele)) {
-            return prev;
-          }
-
           const clone = new Set(prev);
           clone.delete(ele);
 
-          return clone;
+          return getSizeDiff(prev, clone);
         });
       },
     }),
