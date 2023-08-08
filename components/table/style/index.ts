@@ -18,7 +18,39 @@ import genSorterStyle from './sorter';
 import genStickyStyle from './sticky';
 import genSummaryStyle from './summary';
 
-export interface ComponentToken {}
+export interface ComponentToken {
+  headerBg: string;
+  headerColor: string;
+  headerSortActiveBg: string;
+  headerSortHoverBg: string;
+  bodySortBg: string;
+  rowHoverBg: string;
+  rowSelectedBg: string;
+  rowSelectedHoverBg: string;
+  rowExpandedBg: string;
+  cellPaddingBlock: number;
+  cellPaddingInline: number;
+  cellPaddingBlockMD: number;
+  cellPaddingInlineMD: number;
+  cellPaddingBlockSM: number;
+  cellPaddingInlineSM: number;
+  borderColor: string;
+  headerBorderRadius: number;
+  footerBg: string;
+  footerColor: string;
+  cellFontSize: number;
+  cellFontSizeMD: number;
+  cellFontSizeSM: number;
+  headerSplitColor: string;
+  fixedHeaderSortActiveBg: string;
+  headerFilterHoverBg: string;
+  filterDropdownMenuBg: string;
+  filterDropdownBg: string;
+  expandIconBg: string;
+  selectionColumnWidth: number;
+  stickyScrollBarBg: string;
+  stickyScrollBarBorderRadius: number;
+}
 
 export interface TableToken extends FullToken<'Table'> {
   tableFontSize: number;
@@ -238,118 +270,188 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Table', (token) => {
-  const {
-    controlItemBgActive,
-    controlItemBgActiveHover,
-    colorTextPlaceholder,
-    colorTextHeading,
-    colorSplit,
-    colorBorderSecondary,
-    fontSize,
-    padding,
-    paddingXS,
-    paddingSM,
-    controlHeight,
-    colorFillAlter,
-    colorIcon,
-    colorIconHover,
-    opacityLoading,
-    colorBgContainer,
-    borderRadiusLG,
-    colorFillContent,
-    colorFillSecondary,
-    controlInteractiveSize: checkboxSize,
-  } = token;
+export default genComponentStyleHook(
+  'Table',
+  (token) => {
+    const {
+      colorTextHeading,
+      colorSplit,
+      colorIcon,
+      colorIconHover,
+      opacityLoading,
+      colorBgContainer,
+      controlInteractiveSize: checkboxSize,
+      headerBg,
+      headerColor,
+      headerSortActiveBg,
+      headerSortHoverBg,
+      bodySortBg,
+      rowHoverBg,
+      rowSelectedBg,
+      rowSelectedHoverBg,
+      rowExpandedBg,
+      cellPaddingBlock,
+      cellPaddingInline,
+      cellPaddingBlockMD,
+      cellPaddingInlineMD,
+      cellPaddingBlockSM,
+      cellPaddingInlineSM,
+      borderColor,
+      footerBg,
+      footerColor,
+      headerBorderRadius,
+      cellFontSize,
+      cellFontSizeMD,
+      cellFontSizeSM,
+      headerSplitColor,
+      fixedHeaderSortActiveBg,
+      headerFilterHoverBg,
+      filterDropdownBg,
+      expandIconBg,
+      selectionColumnWidth,
+      stickyScrollBarBg,
+    } = token;
 
-  const baseColorAction = new TinyColor(colorIcon);
-  const baseColorActionHover = new TinyColor(colorIconHover);
+    const baseColorAction = new TinyColor(colorIcon);
+    const baseColorActionHover = new TinyColor(colorIconHover);
 
-  const tableSelectedRowBg = controlItemBgActive;
-  const zIndexTableFixed: number = 2;
+    const zIndexTableFixed: number = 2;
 
-  const colorFillSecondarySolid = new TinyColor(colorFillSecondary)
-    .onBackground(colorBgContainer)
-    .toHexShortString();
-  const colorFillContentSolid = new TinyColor(colorFillContent)
-    .onBackground(colorBgContainer)
-    .toHexShortString();
+    const tableToken = mergeToken<TableToken>(token, {
+      tableFontSize: cellFontSize,
+      tableBg: colorBgContainer,
+      tableRadius: headerBorderRadius,
 
-  const colorFillAlterSolid = new TinyColor(colorFillAlter)
-    .onBackground(colorBgContainer)
-    .toHexShortString();
+      tablePaddingVertical: cellPaddingBlock,
+      tablePaddingHorizontal: cellPaddingInline,
+      tablePaddingVerticalMiddle: cellPaddingBlockMD,
+      tablePaddingHorizontalMiddle: cellPaddingInlineMD,
+      tablePaddingVerticalSmall: cellPaddingBlockSM,
+      tablePaddingHorizontalSmall: cellPaddingInlineSM,
+      tableBorderColor: borderColor,
+      tableHeaderTextColor: headerColor,
+      tableHeaderBg: headerBg,
+      tableFooterTextColor: footerColor,
+      tableFooterBg: footerBg,
+      tableHeaderCellSplitColor: headerSplitColor,
+      tableHeaderSortBg: headerSortActiveBg,
+      tableHeaderSortHoverBg: headerSortHoverBg,
+      tableHeaderIconColor: baseColorAction
+        .clone()
+        .setAlpha(baseColorAction.getAlpha() * opacityLoading)
+        .toRgbString(),
+      tableHeaderIconColorHover: baseColorActionHover
+        .clone()
+        .setAlpha(baseColorActionHover.getAlpha() * opacityLoading)
+        .toRgbString(),
+      tableBodySortBg: bodySortBg,
+      tableFixedHeaderSortActiveBg: fixedHeaderSortActiveBg,
+      tableHeaderFilterActiveBg: headerFilterHoverBg,
+      tableFilterDropdownBg: filterDropdownBg,
+      tableRowHoverBg: rowHoverBg,
+      tableSelectedRowBg: rowSelectedBg,
+      tableSelectedRowHoverBg: rowSelectedHoverBg,
+      zIndexTableFixed,
+      zIndexTableSticky: zIndexTableFixed + 1,
+      tableFontSizeMiddle: cellFontSizeMD,
+      tableFontSizeSmall: cellFontSizeSM,
+      tableSelectionColumnWidth: selectionColumnWidth,
+      tableExpandIconBg: expandIconBg,
+      tableExpandColumnWidth: checkboxSize + 2 * token.padding,
+      tableExpandedRowBg: rowExpandedBg,
 
-  const tableToken = mergeToken<TableToken>(token, {
-    tableFontSize: fontSize,
-    tableBg: colorBgContainer,
-    tableRadius: borderRadiusLG,
+      // Dropdown
+      tableFilterDropdownWidth: 120,
+      tableFilterDropdownHeight: 264,
+      tableFilterDropdownSearchWidth: 140,
 
-    tablePaddingVertical: padding,
-    tablePaddingHorizontal: padding,
-    tablePaddingVerticalMiddle: paddingSM,
-    tablePaddingHorizontalMiddle: paddingXS,
-    tablePaddingVerticalSmall: paddingXS,
-    tablePaddingHorizontalSmall: paddingXS,
-    tableBorderColor: colorBorderSecondary,
-    tableHeaderTextColor: colorTextHeading,
-    tableHeaderBg: colorFillAlterSolid,
-    tableFooterTextColor: colorTextHeading,
-    tableFooterBg: colorFillAlterSolid,
-    tableHeaderCellSplitColor: colorBorderSecondary,
-    tableHeaderSortBg: colorFillSecondarySolid,
-    tableHeaderSortHoverBg: colorFillContentSolid,
-    tableHeaderIconColor: baseColorAction
-      .clone()
-      .setAlpha(baseColorAction.getAlpha() * opacityLoading)
-      .toRgbString(),
-    tableHeaderIconColorHover: baseColorActionHover
-      .clone()
-      .setAlpha(baseColorActionHover.getAlpha() * opacityLoading)
-      .toRgbString(),
-    tableBodySortBg: colorFillAlterSolid,
-    tableFixedHeaderSortActiveBg: colorFillSecondarySolid,
-    tableHeaderFilterActiveBg: colorFillContent,
-    tableFilterDropdownBg: colorBgContainer,
-    tableRowHoverBg: colorFillAlterSolid,
-    tableSelectedRowBg,
-    tableSelectedRowHoverBg: controlItemBgActiveHover,
-    zIndexTableFixed,
-    zIndexTableSticky: zIndexTableFixed + 1,
-    tableFontSizeMiddle: fontSize,
-    tableFontSizeSmall: fontSize,
-    tableSelectionColumnWidth: controlHeight,
-    tableExpandIconBg: colorBgContainer,
-    tableExpandColumnWidth: checkboxSize + 2 * token.padding,
-    tableExpandedRowBg: colorFillAlter,
+      // Virtual Scroll Bar
+      tableScrollThumbSize: 8, // Mac scroll bar size
+      tableScrollThumbBg: stickyScrollBarBg,
+      tableScrollThumbBgHover: colorTextHeading,
+      tableScrollBg: colorSplit,
+    });
 
-    // Dropdown
-    tableFilterDropdownWidth: 120,
-    tableFilterDropdownHeight: 264,
-    tableFilterDropdownSearchWidth: 140,
+    return [
+      genTableStyle(tableToken),
+      genPaginationStyle(tableToken),
+      genSummaryStyle(tableToken),
+      genSorterStyle(tableToken),
+      genFilterStyle(tableToken),
+      genBorderedStyle(tableToken),
+      genRadiusStyle(tableToken),
+      genExpandStyle(tableToken),
+      genSummaryStyle(tableToken),
+      genEmptyStyle(tableToken),
+      genSelectionStyle(tableToken),
+      genFixedStyle(tableToken),
+      genStickyStyle(tableToken),
+      genEllipsisStyle(tableToken),
+      genSizeStyle(tableToken),
+      genRtlStyle(tableToken),
+    ];
+  },
+  (token) => {
+    const {
+      colorFillAlter,
+      colorBgContainer,
+      colorTextHeading,
+      colorFillSecondary,
+      colorFillContent,
+      controlItemBgActive,
+      controlItemBgActiveHover,
+      padding,
+      paddingSM,
+      paddingXS,
+      colorBorderSecondary,
+      borderRadiusLG,
+      fontSize,
+      controlHeight,
+      colorTextPlaceholder,
+    } = token;
 
-    // Virtual Scroll Bar
-    tableScrollThumbSize: 8, // Mac scroll bar size
-    tableScrollThumbBg: colorTextPlaceholder,
-    tableScrollThumbBgHover: colorTextHeading,
-    tableScrollBg: colorSplit,
-  });
+    const colorFillSecondarySolid = new TinyColor(colorFillSecondary)
+      .onBackground(colorBgContainer)
+      .toHexShortString();
+    const colorFillContentSolid = new TinyColor(colorFillContent)
+      .onBackground(colorBgContainer)
+      .toHexShortString();
+    const colorFillAlterSolid = new TinyColor(colorFillAlter)
+      .onBackground(colorBgContainer)
+      .toHexShortString();
 
-  return [
-    genTableStyle(tableToken),
-    genPaginationStyle(tableToken),
-    genSummaryStyle(tableToken),
-    genSorterStyle(tableToken),
-    genFilterStyle(tableToken),
-    genBorderedStyle(tableToken),
-    genRadiusStyle(tableToken),
-    genExpandStyle(tableToken),
-    genSummaryStyle(tableToken),
-    genEmptyStyle(tableToken),
-    genSelectionStyle(tableToken),
-    genFixedStyle(tableToken),
-    genStickyStyle(tableToken),
-    genEllipsisStyle(tableToken),
-    genSizeStyle(tableToken),
-    genRtlStyle(tableToken),
-  ];
-});
+    return {
+      headerBg: colorFillAlterSolid,
+      headerColor: colorTextHeading,
+      headerSortActiveBg: colorFillSecondarySolid,
+      headerSortHoverBg: colorFillContentSolid,
+      bodySortBg: colorFillAlterSolid,
+      rowHoverBg: colorFillAlterSolid,
+      rowSelectedBg: controlItemBgActive,
+      rowSelectedHoverBg: controlItemBgActiveHover,
+      rowExpandedBg: colorFillAlter,
+      cellPaddingBlock: padding,
+      cellPaddingInline: padding,
+      cellPaddingBlockMD: paddingSM,
+      cellPaddingInlineMD: paddingXS,
+      cellPaddingBlockSM: paddingXS,
+      cellPaddingInlineSM: paddingXS,
+      borderColor: colorBorderSecondary,
+      headerBorderRadius: borderRadiusLG,
+      footerBg: colorFillAlterSolid,
+      footerColor: colorTextHeading,
+      cellFontSize: fontSize,
+      cellFontSizeMD: fontSize,
+      cellFontSizeSM: fontSize,
+      headerSplitColor: colorBorderSecondary,
+      fixedHeaderSortActiveBg: colorFillSecondarySolid,
+      headerFilterHoverBg: colorFillContent,
+      filterDropdownMenuBg: colorBgContainer,
+      filterDropdownBg: colorBgContainer,
+      expandIconBg: colorBgContainer,
+      selectionColumnWidth: controlHeight,
+      stickyScrollBarBg: colorTextPlaceholder,
+      stickyScrollBarBorderRadius: 100,
+    };
+  },
+);
