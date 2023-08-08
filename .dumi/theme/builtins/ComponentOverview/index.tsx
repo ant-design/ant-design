@@ -139,7 +139,7 @@ const Overview: React.FC = () => {
   return (
     <section className="markdown" ref={sectionRef}>
       <Divider />
-      <Affix offsetTop={24} onChange={setSearchBarAffixed}>
+      <Affix offsetTop={24 + token.headerHeight} onChange={setSearchBarAffixed}>
         <div
           className={styles.componentsOverviewAffix}
           style={searchBarAffixed ? affixedStyle : {}}
