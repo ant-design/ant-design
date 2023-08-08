@@ -9,6 +9,7 @@ const App: React.FC = () => (
       type="primary"
       style={{ right: 24 }}
       icon={<CustomerServiceOutlined />}
+      badge={{ dot: true }}
     >
       <FloatButton />
       <FloatButton icon={<CommentOutlined />} />
