@@ -28,7 +28,7 @@ author: zombieJ
 
 ![CSS-in-JS process](https://github.com/ant-design/ant-design/assets/5378891/aa8825c9-a78a-4326-ac13-30a27cbe14b6)
 
-每个动态插入到页面中的样式同样以为 hash 作为唯一标识符。如果页面中已经存在该 hash 的 `<style />`，则说明 SSR 中做过 inline style 注入。那么 `<style />` 就不用再次创建。
+每个动态插入到页面中的样式同样以 hash 作为唯一标识符。如果页面中已经存在该 hash 的 `<style />`，则说明 SSR 中做过 inline style 注入。那么 `<style />` 就不用再次创建。
 
 你可以发现，虽然 `<style />` 的节点创建可以省略，但是因为 hash 依赖于计算出的样式内容。所以即便页面中已经有可以复用的样式内容，它仍然免不了需要计算一次。实属不划算。
 

@@ -1,6 +1,5 @@
 import { css } from 'antd-style';
-import fetch from 'cross-fetch';
-import use from '../../../hooks/use';
+import useFetch from '../../../hooks/useFetch';
 
 export interface Author {
   avatar: string;
@@ -81,12 +80,8 @@ export function preLoad(list: string[]) {
   }
 }
 
-const promise = fetch(`https://render.alipay.com/p/h5data/antd4-config_website-h5data.json`).then(
-  (res) => res.json(),
-);
-
-export function useSiteData(): [Partial<SiteData>, boolean] {
-  return use(promise);
+export function useSiteData(): Partial<SiteData> {
+  return useFetch('https://render.alipay.com/p/h5data/antd4-config_website-h5data.json');
 }
 
 export const getCarouselStyle = () => ({

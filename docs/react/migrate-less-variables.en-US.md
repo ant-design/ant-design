@@ -1,6 +1,8 @@
 ---
-order: 9
-title: Migrate Less variables to Component Token
+group:
+  title: Migration
+order: 1
+title: Less variables to Component Token
 ---
 
 This document contains the correspondence between all the less variables related to components in version 4.x and the Component Token in version 5.x. If you are upgrading from version 4.x to version 5.x, you can quickly find the corresponding Component Token through this comparison table.
@@ -12,8 +14,8 @@ This document contains the correspondence between all the less variables related
 We could configure global token and component token for each component through the `theme` property of ConfigProvider.
 
 ```tsx
-import { Checkbox, ConfigProvider, Radio } from 'antd';
 import React from 'react';
+import { Checkbox, ConfigProvider, Radio } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -56,7 +58,7 @@ export default App;
 ### Avatar
 
 <!-- prettier-ignore -->
-| less 变量 | Component Token | 备注 |
+| Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@avatar-size-base` | `containerSize` | - |
 | `@avatar-size-lg` | `containerSizeLG` | - |
@@ -73,10 +75,10 @@ export default App;
 
 <!-- ### Badge -->
 
-### BreadCrumb 面包屑
+### BreadCrumb
 
 <!-- prettier-ignore -->
-| Less 变量 | Component Token | 备注 |
+| Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@breadcrumb-base-color` | `itemColor` | - |
 | `@breadcrumb-last-item-color` | `lastItemColor` | - |
@@ -87,7 +89,54 @@ export default App;
 | `@breadcrumb-separator-color` | `separatorColor` | - |
 | `@breadcrumb-separator-margin` | `separatorMargin` | - |
 
-<!-- ### Button -->
+### Button
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@btn-font-weight` | `fontWeight` | - |
+| `@btn-border-radius-base` | `borderRadius` | Global Token |
+| `@btn-border-radius-sm` | `borderRadisuSM` | Global Token |
+| `@btn-border-width` | `lineWidth` | Global Token |
+| `@btn-border-style` | `lineStyle` | Global Token |
+| `@btn-shadow` | `defaultShadow` | - |
+| `@btn-primary-shadow` | `primaryShadow` | - |
+| `@btn-text-shadow` | - | Deprecated for no `text-shadow` any more |
+| `@btn-primary-color` | `primaryColor` | - |
+| `@btn-primary-bg` | `colorPrimary` | Global Token |
+| `@btn-default-color` | `colorText` | Global Token |
+| `@btn-default-bg` | `colorBgContainer` | Global Token |
+| `@btn-default-border` | `colorBorder` | Global Token |
+| `@btn-danger-color` | `dangerColor` | - |
+| `@btn-danger-bg` | `colorError` | Global Token |
+| `@btn-danger-border` | `colorError` | Global Token |
+| `@btn-disable-color` | `colorTextDisabled` | Global Token |
+| `@btn-disable-bg` | `colorBgContainerDisabled` | Global Token |
+| `@btn-disable-border` | `borderColorDisabled` | - |
+| `@btn-default-ghost-color` | `defaultGhostColor` | - |
+| `@btn-default-ghost-bg` | `ghostBg` | - |
+| `@btn-default-ghost-border` | `defaultGhostBorderColor` | - |
+| `@btn-font-size-lg` | `fontSizeLG` | Global Token |
+| `@btn-font-size-sm` | `fontSizeSM` | Global Token |
+| `@btn-padding-horizontal-base` | `paddingInline` | - |
+| `@btn-padding-horizontal-lg` | `paddingInlineLG` | - |
+| `@btn-padding-horizontal-sm` | `paddingInlineSM` | - |
+| `@btn-height-base` | `controlHeight` | Global Token |
+| `@btn-height-lg` | `controlHeightLG` | Global Token |
+| `@btn-height-sm` | `controlHeightSM` | Global Token |
+| `@btn-line-height` | `lineHeight` | Global Token |
+| `@btn-circle-size` | `controlHeight` | Global Token |
+| `@btn-circle-size-lg` | `controlHeightLG` | Global Token |
+| `@btn-circle-size-sm` | `controlHeightSM` | Global Token |
+| `@btn-square-size` | `controlHeight` | Global Token |
+| `@btn-square-size-lg` | `controlHeightLG` | Global Token |
+| `@btn-square-size-sm` | `controlHeightSM` | Global Token |
+| `@btn-square-only-icon-size` | `onlyIconSize` | - |
+| `@btn-square-only-icon-size-sm` | `onlyIconSizeSM` | - |
+| `@btn-square-only-icon-size-lg` | `onlyIconSizeLG` | - |
+| `@btn-group-border` | `groupBorderColor` | - |
+| `@btn-link-hover-bg` | `linkHoverBg` | - |
+| `@btn-text-hover-bg` | `textHoverBg` | - |
 
 ### Calendar
 
@@ -432,7 +481,7 @@ export default App;
 ### Slider
 
 <!-- prettier-ignore -->
-| Less 变量 | Component Token | 备注 |
+| Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@slider-margin` | - | Could be customized with `className` or `style` |
 | `@slider-rail-background-color` | `railBg` | - |
@@ -495,7 +544,7 @@ export default App;
 
 <!-- ### Table -->
 
-### Tabs 标签页
+### Tabs
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |

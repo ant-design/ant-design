@@ -37,7 +37,6 @@ const Wave: React.FC<WaveProps> = (props) => {
     const onClick = (e: MouseEvent) => {
       // Fix radio button click twice
       if (
-        (e.target as HTMLElement).tagName === 'INPUT' ||
         !isVisible(e.target as HTMLElement) ||
         // No need wave
         !node.getAttribute ||

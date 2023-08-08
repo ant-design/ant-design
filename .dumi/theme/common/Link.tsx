@@ -6,6 +6,7 @@ import nprogress from 'nprogress';
 export type LinkProps = {
   to?: string | { pathname?: string; search?: string; hash?: string };
   children?: React.ReactNode;
+  style?: React.CSSProperties;
   className?: string;
 };
 

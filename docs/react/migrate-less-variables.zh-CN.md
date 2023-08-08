@@ -1,6 +1,8 @@
 ---
-order: 9
-title: Less 变量迁移 Design Token
+group:
+  title: 迁移
+order: 1
+title: 从 Less 变量到 Design Token
 ---
 
 本文档包含了所有 4.x 版本中组件相关的 less 变量与 5.x 版本的 Component Token 的对照关系。如果你是从 4.x 版本升级到 5.x 版本，可以通过这份对照表快速找到对应的 Component Token。
@@ -12,8 +14,8 @@ title: Less 变量迁移 Design Token
 通过 ConfigProvider 的 `theme` 属性，我们可以对每一个组件单独配置全局 Token 和组件 Token
 
 ```tsx
-import { Checkbox, ConfigProvider, Radio } from 'antd';
 import React from 'react';
+import { Checkbox, ConfigProvider, Radio } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -87,7 +89,54 @@ export default App;
 | `@breadcrumb-separator-color` | `separatorColor` | - |
 | `@breadcrumb-separator-margin` | `separatorMargin` | - |
 
-<!-- ### Button 按钮 -->
+### Button 按钮
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@btn-font-weight` | `fontWeight` | - |
+| `@btn-border-radius-base` | `borderRadius` | 全局 Token |
+| `@btn-border-radius-sm` | `borderRadisuSM` | 全局 Token |
+| `@btn-border-width` | `lineWidth` | 全局 Token |
+| `@btn-border-style` | `lineStyle` | 全局 Token |
+| `@btn-shadow` | `defaultShadow` | - |
+| `@btn-primary-shadow` | `primaryShadow` | - |
+| `@btn-text-shadow` | - | 已废弃，v5 中不再有 `text-shadow` |
+| `@btn-primary-color` | `primaryColor` | - |
+| `@btn-primary-bg` | `colorPrimary` | 全局 Token |
+| `@btn-default-color` | `defaultColor` | - |
+| `@btn-default-bg` | `defaultBg` | - |
+| `@btn-default-border` | `defaultBorderColor` | - |
+| `@btn-danger-color` | `dangerColor` | - |
+| `@btn-danger-bg` | `colorError` | 全局 Token |
+| `@btn-danger-border` | `colorError` | 全局 Token |
+| `@btn-disable-color` | `colorTextDisabled` | 全局 Token |
+| `@btn-disable-bg` | `colorBgContainerDisabled` | 全局 Token |
+| `@btn-disable-border` | `borderColorDisabled` | - |
+| `@btn-default-ghost-color` | `defaultGhostColor` | - |
+| `@btn-default-ghost-bg` | `ghostBg` | - |
+| `@btn-default-ghost-border` | `defaultGhostBorderColor` | - |
+| `@btn-font-size-lg` | `fontSizeLG` | 全局 Token |
+| `@btn-font-size-sm` | `fontSizeSM` | 全局 Token |
+| `@btn-padding-horizontal-base` | `paddingInline` | - |
+| `@btn-padding-horizontal-lg` | `paddingInlineLG` | - |
+| `@btn-padding-horizontal-sm` | `paddingInlineSM` | - |
+| `@btn-height-base` | `controlHeight` | 全局 Token |
+| `@btn-height-lg` | `controlHeightLG` | 全局 Token |
+| `@btn-height-sm` | `controlHeightSM` | 全局 Token |
+| `@btn-line-height` | `lineHeight` | 全局 Token |
+| `@btn-circle-size` | `controlHeight` | 全局 Token |
+| `@btn-circle-size-lg` | `controlHeightLG` | 全局 Token |
+| `@btn-circle-size-sm` | `controlHeightSM` | 全局 Token |
+| `@btn-square-size` | `controlHeight` | 全局 Token |
+| `@btn-square-size-lg` | `controlHeightLG` | 全局 Token |
+| `@btn-square-size-sm` | `controlHeightSM` | 全局 Token |
+| `@btn-square-only-icon-size` | `onlyIconSize` | - |
+| `@btn-square-only-icon-size-sm` | `onlyIconSizeSM` | - |
+| `@btn-square-only-icon-size-lg` | `onlyIconSizeLG` | - |
+| `@btn-group-border` | `groupBorderColor` | - |
+| `@btn-link-hover-bg` | `linkHoverBg` | - |
+| `@btn-text-hover-bg` | `textHoverBg` | - |
 
 ### Calendar 日历
 

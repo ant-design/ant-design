@@ -71,7 +71,7 @@ High performance Form component with data scope management. Including data colle
 | layout | Form layout | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
 | name | Form name. Will be the prefix of Field `id` | string | - |  |
 | preserve | Keep field value even when field removed | boolean | true | 4.4.0 |
-| requiredMark | Required mark style. Can use required mark or optional mark. You can not config to single Form.Item since this is a Form level config | boolean \| `optional` | true | 4.6.0 |
+| requiredMark | Required mark style. Can use required mark or optional mark. You can not config to single Form.Item since this is a Form level config | boolean \| `optional` \| ((label: ReactNode, info: { required: boolean }) => ReactNode) | true | `renderProps`: 5.9.0 |
 | scrollToFirstError | Auto scroll to first failed field when submit | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) | false |  |
 | size | Set field component size (antd components only) | `small` \| `middle` \| `large` | - |  |
 | validateMessages | Validation prompt template, description [see below](#validatemessages) | [ValidateMessages](https://github.com/ant-design/ant-design/blob/6234509d18bac1ac60fbb3f92a5b2c6a6361295a/components/locale/en_US.ts#L88-L134) | - |  |
@@ -646,3 +646,31 @@ Form can not get real DOM node when customize component not support `ref`. It wi
 ### `setFieldsValue` do not trigger `onFieldsChange` or `onValuesChange`?
 
 It's by design. Only user interactive can trigger the change event. This design is aim to avoid call `setFieldsValue` in change event which may makes loop calling.
+
+### Why Form.Item not update value when children is nest?
+
+Form.Item will inject `value` and `onChange` to children when render. Once your field component is wrapped, props will not pass to the correct node. Follow code will not work as expect:
+
+```jsx
+<Form.Item name="input">
+  <div>
+    <h3>I am a wrapped Input</h3>
+    <Input />
+  </div>
+</Form.Item>
+```
+
+You can use HOC to solve this problem, don't forget passing props to form control component:
+
+```jsx
+const MyInput = (props) => (
+  <div>
+    <h3>I am a wrapped Input</h3>
+    <Input {...props} />
+  </div>
+);
+
+<Form.Item name="input">
+  <MyInput />
+</Form.Item>;
+```

@@ -388,6 +388,115 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
 
 exports[`renders components/button/demo/chinese-chars-loading.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/button/demo/component-token.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom: 8px;"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center"
+      style="flex-wrap: wrap; margin-bottom: -8px;"
+    >
+      <div
+        class="ant-space-item"
+        style="margin-right: 8px; padding-bottom: 8px;"
+      >
+        <button
+          class="ant-btn ant-btn-text"
+          type="button"
+        >
+          <span>
+            TEXT
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right: 8px; padding-bottom: 8px;"
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            CONTAINED
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="padding-bottom: 8px;"
+      >
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            OUTLINED
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center"
+      style="flex-wrap: wrap; margin-bottom: -8px;"
+    >
+      <div
+        class="ant-space-item"
+        style="margin-right: 8px; padding-bottom: 8px;"
+      >
+        <button
+          class="ant-btn ant-btn-text"
+          disabled=""
+          type="button"
+        >
+          <span>
+            TEXT
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right: 8px; padding-bottom: 8px;"
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          disabled=""
+          type="button"
+        >
+          <span>
+            CONTAINED
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="padding-bottom: 8px;"
+      >
+        <button
+          class="ant-btn ant-btn-default"
+          disabled=""
+          type="button"
+        >
+          <span>
+            OUTLINED
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/button/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/button/demo/danger.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"

@@ -479,7 +479,7 @@ Array [
               class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
             >
               <span
-                class="ant-checkbox ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
               >
                 <input
                   class="ant-checkbox-input"
@@ -736,7 +736,7 @@ Array [
               class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
             >
               <span
-                class="ant-checkbox ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
               >
                 <input
                   class="ant-checkbox-input"

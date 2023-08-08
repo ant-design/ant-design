@@ -11,6 +11,7 @@ import useLayoutState from '../../../hooks/useLayoutState';
 import useLocation from '../../../hooks/useLocation';
 import EditButton from '../../common/EditButton';
 import PrevAndNext from '../../common/PrevAndNext';
+import ComponentChangelog from '../../common/ComponentChangelog';
 import type { DemoContextProps } from '../DemoContext';
 import DemoContext from '../DemoContext';
 import Footer from '../Footer';
@@ -204,45 +205,49 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <DemoContext.Provider value={contextValue}>
       <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
-        <Affix>
-          <section className={styles.tocWrapper}>
-            <Anchor
-              className={styles.toc}
-              affix={false}
-              targetOffset={token.marginXXL}
-              showInkInFixed
-              items={anchorItems.map((item) => ({
-                href: `#${item.id}`,
-                title: item.title,
-                key: item.id,
-                children: item.children
-                  ?.filter((child) => showDebug || !debugDemos.includes(child.id))
-                  .map((child) => ({
-                    key: child.id,
-                    href: `#${child.id}`,
-                    title: (
-                      <span className={classNames(debugDemos.includes(child.id) && 'toc-debug')}>
-                        {child?.title}
-                      </span>
-                    ),
-                  })),
-              }))}
-            />
-          </section>
-        </Affix>
+        {!!meta.frontmatter.toc && (
+          <Affix>
+            <section className={styles.tocWrapper}>
+              <Anchor
+                className={styles.toc}
+                affix={false}
+                targetOffset={token.marginXXL}
+                showInkInFixed
+                items={anchorItems.map((item) => ({
+                  href: `#${item.id}`,
+                  title: item.title,
+                  key: item.id,
+                  children: item.children
+                    ?.filter((child) => showDebug || !debugDemos.includes(child.id))
+                    .map((child) => ({
+                      key: child.id,
+                      href: `#${child.id}`,
+                      title: (
+                        <span className={classNames(debugDemos.includes(child.id) && 'toc-debug')}>
+                          {child?.title}
+                        </span>
+                      ),
+                    })),
+                }))}
+              />
+            </section>
+          </Affix>
+        )}
         <article className={classNames(styles.articleWrapper, { rtl: isRTL })}>
           {meta.frontmatter?.title ? (
-            <Typography.Title style={{ fontSize: 30 }}>
-              {meta.frontmatter?.title}
-              {meta.frontmatter.subtitle && (
-                <span style={{ marginLeft: 12 }}>{meta.frontmatter.subtitle}</span>
-              )}
-              {!pathname.startsWith('/components/overview') && (
-                <EditButton
-                  title={<FormattedMessage id="app.content.edit-page" />}
-                  filename={meta.frontmatter.filename}
-                />
-              )}
+            <Typography.Title style={{ fontSize: 30, position: 'relative' }}>
+              <Space size="small">
+                {meta.frontmatter?.title}
+                {meta.frontmatter?.subtitle}
+
+                {!pathname.startsWith('/components/overview') && (
+                  <EditButton
+                    title={<FormattedMessage id="app.content.edit-page" />}
+                    filename={meta.frontmatter.filename}
+                  />
+                )}
+              </Space>
+              {pathname.startsWith('/components/') && <ComponentChangelog pathname={pathname} />}
             </Typography.Title>
           ) : null}
           {/* 添加作者、时间等信息 */}
