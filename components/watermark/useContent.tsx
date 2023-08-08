@@ -1,13 +1,12 @@
 import type { WatermarkProps } from '.';
 import useToken from '../theme/useToken';
 import { BaseSize, FontGap } from './useWatermark';
-import type { AppendWatermark } from './useWatermark';
 import { getPixelRatio, rotateWatermark } from './utils';
 
 export default function useContent(
   props: Pick<WatermarkProps, 'width' | 'height' | 'image' | 'content' | 'font'> &
     Required<Pick<WatermarkProps, 'rotate' | 'gap'>>,
-  appendWatermark: AppendWatermark,
+  callback: (base64Url: string, markWidth: number) => void,
 ) {
   const { rotate, width, height, image, content, font = {}, gap } = props;
 
@@ -78,7 +77,7 @@ export default function useContent(
     ctx.restore();
     rotateWatermark(ctx, alternateRotateX, alternateRotateY, rotate);
     fillTexts(ctx, alternateDrawX, alternateDrawY, drawWidth, drawHeight);
-    appendWatermark(canvas.toDataURL(), markWidth);
+    callback(canvas.toDataURL(), markWidth);
   };
 
   const renderWatermark = () => {
@@ -116,7 +115,7 @@ export default function useContent(
           ctx.restore();
           rotateWatermark(ctx, alternateRotateX, alternateRotateY, rotate);
           ctx.drawImage(img, alternateDrawX, alternateDrawY, drawWidth, drawHeight);
-          appendWatermark(canvas.toDataURL(), markWidth);
+          callback(canvas.toDataURL(), markWidth);
         };
         img.onerror = () =>
           drawText(
