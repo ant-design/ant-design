@@ -3410,7 +3410,7 @@ Array [
             class="ant-dropdown-menu-title-content"
           >
             <a
-              href="https://www.antgroup.com"
+              href="https://www.antgroup.com/"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -3468,11 +3468,11 @@ Array [
             class="ant-dropdown-menu-title-content"
           >
             <a
-              href="https://www.aliyun.com"
+              href="https://www.aliyun.com/"
               rel="noopener noreferrer"
               target="_blank"
             >
-              2nd menu item (disabled)
+              2rd menu item (disabled)
             </a>
           </span>
         </li>
@@ -3507,7 +3507,7 @@ Array [
             class="ant-dropdown-menu-title-content"
           >
             <a
-              href="https://www.luohanacademy.com"
+              href="https://www.luohanacademy.com/"
               rel="noopener noreferrer"
               target="_blank"
             >
