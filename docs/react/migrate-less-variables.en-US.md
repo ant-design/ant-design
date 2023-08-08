@@ -58,7 +58,7 @@ export default App;
 ### Avatar
 
 <!-- prettier-ignore -->
-| less 变量 | Component Token | 备注 |
+| Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@avatar-size-base` | `containerSize` | - |
 | `@avatar-size-lg` | `containerSizeLG` | - |
@@ -78,7 +78,7 @@ export default App;
 ### BreadCrumb
 
 <!-- prettier-ignore -->
-| Less 变量 | Component Token | 备注 |
+| Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@breadcrumb-base-color` | `itemColor` | - |
 | `@breadcrumb-last-item-color` | `lastItemColor` | - |
@@ -89,7 +89,54 @@ export default App;
 | `@breadcrumb-separator-color` | `separatorColor` | - |
 | `@breadcrumb-separator-margin` | `separatorMargin` | - |
 
-<!-- ### Button -->
+### Button
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@btn-font-weight` | `fontWeight` | - |
+| `@btn-border-radius-base` | `borderRadius` | Global Token |
+| `@btn-border-radius-sm` | `borderRadisuSM` | Global Token |
+| `@btn-border-width` | `lineWidth` | Global Token |
+| `@btn-border-style` | `lineStyle` | Global Token |
+| `@btn-shadow` | `defaultShadow` | - |
+| `@btn-primary-shadow` | `primaryShadow` | - |
+| `@btn-text-shadow` | - | Deprecated for no `text-shadow` any more |
+| `@btn-primary-color` | `primaryColor` | - |
+| `@btn-primary-bg` | `colorPrimary` | Global Token |
+| `@btn-default-color` | `colorText` | Global Token |
+| `@btn-default-bg` | `colorBgContainer` | Global Token |
+| `@btn-default-border` | `colorBorder` | Global Token |
+| `@btn-danger-color` | `dangerColor` | - |
+| `@btn-danger-bg` | `colorError` | Global Token |
+| `@btn-danger-border` | `colorError` | Global Token |
+| `@btn-disable-color` | `colorTextDisabled` | Global Token |
+| `@btn-disable-bg` | `colorBgContainerDisabled` | Global Token |
+| `@btn-disable-border` | `borderColorDisabled` | - |
+| `@btn-default-ghost-color` | `defaultGhostColor` | - |
+| `@btn-default-ghost-bg` | `ghostBg` | - |
+| `@btn-default-ghost-border` | `defaultGhostBorderColor` | - |
+| `@btn-font-size-lg` | `fontSizeLG` | Global Token |
+| `@btn-font-size-sm` | `fontSizeSM` | Global Token |
+| `@btn-padding-horizontal-base` | `paddingInline` | - |
+| `@btn-padding-horizontal-lg` | `paddingInlineLG` | - |
+| `@btn-padding-horizontal-sm` | `paddingInlineSM` | - |
+| `@btn-height-base` | `controlHeight` | Global Token |
+| `@btn-height-lg` | `controlHeightLG` | Global Token |
+| `@btn-height-sm` | `controlHeightSM` | Global Token |
+| `@btn-line-height` | `lineHeight` | Global Token |
+| `@btn-circle-size` | `controlHeight` | Global Token |
+| `@btn-circle-size-lg` | `controlHeightLG` | Global Token |
+| `@btn-circle-size-sm` | `controlHeightSM` | Global Token |
+| `@btn-square-size` | `controlHeight` | Global Token |
+| `@btn-square-size-lg` | `controlHeightLG` | Global Token |
+| `@btn-square-size-sm` | `controlHeightSM` | Global Token |
+| `@btn-square-only-icon-size` | `onlyIconSize` | - |
+| `@btn-square-only-icon-size-sm` | `onlyIconSizeSM` | - |
+| `@btn-square-only-icon-size-lg` | `onlyIconSizeLG` | - |
+| `@btn-group-border` | `groupBorderColor` | - |
+| `@btn-link-hover-bg` | `linkHoverBg` | - |
+| `@btn-text-hover-bg` | `textHoverBg` | - |
 
 ### Calendar
 
@@ -434,7 +481,7 @@ export default App;
 ### Slider
 
 <!-- prettier-ignore -->
-| Less 变量 | Component Token | 备注 |
+| Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@slider-margin` | - | Could be customized with `className` or `style` |
 | `@slider-rail-background-color` | `railBg` | - |
