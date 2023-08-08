@@ -100,7 +100,7 @@ describe('Watermark', () => {
   describe('nest component', () => {
     function test(name: string, children: React.ReactNode, getWatermarkElement: () => Node) {
       it(name, async () => {
-        render(<Watermark className="test">{children}</Watermark>);
+        const { rerender } = render(<Watermark className="test">{children}</Watermark>);
         await waitFakeTimer();
 
         const watermark = getWatermarkElement();
@@ -108,6 +108,9 @@ describe('Watermark', () => {
         expect(watermark).toHaveStyle({
           zIndex: '9',
         });
+
+        // Not crash when children removed
+        rerender(<Watermark className="test" />);
       });
     }
 
