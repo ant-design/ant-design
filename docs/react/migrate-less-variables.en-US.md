@@ -542,7 +542,46 @@ export default App;
 
 <!-- ### Switch -->
 
-<!-- ### Table -->
+### Table
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@table-bg` | `colorBgContainer` | Global Token |
+| `@table-header-bg` | `headerBg` | - |
+| `@table-header-color` | `headerColor` | - |
+| `@table-header-sort-bg` | `headerSortActiveBg` | - |
+| `@table-body-sort-bg` | `bodySortActiveBg` | - |
+| `@table-row-hover-bg` | `rowHoverBg` | - |
+| `@table-selected-row-color` | `colorText` | Global Token |
+| `@table-selected-row-bg` | `rowSelectedBg` | - |
+| `@table-body-selected-sort-bg` | - | Deprecated, same as `rowSelectedBg` |
+| `@table-selected-row-hover-bg` | `rowSelectedHoverBg` | - |
+| `@table-expanded-row-bg` | `rowExpandedBg` | - |
+| `@table-padding-vertical` | `cellPaddingBlock` | - |
+| `@table-padding-horizontal` | `cellPaddingInline` | - |
+| `@table-padding-vertical-md` | `cellPaddingBlockMD` | - |
+| `@table-padding-horizontal-md` | `cellPaddingInlineMD` | - |
+| `@table-padding-vertical-sm` | `cellPaddingBlockSM` | - |
+| `@table-padding-horizontal-sm` | `cellPaddingInlineSM` | - |
+| `@table-border-color` | `borderColor` | - |
+| `@table-border-radius-base` | `headerBorderRadius` | - |
+| `@table-footer-bg` | `footerBg` | - |
+| `@table-footer-color` | `footerColor` | - |
+| `@table-header-bg-sm` | - | Deprecated, same as `headerBg` |
+| `@table-font-size` | `cellFontSize` | - |
+| `@table-font-size-md` | `cellFontSizeMD` | - |
+| `@table-font-size-sm` | `cellFontSizeSM` | - |
+| `@table-header-cell-split-color` | `headerSplitColor` | - |
+| `@table-header-sort-active-bg` | `headerSortHoverBg` | Misused in v4, and used as hover bg actually |
+| `@table-fixed-header-sort-active-bg` | `fixedHeaderSortActiveBg` | - |
+| `@table-header-filter-active-bg` | `headerFilterHoverBg` | - |
+| `@table-filter-btns-bg` | - | Deprecated, same as `filterDropdownBg` |
+| `@table-filter-dropdown-bg` | `filterDropdownBg` | - |
+| `@table-expand-icon-bg` | `expandIconBg` | - |
+| `@table-selection-column-width` | `selectionColumnWidth` | - |
+| `@table-sticky-scroll-bar-bg` | `stickyScrollBarBg` | - |
+| `@table-sticky-scroll-bar-radius` | `stickyScrollBarBorderRadius` | - |
 
 ### Tabs
 
