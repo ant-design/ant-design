@@ -198,9 +198,21 @@ fs.readFileSync(sheetPath, 'utf8')
     if (line.includes(SHEET_COMMENT)) {
       if (sheetReplaceStart) {
         sheetReplaceStart = false;
+
+        sheetFileLines.push(SHEET_COMMENT);
+        sheetFileLines.push(`const styleMap = {`);
+        Object.keys(styleMap).forEach((key) => {
+          sheetFileLines.push(`  ${key}: '${styleMap[key]}',`);
+        });
+        sheetFileLines.push(`} as const;`);
+        sheetFileLines.push(SHEET_COMMENT);
       } else {
         sheetReplaceStart = true;
       }
+      return;
+    }
+
+    if (sheetReplaceStart) {
       return;
     }
 
