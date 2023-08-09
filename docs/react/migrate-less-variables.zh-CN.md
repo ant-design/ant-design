@@ -89,7 +89,54 @@ export default App;
 | `@breadcrumb-separator-color` | `separatorColor` | - |
 | `@breadcrumb-separator-margin` | `separatorMargin` | - |
 
-<!-- ### Button 按钮 -->
+### Button 按钮
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@btn-font-weight` | `fontWeight` | - |
+| `@btn-border-radius-base` | `borderRadius` | 全局 Token |
+| `@btn-border-radius-sm` | `borderRadisuSM` | 全局 Token |
+| `@btn-border-width` | `lineWidth` | 全局 Token |
+| `@btn-border-style` | `lineStyle` | 全局 Token |
+| `@btn-shadow` | `defaultShadow` | - |
+| `@btn-primary-shadow` | `primaryShadow` | - |
+| `@btn-text-shadow` | - | 已废弃，v5 中不再有 `text-shadow` |
+| `@btn-primary-color` | `primaryColor` | - |
+| `@btn-primary-bg` | `colorPrimary` | 全局 Token |
+| `@btn-default-color` | `defaultColor` | - |
+| `@btn-default-bg` | `defaultBg` | - |
+| `@btn-default-border` | `defaultBorderColor` | - |
+| `@btn-danger-color` | `dangerColor` | - |
+| `@btn-danger-bg` | `colorError` | 全局 Token |
+| `@btn-danger-border` | `colorError` | 全局 Token |
+| `@btn-disable-color` | `colorTextDisabled` | 全局 Token |
+| `@btn-disable-bg` | `colorBgContainerDisabled` | 全局 Token |
+| `@btn-disable-border` | `borderColorDisabled` | - |
+| `@btn-default-ghost-color` | `defaultGhostColor` | - |
+| `@btn-default-ghost-bg` | `ghostBg` | - |
+| `@btn-default-ghost-border` | `defaultGhostBorderColor` | - |
+| `@btn-font-size-lg` | `fontSizeLG` | 全局 Token |
+| `@btn-font-size-sm` | `fontSizeSM` | 全局 Token |
+| `@btn-padding-horizontal-base` | `paddingInline` | - |
+| `@btn-padding-horizontal-lg` | `paddingInlineLG` | - |
+| `@btn-padding-horizontal-sm` | `paddingInlineSM` | - |
+| `@btn-height-base` | `controlHeight` | 全局 Token |
+| `@btn-height-lg` | `controlHeightLG` | 全局 Token |
+| `@btn-height-sm` | `controlHeightSM` | 全局 Token |
+| `@btn-line-height` | `lineHeight` | 全局 Token |
+| `@btn-circle-size` | `controlHeight` | 全局 Token |
+| `@btn-circle-size-lg` | `controlHeightLG` | 全局 Token |
+| `@btn-circle-size-sm` | `controlHeightSM` | 全局 Token |
+| `@btn-square-size` | `controlHeight` | 全局 Token |
+| `@btn-square-size-lg` | `controlHeightLG` | 全局 Token |
+| `@btn-square-size-sm` | `controlHeightSM` | 全局 Token |
+| `@btn-square-only-icon-size` | `onlyIconSize` | - |
+| `@btn-square-only-icon-size-sm` | `onlyIconSizeSM` | - |
+| `@btn-square-only-icon-size-lg` | `onlyIconSizeLG` | - |
+| `@btn-group-border` | `groupBorderColor` | - |
+| `@btn-link-hover-bg` | `linkHoverBg` | - |
+| `@btn-text-hover-bg` | `textHoverBg` | - |
 
 ### Calendar 日历
 
@@ -492,7 +539,46 @@ Mentions 提及
 
 <!-- ### Switch 开关 -->
 
-<!-- ### Table 表格 -->
+### Table 表格
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@table-bg` | `colorBgContainer` | 全局 Token |
+| `@table-header-bg` | `headerBg` | - |
+| `@table-header-color` | `headerColor` | - |
+| `@table-header-sort-bg` | `headerSortActiveBg` | - |
+| `@table-body-sort-bg` | `bodySortActiveBg` | - |
+| `@table-row-hover-bg` | `rowHoverBg` | - |
+| `@table-selected-row-color` | `colorText` | 全局 Token |
+| `@table-selected-row-bg` | `rowSelectedBg` | - |
+| `@table-body-selected-sort-bg` | - | 已废弃，同 `rowSelectedBg` |
+| `@table-selected-row-hover-bg` | `rowSelectedHoverBg` | - |
+| `@table-expanded-row-bg` | `rowExpandedBg` | - |
+| `@table-padding-vertical` | `cellPaddingBlock` | - |
+| `@table-padding-horizontal` | `cellPaddingInline` | - |
+| `@table-padding-vertical-md` | `cellPaddingBlockMD` | - |
+| `@table-padding-horizontal-md` | `cellPaddingInlineMD` | - |
+| `@table-padding-vertical-sm` | `cellPaddingBlockSM` | - |
+| `@table-padding-horizontal-sm` | `cellPaddingInlineSM` | - |
+| `@table-border-color` | `borderColor` | - |
+| `@table-border-radius-base` | `headerBorderRadius` | - |
+| `@table-footer-bg` | `footerBg` | - |
+| `@table-footer-color` | `footerColor` | - |
+| `@table-header-bg-sm` | - | 已废弃，同 `headerBg` |
+| `@table-font-size` | `cellFontSize` | - |
+| `@table-font-size-md` | `cellFontSizeMD` | - |
+| `@table-font-size-sm` | `cellFontSizeSM` | - |
+| `@table-header-cell-split-color` | `headerSplitColor` | - |
+| `@table-header-sort-active-bg` | `headerSortHoverBg` | v4 中有误，实际上用于悬浮背景色 |
+| `@table-fixed-header-sort-active-bg` | `fixedHeaderSortActiveBg` | - |
+| `@table-header-filter-active-bg` | `headerFilterHoverBg` | - |
+| `@table-filter-btns-bg` | - | 已废弃，同 `filterDropdownBg` |
+| `@table-filter-dropdown-bg` | `filterDropdownBg` | - |
+| `@table-expand-icon-bg` | `expandIconBg` | - |
+| `@table-selection-column-width` | `selectionColumnWidth` | - |
+| `@table-sticky-scroll-bar-bg` | `stickyScrollBarBg` | - |
+| `@table-sticky-scroll-bar-radius` | `stickyScrollBarBorderRadius` | - |
 
 ### Tabs 标签页
 

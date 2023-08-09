@@ -12,6 +12,7 @@ import { NoCompactStyle } from '../space/Compact';
 import type { ModalProps, MousePosition } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
+import { usePanelRef } from '../watermark/context';
 
 let mousePosition: MousePosition;
 
@@ -103,6 +104,11 @@ const Modal: React.FC<ModalProps> = (props) => {
     true,
   );
 
+  // ============================ Refs ============================
+  // Select `ant-modal-content` by `panelRef`
+  const panelRef = usePanelRef(`.${prefixCls}-content`);
+
+  // =========================== Render ===========================
   return wrapSSR(
     <NoCompactStyle>
       <NoFormStyle status override>
@@ -124,6 +130,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
           className={classNames(hashId, className, modal?.className)}
           style={{ ...modal?.style, ...style }}
+          panelRef={panelRef}
         />
       </NoFormStyle>
     </NoCompactStyle>,

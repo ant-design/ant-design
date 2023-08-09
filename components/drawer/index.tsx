@@ -16,6 +16,7 @@ import DrawerPanel from './DrawerPanel';
 // CSSINJS
 import { NoCompactStyle } from '../space/Compact';
 import useStyle from './style';
+import { usePanelRef } from '../watermark/context';
 
 const SizeTypes = ['default', 'large'] as const;
 type sizeType = typeof SizeTypes[number];
@@ -137,6 +138,10 @@ const Drawer: React.FC<DrawerProps> & {
     motionDeadline: 500,
   });
 
+  // ============================ Refs ============================
+  // Select `ant-modal-content` by `panelRef`
+  const panelRef = usePanelRef();
+
   // =========================== Render ===========================
   return wrapSSR(
     <NoCompactStyle>
@@ -157,6 +162,7 @@ const Drawer: React.FC<DrawerProps> & {
           rootClassName={drawerClassName}
           getContainer={getContainer}
           afterOpenChange={afterOpenChange ?? afterVisibleChange}
+          panelRef={panelRef}
         >
           <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
         </RcDrawer>

@@ -6,8 +6,10 @@ import {
   StyleProvider,
   extractStyle,
 } from '@ant-design/cssinjs';
+import { HappyProvider } from '@ant-design/happy-work-theme';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
+import { getSandpackCssText } from '@codesandbox/sandpack-react';
 import { App, theme as antdTheme } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
 import useLayoutState from '../../hooks/useLayoutState';
@@ -115,6 +117,14 @@ const GlobalLayout: React.FC = () => {
     return <style data-type="antd-cssinjs" dangerouslySetInnerHTML={{ __html: styleText }} />;
   });
 
+  useServerInsertedHTML(() => (
+    <style
+      data-sandpack="true"
+      id="sandpack"
+      dangerouslySetInnerHTML={{ __html: getSandpackCssText() }}
+    />
+  ));
+
   const demoPage = pathname.startsWith('/~demos');
 
   // ============================ Render ============================
@@ -147,7 +157,7 @@ const GlobalLayout: React.FC = () => {
             },
           }}
         >
-          {content}
+          <HappyProvider disabled={!theme.includes('happy-work')}>{content}</HappyProvider>
         </SiteThemeProvider>
       </SiteContext.Provider>
     </StyleProvider>

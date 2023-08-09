@@ -68,17 +68,29 @@ function rehypeAntd(): UnifiedTransformer<HastRoot> {
         node.tagName = 'VideoPlayer';
       } else if (node.tagName === 'SourceCode') {
         const { lang } = node.properties;
+
         if (typeof lang === 'string' && lang.startsWith('sandpack')) {
+          const code = (node.children[0] as any).value as string;
+          const configRegx = /^const sandpackConfig = ([\S\s]*?});/;
+          const [configString] = code.match(configRegx) || [];
+          // eslint-disable-next-line no-eval
+          const config = configString && eval(`(${configString.replace(configRegx, '$1')})`);
+          Object.keys(config || {}).forEach((key) => {
+            if (typeof config[key] === 'object') {
+              config[key] = JSON.stringify(config[key]);
+            }
+          });
+
           parent!.children.splice(i!, 1, {
             type: 'element',
             tagName: 'Sandpack',
             properties: {
-              dark: lang === 'sandpackdark',
+              ...config,
             },
             children: [
               {
                 type: 'text',
-                value: (node.children[0] as any).value,
+                value: code.replace(configRegx, '').trim(),
               },
             ],
           });

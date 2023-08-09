@@ -535,20 +535,22 @@ createRoot(document.getElementById('container')).render(<Demo />);
           </Tooltip>
         </Space>
       </section>
-      <section className={highlightClass} key="code">
-        <CodePreview
-          codes={highlightedCodes}
-          toReactComponent={toReactComponent}
-          onCodeTypeChange={(type) => setCodeType(type)}
-        />
-        {highlightedStyle ? (
-          <div key="style" className="highlight">
-            <pre>
-              <code className="css" dangerouslySetInnerHTML={{ __html: highlightedStyle }} />
-            </pre>
-          </div>
-        ) : null}
-      </section>
+      {codeExpand && (
+        <section className={highlightClass} key="code">
+          <CodePreview
+            codes={highlightedCodes}
+            toReactComponent={toReactComponent}
+            onCodeTypeChange={(type) => setCodeType(type)}
+          />
+          {highlightedStyle ? (
+            <div key="style" className="highlight">
+              <pre>
+                <code className="css" dangerouslySetInnerHTML={{ __html: highlightedStyle }} />
+              </pre>
+            </div>
+          ) : null}
+        </section>
+      )}
     </section>
   );
 

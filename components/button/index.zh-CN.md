@@ -50,6 +50,7 @@ group:
 <code src="./demo/block.tsx">Block 按钮</code>
 <code src="./demo/legacy-group.tsx" debug>废弃的 Block 组</code>
 <code src="./demo/chinese-chars-loading.tsx" debug>加载中状态 bug 还原</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
