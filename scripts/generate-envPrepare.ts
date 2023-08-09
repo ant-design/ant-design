@@ -16,7 +16,9 @@ fs.writeFileSync(
 // =================================================================
 // ==                          StyleKeys                          ==
 // =================================================================
-// When style name length <= 5, we just ignore it since it's smaller.
+const MIN_CHAR_SIZE = 7;
+
+// When style name length <= 7, we just ignore it since it's smaller.
 const KEY_LIST = [
   'WebkitBackfaceVisibility',
   'WebkitBoxOrient',
@@ -25,6 +27,7 @@ const KEY_LIST = [
   'WebkitTransformStyle',
   'alignItems',
   'alignSelf',
+  'all',
   'animationDelay',
   'animationDirection',
   'animationDuration',
@@ -77,26 +80,33 @@ const KEY_LIST = [
   'bottom',
   'boxShadow',
   'boxSizing',
+  'clear',
+  'color',
   'columnGap',
   'container',
   'content',
   'cursor',
   'direction',
   'display',
+  'fill',
   'filter',
+  'flex',
   'flexBasis',
   'flexDirection',
   'flexFlow',
   'flexGrow',
   'flexShrink',
   'flexWrap',
+  'float',
   'fontFamily',
   'fontSize',
   'fontStretch',
   'fontStyle',
   'fontVariant',
   'fontWeight',
+  'gap',
   'height',
+  'inset',
   'insetBlock',
   'insetBlockEnd',
   'insetBlockStart',
@@ -105,6 +115,7 @@ const KEY_LIST = [
   'insetInlineStart',
   'justifyContent',
   'justifyItems',
+  'left',
   'letterSpacing',
   'lineHeight',
   'listStyle',
@@ -121,12 +132,14 @@ const KEY_LIST = [
   'marginLeft',
   'marginRight',
   'marginTop',
+  'mask',
   'maxHeight',
   'maxWidth',
   'minHeight',
   'minWidth',
   'objectFit',
   'opacity',
+  'order',
   'outline',
   'outlineColor',
   'overflow',
@@ -146,6 +159,7 @@ const KEY_LIST = [
   'pointerEvents',
   'position',
   'resize',
+  'right',
   'rowGap',
   'stroke',
   'tabSize',
@@ -158,6 +172,7 @@ const KEY_LIST = [
   'textRendering',
   'textShadow',
   'textTransform',
+  'top',
   'touchAction',
   'transform',
   'transformOrigin',
@@ -174,7 +189,7 @@ const KEY_LIST = [
   'wordWrap',
   'writingMode',
   'zIndex',
-];
+].filter((key) => key.length > MIN_CHAR_SIZE);
 
 const sheet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 

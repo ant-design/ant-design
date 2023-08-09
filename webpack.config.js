@@ -71,7 +71,7 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
               options: {
                 search: /(.|[\n\r])*/,
                 replace(match) {
-                  if (!isStyleFile(file.path)) {
+                  if (!isStyleFile(this.resourcePath)) {
                     return match;
                   }
 
