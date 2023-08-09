@@ -30,7 +30,7 @@ const getSwitchStyle = (prefixCls: string, token: DerivativeToken): CSSObject =>
 });
 
 // =============================== Drop ===============================
-const getDropIndicatorStyle = (prefixCls: string, token: DerivativeToken) => ({
+const getDropIndicatorStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
   [`.${prefixCls}-drop-indicator`]: {
     position: 'absolute',
     // it should displayed over the following node
