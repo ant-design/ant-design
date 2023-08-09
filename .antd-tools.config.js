@@ -247,7 +247,7 @@ function transformTSFile(file) {
 
   if (matched) {
     const content = [`import r from '../../style/sheet';`, ...parsedLines].join('\n');
-    // if (file.path.includes('/alert/')) {
+    // if (file.path.includes('/notification/')) {
     //   console.log(content);
     //   process.exit(1);
     // }

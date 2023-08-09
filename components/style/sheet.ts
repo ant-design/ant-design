@@ -1,6 +1,6 @@
 import type * as React from 'react';
 
-const styleMap: Partial<Record<keyof React.CSSProperties, string>> = {
+const styleMap = {
   WebkitBackfaceVisibility: 'a',
   WebkitBoxOrient: 'b',
   WebkitLineClamp: 'c',
@@ -157,13 +157,28 @@ const styleMap: Partial<Record<keyof React.CSSProperties, string>> = {
   wordWrap: 'bX',
   writingMode: 'bY',
   zIndex: 'bZ',
-};
+  // good: 'bZss',
+} as const;
+
+/**
+ * Check if T is subset of Record<React.CSSProperties, string>.
+ * Will failed if T (like `styleMap`) contains the key not in CSSProperties.
+ */
+type ValidateStyleName<T extends object> = keyof T extends keyof React.CSSProperties ? T : never;
 
 type RevertType = Record<string, keyof React.CSSProperties>;
 
-const revertStyleMap: RevertType = Object.keys(styleMap).reduce((acc, key) => {
-  acc[(styleMap as any)[key]] = key as keyof React.CSSProperties;
-  return acc;
-}, {} as RevertType);
+function revertStyleMap<T extends object>(map: ValidateStyleName<T>) {
+  return Object.keys(map).reduce((acc, key: keyof React.CSSProperties) => {
+    acc[(map as any)[key]] = key;
+    return acc;
+  }, {} as RevertType);
+}
 
-export default revertStyleMap;
+const reverted = revertStyleMap(styleMap);
+
+type RevertKV<T extends object> = {
+  [K in keyof T as T[K]]: K;
+};
+
+export default reverted as any as RevertKV<typeof styleMap>;
