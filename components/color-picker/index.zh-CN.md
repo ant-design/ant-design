@@ -37,6 +37,8 @@ group:
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 > 自 `antd@5.5.0` 版本开始提供该组件。
 
 <!-- prettier-ignore -->

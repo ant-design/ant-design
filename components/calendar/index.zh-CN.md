@@ -25,6 +25,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 **注意**：Calendar 部分 locale 是从 value 中读取，所以请先正确设置 dayjs 的 locale。
 
 ```jsx

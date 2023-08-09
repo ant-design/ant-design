@@ -28,6 +28,15 @@ describe('Carousel', () => {
     expect(typeof innerSlider.slickNext).toBe('function');
   });
 
+  it('should support id property', () => {
+    const { container } = render(
+      <Carousel id="my-carousel">
+        <div />
+      </Carousel>,
+    );
+    expect(container.querySelector('.ant-carousel')?.getAttribute('id')).toBe('my-carousel');
+  });
+
   it('should has prev, next and go function', async () => {
     const ref = React.createRef<CarouselRef>();
     render(

@@ -30,6 +30,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a-8zR6rrupgAAA
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 ```jsx
 <Card title="卡片标题">卡片内容</Card>
 ```

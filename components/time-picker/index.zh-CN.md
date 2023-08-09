@@ -37,6 +37,8 @@ demo:
 
 ---
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 ```jsx
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat'

@@ -38,6 +38,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 ### Steps
 
 整体步骤条。

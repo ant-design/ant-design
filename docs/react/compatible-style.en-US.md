@@ -3,7 +3,6 @@ group:
   title: Advanced
 order: 1
 title: CSS Compatible
-tag: Updated
 ---
 
 Ant Design supports the last 2 versions of modern browsers. If you need to be compatible with legacy browsers, please perform downgrade processing according to actual needs:

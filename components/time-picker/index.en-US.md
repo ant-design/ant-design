@@ -36,6 +36,8 @@ By clicking the input box, you can select a time from a popup panel.
 
 ---
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ```jsx
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat'
