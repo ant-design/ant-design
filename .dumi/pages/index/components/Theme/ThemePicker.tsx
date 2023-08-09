@@ -9,6 +9,7 @@ export const THEMES = {
   dark: 'https://gw.alipayobjects.com/zos/bmw-prod/0f93c777-5320-446b-9bb7-4d4b499f346d.svg',
   lark: 'https://gw.alipayobjects.com/zos/bmw-prod/3e899b2b-4eb4-4771-a7fc-14c7ff078aed.svg',
   comic: 'https://gw.alipayobjects.com/zos/bmw-prod/ed9b04e8-9b8d-4945-8f8a-c8fc025e846f.svg',
+  v4: 'https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*bOiWT4-34jkAAAAAAAAAAAAADrJ8AQ/original',
 } as const;
 
 export type THEME = keyof typeof THEMES;
@@ -19,12 +20,14 @@ const locales = {
     dark: '暗黑',
     lark: '知识协作',
     comic: '桃花缘',
+    v4: 'V4 主题',
   },
   en: {
     default: 'Default',
     dark: 'Dark',
     lark: 'Document',
     comic: 'Blossom',
+    v4: 'V4 Theme',
   },
 };
 

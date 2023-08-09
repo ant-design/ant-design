@@ -29,6 +29,8 @@ A card can be used to display content related to a single subject. The content c
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ```jsx
 <Card title="Card title">Card content</Card>
 ```

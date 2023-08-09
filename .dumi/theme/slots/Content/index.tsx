@@ -6,7 +6,7 @@ import DayJS from 'dayjs';
 import { FormattedMessage, useIntl, useRouteMeta, useTabMeta } from 'dumi';
 import type { ReactNode } from 'react';
 import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
-import { Affix, Anchor, Avatar, Col, Skeleton, Space, Tooltip, Typography } from 'antd';
+import { Anchor, Avatar, Col, Skeleton, Space, Tooltip, Typography } from 'antd';
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocation from '../../../hooks/useLocation';
 import EditButton from '../../common/EditButton';
@@ -55,16 +55,17 @@ const useStyle = createStyles(({ token, css }) => {
       }
     `,
     tocWrapper: css`
-      position: absolute;
-      top: 8px;
+      position: fixed;
+      top: ${token.headerHeight + token.contentMarginTop}px;
       inset-inline-end: 0;
       width: 160px;
-      margin: 12px 0;
+      margin: 0 0 12px 0;
       padding: 8px 0;
       padding-inline: 4px 8px;
       backdrop-filter: blur(8px);
       border-radius: ${token.borderRadius}px;
       box-sizing: border-box;
+      z-index: 1000;
 
       .toc-debug {
         color: ${token.purple6};
@@ -205,7 +206,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <DemoContext.Provider value={contextValue}>
       <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
-        <Affix>
+        {!!meta.frontmatter.toc && (
           <section className={styles.tocWrapper}>
             <Anchor
               className={styles.toc}
@@ -230,7 +231,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
               }))}
             />
           </section>
-        </Affix>
+        )}
         <article className={classNames(styles.articleWrapper, { rtl: isRTL })}>
           {meta.frontmatter?.title ? (
             <Typography.Title style={{ fontSize: 30, position: 'relative' }}>

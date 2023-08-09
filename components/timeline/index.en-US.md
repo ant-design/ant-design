@@ -45,6 +45,8 @@ return (
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Timeline
 
 | Property | Description | Type | Default |

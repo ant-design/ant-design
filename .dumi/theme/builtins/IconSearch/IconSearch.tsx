@@ -58,6 +58,7 @@ const IconSearch: React.FC = () => {
     searchKey: '',
     theme: ThemeType.Outlined,
   });
+  const token = useTheme();
 
   const newIconNames: string[] = [];
 
@@ -111,7 +112,6 @@ const IconSearch: React.FC = () => {
   }, [displayState.searchKey, displayState.theme]);
 
   const [searchBarAffixed, setSearchBarAffixed] = useState<boolean>(false);
-  const token = useTheme();
   const { borderRadius, colorBgContainer } = token;
 
   const affixedStyle: CSSProperties = {
@@ -124,7 +124,7 @@ const IconSearch: React.FC = () => {
 
   return (
     <div className="markdown">
-      <Affix offsetTop={24} onChange={setSearchBarAffixed}>
+      <Affix offsetTop={24 + token.headerHeight} onChange={setSearchBarAffixed}>
         <div className={styles.iconSearchAffix} style={searchBarAffixed ? affixedStyle : {}}>
           <Segmented
             size="large"

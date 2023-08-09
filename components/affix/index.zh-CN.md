@@ -29,6 +29,8 @@ group:
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | offsetBottom | 距离窗口底部达到指定偏移量后触发 | number | - |

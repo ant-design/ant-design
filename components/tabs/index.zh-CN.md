@@ -42,6 +42,8 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 ### Tabs
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |

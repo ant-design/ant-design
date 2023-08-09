@@ -1,6 +1,8 @@
 ---
-order: 9
-title: Less 变量迁移 Design Token
+group:
+  title: 迁移
+order: 1
+title: 从 Less 变量到 Design Token
 ---
 
 本文档包含了所有 4.x 版本中组件相关的 less 变量与 5.x 版本的 Component Token 的对照关系。如果你是从 4.x 版本升级到 5.x 版本，可以通过这份对照表快速找到对应的 Component Token。
@@ -12,8 +14,8 @@ title: Less 变量迁移 Design Token
 通过 ConfigProvider 的 `theme` 属性，我们可以对每一个组件单独配置全局 Token 和组件 Token
 
 ```tsx
-import { Checkbox, ConfigProvider, Radio } from 'antd';
 import React from 'react';
+import { Checkbox, ConfigProvider, Radio } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider

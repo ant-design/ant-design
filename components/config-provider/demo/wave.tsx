@@ -1,3 +1,4 @@
+import { HappyProvider } from '@ant-design/happy-work-theme';
 import React from 'react';
 import { Button, ConfigProvider, Space } from 'antd';
 
@@ -122,6 +123,9 @@ const App = () => (
     <Wrapper name="Default" />
     <Wrapper name="Inset" showEffect={showInsetEffect} />
     <Wrapper name="Shake" showEffect={showShakeEffect} />
+    <HappyProvider>
+      <Button type="primary">Happy Work</Button>
+    </HappyProvider>
   </Space>
 );
 

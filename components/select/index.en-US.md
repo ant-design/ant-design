@@ -48,6 +48,8 @@ Select component to select value from options.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Select props
 
 | Property | Description | Type | Default | Version |

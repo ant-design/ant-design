@@ -1,5 +1,8 @@
 ---
-order: 2
+group:
+  title: 如何使用
+  order: 0
+order: 0
 title: 快速上手
 ---
 
@@ -14,6 +17,10 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 这是一个最简单的 Ant Design 组件的在线 codesandbox 演示。
 
 ```sandpack
+const sandpackConfig = {
+  autorun: true,
+};
+
 import React from 'react';
 import { Button, Space, DatePicker, version } from 'antd';
 
