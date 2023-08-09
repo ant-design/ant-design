@@ -247,10 +247,10 @@ function transformTSFile(file) {
 
   if (matched) {
     const content = [`import r from '../../style/sheet';`, ...parsedLines].join('\n');
-    if (file.path.includes('/alert/')) {
-      console.log(content);
-      process.exit(1);
-    }
+    // if (file.path.includes('/alert/')) {
+    //   console.log(content);
+    //   process.exit(1);
+    // }
     cloneFile.contents = Buffer.from(content);
     return cloneFile;
   }
