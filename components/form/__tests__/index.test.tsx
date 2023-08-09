@@ -1199,7 +1199,9 @@ describe('Form', () => {
   it('Form Item element id will auto add form_item prefix if form name is empty and item name is in the black list', async () => {
     const mockFn = jest.spyOn(Util, 'getFieldId');
     const itemName = 'parentNode';
-    // mock getFieldId old logic,if form name is empty ,and item name is parentNode,will get parentNode
+    // mock getFieldId old logic
+    // if form name is empty and item name is parentNode
+    // will get parentNode
     mockFn.mockImplementation(() => itemName);
     const { Option } = Select;
     const Demo: React.FC = () => {
@@ -1237,7 +1239,8 @@ describe('Form', () => {
     expect((Util.getFieldId as () => string)()).toBe(itemName);
 
     // make sure input id is parentNode
-    expect(screen.getByLabelText(itemName)).toHaveAccessibleName(itemName);
+    expect(screen.getByLabelText(itemName)).toHaveAttribute('id', itemName);
+    expect(screen.getByLabelText(itemName)).toHaveAccessibleName('Search');
 
     fireEvent.click(container.querySelector('button')!);
     await waitFakeTimer();
