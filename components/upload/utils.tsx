@@ -122,6 +122,7 @@ export function previewImage(file: File | Blob): Promise<string> {
       reader.onload = () => {
         if (reader.result) resolve(reader.result as string);
       };
+      reader.readAsDataURL(file);
     } else {
       img.src = window.URL.createObjectURL(file);
     }
