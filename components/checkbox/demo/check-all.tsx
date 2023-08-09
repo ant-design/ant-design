@@ -12,7 +12,7 @@ const App: React.FC = () => {
   const [checkedList, setCheckedList] = useState<CheckboxValueType[]>(defaultCheckedList);
 
   const checkAll = plainOptions.length === checkedList.length;
-  const indeterminate = !!checkedList.length && checkedList.length < plainOptions.length;
+  const indeterminate = checkedList.length > 0 && checkedList.length < plainOptions.length;
 
   const onChange = (list: CheckboxValueType[]) => {
     setCheckedList(list);
