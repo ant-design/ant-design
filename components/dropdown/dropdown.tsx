@@ -11,7 +11,7 @@ import getPlacements from '../_util/placements';
 import { cloneElement } from '../_util/reactNode';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import type { MenuProps } from '../menu';
+import type { MenuProps, MenuRef } from '../menu';
 import Menu from '../menu';
 import { OverrideProvider } from '../menu/OverrideContext';
 import theme from '../theme';
@@ -28,7 +28,7 @@ const Placements = [
   'bottom',
 ] as const;
 
-type Placement = (typeof Placements)[number];
+type Placement = typeof Placements[number];
 type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
 type OverlayFunc = () => React.ReactElement;
@@ -112,6 +112,7 @@ const Dropdown: CompoundedComponent = (props) => {
     placement = '',
     overlay,
     transitionName,
+    autoFocus,
   } = props;
   const {
     getPopupContainer: getContextPopupContainer,
@@ -217,6 +218,14 @@ const Dropdown: CompoundedComponent = (props) => {
     setOpen(nextOpen);
   });
 
+  const ref = React.useRef<MenuRef>(null);
+
+  React.useEffect(() => {
+    if (ref.current && autoFocus && mergedOpen) {
+      ref.current.focus();
+    }
+  }, [mergedOpen]);
+
   // =========================== Overlay ============================
   const overlayClassNameCustomized = classNames(overlayClassName, rootClassName, hashId, {
     [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -272,6 +281,7 @@ const Dropdown: CompoundedComponent = (props) => {
             `mode="${mode}" is not supported for Dropdown's Menu.`,
           );
         }}
+        ref={ref}
       >
         {overlayNode}
       </OverrideProvider>

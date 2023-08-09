@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { NoCompactStyle } from '../space/Compact';
 import type { MenuProps } from './menu';
+import type { MenuRef } from '.';
 
 // Used for Dropdown only
 export interface OverrideContextProps {
@@ -16,7 +17,7 @@ const OverrideContext = React.createContext<OverrideContextProps | null>(null);
 
 /** @internal Only used for Dropdown component. Do not use this in your production. */
 export const OverrideProvider = React.forwardRef<
-  HTMLElement,
+  MenuRef,
   OverrideContextProps & { children: React.ReactNode }
 >((props, ref) => {
   const { children, ...restProps } = props;
