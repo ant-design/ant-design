@@ -220,3 +220,11 @@ fs.readFileSync(sheetPath, 'utf8')
   });
 
 fs.writeFileSync(sheetPath, sheetFileLines.join('\n'), 'utf8');
+
+// Write tmp file
+fs.writeFileSync(
+  // Write in `~tmpSheet.json`
+  path.join(__dirname, '..', '~tmpSheet.json'),
+  JSON.stringify(styleMap, null, 2),
+  'utf8',
+);
