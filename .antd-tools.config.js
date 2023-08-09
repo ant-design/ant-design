@@ -25,12 +25,37 @@ function finalizeDist() {
   }
 }
 
+// Convert `style/xxx.ts` file to hashed map to min bundle size
+function transformTSFile(file) {
+  if (!/components\/[^/]+\/style/.test(file.path)) {
+    return;
+  }
+
+  const cloneFile = file.clone();
+
+  // Replacement
+  const content = file.contents.toString();
+  cloneFile.contents = Buffer.from(content);
+
+  content.split(/\n/).forEach((line) => {
+    const cell = line.match(/(\w+):/)?.[1];
+    if (cell) {
+      const styleTxt = fs.readFileSync('./~tmp.txt', 'utf-8');
+      fs.writeFileSync('./~tmp.txt', `${styleTxt}\n${cell}`, 'utf-8');
+    }
+  });
+
+  return cloneFile;
+}
+
 module.exports = {
   compile: {
     finalize: finalizeCompile,
+    transformTSFile,
   },
   dist: {
     finalize: finalizeDist,
   },
+
   bail: true,
 };
