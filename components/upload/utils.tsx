@@ -28,12 +28,12 @@ export function updateFileList(file: UploadFile<any>, fileList: UploadFile<any>[
 
 export function getFileItem(file: RcFile, fileList: UploadFile[]) {
   const matchKey = file.uid !== undefined ? 'uid' : 'name';
-  return fileList.filter(item => item[matchKey] === file[matchKey])[0];
+  return fileList.filter((item) => item[matchKey] === file[matchKey])[0];
 }
 
 export function removeFileItem(file: UploadFile, fileList: UploadFile[]) {
   const matchKey = file.uid !== undefined ? 'uid' : 'name';
-  const removed = fileList.filter(item => item[matchKey] !== file[matchKey]);
+  const removed = fileList.filter((item) => item[matchKey] !== file[matchKey]);
   if (removed.length === fileList.length) {
     return null;
   }
@@ -75,7 +75,7 @@ export const isImageUrl = (file: UploadFile): boolean => {
 
 const MEASURE_SIZE = 200;
 export function previewImage(file: File | Blob): Promise<string> {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     if (!file.type || !isImageFileType(file.type)) {
       resolve('');
       return;
@@ -107,16 +107,21 @@ export function previewImage(file: File | Blob): Promise<string> {
       ctx!.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
       const dataURL = canvas.toDataURL();
       document.body.removeChild(canvas);
-
+      window.URL.revokeObjectURL(img.src);
       resolve(dataURL);
     };
     img.crossOrigin = 'anonymous';
     if (file.type.startsWith('image/svg+xml')) {
       const reader = new FileReader();
-      reader.addEventListener('load', () => {
+      reader.onload = () => {
         if (reader.result) img.src = reader.result as string;
-      });
+      };
       reader.readAsDataURL(file);
+    } else if (file.type.startsWith('image/gif')) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (reader.result) resolve(reader.result as string);
+      };
     } else {
       img.src = window.URL.createObjectURL(file);
     }
