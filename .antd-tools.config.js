@@ -212,9 +212,28 @@ function transformTSFile(file) {
 
   // Replacement
   let matched = false;
+  let leftQuota = 0;
   const lines = file.contents.toString().split('\n');
   const parsedLines = lines.map((line) => {
     let newLine = line;
+
+    // Only start when called `return {}` which is in the CSSObject
+
+    if (newLine.includes(' return {')) {
+      leftQuota += 1;
+      return newLine;
+    }
+
+    if (leftQuota === 0) {
+      return newLine;
+    }
+
+    if (newLine.trim().endsWith('{')) {
+      leftQuota += 1;
+    } else if (newLine.trim().startsWith('}')) {
+      leftQuota -= 1;
+    }
+
     KEY_LIST.forEach((key) => {
       const keyMatch = ` ${key}: `;
       if (newLine.includes(keyMatch)) {
@@ -228,9 +247,10 @@ function transformTSFile(file) {
 
   if (matched) {
     const content = [`import r from '../../style/sheet';`, ...parsedLines].join('\n');
-    if (file.path.includes('/alert/')) {
-      console.log(content);
-    }
+    // if (file.path.includes('/alert/')) {
+    //   console.log(content);
+    //   process.exit(1);
+    // }
     cloneFile.contents = Buffer.from(content);
     return cloneFile;
   }
