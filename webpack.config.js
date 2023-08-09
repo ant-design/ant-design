@@ -71,11 +71,13 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
               options: {
                 search: /(.|[\n\r])*/,
                 replace(match) {
-                  if (!isStyleFile(this.resourcePath)) {
+                  if (!isStyleFile(this.resourcePath, match)) {
                     return match;
                   }
 
-                  return replaceStyleKeys(match);
+                  const replacedContent = replaceStyleKeys(match);
+
+                  return replacedContent;
                 },
               },
             },
