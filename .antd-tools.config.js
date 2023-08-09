@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const styleMap = require('./~tmpSheet.json');
+const { replaceStyleKeys, isStyleFile } = require('./scripts/generate-envPrepare-util');
 
 // =================================================================
 // ==                            Style                            ==
@@ -32,60 +32,20 @@ function finalizeDist() {
 // =================================================================
 // ==                         Mini Bundle                         ==
 // =================================================================
-const KEY_LIST = Object.keys(styleMap);
 
 // Convert `style/xxx.ts` file to hashed map to min bundle size
 function transformTSFile(file) {
-  if (!/components\/[^/]+\/style/.test(file.path)) {
+  if (!isStyleFile(file.path)) {
     return;
   }
 
   const cloneFile = file.clone();
 
   // Replacement
-  let matched = false;
-  let leftQuota = 0;
-  const lines = file.contents.toString().split('\n');
-  const parsedLines = lines.map((line) => {
-    let newLine = line;
+  const replacedContent = replaceStyleKeys(file.contents.toString());
 
-    // Only start when called `return {}` which is in the CSSObject
-
-    if (newLine.includes(' return {') || newLine.includes(' => ({')) {
-      leftQuota += 1;
-      return newLine;
-    }
-
-    if (leftQuota === 0) {
-      return newLine;
-    }
-
-    if (newLine.trim().endsWith('{')) {
-      leftQuota += 1;
-    } else if (newLine.trim().startsWith('}')) {
-      leftQuota -= 1;
-    }
-
-    KEY_LIST.forEach((key) => {
-      const keyMatch = ` ${key}: `;
-      if (newLine.includes(keyMatch)) {
-        matched = true;
-        newLine = newLine.replace(keyMatch, ` [r.${styleMap[key]}]: `);
-      }
-    });
-
-    return newLine;
-  });
-
-  if (matched) {
-    const content = [`import r from '../../style/sheet';`, ...parsedLines].join('\n');
-    // if (file.path.includes('/notification/')) {
-    //   console.log(content);
-    //   process.exit(1);
-    // }
-    cloneFile.contents = Buffer.from(content);
-    return cloneFile;
-  }
+  cloneFile.contents = Buffer.from(replacedContent);
+  return cloneFile;
 }
 
 module.exports = {

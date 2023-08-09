@@ -5,6 +5,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { EsbuildPlugin } = require('esbuild-loader');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
+const { isStyleFile, replaceStyleKeys } = require('./scripts/generate-envPrepare-util');
 
 function addLocales(webpackConfig) {
   let packageName = 'antd-with-locales';
@@ -57,6 +58,30 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
           emitError: true,
         }),
       );
+    }
+
+    if (config.mode === 'production') {
+      config.module.rules.forEach((rule) => {
+        // Remove devWarning if needed
+        if (rule.test.test('test.tsx')) {
+          rule.use = [
+            ...rule.use,
+            {
+              loader: 'string-replace-loader',
+              options: {
+                search: /(.|[\n\r])*/,
+                replace(match) {
+                  if (!isStyleFile(file.path)) {
+                    return match;
+                  }
+
+                  return replaceStyleKeys(match);
+                },
+              },
+            },
+          ];
+        }
+      });
     }
 
     config.plugins.push(
