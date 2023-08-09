@@ -130,6 +130,7 @@ export type CascaderProps<DataNodeType extends BaseOptionType = any> =
     suffixIcon?: React.ReactNode;
     options?: DataNodeType[];
     status?: InputStatus;
+    autoClearSearchValue?: boolean;
 
     rootClassName?: string;
     popupClassName?: string;
