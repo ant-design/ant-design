@@ -1,12 +1,13 @@
 ---
 category: Components
 subtitle: 水印
-group: 其他
+group: 反馈
 title: Watermark
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wr1ISY50SyYAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*duAQQbjHlHQAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 1
+tag: New
 ---
 
 给页面的某个区域加上水印。
@@ -26,6 +27,8 @@ demo:
 <code src="./demo/portal.tsx">Modal 与 Drawer</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Watermark
 

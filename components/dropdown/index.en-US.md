@@ -37,6 +37,8 @@ When there are more than a few options to choose from, you can wrap them in a `D
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Dropdown
 
 | Property | Description | Type | Default | Version |

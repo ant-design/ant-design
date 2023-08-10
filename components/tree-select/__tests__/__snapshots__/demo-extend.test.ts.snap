@@ -16,6 +16,7 @@ exports[`renders components/tree-select/demo/async.tsx extend context correctly 
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
+        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -242,6 +243,7 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
+        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -637,6 +639,7 @@ exports[`renders components/tree-select/demo/checkable.tsx extend context correc
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -864,6 +867,7 @@ exports[`renders components/tree-select/demo/multiple.tsx extend context correct
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -1302,6 +1306,7 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
+          aria-label="Search"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -1655,6 +1660,7 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="true"
           aria-haspopup="listbox"
+          aria-label="Search"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -1856,6 +1862,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -1985,6 +1992,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
                 aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
+                aria-label="Search"
                 aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
@@ -2116,6 +2124,7 @@ exports[`renders components/tree-select/demo/suffix.tsx extend context correctly
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
+        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -2461,6 +2470,7 @@ exports[`renders components/tree-select/demo/treeData.tsx extend context correct
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
+        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -2691,6 +2701,35 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
     style="margin-bottom: 8px;"
   >
     <button
+      aria-checked="false"
+      class="ant-switch"
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      >
+        <span
+          class="ant-switch-inner-checked"
+        >
+          showIcon
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          showIcon
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom: 8px;"
+  >
+    <button
       aria-checked="true"
       class="ant-switch ant-switch-checked"
       role="switch"
@@ -2762,6 +2801,7 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"

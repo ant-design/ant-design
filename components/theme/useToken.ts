@@ -75,6 +75,9 @@ export default function useToken(): [
       salt,
       override: { override: rootDesignToken, ...components },
       getComputedToken,
+      // formatToken will not be consumed after 1.15.0 with getComputedToken.
+      // But token will break if @ant-design/cssinjs is under 1.15.0 without it
+      formatToken,
     },
   );
 

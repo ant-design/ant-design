@@ -43,6 +43,8 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Input
 
 | Property | Description | Type | Default | Version |

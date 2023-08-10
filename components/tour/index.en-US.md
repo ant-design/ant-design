@@ -6,6 +6,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8CC_Tbe3_e4AAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*nF6hQpM0XtEAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
+tag: New
 ---
 
 A popup component for guiding users through a product. Available since `5.0.0`.
@@ -25,6 +26,8 @@ Use when you want to guide users through a product.
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Tour
 

@@ -15,6 +15,7 @@ interface NewToken {
   marginFarSM: number;
   marginFar: number;
   codeFamily: string;
+  contentMarginTop: number;
 }
 
 // 通过给 antd-style 扩展 CustomToken 对象类型定义，可以为 useTheme 中增加相应的 token 对象
@@ -52,6 +53,7 @@ const SiteThemeProvider: FC<ThemeProviderProps> = ({ children, theme, ...rest })
         /** 96 */
         marginFar: token.marginXXL * 2,
         codeFamily: `'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace`,
+        contentMarginTop: 40,
       }}
     >
       {children}

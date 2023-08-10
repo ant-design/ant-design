@@ -39,6 +39,8 @@ demo:
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 日期类组件包括以下五种形式。
 
 - DatePicker
