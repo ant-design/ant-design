@@ -126,6 +126,8 @@ Array [
 ]
 `;
 
+exports[`renders components/divider/demo/customize-style.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/divider/demo/horizontal.tsx extend context correctly 1`] = `
 Array [
   <p>
@@ -147,6 +149,8 @@ Array [
   </p>,
 ]
 `;
+
+exports[`renders components/divider/demo/horizontal.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/divider/demo/plain.tsx extend context correctly 1`] = `
 Array [
@@ -195,6 +199,8 @@ Array [
 ]
 `;
 
+exports[`renders components/divider/demo/plain.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/divider/demo/vertical.tsx extend context correctly 1`] = `
 Array [
   Text,
@@ -218,6 +224,8 @@ Array [
   </a>,
 ]
 `;
+
+exports[`renders components/divider/demo/vertical.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/divider/demo/with-text.tsx extend context correctly 1`] = `
 Array [
@@ -293,3 +301,5 @@ Array [
   </p>,
 ]
 `;
+
+exports[`renders components/divider/demo/with-text.tsx extend context correctly 2`] = `[]`;

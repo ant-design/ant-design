@@ -103,6 +103,8 @@ exports[`renders components/badge/demo/basic.tsx extend context correctly 1`] = 
 </div>
 `;
 
+exports[`renders components/badge/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/change.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -302,6 +304,8 @@ exports[`renders components/badge/demo/change.tsx extend context correctly 1`] =
   </div>
 </div>
 `;
+
+exports[`renders components/badge/demo/change.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/badge/demo/colorful.tsx extend context correctly 1`] = `
 Array [
@@ -626,533 +630,765 @@ Array [
 ]
 `;
 
+exports[`renders components/badge/demo/colorful.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/colorful-with-count-debug.tsx extend context correctly 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -16px;"
->
+Array [
   <div
-    class="ant-space-item"
-    style="margin-right: 24px; padding-bottom: 16px;"
+    class="ant-space ant-space-horizontal ant-space-align-center"
+    style="flex-wrap: wrap; margin-bottom: -16px;"
   >
-    <span
-      class="ant-badge"
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
     >
-      <div
-        style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+      <span
+        class="ant-badge"
       >
-        pink
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-pink"
-        data-show="true"
-        title="44"
-      >
-        <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          pink
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-pink"
+          data-show="true"
+          title="44"
         >
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition: none;"
           >
-            4
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
           </span>
-        </span>
-        <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
+    >
+      <span
+        class="ant-badge"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          red
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-red"
+          data-show="true"
+          title="44"
         >
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition: none;"
           >
-            4
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
           </span>
-        </span>
-      </sup>
-    </span>
-  </div>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
+    >
+      <span
+        class="ant-badge"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          yellow
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-yellow"
+          data-show="true"
+          title="44"
+        >
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
+    >
+      <span
+        class="ant-badge"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          orange
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-orange"
+          data-show="true"
+          title="44"
+        >
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
+    >
+      <span
+        class="ant-badge"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          cyan
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-cyan"
+          data-show="true"
+          title="44"
+        >
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
+    >
+      <span
+        class="ant-badge"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          green
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-green"
+          data-show="true"
+          title="44"
+        >
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
+    >
+      <span
+        class="ant-badge"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          blue
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-blue"
+          data-show="true"
+          title="44"
+        >
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
+    >
+      <span
+        class="ant-badge"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          purple
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-purple"
+          data-show="true"
+          title="44"
+        >
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
+    >
+      <span
+        class="ant-badge"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          geekblue
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-geekblue"
+          data-show="true"
+          title="44"
+        >
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
+    >
+      <span
+        class="ant-badge"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          magenta
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-magenta"
+          data-show="true"
+          title="44"
+        >
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
+    >
+      <span
+        class="ant-badge"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          volcano
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-volcano"
+          data-show="true"
+          title="44"
+        >
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
+    >
+      <span
+        class="ant-badge"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          gold
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-gold"
+          data-show="true"
+          title="44"
+        >
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="padding-bottom: 16px;"
+    >
+      <span
+        class="ant-badge"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          lime
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-lime"
+          data-show="true"
+          title="44"
+        >
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              4
+            </span>
+          </span>
+        </sup>
+      </span>
+    </div>
+  </div>,
   <div
-    class="ant-space-item"
-    style="margin-right: 24px; padding-bottom: 16px;"
+    class="ant-space ant-space-horizontal ant-space-align-center"
+    style="flex-wrap: wrap; margin-bottom: -16px;"
   >
-    <span
-      class="ant-badge"
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
     >
-      <div
-        style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
-      >
-        red
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-red"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-pink"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right: 24px; padding-bottom: 16px;"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
     >
-      <div
-        style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
-      >
-        yellow
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-yellow"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-red"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right: 24px; padding-bottom: 16px;"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
     >
-      <div
-        style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
-      >
-        orange
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-orange"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-yellow"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right: 24px; padding-bottom: 16px;"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
     >
-      <div
-        style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
-      >
-        cyan
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-cyan"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-orange"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right: 24px; padding-bottom: 16px;"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
     >
-      <div
-        style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
-      >
-        green
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-green"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-cyan"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right: 24px; padding-bottom: 16px;"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
     >
-      <div
-        style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
-      >
-        blue
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-blue"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-green"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right: 24px; padding-bottom: 16px;"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
     >
-      <div
-        style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
-      >
-        purple
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-purple"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-blue"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right: 24px; padding-bottom: 16px;"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
     >
-      <div
-        style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
-      >
-        geekblue
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-geekblue"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-purple"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right: 24px; padding-bottom: 16px;"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
     >
-      <div
-        style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
-      >
-        magenta
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-magenta"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-geekblue"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right: 24px; padding-bottom: 16px;"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
     >
-      <div
-        style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
-      >
-        volcano
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-volcano"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-magenta"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right: 24px; padding-bottom: 16px;"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
     >
-      <div
-        style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
-      >
-        gold
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-gold"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-volcano"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="padding-bottom: 16px;"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 24px; padding-bottom: 16px;"
     >
-      <div
-        style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
-      >
-        lime
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-lime"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-gold"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-</div>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="padding-bottom: 16px;"
+    >
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-lime"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          loading
+        </span>
+      </span>
+    </div>
+  </div>,
+]
 `;
+
+exports[`renders components/badge/demo/colorful-with-count-debug.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/badge/demo/dot.tsx extend context correctly 1`] = `
 <div
@@ -1211,6 +1447,8 @@ exports[`renders components/badge/demo/dot.tsx extend context correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/badge/demo/dot.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/link.tsx extend context correctly 1`] = `
 <a
   href="#"
@@ -1245,6 +1483,8 @@ exports[`renders components/badge/demo/link.tsx extend context correctly 1`] = `
   </span>
 </a>
 `;
+
+exports[`renders components/badge/demo/link.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
 <div
@@ -1589,6 +1829,8 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/badge/demo/mix.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -1740,6 +1982,8 @@ exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 1
 </div>
 `;
 
+exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/offset.tsx extend context correctly 1`] = `
 <span
   class="ant-badge"
@@ -1771,6 +2015,8 @@ exports[`renders components/badge/demo/offset.tsx extend context correctly 1`] =
   </sup>
 </span>
 `;
+
+exports[`renders components/badge/demo/offset.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`] = `
 <div
@@ -1893,6 +2139,8 @@ exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`]
 </div>
 `;
 
+exports[`renders components/badge/demo/overflow.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -1976,11 +2224,7 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
         <span
           class="ant-ribbon-text"
         >
-          <div>
-            Hippies
-            <br />
-            Happy
-          </div>
+          Hippies
         </span>
         <div
           class="ant-ribbon-corner"
@@ -2248,6 +2492,8 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
 </div>
 `;
 
+exports[`renders components/badge/demo/ribbon.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -2411,6 +2657,8 @@ exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/size.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2482,6 +2730,8 @@ exports[`renders components/badge/demo/size.tsx extend context correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/badge/demo/size.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/badge/demo/status.tsx extend context correctly 1`] = `
 Array [
@@ -2640,6 +2890,8 @@ Array [
 ]
 `;
 
+exports[`renders components/badge/demo/status.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/title.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2721,3 +2973,5 @@ exports[`renders components/badge/demo/title.tsx extend context correctly 1`] = 
   </div>
 </div>
 `;
+
+exports[`renders components/badge/demo/title.tsx extend context correctly 2`] = `[]`;

@@ -21,7 +21,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     editInputRef.current?.focus();
-  }, [inputValue]);
+  }, [editInputValue]);
 
   const handleClose = (removedTag: string) => {
     const newTags = tags.filter((tag) => tag !== removedTag);
@@ -54,15 +54,18 @@ const App: React.FC = () => {
     newTags[editInputIndex] = editInputValue;
     setTags(newTags);
     setEditInputIndex(-1);
-    setInputValue('');
+    setEditInputValue('');
   };
 
   const tagInputStyle: React.CSSProperties = {
-    width: 78,
+    width: 64,
+    height: 22,
+    marginInlineEnd: 8,
     verticalAlign: 'top',
   };
 
   const tagPlusStyle: React.CSSProperties = {
+    height: 22,
     background: token.colorBgContainer,
     borderStyle: 'dashed',
   };
@@ -114,23 +117,23 @@ const App: React.FC = () => {
             tagElem
           );
         })}
+        {inputVisible ? (
+          <Input
+            ref={inputRef}
+            type="text"
+            size="small"
+            style={tagInputStyle}
+            value={inputValue}
+            onChange={handleInputChange}
+            onBlur={handleInputConfirm}
+            onPressEnter={handleInputConfirm}
+          />
+        ) : (
+          <Tag style={tagPlusStyle} onClick={showInput}>
+            <PlusOutlined /> New Tag
+          </Tag>
+        )}
       </Space>
-      {inputVisible ? (
-        <Input
-          ref={inputRef}
-          type="text"
-          size="small"
-          style={tagInputStyle}
-          value={inputValue}
-          onChange={handleInputChange}
-          onBlur={handleInputConfirm}
-          onPressEnter={handleInputConfirm}
-        />
-      ) : (
-        <Tag style={tagPlusStyle} onClick={showInput}>
-          <PlusOutlined /> New Tag
-        </Tag>
-      )}
     </Space>
   );
 };

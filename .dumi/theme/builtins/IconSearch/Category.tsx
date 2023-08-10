@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { message } from 'antd';
 import { useIntl } from 'dumi';
+import { message } from 'antd';
 import CopyableIcon from './CopyableIcon';
 import type { ThemeType } from './index';
 import type { CategoriesKeys } from './fields';

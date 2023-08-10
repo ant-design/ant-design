@@ -72,7 +72,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 | layout | 表单布局 | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
 | name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - |  |
 | preserve | 当字段被删除时保留字段值 | boolean | true | 4.4.0 |
-| requiredMark | 必选样式，可以切换为必选或者可选展示样式。此为 Form 配置，Form.Item 无法单独配置 | boolean \| `optional` | true | 4.6.0 |
+| requiredMark | 必选样式，可以切换为必选或者可选展示样式。此为 Form 配置，Form.Item 无法单独配置 | boolean \| `optional` \| ((label: ReactNode, info: { required: boolean }) => ReactNode) | true | `renderProps`: 5.9.0 |
 | scrollToFirstError | 提交失败自动滚动到第一个错误字段 | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) | false |  |
 | size | 设置字段组件的尺寸（仅限 antd 组件） | `small` \| `middle` \| `large` | - |  |
 | validateMessages | 验证提示模板，说明[见下](#validatemessages) | [ValidateMessages](https://github.com/ant-design/ant-design/blob/6234509d18bac1ac60fbb3f92a5b2c6a6361295a/components/locale/en_US.ts#L88-L134) | - |  |
@@ -221,7 +221,7 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 | --- | --- | --- | --- | --- |
 | children | 渲染函数 | (fields: Field\[], operation: { add, remove, move }, meta: { errors }) => React.ReactNode | - |  |
 | initialValue | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准 | any\[] | - | 4.9.0 |
-| name | 字段名，支持数组 | [NamePath](#namepath) | - |  |
+| name | 字段名，支持数组。List 本身也是字段，因而 `getFieldsValue()` 默认会返回 List 下所有值，你可以通过[参数](#getfieldsvalue)改变这一行为 | [NamePath](#namepath) | - |  |
 | rules | 校验规则，仅支持自定义规则。需要配合 [ErrorList](#formerrorlist) 一同使用。 | { validator, message }\[] | - | 4.7.0 |
 
 ```tsx
@@ -285,7 +285,7 @@ Form.List 渲染表单相关操作函数。
 | getFieldError | 获取对应字段名的错误信息 | (name: [NamePath](#namepath)) => string\[] |  |
 | getFieldInstance | 获取对应字段实例 | (name: [NamePath](#namepath)) => any | 4.4.0 |
 | getFieldsError | 获取一组字段名对应的错误信息，返回为数组形式 | (nameList?: [NamePath](#namepath)\[]) => FieldError\[] |  |
-| getFieldsValue | 获取一组字段名对应的值，会按照对应结构返回。默认返回现存字段值，当调用 `getFieldsValue(true)` 时返回所有值 | (nameList?: [NamePath](#namepath)\[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |  |
+| getFieldsValue | 获取一组字段名对应的值，会按照对应结构返回。默认返回现存字段值，当调用 `getFieldsValue(true)` 时返回所有值 | [GetFieldsValue](#getfieldsvalue) |  |
 | getFieldValue | 获取对应字段名的值 | (name: [NamePath](#namepath)) => any |  |
 | isFieldsTouched | 检查一组字段是否被用户操作过，`allTouched` 为 `true` 时检查是否所有字段都被操作过 | (nameList?: [NamePath](#namepath)\[], allTouched?: boolean) => boolean |  |
 | isFieldTouched | 检查对应字段是否被用户操作过 | (name: [NamePath](#namepath)) => boolean |  |
@@ -296,7 +296,7 @@ Form.List 渲染表单相关操作函数。
 | setFieldValue | 设置表单的值（该值将直接传入 form store 中。如果你不希望传入对象被修改，请克隆后传入） | (name: [NamePath](#namepath), value: any) => void | 4.22.0 |
 | setFieldsValue | 设置表单的值（该值将直接传入 form store 中。如果你不希望传入对象被修改，请克隆后传入）。如果你只想修改 Form.List 中单项值，请通过 `setFieldValue` 进行指定 | (values) => void |  |
 | submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |  |
-| validateFields | 触发表单验证 | (nameList?: [NamePath](#namepath)\[], { validateOnly?: boolean }) => Promise | `validateOnly`: 5.5.0 |
+| validateFields | 触发表单验证，设置 `recursive` 时会递归校验所有包含的路径 | (nameList?: [NamePath](#namepath)\[], { validateOnly?: boolean, recursive?: boolean }) => Promise | `validateOnly`: 5.5.0, `recursive`: 5.9.0 |
 
 #### validateFields 返回示例
 
@@ -445,6 +445,41 @@ Form 仅会对变更的 Field 进行刷新，从而避免完整的组件刷新�
 
 `string | number | (string | number)[]`
 
+#### GetFieldsValue
+
+`getFieldsValue` 提供了多种重载方法：
+
+##### getFieldsValue(nameList?: true | [NamePath](#namepath)\[], filterFunc?: FilterFunc)
+
+当不提供 `nameList` 时，返回所有注册字段，这也包含 List 下所有的值（即便 List 下没有绑定 Item）。
+
+当 `nameList` 为 `true` 时，返回 store 中所有的值，包含未注册字段。例如通过 `setFieldsValue` 设置了不存在的 Item 的值，也可以通过 `true` 全部获取。
+
+当 `nameList` 为数组时，返回规定路径的值。需要注意的是，`nameList` 为嵌套数组。例如你需要某路径值应该如下：
+
+```tsx
+// 单个路径
+form.getFieldsValue([['user', 'age']]);
+
+// 多个路径
+form.getFieldsValue([
+  ['user', 'age'],
+  ['preset', 'account'],
+]);
+```
+
+##### getFieldsValue({ strict?: boolean, filter?: FilterFunc })
+
+`5.8.0` 新增接受配置参数。当 `strict` 为 `true` 时会仅匹配 Item 的值。例如 `{ list: [{ bamboo: 1, little: 2 }] }` 中，如果 List 仅绑定了 `bamboo` 字段，那么 `getFieldsValue({ strict: true })` 会只获得 `{ list: [{ bamboo: 1 }] }`。
+
+#### FilterFunc
+
+用于过滤一些字段值，`meta` 会返回字段相关信息。例如可以用来获取仅被用户修改过的值等等。
+
+```tsx
+type FilterFunc = (meta: { touched: boolean; validating: boolean }) => boolean;
+```
+
 #### FieldData
 
 | 名称       | 说明             | 类型                     |
@@ -544,6 +579,10 @@ validator(rule, value, callback) => {
 1. Form 的 `initialValues` 拥有最高优先级
 2. Field 的 `initialValue` 次之 \*. 多个同 `name` Item 都设置 `initialValue` 时，则 Item 的 `initialValue` 不生效
 
+### 为什么 `getFieldsValue` 在初次渲染的时候拿不到值？
+
+`getFieldsValue` 默认返回收集的字段数据，而在初次渲染时 Form.Item 节点尚未渲染，因而无法收集到数据。你可以通过 `getFieldsValue(true)` 来获取所有字段数据。
+
 ### 为什么字段设置 `rules` 后更改值 `onFieldsChange` 会触发三次？
 
 字段除了本身的值变化外，校验也是其状态之一。因而在触发字段变化会经历以下几个阶段：
@@ -587,11 +626,17 @@ React 中异步更新会导致受控组件交互行为异常。当用户交互�
 }
 </style>
 
-### 自定义表单控件 `scrollToFirstError` 和 `scrollToField` 失效？
+### `scrollToFirstError` 和 `scrollToField` 失效？
+
+1. 使用了自定义表单控件
 
 类似问题：[#28370](https://github.com/ant-design/ant-design/issues/28370) [#27994](https://github.com/ant-design/ant-design/issues/27994)
 
 滚动依赖于表单控件元素上绑定的 `id` 字段，如果自定义控件没有将 `id` 赋到正确的元素上，这个功能将失效。你可以参考这个 [codesandbox](https://codesandbox.io/s/antd-reproduction-template-forked-25nul?file=/index.js)。
+
+2. 页面内有多个表单
+
+页面内如果有多个表单，且存在表单项 `name` 重复，表单滚动定位可能会查找到另一个表单的同名表单项上。需要给表单 `Form` 组件设置不同的 `name` 以区分。
 
 ### 继上，为何不通过 `ref` 绑定元素？
 
@@ -600,6 +645,34 @@ React 中异步更新会导致受控组件交互行为异常。当用户交互�
 ### `setFieldsValue` 不会触发 `onFieldsChange` 和 `onValuesChange`？
 
 是的，change 事件仅当用户交互才会触发。该设计是为了防止在 change 事件中调用 `setFieldsValue` 导致的循环问题。如果仅仅需要组件内消费，可以通过 `useWatch` 或者 `Field.renderProps` 来实现。
+
+### 为什么 Form.Item 嵌套子组件后，不更新表单值？
+
+Form.Item 在渲染时会注入 `value` 与 `onChange` 事件给子元素，当你的字段组件被包裹时属性将无法传递。所以以下代码是不会生效的：
+
+```jsx
+<Form.Item name="input">
+  <div>
+    <h3>I am a wrapped Input</h3>
+    <Input />
+  </div>
+</Form.Item>
+```
+
+你可以通过 HOC 自定义组件形式来解决这个问题：
+
+```jsx
+const MyInput = (props) => (
+  <div>
+    <h3>I am a wrapped Input</h3>
+    <Input {...props} />
+  </div>
+);
+
+<Form.Item name="input">
+  <MyInput />
+</Form.Item>;
+```
 
 ### 有更多参考文档吗？
 

@@ -6,7 +6,6 @@ import {
 } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
-import { Alert, Badge, Space, Tooltip } from 'antd';
 import classNames from 'classnames';
 import { FormattedMessage, useSiteData } from 'dumi';
 import toReactElement from 'jsonml-to-react-element';
@@ -15,6 +14,8 @@ import LZString from 'lz-string';
 import Prism from 'prismjs';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import { Alert, Badge, Space, Tooltip } from 'antd';
+import type { AntdPreviewerProps } from '.';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
@@ -27,7 +28,6 @@ import RiddleIcon from '../../common/RiddleIcon';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import { ping } from '../../utils';
-import type { AntdPreviewerProps } from '.';
 
 const { ErrorBoundary } = Alert;
 
@@ -105,6 +105,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     filename,
     version,
     clientOnly,
+    pkgDependencyList,
   } = props;
 
   const { pkg } = useSiteData();
@@ -203,7 +204,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
       <html lang="en">
         <head>
           <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <meta name="viewport" content="width=device-width">
           <meta name="theme-color" content="#000000">
         </head>
         <body>
@@ -331,6 +332,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
     main: 'index.js',
     dependencies: {
       ...dependencies,
+      'rc-util': pkgDependencyList['rc-util'],
       react: '^18.0.0',
       'react-dom': '^18.0.0',
       'react-scripts': '^5.0.0',
@@ -390,7 +392,6 @@ createRoot(document.getElementById('container')).render(<Demo />);
         <ErrorBoundary>
           <React.StrictMode>{liveDemo.current}</React.StrictMode>
         </ErrorBoundary>
-        {style ? <style dangerouslySetInnerHTML={{ __html: style }} /> : null}
       </section>
       <section className="code-box-meta markdown">
         <div className="code-box-title">
@@ -411,7 +412,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 rel="noreferrer"
                 href={docsOnlineUrl}
               >
-                <LinkOutlined className="code-box-online" />
+                <LinkOutlined aria-label="open in new tab" className="code-box-online" />
               </a>
             </Tooltip>
           )}
@@ -496,11 +497,16 @@ createRoot(document.getElementById('container')).render(<Demo />);
             </Tooltip>
           </CopyToClipboard>
           <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
-            <a className="code-box-code-action" target="_blank" rel="noreferrer" href={demoUrl}>
+            <a
+              className="code-box-code-action"
+              aria-label="open in new tab"
+              target="_blank"
+              rel="noreferrer"
+              href={demoUrl}
+            >
               <ExternalLinkIcon className="code-box-separate" />
             </a>
           </Tooltip>
-
           <Tooltip
             title={<FormattedMessage id={`app.demo.code.${codeExpand ? 'hide' : 'show'}`} />}
           >
@@ -529,22 +535,41 @@ createRoot(document.getElementById('container')).render(<Demo />);
           </Tooltip>
         </Space>
       </section>
-      <section className={highlightClass} key="code">
-        <CodePreview
-          codes={highlightedCodes}
-          toReactComponent={toReactComponent}
-          onCodeTypeChange={(type) => setCodeType(type)}
-        />
-        {highlightedStyle ? (
-          <div key="style" className="highlight">
-            <pre>
-              <code className="css" dangerouslySetInnerHTML={{ __html: highlightedStyle }} />
-            </pre>
-          </div>
-        ) : null}
-      </section>
+      {codeExpand && (
+        <section className={highlightClass} key="code">
+          <CodePreview
+            codes={highlightedCodes}
+            toReactComponent={toReactComponent}
+            onCodeTypeChange={(type) => setCodeType(type)}
+          />
+          {highlightedStyle ? (
+            <div key="style" className="highlight">
+              <pre>
+                <code className="css" dangerouslySetInnerHTML={{ __html: highlightedStyle }} />
+              </pre>
+            </div>
+          ) : null}
+        </section>
+      )}
     </section>
   );
+
+  useEffect(() => {
+    // In Safari, if style tag be inserted into non-head tag,
+    // it will affect the rendering ability of the browser,
+    // resulting in some response delays like following issue:
+    // https://github.com/ant-design/ant-design/issues/39995
+    // So we insert style tag into head tag.
+    if (!style) return;
+    const styleTag = document.createElement('style');
+    styleTag.type = 'text/css';
+    styleTag.innerHTML = style;
+    styleTag['data-demo-url'] = demoUrl;
+    document.head.appendChild(styleTag);
+    return () => {
+      document.head.removeChild(styleTag);
+    };
+  }, [style, demoUrl]);
 
   if (version) {
     return (

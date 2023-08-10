@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SpaceContext } from '.';
+import { SpaceContext } from './context';
 
 export interface ItemProps {
   className: string;
@@ -9,9 +9,10 @@ export interface ItemProps {
   marginDirection: 'marginLeft' | 'marginRight';
   split?: React.ReactNode;
   wrap?: boolean;
+  style?: React.CSSProperties;
 }
 
-export default function Item({
+const Item: React.FC<ItemProps> = ({
   className,
   direction,
   index,
@@ -19,7 +20,8 @@ export default function Item({
   children,
   split,
   wrap,
-}: ItemProps) {
+  style: customStyle,
+}) => {
   const { horizontalSize, verticalSize, latestIndex, supportFlexGap } =
     React.useContext(SpaceContext);
 
@@ -44,7 +46,7 @@ export default function Item({
 
   return (
     <>
-      <div className={className} style={style}>
+      <div className={className} style={{ ...style, ...customStyle }}>
         {children}
       </div>
       {index < latestIndex && split && (
@@ -54,4 +56,6 @@ export default function Item({
       )}
     </>
   );
-}
+};
+
+export default Item;

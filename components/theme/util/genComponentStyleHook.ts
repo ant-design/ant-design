@@ -5,9 +5,14 @@ import { warning } from 'rc-util';
 import { useContext } from 'react';
 import { ConfigContext } from '../../config-provider/context';
 import { genCommonStyle, genLinkStyle } from '../../style';
-import type { ComponentTokenMap, GlobalToken, OverrideToken } from '../interface';
-import type { UseComponentStyleResult } from '../internal';
-import { mergeToken, statisticToken, useToken } from '../internal';
+import type {
+  ComponentTokenMap,
+  GlobalToken,
+  OverrideToken,
+  UseComponentStyleResult,
+} from '../interface';
+import useToken from '../useToken';
+import statisticToken, { merge as mergeToken } from './statistic';
 
 export type OverrideTokenWithoutDerivative = ComponentTokenMap;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
@@ -53,6 +58,10 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
     resetStyle?: boolean;
     // Deprecated token key map [["oldTokenKey", "newTokenKey"], ["oldTokenKey", "newTokenKey"]]
     deprecatedTokens?: [ComponentTokenKey<ComponentName>, ComponentTokenKey<ComponentName>][];
+    /**
+     * Only use component style in client side. Ignore in SSR.
+     */
+    clientOnly?: boolean;
   },
 ) {
   return (prefixCls: string): UseComponentStyleResult => {
@@ -66,27 +75,28 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
       token,
       hashId,
       nonce: () => csp?.nonce!,
+      clientOnly: options?.clientOnly,
+
+      // antd is always at top of styles
+      order: -999,
     };
 
     // Generate style for all a tags in antd component.
-    useStyleRegister({ ...sharedConfig, path: ['Shared', rootPrefixCls] }, () => [
-      {
-        // Link
-        '&': genLinkStyle(token),
-      },
-    ]);
+    useStyleRegister(
+      { ...sharedConfig, clientOnly: false, path: ['Shared', rootPrefixCls] },
+      () => [
+        {
+          // Link
+          '&': genLinkStyle(token),
+        },
+      ],
+    );
 
     return [
       useStyleRegister({ ...sharedConfig, path: [component, prefixCls, iconPrefixCls] }, () => {
         const { token: proxyToken, flush } = statisticToken(token);
 
-        const customComponentToken = token[component] as ComponentToken<ComponentName>;
-        const defaultComponentToken =
-          typeof getDefaultToken === 'function'
-            ? getDefaultToken(mergeToken(proxyToken, customComponentToken ?? {}))
-            : getDefaultToken;
-        const mergedComponentToken = { ...defaultComponentToken, ...customComponentToken };
-
+        const customComponentToken = { ...(token[component] as ComponentToken<ComponentName>) };
         if (options?.deprecatedTokens) {
           const { deprecatedTokens } = options;
           deprecatedTokens.forEach(([oldTokenKey, newTokenKey]) => {
@@ -99,12 +109,18 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
               );
             }
 
-            mergedComponentToken[newTokenKey] =
-              customComponentToken?.[newTokenKey] ||
-              customComponentToken?.[oldTokenKey] ||
-              defaultComponentToken[newTokenKey];
+            // Should wrap with `if` clause, or there will be `undefined` in object.
+            if (customComponentToken?.[oldTokenKey] || customComponentToken?.[newTokenKey]) {
+              customComponentToken[newTokenKey] ??= customComponentToken?.[oldTokenKey];
+            }
           });
         }
+        const defaultComponentToken =
+          typeof getDefaultToken === 'function'
+            ? getDefaultToken(mergeToken(proxyToken, customComponentToken ?? {}))
+            : getDefaultToken;
+
+        const mergedComponentToken = { ...defaultComponentToken, ...customComponentToken };
 
         const componentCls = `.${prefixCls}`;
         const mergedToken = mergeToken<
@@ -125,7 +141,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
           prefixCls,
           rootPrefixCls,
           iconPrefixCls,
-          overrideComponentToken: token[component],
+          overrideComponentToken: customComponentToken as any,
         });
         flush(component, mergedComponentToken);
         return [

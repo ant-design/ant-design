@@ -1,7 +1,10 @@
 import React from 'react';
+import classNames from 'classnames';
 import mountTest from '../../../tests/shared/mountTest';
-import { render, fireEvent, getByText, waitFakeTimer, act } from '../../../tests/utils';
+import { act, fireEvent, getByText, render, waitFakeTimer } from '../../../tests/utils';
 import Wave from '../wave';
+import { TARGET_CLS } from '../wave/interface';
+import Checkbox from '../../checkbox';
 
 (global as any).isVisible = true;
 
@@ -29,7 +32,6 @@ describe('Wave component', () => {
     }
 
     (window as any).ResizeObserver = FakeResizeObserver;
-    jest.useFakeTimers();
   });
 
   afterAll(() => {
@@ -39,11 +41,14 @@ describe('Wave component', () => {
   });
 
   beforeEach(() => {
+    jest.useFakeTimers();
     (global as any).isVisible = true;
     document.body.innerHTML = '';
   });
 
-  afterEach(() => {
+  afterEach(async () => {
+    await waitFakeTimer();
+
     jest.clearAllTimers();
     const styles = document.getElementsByTagName('style');
     for (let i = 0; i < styles.length; i += 1) {
@@ -65,6 +70,9 @@ describe('Wave component', () => {
   }
 
   function waitRaf() {
+    act(() => {
+      jest.advanceTimersByTime(100);
+    });
     act(() => {
       jest.advanceTimersByTime(100);
     });
@@ -237,18 +245,6 @@ describe('Wave component', () => {
     expect(document.querySelector('.ant-wave')).toBeFalsy();
   });
 
-  it('not show when is input', () => {
-    const { container } = render(
-      <Wave>
-        <input />
-      </Wave>,
-    );
-
-    fireEvent.click(container.querySelector('input')!);
-    waitRaf();
-    expect(document.querySelector('.ant-wave')).toBeFalsy();
-  });
-
   it('should not throw when click it', () => {
     expect(() => {
       const { container } = render(
@@ -324,5 +320,33 @@ describe('Wave component', () => {
     waitRaf();
 
     expect(container.querySelector('.ant-wave')).toBeTruthy();
+  });
+
+  it('Wave can match target', () => {
+    const { container } = render(
+      <Wave>
+        <div>
+          <div className={classNames('bamboo', TARGET_CLS)} style={{ borderColor: 'red' }} />
+        </div>
+      </Wave>,
+    );
+
+    // Click
+    fireEvent.click(container.querySelector('.bamboo')!);
+    waitRaf();
+
+    expect(container.querySelector('.ant-wave')).toBeTruthy();
+  });
+
+  it('Checkbox with uncheck should not trigger wave', () => {
+    const onChange = jest.fn();
+    const { container } = render(<Checkbox defaultChecked onChange={onChange} />);
+
+    // Click
+    fireEvent.click(container.querySelector('input')!);
+    waitRaf();
+
+    expect(onChange).toHaveBeenCalled();
+    expect(container.querySelector('.ant-wave')).toBeFalsy();
   });
 });

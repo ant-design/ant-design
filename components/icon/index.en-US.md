@@ -12,11 +12,9 @@ demo:
 
 ## How to use
 
-Before use icons, you need to install `@ant-design/icons` package:
+Before use icons, you need to install [@ant-design/icons](https://github.com/ant-design/ant-design-icons) package:
 
-```bash
-npm install --save @ant-design/icons
-```
+<InstallDependencies npm='npm install @ant-design/icons --save' yarn='yarn add @ant-design/icons' pnpm='pnpm install @ant-design/icons --save'></InstallDependencies>
 
 ## List of icons
 

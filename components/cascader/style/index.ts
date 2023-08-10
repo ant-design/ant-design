@@ -1,12 +1,24 @@
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook } from '../../theme/internal';
 import { textEllipsis } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook } from '../../theme/internal';
 
 export interface ComponentToken {
+  /**
+   * @desc 选择器宽度
+   * @descEN Width of Cascader
+   */
   controlWidth: number;
+  /**
+   * @desc 选项宽度
+   * @descEN Width of item
+   */
   controlItemWidth: number;
+  /**
+   * @desc 下拉菜单高度
+   * @descEN Height of dropdown
+   */
   dropdownHeight: number;
 }
 

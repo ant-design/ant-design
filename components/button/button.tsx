@@ -18,16 +18,18 @@ import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import useSize from '../config-provider/hooks/useSize';
 import { useCompactItemContext } from '../space/Compact';
+import IconWrapper from './IconWrapper';
 import LoadingIcon from './LoadingIcon';
 import Group, { GroupSizeContext } from './button-group';
 import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
 import useStyle from './style';
-import IconWrapper from './IconWrapper';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
-export function convertLegacyProps(type?: LegacyButtonType): ButtonProps {
+export function convertLegacyProps(
+  type?: LegacyButtonType,
+): Pick<BaseButtonProps, 'danger' | 'type'> {
   if (type === 'danger') {
     return { danger: true };
   }
@@ -53,20 +55,17 @@ export interface BaseButtonProps {
   styles?: { icon: React.CSSProperties };
 }
 
-export type AnchorButtonProps = {
-  href: string;
-  target?: string;
-  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
-} & BaseButtonProps &
-  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, 'type' | 'onClick'>;
+type MergedHTMLAttributes = Omit<
+  React.HTMLAttributes<HTMLElement> &
+    React.ButtonHTMLAttributes<HTMLElement> &
+    React.AnchorHTMLAttributes<HTMLElement>,
+  'type'
+>;
 
-export type NativeButtonProps = {
+export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
+  href?: string;
   htmlType?: ButtonHTMLType;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-} & BaseButtonProps &
-  Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'onClick'>;
-
-export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
+}
 
 type CompoundedComponent = React.ForwardRefExoticComponent<
   ButtonProps & React.RefAttributes<HTMLElement>
@@ -75,8 +74,6 @@ type CompoundedComponent = React.ForwardRefExoticComponent<
   /** @internal */
   __ANT_BUTTON: boolean;
 };
-
-type Loading = number | boolean;
 
 type LoadingConfigType = {
   loading: boolean;
@@ -121,10 +118,11 @@ const InternalButton: React.ForwardRefRenderFunction<
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
     htmlType = 'button',
     classNames: customClassNames,
+    style: customStyle = {},
     ...rest
   } = props;
 
-  const { getPrefixCls, autoInsertSpaceInButton, direction } = useContext(ConfigContext);
+  const { getPrefixCls, autoInsertSpaceInButton, direction, button } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
@@ -136,7 +134,7 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const loadingOrDelay = useMemo<LoadingConfigType>(() => getLoadingConfig(loading), [loading]);
 
-  const [innerLoading, setLoading] = useState<Loading>(loadingOrDelay.loading);
+  const [innerLoading, setLoading] = useState<boolean>(loadingOrDelay.loading);
 
   const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
@@ -209,15 +207,13 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
 
-  const sizeFullname = useSize((ctxSize) => compactSize ?? groupSize ?? customizeSize ?? ctxSize);
+  const sizeFullName = useSize((ctxSize) => customizeSize ?? compactSize ?? groupSize ?? ctxSize);
 
-  const sizeCls = sizeFullname ? sizeClassNameMap[sizeFullname] || '' : '';
+  const sizeCls = sizeFullName ? sizeClassNameMap[sizeFullName] || '' : '';
 
   const iconType = innerLoading ? 'loading' : icon;
 
   const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
-
-  const hrefAndDisabled = linkButtonRestProps.href !== undefined && mergedDisabled;
 
   const classes = classNames(
     prefixCls,
@@ -233,16 +229,24 @@ const InternalButton: React.ForwardRefRenderFunction<
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-dangerous`]: !!danger,
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-disabled`]: hrefAndDisabled,
     },
     compactItemClassnames,
     className,
     rootClassName,
+    button?.className,
   );
+
+  const fullStyle: React.CSSProperties = { ...button?.style, ...customStyle };
+
+  const iconClasses = classNames(customClassNames?.icon, button?.classNames?.icon);
+  const iconStyle: React.CSSProperties = {
+    ...(styles?.icon || {}),
+    ...(button?.styles?.icon || {}),
+  };
 
   const iconNode =
     icon && !innerLoading ? (
-      <IconWrapper prefixCls={prefixCls} className={customClassNames?.icon} style={styles?.icon}>
+      <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
         {icon}
       </IconWrapper>
     ) : (
@@ -256,7 +260,10 @@ const InternalButton: React.ForwardRefRenderFunction<
     return wrapSSR(
       <a
         {...linkButtonRestProps}
-        className={classes}
+        className={classNames(classes, {
+          [`${prefixCls}-disabled`]: mergedDisabled,
+        })}
+        style={fullStyle}
         onClick={handleClick}
         ref={buttonRef as React.Ref<HTMLAnchorElement>}
       >
@@ -268,9 +275,10 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   let buttonNode = (
     <button
-      {...(rest as NativeButtonProps)}
+      {...rest}
       type={htmlType}
       className={classes}
+      style={fullStyle}
       onClick={handleClick}
       disabled={mergedDisabled}
       ref={buttonRef as React.Ref<HTMLButtonElement>}
@@ -281,7 +289,11 @@ const InternalButton: React.ForwardRefRenderFunction<
   );
 
   if (!isUnBorderedButtonType(type)) {
-    buttonNode = <Wave disabled={!!innerLoading}>{buttonNode}</Wave>;
+    buttonNode = (
+      <Wave component="Button" disabled={!!innerLoading}>
+        {buttonNode}
+      </Wave>
+    );
   }
 
   return wrapSSR(buttonNode);

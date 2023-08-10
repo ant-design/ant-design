@@ -45,3 +45,7 @@ Please ensure that the child node of `Popover` accepts `onMouseEnter`, `onMouseL
 ## Design Token
 
 <ComponentTokenTable component="Popover"></ComponentTokenTable>
+
+## FAQ
+
+Please ref [Tooltip FAQ](/components/tooltip#faq).

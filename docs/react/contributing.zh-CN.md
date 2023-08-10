@@ -1,5 +1,7 @@
 ---
-order: 12
+group:
+  title: 其他
+order: 1
 title: 贡献指南
 toc: false
 ---
@@ -49,12 +51,13 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 **在你发送 Pull Request 之前**，请确认你是按照下面的步骤来做的：
 
 1. 基于 [正确的分支](#分支管理) 做修改。
-1. 在项目根目录下运行了 `npm install`。
-1. 如果你修复了一个 bug 或者新增了一个功能，请确保写了相应的测试，这很重要。
-1. 确认所有的测试都是通过的 `npm run test`。 小贴士：开发过程中可以用 `npm test -- --watch TestName` 来运行指定的测试。
-1. 运行 `npm test -- -u` 来更新 [jest snapshot](https://jestjs.io/zh-Hans/docs/snapshot-testing) 并且把这些更新也提交上来（如果有的话）。
-1. 确认所有的 UI 改动通过 `npm run test-image`，可以运行 `npm run test-image -- -u` 更新 UI 快照并且把这些更新也提交上来（如果有的话），**UI 测试基于 [Docker](https://docs.docker.com/get-docker/)，根据平台下载对应的安装程序。**
-1. 确保你的代码通过了 lint 检查 `npm run lint`. 小贴士: Lint 会在你 `git commit` 的时候自动运行（通过[Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)）。
+2. 在项目根目录下运行了 `npm install`。
+3. 如果你修复了一个 bug 或者新增了一个功能，请确保写了相应的测试，这很重要。
+4. 确认所有的测试都是通过的 `npm run test`。 小贴士：开发过程中可以用 `npm test -- --watch TestName` 来运行指定的测试。
+5. 运行 `npm test -- -u` 来更新 [jest snapshot](https://jestjs.io/zh-Hans/docs/snapshot-testing) 并且把这些更新也提交上来（如果有的话）。
+6. 确认所有的 UI 改动通过 `npm run test-image`，可以运行 `npm run test-image -- -u` 更新 UI 快照并且把这些更新也提交上来（如果有的话），**UI 测试基于 [Docker](https://docs.docker.com/get-docker/)，根据平台下载对应的安装程序。**
+7. 确保你的代码通过了 lint 检查 `npm run lint`. 小贴士: Lint 会在你 `git commit` 的时候自动运行（通过[Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)）。
+8. 最后请确保所有 GitHub CI 检查通过，如果失败，可点击 `detail` 进入详情查看原因。
 
 给 [react-component](https://github.com/react-component/) 发送 pull request：
 
@@ -62,13 +65,41 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 
 ## 开发流程
 
-在你 clone 了 antd 的代码并且使用 `npm install` 安装完依赖后，你还可以运行下面几个常用的命令：
+推荐使用 `npm` 或 `yarn` 作为包管理工具
 
-1. `npm start` 在本地运行 Ant Design 的网站。
-2. `npm run lint` 检查代码风格。
-3. `npm test` 运行测试。(在运行测试前请确保 `NODE_ENV` 环境变量没有被设定，否则可能会引发一些问题)
-4. `npm run compile` 编译 TypeScript 代码到 lib 和 es 目录。
-5. `npm run dist` 构建 antd 的 UMD 版本到 dist 目录。
+在你 clone 了 antd 的代码并且使用
+
+<InstallDependencies npm='$ npm install' yarn='$ yarn'></InstallDependencies>
+
+安装完依赖后，你还可以运行下面几个常用的命令：
+
+### 本地运行
+
+在本地运行 Ant Design 的网站。
+
+<InstallDependencies npm='$ npm start' yarn='$ yarn start'></InstallDependencies>
+
+### 代码风格检测
+
+<InstallDependencies npm='$ npm run lint' yarn='$ yarn lint'></InstallDependencies>
+
+### 运行测试用例
+
+运行测试。(在运行测试前请确保 `NODE_ENV` 环境变量没有被设定，否则可能会引发一些问题)
+
+<InstallDependencies npm='$ npm test' yarn='$ yarn test'></InstallDependencies>
+
+### 编译
+
+编译 TypeScript 代码到 lib 和 es 目录。
+
+<InstallDependencies npm='$ npm run compile' yarn='$ yarn compile'></InstallDependencies>
+
+### 构建
+
+构建 antd 的 UMD 版本到 dist 目录。
+
+<InstallDependencies npm='$ npm run dist' yarn='$ yarn dist'></InstallDependencies>
 
 ## 配套开发工具
 

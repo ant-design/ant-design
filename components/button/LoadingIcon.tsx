@@ -1,7 +1,7 @@
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import React, { forwardRef } from 'react';
-import classNames from 'classnames';
 import IconWrapper from './IconWrapper';
 
 type InnerLoadingIconProps = {
@@ -43,13 +43,8 @@ const getRealWidth = (node: HTMLElement): React.CSSProperties => ({
   transform: 'scale(1)',
 });
 
-const LoadingIcon: React.FC<LoadingIconProps> = ({
-  prefixCls,
-  loading,
-  existIcon,
-  className,
-  style,
-}) => {
+const LoadingIcon: React.FC<LoadingIconProps> = (props) => {
+  const { prefixCls, loading, existIcon, className, style } = props;
   const visible = !!loading;
 
   if (existIcon) {
@@ -69,13 +64,7 @@ const LoadingIcon: React.FC<LoadingIconProps> = ({
       onLeaveStart={getRealWidth}
       onLeaveActive={getCollapsedWidth}
     >
-      {(
-        {
-          className: motionCls,
-          style: motionStyle,
-        }: { className?: string; style?: React.CSSProperties },
-        ref: any,
-      ) => (
+      {({ className: motionCls, style: motionStyle }, ref: React.Ref<HTMLSpanElement>) => (
         <InnerLoadingIcon
           prefixCls={prefixCls}
           className={className}

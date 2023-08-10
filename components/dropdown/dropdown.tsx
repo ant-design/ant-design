@@ -1,7 +1,7 @@
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
 import RcDropdown from 'rc-dropdown';
-import useEvent from 'rc-util/lib/hooks/useEvent';
+import { useEvent } from 'rc-util';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
@@ -14,9 +14,7 @@ import { ConfigContext } from '../config-provider';
 import type { MenuProps } from '../menu';
 import Menu from '../menu';
 import { OverrideProvider } from '../menu/OverrideContext';
-import { NoCompactStyle } from '../space/Compact';
 import theme from '../theme';
-import DropdownButton from './dropdown-button';
 import useStyle from './style';
 
 const Placements = [
@@ -88,7 +86,6 @@ export interface DropdownProps {
 }
 
 type CompoundedComponent = React.FC<DropdownProps> & {
-  Button: typeof DropdownButton;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof WrapPurePanel;
 };
 
@@ -276,7 +273,7 @@ const Dropdown: CompoundedComponent = (props) => {
           );
         }}
       >
-        <NoCompactStyle>{overlayNode}</NoCompactStyle>
+        {overlayNode}
       </OverrideProvider>
     );
   };
@@ -305,8 +302,6 @@ const Dropdown: CompoundedComponent = (props) => {
   );
 };
 
-Dropdown.Button = DropdownButton;
-
 function postPureProps(props: DropdownProps) {
   return {
     ...props,
@@ -323,7 +318,7 @@ function postPureProps(props: DropdownProps) {
 const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls, postPureProps);
 
 /* istanbul ignore next */
-const WrapPurePanel = (props: DropdownProps) => (
+const WrapPurePanel: React.FC<DropdownProps> = (props) => (
   <PurePanel {...props}>
     <span />
   </PurePanel>

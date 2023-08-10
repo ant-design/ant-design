@@ -1,3 +1,5 @@
+'use client';
+
 import type { ForwardRefExoticComponent, RefAttributes } from 'react';
 import type { AvatarProps } from './avatar';
 import InternalAvatar from './avatar';

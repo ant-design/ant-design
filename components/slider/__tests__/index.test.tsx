@@ -4,9 +4,9 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
-import type { TooltipProps } from '../../tooltip';
 import { resetWarned } from '../../_util/warning';
+import ConfigProvider from '../../config-provider';
+import type { TooltipProps, TooltipRef } from '../../tooltip';
 import SliderTooltip from '../SliderTooltip';
 
 function tooltipProps(): TooltipProps {
@@ -14,10 +14,10 @@ function tooltipProps(): TooltipProps {
 }
 
 jest.mock('../../tooltip', () => {
-  const ReactReal = jest.requireActual('react');
+  const ReactReal: typeof React = jest.requireActual('react');
   const Tooltip = jest.requireActual('../../tooltip');
   const TooltipComponent = Tooltip.default;
-  return ReactReal.forwardRef((props: TooltipProps, ref: any) => {
+  return ReactReal.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     (global as any).tooltipProps = props;
     return <TooltipComponent {...props} ref={ref} />;
   });
@@ -55,6 +55,15 @@ describe('Slider', () => {
 
     fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
     expect(tooltipProps().placement).toEqual('left');
+  });
+
+  it('support autoAdjustOverflow', () => {
+    const { container } = render(
+      <Slider vertical defaultValue={30} tooltip={{ autoAdjustOverflow: false }} />,
+    );
+
+    fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+    expect(tooltipProps().autoAdjustOverflow).toBe(false);
   });
 
   it('when tooltip.open is true, tooltip should show always, or should never show', () => {

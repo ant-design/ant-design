@@ -6,6 +6,7 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import type { ReactNode } from 'react';
 import * as React from 'react';
+import warning from '../../_util/warning';
 
 type RenderNode = React.ReactNode | ((props: any) => React.ReactNode);
 
@@ -18,8 +19,10 @@ export default function getIcons({
   multiple,
   hasFeedback,
   prefixCls,
-  showArrow,
+  showSuffixIcon,
   feedbackIcon,
+  showArrow,
+  componentName,
 }: {
   suffixIcon?: React.ReactNode;
   clearIcon?: RenderNode;
@@ -30,18 +33,33 @@ export default function getIcons({
   hasFeedback?: boolean;
   feedbackIcon?: ReactNode;
   prefixCls: string;
+  showSuffixIcon?: boolean;
   showArrow?: boolean;
+  componentName: string;
 }) {
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !clearIcon,
+      componentName,
+      '`clearIcon` is deprecated, please use `allowClear={{ clearIcon: React.ReactNode }}` instead.',
+    );
+  }
+
   // Clear Icon
   const mergedClearIcon = clearIcon ?? <CloseCircleFilled />;
 
   // Validation Feedback Icon
-  const getSuffixIconNode = (arrowIcon?: ReactNode) => (
-    <>
-      {showArrow !== false && arrowIcon}
-      {hasFeedback && feedbackIcon}
-    </>
-  );
+  const getSuffixIconNode = (arrowIcon?: ReactNode) => {
+    if (suffixIcon === null && !hasFeedback && !showArrow) {
+      return null;
+    }
+    return (
+      <>
+        {showSuffixIcon !== false && arrowIcon}
+        {hasFeedback && feedbackIcon}
+      </>
+    );
+  };
 
   // Arrow item icon
   let mergedSuffixIcon = null;

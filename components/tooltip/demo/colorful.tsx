@@ -1,5 +1,5 @@
-import { Button, Divider, Space, Tooltip } from 'antd';
 import React from 'react';
+import { Button, Divider, Space, Tooltip } from 'antd';
 
 const colors = [
   'pink',

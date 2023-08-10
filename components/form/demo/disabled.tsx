@@ -1,4 +1,5 @@
 import { PlusOutlined } from '@ant-design/icons';
+import React, { useState } from 'react';
 import {
   Button,
   Cascader,
@@ -9,11 +10,11 @@ import {
   InputNumber,
   Radio,
   Select,
+  Slider,
   Switch,
   TreeSelect,
   Upload,
 } from 'antd';
-import React, { useState } from 'react';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
@@ -108,6 +109,9 @@ const FormDisabledDemo: React.FC = () => {
         </Form.Item>
         <Form.Item label="Button">
           <Button>Button</Button>
+        </Form.Item>
+        <Form.Item label="Slider">
+          <Slider />
         </Form.Item>
       </Form>
     </>

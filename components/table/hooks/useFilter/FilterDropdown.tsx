@@ -1,40 +1,51 @@
 import FilterFilled from '@ant-design/icons/FilterFilled';
 import classNames from 'classnames';
-import isEqual from 'rc-util/lib/isEqual';
 import type { FieldDataNode } from 'rc-tree';
+import isEqual from 'rc-util/lib/isEqual';
 import * as React from 'react';
-import type { MenuProps } from '../../../menu';
 import type { FilterState } from '.';
-import { flattenKeys } from '.';
+import useSyncState from '../../../_util/hooks/useSyncState';
+import warning from '../../../_util/warning';
 import Button from '../../../button';
 import type { CheckboxChangeEvent } from '../../../checkbox';
 import Checkbox from '../../../checkbox';
 import { ConfigContext } from '../../../config-provider/context';
 import Dropdown from '../../../dropdown';
 import Empty from '../../../empty';
+import type { MenuProps } from '../../../menu';
 import Menu from '../../../menu';
 import { OverrideProvider } from '../../../menu/OverrideContext';
 import Radio from '../../../radio';
 import type { EventDataNode } from '../../../tree';
 import Tree from '../../../tree';
-import useSyncState from '../../../_util/hooks/useSyncState';
 import type {
   ColumnFilterItem,
   ColumnType,
   FilterSearchType,
+  FilterValue,
   GetPopupContainer,
   Key,
   TableLocale,
 } from '../../interface';
 import FilterSearch from './FilterSearch';
 import FilterDropdownMenuWrapper from './FilterWrapper';
-import warning from '../../../_util/warning';
 
 type FilterTreeDataNode = FieldDataNode<{ title: React.ReactNode; key: React.Key }>;
 
 interface FilterRestProps {
   confirm?: Boolean;
   closeDropdown?: Boolean;
+}
+
+export function flattenKeys(filters?: ColumnFilterItem[]) {
+  let keys: FilterValue = [];
+  (filters || []).forEach(({ value, children }) => {
+    keys.push(value);
+    if (children) {
+      keys = [...keys, ...flattenKeys(children)];
+    }
+  });
+  return keys;
 }
 
 function hasSubMenu(filters: ColumnFilterItem[]) {

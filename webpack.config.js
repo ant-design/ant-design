@@ -3,6 +3,7 @@
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { EsbuildPlugin } = require('esbuild-loader');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 
 function addLocales(webpackConfig) {
@@ -39,7 +40,7 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
       });
     }
 
-    if (!process.env.CI) {
+    if (!process.env.CI || process.env.ANALYZER) {
       config.plugins.push(
         new BundleAnalyzerPlugin({
           analyzerMode: 'static',
@@ -57,6 +58,13 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
         }),
       );
     }
+
+    config.plugins.push(
+      new CircularDependencyPlugin({
+        // add errors to webpack instead of warnings
+        failOnError: true,
+      }),
+    );
   });
 }
 

@@ -40,8 +40,8 @@ const CheckableTag: React.FC<CheckableTagProps> = (props) => {
 
   const cls = classNames(
     prefixCls,
+    `${prefixCls}-checkable`,
     {
-      [`${prefixCls}-checkable`]: true,
       [`${prefixCls}-checkable-checked`]: checked,
     },
     className,

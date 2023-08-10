@@ -3,7 +3,7 @@ import type { CarouselRef } from '..';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { waitFakeTimer, render } from '../../../tests/utils';
+import { render, waitFakeTimer } from '../../../tests/utils';
 
 describe('Carousel', () => {
   mountTest(Carousel);
@@ -26,6 +26,15 @@ describe('Carousel', () => {
     );
     const { innerSlider } = ref.current || {};
     expect(typeof innerSlider.slickNext).toBe('function');
+  });
+
+  it('should support id property', () => {
+    const { container } = render(
+      <Carousel id="my-carousel">
+        <div />
+      </Carousel>,
+    );
+    expect(container.querySelector('.ant-carousel')?.getAttribute('id')).toBe('my-carousel');
   });
 
   it('should has prev, next and go function', async () => {

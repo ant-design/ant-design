@@ -1,7 +1,7 @@
-import { Calendar, ConfigProvider } from 'antd';
-import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
 import type { Dayjs } from 'dayjs';
 import React from 'react';
+import { Calendar, ConfigProvider } from 'antd';
+import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
 
 /** Test usage. Do not use in your production. */
 export default () => {

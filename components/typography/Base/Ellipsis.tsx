@@ -74,7 +74,7 @@ type WalkingState =
   | typeof DONE_WITH_ELLIPSIS
   | typeof DONE_WITHOUT_ELLIPSIS;
 
-const Ellipsis = ({
+const Ellipsis: React.FC<EllipsisProps> = ({
   enabledMeasure,
   children,
   text,
@@ -82,7 +82,7 @@ const Ellipsis = ({
   fontSize,
   rows,
   onEllipsis,
-}: EllipsisProps) => {
+}) => {
   const [[startLen, midLen, endLen], setCutLength] = React.useState<
     [startLen: number, midLen: number, endLen: number]
   >([0, 0, 0]);

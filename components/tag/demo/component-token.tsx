@@ -1,6 +1,6 @@
 import { CloseCircleOutlined, SyncOutlined } from '@ant-design/icons';
-import { ConfigProvider, Space, Tag } from 'antd';
 import React from 'react';
+import { ConfigProvider, Space, Tag } from 'antd';
 
 export default () => (
   <ConfigProvider

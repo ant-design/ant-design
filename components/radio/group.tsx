@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import pickAttrs from 'rc-util/lib/pickAttrs';
 import * as React from 'react';
-import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import { RadioGroupContextProvider } from './context';
@@ -76,6 +76,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
           disabled={option.disabled || disabled}
           value={option.value}
           checked={value === option.value}
+          title={option.title}
           style={option.style}
         >
           {option.label}
@@ -99,7 +100,10 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
   );
   return wrapSSR(
     <div
-      {...getDataOrAriaProps(props)}
+      {...pickAttrs(props, {
+        aria: true,
+        data: true,
+      })}
       className={classString}
       style={style}
       onMouseEnter={onMouseEnter}
