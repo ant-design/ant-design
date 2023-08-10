@@ -44,10 +44,10 @@ function transformTSFile(file) {
   // Replacement
   const replacedContent = replaceStyleKeys(file.contents.toString());
 
-  if (file.path.includes('date-picker')) {
-    console.log('replacedContent', replacedContent);
-    process.exit(1);
-  }
+  // if (file.path.includes('date-picker')) {
+  //   console.log('replacedContent', replacedContent);
+  //   process.exit(1);
+  // }
 
   cloneFile.contents = Buffer.from(replacedContent);
   return cloneFile;
