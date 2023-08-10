@@ -220,7 +220,7 @@
     "dekko": "^0.2.1",
     "dumi": "^2.1.23",
     "duplicate-package-checker-webpack-plugin": "^3.0.0",
-    "esbuild-loader": "^3.0.0",
+    "esbuild-loader": "^4.0.0",
     "eslint": "^8.40.0",
     "eslint-config-airbnb": "^19.0.0",
     "eslint-config-prettier": "^9.0.0",
