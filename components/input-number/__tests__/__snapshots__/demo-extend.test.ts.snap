@@ -129,6 +129,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                   aria-controls="rc_select_TEST_OR_SSR_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
+                  aria-label="Search"
                   aria-owns="rc_select_TEST_OR_SSR_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
@@ -348,6 +349,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                   aria-controls="rc_select_TEST_OR_SSR_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
+                  aria-label="Search"
                   aria-owns="rc_select_TEST_OR_SSR_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
@@ -650,6 +652,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                   aria-controls="rc_select_TEST_OR_SSR_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
+                  aria-label="Search"
                   aria-owns="rc_select_TEST_OR_SSR_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
@@ -1940,7 +1943,7 @@ exports[`renders components/input-number/demo/keyboard.tsx extend context correc
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
     >
       <span
-        class="ant-checkbox ant-checkbox-checked"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
@@ -2441,10 +2444,11 @@ exports[`renders components/input-number/demo/render-panel.tsx extend context co
 exports[`renders components/input-number/demo/size.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
+  style="flex-wrap: wrap; margin-bottom: -8px;"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-input-number ant-input-number-lg"
@@ -2525,7 +2529,7 @@ exports[`renders components/input-number/demo/size.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-input-number"
@@ -2606,6 +2610,7 @@ exports[`renders components/input-number/demo/size.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
+    style="padding-bottom: 8px;"
   >
     <div
       class="ant-input-number ant-input-number-sm"

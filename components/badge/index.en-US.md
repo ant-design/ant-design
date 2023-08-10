@@ -35,6 +35,8 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Badge
 
 | Property | Description | Type | Default | Version |

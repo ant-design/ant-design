@@ -55,6 +55,8 @@ High performance Form component with data scope management. Including data colle
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Form
 
 | Property | Description | Type | Default | Version |
@@ -646,3 +648,31 @@ Form can not get real DOM node when customize component not support `ref`. It wi
 ### `setFieldsValue` do not trigger `onFieldsChange` or `onValuesChange`?
 
 It's by design. Only user interactive can trigger the change event. This design is aim to avoid call `setFieldsValue` in change event which may makes loop calling.
+
+### Why Form.Item not update value when children is nest?
+
+Form.Item will inject `value` and `onChange` to children when render. Once your field component is wrapped, props will not pass to the correct node. Follow code will not work as expect:
+
+```jsx
+<Form.Item name="input">
+  <div>
+    <h3>I am a wrapped Input</h3>
+    <Input />
+  </div>
+</Form.Item>
+```
+
+You can use HOC to solve this problem, don't forget passing props to form control component:
+
+```jsx
+const MyInput = (props) => (
+  <div>
+    <h3>I am a wrapped Input</h3>
+    <Input {...props} />
+  </div>
+);
+
+<Form.Item name="input">
+  <MyInput />
+</Form.Item>;
+```

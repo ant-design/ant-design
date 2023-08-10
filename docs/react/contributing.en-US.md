@@ -1,5 +1,7 @@
 ---
-order: 12
+group:
+  title: Other
+order: 1
 title: Contributing
 toc: false
 ---

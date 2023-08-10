@@ -108,4 +108,15 @@ describe('FloatButtonGroup', () => {
     );
     warnSpy.mockRestore();
   });
+
+  it('menu should support badge', () => {
+    const { container } = render(
+      <FloatButton.Group trigger="click" badge={{ dot: true }}>
+        <FloatButton />
+        <FloatButton />
+      </FloatButton.Group>,
+    );
+
+    expect(container.querySelector('.ant-badge')).toBeTruthy();
+  });
 });

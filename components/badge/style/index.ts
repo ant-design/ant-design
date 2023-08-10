@@ -178,7 +178,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
           backgroundColor: token.colorSuccess,
         },
         [`${componentCls}-status-processing`]: {
-          position: 'relative',
+          overflow: 'visible',
           color: token.colorPrimary,
           backgroundColor: token.colorPrimary,
 

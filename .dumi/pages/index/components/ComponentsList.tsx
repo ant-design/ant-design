@@ -90,6 +90,48 @@ const useStyle = createStyles(({ token }) => {
   };
 });
 
+const ComponentItem: React.FC<ComponentItemProps> = ({ title, node, type, index }) => {
+  const tagColor = type === 'new' ? 'processing' : 'warning';
+  const [locale] = useLocale(locales);
+  const tagText = type === 'new' ? locale.new : locale.update;
+  const { styles } = useStyle();
+  const { isMobile } = useContext(SiteContext);
+  const token = useTheme();
+
+  return (
+    <div className={classNames(styles.card, isMobile && styles.mobileCard)}>
+      {/* Decorator */}
+      <div
+        className={styles.cardCircle}
+        style={{
+          right: (index % 2) * -20 - 20,
+          bottom: (index % 3) * -40 - 20,
+        }}
+      />
+
+      {/* Title */}
+      <Space>
+        <Typography.Title level={4} style={{ fontWeight: 'normal', margin: 0 }}>
+          {title}
+        </Typography.Title>
+        <Tag color={tagColor}>{tagText}</Tag>
+      </Space>
+
+      <div
+        style={{
+          marginTop: token.paddingLG,
+          flex: 'auto',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        {node}
+      </div>
+    </div>
+  );
+};
+
 interface ComponentItemProps {
   title: React.ReactNode;
   node: React.ReactNode;
@@ -232,44 +274,6 @@ export default function ComponentsList() {
     ],
     [isMobile],
   );
-
-  const ComponentItem: React.FC<ComponentItemProps> = ({ title, node, type, index }) => {
-    const tagColor = type === 'new' ? 'processing' : 'warning';
-    const tagText = type === 'new' ? locale.new : locale.update;
-
-    return (
-      <div key={index} className={classNames(styles.card, isMobile && styles.mobileCard)}>
-        {/* Decorator */}
-        <div
-          className={styles.cardCircle}
-          style={{
-            right: (index % 2) * -20 - 20,
-            bottom: (index % 3) * -40 - 20,
-          }}
-        />
-
-        {/* Title */}
-        <Space>
-          <Typography.Title level={4} style={{ fontWeight: 'normal', margin: 0 }}>
-            {title}
-          </Typography.Title>
-          <Tag color={tagColor}>{tagText}</Tag>
-        </Space>
-
-        <div
-          style={{
-            marginTop: token.paddingLG,
-            flex: 'auto',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          {node}
-        </div>
-      </div>
-    );
-  };
 
   return isMobile ? (
     <div style={{ margin: '0 16px' }}>

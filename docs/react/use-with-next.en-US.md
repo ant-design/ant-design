@@ -1,5 +1,7 @@
 ---
-order: 4
+group:
+  title: Basic Usage
+order: 2
 title: Usage with Next.js
 ---
 

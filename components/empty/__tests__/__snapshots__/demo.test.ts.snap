@@ -136,6 +136,7 @@ Array [
               aria-controls="undefined_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -206,6 +207,7 @@ Array [
               aria-controls="undefined_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -276,6 +278,7 @@ Array [
               aria-controls="undefined_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -341,7 +344,7 @@ Array [
               class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
             >
               <span
-                class="ant-checkbox ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
               >
                 <input
                   class="ant-checkbox-input"
@@ -492,7 +495,7 @@ Array [
               class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
             >
               <span
-                class="ant-checkbox ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
               >
                 <input
                   class="ant-checkbox-input"

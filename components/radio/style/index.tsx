@@ -1,4 +1,3 @@
-import { Keyframes } from '@ant-design/cssinjs';
 import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -72,11 +71,6 @@ interface RadioToken extends FullToken<'Radio'> {
 }
 
 // ============================== Styles ==============================
-const antRadioEffect = new Keyframes('antRadioEffect', {
-  '0%': { transform: 'scale(1)', opacity: 0.5 },
-  '100%': { transform: 'scale(1.6)', opacity: 0 },
-});
-
 // styles from RadioGroup only
 const getGroupRadioStyle: GenerateStyle<RadioToken> = (token) => {
   const { componentCls, antCls } = token;
@@ -113,7 +107,6 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
     radioSize,
     motionDurationSlow,
     motionDurationMid,
-    motionEaseInOut,
     motionEaseInOutCirc,
     colorBgContainer,
     colorBorder,
@@ -133,7 +126,6 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
   return {
     [`${componentCls}-wrapper`]: {
       ...resetComponent(token),
-      position: 'relative',
       display: 'inline-flex',
       alignItems: 'baseline',
       marginInlineStart: 0,
@@ -167,10 +159,6 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         border: `${lineWidth}px ${lineType} ${colorPrimary}`,
         borderRadius: '50%',
         visibility: 'hidden',
-        animationName: antRadioEffect,
-        animationDuration: motionDurationSlow,
-        animationTimingFunction: motionEaseInOut,
-        animationFillMode: 'both',
         content: '""',
       },
 
@@ -181,6 +169,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         outline: 'none',
         cursor: 'pointer',
         alignSelf: 'center',
+        borderRadius: '50%',
       },
 
       [`${componentCls}-wrapper:hover &,
@@ -238,6 +227,10 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         insetInlineEnd: 0,
         insetBlockEnd: 0,
         insetInlineStart: 0,
+        width: 0,
+        height: 0,
+        padding: 0,
+        margin: 0,
         zIndex: 1,
         cursor: 'pointer',
         opacity: 0,
@@ -349,7 +342,6 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
       transition: [
         `color ${motionDurationMid}`,
         `background ${motionDurationMid}`,
-        `border-color ${motionDurationMid}`,
         `box-shadow ${motionDurationMid}`,
       ].join(','),
 

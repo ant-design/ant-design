@@ -52,7 +52,11 @@ export const getComputedToken = (
 };
 
 // ================================== Hook ==================================
-export default function useToken(): [Theme<SeedToken, MapToken>, GlobalToken, string] {
+export default function useToken(): [
+  theme: Theme<SeedToken, MapToken>,
+  token: GlobalToken,
+  hashId: string,
+] {
   const {
     token: rootDesignToken,
     hashed,
@@ -71,6 +75,9 @@ export default function useToken(): [Theme<SeedToken, MapToken>, GlobalToken, st
       salt,
       override: { override: rootDesignToken, ...components },
       getComputedToken,
+      // formatToken will not be consumed after 1.15.0 with getComputedToken.
+      // But token will break if @ant-design/cssinjs is under 1.15.0 without it
+      formatToken,
     },
   );
 

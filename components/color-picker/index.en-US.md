@@ -36,6 +36,8 @@ Used when the user needs to customize the color selection.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 > This component is available since `antd@5.5.0`.
 
 <!-- prettier-ignore -->

@@ -1,5 +1,7 @@
 ---
-order: 7.5
+group:
+  title: Advanced
+order: 3
 title: Use custom date library
 ---
 

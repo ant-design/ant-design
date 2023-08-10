@@ -33,6 +33,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 ### Image
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -45,7 +47,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | src | 图片地址 | string | - | 4.6.0 |
 | width | 图像宽度 | string \| number | - | 4.6.0 |
 | onError | 加载错误回调 | (event: Event) => void | - | 4.12.0 |
-| rootClassName | 为展示图片根 DOM 和预览大图根 DOM 提供自定义 className | string | - | 4.20.0 |
 
 其他属性见 [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
 

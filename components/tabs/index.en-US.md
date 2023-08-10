@@ -39,6 +39,8 @@ Ant Design has 3 types of Tabs for different situations.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Tabs
 
 <!-- prettier-ignore -->

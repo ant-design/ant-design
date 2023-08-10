@@ -100,6 +100,7 @@ Array [
                           aria-controls="advanced_search_field-1_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Search"
                           aria-owns="advanced_search_field-1_list"
                           aria-required="true"
                           autocomplete="off"
@@ -366,6 +367,7 @@ Array [
                           aria-controls="advanced_search_field-4_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Search"
                           aria-owns="advanced_search_field-4_list"
                           aria-required="true"
                           autocomplete="off"
@@ -750,7 +752,7 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
               class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
             >
               <span
-                class="ant-checkbox ant-checkbox-checked"
+                class="ant-checkbox ant-wave-target ant-checkbox-checked"
               >
                 <input
                   checked=""
@@ -1015,6 +1017,7 @@ Array [
                           aria-controls="basic_select_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Search"
                           aria-owns="basic_select_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -1445,6 +1448,7 @@ Array [
                           aria-controls="select_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Search"
                           aria-owns="select_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -1730,6 +1734,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                     aria-controls="control-hooks_gender_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="control-hooks_gender_list"
                     aria-required="true"
                     autocomplete="off"
@@ -2012,6 +2017,7 @@ exports[`renders components/form/demo/control-ref.tsx extend context correctly 1
                     aria-controls="control-ref_gender_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="control-ref_gender_list"
                     aria-required="true"
                     autocomplete="off"
@@ -2262,6 +2268,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -2433,7 +2440,7 @@ Array [
     class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
   >
     <span
-      class="ant-checkbox ant-checkbox-checked"
+      class="ant-checkbox ant-wave-target ant-checkbox-checked"
     >
       <input
         checked=""
@@ -2482,7 +2489,7 @@ Array [
                 class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item"
               >
                 <span
-                  class="ant-checkbox ant-checkbox-disabled"
+                  class="ant-checkbox ant-wave-target ant-checkbox-disabled"
                 >
                   <input
                     class="ant-checkbox-input"
@@ -2535,7 +2542,7 @@ Array [
                   class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item"
                 >
                   <span
-                    class="ant-radio ant-radio-disabled"
+                    class="ant-radio ant-wave-target ant-radio-disabled"
                   >
                     <input
                       class="ant-radio-input"
@@ -2555,7 +2562,7 @@ Array [
                   class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item"
                 >
                   <span
-                    class="ant-radio ant-radio-disabled"
+                    class="ant-radio ant-wave-target ant-radio-disabled"
                   >
                     <input
                       class="ant-radio-input"
@@ -2652,6 +2659,7 @@ Array [
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -2795,6 +2803,7 @@ Array [
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -2978,6 +2987,7 @@ Array [
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -6278,6 +6288,7 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend cont
                     aria-controls="dynamic_form_complex_area_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="dynamic_form_complex_area_list"
                     aria-required="true"
                     autocomplete="off"
@@ -6726,7 +6737,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
               class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
             >
               <span
-                class="ant-checkbox"
+                class="ant-checkbox ant-wave-target"
               >
                 <input
                   class="ant-checkbox-input"
@@ -8160,7 +8171,7 @@ exports[`renders components/form/demo/normal-login.tsx extend context correctly 
               class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
             >
               <span
-                class="ant-checkbox ant-checkbox-checked"
+                class="ant-checkbox ant-wave-target ant-checkbox-checked"
               >
                 <input
                   checked=""
@@ -8618,6 +8629,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                     aria-controls="register_residence_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="register_residence_list"
                     aria-required="true"
                     autocomplete="off"
@@ -8836,6 +8848,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                           aria-controls="register_prefix_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Search"
                           aria-owns="register_prefix_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -9103,6 +9116,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                           aria-controls="register_suffix_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Search"
                           aria-owns="register_suffix_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -9275,6 +9289,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                     aria-controls="register_website_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="register_website_list"
                     aria-required="true"
                     autocomplete="off"
@@ -9400,6 +9415,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                     aria-controls="register_gender_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="register_gender_list"
                     aria-required="true"
                     autocomplete="off"
@@ -9632,7 +9648,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
               class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
             >
               <span
-                class="ant-checkbox"
+                class="ant-checkbox ant-wave-target"
               >
                 <input
                   class="ant-checkbox-input"
@@ -10162,6 +10178,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -10304,6 +10321,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -10486,6 +10504,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -19384,6 +19403,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     aria-controls="validate_other_select_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="validate_other_select_list"
                     aria-required="true"
                     autocomplete="off"
@@ -19564,6 +19584,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                         aria-controls="validate_other_select-multiple_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="Search"
                         aria-owns="validate_other_select-multiple_list"
                         aria-required="true"
                         autocomplete="off"
@@ -20039,7 +20060,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
               >
                 <span
-                  class="ant-radio"
+                  class="ant-radio ant-wave-target"
                 >
                   <input
                     class="ant-radio-input"
@@ -20058,7 +20079,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
               >
                 <span
-                  class="ant-radio"
+                  class="ant-radio ant-wave-target"
                 >
                   <input
                     class="ant-radio-input"
@@ -20077,7 +20098,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
               >
                 <span
-                  class="ant-radio"
+                  class="ant-radio ant-wave-target"
                 >
                   <input
                     class="ant-radio-input"
@@ -20233,7 +20254,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     style="line-height: 32px;"
                   >
                     <span
-                      class="ant-checkbox ant-checkbox-checked"
+                      class="ant-checkbox ant-wave-target ant-checkbox-checked"
                     >
                       <input
                         checked=""
@@ -20258,7 +20279,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     style="line-height: 32px;"
                   >
                     <span
-                      class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
+                      class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled"
                     >
                       <input
                         checked=""
@@ -20284,7 +20305,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     style="line-height: 32px;"
                   >
                     <span
-                      class="ant-checkbox"
+                      class="ant-checkbox ant-wave-target"
                     >
                       <input
                         class="ant-checkbox-input"
@@ -20308,7 +20329,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     style="line-height: 32px;"
                   >
                     <span
-                      class="ant-checkbox"
+                      class="ant-checkbox ant-wave-target"
                     >
                       <input
                         class="ant-checkbox-input"
@@ -20332,7 +20353,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     style="line-height: 32px;"
                   >
                     <span
-                      class="ant-checkbox"
+                      class="ant-checkbox ant-wave-target"
                     >
                       <input
                         class="ant-checkbox-input"
@@ -20356,7 +20377,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     style="line-height: 32px;"
                   >
                     <span
-                      class="ant-checkbox"
+                      class="ant-checkbox ant-wave-target"
                     >
                       <input
                         class="ant-checkbox-input"
@@ -21048,6 +21069,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                                 aria-controls="rc_select_TEST_OR_SSR_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
+                                aria-label="Search"
                                 aria-owns="rc_select_TEST_OR_SSR_list"
                                 autocomplete="off"
                                 class="ant-select-selection-search-input"
@@ -25183,6 +25205,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -25393,6 +25416,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -25557,6 +25581,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"

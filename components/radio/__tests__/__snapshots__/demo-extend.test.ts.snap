@@ -94,7 +94,7 @@ exports[`renders components/radio/demo/basic.tsx extend context correctly 1`] = 
   class="ant-radio-wrapper"
 >
   <span
-    class="ant-radio"
+    class="ant-radio ant-wave-target"
   >
     <input
       class="ant-radio-input"
@@ -124,7 +124,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
@@ -148,7 +148,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
       class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-disabled"
     >
       <span
-        class="ant-radio ant-radio-checked ant-radio-disabled"
+        class="ant-radio ant-wave-target ant-radio-checked ant-radio-disabled"
       >
         <input
           checked=""
@@ -437,7 +437,7 @@ Array [
     class="ant-radio-wrapper ant-radio-wrapper-disabled"
   >
     <span
-      class="ant-radio ant-radio-disabled"
+      class="ant-radio ant-wave-target ant-radio-disabled"
     >
       <input
         class="ant-radio-input"
@@ -456,7 +456,7 @@ Array [
     class="ant-radio-wrapper ant-radio-wrapper-disabled"
   >
     <span
-      class="ant-radio ant-radio-checked ant-radio-disabled"
+      class="ant-radio ant-wave-target ant-radio-checked ant-radio-disabled"
     >
       <input
         checked=""
@@ -923,7 +923,7 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
     class="ant-radio-wrapper ant-radio-wrapper-checked"
   >
     <span
-      class="ant-radio ant-radio-checked"
+      class="ant-radio ant-wave-target ant-radio-checked"
     >
       <input
         checked=""
@@ -943,7 +943,7 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
     class="ant-radio-wrapper"
   >
     <span
-      class="ant-radio"
+      class="ant-radio ant-wave-target"
     >
       <input
         class="ant-radio-input"
@@ -962,7 +962,7 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
     class="ant-radio-wrapper"
   >
     <span
-      class="ant-radio"
+      class="ant-radio ant-wave-target"
     >
       <input
         class="ant-radio-input"
@@ -981,7 +981,7 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
     class="ant-radio-wrapper"
   >
     <span
-      class="ant-radio"
+      class="ant-radio ant-wave-target"
     >
       <input
         class="ant-radio-input"
@@ -1016,7 +1016,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
         class="ant-radio-wrapper ant-radio-wrapper-checked"
       >
         <span
-          class="ant-radio ant-radio-checked"
+          class="ant-radio ant-wave-target ant-radio-checked"
         >
           <input
             checked=""
@@ -1041,7 +1041,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
         class="ant-radio-wrapper"
       >
         <span
-          class="ant-radio"
+          class="ant-radio ant-wave-target"
         >
           <input
             class="ant-radio-input"
@@ -1065,7 +1065,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
         class="ant-radio-wrapper"
       >
         <span
-          class="ant-radio"
+          class="ant-radio ant-wave-target"
         >
           <input
             class="ant-radio-input"
@@ -1088,7 +1088,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
         class="ant-radio-wrapper"
       >
         <span
-          class="ant-radio"
+          class="ant-radio ant-wave-target"
         >
           <input
             class="ant-radio-input"
@@ -1119,7 +1119,7 @@ Array [
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
@@ -1139,7 +1139,7 @@ Array [
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -1158,7 +1158,7 @@ Array [
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -1182,7 +1182,7 @@ Array [
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
@@ -1202,7 +1202,7 @@ Array [
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -1221,7 +1221,7 @@ Array [
       class="ant-radio-wrapper ant-radio-wrapper-disabled"
     >
       <span
-        class="ant-radio ant-radio-disabled"
+        class="ant-radio ant-wave-target ant-radio-disabled"
       >
         <input
           class="ant-radio-input"
@@ -1380,7 +1380,7 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
     class="ant-radio-wrapper ant-radio-wrapper-checked"
   >
     <span
-      class="ant-radio ant-radio-checked"
+      class="ant-radio ant-wave-target ant-radio-checked"
     >
       <input
         checked=""
@@ -1401,7 +1401,7 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
     class="ant-radio-wrapper"
   >
     <span
-      class="ant-radio"
+      class="ant-radio ant-wave-target"
     >
       <input
         class="ant-radio-input"
@@ -1421,7 +1421,7 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
     class="ant-radio-wrapper"
   >
     <span
-      class="ant-radio"
+      class="ant-radio ant-wave-target"
     >
       <input
         class="ant-radio-input"
@@ -1441,7 +1441,7 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
     class="ant-radio-wrapper"
   >
     <span
-      class="ant-radio"
+      class="ant-radio ant-wave-target"
     >
       <input
         class="ant-radio-input"
@@ -1723,7 +1723,7 @@ Array [
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
@@ -1743,7 +1743,7 @@ Array [
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -1762,7 +1762,7 @@ Array [
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -1781,7 +1781,7 @@ Array [
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -1805,7 +1805,7 @@ Array [
       class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-disabled"
     >
       <span
-        class="ant-radio ant-radio-checked ant-radio-disabled"
+        class="ant-radio ant-wave-target ant-radio-checked ant-radio-disabled"
       >
         <input
           checked=""
@@ -1826,7 +1826,7 @@ Array [
       class="ant-radio-wrapper ant-radio-wrapper-disabled"
     >
       <span
-        class="ant-radio ant-radio-disabled"
+        class="ant-radio ant-wave-target ant-radio-disabled"
       >
         <input
           class="ant-radio-input"
@@ -1846,7 +1846,7 @@ Array [
       class="ant-radio-wrapper ant-radio-wrapper-disabled"
     >
       <span
-        class="ant-radio ant-radio-disabled"
+        class="ant-radio ant-wave-target ant-radio-disabled"
       >
         <input
           class="ant-radio-input"
@@ -1866,7 +1866,7 @@ Array [
       class="ant-radio-wrapper ant-radio-wrapper-disabled"
     >
       <span
-        class="ant-radio ant-radio-disabled"
+        class="ant-radio ant-wave-target ant-radio-disabled"
       >
         <input
           class="ant-radio-input"

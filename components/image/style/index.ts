@@ -23,6 +23,11 @@ export interface ComponentToken {
    */
   previewOperationColor: string;
   /**
+   * @desc 预览操作图标悬浮颜色
+   * @descEN Color of hovered preview operation icon
+   */
+  previewOperationHoverColor: string;
+  /**
    * @desc 预览操作图标禁用颜色
    * @descEN Disabled color of preview operation icon
    */
@@ -79,6 +84,7 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
     margin,
     paddingLG,
     previewOperationColorDisabled,
+    previewOperationHoverColor,
     motionDurationSlow,
     iconCls,
     colorTextLightSolid,
@@ -144,7 +150,7 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
         userSelect: 'none',
 
         [`&:not(${previewCls}-operations-operation-disabled):hover > ${iconCls}`]: {
-          opacity: 0.3,
+          color: previewOperationHoverColor,
         },
 
         '&-disabled': {
@@ -370,7 +376,10 @@ export default genComponentStyleHook(
   },
   (token) => ({
     zIndexPopup: token.zIndexPopupBase + 80,
-    previewOperationColor: new TinyColor(token.colorTextLightSolid).toRgbString(),
+    previewOperationColor: new TinyColor(token.colorTextLightSolid).setAlpha(0.65).toRgbString(),
+    previewOperationHoverColor: new TinyColor(token.colorTextLightSolid)
+      .setAlpha(0.85)
+      .toRgbString(),
     previewOperationColorDisabled: new TinyColor(token.colorTextLightSolid)
       .setAlpha(0.25)
       .toRgbString(),

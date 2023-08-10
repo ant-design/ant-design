@@ -31,6 +31,8 @@ A simple text popup tip.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 | Property | Description                   | Type                         | Default |
 | -------- | ----------------------------- | ---------------------------- | ------- |
 | title    | The text shown in the tooltip | ReactNode \| () => ReactNode | -       |
