@@ -44,6 +44,7 @@ const ScrollNumber = React.forwardRef<HTMLElement, ScrollNumberProps>((props, re
     style,
     className: classNames(prefixCls, className, motionClassName),
     title: title as string,
+    dir: 'auto',
   };
 
   // Only integer need motion
@@ -79,7 +80,7 @@ const ScrollNumber = React.forwardRef<HTMLElement, ScrollNumberProps>((props, re
 
   return (
     <Component {...newProps} ref={ref}>
-      <bdi>{numberNodes}</bdi>
+      {numberNodes}
     </Component>
   );
 });
