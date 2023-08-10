@@ -16,9 +16,9 @@ fs.writeFileSync(
 // =================================================================
 // ==                          StyleKeys                          ==
 // =================================================================
-const MIN_CHAR_SIZE = 7;
+const MIN_CHAR_SIZE = 8;
 
-// When style name length <= 7, we just ignore it since it's smaller.
+// When style name length is not long, we just ignore it since it's smaller.
 const KEY_LIST = [
   'WebkitBackfaceVisibility',
   'WebkitBoxOrient',
