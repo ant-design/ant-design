@@ -27,9 +27,15 @@ function replaceStyleKeys(fileContent) {
   const lines = fileContent.split('\n');
   const parsedLines = lines.map((line) => {
     let newLine = line;
+    const trimLine = newLine.trim();
 
     // Only start when called `return {}` which is in the CSSObject
-    if (newLine.includes(' return {') || newLine.includes(' => ({')) {
+    if (
+      newLine.includes(' return {') ||
+      newLine.includes(' => ({') ||
+      newLine.includes(' return [') ||
+      newLine.includes(' => [')
+    ) {
       leftQuota += 1;
       return newLine;
     }
@@ -38,11 +44,10 @@ function replaceStyleKeys(fileContent) {
       return newLine;
     }
 
-    if (newLine.trim().endsWith('{')) {
-      leftQuota += 1;
-    } else if (newLine.trim().startsWith('}')) {
-      leftQuota -= 1;
-    }
+    const startQuotaCount = (trimLine.match(/({|\[)/g) || []).length;
+    const endQuotaCount = (trimLine.match(/(}|])/g) || []).length;
+
+    leftQuota += startQuotaCount - endQuotaCount;
 
     KEY_LIST.forEach((key) => {
       const keyMatch = ` ${key}: `;
