@@ -265,7 +265,13 @@ export default App;
 
 <!-- ### Input 输入框 -->
 
-<!-- ### Layout 布局 -->
+### Layout 布局
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@layout-body-background` | `bodyBg` | - |
+| `@layout-header-background` | `headerBg` | - |
 
 ### List 列表
 

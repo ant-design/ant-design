@@ -4,9 +4,14 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genLayoutLightStyle from './light';
 
 export interface ComponentToken {
+  /** @deprecated Use headerBg instead */
   colorBgHeader: string;
+  /** @deprecated Use bodyBg instead */
   colorBgBody: string;
   colorBgTrigger: string;
+
+  bodyBg: string;
+  headerBg: string;
 }
 
 export interface LayoutToken extends FullToken<'Layout'> {
@@ -38,6 +43,8 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
     motionDurationSlow,
     fontSize,
     borderRadius,
+    bodyBg,
+    headerBg,
   } = token;
 
   return {
@@ -48,7 +55,7 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
 
       /* fix firefox can't set height smaller than content on flex item */
       minHeight: 0,
-      background: colorBgBody,
+      background: bodyBg,
 
       '&, *': {
         boxSizing: 'border-box',
@@ -171,7 +178,7 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
       paddingInline: layoutHeaderPaddingInline,
       color: layoutHeaderColor,
       lineHeight: `${layoutHeaderHeight}px`,
-      background: colorBgHeader,
+      background: headerBg,
 
       // Other components/menu/style/index.less line:686
       // Integration with header element so menu items have the same height
@@ -221,9 +228,19 @@ export default genComponentStyleHook(
     const { colorBgLayout } = token;
 
     return {
+      // Deprecated
       colorBgHeader: '#001529',
       colorBgBody: colorBgLayout,
       colorBgTrigger: '#002140',
+
+      bodyBg: colorBgLayout,
+      headerBg: '#001529',
     };
+  },
+  {
+    deprecatedTokens: [
+      ['colorBgBody', 'bodyBg'],
+      ['colorBgHeader', 'headerBg'],
+    ],
   },
 );
