@@ -22,10 +22,15 @@ function isStyleFile(filePath) {
 }
 
 function replaceStyleKeys(fileContent) {
-  let matched = false;
+  // let matched = false;
   let leftQuota = 0;
+
+  // Record the prop we need to replace
+  const propSet = new Set();
+  const lineNo = [];
+
   const lines = fileContent.split('\n');
-  const parsedLines = lines.map((line) => {
+  const parsedLines = lines.map((line, index) => {
     let newLine = line;
     const trimLine = newLine.trim();
 
@@ -52,8 +57,9 @@ function replaceStyleKeys(fileContent) {
     KEY_LIST.forEach((key) => {
       const keyMatch = ` ${key}: `;
       if (newLine.includes(keyMatch)) {
-        matched = true;
-        newLine = newLine.replace(keyMatch, ` [r.${styleMap[key]}]: `);
+        lineNo.push(index);
+        // matched = true;
+        // newLine = newLine.replace(keyMatch, ` [r.${styleMap[key]}]: `);
       }
     });
 
