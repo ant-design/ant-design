@@ -22,7 +22,7 @@ function isStyleFile(filePath) {
 }
 
 function replaceStyleKeys(fileContent) {
-  // let matched = false;
+  let matched = false;
   let leftQuota = 0;
 
   // Record the prop we need to replace
@@ -58,8 +58,8 @@ function replaceStyleKeys(fileContent) {
       const keyMatch = ` ${key}: `;
       if (newLine.includes(keyMatch)) {
         lineNo.push(index);
-        // matched = true;
-        // newLine = newLine.replace(keyMatch, ` [r.${styleMap[key]}]: `);
+        matched = true;
+        newLine = newLine.replace(keyMatch, ` [r.${styleMap[key]}]: `);
       }
     });
 
