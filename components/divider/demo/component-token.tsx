@@ -1,5 +1,5 @@
+import { ConfigProvider, Divider } from 'antd';
 import React from 'react';
-import { Divider, ConfigProvider } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -12,8 +12,9 @@ const App: React.FC = () => (
       },
       components: {
         Divider: {
-          sizePaddingEdgeHorizontal: 10,
-          verticalGutterMargin: 16,
+          verticalMarginInline: 16,
+          textPaddingInline: 16,
+          orientationMargin: 0.2,
         },
       },
     }}
