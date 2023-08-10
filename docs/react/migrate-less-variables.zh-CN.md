@@ -106,10 +106,10 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
+| `@divider-text-padding` | `textPaddingInline` | - |
+| `@divider-orientation-margin` | `orientationMargin` | - |
 | `@divider-color` | `colorSplit` | 全局 Token |
-| `@divider-vertical-gutter` | `marginXS` | 全局 Token |
-| `@divider-text-padding` | - | 由于样式变化已废弃 |
-| `@divider-orientation-margin` | - | 由于样式变化已废弃 |
+| `@divider-vertical-gutter` | `verticalMarginInline` | - |
 
 ### Drawer 抽屉
 

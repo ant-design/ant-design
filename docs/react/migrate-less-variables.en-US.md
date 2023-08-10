@@ -108,10 +108,11 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@divider-color` | `colorSplit` | GlobalToken |
-| `@divider-vertical-gutter` | `marginXS` | GlobalToken |
-| `@divider-text-padding` | - | Deprecated for style change |
-| `@divider-orientation-margin` | - | Deprecated for style change |
+| --- | --- | --- |
+| `@divider-text-padding` | `textPaddingInline` | - |
+| `@divider-orientation-margin` | `orientationMargin` | - |
+| `@divider-color` | `colorSplit` | Global Token |
+| `@divider-vertical-gutter` | `verticalMarginInline` | - |
 
 ### Drawer
 
