@@ -18430,7 +18430,6 @@ exports[`ConfigProvider components Modal configProvider componentDisabled 1`] = 
           >
             <button
               class="config-btn config-btn-default"
-              disabled=""
               type="button"
             >
               <span>
@@ -18439,7 +18438,6 @@ exports[`ConfigProvider components Modal configProvider componentDisabled 1`] = 
             </button>
             <button
               class="config-btn config-btn-primary"
-              disabled=""
               type="button"
             >
               <span>

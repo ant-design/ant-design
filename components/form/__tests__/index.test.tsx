@@ -1900,4 +1900,23 @@ describe('Form', () => {
       'Warning: [antd: Form] There exist multiple Form with same `name`.',
     );
   });
+
+  // https://github.com/ant-design/ant-design/issues/43044
+  it('should not pass disabled to modal footer button', () => {
+    render(
+      // <FormDemo formProps={{ disabled: true }} modalProps={{ open: true }} />,
+      <Form disabled>
+        <Form.Item label="label">
+          <Modal open />
+        </Form.Item>
+      </Form>,
+    );
+
+    const footerBts = document.querySelectorAll('.ant-modal-footer > button');
+    expect(footerBts).toBeTruthy();
+
+    footerBts.forEach((bt) => {
+      expect(bt).not.toHaveAttribute('disabled');
+    });
+  });
 });
