@@ -24,7 +24,12 @@ function externalDayjs(config) {
   };
 }
 
-const webpackConfig = getWebpackConfig(false);
+let webpackConfig = getWebpackConfig(false);
+
+// Used for `size-limit` ci which only need to check min files
+if (process.env.PRODUCTION_ONLY) {
+  webpackConfig = webpackConfig.filter((config) => config.mode === 'production');
+}
 
 if (process.env.RUN_ENV === 'PRODUCTION') {
   webpackConfig.forEach((config) => {
