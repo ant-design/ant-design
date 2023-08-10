@@ -67,11 +67,11 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
           rule.use = [
             ...rule.use,
             {
-              loader: 'string-replace-loader',
+              loader: 'fork-string-replace-loader',
               options: {
                 search: /(.|[\n\r])*/,
                 replace(match) {
-                  if (!isStyleFile(this.resourcePath, match)) {
+                  if (!isStyleFile(this.resourcePath)) {
                     return match;
                   }
 

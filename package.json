@@ -293,7 +293,7 @@
     "semver": "^7.3.5",
     "simple-git": "^3.0.0",
     "size-limit": "^8.1.0",
-    "string-replace-loader": "^2.3.0",
+    "fork-string-replace-loader": "^1.0.0",
     "stylelint": "^15.1.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^34.0.0",

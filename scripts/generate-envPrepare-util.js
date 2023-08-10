@@ -17,18 +17,8 @@ const styleMap = require('../~tmpSheet.json');
 
 const KEY_LIST = Object.keys(styleMap);
 
-function isStyleFile(filePath, content = '') {
-  if (filePath) {
-    return /components\/[^/]+\/style/.test(filePath);
-  }
-
-  // Webpack 4 do not have the filePath
-  return (
-    content.includes('GenerateStyle') ||
-    content.includes('genComponentStyleHook') ||
-    content.includes('CSSInterpolation') ||
-    content.includes('CSSObject')
-  );
+function isStyleFile(filePath) {
+  return /components\/[^/]+\/style/.test(filePath);
 }
 
 function replaceStyleKeys(fileContent) {
