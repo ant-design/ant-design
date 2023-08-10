@@ -892,20 +892,19 @@ exports[`ConfigProvider components Badge configProvider 1`] = `
     <sup
       class="config-scroll-number config-badge-count"
       data-show="true"
+      dir="auto"
       title="5"
     >
-      <bdi>
+      <span
+        class="config-scroll-number-only"
+        style="transition: none;"
+      >
         <span
-          class="config-scroll-number-only"
-          style="transition: none;"
+          class="config-scroll-number-only-unit current"
         >
-          <span
-            class="config-scroll-number-only-unit current"
-          >
-            5
-          </span>
+          5
         </span>
-      </bdi>
+      </span>
     </sup>
   </span>
   <span
@@ -915,9 +914,8 @@ exports[`ConfigProvider components Badge configProvider 1`] = `
     <sup
       class="config-scroll-number config-badge-dot"
       data-show="true"
-    >
-      <bdi />
-    </sup>
+      dir="auto"
+    />
   </span>
 </div>
 `;
@@ -931,20 +929,19 @@ exports[`ConfigProvider components Badge configProvider componentDisabled 1`] = 
     <sup
       class="config-scroll-number config-badge-count"
       data-show="true"
+      dir="auto"
       title="5"
     >
-      <bdi>
+      <span
+        class="config-scroll-number-only"
+        style="transition: none;"
+      >
         <span
-          class="config-scroll-number-only"
-          style="transition: none;"
+          class="config-scroll-number-only-unit current"
         >
-          <span
-            class="config-scroll-number-only-unit current"
-          >
-            5
-          </span>
+          5
         </span>
-      </bdi>
+      </span>
     </sup>
   </span>
   <span
@@ -954,9 +951,8 @@ exports[`ConfigProvider components Badge configProvider componentDisabled 1`] = 
     <sup
       class="config-scroll-number config-badge-dot"
       data-show="true"
-    >
-      <bdi />
-    </sup>
+      dir="auto"
+    />
   </span>
 </div>
 `;
@@ -970,20 +966,19 @@ exports[`ConfigProvider components Badge configProvider componentSize large 1`] 
     <sup
       class="config-scroll-number config-badge-count"
       data-show="true"
+      dir="auto"
       title="5"
     >
-      <bdi>
+      <span
+        class="config-scroll-number-only"
+        style="transition: none;"
+      >
         <span
-          class="config-scroll-number-only"
-          style="transition: none;"
+          class="config-scroll-number-only-unit current"
         >
-          <span
-            class="config-scroll-number-only-unit current"
-          >
-            5
-          </span>
+          5
         </span>
-      </bdi>
+      </span>
     </sup>
   </span>
   <span
@@ -993,9 +988,8 @@ exports[`ConfigProvider components Badge configProvider componentSize large 1`] 
     <sup
       class="config-scroll-number config-badge-dot"
       data-show="true"
-    >
-      <bdi />
-    </sup>
+      dir="auto"
+    />
   </span>
 </div>
 `;
@@ -1009,20 +1003,19 @@ exports[`ConfigProvider components Badge configProvider componentSize middle 1`]
     <sup
       class="config-scroll-number config-badge-count"
       data-show="true"
+      dir="auto"
       title="5"
     >
-      <bdi>
+      <span
+        class="config-scroll-number-only"
+        style="transition: none;"
+      >
         <span
-          class="config-scroll-number-only"
-          style="transition: none;"
+          class="config-scroll-number-only-unit current"
         >
-          <span
-            class="config-scroll-number-only-unit current"
-          >
-            5
-          </span>
+          5
         </span>
-      </bdi>
+      </span>
     </sup>
   </span>
   <span
@@ -1032,9 +1025,8 @@ exports[`ConfigProvider components Badge configProvider componentSize middle 1`]
     <sup
       class="config-scroll-number config-badge-dot"
       data-show="true"
-    >
-      <bdi />
-    </sup>
+      dir="auto"
+    />
   </span>
 </div>
 `;
@@ -1048,20 +1040,19 @@ exports[`ConfigProvider components Badge configProvider componentSize small 1`] 
     <sup
       class="config-scroll-number config-badge-count"
       data-show="true"
+      dir="auto"
       title="5"
     >
-      <bdi>
+      <span
+        class="config-scroll-number-only"
+        style="transition: none;"
+      >
         <span
-          class="config-scroll-number-only"
-          style="transition: none;"
+          class="config-scroll-number-only-unit current"
         >
-          <span
-            class="config-scroll-number-only-unit current"
-          >
-            5
-          </span>
+          5
         </span>
-      </bdi>
+      </span>
     </sup>
   </span>
   <span
@@ -1071,9 +1062,8 @@ exports[`ConfigProvider components Badge configProvider componentSize small 1`] 
     <sup
       class="config-scroll-number config-badge-dot"
       data-show="true"
-    >
-      <bdi />
-    </sup>
+      dir="auto"
+    />
   </span>
 </div>
 `;
@@ -1087,20 +1077,19 @@ exports[`ConfigProvider components Badge normal 1`] = `
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
+      dir="auto"
       title="5"
     >
-      <bdi>
+      <span
+        class="ant-scroll-number-only"
+        style="transition: none;"
+      >
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
+          class="ant-scroll-number-only-unit current"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            5
-          </span>
+          5
         </span>
-      </bdi>
+      </span>
     </sup>
   </span>
   <span
@@ -1110,9 +1099,8 @@ exports[`ConfigProvider components Badge normal 1`] = `
     <sup
       class="ant-scroll-number ant-badge-dot"
       data-show="true"
-    >
-      <bdi />
-    </sup>
+      dir="auto"
+    />
   </span>
 </div>
 `;
@@ -1126,20 +1114,19 @@ exports[`ConfigProvider components Badge prefixCls 1`] = `
     <sup
       class="prefix-scroll-number prefix-Badge-count"
       data-show="true"
+      dir="auto"
       title="5"
     >
-      <bdi>
+      <span
+        class="prefix-scroll-number-only"
+        style="transition: none;"
+      >
         <span
-          class="prefix-scroll-number-only"
-          style="transition: none;"
+          class="prefix-scroll-number-only-unit current"
         >
-          <span
-            class="prefix-scroll-number-only-unit current"
-          >
-            5
-          </span>
+          5
         </span>
-      </bdi>
+      </span>
     </sup>
   </span>
   <span
@@ -1149,9 +1136,8 @@ exports[`ConfigProvider components Badge prefixCls 1`] = `
     <sup
       class="prefix-scroll-number prefix-Badge-dot"
       data-show="true"
-    >
-      <bdi />
-    </sup>
+      dir="auto"
+    />
   </span>
 </div>
 `;

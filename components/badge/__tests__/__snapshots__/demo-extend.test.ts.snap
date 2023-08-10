@@ -22,20 +22,19 @@ exports[`renders components/badge/demo/basic.tsx extend context correctly 1`] = 
       <sup
         class="ant-scroll-number ant-badge-count"
         data-show="true"
+        dir="auto"
         title="5"
       >
-        <bdi>
+        <span
+          class="ant-scroll-number-only"
+          style="transition: none;"
+        >
           <span
-            class="ant-scroll-number-only"
-            style="transition: none;"
+            class="ant-scroll-number-only-unit current"
           >
-            <span
-              class="ant-scroll-number-only-unit current"
-            >
-              5
-            </span>
+            5
           </span>
-        </bdi>
+        </span>
       </sup>
     </span>
   </div>
@@ -57,11 +56,10 @@ exports[`renders components/badge/demo/basic.tsx extend context correctly 1`] = 
       <sup
         class="ant-scroll-number ant-badge-count"
         data-show="true"
+        dir="auto"
         title="0"
       >
-        <bdi>
-          0
-        </bdi>
+        0
       </sup>
     </span>
   </div>
@@ -138,20 +136,19 @@ exports[`renders components/badge/demo/change.tsx extend context correctly 1`] =
           <sup
             class="ant-scroll-number ant-badge-count"
             data-show="true"
+            dir="auto"
             title="5"
           >
-            <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
               <span
-                class="ant-scroll-number-only"
-                style="transition: none;"
+                class="ant-scroll-number-only-unit current"
               >
-                <span
-                  class="ant-scroll-number-only-unit current"
-                >
-                  5
-                </span>
+                5
               </span>
-            </bdi>
+            </span>
           </sup>
         </span>
       </div>
@@ -279,9 +276,8 @@ exports[`renders components/badge/demo/change.tsx extend context correctly 1`] =
           <sup
             class="ant-scroll-number ant-badge-dot"
             data-show="true"
-          >
-            <bdi />
-          </sup>
+            dir="auto"
+          />
         </span>
       </div>
       <div
@@ -661,30 +657,29 @@ Array [
         <sup
           class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-pink"
           data-show="true"
+          dir="auto"
           title="44"
         >
-          <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
-          </bdi>
+          </span>
         </sup>
       </span>
     </div>
@@ -703,30 +698,29 @@ Array [
         <sup
           class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-red"
           data-show="true"
+          dir="auto"
           title="44"
         >
-          <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
-          </bdi>
+          </span>
         </sup>
       </span>
     </div>
@@ -745,30 +739,29 @@ Array [
         <sup
           class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-yellow"
           data-show="true"
+          dir="auto"
           title="44"
         >
-          <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
-          </bdi>
+          </span>
         </sup>
       </span>
     </div>
@@ -787,30 +780,29 @@ Array [
         <sup
           class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-orange"
           data-show="true"
+          dir="auto"
           title="44"
         >
-          <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
-          </bdi>
+          </span>
         </sup>
       </span>
     </div>
@@ -829,30 +821,29 @@ Array [
         <sup
           class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-cyan"
           data-show="true"
+          dir="auto"
           title="44"
         >
-          <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
-          </bdi>
+          </span>
         </sup>
       </span>
     </div>
@@ -871,30 +862,29 @@ Array [
         <sup
           class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-green"
           data-show="true"
+          dir="auto"
           title="44"
         >
-          <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
-          </bdi>
+          </span>
         </sup>
       </span>
     </div>
@@ -913,30 +903,29 @@ Array [
         <sup
           class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-blue"
           data-show="true"
+          dir="auto"
           title="44"
         >
-          <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
-          </bdi>
+          </span>
         </sup>
       </span>
     </div>
@@ -955,30 +944,29 @@ Array [
         <sup
           class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-purple"
           data-show="true"
+          dir="auto"
           title="44"
         >
-          <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
-          </bdi>
+          </span>
         </sup>
       </span>
     </div>
@@ -997,30 +985,29 @@ Array [
         <sup
           class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-geekblue"
           data-show="true"
+          dir="auto"
           title="44"
         >
-          <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
-          </bdi>
+          </span>
         </sup>
       </span>
     </div>
@@ -1039,30 +1026,29 @@ Array [
         <sup
           class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-magenta"
           data-show="true"
+          dir="auto"
           title="44"
         >
-          <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
-          </bdi>
+          </span>
         </sup>
       </span>
     </div>
@@ -1081,30 +1067,29 @@ Array [
         <sup
           class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-volcano"
           data-show="true"
+          dir="auto"
           title="44"
         >
-          <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
-          </bdi>
+          </span>
         </sup>
       </span>
     </div>
@@ -1123,30 +1108,29 @@ Array [
         <sup
           class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-gold"
           data-show="true"
+          dir="auto"
           title="44"
         >
-          <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
-          </bdi>
+          </span>
         </sup>
       </span>
     </div>
@@ -1165,30 +1149,29 @@ Array [
         <sup
           class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-lime"
           data-show="true"
+          dir="auto"
           title="44"
         >
-          <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                4
-              </span>
+              4
             </span>
-          </bdi>
+          </span>
         </sup>
       </span>
     </div>
@@ -1458,9 +1441,8 @@ exports[`renders components/badge/demo/dot.tsx extend context correctly 1`] = `
       <sup
         class="ant-scroll-number ant-badge-dot"
         data-show="true"
-      >
-        <bdi />
-      </sup>
+        dir="auto"
+      />
     </span>
   </div>
   <div
@@ -1477,9 +1459,8 @@ exports[`renders components/badge/demo/dot.tsx extend context correctly 1`] = `
       <sup
         class="ant-scroll-number ant-badge-dot"
         data-show="true"
-      >
-        <bdi />
-      </sup>
+        dir="auto"
+      />
     </span>
   </div>
 </div>
@@ -1505,20 +1486,19 @@ exports[`renders components/badge/demo/link.tsx extend context correctly 1`] = `
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
+      dir="auto"
       title="5"
     >
-      <bdi>
+      <span
+        class="ant-scroll-number-only"
+        style="transition: none;"
+      >
         <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
+          class="ant-scroll-number-only-unit current"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            5
-          </span>
+          5
         </span>
-      </bdi>
+      </span>
     </sup>
   </span>
 </a>
@@ -1557,20 +1537,19 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           <sup
             class="ant-scroll-number ant-badge-count ant-badge-status-success"
             data-show="true"
+            dir="auto"
             title="5"
           >
-            <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
               <span
-                class="ant-scroll-number-only"
-                style="transition: none;"
+                class="ant-scroll-number-only-unit current"
               >
-                <span
-                  class="ant-scroll-number-only-unit current"
-                >
-                  5
-                </span>
+                5
               </span>
-            </bdi>
+            </span>
           </sup>
         </span>
       </div>
@@ -1592,20 +1571,19 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           <sup
             class="ant-scroll-number ant-badge-count ant-badge-status-warning"
             data-show="true"
+            dir="auto"
             title="5"
           >
-            <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
               <span
-                class="ant-scroll-number-only"
-                style="transition: none;"
+                class="ant-scroll-number-only-unit current"
               >
-                <span
-                  class="ant-scroll-number-only-unit current"
-                >
-                  5
-                </span>
+                5
               </span>
-            </bdi>
+            </span>
           </sup>
         </span>
       </div>
@@ -1627,20 +1605,19 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           <sup
             class="ant-scroll-number ant-badge-count ant-badge-color-blue"
             data-show="true"
+            dir="auto"
             title="5"
           >
-            <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
               <span
-                class="ant-scroll-number-only"
-                style="transition: none;"
+                class="ant-scroll-number-only-unit current"
               >
-                <span
-                  class="ant-scroll-number-only-unit current"
-                >
-                  5
-                </span>
+                5
               </span>
-            </bdi>
+            </span>
           </sup>
         </span>
       </div>
@@ -1662,21 +1639,20 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           <sup
             class="ant-scroll-number ant-badge-count"
             data-show="true"
+            dir="auto"
             style="background: rgb(250, 84, 28);"
             title="5"
           >
-            <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
               <span
-                class="ant-scroll-number-only"
-                style="transition: none;"
+                class="ant-scroll-number-only-unit current"
               >
-                <span
-                  class="ant-scroll-number-only-unit current"
-                >
-                  5
-                </span>
+                5
               </span>
-            </bdi>
+            </span>
           </sup>
         </span>
       </div>
@@ -1698,9 +1674,8 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           <sup
             class="ant-scroll-number ant-badge-dot ant-badge-status-success"
             data-show="true"
-          >
-            <bdi />
-          </sup>
+            dir="auto"
+          />
         </span>
       </div>
       <div
@@ -1721,9 +1696,8 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           <sup
             class="ant-scroll-number ant-badge-dot ant-badge-status-warning"
             data-show="true"
-          >
-            <bdi />
-          </sup>
+            dir="auto"
+          />
         </span>
       </div>
       <div
@@ -1744,9 +1718,8 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           <sup
             class="ant-scroll-number ant-badge-dot ant-badge-color-blue"
             data-show="true"
-          >
-            <bdi />
-          </sup>
+            dir="auto"
+          />
         </span>
       </div>
       <div
@@ -1767,10 +1740,9 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           <sup
             class="ant-scroll-number ant-badge-dot"
             data-show="true"
+            dir="auto"
             style="background: rgb(250, 84, 28);"
-          >
-            <bdi />
-          </sup>
+          />
         </span>
       </div>
     </div>
@@ -1793,11 +1765,10 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           <sup
             class="ant-scroll-number ant-badge-count"
             data-show="true"
+            dir="auto"
             title="0"
           >
-            <bdi>
-              0
-            </bdi>
+            0
           </sup>
         </span>
       </div>
@@ -1811,11 +1782,10 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           <sup
             class="ant-scroll-number ant-badge-count ant-badge-color-blue"
             data-show="true"
+            dir="auto"
             title="0"
           >
-            <bdi>
-              0
-            </bdi>
+            0
           </sup>
         </span>
       </div>
@@ -1829,12 +1799,11 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           <sup
             class="ant-scroll-number ant-badge-count"
             data-show="true"
+            dir="auto"
             style="background: rgb(255, 0, 255);"
             title="0"
           >
-            <bdi>
-              0
-            </bdi>
+            0
           </sup>
         </span>
       </div>
@@ -1856,11 +1825,10 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           <sup
             class="ant-scroll-number ant-badge-count"
             data-show="true"
+            dir="auto"
             title="0"
           >
-            <bdi>
-              0
-            </bdi>
+            0
           </sup>
         </span>
       </div>
@@ -1882,11 +1850,10 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           <sup
             class="ant-scroll-number ant-badge-count ant-badge-color-blue"
             data-show="true"
+            dir="auto"
             title="0"
           >
-            <bdi>
-              0
-            </bdi>
+            0
           </sup>
         </span>
       </div>
@@ -1936,31 +1903,30 @@ exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 1
       <sup
         class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
         data-show="true"
+        dir="auto"
         style="background: rgb(250, 173, 20);"
         title="11"
       >
-        <bdi>
+        <span
+          class="ant-scroll-number-only"
+          style="transition: none;"
+        >
           <span
-            class="ant-scroll-number-only"
-            style="transition: none;"
+            class="ant-scroll-number-only-unit current"
           >
-            <span
-              class="ant-scroll-number-only-unit current"
-            >
-              1
-            </span>
+            1
           </span>
+        </span>
+        <span
+          class="ant-scroll-number-only"
+          style="transition: none;"
+        >
           <span
-            class="ant-scroll-number-only"
-            style="transition: none;"
+            class="ant-scroll-number-only-unit current"
           >
-            <span
-              class="ant-scroll-number-only-unit current"
-            >
-              1
-            </span>
+            1
           </span>
-        </bdi>
+        </span>
       </sup>
     </span>
   </div>
@@ -1974,30 +1940,29 @@ exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 1
       <sup
         class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
         data-show="true"
+        dir="auto"
         title="25"
       >
-        <bdi>
+        <span
+          class="ant-scroll-number-only"
+          style="transition: none;"
+        >
           <span
-            class="ant-scroll-number-only"
-            style="transition: none;"
+            class="ant-scroll-number-only-unit current"
           >
-            <span
-              class="ant-scroll-number-only-unit current"
-            >
-              2
-            </span>
+            2
           </span>
+        </span>
+        <span
+          class="ant-scroll-number-only"
+          style="transition: none;"
+        >
           <span
-            class="ant-scroll-number-only"
-            style="transition: none;"
+            class="ant-scroll-number-only-unit current"
           >
-            <span
-              class="ant-scroll-number-only-unit current"
-            >
-              5
-            </span>
+            5
           </span>
-        </bdi>
+        </span>
       </sup>
     </span>
   </div>
@@ -2042,12 +2007,11 @@ exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 1
       <sup
         class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
         data-show="true"
+        dir="auto"
         style="background-color: rgb(82, 196, 26);"
         title="109"
       >
-        <bdi>
-          99+
-        </bdi>
+        99+
       </sup>
     </span>
   </div>
@@ -2071,21 +2035,20 @@ exports[`renders components/badge/demo/offset.tsx extend context correctly 1`] =
   <sup
     class="ant-scroll-number ant-badge-count"
     data-show="true"
+    dir="auto"
     style="margin-top: 10px; right: -10px;"
     title="5"
   >
-    <bdi>
+    <span
+      class="ant-scroll-number-only"
+      style="transition: none;"
+    >
       <span
-        class="ant-scroll-number-only"
-        style="transition: none;"
+        class="ant-scroll-number-only-unit current"
       >
-        <span
-          class="ant-scroll-number-only-unit current"
-        >
-          5
-        </span>
+        5
       </span>
-    </bdi>
+    </span>
   </sup>
 </span>
 `;
@@ -2114,30 +2077,29 @@ exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`]
       <sup
         class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
         data-show="true"
+        dir="auto"
         title="99"
       >
-        <bdi>
+        <span
+          class="ant-scroll-number-only"
+          style="transition: none;"
+        >
           <span
-            class="ant-scroll-number-only"
-            style="transition: none;"
+            class="ant-scroll-number-only-unit current"
           >
-            <span
-              class="ant-scroll-number-only-unit current"
-            >
-              9
-            </span>
+            9
           </span>
+        </span>
+        <span
+          class="ant-scroll-number-only"
+          style="transition: none;"
+        >
           <span
-            class="ant-scroll-number-only"
-            style="transition: none;"
+            class="ant-scroll-number-only-unit current"
           >
-            <span
-              class="ant-scroll-number-only-unit current"
-            >
-              9
-            </span>
+            9
           </span>
-        </bdi>
+        </span>
       </sup>
     </span>
   </div>
@@ -2159,11 +2121,10 @@ exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`]
       <sup
         class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
         data-show="true"
+        dir="auto"
         title="100"
       >
-        <bdi>
-          99+
-        </bdi>
+        99+
       </sup>
     </span>
   </div>
@@ -2185,11 +2146,10 @@ exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`]
       <sup
         class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
         data-show="true"
+        dir="auto"
         title="99"
       >
-        <bdi>
-          10+
-        </bdi>
+        10+
       </sup>
     </span>
   </div>
@@ -2210,11 +2170,10 @@ exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`]
       <sup
         class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
         data-show="true"
+        dir="auto"
         title="1000"
       >
-        <bdi>
-          999+
-        </bdi>
+        999+
       </sup>
     </span>
   </div>
@@ -2763,20 +2722,19 @@ exports[`renders components/badge/demo/size.tsx extend context correctly 1`] = `
       <sup
         class="ant-scroll-number ant-badge-count"
         data-show="true"
+        dir="auto"
         title="5"
       >
-        <bdi>
+        <span
+          class="ant-scroll-number-only"
+          style="transition: none;"
+        >
           <span
-            class="ant-scroll-number-only"
-            style="transition: none;"
+            class="ant-scroll-number-only-unit current"
           >
-            <span
-              class="ant-scroll-number-only-unit current"
-            >
-              5
-            </span>
+            5
           </span>
-        </bdi>
+        </span>
       </sup>
     </span>
   </div>
@@ -2797,20 +2755,19 @@ exports[`renders components/badge/demo/size.tsx extend context correctly 1`] = `
       <sup
         class="ant-scroll-number ant-badge-count ant-badge-count-sm"
         data-show="true"
+        dir="auto"
         title="5"
       >
-        <bdi>
+        <span
+          class="ant-scroll-number-only"
+          style="transition: none;"
+        >
           <span
-            class="ant-scroll-number-only"
-            style="transition: none;"
+            class="ant-scroll-number-only-unit current"
           >
-            <span
-              class="ant-scroll-number-only-unit current"
-            >
-              5
-            </span>
+            5
           </span>
-        </bdi>
+        </span>
       </sup>
     </span>
   </div>
@@ -3000,20 +2957,19 @@ exports[`renders components/badge/demo/title.tsx extend context correctly 1`] = 
       <sup
         class="ant-scroll-number ant-badge-count"
         data-show="true"
+        dir="auto"
         title="Custom hover text"
       >
-        <bdi>
+        <span
+          class="ant-scroll-number-only"
+          style="transition: none;"
+        >
           <span
-            class="ant-scroll-number-only"
-            style="transition: none;"
+            class="ant-scroll-number-only-unit current"
           >
-            <span
-              class="ant-scroll-number-only-unit current"
-            >
-              5
-            </span>
+            5
           </span>
-        </bdi>
+        </span>
       </sup>
     </span>
   </div>
@@ -3034,30 +2990,29 @@ exports[`renders components/badge/demo/title.tsx extend context correctly 1`] = 
       <sup
         class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
         data-show="true"
+        dir="auto"
         title="Negative"
       >
-        <bdi>
+        <span
+          class="ant-scroll-number-only"
+          style="transition: none;"
+        >
           <span
-            class="ant-scroll-number-only"
-            style="transition: none;"
+            class="ant-scroll-number-only-unit current"
           >
-            <span
-              class="ant-scroll-number-only-unit current"
-            >
-              -
-            </span>
+            -
           </span>
+        </span>
+        <span
+          class="ant-scroll-number-only"
+          style="transition: none;"
+        >
           <span
-            class="ant-scroll-number-only"
-            style="transition: none;"
+            class="ant-scroll-number-only-unit current"
           >
-            <span
-              class="ant-scroll-number-only-unit current"
-            >
-              5
-            </span>
+            5
           </span>
-        </bdi>
+        </span>
       </sup>
     </span>
   </div>

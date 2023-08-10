@@ -74,9 +74,8 @@ Array [
       <sup
         class="ant-scroll-number ant-badge-dot"
         data-show="true"
-      >
-        <bdi />
-      </sup>
+        dir="auto"
+      />
     </span>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
@@ -141,20 +140,19 @@ Array [
         <sup
           class="ant-scroll-number ant-badge-count ant-badge-color-blue"
           data-show="true"
+          dir="auto"
           title="5"
         >
-          <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                5
-              </span>
+              5
             </span>
-          </bdi>
+          </span>
         </sup>
       </span>
       <div
@@ -220,20 +218,19 @@ Array [
         <sup
           class="ant-scroll-number ant-badge-count"
           data-show="true"
+          dir="auto"
           title="5"
         >
-          <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                5
-              </span>
+              5
             </span>
-          </bdi>
+          </span>
         </sup>
       </span>
       <div
@@ -302,30 +299,29 @@ Array [
         <sup
           class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
           data-show="true"
+          dir="auto"
           title="12"
         >
-          <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                1
-              </span>
+              1
             </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                2
-              </span>
+              2
             </span>
-          </bdi>
+          </span>
         </sup>
       </span>
       <div
@@ -387,40 +383,39 @@ Array [
         <sup
           class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
           data-show="true"
+          dir="auto"
           title="123"
         >
-          <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                1
-              </span>
+              1
             </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                2
-              </span>
+              2
             </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                3
-              </span>
+              3
             </span>
-          </bdi>
+          </span>
         </sup>
       </span>
       <div
@@ -591,9 +586,8 @@ Array [
       <sup
         class="ant-scroll-number ant-badge-dot"
         data-show="true"
-      >
-        <bdi />
-      </sup>
+        dir="auto"
+      />
     </span>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"

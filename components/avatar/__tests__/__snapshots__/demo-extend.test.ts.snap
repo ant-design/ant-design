@@ -37,20 +37,19 @@ exports[`renders components/avatar/demo/badge.tsx extend context correctly 1`] =
       <sup
         class="ant-scroll-number ant-badge-count"
         data-show="true"
+        dir="auto"
         title="1"
       >
-        <bdi>
+        <span
+          class="ant-scroll-number-only"
+          style="transition: none;"
+        >
           <span
-            class="ant-scroll-number-only"
-            style="transition: none;"
+            class="ant-scroll-number-only-unit current"
           >
-            <span
-              class="ant-scroll-number-only-unit current"
-            >
-              1
-            </span>
+            1
           </span>
-        </bdi>
+        </span>
       </sup>
     </span>
   </div>
@@ -86,9 +85,8 @@ exports[`renders components/avatar/demo/badge.tsx extend context correctly 1`] =
       <sup
         class="ant-scroll-number ant-badge-dot"
         data-show="true"
-      >
-        <bdi />
-      </sup>
+        dir="auto"
+      />
     </span>
   </div>
 </div>
@@ -533,20 +531,19 @@ Array [
         <sup
           class="ant-scroll-number ant-badge-count"
           data-show="true"
+          dir="auto"
           title="1"
         >
-          <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
             <span
-              class="ant-scroll-number-only"
-              style="transition: none;"
+              class="ant-scroll-number-only-unit current"
             >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                1
-              </span>
+              1
             </span>
-          </bdi>
+          </span>
         </sup>
       </span>
     </div>
@@ -582,9 +579,8 @@ Array [
         <sup
           class="ant-scroll-number ant-badge-dot"
           data-show="true"
-        >
-          <bdi />
-        </sup>
+          dir="auto"
+        />
       </span>
     </div>
   </div>,
