@@ -35,6 +35,8 @@ For displaying anchor hyperlinks on page and jumping between them.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Anchor Props
 
 | Property | Description | Type | Default | Version |

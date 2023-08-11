@@ -269,7 +269,7 @@ describe('Descriptions', () => {
     expect(container).toHaveAttribute('aria-describedby', 'some-label');
   });
 
-  it('Descriptions should inherit the size from ConfigProvider if the componentSize is set ', () => {
+  it('Descriptions should inherit the size from ConfigProvider if the componentSize is set', () => {
     const { container } = render(
       <ConfigProvider componentSize="small">
         <Descriptions bordered>
@@ -305,5 +305,19 @@ describe('Descriptions', () => {
     expect(container.querySelector('.ant-descriptions-item')).toBeTruthy();
     expect(container.querySelectorAll('.ant-descriptions-item')).toHaveLength(3);
     expect(container).toMatchSnapshot();
+  });
+
+  it('Descriptions nested within an Item are unaffected by the external borderless style', () => {
+    const { container } = render(
+      <Descriptions bordered>
+        <Descriptions.Item>
+          <Descriptions bordered={false} />
+        </Descriptions.Item>
+      </Descriptions>,
+    );
+
+    const nestDesc = container.querySelectorAll('.ant-descriptions')?.[1];
+    const view = nestDesc.querySelector('.ant-descriptions-view');
+    expect(getComputedStyle(view!).border).toBeFalsy();
   });
 });

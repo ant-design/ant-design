@@ -8,6 +8,7 @@ demo:
 group:
   title: Data Display
   order: 5
+tag: New
 ---
 
 Components that can convert text into QR codes, and support custom color and logo. Available since `antd@5.1.0`.
@@ -32,6 +33,8 @@ Used when the text needs to be converted into a QR Code.
 <code src="./demo/Popover.tsx">Advanced Usage</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 > This component is available since `antd@5.1.0`
 

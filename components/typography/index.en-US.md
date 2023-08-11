@@ -29,6 +29,8 @@ Basic text writing, including headings, body text, lists, and more.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Typography.Text
 
 | Property | Description | Type | Default | Version |

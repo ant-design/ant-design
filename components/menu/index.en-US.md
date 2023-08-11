@@ -37,6 +37,8 @@ More layouts with navigation: [Layout](/components/layout).
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Menu
 
 | Param | Description | Type | Default value | Version |

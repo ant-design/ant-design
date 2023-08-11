@@ -33,6 +33,8 @@ Almost anything can be represented in a tree structure. Examples include directo
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Tree props
 
 | Property | Description | Type | Default | Version |
@@ -58,7 +60,6 @@ Almost anything can be represented in a tree structure. Examples include directo
 | loadData | Load data asynchronously | function(node) | - |  |
 | loadedKeys | (Controlled) Set loaded tree nodes. Need work with `loadData` | string\[] | \[] |  |
 | multiple | Allows selecting multiple treeNodes | boolean | false |  |
-| rootClassName | ClassName on the root element | string | - | 4.20.0 |
 | rootStyle | Style on the root element | CSSProperties | - | 4.20.0 |
 | selectable | Whether can be selected | boolean | true |  |
 | selectedKeys | (Controlled) Specifies the keys of the selected treeNodes, multiple selection needs to set `multiple` to true | string\[] | - |  |

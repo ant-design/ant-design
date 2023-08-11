@@ -36,6 +36,8 @@ demo:
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 - `notification.success(config)`
 - `notification.error(config)`
 - `notification.info(config)`

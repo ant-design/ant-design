@@ -1679,6 +1679,27 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
             />
           </span>
           <sup
+            class="ant-scroll-number ant-badge-dot ant-badge-status-processing"
+            data-show="true"
+          />
+        </span>
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right:16px;padding-bottom:16px"
+      >
+        <span
+          class="ant-badge ant-badge-status"
+        >
+          <span
+            class="ant-avatar ant-avatar-lg ant-avatar-square"
+          >
+            <span
+              class="ant-avatar-string"
+              style="opacity:0"
+            />
+          </span>
+          <sup
             class="ant-scroll-number ant-badge-dot ant-badge-color-blue"
             data-show="true"
           />

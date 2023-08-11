@@ -29,6 +29,8 @@ A divider line separates different content.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | children | The wrapped title | ReactNode | - |  |

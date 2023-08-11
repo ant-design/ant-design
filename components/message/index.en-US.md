@@ -32,6 +32,8 @@ Display global messages as feedback in response to user operations.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 This component provides some static methods, with usage and arguments as following:
 
 - `message.success(content, [duration], onClose)`

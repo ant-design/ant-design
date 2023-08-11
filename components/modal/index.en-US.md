@@ -40,6 +40,8 @@ Additionally, if you need show a simple confirmation dialog, you can use [`App.u
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | afterClose | Specify a function that will be called when modal is closed completely | function | - |  |
