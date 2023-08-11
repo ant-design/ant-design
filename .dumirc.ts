@@ -11,6 +11,7 @@ export default defineConfig({
   },
   ssr: process.env.NODE_ENV === 'production' ? {} : false,
   hash: true,
+  mfsu: false,
   crossorigin: {},
   outputPath: '_site',
   favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
@@ -34,7 +35,6 @@ export default defineConfig({
   },
   extraRehypePlugins: [rehypeAntd],
   extraRemarkPlugins: [remarkAntd],
-  mfsu: false,
   metas: [{ name: 'theme-color', content: '#1677ff' }],
   analytics: {
     ga_v2: 'UA-72788897-1',
