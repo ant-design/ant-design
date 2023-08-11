@@ -74,6 +74,8 @@ const items: DescriptionsProps['items'] = [
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Descriptions
 
 | Property | Description | Type | Default | Version |

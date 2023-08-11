@@ -37,6 +37,8 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 Properties that shared by all types.
 
 | Property | Description | Type | Default | Version |

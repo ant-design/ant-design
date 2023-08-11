@@ -1200,7 +1200,9 @@ describe('Form', () => {
   it('Form Item element id will auto add form_item prefix if form name is empty and item name is in the black list', async () => {
     const mockFn = jest.spyOn(Util, 'getFieldId');
     const itemName = 'parentNode';
-    // mock getFieldId old logic,if form name is empty ,and item name is parentNode,will get parentNode
+    // mock getFieldId old logic
+    // if form name is empty and item name is parentNode
+    // will get parentNode
     mockFn.mockImplementation(() => itemName);
     const { Option } = Select;
     const Demo: React.FC = () => {
@@ -1984,5 +1986,24 @@ describe('Form', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Form] There exist multiple Form with same `name`.',
     );
+  });
+
+  // https://github.com/ant-design/ant-design/issues/43044
+  it('should not pass disabled to modal footer button', () => {
+    render(
+      // <FormDemo formProps={{ disabled: true }} modalProps={{ open: true }} />,
+      <Form disabled>
+        <Form.Item label="label">
+          <Modal open />
+        </Form.Item>
+      </Form>,
+    );
+
+    const footerBts = document.querySelectorAll('.ant-modal-footer > button');
+    expect(footerBts).toBeTruthy();
+
+    footerBts.forEach((bt) => {
+      expect(bt).not.toHaveAttribute('disabled');
+    });
   });
 });

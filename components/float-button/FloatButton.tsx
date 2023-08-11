@@ -65,15 +65,23 @@ const FloatButton: React.ForwardRefRenderFunction<
     [prefixCls, description, icon, type],
   );
 
-  const buttonNode: React.ReactNode = (
-    <Tooltip title={tooltip} placement={direction === 'rtl' ? 'right' : 'left'}>
-      <Badge {...badgeProps}>
-        <div className={`${prefixCls}-body`}>
-          <Content {...contentProps} />
-        </div>
-      </Badge>
-    </Tooltip>
+  let buttonNode = (
+    <div className={`${prefixCls}-body`}>
+      <Content {...contentProps} />
+    </div>
   );
+
+  if ('badge' in props) {
+    buttonNode = <Badge {...badgeProps}>{buttonNode}</Badge>;
+  }
+
+  if ('tooltip' in props) {
+    buttonNode = (
+      <Tooltip title={tooltip} placement={direction === 'rtl' ? 'right' : 'left'}>
+        {buttonNode}
+      </Tooltip>
+    );
+  }
 
   if (process.env.NODE_ENV !== 'production') {
     warning(
