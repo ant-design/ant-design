@@ -6,7 +6,6 @@ import ReactTechStack from 'dumi/dist/techStacks/react';
 import chalk from 'chalk';
 import sylvanas from 'sylvanas';
 import createEmotionServer from '@emotion/server/create-instance';
-import React from 'react';
 import localPackage from '../../package.json';
 
 function extractEmotionStyle(html: string) {
@@ -20,13 +19,6 @@ function extractEmotionStyle(html: string) {
 
     return {
       key: cache.key,
-      style: React.createElement('style', {
-        key: cache.key,
-        'data-emotion': `${cache.key} ${ids.join(' ')}`,
-        dangerouslySetInnerHTML: {
-          __html: css,
-        },
-      }),
       css,
       ids,
       tag: `<style data-emotion="${cache.key} ${result.ids.join(' ')}">${result.css}</style>`,
