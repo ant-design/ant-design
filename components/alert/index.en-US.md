@@ -34,6 +34,8 @@ Alert component for feedback.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | action | The action of Alert | ReactNode | - | 4.9.0 |

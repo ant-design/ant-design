@@ -31,6 +31,8 @@ To input a value in a range.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | autoAdjustOverflow | Whether to automatically adjust the popup position | boolean | true | 5.8.0 |

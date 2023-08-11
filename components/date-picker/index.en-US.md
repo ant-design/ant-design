@@ -38,6 +38,8 @@ By clicking the input box, you can select a date from a popup calendar.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 There are five kinds of picker:
 
 - DatePicker

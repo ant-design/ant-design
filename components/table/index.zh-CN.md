@@ -110,6 +110,8 @@ const columns = [
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 ### Table
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -241,7 +243,7 @@ const columns = [
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |  |
 | rowExpandable | 设置是否允许行展开 | (record) => boolean | - |  |
 | showExpandColumn | 设置是否展示行展开列 | boolean | true | 4.18.0 |
-| onExpand | 点击展开图标时触发 | function(expanded, record) | - |  |
+| onExpand | 点击展开图标时触发 | function(record, event) | - |  |
 | onExpandedRowsChange | 展开的行变化时触发 | function(expandedRows) | - |  |
 
 ### rowSelection

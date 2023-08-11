@@ -35,6 +35,8 @@ To display a notification message at any of the four corners of the viewport. Ty
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 - `notification.success(config)`
 - `notification.error(config)`
 - `notification.info(config)`
