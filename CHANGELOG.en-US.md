@@ -33,11 +33,11 @@ tag: vVERSION
 - 🐞 Fix that Design Token partially missing when `@ant-design/cssinjs` version `&lt; 1.15.0`. [#44091](https://github.com/ant-design/ant-design/pull/44091) [@MadCcc](https://github.com/MadCcc)
 - 💄 Fix Badge `status="processing"` with `dot` wave style issue. [#44153](https://github.com/ant-design/ant-design/pull/44153)
 - 💄 Fix Descriptions border styles when it nests itself. [#43454](https://github.com/ant-design/ant-design/pull/43454) [@Yuiai01](https://github.com/Yuiai01)
-- 💄 Optimize style of Image preview operation icons. [#44141](https://github.com/ant-design/ant-design/pull/44141) [@MadCcc](https://github.com/MadCcc)
-- 💄 Remove Space part useless style. [#44098](https://github.com/ant-design/ant-design/pull/44098)
 - 💄 Fix Pagination transition style in prev/next buttons. [#44030](https://github.com/ant-design/ant-design/pull/44030)
-- 💄 Fix Input and InputNumber font size in large mode. [#44000](https://github.com/ant-design/ant-design/pull/44000) [@MuxinFeng](https://github.com/MuxinFeng)
 - 💄 Fix Popconfirm button group wraps unexpectedly. [#44022](https://github.com/ant-design/ant-design/pull/44022) [@MuxinFeng](https://github.com/MuxinFeng)
+- 💄 Optimize style of Image preview operation icons. [#44141](https://github.com/ant-design/ant-design/pull/44141) [@MadCcc](https://github.com/MadCcc)
+- 💄 Optimize Input and InputNumber font size in large mode. [#44000](https://github.com/ant-design/ant-design/pull/44000) [@MuxinFeng](https://github.com/MuxinFeng)
+- 💄 Remove Space part useless style. [#44098](https://github.com/ant-design/ant-design/pull/44098)
 
 ## 5.8.2
 
