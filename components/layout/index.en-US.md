@@ -86,6 +86,8 @@ Style of a navigation should conform to its level.
 
 ### Layout
 
+Common props ref：[Common props](/docs/react/common-props)
+
 The wrapper.
 
 | Property | Description | Type | Default |

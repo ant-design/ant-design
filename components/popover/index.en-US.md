@@ -31,6 +31,8 @@ Comparing with `Tooltip`, besides information `Popover` card can also provide ac
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 | Param   | Description         | Type                         | Default value | Version |
 | ------- | ------------------- | ---------------------------- | ------------- | ------- |
 | content | Content of the card | ReactNode \| () => ReactNode | -             |         |

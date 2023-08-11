@@ -30,6 +30,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 ### Typography.Text
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |

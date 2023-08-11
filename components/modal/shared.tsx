@@ -2,6 +2,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import React from 'react';
 import Button from '../button';
 import { convertLegacyProps } from '../button/button';
+import { DisabledContextProvider } from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
 import type { ModalProps } from './interface';
 import { getConfirmLocale } from './locale';
@@ -46,7 +47,7 @@ export const Footer: React.FC<
   const [locale] = useLocale('Modal', getConfirmLocale());
 
   return (
-    <>
+    <DisabledContextProvider disabled={false}>
       <Button onClick={onCancel} {...cancelButtonProps}>
         {cancelText || locale?.cancelText}
       </Button>
@@ -58,6 +59,6 @@ export const Footer: React.FC<
       >
         {okText || locale?.okText}
       </Button>
-    </>
+    </DisabledContextProvider>
   );
 };

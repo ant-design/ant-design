@@ -40,6 +40,8 @@ Cascade selection box.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ```jsx
 <Cascader options={options} onChange={onChange} />
 ```

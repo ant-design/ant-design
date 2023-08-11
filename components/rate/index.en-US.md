@@ -29,6 +29,8 @@ Rate component.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 | Property | Description | type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowClear | Whether to allow clear when click again | boolean | true |  |
