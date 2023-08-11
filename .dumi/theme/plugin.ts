@@ -5,8 +5,27 @@ import type { IApi, IRoute } from 'dumi';
 import ReactTechStack from 'dumi/dist/techStacks/react';
 import chalk from 'chalk';
 import sylvanas from 'sylvanas';
-import { extractStaticStyle } from 'antd-style';
+import createEmotionServer from '@emotion/server/create-instance';
 import localPackage from '../../package.json';
+
+function extractEmotionStyle(html: string) {
+  // copy from emotion ssr
+  // https://github.com/vercel/next.js/blob/deprecated-main/examples/with-emotion-vanilla/pages/_document.js
+  const styles = global.__ANTD_STYLE_CACHE_MANAGER_FOR_SSR__.getCacheList().map((cache) => {
+    const result = createEmotionServer(cache).extractCritical(html);
+    if (!result.css) return null;
+
+    const { css, ids } = result;
+
+    return {
+      key: cache.key,
+      css,
+      ids,
+      tag: `<style data-emotion="${cache.key} ${result.ids.join(' ')}">${result.css}</style>`,
+    };
+  });
+  return styles.filter(Boolean);
+}
 
 export const getHash = (str: string, length = 8) =>
   createHash('md5').update(str).digest('hex').slice(0, length);
@@ -129,7 +148,7 @@ const RoutesPlugin = (api: IApi) => {
         file.content = file.content.replace('</head>', `${globalStyles}</head>`);
 
         // 1. 提取 antd-style 样式
-        const styles = extractStaticStyle(file.content, { includeAntd: false });
+        const styles = extractEmotionStyle(file.content);
 
         // 2. 提取每个样式到独立 css 文件
         styles.forEach((result) => {
