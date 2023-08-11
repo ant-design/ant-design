@@ -25,6 +25,8 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
     trigger,
     children,
     onOpenChange,
+    open: customOpen,
+    ...floatButtonProps
   } = props;
 
   const { direction, getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -40,7 +42,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
 
   const wrapperCls = classNames(hashId, `${groupPrefixCls}-wrap`);
 
-  const [open, setOpen] = useMergedState(false, { value: props.open });
+  const [open, setOpen] = useMergedState(false, { value: customOpen });
 
   const floatButtonGroupRef = useRef<HTMLDivElement>(null);
   const floatButtonRef = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
@@ -92,7 +94,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
     warning(
-      typeof props.open !== 'boolean' || !!trigger,
+      !('open' in props) || !!trigger,
       'FloatButton.Group',
       '`open` need to be used together with `trigger`',
     );
@@ -115,6 +117,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
               icon={open ? closeIcon : icon}
               description={description}
               aria-label={props['aria-label']}
+              {...floatButtonProps}
             />
           </>
         ) : (

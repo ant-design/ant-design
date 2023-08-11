@@ -24,6 +24,8 @@ Empty state placeholder.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ```jsx
 <Empty>
   <Button>Create</Button>

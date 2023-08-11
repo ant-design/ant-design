@@ -218,7 +218,15 @@ export default App;
 | `@descriptions-item-label-colon-margin-left` | `colonMarginLeft` | - |
 | `@descriptions-extra-color` | `extraColor` | - |
 
-<!-- ### Divider 分割线 -->
+### Divider 分割线
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@divider-text-padding` | `textPaddingInline` | - |
+| `@divider-orientation-margin` | `orientationMargin` | - |
+| `@divider-color` | `colorSplit` | 全局 Token |
+| `@divider-vertical-gutter` | `verticalMarginInline` | - |
 
 ### Drawer 抽屉
 

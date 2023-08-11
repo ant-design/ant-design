@@ -220,7 +220,16 @@ export default App;
 | `@descriptions-item-label-colon-margin-left` | `colonMarginLeft` | - |
 | `@descriptions-extra-color` | `extraColor` | - |
 
-<!-- ### Divider -->
+### Divider
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| --- | --- | --- |
+| `@divider-text-padding` | `textPaddingInline` | - |
+| `@divider-orientation-margin` | `orientationMargin` | - |
+| `@divider-color` | `colorSplit` | Global Token |
+| `@divider-vertical-gutter` | `verticalMarginInline` | - |
 
 ### Drawer
 
