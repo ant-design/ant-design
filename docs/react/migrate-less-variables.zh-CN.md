@@ -272,6 +272,20 @@ export default App;
 | --- | --- | --- |
 | `@layout-body-background` | `bodyBg` | - |
 | `@layout-header-background` | `headerBg` | - |
+| `@layout-header-height` | `headerHeight` | - |
+| `@layout-header-padding` | `headerPadding` | - |
+| `@layout-header-color` | `headerColor` | - |
+| `@layout-footer-padding` | `footerPadding` | - |
+| `@layout-footer-background` | `footerBg` | - |
+| `@layout-sider-background` | `siderBg` | - |
+| `@layout-trigger-height` | `triggerHeight` | - |
+| `@layout-trigger-background` | `triggerBg` | - |
+| `@layout-trigger-color` | `triggerColor` | - |
+| `@layout-zero-trigger-width` | `zeroTriggerWidth` | - |
+| `@layout-zero-trigger-height` | `zeroTriggerHeight` | - |
+| `@layout-sider-background-light` | `lightSiderBg` | - |
+| `@layout-trigger-background-light` | `lightTriggerBg` | - |
+| `@layout-trigger-color-light` | `lightTriggerColor` | - |
 
 ### List 列表
 
