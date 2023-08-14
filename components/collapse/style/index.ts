@@ -7,11 +7,12 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 export interface ComponentToken {
   // Component token here
   headerPadding: string;
+  headerBg: string;
+  contentPadding: string;
+  contentBg: string;
 }
 
 type CollapseToken = FullToken<'Collapse'> & {
-  collapseContentBg: string;
-  collapseHeaderBg: string;
   collapseHeaderPaddingSM: string;
   collapseHeaderPaddingLG: string;
   collapsePanelBorderRadius: number;
@@ -20,9 +21,9 @@ type CollapseToken = FullToken<'Collapse'> & {
 export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
   const {
     componentCls,
-    collapseContentBg,
+    contentBg,
     padding,
-    collapseHeaderBg,
+    headerBg,
     headerPadding: collapseHeaderPadding,
     collapseHeaderPaddingSM,
     collapseHeaderPaddingLG,
@@ -43,6 +44,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
     paddingXS,
     motionDurationSlow,
     fontSizeIcon,
+    contentPadding,
   } = token;
 
   const borderBase = `${lineWidth}px ${lineType} ${colorBorder}`;
@@ -50,7 +52,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
   return {
     [componentCls]: {
       ...resetComponent(token),
-      backgroundColor: collapseHeaderBg,
+      backgroundColor: headerBg,
       border: borderBase,
       borderBottom: 0,
       borderRadius: `${collapsePanelBorderRadius}px`,
@@ -134,11 +136,11 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
 
       [`${componentCls}-content`]: {
         color: colorText,
-        backgroundColor: collapseContentBg,
+        backgroundColor: contentBg,
         borderTop: borderBase,
 
         [`& > ${componentCls}-content-box`]: {
-          padding: `${token.paddingContentHorizontal}px`,
+          padding: contentPadding,
         },
 
         [`&-hidden`]: {
@@ -232,7 +234,7 @@ const genArrowStyle: GenerateStyle<CollapseToken> = (token) => {
 const genBorderlessStyle: GenerateStyle<CollapseToken> = (token) => {
   const {
     componentCls,
-    collapseHeaderBg,
+    headerBg,
     paddingXXS,
 
     colorBorder,
@@ -240,7 +242,7 @@ const genBorderlessStyle: GenerateStyle<CollapseToken> = (token) => {
 
   return {
     [`${componentCls}-borderless`]: {
-      backgroundColor: collapseHeaderBg,
+      backgroundColor: headerBg,
       border: 0,
 
       [`> ${componentCls}-item`]: {
@@ -295,8 +297,6 @@ export default genComponentStyleHook(
   'Collapse',
   (token) => {
     const collapseToken = mergeToken<CollapseToken>(token, {
-      collapseContentBg: token.colorBgContainer,
-      collapseHeaderBg: token.colorFillAlter,
       collapseHeaderPaddingSM: `${token.paddingXS}px ${token.paddingSM}px`,
       collapseHeaderPaddingLG: `${token.padding}px ${token.paddingLG}px`,
       collapsePanelBorderRadius: token.borderRadiusLG,
@@ -312,5 +312,8 @@ export default genComponentStyleHook(
   },
   (token) => ({
     headerPadding: `${token.paddingSM}px ${token.padding}px`,
+    headerBg: token.colorFillAlter,
+    contentPadding: `${token.padding}px 16px`, // Fixed Value
+    contentBg: token.colorBgContainer,
   }),
 );

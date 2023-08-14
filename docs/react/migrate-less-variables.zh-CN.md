@@ -206,11 +206,11 @@ export default App;
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
 | `@collapse-header-padding` | `headerPadding` | - |
-| `@collapse-header-padding-extra` | - | 未使用已废弃 |
-| `@collapse-header-bg` | `colorFillAlter` | 全局 Token |
-| `@collapse-content-padding` | `paddingContentHorizontal` | 全局 Token |
-| `@collapse-content-bg` | `colorBgContainer` | 全局 Token |
-| `@collapse-header-arrow-left` | - | 由于样式变化已废弃 |
+| `@collapse-header-padding-extra` | - | 已废弃 |
+| `@collapse-header-bg` | `headerBg` | - |
+| `@collapse-content-padding` | `contentPadding` | - |
+| `@collapse-content-bg` | `contentBg` | - |
+| `@collapse-header-arrow-left` | - | 已废弃 |
 
 ### Descriptions 描述列表
 
