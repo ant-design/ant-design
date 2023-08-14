@@ -641,6 +641,8 @@ exports[`renders components/progress/demo/circle-mini.tsx extend context correct
 </div>
 `;
 
+exports[`renders components/progress/demo/circle-mini.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/progress/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -651,7 +653,8 @@ Array [
       style="margin-bottom: 8px;"
     >
       <div
-        class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+        aria-valuenow="50"
+        class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
         role="progressbar"
       >
         <div
@@ -680,7 +683,8 @@ Array [
       style="margin-bottom: 8px;"
     >
       <div
-        class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+        aria-valuenow="50"
+        class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-small"
         role="progressbar"
       >
         <div
@@ -708,7 +712,8 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info"
+        aria-valuenow="50"
+        class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info"
         role="progressbar"
       >
         <div
@@ -743,7 +748,8 @@ Array [
       style="margin-right: 30px;"
     >
       <div
-        class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+        aria-valuenow="50"
+        class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
         role="progressbar"
       >
         <div
@@ -799,7 +805,8 @@ Array [
       style="margin-right: 30px;"
     >
       <div
-        class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-small"
+        aria-valuenow="50"
+        class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-small"
         role="progressbar"
       >
         <div
@@ -854,7 +861,8 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-progress ant-progress-inline-circle ant-progress-circle ant-progress-status-normal ant-progress-show-info"
+        aria-valuenow="50"
+        class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-inline-circle ant-progress-show-info"
         role="progressbar"
       >
         <div
@@ -936,7 +944,8 @@ Array [
       style="margin-right: 30px;"
     >
       <div
-        class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+        aria-valuenow="50"
+        class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
         role="progressbar"
       >
         <div
@@ -992,7 +1001,8 @@ Array [
       style="margin-right: 30px;"
     >
       <div
-        class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-small"
+        aria-valuenow="50"
+        class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-small"
         role="progressbar"
       >
         <div
@@ -1047,7 +1057,8 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
+        aria-valuenow="50"
+        class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
         role="progressbar"
       >
         <div
@@ -1130,7 +1141,8 @@ Array [
       style="margin-right: 30px; padding-bottom: 30px;"
     >
       <div
-        class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
+        aria-valuenow="50"
+        class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-default"
         role="progressbar"
       >
         <div
@@ -1162,7 +1174,8 @@ Array [
       style="margin-right: 30px; padding-bottom: 30px;"
     >
       <div
-        class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-small"
+        aria-valuenow="50"
+        class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-small"
         role="progressbar"
       >
         <div
@@ -1194,7 +1207,8 @@ Array [
       style="margin-right: 30px; padding-bottom: 30px;"
     >
       <div
-        class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info"
+        aria-valuenow="50"
+        class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info"
         role="progressbar"
       >
         <div
@@ -1226,7 +1240,8 @@ Array [
       style="padding-bottom: 30px;"
     >
       <div
-        class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info"
+        aria-valuenow="50"
+        class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info"
         role="progressbar"
       >
         <div
@@ -1257,7 +1272,7 @@ Array [
 ]
 `;
 
-exports[`renders components/progress/demo/circle-mini.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/progress/demo/component-token.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/progress/demo/dashboard.tsx extend context correctly 1`] = `
 <div
