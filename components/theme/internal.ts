@@ -17,22 +17,22 @@ import statisticToken, { merge as mergeToken } from './util/statistic';
 export { DesignTokenContext, defaultConfig } from './context';
 export {
   PresetColors,
-  statisticToken,
+  genComponentStyleHook,
+  genPresetColor,
   mergeToken,
+  statisticToken,
   // hooks
   useStyleRegister,
   useToken,
-  genComponentStyleHook,
-  genPresetColor,
 };
 export type {
-  SeedToken,
   AliasToken,
-  PresetColorType,
-  PresetColorKey,
   // FIXME: Remove this type
   AliasToken as DerivativeToken,
   FullToken,
-  UseComponentStyleResult,
   GenerateStyle,
+  PresetColorKey,
+  PresetColorType,
+  SeedToken,
+  UseComponentStyleResult,
 };

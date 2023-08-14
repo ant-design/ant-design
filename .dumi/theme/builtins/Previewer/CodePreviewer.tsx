@@ -6,7 +6,6 @@ import {
 } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
-import { Alert, Badge, Space, Tooltip } from 'antd';
 import classNames from 'classnames';
 import { FormattedMessage, useSiteData } from 'dumi';
 import toReactElement from 'jsonml-to-react-element';
@@ -15,6 +14,7 @@ import LZString from 'lz-string';
 import Prism from 'prismjs';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import { Alert, Badge, Space, Tooltip } from 'antd';
 import type { AntdPreviewerProps } from '.';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
@@ -179,8 +179,8 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
         <iframe
           src={demoUrl}
           height={iframe === true ? undefined : iframe}
-          title="demo"
-          className="iframe-demo"
+          title='demo'
+          className='iframe-demo'
         />
       </BrowserFrame>
     ) : (
@@ -204,7 +204,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
       <html lang="en">
         <head>
           <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <meta name="viewport" content="width=device-width">
           <meta name="theme-color" content="#000000">
         </head>
         <body>
@@ -388,58 +388,57 @@ createRoot(document.getElementById('container')).render(<Demo />);
 
   const codeBox: React.ReactNode = (
     <section className={codeBoxClass} id={asset.id}>
-      <section className="code-box-demo" style={codeBoxDemoStyle}>
+      <section className='code-box-demo' style={codeBoxDemoStyle}>
         <ErrorBoundary>
           <React.StrictMode>{liveDemo.current}</React.StrictMode>
         </ErrorBoundary>
-        {style ? <style dangerouslySetInnerHTML={{ __html: style }} /> : null}
       </section>
-      <section className="code-box-meta markdown">
-        <div className="code-box-title">
-          <Tooltip title={originDebug ? <FormattedMessage id="app.demo.debug" /> : ''}>
+      <section className='code-box-meta markdown'>
+        <div className='code-box-title'>
+          <Tooltip title={originDebug ? <FormattedMessage id='app.demo.debug' /> : ''}>
             <a href={`#${asset.id}`} ref={anchorRef}>
               {localizedTitle}
             </a>
           </Tooltip>
-          <EditButton title={<FormattedMessage id="app.content.edit-demo" />} filename={filename} />
+          <EditButton title={<FormattedMessage id='app.content.edit-demo' />} filename={filename} />
         </div>
-        <div className="code-box-description">{introChildren}</div>
-        <Space wrap size="middle" className="code-box-actions">
+        <div className='code-box-description'>{introChildren}</div>
+        <Space wrap size='middle' className='code-box-actions'>
           {showOnlineUrl && (
-            <Tooltip title={<FormattedMessage id="app.demo.online" />}>
+            <Tooltip title={<FormattedMessage id='app.demo.online' />}>
               <a
-                className="code-box-code-action"
-                target="_blank"
-                rel="noreferrer"
+                className='code-box-code-action'
+                target='_blank'
+                rel='noreferrer'
                 href={docsOnlineUrl}
               >
-                <LinkOutlined className="code-box-online" />
+                <LinkOutlined aria-label='open in new tab' className='code-box-online' />
               </a>
             </Tooltip>
           )}
           {showRiddleButton ? (
             <form
-              className="code-box-code-action"
-              action="//riddle.alibaba-inc.com/riddles/define"
-              method="POST"
-              target="_blank"
+              className='code-box-code-action'
+              action='//riddle.alibaba-inc.com/riddles/define'
+              method='POST'
+              target='_blank'
               ref={riddleIconRef}
               onClick={() => {
                 track({ type: 'riddle', demo: asset.id });
                 riddleIconRef.current?.submit();
               }}
             >
-              <input type="hidden" name="data" value={JSON.stringify(riddlePrefillConfig)} />
-              <Tooltip title={<FormattedMessage id="app.demo.riddle" />}>
-                <RiddleIcon className="code-box-riddle" />
+              <input type='hidden' name='data' value={JSON.stringify(riddlePrefillConfig)} />
+              <Tooltip title={<FormattedMessage id='app.demo.riddle' />}>
+                <RiddleIcon className='code-box-riddle' />
               </Tooltip>
             </form>
           ) : null}
           <form
-            className="code-box-code-action"
-            action="https://codesandbox.io/api/v1/sandboxes/define"
-            method="POST"
-            target="_blank"
+            className='code-box-code-action'
+            action='https://codesandbox.io/api/v1/sandboxes/define'
+            method='POST'
+            target='_blank'
             ref={codeSandboxIconRef}
             onClick={() => {
               track({ type: 'codesandbox', demo: asset.id });
@@ -447,19 +446,19 @@ createRoot(document.getElementById('container')).render(<Demo />);
             }}
           >
             <input
-              type="hidden"
-              name="parameters"
+              type='hidden'
+              name='parameters'
               value={compress(JSON.stringify(codesanboxPrefillConfig))}
             />
-            <Tooltip title={<FormattedMessage id="app.demo.codesandbox" />}>
-              <CodeSandboxIcon className="code-box-codesandbox" />
+            <Tooltip title={<FormattedMessage id='app.demo.codesandbox' />}>
+              <CodeSandboxIcon className='code-box-codesandbox' />
             </Tooltip>
           </form>
           <form
-            className="code-box-code-action"
-            action="https://codepen.io/pen/define"
-            method="POST"
-            target="_blank"
+            className='code-box-code-action'
+            action='https://codepen.io/pen/define'
+            method='POST'
+            target='_blank'
             ref={codepenIconRef}
             onClick={() => {
               track({ type: 'codepen', demo: asset.id });
@@ -467,15 +466,15 @@ createRoot(document.getElementById('container')).render(<Demo />);
             }}
           >
             <ClientOnly>
-              <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
+              <input type='hidden' name='data' value={JSON.stringify(codepenPrefillConfig)} />
             </ClientOnly>
-            <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
-              <CodePenIcon className="code-box-codepen" />
+            <Tooltip title={<FormattedMessage id='app.demo.codepen' />}>
+              <CodePenIcon className='code-box-codepen' />
             </Tooltip>
           </form>
-          <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
+          <Tooltip title={<FormattedMessage id='app.demo.stackblitz' />}>
             <span
-              className="code-box-code-action"
+              className='code-box-code-action'
               onClick={() => {
                 track({ type: 'stackblitz', demo: asset.id });
                 stackblitzSdk.openProject(stackblitzPrefillConfig, {
@@ -483,7 +482,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 });
               }}
             >
-              <ThunderboltOutlined className="code-box-stackblitz" />
+              <ThunderboltOutlined className='code-box-stackblitz' />
             </span>
           </Tooltip>
           <CopyToClipboard text={entryCode} onCopy={() => handleCodeCopied(asset.id)}>
@@ -497,18 +496,23 @@ createRoot(document.getElementById('container')).render(<Demo />);
               })}
             </Tooltip>
           </CopyToClipboard>
-          <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
-            <a className="code-box-code-action" target="_blank" rel="noreferrer" href={demoUrl}>
-              <ExternalLinkIcon className="code-box-separate" />
+          <Tooltip title={<FormattedMessage id='app.demo.separate' />}>
+            <a
+              className='code-box-code-action'
+              aria-label='open in new tab'
+              target='_blank'
+              rel='noreferrer'
+              href={demoUrl}
+            >
+              <ExternalLinkIcon className='code-box-separate' />
             </a>
           </Tooltip>
-
           <Tooltip
             title={<FormattedMessage id={`app.demo.code.${codeExpand ? 'hide' : 'show'}`} />}
           >
-            <div className="code-expand-icon code-box-code-action">
+            <div className='code-expand-icon code-box-code-action'>
               <img
-                alt="expand code"
+                alt='expand code'
                 src={
                   theme?.includes('dark')
                     ? 'https://gw.alipayobjects.com/zos/antfincdn/btT3qDZn1U/wSAkBuJFbdxsosKKpqyq.svg'
@@ -518,7 +522,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 onClick={() => handleCodeExpand(asset.id)}
               />
               <img
-                alt="expand code"
+                alt='expand code'
                 src={
                   theme?.includes('dark')
                     ? 'https://gw.alipayobjects.com/zos/antfincdn/CjZPwcKUG3/OpROPHYqWmrMDBFMZtKF.svg'
@@ -531,22 +535,41 @@ createRoot(document.getElementById('container')).render(<Demo />);
           </Tooltip>
         </Space>
       </section>
-      <section className={highlightClass} key="code">
-        <CodePreview
-          codes={highlightedCodes}
-          toReactComponent={toReactComponent}
-          onCodeTypeChange={(type) => setCodeType(type)}
-        />
-        {highlightedStyle ? (
-          <div key="style" className="highlight">
-            <pre>
-              <code className="css" dangerouslySetInnerHTML={{ __html: highlightedStyle }} />
-            </pre>
-          </div>
-        ) : null}
-      </section>
+      {codeExpand && (
+        <section className={highlightClass} key='code'>
+          <CodePreview
+            codes={highlightedCodes}
+            toReactComponent={toReactComponent}
+            onCodeTypeChange={(type) => setCodeType(type)}
+          />
+          {highlightedStyle ? (
+            <div key='style' className='highlight'>
+              <pre>
+                <code className='css' dangerouslySetInnerHTML={{ __html: highlightedStyle }} />
+              </pre>
+            </div>
+          ) : null}
+        </section>
+      )}
     </section>
   );
+
+  useEffect(() => {
+    // In Safari, if style tag be inserted into non-head tag,
+    // it will affect the rendering ability of the browser,
+    // resulting in some response delays like following issue:
+    // https://github.com/ant-design/ant-design/issues/39995
+    // So we insert style tag into head tag.
+    if (!style) return;
+    const styleTag = document.createElement('style');
+    styleTag.type = 'text/css';
+    styleTag.innerHTML = style;
+    styleTag['data-demo-url'] = demoUrl;
+    document.head.appendChild(styleTag);
+    return () => {
+      document.head.removeChild(styleTag);
+    };
+  }, [style, demoUrl]);
 
   if (version) {
     return (

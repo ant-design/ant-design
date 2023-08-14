@@ -31,14 +31,14 @@ describe('Select', () => {
   });
 
   it('should have default notFoundContent', () => {
-    const { container } = render(<Select mode="multiple" />);
+    const { container } = render(<Select mode='multiple' />);
     toggleOpen(container);
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(0);
     expect(container.querySelectorAll('.ant-empty').length).toBeTruthy();
   });
 
   it('should support set notFoundContent to null', () => {
-    const { container } = render(<Select mode="multiple" notFoundContent={null} />);
+    const { container } = render(<Select mode='multiple' notFoundContent={null} />);
     toggleOpen(container);
     expect(container.querySelectorAll('.ant-empty').length).toBe(0);
   });
@@ -55,7 +55,7 @@ describe('Select', () => {
     const { container } = render(
       <Select
         mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
-        notFoundContent="not at all"
+        notFoundContent='not at all'
       />,
     );
     toggleOpen(container);
@@ -73,7 +73,7 @@ describe('Select', () => {
       };
       return (
         <Select open={open} onDropdownVisibleChange={handleChange}>
-          <Option value="1">1</Option>
+          <Option value='1'>1</Option>
         </Select>
       );
     };
@@ -88,7 +88,7 @@ describe('Select', () => {
     jest.useFakeTimers();
     const { container } = render(
       <Select showSearch>
-        <Option value="1">1</Option>
+        <Option value='1'>1</Option>
       </Select>,
     );
     expect(container.querySelectorAll('.anticon-down').length).toBe(1);
@@ -106,7 +106,7 @@ describe('Select', () => {
           clearIcon={<CloseOutlined />}
           menuItemSelectedIcon={<CloseOutlined />}
         >
-          <Option value="1">1</Option>
+          <Option value='1'>1</Option>
         </Select>,
       );
       rerender(
@@ -115,7 +115,7 @@ describe('Select', () => {
           clearIcon={<CloseOutlined />}
           menuItemSelectedIcon={<CloseOutlined />}
         >
-          <Option value="1">1</Option>
+          <Option value='1'>1</Option>
         </Select>,
       );
       act(() => {
@@ -129,7 +129,7 @@ describe('Select', () => {
     it('should ignore mode="combobox"', () => {
       const { asFragment } = render(
         <Select mode={'combobox' as SelectProps['mode']}>
-          <Option value="1">1</Option>
+          <Option value='1'>1</Option>
         </Select>,
       );
       expect(asFragment().firstChild).toMatchSnapshot();
@@ -139,7 +139,7 @@ describe('Select', () => {
       resetWarned();
 
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const { container } = render(<Select dropdownClassName="legacy" open />);
+      const { container } = render(<Select dropdownClassName='legacy' open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
       );
@@ -156,6 +156,19 @@ describe('Select', () => {
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
       );
+
+      errSpy.mockRestore();
+    });
+
+    it('deprecate showArrow', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Select showArrow />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+      );
+      expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
 
       errSpy.mockRestore();
     });

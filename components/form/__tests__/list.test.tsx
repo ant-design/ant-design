@@ -56,15 +56,15 @@ describe('Form.List', () => {
     it(name, async () => {
       const { container } = render(
         <Form>
-          <Form.List name="list">
+          <Form.List name='list'>
             {(fields, { add, remove }) => (
               <>
                 {fields.map(renderField)}
-                <Button className="add" onClick={add}>
+                <Button className='add' onClick={add}>
                   Add
                 </Button>
-                <Button className="remove-0" onClick={() => remove(0)} />
-                <Button className="remove-1" onClick={() => remove(1)} />
+                <Button className='remove-0' onClick={() => remove(0)} />
+                <Button className='remove-1' onClick={() => remove(1)} />
               </>
             )}
           </Form.List>
@@ -132,7 +132,7 @@ describe('Form.List', () => {
           onFinish(v);
         }}
       >
-        <Form.List name="list">
+        <Form.List name='list'>
           {(fields, { add, remove }) => (
             <>
               {fields.map((field) => (
@@ -142,10 +142,10 @@ describe('Form.List', () => {
                   <Input />
                 </Form.Item>
               ))}
-              <Button className="add" onClick={add}>
+              <Button className='add' onClick={add}>
                 Add
               </Button>
-              <Button className="remove" onClick={() => remove(0)}>
+              <Button className='remove' onClick={() => remove(0)}>
                 Remove
               </Button>
             </>
@@ -179,7 +179,7 @@ describe('Form.List', () => {
     const { container } = render(
       <Form>
         <Form.List
-          name="list"
+          name='list'
           rules={[
             {
               validator: async (_, value) => {
@@ -229,7 +229,7 @@ describe('Form.List', () => {
 
       return (
         <Form form={form}>
-          <Form.List name="list">
+          <Form.List name='list'>
             {(fields) =>
               fields.map((field) => (
                 <Form.Item {...field} key={field.key}>
@@ -239,8 +239,8 @@ describe('Form.List', () => {
             }
           </Form.List>
           <button
-            id="validate"
-            type="button"
+            id='validate'
+            type='button'
             onClick={() => {
               form.validateFields().then(() => {
                 form.resetFields();
@@ -259,6 +259,72 @@ describe('Form.List', () => {
     await waitFakeTimer();
 
     expect(errorSpy).not.toHaveBeenCalled();
+
+    errorSpy.mockRestore();
+  });
+
+  it('no warning when name is 0', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(
+      <Form>
+        <Form.List name={0}>
+          {(fields) =>
+            fields.map((field) => (
+              <Form.Item {...field} key={field.key}>
+                <Input />
+              </Form.Item>
+            ))
+          }
+        </Form.List>
+      </Form>,
+    );
+
+    expect(errorSpy).not.toHaveBeenCalled();
+
+    errorSpy.mockRestore();
+  });
+
+  it('warning when name is empty array', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(
+      <Form>
+        <Form.List name={[]}>
+          {(fields) =>
+            fields.map((field) => (
+              <Form.Item {...field} key={field.key}>
+                <Input />
+              </Form.Item>
+            ))
+          }
+        </Form.List>
+      </Form>,
+    );
+
+    expect(errorSpy).toHaveBeenCalled();
+
+    errorSpy.mockRestore();
+  });
+
+  it('warning when name is null', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(
+      <Form>
+        <Form.List name={null!!}>
+          {(fields) =>
+            fields.map((field) => (
+              <Form.Item {...field} key={field.key}>
+                <Input />
+              </Form.Item>
+            ))
+          }
+        </Form.List>
+      </Form>,
+    );
+
+    expect(errorSpy).toHaveBeenCalled();
 
     errorSpy.mockRestore();
   });

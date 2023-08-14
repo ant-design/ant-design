@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ConfigProvider from '..';
+import { fireEvent, pureRender } from '../../../tests/utils';
 import Tooltip from '../../tooltip';
-import { pureRender, fireEvent } from '../../../tests/utils';
 
 interface Props {
   spy: () => void;
@@ -29,12 +29,12 @@ describe('ConfigProvider', () => {
 
       return (
         <ConfigProvider pageHeader={pageHeader}>
-          <button type="button" className="render" onClick={() => forceRender()}>
+          <button type='button' className='render' onClick={() => forceRender()}>
             Force Render
           </button>
           <button
-            type="button"
-            className="setState"
+            type='button'
+            className='setState'
             onClick={() => setPageHeader({ ghost: false })}
           >
             Change Config
@@ -64,12 +64,12 @@ describe('ConfigProvider', () => {
       return (
         <ConfigProvider pageHeader={pageHeader}>
           <ConfigProvider>
-            <button type="button" className="render" onClick={() => forceRender()}>
+            <button type='button' className='render' onClick={() => forceRender()}>
               Force Render
             </button>
             <button
-              type="button"
-              className="setState"
+              type='button'
+              className='setState'
               onClick={() => setPageHeader({ ghost: false })}
             >
               Change Config

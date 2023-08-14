@@ -1,5 +1,5 @@
-import { Button, Form, Mentions, Space } from 'antd';
 import React from 'react';
+import { Button, Form, Mentions, Space } from 'antd';
 
 const { getMentions } = Mentions;
 
@@ -28,10 +28,10 @@ const App: React.FC = () => {
   };
 
   return (
-    <Form form={form} layout="horizontal" onFinish={onFinish}>
+    <Form form={form} layout='horizontal' onFinish={onFinish}>
       <Form.Item
-        name="coders"
-        label="Top coders"
+        name='coders'
+        label='Top coders'
         labelCol={{ span: 6 }}
         wrapperCol={{ span: 16 }}
         rules={[{ validator: checkMention }]}
@@ -55,15 +55,15 @@ const App: React.FC = () => {
         />
       </Form.Item>
       <Form.Item
-        name="bio"
-        label="Bio"
+        name='bio'
+        label='Bio'
         labelCol={{ span: 6 }}
         wrapperCol={{ span: 16 }}
         rules={[{ required: true }]}
       >
         <Mentions
           rows={3}
-          placeholder="You can use @ to ref user here"
+          placeholder='You can use @ to ref user here'
           options={[
             {
               value: 'afc163',
@@ -82,10 +82,10 @@ const App: React.FC = () => {
       </Form.Item>
       <Form.Item wrapperCol={{ span: 14, offset: 6 }}>
         <Space wrap>
-          <Button htmlType="submit" type="primary">
+          <Button htmlType='submit' type='primary'>
             Submit
           </Button>
-          <Button htmlType="button" onClick={onReset}>
+          <Button htmlType='button' onClick={onReset}>
             Reset
           </Button>
         </Space>

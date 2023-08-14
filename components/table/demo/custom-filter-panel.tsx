@@ -1,10 +1,10 @@
 import { SearchOutlined } from '@ant-design/icons';
+import React, { useRef, useState } from 'react';
+import Highlighter from 'react-highlight-words';
 import type { InputRef } from 'antd';
 import { Button, Input, Space, Table } from 'antd';
 import type { ColumnType, ColumnsType } from 'antd/es/table';
 import type { FilterConfirmProps } from 'antd/es/table/interface';
-import React, { useRef, useState } from 'react';
-import Highlighter from 'react-highlight-words';
 
 interface DataType {
   key: string;
@@ -75,24 +75,24 @@ const App: React.FC = () => {
         />
         <Space>
           <Button
-            type="primary"
+            type='primary'
             onClick={() => handleSearch(selectedKeys as string[], confirm, dataIndex)}
             icon={<SearchOutlined />}
-            size="small"
+            size='small'
             style={{ width: 90 }}
           >
             Search
           </Button>
           <Button
             onClick={() => clearFilters && handleReset(clearFilters)}
-            size="small"
+            size='small'
             style={{ width: 90 }}
           >
             Reset
           </Button>
           <Button
-            type="link"
-            size="small"
+            type='link'
+            size='small'
             onClick={() => {
               confirm({ closeDropdown: false });
               setSearchText((selectedKeys as string[])[0]);
@@ -102,8 +102,8 @@ const App: React.FC = () => {
             Filter
           </Button>
           <Button
-            type="link"
-            size="small"
+            type='link'
+            size='small'
             onClick={() => {
               close();
             }}

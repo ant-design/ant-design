@@ -1,11 +1,42 @@
 ---
-order: 9
-title: Migrate Less variables to Component Token
+group:
+  title: Migration
+order: 1
+title: Less variables to Component Token
 ---
 
 This document contains the correspondence between all the less variables related to components in version 4.x and the Component Token in version 5.x. If you are upgrading from version 4.x to version 5.x, you can quickly find the corresponding Component Token through this comparison table.
 
 <Alert message="Note: There are still some less variables that do not have a corresponding Component Token, and these variables have been deprecated in version 5.x."></Alert>
+
+## How to use Component Token
+
+We could configure global token and component token for each component through the `theme` property of ConfigProvider.
+
+```tsx
+import { Checkbox, ConfigProvider, Radio } from 'antd';
+import React from 'react';
+
+const App: React.FC = () => (
+  <ConfigProvider
+    theme={{
+      components: {
+        Radio: {
+          colorPrimary: '#00b96b',
+        },
+        Checkbox: {
+          colorPrimary: '#ff4d4f',
+        },
+      },
+    }}
+  >
+    <Radio>Radio</Radio>
+    <Checkbox>Checkbox</Checkbox>
+  </ConfigProvider>
+);
+
+export default App;
+```
 
 <!-- ## 全局变量 -->
 
@@ -13,7 +44,7 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Alert -->
 
-## Anchor
+### Anchor
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -27,7 +58,7 @@ This document contains the correspondence between all the less variables related
 ### Avatar
 
 <!-- prettier-ignore -->
-| less 变量 | Component Token | 备注 |
+| Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@avatar-size-base` | `containerSize` | - |
 | `@avatar-size-lg` | `containerSizeLG` | - |
@@ -58,10 +89,10 @@ This document contains the correspondence between all the less variables related
 | `@badge-text-color` | `colorBgContainer` | Global Token |
 | `@badge-color` | `colorError` | Global Token |
 
-### BreadCrumb 面包屑
+### BreadCrumb
 
 <!-- prettier-ignore -->
-| Less 变量 | Component Token | 备注 |
+| Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@breadcrumb-base-color` | `itemColor` | - |
 | `@breadcrumb-last-item-color` | `lastItemColor` | - |
@@ -72,9 +103,56 @@ This document contains the correspondence between all the less variables related
 | `@breadcrumb-separator-color` | `separatorColor` | - |
 | `@breadcrumb-separator-margin` | `separatorMargin` | - |
 
-<!-- ### Button -->
+### Button
 
-## Calendar
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@btn-font-weight` | `fontWeight` | - |
+| `@btn-border-radius-base` | `borderRadius` | Global Token |
+| `@btn-border-radius-sm` | `borderRadisuSM` | Global Token |
+| `@btn-border-width` | `lineWidth` | Global Token |
+| `@btn-border-style` | `lineStyle` | Global Token |
+| `@btn-shadow` | `defaultShadow` | - |
+| `@btn-primary-shadow` | `primaryShadow` | - |
+| `@btn-text-shadow` | - | Deprecated for no `text-shadow` any more |
+| `@btn-primary-color` | `primaryColor` | - |
+| `@btn-primary-bg` | `colorPrimary` | Global Token |
+| `@btn-default-color` | `colorText` | Global Token |
+| `@btn-default-bg` | `colorBgContainer` | Global Token |
+| `@btn-default-border` | `colorBorder` | Global Token |
+| `@btn-danger-color` | `dangerColor` | - |
+| `@btn-danger-bg` | `colorError` | Global Token |
+| `@btn-danger-border` | `colorError` | Global Token |
+| `@btn-disable-color` | `colorTextDisabled` | Global Token |
+| `@btn-disable-bg` | `colorBgContainerDisabled` | Global Token |
+| `@btn-disable-border` | `borderColorDisabled` | - |
+| `@btn-default-ghost-color` | `defaultGhostColor` | - |
+| `@btn-default-ghost-bg` | `ghostBg` | - |
+| `@btn-default-ghost-border` | `defaultGhostBorderColor` | - |
+| `@btn-font-size-lg` | `fontSizeLG` | Global Token |
+| `@btn-font-size-sm` | `fontSizeSM` | Global Token |
+| `@btn-padding-horizontal-base` | `paddingInline` | - |
+| `@btn-padding-horizontal-lg` | `paddingInlineLG` | - |
+| `@btn-padding-horizontal-sm` | `paddingInlineSM` | - |
+| `@btn-height-base` | `controlHeight` | Global Token |
+| `@btn-height-lg` | `controlHeightLG` | Global Token |
+| `@btn-height-sm` | `controlHeightSM` | Global Token |
+| `@btn-line-height` | `lineHeight` | Global Token |
+| `@btn-circle-size` | `controlHeight` | Global Token |
+| `@btn-circle-size-lg` | `controlHeightLG` | Global Token |
+| `@btn-circle-size-sm` | `controlHeightSM` | Global Token |
+| `@btn-square-size` | `controlHeight` | Global Token |
+| `@btn-square-size-lg` | `controlHeightLG` | Global Token |
+| `@btn-square-size-sm` | `controlHeightSM` | Global Token |
+| `@btn-square-only-icon-size` | `onlyIconSize` | - |
+| `@btn-square-only-icon-size-sm` | `onlyIconSizeSM` | - |
+| `@btn-square-only-icon-size-lg` | `onlyIconSizeLG` | - |
+| `@btn-group-border` | `groupBorderColor` | - |
+| `@btn-link-hover-bg` | `linkHoverBg` | - |
+| `@btn-text-hover-bg` | `textHoverBg` | - |
+
+### Calendar
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -112,7 +190,7 @@ This document contains the correspondence between all the less variables related
 | `@card-head-tabs-margin-bottom` | `tabsMarginBottom` | - |
 | `@card-head-extra-color` | `extraColor` | - |
 
-## Carousel
+### Carousel
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -125,7 +203,7 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Checkbox -->
 
-## Checkbox
+### Checkbox
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -156,7 +234,16 @@ This document contains the correspondence between all the less variables related
 | `@descriptions-item-label-colon-margin-left` | `colonMarginLeft` | - |
 | `@descriptions-extra-color` | `extraColor` | - |
 
-<!-- ### Divider -->
+### Divider
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| --- | --- | --- |
+| `@divider-text-padding` | `textPaddingInline` | - |
+| `@divider-orientation-margin` | `orientationMargin` | - |
+| `@divider-color` | `colorSplit` | Global Token |
+| `@divider-vertical-gutter` | `verticalMarginInline` | - |
 
 ### Drawer
 
@@ -203,7 +290,27 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Input -->
 
-<!-- ### Layout -->
+### Layout
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@layout-body-background` | `bodyBg` | - |
+| `@layout-header-background` | `headerBg` | - |
+| `@layout-header-height` | `headerHeight` | - |
+| `@layout-header-padding` | `headerPadding` | - |
+| `@layout-header-color` | `headerColor` | - |
+| `@layout-footer-padding` | `footerPadding` | - |
+| `@layout-footer-background` | `footerBg` | - |
+| `@layout-sider-background` | `siderBg` | - |
+| `@layout-trigger-height` | `triggerHeight` | - |
+| `@layout-trigger-background` | `triggerBg` | - |
+| `@layout-trigger-color` | `triggerColor` | - |
+| `@layout-zero-trigger-width` | `zeroTriggerWidth` | - |
+| `@layout-zero-trigger-height` | `zeroTriggerHeight` | - |
+| `@layout-sider-background-light` | `lightSiderBg` | - |
+| `@layout-trigger-background-light` | `lightTriggerBg` | - |
+| `@layout-trigger-color-light` | `lightTriggerColor` | - |
 
 ### List
 
@@ -225,12 +332,50 @@ This document contains the correspondence between all the less variables related
 ### Mentions
 
 <!-- prettier-ignore -->
-| less 变量 | Component Token | Note |
+| Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@mentions-dropdown-bg` | `colorBgElevated` | GlobalToken |
 | `@mentions-dropdown-menu-item-hover-bg` | - | Deprecated |
 
-<!-- ### Menu -->
+### Menu
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@menu-inline-toplevel-item-height` | `itemHeight` | Same as `@menu-item-height` |
+| `@menu-item-height` | `itemHeight` | - |
+| `@menu-item-group-height` | `groupTitleLineHeight` | - |
+| `@menu-collapsed-width` | `collapsedWidth` | - |
+| `@menu-bg` | `itemBg` | - |
+| `@menu-popup-bg` | `popupBg` | - |
+| `@menu-item-color` | `itemColor` | - |
+| `@menu-inline-submenu-bg` | `subMenuItemBg` | - |
+| `@menu-highlight-color` | `itemSelectedColor` | - |
+| `@menu-highlight-danger-color` | `dangerItemSelectedColor` | - |
+| `@menu-item-active-bg` | `itemActiveBg` | - |
+| `@menu-item-active-danger-bg` | `dangerItemActiveBg` | - |
+| `@menu-item-active-border-width` | `activeBarBorderWidth` | - |
+| `@menu-item-group-title-color` | `groupTitleColor` | - |
+| `@menu-item-vertical-margin` | `itemMarginBlock` | - |
+| `@menu-item-font-size` | `fontSize` | Global Token |
+| `@menu-item-boundary-margin` | - | Deprecated in favor of new style, use `itemMarginBlock` instead |
+| `@menu-item-padding-horizontal` | `itemPaddingInline` | - |
+| `@menu-item-padding` | - | Depreacated, use `itemPaddingInline` and `itemHeight` instead |
+| `@menu-horizontal-line-height` | `horizontalLineHeight` | - |
+| `@menu-icon-margin-right` | `iconMarginInlineEnd` | - |
+| `@menu-icon-size` | `iconSize` | - |
+| `@menu-icon-size-lg` | `horizontalLineHeight` | - |
+| `@menu-dark-color` | `darkItemColor` | - |
+| `@menu-dark-danger-color` | `darkDangerItemColor` | - |
+| `@menu-dark-bg` | `darkItemBg` | - |
+| `@menu-dark-arrow-color` | - | Deprecated, and same as text color |
+| `@menu-dark-inline-submenu-bg` | `darkSubMenuItemBg` | - |
+| `@menu-dark-highlight-color` | `darkItemSelectedColor` | - |
+| `@menu-dark-item-active-bg` | `darkItemSelectedBg` | - |
+| `@menu-dark-item-active-danger-bg` | `darkDangerItemSelectedBg` | - |
+| `@menu-dark-selected-item-icon-color` | - | Deprecated, same as `darkItemSelectedColor` |
+| `@menu-dark-selected-item-text-color` | - | Deprecated, same as `darkItemSelectedColor` |
+| `@menu-dark-item-hover-bg` | `darkItemHoverBg` | - |
 
 ### Message
 
@@ -305,7 +450,19 @@ This document contains the correspondence between all the less variables related
 | `@popover-distance` | `marginXXS` | Global Token |
 | `@popover-padding-horizontal` | - | Deprecated for style change |
 
-<!-- ### Progress -->
+### Progress
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@progress-default-color` | `defaultColor` | - |
+| `@progress-remaining-color` | `remainingColor` | - |
+| `@progress-info-text-color` | `colorText` | Global Token |
+| `@progress-text-color` | `circleTextColor` | - |
+| `@progress-radius` | `lineBorderRadius` | - |
+| `@progress-steps-item-bg` | `remainingColor` | - |
+| `@progress-text-font-size` | `fontSizeSM` | Global Token |
+| `@progress-circle-text-font-size` | `circleTextFontSize` | - |
 
 ### Radio
 
@@ -329,7 +486,7 @@ This document contains the correspondence between all the less variables related
 | `@radio-disabled-button-checked-color` | `buttonCheckdColorDisabled` | - |
 | `@radio-wrapper-margin-right` | `wrapperMarginInlineEnd` | - |
 
-## Rate
+### Rate
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -374,9 +531,33 @@ This document contains the correspondence between all the less variables related
 | `@skeleton-to-color` | `gradientToColor` | - |
 | `@skeleton-paragraph-margin-top` | `paragraphMarginTop` | - |
 | `@skeleton-paragraph-li-height` | `paragraphLiHeight` | - |
-| `@skeleton-paragraph-li-margin-top` | - | 由于样式变化已废弃 |
+| `@skeleton-paragraph-li-margin-top` | - | Deprecated for style change |
 
-<!-- ### Slider -->
+### Slider
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@slider-margin` | - | Could be customized with `className` or `style` |
+| `@slider-rail-background-color` | `railBg` | - |
+| `@slider-rail-background-color-hover` | `railHoverBg` | - |
+| `@slider-track-background-color` | `trackBg` | - |
+| `@slider-track-background-color-hover` | `trackHoverBg` | - |
+| `@slider-handle-border-width` | `handleLineWidth` | - |
+| `@slider-handle-background-color` | - | Deprecated |
+| `@slider-handle-color` | `handleColor` | - |
+| `@slider-handle-color-hover` | `handleActiveColor` | - |
+| `@slider-handle-color-focus` | `handleActiveColor` | - |
+| `@slider-handle-color-focus-shadow` | - Deprecated |
+| `@slider-handle-color-tooltip-open` | `handleActiveColor` | - |
+| `@slider-handle-size` | `handleSize` | - |
+| `@slider-handle-margin-top` | - | Deprecated |
+| `@slider-handle-margin-left` | - | Deprecated |
+| `@slider-handle-shadow` | - | Deprecated |
+| `@slider-dot-border-color` | `dotBorderColor` | - |
+| `@slider-dot-border-color-active` | `dotActiveBorderColor` | - |
+| `@slider-disabled-color` | `trackBgDisabled` | - |
+| `@slider-disabled-background-color` | - | Deprecated |
 
 ### Statistic
 
@@ -416,9 +597,48 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Switch -->
 
-<!-- ### Table -->
+### Table
 
-### Tabs 标签页
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@table-bg` | `colorBgContainer` | Global Token |
+| `@table-header-bg` | `headerBg` | - |
+| `@table-header-color` | `headerColor` | - |
+| `@table-header-sort-bg` | `headerSortActiveBg` | - |
+| `@table-body-sort-bg` | `bodySortActiveBg` | - |
+| `@table-row-hover-bg` | `rowHoverBg` | - |
+| `@table-selected-row-color` | `colorText` | Global Token |
+| `@table-selected-row-bg` | `rowSelectedBg` | - |
+| `@table-body-selected-sort-bg` | - | Deprecated, same as `rowSelectedBg` |
+| `@table-selected-row-hover-bg` | `rowSelectedHoverBg` | - |
+| `@table-expanded-row-bg` | `rowExpandedBg` | - |
+| `@table-padding-vertical` | `cellPaddingBlock` | - |
+| `@table-padding-horizontal` | `cellPaddingInline` | - |
+| `@table-padding-vertical-md` | `cellPaddingBlockMD` | - |
+| `@table-padding-horizontal-md` | `cellPaddingInlineMD` | - |
+| `@table-padding-vertical-sm` | `cellPaddingBlockSM` | - |
+| `@table-padding-horizontal-sm` | `cellPaddingInlineSM` | - |
+| `@table-border-color` | `borderColor` | - |
+| `@table-border-radius-base` | `headerBorderRadius` | - |
+| `@table-footer-bg` | `footerBg` | - |
+| `@table-footer-color` | `footerColor` | - |
+| `@table-header-bg-sm` | - | Deprecated, same as `headerBg` |
+| `@table-font-size` | `cellFontSize` | - |
+| `@table-font-size-md` | `cellFontSizeMD` | - |
+| `@table-font-size-sm` | `cellFontSizeSM` | - |
+| `@table-header-cell-split-color` | `headerSplitColor` | - |
+| `@table-header-sort-active-bg` | `headerSortHoverBg` | Misused in v4, and used as hover bg actually |
+| `@table-fixed-header-sort-active-bg` | `fixedHeaderSortActiveBg` | - |
+| `@table-header-filter-active-bg` | `headerFilterHoverBg` | - |
+| `@table-filter-btns-bg` | - | Deprecated, same as `filterDropdownBg` |
+| `@table-filter-dropdown-bg` | `filterDropdownBg` | - |
+| `@table-expand-icon-bg` | `expandIconBg` | - |
+| `@table-selection-column-width` | `selectionColumnWidth` | - |
+| `@table-sticky-scroll-bar-bg` | `stickyScrollBarBg` | - |
+| `@table-sticky-scroll-bar-radius` | `stickyScrollBarBorderRadius` | - |
+
+### Tabs
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -449,7 +669,7 @@ This document contains the correspondence between all the less variables related
 | `@tabs-card-gutter` | `cardGutter` | - |
 | `@tabs-card-tab-active-border-top` | - | Deprecated |
 
-## Tag
+### Tag
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |

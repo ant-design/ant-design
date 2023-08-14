@@ -1,10 +1,10 @@
 import React from 'react';
 import ConfigProvider from '..';
+import { fireEvent, render } from '../../../tests/utils';
 import Cascader from '../../cascader';
 import DatePicker from '../../date-picker';
 import Drawer from '../../drawer';
 import Slider from '../../slider';
-import { render, fireEvent } from '../../../tests/utils';
 
 describe('ConfigProvider.GetPopupContainer', () => {
   it('Datepicker', () => {

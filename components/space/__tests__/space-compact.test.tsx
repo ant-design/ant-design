@@ -12,6 +12,7 @@ import DatePicker from '../../date-picker';
 import Drawer from '../../drawer';
 import Dropdown from '../../dropdown';
 import Input from '../../input';
+import InputNumber from '../../input-number';
 import Modal from '../../modal';
 import Select from '../../select';
 import TimePicker from '../../time-picker';
@@ -22,14 +23,14 @@ describe('Space.Compact', () => {
   mountTest(Space.Compact);
   mountTest(() => (
     <Space.Compact>
-      <Button type="primary">Submit</Button>
+      <Button type='primary'>Submit</Button>
     </Space.Compact>
   ));
 
   rtlTest(Space.Compact);
   rtlTest(() => (
     <Space.Compact>
-      <Button type="primary">Submit</Button>
+      <Button type='primary'>Submit</Button>
     </Space.Compact>
   ));
 
@@ -42,8 +43,8 @@ describe('Space.Compact', () => {
   it('block className', () => {
     const { container } = render(
       <Space.Compact block>
-        <Input defaultValue="https://ant.design" />
-        <Button type="primary">Submit</Button>
+        <Input defaultValue='https://ant.design' />
+        <Button type='primary'>Submit</Button>
       </Space.Compact>,
     );
     expect(
@@ -54,9 +55,9 @@ describe('Space.Compact', () => {
   it('compact-item className', () => {
     const { container } = render(
       <Space.Compact>
-        <Input defaultValue="https://ant.design" />
+        <Input defaultValue='https://ant.design' />
         <Input.Search />
-        <Button type="primary">Submit</Button>
+        <Button type='primary'>Submit</Button>
       </Space.Compact>,
     );
     expect(
@@ -148,22 +149,58 @@ describe('Space.Compact', () => {
 
   it('size', () => {
     const { container } = render(
-      <Space.Compact size="small">
-        <Input defaultValue="https://ant.design" />
-        <Button type="primary">Submit</Button>
+      <Space.Compact size='small'>
+        <Input defaultValue='https://ant.design' />
+        <Button type='primary'>Submit</Button>
       </Space.Compact>,
     );
     expect(container.querySelector('.ant-input')?.classList.contains('ant-input-sm')).toBe(true);
     expect(container.querySelector('.ant-btn')?.classList.contains('ant-btn-sm')).toBe(true);
   });
+  it('component size has a higher priority than Compact', () => {
+    const { container } = render(
+      <Space.Compact size='middle'>
+        <Input size='small' />
+        <Select size='small' />
+        <Button size='small'>Submit</Button>
+        <InputNumber size='small' />
+        <DatePicker size='small' />
+        <DatePicker.RangePicker size='small' />
+        <Cascader size='small' />
+        <TreeSelect size='small' />
+        <Input.Search size='small' />
+      </Space.Compact>,
+    );
+    expect(container.querySelector('.ant-input')?.classList.contains('ant-input-sm')).toBe(true);
+    expect(container.querySelector('.ant-select')?.classList.contains('ant-select-sm')).toBe(true);
+    expect(container.querySelector('.ant-btn')?.classList.contains('ant-btn-sm')).toBe(true);
+    expect(
+      container.querySelector('.ant-input-number')?.classList.contains('ant-input-number-sm'),
+    ).toBe(true);
+    expect(container.querySelector('.ant-picker')?.classList.contains('ant-picker-small')).toBe(
+      true,
+    );
+    expect(
+      container.querySelector('.ant-picker-range')?.classList.contains('ant-picker-small'),
+    ).toBe(true);
+    expect(container.querySelector('.ant-cascader')?.classList.contains('ant-select-sm')).toBe(
+      true,
+    );
+    expect(container.querySelector('.ant-tree-select')?.classList.contains('ant-select-sm')).toBe(
+      true,
+    );
+    expect(
+      container.querySelector('.ant-input-search')?.classList.contains('ant-input-search-small'),
+    ).toBe(true);
+  });
 
   it('direction=vertical', () => {
     const { container } = render(
-      <Space.Compact size="small" direction="vertical">
-        <Button type="primary">Button 1</Button>
-        <Button type="primary">Button 2</Button>
-        <Button type="primary">Button 3</Button>
-        <Button type="primary">Button 4</Button>
+      <Space.Compact size='small' direction='vertical'>
+        <Button type='primary'>Button 1</Button>
+        <Button type='primary'>Button 2</Button>
+        <Button type='primary'>Button 3</Button>
+        <Button type='primary'>Button 4</Button>
       </Space.Compact>,
     );
     expect(
@@ -189,8 +226,8 @@ describe('Space.Compact', () => {
   });
   it('context for Modal', () => {
     render(
-      <Space.Compact size="small">
-        <Modal title="Basic Modal" open>
+      <Space.Compact size='small'>
+        <Modal title='Basic Modal' open>
           <Button>normal button A</Button>
           <Input />
         </Modal>
@@ -211,7 +248,7 @@ describe('Space.Compact', () => {
   });
   it('context for Dropdown', () => {
     render(
-      <Space.Compact size="small">
+      <Space.Compact size='small'>
         <Dropdown.Button
           open
           menu={{
@@ -236,8 +273,8 @@ describe('Space.Compact', () => {
   });
   it('context for Drawer', () => {
     render(
-      <Space.Compact size="small">
-        <Drawer title="Basic Drawer" open>
+      <Space.Compact size='small'>
+        <Drawer title='Basic Drawer' open>
           <Button>normal button A</Button>
         </Drawer>
       </Space.Compact>,
@@ -252,17 +289,17 @@ describe('Space.Compact', () => {
   it('context for Tooltip', () => {
     render(
       <Space.Compact>
-        <Input placeholder="Debug Popover context" />
+        <Input placeholder='Debug Popover context' />
         <Tooltip
           open
           overlay={
             <>
-              <Input placeholder="Left Border" />
+              <Input placeholder='Left Border' />
               <DatePicker />
             </>
           }
           trigger={['click']}
-          placement="bottom"
+          placement='bottom'
         >
           <Button>Settings</Button>
         </Tooltip>
@@ -285,12 +322,12 @@ describe('Space.Compact', () => {
   it('Tooltip content supports function', () => {
     render(
       <Space.Compact>
-        <Input placeholder="Debug Popover context" />
+        <Input placeholder='Debug Popover context' />
         <Tooltip
           open
           overlay={() => (
             <>
-              <Input placeholder="Left Border" />
+              <Input placeholder='Left Border' />
               <DatePicker />
             </>
           )}
@@ -316,9 +353,9 @@ describe('Space.Compact', () => {
   // https://github.com/ant-design/ant-design/issues/41876
   it('Space.Compact should inherit the size from ConfigProvider if the componentSize is set', () => {
     const { container } = render(
-      <ConfigProvider componentSize="large">
+      <ConfigProvider componentSize='large'>
         <Space.Compact>
-          <Select placeholder="Select" />
+          <Select placeholder='Select' />
         </Space.Compact>
       </ConfigProvider>,
     );
@@ -328,9 +365,9 @@ describe('Space.Compact', () => {
 
   it('The size property of Space.Compact should have an higher priority over the componentSize property of ConfigProvider', () => {
     const { container } = render(
-      <ConfigProvider componentSize="large">
-        <Space.Compact size="small">
-          <Select placeholder="Select" />
+      <ConfigProvider componentSize='large'>
+        <Space.Compact size='small'>
+          <Select placeholder='Select' />
         </Space.Compact>
       </ConfigProvider>,
     );

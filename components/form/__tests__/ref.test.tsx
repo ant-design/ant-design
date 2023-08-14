@@ -1,9 +1,9 @@
 import React from 'react';
-import { render, fireEvent } from '../../../tests/utils';
 import Form from '..';
-import Input from '../../input';
+import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
 import type { InputRef } from '../../input';
+import Input from '../../input';
 
 interface TestProps {
   show?: boolean;
@@ -20,16 +20,16 @@ describe('Form.Ref', () => {
     return (
       <Form form={form} initialValues={{ list: ['light'] }}>
         {show && (
-          <Form.Item name="remove" label="remove">
+          <Form.Item name='remove' label='remove'>
             <Input ref={removeRef} />
           </Form.Item>
         )}
 
-        <Form.Item name="test" label="test">
+        <Form.Item name='test' label='test'>
           <Input ref={testRef} />
         </Form.Item>
 
-        <Form.List name="list">
+        <Form.List name='list'>
           {(fields) =>
             fields.map((field) => (
               <Form.Item {...field} key={field.key}>
@@ -40,7 +40,7 @@ describe('Form.Ref', () => {
         </Form.List>
 
         <Button
-          className="ref-item"
+          className='ref-item'
           onClick={() => {
             onRef(form.getFieldInstance('test'), testRef.current!);
           }}
@@ -48,7 +48,7 @@ describe('Form.Ref', () => {
           Form.Item
         </Button>
         <Button
-          className="ref-list"
+          className='ref-list'
           onClick={() => {
             onRef(form.getFieldInstance(['list', 0]), listRef.current!);
           }}
@@ -56,7 +56,7 @@ describe('Form.Ref', () => {
           Form.List
         </Button>
         <Button
-          className="ref-remove"
+          className='ref-remove'
           onClick={() => {
             onRef(form.getFieldInstance('remove'), removeRef.current!);
           }}

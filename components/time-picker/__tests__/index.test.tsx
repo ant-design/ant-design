@@ -5,8 +5,8 @@ import TimePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { resetWarned } from '../../_util/warning';
 import { render } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 
 dayjs.extend(customParseFormat);
 
@@ -28,7 +28,7 @@ describe('TimePicker', () => {
   it('warning for addon', () => {
     resetWarned();
     const addon = () => (
-      <button className="my-btn" type="button">
+      <button className='my-btn' type='button'>
         OK
       </button>
     );
@@ -47,7 +47,7 @@ describe('TimePicker', () => {
   });
 
   it('clearIcon should render correctly', () => {
-    const clearIcon = <div className="test-clear-icon">test</div>;
+    const clearIcon = <div className='test-clear-icon'>test</div>;
     const { container } = render(
       <TimePicker clearIcon={clearIcon} value={dayjs('00:00:00', 'HH:mm:ss')} />,
     );
@@ -91,7 +91,7 @@ describe('TimePicker', () => {
   it('should support bordered', () => {
     const { container } = render(
       <TimePicker
-        className="custom-class"
+        className='custom-class'
         defaultValue={dayjs('2000-01-01 00:00:00')}
         bordered={false}
       />,

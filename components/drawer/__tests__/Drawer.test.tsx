@@ -5,8 +5,8 @@ import Drawer from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
 import { resetWarned } from '../../_util/warning';
+import ConfigProvider from '../../config-provider';
 
 const DrawerTest: React.FC<DrawerProps> = ({ getContainer }) => (
   <div>
@@ -74,7 +74,7 @@ describe('Drawer', () => {
 
   it('render top drawer', () => {
     const { container } = render(
-      <Drawer open height={400} placement="top" getContainer={false}>
+      <Drawer open height={400} placement='top' getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
@@ -85,7 +85,7 @@ describe('Drawer', () => {
 
   it('have a title', () => {
     const { container } = render(
-      <Drawer open title="Test Title" getContainer={false}>
+      <Drawer open title='Test Title' getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
@@ -118,7 +118,7 @@ describe('Drawer', () => {
 
   it('className is test_drawer', () => {
     const { container: wrapper } = render(
-      <Drawer destroyOnClose open rootClassName="test_drawer" getContainer={false}>
+      <Drawer destroyOnClose open rootClassName='test_drawer' getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
@@ -128,7 +128,7 @@ describe('Drawer', () => {
   });
 
   it('style/drawerStyle/headerStyle/bodyStyle should work', () => {
-    const style = {
+    const style: React.CSSProperties = {
       backgroundColor: '#08c',
     };
     const { container: wrapper } = render(
@@ -150,7 +150,7 @@ describe('Drawer', () => {
 
   it('have a footer', () => {
     const { container: wrapper } = render(
-      <Drawer open footer="Test Footer" getContainer={false}>
+      <Drawer open footer='Test Footer' getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
@@ -162,7 +162,7 @@ describe('Drawer', () => {
   it('forceRender works', () => {
     const { baseElement, rerender } = render(
       <Drawer>
-        <button type="button" className="forceRender">
+        <button type='button' className='forceRender'>
           should not be rendered
         </button>
       </Drawer>,
@@ -170,7 +170,7 @@ describe('Drawer', () => {
     expect(baseElement.querySelectorAll('button.forceRender').length).toBe(0);
     rerender(
       <Drawer forceRender>
-        <button type="button" className="forceRender">
+        <button type='button' className='forceRender'>
           should be rendered
         </button>
       </Drawer>,
@@ -241,6 +241,73 @@ describe('Drawer', () => {
       );
 
       errorSpy.mockRestore();
+    });
+
+    it('should hide close button when closeIcon is null or false', async () => {
+      const { baseElement, rerender } = render(
+        <Drawer open closeIcon={null}>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.ant-drawer-close')).toBeNull();
+
+      rerender(
+        <Drawer open closeIcon={false}>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.ant-drawer-close')).toBeNull();
+
+      rerender(
+        <Drawer open closeIcon={<span className='custom-close'>Close</span>}>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.custom-close')).not.toBeNull();
+
+      rerender(
+        <Drawer open closable={false} closeIcon={<span className='custom-close2'>Close</span>}>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.custom-close2')).toBeNull();
+
+      rerender(
+        <Drawer open closable closeIcon={<span className='custom-close3'>Close</span>}>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.custom-close3')).not.toBeNull();
+
+      rerender(
+        <Drawer open closeIcon={0} className='custom-drawer1'>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.custom-drawer1 .ant-drawer-close')).not.toBeNull();
+      expect(baseElement.querySelector('.custom-drawer1 .anticon-close')).toBeNull();
+
+      rerender(
+        <Drawer open closeIcon='' className='custom-drawer2'>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.custom-drawer2 .ant-drawer-close')).not.toBeNull();
+      expect(baseElement.querySelector('.custom-drawer2 .anticon-close')).toBeNull();
+
+      rerender(
+        <Drawer open closeIcon className='custom-drawer3'>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.custom-drawer3 .anticon-close')).not.toBeNull();
+
+      rerender(
+        <Drawer open closable>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      expect(baseElement.querySelector('.anticon-close')).not.toBeNull();
     });
   });
 });

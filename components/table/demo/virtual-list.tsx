@@ -1,9 +1,9 @@
-import type { TableProps } from 'antd';
-import { Table, theme } from 'antd';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import React, { useEffect, useRef, useState } from 'react';
 import { VariableSizeGrid as Grid } from 'react-window';
+import { Table, theme } from 'antd';
+import type { TableProps } from 'antd';
 
 const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) => {
   const { columns, scroll } = props;
@@ -58,7 +58,7 @@ const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) 
     return (
       <Grid
         ref={gridRef}
-        className="virtual-grid"
+        className='virtual-grid'
         columnCount={mergedColumns.length}
         columnWidth={(index: number) => {
           const { width } = mergedColumns[index];
@@ -110,7 +110,7 @@ const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) 
     >
       <Table
         {...props}
-        className="virtual-table"
+        className='virtual-table'
         columns={mergedColumns}
         pagination={false}
         components={{

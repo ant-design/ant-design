@@ -1,11 +1,11 @@
 import React from 'react';
 import Radio, { Button, Group } from '..';
-import Form from '../../form';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import Form from '../../form';
 
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 
 describe('Radio', () => {
   focusTest(Radio, { refFocus: true });
@@ -18,7 +18,7 @@ describe('Radio', () => {
   rtlTest(Button);
 
   it('should render correctly', () => {
-    const { container } = render(<Radio className="customized">Test</Radio>);
+    const { container } = render(<Radio className='customized'>Test</Radio>);
     expect(container.firstChild).toMatchSnapshot();
   });
 

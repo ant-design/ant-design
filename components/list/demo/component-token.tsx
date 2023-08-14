@@ -1,5 +1,5 @@
-import { Avatar, ConfigProvider, Divider, List, Typography } from 'antd';
 import React from 'react';
+import { Avatar, ConfigProvider, Divider, List, Typography } from 'antd';
 
 const data = [
   'Racing car sprays burning fuel into crowd.',
@@ -43,7 +43,7 @@ const App: React.FC = () => (
       },
     }}
   >
-    <Divider orientation="left">Default Size</Divider>
+    <Divider orientation='left'>Default Size</Divider>
     <List
       header={<div>Header</div>}
       footer={<div>Footer</div>}
@@ -55,27 +55,27 @@ const App: React.FC = () => (
         </List.Item>
       )}
     />
-    <Divider orientation="left">Small Size</Divider>
+    <Divider orientation='left'>Small Size</Divider>
     <List
-      size="small"
+      size='small'
       header={<div>Header</div>}
       footer={<div>Footer</div>}
       bordered
       dataSource={data}
       renderItem={(item) => <List.Item>{item}</List.Item>}
     />
-    <Divider orientation="left">Large Size</Divider>
+    <Divider orientation='left'>Large Size</Divider>
     <List
-      size="large"
+      size='large'
       header={<div>Header</div>}
       footer={<div>Footer</div>}
       bordered
       dataSource={data}
       renderItem={(item) => <List.Item>{item}</List.Item>}
     />
-    <Divider orientation="left">Meta</Divider>
+    <Divider orientation='left'>Meta</Divider>
     <List
-      itemLayout="horizontal"
+      itemLayout='horizontal'
       dataSource={data1}
       renderItem={(item, index) => (
         <List.Item>
@@ -83,15 +83,15 @@ const App: React.FC = () => (
             avatar={
               <Avatar src={`https://xsgames.co/randomusers/avatar.php?g=pixel&key=${index}`} />
             }
-            title={<a href="https://ant.design">{item.title}</a>}
-            description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+            title={<a href='https://ant.design'>{item.title}</a>}
+            description='Ant Design, a design language for background applications, is refined by Ant UED Team'
           />
         </List.Item>
       )}
     />
-    <Divider orientation="left">Vertical</Divider>
+    <Divider orientation='left'>Vertical</Divider>
     <List
-      itemLayout="vertical"
+      itemLayout='vertical'
       dataSource={data1}
       renderItem={(item, index) => (
         <List.Item>
@@ -99,13 +99,13 @@ const App: React.FC = () => (
             avatar={
               <Avatar src={`https://xsgames.co/randomusers/avatar.php?g=pixel&key=${index}`} />
             }
-            title={<a href="https://ant.design">{item.title}</a>}
-            description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+            title={<a href='https://ant.design'>{item.title}</a>}
+            description='Ant Design, a design language for background applications, is refined by Ant UED Team'
           />
         </List.Item>
       )}
     />
-    <Divider orientation="left">Empty Text</Divider>
+    <Divider orientation='left'>Empty Text</Divider>
     <List />
   </ConfigProvider>
 );

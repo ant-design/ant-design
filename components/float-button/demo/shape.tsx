@@ -1,18 +1,18 @@
 import React from 'react';
-import { FloatButton } from 'antd';
 import { CustomerServiceOutlined } from '@ant-design/icons';
+import { FloatButton } from 'antd';
 
 const App: React.FC = () => (
   <>
     <FloatButton
-      shape="circle"
-      type="primary"
+      shape='circle'
+      type='primary'
       style={{ right: 94 }}
       icon={<CustomerServiceOutlined />}
     />
     <FloatButton
-      shape="square"
-      type="primary"
+      shape='square'
+      type='primary'
       style={{ right: 24 }}
       icon={<CustomerServiceOutlined />}
     />

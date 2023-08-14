@@ -5,7 +5,7 @@ demoTest('input');
 
 rootPropsTest(
   'input',
-  (Input, props) => <Input addonBefore="Bamboo" addonAfter="Light" {...props} />,
+  (Input, props) => <Input addonBefore='Bamboo' addonAfter='Light' {...props} />,
   {
     name: 'addon',
   },
@@ -13,4 +13,8 @@ rootPropsTest(
 
 rootPropsTest('input', (Input, props) => <Input.Password {...props} />, {
   name: 'password',
+});
+
+rootPropsTest('input', (Input, props) => <Input.TextArea {...props} />, {
+  name: 'textarea',
 });

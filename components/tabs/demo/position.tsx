@@ -1,6 +1,6 @@
+import React, { useState } from 'react';
 import type { RadioChangeEvent } from 'antd';
 import { Radio, Space, Tabs } from 'antd';
-import React, { useState } from 'react';
 
 type TabPosition = 'left' | 'right' | 'top' | 'bottom';
 
@@ -16,10 +16,10 @@ const App: React.FC = () => {
       <Space style={{ marginBottom: 24 }}>
         Tab position:
         <Radio.Group value={tabPosition} onChange={changeTabPosition}>
-          <Radio.Button value="top">top</Radio.Button>
-          <Radio.Button value="bottom">bottom</Radio.Button>
-          <Radio.Button value="left">left</Radio.Button>
-          <Radio.Button value="right">right</Radio.Button>
+          <Radio.Button value='top'>top</Radio.Button>
+          <Radio.Button value='bottom'>bottom</Radio.Button>
+          <Radio.Button value='left'>left</Radio.Button>
+          <Radio.Button value='right'>right</Radio.Button>
         </Radio.Group>
       </Space>
       <Tabs

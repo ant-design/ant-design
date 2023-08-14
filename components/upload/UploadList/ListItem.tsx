@@ -44,7 +44,7 @@ export interface ListItemProps {
   progress?: UploadListProgressProps;
 }
 
-const ListItem = React.forwardRef(
+const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
   (
     {
       prefixCls,
@@ -68,8 +68,8 @@ const ListItem = React.forwardRef(
       onPreview,
       onDownload,
       onClose,
-    }: ListItemProps,
-    ref: React.Ref<HTMLDivElement>,
+    },
+    ref,
   ) => {
     // Status: which will ignore `removed` status
     const { status } = file;
@@ -82,15 +82,12 @@ const ListItem = React.forwardRef(
 
     // Delay to show the progress bar
     const [showProgress, setShowProgress] = React.useState(false);
-    const progressRafRef = React.useRef<NodeJS.Timer | null>(null);
     React.useEffect(() => {
-      progressRafRef.current = setTimeout(() => {
+      const timer = setTimeout(() => {
         setShowProgress(true);
       }, 300);
       return () => {
-        if (progressRafRef.current) {
-          clearTimeout(progressRafRef.current);
-        }
+        clearTimeout(timer);
       };
     }, []);
 
@@ -98,8 +95,7 @@ const ListItem = React.forwardRef(
     let icon = <div className={`${prefixCls}-icon`}>{iconNode}</div>;
     if (listType === 'picture' || listType === 'picture-card' || listType === 'picture-circle') {
       if (mergedStatus === 'uploading' || (!file.thumbUrl && !file.url)) {
-        const uploadingClassName = classNames({
-          [`${prefixCls}-list-item-thumbnail`]: true,
+        const uploadingClassName = classNames(`${prefixCls}-list-item-thumbnail`, {
           [`${prefixCls}-list-item-file`]: mergedStatus !== 'uploading',
         });
         icon = <div className={uploadingClassName}>{iconNode}</div>;
@@ -114,8 +110,7 @@ const ListItem = React.forwardRef(
         ) : (
           iconNode
         );
-        const aClassName = classNames({
-          [`${prefixCls}-list-item-thumbnail`]: true,
+        const aClassName = classNames(`${prefixCls}-list-item-thumbnail`, {
           [`${prefixCls}-list-item-file`]: isImgUrl && !isImgUrl(file),
         });
         icon = (
@@ -123,8 +118,8 @@ const ListItem = React.forwardRef(
             className={aClassName}
             onClick={(e) => onPreview(file, e)}
             href={file.url || file.thumbUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            target='_blank'
+            rel='noopener noreferrer'
           >
             {thumbnail}
           </a>
@@ -163,7 +158,7 @@ const ListItem = React.forwardRef(
         : null;
     const downloadOrDelete = listType !== 'picture-card' && listType !== 'picture-circle' && (
       <span
-        key="download-delete"
+        key='download-delete'
         className={classNames(`${prefixCls}-list-item-actions`, {
           picture: listType === 'picture',
         })}
@@ -176,9 +171,9 @@ const ListItem = React.forwardRef(
     const fileName = file.url
       ? [
           <a
-            key="view"
-            target="_blank"
-            rel="noopener noreferrer"
+            key='view'
+            target='_blank'
+            rel='noopener noreferrer'
             className={listItemNameClass}
             title={file.name}
             {...linkProps}
@@ -191,7 +186,7 @@ const ListItem = React.forwardRef(
         ]
       : [
           <span
-            key="view"
+            key='view'
             className={listItemNameClass}
             onClick={(e) => onPreview(file, e)}
             title={file.name}
@@ -208,8 +203,8 @@ const ListItem = React.forwardRef(
     const previewIcon = showPreviewIcon ? (
       <a
         href={file.url || file.thumbUrl}
-        target="_blank"
-        rel="noopener noreferrer"
+        target='_blank'
+        rel='noopener noreferrer'
         style={file.url || file.thumbUrl ? undefined : previewStyle}
         onClick={(e) => onPreview(file, e)}
         title={locale.previewFile}
@@ -249,7 +244,7 @@ const ListItem = React.forwardRef(
                 'percent' in file ? (
                   <Progress
                     {...progressProps}
-                    type="line"
+                    type='line'
                     percent={file.percent}
                     aria-label={file['aria-label']}
                     aria-labelledby={file['aria-labelledby']}

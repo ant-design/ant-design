@@ -1,4 +1,4 @@
-import type { TriggerProps } from '@rc-component/trigger';
+import type { TriggerProps, TriggerRef } from '@rc-component/trigger';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import React from 'react';
@@ -16,9 +16,9 @@ function triggerProps(): TriggerProps {
 }
 
 jest.mock('@rc-component/trigger', () => {
-  const R = jest.requireActual('react');
+  const R: typeof React = jest.requireActual('react');
   const Trigger = jest.requireActual('@rc-component/trigger').default;
-  return R.forwardRef((props: any, ref: any) => {
+  return R.forwardRef<TriggerRef, TriggerProps>((props, ref) => {
     (global as any).triggerProps = props;
     return <Trigger {...props} ref={ref} />;
   });
@@ -80,7 +80,7 @@ describe('ConfigProvider.Popup', () => {
   describe('config popupOverflow', () => {
     it('Select', () => {
       render(
-        <ConfigProvider popupOverflow="scroll">
+        <ConfigProvider popupOverflow='scroll'>
           <Select open />
         </ConfigProvider>,
       );
@@ -90,7 +90,7 @@ describe('ConfigProvider.Popup', () => {
 
     it('TreeSelect', () => {
       render(
-        <ConfigProvider popupOverflow="scroll">
+        <ConfigProvider popupOverflow='scroll'>
           <TreeSelect open />
         </ConfigProvider>,
       );
@@ -100,7 +100,7 @@ describe('ConfigProvider.Popup', () => {
 
     it('Cascader', () => {
       render(
-        <ConfigProvider popupOverflow="scroll">
+        <ConfigProvider popupOverflow='scroll'>
           <Cascader open />
         </ConfigProvider>,
       );

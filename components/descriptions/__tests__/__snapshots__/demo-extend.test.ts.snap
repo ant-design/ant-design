@@ -139,6 +139,8 @@ exports[`renders components/descriptions/demo/basic.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/descriptions/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/descriptions/demo/border.tsx extend context correctly 1`] = `
 <div
   class="ant-descriptions ant-descriptions-bordered"
@@ -385,6 +387,12 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
 </div>
 `;
 
+exports[`renders components/descriptions/demo/border.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Descriptions] Sum of column \`span\` in a line not match \`column\` of Descriptions.",
+]
+`;
+
 exports[`renders components/descriptions/demo/component-token.tsx extend context correctly 1`] = `
 <div>
   <div
@@ -394,7 +402,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
@@ -414,7 +422,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -433,7 +441,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -523,7 +531,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
               colspan="1"
             >
               <span>
-                time
+                Time
               </span>
             </th>
             <td
@@ -720,7 +728,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
                 <span
                   class="ant-descriptions-item-label"
                 >
-                  time
+                  Time
                 </span>
                 <span
                   class="ant-descriptions-item-content"
@@ -806,181 +814,325 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
 </div>
 `;
 
-exports[`renders components/descriptions/demo/responsive.tsx extend context correctly 1`] = `
-<div>
+exports[`renders components/descriptions/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/descriptions/demo/jsx.tsx extend context correctly 1`] = `
+<div
+  class="ant-descriptions"
+>
   <div
-    class="ant-descriptions ant-descriptions-bordered"
+    class="ant-descriptions-header"
   >
     <div
-      class="ant-descriptions-header"
+      class="ant-descriptions-title"
     >
-      <div
-        class="ant-descriptions-title"
-      >
-        Responsive Descriptions
-      </div>
+      User Info
     </div>
-    <div
-      class="ant-descriptions-view"
-    >
-      <table>
-        <tbody>
-          <tr
-            class="ant-descriptions-row"
+  </div>
+  <div
+    class="ant-descriptions-view"
+  >
+    <table>
+      <tbody>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
           >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
+            <div
+              class="ant-descriptions-item-container"
             >
-              <span>
-                Product
+              <span
+                class="ant-descriptions-item-label"
+              >
+                UserName
               </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                Cloud Database
+              <span
+                class="ant-descriptions-item-content"
+              >
+                Zhou Maomao
               </span>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
           >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
+            <div
+              class="ant-descriptions-item-container"
             >
-              <span>
-                Billing
+              <span
+                class="ant-descriptions-item-label"
+              >
+                Telephone
               </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                Prepaid
+              <span
+                class="ant-descriptions-item-content"
+              >
+                1810000000
               </span>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
           >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
+            <div
+              class="ant-descriptions-item-container"
             >
-              <span>
-                time
+              <span
+                class="ant-descriptions-item-label"
+              >
+                Live
               </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                18:00:00
+              <span
+                class="ant-descriptions-item-content"
+              >
+                Hangzhou, Zhejiang
               </span>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
           >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
+            <div
+              class="ant-descriptions-item-container"
             >
-              <span>
-                Amount
+              <span
+                class="ant-descriptions-item-label"
+              >
+                Remark
               </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                $80.00
+              <span
+                class="ant-descriptions-item-content"
+              >
+                empty
               </span>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
           >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
+            <div
+              class="ant-descriptions-item-container"
             >
-              <span>
-                Discount
+              <span
+                class="ant-descriptions-item-label"
+              >
+                Address
               </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                $20.00
+              <span
+                class="ant-descriptions-item-content"
+              >
+                No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
               </span>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                Official
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                $60.00
-              </span>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                Config Info
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                Data disk type: MongoDB
-                <br />
-                Database version: 3.4
-                <br />
-                Package: dds.mongo.mid
-                <br />
-                Storage space: 10 GB
-                <br />
-                Replication factor: 3
-                <br />
-                Region: East China 1
-              </span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 `;
+
+exports[`renders components/descriptions/demo/jsx.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/descriptions/demo/responsive.tsx extend context correctly 1`] = `
+<div
+  class="ant-descriptions ant-descriptions-bordered"
+>
+  <div
+    class="ant-descriptions-header"
+  >
+    <div
+      class="ant-descriptions-title"
+    >
+      Responsive Descriptions
+    </div>
+  </div>
+  <div
+    class="ant-descriptions-view"
+  >
+    <table>
+      <tbody>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Product
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              Cloud Database
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Billing
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              Prepaid
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Time
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              18:00:00
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Amount
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              $80.00
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Discount
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              $20.00
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Official
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              $60.00
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Config Info
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              Data disk type: MongoDB
+              <br />
+              Database version: 3.4
+              <br />
+              Package: dds.mongo.mid
+              <br />
+              Storage space: 10 GB
+              <br />
+              Replication factor: 3
+              <br />
+              Region: East China 1
+              <br />
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`renders components/descriptions/demo/responsive.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/descriptions/demo/size.tsx extend context correctly 1`] = `
 <div>
@@ -991,7 +1143,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
@@ -1011,7 +1163,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -1030,7 +1182,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -1125,7 +1277,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
               colspan="1"
             >
               <span>
-                time
+                Time
               </span>
             </th>
             <td
@@ -1322,7 +1474,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
                 <span
                   class="ant-descriptions-item-label"
                 >
-                  time
+                  Time
                 </span>
                 <span
                   class="ant-descriptions-item-content"
@@ -1408,6 +1560,8 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/descriptions/demo/size.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/descriptions/demo/style.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -1445,7 +1599,7 @@ Array [
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
@@ -1465,7 +1619,7 @@ Array [
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -1661,6 +1815,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/descriptions/demo/style.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/descriptions/demo/text.tsx extend context correctly 1`] = `
 <div
@@ -2064,6 +2220,12 @@ exports[`renders components/descriptions/demo/text.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/descriptions/demo/text.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Descriptions] Sum of column \`span\` in a line not match \`column\` of Descriptions.",
+]
+`;
+
 exports[`renders components/descriptions/demo/vertical.tsx extend context correctly 1`] = `
 <div
   class="ant-descriptions"
@@ -2266,6 +2428,12 @@ exports[`renders components/descriptions/demo/vertical.tsx extend context correc
     </table>
   </div>
 </div>
+`;
+
+exports[`renders components/descriptions/demo/vertical.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Descriptions] Sum of column \`span\` in a line not match \`column\` of Descriptions.",
+]
 `;
 
 exports[`renders components/descriptions/demo/vertical-border.tsx extend context correctly 1`] = `
@@ -2552,4 +2720,10 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
     </table>
   </div>
 </div>
+`;
+
+exports[`renders components/descriptions/demo/vertical-border.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Descriptions] Sum of column \`span\` in a line not match \`column\` of Descriptions.",
+]
 `;

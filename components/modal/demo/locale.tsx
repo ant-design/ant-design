@@ -1,6 +1,6 @@
 import { ExclamationCircleOutlined } from '@ant-design/icons';
-import { Button, Modal, Space } from 'antd';
 import React, { useState } from 'react';
+import { Button, Modal, Space } from 'antd';
 
 const LocalizedModal = () => {
   const [open, setOpen] = useState(false);
@@ -15,16 +15,16 @@ const LocalizedModal = () => {
 
   return (
     <>
-      <Button type="primary" onClick={showModal}>
+      <Button type='primary' onClick={showModal}>
         Modal
       </Button>
       <Modal
-        title="Modal"
+        title='Modal'
         open={open}
         onOk={hideModal}
         onCancel={hideModal}
-        okText="确认"
-        cancelText="取消"
+        okText='确认'
+        cancelText='取消'
       >
         <p>Bla bla ...</p>
         <p>Bla bla ...</p>

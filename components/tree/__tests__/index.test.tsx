@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '../../../tests/utils';
-import Tree from '../index';
 import type { AntTreeNodeProps } from '../Tree';
+import Tree from '../index';
 
 const { TreeNode } = Tree;
 
@@ -9,23 +9,23 @@ describe('Tree', () => {
   it('icon and switcherIcon of Tree with showLine should render correctly', () => {
     const { asFragment } = render(
       <Tree showLine showIcon>
-        <TreeNode icon="icon" switcherIcon="switcherIcon" key="0-0">
-          <TreeNode icon="icon" switcherIcon="switcherIcon" key="0-0-0" />
-          <TreeNode switcherIcon="switcherIcon" key="0-0-1" />
-          <TreeNode icon="icon" key="0-0-2" />
-          <TreeNode key="0-0-3" />
+        <TreeNode icon='icon' switcherIcon='switcherIcon' key='0-0'>
+          <TreeNode icon='icon' switcherIcon='switcherIcon' key='0-0-0' />
+          <TreeNode switcherIcon='switcherIcon' key='0-0-1' />
+          <TreeNode icon='icon' key='0-0-2' />
+          <TreeNode key='0-0-3' />
         </TreeNode>
-        <TreeNode switcherIcon="switcherIcon" key="0-1">
-          <TreeNode icon="icon" switcherIcon="switcherIcon" key="0-0-0" />
-          <TreeNode switcherIcon="switcherIcon" key="0-0-1" />
-          <TreeNode icon="icon" key="0-0-2" />
-          <TreeNode key="0-0-3" />
+        <TreeNode switcherIcon='switcherIcon' key='0-1'>
+          <TreeNode icon='icon' switcherIcon='switcherIcon' key='0-0-0' />
+          <TreeNode switcherIcon='switcherIcon' key='0-0-1' />
+          <TreeNode icon='icon' key='0-0-2' />
+          <TreeNode key='0-0-3' />
         </TreeNode>
-        <TreeNode key="0-2">
-          <TreeNode icon="icon" switcherIcon="switcherIcon" key="0-0-0" />
-          <TreeNode switcherIcon="switcherIcon" key="0-0-1" />
-          <TreeNode icon="icon" key="0-0-2" />
-          <TreeNode key="0-0-3" />
+        <TreeNode key='0-2'>
+          <TreeNode icon='icon' switcherIcon='switcherIcon' key='0-0-0' />
+          <TreeNode switcherIcon='switcherIcon' key='0-0-1' />
+          <TreeNode icon='icon' key='0-0-2' />
+          <TreeNode key='0-0-3' />
         </TreeNode>
       </Tree>,
     );
@@ -34,10 +34,10 @@ describe('Tree', () => {
 
   it('switcherIcon in Tree should not render at leaf nodes', () => {
     const { container } = render(
-      <Tree switcherIcon={<i className="switcherIcon" />} defaultExpandAll>
-        <TreeNode icon="icon">
-          <TreeNode title="node1" icon="icon" key="0-0-2" />
-          <TreeNode title="node2" key="0-0-3" />
+      <Tree switcherIcon={<i className='switcherIcon' />} defaultExpandAll>
+        <TreeNode icon='icon'>
+          <TreeNode title='node1' icon='icon' key='0-0-2' />
+          <TreeNode title='node2' key='0-0-3' />
         </TreeNode>
       </Tree>,
     );
@@ -46,10 +46,10 @@ describe('Tree', () => {
 
   it('leaf nodes should render custom icons when provided', () => {
     const { container } = render(
-      <Tree showLine={{ showLeafIcon: <i className="customLeafIcon" /> }} defaultExpandAll>
-        <TreeNode icon="icon">
-          <TreeNode title="node1" icon="icon" key="0-0-2" />
-          <TreeNode title="node2" key="0-0-3" />
+      <Tree showLine={{ showLeafIcon: <i className='customLeafIcon' /> }} defaultExpandAll>
+        <TreeNode icon='icon'>
+          <TreeNode title='node1' icon='icon' key='0-0-2' />
+          <TreeNode title='node2' key='0-0-3' />
         </TreeNode>
       </Tree>,
     );
@@ -58,10 +58,10 @@ describe('Tree', () => {
 
   it('leaf nodes should render custom icons when provided as render function', () => {
     const { container } = render(
-      <Tree showLine={{ showLeafIcon: () => <i className="customLeafIcon" /> }} defaultExpandAll>
-        <TreeNode icon="icon">
-          <TreeNode title="node1" icon="icon" key="0-0-2" />
-          <TreeNode title="node2" key="0-0-3" />
+      <Tree showLine={{ showLeafIcon: () => <i className='customLeafIcon' /> }} defaultExpandAll>
+        <TreeNode icon='icon'>
+          <TreeNode title='node1' icon='icon' key='0-0-2' />
+          <TreeNode title='node2' key='0-0-3' />
         </TreeNode>
       </Tree>,
     );
@@ -72,9 +72,9 @@ describe('Tree', () => {
   it('leaf nodes should render custom icons when provided as string', async () => {
     render(
       <Tree showLine={{ showLeafIcon: 'customLeafIcon' }} defaultExpandAll>
-        <TreeNode icon="icon">
-          <TreeNode title="node1" icon="icon" key="0-0-2" />
-          <TreeNode title="node2" key="0-0-3" />
+        <TreeNode icon='icon'>
+          <TreeNode title='node1' icon='icon' key='0-0-2' />
+          <TreeNode title='node2' key='0-0-3' />
         </TreeNode>
       </Tree>,
     );
@@ -85,10 +85,10 @@ describe('Tree', () => {
 
   it('switcherIcon in Tree could be string', () => {
     const { asFragment } = render(
-      <Tree switcherIcon="switcherIcon" defaultExpandAll>
-        <TreeNode icon="icon">
-          <TreeNode title="node1" icon="icon" key="0-0-2" />
-          <TreeNode title="node2" key="0-0-3" />
+      <Tree switcherIcon='switcherIcon' defaultExpandAll>
+        <TreeNode icon='icon'>
+          <TreeNode title='node1' icon='icon' key='0-0-2' />
+          <TreeNode title='node2' key='0-0-3' />
         </TreeNode>
       </Tree>,
     );
@@ -103,10 +103,10 @@ describe('Tree', () => {
         }, 1000);
       });
     const { asFragment } = render(
-      <Tree switcherIcon="switcherIcon" defaultExpandAll loadData={onLoadData}>
-        <TreeNode icon="icon">
-          <TreeNode title="node1" icon="icon" key="0-0-2" />
-          <TreeNode title="node2" key="0-0-3" />
+      <Tree switcherIcon='switcherIcon' defaultExpandAll loadData={onLoadData}>
+        <TreeNode icon='icon'>
+          <TreeNode title='node1' icon='icon' key='0-0-2' />
+          <TreeNode title='node2' key='0-0-3' />
         </TreeNode>
       </Tree>,
     );
@@ -118,12 +118,12 @@ describe('Tree', () => {
       <Tree
         defaultExpandAll
         switcherIcon={({ expanded }: AntTreeNodeProps) =>
-          expanded ? <span className="open" /> : <span className="close" />
+          expanded ? <span className='open' /> : <span className='close' />
         }
       >
-        <TreeNode icon="icon">
-          <TreeNode title="node1" icon="icon" key="0-0-2" />
-          <TreeNode title="node2" key="0-0-3" />
+        <TreeNode icon='icon'>
+          <TreeNode title='node1' icon='icon' key='0-0-2' />
+          <TreeNode title='node2' key='0-0-3' />
         </TreeNode>
       </Tree>,
     );
@@ -134,18 +134,18 @@ describe('Tree', () => {
   it('showLine is object type should render correctly', () => {
     const { asFragment } = render(
       <Tree showLine={{ showLeafIcon: false }} defaultExpandedKeys={['0-0-0']}>
-        <TreeNode title="parent 1" key="0-0">
-          <TreeNode title="parent 1-0" key="0-0-0">
-            <TreeNode title="leaf" key="0-0-0-0" />
-            <TreeNode title="leaf" key="0-0-0-1" />
-            <TreeNode title="leaf" key="0-0-0-2" />
+        <TreeNode title='parent 1' key='0-0'>
+          <TreeNode title='parent 1-0' key='0-0-0'>
+            <TreeNode title='leaf' key='0-0-0-0' />
+            <TreeNode title='leaf' key='0-0-0-1' />
+            <TreeNode title='leaf' key='0-0-0-2' />
           </TreeNode>
-          <TreeNode title="parent 1-1" key="0-0-1">
-            <TreeNode title="leaf" key="0-0-1-0" />
+          <TreeNode title='parent 1-1' key='0-0-1'>
+            <TreeNode title='leaf' key='0-0-1-0' />
           </TreeNode>
-          <TreeNode title="parent 1-2" key="0-0-2">
-            <TreeNode title="leaf" key="0-0-2-0" />
-            <TreeNode title="leaf" key="0-0-2-1" />
+          <TreeNode title='parent 1-2' key='0-0-2'>
+            <TreeNode title='leaf' key='0-0-2-0' />
+            <TreeNode title='leaf' key='0-0-2-1' />
           </TreeNode>
         </TreeNode>
       </Tree>,
@@ -168,7 +168,7 @@ describe('Tree', () => {
 
     it('customize icon', () => {
       const { container } = render(
-        <Tree treeData={dragTreeData} draggable={{ icon: <span className="little" /> }} />,
+        <Tree treeData={dragTreeData} draggable={{ icon: <span className='little' /> }} />,
       );
       expect(container.querySelector('.little')).toBeTruthy();
     });
@@ -190,9 +190,9 @@ describe('Tree', () => {
     it('use `switcherIcon={() => null}`', () => {
       const { container } = render(
         <Tree defaultExpandAll switcherIcon={() => null}>
-          <TreeNode icon="icon">
-            <TreeNode title="node1" icon="icon" key="0-0-2" />
-            <TreeNode title="node2" key="0-0-3" />
+          <TreeNode icon='icon'>
+            <TreeNode title='node1' icon='icon' key='0-0-2' />
+            <TreeNode title='node2' key='0-0-3' />
           </TreeNode>
         </Tree>,
       );
@@ -203,9 +203,9 @@ describe('Tree', () => {
     it('use `switcherIcon={null}`', () => {
       const { container } = render(
         <Tree defaultExpandAll switcherIcon={null}>
-          <TreeNode icon="icon">
-            <TreeNode title="node1" icon="icon" key="0-0-2" />
-            <TreeNode title="node2" key="0-0-3" />
+          <TreeNode icon='icon'>
+            <TreeNode title='node1' icon='icon' key='0-0-2' />
+            <TreeNode title='node2' key='0-0-3' />
           </TreeNode>
         </Tree>,
       );

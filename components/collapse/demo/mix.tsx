@@ -1,6 +1,6 @@
+import React from 'react';
 import type { CollapseProps } from 'antd';
 import { Collapse } from 'antd';
-import React from 'react';
 
 const text = `
   A dog is a type of domesticated animal.
@@ -20,7 +20,7 @@ const items: CollapseProps['items'] = [
   {
     key: '1',
     label: 'This is panel header 1',
-    children: <Collapse defaultActiveKey="1" items={itemsNest} />,
+    children: <Collapse defaultActiveKey='1' items={itemsNest} />,
   },
   {
     key: '2',

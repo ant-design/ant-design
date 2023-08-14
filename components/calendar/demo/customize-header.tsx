@@ -15,7 +15,7 @@ const App: React.FC = () => {
     console.log(value.format('YYYY-MM-DD'), mode);
   };
 
-  const wrapperStyle = {
+  const wrapperStyle: React.CSSProperties = {
     width: 300,
     border: `1px solid ${token.colorBorderSecondary}`,
     borderRadius: token.borderRadiusLG,
@@ -40,7 +40,7 @@ const App: React.FC = () => {
 
           for (let i = start; i < end; i++) {
             monthOptions.push(
-              <Select.Option key={i} value={i} className="month-item">
+              <Select.Option key={i} value={i} className='month-item'>
                 {months[i]}
               </Select.Option>,
             );
@@ -51,7 +51,7 @@ const App: React.FC = () => {
           const options = [];
           for (let i = year - 10; i < year + 10; i += 1) {
             options.push(
-              <Select.Option key={i} value={i} className="year-item">
+              <Select.Option key={i} value={i} className='year-item'>
                 {i}
               </Select.Option>,
             );
@@ -62,19 +62,19 @@ const App: React.FC = () => {
               <Row gutter={8}>
                 <Col>
                   <Radio.Group
-                    size="small"
+                    size='small'
                     onChange={(e) => onTypeChange(e.target.value)}
                     value={type}
                   >
-                    <Radio.Button value="month">Month</Radio.Button>
-                    <Radio.Button value="year">Year</Radio.Button>
+                    <Radio.Button value='month'>Month</Radio.Button>
+                    <Radio.Button value='year'>Year</Radio.Button>
                   </Radio.Group>
                 </Col>
                 <Col>
                   <Select
-                    size="small"
+                    size='small'
                     dropdownMatchSelectWidth={false}
-                    className="my-year-select"
+                    className='my-year-select'
                     value={year}
                     onChange={(newYear) => {
                       const now = value.clone().year(newYear);
@@ -86,7 +86,7 @@ const App: React.FC = () => {
                 </Col>
                 <Col>
                   <Select
-                    size="small"
+                    size='small'
                     dropdownMatchSelectWidth={false}
                     value={month}
                     onChange={(newMonth) => {

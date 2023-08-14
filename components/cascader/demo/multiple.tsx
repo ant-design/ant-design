@@ -1,5 +1,5 @@
-import { Cascader } from 'antd';
 import React from 'react';
+import { Cascader } from 'antd';
 
 interface Option {
   value: string | number;
@@ -53,7 +53,7 @@ const App: React.FC = () => (
     options={options}
     onChange={onChange}
     multiple
-    maxTagCount="responsive"
+    maxTagCount='responsive'
   />
 );
 

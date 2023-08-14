@@ -3,24 +3,24 @@ import { Button, Form, Input } from 'antd';
 
 const App: React.FC = () => (
   <Form
-    name="wrap"
+    name='wrap'
     labelCol={{ flex: '110px' }}
-    labelAlign="left"
+    labelAlign='left'
     labelWrap
     wrapperCol={{ flex: 1 }}
     colon={false}
     style={{ maxWidth: 600 }}
   >
-    <Form.Item label="正常标签文案" name="username" rules={[{ required: true }]}>
+    <Form.Item label='Normal label' name='username' rules={[{ required: true }]}>
       <Input />
     </Form.Item>
 
-    <Form.Item label="超长标签文案超长标签文案" name="password" rules={[{ required: true }]}>
+    <Form.Item label='A super long label text' name='password' rules={[{ required: true }]}>
       <Input />
     </Form.Item>
 
-    <Form.Item label=" ">
-      <Button type="primary" htmlType="submit">
+    <Form.Item label=' '>
+      <Button type='primary' htmlType='submit'>
         Submit
       </Button>
     </Form.Item>

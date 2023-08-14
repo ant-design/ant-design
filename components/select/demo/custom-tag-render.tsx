@@ -1,6 +1,6 @@
 import React from 'react';
-import { Select, Tag } from 'antd';
 import type { CustomTagProps } from 'rc-select/lib/BaseSelect';
+import { Select, Tag } from 'antd';
 
 const options = [{ value: 'gold' }, { value: 'lime' }, { value: 'green' }, { value: 'cyan' }];
 
@@ -25,8 +25,7 @@ const tagRender = (props: CustomTagProps) => {
 
 const App: React.FC = () => (
   <Select
-    mode="multiple"
-    showArrow
+    mode='multiple'
     tagRender={tagRender}
     defaultValue={['gold', 'cyan']}
     style={{ width: '100%' }}

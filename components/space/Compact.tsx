@@ -30,8 +30,7 @@ export const useCompactItemContext = (prefixCls: string, direction: DirectionTyp
     const { compactDirection, isFirstItem, isLastItem } = compactItemContext;
     const separator = compactDirection === 'vertical' ? '-vertical-' : '-';
 
-    return classNames({
-      [`${prefixCls}-compact${separator}item`]: true,
+    return classNames(`${prefixCls}-compact${separator}item`, {
       [`${prefixCls}-compact${separator}first-item`]: isFirstItem,
       [`${prefixCls}-compact${separator}last-item`]: isLastItem,
       [`${prefixCls}-compact${separator}item-rtl`]: direction === 'rtl',
@@ -78,7 +77,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
     ...restProps
   } = props;
 
-  const mergedSize = useSize((ctx) => size ?? ctx ?? 'middle');
+  const mergedSize = useSize((ctx) => size ?? ctx);
 
   const prefixCls = getPrefixCls('space-compact', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);

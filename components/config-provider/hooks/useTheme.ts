@@ -12,7 +12,7 @@ export default function useTheme(
   const parentThemeConfig: ThemeConfig =
     themeConfig.inherit === false || !parentTheme ? defaultConfig : parentTheme;
 
-  const mergedTheme = useMemo<ThemeConfig | undefined>(
+  return useMemo<ThemeConfig | undefined>(
     () => {
       if (!theme) {
         return parentTheme;
@@ -50,6 +50,4 @@ export default function useTheme(
         return !isEqual(prevTheme, nextTheme, true);
       }),
   );
-
-  return mergedTheme;
 }

@@ -1,5 +1,5 @@
-import React from 'react';
 import { UploadOutlined } from '@ant-design/icons';
+import React from 'react';
 import type { UploadProps } from 'antd';
 import { Button, ConfigProvider, Upload } from 'antd';
 

@@ -1,5 +1,5 @@
-import React from 'react';
 import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
+import React from 'react';
 import InputNumber from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -15,7 +15,7 @@ describe('InputNumber', () => {
   // https://github.com/ant-design/ant-design/issues/13896
   it('should return null when blur a empty input number', () => {
     const onChange = jest.fn();
-    const { container } = render(<InputNumber defaultValue="1" onChange={onChange} />);
+    const { container } = render(<InputNumber defaultValue='1' onChange={onChange} />);
     fireEvent.change(container.querySelector('input')!, { target: { value: '' } });
     expect(onChange).toHaveBeenLastCalledWith(null);
   });
@@ -58,8 +58,8 @@ describe('InputNumber', () => {
     const { container } = render(
       <InputNumber
         controls={{
-          upIcon: <ArrowUpOutlined className="my-class-name" />,
-          downIcon: <ArrowDownOutlined className="my-class-name" />,
+          upIcon: <ArrowUpOutlined className='my-class-name' />,
+          downIcon: <ArrowDownOutlined className='my-class-name' />,
         }}
       />,
     );
@@ -78,7 +78,7 @@ describe('InputNumber', () => {
         <>
           <InputNumber min={1} max={10} value={value} onChange={(v) => setValue(v)} />
           <Button
-            type="primary"
+            type='primary'
             onClick={() => {
               setValue(99);
             }}

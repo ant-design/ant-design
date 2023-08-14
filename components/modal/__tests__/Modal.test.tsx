@@ -33,6 +33,13 @@ describe('Modal', () => {
     expect(document.body.querySelectorAll('.ant-modal-root')[0]).toMatchSnapshot();
   });
 
+  it('support hide close button when setting closeIcon to null or false', () => {
+    const { baseElement, rerender } = render(<Modal closeIcon={null} open />);
+    expect(baseElement.querySelector('.ant-modal-close')).toBeFalsy();
+    rerender(<Modal closeIcon={false} open />);
+    expect(baseElement.querySelector('.ant-modal-close')).toBeFalsy();
+  });
+
   it('render correctly', () => {
     const { asFragment } = render(<ModalTester />);
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -59,7 +66,7 @@ describe('Modal', () => {
   });
 
   it('danger type', () => {
-    render(<Modal okType="danger" okText="123" open />);
+    render(<Modal okType='danger' okText='123' open />);
     const btns = document.body.querySelectorAll('.ant-btn');
     expect(btns[btns.length - 1].classList.contains('ant-btn-dangerous')).toBeTruthy();
   });
@@ -70,7 +77,7 @@ describe('Modal', () => {
       const containerRef = React.useRef<HTMLDivElement>(null);
       return (
         <div ref={containerRef}>
-          <div id="trigger" onClick={() => setOpen(true)}>
+          <div id='trigger' onClick={() => setOpen(true)}>
             click me
           </div>
           <Modal open={open} getContainer={() => containerRef.current!} />
@@ -123,7 +130,7 @@ describe('Modal', () => {
   });
 
   it('should render custom footer', () => {
-    render(<Modal open footer={<div className="custom-footer">footer</div>} />);
+    render(<Modal open footer={<div className='custom-footer'>footer</div>} />);
     expect(document.querySelector('.custom-footer')).toBeTruthy();
   });
 });

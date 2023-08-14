@@ -2,8 +2,9 @@ import type { FC } from 'react';
 import React, { useEffect, useState } from 'react';
 import Input from '../../input';
 import type { Color } from '../color';
+import { toHexFormat } from '../color';
 import type { ColorPickerBaseProps } from '../interface';
-import { generateColor, toHexFormat } from '../util';
+import { generateColor } from '../util';
 
 interface ColorHexInputProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
   value?: Color;
@@ -37,9 +38,9 @@ const ColorHexInput: FC<ColorHexInputProps> = ({ prefixCls, value, onChange }) =
     <Input
       className={colorHexInputPrefixCls}
       value={hexValue?.toUpperCase()}
-      prefix="#"
+      prefix='#'
       onChange={handleHexChange}
-      size="small"
+      size='small'
     />
   );
 };

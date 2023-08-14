@@ -1,5 +1,5 @@
-import { ConfigProvider, message } from 'antd';
 import React from 'react';
+import { ConfigProvider, message } from 'antd';
 
 /** Test usage. Do not use in your production. */
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanel } = message;
@@ -16,7 +16,7 @@ export default () => (
         },
       }}
     >
-      <InternalPanel content="Hello World!" type="error" />
+      <InternalPanel content='Hello World!' type='error' />
     </ConfigProvider>
     <ConfigProvider
       theme={{
@@ -27,7 +27,7 @@ export default () => (
         },
       }}
     >
-      <InternalPanel content="Hello World!" type="error" />
+      <InternalPanel content='Hello World!' type='error' />
     </ConfigProvider>
   </>
 );

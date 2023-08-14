@@ -11,17 +11,17 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
+import { isStyleSupport } from '../../_util/styleChecker';
+import TransButton from '../../_util/transButton';
 import { ConfigContext } from '../../config-provider';
 import useLocale from '../../locale/useLocale';
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
-import { isStyleSupport } from '../../_util/styleChecker';
-import TransButton from '../../_util/transButton';
 import Editable from '../Editable';
-import useMergedConfig from '../hooks/useMergedConfig';
-import useUpdatedEffect from '../hooks/useUpdatedEffect';
 import type { TypographyProps } from '../Typography';
 import Typography from '../Typography';
+import useMergedConfig from '../hooks/useMergedConfig';
+import useUpdatedEffect from '../hooks/useUpdatedEffect';
 import Ellipsis from './Ellipsis';
 import EllipsisTooltip from './EllipsisTooltip';
 
@@ -193,7 +193,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   // ========================== Copyable ==========================
   const [enableCopy, copyConfig] = useMergedConfig<CopyConfig>(copyable);
   const [copied, setCopied] = React.useState(false);
-  const copyIdRef = React.useRef<number>();
+  const copyIdRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const copyOptions: Pick<CopyConfig, 'format'> = {};
   if (copyConfig.format) {
@@ -201,7 +201,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   }
 
   const cleanCopyId = () => {
-    window.clearTimeout(copyIdRef.current!);
+    if (copyIdRef.current) {
+      clearTimeout(copyIdRef.current);
+    }
   };
 
   const onCopyClick = (e?: React.MouseEvent<HTMLDivElement>) => {
@@ -214,7 +216,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
     // Trigger tips update
     cleanCopyId();
-    copyIdRef.current = window.setTimeout(() => {
+    copyIdRef.current = setTimeout(() => {
       setCopied(false);
     }, 3000);
 
@@ -413,7 +415,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
     return (
       <a
-        key="expand"
+        key='expand'
         className={`${prefixCls}-expand`}
         onClick={onExpandClick}
         aria-label={textLocale?.expand}
@@ -433,14 +435,14 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     const ariaLabel = typeof editTitle === 'string' ? editTitle : '';
 
     return triggerType.includes('icon') ? (
-      <Tooltip key="edit" title={tooltip === false ? '' : editTitle}>
+      <Tooltip key='edit' title={tooltip === false ? '' : editTitle}>
         <TransButton
           ref={editIconRef}
           className={`${prefixCls}-edit`}
           onClick={onEditClick}
           aria-label={ariaLabel}
         >
-          {icon || <EditOutlined role="button" />}
+          {icon || <EditOutlined role='button' />}
         </TransButton>
       </Tooltip>
     ) : null;
@@ -462,7 +464,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     const ariaLabel = typeof copyTitle === 'string' ? copyTitle : systemStr;
 
     return (
-      <Tooltip key="copy" title={copyTitle}>
+      <Tooltip key='copy' title={copyTitle}>
         <TransButton
           className={classNames(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
           onClick={onCopyClick}
@@ -484,7 +486,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   const renderEllipsis = (needEllipsis: boolean) => [
     needEllipsis && (
-      <span aria-hidden key="ellipsis">
+      <span aria-hidden key='ellipsis'>
         {ELLIPSIS_STR}
       </span>
     ),
@@ -537,7 +539,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
                 let renderNode: React.ReactNode = node;
                 if (node.length && needEllipsis && topAriaLabel) {
                   renderNode = (
-                    <span key="show-content" aria-hidden>
+                    <span key='show-content' aria-hidden>
                       {renderNode}
                     </span>
                   );

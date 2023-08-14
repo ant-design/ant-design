@@ -19,11 +19,12 @@ const App: React.FC = () => {
   const [modal, contextHolder] = Modal.useModal();
 
   return (
-    <ReachableContext.Provider value="Light">
+    <ReachableContext.Provider value='Light'>
       <Space>
         <Button
-          onClick={() => {
-            modal.confirm(config);
+          onClick={async () => {
+            const confirmed = await modal.confirm(config);
+            console.log('Confirmed: ', confirmed);
           }}
         >
           Confirm
@@ -36,14 +37,14 @@ const App: React.FC = () => {
           Warning
         </Button>
         <Button
-          onClick={() => {
+          onClick={async () => {
             modal.info(config);
           }}
         >
           Info
         </Button>
         <Button
-          onClick={() => {
+          onClick={async () => {
             modal.error(config);
           }}
         >
@@ -54,7 +55,7 @@ const App: React.FC = () => {
       {contextHolder}
 
       {/* Can not access this context since `contextHolder` is not in it */}
-      <UnreachableContext.Provider value="Bamboo" />
+      <UnreachableContext.Provider value='Bamboo' />
     </ReachableContext.Provider>
   );
 };

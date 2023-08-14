@@ -1,14 +1,14 @@
-import React from 'react';
 import type { SingleValueType } from 'rc-cascader/lib/Cascader';
+import React from 'react';
 import type { BaseOptionType, DefaultOptionType } from '..';
 import Cascader from '..';
 import excludeAllWarning from '../../../tests/shared/excludeWarning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import ConfigProvider from '../../config-provider';
 import { fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import ConfigProvider from '../../config-provider';
 
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
 
@@ -407,7 +407,7 @@ describe('Cascader', () => {
         ],
       },
     ];
-    const { container } = render(<Cascader options={customOptions} placement="topRight" />);
+    const { container } = render(<Cascader options={customOptions} placement='topRight' />);
     toggleOpen(container);
 
     // Inject in tests/__mocks__/rc-trigger.js
@@ -416,7 +416,7 @@ describe('Cascader', () => {
 
   it('popup correctly with defaultValue RTL', () => {
     const { asFragment } = render(
-      <ConfigProvider direction="rtl">
+      <ConfigProvider direction='rtl'>
         <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} open />
       </ConfigProvider>,
     );
@@ -460,12 +460,12 @@ describe('Cascader', () => {
     ];
     const onChange = jest.fn();
     const { container } = render(
-      <ConfigProvider direction="rtl">
+      <ConfigProvider direction='rtl'>
         <Cascader
           options={options2}
           defaultValue={['zhejiang', 'hangzhou']}
           onChange={onChange}
-          popupPlacement="bottomRight"
+          popupPlacement='bottomRight'
           open
         />
       </ConfigProvider>,
@@ -525,7 +525,7 @@ describe('Cascader', () => {
   });
 
   it('rtl should work well with placement', () => {
-    const { container } = render(<Cascader options={options} direction="rtl" />);
+    const { container } = render(<Cascader options={options} direction='rtl' />);
     toggleOpen(container);
 
     // Inject in tests/__mocks__/rc-trigger.js
@@ -534,7 +534,7 @@ describe('Cascader', () => {
 
   describe('legacy props', () => {
     it('popupPlacement', () => {
-      render(<Cascader open popupPlacement="bottomLeft" />);
+      render(<Cascader open popupPlacement='bottomLeft' />);
       // Inject in tests/__mocks__/rc-trigger.js
       expect((global as any).triggerProps.popupPlacement).toEqual('bottomLeft');
     });
@@ -543,7 +543,7 @@ describe('Cascader', () => {
       resetWarned();
 
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const { container } = render(<Cascader dropdownClassName="legacy" open />);
+      const { container } = render(<Cascader dropdownClassName='legacy' open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Cascader] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
       );
@@ -714,5 +714,18 @@ describe('Cascader', () => {
     expect(container.querySelectorAll('.ant-cascader-checkbox')).toHaveLength(4);
     fireEvent.click(container.querySelector('.ant-cascader-checkbox')!);
     expect(container.querySelectorAll('.ant-cascader-checkbox-checked')).toHaveLength(3);
+  });
+
+  it('deprecate showArrow', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<Cascader showArrow />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Cascader] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+    );
+    expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
+
+    errSpy.mockRestore();
   });
 });

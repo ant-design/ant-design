@@ -1,6 +1,6 @@
+import React, { useMemo, useState } from 'react';
 import { Col, ColorPicker, Row, Space } from 'antd';
 import type { Color, ColorPickerProps } from 'antd/es/color-picker';
-import React, { useMemo, useState } from 'react';
 
 export default () => {
   const [colorHex, setColorHex] = useState<Color | string>('#1677ff');
@@ -26,8 +26,8 @@ export default () => {
   );
 
   return (
-    <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
-      <Row align="middle">
+    <Space direction='vertical' size='middle' style={{ display: 'flex' }}>
+      <Row align='middle'>
         <Space>
           <Col>
             <ColorPicker
@@ -42,7 +42,7 @@ export default () => {
           </Col>
         </Space>
       </Row>
-      <Row align="middle">
+      <Row align='middle'>
         <Space>
           <Col>
             <ColorPicker
@@ -57,7 +57,7 @@ export default () => {
           </Col>
         </Space>
       </Row>
-      <Row align="middle">
+      <Row align='middle'>
         <Space>
           <Col>
             <ColorPicker

@@ -1,17 +1,14 @@
-import { css } from '@emotion/react';
+import { createStyles } from 'antd-style';
+import type { FC } from 'react';
+import React, { useEffect, useState } from 'react';
+import classNames from 'classnames';
 import { ColorPicker, Input, Space } from 'antd';
 import type { Color, ColorPickerProps } from 'antd/es/color-picker';
 import { generateColor } from 'antd/es/color-picker/util';
-import type { FC } from 'react';
-import React, { useEffect, useState } from 'react';
-import useSiteToken from '../../../../hooks/useSiteToken';
 import { PRESET_COLORS } from './colorUtil';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-
-  return {
-    color: css`
+const useStyle = createStyles(({ token, css }) => ({
+  color: css`
       width: ${token.controlHeightLG / 2}px;
       height: ${token.controlHeightLG / 2}px;
       border-radius: 100%;
@@ -19,7 +16,7 @@ const useStyle = () => {
       transition: all ${token.motionDurationFast};
       display: inline-block;
 
-      & > input[type="radio"] {
+      & > input[type='radio'] {
         width: 0;
         height: 0;
         opacity: 0;
@@ -30,12 +27,11 @@ const useStyle = () => {
       }
     `,
 
-    colorActive: css`
+  colorActive: css`
       box-shadow: 0 0 0 1px ${token.colorBgContainer},
         0 0 0 ${token.controlOutlineWidth * 2 + 1}px ${token.colorPrimary};
     `,
-  };
-};
+}));
 
 const DebouncedColorPicker: FC<ColorPickerProps> = ({ value: color, onChange, children }) => {
   const [value, setValue] = useState(color);
@@ -73,7 +69,7 @@ export interface RadiusPickerProps {
 }
 
 export default function ThemeColorPicker({ value, onChange }: RadiusPickerProps) {
-  const style = useStyle();
+  const { styles } = useStyle();
 
   const matchColors = React.useMemo(() => {
     const valueStr = generateColor(value).toRgbString();
@@ -102,7 +98,7 @@ export default function ThemeColorPicker({ value, onChange }: RadiusPickerProps)
   }, [value]);
 
   return (
-    <Space size="large">
+    <Space size='large'>
       <Input
         value={typeof value === 'string' ? value : value.toHexString()}
         onChange={(event) => {
@@ -111,13 +107,13 @@ export default function ThemeColorPicker({ value, onChange }: RadiusPickerProps)
         style={{ width: 120 }}
       />
 
-      <Space size="middle">
+      <Space size='middle'>
         {matchColors.map(({ color, active, picker }) => {
           let colorNode = (
             // eslint-disable-next-line jsx-a11y/label-has-associated-control
             <label
               key={color}
-              css={[style.color, active && style.colorActive]}
+              className={classNames(styles.color, active && styles.colorActive)}
               style={{
                 background: color,
               }}
@@ -128,7 +124,7 @@ export default function ThemeColorPicker({ value, onChange }: RadiusPickerProps)
               }}
             >
               <input
-                type="radio"
+                type='radio'
                 name={picker ? 'picker' : 'color'}
                 tabIndex={picker ? -1 : 0}
                 onClick={(e) => e.stopPropagation()}
@@ -138,7 +134,11 @@ export default function ThemeColorPicker({ value, onChange }: RadiusPickerProps)
 
           if (picker) {
             colorNode = (
-              <DebouncedColorPicker value={value || ''} onChange={onChange}>
+              <DebouncedColorPicker
+                key={`colorpicker-${value}`}
+                value={value || ''}
+                onChange={onChange}
+              >
                 {colorNode}
               </DebouncedColorPicker>
             );

@@ -80,6 +80,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     addonAfter,
     addonBefore,
     className,
+    style,
+    styles,
     rootClassName,
     onChange,
     classNames: classes,
@@ -97,7 +99,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   // ===================== Size =====================
-  const mergedSize = useSize((ctx) => compactSize ?? customSize ?? ctx);
+  const mergedSize = useSize((ctx) => customSize ?? compactSize ?? ctx);
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
@@ -163,9 +165,11 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       disabled={mergedDisabled}
       onBlur={handleBlur}
       onFocus={handleFocus}
+      style={{ ...input?.style, ...style }}
+      styles={{ ...input?.styles, ...styles }}
       suffix={suffixNode}
       allowClear={mergedAllowClear}
-      className={classNames(className, rootClassName, compactItemClassnames)}
+      className={classNames(className, rootClassName, compactItemClassnames, input?.className)}
       onChange={handleChange}
       addonAfter={
         addonAfter && (
@@ -187,6 +191,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       }
       classNames={{
         ...classes,
+        ...input?.classNames,
         input: classNames(
           {
             [`${prefixCls}-sm`]: mergedSize === 'small',
@@ -196,6 +201,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           },
           !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
           classes?.input,
+          input?.classNames?.input,
           hashId,
         ),
       }}

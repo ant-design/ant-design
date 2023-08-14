@@ -1,6 +1,6 @@
+import React, { useState } from 'react';
 import { ConfigProvider, FloatButton, Slider } from 'antd';
 import type { AliasToken } from 'antd/es/theme/interface';
-import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [radius, setRadius] = useState<number>(0);
@@ -13,7 +13,7 @@ const App: React.FC = () => {
     <>
       <Slider min={0} max={20} style={{ margin: 16 }} onChange={setRadius} />
       <ConfigProvider theme={{ token }}>
-        <FloatButton shape="square" badge={{ dot: true }} />
+        <FloatButton shape='square' badge={{ dot: true }} />
       </ConfigProvider>
     </>
   );

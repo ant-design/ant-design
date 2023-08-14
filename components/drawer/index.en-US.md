@@ -38,6 +38,8 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 **🚨 Note:** v5 use `rootClassName` & `rootStyle` to config wrapper style instead of `className` & `style` in v4 to align the API with Modal.
 
 | Props | Description | Type | Default | Version |
@@ -46,8 +48,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | afterOpenChange | Callback after the animation ends when switching drawers | function(open) | - |  |
 | bodyStyle | Style of the drawer content part | CSSProperties | - |  |
 | className | Config Drawer Panel className. Use `rootClassName` if want to config top dom style | string | - |  |
-| closable | Whether a close (x) button is visible on top left of the Drawer dialog or not | boolean | true |  |
-| closeIcon | Custom close icon | ReactNode | &lt;CloseOutlined /> |  |
+| closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | boolean \| ReactNode | &lt;CloseOutlined /> |  |
 | contentWrapperStyle | Style of the drawer wrapper of content part | CSSProperties | - |  |
 | destroyOnClose | Whether to unmount child components on closing drawer or not | boolean | false |  |
 | extra | Extra actions area at corner | ReactNode | - | 4.17.0 |
@@ -63,7 +64,6 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | maskStyle | Style for Drawer's mask element | CSSProperties | {} |  |
 | placement | The placement of the Drawer | `top` \| `right` \| `bottom` \| `left` | `right` |  |
 | push | Nested drawers push behavior | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
-| rootClassName | The class name of the container of the Drawer dialog | string | - |  |
 | rootStyle | Style of wrapper element which **contains mask** compare to `style` | CSSProperties | - |  |
 | style | Style of Drawer panel. Use `bodyStyle` if want to config body only | CSSProperties | - |  |
 | size | preset size of drawer, default `378px` and large `736px` | 'default' \| 'large' | 'default' | 4.17.0 |

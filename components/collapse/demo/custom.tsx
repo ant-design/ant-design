@@ -1,8 +1,8 @@
 import { CaretRightOutlined } from '@ant-design/icons';
-import type { CollapseProps } from 'antd';
-import { Collapse, theme } from 'antd';
 import type { CSSProperties } from 'react';
 import React from 'react';
+import type { CollapseProps } from 'antd';
+import { Collapse, theme } from 'antd';
 
 const text = `
   A dog is a type of domesticated animal.
@@ -34,7 +34,7 @@ const getItems: (panelStyle: CSSProperties) => CollapseProps['items'] = (panelSt
 const App: React.FC = () => {
   const { token } = theme.useToken();
 
-  const panelStyle = {
+  const panelStyle: React.CSSProperties = {
     marginBottom: 24,
     background: token.colorFillAlter,
     borderRadius: token.borderRadiusLG,

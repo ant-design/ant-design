@@ -1,5 +1,5 @@
-import { Button, Skeleton, Space } from 'antd';
 import React, { useState } from 'react';
+import { Button, Skeleton, Space } from 'antd';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -12,7 +12,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Space direction="vertical" style={{ width: '100%' }} size={16}>
+    <Space direction='vertical' style={{ width: '100%' }} size={16}>
       <Skeleton loading={loading}>
         <h4 style={{ marginBottom: 16 }}>Ant Design, a design language</h4>
         <p>

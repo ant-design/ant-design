@@ -72,7 +72,7 @@ describe('Breadcrumb', () => {
       render(
         <Breadcrumb>
           <Breadcrumb.Item overlay={<div>menu</div>}>
-            <a href="">General</a>
+            <a href=''>General</a>
           </Breadcrumb.Item>
         </Breadcrumb>,
       );
@@ -127,7 +127,7 @@ describe('Breadcrumb', () => {
       {
         key: '1',
         label: (
-          <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+          <a target='_blank' rel='noopener noreferrer' href='http://www.alipay.com/'>
             General
           </a>
         ),
@@ -138,7 +138,7 @@ describe('Breadcrumb', () => {
         items={[
           {
             menu: { items: menuItems },
-            title: <a href="">General</a>,
+            title: <a href=''>General</a>,
           },
         ]}
       />,
@@ -181,11 +181,11 @@ describe('Breadcrumb', () => {
   // https://github.com/ant-design/ant-design/issues/18260
   it('filter React.Fragment', () => {
     const { asFragment } = render(
-      <Breadcrumb separator="">
+      <Breadcrumb separator=''>
         <Breadcrumb.Item>Location</Breadcrumb.Item>
         <Breadcrumb.Separator>:</Breadcrumb.Separator>
         <>
-          <Breadcrumb.Item href="">Application Center</Breadcrumb.Item>
+          <Breadcrumb.Item href=''>Application Center</Breadcrumb.Item>
           <Breadcrumb.Separator />
         </>
       </Breadcrumb>,
@@ -251,7 +251,7 @@ describe('Breadcrumb', () => {
               title: 'yyy',
             },
           ]}
-          data-custom="custom"
+          data-custom='custom'
         />
       ) as React.ReactElement<any, string | React.JSXElementConstructor<any>>,
     );
@@ -361,5 +361,42 @@ describe('Breadcrumb', () => {
 
   it('Breadcrumb.Item menu type', () => {
     expect(<Breadcrumb.Item menu={{ selectable: true }} />).toBeTruthy();
+  });
+
+  it('dropdownProps in items should be worked', () => {
+    render(
+      <Breadcrumb
+        items={[
+          {
+            title: 'test',
+            menu: {
+              items: [
+                {
+                  key: '1',
+                  label: 'label',
+                },
+              ],
+            },
+            dropdownProps: { open: true },
+          },
+        ]}
+      />,
+    );
+    expect(document.querySelector('.ant-dropdown')).toBeTruthy();
+  });
+
+  it('Breadcrumb params type test', () => {
+    interface Params {
+      key1?: number;
+      key2?: string;
+    }
+    expect(
+      <Breadcrumb<Params>
+        params={{
+          key1: 1,
+          key2: 'test',
+        }}
+      />,
+    ).toBeTruthy();
   });
 });

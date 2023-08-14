@@ -5,7 +5,7 @@ import { resetWarned } from 'rc-util/lib/warning';
 import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFor, act, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
 import Base from '../Base';
 import Link from '../Link';
 import Paragraph from '../Paragraph';
@@ -108,7 +108,7 @@ describe('Typography', () => {
           jest.useFakeTimers();
           const onCopy = jest.fn();
           const { container, unmount } = render(
-            <Base component="p" copyable={{ text, onCopy, icon, tooltips, format }}>
+            <Base component='p' copyable={{ text, onCopy, icon, tooltips, format }}>
               test copy
             </Base>,
           );
@@ -209,11 +209,11 @@ describe('Typography', () => {
       );
       copyTest('customize copy icon with one', 'bamboo', 'bamboo', <SmileOutlined />);
       copyTest('customize copy icon by pass array', 'bamboo', 'bamboo', [
-        <SmileOutlined key="copy-icon" />,
+        <SmileOutlined key='copy-icon' />,
       ]);
       copyTest('customize copy icon and copied icon ', 'bamboo', 'bamboo', [
-        <SmileOutlined key="copy-icon" />,
-        <LikeOutlined key="copied-icon" />,
+        <SmileOutlined key='copy-icon' />,
+        <LikeOutlined key='copied-icon' />,
       ]);
       copyTest('customize copy show tooltips', 'bamboo', 'bamboo', undefined, true);
       copyTest('customize copy hide tooltips', 'bamboo', 'bamboo', undefined, false);
@@ -251,7 +251,7 @@ describe('Typography', () => {
           const onChange = jest.fn();
 
           const className = 'test';
-          const style = { padding: 'unset' };
+          const style: React.CSSProperties = { padding: 'unset' };
 
           const { container: wrapper } = render(
             <Paragraph

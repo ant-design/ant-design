@@ -1,15 +1,15 @@
 import React from 'react';
-import { Avatar, Segmented, Space } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
+import { Avatar, Segmented, Space } from 'antd';
 
 const App: React.FC = () => (
-  <Space direction="vertical">
+  <Space direction='vertical'>
     <Segmented
       options={[
         {
           label: (
             <div style={{ padding: 4 }}>
-              <Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />
+              <Avatar src='https://xsgames.co/randomusers/avatar.php?g=pixel' />
               <div>User 1</div>
             </div>
           ),

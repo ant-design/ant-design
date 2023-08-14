@@ -2,7 +2,7 @@
 import React from 'react';
 import Upload from '..';
 import mountTest from '../../../tests/shared/mountTest';
-import { fireEvent, render, waitFor, act } from '../../../tests/utils';
+import { act, fireEvent, render, waitFor } from '../../../tests/utils';
 import { setup, teardown } from './mock';
 
 describe('Upload.Dragger', () => {
@@ -14,7 +14,7 @@ describe('Upload.Dragger', () => {
   it('support drag file with over style', async () => {
     jest.useFakeTimers();
     const { container: wrapper } = render(
-      <Upload.Dragger action="http://upload.com">
+      <Upload.Dragger action='http://upload.com'>
         <div />
       </Upload.Dragger>,
     );

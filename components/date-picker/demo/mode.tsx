@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import type { Dayjs } from 'dayjs';
 import type { DatePickerProps } from 'antd';
 import { DatePicker, Space } from 'antd';
 import type { RangePickerProps } from 'antd/es/date-picker';
-import type { Dayjs } from 'dayjs';
 
 const { RangePicker } = DatePicker;
 
@@ -46,7 +46,7 @@ const ControlledRangePicker = () => {
   return (
     <RangePicker
       placeholder={['Start month', 'End month']}
-      format="YYYY-MM"
+      format='YYYY-MM'
       value={value}
       mode={mode}
       onChange={setValue}
@@ -56,7 +56,7 @@ const ControlledRangePicker = () => {
 };
 
 const App: React.FC = () => (
-  <Space direction="vertical" size={12}>
+  <Space direction='vertical' size={12}>
     <ControlledDatePicker />
     <ControlledRangePicker />
   </Space>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Alert from '.';
+import Alert from './Alert';
 
 interface ErrorBoundaryProps {
   message?: React.ReactNode;
@@ -35,7 +35,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
     if (error) {
       return (
         <Alert
-          type="error"
+          type='error'
           message={errorMessage}
           description={
             <pre style={{ fontSize: '0.9em', overflowX: 'auto' }}>{errorDescription}</pre>

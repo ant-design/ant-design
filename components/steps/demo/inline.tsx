@@ -1,6 +1,6 @@
+import React from 'react';
 import type { StepsProps } from 'antd';
 import { Avatar, List, Steps } from 'antd';
-import React from 'react';
 
 const data = [
   {
@@ -40,7 +40,7 @@ const items = [
 const App: React.FC = () => (
   <div>
     <List
-      itemLayout="horizontal"
+      itemLayout='horizontal'
       dataSource={data}
       renderItem={(item, index) => (
         <List.Item>
@@ -48,12 +48,12 @@ const App: React.FC = () => (
             avatar={
               <Avatar src={`https://xsgames.co/randomusers/avatar.php?g=pixel&key=${index}`} />
             }
-            title={<a href="https://ant.design">{item.title}</a>}
-            description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+            title={<a href='https://ant.design'>{item.title}</a>}
+            description='Ant Design, a design language for background applications, is refined by Ant UED Team'
           />
           <Steps
             style={{ marginTop: 8 }}
-            type="inline"
+            type='inline'
             current={item.current}
             status={item.status as StepsProps['status']}
             items={items}

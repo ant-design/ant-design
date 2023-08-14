@@ -1,7 +1,7 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import Form from '..';
-import { render, fireEvent, waitFakeTimer } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Input from '../../input';
 import type { FormListOperation } from '../FormList';
 
@@ -13,7 +13,7 @@ describe('Form.List.NoStyle', () => {
 
     const { container } = render(
       <Form>
-        <Form.List name="users">
+        <Form.List name='users'>
           {(fields, op) => {
             operation = op;
             return fields.map((field) => (
