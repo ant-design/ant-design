@@ -7,9 +7,25 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   // Component token here
+  /**
+   * @desc 折叠面板头部内边距
+   * @descEN Padding of header
+   */
   headerPadding: CSSProperties['padding'];
+  /**
+   * @desc 折叠面板头部背景
+   * @descEN Background of header
+   */
   headerBg: string;
+  /**
+   * @desc 折叠面板内容内部编辑
+   * @descEN Padding of content
+   */
   contentPadding: CSSProperties['padding'];
+  /**
+   * @desc 折叠面板内容背景
+   * @descEN Background of content
+   */
   contentBg: string;
 }
 
