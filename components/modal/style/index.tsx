@@ -105,6 +105,11 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
           overflow: 'auto',
           outline: 0,
           WebkitOverflowScrolling: 'touch',
+
+          [`&:has(${componentCls}${antCls}-zoom-enter), &:has(${componentCls}${antCls}-zoom-appear)`]:
+            {
+              pointerEvents: 'none',
+            },
         },
       },
     },
