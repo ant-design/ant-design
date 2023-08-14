@@ -24,7 +24,7 @@ const Countdown: React.FC<CountdownProps> = (props) => {
 
   const forceUpdate = useForceUpdate();
 
-  const countdown = React.useRef<NodeJS.Timer | null>(null);
+  const countdown = React.useRef<NodeJS.Timeout | null>(null);
 
   const stopTimer = () => {
     onFinish?.();

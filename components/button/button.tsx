@@ -145,7 +145,7 @@ const InternalButton: React.ForwardRefRenderFunction<
   const needInserted = Children.count(children) === 1 && !icon && !isUnBorderedButtonType(type);
 
   useEffect(() => {
-    let delayTimer: NodeJS.Timer | null = null;
+    let delayTimer: NodeJS.Timeout | null = null;
     if (loadingOrDelay.delay > 0) {
       delayTimer = setTimeout(() => {
         delayTimer = null;
