@@ -134,6 +134,8 @@ describe('Table.filter', () => {
   });
 
   it('renders empty menu correctly', () => {
+    resetWarned();
+
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       createTable({
@@ -1470,7 +1472,7 @@ describe('Table.filter', () => {
   });
 
   it('filtered should work after change', () => {
-    const App = () => {
+    const App: React.FC = () => {
       const [filtered, setFiltered] = React.useState(true);
       const columns = [
         {

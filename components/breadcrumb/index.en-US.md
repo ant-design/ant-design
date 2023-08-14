@@ -46,6 +46,8 @@ return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Breadcrumb
 
 | Property | Description | Type | Default | Version |

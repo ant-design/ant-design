@@ -12,9 +12,16 @@ import {
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
+  /**
+   * @desc 标题上间距
+   * @descEN Margin top of title
+   */
   titleMarginTop: number | string;
+  /**
+   * @desc 标题下间距
+   * @descEN Margin bottom of title
+   */
   titleMarginBottom: number | string;
-  fontWeightStrong: number;
 }
 
 export type TypographyToken = FullToken<'Typography'>;
@@ -126,9 +133,8 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
 export default genComponentStyleHook(
   'Typography',
   (token) => [genTypographyStyle(token)],
-  (token) => ({
+  () => ({
     titleMarginTop: '1.2em',
     titleMarginBottom: '0.5em',
-    fontWeightStrong: token.fontWeightStrong,
   }),
 );

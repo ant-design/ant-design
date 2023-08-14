@@ -20,6 +20,12 @@ const getHashUrl = () => `Anchor-API-${idCounter++}`;
 
 jest.mock('scroll-into-view-if-needed', () => jest.fn());
 
+Object.defineProperty(window, 'location', {
+  value: {
+    replace: jest.fn(),
+  },
+});
+
 describe('Anchor Render', () => {
   const getBoundingClientRectMock = jest.spyOn(
     HTMLHeadingElement.prototype,
@@ -344,6 +350,17 @@ describe('Anchor Render', () => {
     expect(link).toEqual({ href, title });
   });
 
+  it('replaces item href in browser history', () => {
+    const hash = getHashUrl();
+
+    const href = `#${hash}`;
+    const title = hash;
+    const { container } = render(<Anchor replace items={[{ key: hash, href, title }]} />);
+
+    fireEvent.click(container.querySelector(`a[href="${href}"]`)!);
+    expect(window.location.replace).toHaveBeenCalledWith(href);
+  });
+
   it('onChange event', () => {
     const hash1 = getHashUrl();
     const hash2 = getHashUrl();
@@ -543,9 +560,12 @@ describe('Anchor Render', () => {
         { legacyRoot: true },
       );
 
-      expect(onChange).toHaveBeenCalledTimes(1);
-      fireEvent.click(container.querySelector(`a[href="#${hash2}"]`)!);
+      // Should be 2 times:
+      // 1. ''
+      // 2. hash1 (Since `getCurrentAnchor` still return same hash)
       expect(onChange).toHaveBeenCalledTimes(2);
+      fireEvent.click(container.querySelector(`a[href="#${hash2}"]`)!);
+      expect(onChange).toHaveBeenCalledTimes(3);
       expect(onChange).toHaveBeenLastCalledWith(`#${hash2}`);
     });
 
@@ -596,6 +616,22 @@ describe('Anchor Render', () => {
         );
         fireEvent.scroll(window || document);
       }).not.toThrow();
+    });
+
+    it('should repeat trigger when scrolling', () => {
+      const getCurrentAnchor = jest.fn();
+      render(
+        <Anchor
+          getCurrentAnchor={getCurrentAnchor}
+          items={[{ key: 'test', href: null as unknown as string, title: 'test' }]}
+        />,
+      );
+
+      for (let i = 0; i < 100; i += 1) {
+        getCurrentAnchor.mockReset();
+        fireEvent.scroll(window || document);
+        expect(getCurrentAnchor).toHaveBeenCalled();
+      }
     });
   });
 

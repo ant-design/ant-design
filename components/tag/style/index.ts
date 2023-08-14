@@ -6,7 +6,15 @@ import type { FullToken } from '../../theme/internal';
 import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
+  /**
+   * @desc 默认背景色
+   * @descEN Default background color
+   */
   defaultBg: string;
+  /**
+   * @desc 默认文字颜色
+   * @descEN Default text color
+   */
   defaultColor: string;
 }
 
@@ -80,6 +88,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       opacity: 1,
       transition: `all ${token.motionDurationMid}`,
       textAlign: 'start',
+      position: 'relative',
 
       // RTL
       [`&${componentCls}-rtl`]: {

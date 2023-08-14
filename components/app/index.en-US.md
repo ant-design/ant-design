@@ -6,18 +6,21 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HJz8SZos2wgAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*oC92TK44Ex8AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
+tag: New
 ---
 
-New App Component which provide global style & static function replacement.
+Application wrapper for some global usages.
 
 ## When To Use
 
-Static function in React 18 concurrent mode will not well support. In v5, we recommend to use hooks for the static replacement. But it will make user manual work on define this.
+- Provide reset styles based on `.ant-app` element.
+- You could use static methods of `message/notification/Modal` form `useApp` without writing `contextHolder` manually.
 
 ## Examples
 
 <!-- prettier-ignore -->
-<code src="./demo/basic.tsx">basic</code>
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/config.tsx">Hooks config</code>
 
 ## How to use
 
@@ -94,7 +97,7 @@ export default () => {
   return null;
 };
 
-export { message, notification, modal };
+export { message, modal, notification };
 ```
 
 ```tsx
@@ -119,6 +122,8 @@ export default () => {
 ```
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### App
 

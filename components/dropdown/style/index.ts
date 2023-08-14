@@ -14,6 +14,10 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genStatusStyle from './status';
 
 export interface ComponentToken {
+  /**
+   * @desc 下拉菜单 z-index
+   * @descEN z-index of dropdown
+   */
   zIndexPopup: number;
 }
 

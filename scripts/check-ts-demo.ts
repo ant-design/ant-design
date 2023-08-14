@@ -1,9 +1,9 @@
 /* eslint-disable no-await-in-loop, no-console */
-import chalk from 'chalk';
 import { spawn } from 'child_process';
+import path from 'path';
+import chalk from 'chalk';
 import fs from 'fs-extra';
 import { globSync } from 'glob';
-import path from 'path';
 
 (async () => {
   console.time('Execution...');

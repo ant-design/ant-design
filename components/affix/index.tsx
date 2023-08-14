@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import omit from 'rc-util/lib/omit';
@@ -69,7 +71,7 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
 
   private fixedNodeRef = createRef<HTMLDivElement>();
 
-  private timer: NodeJS.Timeout | null;
+  private timer: ReturnType<typeof setTimeout> | null;
 
   context: ConfigConsumerProps;
 

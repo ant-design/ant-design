@@ -16,7 +16,7 @@ const Text: React.ForwardRefRenderFunction<HTMLSpanElement, TextProps> = (
 ) => {
   const mergedEllipsis = React.useMemo(() => {
     if (ellipsis && typeof ellipsis === 'object') {
-      return omit(ellipsis as any, ['expandable', 'rows']);
+      return omit(ellipsis as EllipsisConfig, ['expandable', 'rows']);
     }
 
     return ellipsis;
