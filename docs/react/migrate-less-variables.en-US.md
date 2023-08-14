@@ -216,7 +216,17 @@ export default App;
 | `@checkbox-border-radius` | `borderRadiusSM` | - |
 | `@checkbox-group-item-margin-right` | - | Deprecated for style change |
 
-<!-- ### Collapse -->
+### Collapse
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@collapse-header-padding` | `headerPadding` | - |
+| `@collapse-header-padding-extra` | - | Depreacated |
+| `@collapse-header-bg` | `headerBg` | - |
+| `@collapse-content-padding` | `contentPadding` | - |
+| `@collapse-content-bg` | `contentBg` | - |
+| `@collapse-header-arrow-left` | - | Deprecated |
 
 ### Descriptions
 
