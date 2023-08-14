@@ -106,6 +106,7 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
           outline: 0,
           WebkitOverflowScrolling: 'touch',
 
+          // Note: Firefox not support `:has` yet
           [`&:has(${componentCls}${antCls}-zoom-enter), &:has(${componentCls}${antCls}-zoom-appear)`]:
             {
               pointerEvents: 'none',
