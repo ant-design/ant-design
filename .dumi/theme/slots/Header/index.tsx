@@ -139,7 +139,7 @@ const Header: React.FC = () => {
     searching: false,
   });
   const { direction, isMobile, updateSiteConfig } = useContext<SiteContextProps>(SiteContext);
-  const pingTimer = useRef<NodeJS.Timeout | null>(null);
+  const pingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const { pathname, search } = location;
 
