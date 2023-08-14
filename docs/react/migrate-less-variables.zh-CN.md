@@ -14,8 +14,8 @@ title: 从 Less 变量到 Design Token
 通过 ConfigProvider 的 `theme` 属性，我们可以对每一个组件单独配置全局 Token 和组件 Token
 
 ```tsx
-import React from 'react';
 import { Checkbox, ConfigProvider, Radio } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -73,7 +73,21 @@ export default App;
 | `@avatar-group-space` | `groupSpace` | - |
 | `@avatar-group-border-color` | `colorBorderBg` | 全局 Token |
 
-<!-- ### Badge 徽标数 -->
+### Badge 徽标数
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@zindex-badge` | `indicatorZIndex` | - |
+| `@badge-height` | `indicatorHeight` | - |
+| `@badge-height-sm` | `indicatorHeightSM` | - |
+| `@badge-dot-size` | `dotSize` | - |
+| `@badge-font-size` | `textFontSize` | - |
+| `@badge-font-size-sm` | `textFontSizeSM` | - |
+| `@badge-font-weight` | `textFontWeight` | - |
+| `@badge-status-size` | `statusSize` | - |
+| `@badge-text-color` | `colorBgContainer` | 全局 Token |
+| `@badge-color` | `colorError` | 全局 Token |
 
 ### BreadCrumb 面包屑
 
