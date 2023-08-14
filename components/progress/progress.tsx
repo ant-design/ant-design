@@ -183,7 +183,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
       ref={ref}
       style={{ ...progressStyle?.style, ...style }}
       className={classString}
-      role='progressbar'
+      role="progressbar"
       aria-valuenow={percentNumber}
       {...omit(restProps, [
         'trailColor',

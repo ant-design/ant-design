@@ -66,18 +66,18 @@ describe('Tag', () => {
   it('show close button by closeIcon', () => {
     const { container } = render(
       <>
-        <Tag className='tag1' closable closeIcon='close' />
-        <Tag className='tag2' closable closeIcon />
-        <Tag className='tag3' closable closeIcon={false} />
-        <Tag className='tag4' closable closeIcon={null} />
-        <Tag className='tag5' closable={false} closeIcon='close' />
-        <Tag className='tag6' closable={false} closeIcon />
-        <Tag className='tag7' closable={false} closeIcon={false} />
-        <Tag className='tag8' closable={false} closeIcon={null} />
-        <Tag className='tag9' closeIcon='close' />
-        <Tag className='tag10' closeIcon />
-        <Tag className='tag11' closeIcon={false} />
-        <Tag className='tag12' closeIcon={null} />
+        <Tag className="tag1" closable closeIcon="close" />
+        <Tag className="tag2" closable closeIcon />
+        <Tag className="tag3" closable closeIcon={false} />
+        <Tag className="tag4" closable closeIcon={null} />
+        <Tag className="tag5" closable={false} closeIcon="close" />
+        <Tag className="tag6" closable={false} closeIcon />
+        <Tag className="tag7" closable={false} closeIcon={false} />
+        <Tag className="tag8" closable={false} closeIcon={null} />
+        <Tag className="tag9" closeIcon="close" />
+        <Tag className="tag10" closeIcon />
+        <Tag className="tag11" closeIcon={false} />
+        <Tag className="tag12" closeIcon={null} />
       </>,
     );
 

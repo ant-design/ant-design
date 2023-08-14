@@ -4,8 +4,8 @@ import { Button, Popconfirm } from 'antd';
 
 const App: React.FC = () => (
   <Popconfirm
-    title='Delete the task'
-    description='Are you sure to delete this task?'
+    title="Delete the task"
+    description="Are you sure to delete this task?"
     icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
   >
     <Button danger>Delete</Button>

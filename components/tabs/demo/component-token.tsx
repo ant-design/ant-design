@@ -33,7 +33,7 @@ const App: React.FC = () => (
   >
     <div>
       <Tabs
-        defaultActiveKey='1'
+        defaultActiveKey="1"
         tabBarExtraContent={<Button>Extra Action</Button>}
         style={{ marginBottom: 32 }}
         items={new Array(3).fill(null).map((_, i) => {
@@ -46,8 +46,8 @@ const App: React.FC = () => (
         })}
       />
       <Tabs
-        tabPosition='left'
-        defaultActiveKey='1'
+        tabPosition="left"
+        defaultActiveKey="1"
         tabBarExtraContent={<Button>Extra Action</Button>}
         style={{ marginBottom: 32 }}
         items={new Array(3).fill(null).map((_, i) => {
@@ -60,8 +60,8 @@ const App: React.FC = () => (
         })}
       />
       <Tabs
-        size='small'
-        defaultActiveKey='1'
+        size="small"
+        defaultActiveKey="1"
         tabBarExtraContent={<Button>Extra Action</Button>}
         style={{ marginBottom: 32 }}
         items={new Array(3).fill(null).map((_, i) => {
@@ -74,8 +74,8 @@ const App: React.FC = () => (
         })}
       />
       <Tabs
-        size='large'
-        defaultActiveKey='1'
+        size="large"
+        defaultActiveKey="1"
         tabBarExtraContent={<Button>Extra Action</Button>}
         style={{ marginBottom: 32 }}
         items={new Array(3).fill(null).map((_, i) => {
@@ -88,9 +88,9 @@ const App: React.FC = () => (
         })}
       />
       <Tabs
-        defaultActiveKey='1'
+        defaultActiveKey="1"
         centered
-        type='card'
+        type="card"
         items={new Array(3).fill(null).map((_, i) => {
           const id = String(i + 1);
           return {
@@ -102,10 +102,10 @@ const App: React.FC = () => (
         })}
       />
       <Tabs
-        size='small'
-        defaultActiveKey='1'
+        size="small"
+        defaultActiveKey="1"
         centered
-        type='card'
+        type="card"
         items={new Array(3).fill(null).map((_, i) => {
           const id = String(i + 1);
           return {
@@ -117,10 +117,10 @@ const App: React.FC = () => (
         })}
       />
       <Tabs
-        size='large'
-        defaultActiveKey='1'
+        size="large"
+        defaultActiveKey="1"
         centered
-        type='card'
+        type="card"
         items={new Array(3).fill(null).map((_, i) => {
           const id = String(i + 1);
           return {

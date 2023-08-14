@@ -15,7 +15,7 @@ describe('Radio Button', () => {
   rtlTest(Button);
 
   it('should render correctly', () => {
-    const { container } = render(<Button className='customized'>Test</Button>);
+    const { container } = render(<Button className="customized">Test</Button>);
     expect(container.firstChild).toMatchSnapshot();
   });
 
@@ -39,9 +39,9 @@ describe('Radio Group', () => {
   function createRadioGroup(props?: RadioGroupProps & RefAttributes<HTMLDivElement>) {
     return (
       <Radio.Group {...props}>
-        <Button value='A'>A</Button>
-        <Button value='B'>B</Button>
-        <Button value='C'>C</Button>
+        <Button value="A">A</Button>
+        <Button value="B">B</Button>
+        <Button value="C">C</Button>
       </Radio.Group>
     );
   }
@@ -82,13 +82,13 @@ describe('Radio Group', () => {
 
     const { container } = render(
       <Radio.Group onChange={onChangeRadioGroup}>
-        <Radio value='A' onChange={onChange}>
+        <Radio value="A" onChange={onChange}>
           A
         </Radio>
-        <Radio value='B' onChange={onChange}>
+        <Radio value="B" onChange={onChange}>
           B
         </Radio>
-        <Radio value='C' onChange={onChange}>
+        <Radio value="C" onChange={onChange}>
           C
         </Radio>
       </Radio.Group>,
@@ -106,19 +106,19 @@ describe('Radio Group', () => {
 
     const { container, rerender } = render(
       <Radio.Group onChange={onChange}>
-        <Button value='A'>A</Button>
-        <Button value='B'>B</Button>
-        <Button value='C'>C</Button>
+        <Button value="A">A</Button>
+        <Button value="B">B</Button>
+        <Button value="C">C</Button>
       </Radio.Group>,
     );
     const radios = container.querySelectorAll('input');
 
     // controlled component
     rerender(
-      <Radio.Group value='A' onChange={onChange}>
-        <Button value='A'>A</Button>
-        <Button value='B'>B</Button>
-        <Button value='C'>C</Button>
+      <Radio.Group value="A" onChange={onChange}>
+        <Button value="A">A</Button>
+        <Button value="B">B</Button>
+        <Button value="C">C</Button>
       </Radio.Group>,
     );
     fireEvent.click(radios[1]);
@@ -164,7 +164,7 @@ describe('Radio Group', () => {
       { label: 'Apple', value: 'Apple' },
       { label: 'Orange', value: 'Orange', style: { fontSize: 12 } },
     ];
-    const { container } = render(<Radio.Group prefixCls='my-radio' options={options} />);
+    const { container } = render(<Radio.Group prefixCls="my-radio" options={options} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
@@ -200,16 +200,16 @@ describe('Radio Group', () => {
     const onChange = jest.fn();
     const { container } = render(
       <Radio.Group onChange={onChange}>
-        <Radio value={1} type='1'>
+        <Radio value={1} type="1">
           A
         </Radio>
-        <Radio value={2} type='2'>
+        <Radio value={2} type="2">
           B
         </Radio>
-        <Radio value={3} type='3'>
+        <Radio value={3} type="3">
           C
         </Radio>
-        <Radio value={4} type='4'>
+        <Radio value={4} type="4">
           D
         </Radio>
       </Radio.Group>,
@@ -223,8 +223,8 @@ describe('Radio Group', () => {
   describe('value is null or undefined', () => {
     it('use `defaultValue` when `value` is undefined', () => {
       const { container } = render(
-        <Radio.Group defaultValue='bamboo' value={undefined}>
-          <Button value='bamboo'>Bamboo</Button>
+        <Radio.Group defaultValue="bamboo" value={undefined}>
+          <Button value="bamboo">Bamboo</Button>
         </Radio.Group>,
       );
       expect(container.querySelectorAll('.ant-radio-button-wrapper-checked').length).toBe(1);
@@ -233,14 +233,14 @@ describe('Radio Group', () => {
     [undefined, null].forEach((newValue) => {
       it(`should set value back when value change back to ${newValue}`, () => {
         const { container, rerender } = render(
-          <Radio.Group value='bamboo'>
-            <Button value='bamboo'>Bamboo</Button>
+          <Radio.Group value="bamboo">
+            <Button value="bamboo">Bamboo</Button>
           </Radio.Group>,
         );
         expect(container.querySelectorAll('.ant-radio-button-wrapper-checked').length).toBe(1);
         rerender(
           <Radio.Group value={newValue}>
-            <Button value='bamboo'>Bamboo</Button>
+            <Button value="bamboo">Bamboo</Button>
           </Radio.Group>,
         );
         expect(container.querySelectorAll('.ant-radio-button-wrapper-checked').length).toBe(0);

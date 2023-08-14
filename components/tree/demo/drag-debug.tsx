@@ -139,7 +139,7 @@ const App: React.FC = () => {
       <Tree
         showLine={showLine}
         showIcon={showIcon}
-        className='draggable-tree'
+        className="draggable-tree"
         defaultExpandedKeys={expandedKeys}
         draggable
         blockNode

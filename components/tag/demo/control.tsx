@@ -79,7 +79,7 @@ const App: React.FC = () => {
               <Input
                 ref={editInputRef}
                 key={tag}
-                size='small'
+                size="small"
                 style={tagInputStyle}
                 value={editInputValue}
                 onChange={handleEditInputChange}
@@ -120,8 +120,8 @@ const App: React.FC = () => {
         {inputVisible ? (
           <Input
             ref={inputRef}
-            type='text'
-            size='small'
+            type="text"
+            size="small"
             style={tagInputStyle}
             value={inputValue}
             onChange={handleInputChange}

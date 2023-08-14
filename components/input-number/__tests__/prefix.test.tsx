@@ -7,12 +7,12 @@ import { fireEvent, render } from '../../../tests/utils';
 describe('prefix', () => {
   focusTest(
     forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => (
-      <InputNumber {...props} prefix='A' ref={ref} />
+      <InputNumber {...props} prefix="A" ref={ref} />
     )),
     { refFocus: true },
   );
   it('should support className when has prefix', () => {
-    const { container } = render(<InputNumber prefix='suffix' className='my-class-name' />);
+    const { container } = render(<InputNumber prefix="suffix" className="my-class-name" />);
     expect((container.firstChild as HTMLElement)?.className.includes('my-class-name')).toBe(true);
     expect(container.querySelector('input')?.className.includes('my-class-name')).toBe(false);
   });

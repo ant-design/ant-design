@@ -179,8 +179,8 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
         <iframe
           src={demoUrl}
           height={iframe === true ? undefined : iframe}
-          title='demo'
-          className='iframe-demo'
+          title="demo"
+          className="iframe-demo"
         />
       </BrowserFrame>
     ) : (
@@ -388,57 +388,57 @@ createRoot(document.getElementById('container')).render(<Demo />);
 
   const codeBox: React.ReactNode = (
     <section className={codeBoxClass} id={asset.id}>
-      <section className='code-box-demo' style={codeBoxDemoStyle}>
+      <section className="code-box-demo" style={codeBoxDemoStyle}>
         <ErrorBoundary>
           <React.StrictMode>{liveDemo.current}</React.StrictMode>
         </ErrorBoundary>
       </section>
-      <section className='code-box-meta markdown'>
-        <div className='code-box-title'>
-          <Tooltip title={originDebug ? <FormattedMessage id='app.demo.debug' /> : ''}>
+      <section className="code-box-meta markdown">
+        <div className="code-box-title">
+          <Tooltip title={originDebug ? <FormattedMessage id="app.demo.debug" /> : ''}>
             <a href={`#${asset.id}`} ref={anchorRef}>
               {localizedTitle}
             </a>
           </Tooltip>
-          <EditButton title={<FormattedMessage id='app.content.edit-demo' />} filename={filename} />
+          <EditButton title={<FormattedMessage id="app.content.edit-demo" />} filename={filename} />
         </div>
-        <div className='code-box-description'>{introChildren}</div>
-        <Space wrap size='middle' className='code-box-actions'>
+        <div className="code-box-description">{introChildren}</div>
+        <Space wrap size="middle" className="code-box-actions">
           {showOnlineUrl && (
-            <Tooltip title={<FormattedMessage id='app.demo.online' />}>
+            <Tooltip title={<FormattedMessage id="app.demo.online" />}>
               <a
-                className='code-box-code-action'
-                target='_blank'
-                rel='noreferrer'
+                className="code-box-code-action"
+                target="_blank"
+                rel="noreferrer"
                 href={docsOnlineUrl}
               >
-                <LinkOutlined aria-label='open in new tab' className='code-box-online' />
+                <LinkOutlined aria-label="open in new tab" className="code-box-online" />
               </a>
             </Tooltip>
           )}
           {showRiddleButton ? (
             <form
-              className='code-box-code-action'
-              action='//riddle.alibaba-inc.com/riddles/define'
-              method='POST'
-              target='_blank'
+              className="code-box-code-action"
+              action="//riddle.alibaba-inc.com/riddles/define"
+              method="POST"
+              target="_blank"
               ref={riddleIconRef}
               onClick={() => {
                 track({ type: 'riddle', demo: asset.id });
                 riddleIconRef.current?.submit();
               }}
             >
-              <input type='hidden' name='data' value={JSON.stringify(riddlePrefillConfig)} />
-              <Tooltip title={<FormattedMessage id='app.demo.riddle' />}>
-                <RiddleIcon className='code-box-riddle' />
+              <input type="hidden" name="data" value={JSON.stringify(riddlePrefillConfig)} />
+              <Tooltip title={<FormattedMessage id="app.demo.riddle" />}>
+                <RiddleIcon className="code-box-riddle" />
               </Tooltip>
             </form>
           ) : null}
           <form
-            className='code-box-code-action'
-            action='https://codesandbox.io/api/v1/sandboxes/define'
-            method='POST'
-            target='_blank'
+            className="code-box-code-action"
+            action="https://codesandbox.io/api/v1/sandboxes/define"
+            method="POST"
+            target="_blank"
             ref={codeSandboxIconRef}
             onClick={() => {
               track({ type: 'codesandbox', demo: asset.id });
@@ -446,19 +446,19 @@ createRoot(document.getElementById('container')).render(<Demo />);
             }}
           >
             <input
-              type='hidden'
-              name='parameters'
+              type="hidden"
+              name="parameters"
               value={compress(JSON.stringify(codesanboxPrefillConfig))}
             />
-            <Tooltip title={<FormattedMessage id='app.demo.codesandbox' />}>
-              <CodeSandboxIcon className='code-box-codesandbox' />
+            <Tooltip title={<FormattedMessage id="app.demo.codesandbox" />}>
+              <CodeSandboxIcon className="code-box-codesandbox" />
             </Tooltip>
           </form>
           <form
-            className='code-box-code-action'
-            action='https://codepen.io/pen/define'
-            method='POST'
-            target='_blank'
+            className="code-box-code-action"
+            action="https://codepen.io/pen/define"
+            method="POST"
+            target="_blank"
             ref={codepenIconRef}
             onClick={() => {
               track({ type: 'codepen', demo: asset.id });
@@ -466,15 +466,15 @@ createRoot(document.getElementById('container')).render(<Demo />);
             }}
           >
             <ClientOnly>
-              <input type='hidden' name='data' value={JSON.stringify(codepenPrefillConfig)} />
+              <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
             </ClientOnly>
-            <Tooltip title={<FormattedMessage id='app.demo.codepen' />}>
-              <CodePenIcon className='code-box-codepen' />
+            <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
+              <CodePenIcon className="code-box-codepen" />
             </Tooltip>
           </form>
-          <Tooltip title={<FormattedMessage id='app.demo.stackblitz' />}>
+          <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
             <span
-              className='code-box-code-action'
+              className="code-box-code-action"
               onClick={() => {
                 track({ type: 'stackblitz', demo: asset.id });
                 stackblitzSdk.openProject(stackblitzPrefillConfig, {
@@ -482,7 +482,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 });
               }}
             >
-              <ThunderboltOutlined className='code-box-stackblitz' />
+              <ThunderboltOutlined className="code-box-stackblitz" />
             </span>
           </Tooltip>
           <CopyToClipboard text={entryCode} onCopy={() => handleCodeCopied(asset.id)}>
@@ -496,23 +496,23 @@ createRoot(document.getElementById('container')).render(<Demo />);
               })}
             </Tooltip>
           </CopyToClipboard>
-          <Tooltip title={<FormattedMessage id='app.demo.separate' />}>
+          <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
             <a
-              className='code-box-code-action'
-              aria-label='open in new tab'
-              target='_blank'
-              rel='noreferrer'
+              className="code-box-code-action"
+              aria-label="open in new tab"
+              target="_blank"
+              rel="noreferrer"
               href={demoUrl}
             >
-              <ExternalLinkIcon className='code-box-separate' />
+              <ExternalLinkIcon className="code-box-separate" />
             </a>
           </Tooltip>
           <Tooltip
             title={<FormattedMessage id={`app.demo.code.${codeExpand ? 'hide' : 'show'}`} />}
           >
-            <div className='code-expand-icon code-box-code-action'>
+            <div className="code-expand-icon code-box-code-action">
               <img
-                alt='expand code'
+                alt="expand code"
                 src={
                   theme?.includes('dark')
                     ? 'https://gw.alipayobjects.com/zos/antfincdn/btT3qDZn1U/wSAkBuJFbdxsosKKpqyq.svg'
@@ -522,7 +522,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 onClick={() => handleCodeExpand(asset.id)}
               />
               <img
-                alt='expand code'
+                alt="expand code"
                 src={
                   theme?.includes('dark')
                     ? 'https://gw.alipayobjects.com/zos/antfincdn/CjZPwcKUG3/OpROPHYqWmrMDBFMZtKF.svg'
@@ -536,16 +536,16 @@ createRoot(document.getElementById('container')).render(<Demo />);
         </Space>
       </section>
       {codeExpand && (
-        <section className={highlightClass} key='code'>
+        <section className={highlightClass} key="code">
           <CodePreview
             codes={highlightedCodes}
             toReactComponent={toReactComponent}
             onCodeTypeChange={(type) => setCodeType(type)}
           />
           {highlightedStyle ? (
-            <div key='style' className='highlight'>
+            <div key="style" className="highlight">
               <pre>
-                <code className='css' dangerouslySetInnerHTML={{ __html: highlightedStyle }} />
+                <code className="css" dangerouslySetInnerHTML={{ __html: highlightedStyle }} />
               </pre>
             </div>
           ) : null}

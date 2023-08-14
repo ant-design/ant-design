@@ -75,24 +75,24 @@ const App: React.FC = () => {
         />
         <Space>
           <Button
-            type='primary'
+            type="primary"
             onClick={() => handleSearch(selectedKeys as string[], confirm, dataIndex)}
             icon={<SearchOutlined />}
-            size='small'
+            size="small"
             style={{ width: 90 }}
           >
             Search
           </Button>
           <Button
             onClick={() => clearFilters && handleReset(clearFilters)}
-            size='small'
+            size="small"
             style={{ width: 90 }}
           >
             Reset
           </Button>
           <Button
-            type='link'
-            size='small'
+            type="link"
+            size="small"
             onClick={() => {
               confirm({ closeDropdown: false });
               setSearchText((selectedKeys as string[])[0]);
@@ -102,8 +102,8 @@ const App: React.FC = () => {
             Filter
           </Button>
           <Button
-            type='link'
-            size='small'
+            type="link"
+            size="small"
             onClick={() => {
               close();
             }}

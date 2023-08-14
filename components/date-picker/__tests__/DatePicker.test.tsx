@@ -107,7 +107,7 @@ describe('DatePicker', () => {
       <DatePicker
         defaultValue={dayjs()}
         showTime={{ showHour: true, showMinute: true }}
-        format='YYYY-MM-DD'
+        format="YYYY-MM-DD"
         open
       />,
     );
@@ -129,7 +129,7 @@ describe('DatePicker', () => {
       <DatePicker
         defaultValue={dayjs()}
         showTime={{ showHour: true, showSecond: true }}
-        format='YYYY-MM-DD'
+        format="YYYY-MM-DD"
         open
       />,
     );
@@ -151,7 +151,7 @@ describe('DatePicker', () => {
       <DatePicker
         defaultValue={dayjs()}
         showTime={{ showMinute: true, showSecond: true }}
-        format='YYYY-MM-DD'
+        format="YYYY-MM-DD"
         open
       />,
     );
@@ -188,7 +188,7 @@ describe('DatePicker', () => {
 
   it('12 hours', () => {
     const { container } = render(
-      <DatePicker defaultValue={dayjs()} showTime format='YYYY-MM-DD HH:mm:ss A' open />,
+      <DatePicker defaultValue={dayjs()} showTime format="YYYY-MM-DD HH:mm:ss A" open />,
     );
     expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(4);
     expect(
@@ -215,7 +215,7 @@ describe('DatePicker', () => {
 
   it('24 hours', () => {
     const { container } = render(
-      <DatePicker defaultValue={dayjs()} showTime format='YYYY-MM-DD HH:mm:ss' open />,
+      <DatePicker defaultValue={dayjs()} showTime format="YYYY-MM-DD HH:mm:ss" open />,
     );
     expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(3);
     expect(
@@ -251,28 +251,28 @@ describe('DatePicker', () => {
   });
 
   it('placement api work correctly', () => {
-    const { rerender } = render(<DatePicker.RangePicker open placement='topLeft' />);
+    const { rerender } = render(<DatePicker.RangePicker open placement="topLeft" />);
     expect(triggerProps?.builtinPlacements).toEqual(
       expect.objectContaining({
         topLeft: expect.objectContaining({ offset: [0, -4], points: ['bl', 'tl'] }),
       }),
     );
 
-    rerender(<DatePicker.RangePicker open placement='topRight' />);
+    rerender(<DatePicker.RangePicker open placement="topRight" />);
     expect(triggerProps?.builtinPlacements).toEqual(
       expect.objectContaining({
         topRight: expect.objectContaining({ offset: [0, -4], points: ['br', 'tr'] }),
       }),
     );
 
-    rerender(<DatePicker.RangePicker open placement='bottomLeft' />);
+    rerender(<DatePicker.RangePicker open placement="bottomLeft" />);
     expect(triggerProps?.builtinPlacements).toEqual(
       expect.objectContaining({
         bottomLeft: expect.objectContaining({ offset: [0, 4], points: ['tl', 'bl'] }),
       }),
     );
 
-    rerender(<DatePicker.RangePicker open placement='bottomRight' />);
+    rerender(<DatePicker.RangePicker open placement="bottomRight" />);
     expect(triggerProps?.builtinPlacements).toEqual(
       expect.objectContaining({
         bottomRight: expect.objectContaining({ offset: [0, 4], points: ['tr', 'br'] }),
@@ -284,7 +284,7 @@ describe('DatePicker', () => {
     resetWarned();
 
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const { container } = render(<DatePicker dropdownClassName='legacy' open />);
+    const { container } = render(<DatePicker dropdownClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
     );
@@ -301,7 +301,7 @@ describe('DatePicker', () => {
 
   it('kk:mm format', () => {
     const { container } = render(
-      <DatePicker defaultValue={dayjs()} format='kk:mm' showTime open />,
+      <DatePicker defaultValue={dayjs()} format="kk:mm" showTime open />,
     );
     expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(2);
     expect(
@@ -333,7 +333,7 @@ describe('DatePicker', () => {
     rerender(
       <DatePicker
         value={somepoint}
-        allowClear={{ clearIcon: <div data-testid='custom-clear' /> }}
+        allowClear={{ clearIcon: <div data-testid="custom-clear" /> }}
       />,
     );
     await waitFor(() => expectCloseCircle(false));

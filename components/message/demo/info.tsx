@@ -6,7 +6,7 @@ const info = () => {
 };
 
 const App: React.FC = () => (
-  <Button type='primary' onClick={info}>
+  <Button type="primary" onClick={info}>
     Static Method
   </Button>
 );

@@ -20,7 +20,7 @@ const Category: React.FC<CategoryProps> = (props) => {
   const onCopied = React.useCallback((type: string, text: string) => {
     message.success(
       <span>
-        <code className='copied-code'>{text}</code> copied 🎉
+        <code className="copied-code">{text}</code> copied 🎉
       </span>,
     );
     setJustCopied(type);
@@ -39,7 +39,7 @@ const Category: React.FC<CategoryProps> = (props) => {
   return (
     <div>
       <h3>{intl.formatMessage({ id: `app.docs.components.icon.category.${title}` })}</h3>
-      <ul className='anticons-list'>
+      <ul className="anticons-list">
         {icons.map((name) => (
           <CopyableIcon
             key={name}

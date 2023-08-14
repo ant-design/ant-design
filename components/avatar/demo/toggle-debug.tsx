@@ -38,7 +38,7 @@ const App: React.FC = () => {
         </Avatar>
         <Avatar
           size={size}
-          src='invalid'
+          src="invalid"
           style={{ background: '#00a2ae', display: hide ? 'none' : '' }}
         >
           Invalid
@@ -47,7 +47,7 @@ const App: React.FC = () => {
           <Avatar size={size} style={{ background: '#7265e6' }}>
             Avatar
           </Avatar>
-          <Avatar size={size} src='invalid' style={{ background: '#00a2ae' }}>
+          <Avatar size={size} src="invalid" style={{ background: '#00a2ae' }}>
             Invalid
           </Avatar>
         </div>

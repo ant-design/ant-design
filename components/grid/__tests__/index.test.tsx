@@ -183,7 +183,7 @@ describe('Grid', () => {
           matches: query === '(max-width: 575px)',
         }) as any,
     );
-    const { container } = render(<Row align='middle' />);
+    const { container } = render(<Row align="middle" />);
     expect(container.innerHTML).toContain('ant-row-middle');
     const { container: container2 } = render(<Row align={{ xs: 'middle' }} />);
     expect(container2.innerHTML).toContain('ant-row-middle');
@@ -203,7 +203,7 @@ describe('Grid', () => {
           matches: query === '(max-width: 575px)',
         }) as any,
     );
-    const { container } = render(<Row justify='center' />);
+    const { container } = render(<Row justify="center" />);
     expect(container.innerHTML).toContain('ant-row-center');
     const { container: container2 } = render(<Row justify={{ xs: 'center' }} />);
     expect(container2.innerHTML).toContain('ant-row-center');
@@ -217,7 +217,7 @@ describe('Grid', () => {
       const [justify, setjustify] = useState<any>('start');
       return (
         <>
-          <Row justify={justify} align='bottom'>
+          <Row justify={justify} align="bottom">
             <div>button1</div>
             <div>button</div>
           </Row>
@@ -235,7 +235,7 @@ describe('Grid', () => {
 
   it('The column spacing should be evenly spaced', () => {
     const { container } = render(
-      <Row justify='space-evenly'>
+      <Row justify="space-evenly">
         <Col span={4}>col-1</Col>
         <Col span={4}>col-2</Col>
       </Row>,

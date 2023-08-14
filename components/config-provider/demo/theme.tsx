@@ -52,7 +52,7 @@ export default () => {
       >
         <Space>
           <Input />
-          <Button type='primary'>Button</Button>
+          <Button type="primary">Button</Button>
         </Space>
       </ConfigProvider>
       <Divider />
@@ -63,37 +63,37 @@ export default () => {
             ...allValues,
           });
         }}
-        name='theme'
+        name="theme"
         initialValues={defaultData}
         labelCol={{ span: 4 }}
         wrapperCol={{ span: 20 }}
       >
         <Form.Item
-          name='colorPrimary'
-          label='Primary Color'
-          trigger='onChangeComplete'
+          name="colorPrimary"
+          label="Primary Color"
+          trigger="onChangeComplete"
           getValueFromEvent={(color: Color) => color.toHexString()}
         >
           <ColorPicker />
         </Form.Item>
-        <Form.Item name='borderRadius' label='Border Radius'>
+        <Form.Item name="borderRadius" label="Border Radius">
           <InputNumber />
         </Form.Item>
-        <Form.Item label='Button'>
-          <Form.Item name={['Button', 'algorithm']} valuePropName='checked' label='algorithm'>
+        <Form.Item label="Button">
+          <Form.Item name={['Button', 'algorithm']} valuePropName="checked" label="algorithm">
             <Switch />
           </Form.Item>
           <Form.Item
             name={['Button', 'colorPrimary']}
-            label='Primary Color'
-            trigger='onChangeComplete'
+            label="Primary Color"
+            trigger="onChangeComplete"
             getValueFromEvent={(color: Color) => color.toHexString()}
           >
             <ColorPicker />
           </Form.Item>
         </Form.Item>
-        <Form.Item name='submit' wrapperCol={{ offset: 4, span: 20 }}>
-          <Button type='primary'>Submit</Button>
+        <Form.Item name="submit" wrapperCol={{ offset: 4, span: 20 }}>
+          <Button type="primary">Submit</Button>
         </Form.Item>
       </Form>
     </div>

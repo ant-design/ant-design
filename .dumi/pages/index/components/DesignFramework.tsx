@@ -133,7 +133,7 @@ export default function DesignFramework() {
                 >
                   {title}
                 </Typography.Title>
-                <Typography.Paragraph type='secondary' style={{ margin: 0 }}>
+                <Typography.Paragraph type="secondary" style={{ margin: 0 }}>
                   {desc}
                 </Typography.Paragraph>
               </div>
@@ -148,7 +148,7 @@ export default function DesignFramework() {
 
         return (
           <Col key={index} span={colSpan}>
-            <a className={styles.cardMini} target='_blank' href={url} rel='noreferrer'>
+            <a className={styles.cardMini} target="_blank" href={url} rel="noreferrer">
               <img alt={title} src={img} style={{ transform: `scale(${imgScale})` }} />
 
               <Typography.Title
@@ -157,7 +157,7 @@ export default function DesignFramework() {
               >
                 {title}
               </Typography.Title>
-              <Typography.Paragraph type='secondary' style={{ margin: 0 }}>
+              <Typography.Paragraph type="secondary" style={{ margin: 0 }}>
                 {desc}
               </Typography.Paragraph>
             </a>

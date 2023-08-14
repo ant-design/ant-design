@@ -21,10 +21,10 @@ const Block = React.forwardRef<HTMLDivElement, Partial<TooltipProps>>((props, re
         rowGap: 16,
       }}
     >
-      <Tooltip {...props} placement='left' title='Prompt Text'>
+      <Tooltip {...props} placement="left" title="Prompt Text">
         <Button>Adjust automatically / 自动调整</Button>
       </Tooltip>
-      <Tooltip {...props} placement='left' title='Prompt Text' autoAdjustOverflow={false}>
+      <Tooltip {...props} placement="left" title="Prompt Text" autoAdjustOverflow={false}>
         <Button>Ignore / 不处理</Button>
       </Tooltip>
     </div>

@@ -6,7 +6,7 @@ const menuItems = [
   {
     key: '1',
     label: (
-      <a target='_blank' rel='noopener noreferrer' href='http://www.alipay.com/'>
+      <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
         General
       </a>
     ),
@@ -14,7 +14,7 @@ const menuItems = [
   {
     key: '2',
     label: (
-      <a target='_blank' rel='noopener noreferrer' href='http://www.taobao.com/'>
+      <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
         Layout
       </a>
     ),
@@ -22,7 +22,7 @@ const menuItems = [
   {
     key: '3',
     label: (
-      <a target='_blank' rel='noopener noreferrer' href='http://www.tmall.com/'>
+      <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
         Navigation
       </a>
     ),
@@ -45,16 +45,16 @@ export default () => (
     }}
   >
     <Breadcrumb
-      separator='>'
+      separator=">"
       items={[
         {
           title: 'Home',
         },
         {
-          title: <a href=''>Application Center</a>,
+          title: <a href="">Application Center</a>,
         },
         {
-          title: <a href=''>General</a>,
+          title: <a href="">General</a>,
           menu: { items: menuItems },
         },
         {

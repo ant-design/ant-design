@@ -72,7 +72,7 @@ describe('Breadcrumb', () => {
       render(
         <Breadcrumb>
           <Breadcrumb.Item overlay={<div>menu</div>}>
-            <a href=''>General</a>
+            <a href="">General</a>
           </Breadcrumb.Item>
         </Breadcrumb>,
       );
@@ -127,7 +127,7 @@ describe('Breadcrumb', () => {
       {
         key: '1',
         label: (
-          <a target='_blank' rel='noopener noreferrer' href='http://www.alipay.com/'>
+          <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
             General
           </a>
         ),
@@ -138,7 +138,7 @@ describe('Breadcrumb', () => {
         items={[
           {
             menu: { items: menuItems },
-            title: <a href=''>General</a>,
+            title: <a href="">General</a>,
           },
         ]}
       />,
@@ -181,11 +181,11 @@ describe('Breadcrumb', () => {
   // https://github.com/ant-design/ant-design/issues/18260
   it('filter React.Fragment', () => {
     const { asFragment } = render(
-      <Breadcrumb separator=''>
+      <Breadcrumb separator="">
         <Breadcrumb.Item>Location</Breadcrumb.Item>
         <Breadcrumb.Separator>:</Breadcrumb.Separator>
         <>
-          <Breadcrumb.Item href=''>Application Center</Breadcrumb.Item>
+          <Breadcrumb.Item href="">Application Center</Breadcrumb.Item>
           <Breadcrumb.Separator />
         </>
       </Breadcrumb>,
@@ -251,7 +251,7 @@ describe('Breadcrumb', () => {
               title: 'yyy',
             },
           ]}
-          data-custom='custom'
+          data-custom="custom"
         />
       ) as React.ReactElement<any, string | React.JSXElementConstructor<any>>,
     );

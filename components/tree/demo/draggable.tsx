@@ -107,7 +107,7 @@ const App: React.FC = () => {
 
   return (
     <Tree
-      className='draggable-tree'
+      className="draggable-tree"
       defaultExpandedKeys={expandedKeys}
       draggable
       blockNode

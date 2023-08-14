@@ -39,13 +39,13 @@ describe('Tooltip', () => {
 
     const { container, rerender } = render(
       <Tooltip
-        title=''
+        title=""
         mouseEnterDelay={0}
         mouseLeaveDelay={0}
         onOpenChange={onOpenChange}
         ref={ref}
       >
-        <div id='hello'>Hello world!</div>
+        <div id="hello">Hello world!</div>
       </Tooltip>,
     );
 
@@ -66,13 +66,13 @@ describe('Tooltip', () => {
     // update `title` value.
     rerender(
       <Tooltip
-        title='Have a nice day!'
+        title="Have a nice day!"
         mouseEnterDelay={0}
         mouseLeaveDelay={0}
         onOpenChange={onOpenChange}
         ref={ref}
       >
-        <div id='hello'>Hello world!</div>
+        <div id="hello">Hello world!</div>
       </Tooltip>,
     );
     fireEvent.mouseEnter(divElement!);
@@ -90,14 +90,14 @@ describe('Tooltip', () => {
     // add `open` props.
     rerender(
       <Tooltip
-        title='Have a nice day!'
+        title="Have a nice day!"
         mouseEnterDelay={0}
         mouseLeaveDelay={0}
         onOpenChange={onOpenChange}
         ref={ref}
         open={false}
       >
-        <div id='hello'>Hello world!</div>
+        <div id="hello">Hello world!</div>
       </Tooltip>,
     );
     fireEvent.mouseEnter(divElement!);
@@ -121,13 +121,13 @@ describe('Tooltip', () => {
 
     const { container } = render(
       <Tooltip
-        title='xxxxx'
+        title="xxxxx"
         mouseEnterDelay={0}
         mouseLeaveDelay={0}
         onOpenChange={onOpenChange}
         ref={ref}
       >
-        <button type='button' disabled>
+        <button type="button" disabled>
           Hello world!
         </button>
       </Tooltip>,
@@ -156,7 +156,7 @@ describe('Tooltip', () => {
         const ref = React.createRef<any>();
         const { container } = render(
           <Tooltip
-            title='xxxxx'
+            title="xxxxx"
             mouseEnterDelay={0}
             mouseLeaveDelay={0}
             onOpenChange={onOpenChange}
@@ -189,12 +189,12 @@ describe('Tooltip', () => {
 
   it('should render disabled Button style properly', () => {
     const { container: containerInline } = render(
-      <Tooltip title='xxxxx'>
+      <Tooltip title="xxxxx">
         <Button disabled>Hello world!</Button>
       </Tooltip>,
     );
     const { container: containerBlock } = render(
-      <Tooltip title='xxxxx'>
+      <Tooltip title="xxxxx">
         <Button disabled style={{ display: 'block' }}>
           Hello world!
         </Button>
@@ -209,15 +209,15 @@ describe('Tooltip', () => {
 
     render(
       <Tooltip
-        title='xxxxx'
-        trigger='click'
+        title="xxxxx"
+        trigger="click"
         mouseEnterDelay={0}
         mouseLeaveDelay={0}
-        placement='bottomLeft'
+        placement="bottomLeft"
         arrowPointAtCenter
-        overlayClassName='point-center-element'
+        overlayClassName="point-center-element"
       >
-        <button type='button'>Hello world!</button>
+        <button type="button">Hello world!</button>
       </Tooltip>,
     );
     expect(warnSpy).toHaveBeenLastCalledWith(
@@ -226,15 +226,15 @@ describe('Tooltip', () => {
 
     render(
       <Tooltip
-        title='xxxxx'
-        trigger='click'
+        title="xxxxx"
+        trigger="click"
         mouseEnterDelay={0}
         mouseLeaveDelay={0}
-        placement='bottomLeft'
+        placement="bottomLeft"
         arrow={{ arrowPointAtCenter: true }}
-        overlayClassName='point-center-element'
+        overlayClassName="point-center-element"
       >
-        <button type='button'>Hello world!</button>
+        <button type="button">Hello world!</button>
       </Tooltip>,
     );
     expect(warnSpy).toHaveBeenCalledWith(
@@ -247,7 +247,7 @@ describe('Tooltip', () => {
     const ref = React.createRef<any>();
 
     const { container } = render(
-      <Tooltip title='date picker' onOpenChange={onOpenChange} ref={ref}>
+      <Tooltip title="date picker" onOpenChange={onOpenChange} ref={ref}>
         <DatePicker />
       </Tooltip>,
     );
@@ -272,7 +272,7 @@ describe('Tooltip', () => {
     const onOpenChange = jest.fn();
     const ref = React.createRef<any>();
     const { container } = render(
-      <Tooltip title='hello' onOpenChange={onOpenChange} ref={ref}>
+      <Tooltip title="hello" onOpenChange={onOpenChange} ref={ref}>
         <Group>
           <Input style={{ width: '50%' }} />
           <Input style={{ width: '50%' }} />
@@ -343,8 +343,8 @@ describe('Tooltip', () => {
       it(name, async () => {
         const { container } = render(
           <Tooltip
-            title='xxxxx'
-            transitionName=''
+            title="xxxxx"
+            transitionName=""
             mouseEnterDelay={0}
             placement={placement}
             autoAdjustOverflow={false}
@@ -387,7 +387,7 @@ describe('Tooltip', () => {
   it('should works for mismatch placement', async () => {
     const { container } = render(
       <Tooltip
-        title='xxxxx'
+        title="xxxxx"
         align={{
           points: ['bc', 'tl'],
         }}
@@ -404,7 +404,7 @@ describe('Tooltip', () => {
 
   it('should pass overlayInnerStyle through to the inner component', () => {
     const { container } = render(
-      <Tooltip overlayInnerStyle={{ color: 'red' }} title='xxxxx' open>
+      <Tooltip overlayInnerStyle={{ color: 'red' }} title="xxxxx" open>
         <div />
       </Tooltip>,
     );
@@ -415,7 +415,7 @@ describe('Tooltip', () => {
     const onOpenChange = jest.fn();
     const { container } = render(
       <Tooltip
-        title='loading tips'
+        title="loading tips"
         mouseEnterDelay={0}
         mouseLeaveDelay={0}
         onOpenChange={onOpenChange}
@@ -434,7 +434,7 @@ describe('Tooltip', () => {
     const onOpenChange = jest.fn();
     const { container } = render(
       <Tooltip
-        title='loading tips'
+        title="loading tips"
         mouseEnterDelay={0}
         mouseLeaveDelay={0}
         onOpenChange={onOpenChange}
@@ -455,15 +455,15 @@ describe('Tooltip', () => {
 
     const { container } = render(
       <Tooltip
-        title='Have a nice day!'
+        title="Have a nice day!"
         mouseEnterDelay={0}
         mouseLeaveDelay={0}
         onOpenChange={onOpenChange}
         ref={ref}
       >
         <>
-          <div className='hello'>Hello world!</div>
-          <div className='hello'>Hello world!</div>
+          <div className="hello">Hello world!</div>
+          <div className="hello">Hello world!</div>
         </>
       </Tooltip>,
     );
@@ -488,7 +488,7 @@ describe('Tooltip', () => {
 
     // defaultVisible
     const { container, rerender } = render(
-      <Tooltip defaultVisible title='bamboo'>
+      <Tooltip defaultVisible title="bamboo">
         <a />
       </Tooltip>,
     );
@@ -501,7 +501,7 @@ describe('Tooltip', () => {
 
     // visible
     rerender(
-      <Tooltip visible title='bamboo'>
+      <Tooltip visible title="bamboo">
         <a />
       </Tooltip>,
     );
@@ -510,7 +510,7 @@ describe('Tooltip', () => {
     );
 
     rerender(
-      <Tooltip visible={false} title='bamboo'>
+      <Tooltip visible={false} title="bamboo">
         <a />
       </Tooltip>,
     );
@@ -522,7 +522,7 @@ describe('Tooltip', () => {
 
     // onVisibleChange
     rerender(
-      <Tooltip onVisibleChange={() => {}} title='bamboo'>
+      <Tooltip onVisibleChange={() => {}} title="bamboo">
         <a />
       </Tooltip>,
     );
@@ -532,7 +532,7 @@ describe('Tooltip', () => {
 
     // afterVisibleChange
     rerender(
-      <Tooltip afterVisibleChange={() => {}} title='bamboo'>
+      <Tooltip afterVisibleChange={() => {}} title="bamboo">
         <a />
       </Tooltip>,
     );
@@ -548,7 +548,7 @@ describe('Tooltip', () => {
         visible
         onVisibleChange={onVisibleChange}
         afterVisibleChange={afterVisibleChange}
-        title='bamboo'
+        title="bamboo"
       >
         <a />
       </Tooltip>,
@@ -577,7 +577,7 @@ describe('Tooltip', () => {
   it('support arrow props pass false to hide arrow', () => {
     const { container } = render(
       <Tooltip open arrow={false}>
-        <div className='target'>target</div>
+        <div className="target">target</div>
       </Tooltip>,
     );
     expect(container).toMatchSnapshot();
@@ -586,7 +586,7 @@ describe('Tooltip', () => {
   it('support arrow props by default', () => {
     const { container } = render(
       <Tooltip open>
-        <div className='target'>target</div>
+        <div className="target">target</div>
       </Tooltip>,
     );
     expect(container).toMatchSnapshot();

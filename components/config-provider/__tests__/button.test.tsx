@@ -23,7 +23,7 @@ describe('ConfigProvider.button', () => {
   it('ConfigProvider button className', () => {
     const { container } = render(
       <ConfigProvider>
-        <Button className='custom-class' />
+        <Button className="custom-class" />
       </ConfigProvider>,
     );
 

@@ -44,7 +44,7 @@ const App: React.FC = () => (
       ]}
     />
     <Steps
-      size='small'
+      size="small"
       current={1}
       items={[
         {
@@ -105,7 +105,7 @@ const App: React.FC = () => (
       ]}
     />
     <Steps
-      type='navigation'
+      type="navigation"
       current={1}
       items={[
         {

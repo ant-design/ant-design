@@ -10,13 +10,13 @@ const content = (
 
 const App: React.FC = () => (
   <Space wrap>
-    <Popover content={content} title='Title' trigger='hover'>
+    <Popover content={content} title="Title" trigger="hover">
       <Button>Hover me</Button>
     </Popover>
-    <Popover content={content} title='Title' trigger='focus'>
+    <Popover content={content} title="Title" trigger="focus">
       <Button>Focus me</Button>
     </Popover>
-    <Popover content={content} title='Title' trigger='click'>
+    <Popover content={content} title="Title" trigger="click">
       <Button>Click me</Button>
     </Popover>
   </Space>

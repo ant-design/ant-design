@@ -435,7 +435,7 @@ export default function Theme() {
             <div className={styles.logo}>
               <div className={styles.logoImg}>
                 <img
-                  src='https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg'
+                  src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
                   style={{
                     filter:
                       closestColor === DEFAULT_COLOR
@@ -443,13 +443,13 @@ export default function Theme() {
                         : // : `drop-shadow(30px 0 0 ${logoColor})`,
                           rgbToColorMatrix(logoColor),
                   }}
-                  alt=''
+                  alt=""
                 />
               </div>
               <h1>Ant Design 5.0</h1>
             </div>
 
-            <Space className={styles.menu} size='middle'>
+            <Space className={styles.menu} size="middle">
               <BellOutlined />
               <QuestionCircleOutlined />
               <div
@@ -466,7 +466,7 @@ export default function Theme() {
           <Layout className={styles.transBg} hasSider>
             <Sider className={classNames(styles.transBg, 'site-layout-background')} width={200}>
               <Menu
-                mode='inline'
+                mode="inline"
                 className={classNames(styles.transBg, !isLight && styles.darkSideMenu)}
                 selectedKeys={['Themes']}
                 openKeys={['Design']}
@@ -490,7 +490,7 @@ export default function Theme() {
                   extra={
                     <Space>
                       <Link to={utils.getLocalizedPathname('/theme-editor', isZhCN, search)}>
-                        <Button type='default'>{locale.toDef}</Button>
+                        <Button type="default">{locale.toDef}</Button>
                       </Link>
                       <Link
                         to={utils.getLocalizedPathname(
@@ -499,7 +499,7 @@ export default function Theme() {
                           search,
                         )}
                       >
-                        <Button type='primary'>{locale.toUse}</Button>
+                        <Button type="primary">{locale.toUse}</Button>
                       </Link>
                     </Space>
                   }
@@ -512,20 +512,20 @@ export default function Theme() {
                     wrapperCol={{ span: 21 }}
                     className={styles.form}
                   >
-                    <Form.Item label={locale.titleTheme} name='themeType'>
+                    <Form.Item label={locale.titleTheme} name="themeType">
                       <ThemePicker />
                     </Form.Item>
 
-                    <Form.Item label={locale.titlePrimaryColor} name='colorPrimary'>
+                    <Form.Item label={locale.titlePrimaryColor} name="colorPrimary">
                       <ColorPicker />
                     </Form.Item>
-                    <Form.Item label={locale.titleBorderRadius} name='borderRadius'>
+                    <Form.Item label={locale.titleBorderRadius} name="borderRadius">
                       <RadiusPicker />
                     </Form.Item>
-                    <Form.Item label={locale.titleCompact} name='compact'>
+                    <Form.Item label={locale.titleCompact} name="compact">
                       <Radio.Group>
-                        <Radio value='default'>{locale.default}</Radio>
-                        <Radio value='compact'>{locale.compact}</Radio>
+                        <Radio value="default">{locale.default}</Radio>
+                        <Radio value="compact">{locale.compact}</Radio>
                       </Radio.Group>
                     </Form.Item>
                   </Form>
@@ -555,13 +555,13 @@ export default function Theme() {
   };
 
   return isMobile ? (
-    <MobileCarousel title={locale.themeTitle} description={locale.themeDesc} id='flexible' />
+    <MobileCarousel title={locale.themeTitle} description={locale.themeDesc} id="flexible" />
   ) : (
     <Group
       title={locale.themeTitle}
       titleColor={getTitleColor(colorPrimaryValue, isLight)}
       description={locale.themeDesc}
-      id='flexible'
+      id="flexible"
       background={backgroundColor}
       decoration={
         // =========================== Theme Background ===========================
@@ -579,8 +579,8 @@ export default function Theme() {
                 ...posStyle,
                 ...leftTopImageStyle,
               }}
-              src='https://gw.alipayobjects.com/zos/bmw-prod/bd71b0c6-f93a-4e52-9c8a-f01a9b8fe22b.svg'
-              alt=''
+              src="https://gw.alipayobjects.com/zos/bmw-prod/bd71b0c6-f93a-4e52-9c8a-f01a9b8fe22b.svg"
+              alt=""
             />
             {/* Image Right Bottom */}
             <img
@@ -588,8 +588,8 @@ export default function Theme() {
                 ...posStyle,
                 ...rightBottomImageStyle,
               }}
-              src='https://gw.alipayobjects.com/zos/bmw-prod/84ad805a-74cb-4916-b7ba-9cdc2bdec23a.svg'
-              alt=''
+              src="https://gw.alipayobjects.com/zos/bmw-prod/84ad805a-74cb-4916-b7ba-9cdc2bdec23a.svg"
+              alt=""
             />
           </div>
 
@@ -603,14 +603,14 @@ export default function Theme() {
             {/* Image Left Top */}
             <img
               style={{ ...posStyle, left: 0, top: -100, height: 500 }}
-              src='https://gw.alipayobjects.com/zos/bmw-prod/a213184a-f212-4afb-beec-1e8b36bb4b8a.svg'
-              alt=''
+              src="https://gw.alipayobjects.com/zos/bmw-prod/a213184a-f212-4afb-beec-1e8b36bb4b8a.svg"
+              alt=""
             />
             {/* Image Right Bottom */}
             <img
               style={{ ...posStyle, right: 0, bottom: -100, height: 287 }}
-              src='https://gw.alipayobjects.com/zos/bmw-prod/bb74a2fb-bff1-4d0d-8c2d-2ade0cd9bb0d.svg'
-              alt=''
+              src="https://gw.alipayobjects.com/zos/bmw-prod/bb74a2fb-bff1-4d0d-8c2d-2ade0cd9bb0d.svg"
+              alt=""
             />
           </div>
 

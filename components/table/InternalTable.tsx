@@ -529,7 +529,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const mergedStyle: React.CSSProperties = { ...table?.style, ...style };
 
   const emptyText = (locale && locale.emptyText) || renderEmpty?.('Table') || (
-    <DefaultRenderEmpty componentName='Table' />
+    <DefaultRenderEmpty componentName="Table" />
   );
 
   return wrapSSR(

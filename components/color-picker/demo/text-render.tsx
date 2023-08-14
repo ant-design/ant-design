@@ -6,7 +6,7 @@ const Demo = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <Space direction='vertical'>
+    <Space direction="vertical">
       <ColorPicker showText />
       <ColorPicker showText={(color) => <span>Custom Text ({color.toHexString()})</span>} />
       <ColorPicker

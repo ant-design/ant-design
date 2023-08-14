@@ -20,7 +20,7 @@ const SubmitButton = ({ form }: { form: FormInstance }) => {
   }, [values]);
 
   return (
-    <Button type='primary' htmlType='submit' disabled={!submittable}>
+    <Button type="primary" htmlType="submit" disabled={!submittable}>
       Submit
     </Button>
   );
@@ -30,17 +30,17 @@ const App: React.FC = () => {
   const [form] = Form.useForm();
 
   return (
-    <Form form={form} name='validateOnly' layout='vertical' autoComplete='off'>
-      <Form.Item name='name' label='Name' rules={[{ required: true }]}>
+    <Form form={form} name="validateOnly" layout="vertical" autoComplete="off">
+      <Form.Item name="name" label="Name" rules={[{ required: true }]}>
         <Input />
       </Form.Item>
-      <Form.Item name='age' label='Age' rules={[{ required: true }]}>
+      <Form.Item name="age" label="Age" rules={[{ required: true }]}>
         <Input />
       </Form.Item>
       <Form.Item>
         <Space>
           <SubmitButton form={form} />
-          <Button htmlType='reset'>Reset</Button>
+          <Button htmlType="reset">Reset</Button>
         </Space>
       </Form.Item>
     </Form>

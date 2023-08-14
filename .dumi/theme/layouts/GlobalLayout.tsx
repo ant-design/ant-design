@@ -114,13 +114,13 @@ const GlobalLayout: React.FC = () => {
 
   useServerInsertedHTML(() => {
     const styleText = extractStyle(styleCache, true);
-    return <style data-type='antd-cssinjs' dangerouslySetInnerHTML={{ __html: styleText }} />;
+    return <style data-type="antd-cssinjs" dangerouslySetInnerHTML={{ __html: styleText }} />;
   });
 
   useServerInsertedHTML(() => (
     <style
-      data-sandpack='true'
-      id='sandpack'
+      data-sandpack="true"
+      id="sandpack"
       dangerouslySetInnerHTML={{ __html: getSandpackCssText() }}
     />
   ));

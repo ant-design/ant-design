@@ -54,21 +54,21 @@ const App: React.FC = () => {
   return (
     <>
       <Switch
-        checkedChildren='Border'
-        unCheckedChildren='No Border'
+        checkedChildren="Border"
+        unCheckedChildren="No Border"
         checked={border}
         onChange={(e) => setBorder(e)}
       />
       <Divider />
       <Radio.Group onChange={(e) => setLayout(e.target.value)} value={layout}>
-        <Radio value='horizontal'>horizontal</Radio>
-        <Radio value='vertical'>vertical</Radio>
+        <Radio value="horizontal">horizontal</Radio>
+        <Radio value="vertical">vertical</Radio>
       </Radio.Group>
       <Divider />
-      <Descriptions title='User Info' bordered={border} layout={layout} items={items} />
+      <Descriptions title="User Info" bordered={border} layout={layout} items={items} />
       <Divider />
       <Descriptions
-        title='Root style'
+        title="Root style"
         labelStyle={labelStyle}
         contentStyle={contentStyle}
         bordered={border}

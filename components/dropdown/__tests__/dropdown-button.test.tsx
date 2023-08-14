@@ -84,7 +84,7 @@ describe('DropdownButton', () => {
         key: '1',
       },
     ];
-    const { asFragment } = render(<DropdownButton menu={{ items }} href='https://ant.design' />);
+    const { asFragment } = render(<DropdownButton menu={{ items }} href="https://ant.design" />);
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
@@ -113,7 +113,7 @@ describe('DropdownButton', () => {
     ];
     const { container } = render(
       <DropdownButton
-        overlayClassName='className'
+        overlayClassName="className"
         overlayStyle={{ color: 'red' }}
         menu={{ items }}
         open

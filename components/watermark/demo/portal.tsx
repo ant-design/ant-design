@@ -29,17 +29,17 @@ const App: React.FC = () => {
         <Button onClick={() => setShowDrawer(true)}>Show Drawer</Button>
       </Space>
 
-      <Watermark content='Ant Design'>
+      <Watermark content="Ant Design">
         <Modal
           destroyOnClose
           open={showModal}
-          title='Modal'
+          title="Modal"
           onCancel={closeModal}
           onOk={closeModal}
         >
           {placeholder}
         </Modal>
-        <Drawer destroyOnClose open={showDrawer} title='Drawer' onClose={closeDrawer}>
+        <Drawer destroyOnClose open={showDrawer} title="Drawer" onClose={closeDrawer}>
           {placeholder}
         </Drawer>
       </Watermark>

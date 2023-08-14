@@ -81,11 +81,11 @@ const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = []
             const author = authors.find((auth) => auth.name === article.author);
             return (
               <li key={index}>
-                <a href={author?.href} target='_blank' rel='noreferrer'>
-                  <Avatar size='small' src={author?.avatar} />
+                <a href={author?.href} target="_blank" rel="noreferrer">
+                  <Avatar size="small" src={author?.avatar} />
                 </a>
-                <Divider type='vertical' />
-                <a href={article.href} target='_blank' rel='noreferrer'>
+                <Divider type="vertical" />
+                <a href={article.href} target="_blank" rel="noreferrer">
                   {article?.title}
                 </a>
               </li>
@@ -129,12 +129,12 @@ const Articles: React.FC = () => {
             <tbody>
               <tr>
                 <ArticleList
-                  name={<FormattedMessage id='app.docs.resource.design' />}
+                  name={<FormattedMessage id="app.docs.resource.design" />}
                   data={mergedData[year].design}
                   authors={authors}
                 />
                 <ArticleList
-                  name={<FormattedMessage id='app.docs.resource.develop' />}
+                  name={<FormattedMessage id="app.docs.resource.develop" />}
                   data={mergedData[year].develop}
                   authors={authors}
                 />
@@ -150,7 +150,7 @@ const Articles: React.FC = () => {
 export default () => {
   const { styles } = useStyle();
   return (
-    <div id='articles' className={styles.articles}>
+    <div id="articles" className={styles.articles}>
       <Suspense fallback={<Skeleton active />}>
         <Articles />
       </Suspense>

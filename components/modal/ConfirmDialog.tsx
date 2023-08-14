@@ -213,7 +213,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
         )}
         onCancel={() => close?.({ triggerCancel: true })}
         open={open}
-        title=''
+        title=""
         footer={null}
         transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
         maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}

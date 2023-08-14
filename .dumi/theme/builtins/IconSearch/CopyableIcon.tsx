@@ -39,7 +39,7 @@ const CopyableIcon: React.FC<CopyableIconProps> = ({
     <CopyToClipboard text={`<${name} />`} onCopy={onCopy}>
       <li className={className}>
         {React.createElement(allIcons[name])}
-        <span className='anticon-class'>
+        <span className="anticon-class">
           <Badge dot={isNew}>{name}</Badge>
         </span>
       </li>

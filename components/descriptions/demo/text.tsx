@@ -66,7 +66,7 @@ const items: DescriptionsProps['items'] = [
     key: '6',
     label: 'Status',
     span: 3,
-    children: <Badge status='processing' text='Running' />,
+    children: <Badge status="processing" text="Running" />,
   },
   {
     key: '7',
@@ -111,10 +111,10 @@ const items: DescriptionsProps['items'] = [
   {
     key: '12',
     label: 'Config Info',
-    children: <Table size='small' pagination={false} dataSource={dataSource} columns={columns} />,
+    children: <Table size="small" pagination={false} dataSource={dataSource} columns={columns} />,
   },
 ];
 
-const App: React.FC = () => <Descriptions title='User Info' column={2} items={items} />;
+const App: React.FC = () => <Descriptions title="User Info" column={2} items={items} />;
 
 export default App;

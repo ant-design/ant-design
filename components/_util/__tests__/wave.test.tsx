@@ -81,7 +81,7 @@ describe('Wave component', () => {
   it('work', async () => {
     const { container, unmount } = render(
       <Wave>
-        <button type='button'>button</button>
+        <button type="button">button</button>
       </Wave>,
     );
 
@@ -101,7 +101,7 @@ describe('Wave component', () => {
     (global as any).isVisible = false;
     const { container, unmount } = render(
       <Wave>
-        <button type='button'>button</button>
+        <button type="button">button</button>
       </Wave>,
     );
 
@@ -116,7 +116,7 @@ describe('Wave component', () => {
     const { container, unmount } = render(
       <Wave>
         <button
-          type='button'
+          type="button"
           style={{ borderColor: 'rgb(0, 0, 0)', backgroundColor: 'transparent' }}
         >
           button
@@ -137,7 +137,7 @@ describe('Wave component', () => {
   it('wave color is not grey', () => {
     const { container, unmount } = render(
       <Wave>
-        <button type='button' style={{ borderColor: 'red' }}>
+        <button type="button" style={{ borderColor: 'red' }}>
           button
         </button>
       </Wave>,
@@ -203,7 +203,7 @@ describe('Wave component', () => {
   it('hidden element with -leave className', () => {
     const { container, unmount } = render(
       <Wave>
-        <button type='button' className='xx-leave'>
+        <button type="button" className="xx-leave">
           button
         </button>
       </Wave>,
@@ -219,7 +219,7 @@ describe('Wave component', () => {
   it('not show when disabled', () => {
     const { container } = render(
       <Wave>
-        <button type='button' disabled>
+        <button type="button" disabled>
           button
         </button>
       </Wave>,
@@ -234,7 +234,7 @@ describe('Wave component', () => {
 
     const { container } = render(
       <Wave>
-        <button type='button' style={{ display: 'none' }}>
+        <button type="button" style={{ display: 'none' }}>
           button
         </button>
       </Wave>,
@@ -267,7 +267,7 @@ describe('Wave component', () => {
   it('wave color should inferred if border is transparent and background is not', () => {
     const { container, unmount } = render(
       <Wave>
-        <button type='button' style={{ borderColor: 'transparent', background: 'red' }}>
+        <button type="button" style={{ borderColor: 'transparent', background: 'red' }}>
           button
         </button>
       </Wave>,
@@ -284,7 +284,7 @@ describe('Wave component', () => {
   it('wave color should inferred if borderTopColor is transparent and borderColor is not', () => {
     const { container, unmount } = render(
       <Wave>
-        <button type='button' style={{ borderColor: 'red', borderTopColor: 'transparent' }}>
+        <button type="button" style={{ borderColor: 'red', borderTopColor: 'transparent' }}>
           button
         </button>
       </Wave>,
@@ -302,7 +302,7 @@ describe('Wave component', () => {
   it('Wave style should append to validate element', () => {
     const { container } = render(
       <Wave>
-        <div className='bamboo' style={{ borderColor: 'red' }} />
+        <div className="bamboo" style={{ borderColor: 'red' }} />
       </Wave>,
     );
 

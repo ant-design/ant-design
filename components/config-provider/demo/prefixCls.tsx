@@ -10,11 +10,11 @@ const App: React.FC = () => {
   const [prefixCls, setPrefixCls] = useState('light');
   return (
     <>
-      <Button style={{ marginBottom: '12px' }} type='primary' onClick={() => setPrefixCls('dark')}>
+      <Button style={{ marginBottom: '12px' }} type="primary" onClick={() => setPrefixCls('dark')}>
         toggle prefixCls
       </Button>
       <br />
-      <ConfigProvider prefixCls={prefixCls} iconPrefixCls='bamboo'>
+      <ConfigProvider prefixCls={prefixCls} iconPrefixCls="bamboo">
         <SmileOutlined />
         <Select style={{ width: 120 }} />
       </ConfigProvider>

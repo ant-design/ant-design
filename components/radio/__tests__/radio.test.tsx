@@ -18,7 +18,7 @@ describe('Radio', () => {
   rtlTest(Button);
 
   it('should render correctly', () => {
-    const { container } = render(<Radio className='customized'>Test</Radio>);
+    const { container } = render(<Radio className="customized">Test</Radio>);
     expect(container.firstChild).toMatchSnapshot();
   });
 

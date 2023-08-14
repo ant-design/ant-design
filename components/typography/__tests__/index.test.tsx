@@ -108,7 +108,7 @@ describe('Typography', () => {
           jest.useFakeTimers();
           const onCopy = jest.fn();
           const { container, unmount } = render(
-            <Base component='p' copyable={{ text, onCopy, icon, tooltips, format }}>
+            <Base component="p" copyable={{ text, onCopy, icon, tooltips, format }}>
               test copy
             </Base>,
           );
@@ -209,11 +209,11 @@ describe('Typography', () => {
       );
       copyTest('customize copy icon with one', 'bamboo', 'bamboo', <SmileOutlined />);
       copyTest('customize copy icon by pass array', 'bamboo', 'bamboo', [
-        <SmileOutlined key='copy-icon' />,
+        <SmileOutlined key="copy-icon" />,
       ]);
       copyTest('customize copy icon and copied icon ', 'bamboo', 'bamboo', [
-        <SmileOutlined key='copy-icon' />,
-        <LikeOutlined key='copied-icon' />,
+        <SmileOutlined key="copy-icon" />,
+        <LikeOutlined key="copied-icon" />,
       ]);
       copyTest('customize copy show tooltips', 'bamboo', 'bamboo', undefined, true);
       copyTest('customize copy hide tooltips', 'bamboo', 'bamboo', undefined, false);

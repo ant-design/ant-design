@@ -54,7 +54,7 @@ describe('ColorPicker', () => {
   });
 
   it('Should component defaultValue work', () => {
-    const { container } = render(<ColorPicker defaultValue='#000000' />);
+    const { container } = render(<ColorPicker defaultValue="#000000" />);
     expect(
       container.querySelector('.ant-color-picker-color-block-inner')?.getAttribute('style'),
     ).toEqual('background: rgb(0, 0, 0);');
@@ -68,8 +68,8 @@ describe('ColorPicker', () => {
         [color],
       );
       return (
-        <ColorPicker value={color} onChange={setColor} format='hsb'>
-          <span className='custom-trigger'>{colorString}</span>
+        <ColorPicker value={color} onChange={setColor} format="hsb">
+          <span className="custom-trigger">{colorString}</span>
         </ColorPicker>
       );
     };
@@ -138,7 +138,7 @@ describe('ColorPicker', () => {
   it('Should render trigger work', async () => {
     const { container } = render(
       <ColorPicker>
-        <div className='trigger' />
+        <div className="trigger" />
       </ColorPicker>,
     );
     expect(container.querySelector('.trigger')).toBeTruthy();
@@ -246,7 +246,7 @@ describe('ColorPicker', () => {
   });
 
   it('Should hex input work', async () => {
-    const { container } = render(<ColorPicker open format='hex' />);
+    const { container } = render(<ColorPicker open format="hex" />);
     fireEvent.change(container.querySelector('.ant-color-picker-hex-input input')!, {
       target: { value: 631515 },
     });
@@ -256,7 +256,7 @@ describe('ColorPicker', () => {
   });
 
   it('Should rgb input work', async () => {
-    const { container } = render(<ColorPicker open format='rgb' />);
+    const { container } = render(<ColorPicker open format="rgb" />);
     const rgbInputEls = container.querySelectorAll('.ant-color-picker-rgb-input input');
     fireEvent.change(rgbInputEls[0], {
       target: { value: 99 },
@@ -273,7 +273,7 @@ describe('ColorPicker', () => {
   });
 
   it('Should hsb input work', async () => {
-    const { container } = render(<ColorPicker open format='hsb' />);
+    const { container } = render(<ColorPicker open format="hsb" />);
     const hsbInputEls = container.querySelectorAll('.ant-color-picker-hsb-input input');
     fireEvent.change(hsbInputEls[0], {
       target: { value: 0 },
@@ -308,7 +308,7 @@ describe('ColorPicker', () => {
         height: 100,
       }),
     });
-    const { container } = render(<ColorPicker trigger='hover' />);
+    const { container } = render(<ColorPicker trigger="hover" />);
     fireEvent.mouseEnter(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
     doMouseMove(container, 0, 999);
@@ -374,15 +374,15 @@ describe('ColorPicker', () => {
   });
 
   it('Should size work', async () => {
-    const { container: lg } = render(<ColorPicker size='large' />);
+    const { container: lg } = render(<ColorPicker size="large" />);
     expect(lg.querySelector('.ant-color-picker-lg')).toBeTruthy();
-    const { container: sm } = render(<ColorPicker size='small' />);
+    const { container: sm } = render(<ColorPicker size="small" />);
     expect(sm.querySelector('.ant-color-picker-sm')).toBeTruthy();
   });
 
   it('Should panelRender work', async () => {
     const { container: panelContainer } = render(
-      <ColorPicker open panelRender={(panel) => <div className='custom-panel'>{panel}</div>} />,
+      <ColorPicker open panelRender={(panel) => <div className="custom-panel">{panel}</div>} />,
     );
     expect(panelContainer.querySelector('.custom-panel')).toBeTruthy();
     expect(panelContainer.querySelector('.ant-color-picker-inner-content')).toBeTruthy();
@@ -392,7 +392,7 @@ describe('ColorPicker', () => {
       <ColorPicker
         open
         panelRender={(_, { components: { Picker, Presets } }) => (
-          <div className='custom-panel'>
+          <div className="custom-panel">
             <Picker />
             <Presets />
           </div>
@@ -435,13 +435,13 @@ describe('ColorPicker', () => {
       return (
         <Form form={form} initialValues={{ 'color-picker': null }}>
           <Form.Item
-            name='color-picker'
-            label='ColorPicker'
+            name="color-picker"
+            label="ColorPicker"
             rules={[{ required: true, message: 'color is required!' }]}
           >
             <ColorPicker />
           </Form.Item>
-          <button type='button' onClick={submit}>
+          <button type="button" onClick={submit}>
             submit
           </button>
         </Form>
@@ -498,10 +498,10 @@ describe('ColorPicker', () => {
           onChange={setValue}
           onChangeComplete={setChangedValue}
         >
-          <div className='color-value'>
+          <div className="color-value">
             {typeof value === 'string' ? value : value?.toHexString()}
           </div>
-          <div className='color-value-changed'>
+          <div className="color-value-changed">
             {typeof changedValue === 'string' ? changedValue : changedValue?.toHexString()}
           </div>
         </ColorPicker>
@@ -515,7 +515,7 @@ describe('ColorPicker', () => {
   });
 
   it('Should warning work when set disabledAlpha true and color is alpha color', () => {
-    render(<ColorPicker disabledAlpha value='#1677ff' />);
+    render(<ColorPicker disabledAlpha value="#1677ff" />);
     expect(errorSpy).not.toHaveBeenCalled();
   });
 });

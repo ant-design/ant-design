@@ -115,13 +115,13 @@ const ResourceLayout: React.FC<ResourceLayoutProps> = ({ children }) => {
     <ConfigProvider theme={{ token: { colorBgLayout: '#fff' } }}>
       <Layout>
         <CommonHelmet />
-        <div id='resources-page' className={styles.resourcePage}>
+        <div id="resources-page" className={styles.resourcePage}>
           <AffixTabs />
           <div className={styles.banner}>
             <Typography.Title style={{ fontSize: 30 }}>
               {meta.frontmatter?.title}
               <EditButton
-                title={<FormattedMessage id='app.content.edit-page' />}
+                title={<FormattedMessage id="app.content.edit-page" />}
                 filename={meta.frontmatter.filename}
               />
             </Typography.Title>

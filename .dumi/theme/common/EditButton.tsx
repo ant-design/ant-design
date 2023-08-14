@@ -46,8 +46,8 @@ export default function EditButton({ title, filename }: EditButtonProps) {
       <a
         className={styles.editButton}
         href={`${branchUrl}${filename}`}
-        target='_blank'
-        rel='noopener noreferrer'
+        target="_blank"
+        rel="noopener noreferrer"
       >
         <EditOutlined />
       </a>

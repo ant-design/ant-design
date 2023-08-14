@@ -181,7 +181,7 @@ export function useInternalNotification(
   // ============================== Return ===============================
   return [
     wrapAPI,
-    <Holder key='notification-holder' {...notificationConfig} ref={holderRef} />,
+    <Holder key="notification-holder" {...notificationConfig} ref={holderRef} />,
   ] as const;
 }
 

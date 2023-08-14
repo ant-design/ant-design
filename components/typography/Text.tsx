@@ -30,7 +30,7 @@ const Text: React.ForwardRefRenderFunction<HTMLSpanElement, TextProps> = (
     '`ellipsis` do not support `expandable` or `rows` props.',
   );
 
-  return <Base ref={ref} {...restProps} ellipsis={mergedEllipsis} component='span' />;
+  return <Base ref={ref} {...restProps} ellipsis={mergedEllipsis} component="span" />;
 };
 
 export default React.forwardRef(Text);

@@ -210,7 +210,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   // =================== No Found ====================
   const mergedNotFoundContent = notFoundContent || renderEmpty?.('Cascader') || (
-    <DefaultRenderEmpty componentName='Cascader' />
+    <DefaultRenderEmpty componentName="Cascader" />
   );
 
   // ==================== Prefix =====================

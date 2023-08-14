@@ -113,7 +113,7 @@ const SubTokenTable: React.FC<SubTokenTableProps> = ({ defaultOpen, tokens, titl
       {open && (
         <ConfigProvider theme={{ token: { borderRadius: 0 } }}>
           <Table
-            size='middle'
+            size="middle"
             columns={columns}
             bordered
             dataSource={data}

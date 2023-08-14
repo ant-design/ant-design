@@ -4,7 +4,7 @@ import { DatePicker, Space } from 'antd';
 const { RangePicker } = DatePicker;
 
 const App: React.FC = () => (
-  <Space direction='vertical' size={12}>
+  <Space direction="vertical" size={12}>
     <DatePicker
       cellRender={(current, info) => {
         if (info.type !== 'date') return info.originNode;
@@ -14,7 +14,7 @@ const App: React.FC = () => (
           style.borderRadius = '50%';
         }
         return (
-          <div className='ant-picker-cell-inner' style={style}>
+          <div className="ant-picker-cell-inner" style={style}>
             {current.date()}
           </div>
         );
@@ -29,7 +29,7 @@ const App: React.FC = () => (
           style.borderRadius = '50%';
         }
         return (
-          <div className='ant-picker-cell-inner' style={style}>
+          <div className="ant-picker-cell-inner" style={style}>
             {current.date()}
           </div>
         );

@@ -16,8 +16,8 @@ const App: React.FC = () => {
       description: 'Put your files here.',
       cover: (
         <img
-          alt='tour.png'
-          src='https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png'
+          alt="tour.png"
+          src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
         />
       ),
       target: () => ref1.current,
@@ -43,7 +43,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Button type='primary' onClick={() => setOpen(true)}>
+      <Button type="primary" onClick={() => setOpen(true)}>
         Begin Tour
       </Button>
 
@@ -51,7 +51,7 @@ const App: React.FC = () => {
 
       <Space>
         <Button ref={ref1}> Upload</Button>
-        <Button ref={ref2} type='primary'>
+        <Button ref={ref2} type="primary">
           Save
         </Button>
         <Button ref={ref3} icon={<EllipsisOutlined />} />

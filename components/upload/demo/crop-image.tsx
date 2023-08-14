@@ -35,8 +35,8 @@ const App: React.FC = () => {
   return (
     <ImgCrop rotationSlider>
       <Upload
-        action='https://www.mocky.io/v2/5cc8019d300000980a055e76'
-        listType='picture-card'
+        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+        listType="picture-card"
         fileList={fileList}
         onChange={onChange}
         onPreview={onPreview}

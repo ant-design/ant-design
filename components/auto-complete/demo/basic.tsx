@@ -28,7 +28,7 @@ const App: React.FC = () => {
         style={{ width: 200 }}
         onSelect={onSelect}
         onSearch={(text) => setOptions(getPanelValue(text))}
-        placeholder='input here'
+        placeholder="input here"
       />
       <br />
       <br />
@@ -39,7 +39,7 @@ const App: React.FC = () => {
         onSelect={onSelect}
         onSearch={(text) => setAnotherOptions(getPanelValue(text))}
         onChange={onChange}
-        placeholder='control mode'
+        placeholder="control mode"
       />
     </>
   );

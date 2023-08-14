@@ -102,7 +102,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
       {...restProps}
       prefixCls={prefixCls}
       className={classNames(className, hashId, `${noticePrefixCls}-pure-panel`)}
-      eventKey='pure'
+      eventKey="pure"
       duration={null}
       closable={closable}
       closeIcon={getCloseIcon(prefixCls, closeIcon)}

@@ -14,7 +14,7 @@ describe('Upload.Dragger', () => {
   it('support drag file with over style', async () => {
     jest.useFakeTimers();
     const { container: wrapper } = render(
-      <Upload.Dragger action='http://upload.com'>
+      <Upload.Dragger action="http://upload.com">
         <div />
       </Upload.Dragger>,
     );

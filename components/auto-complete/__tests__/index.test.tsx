@@ -62,7 +62,7 @@ describe('AutoComplete', () => {
   });
 
   it('legacy dataSource should accept react element option', () => {
-    render(<AutoComplete open dataSource={[<span key='key'>ReactNode</span>]} />);
+    render(<AutoComplete open dataSource={[<span key="key">ReactNode</span>]} />);
 
     expect(screen.getByRole('combobox')).toBeInTheDocument();
     expect(screen.getByTitle(/reactnode/i)).toBeInTheDocument();
@@ -71,8 +71,8 @@ describe('AutoComplete', () => {
   it('legacy AutoComplete.Option should be compatible', async () => {
     render(
       <AutoComplete>
-        <AutoComplete.Option value='111'>111</AutoComplete.Option>
-        <AutoComplete.Option value='222'>222</AutoComplete.Option>
+        <AutoComplete.Option value="111">111</AutoComplete.Option>
+        <AutoComplete.Option value="222">222</AutoComplete.Option>
       </AutoComplete>,
     );
     expect(screen.getByRole('combobox')).toBeInTheDocument();
@@ -83,7 +83,7 @@ describe('AutoComplete', () => {
 
   it('should not warning when getInputElement is null', () => {
     const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
-    render(<AutoComplete placeholder='input here' allowClear />);
+    render(<AutoComplete placeholder="input here" allowClear />);
     expect(warnSpy).not.toHaveBeenCalled();
     warnSpy.mockRestore();
   });
@@ -91,7 +91,7 @@ describe('AutoComplete', () => {
   it('should not override custom input className', () => {
     render(
       <AutoComplete>
-        <Input className='custom' />
+        <Input className="custom" />
       </AutoComplete>,
     );
     expect(screen.getByRole('combobox')).toHaveClass('custom');
@@ -103,10 +103,10 @@ describe('AutoComplete', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       <AutoComplete
-        dropdownClassName='legacy'
+        dropdownClassName="legacy"
         open
         options={[{ label: 'little', value: 'little' }]}
-        searchValue='l'
+        searchValue="l"
       />,
     );
     expect(errSpy).toHaveBeenCalledWith(

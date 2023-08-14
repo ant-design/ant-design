@@ -261,7 +261,7 @@ const Dropdown: CompoundedComponent = (props) => {
             <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
           </span>
         }
-        mode='vertical'
+        mode="vertical"
         selectable={false}
         onClick={onMenuClick}
         validator={({ mode }) => {

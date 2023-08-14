@@ -38,7 +38,7 @@ describe('click wave effect', () => {
   }
 
   it('should have click wave effect for primary button', async () => {
-    const { container } = render(<Button type='primary'>button</Button>);
+    const { container } = render(<Button type="primary">button</Button>);
     await clickButton(container);
     expect(document.querySelector('.ant-wave')).toBeTruthy();
   });
@@ -50,13 +50,13 @@ describe('click wave effect', () => {
   });
 
   it('should not have click wave effect for link type button', async () => {
-    const { container } = render(<Button type='link'>button</Button>);
+    const { container } = render(<Button type="link">button</Button>);
     await clickButton(container);
     expect(document.querySelector('.ant-wave')).toBeFalsy();
   });
 
   it('should not have click wave effect for text type button', async () => {
-    const { container } = render(<Button type='text'>button</Button>);
+    const { container } = render(<Button type="text">button</Button>);
     await clickButton(container);
     expect(document.querySelector('.ant-wave')).toBeFalsy();
   });

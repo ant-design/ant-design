@@ -218,7 +218,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
 
     return (
       <ItemHolder
-        key='row'
+        key="row"
         {...props}
         className={classNames(className, hashId)}
         prefixCls={prefixCls}

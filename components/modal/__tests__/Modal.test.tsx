@@ -66,7 +66,7 @@ describe('Modal', () => {
   });
 
   it('danger type', () => {
-    render(<Modal okType='danger' okText='123' open />);
+    render(<Modal okType="danger" okText="123" open />);
     const btns = document.body.querySelectorAll('.ant-btn');
     expect(btns[btns.length - 1].classList.contains('ant-btn-dangerous')).toBeTruthy();
   });
@@ -77,7 +77,7 @@ describe('Modal', () => {
       const containerRef = React.useRef<HTMLDivElement>(null);
       return (
         <div ref={containerRef}>
-          <div id='trigger' onClick={() => setOpen(true)}>
+          <div id="trigger" onClick={() => setOpen(true)}>
             click me
           </div>
           <Modal open={open} getContainer={() => containerRef.current!} />
@@ -130,7 +130,7 @@ describe('Modal', () => {
   });
 
   it('should render custom footer', () => {
-    render(<Modal open footer={<div className='custom-footer'>footer</div>} />);
+    render(<Modal open footer={<div className="custom-footer">footer</div>} />);
     expect(document.querySelector('.custom-footer')).toBeTruthy();
   });
 });

@@ -12,8 +12,8 @@ const onSearch = (value: string) => {
 const App: React.FC = () => (
   <Select
     showSearch
-    placeholder='Select a person'
-    optionFilterProp='children'
+    placeholder="Select a person"
+    optionFilterProp="children"
     onChange={onChange}
     onSearch={onSearch}
     filterOption={(input, option) =>

@@ -22,7 +22,7 @@ export function GroupMask({ children, style, disabled }: GroupMaskProps) {
 
   return (
     <div
-      className='site-mask'
+      className="site-mask"
       style={{
         position: 'relative',
         ...style,

@@ -13,7 +13,7 @@ const App: React.FC = () => {
     <>
       <Slider min={0} max={20} style={{ margin: 16 }} onChange={setRadius} />
       <ConfigProvider theme={{ token }}>
-        <FloatButton shape='square' badge={{ dot: true }} />
+        <FloatButton shape="square" badge={{ dot: true }} />
       </ConfigProvider>
     </>
   );

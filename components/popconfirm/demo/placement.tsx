@@ -12,128 +12,128 @@ const App: React.FC = () => (
   <>
     <div style={{ marginLeft: 70, whiteSpace: 'nowrap' }}>
       <Popconfirm
-        placement='topLeft'
+        placement="topLeft"
         title={text}
         description={description}
         onConfirm={confirm}
-        okText='Yes'
-        cancelText='No'
+        okText="Yes"
+        cancelText="No"
       >
         <Button>TL</Button>
       </Popconfirm>
       <Popconfirm
-        placement='top'
+        placement="top"
         title={text}
         description={description}
         onConfirm={confirm}
-        okText='Yes'
-        cancelText='No'
+        okText="Yes"
+        cancelText="No"
       >
         <Button>Top</Button>
       </Popconfirm>
       <Popconfirm
-        placement='topRight'
+        placement="topRight"
         title={text}
         description={description}
         onConfirm={confirm}
-        okText='Yes'
-        cancelText='No'
+        okText="Yes"
+        cancelText="No"
       >
         <Button>TR</Button>
       </Popconfirm>
     </div>
     <div style={{ width: 70, float: 'left' }}>
       <Popconfirm
-        placement='leftTop'
+        placement="leftTop"
         title={text}
         description={description}
         onConfirm={confirm}
-        okText='Yes'
-        cancelText='No'
+        okText="Yes"
+        cancelText="No"
       >
         <Button>LT</Button>
       </Popconfirm>
       <Popconfirm
-        placement='left'
+        placement="left"
         title={text}
         description={description}
         onConfirm={confirm}
-        okText='Yes'
-        cancelText='No'
+        okText="Yes"
+        cancelText="No"
       >
         <Button>Left</Button>
       </Popconfirm>
       <Popconfirm
-        placement='leftBottom'
+        placement="leftBottom"
         title={text}
         description={description}
         onConfirm={confirm}
-        okText='Yes'
-        cancelText='No'
+        okText="Yes"
+        cancelText="No"
       >
         <Button>LB</Button>
       </Popconfirm>
     </div>
     <div style={{ width: 70, marginLeft: 304 }}>
       <Popconfirm
-        placement='rightTop'
+        placement="rightTop"
         title={text}
         description={description}
         onConfirm={confirm}
-        okText='Yes'
-        cancelText='No'
+        okText="Yes"
+        cancelText="No"
       >
         <Button>RT</Button>
       </Popconfirm>
       <Popconfirm
-        placement='right'
+        placement="right"
         title={text}
         description={description}
         onConfirm={confirm}
-        okText='Yes'
-        cancelText='No'
+        okText="Yes"
+        cancelText="No"
       >
         <Button>Right</Button>
       </Popconfirm>
       <Popconfirm
-        placement='rightBottom'
+        placement="rightBottom"
         title={text}
         description={description}
         onConfirm={confirm}
-        okText='Yes'
-        cancelText='No'
+        okText="Yes"
+        cancelText="No"
       >
         <Button>RB</Button>
       </Popconfirm>
     </div>
     <div style={{ marginLeft: 70, clear: 'both', whiteSpace: 'nowrap' }}>
       <Popconfirm
-        placement='bottomLeft'
+        placement="bottomLeft"
         title={text}
         description={description}
         onConfirm={confirm}
-        okText='Yes'
-        cancelText='No'
+        okText="Yes"
+        cancelText="No"
       >
         <Button>BL</Button>
       </Popconfirm>
       <Popconfirm
-        placement='bottom'
+        placement="bottom"
         title={text}
         description={description}
         onConfirm={confirm}
-        okText='Yes'
-        cancelText='No'
+        okText="Yes"
+        cancelText="No"
       >
         <Button>Bottom</Button>
       </Popconfirm>
       <Popconfirm
-        placement='bottomRight'
+        placement="bottomRight"
         title={text}
         description={description}
         onConfirm={confirm}
-        okText='Yes'
-        cancelText='No'
+        okText="Yes"
+        cancelText="No"
       >
         <Button>BR</Button>
       </Popconfirm>

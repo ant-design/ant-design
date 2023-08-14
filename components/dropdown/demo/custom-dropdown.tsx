@@ -9,7 +9,7 @@ const items: MenuProps['items'] = [
   {
     key: '1',
     label: (
-      <a target='_blank' rel='noopener noreferrer' href='https://www.antgroup.com'>
+      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
         1st menu item
       </a>
     ),
@@ -17,7 +17,7 @@ const items: MenuProps['items'] = [
   {
     key: '2',
     label: (
-      <a target='_blank' rel='noopener noreferrer' href='https://www.aliyun.com'>
+      <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
         2nd menu item (disabled)
       </a>
     ),
@@ -26,7 +26,7 @@ const items: MenuProps['items'] = [
   {
     key: '3',
     label: (
-      <a target='_blank' rel='noopener noreferrer' href='https://www.luohanacademy.com'>
+      <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
         3rd menu item (disabled)
       </a>
     ),
@@ -55,7 +55,7 @@ const App: React.FC = () => {
           {React.cloneElement(menu as React.ReactElement, { style: menuStyle })}
           <Divider style={{ margin: 0 }} />
           <Space style={{ padding: 8 }}>
-            <Button type='primary'>Click me!</Button>
+            <Button type="primary">Click me!</Button>
           </Space>
         </div>
       )}

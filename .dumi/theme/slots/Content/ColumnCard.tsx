@@ -124,17 +124,17 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
       {zhihuLink && (
         <div className={cardBody}>
           <div className={left}>
-            <img src={ANTD_IMG_URL} alt='antd' />
+            <img src={ANTD_IMG_URL} alt="antd" />
             <div>
               <p className={title}>Ant Design</p>
               <div className={subTitle}>
-                <ZhihuOutlined className='logo zhihu-logo' />
-                <RightOutlined className='arrowIcon' />
+                <ZhihuOutlined className="logo zhihu-logo" />
+                <RightOutlined className="arrowIcon" />
                 <Button
-                  target='_blank'
-                  href='https://www.zhihu.com/column/c_1564262000561106944'
-                  className='zl-btn'
-                  type='link'
+                  target="_blank"
+                  href="https://www.zhihu.com/column/c_1564262000561106944"
+                  className="zl-btn"
+                  type="link"
                 >
                   {locale.zhiHu}
                 </Button>
@@ -142,11 +142,11 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
             </div>
           </div>
           <Button
-            type='primary'
+            type="primary"
             className={btn}
             icon={<ZhihuOutlined style={{ fontSize: 16 }} />}
             ghost
-            target='_blank'
+            target="_blank"
             href={zhihuLink}
           >
             {locale.buttonText}
@@ -158,17 +158,17 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
           <Divider />
           <div className={cardBody}>
             <div className={left}>
-              <img src={ANTD_IMG_URL} alt='antd' />
+              <img src={ANTD_IMG_URL} alt="antd" />
               <div>
                 <p className={title}>Ant Design</p>
                 <div className={subTitle}>
-                  <YuqueOutlined className='logo yuque-logo' />
-                  <RightOutlined className='arrowIcon' />
+                  <YuqueOutlined className="logo yuque-logo" />
+                  <RightOutlined className="arrowIcon" />
                   <Button
-                    target='_blank'
-                    href='https://www.yuque.com/ant-design/ant-design'
-                    className='zl-btn'
-                    type='link'
+                    target="_blank"
+                    href="https://www.yuque.com/ant-design/ant-design"
+                    className="zl-btn"
+                    type="link"
                   >
                     {locale.yuQue}
                   </Button>
@@ -176,11 +176,11 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
               </div>
             </div>
             <Button
-              type='primary'
+              type="primary"
               className={btn}
               icon={<YuqueOutlined style={{ fontSize: 16 }} />}
               ghost
-              target='_blank'
+              target="_blank"
               href={yuqueLink}
             >
               {locale.buttonText}
@@ -193,17 +193,17 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
           <Divider />
           <div className={cardBody}>
             <div className={left}>
-              <img src={ANTD_IMG_URL} alt='antd' />
+              <img src={ANTD_IMG_URL} alt="antd" />
               <div>
                 <p className={title}>Ant Design</p>
                 <div className={subTitle}>
-                  <JuejinLogo className='logo juejin-logo' />
-                  <RightOutlined className='arrowIcon' />
+                  <JuejinLogo className="logo juejin-logo" />
+                  <RightOutlined className="arrowIcon" />
                   <Button
-                    target='_blank'
-                    href='https://juejin.cn/column/7247354308258054200'
-                    className='zl-btn'
-                    type='link'
+                    target="_blank"
+                    href="https://juejin.cn/column/7247354308258054200"
+                    className="zl-btn"
+                    type="link"
                   >
                     {locale.junjin}
                   </Button>
@@ -211,11 +211,11 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
               </div>
             </div>
             <Button
-              type='primary'
+              type="primary"
               className={btn}
               icon={<JuejinLogo style={{ fontSize: 16, width: 16, height: 16 }} />}
               ghost
-              target='_blank'
+              target="_blank"
               href={juejinLink}
             >
               {locale.buttonText}

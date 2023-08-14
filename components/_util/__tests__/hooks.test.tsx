@@ -68,7 +68,7 @@ describe('hooks test', () => {
     {
       params: [
         true,
-        <div className='custom-close' key='close'>
+        <div className="custom-close" key="close">
           close
         </div>,
         false,
@@ -76,7 +76,7 @@ describe('hooks test', () => {
       res: [true, 'custom-close'],
     },
     {
-      params: [false, <div key='close'>close</div>, false],
+      params: [false, <div key="close">close</div>, false],
       res: [false, ''],
     },
 
@@ -92,7 +92,7 @@ describe('hooks test', () => {
     {
       params: [
         undefined,
-        <div className='custom-close' key='close'>
+        <div className="custom-close" key="close">
           close
         </div>,
         undefined,
@@ -102,7 +102,7 @@ describe('hooks test', () => {
     {
       params: [
         undefined,
-        <div className='custom-close' key='close'>
+        <div className="custom-close" key="close">
           close
         </div>,
         true,
@@ -112,7 +112,7 @@ describe('hooks test', () => {
     {
       params: [
         undefined,
-        <div className='custom-close' key='close'>
+        <div className="custom-close" key="close">
           close
         </div>,
         false,
@@ -155,7 +155,7 @@ describe('hooks test', () => {
         true,
         undefined,
         undefined,
-        <CloseOutlined className='custom-close-icon' />,
+        <CloseOutlined className="custom-close-icon" />,
       );
       useEffect(() => {
         expect(closable).toBe(true);
@@ -169,7 +169,7 @@ describe('hooks test', () => {
   it('useClosable with customCloseIconRender', () => {
     const App = () => {
       const customCloseIconRender = (icon: React.ReactNode) => (
-        <span className='custom-close-wrapper'>{icon}</span>
+        <span className="custom-close-wrapper">{icon}</span>
       );
       const [closable, closeIcon] = useClosable(true, undefined, customCloseIconRender);
       useEffect(() => {

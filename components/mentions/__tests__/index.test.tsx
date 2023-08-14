@@ -79,7 +79,7 @@ describe('Mentions', () => {
   });
 
   it('notFoundContent', () => {
-    const wrapper = render(<Mentions notFoundContent={<span className='bamboo-light' />} />);
+    const wrapper = render(<Mentions notFoundContent={<span className="bamboo-light" />} />);
     simulateInput(wrapper, '@');
     expect(wrapper.container.querySelectorAll('li.ant-mentions-dropdown-menu-item').length).toBe(1);
     expect(wrapper.container.querySelectorAll('.bamboo-light').length).toBeTruthy();
@@ -88,10 +88,10 @@ describe('Mentions', () => {
   it('warning if use Mentions.Option', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(
-      <Mentions style={{ width: '100%' }} defaultValue='@afc163'>
-        <Option value='afc163'>afc163</Option>
-        <Option value='zombieJ'>zombieJ</Option>
-        <Option value='yesmeck'>yesmeck</Option>
+      <Mentions style={{ width: '100%' }} defaultValue="@afc163">
+        <Option value="afc163">afc163</Option>
+        <Option value="zombieJ">zombieJ</Option>
+        <Option value="yesmeck">yesmeck</Option>
       </Mentions>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
@@ -102,9 +102,9 @@ describe('Mentions', () => {
   it('do not lose label when use children Option', () => {
     const wrapper = render(
       <Mentions style={{ width: '100%' }}>
-        <Mentions.Option value='afc163'>Afc163</Mentions.Option>
-        <Mentions.Option value='zombieJ'>ZombieJ</Mentions.Option>
-        <Mentions.Option value='yesmeck'>Yesmeck</Mentions.Option>
+        <Mentions.Option value="afc163">Afc163</Mentions.Option>
+        <Mentions.Option value="zombieJ">ZombieJ</Mentions.Option>
+        <Mentions.Option value="yesmeck">Yesmeck</Mentions.Option>
       </Mentions>,
     );
     simulateInput(wrapper, '@');

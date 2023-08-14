@@ -42,7 +42,7 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight
   return (
     <CSSMotionList
       keys={keyList}
-      motionName='transition'
+      motionName="transition"
       onEnterStart={onHide}
       onAppearStart={onHide}
       onEnterActive={onShow}
@@ -63,8 +63,8 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight
 
         return (
           <picture>
-            <source srcSet={entity.webp} type='image/webp' />
-            <source srcSet={entity.url} type='image/jpeg' />
+            <source srcSet={entity.webp} type="image/webp" />
+            <source srcSet={entity.url} type="image/jpeg" />
             <img
               className={cls}
               style={{
@@ -72,7 +72,7 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight
                 opacity: isLight ? opacity : 0,
               }}
               src={entity.url}
-              alt=''
+              alt=""
             />
           </picture>
         );

@@ -20,11 +20,11 @@ const App: React.FC = () => (
       },
     }}
   >
-    <InternalPopover content={content} title='Title' />
+    <InternalPopover content={content} title="Title" />
     <InternalPopover
       content={content}
-      title='Title'
-      placement='bottomLeft'
+      title="Title"
+      placement="bottomLeft"
       style={{ width: 250 }}
     />
   </ConfigProvider>

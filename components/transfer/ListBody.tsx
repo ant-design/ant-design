@@ -101,7 +101,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
 
   const paginationNode: React.ReactNode = mergedPagination ? (
     <Pagination
-      size='small'
+      size="small"
       disabled={globalDisabled}
       simple={mergedPagination.simple}
       pageSize={pageSize}

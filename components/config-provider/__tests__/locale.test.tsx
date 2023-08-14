@@ -44,7 +44,7 @@ describe('ConfigProvider.Locale', () => {
         <ConfigProvider locale={zhCN}>
           {showButton ? (
             <ConfigProvider locale={enUS}>
-              <button type='button' onClick={openConfirm}>
+              <button type="button" onClick={openConfirm}>
                 open
               </button>
             </ConfigProvider>

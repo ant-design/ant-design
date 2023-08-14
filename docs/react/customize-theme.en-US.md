@@ -329,9 +329,9 @@ const globalToken = getDesignToken();
 Same as ConfigProvider, `getDesignToken` could also accept a config object as `theme`:
 
 ```tsx
+import { createRoot } from 'react-dom/client';
 import type { ThemeConfig } from 'antd';
 import { theme } from 'antd';
-import { createRoot } from 'react-dom/client';
 
 const { getDesignToken, useToken } = theme;
 

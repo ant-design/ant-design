@@ -101,7 +101,7 @@ const FloatButton: React.ForwardRefRenderFunction<
         ref={ref as React.RefObject<HTMLButtonElement>}
         {...restProps}
         className={classString}
-        type='button'
+        type="button"
       >
         {buttonNode}
       </button>

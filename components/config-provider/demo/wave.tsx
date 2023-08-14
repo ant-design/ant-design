@@ -113,18 +113,18 @@ const showShakeEffect: WaveConfig['showEffect'] = (node, { component }) => {
 // Component
 const Wrapper = ({ name, ...wave }: WaveConfig & { name: string }) => (
   <ConfigProvider wave={wave}>
-    <Button type='primary'>{name}</Button>
+    <Button type="primary">{name}</Button>
   </ConfigProvider>
 );
 
 const App = () => (
-  <Space style={{ padding: 24 }} size='large'>
-    <Wrapper name='Disabled' disabled />
-    <Wrapper name='Default' />
-    <Wrapper name='Inset' showEffect={showInsetEffect} />
-    <Wrapper name='Shake' showEffect={showShakeEffect} />
+  <Space style={{ padding: 24 }} size="large">
+    <Wrapper name="Disabled" disabled />
+    <Wrapper name="Default" />
+    <Wrapper name="Inset" showEffect={showInsetEffect} />
+    <Wrapper name="Shake" showEffect={showShakeEffect} />
     <HappyProvider>
-      <Button type='primary'>Happy Work</Button>
+      <Button type="primary">Happy Work</Button>
     </HappyProvider>
   </Space>
 );

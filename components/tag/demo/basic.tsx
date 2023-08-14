@@ -15,7 +15,7 @@ const App: React.FC = () => (
   <Space size={[0, 8]} wrap>
     <Tag>Tag 1</Tag>
     <Tag>
-      <a href='https://github.com/ant-design/ant-design/issues/1862'>Link</a>
+      <a href="https://github.com/ant-design/ant-design/issues/1862">Link</a>
     </Tag>
     <Tag closeIcon onClose={preventDefault}>
       Prevent Default

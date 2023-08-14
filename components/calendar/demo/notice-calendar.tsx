@@ -45,7 +45,7 @@ const App: React.FC = () => {
   const monthCellRender = (value: Dayjs) => {
     const num = getMonthData(value);
     return num ? (
-      <div className='notes-month'>
+      <div className="notes-month">
         <section>{num}</section>
         <span>Backlog number</span>
       </div>
@@ -55,7 +55,7 @@ const App: React.FC = () => {
   const dateCellRender = (value: Dayjs) => {
     const listData = getListData(value);
     return (
-      <ul className='events'>
+      <ul className="events">
         {listData.map((item) => (
           <li key={item.content}>
             <Badge status={item.type as BadgeProps['status']} text={item.content} />

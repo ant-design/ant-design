@@ -50,8 +50,8 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
   );
 
   return (
-    <div className='demo-wrapper'>
-      <span className='all-code-box-controls'>
+    <div className="demo-wrapper">
+      <span className="all-code-box-controls">
         <Tooltip
           title={
             <FormattedMessage id={`app.component.examples.${expandAll ? 'collapse' : 'expand'}`} />

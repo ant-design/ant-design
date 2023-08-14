@@ -24,7 +24,7 @@ describe('Layout.Token', () => {
       >
         <Header>
           <Menu
-            mode='horizontal'
+            mode="horizontal"
             defaultSelectedKeys={['2']}
             items={new Array(15).fill(null).map((_, index) => {
               const key = index + 1;
@@ -61,7 +61,7 @@ describe('Layout.Token', () => {
       >
         <Header>
           <Menu
-            mode='horizontal'
+            mode="horizontal"
             defaultSelectedKeys={['2']}
             items={new Array(15).fill(null).map((_, index) => {
               const key = index + 1;

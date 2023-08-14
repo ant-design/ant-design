@@ -13,7 +13,7 @@ const Content = () => {
   };
   return (
     <Sider breakpoint={breakpoint as any}>
-      <button type='button' id='toggle' onClick={toggleBreakpoint}>
+      <button type="button" id="toggle" onClick={toggleBreakpoint}>
         Toggle
       </button>
     </Sider>

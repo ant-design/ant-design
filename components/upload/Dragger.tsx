@@ -7,7 +7,7 @@ export type DraggerProps = UploadProps & { height?: number };
 
 const Dragger = React.forwardRef<UploadRef, DraggerProps>(
   ({ style, height, ...restProps }, ref) => (
-    <Upload ref={ref} {...restProps} type='drag' style={{ ...style, height }} />
+    <Upload ref={ref} {...restProps} type="drag" style={{ ...style, height }} />
   ),
 );
 

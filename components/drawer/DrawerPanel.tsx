@@ -46,7 +46,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
 
   const customCloseIconRender = React.useCallback(
     (icon: React.ReactNode) => (
-      <button type='button' onClick={onClose} aria-label='Close' className={`${prefixCls}-close`}>
+      <button type="button" onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
         {icon}
       </button>
     ),

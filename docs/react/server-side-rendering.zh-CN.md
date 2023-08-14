@@ -75,8 +75,8 @@ npm install ts-node tslib cross-env --save-dev
 
 ```tsx
 // scripts/genAntdCss.tsx
-import { extractStyle } from '@ant-design/static-style-extract';
 import fs from 'fs';
+import { extractStyle } from '@ant-design/static-style-extract';
 
 const outputPath = './public/antd.min.css';
 
@@ -88,10 +88,10 @@ fs.writeFileSync(outputPath, css);
 若你想使用混合主题或自定义主题，可采用以下脚本：
 
 ```tsx
-import { extractStyle } from '@ant-design/static-style-extract';
-import { ConfigProvider } from 'antd';
 import fs from 'fs';
+import { extractStyle } from '@ant-design/static-style-extract';
 import React from 'react';
+import { ConfigProvider } from 'antd';
 
 const outputPath = './public/antd.min.css';
 
@@ -234,11 +234,11 @@ const cssText = extractStyle((node) => (
 
 ```tsx
 // scripts/genAntdCss.tsx
-import { extractStyle } from '@ant-design/cssinjs';
-import type Entity from '@ant-design/cssinjs/lib/Cache';
 import { createHash } from 'crypto';
 import fs from 'fs';
 import path from 'path';
+import type Entity from '@ant-design/cssinjs/lib/Cache';
+import { extractStyle } from '@ant-design/cssinjs';
 
 export type DoExtraStyleOptions = {
   cache: Entity;
@@ -292,12 +292,11 @@ export default class MyDocument extends Document {
     const originalRenderPage = ctx.renderPage;
     ctx.renderPage = () =>
       originalRenderPage({
-        enhanceApp: (App) => (props) =>
-          (
-            <StyleProvider cache={cache}>
-              <App {...props} />
-            </StyleProvider>
-          ),
+        enhanceApp: (App) => (props) => (
+          <StyleProvider cache={cache}>
+            <App {...props} />
+          </StyleProvider>
+        ),
       });
 
     const initialProps = await Document.getInitialProps(ctx);

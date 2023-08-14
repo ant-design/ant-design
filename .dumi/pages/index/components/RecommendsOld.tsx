@@ -85,7 +85,7 @@ export default function Recommends({ recommendations = [] }: RecommendsProps) {
           <Col key={index} span={8}>
             {data ? (
               <div className={styles.card} style={{ backgroundImage: `url(${data.img})` }}>
-                <div className='intro'>
+                <div className="intro">
                   <Typography.Title level={4}>{data?.title}</Typography.Title>
                   <Typography.Paragraph>{data.description}</Typography.Paragraph>
                 </div>

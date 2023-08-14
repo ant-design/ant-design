@@ -16,28 +16,28 @@ const suffix = (
 const onSearch = (value: string) => console.log(value);
 
 const App: React.FC = () => (
-  <Space direction='vertical'>
-    <Search placeholder='input search text' onSearch={onSearch} style={{ width: 200 }} />
-    <Search placeholder='input search text' allowClear onSearch={onSearch} style={{ width: 200 }} />
+  <Space direction="vertical">
+    <Search placeholder="input search text" onSearch={onSearch} style={{ width: 200 }} />
+    <Search placeholder="input search text" allowClear onSearch={onSearch} style={{ width: 200 }} />
     <Search
-      addonBefore='https://'
-      placeholder='input search text'
+      addonBefore="https://"
+      placeholder="input search text"
       allowClear
       onSearch={onSearch}
       style={{ width: 304 }}
     />
-    <Search placeholder='input search text' onSearch={onSearch} enterButton />
+    <Search placeholder="input search text" onSearch={onSearch} enterButton />
     <Search
-      placeholder='input search text'
+      placeholder="input search text"
       allowClear
-      enterButton='Search'
-      size='large'
+      enterButton="Search"
+      size="large"
       onSearch={onSearch}
     />
     <Search
-      placeholder='input search text'
-      enterButton='Search'
-      size='large'
+      placeholder="input search text"
+      enterButton="Search"
+      size="large"
       suffix={suffix}
       onSearch={onSearch}
     />

@@ -27,32 +27,32 @@ const App: React.FC = () => {
           setComponentSize(e.target.value);
         }}
       >
-        <Radio.Button value='small'>Small</Radio.Button>
-        <Radio.Button value='middle'>Middle</Radio.Button>
-        <Radio.Button value='large'>Large</Radio.Button>
+        <Radio.Button value="small">Small</Radio.Button>
+        <Radio.Button value="middle">Middle</Radio.Button>
+        <Radio.Button value="large">Large</Radio.Button>
       </Radio.Group>
       <Divider />
       <ConfigProvider componentSize={componentSize}>
-        <Space size={[0, 16]} style={{ width: '100%' }} direction='vertical'>
+        <Space size={[0, 16]} style={{ width: '100%' }} direction="vertical">
           <Input />
-          <Tabs defaultActiveKey='1'>
-            <TabPane tab='Tab 1' key='1'>
+          <Tabs defaultActiveKey="1">
+            <TabPane tab="Tab 1" key="1">
               Content of Tab Pane 1
             </TabPane>
-            <TabPane tab='Tab 2' key='2'>
+            <TabPane tab="Tab 2" key="2">
               Content of Tab Pane 2
             </TabPane>
-            <TabPane tab='Tab 3' key='3'>
+            <TabPane tab="Tab 3" key="3">
               Content of Tab Pane 3
             </TabPane>
           </Tabs>
           <Input.Search allowClear />
           <Input.TextArea allowClear />
-          <Select defaultValue='demo' options={[{ value: 'demo' }]} />
+          <Select defaultValue="demo" options={[{ value: 'demo' }]} />
           <DatePicker />
           <DatePicker.RangePicker />
           <Button>Button</Button>
-          <Card title='Card'>
+          <Card title="Card">
             <Table
               columns={[
                 { title: 'Name', dataIndex: 'name' },

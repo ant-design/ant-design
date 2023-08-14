@@ -11,12 +11,12 @@ const App: React.FC = () => (
     <InternalFloatButton icon={<CustomerServiceOutlined />} />
     <InternalFloatButton
       icon={<QuestionCircleOutlined />}
-      description='HELP'
-      shape='square'
-      type='primary'
+      description="HELP"
+      shape="square"
+      type="primary"
     />
     <InternalFloatButton
-      shape='square'
+      shape="square"
       items={[
         { icon: <QuestionCircleOutlined /> },
         { icon: <CustomerServiceOutlined /> },
@@ -26,7 +26,7 @@ const App: React.FC = () => (
     <InternalFloatButton
       open
       icon={<CustomerServiceOutlined />}
-      trigger='click'
+      trigger="click"
       items={[
         { icon: <QuestionCircleOutlined /> },
         { icon: <CustomerServiceOutlined /> },

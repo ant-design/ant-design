@@ -123,11 +123,11 @@ const IconSearch: React.FC = () => {
   };
 
   return (
-    <div className='markdown'>
+    <div className="markdown">
       <Affix offsetTop={24 + token.headerHeight} onChange={setSearchBarAffixed}>
         <div className={styles.iconSearchAffix} style={searchBarAffixed ? affixedStyle : {}}>
           <Segmented
-            size='large'
+            size="large"
             value={displayState.theme}
             options={options(intl)}
             onChange={handleChangeTheme}
@@ -137,7 +137,7 @@ const IconSearch: React.FC = () => {
             style={{ flex: 1, marginInlineStart: 16 }}
             allowClear
             autoFocus
-            size='large'
+            size="large"
             onChange={handleSearchIcon}
           />
         </div>

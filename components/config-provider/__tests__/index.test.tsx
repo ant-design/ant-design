@@ -40,7 +40,7 @@ describe('ConfigProvider', () => {
 
   it('nest prefixCls', () => {
     const { container } = render(
-      <ConfigProvider prefixCls='bamboo'>
+      <ConfigProvider prefixCls="bamboo">
         <ConfigProvider>
           <Button />
         </ConfigProvider>
@@ -55,7 +55,7 @@ describe('ConfigProvider', () => {
       const [prefixCls, setPrefixCls] = useState('bamboo');
       return (
         <div>
-          <Button onClick={() => setPrefixCls('light')} className='toggle-button'>
+          <Button onClick={() => setPrefixCls('light')} className="toggle-button">
             toggle
           </Button>
           <ConfigProvider prefixCls={prefixCls}>
@@ -76,7 +76,7 @@ describe('ConfigProvider', () => {
 
   it('iconPrefixCls', () => {
     const { container } = render(
-      <ConfigProvider iconPrefixCls='bamboo'>
+      <ConfigProvider iconPrefixCls="bamboo">
         <SmileOutlined />
       </ConfigProvider>,
     );

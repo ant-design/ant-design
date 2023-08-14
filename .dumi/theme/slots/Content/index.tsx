@@ -114,7 +114,7 @@ type AnchorItem = {
 const AvatarPlaceholder: React.FC<{ num?: number }> = ({ num = 3 }) => (
   <li>
     {Array.from({ length: num }).map((_, i) => (
-      <Skeleton.Avatar size='small' active key={i} style={{ marginLeft: i === 0 ? 0 : -8 }} />
+      <Skeleton.Avatar size="small" active key={i} style={{ marginLeft: i === 0 ? 0 : -8 }} />
     ))}
   </li>
 );
@@ -132,10 +132,10 @@ const AuthorAvatar: React.FC<{ name: string; avatar: string }> = ({ name, avatar
     return null;
   }
   if (loading) {
-    return <Skeleton.Avatar size='small' active />;
+    return <Skeleton.Avatar size="small" active />;
   }
   return (
-    <Avatar size='small' src={avatar} alt={name}>
+    <Avatar size="small" src={avatar} alt={name}>
       {name}
     </Avatar>
   );
@@ -235,13 +235,13 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
         <article className={classNames(styles.articleWrapper, { rtl: isRTL })}>
           {meta.frontmatter?.title ? (
             <Typography.Title style={{ fontSize: 30, position: 'relative' }}>
-              <Space size='small'>
+              <Space size="small">
                 {meta.frontmatter?.title}
                 {meta.frontmatter?.subtitle}
 
                 {!pathname.startsWith('/components/overview') && (
                   <EditButton
-                    title={<FormattedMessage id='app.content.edit-page' />}
+                    title={<FormattedMessage id="app.content.edit-page" />}
                     filename={meta.frontmatter.filename}
                   />
                 )}
@@ -261,8 +261,8 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                 {mergedAuthorInfos.map((info) => (
                   <a
                     href={`https://github.com/${info.name}`}
-                    target='_blank'
-                    rel='noopener noreferrer'
+                    target="_blank"
+                    rel="noopener noreferrer"
                     key={info.name}
                   >
                     <Space size={3}>
@@ -288,8 +288,8 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
           {meta.frontmatter.filename && (
             <ContributorsList
               cache
-              repo='ant-design'
-              owner='ant-design'
+              repo="ant-design"
+              owner="ant-design"
               className={classNames(styles.contributorsList, { [styles.listMobile]: isMobile })}
               fileName={meta.frontmatter.filename}
               renderItem={(item, loading) => {
@@ -308,10 +308,10 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                     <li>
                       <a
                         href={`https://github.com/${item.username}`}
-                        target='_blank'
-                        rel='noopener noreferrer'
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
-                        <Avatar size='small' src={item.url} alt={item.username}>
+                        <Avatar size="small" src={item.url} alt={item.username}>
                           {item.username}
                         </Avatar>
                       </a>

@@ -30,11 +30,11 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Space direction='vertical' style={{ marginBottom: '20px' }} size='middle'>
+      <Space direction="vertical" style={{ marginBottom: '20px' }} size="middle">
         <Space>
           <span>Pagination Position:</span>
           <Radio.Group
-            optionType='button'
+            optionType="button"
             value={position}
             onChange={(e) => {
               setPosition(e.target.value);
@@ -50,7 +50,7 @@ const App: React.FC = () => {
         <Space>
           <span>Pagination Align:</span>
           <Radio.Group
-            optionType='button'
+            optionType="button"
             value={align}
             onChange={(e) => {
               setAlign(e.target.value);
@@ -73,8 +73,8 @@ const App: React.FC = () => {
               avatar={
                 <Avatar src={`https://xsgames.co/randomusers/avatar.php?g=pixel&key=${index}`} />
               }
-              title={<a href='https://ant.design'>{item.title}</a>}
-              description='Ant Design, a design language for background applications, is refined by Ant UED Team'
+              title={<a href="https://ant.design">{item.title}</a>}
+              description="Ant Design, a design language for background applications, is refined by Ant UED Team"
             />
           </List.Item>
         )}

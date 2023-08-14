@@ -23,16 +23,16 @@ describe('message.hooks', () => {
       const [api, holder] = message.useMessage();
 
       return (
-        <ConfigProvider prefixCls='my-test'>
-          <Context.Provider value='bamboo'>
+        <ConfigProvider prefixCls="my-test">
+          <Context.Provider value="bamboo">
             <button
-              type='button'
+              type="button"
               onClick={() => {
                 api.open({
                   duration: 0,
                   content: (
                     <Context.Consumer>
-                      {(name) => <span className='hook-test-result'>{name}</span>}
+                      {(name) => <span className="hook-test-result">{name}</span>}
                     </Context.Consumer>
                   ),
                 });
@@ -59,16 +59,16 @@ describe('message.hooks', () => {
       const [api, holder] = message.useMessage();
 
       return (
-        <ConfigProvider prefixCls='my-test'>
-          <Context.Provider value='bamboo'>
+        <ConfigProvider prefixCls="my-test">
+          <Context.Provider value="bamboo">
             <button
-              type='button'
+              type="button"
               onClick={() => {
                 api.success({
                   duration: 0,
                   content: (
                     <Context.Consumer>
-                      {(name) => <span className='hook-test-result'>{name}</span>}
+                      {(name) => <span className="hook-test-result">{name}</span>}
                     </Context.Consumer>
                   ),
                 });
@@ -95,7 +95,7 @@ describe('message.hooks', () => {
       return (
         <>
           <button
-            type='button'
+            type="button"
             onClick={() => {
               api.open({ content: 'amazing', duration: 1, onClose: done });
             }}
@@ -119,7 +119,7 @@ describe('message.hooks', () => {
       return (
         <>
           <button
-            type='button'
+            type="button"
             onClick={() => {
               api.open({ content: 'good', duration: 1 }).then(() => {
                 done();
@@ -144,9 +144,9 @@ describe('message.hooks', () => {
     const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
-        <ConfigProvider prefixCls='my-test'>
+        <ConfigProvider prefixCls="my-test">
           <button
-            type='button'
+            type="button"
             onClick={() => {
               hide = api.open({ content: 'nice', duration: 0 });
             }}
@@ -204,14 +204,14 @@ describe('message.hooks', () => {
     const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
-        <ConfigProvider getPopupContainer={getPopupContainer} prefixCls='my-test'>
+        <ConfigProvider getPopupContainer={getPopupContainer} prefixCls="my-test">
           {holder}
           <button
-            type='button'
+            type="button"
             onClick={() => {
               api.success({
                 duration: 0,
-                content: <span className='hook-content'>happy</span>,
+                content: <span className="hook-content">happy</span>,
               });
             }}
           >
@@ -239,7 +239,7 @@ describe('message.hooks', () => {
 
       if (!calledRef.current) {
         api.info({
-          content: <div className='bamboo' />,
+          content: <div className="bamboo" />,
         });
         calledRef.current = true;
       }

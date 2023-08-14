@@ -67,9 +67,9 @@ export default function Banner({ children }: BannerProps) {
       {/* Banner Placeholder Motion */}
       {isMobile ? (
         <img
-          src='https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JmlaR5oQn3MAAAAAAAAAAAAADrJ8AQ/original'
+          src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JmlaR5oQn3MAAAAAAAAAAAAADrJ8AQ/original"
           style={{ width: '100%' }}
-          alt=''
+          alt=""
         />
       ) : (
         <div
@@ -93,12 +93,12 @@ export default function Banner({ children }: BannerProps) {
 
           <video style={{ height: '100%', objectFit: 'contain' }} autoPlay muted loop>
             <source
-              src='https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ'
-              type='video/webm'
+              src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ"
+              type="video/webm"
             />
             <source
-              src='https://gw.alipayobjects.com/mdn/rms_08e378/afts/file/A*XYYNQJ3NbmMAAAAAAAAAAAAAARQnAQ'
-              type='video/mp4'
+              src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/file/A*XYYNQJ3NbmMAAAAAAAAAAAAAARQnAQ"
+              type="video/mp4"
             />
           </video>
 
@@ -120,8 +120,8 @@ export default function Banner({ children }: BannerProps) {
         {/* Image Bottom Right */}
         <img
           style={{ position: 'absolute', right: 0, top: 240, width: 240 }}
-          src='https://gw.alipayobjects.com/zos/bmw-prod/b3b8dc41-dce8-471f-9d81-9a0204f27d03.svg'
-          alt='Ant Design'
+          src="https://gw.alipayobjects.com/zos/bmw-prod/b3b8dc41-dce8-471f-9d81-9a0204f27d03.svg"
+          alt="Ant Design"
         />
 
         <GroupMask
@@ -134,14 +134,14 @@ export default function Banner({ children }: BannerProps) {
           {/* Image Left Top */}
           <img
             style={{ position: 'absolute', left: isMobile ? -120 : 0, top: 0, width: 240 }}
-            src='https://gw.alipayobjects.com/zos/bmw-prod/49f963db-b2a8-4f15-857a-270d771a1204.svg'
-            alt='bg'
+            src="https://gw.alipayobjects.com/zos/bmw-prod/49f963db-b2a8-4f15-857a-270d771a1204.svg"
+            alt="bg"
           />
           {/* Image Right Top */}
           <img
             style={{ position: 'absolute', right: isMobile ? 0 : 120, top: 0, width: 240 }}
-            src='https://gw.alipayobjects.com/zos/bmw-prod/e152223c-bcae-4913-8938-54fda9efe330.svg'
-            alt='bg'
+            src="https://gw.alipayobjects.com/zos/bmw-prod/e152223c-bcae-4913-8938-54fda9efe330.svg"
+            alt="bg"
           />
 
           <Typography.Title level={1} className={classNames(styles.titleBase, styles.title)}>
@@ -158,14 +158,14 @@ export default function Banner({ children }: BannerProps) {
             <div>{locale.slogan}</div>
           </Typography.Paragraph>
 
-          <Space size='middle' style={{ marginBottom: token.marginFar }}>
+          <Space size="middle" style={{ marginBottom: token.marginFar }}>
             <Link to={utils.getLocalizedPathname('/components/overview/', isZhCN, search)}>
-              <Button size='large' type='primary'>
+              <Button size="large" type="primary">
                 {locale.start}
               </Button>
             </Link>
             <Link to={utils.getLocalizedPathname('/docs/spec/introduce/', isZhCN, search)}>
-              <Button size='large'>{locale.designLanguage}</Button>
+              <Button size="large">{locale.designLanguage}</Button>
             </Link>
           </Space>
 

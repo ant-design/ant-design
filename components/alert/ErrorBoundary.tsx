@@ -35,7 +35,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
     if (error) {
       return (
         <Alert
-          type='error'
+          type="error"
           message={errorMessage}
           description={
             <pre style={{ fontSize: '0.9em', overflowX: 'auto' }}>{errorDescription}</pre>

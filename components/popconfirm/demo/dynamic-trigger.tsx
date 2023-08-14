@@ -36,14 +36,14 @@ const App: React.FC = () => {
   return (
     <div>
       <Popconfirm
-        title='Delete the task'
-        description='Are you sure to delete this task?'
+        title="Delete the task"
+        description="Are you sure to delete this task?"
         open={open}
         onOpenChange={handleOpenChange}
         onConfirm={confirm}
         onCancel={cancel}
-        okText='Yes'
-        cancelText='No'
+        okText="Yes"
+        cancelText="No"
       >
         <Button danger>Delete a task</Button>
       </Popconfirm>

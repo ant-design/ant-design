@@ -30,7 +30,7 @@ describe('Carousel', () => {
 
   it('should support id property', () => {
     const { container } = render(
-      <Carousel id='my-carousel'>
+      <Carousel id="my-carousel">
         <div />
       </Carousel>,
     );
@@ -127,9 +127,9 @@ describe('Carousel', () => {
       const { rerender, container } = render(<Carousel initialSlide={1} />);
       rerender(
         <Carousel initialSlide={1}>
-          <div key='1' />
-          <div key='2' />
-          <div key='3' />
+          <div key="1" />
+          <div key="2" />
+          <div key="3" />
         </Carousel>,
       );
       expect(container.querySelectorAll('.slick-dots li')[1]).toHaveClass('slick-active');

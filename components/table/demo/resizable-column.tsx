@@ -30,7 +30,7 @@ const ResizableTitle = (
       height={0}
       handle={
         <span
-          className='react-resizable-handle'
+          className="react-resizable-handle"
           onClick={(e) => {
             e.stopPropagation();
           }}

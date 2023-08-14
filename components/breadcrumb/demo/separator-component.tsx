@@ -3,7 +3,7 @@ import { Breadcrumb } from 'antd';
 
 const App: React.FC = () => (
   <Breadcrumb
-    separator=''
+    separator=""
     items={[
       {
         title: 'Location',

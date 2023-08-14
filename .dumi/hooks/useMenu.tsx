@@ -120,8 +120,8 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
                     style={{ display: 'flex', alignItems: 'center' }}
                   >
                     {before}
-                    <span key='english'>{item?.title}</span>
-                    <span className='chinese' key='chinese'>
+                    <span key="english">{item?.title}</span>
+                    <span className="chinese" key="chinese">
                       {item.frontmatter?.subtitle}
                     </span>
                     {getItemTag(item.frontmatter?.tag, !before && !after)}

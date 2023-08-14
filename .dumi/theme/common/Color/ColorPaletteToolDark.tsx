@@ -32,22 +32,22 @@ const ColorPaletteTool: React.FC = () => {
       }
     }
     return (
-      <span className='color-palette-picker-validation color-palette-picker-validation-dark'>
+      <span className="color-palette-picker-validation color-palette-picker-validation-dark">
         {text.trim()}
       </span>
     );
   }, [primaryColorInstance]);
 
   return (
-    <div className='color-palette-horizontal color-palette-horizontal-dark'>
-      <div className='main-color'>
+    <div className="color-palette-horizontal color-palette-horizontal-dark">
+      <div className="main-color">
         {ColorPatterns({ color: primaryColor, dark: true, backgroundColor })}
       </div>
-      <div className='color-palette-picker'>
+      <div className="color-palette-picker">
         <Row>
           <Col span={12}>
-            <div className='color-palette-pick'>
-              <FormattedMessage id='app.docs.color.pick-primary' />
+            <div className="color-palette-pick">
+              <FormattedMessage id="app.docs.color.pick-primary" />
             </div>
             <span style={{ display: 'inline-block', verticalAlign: 'middle' }}>
               <Row>
@@ -55,14 +55,14 @@ const ColorPaletteTool: React.FC = () => {
                   <ColorPicker value={primaryColor} onChange={handleChangeColor} />
                 </Col>
                 <Col span={6}>
-                  <span className='color-palette-pick-hex'>{primaryColor}</span>
+                  <span className="color-palette-pick-hex">{primaryColor}</span>
                 </Col>
               </Row>
             </span>
           </Col>
           <Col span={12}>
-            <div className='color-palette-pick'>
-              <FormattedMessage id='app.docs.color.pick-background' />
+            <div className="color-palette-pick">
+              <FormattedMessage id="app.docs.color.pick-background" />
             </div>
             <span style={{ display: 'inline-block', verticalAlign: 'middle' }}>
               <Row>
@@ -70,7 +70,7 @@ const ColorPaletteTool: React.FC = () => {
                   <ColorPicker value={backgroundColor} onChange={handleChangeBackgroundColor} />
                 </Col>
                 <Col span={6}>
-                  <span className='color-palette-pick-hex'>{backgroundColor}</span>
+                  <span className="color-palette-pick-hex">{backgroundColor}</span>
                 </Col>
               </Row>
             </span>

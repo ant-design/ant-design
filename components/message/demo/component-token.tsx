@@ -16,7 +16,7 @@ export default () => (
         },
       }}
     >
-      <InternalPanel content='Hello World!' type='error' />
+      <InternalPanel content="Hello World!" type="error" />
     </ConfigProvider>
     <ConfigProvider
       theme={{
@@ -27,7 +27,7 @@ export default () => (
         },
       }}
     >
-      <InternalPanel content='Hello World!' type='error' />
+      <InternalPanel content="Hello World!" type="error" />
     </ConfigProvider>
   </>
 );

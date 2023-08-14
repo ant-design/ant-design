@@ -40,7 +40,7 @@ const items: MenuItem[] = [
     getItem('Option 10', '10'),
   ]),
   getItem(
-    <a href='https://ant.design' target='_blank' rel='noopener noreferrer'>
+    <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
       Ant Design
     </a>,
     'link',

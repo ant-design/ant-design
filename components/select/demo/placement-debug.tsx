@@ -36,10 +36,10 @@ const App: React.FC = () => {
     >
       <Space style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)' }}>
         <Radio.Group value={placement} onChange={placementChange}>
-          <Radio.Button value='topLeft'>TL</Radio.Button>
-          <Radio.Button value='topRight'>TR</Radio.Button>
-          <Radio.Button value='bottomLeft'>BL</Radio.Button>
-          <Radio.Button value='bottomRight'>BR</Radio.Button>
+          <Radio.Button value="topLeft">TL</Radio.Button>
+          <Radio.Button value="topRight">TR</Radio.Button>
+          <Radio.Button value="bottomLeft">BL</Radio.Button>
+          <Radio.Button value="bottomRight">BR</Radio.Button>
         </Radio.Group>
 
         <Switch checked={open} onChange={() => setOpen((o) => !o)} />

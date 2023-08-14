@@ -61,8 +61,8 @@ export default function VideoPlayer({
     <div
       className={classNames(styles.container, className)}
       tabIndex={0}
-      role='button'
-      title='play or pause'
+      role="button"
+      title="play or pause"
       onClick={() => {
         setPlaying(!playing);
       }}

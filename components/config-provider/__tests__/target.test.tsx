@@ -30,7 +30,7 @@ describe('ConfigProvider.getTargetContainer', () => {
     render(
       <ConfigProvider getTargetContainer={getTargetContainer}>
         <Anchor>
-          <Anchor.Link href='#API' title='API' />
+          <Anchor.Link href="#API" title="API" />
         </Anchor>
       </ConfigProvider>,
     );

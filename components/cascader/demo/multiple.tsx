@@ -53,7 +53,7 @@ const App: React.FC = () => (
     options={options}
     onChange={onChange}
     multiple
-    maxTagCount='responsive'
+    maxTagCount="responsive"
   />
 );
 

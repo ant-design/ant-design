@@ -9,18 +9,18 @@ const text = `
 
 const App: React.FC = () => (
   <>
-    <Divider orientation='left'>Default Size</Divider>
+    <Divider orientation="left">Default Size</Divider>
     <Collapse
       items={[{ key: '1', label: 'This is default size panel header', children: <p>{text}</p> }]}
     />
-    <Divider orientation='left'>Small Size</Divider>
+    <Divider orientation="left">Small Size</Divider>
     <Collapse
-      size='small'
+      size="small"
       items={[{ key: '1', label: 'This is small size panel header', children: <p>{text}</p> }]}
     />
-    <Divider orientation='left'>Large Size</Divider>
+    <Divider orientation="left">Large Size</Divider>
     <Collapse
-      size='large'
+      size="large"
       items={[{ key: '1', label: 'This is large size panel header', children: <p>{text}</p> }]}
     />
   </>

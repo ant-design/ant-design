@@ -8,9 +8,9 @@ const text = `
 `;
 
 const App: React.FC = () => (
-  <Space direction='vertical'>
+  <Space direction="vertical">
     <Collapse
-      collapsible='header'
+      collapsible="header"
       defaultActiveKey={['1']}
       items={[
         {
@@ -21,7 +21,7 @@ const App: React.FC = () => (
       ]}
     />
     <Collapse
-      collapsible='icon'
+      collapsible="icon"
       defaultActiveKey={['1']}
       items={[
         {
@@ -32,7 +32,7 @@ const App: React.FC = () => (
       ]}
     />
     <Collapse
-      collapsible='disabled'
+      collapsible="disabled"
       items={[
         {
           key: '1',

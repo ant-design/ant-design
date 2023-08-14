@@ -166,7 +166,7 @@ describe('App', () => {
 
   it('support className', () => {
     const { container } = render(
-      <App className='test-class'>
+      <App className="test-class">
         <div>test</div>
       </App>,
     );

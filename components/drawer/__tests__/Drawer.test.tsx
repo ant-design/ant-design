@@ -74,7 +74,7 @@ describe('Drawer', () => {
 
   it('render top drawer', () => {
     const { container } = render(
-      <Drawer open height={400} placement='top' getContainer={false}>
+      <Drawer open height={400} placement="top" getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
@@ -85,7 +85,7 @@ describe('Drawer', () => {
 
   it('have a title', () => {
     const { container } = render(
-      <Drawer open title='Test Title' getContainer={false}>
+      <Drawer open title="Test Title" getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
@@ -118,7 +118,7 @@ describe('Drawer', () => {
 
   it('className is test_drawer', () => {
     const { container: wrapper } = render(
-      <Drawer destroyOnClose open rootClassName='test_drawer' getContainer={false}>
+      <Drawer destroyOnClose open rootClassName="test_drawer" getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
@@ -150,7 +150,7 @@ describe('Drawer', () => {
 
   it('have a footer', () => {
     const { container: wrapper } = render(
-      <Drawer open footer='Test Footer' getContainer={false}>
+      <Drawer open footer="Test Footer" getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
@@ -162,7 +162,7 @@ describe('Drawer', () => {
   it('forceRender works', () => {
     const { baseElement, rerender } = render(
       <Drawer>
-        <button type='button' className='forceRender'>
+        <button type="button" className="forceRender">
           should not be rendered
         </button>
       </Drawer>,
@@ -170,7 +170,7 @@ describe('Drawer', () => {
     expect(baseElement.querySelectorAll('button.forceRender').length).toBe(0);
     rerender(
       <Drawer forceRender>
-        <button type='button' className='forceRender'>
+        <button type="button" className="forceRender">
           should be rendered
         </button>
       </Drawer>,
@@ -259,28 +259,28 @@ describe('Drawer', () => {
       expect(baseElement.querySelector('.ant-drawer-close')).toBeNull();
 
       rerender(
-        <Drawer open closeIcon={<span className='custom-close'>Close</span>}>
+        <Drawer open closeIcon={<span className="custom-close">Close</span>}>
           Here is content of Drawer
         </Drawer>,
       );
       expect(baseElement.querySelector('.custom-close')).not.toBeNull();
 
       rerender(
-        <Drawer open closable={false} closeIcon={<span className='custom-close2'>Close</span>}>
+        <Drawer open closable={false} closeIcon={<span className="custom-close2">Close</span>}>
           Here is content of Drawer
         </Drawer>,
       );
       expect(baseElement.querySelector('.custom-close2')).toBeNull();
 
       rerender(
-        <Drawer open closable closeIcon={<span className='custom-close3'>Close</span>}>
+        <Drawer open closable closeIcon={<span className="custom-close3">Close</span>}>
           Here is content of Drawer
         </Drawer>,
       );
       expect(baseElement.querySelector('.custom-close3')).not.toBeNull();
 
       rerender(
-        <Drawer open closeIcon={0} className='custom-drawer1'>
+        <Drawer open closeIcon={0} className="custom-drawer1">
           Here is content of Drawer
         </Drawer>,
       );
@@ -288,7 +288,7 @@ describe('Drawer', () => {
       expect(baseElement.querySelector('.custom-drawer1 .anticon-close')).toBeNull();
 
       rerender(
-        <Drawer open closeIcon='' className='custom-drawer2'>
+        <Drawer open closeIcon="" className="custom-drawer2">
           Here is content of Drawer
         </Drawer>,
       );
@@ -296,7 +296,7 @@ describe('Drawer', () => {
       expect(baseElement.querySelector('.custom-drawer2 .anticon-close')).toBeNull();
 
       rerender(
-        <Drawer open closeIcon className='custom-drawer3'>
+        <Drawer open closeIcon className="custom-drawer3">
           Here is content of Drawer
         </Drawer>,
       );

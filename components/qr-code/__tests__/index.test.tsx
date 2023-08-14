@@ -10,7 +10,7 @@ describe('QRCode test', () => {
   rtlTest(QRCode);
 
   it('should correct render', () => {
-    const { container } = render(<QRCode value='test' />);
+    const { container } = render(<QRCode value="test" />);
     expect(
       container
         ?.querySelector<HTMLDivElement>('.ant-qrcode')
@@ -29,7 +29,7 @@ describe('QRCode test', () => {
   });
 
   it('support custom icon', () => {
-    const { container } = render(<QRCode value='test' icon='test' />);
+    const { container } = render(<QRCode value="test" icon="test" />);
     expect(
       container
         ?.querySelector<HTMLDivElement>('.ant-qrcode')
@@ -38,7 +38,7 @@ describe('QRCode test', () => {
   });
 
   it('support custom size', () => {
-    const { container } = render(<QRCode value='test' size={100} />);
+    const { container } = render(<QRCode value="test" size={100} />);
     const wrapper = container.querySelector<HTMLDivElement>('.ant-qrcode');
     expect(wrapper?.style?.width).toBe('100px');
     expect(wrapper?.style?.height).toBe('100px');
@@ -46,7 +46,7 @@ describe('QRCode test', () => {
 
   it('support refresh', () => {
     const refresh = jest.fn();
-    const { container } = render(<QRCode value='test' status='expired' onRefresh={refresh} />);
+    const { container } = render(<QRCode value="test" status="expired" onRefresh={refresh} />);
     fireEvent.click(
       container
         ?.querySelector<HTMLDivElement>('.ant-qrcode')
@@ -60,8 +60,8 @@ describe('QRCode test', () => {
       const [status, setStatus] = useState<QRCodeProps['status']>('active');
       return (
         <>
-          <QRCode value='test' status={status} />
-          <button type='button' onClick={() => setStatus('loading')}>
+          <QRCode value="test" status={status} />
+          <button type="button" onClick={() => setStatus('loading')}>
             set loading
           </button>
         </>
@@ -74,7 +74,7 @@ describe('QRCode test', () => {
   });
 
   it('support bordered', () => {
-    const { container } = render(<QRCode value='test' bordered={false} />);
+    const { container } = render(<QRCode value="test" bordered={false} />);
     expect(container?.querySelector<HTMLDivElement>('.ant-qrcode')).toHaveClass(
       'ant-qrcode-borderless',
     );
@@ -82,7 +82,7 @@ describe('QRCode test', () => {
 
   it('should console Error when icon exist && errorLevel is `L`', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<QRCode value='test' icon='test' errorLevel='L' />);
+    render(<QRCode value="test" icon="test" errorLevel="L" />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: QRCode] ErrorLevel `L` is not recommended to be used with `icon`, for scanning result would be affected by low level.',
     );

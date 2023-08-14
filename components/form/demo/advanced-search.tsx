@@ -33,7 +33,7 @@ const AdvancedSearchForm = () => {
                 },
               ]}
             >
-              <Input placeholder='placeholder' />
+              <Input placeholder="placeholder" />
             </Form.Item>
           ) : (
             <Form.Item
@@ -45,13 +45,13 @@ const AdvancedSearchForm = () => {
                   message: 'Select something!',
                 },
               ]}
-              initialValue='1'
+              initialValue="1"
             >
               <Select>
-                <Option value='1'>
+                <Option value="1">
                   longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
                 </Option>
-                <Option value='2'>222</Option>
+                <Option value="2">222</Option>
               </Select>
             </Form.Item>
           )}
@@ -66,11 +66,11 @@ const AdvancedSearchForm = () => {
   };
 
   return (
-    <Form form={form} name='advanced_search' style={formStyle} onFinish={onFinish}>
+    <Form form={form} name="advanced_search" style={formStyle} onFinish={onFinish}>
       <Row gutter={24}>{getFields()}</Row>
       <div style={{ textAlign: 'right' }}>
-        <Space size='small'>
-          <Button type='primary' htmlType='submit'>
+        <Space size="small">
+          <Button type="primary" htmlType="submit">
             Search
           </Button>
           <Button

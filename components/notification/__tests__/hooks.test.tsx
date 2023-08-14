@@ -20,16 +20,16 @@ describe('notification.hooks', () => {
       const [api, holder] = notification.useNotification();
 
       return (
-        <ConfigProvider prefixCls='my-test'>
-          <Context.Provider value='bamboo'>
+        <ConfigProvider prefixCls="my-test">
+          <Context.Provider value="bamboo">
             <button
-              type='button'
+              type="button"
               onClick={() => {
                 api.open({
                   message: null,
                   description: (
                     <Context.Consumer>
-                      {(name) => <span className='hook-test-result'>{name}</span>}
+                      {(name) => <span className="hook-test-result">{name}</span>}
                     </Context.Consumer>
                   ),
                   duration: 0,
@@ -58,16 +58,16 @@ describe('notification.hooks', () => {
       const [api, holder] = notification.useNotification();
 
       return (
-        <ConfigProvider prefixCls='my-test'>
-          <Context.Provider value='bamboo'>
+        <ConfigProvider prefixCls="my-test">
+          <Context.Provider value="bamboo">
             <button
-              type='button'
+              type="button"
               onClick={() => {
                 api.success({
                   message: null,
                   description: (
                     <Context.Consumer>
-                      {(name) => <span className='hook-test-result'>{name}</span>}
+                      {(name) => <span className="hook-test-result">{name}</span>}
                     </Context.Consumer>
                   ),
                   duration: 0,
@@ -115,7 +115,7 @@ describe('notification.hooks', () => {
         React.useEffect(() => {
           api.info({
             message: null,
-            description: <div className='bamboo' />,
+            description: <div className="bamboo" />,
           });
         }, []);
 
@@ -137,7 +137,7 @@ describe('notification.hooks', () => {
         if (!calledRef.current) {
           api.info({
             message: null,
-            description: <div className='bamboo' />,
+            description: <div className="bamboo" />,
           });
           calledRef.current = true;
         }

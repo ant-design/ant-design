@@ -32,7 +32,7 @@ const Community: React.FC = () => {
   const { styles } = useStyle();
   return (
     <span className={styles.smallStyle}>
-      (<FormattedMessage id='app.implementation.community' />)
+      (<FormattedMessage id="app.implementation.community" />)
     </span>
   );
 };
@@ -40,31 +40,31 @@ const Community: React.FC = () => {
 export const getEcosystemGroup = (): MenuProps['items'] => [
   {
     label: (
-      <a href='https://charts.ant.design' target='_blank' rel='noopener noreferrer'>
-        <FormattedMessage id='app.header.menu.charts' />
+      <a href="https://charts.ant.design" target="_blank" rel="noopener noreferrer">
+        <FormattedMessage id="app.header.menu.charts" />
       </a>
     ),
     key: 'charts',
   },
   {
     label: (
-      <a href='http://pro.ant.design' target='_blank' rel='noopener noreferrer'>
-        <FormattedMessage id='app.header.menu.pro.v4' />
+      <a href="http://pro.ant.design" target="_blank" rel="noopener noreferrer">
+        <FormattedMessage id="app.header.menu.pro.v4" />
       </a>
     ),
     key: 'pro',
   },
   {
     label: (
-      <a href='http://procomponents.ant.design' target='_blank' rel='noopener noreferrer'>
-        <FormattedMessage id='app.header.menu.pro.components' />
+      <a href="http://procomponents.ant.design" target="_blank" rel="noopener noreferrer">
+        <FormattedMessage id="app.header.menu.pro.components" />
       </a>
     ),
     key: 'procomponents',
   },
   {
     label: (
-      <a href='http://ng.ant.design' target='_blank' rel='noopener noreferrer'>
+      <a href="http://ng.ant.design" target="_blank" rel="noopener noreferrer">
         Ant Design of Angular
         <Community />
       </a>
@@ -73,7 +73,7 @@ export const getEcosystemGroup = (): MenuProps['items'] => [
   },
   {
     label: (
-      <a href='http://antdv.com' target='_blank' rel='noopener noreferrer'>
+      <a href="http://antdv.com" target="_blank" rel="noopener noreferrer">
         Ant Design of Vue
         <Community />
       </a>
@@ -85,9 +85,9 @@ export const getEcosystemGroup = (): MenuProps['items'] => [
 const More: React.FC<SharedProps> = ({ isRTL }) => {
   const { styles } = useStyle();
   return (
-    <Dropdown menu={{ items: getEcosystemGroup() }} placement='bottomRight'>
-      <Button size='small'>
-        <FormattedMessage id='app.header.menu.more' />
+    <Dropdown menu={{ items: getEcosystemGroup() }} placement="bottomRight">
+      <Button size="small">
+        <FormattedMessage id="app.header.menu.more" />
         <DownOutlined
           className={classnames(isRTL ? styles.downOutlinedRTL : styles.downOutlined, styles.down)}
         />

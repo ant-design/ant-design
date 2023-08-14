@@ -163,7 +163,7 @@ describe('ConfigProvider support style and className props', () => {
           className: 'test-class',
         }}
       >
-        <Drawer title='Test Drawer' open />
+        <Drawer title="Test Drawer" open />
       </ConfigProvider>,
     );
 
@@ -177,7 +177,7 @@ describe('ConfigProvider support style and className props', () => {
           style: { color: 'red' },
         }}
       >
-        <Drawer title='Test Drawer' style={{ fontSize: '16px' }} open />
+        <Drawer title="Test Drawer" style={{ fontSize: '16px' }} open />
       </ConfigProvider>,
     );
 
@@ -371,7 +371,7 @@ describe('ConfigProvider support style and className props', () => {
           className: 'test-class',
         }}
       >
-        <Statistic title='Test Title' value={100} />
+        <Statistic title="Test Title" value={100} />
       </ConfigProvider>,
     );
 
@@ -385,7 +385,7 @@ describe('ConfigProvider support style and className props', () => {
           style: { color: 'red' },
         }}
       >
-        <Statistic style={{ fontSize: '16px' }} title='Test Title' value={100} />
+        <Statistic style={{ fontSize: '16px' }} title="Test Title" value={100} />
       </ConfigProvider>,
     );
 
@@ -437,8 +437,8 @@ describe('ConfigProvider support style and className props', () => {
   it('Should Form className & style works', () => {
     const { container } = render(
       <ConfigProvider form={{ className: 'cp-form', style: { backgroundColor: 'red' } }}>
-        <Form name='basic'>
-          <Form.Item label='Username' name='username'>
+        <Form name="basic">
+          <Form.Item label="Username" name="username">
             <Input />
           </Form.Item>
         </Form>
@@ -455,7 +455,7 @@ describe('ConfigProvider support style and className props', () => {
       <ConfigProvider
         image={{ className: 'config-provider-image', style: { backgroundColor: 'red' } }}
       >
-        <Image src='https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png' />
+        <Image src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
       </ConfigProvider>,
     );
     const element = container
@@ -485,7 +485,7 @@ describe('ConfigProvider support style and className props', () => {
           },
         }}
       >
-        <Input placeholder='Basic usage' prefix='￥' />
+        <Input placeholder="Basic usage" prefix="￥" />
       </ConfigProvider>,
     );
 
@@ -614,7 +614,7 @@ describe('ConfigProvider support style and className props', () => {
         }}
       >
         <Mentions
-          defaultValue='@afc163'
+          defaultValue="@afc163"
           options={[
             {
               value: 'afc163',
@@ -647,7 +647,7 @@ describe('ConfigProvider support style and className props', () => {
           },
         }}
       >
-        <Modal title='Basic Modal' open>
+        <Modal title="Basic Modal" open>
           <p>Some contents...</p>
           <p>Some contents...</p>
           <p>Some contents...</p>
@@ -707,7 +707,7 @@ describe('ConfigProvider support style and className props', () => {
           className: 'test-class',
         }}
       >
-        <Alert message='Test Message' />
+        <Alert message="Test Message" />
       </ConfigProvider>,
     );
 
@@ -721,7 +721,7 @@ describe('ConfigProvider support style and className props', () => {
           style: { color: 'red' },
         }}
       >
-        <Alert style={{ fontSize: '16px' }} message='Test Message' />
+        <Alert style={{ fontSize: '16px' }} message="Test Message" />
       </ConfigProvider>,
     );
 
@@ -841,8 +841,8 @@ describe('ConfigProvider support style and className props', () => {
           },
         }}
       >
-        <Descriptions title='User Info'>
-          <Descriptions.Item label='UserName'>muxin</Descriptions.Item>
+        <Descriptions title="User Info">
+          <Descriptions.Item label="UserName">muxin</Descriptions.Item>
         </Descriptions>
       </ConfigProvider>,
     );
@@ -1046,7 +1046,7 @@ describe('ConfigProvider support style and className props', () => {
       return (
         <ConfigProvider message={{ className: 'cp-message', style: { color: 'blue' } }}>
           {contextHolder}
-          <button type='button' onClick={() => messageApi.success('success')}>
+          <button type="button" onClick={() => messageApi.success('success')}>
             test
           </button>
         </ConfigProvider>
@@ -1064,7 +1064,7 @@ describe('ConfigProvider support style and className props', () => {
   it('Should Upload className & style works', () => {
     const { container } = render(
       <ConfigProvider upload={{ className: 'cp-upload', style: { color: 'blue' } }}>
-        <Upload type='drag'>upload</Upload>
+        <Upload type="drag">upload</Upload>
       </ConfigProvider>,
     );
     const element = container?.querySelector<HTMLSpanElement>('.ant-upload-wrapper');
@@ -1077,7 +1077,7 @@ describe('ConfigProvider support style and className props', () => {
       const [api, holder] = notification.useNotification();
       return (
         <ConfigProvider notification={{ className: 'cp-notification', style: { color: 'blue' } }}>
-          <button type='button' onClick={() => api.open({ message: 'test', duration: 0 })}>
+          <button type="button" onClick={() => api.open({ message: 'test', duration: 0 })}>
             test
           </button>
           {holder}

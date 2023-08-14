@@ -113,7 +113,7 @@ const Steps: CompoundedComponent = (props) => {
       return (
         <div className={`${prefixCls}-progress-icon`}>
           <Progress
-            type='circle'
+            type="circle"
             percent={mergedPercent}
             size={progressWidth}
             strokeWidth={4}

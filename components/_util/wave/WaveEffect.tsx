@@ -111,7 +111,7 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
     <CSSMotion
       visible
       motionAppear
-      motionName='wave-motion'
+      motionName="wave-motion"
       motionDeadline={5000}
       onAppearEnd={(_, event) => {
         if (event.deadline || (event as TransitionEvent).propertyName === 'opacity') {

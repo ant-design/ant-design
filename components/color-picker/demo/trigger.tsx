@@ -17,7 +17,7 @@ const Demo: React.FC = () => {
 
   return (
     <ColorPicker value={color} onChange={setColor}>
-      <Button type='primary' style={btnStyle}>
+      <Button type="primary" style={btnStyle}>
         open
       </Button>
     </ColorPicker>

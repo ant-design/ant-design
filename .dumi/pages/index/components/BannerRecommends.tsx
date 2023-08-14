@@ -69,17 +69,17 @@ const RecommendItem = ({ extra, index, icons, className }: RecommendItemProps) =
     <a
       key={extra?.title}
       href={extra.href}
-      target='_blank'
+      target="_blank"
       className={classNames(styles.itemBase, className)}
-      rel='noreferrer'
+      rel="noreferrer"
     >
       <Typography.Title level={5}>{extra?.title}</Typography.Title>
-      <Typography.Paragraph type='secondary' style={{ flex: 'auto' }}>
+      <Typography.Paragraph type="secondary" style={{ flex: 'auto' }}>
         {extra.description}
       </Typography.Paragraph>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Typography.Text>{extra.date}</Typography.Text>
-        {icon && <img src={icon.href} style={{ height: token.fontSize }} alt='banner' />}
+        {icon && <img src={icon.href} style={{ height: token.fontSize }} alt="banner" />}
       </div>
     </a>
   );

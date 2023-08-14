@@ -16,7 +16,7 @@ describe('ConfigProvider.useConfig', () => {
     };
 
     render(
-      <ConfigProvider componentSize='small'>
+      <ConfigProvider componentSize="small">
         <App />
       </ConfigProvider>,
     );

@@ -33,7 +33,7 @@ const items: DescriptionsProps['items'] = [
     key: '6',
     label: 'Status',
     span: 3,
-    children: <Badge status='processing' text='Running' />,
+    children: <Badge status="processing" text="Running" />,
   },
   {
     key: '7',
@@ -73,7 +73,7 @@ const items: DescriptionsProps['items'] = [
 ];
 
 const App: React.FC = () => (
-  <Descriptions title='User Info' layout='vertical' bordered items={items} />
+  <Descriptions title="User Info" layout="vertical" bordered items={items} />
 );
 
 export default App;

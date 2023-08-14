@@ -30,7 +30,7 @@ const rangePresets: TimeRangePickerProps['presets'] = [
 ];
 
 const App: React.FC = () => (
-  <Space direction='vertical' size={12}>
+  <Space direction="vertical" size={12}>
     <DatePicker
       presets={[
         { label: 'Yesterday', value: dayjs().add(-1, 'd') },
@@ -43,13 +43,13 @@ const App: React.FC = () => (
     <RangePicker
       presets={[
         {
-          label: <span aria-label='Current Time to End of Day'>Now ~ EOD</span>,
+          label: <span aria-label="Current Time to End of Day">Now ~ EOD</span>,
           value: () => [dayjs(), dayjs().endOf('day')], // 5.8.0+ support function
         },
         ...rangePresets,
       ]}
       showTime
-      format='YYYY/MM/DD HH:mm:ss'
+      format="YYYY/MM/DD HH:mm:ss"
       onChange={onRangeChange}
     />
   </Space>

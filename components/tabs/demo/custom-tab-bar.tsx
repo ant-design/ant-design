@@ -22,7 +22,7 @@ const App: React.FC = () => {
       <DefaultTabBar {...props} style={{ background: colorBgContainer }} />
     </StickyBox>
   );
-  return <Tabs defaultActiveKey='1' renderTabBar={renderTabBar} items={items} />;
+  return <Tabs defaultActiveKey="1" renderTabBar={renderTabBar} items={items} />;
 };
 
 export default App;

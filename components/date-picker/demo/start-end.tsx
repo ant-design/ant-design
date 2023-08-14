@@ -36,18 +36,18 @@ const App: React.FC = () => {
       <DatePicker
         disabledDate={disabledStartDate}
         showTime
-        format='YYYY-MM-DD HH:mm:ss'
+        format="YYYY-MM-DD HH:mm:ss"
         value={startValue}
-        placeholder='Start'
+        placeholder="Start"
         onChange={setStartValue}
         onOpenChange={handleStartOpenChange}
       />
       <DatePicker
         disabledDate={disabledEndDate}
         showTime
-        format='YYYY-MM-DD HH:mm:ss'
+        format="YYYY-MM-DD HH:mm:ss"
         value={endValue}
-        placeholder='End'
+        placeholder="End"
         onChange={setEndValue}
         open={endOpen}
         onOpenChange={handleEndOpenChange}

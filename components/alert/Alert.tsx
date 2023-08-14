@@ -90,7 +90,7 @@ const CloseIcon: React.FC<CloseIconProps> = (props) => {
   const mergedCloseIcon =
     closeIcon === true || closeIcon === undefined ? <CloseOutlined /> : closeIcon;
   return isClosable ? (
-    <button type='button' onClick={handleClose} className={`${prefixCls}-close-icon`} tabIndex={0}>
+    <button type="button" onClick={handleClose} className={`${prefixCls}-close-icon`} tabIndex={0}>
       {mergedCloseIcon}
     </button>
   ) : null;
@@ -189,7 +189,7 @@ const Alert: React.FC<AlertProps> = (props) => {
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
           onClick={onClick}
-          role='alert'
+          role="alert"
           {...restProps}
         >
           {isShowIcon ? (

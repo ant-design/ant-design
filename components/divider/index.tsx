@@ -90,7 +90,7 @@ const Divider: React.FC<DividerProps> = (props) => {
       className={classString}
       style={{ ...divider?.style, ...style }}
       {...restProps}
-      role='separator'
+      role="separator"
     >
       {children && type !== 'vertical' && (
         <span className={`${prefixCls}-inner-text`} style={innerStyle}>

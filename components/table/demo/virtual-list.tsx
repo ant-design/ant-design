@@ -58,7 +58,7 @@ const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) 
     return (
       <Grid
         ref={gridRef}
-        className='virtual-grid'
+        className="virtual-grid"
         columnCount={mergedColumns.length}
         columnWidth={(index: number) => {
           const { width } = mergedColumns[index];
@@ -110,7 +110,7 @@ const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) 
     >
       <Table
         {...props}
-        className='virtual-table'
+        className="virtual-table"
         columns={mergedColumns}
         pagination={false}
         components={{

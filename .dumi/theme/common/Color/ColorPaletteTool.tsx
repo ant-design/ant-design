@@ -25,19 +25,19 @@ const ColorPaletteTool: React.FC = () => {
         text += ` 亮度建议不低于${primaryMinBrightness}（现在 ${(b * 100).toFixed(2)}）`;
       }
     }
-    return <span className='color-palette-picker-validation'>{text.trim()}</span>;
+    return <span className="color-palette-picker-validation">{text.trim()}</span>;
   }, [primaryColorInstance, primaryMinSaturation, primaryMinBrightness]);
   return (
-    <div className='color-palette-horizontal'>
-      <div className='color-palette-pick'>
-        <FormattedMessage id='app.docs.color.pick-primary' />
+    <div className="color-palette-horizontal">
+      <div className="color-palette-pick">
+        <FormattedMessage id="app.docs.color.pick-primary" />
       </div>
-      <div className='main-color'>{ColorPatterns({ color: primaryColor })}</div>
-      <div className='color-palette-picker'>
+      <div className="main-color">{ColorPatterns({ color: primaryColor })}</div>
+      <div className="color-palette-picker">
         <span style={{ display: 'inline-block', verticalAlign: 'middle' }}>
           <ColorPicker value={primaryColor} onChange={handleChangeColor} />
         </span>
-        <span className='color-palette-picker-value'>{primaryColor}</span>
+        <span className="color-palette-picker-value">{primaryColor}</span>
         {colorValidation}
       </div>
     </div>

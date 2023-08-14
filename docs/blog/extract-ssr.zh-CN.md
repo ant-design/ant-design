@@ -139,7 +139,7 @@ if (!fs.existsSync(cssFileName)) {
 然后在 HTML 模板侧添加对应的 CSS 文件：
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <link rel="stylesheet" href="${hashCssFileUrl}" />

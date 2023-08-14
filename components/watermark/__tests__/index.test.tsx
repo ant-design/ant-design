@@ -23,7 +23,7 @@ describe('Watermark', () => {
   });
 
   it('The watermark should render successfully', () => {
-    const { container } = render(<Watermark className='watermark' content='Ant Design' />);
+    const { container } = render(<Watermark className="watermark" content="Ant Design" />);
     expect(container.querySelector('.watermark div')).toBeTruthy();
     expect(container).toMatchSnapshot();
   });
@@ -31,7 +31,7 @@ describe('Watermark', () => {
   it('The offset should be correct', () => {
     const { container } = render(
       <Watermark
-        className='watermark'
+        className="watermark"
         offset={[200, 200]}
         content={['Ant Design', 'Ant Design Pro']}
       />,
@@ -47,10 +47,10 @@ describe('Watermark', () => {
   it('Interleaved watermark backgroundSize is correct', () => {
     const { container } = render(
       <Watermark
-        className='watermark'
+        className="watermark"
         width={200}
         height={200}
-        content='Ant Design'
+        content="Ant Design"
         gap={[100, 100]}
       />,
     );
@@ -61,7 +61,7 @@ describe('Watermark', () => {
 
   it('Image watermark snapshot', () => {
     const { container } = render(
-      <Watermark image='https://gw.alipayobjects.com/zos/bmw-prod/59a18171-ae17-4fc5-93a0-2645f64a3aca.svg' />,
+      <Watermark image="https://gw.alipayobjects.com/zos/bmw-prod/59a18171-ae17-4fc5-93a0-2645f64a3aca.svg" />,
     );
     expect(container).toMatchSnapshot();
   });
@@ -71,14 +71,14 @@ describe('Watermark', () => {
       this.onerror?.();
     });
     const { container } = render(
-      <Watermark className='watermark' content='Ant Design' image='https://test.svg' />,
+      <Watermark className="watermark" content="Ant Design" image="https://test.svg" />,
     );
     expect(container.querySelector('.watermark div')).toBeTruthy();
     expect(container).toMatchSnapshot();
   });
 
   it('MutationObserver should work properly', async () => {
-    const { container } = render(<Watermark className='watermark' content='MutationObserver' />);
+    const { container } = render(<Watermark className="watermark" content="MutationObserver" />);
     const target = container.querySelector<HTMLDivElement>('.watermark div');
     await waitFakeTimer();
     target?.remove();
@@ -88,7 +88,7 @@ describe('Watermark', () => {
 
   it('Observe the modification of style', async () => {
     const { container } = render(
-      <Watermark offset={[-200, -200]} className='watermark' content='MutationObserver' />,
+      <Watermark offset={[-200, -200]} className="watermark" content="MutationObserver" />,
     );
     const target = container.querySelector<HTMLDivElement>('.watermark div');
     await waitFakeTimer();
@@ -100,7 +100,7 @@ describe('Watermark', () => {
   describe('nest component', () => {
     function test(name: string, children: React.ReactNode, getWatermarkElement: () => Node) {
       it(name, async () => {
-        const { rerender } = render(<Watermark className='test'>{children}</Watermark>);
+        const { rerender } = render(<Watermark className="test">{children}</Watermark>);
         await waitFakeTimer();
 
         const watermark = getWatermarkElement();
@@ -110,7 +110,7 @@ describe('Watermark', () => {
         });
 
         // Not crash when children removed
-        rerender(<Watermark className='test' />);
+        rerender(<Watermark className="test" />);
       });
     }
 

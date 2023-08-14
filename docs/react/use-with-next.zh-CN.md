@@ -62,10 +62,10 @@ export default Home;
 2. 改写 `pages/_document.tsx`
 
 ```tsx
-import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
-import type { DocumentContext } from 'next/document';
-import Document, { Head, Html, Main, NextScript } from 'next/document';
 import React from 'react';
+import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
+import type { DocumentContext } from 'next/document';
 
 const MyDocument = () => (
   <Html lang="en">
@@ -82,12 +82,11 @@ MyDocument.getInitialProps = async (ctx: DocumentContext) => {
   const originalRenderPage = ctx.renderPage;
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App) => (props) =>
-        (
-          <StyleProvider cache={cache}>
-            <App {...props} />
-          </StyleProvider>
-        ),
+      enhanceApp: (App) => (props) => (
+        <StyleProvider cache={cache}>
+          <App {...props} />
+        </StyleProvider>
+      ),
     });
 
   const initialProps = await Document.getInitialProps(ctx);
@@ -125,9 +124,9 @@ export default theme;
 4. 改写 `pages/_app.tsx`
 
 ```tsx
+import React from 'react';
 import { ConfigProvider } from 'antd';
 import type { AppProps } from 'next/app';
-import React from 'react';
 import theme from './themeConfig';
 
 const App = ({ Component, pageProps }: AppProps) => (
@@ -142,8 +141,8 @@ export default App;
 5. 在页面中使用 antd
 
 ```tsx
-import { Button } from 'antd';
 import React from 'react';
+import { Button } from 'antd';
 
 const Home = () => (
   <div className="App">
@@ -169,9 +168,9 @@ export default Home;
 ```tsx
 'use client';
 
+import React from 'react';
 import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
 import { useServerInsertedHTML } from 'next/navigation';
-import React from 'react';
 
 const StyledComponentsRegistry = ({ children }: { children: React.ReactNode }) => {
   const cache = createCache();
@@ -187,10 +186,10 @@ export default StyledComponentsRegistry;
 3. 在 `app/layout.tsx` 中使用
 
 ```tsx
-import '@/globals.css';
-import { Inter } from 'next/font/google';
 import React from 'react';
+import { Inter } from 'next/font/google';
 import StyledComponentsRegistry from '../lib/AntdRegistry';
+import '@/globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -229,8 +228,8 @@ export default theme;
 5. 在页面中使用
 
 ```tsx
-import { Button, ConfigProvider } from 'antd';
 import React from 'react';
+import { Button, ConfigProvider } from 'antd';
 import theme from './themeConfig';
 
 const HomePage = () => (

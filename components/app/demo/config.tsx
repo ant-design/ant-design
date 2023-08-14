@@ -18,10 +18,10 @@ const MyPage = () => {
 
   return (
     <Space>
-      <Button type='primary' onClick={showMessage}>
+      <Button type="primary" onClick={showMessage}>
         Message for only one
       </Button>
-      <Button type='primary' onClick={showNotification}>
+      <Button type="primary" onClick={showNotification}>
         Notification for bottomLeft
       </Button>
     </Space>

@@ -13,17 +13,17 @@ const App: React.FC = () => {
     !searchText ? [] : [mockVal(searchText), mockVal(searchText, 2), mockVal(searchText, 3)];
 
   return (
-    <Space direction='vertical' style={{ width: '100%' }}>
+    <Space direction="vertical" style={{ width: '100%' }}>
       <AutoComplete
         options={options}
         onSearch={(text) => setOptions(getPanelValue(text))}
-        status='error'
+        status="error"
         style={{ width: 200 }}
       />
       <AutoComplete
         options={anotherOptions}
         onSearch={(text) => setAnotherOptions(getPanelValue(text))}
-        status='warning'
+        status="warning"
         style={{ width: 200 }}
       />
     </Space>

@@ -214,7 +214,7 @@ describe('notification', () => {
     notification.open({
       message: 'Notification Title',
       duration: 0,
-      closeIcon: <span className='test-customize-icon' />,
+      closeIcon: <span className="test-customize-icon" />,
     });
     await awaitPromise();
 
@@ -223,7 +223,7 @@ describe('notification', () => {
 
   it('support config closeIcon', async () => {
     notification.config({
-      closeIcon: <span className='test-customize-icon' />,
+      closeIcon: <span className="test-customize-icon" />,
     });
 
     // Global Icon
@@ -239,7 +239,7 @@ describe('notification', () => {
     notification.open({
       message: 'Notification Title',
       duration: 0,
-      closeIcon: <span className='replace-icon' />,
+      closeIcon: <span className="replace-icon" />,
     });
 
     expect(document.querySelector('.replace-icon')).toBeTruthy();
@@ -327,7 +327,7 @@ describe('notification', () => {
         message: 'Notification Title',
         duration: 0,
         className: 'custom',
-        closeIcon: <span className='custom-close-icon'>Close</span>,
+        closeIcon: <span className="custom-close-icon">Close</span>,
       });
       notification.open({
         message: 'Notification Title',

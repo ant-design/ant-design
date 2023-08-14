@@ -141,9 +141,9 @@ export default ({
     {
       label: (
         <a
-          href='https://github.com/ant-design/ant-design'
-          target='_blank'
-          rel='noopener noreferrer'
+          href="https://github.com/ant-design/ant-design"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           GitHub
         </a>
@@ -151,7 +151,7 @@ export default ({
       key: 'github',
     },
     {
-      label: <FormattedMessage id='app.header.lang' />,
+      label: <FormattedMessage id="app.header.lang" />,
       onClick: onLangChange,
       key: 'switch-lang',
     },
@@ -233,11 +233,11 @@ export default ({
           key: 'mirror',
           children: [
             {
-              label: <a href='https://ant-design.antgroup.com'>官方镜像</a>,
+              label: <a href="https://ant-design.antgroup.com">官方镜像</a>,
               icon: (
                 <img
-                  alt='logo'
-                  src='https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg'
+                  alt="logo"
+                  src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
                   width={16}
                   style={{ verticalAlign: 'text-bottom' }}
                 />
@@ -245,11 +245,11 @@ export default ({
               key: 'antgroup',
             },
             {
-              label: <a href='https://ant-design.gitee.io'>Gitee 镜像</a>,
+              label: <a href="https://ant-design.gitee.io">Gitee 镜像</a>,
               icon: (
                 <img
-                  alt='gitee'
-                  src='https://gw.alipayobjects.com/zos/bmw-prod/9e91e124-9bab-4113-b500-301412f6b370.svg'
+                  alt="gitee"
+                  src="https://gw.alipayobjects.com/zos/bmw-prod/9e91e124-9bab-4113-b500-301412f6b370.svg"
                   width={16}
                   style={{ verticalAlign: 'text-bottom' }}
                 />

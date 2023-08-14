@@ -99,25 +99,25 @@ const App: React.FC = () => {
   return (
     <div>
       <Radio.Group onChange={onChange} value={size}>
-        <Radio value='default'>default</Radio>
-        <Radio value='middle'>middle</Radio>
-        <Radio value='small'>small</Radio>
+        <Radio value="default">default</Radio>
+        <Radio value="middle">middle</Radio>
+        <Radio value="small">small</Radio>
       </Radio.Group>
       <br />
       <br />
       <Descriptions
         bordered
-        title='Custom Size'
+        title="Custom Size"
         size={size}
-        extra={<Button type='primary'>Edit</Button>}
+        extra={<Button type="primary">Edit</Button>}
         items={borderedItems}
       />
       <br />
       <br />
       <Descriptions
-        title='Custom Size'
+        title="Custom Size"
         size={size}
-        extra={<Button type='primary'>Edit</Button>}
+        extra={<Button type="primary">Edit</Button>}
         items={items}
       />
     </div>

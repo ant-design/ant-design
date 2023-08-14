@@ -15,7 +15,7 @@ const App: React.FC = () => {
     <AutoComplete
       options={options}
       style={{ width: 200 }}
-      placeholder='Borderless'
+      placeholder="Borderless"
       onSearch={(text) => setOptions(getPanelValue(text))}
       onSelect={globalThis.console.log}
       bordered={false}

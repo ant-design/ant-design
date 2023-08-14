@@ -50,8 +50,8 @@ const App: React.FC = () => {
       <Switch
         checked={theme === 'dark'}
         onChange={changeTheme}
-        checkedChildren='Dark'
-        unCheckedChildren='Light'
+        checkedChildren="Dark"
+        unCheckedChildren="Light"
       />
       <br />
       <br />
@@ -60,8 +60,8 @@ const App: React.FC = () => {
         style={{ width: 256 }}
         openKeys={['sub1']}
         selectedKeys={[current]}
-        mode='vertical'
-        theme='dark'
+        mode="vertical"
+        theme="dark"
         items={items}
         getPopupContainer={function test(node) {
           return node.parentNode as HTMLElement;

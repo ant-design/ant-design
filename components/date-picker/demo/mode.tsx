@@ -46,7 +46,7 @@ const ControlledRangePicker = () => {
   return (
     <RangePicker
       placeholder={['Start month', 'End month']}
-      format='YYYY-MM'
+      format="YYYY-MM"
       value={value}
       mode={mode}
       onChange={setValue}
@@ -56,7 +56,7 @@ const ControlledRangePicker = () => {
 };
 
 const App: React.FC = () => (
-  <Space direction='vertical' size={12}>
+  <Space direction="vertical" size={12}>
     <ControlledDatePicker />
     <ControlledRangePicker />
   </Space>

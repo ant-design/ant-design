@@ -116,7 +116,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
     return wrapSSR(
       <RCRangePicker<DateType>
         separator={
-          <span aria-label='to' className={`${prefixCls}-separator`}>
+          <span aria-label="to" className={`${prefixCls}-separator`}>
             <SwapRightOutlined />
           </span>
         }

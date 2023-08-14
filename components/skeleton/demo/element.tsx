@@ -56,33 +56,33 @@ const App: React.FC = () => {
         </Skeleton.Node>
       </Space>
       <Divider />
-      <Form layout='inline' style={{ margin: '16px 0' }}>
+      <Form layout="inline" style={{ margin: '16px 0' }}>
         <Space size={16} wrap>
-          <Form.Item label='Active'>
+          <Form.Item label="Active">
             <Switch checked={active} onChange={handleActiveChange} />
           </Form.Item>
-          <Form.Item label='Button and Input Block'>
+          <Form.Item label="Button and Input Block">
             <Switch checked={block} onChange={handleBlockChange} />
           </Form.Item>
-          <Form.Item label='Size'>
+          <Form.Item label="Size">
             <Radio.Group value={size} onChange={handleSizeChange}>
-              <Radio.Button value='default'>Default</Radio.Button>
-              <Radio.Button value='large'>Large</Radio.Button>
-              <Radio.Button value='small'>Small</Radio.Button>
+              <Radio.Button value="default">Default</Radio.Button>
+              <Radio.Button value="large">Large</Radio.Button>
+              <Radio.Button value="small">Small</Radio.Button>
             </Radio.Group>
           </Form.Item>
-          <Form.Item label='Button Shape'>
+          <Form.Item label="Button Shape">
             <Radio.Group value={buttonShape} onChange={handleShapeButton}>
-              <Radio.Button value='default'>Default</Radio.Button>
-              <Radio.Button value='square'>Square</Radio.Button>
-              <Radio.Button value='round'>Round</Radio.Button>
-              <Radio.Button value='circle'>Circle</Radio.Button>
+              <Radio.Button value="default">Default</Radio.Button>
+              <Radio.Button value="square">Square</Radio.Button>
+              <Radio.Button value="round">Round</Radio.Button>
+              <Radio.Button value="circle">Circle</Radio.Button>
             </Radio.Group>
           </Form.Item>
-          <Form.Item label='Avatar Shape'>
+          <Form.Item label="Avatar Shape">
             <Radio.Group value={avatarShape} onChange={handleAvatarShape}>
-              <Radio.Button value='square'>Square</Radio.Button>
-              <Radio.Button value='circle'>Circle</Radio.Button>
+              <Radio.Button value="square">Square</Radio.Button>
+              <Radio.Button value="circle">Circle</Radio.Button>
             </Radio.Group>
           </Form.Item>
         </Space>

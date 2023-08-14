@@ -13,7 +13,7 @@ describe('Form.List.NoStyle', () => {
 
     const { container } = render(
       <Form>
-        <Form.List name='users'>
+        <Form.List name="users">
           {(fields, op) => {
             operation = op;
             return fields.map((field) => (

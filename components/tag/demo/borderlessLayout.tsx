@@ -17,37 +17,37 @@ const App: React.FC = () => {
       </Space>
       <Divider />
       <Space size={[0, 'small']} wrap>
-        <Tag bordered={false} color='magenta'>
+        <Tag bordered={false} color="magenta">
           magenta
         </Tag>
-        <Tag bordered={false} color='red'>
+        <Tag bordered={false} color="red">
           red
         </Tag>
-        <Tag bordered={false} color='volcano'>
+        <Tag bordered={false} color="volcano">
           volcano
         </Tag>
-        <Tag bordered={false} color='orange'>
+        <Tag bordered={false} color="orange">
           orange
         </Tag>
-        <Tag bordered={false} color='gold'>
+        <Tag bordered={false} color="gold">
           gold
         </Tag>
-        <Tag bordered={false} color='lime'>
+        <Tag bordered={false} color="lime">
           lime
         </Tag>
-        <Tag bordered={false} color='green'>
+        <Tag bordered={false} color="green">
           green
         </Tag>
-        <Tag bordered={false} color='cyan'>
+        <Tag bordered={false} color="cyan">
           cyan
         </Tag>
-        <Tag bordered={false} color='blue'>
+        <Tag bordered={false} color="blue">
           blue
         </Tag>
-        <Tag bordered={false} color='geekblue'>
+        <Tag bordered={false} color="geekblue">
           geekblue
         </Tag>
-        <Tag bordered={false} color='purple'>
+        <Tag bordered={false} color="purple">
           purple
         </Tag>
       </Space>

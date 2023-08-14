@@ -155,7 +155,7 @@ export default function ComponentsList() {
         title: 'Modal',
         type: 'update',
         node: (
-          <Modal._InternalPanelDoNotUseOrYouWillBeFired title='Ant Design 5.0' width={300}>
+          <Modal._InternalPanelDoNotUseOrYouWillBeFired title="Ant Design 5.0" width={300}>
             {locale.sampleContent}
           </Modal._InternalPanelDoNotUseOrYouWillBeFired>
         ),
@@ -186,17 +186,17 @@ export default function ComponentsList() {
         title: 'Progress',
         type: 'update',
         node: (
-          <Space direction='vertical'>
+          <Space direction="vertical">
             <Space>
-              <Progress type='circle' trailColor='#e6f4ff' percent={60} size={14} />
+              <Progress type="circle" trailColor="#e6f4ff" percent={60} size={14} />
               {locale.inProgress}
             </Space>
             <Space>
-              <Progress type='circle' percent={100} size={14} />
+              <Progress type="circle" percent={100} size={14} />
               {locale.success}
             </Space>
             <Space>
-              <Progress type='circle' status='exception' percent={88} size={14} />
+              <Progress type="circle" status="exception" percent={88} size={14} />
               {locale.taskFailed}
             </Space>
           </Space>
@@ -208,7 +208,7 @@ export default function ComponentsList() {
         type: 'new',
         node: (
           <Tour._InternalPanelDoNotUseOrYouWillBeFired
-            title='Ant Design 5.0'
+            title="Ant Design 5.0"
             description={locale.tour}
             style={{ width: isMobile ? 'auto' : 350 }}
             current={3}
@@ -220,9 +220,9 @@ export default function ComponentsList() {
         title: 'FloatButton',
         type: 'new',
         node: (
-          <Space size='large'>
+          <Space size="large">
             <FloatButton._InternalPanelDoNotUseOrYouWillBeFired
-              shape='square'
+              shape="square"
               items={[
                 {
                   icon: <QuestionCircleOutlined />,
@@ -265,7 +265,7 @@ export default function ComponentsList() {
         node: (
           <Alert
             style={{ width: 400 }}
-            message='Ant Design 5.0'
+            message="Ant Design 5.0"
             description={locale.sampleContent}
             closable
           />

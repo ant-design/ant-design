@@ -8,7 +8,7 @@ export interface RadiusPickerProps {
 
 export default function RadiusPicker({ value, onChange }: RadiusPickerProps) {
   return (
-    <Space size='large'>
+    <Space size="large">
       <InputNumber
         value={value}
         onChange={onChange}

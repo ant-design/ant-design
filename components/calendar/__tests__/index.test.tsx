@@ -119,7 +119,7 @@ describe('Calendar', () => {
         onSelect={onSelect}
         validRange={validRange}
         defaultValue={Dayjs('2018-02-02')}
-        mode='year'
+        mode="year"
       />,
     );
     expect(
@@ -252,7 +252,7 @@ describe('Calendar', () => {
     const wrapper = render(
       // @ts-ignore
       <Header
-        prefixCls='ant-picker-calendar'
+        prefixCls="ant-picker-calendar"
         generateConfig={dayjsGenerateConfig}
         onChange={onValueChange}
         value={value}
@@ -289,7 +289,7 @@ describe('Calendar', () => {
     const onValueChange = jest.fn();
     const wrapper = render(
       <Header
-        prefixCls='ant-picker-calendar'
+        prefixCls="ant-picker-calendar"
         generateConfig={dayjsGenerateConfig}
         onChange={onValueChange}
         value={value}
@@ -312,14 +312,14 @@ describe('Calendar', () => {
     const onValueChange = jest.fn();
     const wrapper = render(
       <Header
-        prefixCls='ant-picker-calendar'
+        prefixCls="ant-picker-calendar"
         generateConfig={dayjsGenerateConfig}
         onChange={onValueChange}
         value={value}
         validRange={[start, end]}
         // @ts-ignore
         locale={{ year: '年', locale: 'zh_CN' }}
-        mode='month'
+        mode="month"
       />,
     );
     openSelect(wrapper.container, '.ant-picker-calendar-month-select');
@@ -332,13 +332,13 @@ describe('Calendar', () => {
     const value = Dayjs('2018-12-03');
     const wrapper = render(
       <Header
-        prefixCls='ant-picker-calendar'
+        prefixCls="ant-picker-calendar"
         generateConfig={dayjsGenerateConfig}
         onModeChange={onTypeChange}
         locale={{ year: '年', month: '月', locale: 'zh_CN' } as any}
         value={value}
         // @ts-ignore
-        type='date'
+        type="date"
       />,
     );
     fireEvent.click(
@@ -358,7 +358,7 @@ describe('Calendar', () => {
       const options = [];
       for (let i = year - 100; i < year + 100; i += 1) {
         options.push(
-          <Select.Option className='year-item' key={i} value={i}>
+          <Select.Option className="year-item" key={i} value={i}>
             {i}
           </Select.Option>,
         );
@@ -366,9 +366,9 @@ describe('Calendar', () => {
 
       return (
         <Select
-          size='small'
+          size="small"
           dropdownMatchSelectWidth={false}
-          className='my-year-select'
+          className="my-year-select"
           onChange={onYearChange}
           value={String(year)}
         >
@@ -401,7 +401,7 @@ describe('Calendar', () => {
 
       for (let index = start; index < end; index += 1) {
         monthOptions.push(
-          <Select.Option className='month-item' key={index} value={index}>
+          <Select.Option className="month-item" key={index} value={index}>
             {months[index]}
           </Select.Option>,
         );
@@ -410,9 +410,9 @@ describe('Calendar', () => {
       const month = value.month();
       return (
         <Select
-          size='small'
+          size="small"
           dropdownMatchSelectWidth={false}
-          className='my-month-select'
+          className="my-month-select"
           onChange={onMonthChange}
           value={String(month)}
         >
@@ -431,9 +431,9 @@ describe('Calendar', () => {
 
     // Type
     const headerRenderWithTypeChange = jest.fn(({ type }) => (
-      <Group size='small' onChange={onTypeChange} value={type}>
-        <Button value='month'>Month</Button>
-        <Button value='year'>Year</Button>
+      <Group size="small" onChange={onTypeChange} value={type}>
+        <Button value="month">Month</Button>
+        <Button value="year">Year</Button>
       </Group>
     ));
 
@@ -451,28 +451,28 @@ describe('Calendar', () => {
 
   it('dateFullCellRender', () => {
     const { container } = render(
-      <Calendar dateFullCellRender={() => <div className='light'>Bamboo</div>} />,
+      <Calendar dateFullCellRender={() => <div className="light">Bamboo</div>} />,
     );
     expect(container.querySelectorAll('.light')[0].innerHTML).toEqual('Bamboo');
   });
 
   it('monthFullCellRender', () => {
     const { container } = render(
-      <Calendar mode='year' monthFullCellRender={() => <div className='bamboo'>Light</div>} />,
+      <Calendar mode="year" monthFullCellRender={() => <div className="bamboo">Light</div>} />,
     );
     expect(container.querySelectorAll('.bamboo')[0].innerHTML).toEqual('Light');
   });
 
   it('fullCellRender in date', () => {
     const { container } = render(
-      <Calendar fullCellRender={() => <div className='light'>Bamboo</div>} />,
+      <Calendar fullCellRender={() => <div className="light">Bamboo</div>} />,
     );
     expect(container.querySelectorAll('.light')[0].innerHTML).toEqual('Bamboo');
   });
 
   it('fullCellRender in month', () => {
     const { container } = render(
-      <Calendar mode='year' fullCellRender={() => <div className='bamboo'>Light</div>} />,
+      <Calendar mode="year" fullCellRender={() => <div className="bamboo">Light</div>} />,
     );
     expect(container.querySelectorAll('.bamboo')[0].innerHTML).toEqual('Light');
   });
@@ -483,7 +483,7 @@ describe('Calendar', () => {
       <Calendar
         fullscreen={false}
         dateFullCellRender={() => (
-          <div className='bamboo' onClick={onClick}>
+          <div className="bamboo" onClick={onClick}>
             Light
           </div>
         )}
@@ -499,8 +499,8 @@ describe('Calendar', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       <Calendar
-        dateCellRender={() => <div className='bamboo'>Light</div>}
-        monthCellRender={() => <div className='bar'>Bar</div>}
+        dateCellRender={() => <div className="bamboo">Light</div>}
+        monthCellRender={() => <div className="bar">Bar</div>}
       />,
     );
     expect(errSpy).toHaveBeenCalledWith(
@@ -523,8 +523,8 @@ describe('Calendar', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       <Calendar
-        dateFullCellRender={() => <div className='bamboo'>Light</div>}
-        monthFullCellRender={() => <div className='bar'>Bar</div>}
+        dateFullCellRender={() => <div className="bamboo">Light</div>}
+        monthFullCellRender={() => <div className="bar">Bar</div>}
       />,
     );
     expect(errSpy).toHaveBeenCalledWith(

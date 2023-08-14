@@ -53,7 +53,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
       {...restProps}
       prefixCls={prefixCls}
       className={classNames(className, hashId, `${prefixCls}-notice-pure-panel`)}
-      eventKey='pure'
+      eventKey="pure"
       duration={null}
       content={
         <PureContent prefixCls={prefixCls} type={type} icon={icon}>

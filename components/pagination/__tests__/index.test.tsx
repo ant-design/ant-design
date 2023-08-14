@@ -15,10 +15,10 @@ describe('Pagination', () => {
   it('should pass disabled to prev and next buttons', () => {
     const itemRender: PaginationProps['itemRender'] = (_, type, originalElement) => {
       if (type === 'prev') {
-        return <button type='button'>prev</button>;
+        return <button type="button">prev</button>;
       }
       if (type === 'next') {
-        return <button type='button'>next</button>;
+        return <button type="button">next</button>;
       }
       return originalElement;
     };
@@ -71,7 +71,7 @@ describe('Pagination', () => {
   describe('ConfigProvider', () => {
     it('should be rendered correctly in RTL', () => {
       const { asFragment } = render(
-        <ConfigProvider direction='rtl'>
+        <ConfigProvider direction="rtl">
           <Pagination defaultCurrent={1} total={50} />
         </ConfigProvider>,
       );
@@ -80,7 +80,7 @@ describe('Pagination', () => {
 
     it('should be rendered correctly when componentSize is large', () => {
       const { container, asFragment } = render(
-        <ConfigProvider componentSize='large'>
+        <ConfigProvider componentSize="large">
           <Pagination defaultCurrent={1} total={50} showSizeChanger />
         </ConfigProvider>,
       );

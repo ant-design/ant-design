@@ -61,7 +61,7 @@ const items: MenuProps['items'] = [
   },
   {
     label: (
-      <a href='https://ant.design' target='_blank' rel='noopener noreferrer'>
+      <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
         Navigation Four - Link
       </a>
     ),
@@ -114,7 +114,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Space direction='vertical'>
+    <Space direction="vertical">
       <ConfigProvider
         theme={{
           components: {
@@ -125,7 +125,7 @@ const App: React.FC = () => {
           },
         }}
       >
-        <Menu onClick={onClick} selectedKeys={[current]} mode='horizontal' items={items} />
+        <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />
       </ConfigProvider>
       <ConfigProvider
         theme={{
@@ -143,8 +143,8 @@ const App: React.FC = () => {
         <Menu
           defaultSelectedKeys={['1']}
           defaultOpenKeys={['sub1']}
-          mode='inline'
-          theme='dark'
+          mode="inline"
+          theme="dark"
           items={items2}
           style={{
             width: 256,

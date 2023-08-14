@@ -20,7 +20,7 @@ const App: React.FC = () => (
       components: { Mentions: { dropdownHeight: 500, controlItemWidth: 300, zIndexPopup: 1000 } },
     }}
   >
-    <InternalMentions style={{ width: '100%' }} value='@' options={options} />
+    <InternalMentions style={{ width: '100%' }} value="@" options={options} />
   </ConfigProvider>
 );
 

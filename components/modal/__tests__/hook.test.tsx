@@ -31,13 +31,13 @@ describe('Modal.hook', () => {
     const Demo = () => {
       const [modal, contextHolder] = Modal.useModal();
       return (
-        <Context.Provider value='bamboo'>
+        <Context.Provider value="bamboo">
           <Button
             onClick={() => {
               instance = modal.confirm({
                 content: (
                   <Context.Consumer>
-                    {(name) => <div className='test-hook'>{name}</div>}
+                    {(name) => <div className="test-hook">{name}</div>}
                   </Context.Consumer>
                 ),
               });
@@ -58,7 +58,7 @@ describe('Modal.hook', () => {
     // Update instance
     act(() => {
       instance.update({
-        content: <div className='updated-content' />,
+        content: <div className="updated-content" />,
       });
     });
     expect(document.body.querySelectorAll('.updated-content')).toHaveLength(1);
@@ -89,9 +89,9 @@ describe('Modal.hook', () => {
       }
 
       return (
-        <div className='App'>
+        <div className="App">
           {contextHolder}
-          <div className='open-hook-modal-btn' onClick={showConfirm}>
+          <div className="open-hook-modal-btn" onClick={showConfirm}>
             confirm
           </div>
         </div>
@@ -129,7 +129,7 @@ describe('Modal.hook', () => {
     };
 
     const { container } = render(
-      <ConfigProvider direction='rtl'>
+      <ConfigProvider direction="rtl">
         <Demo />
       </ConfigProvider>,
     );
@@ -156,9 +156,9 @@ describe('Modal.hook', () => {
       }, [modal]);
 
       return (
-        <div className='App'>
+        <div className="App">
           {contextHolder}
-          <div className='open-hook-modal-btn' onClick={openBrokenModal}>
+          <div className="open-hook-modal-btn" onClick={openBrokenModal}>
             Test hook modal
           </div>
         </div>
@@ -191,9 +191,9 @@ describe('Modal.hook', () => {
       }, [modal]);
 
       return (
-        <div className='App'>
+        <div className="App">
           {contextHolder}
-          <div className='open-hook-modal-btn' onClick={openBrokenModal}>
+          <div className="open-hook-modal-btn" onClick={openBrokenModal}>
             Test hook modal
           </div>
         </div>
@@ -220,9 +220,9 @@ describe('Modal.hook', () => {
       }, [modal]);
 
       return (
-        <div className='App'>
+        <div className="App">
           {contextHolder}
-          <div className='open-hook-modal-btn' onClick={openBrokenModal}>
+          <div className="open-hook-modal-btn" onClick={openBrokenModal}>
             Test hook modal
           </div>
         </div>
@@ -252,9 +252,9 @@ describe('Modal.hook', () => {
       }, [modal]);
 
       return (
-        <div className='App'>
+        <div className="App">
           {contextHolder}
-          <div className='open-hook-modal-btn' onClick={openBrokenModal}>
+          <div className="open-hook-modal-btn" onClick={openBrokenModal}>
             Test hook modal
           </div>
         </div>
@@ -340,7 +340,7 @@ describe('Modal.hook', () => {
 
       React.useEffect(() => {
         modal.confirm({
-          content: <Button className='bamboo'>好的</Button>,
+          content: <Button className="bamboo">好的</Button>,
         });
       }, []);
 

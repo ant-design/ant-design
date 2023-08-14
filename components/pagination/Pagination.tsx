@@ -61,12 +61,12 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const iconsProps = React.useMemo<Record<PropertyKey, React.ReactNode>>(() => {
     const ellipsis = <span className={`${prefixCls}-item-ellipsis`}>•••</span>;
     const prevIcon = (
-      <button className={`${prefixCls}-item-link`} type='button' tabIndex={-1}>
+      <button className={`${prefixCls}-item-link`} type="button" tabIndex={-1}>
         {direction === 'rtl' ? <RightOutlined /> : <LeftOutlined />}
       </button>
     );
     const nextIcon = (
-      <button className={`${prefixCls}-item-link`} type='button' tabIndex={-1}>
+      <button className={`${prefixCls}-item-link`} type="button" tabIndex={-1}>
         {direction === 'rtl' ? <LeftOutlined /> : <RightOutlined />}
       </button>
     );

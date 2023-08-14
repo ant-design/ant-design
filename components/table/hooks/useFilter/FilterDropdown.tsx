@@ -469,10 +469,10 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       <>
         {getFilterComponent()}
         <div className={`${prefixCls}-dropdown-btns`}>
-          <Button type='link' size='small' disabled={getResetDisabled()} onClick={() => onReset()}>
+          <Button type="link" size="small" disabled={getResetDisabled()} onClick={() => onReset()}>
             {locale.filterReset}
           </Button>
-          <Button type='primary' size='small' onClick={onConfirm}>
+          <Button type="primary" size="small" onClick={onConfirm}>
             {locale.filterConfirm}
           </Button>
         </div>
@@ -514,7 +514,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         placement={direction === 'rtl' ? 'bottomLeft' : 'bottomRight'}
       >
         <span
-          role='button'
+          role="button"
           tabIndex={-1}
           className={classNames(`${prefixCls}-trigger`, {
             active: filtered,

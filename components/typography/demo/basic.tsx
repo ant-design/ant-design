@@ -34,13 +34,13 @@ const App: React.FC = () => (
     <Paragraph>
       <ul>
         <li>
-          <Link href='/docs/spec/proximity'>Principles</Link>
+          <Link href="/docs/spec/proximity">Principles</Link>
         </li>
         <li>
-          <Link href='/docs/spec/overview'>Patterns</Link>
+          <Link href="/docs/spec/overview">Patterns</Link>
         </li>
         <li>
-          <Link href='/docs/resources'>Resource Download</Link>
+          <Link href="/docs/resources">Resource Download</Link>
         </li>
       </ul>
     </Paragraph>
@@ -70,13 +70,13 @@ const App: React.FC = () => (
     <Paragraph>
       <ul>
         <li>
-          <Link href='/docs/spec/proximity-cn'>设计原则</Link>
+          <Link href="/docs/spec/proximity-cn">设计原则</Link>
         </li>
         <li>
-          <Link href='/docs/spec/overview-cn'>设计模式</Link>
+          <Link href="/docs/spec/overview-cn">设计模式</Link>
         </li>
         <li>
-          <Link href='/docs/resources-cn'>设计资源</Link>
+          <Link href="/docs/resources-cn">设计资源</Link>
         </li>
       </ul>
     </Paragraph>

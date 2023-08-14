@@ -48,23 +48,23 @@ const Homepage: React.FC = () => {
         <div>
           <Theme />
           <Group
-            background='#fff'
+            background="#fff"
             collapse
             title={locale.assetsTitle}
             description={locale.assetsDesc}
-            id='design'
+            id="design"
           >
             <ComponentsList />
           </Group>
           <Group
             title={locale.designTitle}
             description={locale.designDesc}
-            background='#F5F8FF'
+            background="#F5F8FF"
             decoration={
               <img
                 className={styles.image}
-                src='https://gw.alipayobjects.com/zos/bmw-prod/ba37a413-28e6-4be4-b1c5-01be1a0ebb1c.svg'
-                alt=''
+                src="https://gw.alipayobjects.com/zos/bmw-prod/ba37a413-28e6-4be4-b1c5-01be1a0ebb1c.svg"
+                alt=""
               />
             }
           >

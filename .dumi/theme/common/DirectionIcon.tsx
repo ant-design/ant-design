@@ -9,7 +9,7 @@ const rtlD =
 
 const DirectionIcon: React.FC<{ direction: DirectionType }> = (props) => (
   <Icon {...props}>
-    <svg viewBox='0 0 1024 1024' fill='currentColor'>
+    <svg viewBox="0 0 1024 1024" fill="currentColor">
       <path d={props.direction === 'ltr' ? ltrD : rtlD} />
     </svg>
   </Icon>

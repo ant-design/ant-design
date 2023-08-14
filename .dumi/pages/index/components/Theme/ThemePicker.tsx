@@ -85,7 +85,7 @@ export default function ThemePicker({ value, onChange }: ThemePickerProps) {
         const url = THEMES[theme as THEME];
 
         return (
-          <Space key={theme} direction='vertical' align='center'>
+          <Space key={theme} direction="vertical" align="center">
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label
               className={classNames(styles.themeCard, value === theme && styles.themeCardActive)}
@@ -93,7 +93,7 @@ export default function ThemePicker({ value, onChange }: ThemePickerProps) {
                 onChange?.(theme);
               }}
             >
-              <input type='radio' name='theme' />
+              <input type="radio" name="theme" />
               <img src={url} alt={theme} />
             </label>
             <span>{locale[theme as keyof typeof locale]}</span>

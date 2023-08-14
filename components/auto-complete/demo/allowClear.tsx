@@ -18,7 +18,7 @@ const App: React.FC = () => {
         options={options}
         style={{ width: 200 }}
         onSearch={(text) => setOptions(getPanelValue(text))}
-        placeholder='UnClearable'
+        placeholder="UnClearable"
         allowClear={false}
       />
       <br />
@@ -27,7 +27,7 @@ const App: React.FC = () => {
         options={options}
         style={{ width: 200 }}
         onSearch={(text) => setOptions(getPanelValue(text))}
-        placeholder='Customized clear icon'
+        placeholder="Customized clear icon"
         allowClear={{ clearIcon: <CloseSquareFilled /> }}
       />
     </>

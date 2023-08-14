@@ -78,10 +78,10 @@ const Palette: React.FC<PaletteProps> = (props) => {
             fontWeight: i === 6 ? 'bold' : 'normal',
             backgroundColor: defaultBgStyle,
           }}
-          title='click to copy color'
+          title="click to copy color"
         >
-          <span className='main-color-text'>{colorText}</span>
-          <span className='main-color-value'>{hexColors[colorText]}</span>
+          <span className="main-color-text">{colorText}</span>
+          <span className="main-color-value">{hexColors[colorText]}</span>
         </div>
       </CopyToClipboard>,
     );
@@ -89,12 +89,12 @@ const Palette: React.FC<PaletteProps> = (props) => {
   return (
     <div className={className}>
       {showTitle && (
-        <div className='color-title'>
+        <div className="color-title">
           {colorName}
-          <span className='color-description'>{description}</span>
+          <span className="color-description">{description}</span>
         </div>
       )}
-      <div className='main-color'>{colors}</div>
+      <div className="main-color">{colors}</div>
     </div>
   );
 };

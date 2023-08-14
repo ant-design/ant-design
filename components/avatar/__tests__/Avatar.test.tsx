@@ -41,7 +41,7 @@ describe('Avatar Render', () => {
   it('should render fallback string correctly', () => {
     const div = global.document.createElement('div');
     global.document.body.appendChild(div);
-    const { container } = render(<Avatar src='http://error.url'>Fallback</Avatar>);
+    const { container } = render(<Avatar src="http://error.url">Fallback</Avatar>);
     fireEvent.error(container.querySelector('img')!);
     const children = container.querySelectorAll('.ant-avatar-string');
     expect(children.length).toBe(1);
@@ -121,10 +121,10 @@ describe('Avatar Render', () => {
 
   it('should warning when pass a string as icon props', () => {
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Avatar size={64} icon='aa' />);
+    render(<Avatar size={64} icon="aa" />);
     expect(warnSpy).not.toHaveBeenCalled();
 
-    render(<Avatar size={64} icon='user' />);
+    render(<Avatar size={64} icon="user" />);
     expect(warnSpy).toHaveBeenCalledWith(
       `Warning: [antd: Avatar] \`icon\` is using ReactNode instead of string naming in v4. Please check \`user\` at https://ant.design/components/icon`,
     );
@@ -155,7 +155,7 @@ describe('Avatar Render', () => {
     const div = global.document.createElement('div');
     global.document.body.appendChild(div);
     const { container } = render(
-      <Avatar shape='circle' src='http://error.url'>
+      <Avatar shape="circle" src="http://error.url">
         A
       </Avatar>,
     );
@@ -192,11 +192,11 @@ describe('Avatar Render', () => {
 
   it('Avatar.Group support shape props', () => {
     const { container } = render(
-      <Avatar.Group shape='square'>
+      <Avatar.Group shape="square">
         <Avatar>A</Avatar>
-        <Avatar shape='circle'>B</Avatar>
+        <Avatar shape="circle">B</Avatar>
         <Avatar>C</Avatar>
-        <Avatar shape='circle'>D</Avatar>
+        <Avatar shape="circle">D</Avatar>
       </Avatar.Group>,
     );
     const avatars = container?.querySelectorAll<HTMLSpanElement>('.ant-avatar-group .ant-avatar');

@@ -13,7 +13,7 @@ const App: React.FC = () => {
     <>
       <FloatButton.Group
         open={open}
-        trigger='click'
+        trigger="click"
         style={{ right: 24 }}
         icon={<CustomerServiceOutlined />}
       >

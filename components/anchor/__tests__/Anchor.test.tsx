@@ -164,7 +164,7 @@ describe('Anchor Render', () => {
           },
         ]}
       >
-        <Link href='#api' title='API' />
+        <Link href="#api" title="API" />
       </Anchor>,
     );
     expect(container.querySelectorAll('.ant-anchor .ant-anchor-link').length).toBe(1);
@@ -178,8 +178,8 @@ describe('Anchor Render', () => {
     const hash = getHashUrl();
     const { container } = render(
       <Anchor
-        prefixCls='ant-anchor'
-        direction='horizontal'
+        prefixCls="ant-anchor"
+        direction="horizontal"
         items={[
           {
             key: hash,
@@ -198,7 +198,7 @@ describe('Anchor Render', () => {
   it('scrolls the page when clicking a link', async () => {
     const root = createDiv();
     const scrollToSpy = jest.spyOn(window, 'scrollTo');
-    render(<div id='/faq?locale=en#Q1'>Q1</div>, { container: root });
+    render(<div id="/faq?locale=en#Q1">Q1</div>, { container: root });
     const { container } = render(
       <Anchor items={[{ key: 'Q1', title: 'Q1', href: '/#/faq?locale=en#Q1' }]} />,
     );
@@ -404,7 +404,7 @@ describe('Anchor Render', () => {
 
       return (
         <>
-          <Button className='test-button' onClick={() => setTrigger(true)} />
+          <Button className="test-button" onClick={() => setTrigger(true)} />
           <Anchor
             onChange={onChange}
             items={[
@@ -644,7 +644,7 @@ describe('Anchor Render', () => {
         render(<h1 id={hash}>Hello</h1>, { container: root });
         const { container, rerender } = render(
           <Anchor
-            direction='horizontal'
+            direction="horizontal"
             items={[
               {
                 key: hash,
@@ -658,7 +658,7 @@ describe('Anchor Render', () => {
           rerender(
             <Anchor
               {...props}
-              direction='horizontal'
+              direction="horizontal"
               items={[
                 {
                   key: hash,
@@ -690,7 +690,7 @@ describe('Anchor Render', () => {
     it('test direction prop', () => {
       const { container } = render(
         <Anchor
-          direction='horizontal'
+          direction="horizontal"
           items={[
             {
               key: '1',
@@ -721,7 +721,7 @@ describe('Anchor Render', () => {
     it('nested children via items should be filtered out when direction is horizontal', () => {
       const { container } = render(
         <Anchor
-          direction='horizontal'
+          direction="horizontal"
           items={[
             {
               key: '1',
@@ -758,12 +758,12 @@ describe('Anchor Render', () => {
 
     it('nested children via jsx should be filtered out when direction is horizontal', () => {
       const { container } = render(
-        <Anchor direction='horizontal'>
-          <Link href='#components-anchor-demo-basic' title='Basic demo' />
-          <Link href='#components-anchor-demo-static' title='Static demo' />
-          <Link href='#api' title='API'>
-            <Link href='#anchor-props' title='Anchor Props' />
-            <Link href='#link-props' title='Link Props' />
+        <Anchor direction="horizontal">
+          <Link href="#components-anchor-demo-basic" title="Basic demo" />
+          <Link href="#components-anchor-demo-static" title="Static demo" />
+          <Link href="#api" title="API">
+            <Link href="#anchor-props" title="Anchor Props" />
+            <Link href="#link-props" title="Link Props" />
           </Link>
         </Anchor>,
       );
@@ -785,7 +785,7 @@ describe('Anchor Render', () => {
     it('actives the target when clicking a link', async () => {
       const hash = getHashUrl();
       const { container } = render(
-        <Anchor prefixCls='ant-anchor'>
+        <Anchor prefixCls="ant-anchor">
           <Link href={`http://www.example.com/#${hash}`} title={hash} />
         </Anchor>,
       );
@@ -798,10 +798,10 @@ describe('Anchor Render', () => {
     it('scrolls the page when clicking a link', async () => {
       const root = createDiv();
       const scrollToSpy = jest.spyOn(window, 'scrollTo');
-      render(<div id='/faq?locale=en#Q1'>Q1</div>, { container: root });
+      render(<div id="/faq?locale=en#Q1">Q1</div>, { container: root });
       const { container } = render(
         <Anchor>
-          <Link href='/#/faq?locale=en#Q1' title='Q1' />
+          <Link href="/#/faq?locale=en#Q1" title="Q1" />
         </Anchor>,
       );
       const link = container.querySelector(`a[href="/#/faq?locale=en#Q1"]`)!;
@@ -876,7 +876,7 @@ describe('Anchor Render', () => {
     it('handles invalid hash correctly', () => {
       const { container } = render(
         <Anchor>
-          <Link href='nonexistent' title='title' />
+          <Link href="nonexistent" title="title" />
         </Anchor>,
       );
 
@@ -900,7 +900,7 @@ describe('Anchor Render', () => {
     it('warning nested children when direction is horizontal ', () => {
       render(
         <Anchor
-          direction='horizontal'
+          direction="horizontal"
           items={[
             {
               key: '1',
@@ -934,9 +934,9 @@ describe('Anchor Render', () => {
 
     it('deprecated jsx style', () => {
       render(
-        <Anchor direction='horizontal'>
-          <Link href='#components-anchor-demo-basic' title='Basic demo' />
-          <Link href='#components-anchor-demo-static' title='Static demo' />
+        <Anchor direction="horizontal">
+          <Link href="#components-anchor-demo-basic" title="Basic demo" />
+          <Link href="#components-anchor-demo-static" title="Static demo" />
         </Anchor>,
       );
       expect(errSpy).toHaveBeenCalledWith(
@@ -947,8 +947,8 @@ describe('Anchor Render', () => {
     it('deprecated jsx style for direction#vertical', () => {
       render(
         <Anchor>
-          <Link href='#components-anchor-demo-basic' title='Basic demo' />
-          <Link href='#components-anchor-demo-static' title='Static demo' />
+          <Link href="#components-anchor-demo-basic" title="Basic demo" />
+          <Link href="#components-anchor-demo-static" title="Static demo" />
         </Anchor>,
       );
       expect(errSpy).toHaveBeenCalledWith(
@@ -958,9 +958,9 @@ describe('Anchor Render', () => {
 
     it('deprecated jsx style for direction#vertical 1: with nested children', () => {
       render(
-        <Anchor direction='horizontal'>
-          <Link href='#api' title='API'>
-            <Link href='#anchor-props' title='Anchor Props' />
+        <Anchor direction="horizontal">
+          <Link href="#api" title="API">
+            <Link href="#anchor-props" title="Anchor Props" />
           </Link>
         </Anchor>,
       );
@@ -979,7 +979,7 @@ describe('Anchor Render', () => {
         };
         return (
           <div>
-            <button onClick={toggle} type='button'>
+            <button onClick={toggle} type="button">
               toggle
             </button>
             <Anchor

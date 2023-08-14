@@ -27,8 +27,8 @@ describe('Alert', () => {
     const onClose = jest.fn();
     render(
       <Alert
-        message='Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text'
-        type='warning'
+        message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
+        type="warning"
         closable
         onClose={onClose}
       />,
@@ -46,11 +46,11 @@ describe('Alert', () => {
   it('custom action', () => {
     const { container } = render(
       <Alert
-        message='Success Tips'
-        type='success'
+        message="Success Tips"
+        type="success"
         showIcon
         action={
-          <Button size='small' type='text'>
+          <Button size="small" type="text">
             UNDO
           </Button>
         }
@@ -62,7 +62,7 @@ describe('Alert', () => {
 
   it('should sets data attributes on alert when pass attributes to props', () => {
     render(
-      <Alert data-test='test-id' data-id='12345' aria-describedby='some-label' message={null} />,
+      <Alert data-test="test-id" data-id="12345" aria-describedby="some-label" message={null} />,
     );
     const alert = screen.getByRole('alert');
     expect(alert).toHaveAttribute('data-test', 'test-id');
@@ -71,7 +71,7 @@ describe('Alert', () => {
   });
 
   it('sets role attribute on input', () => {
-    render(<Alert role='status' message={null} />);
+    render(<Alert role="status" message={null} />);
 
     expect(screen.getByRole('status')).toBeInTheDocument();
   });
@@ -96,10 +96,10 @@ describe('Alert', () => {
 
   it('could be used with Tooltip', async () => {
     render(
-      <Tooltip title='xxx' mouseEnterDelay={0}>
+      <Tooltip title="xxx" mouseEnterDelay={0}>
         <Alert
-          message='Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text'
-          type='warning'
+          message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
+          type="warning"
         />
       </Tooltip>,
     );
@@ -115,10 +115,10 @@ describe('Alert', () => {
 
   it('could be used with Popconfirm', async () => {
     render(
-      <Popconfirm title='xxx'>
+      <Popconfirm title="xxx">
         <Alert
-          message='Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text'
-          type='warning'
+          message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
+          type="warning"
         />
       </Popconfirm>,
     );
@@ -132,14 +132,14 @@ describe('Alert', () => {
   });
 
   it('could accept none react element icon', () => {
-    render(<Alert message='Success Tips' type='success' showIcon icon='icon' />);
+    render(<Alert message="Success Tips" type="success" showIcon icon="icon" />);
 
     expect(screen.getByRole('alert')).toHaveTextContent(/success tips/i);
     expect(screen.getByRole('alert')).toHaveTextContent(/icon/i);
   });
 
   it('should not render message div when no message', () => {
-    const { container } = render(<Alert description='description' />);
+    const { container } = render(<Alert description="description" />);
     expect(!!container.querySelector('.ant-alert-message')).toBe(false);
   });
 
@@ -158,7 +158,7 @@ describe('Alert', () => {
     resetWarned();
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    const { container } = render(<Alert closeText='close' />);
+    const { container } = render(<Alert closeText="close" />);
 
     expect(warnSpy).toHaveBeenCalledWith(
       `Warning: [antd: Alert] \`closeText\` is deprecated. Please use \`closeIcon\` instead.`,

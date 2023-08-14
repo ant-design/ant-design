@@ -38,9 +38,9 @@ const ColorHexInput: FC<ColorHexInputProps> = ({ prefixCls, value, onChange }) =
     <Input
       className={colorHexInputPrefixCls}
       value={hexValue?.toUpperCase()}
-      prefix='#'
+      prefix="#"
       onChange={handleHexChange}
-      size='small'
+      size="small"
     />
   );
 };

@@ -61,7 +61,7 @@ const TableTransfer = ({ leftColumns, rightColumns, ...restProps }: TableTransfe
           rowSelection={rowSelection}
           columns={columns}
           dataSource={filteredItems}
-          size='small'
+          size="small"
           style={{ pointerEvents: listDisabled ? 'none' : undefined }}
           onRow={({ key, disabled: itemDisabled }) => ({
             onClick: () => {
@@ -172,8 +172,8 @@ const App: React.FC = () => {
         onScroll={onScroll}
         render={(item) => item.title}
       />
-      <Transfer status='error' />
-      <Transfer status='warning' showSearch />
+      <Transfer status="error" />
+      <Transfer status="warning" showSearch />
       <TableTransfer
         dataSource={mockData}
         targetKeys={targetKeys}
@@ -188,14 +188,14 @@ const App: React.FC = () => {
       />
       <Space style={{ marginTop: 16 }}>
         <Switch
-          unCheckedChildren='disabled'
-          checkedChildren='disabled'
+          unCheckedChildren="disabled"
+          checkedChildren="disabled"
           checked={disabled}
           onChange={triggerDisable}
         />
         <Switch
-          unCheckedChildren='showSearch'
-          checkedChildren='showSearch'
+          unCheckedChildren="showSearch"
+          checkedChildren="showSearch"
           checked={showSearch}
           onChange={triggerShowSearch}
         />

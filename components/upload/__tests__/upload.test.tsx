@@ -73,7 +73,7 @@ describe('Upload', () => {
 
     const { container: wrapper } = render(
       <Upload {...props}>
-        <button type='button'>upload</button>
+        <button type="button">upload</button>
       </Upload>,
     );
     fireEvent.change(wrapper.querySelector('input')!, {
@@ -97,7 +97,7 @@ describe('Upload', () => {
 
     const { container: wrapper } = render(
       <Upload {...props}>
-        <button type='button'>upload</button>
+        <button type="button">upload</button>
       </Upload>,
     );
 
@@ -133,7 +133,7 @@ describe('Upload', () => {
 
     const { container: wrapper } = render(
       <Upload {...props}>
-        <button type='button'>upload</button>
+        <button type="button">upload</button>
       </Upload>,
     );
 
@@ -171,7 +171,7 @@ describe('Upload', () => {
 
     const { container: wrapper } = render(
       <Upload {...props}>
-        <button type='button'>upload</button>
+        <button type="button">upload</button>
       </Upload>,
     );
 
@@ -194,7 +194,7 @@ describe('Upload', () => {
 
     const { container: wrapper } = render(
       <Upload {...props}>
-        <button type='button'>upload</button>
+        <button type="button">upload</button>
       </Upload>,
     );
 
@@ -208,14 +208,14 @@ describe('Upload', () => {
   // https://github.com/ant-design/ant-design/issues/14779
   it('should contain input file control if upload button is hidden', () => {
     const { container, rerender } = render(
-      <Upload action='http://upload.com'>
-        <button type='button'>upload</button>
+      <Upload action="http://upload.com">
+        <button type="button">upload</button>
       </Upload>,
     );
 
     expect(container.querySelectorAll('input[type="file"]')).toHaveLength(1);
 
-    rerender(<Upload action='http://upload.com' />);
+    rerender(<Upload action="http://upload.com" />);
     expect(container.querySelectorAll('input[type="file"]')).toHaveLength(1);
   });
 
@@ -223,7 +223,7 @@ describe('Upload', () => {
   it('should not have id if upload children is null, avoid being triggered by label', () => {
     const Demo: React.FC<{ children?: UploadProps['children'] }> = ({ children }) => (
       <Form>
-        <Form.Item name='upload' label='Upload' valuePropName='fileList'>
+        <Form.Item name="upload" label="Upload" valuePropName="fileList">
           <Upload>{children}</Upload>
         </Form.Item>
       </Form>
@@ -244,7 +244,7 @@ describe('Upload', () => {
   it('should not have id if Upload is disabled, avoid being triggered by label', () => {
     const Demo: React.FC<{ disabled?: UploadProps['disabled'] }> = ({ disabled }) => (
       <Form>
-        <Form.Item name='upload' label='Upload' valuePropName='fileList'>
+        <Form.Item name="upload" label="Upload" valuePropName="fileList">
           <Upload disabled={disabled}>
             <div>upload</div>
           </Upload>
@@ -262,7 +262,7 @@ describe('Upload', () => {
   it('should not have id if upload.Dragger is disabled, avoid being triggered by label', () => {
     const Demo: React.FC<{ disabled?: UploadProps['disabled'] }> = ({ disabled }) => (
       <Form>
-        <Form.Item name='upload' label='Upload' valuePropName='fileList'>
+        <Form.Item name="upload" label="Upload" valuePropName="fileList">
           <Upload.Dragger disabled={disabled}>
             <div>upload</div>
           </Upload.Dragger>
@@ -518,7 +518,7 @@ describe('Upload', () => {
     const ref = React.createRef<any>();
     render(
       <Upload ref={ref}>
-        <button type='button'>upload</button>
+        <button type="button">upload</button>
       </Upload>,
     );
     expect(typeof ref.current?.upload.abort).toBe('function');
@@ -527,8 +527,8 @@ describe('Upload', () => {
   it('correct dragCls when type is drag', () => {
     const fileList = [{ status: 'uploading', uid: 'file' }];
     const { container: wrapper } = render(
-      <Upload type='drag' fileList={fileList as UploadProps['fileList']}>
-        <button type='button'>upload</button>
+      <Upload type="drag" fileList={fileList as UploadProps['fileList']}>
+        <button type="button">upload</button>
       </Upload>,
     );
     expect(wrapper.querySelectorAll('.ant-upload-drag-uploading').length).toBe(1);
@@ -538,8 +538,8 @@ describe('Upload', () => {
     const fileList = [{ uid: 'file' }];
     const ref = React.createRef<any>();
     render(
-      <Upload ref={ref} type='drag' fileList={fileList as UploadProps['fileList']}>
-        <button type='button'>upload</button>
+      <Upload ref={ref} type="drag" fileList={fileList as UploadProps['fileList']}>
+        <button type="button">upload</button>
       </Upload>,
     );
     expect(ref.current?.onSuccess('', { uid: 'fileItem' })).toBe(undefined);
@@ -552,7 +552,7 @@ describe('Upload', () => {
     const ref = React.createRef<any>();
     const { unmount } = render(
       <Upload ref={ref} defaultFileList={fileList}>
-        <button type='button'>upload</button>
+        <button type="button">upload</button>
       </Upload>,
     );
 
@@ -598,7 +598,7 @@ describe('Upload', () => {
       url: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
     };
     const { container: wrapper } = render(
-      <Upload listType='picture-card' fileList={[file] as UploadProps['fileList']} />,
+      <Upload listType="picture-card" fileList={[file] as UploadProps['fileList']} />,
     );
     expect(wrapper.querySelectorAll('img').length).toBe(0);
   });
@@ -611,7 +611,7 @@ describe('Upload', () => {
     const props = { onClick, onMouseEnter, onMouseLeave };
     const { container: wrapper } = render(
       <Upload {...props}>
-        <button type='button'>upload</button>
+        <button type="button">upload</button>
       </Upload>,
     );
     fireEvent.click(wrapper.querySelectorAll('.ant-upload')[1]);
@@ -672,7 +672,7 @@ describe('Upload', () => {
 
       return (
         <Upload customRequest={customRequest} onChange={onChange} fileList={fileList}>
-          <button type='button'>Upload</button>
+          <button type="button">Upload</button>
         </Upload>
       );
     };
@@ -707,7 +707,7 @@ describe('Upload', () => {
 
       const { container: wrapper } = render(
         <Upload {...props}>
-          <button type='button'>upload</button>
+          <button type="button">upload</button>
         </Upload>,
       );
 
@@ -745,7 +745,7 @@ describe('Upload', () => {
 
       const { container: wrapper } = render(
         <Upload {...props}>
-          <button type='button'>upload</button>
+          <button type="button">upload</button>
         </Upload>,
       );
 
@@ -798,7 +798,7 @@ describe('Upload', () => {
           ]}
           showUploadList
         >
-          <button type='button'>upload</button>
+          <button type="button">upload</button>
         </Upload>,
       );
 
@@ -823,7 +823,7 @@ describe('Upload', () => {
 
     render(
       <Upload fileList={fileList as UploadProps['fileList']}>
-        <button type='button'>upload</button>
+        <button type="button">upload</button>
       </Upload>,
     );
 
@@ -835,7 +835,7 @@ describe('Upload', () => {
 
     const { container: wrapper } = render(
       <Upload onChange={onChange}>
-        <button type='button'>upload</button>
+        <button type="button">upload</button>
       </Upload>,
     );
 
@@ -911,12 +911,12 @@ describe('Upload', () => {
   // https://github.com/ant-design/ant-design/issues/33819
   it('should show the animation of the upload children leaving when the upload children becomes null', async () => {
     const { container, rerender } = render(
-      <Upload listType='picture-card'>
-        <button type='button'>upload</button>
+      <Upload listType="picture-card">
+        <button type="button">upload</button>
       </Upload>,
     );
 
-    rerender(<Upload listType='picture-card' />);
+    rerender(<Upload listType="picture-card" />);
     expect(container.querySelector('.ant-upload-select')).toHaveClass(
       'ant-upload-animate-inline-leave-start',
     );
@@ -937,7 +937,7 @@ describe('Upload', () => {
     const { container: wrapper } = render(<Upload />);
     expect(wrapper.querySelectorAll('.ant-upload-list').length).toBeGreaterThan(0);
 
-    const { container: wrapper2 } = render(<Upload prefixCls='custom-upload' />);
+    const { container: wrapper2 } = render(<Upload prefixCls="custom-upload" />);
     expect(wrapper2.querySelectorAll('.custom-upload-list').length).toBeGreaterThan(0);
   });
 
@@ -1016,7 +1016,7 @@ describe('Upload', () => {
 
       return (
         <Upload customRequest={customRequest} onChange={onChange} fileList={fileList}>
-          <button type='button'>Upload</button>
+          <button type="button">Upload</button>
         </Upload>
       );
     };

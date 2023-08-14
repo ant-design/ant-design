@@ -74,7 +74,7 @@ const InternalRadio: React.ForwardRefRenderFunction<CheckboxRef, RadioProps> = (
   );
 
   return wrapSSR(
-    <Wave component='Radio' disabled={radioProps.disabled}>
+    <Wave component="Radio" disabled={radioProps.disabled}>
       {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label
         className={wrapperClassString}
@@ -85,7 +85,7 @@ const InternalRadio: React.ForwardRefRenderFunction<CheckboxRef, RadioProps> = (
         <RcCheckbox
           {...radioProps}
           className={classNames(radioProps.className, !isButtonType && TARGET_CLS)}
-          type='radio'
+          type="radio"
           prefixCls={prefixCls}
           ref={mergedRef}
         />

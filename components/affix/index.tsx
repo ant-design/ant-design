@@ -288,7 +288,7 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
     return (
       <ResizeObserver onResize={this.updatePosition}>
         <div {...props} ref={this.placeholderNodeRef}>
-          {affixStyle && <div style={placeholderStyle} aria-hidden='true' />}
+          {affixStyle && <div style={placeholderStyle} aria-hidden="true" />}
           <div className={className} ref={this.fixedNodeRef} style={affixStyle}>
             <ResizeObserver onResize={this.updatePosition}>{children}</ResizeObserver>
           </div>

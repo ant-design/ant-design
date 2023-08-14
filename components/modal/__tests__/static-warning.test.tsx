@@ -22,7 +22,7 @@ describe('Modal.confirm warning', () => {
   it('no warning', async () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     Modal.confirm({
-      content: <div className='bamboo' />,
+      content: <div className="bamboo" />,
     });
     await waitFakeTimer();
 
@@ -36,7 +36,7 @@ describe('Modal.confirm warning', () => {
     render(<ConfigProvider theme={{}} />);
 
     Modal.confirm({
-      content: <div className='light' />,
+      content: <div className="light" />,
     });
     await waitFakeTimer();
 

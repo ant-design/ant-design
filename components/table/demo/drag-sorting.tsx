@@ -109,7 +109,7 @@ const App: React.FC = () => {
               row: Row,
             },
           }}
-          rowKey='key'
+          rowKey="key"
           columns={columns}
           dataSource={dataSource}
         />

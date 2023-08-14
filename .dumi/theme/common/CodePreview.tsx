@@ -23,7 +23,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({ toReactComponent, codes, onCo
   return (
     <Tabs
       centered
-      className='highlight'
+      className="highlight"
       onChange={onCodeTypeChange}
       items={langList.map((lang) => ({
         label: LANGS[lang],

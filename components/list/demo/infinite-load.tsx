@@ -44,7 +44,7 @@ const App: React.FC = () => {
 
   return (
     <div
-      id='scrollableDiv'
+      id="scrollableDiv"
       style={{
         height: 400,
         overflow: 'auto',
@@ -58,7 +58,7 @@ const App: React.FC = () => {
         hasMore={data.length < 50}
         loader={<Skeleton avatar paragraph={{ rows: 1 }} active />}
         endMessage={<Divider plain>It is all, nothing more 🤐</Divider>}
-        scrollableTarget='scrollableDiv'
+        scrollableTarget="scrollableDiv"
       >
         <List
           dataSource={data}
@@ -66,7 +66,7 @@ const App: React.FC = () => {
             <List.Item key={item.email}>
               <List.Item.Meta
                 avatar={<Avatar src={item.picture.large} />}
-                title={<a href='https://ant.design'>{item.name.last}</a>}
+                title={<a href="https://ant.design">{item.name.last}</a>}
                 description={item.email}
               />
               <div>Content</div>

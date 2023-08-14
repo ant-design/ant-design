@@ -54,10 +54,10 @@ const ColorInput: FC<ColorInputProps> = (props) => {
         bordered={false}
         getPopupContainer={(current) => current}
         popupMatchSelectWidth={68}
-        placement='bottomRight'
+        placement="bottomRight"
         onChange={handleFormatChange}
         className={`${prefixCls}-format-select`}
-        size='small'
+        size="small"
         options={selectOptions}
       />
       <div className={colorInputPrefixCls}>{steppersNode}</div>

@@ -33,15 +33,15 @@ describe('Collapse', () => {
   it('should support remove expandIcon', () => {
     const { asFragment } = render(
       <Collapse expandIcon={() => null}>
-        <Collapse.Panel header='header' />
+        <Collapse.Panel header="header" />
       </Collapse>,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('should be able to config size', () => {
-    const { container: small } = render(<Collapse size='small' />);
-    const { container: large } = render(<Collapse size='large' />);
+    const { container: small } = render(<Collapse size="small" />);
+    const { container: large } = render(<Collapse size="large" />);
 
     expect(small.querySelector('.ant-collapse')).toHaveClass('ant-collapse-small');
     expect(large.querySelector('.ant-collapse')).toHaveClass('ant-collapse-large');
@@ -51,12 +51,12 @@ describe('Collapse', () => {
     const { container } = render(
       <Collapse
         expandIcon={() => (
-          <button type='button' className='custom-expandicon-classname'>
+          <button type="button" className="custom-expandicon-classname">
             action
           </button>
         )}
       >
-        <Collapse.Panel header='header' />
+        <Collapse.Panel header="header" />
       </Collapse>,
     );
 
@@ -66,8 +66,8 @@ describe('Collapse', () => {
   it('should render extra node of panel', () => {
     const { asFragment } = render(
       <Collapse>
-        <Collapse.Panel header='header' extra={<button type='button'>action</button>} />
-        <Collapse.Panel header='header' extra={<button type='button'>action</button>} />
+        <Collapse.Panel header="header" extra={<button type="button">action</button>} />
+        <Collapse.Panel header="header" extra={<button type="button">action</button>} />
       </Collapse>,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -77,7 +77,7 @@ describe('Collapse', () => {
     jest.useFakeTimers();
     const { container } = render(
       <Collapse>
-        <Collapse.Panel header='This is panel header 1' key='1'>
+        <Collapse.Panel header="This is panel header 1" key="1">
           content
         </Collapse.Panel>
       </Collapse>,
@@ -96,7 +96,7 @@ describe('Collapse', () => {
   it('could override default openMotion', () => {
     const { container, asFragment } = render(
       <Collapse openMotion={{}}>
-        <Collapse.Panel header='This is panel header 1' key='1'>
+        <Collapse.Panel header="This is panel header 1" key="1">
           content
         </Collapse.Panel>
       </Collapse>,
@@ -108,7 +108,7 @@ describe('Collapse', () => {
   it('should trigger warning and keep compatibility when using disabled in Panel', () => {
     const { container } = render(
       <Collapse>
-        <Collapse.Panel disabled header='This is panel header 1' key='1'>
+        <Collapse.Panel disabled header="This is panel header 1" key="1">
           content
         </Collapse.Panel>
       </Collapse>,
@@ -165,7 +165,7 @@ describe('Collapse', () => {
       return (
         <div hidden>
           <Collapse activeKey={activeKey}>
-            <Collapse.Panel header='header' key='1'>
+            <Collapse.Panel header="header" key="1">
               content
             </Collapse.Panel>
           </Collapse>
@@ -195,13 +195,13 @@ describe('Collapse', () => {
 
     const { container } = render(
       <Collapse ref={ref}>
-        <Collapse.Panel ref={panelRef1} header='panel header 1' key='1'>
+        <Collapse.Panel ref={panelRef1} header="panel header 1" key="1">
           1
         </Collapse.Panel>
-        <Collapse.Panel ref={panelRef2} header='panel header 2' key='2'>
+        <Collapse.Panel ref={panelRef2} header="panel header 2" key="2">
           2
         </Collapse.Panel>
-        <Collapse.Panel header='panel header 3' key='3'>
+        <Collapse.Panel header="panel header 3" key="3">
           2
         </Collapse.Panel>
       </Collapse>,
@@ -217,7 +217,7 @@ describe('Collapse', () => {
       it(`warning for legacy '${pos}'`, () => {
         render(
           <Collapse expandIconPosition={pos}>
-            <Collapse.Panel header='header' key='1' />
+            <Collapse.Panel header="header" key="1" />
           </Collapse>,
         );
 
@@ -228,8 +228,8 @@ describe('Collapse', () => {
 
       it('position end', () => {
         const { container } = render(
-          <Collapse expandIconPosition='end'>
-            <Collapse.Panel header='header' key='1' />
+          <Collapse expandIconPosition="end">
+            <Collapse.Panel header="header" key="1" />
           </Collapse>,
         );
 
@@ -241,10 +241,10 @@ describe('Collapse', () => {
   it('Collapse.Panel usage', () => {
     const { container } = render(
       <Collapse bordered={false}>
-        <Collapse.Panel key='test panel1' header='test panel1'>
+        <Collapse.Panel key="test panel1" header="test panel1">
           test1
         </Collapse.Panel>
-        <Collapse.Panel key='test panel2' header='test panel2'>
+        <Collapse.Panel key="test panel2" header="test panel2">
           test2
         </Collapse.Panel>
       </Collapse>,

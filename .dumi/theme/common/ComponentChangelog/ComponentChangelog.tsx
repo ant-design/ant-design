@@ -80,7 +80,7 @@ function ParseChangelog(props: { changelog: string; refs: string[]; styles: any 
 
       {/* Refs */}
       {refs?.map((ref) => (
-        <a className={styles.ref} key={ref} href={ref} target='_blank' rel='noreferrer'>
+        <a className={styles.ref} key={ref} href={ref} target="_blank" rel="noreferrer">
           #{ref.match(/^.*\/(\d+)$/)?.[1]}
         </a>
       ))}
@@ -174,7 +174,7 @@ export default function ComponentChangelog(props: ComponentChangelogProps) {
           </Link>
         }
         open={show}
-        width='40vw'
+        width="40vw"
         onClose={() => {
           setShow(false);
         }}

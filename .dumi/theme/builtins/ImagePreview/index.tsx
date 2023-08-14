@@ -53,7 +53,7 @@ const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
     delete metaCopy.isBad;
     return (
       <div key={index}>
-        <div className='image-modal-container'>
+        <div className="image-modal-container">
           <img {...metaCopy} src={meta.src} alt={meta.alt} />
         </div>
       </div>
@@ -100,13 +100,13 @@ const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
         });
 
         return (
-          <div className='preview-image-box' style={style} key={index}>
+          <div className="preview-image-box" style={style} key={index}>
             <div className={imageWrapperClassName}>
               <Image className={coverMeta.className} src={coverMeta.src} alt={coverMeta.alt} />
             </div>
-            <div className='preview-image-title'>{coverMeta.alt}</div>
+            <div className="preview-image-title">{coverMeta.alt}</div>
             <div
-              className='preview-image-description'
+              className="preview-image-description"
               dangerouslySetInnerHTML={{ __html: coverMeta.description }}
             />
           </div>

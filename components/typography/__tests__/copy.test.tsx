@@ -34,7 +34,7 @@ describe('Typography copy', () => {
         it(name, async () => {
           jest.useFakeTimers();
           const { container, unmount } = render(
-            <Base component='p' copyable={{ icon, tooltips }}>
+            <Base component="p" copyable={{ icon, tooltips }}>
               test copy
             </Base>,
           );
@@ -128,7 +128,7 @@ describe('Typography copy', () => {
       });
       copyTest({
         name: 'icon custom icon2',
-        icon: [<SmileOutlined key='a' />, <LikeOutlined key='b' />],
+        icon: [<SmileOutlined key="a" />, <LikeOutlined key="b" />],
         iconClassNames: ['.anticon-smile', '.anticon-like'],
       });
       copyTest({
@@ -138,7 +138,7 @@ describe('Typography copy', () => {
             <SmileOutlined />
             <SmileOutlined />
           </>,
-          <LikeOutlined key='b' />,
+          <LikeOutlined key="b" />,
         ],
         iconClassNames: ['.anticon-smile', '.anticon-like'],
       });
@@ -213,7 +213,7 @@ describe('Typography copy', () => {
       const onDivClick = jest.fn();
       const { container: wrapper } = render(
         <div onClick={onDivClick}>
-          <Base component='p' copyable>
+          <Base component="p" copyable>
             test copy
           </Base>
         </div>,
@@ -228,7 +228,7 @@ describe('Typography copy', () => {
       }
 
       const { container: wrapper } = render(
-        <Base component='p' copyable={{ onCopy }}>
+        <Base component="p" copyable={{ onCopy }}>
           test copy
         </Base>,
       );
@@ -248,7 +248,7 @@ describe('Typography copy', () => {
           }, 500);
         }, []);
         return (
-          <Base component='p' copyable>
+          <Base component="p" copyable>
             {dynamicText}
           </Base>
         );

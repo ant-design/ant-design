@@ -40,12 +40,12 @@ const NotFoundPage: React.FC<NotFoundProps> = ({ router }) => {
 
   return (
     <Result
-      status='404'
-      title='404'
+      status="404"
+      title="404"
       subTitle={isZhCN ? '你访问的页面貌似不存在？' : 'Sorry, the page you visited does not exist.'}
       extra={
         <Link to={utils.getLocalizedPathname('/', isZhCN)}>
-          <Button type='primary' icon={<HomeOutlined />}>
+          <Button type="primary" icon={<HomeOutlined />}>
             {isZhCN ? '返回 Ant Design 首页' : 'Back to home page'}
           </Button>
         </Link>

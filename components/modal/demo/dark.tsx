@@ -129,7 +129,7 @@ const expandedRowRender = () => {
       key: 'state',
       render: () => (
         <span>
-          <Badge status='success' />
+          <Badge status="success" />
           Finished
         </span>
       ),
@@ -140,7 +140,7 @@ const expandedRowRender = () => {
       dataIndex: 'operation',
       key: 'operation',
       render: () => (
-        <span className='table-operation'>
+        <span className="table-operation">
           <a>Pause</a>
           <a>Stop</a>
           <Dropdown>
@@ -266,11 +266,11 @@ const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
 
       return (
         <Table
-          id='components-transfer-table'
+          id="components-transfer-table"
           rowSelection={rowSelection}
           columns={columns}
           dataSource={filteredItems}
-          size='small'
+          size="small"
           style={{ pointerEvents: listDisabled ? 'none' : null }}
           onRow={({ key, disabled: itemDisabled }) => ({
             onClick: () => {
@@ -369,18 +369,18 @@ export default () => {
   ];
   return (
     <>
-      <Button type='primary' onClick={showModal}>
+      <Button type="primary" onClick={showModal}>
         Open Modal
       </Button>
-      <Modal title='Basic Modal' open={open} onOk={handleOk} onCancel={handleCancel}>
+      <Modal title="Basic Modal" open={open} onOk={handleOk} onCancel={handleCancel}>
         <Switch
-          unCheckedChildren='disabled'
-          checkedChildren='disabled'
+          unCheckedChildren="disabled"
+          checkedChildren="disabled"
           checked={disabled}
           onChange={handleDisable}
           style={{ marginBottom: 16 }}
         />
-        <Card title='Card Title'>
+        <Card title="Card Title">
           <Card.Grid>Content</Card.Grid>
           <Card.Grid hoverable={false}>Content</Card.Grid>
           <Card.Grid>Content</Card.Grid>
@@ -390,17 +390,17 @@ export default () => {
           <Card.Grid>Content</Card.Grid>
         </Card>
         <Collapse>
-          <Panel header='This is panel header 1' key='1'>
-            <Collapse defaultActiveKey='1'>
-              <Panel header='This is panel nest panel' key='1'>
+          <Panel header="This is panel header 1" key="1">
+            <Collapse defaultActiveKey="1">
+              <Panel header="This is panel nest panel" key="1">
                 <p>{text}</p>
               </Panel>
             </Collapse>
           </Panel>
-          <Panel header='This is panel header 2' key='2'>
+          <Panel header="This is panel header 2" key="2">
             <p>{text}</p>
           </Panel>
-          <Panel header='This is panel header 3' key='3'>
+          <Panel header="This is panel header 3" key="3">
             <p>{text}</p>
           </Panel>
         </Collapse>
@@ -441,65 +441,65 @@ export default () => {
           ]}
         />
         <Switch
-          unCheckedChildren='disabled'
-          checkedChildren='disabled'
+          unCheckedChildren="disabled"
+          checkedChildren="disabled"
           checked={disabled}
           onChange={triggerDisable}
           style={{ marginTop: 16 }}
         />
         <Switch
-          unCheckedChildren='showSearch'
-          checkedChildren='showSearch'
+          unCheckedChildren="showSearch"
+          checkedChildren="showSearch"
           checked={showSearch}
           onChange={triggerShowSearch}
           style={{ marginTop: 16 }}
         />
         <Anchor>
-          <Link href='#components-anchor-demo-basic' title='Basic demo' />
-          <Link href='#components-anchor-demo-static' title='Static demo' />
+          <Link href="#components-anchor-demo-basic" title="Basic demo" />
+          <Link href="#components-anchor-demo-static" title="Static demo" />
           <Link
-            href='#components-anchor-demo-basic'
-            title='Basic demo with Target'
-            target='_blank'
+            href="#components-anchor-demo-basic"
+            title="Basic demo with Target"
+            target="_blank"
           />
-          <Link href='#API' title='API'>
-            <Link href='#Anchor-Props' title='Anchor Props' />
-            <Link href='#Link-Props' title='Link Props' />
+          <Link href="#API" title="API">
+            <Link href="#Anchor-Props" title="Anchor Props" />
+            <Link href="#Link-Props" title="Link Props" />
           </Link>
         </Anchor>
-        <Tabs type='card'>
-          <TabPane tab='Tab 1' key='1'>
+        <Tabs type="card">
+          <TabPane tab="Tab 1" key="1">
             Content of Tab Pane 1
           </TabPane>
-          <TabPane tab='Tab 2' key='2'>
+          <TabPane tab="Tab 2" key="2">
             Content of Tab Pane 2
           </TabPane>
-          <TabPane tab='Tab 3' key='3'>
+          <TabPane tab="Tab 3" key="3">
             Content of Tab Pane 3
           </TabPane>
         </Tabs>
         <Timeline>
           <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
           <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
-          <Timeline.Item dot={<ClockCircleOutlined style={{ fontSize: '16px' }} />} color='red'>
+          <Timeline.Item dot={<ClockCircleOutlined style={{ fontSize: '16px' }} />} color="red">
             Technical testing 2015-09-01
           </Timeline.Item>
           <Timeline.Item>Network problems being solved 2015-09-01</Timeline.Item>
         </Timeline>
         <Calendar />
         <Tree showLine switcherIcon={<DownOutlined />} defaultExpandedKeys={['0-0-0']}>
-          <TreeNode title='parent 1' key='0-0'>
-            <TreeNode title='parent 1-0' key='0-0-0'>
-              <TreeNode title='leaf' key='0-0-0-0' />
-              <TreeNode title='leaf' key='0-0-0-1' />
-              <TreeNode title='leaf' key='0-0-0-2' />
+          <TreeNode title="parent 1" key="0-0">
+            <TreeNode title="parent 1-0" key="0-0-0">
+              <TreeNode title="leaf" key="0-0-0-0" />
+              <TreeNode title="leaf" key="0-0-0-1" />
+              <TreeNode title="leaf" key="0-0-0-2" />
             </TreeNode>
-            <TreeNode title='parent 1-1' key='0-0-1'>
-              <TreeNode title='leaf' key='0-0-1-0' />
+            <TreeNode title="parent 1-1" key="0-0-1">
+              <TreeNode title="leaf" key="0-0-1-0" />
             </TreeNode>
-            <TreeNode title='parent 1-2' key='0-0-2'>
-              <TreeNode title='leaf' key='0-0-2-0' />
-              <TreeNode title='leaf' key='0-0-2-1' />
+            <TreeNode title="parent 1-2" key="0-0-2">
+              <TreeNode title="leaf" key="0-0-2-0" />
+              <TreeNode title="leaf" key="0-0-2-1" />
             </TreeNode>
           </TreeNode>
         </Tree>
@@ -508,7 +508,7 @@ export default () => {
           columns={columnsTable}
           dataSource={dataTable}
           pagination={false}
-          id='table-demo-summary'
+          id="table-demo-summary"
           bordered
           summary={(pageData) => {
             let totalBorrow = 0;
@@ -524,7 +524,7 @@ export default () => {
                 <tr>
                   <th>Total</th>
                   <td>
-                    <Text type='danger'>{totalBorrow}</Text>
+                    <Text type="danger">{totalBorrow}</Text>
                   </td>
                   <td>
                     <Text>{totalRepayment}</Text>
@@ -533,7 +533,7 @@ export default () => {
                 <tr>
                   <th>Balance</th>
                   <td colSpan={2}>
-                    <Text type='danger'>{totalBorrow - totalRepayment}</Text>
+                    <Text type="danger">{totalBorrow - totalRepayment}</Text>
                   </td>
                 </tr>
               </>
@@ -547,15 +547,15 @@ export default () => {
           hoverable
           style={{ width: 240 }}
           cover={
-            <img alt='example' src='https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png' />
+            <img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
           }
         >
-          <Meta title='Europe Street beat' description='www.instagram.com' />
+          <Meta title="Europe Street beat" description="www.instagram.com" />
         </Card>
         <Slider defaultValue={30} />
-        <DatePicker defaultValue={dayjs('2015/01/01', 'YYYY/MM/DD')} format='YYYY/MM/DD' />
+        <DatePicker defaultValue={dayjs('2015/01/01', 'YYYY/MM/DD')} format="YYYY/MM/DD" />
         <Badge count={5}>
-          <a href='#' className='head-example' />
+          <a href="#" className="head-example" />
         </Badge>
       </Modal>
     </>

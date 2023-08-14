@@ -89,8 +89,8 @@ const App: React.FC = () => {
       {inputVisible ? (
         <Input
           ref={inputRef}
-          type='text'
-          size='small'
+          type="text"
+          size="small"
           style={{ width: 78 }}
           value={inputValue}
           onChange={handleInputChange}

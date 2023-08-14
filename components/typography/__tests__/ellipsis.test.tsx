@@ -67,7 +67,7 @@ describe('Typography.Ellipsis', () => {
     const ref = React.createRef<HTMLElement>();
     const onEllipsis = jest.fn();
     const { container, rerender, unmount } = render(
-      <Base ellipsis={{ onEllipsis }} component='p' editable ref={ref}>
+      <Base ellipsis={{ onEllipsis }} component="p" editable ref={ref}>
         {fullStr}
       </Base>,
     );
@@ -81,7 +81,7 @@ describe('Typography.Ellipsis', () => {
 
     // Second resize
     rerender(
-      <Base ellipsis={{ rows: 2, onEllipsis }} component='p' editable>
+      <Base ellipsis={{ rows: 2, onEllipsis }} component="p" editable>
         {fullStr}
       </Base>,
     );
@@ -90,7 +90,7 @@ describe('Typography.Ellipsis', () => {
 
     // Third resize
     rerender(
-      <Base ellipsis={{ rows: 99, onEllipsis }} component='p' editable>
+      <Base ellipsis={{ rows: 99, onEllipsis }} component="p" editable>
         {fullStr}
       </Base>,
     );
@@ -102,7 +102,7 @@ describe('Typography.Ellipsis', () => {
 
   it('support css multiple lines', async () => {
     const { container: wrapper } = render(
-      <Base ellipsis={{ rows: 2 }} component='p'>
+      <Base ellipsis={{ rows: 2 }} component="p">
         {fullStr}
       </Base>,
     );
@@ -130,7 +130,7 @@ describe('Typography.Ellipsis', () => {
     const ref = React.createRef<HTMLElement>();
     const onEllipsis = jest.fn();
     const { container: wrapper, unmount } = render(
-      <Base ellipsis={{ onEllipsis }} component='p' editable ref={ref}>
+      <Base ellipsis={{ onEllipsis }} component="p" editable ref={ref}>
         {parenthesesStr}
       </Base>,
     );
@@ -150,7 +150,7 @@ describe('Typography.Ellipsis', () => {
     const suffix = '--suffix';
     const ref = React.createRef<HTMLElement>();
     const { container: wrapper, unmount } = render(
-      <Base ellipsis={{ rows: 1, suffix }} component='p' ref={ref}>
+      <Base ellipsis={{ rows: 1, suffix }} component="p" ref={ref}>
         {fullStr}
       </Base>,
     );
@@ -170,7 +170,7 @@ describe('Typography.Ellipsis', () => {
       rerender,
       unmount,
     } = render(
-      <Base ellipsis={{ rows: 1, suffix }} component='p' ref={ref}>
+      <Base ellipsis={{ rows: 1, suffix }} component="p" ref={ref}>
         {fullStr}
       </Base>,
     );
@@ -183,7 +183,7 @@ describe('Typography.Ellipsis', () => {
     );
 
     rerender(
-      <Base ellipsis={{ rows: 2, suffix }} component='p'>
+      <Base ellipsis={{ rows: 2, suffix }} component="p">
         {fullStr}
       </Base>,
     );
@@ -192,7 +192,7 @@ describe('Typography.Ellipsis', () => {
     );
 
     rerender(
-      <Base ellipsis={{ rows: 99, suffix }} component='p'>
+      <Base ellipsis={{ rows: 99, suffix }} component="p">
         {fullStr}
       </Base>,
     );
@@ -207,7 +207,7 @@ describe('Typography.Ellipsis', () => {
 
     const ref = React.createRef<HTMLElement>();
     const { container: wrapper } = render(
-      <Base ellipsis component='p' editable ref={ref}>
+      <Base ellipsis component="p" editable ref={ref}>
         {bamboo}
         {is}
         <code>Little</code>
@@ -224,7 +224,7 @@ describe('Typography.Ellipsis', () => {
   it('should expandable work', async () => {
     const onExpand = jest.fn();
     const { container: wrapper } = render(
-      <Base ellipsis={{ expandable: true, onExpand }} component='p' copyable editable>
+      <Base ellipsis={{ expandable: true, onExpand }} component="p" copyable editable>
         {fullStr}
       </Base>,
     );
@@ -237,7 +237,7 @@ describe('Typography.Ellipsis', () => {
   it('should have custom expand style', async () => {
     const symbol = 'more';
     const { container } = render(
-      <Base ellipsis={{ expandable: true, symbol }} component='p'>
+      <Base ellipsis={{ expandable: true, symbol }} component="p">
         {fullStr}
       </Base>,
     );
@@ -246,7 +246,7 @@ describe('Typography.Ellipsis', () => {
 
   describe('native css ellipsis', () => {
     it('can use css ellipsis', () => {
-      const { container } = render(<Base ellipsis component='p' />);
+      const { container } = render(<Base ellipsis component="p" />);
       expect(container.querySelector('.ant-typography-ellipsis-single-line')).toBeTruthy();
     });
 
@@ -268,7 +268,7 @@ describe('Typography.Ellipsis', () => {
         disconnect = disconnectFn;
       };
 
-      const { container, unmount } = render(<Base ellipsis component='p' />);
+      const { container, unmount } = render(<Base ellipsis component="p" />);
 
       expect(observeFn).toHaveBeenCalled();
 
@@ -296,7 +296,7 @@ describe('Typography.Ellipsis', () => {
 
     it('should calculate padding', () => {
       const { container } = render(
-        <Base ellipsis component='p' style={{ paddingTop: '12px', paddingBottom: '12px' }} />,
+        <Base ellipsis component="p" style={{ paddingTop: '12px', paddingBottom: '12px' }} />,
       );
       expect(container.querySelector('.ant-typography-ellipsis-single-line')).toBeTruthy();
     });
@@ -323,7 +323,7 @@ describe('Typography.Ellipsis', () => {
     async function getWrapper(tooltip?: EllipsisConfig['tooltip']) {
       const ref = React.createRef<HTMLElement>();
       const wrapper = render(
-        <Base ellipsis={{ tooltip }} component='p' ref={ref}>
+        <Base ellipsis={{ tooltip }} component="p" ref={ref}>
           {fullStr}
         </Base>,
       );
@@ -371,7 +371,7 @@ describe('Typography.Ellipsis', () => {
     });
     it('tooltip element', async () => {
       const { container, baseElement } = await getWrapper(
-        <div className='tooltip-class-name'>title</div>,
+        <div className="tooltip-class-name">title</div>,
       );
       fireEvent.mouseEnter(container.firstChild!);
       await waitFor(() => {
@@ -383,7 +383,7 @@ describe('Typography.Ellipsis', () => {
 
   it('js ellipsis should show aria-label', () => {
     const { container: titleWrapper } = render(
-      <Base component={undefined} title='bamboo' ellipsis={{ expandable: true }} />,
+      <Base component={undefined} title="bamboo" ellipsis={{ expandable: true }} />,
     );
     expect(titleWrapper.querySelector('.ant-typography')?.getAttribute('aria-label')).toEqual(
       'bamboo',

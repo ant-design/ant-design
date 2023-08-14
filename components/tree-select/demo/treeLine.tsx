@@ -47,23 +47,23 @@ const App: React.FC = () => {
   const [showIcon, setShowIcon] = useState<boolean>(false);
 
   return (
-    <Space direction='vertical'>
+    <Space direction="vertical">
       <Switch
-        checkedChildren='showIcon'
-        unCheckedChildren='showIcon'
+        checkedChildren="showIcon"
+        unCheckedChildren="showIcon"
         checked={showIcon}
         onChange={() => setShowIcon(!showIcon)}
       />
       <Switch
-        checkedChildren='treeLine'
-        unCheckedChildren='treeLine'
+        checkedChildren="treeLine"
+        unCheckedChildren="treeLine"
         checked={treeLine}
         onChange={() => setTreeLine(!treeLine)}
       />
       <Switch
         disabled={!treeLine}
-        checkedChildren='showLeafIcon'
-        unCheckedChildren='showLeafIcon'
+        checkedChildren="showLeafIcon"
+        unCheckedChildren="showLeafIcon"
         checked={showLeafIcon}
         onChange={() => setShowLeafIcon(!showLeafIcon)}
       />

@@ -22,17 +22,17 @@ const App: React.FC = () => (
       },
     }}
   >
-    <Space direction='vertical'>
+    <Space direction="vertical">
       <Space wrap>
-        <Button type='text'>TEXT</Button>
-        <Button type='primary'>CONTAINED</Button>
+        <Button type="text">TEXT</Button>
+        <Button type="primary">CONTAINED</Button>
         <Button>OUTLINED</Button>
       </Space>
       <Space wrap>
-        <Button type='text' disabled>
+        <Button type="text" disabled>
           TEXT
         </Button>
-        <Button type='primary' disabled>
+        <Button type="primary" disabled>
           CONTAINED
         </Button>
         <Button disabled>OUTLINED</Button>

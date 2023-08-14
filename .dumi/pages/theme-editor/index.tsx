@@ -62,7 +62,7 @@ const CustomTheme = () => {
     <div>
       <Helmet>
         <title>{`${locale.title} - Ant Design`}</title>
-        <meta property='og:title' content={`${locale.title} - Ant Design`} />
+        <meta property="og:title" content={`${locale.title} - Ant Design`} />
       </Helmet>
       {contextHolder}
       <Suspense fallback={<Skeleton style={{ margin: 24 }} />}>
@@ -75,7 +75,7 @@ const CustomTheme = () => {
           }}
           locale={lang === 'cn' ? zhCN : enUS}
           actions={
-            <Button type='primary' onClick={handleSave}>
+            <Button type="primary" onClick={handleSave}>
               {locale.save}
             </Button>
           }

@@ -82,7 +82,7 @@ const Group: React.FC<GroupProps> = (props) => {
     const childrenHidden = childrenWithProps.slice(maxCount, numOfChildren);
     childrenShow.push(
       <Popover
-        key='avatar-popover-key'
+        key="avatar-popover-key"
         content={childrenHidden}
         trigger={maxPopoverTrigger}
         placement={maxPopoverPlacement}

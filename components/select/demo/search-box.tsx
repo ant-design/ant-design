@@ -71,6 +71,6 @@ const SearchInput: React.FC<{ placeholder: string; style: React.CSSProperties }>
   );
 };
 
-const App: React.FC = () => <SearchInput placeholder='input search text' style={{ width: 200 }} />;
+const App: React.FC = () => <SearchInput placeholder="input search text" style={{ width: 200 }} />;
 
 export default App;

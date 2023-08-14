@@ -7,9 +7,9 @@ const App: React.FC = () => (
     <br />
     <Pagination showSizeChanger defaultCurrent={3} total={500} disabled />
     <br />
-    <Pagination size='small' defaultCurrent={50} total={500} />
+    <Pagination size="small" defaultCurrent={50} total={500} />
     <br />
-    <Pagination disabled size='small' defaultCurrent={50} total={500} />
+    <Pagination disabled size="small" defaultCurrent={50} total={500} />
   </ConfigProvider>
 );
 

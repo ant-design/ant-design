@@ -25,9 +25,9 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
 
   return (
     <FloatButton.Group
-      trigger='click'
+      trigger="click"
       icon={<ThemeIcon />}
-      aria-label='Theme Switcher'
+      aria-label="Theme Switcher"
       badge={{ dot: true }}
       style={{ zIndex: 1010 }}
     >
@@ -37,7 +37,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
       >
         <FloatButton
           icon={<BgColorsOutlined />}
-          tooltip={<FormattedMessage id='app.footer.theme' />}
+          tooltip={<FormattedMessage id="app.footer.theme" />}
         />
       </Link>
       <FloatButton
@@ -50,7 +50,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
             onChange([...value, 'dark']);
           }
         }}
-        tooltip={<FormattedMessage id='app.theme.switch.dark' />}
+        tooltip={<FormattedMessage id="app.theme.switch.dark" />}
       />
       <FloatButton
         icon={<CompactTheme />}
@@ -62,7 +62,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
             onChange([...value, 'compact']);
           }
         }}
-        tooltip={<FormattedMessage id='app.theme.switch.compact' />}
+        tooltip={<FormattedMessage id="app.theme.switch.compact" />}
       />
       {/* Too many float button. Hide motion one */}
       {/* <FloatButton

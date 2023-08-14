@@ -36,11 +36,11 @@ const App: React.FC = () => {
         </Button>
       </Button.Group>
       <QRCode
-        errorLevel='H'
+        errorLevel="H"
         size={size}
         iconSize={size / 4}
-        value='https://ant.design/'
-        icon='https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg'
+        value="https://ant.design/"
+        icon="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
       />
     </>
   );

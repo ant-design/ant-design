@@ -2,14 +2,14 @@ import React from 'react';
 import { Col, ColorPicker, Divider, Row, Space } from 'antd';
 
 const Demo = () => (
-  <Space direction='vertical'>
-    <Row align='middle'>
+  <Space direction="vertical">
+    <Row align="middle">
       <Space>
         <span>Add title: </span>
         <Col>
           <ColorPicker
             panelRender={(panel) => (
-              <div className='custom-panel'>
+              <div className="custom-panel">
                 <div
                   style={{
                     fontSize: 12,
@@ -27,7 +27,7 @@ const Demo = () => (
         </Col>
       </Space>
     </Row>
-    <Row align='middle'>
+    <Row align="middle">
       <Space>
         <span>Horizontal layout: </span>
         <Col>
@@ -87,7 +87,7 @@ const Demo = () => (
             ]}
             panelRender={(_, { components: { Picker, Presets } }) => (
               <div
-                className='custom-panel'
+                className="custom-panel"
                 style={{
                   display: 'flex',
                   width: 468,
@@ -101,7 +101,7 @@ const Demo = () => (
                   <Presets />
                 </div>
                 <Divider
-                  type='vertical'
+                  type="vertical"
                   style={{
                     height: 'auto',
                   }}

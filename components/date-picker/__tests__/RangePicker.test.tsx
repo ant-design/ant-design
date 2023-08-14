@@ -52,7 +52,7 @@ describe('RangePicker', () => {
   });
 
   it('customize separator', () => {
-    const { container } = render(<RangePicker separator='test' />);
+    const { container } = render(<RangePicker separator="test" />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
@@ -111,7 +111,7 @@ describe('RangePicker', () => {
   });
 
   it('RangePicker picker quarter placeholder', () => {
-    const { container } = render(<RangePicker picker='quarter' locale={enUS} />);
+    const { container } = render(<RangePicker picker="quarter" locale={enUS} />);
     expect(container.querySelectorAll('input')[0]?.placeholder).toEqual('Start quarter');
     expect(container.querySelectorAll('input')[1]?.placeholder).toEqual('End quarter');
   });
@@ -120,7 +120,7 @@ describe('RangePicker', () => {
     resetWarned();
 
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const { container } = render(<DatePicker.RangePicker dropdownClassName='legacy' open />);
+    const { container } = render(<DatePicker.RangePicker dropdownClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker.RangePicker] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
     );
@@ -153,7 +153,7 @@ describe('RangePicker', () => {
       <RangePicker
         locale={enUS}
         value={[somepoint, somepoint]}
-        allowClear={{ clearIcon: <div data-testid='custom-clear' /> }}
+        allowClear={{ clearIcon: <div data-testid="custom-clear" /> }}
       />,
     );
     await waitFor(() => expectCloseCircle(false));

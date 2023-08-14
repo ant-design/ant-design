@@ -42,7 +42,7 @@ function DebounceSelect<
       labelInValue
       filterOption={false}
       onSearch={debounceFetcher}
-      notFoundContent={fetching ? <Spin size='small' /> : null}
+      notFoundContent={fetching ? <Spin size="small" /> : null}
       {...props}
       options={options}
     />
@@ -75,9 +75,9 @@ const App: React.FC = () => {
 
   return (
     <DebounceSelect
-      mode='multiple'
+      mode="multiple"
       value={value}
-      placeholder='Select users'
+      placeholder="Select users"
       fetchOptions={fetchUserList}
       onChange={(newValue) => {
         setValue(newValue as UserValue[]);

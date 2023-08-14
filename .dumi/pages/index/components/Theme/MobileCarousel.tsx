@@ -109,7 +109,7 @@ export default function MobileCarousel(props: MobileCarouselProps) {
       <Carousel className={styles.carousel} afterChange={setCurrentSlider}>
         {mobileImageConfigList.map((item, index) => (
           <div key={index}>
-            <img src={item.imageSrc} alt='' style={{ width: '100%' }} />
+            <img src={item.imageSrc} alt="" style={{ width: '100%' }} />
           </div>
         ))}
       </Carousel>

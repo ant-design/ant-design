@@ -137,7 +137,7 @@ const Overview: React.FC = () => {
     [data, locale],
   );
   return (
-    <section className='markdown' ref={sectionRef}>
+    <section className="markdown" ref={sectionRef}>
       <Divider />
       <Affix offsetTop={24 + token.headerHeight} onChange={setSearchBarAffixed}>
         <div
@@ -174,7 +174,7 @@ const Overview: React.FC = () => {
             return components?.length ? (
               <div key={group?.title}>
                 <Title level={2} className={styles.componentsOverviewGroupTitle}>
-                  <Space align='center'>
+                  <Space align="center">
                     <span style={{ fontSize: 24 }}>{group?.title}</span>
                     <Tag style={{ display: 'block' }}>{components.length}</Tag>
                   </Space>
@@ -201,7 +201,7 @@ const Overview: React.FC = () => {
                               backgroundPosition: 'bottom right',
                               backgroundImage: `url(${component?.tag || ''})`,
                             }}
-                            size='small'
+                            size="small"
                             className={styles.componentsOverviewCard}
                             title={
                               <div className={styles.componentsOverviewTitle}>

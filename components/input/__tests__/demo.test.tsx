@@ -5,7 +5,7 @@ demoTest('input');
 
 rootPropsTest(
   'input',
-  (Input, props) => <Input addonBefore='Bamboo' addonAfter='Light' {...props} />,
+  (Input, props) => <Input addonBefore="Bamboo" addonAfter="Light" {...props} />,
   {
     name: 'addon',
   },

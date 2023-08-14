@@ -41,7 +41,7 @@ const App: React.FC = () => {
             actions: { onFlipY, onFlipX, onRotateLeft, onRotateRight, onZoomOut, onZoomIn },
           },
         ) => (
-          <Space size={12} className='toolbar-wrapper'>
+          <Space size={12} className="toolbar-wrapper">
             <DownloadOutlined onClick={onDownload} />
             <SwapOutlined rotate={90} onClick={onFlipY} />
             <SwapOutlined onClick={onFlipX} />

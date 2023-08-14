@@ -11,20 +11,20 @@ import type { BaseButtonProps } from '../button';
 
 describe('Button', () => {
   mountTest(Button);
-  mountTest(() => <Button size='large' />);
-  mountTest(() => <Button size='small' />);
+  mountTest(() => <Button size="large" />);
+  mountTest(() => <Button size="small" />);
   mountTest(Button.Group);
-  mountTest(() => <Button.Group size='large' />);
-  mountTest(() => <Button.Group size='small' />);
-  mountTest(() => <Button.Group size='middle' />);
+  mountTest(() => <Button.Group size="large" />);
+  mountTest(() => <Button.Group size="small" />);
+  mountTest(() => <Button.Group size="middle" />);
 
   rtlTest(Button);
-  rtlTest(() => <Button size='large' />);
-  rtlTest(() => <Button size='small' />);
+  rtlTest(() => <Button size="large" />);
+  rtlTest(() => <Button size="small" />);
   rtlTest(Button.Group);
-  rtlTest(() => <Button.Group size='large' />);
-  rtlTest(() => <Button.Group size='small' />);
-  rtlTest(() => <Button.Group size='middle' />);
+  rtlTest(() => <Button.Group size="large" />);
+  rtlTest(() => <Button.Group size="small" />);
+  rtlTest(() => <Button.Group size="middle" />);
 
   it('renders correctly', () => {
     const { container } = render(<Button>Follow</Button>);
@@ -112,10 +112,10 @@ describe('Button', () => {
 
   // https://github.com/ant-design/ant-design/issues/18118
   it('should not insert space to link or text button', () => {
-    const wrapper1 = render(<Button type='link'>按钮</Button>);
+    const wrapper1 = render(<Button type="link">按钮</Button>);
     expect(wrapper1.getByRole('button')).toHaveTextContent('按钮');
     wrapper1.unmount();
-    const wrapper2 = render(<Button type='text'>按钮</Button>);
+    const wrapper2 = render(<Button type="text">按钮</Button>);
     expect(wrapper2.getByRole('button')).toHaveTextContent('按钮');
   });
 
@@ -163,7 +163,7 @@ describe('Button', () => {
 
   it('should support custom icon className', () => {
     const { container } = render(
-      <Button type='primary' icon={<SearchOutlined />} classNames={{ icon: 'custom-icon' }} />,
+      <Button type="primary" icon={<SearchOutlined />} classNames={{ icon: 'custom-icon' }} />,
     );
     expect(container.querySelectorAll('.custom-icon').length).toBe(1);
     expect(container).toMatchSnapshot();
@@ -171,7 +171,7 @@ describe('Button', () => {
 
   it('should support custom icon styles', () => {
     const { container } = render(
-      <Button type='primary' icon={<SearchOutlined />} styles={{ icon: { color: 'red' } }} />,
+      <Button type="primary" icon={<SearchOutlined />} styles={{ icon: { color: 'red' } }} />,
     );
     expect(container).toMatchSnapshot();
   });
@@ -204,7 +204,7 @@ describe('Button', () => {
 
   it('should support link button', () => {
     const wrapper = render(
-      <Button target='_blank' href='https://ant.design'>
+      <Button target="_blank" href="https://ant.design">
         link button
       </Button>,
     );
@@ -219,7 +219,7 @@ describe('Button', () => {
 
   it('should not render as link button when href is undefined', async () => {
     const wrapper = render(
-      <Button type='primary' href={undefined}>
+      <Button type="primary" href={undefined}>
         button
       </Button>,
     );
@@ -259,10 +259,10 @@ describe('Button', () => {
     resetWarned();
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    render(<Button type='primary' icon='ab' />);
+    render(<Button type="primary" icon="ab" />);
     expect(warnSpy).not.toHaveBeenCalled();
 
-    render(<Button type='primary' icon='search' />);
+    render(<Button type="primary" icon="search" />);
     expect(warnSpy).toHaveBeenCalledWith(
       `Warning: [antd: Button] \`icon\` is using ReactNode instead of string naming in v4. Please check \`search\` at https://ant.design/components/icon`,
     );
@@ -273,7 +273,7 @@ describe('Button', () => {
   it('should warning when pass type=link and ghost=true', () => {
     resetWarned();
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Button type='link' ghost />);
+    render(<Button type="link" ghost />);
     expect(warnSpy).toHaveBeenCalledWith(
       "Warning: [antd: Button] `link` or `text` button can't be a `ghost` button.",
     );
@@ -283,7 +283,7 @@ describe('Button', () => {
   it('should warning when pass type=text and ghost=true', () => {
     resetWarned();
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Button type='text' ghost />);
+    render(<Button type="text" ghost />);
     expect(warnSpy).toHaveBeenCalledWith(
       "Warning: [antd: Button] `link` or `text` button can't be a `ghost` button.",
     );
@@ -307,7 +307,7 @@ describe('Button', () => {
   it('should not redirect when button is disabled', () => {
     const onClick = jest.fn();
     const { container } = render(
-      <Button href='https://ant.design' onClick={onClick} disabled>
+      <Button href="https://ant.design" onClick={onClick} disabled>
         click me
       </Button>,
     );
@@ -317,7 +317,7 @@ describe('Button', () => {
 
   it('should match class .ant-btn-disabled when button is disabled and href is not undefined', () => {
     const wrapper = render(
-      <Button href='https://ant.design' disabled>
+      <Button href="https://ant.design" disabled>
         click me
       </Button>,
     );
@@ -338,7 +338,7 @@ describe('Button', () => {
   it("should prevent children's event when button is disabled", () => {
     const { container } = render(
       <Button disabled>
-        <a id='link'>test</a>
+        <a id="link">test</a>
       </Button>,
     );
     expect(window.getComputedStyle(container.querySelector('#link')!).pointerEvents).toBe('none');
@@ -349,7 +349,7 @@ describe('Button', () => {
     const onAnchorClick: React.MouseEventHandler<HTMLAnchorElement> = () => {};
 
     const button = <Button onClick={onBtnClick} />;
-    const anchor = <Button href='https://ant.design' onClick={onAnchorClick} />;
+    const anchor = <Button href="https://ant.design" onClick={onAnchorClick} />;
 
     const defaultBtn = (
       <Button
@@ -361,7 +361,7 @@ describe('Button', () => {
 
     const defaultABtn = (
       <Button
-        href='https://ant.design'
+        href="https://ant.design"
         onClick={(e) => {
           expect(e).toBeTruthy();
         }}
@@ -377,7 +377,7 @@ describe('Button', () => {
     const htmlRef = React.createRef<HTMLElement>();
     const refHtml = <Button ref={htmlRef} />;
 
-    const btnAttr = <Button name='hello' />;
+    const btnAttr = <Button name="hello" />;
 
     expect(button).toBeTruthy();
     expect(anchor).toBeTruthy();

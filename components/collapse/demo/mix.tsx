@@ -20,7 +20,7 @@ const items: CollapseProps['items'] = [
   {
     key: '1',
     label: 'This is panel header 1',
-    children: <Collapse defaultActiveKey='1' items={itemsNest} />,
+    children: <Collapse defaultActiveKey="1" items={itemsNest} />,
   },
   {
     key: '2',

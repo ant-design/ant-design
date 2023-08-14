@@ -53,7 +53,7 @@ const App = () => {
 
   return (
     <div className={styles}>
-      <Tabs type='card' items={items} />
+      <Tabs type="card" items={items} />
     </div>
   );
 };

@@ -79,7 +79,7 @@ export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => 
       }
 
       return (
-        <Dropdown placement='bottom' {...mergeDropDownProps}>
+        <Dropdown placement="bottom" {...mergeDropDownProps}>
           <span className={`${prefixCls}-overlay-link`}>
             {breadcrumbItem}
             <DownOutlined />

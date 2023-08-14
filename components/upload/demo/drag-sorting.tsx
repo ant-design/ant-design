@@ -98,7 +98,7 @@ const App: React.FC = () => {
     <DndContext sensors={[sensor]} onDragEnd={onDragEnd}>
       <SortableContext items={fileList.map((i) => i.uid)} strategy={verticalListSortingStrategy}>
         <Upload
-          action='https://www.mocky.io/v2/5cc8019d300000980a055e76'
+          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
           fileList={fileList}
           onChange={onChange}
           itemRender={(originNode, file) => (

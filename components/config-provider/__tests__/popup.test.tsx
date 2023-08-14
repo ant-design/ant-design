@@ -80,7 +80,7 @@ describe('ConfigProvider.Popup', () => {
   describe('config popupOverflow', () => {
     it('Select', () => {
       render(
-        <ConfigProvider popupOverflow='scroll'>
+        <ConfigProvider popupOverflow="scroll">
           <Select open />
         </ConfigProvider>,
       );
@@ -90,7 +90,7 @@ describe('ConfigProvider.Popup', () => {
 
     it('TreeSelect', () => {
       render(
-        <ConfigProvider popupOverflow='scroll'>
+        <ConfigProvider popupOverflow="scroll">
           <TreeSelect open />
         </ConfigProvider>,
       );
@@ -100,7 +100,7 @@ describe('ConfigProvider.Popup', () => {
 
     it('Cascader', () => {
       render(
-        <ConfigProvider popupOverflow='scroll'>
+        <ConfigProvider popupOverflow="scroll">
           <Cascader open />
         </ConfigProvider>,
       );

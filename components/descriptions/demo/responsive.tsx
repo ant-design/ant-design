@@ -57,7 +57,7 @@ const items: DescriptionsProps['items'] = [
 
 const App: React.FC = () => (
   <Descriptions
-    title='Responsive Descriptions'
+    title="Responsive Descriptions"
     bordered
     column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
     items={items}
