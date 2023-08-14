@@ -32,7 +32,7 @@ const DocLayout: React.FC = () => {
   const location = useLocation();
   const { pathname, search, hash } = location;
   const [locale, lang] = useLocale(locales);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { direction } = useContext(SiteContext);
   const { loading } = useSiteData();
 
