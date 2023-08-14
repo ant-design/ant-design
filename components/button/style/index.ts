@@ -604,6 +604,7 @@ const genSizeBaseButtonStyle: GenerateStyle<ButtonToken> = (token) => genSizeBut
 const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const smallToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightSM,
+    fontSize: token.fontSizeSM,
     padding: token.paddingXS,
     buttonPaddingHorizontal: token.paddingInlineSM, // Fixed padding
     borderRadius: token.borderRadiusSM,
@@ -694,5 +695,6 @@ export default genComponentStyleHook(
     defaultBg: token.colorBgContainer,
     defaultBorderColor: token.colorBorder,
     defaultBorderColorDisabled: token.colorBorder,
+    fontSizeSM: token.fontSize,
   }),
 );
