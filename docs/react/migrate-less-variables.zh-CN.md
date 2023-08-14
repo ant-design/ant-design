@@ -262,9 +262,9 @@ Mentions 提及
 | --- | --- | --- |
 | `@progress-default-color` | `defaultColor` | - |
 | `@progress-remaining-color` | `remainingColor` | - |
-| `@progress-info-text-color` | `textColor` | - |
+| `@progress-info-text-color` | `colorText` | 全局 Token |
 | `@progress-text-color` | `circleTextColor` | - |
-| `@progress-radius` | `lineRadius` | - |
+| `@progress-radius` | `lineBorderRadius` | - |
 | `@progress-steps-item-bg` | `remainingColor` | - |
 | `@progress-text-font-size` | `fontSizeSM` | 全局 Token |
 | `@progress-circle-text-font-size` | - | 由于样式变化已废弃 |

@@ -264,9 +264,9 @@ This document contains the correspondence between all the less variables related
 | --- | --- | --- |
 | `@progress-default-color` | `defaultColor` | - |
 | `@progress-remaining-color` | `remainingColor` | - |
-| `@progress-info-text-color` | `textColor` | - |
+| `@progress-info-text-color` | `colorText` | Global Token |
 | `@progress-text-color` | `circleTextColor` | - |
-| `@progress-radius` | `lineRadius` | - |
+| `@progress-radius` | `lineBorderRadius` | - |
 | `@progress-steps-item-bg` | `remainingColor` | - |
 | `@progress-text-font-size` | `fontSizeSM` | Global Token |
 | `@progress-circle-text-font-size` | - | Deprecated for style change |

@@ -12,9 +12,9 @@ const App: React.FC = () => (
         Progress: {
           defaultColor: '#bae0ff',
           remainingColor: '#f5222d',
-          textColor: '#52c41a',
+          colorText: '#52c41a',
           circleTextColor: '#52c41a',
-          lineRadius: 50,
+          lineBorderRadius: 50,
         },
       },
     }}
