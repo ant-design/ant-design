@@ -413,7 +413,7 @@ export default genComponentStyleHook(
       indicatorHeightSM: fontSize,
       dotSize: fontSizeSM / 2,
       textFontSize: fontSizeSM,
-      textFontSizeSM: fontSizeSM / 2,
+      textFontSizeSM: fontSizeSM,
       textFontWeight: 'normal',
       statusSize: fontSizeSM / 2,
     };
