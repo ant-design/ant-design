@@ -31,7 +31,7 @@ export default function confirm(config: ModalFuncProps) {
   const container = document.createDocumentFragment();
   // eslint-disable-next-line @typescript-eslint/no-use-before-define
   let currentConfig = { ...config, close, open: true } as any;
-  let timeoutId: NodeJS.Timeout;
+  let timeoutId: ReturnType<typeof setTimeout>;
 
   function destroy(...args: any[]) {
     const triggerCancel = args.some((param) => param && param.triggerCancel);

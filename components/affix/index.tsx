@@ -71,7 +71,7 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
 
   private fixedNodeRef = createRef<HTMLDivElement>();
 
-  private timer: NodeJS.Timeout | null;
+  private timer: ReturnType<typeof setTimeout> | null;
 
   context: ConfigConsumerProps;
 

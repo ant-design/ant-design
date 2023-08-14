@@ -669,6 +669,8 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
   return {
     [tabCls]: {
       position: 'relative',
+      WebkitTouchCallout: 'none',
+      WebkitTapHighlightColor: 'transparent',
       display: 'inline-flex',
       alignItems: 'center',
       padding: horizontalItemPadding,
