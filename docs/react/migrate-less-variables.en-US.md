@@ -47,12 +47,12 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@zindex-badge` | `zIndexPopup` | - |
-| `@badge-height` | `containerHeight` | - |
-| `@badge-height-sm` | `containerHeightSM` | - |
+| `@zindex-badge` | `indicatorZIndex` | - |
+| `@badge-height` | `indicatorHeight` | - |
+| `@badge-height-sm` | `indicatorHeightSM` | - |
 | `@badge-dot-size` | `dotSize` | - |
-| `@badge-font-size` | `fontSizeSM` | Global Token |
-| `@badge-font-size-sm` | `fontSizeSM` | Global Token |
+| `@badge-font-size` | `textFontSize` | - |
+| `@badge-font-size-sm` | `textFontSizeSM` | - |
 | `@badge-font-weight` | `textFontWeight` | - |
 | `@badge-status-size` | `statusSize` | - |
 | `@badge-text-color` | `colorBgContainer` | Global Token |

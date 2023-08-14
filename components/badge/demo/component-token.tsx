@@ -8,8 +8,8 @@ export default () => (
     theme={{
       components: {
         Badge: {
-          containerHeight: 24,
-          containerHeightSM: 18,
+          indicatorHeight: 24,
+          indicatorHeightSM: 18,
           dotSize: 4,
           textFontWeight: 'bold',
           statusSize: 8,

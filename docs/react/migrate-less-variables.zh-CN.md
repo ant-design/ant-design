@@ -47,12 +47,12 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@zindex-badge` | `zIndexPopup` | - |
-| `@badge-height` | `containerHeight` | - |
-| `@badge-height-sm` | `containerHeightSM` | - |
+| `@zindex-badge` | `indicatorZIndex` | - |
+| `@badge-height` | `indicatorHeight` | - |
+| `@badge-height-sm` | `indicatorHeightSM` | - |
 | `@badge-dot-size` | `dotSize` | - |
-| `@badge-font-size` | `fontSizeSM` | 全局 Token |
-| `@badge-font-size-sm` | `fontSizeSM` | 全局 Token |
+| `@badge-font-size` | `textFontSize` | - |
+| `@badge-font-size-sm` | `textFontSizeSM` | - |
 | `@badge-font-weight` | `textFontWeight` | - |
 | `@badge-status-size` | `statusSize` | - |
 | `@badge-text-color` | `colorBgContainer` | 全局 Token |

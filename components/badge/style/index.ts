@@ -7,21 +7,53 @@ import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/i
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   // Component token here
-  zIndexPopup: number | string;
-  containerHeight: number;
-  containerHeightSM: number;
+  /**
+   * @desc 徽标 z-index
+   * @descEN z-index of badge
+   */
+  indicatorZIndex: number | string;
+  /**
+   * @desc 徽标高度
+   * @descEN Height of badge
+   */
+  indicatorHeight: number;
+  /**
+   * @desc 小号徽标高度
+   * @descEN Height of small badge
+   */
+  indicatorHeightSM: number;
+  /**
+   * @desc 点状徽标尺寸
+   * @descEN Size of dot badge
+   */
   dotSize: number;
+  /**
+   * @desc 徽标文本尺寸
+   * @descEN Font size of badge text
+   */
+  textFontSize: number;
+  /**
+   * @desc 小号徽标文本尺寸
+   * @descEN Font size of small badge text
+   */
+  textFontSizeSM: number;
+  /**
+   * @desc 徽标文本粗细
+   * @descEN Font weight of badge text
+   */
   textFontWeight: number | string;
+  /**
+   * @desc 状态徽标尺寸
+   * @descEN Size of status badge
+   */
   statusSize: number;
 }
 
 interface BadgeToken extends FullToken<'Badge'> {
   badgeFontHeight: number;
   badgeTextColor: string;
-  badgeFontSize: number;
   badgeColor: string;
   badgeColorHover: string;
-  badgeFontSizeSm: number;
   badgeShadowSize: number;
   badgeShadowColor: string;
   badgeProcessingDuration: string;
@@ -69,11 +101,13 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
     badgeFontHeight,
     badgeShadowSize,
     motionDurationSlow,
-    statusSize: badgeStatusSize,
-    dotSize: badgeDotSize,
-    textFontWeight: badgeFontWeight,
-    containerHeight: badgeHeight,
-    containerHeightSM: badgeHeightSm,
+    textFontSize,
+    textFontSizeSM,
+    statusSize,
+    dotSize,
+    textFontWeight,
+    indicatorHeight,
+    indicatorHeightSM,
     marginXS,
     badgeRibbonOffset,
   } = token;
@@ -103,17 +137,17 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       lineHeight: 1,
 
       [`${componentCls}-count`]: {
-        zIndex: token.zIndexPopup,
-        minWidth: badgeHeight,
-        height: badgeHeight,
+        zIndex: token.indicatorZIndex,
+        minWidth: indicatorHeight,
+        height: indicatorHeight,
         color: token.badgeTextColor,
-        fontWeight: badgeFontWeight,
-        fontSize: token.badgeFontSize,
-        lineHeight: `${badgeHeight}px`,
+        fontWeight: textFontWeight,
+        fontSize: textFontSize,
+        lineHeight: `${indicatorHeight}px`,
         whiteSpace: 'nowrap',
         textAlign: 'center',
         background: token.badgeColor,
-        borderRadius: badgeHeight / 2,
+        borderRadius: indicatorHeight / 2,
         boxShadow: `0 0 0 ${badgeShadowSize}px ${token.badgeShadowColor}`,
         transition: `background ${token.motionDurationMid}`,
 
@@ -129,11 +163,11 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         },
       },
       [`${componentCls}-count-sm`]: {
-        minWidth: badgeHeightSm,
-        height: badgeHeightSm,
-        fontSize: token.badgeFontSizeSm,
-        lineHeight: `${badgeHeightSm}px`,
-        borderRadius: badgeHeightSm / 2,
+        minWidth: indicatorHeightSM,
+        height: indicatorHeightSM,
+        fontSize: textFontSizeSM,
+        lineHeight: `${indicatorHeightSM}px`,
+        borderRadius: indicatorHeightSM / 2,
       },
 
       [`${componentCls}-multiple-words`]: {
@@ -141,10 +175,10 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       },
 
       [`${componentCls}-dot`]: {
-        zIndex: token.zIndexPopup,
-        width: badgeDotSize,
-        minWidth: badgeDotSize,
-        height: badgeDotSize,
+        zIndex: token.indicatorZIndex,
+        width: dotSize,
+        minWidth: dotSize,
+        height: dotSize,
         background: token.badgeColor,
         borderRadius: '100%',
         boxShadow: `0 0 0 ${badgeShadowSize}px ${token.badgeShadowColor}`,
@@ -173,8 +207,8 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
           position: 'relative',
           top: -1, // Magic number, but seems better experience
           display: 'inline-block',
-          width: badgeStatusSize,
-          height: badgeStatusSize,
+          width: statusSize,
+          height: statusSize,
           verticalAlign: 'middle',
           borderRadius: '50%',
         },
@@ -264,12 +298,12 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         [`${numberPrefixCls}-only`]: {
           position: 'relative',
           display: 'inline-block',
-          height: badgeHeight,
+          height: indicatorHeight,
           transition: `all ${token.motionDurationSlow} ${token.motionEaseOutBack}`,
           WebkitTransformStyle: 'preserve-3d',
           WebkitBackfaceVisibility: 'hidden',
           [`> p${numberPrefixCls}-only-unit`]: {
-            height: badgeHeight,
+            height: indicatorHeight,
             margin: 0,
             WebkitTransformStyle: 'preserve-3d',
             WebkitBackfaceVisibility: 'hidden',
@@ -342,25 +376,21 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
 export default genComponentStyleHook(
   'Badge',
   (token) => {
-    const { fontSize, lineHeight, fontSizeSM, lineWidth, marginXS, colorBorderBg } = token;
+    const { fontSize, lineHeight, lineWidth, marginXS, colorBorderBg } = token;
 
     const badgeFontHeight = Math.round(fontSize * lineHeight);
     const badgeShadowSize = lineWidth;
     const badgeTextColor = token.colorBgContainer;
-    const badgeFontSize = fontSizeSM;
     const badgeColor = token.colorError;
     const badgeColorHover = token.colorErrorHover;
-    const badgeFontSizeSm = fontSizeSM;
 
     const badgeToken = mergeToken<BadgeToken>(token, {
       badgeFontHeight,
       badgeShadowSize,
       badgeTextColor,
-      badgeFontSize,
       badgeColor,
       badgeColorHover,
       badgeShadowColor: colorBorderBg,
-      badgeFontSizeSm,
       badgeProcessingDuration: '1.2s',
       badgeRibbonOffset: marginXS,
 
@@ -375,10 +405,12 @@ export default genComponentStyleHook(
     const { fontSize, lineHeight, fontSizeSM, lineWidth } = token;
 
     return {
-      zIndexPopup: 'auto',
-      containerHeight: Math.round(fontSize * lineHeight) - 2 * lineWidth,
-      containerHeightSM: fontSize,
+      indicatorZIndex: 'auto',
+      indicatorHeight: Math.round(fontSize * lineHeight) - 2 * lineWidth,
+      indicatorHeightSM: fontSize,
       dotSize: fontSizeSM / 2,
+      textFontSize: fontSizeSM,
+      textFontSizeSM: fontSizeSM / 2,
       textFontWeight: 'normal',
       statusSize: fontSizeSM / 2,
     };
