@@ -267,7 +267,7 @@ Mentions 提及
 | `@progress-radius` | `lineBorderRadius` | - |
 | `@progress-steps-item-bg` | `remainingColor` | - |
 | `@progress-text-font-size` | `fontSizeSM` | 全局 Token |
-| `@progress-circle-text-font-size` | - | 由于样式变化已废弃 |
+| `@progress-circle-text-font-size` | `circleTextFontSize` | - |
 
 <!-- ### Radio 单选框 -->
 

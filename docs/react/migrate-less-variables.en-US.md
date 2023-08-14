@@ -269,7 +269,7 @@ This document contains the correspondence between all the less variables related
 | `@progress-radius` | `lineBorderRadius` | - |
 | `@progress-steps-item-bg` | `remainingColor` | - |
 | `@progress-text-font-size` | `fontSizeSM` | Global Token |
-| `@progress-circle-text-font-size` | - | Deprecated for style change |
+| `@progress-circle-text-font-size` | `circleTextFontSize` | - |
 
 <!-- ### Radio -->
 

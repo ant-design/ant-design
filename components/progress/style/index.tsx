@@ -5,10 +5,31 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
+  /**
+   * @desc 进度条默认颜色
+   * @descEN Default color of progress bar
+   */
   defaultColor: string;
+  /**
+   * @desc 进度条剩余部分颜色
+   * @descEN Color of remaining part of progress bar
+   */
   remainingColor: string;
+  /**
+   * @desc 圆形进度条文字颜色
+   * @descEN Text color of circular progress bar
+   */
   circleTextColor: string;
+  /**
+   * @desc 条状进度条圆角
+   * @descEN Border radius of line progress bar
+   */
   lineBorderRadius: number;
+  /**
+   * @desc 圆形进度条文本大小
+   * @descEN Text size of circular progress bar
+   */
+  circleTextFontSize: string;
 }
 
 interface ProgressToken extends FullToken<'Progress'> {
@@ -182,6 +203,7 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token) => {
         margin: 0,
         padding: 0,
         color: token.circleTextColor,
+        fontSize: token.circleTextFontSize,
         lineHeight: 1,
         whiteSpace: 'normal',
         textAlign: 'center',
@@ -277,5 +299,6 @@ export default genComponentStyleHook(
     defaultColor: token.colorInfo,
     remainingColor: token.colorFillSecondary,
     lineBorderRadius: 100, // magic for capsule shape, should be a very large number
+    circleTextFontSize: '1em',
   }),
 );
