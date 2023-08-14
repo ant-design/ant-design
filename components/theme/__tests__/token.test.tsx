@@ -229,7 +229,7 @@ describe('Theme', () => {
     const Shower = () => {
       const { token } = useToken();
 
-      return <div className='duration'>{token.motionDurationSlow}</div>;
+      return <div className="duration">{token.motionDurationSlow}</div>;
     };
 
     const { container } = render(

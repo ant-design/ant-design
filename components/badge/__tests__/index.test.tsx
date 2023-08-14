@@ -11,7 +11,7 @@ describe('Badge', () => {
   rtlTest(Badge);
   rtlTest(() => (
     <Badge count={5} offset={[10, 10]}>
-      <a href='#' className='head-example'>
+      <a href="#" className="head-example">
         head
       </a>
     </Badge>
@@ -52,7 +52,7 @@ describe('Badge', () => {
     const { container } = render(<Badge count={3.5} />);
     expect(container.querySelectorAll('.ant-badge-multiple-words')[0].textContent).toEqual('3.5');
 
-    const { container: anotherContainer, unmount } = render(<Badge count='3.5' />);
+    const { container: anotherContainer, unmount } = render(<Badge count="3.5" />);
     expect(anotherContainer.querySelectorAll('.ant-badge-multiple-words')[0].textContent).toEqual(
       '3.5',
     );
@@ -66,7 +66,7 @@ describe('Badge', () => {
   });
 
   it('should have an overridden title attribute', () => {
-    const { container } = render(<Badge count={10} title='Custom title' />);
+    const { container } = render(<Badge count={10} title="Custom title" />);
     expect((container.querySelector('.ant-scroll-number')! as HTMLElement).title).toEqual(
       'Custom title',
     );
@@ -76,8 +76,8 @@ describe('Badge', () => {
   it('should be composable with Tooltip', () => {
     const ref = React.createRef<typeof Tooltip>();
     const { container } = render(
-      <Tooltip title='Fix the error' ref={ref}>
-        <Badge status='error' />
+      <Tooltip title="Fix the error" ref={ref}>
+        <Badge status="error" />
       </Tooltip>,
     );
 
@@ -121,8 +121,8 @@ describe('Badge', () => {
   // https://github.com/ant-design/ant-design/issues/13694
   it('should support offset when count is a ReactNode', () => {
     const { asFragment } = render(
-      <Badge count={<span className='custom' style={{ color: '#f5222d' }} />} offset={[10, 20]}>
-        <a href='#' className='head-example'>
+      <Badge count={<span className="custom" style={{ color: '#f5222d' }} />} offset={[10, 20]}>
+        <a href="#" className="head-example">
           head
         </a>
       </Badge>,
@@ -133,7 +133,7 @@ describe('Badge', () => {
   // https://github.com/ant-design/ant-design/issues/15349
   it('should color style  works on Badge', () => {
     const { container } = render(
-      <Badge style={{ color: 'red' }} status='success' text='Success' />,
+      <Badge style={{ color: 'red' }} status="success" text="Success" />,
     );
     expect((container.querySelector('.ant-badge-status-text')! as HTMLElement).style.color).toEqual(
       'red',
@@ -144,7 +144,7 @@ describe('Badge', () => {
   it('render correct with negative number', () => {
     const { asFragment } = render(
       <div>
-        <Badge count='-10' />
+        <Badge count="-10" />
         <Badge count={-10} />
       </div>,
     );
@@ -156,13 +156,13 @@ describe('Badge', () => {
   it('render Badge status/color when contains children', () => {
     const { container, asFragment } = render(
       <div>
-        <Badge count={5} status='success'>
+        <Badge count={5} status="success">
           <a />
         </Badge>
-        <Badge count={5} color='blue'>
+        <Badge count={5} color="blue">
           <a />
         </Badge>
-        <Badge count={5} color='#08c'>
+        <Badge count={5} color="#08c">
           <a />
         </Badge>
       </div>,
@@ -176,8 +176,8 @@ describe('Badge', () => {
   it('Badge should work when status/color is empty string', () => {
     const { container } = render(
       <>
-        <Badge color='' text='text' />
-        <Badge status={'' as any} text='text' />
+        <Badge color="" text="text" />
+        <Badge status={'' as any} text="text" />
       </>,
     );
 
@@ -187,9 +187,9 @@ describe('Badge', () => {
   it('Badge should display count when color and count are both exist', () => {
     const { container } = render(
       <>
-        <Badge className='badge1' text='badge' color='pink' count={44} />
-        <Badge className='badge2' text='badge' color='pink' count={0} />
-        <Badge className='badge3' text='badge' color='pink' />
+        <Badge className="badge1" text="badge" color="pink" count={44} />
+        <Badge className="badge2" text="badge" color="pink" count={0} />
+        <Badge className="badge3" text="badge" color="pink" />
       </>,
     );
 
@@ -199,7 +199,7 @@ describe('Badge', () => {
   });
 
   it('Badge not render status-text when text is empty string', () => {
-    const { container } = render(<Badge status='default' text={undefined} />);
+    const { container } = render(<Badge status="default" text={undefined} />);
 
     expect(container.querySelectorAll('.ant-badge > .ant-badge-status-text')).toHaveLength(0);
   });
@@ -208,10 +208,10 @@ describe('Badge', () => {
   it('should display custom color and number is 0', () => {
     const { container } = render(
       <>
-        <Badge count={0} showZero color='#ff0' />
-        <Badge count={0} showZero color='blue' />
+        <Badge count={0} showZero color="#ff0" />
+        <Badge count={0} showZero color="blue" />
         <Badge count={0} showZero />
-        <Badge count={0} showZero color='green'>
+        <Badge count={0} showZero color="green">
           <div />
         </Badge>
       </>,

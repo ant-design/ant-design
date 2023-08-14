@@ -261,7 +261,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
               count={displayCount}
               title={titleNode}
               style={scrollNumberStyle}
-              key='scrollNumber'
+              key="scrollNumber"
               ref={scrollNumberRef}
             >
               {displayNode}

@@ -42,7 +42,7 @@ const App: React.FC = () => (
     </Space>
     <Space wrap size={['large', 'middle']}>
       {colors.map((color) => (
-        <Badge status='processing' color={color} text='loading' key={color} />
+        <Badge status="processing" color={color} text="loading" key={color} />
       ))}
     </Space>
   </>
