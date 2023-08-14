@@ -1,3 +1,5 @@
+import { resetComponent } from '../../style';
+import { genCollapseMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genDraggerStyle from './dragger';
@@ -5,10 +7,12 @@ import genListStyle from './list';
 import genMotionStyle from './motion';
 import { genPictureCardStyle, genPictureStyle } from './picture';
 import genRtlStyle from './rtl';
-import { resetComponent } from '../../style';
-import { genCollapseMotion } from '../../style/motion';
 
 export interface ComponentToken {
+  /**
+   * @desc 操作按扭颜色
+   * @descEN Action button color
+   */
   actionsColor: string;
 }
 

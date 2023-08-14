@@ -64,4 +64,18 @@ describe('Transfer.List', () => {
       'ant-checkbox-disabled',
     );
   });
+
+  it('support custom dropdown Icon', () => {
+    const { container } = render(
+      <List
+        {...listCommonProps}
+        selectionsIcon={<span className="test-dropdown-icon">test</span>}
+      />,
+    );
+    expect(
+      container?.querySelector<HTMLSpanElement>(
+        '.ant-transfer-list .ant-transfer-list-header .test-dropdown-icon',
+      ),
+    ).toBeTruthy();
+  });
 });

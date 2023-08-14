@@ -40,6 +40,7 @@ Select component to select value from options.
 <code src="./demo/big-data.tsx">Big Data</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/placement-debug.tsx" debug>Dynamic Height</code>
 <code src="./demo/debug.tsx" debug>4.0 Debug</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/option-label-center.tsx" debug>Options label Centered</code>
@@ -47,11 +48,7 @@ Select component to select value from options.
 
 ## API
 
-```tsx
-<Select>
-  <Option value="lucy">lucy</Option>
-</Select>
-```
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Select props
 
@@ -91,11 +88,10 @@ Select component to select value from options.
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | removeIcon | The custom remove icon | ReactNode | - |  |
 | searchValue | The current input "search" text | string | - |  |
-| showArrow | Whether to show the drop-down arrow | boolean | `true` |  |
 | showSearch | Whether select is searchable | boolean | single: false, multiple: true |  |
 | size | Size of Select input | `large` \| `middle` \| `small` | `middle` |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
-| suffixIcon | The custom suffix icon. Customize icon will not response click open to avoid icon designed to do other interactive. You can use `pointer-events: none` style to bypass | ReactNode | - |  |
+| suffixIcon | The custom suffix icon. Customize icon will not response click open to avoid icon designed to do other interactive. You can use `pointer-events: none` style to bypass | ReactNode | `<DownOutlined />` |  |
 | tagRender | Customize tag render, only applies when `mode` is set to `multiple` or `tags` | (props) => ReactNode | - |  |
 | tokenSeparators | Separator used to tokenize, only applies when `mode="tags"` | string\[] | - |  |
 | value | Current selected option (considered as a immutable array) | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |

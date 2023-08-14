@@ -75,6 +75,8 @@ exports[`renders components/empty/demo/basic.tsx extend context correctly 1`] = 
 </div>
 `;
 
+exports[`renders components/empty/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/empty/demo/config-provider.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -132,11 +134,11 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -248,6 +250,7 @@ Array [
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -358,6 +361,7 @@ Array [
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -478,7 +482,7 @@ Array [
               class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
             >
               <span
-                class="ant-checkbox ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
               >
                 <input
                   class="ant-checkbox-input"
@@ -735,7 +739,7 @@ Array [
               class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
             >
               <span
-                class="ant-checkbox ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
               >
                 <input
                   class="ant-checkbox-input"
@@ -1082,6 +1086,8 @@ Array [
 ]
 `;
 
+exports[`renders components/empty/demo/config-provider.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/empty/demo/customize.tsx extend context correctly 1`] = `
 <div
   class="ant-empty"
@@ -1121,6 +1127,8 @@ exports[`renders components/empty/demo/customize.tsx extend context correctly 1`
   </div>
 </div>
 `;
+
+exports[`renders components/empty/demo/customize.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/empty/demo/description.tsx extend context correctly 1`] = `
 <div
@@ -1192,6 +1200,8 @@ exports[`renders components/empty/demo/description.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/empty/demo/description.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/empty/demo/simple.tsx extend context correctly 1`] = `
 <div
   class="ant-empty ant-empty-normal"
@@ -1239,3 +1249,5 @@ exports[`renders components/empty/demo/simple.tsx extend context correctly 1`] =
   </div>
 </div>
 `;
+
+exports[`renders components/empty/demo/simple.tsx extend context correctly 2`] = `[]`;

@@ -63,6 +63,8 @@ exports[`renders components/breadcrumb/demo/basic.tsx extend context correctly 1
 </nav>
 `;
 
+exports[`renders components/breadcrumb/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/breadcrumb/demo/component-token.tsx extend context correctly 1`] = `
 <nav
   class="ant-breadcrumb"
@@ -390,6 +392,8 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
 </nav>
 `;
 
+exports[`renders components/breadcrumb/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context correctly 1`] = `
 <nav
   class="ant-breadcrumb"
@@ -559,6 +563,12 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
     </li>
   </ol>
 </nav>
+`;
+
+exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Breadcrumb] \`routes\` is deprecated. Please use \`items\` instead.",
+]
 `;
 
 exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly 1`] = `
@@ -820,6 +830,8 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
 </nav>
 `;
 
+exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/breadcrumb/demo/separator.tsx extend context correctly 1`] = `
 <nav
   class="ant-breadcrumb"
@@ -877,6 +889,8 @@ exports[`renders components/breadcrumb/demo/separator.tsx extend context correct
 </nav>
 `;
 
+exports[`renders components/breadcrumb/demo/separator.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/breadcrumb/demo/separator-component.tsx extend context correctly 1`] = `
 <nav
   class="ant-breadcrumb"
@@ -933,6 +947,8 @@ exports[`renders components/breadcrumb/demo/separator-component.tsx extend conte
   </ol>
 </nav>
 `;
+
+exports[`renders components/breadcrumb/demo/separator-component.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/breadcrumb/demo/withIcon.tsx extend context correctly 1`] = `
 <nav
@@ -1016,3 +1032,5 @@ exports[`renders components/breadcrumb/demo/withIcon.tsx extend context correctl
   </ol>
 </nav>
 `;
+
+exports[`renders components/breadcrumb/demo/withIcon.tsx extend context correctly 2`] = `[]`;

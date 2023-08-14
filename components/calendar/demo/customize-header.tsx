@@ -15,7 +15,7 @@ const App: React.FC = () => {
     console.log(value.format('YYYY-MM-DD'), mode);
   };
 
-  const wrapperStyle = {
+  const wrapperStyle: React.CSSProperties = {
     width: 300,
     border: `1px solid ${token.colorBorderSecondary}`,
     borderRadius: token.borderRadiusLG,

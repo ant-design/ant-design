@@ -1,3 +1,5 @@
+'use client';
+
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import * as React from 'react';
 import warning from '../_util/warning';
@@ -76,10 +78,8 @@ const LocaleProvider: React.FC<LocaleProviderProps> = (props) => {
   }
 
   React.useEffect(() => {
-    changeConfirmLocale(locale && locale.Modal);
-    return () => {
-      changeConfirmLocale();
-    };
+    const clearLocale = changeConfirmLocale(locale && locale.Modal);
+    return clearLocale;
   }, [locale]);
 
   const getMemoizedContextValue = React.useMemo<LocaleContextProps>(

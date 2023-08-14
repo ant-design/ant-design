@@ -25,8 +25,11 @@ A card can be used to display content related to a single subject. The content c
 <code src="./demo/inner.tsx">Inner card</code>
 <code src="./demo/tabs.tsx">With tabs</code>
 <code src="./demo/meta.tsx">Support more content configuration</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ```jsx
 <Card title="Card title">Card content</Card>

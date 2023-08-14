@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle } from '../../theme/internal';
-import genColorBlockStyle, { getTransBg } from './color-block';
+import { getTransBg } from './color-block';
 import type { ColorPickerToken } from './index';
 
 const genPickerStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
@@ -16,7 +16,6 @@ const genPickerStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
     colorPickerHandlerSize,
     colorPickerHandlerSizeSM,
     colorPickerSliderHeight,
-    colorPickerPreviewSize,
   } = token;
 
   return {
@@ -58,19 +57,26 @@ const genPickerStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
         borderRadius: colorPickerSliderHeight / 2,
         boxShadow: colorPickerInsetShadow,
       },
-      '&-alpha': getTransBg(`${colorPickerSliderHeight}px`),
-      marginBottom: marginSM,
+      '&-alpha': getTransBg(`${colorPickerSliderHeight}px`, token.colorFillSecondary),
+      '&-hue': { marginBottom: marginSM },
     },
 
     [`${componentCls}-slider-container`]: {
       display: 'flex',
       gap: marginSM,
+      marginBottom: marginSM,
       [`${componentCls}-slider-group`]: {
         flex: 1,
+        '&-disabled-alpha': {
+          display: 'flex',
+          alignItems: 'center',
+          [`${componentCls}-slider`]: {
+            flex: 1,
+            marginBottom: 0,
+          },
+        },
       },
     },
-
-    ...genColorBlockStyle(token, colorPickerPreviewSize),
   };
 };
 

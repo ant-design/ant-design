@@ -1,5 +1,5 @@
-import { Button, Modal } from 'antd';
 import React from 'react';
+import { Button, Modal } from 'antd';
 
 const App: React.FC = () => {
   const [modal, contextHolder] = Modal.useModal();

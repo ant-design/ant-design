@@ -1,7 +1,7 @@
 import { MailOutlined } from '@ant-design/icons';
+import React, { useState } from 'react';
 import type { MenuProps, MenuTheme } from 'antd';
 import { Menu, Switch } from 'antd';
-import React, { useState } from 'react';
 
 type MenuItem = Required<MenuProps>['items'][number];
 

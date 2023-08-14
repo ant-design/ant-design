@@ -27,6 +27,8 @@ A carousel component. Scales with its container.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | autoplay | Whether to scroll automatically | boolean | false |  |

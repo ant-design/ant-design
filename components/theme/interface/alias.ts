@@ -61,7 +61,7 @@ export interface AliasToken extends MapToken {
   colorBorderBg: string;
   /**
    * @nameZH 分割线颜色
-   * @nameEN Separator color
+   * @nameEN Separator Color
    * @desc 用于作为分割线的颜色，此颜色和 colorBorderSecondary 的颜色一致，但是用的是透明色。
    * @descEN Used as the color of separator, this color is the same as colorBorderSecondary but with transparency.
    */
@@ -70,21 +70,21 @@ export interface AliasToken extends MapToken {
   // Text
   /**
    * @nameZH 占位文本颜色
-   * @nameEN Placeholder text color
+   * @nameEN Placeholder Text Color
    * @desc 控制占位文本的颜色。
    * @descEN Control the color of placeholder text.
    */
   colorTextPlaceholder: string;
   /**
    * @nameZH 禁用字体颜色
-   * @nameEN Disabled text color
+   * @nameEN Disabled Text Color
    * @desc 控制禁用状态下的字体颜色。
    * @descEN Control the color of text in disabled state.
    */
   colorTextDisabled: string;
   /**
    * @nameZH 标题字体颜色
-   * @nameEN Heading font color
+   * @nameEN Heading Text Color
    * @desc 控制标题字体颜色。
    * @descEN Control the font color of heading.
    */
@@ -119,6 +119,7 @@ export interface AliasToken extends MapToken {
    * @descEN Weak action. Such as `allowClear` or Alert close button
    */
   colorIcon: string;
+
   /**  */
   /**
    * @nameZH 弱操作图标悬浮态颜色
@@ -127,28 +128,6 @@ export interface AliasToken extends MapToken {
    * @descEN Weak action hover color. Such as `allowClear` or Alert close button
    */
   colorIconHover: string;
-
-  /**
-   * @nameZH 超链接颜色
-   * @nameEN Hyperlink color
-   * @desc 控制超链接的颜色。
-   * @descEN Control the color of hyperlink.
-   */
-  colorLink: string;
-  /**
-   * @nameZH 超链接悬浮颜色
-   * @nameEN Hyperlink hover color
-   * @desc 控制超链接悬浮时的颜色。
-   * @descEN Control the color of hyperlink when hovering.
-   */
-  colorLinkHover: string;
-  /**
-   * @nameZH 超链接激活颜色
-   * @nameEN Hyperlink active color
-   * @desc 控制超链接被点击时的颜色。
-   * @descEN Control the color of hyperlink when clicked.
-   */
-  colorLinkActive: string;
 
   /**
    * @nameZH 高亮颜色
@@ -601,6 +580,7 @@ export interface AliasToken extends MapToken {
   screenXXLMin: number;
 
   /**
+   * @deprecated
    * Used for DefaultButton, Switch which has default outline
    * @desc 默认样式的 Outline 颜色
    * @descEN Default style outline color.

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import type { NotificationConfig } from 'antd/es/notification/interface';
 import App from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -121,6 +122,46 @@ describe('App', () => {
 
     expect(config?.message).toStrictEqual({ maxCount: 11, top: 20 });
     expect(config?.notification).toStrictEqual({ maxCount: 30, bottom: 41 });
+  });
+
+  it('should respect notification placement config from props in priority', async () => {
+    let consumedConfig: AppConfig | undefined;
+
+    const Consumer = () => {
+      const { notification } = App.useApp();
+      consumedConfig = React.useContext(AppConfigContext);
+
+      useEffect(() => {
+        notification.success({ message: 'Notification 1' });
+        notification.success({ message: 'Notification 2' });
+        notification.success({ message: 'Notification 3' });
+      }, [notification]);
+
+      return <div />;
+    };
+
+    const config: NotificationConfig = {
+      placement: 'bottomLeft',
+      top: 100,
+      bottom: 50,
+    };
+
+    const Wrapper = () => (
+      <App notification={config}>
+        <Consumer />
+      </App>
+    );
+
+    render(<Wrapper />);
+    await waitFakeTimer();
+
+    expect(consumedConfig?.notification).toStrictEqual(config);
+    expect(document.querySelector('.ant-notification-topRight')).not.toBeInTheDocument();
+    expect(document.querySelector('.ant-notification-bottomLeft')).toHaveStyle({
+      top: '',
+      left: '0px',
+      bottom: '50px',
+    });
   });
 
   it('support className', () => {

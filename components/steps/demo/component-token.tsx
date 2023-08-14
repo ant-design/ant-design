@@ -1,6 +1,6 @@
 import React from 'react';
-import { ConfigProvider, Steps } from 'antd';
 import { LoadingOutlined, SmileOutlined, SolutionOutlined, UserOutlined } from '@ant-design/icons';
+import { ConfigProvider, Steps } from 'antd';
 
 const description = 'This is a description.';
 const App: React.FC = () => (

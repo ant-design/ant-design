@@ -1,6 +1,11 @@
+'use client';
+
 import classNames from 'classnames';
 // eslint-disable-next-line import/no-named-as-default
 import * as React from 'react';
+import extendsObject from '../_util/extendsObject';
+import type { Breakpoint } from '../_util/responsiveObserver';
+import { responsiveArray } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { Row } from '../grid';
@@ -9,15 +14,14 @@ import type { PaginationConfig } from '../pagination';
 import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
-import type { Breakpoint } from '../_util/responsiveObserver';
-import { responsiveArray } from '../_util/responsiveObserver';
-import extendsObject from '../_util/extendsObject';
 import Item from './Item';
 
 // CSSINJS
+import { ListContext } from './context';
 import useStyle from './style';
 
 export type { ListItemMetaProps, ListItemProps } from './Item';
+export type { ListConsumerProps } from './context';
 
 export type ColumnCount = number;
 
@@ -66,22 +70,14 @@ export interface ListLocale {
   emptyText: React.ReactNode;
 }
 
-export interface ListConsumerProps {
-  grid?: any;
-  itemLayout?: string;
-}
-
-export const ListContext = React.createContext<ListConsumerProps>({});
-
-export const ListConsumer = ListContext.Consumer;
-
 function List<T>({
-  pagination = false as ListProps<any>['pagination'],
+  pagination = false as ListProps<T>['pagination'],
   prefixCls: customizePrefixCls,
   bordered = false,
   split = true,
   className,
   rootClassName,
+  style,
   children,
   itemLayout,
   loadMore,
@@ -103,20 +99,21 @@ function List<T>({
   );
   const [paginationSize, setPaginationSize] = React.useState(paginationObj.defaultPageSize || 10);
 
-  const { getPrefixCls, renderEmpty, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, renderEmpty, direction, list } = React.useContext(ConfigContext);
 
   const defaultPaginationProps = {
     current: 1,
     total: 0,
   };
 
-  const triggerPaginationEvent = (eventName: string) => (page: number, pageSize: number) => {
-    setPaginationCurrent(page);
-    setPaginationSize(pageSize);
-    if (pagination && (pagination as any)[eventName]) {
-      (pagination as any)[eventName](page, pageSize);
-    }
-  };
+  const triggerPaginationEvent =
+    (eventName: 'onChange' | 'onShowSizeChange') => (page: number, pageSize: number) => {
+      setPaginationCurrent(page);
+      setPaginationSize(pageSize);
+      if (pagination && pagination[eventName]) {
+        pagination?.[eventName]?.(page, pageSize);
+      }
+    };
 
   const onPaginationChange = triggerPaginationEvent('onChange');
 
@@ -183,6 +180,7 @@ function List<T>({
       [`${prefixCls}-something-after-last-item`]: isSomethingAfterLastItem(),
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
+    list?.className,
     className,
     rootClassName,
     hashId,
@@ -287,7 +285,7 @@ function List<T>({
 
   return wrapSSR(
     <ListContext.Provider value={contextValue}>
-      <div className={classString} {...rest}>
+      <div style={{ ...list?.style, ...style }} className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
         {header && <div className={`${prefixCls}-header`}>{header}</div>}
         <Spin {...loadingProp}>

@@ -1,3 +1,5 @@
+'use client';
+
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import classNames from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
@@ -9,7 +11,7 @@ import { cloneElement } from '../_util/reactNode';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import { ConfigContext } from '../config-provider';
 import Popover from '../popover';
-import type { AbstractTooltipProps } from '../tooltip';
+import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import PurePanel, { Overlay } from './PurePanel';
 import usePopconfirmStyle from './style';
 
@@ -37,7 +39,7 @@ export interface PopconfirmState {
   open?: boolean;
 }
 
-const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
+const Popconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     placement = 'top',

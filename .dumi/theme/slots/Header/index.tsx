@@ -1,36 +1,37 @@
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
-import { ClassNames, css } from '@emotion/react';
-import { Col, Modal, Popover, Row, Select } from 'antd';
+import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { Col, Modal, Popover, Row, Select } from 'antd';
 import useLocale from '../../../hooks/useLocale';
-import useSiteToken from '../../../hooks/useSiteToken';
+import DirectionIcon from '../../common/DirectionIcon';
 import * as utils from '../../utils';
 import { getThemeConfig, ping } from '../../utils';
 import type { SiteContextProps } from '../SiteContext';
 import SiteContext from '../SiteContext';
-import type { SharedProps } from './interface';
 import Logo from './Logo';
 import More from './More';
 import Navigation from './Navigation';
 import SwitchBtn from './SwitchBtn';
+import type { SharedProps } from './interface';
 
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
 
-const useStyle = () => {
-  const { token } = useSiteToken();
+const useStyle = createStyles(({ token, css }) => {
   const searchIconColor = '#ced4d9';
 
   return {
     header: css`
-      position: relative;
-      z-index: 10;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
       max-width: 100%;
       background: ${token.colorBgContainer};
       box-shadow: ${token.boxShadowTertiary};
+      backdrop-filter: blur(8px);
 
       @media only screen and (max-width: ${token.mobileMaxWidth}px) {
         text-align: center;
@@ -95,6 +96,9 @@ const useStyle = () => {
         }
       }
     `,
+    dataDirectionIcon: css`
+      width: 16px;
+    `,
     popoverMenu: {
       width: 300,
 
@@ -103,7 +107,7 @@ const useStyle = () => {
       },
     },
   };
-};
+});
 
 const SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
 
@@ -135,11 +139,11 @@ const Header: React.FC = () => {
     searching: false,
   });
   const { direction, isMobile, updateSiteConfig } = useContext<SiteContextProps>(SiteContext);
-  const pingTimer = useRef<NodeJS.Timeout | null>(null);
+  const pingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const { pathname, search } = location;
 
-  const style = useStyle();
+  const { styles } = useStyle();
 
   const handleHideMenu = useCallback(() => {
     setHeaderState((prev) => ({ ...prev, menuVisible: false }));
@@ -209,11 +213,12 @@ const Header: React.FC = () => {
         .replace(/\/$/, '');
       return;
     }
-
     // Mirror url must have `/`, we add this for compatible
     const urlObj = new URL(currentUrl.replace(window.location.origin, url));
-    urlObj.pathname = `${urlObj.pathname.replace(/\/$/, '')}/`;
-    window.location.href = urlObj.href;
+    if (urlObj.host.includes('antgroup')) {
+      window.location.href = `${urlObj.href.replace(/\/$/, '')}/`;
+    }
+    window.location.href = urlObj.href.replace(/\/$/, '');
   }, []);
 
   const onLangChange = useCallback(() => {
@@ -261,8 +266,7 @@ const Header: React.FC = () => {
     responsive = 'narrow';
   }
 
-  const headerClassName = classNames({
-    clearfix: true,
+  const headerClassName = classNames(styles.header, 'clearfix', {
     'home-header': isHome,
   });
 
@@ -293,7 +297,7 @@ const Header: React.FC = () => {
       defaultValue={pkg.version}
       onChange={handleVersionChange}
       dropdownStyle={getDropdownStyle}
-      dropdownMatchSelectWidth={false}
+      popupMatchSelectWidth={false}
       getPopupContainer={(trigger) => trigger.parentNode}
       options={versionOptions}
     />,
@@ -311,21 +315,12 @@ const Header: React.FC = () => {
       key="direction"
       onClick={onDirectionChange}
       value={direction === 'rtl' ? 2 : 1}
-      label1={
-        <img
-          src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*6k0CTJA-HxUAAAAAAAAAAAAADrJ8AQ/original"
-          alt="direction"
-        />
-      }
+      label1={<DirectionIcon className={styles.dataDirectionIcon} direction="ltr" />}
       tooltip1="LTR"
-      label2={
-        <img
-          src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*SZoaQqm2hwsAAAAAAAAAAAAADrJ8AQ/original"
-          alt="LTR"
-        />
-      }
+      label2={<DirectionIcon className={styles.dataDirectionIcon} direction="rtl" />}
       tooltip2="RTL"
       pure
+      aria-label="RTL Switch Button"
     />,
     <a
       key="github"
@@ -351,29 +346,25 @@ const Header: React.FC = () => {
       ];
 
   return (
-    <header css={style.header} className={headerClassName}>
+    <header className={headerClassName}>
       {isMobile && (
-        <ClassNames>
-          {({ css: cssFn }) => (
-            <Popover
-              overlayClassName={cssFn(style.popoverMenu)}
-              placement="bottomRight"
-              content={menu}
-              trigger="click"
-              open={menuVisible}
-              arrow={{ arrowPointAtCenter: true }}
-              onOpenChange={onMenuVisibleChange}
-            >
-              <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />
-            </Popover>
-          )}
-        </ClassNames>
+        <Popover
+          overlayClassName={styles.popoverMenu}
+          placement="bottomRight"
+          content={menu}
+          trigger="click"
+          open={menuVisible}
+          arrow={{ arrowPointAtCenter: true }}
+          onOpenChange={onMenuVisibleChange}
+        >
+          <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />
+        </Popover>
       )}
       <Row style={{ flexFlow: 'nowrap', height: 64 }}>
         <Col {...colProps[0]}>
           <Logo {...sharedProps} location={location} />
         </Col>
-        <Col {...colProps[1]} css={style.menuRow}>
+        <Col {...colProps[1]} className={styles.menuRow}>
           <div className="nav-search-wrapper">
             <DumiSearchBar />
           </div>

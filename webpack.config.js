@@ -3,6 +3,7 @@
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { EsbuildPlugin } = require('esbuild-loader');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 
 function addLocales(webpackConfig) {
@@ -23,7 +24,14 @@ function externalDayjs(config) {
   };
 }
 
-const webpackConfig = getWebpackConfig(false);
+let webpackConfig = getWebpackConfig(false);
+
+// Used for `size-limit` ci which only need to check min files
+if (process.env.PRODUCTION_ONLY) {
+  // eslint-disable-next-line no-console
+  console.log('🍐 Build production only');
+  webpackConfig = webpackConfig.filter((config) => config.mode === 'production');
+}
 
 if (process.env.RUN_ENV === 'PRODUCTION') {
   webpackConfig.forEach((config) => {
@@ -39,7 +47,7 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
       });
     }
 
-    if (!process.env.CI) {
+    if (!process.env.CI || process.env.ANALYZER) {
       config.plugins.push(
         new BundleAnalyzerPlugin({
           analyzerMode: 'static',
@@ -57,6 +65,13 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
         }),
       );
     }
+
+    config.plugins.push(
+      new CircularDependencyPlugin({
+        // add errors to webpack instead of warnings
+        failOnError: true,
+      }),
+    );
   });
 }
 

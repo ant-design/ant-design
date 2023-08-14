@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';
@@ -7,14 +9,10 @@ import type { SizeType } from '../config-provider/SizeContext';
 import Compact from './Compact';
 import Item from './Item';
 
+import { SpaceContextProvider } from './context';
 import useStyle from './style';
 
-export const SpaceContext = React.createContext({
-  latestIndex: 0,
-  horizontalSize: 0,
-  verticalSize: 0,
-  supportFlexGap: false,
-});
+export { SpaceContext } from './context';
 
 export type SpaceSize = SizeType | number;
 
@@ -80,6 +78,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
   const cn = classNames(
     prefixCls,
+    space?.className,
     hashId,
     `${prefixCls}-${direction}`,
     {
@@ -90,7 +89,10 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     rootClassName,
   );
 
-  const itemClassName = classNames(`${prefixCls}-item`, customClassNames?.item);
+  const itemClassName = classNames(
+    `${prefixCls}-item`,
+    customClassNames?.item ?? space?.classNames?.item,
+  );
 
   const marginDirection = directionConfig === 'rtl' ? 'marginLeft' : 'marginRight';
 
@@ -112,7 +114,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
         marginDirection={marginDirection}
         split={split}
         wrap={wrap}
-        style={styles?.item}
+        style={styles?.item ?? space?.styles?.item}
       >
         {child}
       </Item>
@@ -151,11 +153,12 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
       className={cn}
       style={{
         ...gapStyle,
+        ...space?.style,
         ...style,
       }}
       {...otherProps}
     >
-      <SpaceContext.Provider value={spaceContext}>{nodes}</SpaceContext.Provider>
+      <SpaceContextProvider value={spaceContext}>{nodes}</SpaceContextProvider>
     </div>,
   );
 });
