@@ -133,6 +133,10 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
 
       [`${componentCls}-multiple-words`]: {
         padding: `0 ${token.paddingXS}px`,
+
+        bdi: {
+          unicodeBidi: 'plaintext',
+        },
       },
 
       [`${componentCls}-dot`]: {
@@ -150,7 +154,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       [`${componentCls}-count, ${componentCls}-dot, ${numberPrefixCls}-custom-component`]: {
         position: 'absolute',
         top: 0,
-        right: 0,
+        insetInlineEnd: 0,
         transform: 'translate(50%, -50%)',
         transformOrigin: '100% 0%',
         [`&${iconCls}-spin`]: {
@@ -275,10 +279,10 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
 
       // ====================== RTL =======================
       '&-rtl': {
+        direction: 'rtl',
+
         [`${componentCls}-count, ${componentCls}-dot, ${numberPrefixCls}-custom-component`]: {
           transform: 'translate(-50%, -50%)',
-          right: 'auto',
-          left: '0',
         },
       },
     },

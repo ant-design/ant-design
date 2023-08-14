@@ -44,7 +44,6 @@ const ScrollNumber = React.forwardRef<HTMLElement, ScrollNumberProps>((props, re
     style,
     className: classNames(prefixCls, className, motionClassName),
     title: title as string,
-    dir: 'auto',
   };
 
   // Only integer need motion
@@ -52,15 +51,19 @@ const ScrollNumber = React.forwardRef<HTMLElement, ScrollNumberProps>((props, re
   if (count && Number(count) % 1 === 0) {
     const numberList = String(count).split('');
 
-    numberNodes = numberList.map((num, i) => (
-      <SingleNumber
-        prefixCls={prefixCls}
-        count={Number(count)}
-        value={num}
-        // eslint-disable-next-line react/no-array-index-key
-        key={numberList.length - i}
-      />
-    ));
+    numberNodes = (
+      <bdi>
+        {numberList.map((num, i) => (
+          <SingleNumber
+            prefixCls={prefixCls}
+            count={Number(count)}
+            value={num}
+            // eslint-disable-next-line react/no-array-index-key
+            key={numberList.length - i}
+          />
+        ))}
+      </bdi>
+    );
   }
 
   // allow specify the border
