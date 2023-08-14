@@ -14,8 +14,8 @@ This document contains the correspondence between all the less variables related
 We could configure global token and component token for each component through the `theme` property of ConfigProvider.
 
 ```tsx
-import React from 'react';
 import { Checkbox, ConfigProvider, Radio } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -73,7 +73,21 @@ export default App;
 | `@avatar-group-space` | `groupSpace` | - |
 | `@avatar-group-border-color` | `colorBorderBg` | Global Token |
 
-<!-- ### Badge -->
+### Badge
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@zindex-badge` | `indicatorZIndex` | - |
+| `@badge-height` | `indicatorHeight` | - |
+| `@badge-height-sm` | `indicatorHeightSM` | - |
+| `@badge-dot-size` | `dotSize` | - |
+| `@badge-font-size` | `textFontSize` | - |
+| `@badge-font-size-sm` | `textFontSizeSM` | - |
+| `@badge-font-weight` | `textFontWeight` | - |
+| `@badge-status-size` | `statusSize` | - |
+| `@badge-text-color` | `colorBgContainer` | Global Token |
+| `@badge-color` | `colorError` | Global Token |
 
 ### BreadCrumb
 
