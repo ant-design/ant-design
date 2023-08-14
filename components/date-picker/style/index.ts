@@ -130,6 +130,12 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       borderRadius: borderRadiusSM,
       transition: `background ${motionDurationMid}, border ${motionDurationMid}`,
     },
+    [`&-range-hover-start, &-range-hover-end`]: {
+      [pickerCellInnerCls]: {
+        borderStartEndRadius: 0,
+        borderEndEndRadius: 0,
+      },
+    },
 
     // >>> Hover
     [`&:hover:not(${pickerCellCls}-in-view),
