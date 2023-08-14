@@ -901,16 +901,18 @@ exports[`ConfigProvider components Badge configProvider 1`] = `
       data-show="true"
       title="5"
     >
-      <span
-        class="config-scroll-number-only"
-        style="transition: none;"
-      >
+      <bdi>
         <span
-          class="config-scroll-number-only-unit current"
+          class="config-scroll-number-only"
+          style="transition: none;"
         >
-          5
+          <span
+            class="config-scroll-number-only-unit current"
+          >
+            5
+          </span>
         </span>
-      </span>
+      </bdi>
     </sup>
   </span>
   <span
@@ -936,16 +938,18 @@ exports[`ConfigProvider components Badge configProvider componentDisabled 1`] = 
       data-show="true"
       title="5"
     >
-      <span
-        class="config-scroll-number-only"
-        style="transition: none;"
-      >
+      <bdi>
         <span
-          class="config-scroll-number-only-unit current"
+          class="config-scroll-number-only"
+          style="transition: none;"
         >
-          5
+          <span
+            class="config-scroll-number-only-unit current"
+          >
+            5
+          </span>
         </span>
-      </span>
+      </bdi>
     </sup>
   </span>
   <span
@@ -971,16 +975,18 @@ exports[`ConfigProvider components Badge configProvider componentSize large 1`] 
       data-show="true"
       title="5"
     >
-      <span
-        class="config-scroll-number-only"
-        style="transition: none;"
-      >
+      <bdi>
         <span
-          class="config-scroll-number-only-unit current"
+          class="config-scroll-number-only"
+          style="transition: none;"
         >
-          5
+          <span
+            class="config-scroll-number-only-unit current"
+          >
+            5
+          </span>
         </span>
-      </span>
+      </bdi>
     </sup>
   </span>
   <span
@@ -1006,16 +1012,18 @@ exports[`ConfigProvider components Badge configProvider componentSize middle 1`]
       data-show="true"
       title="5"
     >
-      <span
-        class="config-scroll-number-only"
-        style="transition: none;"
-      >
+      <bdi>
         <span
-          class="config-scroll-number-only-unit current"
+          class="config-scroll-number-only"
+          style="transition: none;"
         >
-          5
+          <span
+            class="config-scroll-number-only-unit current"
+          >
+            5
+          </span>
         </span>
-      </span>
+      </bdi>
     </sup>
   </span>
   <span
@@ -1041,16 +1049,18 @@ exports[`ConfigProvider components Badge configProvider componentSize small 1`] 
       data-show="true"
       title="5"
     >
-      <span
-        class="config-scroll-number-only"
-        style="transition: none;"
-      >
+      <bdi>
         <span
-          class="config-scroll-number-only-unit current"
+          class="config-scroll-number-only"
+          style="transition: none;"
         >
-          5
+          <span
+            class="config-scroll-number-only-unit current"
+          >
+            5
+          </span>
         </span>
-      </span>
+      </bdi>
     </sup>
   </span>
   <span
@@ -1076,16 +1086,18 @@ exports[`ConfigProvider components Badge normal 1`] = `
       data-show="true"
       title="5"
     >
-      <span
-        class="ant-scroll-number-only"
-        style="transition: none;"
-      >
+      <bdi>
         <span
-          class="ant-scroll-number-only-unit current"
+          class="ant-scroll-number-only"
+          style="transition: none;"
         >
-          5
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            5
+          </span>
         </span>
-      </span>
+      </bdi>
     </sup>
   </span>
   <span
@@ -1111,16 +1123,18 @@ exports[`ConfigProvider components Badge prefixCls 1`] = `
       data-show="true"
       title="5"
     >
-      <span
-        class="prefix-scroll-number-only"
-        style="transition: none;"
-      >
+      <bdi>
         <span
-          class="prefix-scroll-number-only-unit current"
+          class="prefix-scroll-number-only"
+          style="transition: none;"
         >
-          5
+          <span
+            class="prefix-scroll-number-only-unit current"
+          >
+            5
+          </span>
         </span>
-      </span>
+      </bdi>
     </sup>
   </span>
   <span

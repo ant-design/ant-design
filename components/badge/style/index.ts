@@ -133,6 +133,10 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
 
       [`${componentCls}-multiple-words`]: {
         padding: `0 ${token.paddingXS}px`,
+
+        bdi: {
+          unicodeBidi: 'plaintext',
+        },
       },
 
       [`${componentCls}-dot`]: {
