@@ -273,7 +273,27 @@ export default App;
 
 <!-- ### Input 输入框 -->
 
-<!-- ### Layout 布局 -->
+### Layout 布局
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@layout-body-background` | `bodyBg` | - |
+| `@layout-header-background` | `headerBg` | - |
+| `@layout-header-height` | `headerHeight` | - |
+| `@layout-header-padding` | `headerPadding` | - |
+| `@layout-header-color` | `headerColor` | - |
+| `@layout-footer-padding` | `footerPadding` | - |
+| `@layout-footer-background` | `footerBg` | - |
+| `@layout-sider-background` | `siderBg` | - |
+| `@layout-trigger-height` | `triggerHeight` | - |
+| `@layout-trigger-background` | `triggerBg` | - |
+| `@layout-trigger-color` | `triggerColor` | - |
+| `@layout-zero-trigger-width` | `zeroTriggerWidth` | - |
+| `@layout-zero-trigger-height` | `zeroTriggerHeight` | - |
+| `@layout-sider-background-light` | `lightSiderBg` | - |
+| `@layout-trigger-background-light` | `lightTriggerBg` | - |
+| `@layout-trigger-color-light` | `lightTriggerColor` | - |
 
 ### List 列表
 
@@ -413,7 +433,19 @@ Mentions 提及
 | `@popover-distance` | `marginXXS` | 全局 Token |
 | `@popover-padding-horizontal` | - | 已废弃 |
 
-<!-- ### Progress 进度条 -->
+### Progress 进度条
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@progress-default-color` | `defaultColor` | - |
+| `@progress-remaining-color` | `remainingColor` | - |
+| `@progress-info-text-color` | `colorText` | 全局 Token |
+| `@progress-text-color` | `circleTextColor` | - |
+| `@progress-radius` | `lineBorderRadius` | - |
+| `@progress-steps-item-bg` | `remainingColor` | - |
+| `@progress-text-font-size` | `fontSizeSM` | 全局 Token |
+| `@progress-circle-text-font-size` | `circleTextFontSize` | - |
 
 ### Radio 单选框
 

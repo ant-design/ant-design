@@ -16,6 +16,29 @@ tag: vVERSION
 
 ---
 
+## 5.8.3
+
+`2023-08-11`
+
+- DatePicker
+  - 🐞 修复 DatePicker 在 `open` 和 `defaultOpen` 为 `true` 时选中时间不会切换面板的问题。[#44105](https://github.com/ant-design/ant-design/pull/44105) [@Yuiai01](https://github.com/Yuiai01)
+  - 🐞 修复 DatePicker 和 RangePicker 禁用 `allowClear` 时仍然展示清除按钮的问题。[#44015](https://github.com/ant-design/ant-design/pull/44015) [@bartpio](https://github.com/bartpio)
+- Carousel
+  - 🐞 修复 Carousel 不支持 `id` 属性的问题。[#44079](https://github.com/ant-design/ant-design/pull/44079)
+  - 💄 修复 Carousel `dots` 切换点有多余 margin 的问题。[#44076](https://github.com/ant-design/ant-design/pull/44076)
+- 🐞 修复 Modal 页脚禁用态受 Form 影响的问题。[#43055](https://github.com/ant-design/ant-design/pull/43055) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 Upload gif 缩略图不会动的问题。[#44083](https://github.com/ant-design/ant-design/pull/44083) [@linxianxi](https://github.com/linxianxi)
+- 🐞 修复 FloatButton 组件菜单模式不支持 `badge` 配置的问题。[#44109](https://github.com/ant-design/ant-design/pull/44109) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Grid 与 List 响应式布局生效稍晚于首次渲染导致屏幕闪动的问题。[#44075](https://github.com/ant-design/ant-design/pull/44075)
+- 🐞 修复 `@ant-design/cssinjs` 版本小于 `1.15.0` 时 Design Token 部分丢失的问题。[#44091](https://github.com/ant-design/ant-design/pull/44091) [@MadCcc](https://github.com/MadCcc)
+- 💄 修复 Badge `status="processing"` 和 `dot` 配合使用时，波纹样式异常的问题。[#44153](https://github.com/ant-design/ant-design/pull/44153)
+- 💄 修复 Descriptions 组件自行嵌套时的边框样式问题。[#43454](https://github.com/ant-design/ant-design/pull/43454) [@Yuiai01](https://github.com/Yuiai01)
+- 💄 修复 Pagination 上下页切换按钮 `transition`` 丢失的问题。[#44030](https://github.com/ant-design/ant-design/pull/44030)
+- 💄 修复 Popconfirm 按钮组意外换行的问题。[#44022](https://github.com/ant-design/ant-design/pull/44022) [@MuxinFeng](https://github.com/MuxinFeng)
+- 💄 优化 Image 组件预览操作图标的样式。[#44141](https://github.com/ant-design/ant-design/pull/44141) [@MadCcc](https://github.com/MadCcc)
+- 💄 优化 Input 和 InputNumber 在大尺寸下的字体大小。[#44000](https://github.com/ant-design/ant-design/pull/44000) [@MuxinFeng](https://github.com/MuxinFeng)
+- 💄 移除 Space 部分未使用的样式。[#44098](https://github.com/ant-design/ant-design/pull/44098)
+
 ## 5.8.2
 
 `2023-08-04`

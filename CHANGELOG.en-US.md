@@ -16,6 +16,29 @@ tag: vVERSION
 
 ---
 
+## 5.8.3
+
+`2023-08-11`
+
+- DatePicker
+  - 🐞 Fix DatePicker panel cannot toggle when selecting time with truthy `open` and truthy `defaultOpen`. [#44105](https://github.com/ant-design/ant-design/pull/44105) [@Yuiai01](https://github.com/Yuiai01)
+  - 🐞 Fix DatePicker and RangePicker still show the clear button when disable `allowClear`. [#44015](https://github.com/ant-design/ant-design/pull/44015) [@bartpio](https://github.com/bartpio)
+- Carousel
+  - 🐞 Fix Carousel do not support `id` prop. [#44079](https://github.com/ant-design/ant-design/pull/44079)
+  - 💄 Fix Carousel `dots` extra margin style. [#44076](https://github.com/ant-design/ant-design/pull/44076)
+- 🐞 Fix Modal footer disabled state that affect by Form. [#43055](https://github.com/ant-design/ant-design/pull/43055) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix Upload thumbnail that gif will not play. [#44083](https://github.com/ant-design/ant-design/pull/44083) [@linxianxi](https://github.com/linxianxi)
+- 🐞 Fix FloatButton that menu mode didn't support `badge` prop. [#44109](https://github.com/ant-design/ant-design/pull/44109) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix Grid & List responsive config take effect after first render which cause screen flick. [#44075](https://github.com/ant-design/ant-design/pull/44075)
+- 🐞 Fix that Design Token partially missing when `@ant-design/cssinjs` version `1.15.0`. [#44091](https://github.com/ant-design/ant-design/pull/44091) [@MadCcc](https://github.com/MadCcc)
+- 💄 Fix Badge `status="processing"` with `dot` wave style issue. [#44153](https://github.com/ant-design/ant-design/pull/44153)
+- 💄 Fix Descriptions border styles when it nests itself. [#43454](https://github.com/ant-design/ant-design/pull/43454) [@Yuiai01](https://github.com/Yuiai01)
+- 💄 Fix Pagination transition style in prev/next buttons. [#44030](https://github.com/ant-design/ant-design/pull/44030)
+- 💄 Fix Popconfirm button group wraps unexpectedly. [#44022](https://github.com/ant-design/ant-design/pull/44022) [@MuxinFeng](https://github.com/MuxinFeng)
+- 💄 Optimize style of Image preview operation icons. [#44141](https://github.com/ant-design/ant-design/pull/44141) [@MadCcc](https://github.com/MadCcc)
+- 💄 Optimize Input and InputNumber font size in large mode. [#44000](https://github.com/ant-design/ant-design/pull/44000) [@MuxinFeng](https://github.com/MuxinFeng)
+- 💄 Remove Space part useless style. [#44098](https://github.com/ant-design/ant-design/pull/44098)
+
 ## 5.8.2
 
 `2023-08-04`

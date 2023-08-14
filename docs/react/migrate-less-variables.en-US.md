@@ -276,7 +276,27 @@ export default App;
 
 <!-- ### Input -->
 
-<!-- ### Layout -->
+### Layout
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@layout-body-background` | `bodyBg` | - |
+| `@layout-header-background` | `headerBg` | - |
+| `@layout-header-height` | `headerHeight` | - |
+| `@layout-header-padding` | `headerPadding` | - |
+| `@layout-header-color` | `headerColor` | - |
+| `@layout-footer-padding` | `footerPadding` | - |
+| `@layout-footer-background` | `footerBg` | - |
+| `@layout-sider-background` | `siderBg` | - |
+| `@layout-trigger-height` | `triggerHeight` | - |
+| `@layout-trigger-background` | `triggerBg` | - |
+| `@layout-trigger-color` | `triggerColor` | - |
+| `@layout-zero-trigger-width` | `zeroTriggerWidth` | - |
+| `@layout-zero-trigger-height` | `zeroTriggerHeight` | - |
+| `@layout-sider-background-light` | `lightSiderBg` | - |
+| `@layout-trigger-background-light` | `lightTriggerBg` | - |
+| `@layout-trigger-color-light` | `lightTriggerColor` | - |
 
 ### List
 
@@ -416,7 +436,19 @@ export default App;
 | `@popover-distance` | `marginXXS` | Global Token |
 | `@popover-padding-horizontal` | - | Deprecated for style change |
 
-<!-- ### Progress -->
+### Progress
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@progress-default-color` | `defaultColor` | - |
+| `@progress-remaining-color` | `remainingColor` | - |
+| `@progress-info-text-color` | `colorText` | Global Token |
+| `@progress-text-color` | `circleTextColor` | - |
+| `@progress-radius` | `lineBorderRadius` | - |
+| `@progress-steps-item-bg` | `remainingColor` | - |
+| `@progress-text-font-size` | `fontSizeSM` | Global Token |
+| `@progress-circle-text-font-size` | `circleTextFontSize` | - |
 
 ### Radio
 
