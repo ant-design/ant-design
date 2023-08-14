@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { resetComponent, resetIcon } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
@@ -6,9 +7,9 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   // Component token here
-  headerPadding: string;
+  headerPadding: CSSProperties['padding'];
   headerBg: string;
-  contentPadding: string;
+  contentPadding: CSSProperties['padding'];
   contentBg: string;
 }
 
@@ -24,7 +25,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
     contentBg,
     padding,
     headerBg,
-    headerPadding: collapseHeaderPadding,
+    headerPadding,
     collapseHeaderPaddingSM,
     collapseHeaderPaddingLG,
     collapsePanelBorderRadius,
@@ -76,8 +77,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           display: 'flex',
           flexWrap: 'nowrap',
           alignItems: 'flex-start',
-          padding: collapseHeaderPadding,
-          paddingInlineStart: paddingSM,
+          padding: headerPadding,
           color: colorTextHeading,
           lineHeight,
           cursor: 'pointer',
@@ -97,8 +97,6 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
             display: 'flex',
             alignItems: 'center',
             paddingInlineEnd: marginSM,
-            // Arrow offset
-            marginInlineStart: padding - paddingSM,
           },
 
           [`${componentCls}-arrow`]: {
