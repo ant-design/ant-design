@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { TinyColor } from '@ctrl/tinycolor';
 import { createStyles } from 'antd-style';
 import tokenMeta from 'antd/es/version/token-meta.json';
-import { theme, Space } from 'antd';
+import { Space, theme } from 'antd';
 import useLocale from '../../../hooks/useLocale';
 
 const useStyle = createStyles(({ token, css }) => {
@@ -29,7 +29,7 @@ const useStyle = createStyles(({ token, css }) => {
       display: flex;
       align-items: center;
       justify-content: center;
-
+      color: rgba(0,0,0,0.88);
       border-right: 1px solid rgba(0, 0, 0, 0.1);
     `,
 
