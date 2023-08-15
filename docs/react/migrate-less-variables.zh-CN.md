@@ -309,6 +309,8 @@ export default App;
 | `@layout-trigger-background-light` | `lightTriggerBg` | - |
 | `@layout-trigger-color-light` | `lightTriggerColor` | - |
 
+ssgit chekcout featuregit pucheckout featire'uregit pull
+
 ### List 列表
 
 <!-- prettier-ignore -->
@@ -514,7 +516,12 @@ Mentions 提及
 | `@segmented-label-hover-color` | `itemHoverColor` | - |
 | `@segmented-selected-bg` | `itemSelectedBg` | - |
 
-<!-- ### Select 选择器 -->
+### Select 选择器
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@select-border-color` | `colorBorder` | 全局 Token |
 
 ### Skeleton 骨架屏
 
