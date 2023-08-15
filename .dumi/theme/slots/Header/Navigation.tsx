@@ -145,7 +145,7 @@ export default ({
     activeMenuItem = 'docs/resources';
   }
 
-  const [hideChinaMirror, setHideChinaMirror] = React.useState(true);
+  const [hideChinaMirror, setHideChinaMirror] = React.useState(false);
   React.useEffect(() => {
     setHideChinaMirror(
       ['ant-design.antgroup.com', 'ant-design.gitee.io'].includes(window.location.host),
