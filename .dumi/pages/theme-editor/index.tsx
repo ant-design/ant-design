@@ -44,11 +44,6 @@ const CustomTheme = () => {
     const storedConfig = localStorage.getItem(ANT_DESIGN_V5_THEME_EDITOR_THEME);
     if (storedConfig) {
       const themeConfig = JSON.parse(storedConfig);
-      const originThemeConfig = {
-        json: themeConfig,
-        text: undefined,
-      };
-      setThemeConfigContent(originThemeConfig);
       setTheme(themeConfig);
     }
   }, []);
