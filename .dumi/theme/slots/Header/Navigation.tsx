@@ -145,6 +145,13 @@ export default ({
     activeMenuItem = 'docs/resources';
   }
 
+  const [hideChinaMirror, setHideChinaMirror] = React.useState(true);
+  React.useEffect(() => {
+    setHideChinaMirror(
+      ['ant-design.antgroup.com', 'ant-design.gitee.io'].includes(window.location.host),
+    );
+  }, []);
+
   let additional: MenuProps['items'];
 
   const additionalItems: MenuProps['items'] = [
@@ -234,9 +241,7 @@ export default ({
       ),
       key: 'docs/resources',
     },
-    isZhCN &&
-    window.location.host !== 'ant-design.antgroup.com' &&
-    window.location.host !== 'ant-design.gitee.io'
+    isZhCN && !hideChinaMirror
       ? {
           label: (
             <a href="https://ant-design.antgroup.com" target="_blank" rel="noreferrer">
