@@ -45,6 +45,7 @@ Select component to select value from options.
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/option-label-center.tsx" debug>Options label Centered</code>
 <code src="./demo/debug-flip-shift.tsx" iframe="200" debug>Flip + Shift</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 

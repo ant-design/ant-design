@@ -319,6 +319,8 @@ export default App;
 | `@layout-trigger-background-light` | `lightTriggerBg` | - |
 | `@layout-trigger-color-light` | `lightTriggerColor` | - |
 
+ssgit chekcout featuregit pucheckout featire'uregit pull
+
 ### List 列表
 
 <!-- prettier-ignore -->
@@ -524,7 +526,32 @@ Mentions 提及
 | `@segmented-label-hover-color` | `itemHoverColor` | - |
 | `@segmented-selected-bg` | `itemSelectedBg` | - |
 
-<!-- ### Select 选择器 -->
+### Select 选择器
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@select-border-color` | `colorBorder` | 全局 Token |
+| `@select-item-selected-color` | `optionSelectedColor` | - |
+| `@select-item-selected-font-weight` | `optionSelectedFontWeight` | - |
+| `@select-dropdown-bg` | `colorBgElevated` | 全局 Token |
+| `@select-item-selected-bg` | `optionSelectedBg` | - |
+| `@select-item-active-bg` | `optionActiveBg` | - |
+| `@select-dropdown-vertical-padding` | `optionPadding` | 控制整体内间距 |
+| `@select-dropdown-font-size` | `optionFontSize` | - |
+| `@select-dropdown-line-height` | `optionLineHeight` | - |
+| `@select-dropdown-height` | `optionHeight` | - |
+| `@select-background` | `selectorBg` | - |
+| `@select-clear-background` | `clearBg` | - |
+| `@select-selection-item-bg` | `multipleItemBg` | - |
+| `@select-selection-item-border-color` | `multipleItemBorderColor` | - |
+| `@select-single-item-height-lg` | `singleItemHeightLG` | - |
+| `@select-multiple-item-height` | `multipleItemHeight` | - |
+| `@select-multiple-item-height-lg` | `multipleItemHeightLG` | - |
+| `@select-multiple-item-spacing-half` | - | 已废弃 |
+| `@select-multiple-disabled-background` | `multipleSelectorBgDisabled` | - |
+| `@select-multiple-item-disabled-color` | `multipleItemColorDisabled` | - |
+| `@select-multiple-item-disabled-border-color` | `multipleItemBorderColorDisabled` | - |
 
 ### Skeleton 骨架屏
 

@@ -528,7 +528,32 @@ export default App;
 | `@segmented-label-hover-color` | `itemHoverColor` | - |
 | `@segmented-selected-bg` | `itemSelectedBg` | - |
 
-<!-- ### Select -->
+### Select
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@select-border-color` | `colorBorder` | Global Token |
+| `@select-item-selected-color` | `optionSelectedColor` | - |
+| `@select-item-selected-font-weight` | `optionSelectedFontWeight` | - |
+| `@select-dropdown-bg` | `colorBgElevated` | Global Token |
+| `@select-item-selected-bg` | `optionSelectedBg` | - |
+| `@select-item-active-bg` | `optionActiveBg` | - |
+| `@select-dropdown-vertical-padding` | `optionPadding` | Control the whole padding |
+| `@select-dropdown-font-size` | `optionFontSize` | - |
+| `@select-dropdown-line-height` | `optionLineHeight` | - |
+| `@select-dropdown-height` | `optionHeight` | - |
+| `@select-background` | `selectorBg` | - |
+| `@select-clear-background` | `clearBg` | - |
+| `@select-selection-item-bg` | `multipleItemBg` | - |
+| `@select-selection-item-border-color` | `multipleItemBorderColor` | - |
+| `@select-single-item-height-lg` | `singleItemHeightLG` | - |
+| `@select-multiple-item-height` | `multipleItemHeight` | - |
+| `@select-multiple-item-height-lg` | `multipleItemHeightLG` | - |
+| `@select-multiple-item-spacing-half` | - | Deprecated |
+| `@select-multiple-disabled-background` | `multipleSelectorBgDisabled` | - |
+| `@select-multiple-item-disabled-color` | `multipleItemColorDisabled` | - |
+| `@select-multiple-item-disabled-border-color` | `multipleItemBorderColorDisabled` | - |
 
 ### Skeleton
 
