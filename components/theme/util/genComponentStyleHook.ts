@@ -13,7 +13,7 @@ import type {
 } from '../interface';
 import useToken from '../useToken';
 import statisticToken, { merge as mergeToken } from './statistic';
-import { useResetIconStyle } from '../../config-provider/style';
+import useResetIconStyle from './useResetIconStyle';
 
 export type OverrideTokenWithoutDerivative = ComponentTokenMap;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
