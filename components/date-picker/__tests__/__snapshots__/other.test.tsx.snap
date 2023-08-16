@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
+exports[`MonthPicker and WeekPicker > render MonthPicker 1`] = `
 <div>
   <div
     class="ant-picker"
@@ -261,7 +261,7 @@ exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
 </div>
 `;
 
-exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
+exports[`MonthPicker and WeekPicker > render WeekPicker 1`] = `
 <div>
   <div
     class="ant-picker"
@@ -946,7 +946,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
 </div>
 `;
 
-exports[`Picker format by locale date 1`] = `
+exports[`Picker format by locale > date 1`] = `
 <div
   class="ant-picker"
 >
@@ -1013,7 +1013,7 @@ exports[`Picker format by locale date 1`] = `
 </div>
 `;
 
-exports[`Picker format by locale dateTime 1`] = `
+exports[`Picker format by locale > dateTime 1`] = `
 <div
   class="ant-picker"
 >
@@ -1080,7 +1080,7 @@ exports[`Picker format by locale dateTime 1`] = `
 </div>
 `;
 
-exports[`Picker format by locale month 1`] = `
+exports[`Picker format by locale > month 1`] = `
 <div
   class="ant-picker"
 >
@@ -1147,7 +1147,7 @@ exports[`Picker format by locale month 1`] = `
 </div>
 `;
 
-exports[`Picker format by locale week 1`] = `
+exports[`Picker format by locale > week 1`] = `
 <div
   class="ant-picker"
 >

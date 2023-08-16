@@ -9,7 +9,7 @@ describe('call close immediately', () => {
 
   beforeEach(() => {
     actDestroy();
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -18,10 +18,10 @@ describe('call close immediately', () => {
     await triggerMotionEnd();
 
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
-    jest.useRealTimers();
+    vi.useRealTimers();
 
     await awaitPromise();
   });

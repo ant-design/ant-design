@@ -7,7 +7,7 @@ describe('Divider', () => {
   mountTest(Divider);
 
   it('not show children when vertical', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(<Divider type="vertical">Bamboo</Divider>);
     expect(container.querySelector<HTMLSpanElement>('.ant-divider-inner-text')).toBeFalsy();

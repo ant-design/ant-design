@@ -4,7 +4,7 @@ import React from 'react';
 import Alert from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, render, screen } from '../../../tests/utils';
+import { render, screen, waitFor } from '../../../tests/utils';
 import Button from '../../button';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
@@ -16,15 +16,15 @@ describe('Alert', () => {
   accessibilityTest(Alert);
 
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterAll(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should show close button and could be closed', async () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     render(
       <Alert
         message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
@@ -35,10 +35,6 @@ describe('Alert', () => {
     );
 
     await userEvent.click(screen.getByRole('button', { name: /close/i }));
-
-    act(() => {
-      jest.runAllTimers();
-    });
 
     expect(onClose).toHaveBeenCalledTimes(1);
   });
@@ -77,7 +73,7 @@ describe('Alert', () => {
   });
 
   it('should show error as ErrorBoundary when children have error', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     expect(warnSpy).toHaveBeenCalledTimes(0);
     // @ts-expect-error
     // eslint-disable-next-line react/jsx-no-undef
@@ -106,11 +102,9 @@ describe('Alert', () => {
 
     await userEvent.hover(screen.getByRole('alert'));
 
-    act(() => {
-      jest.runAllTimers();
+    await waitFor(() => {
+      expect(screen.getByRole('tooltip')).toBeInTheDocument();
     });
-
-    expect(screen.getByRole('tooltip')).toBeInTheDocument();
   });
 
   it('could be used with Popconfirm', async () => {
@@ -123,10 +117,6 @@ describe('Alert', () => {
       </Popconfirm>,
     );
     await userEvent.click(screen.getByRole('alert'));
-
-    act(() => {
-      jest.runAllTimers();
-    });
 
     expect(screen.getByRole('tooltip')).toBeInTheDocument();
   });

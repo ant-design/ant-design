@@ -59,19 +59,19 @@ export const warnContext: (componentName: string) => void =
           `Static function can not consume context like dynamic theme. Please use 'App' component instead.`,
         );
       }
-    : /* istanbul ignore next */
+    : /* c8 ignore next */
       null!;
 
 export {
-  ConfigConsumer,
+  type RenderEmptyHandler,
   ConfigContext,
-  defaultIconPrefixCls,
-  type ConfigConsumerProps,
+  ConfigConsumer,
   type CSPConfig,
   type DirectionType,
-  type RenderEmptyHandler,
+  type ConfigConsumerProps,
   type ThemeConfig,
 };
+export { defaultIconPrefixCls };
 
 export const configConsumerProps = [
   'getTargetContainer',

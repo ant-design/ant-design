@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Drawer className is test_drawer 1`] = `
+exports[`Drawer > className is test_drawer 1`] = `
 <div
   class="ant-drawer ant-drawer-right test_drawer ant-drawer-open ant-drawer-inline"
   tabindex="-1"
@@ -77,7 +77,7 @@ exports[`Drawer className is test_drawer 1`] = `
 </div>
 `;
 
-exports[`Drawer closable is false 1`] = `
+exports[`Drawer > closable is false 1`] = `
 <div
   class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
   tabindex="-1"
@@ -120,11 +120,11 @@ exports[`Drawer closable is false 1`] = `
 </div>
 `;
 
-exports[`Drawer destroyOnClose is true 1`] = `null`;
+exports[`Drawer > destroyOnClose is true 1`] = `null`;
 
-exports[`Drawer getContainer return undefined 1`] = `<div />`;
+exports[`Drawer > getContainer return undefined 1`] = `<div />`;
 
-exports[`Drawer getContainer return undefined 2`] = `
+exports[`Drawer > getContainer return undefined 2`] = `
 <div>
   <div
     class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
@@ -203,7 +203,7 @@ exports[`Drawer getContainer return undefined 2`] = `
 </div>
 `;
 
-exports[`Drawer have a footer 1`] = `
+exports[`Drawer > have a footer 1`] = `
 <div
   class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
   tabindex="-1"
@@ -285,7 +285,7 @@ exports[`Drawer have a footer 1`] = `
 </div>
 `;
 
-exports[`Drawer have a title 1`] = `
+exports[`Drawer > have a title 1`] = `
 <div
   class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
   tabindex="-1"
@@ -367,7 +367,7 @@ exports[`Drawer have a title 1`] = `
 </div>
 `;
 
-exports[`Drawer render correctly 1`] = `
+exports[`Drawer > render correctly 1`] = `
 <div
   class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
   tabindex="-1"
@@ -444,7 +444,7 @@ exports[`Drawer render correctly 1`] = `
 </div>
 `;
 
-exports[`Drawer render top drawer 1`] = `
+exports[`Drawer > render top drawer 1`] = `
 <div
   class="ant-drawer ant-drawer-top ant-drawer-open ant-drawer-inline"
   tabindex="-1"
@@ -521,9 +521,9 @@ exports[`Drawer render top drawer 1`] = `
 </div>
 `;
 
-exports[`Drawer rtl render component should be rendered correctly in RTL direction 1`] = `null`;
+exports[`Drawer > rtl render > component should be rendered correctly in RTL direction 1`] = `null`;
 
-exports[`Drawer style/drawerStyle/headerStyle/bodyStyle should work 1`] = `
+exports[`Drawer > style/drawerStyle/headerStyle/bodyStyle should work 1`] = `
 <div
   class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
   style="background-color: rgb(0, 136, 204);"
@@ -604,7 +604,7 @@ exports[`Drawer style/drawerStyle/headerStyle/bodyStyle should work 1`] = `
 </div>
 `;
 
-exports[`Drawer support closeIcon 1`] = `
+exports[`Drawer > support closeIcon 1`] = `
 <div
   class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
   tabindex="-1"

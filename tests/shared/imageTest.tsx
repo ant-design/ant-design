@@ -22,10 +22,9 @@ const themes = {
   compact: theme.compactAlgorithm,
 };
 
-// eslint-disable-next-line jest/no-export
 export default function imageTest(component: React.ReactElement) {
   it(`component image screenshot should correct`, async () => {
-    await jestPuppeteer.resetPage();
+    await resetPage();
     await page.setRequestInterception(true);
     const onRequestHandle = (request: any) => {
       if (['image'].includes(request.resourceType())) {
@@ -92,7 +91,6 @@ type Options = {
   skip?: boolean | string[];
 };
 
-// eslint-disable-next-line jest/no-export
 export function imageDemoTest(component: string, options: Options = {}) {
   let describeMethod = options.skip === true ? describe.skip : describe;
   const files = globSync(`./components/${component}/demo/*.tsx`);
@@ -103,9 +101,9 @@ export function imageDemoTest(component: string, options: Options = {}) {
     } else {
       describeMethod = describe;
     }
-    describeMethod(`Test ${file} image`, () => {
+    describeMethod(`Test ${file} image`, async () => {
       // eslint-disable-next-line global-require,import/no-dynamic-require
-      let Demo = require(`../../${file}`).default;
+      let { default: Demo } = await import(`../../${file}`);
       if (typeof Demo === 'function') {
         Demo = <Demo />;
       }

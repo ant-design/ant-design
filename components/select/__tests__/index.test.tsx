@@ -18,16 +18,16 @@ describe('Select', () => {
   function toggleOpen(container: ReturnType<typeof render>['container']): void {
     fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
   }
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should have default notFoundContent', () => {
@@ -64,7 +64,7 @@ describe('Select', () => {
   });
 
   it('should be controlled by open prop', () => {
-    const onDropdownVisibleChange = jest.fn();
+    const onDropdownVisibleChange = vi.fn();
     const TestComponent: React.FC = () => {
       const [open, setOpen] = React.useState(false);
       const handleChange: SelectProps['onDropdownVisibleChange'] = (value) => {
@@ -85,7 +85,7 @@ describe('Select', () => {
   });
 
   it('should show search icon when showSearch and open', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container } = render(
       <Select showSearch>
         <Option value="1">1</Option>
@@ -119,7 +119,7 @@ describe('Select', () => {
         </Select>,
       );
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
       expect(asFragment().firstChild).toMatchSnapshot();
     });
@@ -138,7 +138,7 @@ describe('Select', () => {
     it('dropdownClassName', () => {
       resetWarned();
 
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Select dropdownClassName="legacy" open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
@@ -151,7 +151,7 @@ describe('Select', () => {
     it('warning for legacy dropdownMatchSelectWidth', () => {
       resetWarned();
 
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       render(<Select dropdownMatchSelectWidth open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',

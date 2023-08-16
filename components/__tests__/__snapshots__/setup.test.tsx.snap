@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`SetUp.Test diff of React 18 & React 17 1`] = `
+exports[`SetUp.Test > diff of React 18 & React 17 1`] = `
 NodeList [
   <div>
   bamboo

@@ -174,7 +174,7 @@ const RefAutoComplete = React.forwardRef<RefSelectProps, AutoCompleteProps>(
 };
 
 // We don't care debug panel
-/* istanbul ignore next */
+/* c8 ignore next */
 const PurePanel = genPurePanel(RefAutoComplete);
 
 RefAutoComplete.Option = Option;

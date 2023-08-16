@@ -68,7 +68,7 @@ describe('Form.Ref', () => {
   };
 
   it('should ref work', () => {
-    const onRef = jest.fn();
+    const onRef = vi.fn();
     const { container, rerender } = render(<Test onRef={onRef} show />);
 
     fireEvent.click(container.querySelector('.ref-item')!);

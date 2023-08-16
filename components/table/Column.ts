@@ -4,7 +4,7 @@ export interface ColumnProps<RecordType> extends ColumnType<RecordType> {
   children?: null;
 }
 
-/* istanbul ignore next */
+/* c8 ignore start */
 /** This is a syntactic sugar for `columns` prop. So HOC will not work on this. */
 // eslint-disable-next-line no-unused-vars
 function Column<RecordType>(_: ColumnProps<RecordType>) {
@@ -12,3 +12,4 @@ function Column<RecordType>(_: ColumnProps<RecordType>) {
 }
 
 export default Column;
+/* c8 ignore stop */

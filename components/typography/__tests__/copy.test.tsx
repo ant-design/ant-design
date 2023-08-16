@@ -6,7 +6,7 @@ import { fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils'
 import Base from '../Base';
 
 describe('Typography copy', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     errorSpy.mockReset();
@@ -32,7 +32,7 @@ describe('Typography copy', () => {
         tooltipLength?: number;
       }) {
         it(name, async () => {
-          jest.useFakeTimers();
+          vi.useFakeTimers();
           const { container, unmount } = render(
             <Base component="p" copyable={{ icon, tooltips }}>
               test copy
@@ -66,7 +66,7 @@ describe('Typography copy', () => {
           }
 
           fireEvent.click(container.querySelectorAll('.ant-typography-copy')[0]);
-          jest.useRealTimers();
+          vi.useRealTimers();
           if (iconClassNames[1] !== undefined) {
             expect(container.querySelector(iconClassNames[1])).not.toBeNull();
           }
@@ -94,7 +94,7 @@ describe('Typography copy', () => {
           await waitFakeTimer();
 
           unmount();
-          jest.useRealTimers();
+          vi.useRealTimers();
         });
       }
 
@@ -210,7 +210,7 @@ describe('Typography copy', () => {
     });
 
     it('copy click event stopPropagation', () => {
-      const onDivClick = jest.fn();
+      const onDivClick = vi.fn();
       const { container: wrapper } = render(
         <div onClick={onDivClick}>
           <Base component="p" copyable>
@@ -236,8 +236,8 @@ describe('Typography copy', () => {
     });
 
     it('copy to clipboard', async () => {
-      jest.useFakeTimers();
-      const spy = jest.spyOn(copyObj, 'default');
+      vi.useFakeTimers();
+      const spy = vi.spyOn(copyObj, 'default');
       const originText = 'origin text.';
       const nextText = 'next text.';
       const Test = () => {
@@ -261,7 +261,7 @@ describe('Typography copy', () => {
       spy.mockReset();
       fireEvent.click(copyBtn);
       expect(spy.mock.calls[0][0]).toEqual(nextText);
-      jest.useRealTimers();
+      vi.useRealTimers();
     });
   });
 });

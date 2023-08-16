@@ -60,7 +60,6 @@ components/version/token-meta.json
 # Image snapshot diff
 __diff_output__/
 __image_snapshots__/
-/jest-stare
 /imageSnapshots
 /imageDiffSnapshots
 
