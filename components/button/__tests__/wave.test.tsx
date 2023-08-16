@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import Button from '..';
-import { act, fireEvent, render, waitFor } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 
 vi.mock('rc-util/es/Dom/isVisible', () => ({ default: () => true }));
 
