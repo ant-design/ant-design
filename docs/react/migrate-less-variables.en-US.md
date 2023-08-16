@@ -14,8 +14,8 @@ This document contains the correspondence between all the less variables related
 We could configure global token and component token for each component through the `theme` property of ConfigProvider.
 
 ```tsx
-import React from 'react';
 import { Checkbox, ConfigProvider, Radio } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -73,7 +73,21 @@ export default App;
 | `@avatar-group-space` | `groupSpace` | - |
 | `@avatar-group-border-color` | `colorBorderBg` | Global Token |
 
-<!-- ### Badge -->
+### Badge
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@zindex-badge` | `indicatorZIndex` | - |
+| `@badge-height` | `indicatorHeight` | - |
+| `@badge-height-sm` | `indicatorHeightSM` | - |
+| `@badge-dot-size` | `dotSize` | - |
+| `@badge-font-size` | `textFontSize` | - |
+| `@badge-font-size-sm` | `textFontSizeSM` | - |
+| `@badge-font-weight` | `textFontWeight` | - |
+| `@badge-status-size` | `statusSize` | - |
+| `@badge-text-color` | `colorBgContainer` | Global Token |
+| `@badge-color` | `colorError` | Global Token |
 
 ### BreadCrumb
 
@@ -202,7 +216,17 @@ export default App;
 | `@checkbox-border-radius` | `borderRadiusSM` | - |
 | `@checkbox-group-item-margin-right` | - | Deprecated for style change |
 
-<!-- ### Collapse -->
+### Collapse
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@collapse-header-padding` | `headerPadding` | - |
+| `@collapse-header-padding-extra` | - | Depreacated |
+| `@collapse-header-bg` | `headerBg` | - |
+| `@collapse-content-padding` | `contentPadding` | - |
+| `@collapse-content-bg` | `contentBg` | - |
+| `@collapse-header-arrow-left` | - | Deprecated |
 
 ### Descriptions
 
@@ -504,7 +528,32 @@ export default App;
 | `@segmented-label-hover-color` | `itemHoverColor` | - |
 | `@segmented-selected-bg` | `itemSelectedBg` | - |
 
-<!-- ### Select -->
+### Select
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@select-border-color` | `colorBorder` | Global Token |
+| `@select-item-selected-color` | `optionSelectedColor` | - |
+| `@select-item-selected-font-weight` | `optionSelectedFontWeight` | - |
+| `@select-dropdown-bg` | `colorBgElevated` | Global Token |
+| `@select-item-selected-bg` | `optionSelectedBg` | - |
+| `@select-item-active-bg` | `optionActiveBg` | - |
+| `@select-dropdown-vertical-padding` | `optionPadding` | Control the whole padding |
+| `@select-dropdown-font-size` | `optionFontSize` | - |
+| `@select-dropdown-line-height` | `optionLineHeight` | - |
+| `@select-dropdown-height` | `optionHeight` | - |
+| `@select-background` | `selectorBg` | - |
+| `@select-clear-background` | `clearBg` | - |
+| `@select-selection-item-bg` | `multipleItemBg` | - |
+| `@select-selection-item-border-color` | `multipleItemBorderColor` | - |
+| `@select-single-item-height-lg` | `singleItemHeightLG` | - |
+| `@select-multiple-item-height` | `multipleItemHeight` | - |
+| `@select-multiple-item-height-lg` | `multipleItemHeightLG` | - |
+| `@select-multiple-item-spacing-half` | - | Deprecated |
+| `@select-multiple-disabled-background` | `multipleSelectorBgDisabled` | - |
+| `@select-multiple-item-disabled-color` | `multipleItemColorDisabled` | - |
+| `@select-multiple-item-disabled-border-color` | `multipleItemBorderColorDisabled` | - |
 
 ### Skeleton
 

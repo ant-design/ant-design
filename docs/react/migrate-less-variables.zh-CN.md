@@ -14,8 +14,8 @@ title: 从 Less 变量到 Design Token
 通过 ConfigProvider 的 `theme` 属性，我们可以对每一个组件单独配置全局 Token 和组件 Token
 
 ```tsx
-import React from 'react';
 import { Checkbox, ConfigProvider, Radio } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -73,7 +73,21 @@ export default App;
 | `@avatar-group-space` | `groupSpace` | - |
 | `@avatar-group-border-color` | `colorBorderBg` | 全局 Token |
 
-<!-- ### Badge 徽标数 -->
+### Badge 徽标数
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@zindex-badge` | `indicatorZIndex` | - |
+| `@badge-height` | `indicatorHeight` | - |
+| `@badge-height-sm` | `indicatorHeightSM` | - |
+| `@badge-dot-size` | `dotSize` | - |
+| `@badge-font-size` | `textFontSize` | - |
+| `@badge-font-size-sm` | `textFontSizeSM` | - |
+| `@badge-font-weight` | `textFontWeight` | - |
+| `@badge-status-size` | `statusSize` | - |
+| `@badge-text-color` | `colorBgContainer` | 全局 Token |
+| `@badge-color` | `colorError` | 全局 Token |
 
 ### BreadCrumb 面包屑
 
@@ -200,7 +214,17 @@ export default App;
 | `@checkbox-border-radius` | `borderRadiusSM` | - |
 | `@checkbox-group-item-margin-right` | - | 由于样式变化已废弃 |
 
-<!-- ### Collapse 折叠面板 -->
+### Collapse 折叠面板
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@collapse-header-padding` | `headerPadding` | - |
+| `@collapse-header-padding-extra` | - | 已废弃 |
+| `@collapse-header-bg` | `headerBg` | - |
+| `@collapse-content-padding` | `contentPadding` | - |
+| `@collapse-content-bg` | `contentBg` | - |
+| `@collapse-header-arrow-left` | - | 已废弃 |
 
 ### Descriptions 描述列表
 
@@ -294,6 +318,8 @@ export default App;
 | `@layout-sider-background-light` | `lightSiderBg` | - |
 | `@layout-trigger-background-light` | `lightTriggerBg` | - |
 | `@layout-trigger-color-light` | `lightTriggerColor` | - |
+
+ssgit chekcout featuregit pucheckout featire'uregit pull
 
 ### List 列表
 
@@ -500,7 +526,32 @@ Mentions 提及
 | `@segmented-label-hover-color` | `itemHoverColor` | - |
 | `@segmented-selected-bg` | `itemSelectedBg` | - |
 
-<!-- ### Select 选择器 -->
+### Select 选择器
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@select-border-color` | `colorBorder` | 全局 Token |
+| `@select-item-selected-color` | `optionSelectedColor` | - |
+| `@select-item-selected-font-weight` | `optionSelectedFontWeight` | - |
+| `@select-dropdown-bg` | `colorBgElevated` | 全局 Token |
+| `@select-item-selected-bg` | `optionSelectedBg` | - |
+| `@select-item-active-bg` | `optionActiveBg` | - |
+| `@select-dropdown-vertical-padding` | `optionPadding` | 控制整体内间距 |
+| `@select-dropdown-font-size` | `optionFontSize` | - |
+| `@select-dropdown-line-height` | `optionLineHeight` | - |
+| `@select-dropdown-height` | `optionHeight` | - |
+| `@select-background` | `selectorBg` | - |
+| `@select-clear-background` | `clearBg` | - |
+| `@select-selection-item-bg` | `multipleItemBg` | - |
+| `@select-selection-item-border-color` | `multipleItemBorderColor` | - |
+| `@select-single-item-height-lg` | `singleItemHeightLG` | - |
+| `@select-multiple-item-height` | `multipleItemHeight` | - |
+| `@select-multiple-item-height-lg` | `multipleItemHeightLG` | - |
+| `@select-multiple-item-spacing-half` | - | 已废弃 |
+| `@select-multiple-disabled-background` | `multipleSelectorBgDisabled` | - |
+| `@select-multiple-item-disabled-color` | `multipleItemColorDisabled` | - |
+| `@select-multiple-item-disabled-border-color` | `multipleItemBorderColorDisabled` | - |
 
 ### Skeleton 骨架屏
 
