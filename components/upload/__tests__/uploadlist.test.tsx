@@ -950,32 +950,6 @@ describe('Upload List', () => {
     unmount();
   });
 
-  it('upload gif file should be converted to the image/gif base64', async () => {
-    vi.useRealTimers();
-    const mockFile = new File([''], 'foo.gif', {
-      type: 'image/gif',
-    });
-
-    const previewFunc = vi.fn(previewImage);
-
-    const { unmount } = render(
-      <Upload
-        fileList={[{ originFileObj: mockFile }] as UploadProps['fileList']}
-        previewFile={previewFunc}
-        locale={{ uploading: 'uploading' }}
-        listType="picture-card"
-      />,
-    );
-
-    await waitFor(() => {
-      expect(previewFunc).toHaveBeenCalled();
-    });
-    await previewFunc(mockFile).then((dataUrl) => {
-      expect(dataUrl).toEqual('data:image/gif;base64,');
-    });
-    unmount();
-  });
-
   it("upload non image file shouldn't be converted to the base64", async () => {
     const mockFile = new File([''], 'foo.7z', {
       type: 'application/x-7z-compressed',

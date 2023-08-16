@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
+import util from 'node:util';
 import type { TestingLibraryMatchers } from '@testing-library/jest-dom/matchers';
 import matchers from '@testing-library/jest-dom/matchers';
 import React from 'react';
-import util from 'node:util';
 import { expect, vi } from 'vitest';
 
 import { toHaveNoViolations } from 'jest-axe';
