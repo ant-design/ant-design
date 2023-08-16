@@ -633,19 +633,19 @@ Mentions 提及
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@switch-height` | `height` | - |
-| `@switch-sm-height` | `heightSM` | - |
-| `@switch-min-width` | `minWidth` | - |
-| `@switch-sm-min-width` | `minWidthSM` | - |
+| `@switch-height` | `trackHeight` | - |
+| `@switch-sm-height` | `trackHeightSM` | - |
+| `@switch-min-width` | `trackMinWidth` | - |
+| `@switch-sm-min-width` | `trackMinWidthSM` | - |
 | `@switch-disabled-opacity` | `opacityLoading` | 全局 Token |
 | `@switch-color` | `colorPrimary` | 全局 Token |
-| `@switch-bg` | - | 由于样式变化已废弃 |
-| `@switch-shadow-color` | - | 由于样式变化已废弃 |
-| `@switch-padding` | `padding` | - |
-| `@switch-inner-margin-min` | `innerMarginMin` | - |
-| `@switch-inner-margin-max` | `innerMarginMax` | - |
-| `@switch-sm-inner-margin-min` | `innerMarginMinSM` | - |
-| `@switch-sm-inner-margin-max` | `innerMarginMaxSM` | - |
+| `@switch-bg` | `handleBg` | - |
+| `@switch-shadow-color` | `handleShadow` | 控制把手阴影，不仅是颜色 |
+| `@switch-padding` | `trackPadding` | - |
+| `@switch-inner-margin-min` | `innerMinMargin` | - |
+| `@switch-inner-margin-max` | `innerMaxMargin` | - |
+| `@switch-sm-inner-margin-min` | `innerMinMarginSM` | - |
+| `@switch-sm-inner-margin-max` | `innerMaxMarginSM` | - |
 
 ### Table 表格
 

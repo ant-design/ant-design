@@ -6,26 +6,23 @@ const App: React.FC = () => (
     theme={{
       components: {
         Switch: {
-          height: 24,
-          heightSM: 18,
-          minWidth: 40,
-          minWidthSM: 36,
-          opacityLoading: 0.1,
-          color: '#1569EE',
-          padding: 10,
-          innerMarginMin: 4,
-          innerMarginMinSM: 2,
-          innerMarginMax: 8,
-          innerMarginMaxSM: 6,
+          trackHeight: 14,
+          trackMinWidth: 32,
+          // opacityLoading: 0.1,
+          colorPrimary: 'rgb(25, 118, 210, 0.5)',
+          trackPadding: -3,
+          handleSize: 20,
+          handleBg: 'rgb(25, 118, 210)',
+          handleShadow:
+            'rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px',
+          // innerMinMargin: 4,
+          // innerMaxMargin: 8,
         },
       },
     }}
   >
     <Space>
-      <Switch checkedChildren="开启" unCheckedChildren="关闭" defaultChecked />
-    </Space>
-    <Space>
-      <Switch disabled defaultChecked />
+      <Switch defaultChecked />
     </Space>
   </ConfigProvider>
 );
