@@ -8,7 +8,7 @@ import { expect, vi } from 'vitest';
 import { toHaveNoViolations } from 'jest-axe';
 import { defaultConfig } from '../components/theme/internal';
 
-console.log('Current React Version:', React.version, typeof window.setImmediate);
+console.log('Current React Version:', React.version);
 
 declare module 'vitest' {
   interface Assertion<T = any> extends jest.Matchers<void, T>, TestingLibraryMatchers<T, void> {
