@@ -628,7 +628,24 @@ Mentions 提及
 | `@steps-vertical-tail-width` | - | 已废弃 |
 | `@steps-vertical-tail-width-sm` | - | 已废弃 |
 
-<!-- ### Switch 开关 -->
+### Switch 开关
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@switch-height` | `trackHeight` | - |
+| `@switch-sm-height` | `trackHeightSM` | - |
+| `@switch-min-width` | `trackMinWidth` | - |
+| `@switch-sm-min-width` | `trackMinWidthSM` | - |
+| `@switch-disabled-opacity` | `opacityLoading` | 全局 Token |
+| `@switch-color` | `colorPrimary` | 全局 Token |
+| `@switch-bg` | `handleBg` | - |
+| `@switch-shadow-color` | `handleShadow` | 控制把手阴影，不仅是颜色 |
+| `@switch-padding` | `trackPadding` | - |
+| `@switch-inner-margin-min` | `innerMinMargin` | - |
+| `@switch-inner-margin-max` | `innerMaxMargin` | - |
+| `@switch-sm-inner-margin-min` | `innerMinMarginSM` | - |
+| `@switch-sm-inner-margin-max` | `innerMaxMarginSM` | - |
 
 ### Table 表格
 

@@ -630,7 +630,24 @@ export default App;
 | `@steps-vertical-tail-width` | - | Deprecated |
 | `@steps-vertical-tail-width-sm` | - | Deprecated |
 
-<!-- ### Switch -->
+### Switch
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@switch-height` | `trackHeight` | - |
+| `@switch-sm-height` | `trackHeightSM` | - |
+| `@switch-min-width` | `trackMinWidth` | - |
+| `@switch-sm-min-width` | `trackMinWidthSM` | - |
+| `@switch-disabled-opacity` | `opacityLoading` | Global Token |
+| `@switch-color` | `colorPrimary` | Global Token |
+| `@switch-bg` | `handleBg` | - |
+| `@switch-shadow-color` | `handleShadow` | Control `box-shadow`, not only shadow color |
+| `@switch-padding` | `trackPadding` | - |
+| `@switch-inner-margin-min` | `innerMinMargin` | - |
+| `@switch-inner-margin-max` | `innerMaxMargin` | - |
+| `@switch-sm-inner-margin-min` | `innerMinMarginSM` | - |
+| `@switch-sm-inner-margin-max` | `innerMaxMarginSM` | - |
 
 ### Table
 

@@ -46,6 +46,7 @@ import type { ComponentToken as SpaceComponentToken } from '../../space/style';
 import type { ComponentToken as SpinComponentToken } from '../../spin/style';
 import type { ComponentToken as StatisticComponentToken } from '../../statistic/style';
 import type { ComponentToken as StepsComponentToken } from '../../steps/style';
+import type { ComponentToken as SwitchComponentToken } from '../../switch/style';
 import type { ComponentToken as TableComponentToken } from '../../table/style';
 import type { ComponentToken as TabsComponentToken } from '../../tabs/style';
 import type { ComponentToken as TagComponentToken } from '../../tag/style';
@@ -99,7 +100,7 @@ export interface ComponentTokenMap {
   Slider?: SliderComponentToken;
   Spin?: SpinComponentToken;
   Statistic?: StatisticComponentToken;
-  Switch?: {};
+  Switch?: SwitchComponentToken;
   Tag?: TagComponentToken;
   Tree?: {};
   TreeSelect?: {};
