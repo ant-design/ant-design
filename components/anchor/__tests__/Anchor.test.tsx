@@ -10,9 +10,8 @@ import type { AnchorDirection } from '../Anchor';
 
 const { Link } = Anchor;
 
-function createRootDiv() {
+function createDiv() {
   const root = document.createElement('div');
-  root.className = 'root';
   document.body.appendChild(root);
   return root;
 }
@@ -196,7 +195,7 @@ describe('Anchor Render', () => {
   });
 
   it('scrolls the page when clicking a link', async () => {
-    const root = createRootDiv();
+    const root = createDiv();
     const scrollToSpy = vi.spyOn(window, 'scrollTo');
     render(<div id="/faq?locale=en#Q1">Q1</div>, { container: root });
     const { container } = render(
@@ -212,7 +211,7 @@ describe('Anchor Render', () => {
   it('handleScroll should not be triggered when scrolling caused by clicking a link', async () => {
     const hash1 = getHashUrl();
     const hash2 = getHashUrl();
-    const root = createRootDiv();
+    const root = createDiv();
     const onChange = vi.fn();
     render(
       <div>
@@ -273,7 +272,7 @@ describe('Anchor Render', () => {
     const hash = getHashUrl();
 
     const scrollToSpy = vi.spyOn(window, 'scrollTo');
-    const root = createRootDiv();
+    const root = createDiv();
     render(<h1 id={hash}>Hello</h1>, { container: root });
     const { container, rerender } = render(
       <Anchor items={[{ key: hash, href: `#${hash}`, title: hash }]} />,
@@ -306,7 +305,7 @@ describe('Anchor Render', () => {
     const hash = `${getHashUrl()} s p a c e s`;
 
     const scrollToSpy = vi.spyOn(window, 'scrollTo');
-    const root = createRootDiv();
+    const root = createDiv();
     render(<h1 id={hash}>Hello</h1>, { container: root });
     const { container, rerender } = render(
       <Anchor items={[{ key: hash, href: `#${hash}`, title: hash }]} />,
@@ -458,7 +457,7 @@ describe('Anchor Render', () => {
     const hash = getHashUrl();
 
     const scrollToSpy = vi.spyOn(window, 'scrollTo');
-    const root = createRootDiv();
+    const root = createDiv();
     render(<h1 id={hash}>Hello</h1>, { container: root });
     const { container, rerender } = render(
       <Anchor>
@@ -499,7 +498,7 @@ describe('Anchor Render', () => {
   it('test edge case when container is not windows', async () => {
     const hash = getHashUrl();
 
-    const root = createRootDiv();
+    const root = createDiv();
     render(<h1 id={hash}>Hello</h1>, { container: root });
 
     const { container, rerender } = render(
@@ -650,7 +649,7 @@ describe('Anchor Render', () => {
       it('targetOffset horizontal', async () => {
         const hash = getHashUrl();
         const scrollToSpy = vi.spyOn(window, 'scrollTo');
-        const root = createRootDiv();
+        const root = createDiv();
         render(<h1 id={hash}>Hello</h1>, { container: root });
         const { container, rerender } = render(
           <Anchor
@@ -808,7 +807,7 @@ describe('Anchor Render', () => {
     });
 
     it('scrolls the page when clicking a link', async () => {
-      const root = createRootDiv();
+      const root = createDiv();
       const scrollToSpy = vi.spyOn(window, 'scrollTo');
       render(<div id="/faq?locale=en#Q1">Q1</div>, { container: root });
       const { container } = render(
@@ -827,7 +826,7 @@ describe('Anchor Render', () => {
     it('handleScroll should not be triggered when scrolling caused by clicking a link', async () => {
       const hash1 = getHashUrl();
       const hash2 = getHashUrl();
-      const root = createRootDiv();
+      const root = createDiv();
       const onChange = vi.fn();
       render(
         <div>

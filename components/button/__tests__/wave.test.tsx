@@ -10,8 +10,7 @@ describe('click wave effect', () => {
     vi.useFakeTimers();
   });
 
-  afterEach(async () => {
-    await vi.runAllTimersAsync();
+  afterEach(() => {
     vi.clearAllTimers();
     vi.useRealTimers();
     document.body.innerHTML = '';
@@ -22,9 +21,13 @@ describe('click wave effect', () => {
     // https://github.com/testing-library/user-event/issues/833
     await userEvent.setup({ advanceTimers: vi.advanceTimersByTime }).click(element as Element);
 
+    act(() => {
+      jest.advanceTimersByTime(100);
+    });
+
     // Second time will render wave element
     act(() => {
-      vi.advanceTimersByTime(100);
+      jest.advanceTimersByTime(100);
     });
 
     fireEvent(element!, new Event('transitionstart'));
@@ -34,18 +37,12 @@ describe('click wave effect', () => {
   it('should have click wave effect for primary button', async () => {
     const { container } = render(<Button type="primary">button</Button>);
     await clickButton(container);
-    await act(async () => {
-      await vi.runAllTimersAsync();
-    });
     expect(document.querySelector('.ant-wave')).toBeTruthy();
   });
 
   it('should have click wave effect for default button', async () => {
     const { container } = render(<Button>button</Button>);
     await clickButton(container);
-    await act(async () => {
-      await vi.runAllTimersAsync();
-    });
     expect(document.querySelector('.ant-wave')).toBeTruthy();
   });
 
