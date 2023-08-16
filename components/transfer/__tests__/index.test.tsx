@@ -7,8 +7,6 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Button from '../../button';
 
-const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-
 const listCommonProps: {
   dataSource: { key: string; title: string; disabled?: boolean }[];
   selectedKeys?: string[];
