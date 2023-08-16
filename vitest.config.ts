@@ -39,9 +39,8 @@ export const commonConfig: UserConfig = {
     ],
   },
   test: {
-    experimentalVmThreads: true,
-    experimentalVmWorkerMemoryLimit: '2g',
     testTimeout: 5000,
+    maxThreads: 4,
   },
 };
 

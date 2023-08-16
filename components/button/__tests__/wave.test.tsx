@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import Button from '..';
-import { act, fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render, waitFor } from '../../../tests/utils';
 
 vi.mock('rc-util/es/Dom/isVisible', () => ({ default: () => true }));
 
@@ -10,7 +10,8 @@ describe('click wave effect', () => {
     vi.useFakeTimers();
   });
 
-  afterEach(() => {
+  afterEach(async () => {
+    await vi.runAllTimersAsync();
     vi.clearAllTimers();
     vi.useRealTimers();
     document.body.innerHTML = '';
@@ -34,14 +35,14 @@ describe('click wave effect', () => {
     fireEvent(element!, new Event('animationend'));
   }
 
-  it('should have click wave effect for primary button', async () => {
-    const { container } = render(<Button type="primary">button</Button>);
+  it('should have click wave effect for default button', async () => {
+    const { container } = render(<Button>button</Button>);
     await clickButton(container);
     expect(document.querySelector('.ant-wave')).toBeTruthy();
   });
 
-  it('should have click wave effect for default button', async () => {
-    const { container } = render(<Button>button</Button>);
+  it('should have click wave effect for primary button', async () => {
+    const { container } = render(<Button type="primary">button</Button>);
     await clickButton(container);
     expect(document.querySelector('.ant-wave')).toBeTruthy();
   });

@@ -79,13 +79,14 @@ vi.mock('copy-to-clipboard');
 // Not use dynamic hashed for test env since version will change hash dynamically.
 defaultConfig.hashed = false;
 
-if (process.env.LIB_DIR === 'dist') {
-  vi.mock('../dist/antd', async (importOriginal) => {
-    const antd = await importOriginal<typeof import('antd')>();
-    antd.theme.defaultConfig.hashed = false;
+vi.mock('../dist/antd', async (importOriginal) => {
+  const antd = await importOriginal<typeof import('antd')>();
+  antd.theme.defaultConfig.hashed = false;
 
-    return antd;
-  });
+  return antd;
+});
+if (process.env.LIB_DIR === 'dist') {
+  //
 } else if (process.env.LIB_DIR === 'es') {
   vi.mock('../es/theme/internal', async (importOriginal) => {
     const esTheme = await importOriginal<typeof import('../components/theme/internal')>();
