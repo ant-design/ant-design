@@ -6897,7 +6897,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div

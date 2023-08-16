@@ -156,7 +156,7 @@ describe('DropdownButton', () => {
   });
 
   it('should support focus menu when set autoFocus', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const items = [
       {
         label: 'foo',

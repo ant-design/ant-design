@@ -37,7 +37,7 @@ function doMouseMove(
 describe('ColorPicker', () => {
   mountTest(ColorPicker);
   rtlTest(ColorPicker);
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
   beforeEach(() => {
     resetWarned();
     vi.useFakeTimers();
@@ -111,7 +111,7 @@ describe('ColorPicker', () => {
   });
 
   it('Should allowClear and onClear work', async () => {
-    const onClear = jest.fn();
+    const onClear = vi.fn();
     const { container } = render(<ColorPicker allowClear onClear={onClear} />);
     fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
@@ -290,7 +290,7 @@ describe('ColorPicker', () => {
   });
 
   it('Should not trigger onChange when click clear after clearing', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(<ColorPicker allowClear onChange={onChange} />);
     fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
     fireEvent.click(container.querySelector('.ant-color-picker-clear')!);
@@ -458,7 +458,7 @@ describe('ColorPicker', () => {
   });
 
   it('Should onChangeComplete work', async () => {
-    const handleChangeComplete = jest.fn();
+    const handleChangeComplete = vi.fn();
     const { container } = render(
       <ColorPicker open onChangeComplete={handleChangeComplete} allowClear />,
     );

@@ -368,7 +368,7 @@ describe('Modal.hook', () => {
   });
 
   it('should be applied correctly locale', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
     const Demo: React.FC<{ count: number }> = ({ count }) => {
       React.useEffect(() => {
@@ -405,11 +405,11 @@ describe('Modal.hook', () => {
     await waitFakeTimer();
     expect(document.body.querySelector('.ant-btn-primary')!.textContent).toEqual('OK');
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('support await', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
     let notReady = true;
     let lastResult: boolean | null = null;
@@ -449,6 +449,6 @@ describe('Modal.hook', () => {
     await waitFakeTimer();
     expect(lastResult).toBeTruthy();
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 });

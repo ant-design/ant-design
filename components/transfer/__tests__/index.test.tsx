@@ -279,7 +279,7 @@ describe('Transfer', () => {
   });
 
   it('should display the correct locale and ignore old API', () => {
-    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
     const locale = { notFoundContent: 'old1', searchPlaceholder: 'old2' };
@@ -512,7 +512,7 @@ describe('Transfer', () => {
   });
 
   it('support rowKey', () => {
-    const onSelectChange = jest.fn();
+    const onSelectChange = vi.fn();
 
     const Demo = () => {
       const [selectedKeys, setSelectedKeys] = useState<string[]>([]);

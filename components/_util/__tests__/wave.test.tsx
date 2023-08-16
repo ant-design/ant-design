@@ -34,7 +34,7 @@ describe('Wave component', () => {
     }
 
     (window as any).ResizeObserver = FakeResizeObserver;
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterAll(() => {
@@ -64,7 +64,7 @@ describe('Wave component', () => {
 
   function waitRaf() {
     act(() => {
-      jest.advanceTimersByTime(100);
+      vi.advanceTimersByTime(100);
     });
     act(() => {
       vi.advanceTimersByTime(100);
@@ -324,7 +324,7 @@ describe('Wave component', () => {
   });
 
   it('Checkbox with uncheck should not trigger wave', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(<Checkbox defaultChecked onChange={onChange} />);
 
     // Click

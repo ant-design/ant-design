@@ -246,7 +246,9 @@ describe('Badge', () => {
     expect(element?.querySelector<HTMLElement>('sup')).toHaveClass('test-indicator');
 
     // styles
-    expect(element).toHaveStyle({ backgroundColor: 'yellow' });
-    expect(element?.querySelector<HTMLElement>('sup')).toHaveStyle({ backgroundColor: 'blue' });
+    expect(element).toHaveStyle({ backgroundColor: 'rgb(255, 255, 0)' });
+    expect(element?.querySelector<HTMLElement>('sup')).toHaveStyle({
+      backgroundColor: 'rgb(0, 0, 255)',
+    });
   });
 });

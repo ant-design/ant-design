@@ -784,7 +784,7 @@ describe('Upload', () => {
 
     // https://github.com/ant-design/ant-design/issues/43190
     it('should trigger onChange when remove', async () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
 
       const { container } = render(
         <Upload

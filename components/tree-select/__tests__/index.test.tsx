@@ -93,7 +93,7 @@ describe('TreeSelect', () => {
   it('deprecate showArrow', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(<TreeSelect showArrow />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: TreeSelect] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',

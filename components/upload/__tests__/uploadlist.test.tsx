@@ -925,6 +925,7 @@ describe('Upload List', () => {
   });
 
   it('upload gif file should be converted to the image/gif base64', async () => {
+    vi.useRealTimers();
     const mockFile = new File([''], 'foo.gif', {
       type: 'image/gif',
     });
@@ -950,11 +951,12 @@ describe('Upload List', () => {
   });
 
   it('upload gif file should be converted to the image/gif base64', async () => {
+    vi.useRealTimers();
     const mockFile = new File([''], 'foo.gif', {
       type: 'image/gif',
     });
 
-    const previewFunc = jest.fn(previewImage);
+    const previewFunc = vi.fn(previewImage);
 
     const { unmount } = render(
       <Upload

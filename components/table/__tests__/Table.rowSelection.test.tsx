@@ -1607,7 +1607,7 @@ describe('Table.rowSelection', () => {
     });
 
     it('cache with preserveSelectedRowKeys and checkStrictly false', () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const { container, rerender } = render(
         <Table
           dataSource={[{ name: 'light' }, { name: 'bamboo' }]}

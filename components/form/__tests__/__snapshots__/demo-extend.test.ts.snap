@@ -21122,7 +21122,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                               >
                                 <div
                                   class="rc-virtual-list-holder"
-                                  style="max-height: 256px; overflow-y: auto;"
+                                  style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                                 >
                                   <div>
                                     <div

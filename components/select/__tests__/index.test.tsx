@@ -163,7 +163,7 @@ describe('Select', () => {
     it('deprecate showArrow', () => {
       resetWarned();
 
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Select showArrow />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',

@@ -106,12 +106,11 @@ export default function demoTest(component: string, options: Options = {}) {
 
   // Test component name is match the kebab-case
   const testName = test;
-  testName('component name is match the kebab-case', () => {
+  testName('component name is match the kebab-case', async () => {
     const kebabName = kebabCase(component);
 
     // Path should exist
-    // eslint-disable-next-line global-require, import/no-dynamic-require
-    const { default: Component } = require(`../../components/${kebabName}`);
+    const { default: Component } = await import(`../../components/${kebabName}`);
 
     if (options.nameCheckPathOnly !== true) {
       expect(kebabCase(Component.displayName || '')).toEqual(kebabName);

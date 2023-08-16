@@ -26,7 +26,7 @@ vi.mock('scroll-into-view-if-needed', () => ({
 
 Object.defineProperty(window, 'location', {
   value: {
-    replace: jest.fn(),
+    replace: vi.fn(),
   },
 });
 
@@ -629,7 +629,7 @@ describe('Anchor Render', () => {
     });
 
     it('should repeat trigger when scrolling', () => {
-      const getCurrentAnchor = jest.fn();
+      const getCurrentAnchor = vi.fn();
       render(
         <Anchor
           getCurrentAnchor={getCurrentAnchor}

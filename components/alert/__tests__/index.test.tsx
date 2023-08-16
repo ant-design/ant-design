@@ -146,7 +146,7 @@ describe('Alert', () => {
 
   it('should warning when using closeText', () => {
     resetWarned();
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(<Alert closeText="close" />);
 

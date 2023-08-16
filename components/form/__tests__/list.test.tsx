@@ -264,7 +264,7 @@ describe('Form.List', () => {
   });
 
   it('no warning when name is 0', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     render(
       <Form>
@@ -286,7 +286,7 @@ describe('Form.List', () => {
   });
 
   it('warning when name is empty array', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     render(
       <Form>
@@ -308,7 +308,7 @@ describe('Form.List', () => {
   });
 
   it('warning when name is null', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     render(
       <Form>

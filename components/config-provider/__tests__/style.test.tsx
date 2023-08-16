@@ -105,7 +105,7 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('.ant-space-item')).toHaveStyle(
-      'margin-right: 8px; color: red;',
+      'margin-right: 8px; color: rgb(255, 0, 0);',
     );
   });
 
@@ -124,7 +124,7 @@ describe('ConfigProvider support style and className props', () => {
         </Space>
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-space')).toHaveStyle('color: red;');
+    expect(container.querySelector('.ant-space')).toHaveStyle('color: rgb(255, 0, 0);');
   });
 
   it('Should Divider className works', () => {
@@ -153,7 +153,10 @@ describe('ConfigProvider support style and className props', () => {
         <Divider />
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-divider'))?.toHaveStyle({ color: 'red', height: '80px' });
+    expect(container.querySelector('.ant-divider'))?.toHaveStyle({
+      color: 'rgb(255, 0, 0)',
+      height: '80px',
+    });
   });
 
   it('Should Drawer className works', () => {
@@ -182,7 +185,7 @@ describe('ConfigProvider support style and className props', () => {
     );
 
     expect(document.querySelector('.ant-drawer-content')).toHaveStyle(
-      'color: red; font-size: 16px;',
+      'color: rgb(255, 0, 0); font-size: 16px;',
     );
   });
 
@@ -218,7 +221,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.slick-slider')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.slick-slider')).toHaveStyle(
+      'color: rgb(255, 0, 0); font-size: 16px;',
+    );
   });
 
   it('Should Cascader className & style works', () => {
@@ -265,7 +270,7 @@ describe('ConfigProvider support style and className props', () => {
 
     const element = container.querySelector<HTMLElement>('.ant-cascader');
     expect(element).toHaveClass('cp-cascader');
-    expect(element).toHaveStyle({ backgroundColor: 'red' });
+    expect(element).toHaveStyle({ backgroundColor: 'color: rgb(255, 0, 0)' });
   });
 
   it('Should Collapse className works', () => {
@@ -307,7 +312,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-collapse')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-collapse')).toHaveStyle(
+      'color: rgb(255, 0, 0); font-size: 16px;',
+    );
   });
 
   it('Should Typography className & style works', () => {
@@ -320,7 +327,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLElement>('.ant-typography');
     expect(element).toHaveClass('cp-typography');
-    expect(element).toHaveStyle({ backgroundColor: 'red' });
+    expect(element).toHaveStyle({ backgroundColor: 'color: rgb(255, 0, 0)' });
   });
 
   it('Should Skeleton className works', () => {
@@ -348,7 +355,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-skeleton')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-skeleton')).toHaveStyle(
+      'color: rgb(255, 0, 0); font-size: 16px;',
+    );
   });
 
   it('Should Spin className & style works', () => {
@@ -361,7 +370,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-spin');
     expect(element).toHaveClass('config-provider-spin');
-    expect(element).toHaveStyle({ backgroundColor: 'red' });
+    expect(element).toHaveStyle({ backgroundColor: 'color: rgb(255, 0, 0)' });
   });
 
   it('Should Statistic className works', () => {
@@ -389,7 +398,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-statistic')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-statistic')).toHaveStyle(
+      'color: rgb(255, 0, 0); font-size: 16px;',
+    );
   });
 
   it('Should Segmented className & style works', () => {
@@ -402,7 +413,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-segmented');
     expect(element).toHaveClass('config-provider-segmented');
-    expect(element).toHaveStyle({ backgroundColor: 'red' });
+    expect(element).toHaveStyle({ backgroundColor: 'color: rgb(255, 0, 0)' });
   });
 
   it('Should Select className & style works', () => {
@@ -418,7 +429,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-select');
     expect(element).toHaveClass('cp-select');
-    expect(element).toHaveStyle({ backgroundColor: 'red' });
+    expect(element).toHaveStyle({ backgroundColor: 'color: rgb(255, 0, 0)' });
   });
 
   it('Should Steps className & style works', () => {
@@ -431,7 +442,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-steps');
     expect(element).toHaveClass('config-provider-steps');
-    expect(element).toHaveStyle({ backgroundColor: 'red' });
+    expect(element).toHaveStyle({ backgroundColor: 'color: rgb(255, 0, 0)' });
   });
 
   it('Should Form className & style works', () => {
@@ -447,7 +458,7 @@ describe('ConfigProvider support style and className props', () => {
 
     const element = container.querySelector<HTMLDivElement>('.ant-form');
     expect(element).toHaveClass('cp-form');
-    expect(element).toHaveStyle({ backgroundColor: 'red' });
+    expect(element).toHaveStyle({ backgroundColor: 'color: rgb(255, 0, 0)' });
   });
 
   it('Should Image className & style works', () => {
@@ -462,7 +473,7 @@ describe('ConfigProvider support style and className props', () => {
       ?.querySelector<HTMLDivElement>('.ant-image')
       ?.querySelector<HTMLImageElement>('img');
     expect(element).toHaveClass('config-provider-image');
-    expect(element).toHaveStyle({ backgroundColor: 'red' });
+    expect(element).toHaveStyle({ backgroundColor: 'color: rgb(255, 0, 0)' });
   });
 
   it('Should Input className & style & classNames & styles works', () => {
@@ -491,15 +502,15 @@ describe('ConfigProvider support style and className props', () => {
 
     const wrapperElement = container.querySelector<HTMLDivElement>('.ant-input-affix-wrapper');
     expect(wrapperElement).toHaveClass('cp-input');
-    expect(wrapperElement).toHaveStyle({ backgroundColor: 'red' });
+    expect(wrapperElement).toHaveStyle({ backgroundColor: 'color: rgb(255, 0, 0)' });
 
     const prefixElement = container.querySelector<HTMLDivElement>('.ant-input-prefix');
     expect(prefixElement).toHaveClass('cp-classNames-prefix');
-    expect(prefixElement).toHaveStyle({ color: 'black' });
+    expect(prefixElement).toHaveStyle({ color: 'rgb(0, 0, 0)' });
 
     const inputElement = container.querySelector<HTMLDivElement>('.ant-input');
     expect(inputElement).toHaveClass('cp-classNames-input');
-    expect(inputElement).toHaveStyle({ color: 'blue' });
+    expect(inputElement).toHaveStyle({ color: 'rgb(0, 0, 255)' });
   });
 
   it('Should Layout className & style works', () => {
@@ -560,7 +571,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-list')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-list')).toHaveStyle(
+      'color: rgb(255, 0, 0); font-size: 16px;',
+    );
   });
 
   it('Should Menu className works', () => {
@@ -600,7 +613,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-menu')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-menu')).toHaveStyle(
+      'color: rgb(255, 0, 0); font-size: 16px;',
+    );
   });
 
   it('Should Mentions className & style works', () => {
@@ -634,7 +649,9 @@ describe('ConfigProvider support style and className props', () => {
     );
 
     expect(container.querySelector('.ant-mentions')).toHaveClass('cp-className');
-    expect(container.querySelector('.ant-mentions')).toHaveStyle({ background: 'red' });
+    expect(container.querySelector('.ant-mentions')).toHaveStyle({
+      background: 'red',
+    });
   });
 
   it('Should Modal className & style works', () => {
@@ -668,7 +685,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-result');
     expect(element).toHaveClass('cp-result');
-    expect(element).toHaveStyle({ backgroundColor: 'red' });
+    expect(element).toHaveStyle({ backgroundColor: 'color: rgb(255, 0, 0)' });
   });
 
   it('Should Radio className & style works', () => {
@@ -686,7 +703,9 @@ describe('ConfigProvider support style and className props', () => {
     );
 
     expect(container.querySelector('.ant-radio-wrapper')).toHaveClass('cp-className');
-    expect(container.querySelector('.ant-radio-wrapper')).toHaveStyle({ background: 'red' });
+    expect(container.querySelector('.ant-radio-wrapper')).toHaveStyle({
+      background: 'red',
+    });
   });
 
   it('Should Slider className & style works', () => {
@@ -697,7 +716,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-slider');
     expect(element).toHaveClass('cp-slider');
-    expect(element).toHaveStyle({ backgroundColor: 'red' });
+    expect(element).toHaveStyle({ backgroundColor: 'color: rgb(255, 0, 0)' });
   });
 
   it('Should Alert className works', () => {
@@ -725,7 +744,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-alert')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-alert')).toHaveStyle(
+      'color: rgb(255, 0, 0); font-size: 16px;',
+    );
   });
 
   it('Should Anchor className & style works', () => {
@@ -756,7 +777,9 @@ describe('ConfigProvider support style and className props', () => {
     );
 
     expect(container.querySelector('.ant-anchor-wrapper')).toHaveClass('cp-className');
-    expect(container.querySelector('.ant-anchor-wrapper')).toHaveStyle({ background: 'red' });
+    expect(container.querySelector('.ant-anchor-wrapper')).toHaveStyle({
+      background: 'red',
+    });
   });
 
   it('Should Breadcrumb className & style works', () => {
@@ -769,7 +792,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLElement>('.ant-breadcrumb');
     expect(element).toHaveClass('cp-breadcrumb');
-    expect(element).toHaveStyle({ backgroundColor: 'red' });
+    expect(element).toHaveStyle({ backgroundColor: 'color: rgb(255, 0, 0)' });
   });
 
   it('Should Checkbox className & style works', () => {
@@ -787,7 +810,9 @@ describe('ConfigProvider support style and className props', () => {
     );
 
     expect(container.querySelector('.ant-checkbox-wrapper')).toHaveClass('cp-checkbox');
-    expect(container.querySelector('.ant-checkbox-wrapper')).toHaveStyle({ background: 'red' });
+    expect(container.querySelector('.ant-checkbox-wrapper')).toHaveStyle({
+      background: 'red',
+    });
   });
 
   it('Should Pagination className & style works', () => {
@@ -800,7 +825,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLUListElement>('.ant-pagination');
     expect(element).toHaveClass('cp-pagination');
-    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+    expect(element).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
   });
 
   it('Should Progress className works', () => {
@@ -828,7 +853,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-progress')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-progress')).toHaveStyle(
+      'color: rgb(255, 0, 0); font-size: 16px;',
+    );
   });
 
   it('Should Descriptions className & style works', () => {
@@ -848,7 +875,9 @@ describe('ConfigProvider support style and className props', () => {
     );
 
     expect(container.querySelector('.ant-descriptions')).toHaveClass('cp-className');
-    expect(container.querySelector('.ant-descriptions')).toHaveStyle({ background: 'red' });
+    expect(container.querySelector('.ant-descriptions')).toHaveStyle({
+      background: 'red',
+    });
   });
 
   it('Should Empty className & style works', () => {
@@ -866,7 +895,9 @@ describe('ConfigProvider support style and className props', () => {
     );
 
     expect(container.querySelector('.ant-empty')).toHaveClass('cp-className');
-    expect(container.querySelector('.ant-empty')).toHaveStyle({ background: 'red' });
+    expect(container.querySelector('.ant-empty')).toHaveStyle({
+      background: 'red',
+    });
   });
 
   it('Should Badge className & style & classNames works', () => {
@@ -898,10 +929,10 @@ describe('ConfigProvider support style and className props', () => {
     expect(element?.querySelector<HTMLElement>('sup')).toHaveClass('cp-badge-indicator');
 
     // test style
-    expect(element).toHaveStyle({ color: 'yellow' });
+    expect(element).toHaveStyle({ color: 'rgb(255, 255, 0)' });
     expect(element?.querySelector<HTMLElement>('sup')).toHaveStyle({
-      color: 'green',
-      backgroundColor: 'blue',
+      color: 'rgb(0, 128, 0)',
+      backgroundColor: 'rgb(0, 0, 255)',
     });
   });
 
@@ -913,7 +944,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLUListElement>('.ant-rate');
     expect(element).toHaveClass('cp-rate');
-    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+    expect(element).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
   });
 
   it('Should Switch className & style works', () => {
@@ -924,7 +955,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLButtonElement>('.ant-switch');
     expect(element).toHaveClass('cp-switch');
-    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+    expect(element).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
   });
 
   it('Should Avatar className & style works', () => {
@@ -935,7 +966,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLSpanElement>('.ant-avatar');
     expect(element).toHaveClass('cp-avatar');
-    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+    expect(element).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
   });
 
   it('Should Tag className & style works', () => {
@@ -946,7 +977,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLSpanElement>('.ant-tag');
     expect(element).toHaveClass('cp-tag');
-    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+    expect(element).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
   });
 
   it('Should Table className & style works', () => {
@@ -957,7 +988,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-table-wrapper');
     expect(element).toHaveClass('cp-table');
-    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+    expect(element).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
   });
 
   it('Should Calendar className works', () => {
@@ -986,7 +1017,7 @@ describe('ConfigProvider support style and className props', () => {
     );
 
     expect(container.querySelector('.ant-picker-calendar')).toHaveStyle(
-      'color: red; font-size: 16px;',
+      'color: rgb(255, 0, 0); font-size: 16px;',
     );
   });
 
@@ -998,7 +1029,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-card');
     expect(element).toHaveClass('cp-card');
-    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+    expect(element).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
   });
 
   it('Should Tabs className & style works', () => {
@@ -1009,7 +1040,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-tabs');
     expect(element).toHaveClass('cp-tabs');
-    expect(element).toHaveStyle({ backgroundColor: 'red' });
+    expect(element).toHaveStyle({ backgroundColor: 'color: rgb(255, 0, 0)' });
   });
 
   it('Should TimePicker className works', () => {
@@ -1037,7 +1068,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-picker')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-picker')).toHaveStyle(
+      'color: rgb(255, 0, 0); font-size: 16px;',
+    );
   });
 
   it('Should message className & style works', () => {
@@ -1058,7 +1091,7 @@ describe('ConfigProvider support style and className props', () => {
       ?.querySelector<HTMLDivElement>('.ant-message')
       ?.querySelector<HTMLDivElement>('.ant-message-notice');
     expect(element).toHaveClass('cp-message');
-    expect(element).toHaveStyle({ color: 'blue' });
+    expect(element).toHaveStyle({ color: 'rgb(0, 0, 255)' });
   });
 
   it('Should Upload className & style works', () => {
@@ -1069,7 +1102,9 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container?.querySelector<HTMLSpanElement>('.ant-upload-wrapper');
     expect(element).toHaveClass('cp-upload');
-    expect(element?.querySelector<HTMLDivElement>('.ant-upload')).toHaveStyle({ color: 'blue' });
+    expect(element?.querySelector<HTMLDivElement>('.ant-upload')).toHaveStyle({
+      color: 'rgb(0, 0, 255)',
+    });
   });
 
   it('Should notification className & style works', () => {
@@ -1090,7 +1125,7 @@ describe('ConfigProvider support style and className props', () => {
       ?.querySelector<HTMLDivElement>('.ant-notification')
       ?.querySelector<HTMLDivElement>('.ant-notification-notice');
     expect(element).toHaveClass('cp-notification');
-    expect(element).toHaveStyle({ color: 'blue' });
+    expect(element).toHaveStyle({ color: 'rgb(0, 0, 255)' });
   });
 
   it('Should Timeline className works', () => {
@@ -1130,7 +1165,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-timeline')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-timeline')).toHaveStyle(
+      'color: rgb(255, 0, 0); font-size: 16px;',
+    );
   });
 
   it('Should Transfer className works', () => {
@@ -1176,7 +1213,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-transfer')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-transfer')).toHaveStyle(
+      'color: rgb(255, 0, 0); font-size: 16px;',
+    );
   });
 
   it('Should Tree className works', () => {
@@ -1219,7 +1258,7 @@ describe('ConfigProvider support style and className props', () => {
     );
 
     expect(container.querySelector('.ant-tree-list')).toHaveStyle(
-      'color: red; font-size: 16px; position: relative;',
+      'color: rgb(255, 0, 0); font-size: 16px; position: relative;',
     );
   });
 
@@ -1233,7 +1272,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-color-picker-trigger');
     expect(element).toHaveClass('cp-colorPicker');
-    expect(element).toHaveStyle({ backgroundColor: 'red' });
+    expect(element).toHaveStyle({ backgroundColor: 'color: rgb(255, 0, 0)' });
   });
 
   it('Should DatePicker className works', () => {
@@ -1261,6 +1300,8 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-picker')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-picker')).toHaveStyle(
+      'color: rgb(255, 0, 0); font-size: 16px;',
+    );
   });
 });

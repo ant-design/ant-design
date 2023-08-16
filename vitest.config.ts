@@ -47,7 +47,6 @@ export default defineConfig({
   ...commonConfig,
   test: {
     ...commonConfig.test,
-    threads: false,
     include,
     exclude: ['**/{image,node}.test.*', ...defaultExclude],
     globals: true,

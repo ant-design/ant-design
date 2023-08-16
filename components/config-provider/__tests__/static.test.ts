@@ -11,7 +11,7 @@ describe('ConfigProvider.config', () => {
   });
 
   it('theme', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     expect(globalConfig().getTheme()).toBeFalsy();
 
     ConfigProvider.config({

@@ -24,7 +24,7 @@ describe('ConfigProvider.Theme', () => {
 
   const colorList = ['primaryColor', 'successColor', 'warningColor', 'errorColor', 'infoColor'];
 
-  colorList.forEach((colorName) => {
+  it.each(colorList)('%s', (colorName) => {
     it(colorName, () => {
       ConfigProvider.config({
         prefixCls: 'bamboo',

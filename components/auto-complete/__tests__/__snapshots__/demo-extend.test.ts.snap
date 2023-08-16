@@ -2243,7 +2243,7 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
 [
   "Warning: Received \`%s\` for a non-boolean attribute \`%s\`.
 
-If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.
+If you want to write it to the DOM, pass a string instead: %s=\\"%s\\" or %s={value.toString()}.
 
 If you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.%s",
 ]

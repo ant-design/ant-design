@@ -28,7 +28,7 @@ describe('Switch', () => {
 
     // Second time for raf to render wave effect
     act(() => {
-      jest.advanceTimersByTime(100);
+      vi.advanceTimersByTime(100);
     });
     expect(document.querySelector('.ant-wave')).toBeTruthy();
     vi.clearAllTimers();

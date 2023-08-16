@@ -86,7 +86,7 @@ describe('FloatButtonGroup', () => {
   });
 
   it('warning if set `open` but not set `trigger`', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     render(
       <FloatButton.Group open trigger="click">
