@@ -193,7 +193,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   // ========================== Copyable ==========================
   const [enableCopy, copyConfig] = useMergedConfig<CopyConfig>(copyable);
   const [copied, setCopied] = React.useState(false);
-  const copyIdRef = React.useRef<NodeJS.Timeout | null>(null);
+  const copyIdRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const copyOptions: Pick<CopyConfig, 'format'> = {};
   if (copyConfig.format) {
@@ -415,7 +415,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
     return (
       <a
-        key="expand"
+        key='expand'
         className={`${prefixCls}-expand`}
         onClick={onExpandClick}
         aria-label={textLocale?.expand}
@@ -435,14 +435,14 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     const ariaLabel = typeof editTitle === 'string' ? editTitle : '';
 
     return triggerType.includes('icon') ? (
-      <Tooltip key="edit" title={tooltip === false ? '' : editTitle}>
+      <Tooltip key='edit' title={tooltip === false ? '' : editTitle}>
         <TransButton
           ref={editIconRef}
           className={`${prefixCls}-edit`}
           onClick={onEditClick}
           aria-label={ariaLabel}
         >
-          {icon || <EditOutlined role="button" />}
+          {icon || <EditOutlined role='button' />}
         </TransButton>
       </Tooltip>
     ) : null;
@@ -464,7 +464,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     const ariaLabel = typeof copyTitle === 'string' ? copyTitle : systemStr;
 
     return (
-      <Tooltip key="copy" title={copyTitle}>
+      <Tooltip key='copy' title={copyTitle}>
         <TransButton
           className={classNames(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
           onClick={onCopyClick}
@@ -486,7 +486,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   const renderEllipsis = (needEllipsis: boolean) => [
     needEllipsis && (
-      <span aria-hidden key="ellipsis">
+      <span aria-hidden key='ellipsis'>
         {ELLIPSIS_STR}
       </span>
     ),
@@ -539,7 +539,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
                 let renderNode: React.ReactNode = node;
                 if (node.length && needEllipsis && topAriaLabel) {
                   renderNode = (
-                    <span key="show-content" aria-hidden>
+                    <span key='show-content' aria-hidden>
                       {renderNode}
                     </span>
                   );

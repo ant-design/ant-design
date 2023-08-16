@@ -149,7 +149,7 @@ module.exports = {
     'react/function-component-definition': 0,
     'react/no-unused-class-component-methods': 0,
     'import/extensions': 0,
-    'import/no-cycle': 0,
+    'import/no-cycle': 2,
     'import/no-extraneous-dependencies': [
       'error',
       {

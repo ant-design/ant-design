@@ -1,5 +1,5 @@
-import { Typography } from 'antd';
 import React from 'react';
+import { Typography } from 'antd';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -31,18 +31,18 @@ const App: React.FC = () => (
     <Paragraph>
       <ul>
         <li>
-          <a href="/docs/spec/proximity">Principles</a>
+          <a href='/docs/spec/proximity'>Principles</a>
         </li>
         <li>
-          <a href="/docs/pattern/navigation">Patterns</a>
+          <a href='/docs/pattern/navigation'>Patterns</a>
         </li>
         <li>
-          <a href="/docs/resource/download">Resource Download</a>
+          <a href='/docs/resource/download'>Resource Download</a>
         </li>
       </ul>
     </Paragraph>
 
-    <Title id="intro">介绍</Title>
+    <Title id='intro'>介绍</Title>
     <Paragraph>
       蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
     </Paragraph>
@@ -61,13 +61,13 @@ const App: React.FC = () => (
     <Paragraph>
       <ul>
         <li>
-          <a href="/docs/spec/proximity">设计原则</a>
+          <a href='/docs/spec/proximity'>设计原则</a>
         </li>
         <li>
-          <a href="/docs/pattern/navigation">设计模式</a>
+          <a href='/docs/pattern/navigation'>设计模式</a>
         </li>
         <li>
-          <a href="/docs/resource/download">设计资源</a>
+          <a href='/docs/resource/download'>设计资源</a>
         </li>
       </ul>
     </Paragraph>

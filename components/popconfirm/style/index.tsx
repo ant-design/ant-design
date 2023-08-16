@@ -2,6 +2,10 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook } from '../../theme/internal';
 
 export interface ComponentToken {
+  /**
+   * @desc 确认框 z-index
+   * @descEN z-index of Popconfirm
+   */
   zIndexPopup: number;
 }
 
@@ -61,6 +65,7 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
 
       [`${componentCls}-buttons`]: {
         textAlign: 'end',
+        whiteSpace: 'nowrap',
 
         button: {
           marginInlineStart: marginXS,

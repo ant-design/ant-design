@@ -24,6 +24,8 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 **Note:** Part of the Calendar's locale is read from `value`. So, please set the locale of `dayjs` correctly.
 
 ```jsx

@@ -6,12 +6,12 @@ import type { GenerateStyle } from '../../theme/internal';
 const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
   const {
     componentCls,
-    menuItemHeight,
+    itemHeight,
     itemMarginInline,
     padding,
     menuArrowSize,
     marginXS,
-    marginXXS,
+    itemMarginBlock,
   } = token;
 
   const paddingWithArrow = padding + menuArrowSize + marginXS;
@@ -23,20 +23,20 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
     },
 
     [`${componentCls}-item, ${componentCls}-submenu-title`]: {
-      height: menuItemHeight,
-      lineHeight: `${menuItemHeight}px`,
+      height: itemHeight,
+      lineHeight: `${itemHeight}px`,
       paddingInline: padding,
       overflow: 'hidden',
       textOverflow: 'ellipsis',
       marginInline: itemMarginInline,
-      marginBlock: marginXXS,
+      marginBlock: itemMarginBlock,
       width: `calc(100% - ${itemMarginInline * 2}px)`,
     },
 
     [`> ${componentCls}-item,
             > ${componentCls}-submenu > ${componentCls}-submenu-title`]: {
-      height: menuItemHeight,
-      lineHeight: `${menuItemHeight}px`,
+      height: itemHeight,
+      lineHeight: `${itemHeight}px`,
     },
 
     [`${componentCls}-item-group-list ${componentCls}-submenu-title,
@@ -50,7 +50,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
   const {
     componentCls,
     iconCls,
-    menuItemHeight,
+    itemHeight,
     colorTextLightSolid,
     dropdownWidth,
     controlHeightLG,
@@ -62,11 +62,13 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
     motionDurationSlow,
     paddingXS,
     boxShadowSecondary,
+    collapsedWidth,
+    collapsedIconSize,
   } = token;
 
   const inlineItemStyle: CSSObject = {
-    height: menuItemHeight,
-    lineHeight: `${menuItemHeight}px`,
+    height: itemHeight,
+    lineHeight: `${itemHeight}px`,
     listStylePosition: 'inside',
     listStyleType: 'disc',
   };
@@ -160,7 +162,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
     // Inline Collapse Only
     {
       [`${componentCls}-inline-collapsed`]: {
-        width: menuItemHeight * 2,
+        width: collapsedWidth,
 
         [`&${componentCls}-root`]: {
           [`${componentCls}-item, ${componentCls}-submenu ${componentCls}-submenu-title`]: {
@@ -188,8 +190,8 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
 
           [`${componentCls}-item-icon, ${iconCls}`]: {
             margin: 0,
-            fontSize: fontSizeLG,
-            lineHeight: `${menuItemHeight}px`,
+            fontSize: collapsedIconSize,
+            lineHeight: `${itemHeight}px`,
 
             '+ span': {
               display: 'inline-block',

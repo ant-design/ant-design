@@ -1,6 +1,6 @@
 import { AntDesignOutlined, UserOutlined } from '@ant-design/icons';
-import { Avatar, Badge, ConfigProvider, Space, Tooltip } from 'antd';
 import React from 'react';
+import { Avatar, Badge, ConfigProvider, Space, Tooltip } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -23,15 +23,15 @@ const App: React.FC = () => (
     }}
   >
     <Space>
-      <Avatar shape="circle" src="http://abc.com/not-exist.jpg">
+      <Avatar shape='circle' src='http://abc.com/not-exist.jpg'>
         A
       </Avatar>
     </Space>
     <Space>
       <Avatar.Group maxCount={2} maxStyle={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
-        <Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2" />
+        <Avatar src='https://xsgames.co/randomusers/avatar.php?g=pixel&key=2' />
         <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
-        <Tooltip title="Ant User" placement="top">
+        <Tooltip title='Ant User' placement='top'>
           <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
         </Tooltip>
         <Avatar style={{ backgroundColor: '#1890ff' }} icon={<AntDesignOutlined />} />
@@ -39,10 +39,10 @@ const App: React.FC = () => (
     </Space>
     <Space>
       <Badge count={1}>
-        <Avatar shape="square" icon={<UserOutlined />} />
+        <Avatar shape='square' icon={<UserOutlined />} />
       </Badge>
       <Badge dot>
-        <Avatar shape="square" icon={<UserOutlined />} />
+        <Avatar shape='square' icon={<UserOutlined />} />
       </Badge>
     </Space>
   </ConfigProvider>

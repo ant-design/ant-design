@@ -8,11 +8,35 @@ import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook'
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   // Component token here
+  /**
+   * @desc 顶部背景色
+   * @descEN Background color of header
+   */
   headerBg: string;
+  /**
+   * @desc 标题行高
+   * @descEN Line height of title
+   */
   titleLineHeight: number;
+  /**
+   * @desc 标题字体大小
+   * @descEN Font size of title
+   */
   titleFontSize: number;
+  /**
+   * @desc 标题字体颜色
+   * @descEN Font color of title
+   */
   titleColor: string;
+  /**
+   * @desc 内容区域背景色
+   * @descEN Background color of content
+   */
   contentBg: string;
+  /**
+   * @desc 底部区域背景色
+   * @descEN Background color of footer
+   */
   footerBg: string;
 }
 
@@ -38,10 +62,7 @@ export interface ModalToken extends FullToken<'Modal'> {
 function box(position: React.CSSProperties['position']): React.CSSProperties {
   return {
     position,
-    top: 0,
-    insetInlineEnd: 0,
-    bottom: 0,
-    insetInlineStart: 0,
+    inset: 0,
   };
 }
 
@@ -71,6 +92,7 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
           zIndex: token.zIndexPopupBase,
           height: '100%',
           backgroundColor: token.colorBgMask,
+          pointerEvents: 'none',
 
           [`${componentCls}-hidden`]: {
             display: 'none',
@@ -79,9 +101,16 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
 
         [`${componentCls}-wrap`]: {
           ...box('fixed'),
+          zIndex: token.zIndexPopupBase,
           overflow: 'auto',
           outline: 0,
           WebkitOverflowScrolling: 'touch',
+
+          // Note: Firefox not support `:has` yet
+          [`&:has(${componentCls}${antCls}-zoom-enter), &:has(${componentCls}${antCls}-zoom-appear)`]:
+            {
+              pointerEvents: 'none',
+            },
         },
       },
     },
@@ -96,14 +125,6 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
     // ======================== Root =========================
     {
       [`${componentCls}-root`]: {
-        [`${componentCls}-wrap`]: {
-          zIndex: token.zIndexPopupBase,
-          position: 'fixed',
-          inset: 0,
-          overflow: 'auto',
-          outline: 0,
-          WebkitOverflowScrolling: 'touch',
-        },
         [`${componentCls}-wrap-rtl`]: {
           direction: 'rtl',
         },

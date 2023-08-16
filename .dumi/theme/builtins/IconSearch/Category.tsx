@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { message } from 'antd';
 import { useIntl } from 'dumi';
+import { message } from 'antd';
 import CopyableIcon from './CopyableIcon';
 import type { ThemeType } from './index';
 import type { CategoriesKeys } from './fields';
@@ -16,11 +16,11 @@ const Category: React.FC<CategoryProps> = (props) => {
   const { icons, title, newIcons, theme } = props;
   const intl = useIntl();
   const [justCopied, setJustCopied] = React.useState<string | null>(null);
-  const copyId = React.useRef<NodeJS.Timeout | null>(null);
+  const copyId = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const onCopied = React.useCallback((type: string, text: string) => {
     message.success(
       <span>
-        <code className="copied-code">{text}</code> copied 🎉
+        <code className='copied-code'>{text}</code> copied 🎉
       </span>,
     );
     setJustCopied(type);
@@ -39,7 +39,7 @@ const Category: React.FC<CategoryProps> = (props) => {
   return (
     <div>
       <h3>{intl.formatMessage({ id: `app.docs.components.icon.category.${title}` })}</h3>
-      <ul className="anticons-list">
+      <ul className='anticons-list'>
         {icons.map((name) => (
           <CopyableIcon
             key={name}

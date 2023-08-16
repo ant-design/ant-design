@@ -1,5 +1,5 @@
-import { Anchor, Col, ConfigProvider, Row } from 'antd';
 import React from 'react';
+import { Anchor, Col, ConfigProvider, Row } from 'antd';
 
 /** Test usage. Do not use in your production. */
 
@@ -16,9 +16,9 @@ export default () => (
   >
     <Row>
       <Col span={16}>
-        <div id="part-1" style={{ height: '100vh', background: 'rgba(255,0,0,0.02)' }} />
-        <div id="part-2" style={{ height: '100vh', background: 'rgba(0,255,0,0.02)' }} />
-        <div id="part-3" style={{ height: '100vh', background: 'rgba(0,0,255,0.02)' }} />
+        <div id='part-1' style={{ height: '100vh', background: 'rgba(255,0,0,0.02)' }} />
+        <div id='part-2' style={{ height: '100vh', background: 'rgba(0,255,0,0.02)' }} />
+        <div id='part-3' style={{ height: '100vh', background: 'rgba(0,0,255,0.02)' }} />
       </Col>
       <Col span={8}>
         <Anchor

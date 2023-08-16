@@ -1,6 +1,6 @@
+import React, { useMemo, useState } from 'react';
 import { Button, ColorPicker, theme } from 'antd';
 import type { Color } from 'antd/es/color-picker';
-import React, { useMemo, useState } from 'react';
 
 const Demo: React.FC = () => {
   const { token } = theme.useToken();
@@ -17,7 +17,7 @@ const Demo: React.FC = () => {
 
   return (
     <ColorPicker value={color} onChange={setColor}>
-      <Button type="primary" style={btnStyle}>
+      <Button type='primary' style={btnStyle}>
         open
       </Button>
     </ColorPicker>

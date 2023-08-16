@@ -39,14 +39,14 @@ describe('Input', () => {
   });
 
   it('should support size', () => {
-    const { asFragment, container } = render(<Input size="large" />);
+    const { asFragment, container } = render(<Input size='large' />);
     expect(container.querySelector('input')?.classList.contains('ant-input-lg')).toBe(true);
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('should support size in form', () => {
     const { asFragment, container } = render(
-      <Form size="large">
+      <Form size='large'>
         <Form.Item>
           <Input />
         </Form.Item>
@@ -58,17 +58,17 @@ describe('Input', () => {
 
   describe('focus trigger warning', () => {
     it('not trigger', () => {
-      const { container, rerender } = render(<Input suffix="bamboo" />);
+      const { container, rerender } = render(<Input suffix='bamboo' />);
 
       fireEvent.focus(container.querySelector('input')!);
 
-      rerender(<Input suffix="light" />);
+      rerender(<Input suffix='light' />);
       expect(errorSpy).not.toHaveBeenCalled();
     });
     it('trigger warning', () => {
       const { container, rerender, unmount } = render(<Input />);
       container.querySelector('input')?.focus();
-      rerender(<Input suffix="light" />);
+      rerender(<Input suffix='light' />);
       expect(errorSpy).toHaveBeenCalledWith(
         'Warning: [antd: Input] When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ',
       );
@@ -78,7 +78,7 @@ describe('Input', () => {
 
   describe('click focus', () => {
     it('click outside should also get focus', () => {
-      const { container } = render(<Input suffix={<span className="test-suffix" />} />);
+      const { container } = render(<Input suffix={<span className='test-suffix' />} />);
       const onFocus = jest.spyOn(container.querySelector('input')!, 'focus');
       fireEvent.click(container.querySelector('.test-suffix')!);
       expect(onFocus).toHaveBeenCalled();
@@ -88,12 +88,12 @@ describe('Input', () => {
       const holder = document.createElement('span');
       document.body.appendChild(holder);
 
-      const Popup = () => createPortal(<span className="popup" />, holder);
+      const Popup = () => createPortal(<span className='popup' />, holder);
 
       const { container } = render(
         <Input
           suffix={
-            <span className="test-suffix">
+            <span className='test-suffix'>
               <Popup />
             </span>
           }
@@ -131,13 +131,13 @@ describe('Input', () => {
 
 describe('prefix and suffix', () => {
   it('should support className when has suffix', () => {
-    const { container } = render(<Input suffix="suffix" className="my-class-name" />);
+    const { container } = render(<Input suffix='suffix' className='my-class-name' />);
     expect((container.firstChild as Element).className.includes('my-class-name')).toBe(true);
     expect(container.querySelector('input')?.className.includes('my-class-name')).toBe(false);
   });
 
   it('should support className when has prefix', () => {
-    const { container } = render(<Input prefix="prefix" className="my-class-name" />);
+    const { container } = render(<Input prefix='prefix' className='my-class-name' />);
     expect((container.firstChild as Element).className.includes('my-class-name')).toBe(true);
     expect(container.querySelector('input')?.className.includes('my-class-name')).toBe(false);
   });
@@ -145,8 +145,8 @@ describe('prefix and suffix', () => {
   it('should support hidden when has prefix or suffix', () => {
     const { container } = render(
       <>
-        <Input prefix="prefix" hidden className="prefix-with-hidden" />
-        <Input suffix="suffix" hidden className="suffix-with-hidden" />
+        <Input prefix='prefix' hidden className='prefix-with-hidden' />
+        <Input suffix='suffix' hidden className='suffix-with-hidden' />
       </>,
     );
 
@@ -161,48 +161,48 @@ describe('Input setting hidden', () => {
       <>
         <Input
           hidden
-          className="input"
+          className='input'
           showCount
           allowClear
-          prefix="11"
-          suffix="22"
-          addonBefore="http://"
-          addonAfter=".com"
-          defaultValue="mysite1"
+          prefix='11'
+          suffix='22'
+          addonBefore='http://'
+          addonAfter='.com'
+          defaultValue='mysite1'
         />
         <Input.Search
           hidden
-          className="input-search"
+          className='input-search'
           showCount
           allowClear
-          prefix="11"
-          suffix="22"
-          addonBefore="http://"
-          addonAfter=".com"
-          defaultValue="mysite1"
+          prefix='11'
+          suffix='22'
+          addonBefore='http://'
+          addonAfter='.com'
+          defaultValue='mysite1'
         />
         <Input.TextArea
           hidden
-          className="input-textarea"
+          className='input-textarea'
           showCount
           allowClear
-          prefix="11"
+          prefix='11'
           // @ts-ignore
-          suffix="22"
-          addonBefore="http://"
-          addonAfter=".com"
-          defaultValue="mysite1"
+          suffix='22'
+          addonBefore='http://'
+          addonAfter='.com'
+          defaultValue='mysite1'
         />
         <Input.Password
           hidden
-          className="input-password"
+          className='input-password'
           showCount
           allowClear
-          prefix="11"
-          suffix="22"
-          addonBefore="http://"
-          addonAfter=".com"
-          defaultValue="mysite1"
+          prefix='11'
+          suffix='22'
+          addonBefore='http://'
+          addonAfter='.com'
+          defaultValue='mysite1'
         />
       </>,
     );
@@ -224,13 +224,13 @@ describe('As Form Control', () => {
 
       return (
         <Form form={form}>
-          <Form.Item name="input">
+          <Form.Item name='input'>
             <Input />
           </Form.Item>
-          <Form.Item name="textarea">
+          <Form.Item name='textarea'>
             <Input.TextArea />
           </Form.Item>
-          <button type="button" onClick={reset}>
+          <button type='button' onClick={reset}>
             reset
           </button>
         </Form>
@@ -250,29 +250,29 @@ describe('As Form Control', () => {
 
 describe('should support showCount', () => {
   it('maxLength', () => {
-    const { container } = render(<Input maxLength={5} showCount value="12345" />);
+    const { container } = render(<Input maxLength={5} showCount value='12345' />);
     expect(container.querySelector('input')?.getAttribute('value')).toBe('12345');
     expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('5 / 5');
   });
 
   it('control exceed maxLength', () => {
-    const { container } = render(<Input maxLength={5} showCount value="12345678" />);
+    const { container } = render(<Input maxLength={5} showCount value='12345678' />);
     expect(container.querySelector('input')?.getAttribute('value')).toBe('12345678');
     expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('8 / 5');
   });
 
   describe('emoji', () => {
     it('should minimize value between emoji length and maxLength', () => {
-      const { container } = render(<Input maxLength={1} showCount value="👀" />);
+      const { container } = render(<Input maxLength={1} showCount value='👀' />);
       expect(container.querySelector('input')?.getAttribute('value')).toBe('👀');
       expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('1 / 1');
 
-      const { container: container1 } = render(<Input maxLength={2} showCount value="👀" />);
+      const { container: container1 } = render(<Input maxLength={2} showCount value='👀' />);
       expect(container1.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('1 / 2');
     });
 
     it('slice emoji', () => {
-      const { container } = render(<Input maxLength={5} showCount value="1234😂" />);
+      const { container } = render(<Input maxLength={5} showCount value='1234😂' />);
       expect(container.querySelector('input')?.getAttribute('value')).toBe('1234😂');
       expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('5 / 5');
     });
@@ -285,7 +285,7 @@ describe('should support showCount', () => {
         showCount={{
           formatter: ({ value, count, maxLength }) => `${value}, ${count}, ${maxLength}`,
         }}
-        value="12345"
+        value='12345'
       />,
     );
     expect(container.querySelector('input')?.getAttribute('value')).toBe('12345');
@@ -333,7 +333,7 @@ describe('Input allowClear', () => {
       argumentEventObjectType = e.type;
       argumentEventObjectValue = e.target.value;
     };
-    const { container } = render(<Input allowClear defaultValue="111" onChange={onChange} />);
+    const { container } = render(<Input allowClear defaultValue='111' onChange={onChange} />);
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
     expect(argumentEventObjectType).toBe('click');
     expect(argumentEventObjectValue).toBe('');
@@ -347,7 +347,7 @@ describe('Input allowClear', () => {
       argumentEventObjectType = e.type;
       argumentEventObjectValue = e.target.value;
     };
-    const { container } = render(<Input allowClear value="111" onChange={onChange} />);
+    const { container } = render(<Input allowClear value='111' onChange={onChange} />);
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
     expect(argumentEventObjectType).toBe('click');
     expect(argumentEventObjectValue).toBe('');
@@ -355,7 +355,7 @@ describe('Input allowClear', () => {
   });
 
   it('should focus input after clear', () => {
-    const { container, unmount } = render(<Input allowClear defaultValue="111" />, {
+    const { container, unmount } = render(<Input allowClear defaultValue='111' />, {
       container: document.body,
     });
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
@@ -365,14 +365,14 @@ describe('Input allowClear', () => {
 
   ['disabled', 'readOnly'].forEach((prop) => {
     it(`should not support allowClear when it is ${prop}`, () => {
-      const { container } = render(<Input allowClear defaultValue="111" {...{ [prop]: true }} />);
+      const { container } = render(<Input allowClear defaultValue='111' {...{ [prop]: true }} />);
       expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
     });
   });
 
   // https://github.com/ant-design/ant-design/issues/27444
   it('should support className', () => {
-    const { container } = render(<Input allowClear className="my-class-name" />);
+    const { container } = render(<Input allowClear className='my-class-name' />);
     expect((container.firstChild as Element).className.includes('my-class-name')).toBe(true);
     expect(container.querySelector('input')?.className.includes('my-class-name')).toBe(false);
   });
@@ -381,7 +381,7 @@ describe('Input allowClear', () => {
   it('should not lost focus when clear input', () => {
     const onBlur = jest.fn();
     const { container, unmount } = render(
-      <Input allowClear defaultValue="value" onBlur={onBlur} />,
+      <Input allowClear defaultValue='value' onBlur={onBlur} />,
       {
         container: document.body,
       },
@@ -398,7 +398,7 @@ describe('Input allowClear', () => {
 
   // https://github.com/ant-design/ant-design/issues/31927
   it('should correctly when useState', () => {
-    const App = () => {
+    const App: React.FC = () => {
       const [query, setQuery] = useState('');
       return (
         <Input
@@ -424,7 +424,7 @@ describe('Input allowClear', () => {
   });
 
   it('not crash when value is number', () => {
-    const { container } = render(<Input suffix="Bamboo" value={1} />);
+    const { container } = render(<Input suffix='Bamboo' value={1} />);
     expect(container).toBeTruthy();
   });
 
@@ -446,12 +446,12 @@ describe('Input allowClear', () => {
     const { container } = render(
       <>
         <Input
-          value="123"
+          value='123'
           showCount
-          prefixCls="rc-input"
-          prefix="prefix"
-          suffix="suffix"
-          className="custom-class"
+          prefixCls='rc-input'
+          prefix='prefix'
+          suffix='suffix'
+          className='custom-class'
           style={{ backgroundColor: 'red' }}
           classNames={{
             input: 'custom-input',
@@ -467,13 +467,13 @@ describe('Input allowClear', () => {
           }}
         />
         <Input
-          value="123"
-          addonAfter="addon"
+          value='123'
+          addonAfter='addon'
           showCount
-          prefixCls="rc-input"
-          prefix="prefix"
-          suffix="suffix"
-          className="custom-class"
+          prefixCls='rc-input'
+          prefix='prefix'
+          suffix='suffix'
+          className='custom-class'
           style={{ backgroundColor: 'red' }}
           classNames={{
             input: 'custom-input',
@@ -489,9 +489,9 @@ describe('Input allowClear', () => {
           }}
         />
         <Input
-          value="123"
-          prefixCls="rc-input"
-          className="custom-class"
+          value='123'
+          prefixCls='rc-input'
+          className='custom-class'
           style={{ backgroundColor: 'red' }}
           classNames={{
             input: 'custom-input',
@@ -501,10 +501,10 @@ describe('Input allowClear', () => {
           }}
         />
         <Input
-          value="123"
-          prefixCls="rc-input"
-          className="custom-class"
-          addonAfter="addon"
+          value='123'
+          prefixCls='rc-input'
+          className='custom-class'
+          addonAfter='addon'
           style={{ backgroundColor: 'red' }}
           classNames={{
             input: 'custom-input',

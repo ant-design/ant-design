@@ -30,7 +30,7 @@ const CollapsePanel = React.forwardRef<HTMLDivElement, CollapsePanelProps>((prop
   );
 
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const { prefixCls: customizePrefixCls, className = '', showArrow = true } = props;
+  const { prefixCls: customizePrefixCls, className, showArrow = true } = props;
   const prefixCls = getPrefixCls('collapse', customizePrefixCls);
   const collapsePanelClassName = classNames(
     {

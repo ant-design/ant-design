@@ -1,6 +1,6 @@
+import React, { useMemo, useState } from 'react';
 import { ColorPicker, Form, Input, InputNumber, Slider, Space, Typography, Watermark } from 'antd';
 import type { Color } from 'antd/es/color-picker';
-import React, { useMemo, useState } from 'react';
 
 const { Paragraph } = Typography;
 
@@ -77,8 +77,8 @@ const App: React.FC = () => {
             maxWidth: 800,
             position: 'relative',
           }}
-          src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zx7LTI_ECSAAAAAAAAAAAABkARQnAQ"
-          alt="示例图片"
+          src='https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zx7LTI_ECSAAAAAAAAAAAABkARQnAQ'
+          alt='示例图片'
         />
       </Watermark>
       <Form
@@ -90,44 +90,44 @@ const App: React.FC = () => {
           marginLeft: 20,
         }}
         form={form}
-        layout="vertical"
+        layout='vertical'
         initialValues={config}
         onValuesChange={(_, values) => {
           setConfig(values);
         }}
       >
-        <Form.Item name="content" label="Content">
-          <Input placeholder="请输入" />
+        <Form.Item name='content' label='Content'>
+          <Input placeholder='请输入' />
         </Form.Item>
-        <Form.Item name="color" label="Color">
+        <Form.Item name='color' label='Color'>
           <ColorPicker />
         </Form.Item>
-        <Form.Item name="fontSize" label="FontSize">
+        <Form.Item name='fontSize' label='FontSize'>
           <Slider step={1} min={0} max={100} />
         </Form.Item>
-        <Form.Item name="zIndex" label="zIndex">
+        <Form.Item name='zIndex' label='zIndex'>
           <Slider step={1} min={0} max={100} />
         </Form.Item>
-        <Form.Item name="rotate" label="Rotate">
+        <Form.Item name='rotate' label='Rotate'>
           <Slider step={1} min={-180} max={180} />
         </Form.Item>
-        <Form.Item label="Gap" style={{ marginBottom: 0 }}>
-          <Space style={{ display: 'flex' }} align="baseline">
+        <Form.Item label='Gap' style={{ marginBottom: 0 }}>
+          <Space style={{ display: 'flex' }} align='baseline'>
             <Form.Item name={['gap', 0]}>
-              <InputNumber placeholder="gapX" style={{ width: '100%' }} />
+              <InputNumber placeholder='gapX' style={{ width: '100%' }} />
             </Form.Item>
             <Form.Item name={['gap', 1]}>
-              <InputNumber placeholder="gapY" style={{ width: '100%' }} />
+              <InputNumber placeholder='gapY' style={{ width: '100%' }} />
             </Form.Item>
           </Space>
         </Form.Item>
-        <Form.Item label="Offset" style={{ marginBottom: 0 }}>
-          <Space style={{ display: 'flex' }} align="baseline">
+        <Form.Item label='Offset' style={{ marginBottom: 0 }}>
+          <Space style={{ display: 'flex' }} align='baseline'>
             <Form.Item name={['offset', 0]}>
-              <InputNumber placeholder="offsetLeft" style={{ width: '100%' }} />
+              <InputNumber placeholder='offsetLeft' style={{ width: '100%' }} />
             </Form.Item>
             <Form.Item name={['offset', 1]}>
-              <InputNumber placeholder="offsetTop" style={{ width: '100%' }} />
+              <InputNumber placeholder='offsetTop' style={{ width: '100%' }} />
             </Form.Item>
           </Space>
         </Form.Item>

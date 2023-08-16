@@ -23,8 +23,20 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
 
 export interface ComponentToken {
+  /**
+   * @desc 预设区域宽度
+   * @descEN Width of preset area
+   */
   presetsWidth: number;
+  /**
+   * @desc 预设区域最大宽度
+   * @descEN Max width of preset area
+   */
   presetsMaxWidth: number;
+  /**
+   * @desc 弹窗 z-index
+   * @descEN z-index of popup
+   */
   zIndexPopup: number;
 }
 
@@ -117,6 +129,12 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       lineHeight: `${pickerPanelCellHeight}px`,
       borderRadius: borderRadiusSM,
       transition: `background ${motionDurationMid}, border ${motionDurationMid}`,
+    },
+    [`&-range-hover-start, &-range-hover-end`]: {
+      [pickerCellInnerCls]: {
+        borderStartEndRadius: 0,
+        borderEndEndRadius: 0,
+      },
     },
 
     // >>> Hover
@@ -251,8 +269,8 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       &-in-view${pickerCellCls}-range-hover-start::after`]: {
       insetInlineStart: (pickerPanelCellWidth - pickerPanelCellHeight) / 2,
       borderInlineStart: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
-      borderStartStartRadius: lineWidth,
-      borderEndStartRadius: lineWidth,
+      borderStartStartRadius: borderRadiusSM,
+      borderEndStartRadius: borderRadiusSM,
     },
 
     // Edge end
@@ -263,8 +281,8 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       &-in-view${pickerCellCls}-range-hover-end::after`]: {
       insetInlineEnd: (pickerPanelCellWidth - pickerPanelCellHeight) / 2,
       borderInlineEnd: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
-      borderStartEndRadius: lineWidth,
-      borderEndEndRadius: lineWidth,
+      borderStartEndRadius: borderRadiusSM,
+      borderEndEndRadius: borderRadiusSM,
     },
 
     // >>> Disabled
@@ -1012,6 +1030,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     presetsWidth,
     presetsMaxWidth,
     boxShadowPopoverArrow,
+    colorTextQuaternary,
   } = token;
 
   return [
@@ -1042,7 +1061,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           cursor: 'not-allowed',
 
           [`${componentCls}-suffix`]: {
-            color: colorTextDisabled,
+            color: colorTextQuaternary,
           },
         },
 

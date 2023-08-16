@@ -35,10 +35,10 @@ describe('ConfigProvider.Form', () => {
       const { container } = render(
         <ConfigProvider locale={zhCN} form={{ validateMessages }}>
           <Form ref={formRef} initialValues={{ age: 18 }}>
-            <Form.Item name="test" label="姓名" rules={[{ required: true }]}>
+            <Form.Item name='test' label='姓名' rules={[{ required: true }]}>
               <input />
             </Form.Item>
-            <Form.Item name="age" label="年龄" rules={[{ type: 'number', len: 17 }]}>
+            <Form.Item name='age' label='年龄' rules={[{ type: 'number', len: 17 }]}>
               <input />
             </Form.Item>
           </Form>
@@ -113,10 +113,10 @@ describe('ConfigProvider.Form', () => {
       const { container } = render(
         <ConfigProvider form={{ validateMessages }}>
           <Form ref={formRef} initialValues={{ age: 1, rate: 6 }}>
-            <Form.Item name="rate" rules={[{ type: 'number', max: 5 }]}>
+            <Form.Item name='rate' rules={[{ type: 'number', max: 5 }]}>
               <InputNumber />
             </Form.Item>
-            <Form.Item name="age" rules={[{ type: 'number', max: 99, min: 18 }]}>
+            <Form.Item name='age' rules={[{ type: 'number', max: 99, min: 18 }]}>
               <InputNumber />
             </Form.Item>
           </Form>
@@ -148,6 +148,42 @@ describe('ConfigProvider.Form', () => {
         'age must be between 18-99',
       );
     });
+
+    // https://github.com/ant-design/ant-design/issues/43210
+    it('should merge parent ConfigProvider validateMessages', async () => {
+      const MyForm = () => (
+        <Form>
+          <Form.Item name='name' label='Name' rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+          <Button type='primary' htmlType='submit'>
+            Submit
+          </Button>
+        </Form>
+      );
+
+      const { container, getAllByRole, getAllByText } = render(
+        <ConfigProvider>
+          <MyForm />
+          <ConfigProvider form={{ validateMessages: { required: 'Required' } }}>
+            <MyForm />
+            <ConfigProvider>
+              <MyForm />
+            </ConfigProvider>
+          </ConfigProvider>
+        </ConfigProvider>,
+      );
+
+      const submitButtons = getAllByRole('button');
+      expect(submitButtons).toHaveLength(3);
+      submitButtons.forEach(fireEvent.click);
+
+      await waitFakeTimer();
+
+      expect(container.querySelectorAll('.ant-form-item-explain-error')).toHaveLength(3);
+      expect(getAllByText('Please enter Name')).toHaveLength(1);
+      expect(getAllByText('Required')).toHaveLength(2);
+    });
   });
 
   describe('form requiredMark', () => {
@@ -155,7 +191,7 @@ describe('ConfigProvider.Form', () => {
       const { container } = render(
         <ConfigProvider form={{ requiredMark: 'optional' }}>
           <Form initialValues={{ age: 18 }}>
-            <Form.Item name="age" label="年龄" rules={[{ type: 'number', len: 17 }]}>
+            <Form.Item name='age' label='年龄' rules={[{ type: 'number', len: 17 }]}>
               <input />
             </Form.Item>
           </Form>
@@ -170,7 +206,7 @@ describe('ConfigProvider.Form', () => {
       const { container } = render(
         <ConfigProvider form={{ colon: false }}>
           <Form>
-            <Form.Item label="没有冒号">
+            <Form.Item label='没有冒号'>
               <input />
             </Form.Item>
           </Form>
@@ -183,7 +219,7 @@ describe('ConfigProvider.Form', () => {
       const { container } = render(
         <ConfigProvider>
           <Form>
-            <Form.Item label="姓名">
+            <Form.Item label='姓名'>
               <input />
             </Form.Item>
           </Form>
@@ -198,11 +234,11 @@ describe('ConfigProvider.Form', () => {
       const { container } = render(
         <Form disabled>
           <ConfigProvider componentDisabled={false}>
-            <Form.Item name="input1" label="启用">
+            <Form.Item name='input1' label='启用'>
               <Input />
             </Form.Item>
           </ConfigProvider>
-          <Form.Item name="input" label="禁用">
+          <Form.Item name='input' label='禁用'>
             <Input />
           </Form.Item>
         </Form>,
@@ -221,11 +257,11 @@ describe('ConfigProvider.Form', () => {
       const { container } = render(
         <ConfigProvider form={{ scrollToFirstError: { block: 'center' } }}>
           <Form onFinishFailed={onFinishFailed}>
-            <Form.Item name="test" rules={[{ required: true }]}>
+            <Form.Item name='test' rules={[{ required: true }]}>
               <input />
             </Form.Item>
             <Form.Item>
-              <Button htmlType="submit">Submit</Button>
+              <Button htmlType='submit'>Submit</Button>
             </Form.Item>
           </Form>
         </ConfigProvider>,
@@ -250,11 +286,11 @@ describe('ConfigProvider.Form', () => {
       const { container } = render(
         <ConfigProvider>
           <Form scrollToFirstError={{ block: 'center' }} onFinishFailed={onFinishFailed}>
-            <Form.Item name="test" rules={[{ required: true }]}>
+            <Form.Item name='test' rules={[{ required: true }]}>
               <input />
             </Form.Item>
             <Form.Item>
-              <Button htmlType="submit">Submit</Button>
+              <Button htmlType='submit'>Submit</Button>
             </Form.Item>
           </Form>
         </ConfigProvider>,
@@ -279,11 +315,11 @@ describe('ConfigProvider.Form', () => {
       const { container } = render(
         <ConfigProvider form={{ scrollToFirstError: { block: 'center' } }}>
           <Form scrollToFirstError={false} onFinishFailed={onFinishFailed}>
-            <Form.Item name="test" rules={[{ required: true }]}>
+            <Form.Item name='test' rules={[{ required: true }]}>
               <input />
             </Form.Item>
             <Form.Item>
-              <Button htmlType="submit">Submit</Button>
+              <Button htmlType='submit'>Submit</Button>
             </Form.Item>
           </Form>
         </ConfigProvider>,

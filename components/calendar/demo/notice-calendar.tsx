@@ -1,8 +1,8 @@
 import React from 'react';
-import type { BadgeProps } from 'antd';
-import { Badge, Calendar } from 'antd';
 import type { Dayjs } from 'dayjs';
 import type { CellRenderInfo } from 'rc-picker/lib/interface';
+import type { BadgeProps } from 'antd';
+import { Badge, Calendar } from 'antd';
 
 const getListData = (value: Dayjs) => {
   let listData;
@@ -45,7 +45,7 @@ const App: React.FC = () => {
   const monthCellRender = (value: Dayjs) => {
     const num = getMonthData(value);
     return num ? (
-      <div className="notes-month">
+      <div className='notes-month'>
         <section>{num}</section>
         <span>Backlog number</span>
       </div>
@@ -55,7 +55,7 @@ const App: React.FC = () => {
   const dateCellRender = (value: Dayjs) => {
     const listData = getListData(value);
     return (
-      <ul className="events">
+      <ul className='events'>
         {listData.map((item) => (
           <li key={item.content}>
             <Badge status={item.type as BadgeProps['status']} text={item.content} />

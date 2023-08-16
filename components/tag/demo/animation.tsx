@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
+import { TweenOneGroup } from 'rc-tween-one';
 import type { InputRef } from 'antd';
 import { Input, Tag, theme } from 'antd';
-import { TweenOneGroup } from 'rc-tween-one';
 
 const App: React.FC = () => {
   const { token } = theme.useToken();
@@ -60,7 +60,7 @@ const App: React.FC = () => {
 
   const tagChild = tags.map(forMap);
 
-  const tagPlusStyle = {
+  const tagPlusStyle: React.CSSProperties = {
     background: token.colorBgContainer,
     borderStyle: 'dashed',
   };
@@ -89,8 +89,8 @@ const App: React.FC = () => {
       {inputVisible ? (
         <Input
           ref={inputRef}
-          type="text"
-          size="small"
+          type='text'
+          size='small'
           style={{ width: 78 }}
           value={inputValue}
           onChange={handleInputChange}

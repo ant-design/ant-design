@@ -133,6 +133,10 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
 
       [`${componentCls}-multiple-words`]: {
         padding: `0 ${token.paddingXS}px`,
+
+        bdi: {
+          unicodeBidi: 'plaintext',
+        },
       },
 
       [`${componentCls}-dot`]: {
@@ -178,7 +182,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
           backgroundColor: token.colorSuccess,
         },
         [`${componentCls}-status-processing`]: {
-          position: 'relative',
+          overflow: 'visible',
           color: token.colorPrimary,
           backgroundColor: token.colorPrimary,
 

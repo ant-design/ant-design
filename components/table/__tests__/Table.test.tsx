@@ -1,5 +1,5 @@
-import { ConfigProvider } from 'antd';
 import React, { useRef } from 'react';
+import { ConfigProvider } from 'antd';
 import type { TableProps } from '..';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -36,11 +36,11 @@ describe('Table', () => {
 
     const { asFragment } = render(
       <Table dataSource={data} pagination={false}>
-        <ColumnGroup title="Name">
-          <Column title="First Name" dataIndex="firstName" key="firstName" />
-          <Column title="Last Name" dataIndex="lastName" key="lastName" />
+        <ColumnGroup title='Name'>
+          <Column title='First Name' dataIndex='firstName' key='firstName' />
+          <Column title='Last Name' dataIndex='lastName' key='lastName' />
         </ColumnGroup>
-        <Column title="Age" dataIndex="age" key="age" />
+        <Column title='Age' dataIndex='age' key='age' />
         {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
         {'invalid child'}
       </Table>,
@@ -113,8 +113,8 @@ describe('Table', () => {
     const columnsPageSize = jest.fn();
     const props = { columnsPageRange, columnsPageSize };
     render(
-      <Table dataSource={data} rowKey="key" {...props}>
-        <Column title="Age" dataIndex="age" key="age" />
+      <Table dataSource={data} rowKey='key' {...props}>
+        <Column title='Age' dataIndex='age' key='age' />
       </Table>,
     );
 
@@ -251,7 +251,7 @@ describe('Table', () => {
         dataIndex: 'name',
       },
     ];
-    render(<Table columns={columns} rowKey={(record, index) => record + index} />);
+    render(<Table columns={columns} rowKey={(record, index) => record.key + index} />);
     expect(warnSpy).toHaveBeenCalledWith(
       'Warning: [antd: Table] `index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
     );
@@ -355,7 +355,7 @@ describe('Table', () => {
 
   // https://github.com/react-component/table/pull/855
   it('support aria-* and data-*', async () => {
-    const { container } = render(<Table aria-label="label" data-number="123" />);
+    const { container } = render(<Table aria-label='label' data-number='123' />);
     expect(container.querySelector('table')?.getAttribute('aria-label')).toBe('label');
     expect(container.querySelector('.ant-table')?.getAttribute('data-number')).toBe('123');
   });

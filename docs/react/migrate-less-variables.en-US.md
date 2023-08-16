@@ -1,6 +1,8 @@
 ---
-order: 9
-title: Migrate Less variables to Component Token
+group:
+  title: Migration
+order: 1
+title: Less variables to Component Token
 ---
 
 This document contains the correspondence between all the less variables related to components in version 4.x and the Component Token in version 5.x. If you are upgrading from version 4.x to version 5.x, you can quickly find the corresponding Component Token through this comparison table.
@@ -73,7 +75,7 @@ export default App;
 
 <!-- ### Badge -->
 
-### BreadCrumb 面包屑
+### BreadCrumb
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
@@ -240,12 +242,50 @@ export default App;
 ### Mentions
 
 <!-- prettier-ignore -->
-| less 变量 | Component Token | Note |
+| Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@mentions-dropdown-bg` | `colorBgElevated` | GlobalToken |
 | `@mentions-dropdown-menu-item-hover-bg` | - | Deprecated |
 
-<!-- ### Menu -->
+### Menu
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@menu-inline-toplevel-item-height` | `itemHeight` | Same as `@menu-item-height` |
+| `@menu-item-height` | `itemHeight` | - |
+| `@menu-item-group-height` | `groupTitleLineHeight` | - |
+| `@menu-collapsed-width` | `collapsedWidth` | - |
+| `@menu-bg` | `itemBg` | - |
+| `@menu-popup-bg` | `popupBg` | - |
+| `@menu-item-color` | `itemColor` | - |
+| `@menu-inline-submenu-bg` | `subMenuItemBg` | - |
+| `@menu-highlight-color` | `itemSelectedColor` | - |
+| `@menu-highlight-danger-color` | `dangerItemSelectedColor` | - |
+| `@menu-item-active-bg` | `itemActiveBg` | - |
+| `@menu-item-active-danger-bg` | `dangerItemActiveBg` | - |
+| `@menu-item-active-border-width` | `activeBarBorderWidth` | - |
+| `@menu-item-group-title-color` | `groupTitleColor` | - |
+| `@menu-item-vertical-margin` | `itemMarginBlock` | - |
+| `@menu-item-font-size` | `fontSize` | Global Token |
+| `@menu-item-boundary-margin` | - | Deprecated in favor of new style, use `itemMarginBlock` instead |
+| `@menu-item-padding-horizontal` | `itemPaddingInline` | - |
+| `@menu-item-padding` | - | Depreacated, use `itemPaddingInline` and `itemHeight` instead |
+| `@menu-horizontal-line-height` | `horizontalLineHeight` | - |
+| `@menu-icon-margin-right` | `iconMarginInlineEnd` | - |
+| `@menu-icon-size` | `iconSize` | - |
+| `@menu-icon-size-lg` | `horizontalLineHeight` | - |
+| `@menu-dark-color` | `darkItemColor` | - |
+| `@menu-dark-danger-color` | `darkDangerItemColor` | - |
+| `@menu-dark-bg` | `darkItemBg` | - |
+| `@menu-dark-arrow-color` | - | Deprecated, and same as text color |
+| `@menu-dark-inline-submenu-bg` | `darkSubMenuItemBg` | - |
+| `@menu-dark-highlight-color` | `darkItemSelectedColor` | - |
+| `@menu-dark-item-active-bg` | `darkItemSelectedBg` | - |
+| `@menu-dark-item-active-danger-bg` | `darkDangerItemSelectedBg` | - |
+| `@menu-dark-selected-item-icon-color` | - | Deprecated, same as `darkItemSelectedColor` |
+| `@menu-dark-selected-item-text-color` | - | Deprecated, same as `darkItemSelectedColor` |
+| `@menu-dark-item-hover-bg` | `darkItemHoverBg` | - |
 
 ### Message
 
@@ -389,9 +429,33 @@ export default App;
 | `@skeleton-to-color` | `gradientToColor` | - |
 | `@skeleton-paragraph-margin-top` | `paragraphMarginTop` | - |
 | `@skeleton-paragraph-li-height` | `paragraphLiHeight` | - |
-| `@skeleton-paragraph-li-margin-top` | - | 由于样式变化已废弃 |
+| `@skeleton-paragraph-li-margin-top` | - | Deprecated for style change |
 
-<!-- ### Slider -->
+### Slider
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@slider-margin` | - | Could be customized with `className` or `style` |
+| `@slider-rail-background-color` | `railBg` | - |
+| `@slider-rail-background-color-hover` | `railHoverBg` | - |
+| `@slider-track-background-color` | `trackBg` | - |
+| `@slider-track-background-color-hover` | `trackHoverBg` | - |
+| `@slider-handle-border-width` | `handleLineWidth` | - |
+| `@slider-handle-background-color` | - | Deprecated |
+| `@slider-handle-color` | `handleColor` | - |
+| `@slider-handle-color-hover` | `handleActiveColor` | - |
+| `@slider-handle-color-focus` | `handleActiveColor` | - |
+| `@slider-handle-color-focus-shadow` | - Deprecated |
+| `@slider-handle-color-tooltip-open` | `handleActiveColor` | - |
+| `@slider-handle-size` | `handleSize` | - |
+| `@slider-handle-margin-top` | - | Deprecated |
+| `@slider-handle-margin-left` | - | Deprecated |
+| `@slider-handle-shadow` | - | Deprecated |
+| `@slider-dot-border-color` | `dotBorderColor` | - |
+| `@slider-dot-border-color-active` | `dotActiveBorderColor` | - |
+| `@slider-disabled-color` | `trackBgDisabled` | - |
+| `@slider-disabled-background-color` | - | Deprecated |
 
 ### Statistic
 
@@ -433,7 +497,7 @@ export default App;
 
 <!-- ### Table -->
 
-### Tabs 标签页
+### Tabs
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |

@@ -6,6 +6,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HJz8SZos2wgAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*oC92TK44Ex8AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
+tag: New
 ---
 
 Application wrapper for some global usages.
@@ -18,7 +19,8 @@ Application wrapper for some global usages.
 ## Examples
 
 <!-- prettier-ignore -->
-<code src="./demo/basic.tsx">basic</code>
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/config.tsx">Hooks config</code>
 
 ## How to use
 
@@ -95,7 +97,7 @@ export default () => {
   return null;
 };
 
-export { message, notification, modal };
+export { message, modal, notification };
 ```
 
 ```tsx
@@ -120,6 +122,8 @@ export default () => {
 ```
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### App
 

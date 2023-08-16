@@ -38,10 +38,10 @@ describe('TextArea', () => {
     const onInternalAutoSize = jest.fn();
     const genTextArea = (props = {}) => (
       <TextArea
-        value=""
+        value=''
         readOnly
         autoSize={{ minRows: 2, maxRows: 6 }}
-        wrap="off"
+        wrap='off'
         ref={ref}
         {...props}
         {...{ onInternalAutoSize }}
@@ -98,7 +98,7 @@ describe('TextArea', () => {
     });
 
     it('maxLength should not block control', () => {
-      const { container } = render(<TextArea maxLength={1} value="light" />);
+      const { container } = render(<TextArea maxLength={1} value='light' />);
       expect(container.querySelector('textarea')?.value).toEqual('light');
     });
 
@@ -134,7 +134,7 @@ describe('TextArea', () => {
     it('should not cut off string when cursor position is not at the end', () => {
       const onChange = jest.fn();
       const { container } = render(
-        <TextArea maxLength={6} defaultValue="123456" onChange={onChange} />,
+        <TextArea maxLength={6} defaultValue='123456' onChange={onChange} />,
       );
       fireEvent.change(container.querySelector('textarea')!, {
         target: { selectionStart: 1, value: 'w123456' },
@@ -150,7 +150,7 @@ describe('TextArea', () => {
     it('when the input method is pinyin and the cursor is at the end, should use maxLength to crop', () => {
       const onChange = jest.fn();
       const { container } = render(
-        <TextArea maxLength={6} defaultValue="1234" onChange={onChange} />,
+        <TextArea maxLength={6} defaultValue='1234' onChange={onChange} />,
       );
       fireEvent.change(container.querySelector('textarea')!, {
         target: { selectionStart: 4, value: '1234' },
@@ -173,7 +173,7 @@ describe('TextArea', () => {
     it('when the input method is Pinyin and the cursor is in the middle, should display the original string', () => {
       const onChange = jest.fn();
       const { container } = render(
-        <TextArea maxLength={6} defaultValue="1234" onChange={onChange} />,
+        <TextArea maxLength={6} defaultValue='1234' onChange={onChange} />,
       );
       fireEvent.change(container.querySelector('textarea')!, {
         target: { selectionStart: 2, value: '1234' },
@@ -197,7 +197,7 @@ describe('TextArea', () => {
     const onPressEnter = jest.fn();
     const onKeyDown = jest.fn();
     const { container } = render(
-      <TextArea onPressEnter={onPressEnter} onKeyDown={onKeyDown} aria-label="textarea" />,
+      <TextArea onPressEnter={onPressEnter} onKeyDown={onKeyDown} aria-label='textarea' />,
     );
     fireEvent.keyDown(container.querySelector('textarea')!, { keyCode: 13 });
 
@@ -231,9 +231,9 @@ describe('TextArea', () => {
   });
 
   it('should works same as Input', () => {
-    const { container: inputContainer, rerender: inputRerender } = render(<Input value="111" />);
+    const { container: inputContainer, rerender: inputRerender } = render(<Input value='111' />);
     const { container: textareaContainer, rerender: textareaRerender } = render(
-      <TextArea value="111" />,
+      <TextArea value='111' />,
     );
     inputRerender(<Input value={undefined} />);
     textareaRerender(<TextArea value={undefined} />);
@@ -244,7 +244,7 @@ describe('TextArea', () => {
 
   describe('should support showCount', () => {
     it('maxLength', () => {
-      const { container } = render(<TextArea maxLength={5} showCount value="12345" />);
+      const { container } = render(<TextArea maxLength={5} showCount value='12345' />);
       expect(container.querySelector('textarea')?.value).toBe('12345');
       expect(
         container.querySelector('.ant-input-textarea-show-count')?.getAttribute('data-count'),
@@ -252,7 +252,7 @@ describe('TextArea', () => {
     });
 
     it('control exceed maxLength', () => {
-      const { container } = render(<TextArea maxLength={5} showCount value="12345678" />);
+      const { container } = render(<TextArea maxLength={5} showCount value='12345678' />);
       expect(container.querySelector('textarea')?.value).toBe('12345678');
       expect(
         container.querySelector('.ant-input-textarea-show-count')?.getAttribute('data-count'),
@@ -261,7 +261,7 @@ describe('TextArea', () => {
 
     describe('emoji', () => {
       it('should minimize value between emoji length and maxLength', () => {
-        const { container } = render(<TextArea maxLength={1} showCount value="👀" />);
+        const { container } = render(<TextArea maxLength={1} showCount value='👀' />);
         expect(container.querySelector('textarea')?.value).toBe('👀');
         expect(
           container.querySelector('.ant-input-textarea-show-count')?.getAttribute('data-count'),
@@ -269,20 +269,20 @@ describe('TextArea', () => {
 
         // fix: 当 maxLength 长度为 2 的时候，输入 emoji 之后 showCount 会显示 1/2，但是不能再输入了
         // zombieJ: 逻辑统一了，emoji 现在也可以正确计数了
-        const { container: container1 } = render(<TextArea maxLength={2} showCount value="👀" />);
+        const { container: container1 } = render(<TextArea maxLength={2} showCount value='👀' />);
         expect(
           container1.querySelector('.ant-input-textarea-show-count')?.getAttribute('data-count'),
         ).toBe('1 / 2');
       });
 
       it('defaultValue should slice', () => {
-        const { container } = render(<TextArea maxLength={1} defaultValue="🧐cut" />);
+        const { container } = render(<TextArea maxLength={1} defaultValue='🧐cut' />);
         expect(container.querySelector('textarea')?.value).toBe('🧐');
       });
 
       // 修改TextArea value截取规则后新增单测
       it('slice emoji', () => {
-        const { container } = render(<TextArea maxLength={5} showCount value="1234😂" />);
+        const { container } = render(<TextArea maxLength={5} showCount value='1234😂' />);
         expect(container.querySelector('textarea')?.value).toBe('1234😂');
         expect(
           container.querySelector('.ant-input-textarea-show-count')?.getAttribute('data-count'),
@@ -292,7 +292,7 @@ describe('TextArea', () => {
 
     it('className & style patch to outer', () => {
       const { container } = render(
-        <TextArea className="bamboo" style={{ background: 'red' }} showCount />,
+        <TextArea className='bamboo' style={{ background: 'red' }} showCount />,
       );
 
       // Outer
@@ -311,7 +311,7 @@ describe('TextArea', () => {
           showCount={{
             formatter: ({ value, count, maxLength }) => `${value}, ${count}, ${maxLength}`,
           }}
-          value="12345"
+          value='12345'
         />,
       );
       expect(container.querySelector('textarea')?.value).toBe('12345');
@@ -322,7 +322,7 @@ describe('TextArea', () => {
   });
 
   it('should support size', async () => {
-    const { asFragment, container } = render(<TextArea size="large" />);
+    const { asFragment, container } = render(<TextArea size='large' />);
     expect(container.querySelector('textarea')?.classList.contains('ant-input-lg')).toBe(true);
     expect(asFragment().firstChild).toMatchSnapshot();
   });
@@ -385,7 +385,7 @@ describe('TextArea allowClear', () => {
       argumentEventObjectType = e.type;
       argumentEventObjectValue = e.target.value;
     };
-    const { container } = render(<TextArea allowClear defaultValue="111" onChange={onChange} />);
+    const { container } = render(<TextArea allowClear defaultValue='111' onChange={onChange} />);
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
     expect(argumentEventObjectType).toBe('click');
     expect(argumentEventObjectValue).toBe('');
@@ -399,7 +399,7 @@ describe('TextArea allowClear', () => {
       argumentEventObjectType = e.type;
       argumentEventObjectValue = e.target.value;
     };
-    const { container } = render(<TextArea allowClear value="111" onChange={onChange} />);
+    const { container } = render(<TextArea allowClear value='111' onChange={onChange} />);
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
     expect(argumentEventObjectType).toBe('click');
     expect(argumentEventObjectValue).toBe('');
@@ -407,7 +407,7 @@ describe('TextArea allowClear', () => {
   });
 
   it('should focus textarea after clear', () => {
-    const { container, unmount } = render(<TextArea allowClear defaultValue="111" />, {
+    const { container, unmount } = render(<TextArea allowClear defaultValue='111' />, {
       container: document.body,
     });
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
@@ -416,7 +416,7 @@ describe('TextArea allowClear', () => {
   });
 
   it('should not support allowClear when it is disabled', () => {
-    const { container } = render(<TextArea allowClear defaultValue="111" disabled />);
+    const { container } = render(<TextArea allowClear defaultValue='111' disabled />);
     expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
   });
 
@@ -426,7 +426,7 @@ describe('TextArea allowClear', () => {
     expect(container.querySelector('input')?.value).toEqual('Bamboo');
 
     // Controlled
-    rerender(<Input value="Light" />);
+    rerender(<Input value='Light' />);
     fireEvent.change(container.querySelector('input')!, { target: { value: 'Bamboo' } });
     expect(container.querySelector('input')?.value).toEqual('Light');
   });
@@ -457,7 +457,7 @@ describe('TextArea allowClear', () => {
 
   // https://github.com/ant-design/ant-design/issues/26308
   it('should display defaultValue when value is undefined', () => {
-    const { container } = render(<Input.TextArea defaultValue="Light" value={undefined} />);
+    const { container } = render(<Input.TextArea defaultValue='Light' value={undefined} />);
     expect(container.querySelector('textarea')?.value).toBe('Light');
   });
 
@@ -489,7 +489,7 @@ describe('TextArea allowClear', () => {
 
   // https://github.com/ant-design/ant-design/issues/31927
   it('should correctly when useState', () => {
-    const App = () => {
+    const App: React.FC = () => {
       const [query, setQuery] = useState('');
       return (
         <TextArea
@@ -517,7 +517,7 @@ describe('TextArea allowClear', () => {
   it('should not lost focus when clear input', () => {
     const onBlur = jest.fn();
     const { container, unmount } = render(
-      <TextArea allowClear defaultValue="value" onBlur={onBlur} />,
+      <TextArea allowClear defaultValue='value' onBlur={onBlur} />,
       {
         container: document.body,
       },
@@ -533,7 +533,7 @@ describe('TextArea allowClear', () => {
   });
 
   it('should focus text area after clear', () => {
-    const { container, unmount } = render(<TextArea allowClear defaultValue="111" />, {
+    const { container, unmount } = render(<TextArea allowClear defaultValue='111' />, {
       container: document.body,
     });
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
@@ -584,7 +584,7 @@ describe('TextArea allowClear', () => {
     const { container } = render(
       <>
         <TextArea
-          className="custom-class"
+          className='custom-class'
           style={{ background: 'red' }}
           classNames={{
             textarea: 'custom-textarea',
@@ -601,7 +601,7 @@ describe('TextArea allowClear', () => {
         />
         <TextArea
           showCount
-          className="custom-class"
+          className='custom-class'
           style={{ background: 'red' }}
           classNames={{
             textarea: 'custom-textarea',

@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
 import notification from '..';
 import { fireEvent, pureRender, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
@@ -19,16 +20,16 @@ describe('notification.hooks', () => {
       const [api, holder] = notification.useNotification();
 
       return (
-        <ConfigProvider prefixCls="my-test">
-          <Context.Provider value="bamboo">
+        <ConfigProvider prefixCls='my-test'>
+          <Context.Provider value='bamboo'>
             <button
-              type="button"
+              type='button'
               onClick={() => {
                 api.open({
                   message: null,
                   description: (
                     <Context.Consumer>
-                      {(name) => <span className="hook-test-result">{name}</span>}
+                      {(name) => <span className='hook-test-result'>{name}</span>}
                     </Context.Consumer>
                   ),
                   duration: 0,
@@ -57,16 +58,16 @@ describe('notification.hooks', () => {
       const [api, holder] = notification.useNotification();
 
       return (
-        <ConfigProvider prefixCls="my-test">
-          <Context.Provider value="bamboo">
+        <ConfigProvider prefixCls='my-test'>
+          <Context.Provider value='bamboo'>
             <button
-              type="button"
+              type='button'
               onClick={() => {
                 api.success({
                   message: null,
                   description: (
                     <Context.Consumer>
-                      {(name) => <span className="hook-test-result">{name}</span>}
+                      {(name) => <span className='hook-test-result'>{name}</span>}
                     </Context.Consumer>
                   ),
                   duration: 0,
@@ -114,7 +115,7 @@ describe('notification.hooks', () => {
         React.useEffect(() => {
           api.info({
             message: null,
-            description: <div className="bamboo" />,
+            description: <div className='bamboo' />,
           });
         }, []);
 
@@ -136,7 +137,7 @@ describe('notification.hooks', () => {
         if (!calledRef.current) {
           api.info({
             message: null,
-            description: <div className="bamboo" />,
+            description: <div className='bamboo' />,
           });
           calledRef.current = true;
         }
@@ -153,5 +154,20 @@ describe('notification.hooks', () => {
 
       errorSpy.mockRestore();
     });
+  });
+
+  it('not export style in SSR', () => {
+    const cache = createCache();
+
+    const Demo = () => {
+      const [, holder] = notification.useNotification();
+
+      return <StyleProvider cache={cache}>{holder}</StyleProvider>;
+    };
+
+    render(<Demo />);
+
+    const styleText = extractStyle(cache, true);
+    expect(styleText).not.toContain('.ant-notification');
   });
 });

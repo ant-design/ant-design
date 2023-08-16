@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import omit from 'rc-util/lib/omit';
@@ -69,7 +71,7 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
 
   private fixedNodeRef = createRef<HTMLDivElement>();
 
-  private timer: NodeJS.Timeout | null;
+  private timer: ReturnType<typeof setTimeout> | null;
 
   context: ConfigConsumerProps;
 
@@ -286,7 +288,7 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
     return (
       <ResizeObserver onResize={this.updatePosition}>
         <div {...props} ref={this.placeholderNodeRef}>
-          {affixStyle && <div style={placeholderStyle} aria-hidden="true" />}
+          {affixStyle && <div style={placeholderStyle} aria-hidden='true' />}
           <div className={className} ref={this.fixedNodeRef} style={affixStyle}>
             <ResizeObserver onResize={this.updatePosition}>{children}</ResizeObserver>
           </div>

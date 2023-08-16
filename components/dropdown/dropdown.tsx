@@ -28,7 +28,7 @@ const Placements = [
   'bottom',
 ] as const;
 
-type Placement = (typeof Placements)[number];
+type Placement = typeof Placements[number];
 type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
 type OverlayFunc = () => React.ReactElement;
@@ -261,7 +261,7 @@ const Dropdown: CompoundedComponent = (props) => {
             <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
           </span>
         }
-        mode="vertical"
+        mode='vertical'
         selectable={false}
         onClick={onMenuClick}
         validator={({ mode }) => {
@@ -318,7 +318,7 @@ function postPureProps(props: DropdownProps) {
 const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls, postPureProps);
 
 /* istanbul ignore next */
-const WrapPurePanel = (props: DropdownProps) => (
+const WrapPurePanel: React.FC<DropdownProps> = (props) => (
   <PurePanel {...props}>
     <span />
   </PurePanel>

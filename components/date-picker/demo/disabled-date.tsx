@@ -1,8 +1,8 @@
 import React from 'react';
-import { DatePicker, Space } from 'antd';
-import type { RangePickerProps } from 'antd/es/date-picker';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import { DatePicker, Space } from 'antd';
+import type { RangePickerProps } from 'antd/es/date-picker';
 
 dayjs.extend(customParseFormat);
 
@@ -44,14 +44,14 @@ const disabledRangeTime: RangePickerProps['disabledTime'] = (_, type) => {
 };
 
 const App: React.FC = () => (
-  <Space direction="vertical" size={12}>
+  <Space direction='vertical' size={12}>
     <DatePicker
-      format="YYYY-MM-DD HH:mm:ss"
+      format='YYYY-MM-DD HH:mm:ss'
       disabledDate={disabledDate}
       disabledTime={disabledDateTime}
       showTime={{ defaultValue: dayjs('00:00:00', 'HH:mm:ss') }}
     />
-    <DatePicker picker="month" disabledDate={disabledDate} />
+    <DatePicker picker='month' disabledDate={disabledDate} />
     <RangePicker disabledDate={disabledDate} />
     <RangePicker
       disabledDate={disabledDate}
@@ -60,7 +60,7 @@ const App: React.FC = () => (
         hideDisabledOptions: true,
         defaultValue: [dayjs('00:00:00', 'HH:mm:ss'), dayjs('11:59:59', 'HH:mm:ss')],
       }}
-      format="YYYY-MM-DD HH:mm:ss"
+      format='YYYY-MM-DD HH:mm:ss'
     />
   </Space>
 );

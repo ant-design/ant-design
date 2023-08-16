@@ -63,6 +63,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     requiredMark,
     onFinishFailed,
     name,
+    style,
     ...restFormProps
   } = props;
 
@@ -100,13 +101,14 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
 
   const formClassName = classNames(
     prefixCls,
+    `${prefixCls}-${layout}`,
     {
-      [`${prefixCls}-${layout}`]: true,
       [`${prefixCls}-hide-required-mark`]: mergedRequiredMark === false,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-${mergedSize}`]: mergedSize,
     },
     hashId,
+    contextForm?.className,
     className,
     rootClassName,
   );
@@ -174,6 +176,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
               name={name}
               onFinishFailed={onInternalFinishFailed}
               form={wrapForm}
+              style={{ ...contextForm?.style, ...style }}
               className={formClassName}
             />
           </FormContext.Provider>
@@ -183,9 +186,13 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
   );
 };
 
-const Form = React.forwardRef<FormInstance, FormProps>(InternalForm) as <Values = any>(
+const Form = React.forwardRef<FormInstance, FormProps>(InternalForm) as (<Values = any>(
   props: React.PropsWithChildren<FormProps<Values>> & { ref?: React.Ref<FormInstance<Values>> },
-) => React.ReactElement;
+) => React.ReactElement) & { displayName?: string };
+
+if (process.env.NODE_ENV !== 'production') {
+  Form.displayName = 'Form';
+}
 
 export { List, useForm, useWatch, type FormInstance };
 

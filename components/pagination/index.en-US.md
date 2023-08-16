@@ -31,6 +31,8 @@ A long list can be divided into several pages using `Pagination`, and only one p
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ```jsx
 <Pagination onChange={onChange} total={50} />
 ```

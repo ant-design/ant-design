@@ -1,10 +1,10 @@
-import { Select, Space } from 'antd';
 import React from 'react';
+import { Select, Space } from 'antd';
 
 const App: React.FC = () => (
   <Space wrap>
     <Select
-      defaultValue="lucy"
+      defaultValue='lucy'
       style={{ width: 120 }}
       bordered={false}
       options={[
@@ -14,7 +14,7 @@ const App: React.FC = () => (
       ]}
     />
     <Select
-      defaultValue="lucy"
+      defaultValue='lucy'
       style={{ width: 120 }}
       disabled
       bordered={false}

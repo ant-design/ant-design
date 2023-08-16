@@ -8,7 +8,6 @@ import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
 import type { RangePickerProps } from '.';
-import { Components, getTimeProps } from '.';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import warning from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
@@ -19,7 +18,13 @@ import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
-import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
+import {
+  getRangePlaceholder,
+  getTimeProps,
+  mergeAllowClear,
+  transPlacement2DropdownAlign,
+} from '../util';
+import Components from './Components';
 import type { CommonPickerMethods, PickerComponentClass } from './interface';
 
 export default function generateRangePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
@@ -49,6 +54,8 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
       popupClassName,
       dropdownClassName,
       status: customStatus,
+      clearIcon,
+      allowClear,
       ...restProps
     } = props;
 
@@ -61,9 +68,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
 
     const [wrapSSR, hashId] = useStyle(prefixCls);
 
-    let additionalOverrideProps: any = {};
-    additionalOverrideProps = {
-      ...additionalOverrideProps,
+    const additionalOverrideProps: any = {
       ...(showTime ? getTimeProps({ format, picker, ...showTime }) : {}),
       ...(picker === 'time' ? getTimeProps({ format, ...props, picker }) : {}),
     };
@@ -107,7 +112,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
     return wrapSSR(
       <RCRangePicker<DateType>
         separator={
-          <span aria-label="to" className={`${prefixCls}-separator`}>
+          <span aria-label='to' className={`${prefixCls}-separator`}>
             <SwapRightOutlined />
           </span>
         }
@@ -116,12 +121,10 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
         dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
         placeholder={getRangePlaceholder(locale, picker, placeholder)}
         suffixIcon={suffixNode}
-        clearIcon={<CloseCircleFilled />}
         prevIcon={<span className={`${prefixCls}-prev-icon`} />}
         nextIcon={<span className={`${prefixCls}-next-icon`} />}
         superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
         superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-        allowClear
         transitionName={`${rootPrefixCls}-slide-up`}
         {...restProps}
         {...additionalOverrideProps}
@@ -142,9 +145,14 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
         components={Components}
         direction={direction}
         dropdownClassName={classNames(hashId, popupClassName || dropdownClassName)}
+        allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
       />,
     );
   });
+
+  if (process.env.NODE_ENV !== 'production') {
+    RangePicker.displayName = 'RangePicker';
+  }
 
   return RangePicker as unknown as PickerComponentClass<DateRangePickerProps>;
 }

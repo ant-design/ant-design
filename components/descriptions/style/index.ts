@@ -6,11 +6,35 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   // Component token here
+  /**
+   * @desc 标签背景色
+   * @descEN Background color of label
+   */
   labelBg: string;
+  /**
+   * @desc 标题下间距
+   * @descEN Bottom margin of title
+   */
   titleMarginBottom: number;
+  /**
+   * @desc 子项下间距
+   * @descEN Bottom padding of item
+   */
   itemPaddingBottom: number;
+  /**
+   * @desc 冒号右间距
+   * @descEN Right margin of colon
+   */
   colonMarginRight: number;
+  /**
+   * @desc 冒号左间距
+   * @descEN Left margin of colon
+   */
   colonMarginLeft: number;
+  /**
+   * @desc 额外区域文字颜色
+   * @descEN Text color of extra area
+   */
   extraColor: string;
 }
 
@@ -20,41 +44,45 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
   const { componentCls, labelBg } = token;
   return {
     [`&${componentCls}-bordered`]: {
-      [`${componentCls}-view`]: {
+      [`> ${componentCls}-view`]: {
         border: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
         '> table': {
           tableLayout: 'auto',
           borderCollapse: 'collapse',
         },
-      },
-      [`${componentCls}-item-label, ${componentCls}-item-content`]: {
-        padding: `${token.padding}px ${token.paddingLG}px`,
-        borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
-        '&:last-child': {
-          borderInlineEnd: 'none',
-        },
-      },
-      [`${componentCls}-item-label`]: {
-        color: token.colorTextSecondary,
-        backgroundColor: labelBg,
-        '&::after': {
-          display: 'none',
-        },
-      },
-      [`${componentCls}-row`]: {
-        borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
-        '&:last-child': {
-          borderBottom: 'none',
+        [`${componentCls}-row`]: {
+          borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+          '&:last-child': {
+            borderBottom: 'none',
+          },
+          [`> ${componentCls}-item-label, > ${componentCls}-item-content`]: {
+            padding: `${token.padding}px ${token.paddingLG}px`,
+            borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+            '&:last-child': {
+              borderInlineEnd: 'none',
+            },
+          },
+          [`> ${componentCls}-item-label`]: {
+            color: token.colorTextSecondary,
+            backgroundColor: labelBg,
+            '&::after': {
+              display: 'none',
+            },
+          },
         },
       },
       [`&${componentCls}-middle`]: {
-        [`${componentCls}-item-label, ${componentCls}-item-content`]: {
-          padding: `${token.paddingSM}px ${token.paddingLG}px`,
+        [`${componentCls}-row`]: {
+          [`> ${componentCls}-item-label, > ${componentCls}-item-content`]: {
+            padding: `${token.paddingSM}px ${token.paddingLG}px`,
+          },
         },
       },
       [`&${componentCls}-small`]: {
-        [`${componentCls}-item-label, ${componentCls}-item-content`]: {
-          padding: `${token.paddingXS}px ${token.padding}px`,
+        [`${componentCls}-row`]: {
+          [`> ${componentCls}-item-label, > ${componentCls}-item-content`]: {
+            padding: `${token.paddingXS}px ${token.padding}px`,
+          },
         },
       },
     },

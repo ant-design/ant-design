@@ -1,3 +1,5 @@
+'use client';
+
 import type { Dayjs } from 'dayjs';
 import * as React from 'react';
 import genPurePanel from '../_util/PurePanel';
@@ -18,7 +20,7 @@ export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Dayjs>, 
 }
 
 const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => (
-  <InternalRangePicker {...props} picker="time" mode={undefined} ref={ref} />
+  <InternalRangePicker {...props} picker='time' mode={undefined} ref={ref} />
 ));
 
 export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> {

@@ -1,8 +1,11 @@
+'use client';
+
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import * as React from 'react';
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { isPresetColor, isPresetStatusColor } from '../_util/colors';
+import useClosable from '../_util/hooks/useClosable';
 import type { LiteralUnion } from '../_util/type';
 import warning from '../_util/warning';
 import Wave from '../_util/wave';
@@ -18,7 +21,8 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   rootClassName?: string;
   color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
   closable?: boolean;
-  closeIcon?: React.ReactNode;
+  /** Advised to use closeIcon instead. */
+  closeIcon?: boolean | React.ReactNode;
   /** @deprecated `visible` will be removed in next major version. */
   visible?: boolean;
   onClose?: (e: React.MouseEvent<HTMLElement>) => void;
@@ -43,11 +47,11 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     color,
     onClose,
     closeIcon,
-    closable = false,
+    closable,
     bordered = true,
     ...props
   } = tagProps;
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, tag } = React.useContext(ConfigContext);
   const [visible, setVisible] = React.useState(true);
 
   // Warning for deprecated usage
@@ -69,6 +73,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
 
   const tagStyle: React.CSSProperties = {
     backgroundColor: color && !isInternalColor ? color : undefined,
+    ...tag?.style,
     ...style,
   };
 
@@ -78,6 +83,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
 
   const tagClassName = classNames(
     prefixCls,
+    tag?.className,
     {
       [`${prefixCls}-${color}`]: isInternalColor,
       [`${prefixCls}-has-color`]: color && !isInternalColor,
@@ -100,42 +106,44 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     setVisible(false);
   };
 
-  const closeIconNode = React.useMemo<React.ReactNode>(() => {
-    if (closable) {
-      return closeIcon ? (
-        <span className={`${prefixCls}-close-icon`} onClick={handleCloseClick}>
-          {closeIcon}
-        </span>
-      ) : (
+  const [, mergedCloseIcon] = useClosable(
+    closable,
+    closeIcon,
+    (iconNode: React.ReactNode) =>
+      iconNode === null ? (
         <CloseOutlined className={`${prefixCls}-close-icon`} onClick={handleCloseClick} />
-      );
-    }
-    return null;
-  }, [closable, closeIcon, prefixCls, handleCloseClick]);
+      ) : (
+        <span className={`${prefixCls}-close-icon`} onClick={handleCloseClick}>
+          {iconNode}
+        </span>
+      ),
+    null,
+    false,
+  );
 
   const isNeedWave =
     typeof props.onClick === 'function' ||
     (children && (children as React.ReactElement<any>).type === 'a');
 
-  const iconNode = icon || null;
+  const iconNode: React.ReactNode = icon || null;
 
-  const kids = iconNode ? (
+  const kids: React.ReactNode = iconNode ? (
     <>
       {iconNode}
-      <span>{children}</span>
+      {children && <span>{children}</span>}
     </>
   ) : (
     children
   );
 
-  const tagNode = (
+  const tagNode: React.ReactNode = (
     <span {...props} ref={ref} className={tagClassName} style={tagStyle}>
       {kids}
-      {closeIconNode}
+      {mergedCloseIcon}
     </span>
   );
 
-  return wrapSSR(isNeedWave ? <Wave>{tagNode}</Wave> : tagNode);
+  return wrapSSR(isNeedWave ? <Wave component='Tag'>{tagNode}</Wave> : tagNode);
 };
 
 const Tag = React.forwardRef<HTMLSpanElement, TagProps>(InternalTag) as TagType;

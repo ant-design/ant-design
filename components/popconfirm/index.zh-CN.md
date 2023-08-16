@@ -32,6 +32,8 @@ demo:
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |

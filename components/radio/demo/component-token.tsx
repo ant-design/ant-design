@@ -1,5 +1,5 @@
-import { ConfigProvider, Radio, Space } from 'antd';
 import React from 'react';
+import { ConfigProvider, Radio, Space } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -21,28 +21,28 @@ const App: React.FC = () => (
       },
     }}
   >
-    <Space direction="vertical">
+    <Space direction='vertical'>
       <Radio checked>Test</Radio>
       <Radio checked disabled>
         Disabled
       </Radio>
-      <Radio.Group defaultValue="a">
-        <Radio.Button value="a">Hangzhou</Radio.Button>
-        <Radio.Button value="b">Shanghai</Radio.Button>
-        <Radio.Button value="c">Beijing</Radio.Button>
-        <Radio.Button value="d">Chengdu</Radio.Button>
+      <Radio.Group defaultValue='a'>
+        <Radio.Button value='a'>Hangzhou</Radio.Button>
+        <Radio.Button value='b'>Shanghai</Radio.Button>
+        <Radio.Button value='c'>Beijing</Radio.Button>
+        <Radio.Button value='d'>Chengdu</Radio.Button>
       </Radio.Group>
-      <Radio.Group defaultValue="a" disabled>
-        <Radio.Button value="a">Hangzhou</Radio.Button>
-        <Radio.Button value="b">Shanghai</Radio.Button>
-        <Radio.Button value="c">Beijing</Radio.Button>
-        <Radio.Button value="d">Chengdu</Radio.Button>
+      <Radio.Group defaultValue='a' disabled>
+        <Radio.Button value='a'>Hangzhou</Radio.Button>
+        <Radio.Button value='b'>Shanghai</Radio.Button>
+        <Radio.Button value='c'>Beijing</Radio.Button>
+        <Radio.Button value='d'>Chengdu</Radio.Button>
       </Radio.Group>
-      <Radio.Group defaultValue="a" buttonStyle="solid">
-        <Radio.Button value="a">Hangzhou</Radio.Button>
-        <Radio.Button value="b">Shanghai</Radio.Button>
-        <Radio.Button value="c">Beijing</Radio.Button>
-        <Radio.Button value="d">Chengdu</Radio.Button>
+      <Radio.Group defaultValue='a' buttonStyle='solid'>
+        <Radio.Button value='a'>Hangzhou</Radio.Button>
+        <Radio.Button value='b'>Shanghai</Radio.Button>
+        <Radio.Button value='c'>Beijing</Radio.Button>
+        <Radio.Button value='d'>Chengdu</Radio.Button>
       </Radio.Group>
     </Space>
   </ConfigProvider>

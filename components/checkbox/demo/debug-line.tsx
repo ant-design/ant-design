@@ -1,5 +1,5 @@
-import { Checkbox, ConfigProvider, Radio, Space } from 'antd';
 import React from 'react';
+import { Checkbox, ConfigProvider, Radio, Space } from 'antd';
 
 const sharedStyle: React.CSSProperties = {
   border: '1px solid red',
@@ -8,16 +8,16 @@ const sharedStyle: React.CSSProperties = {
 
 const App: React.FC = () => (
   <div>
-    <Space style={sharedStyle} align="center">
-      <Checkbox value="light" />
+    <Space style={sharedStyle} align='center'>
+      <Checkbox value='light' />
       <div>Bamboo</div>
-      <Checkbox value="little">Little</Checkbox>
+      <Checkbox value='little'>Little</Checkbox>
     </Space>
 
-    <Space style={sharedStyle} align="center">
-      <Radio value="light" />
+    <Space style={sharedStyle} align='center'>
+      <Radio value='light' />
       <div>Bamboo</div>
-      <Radio value="little">Little</Radio>
+      <Radio value='little'>Little</Radio>
     </Space>
 
     <div
@@ -27,9 +27,9 @@ const App: React.FC = () => (
         alignItems: 'center',
       }}
     >
-      <Checkbox value="light" />
+      <Checkbox value='light' />
       <div>Bamboo</div>
-      <Checkbox value="little">Little</Checkbox>
+      <Checkbox value='little'>Little</Checkbox>
     </div>
 
     <div
@@ -39,9 +39,9 @@ const App: React.FC = () => (
         alignItems: 'center',
       }}
     >
-      <Radio value="light" />
+      <Radio value='light' />
       <div>Bamboo</div>
-      <Radio value="little">Little</Radio>
+      <Radio value='little'>Little</Radio>
     </div>
 
     <div>

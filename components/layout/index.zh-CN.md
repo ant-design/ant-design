@@ -87,6 +87,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 
 ### Layout
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 布局容器。
 
 | 参数 | 说明 | 类型 | 默认值 |

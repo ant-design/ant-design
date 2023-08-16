@@ -1,7 +1,7 @@
 import { EllipsisOutlined } from '@ant-design/icons';
+import React, { useRef, useState } from 'react';
 import type { TourProps } from 'antd';
 import { Button, Divider, Space, Tour } from 'antd';
-import React, { useRef, useState } from 'react';
 
 const App: React.FC = () => {
   const ref1 = useRef<HTMLButtonElement>(null);
@@ -30,13 +30,13 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Button type="primary" onClick={() => setOpen(true)}>
+      <Button type='primary' onClick={() => setOpen(true)}>
         Begin Tour
       </Button>
       <Divider />
       <Space>
         <Button ref={ref1}>Upload</Button>
-        <Button ref={ref2} type="primary">
+        <Button ref={ref2} type='primary'>
           Save
         </Button>
         <Button ref={ref3} icon={<EllipsisOutlined />} />

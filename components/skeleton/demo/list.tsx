@@ -1,7 +1,7 @@
 import type Icon from '@ant-design/icons';
 import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
-import { Avatar, List, Skeleton, Switch } from 'antd';
 import React, { useState } from 'react';
+import { Avatar, List, Skeleton, Switch } from 'antd';
 
 interface IconTextProps {
   icon: typeof Icon;
@@ -36,8 +36,8 @@ const App: React.FC = () => {
     <>
       <Switch checked={!loading} onChange={onChange} style={{ marginBottom: 16 }} />
       <List
-        itemLayout="vertical"
-        size="large"
+        itemLayout='vertical'
+        size='large'
         dataSource={listData}
         renderItem={(item) => (
           <List.Item
@@ -45,9 +45,9 @@ const App: React.FC = () => {
             actions={
               !loading
                 ? [
-                    <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
-                    <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
-                    <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
+                    <IconText icon={StarOutlined} text='156' key='list-vertical-star-o' />,
+                    <IconText icon={LikeOutlined} text='156' key='list-vertical-like-o' />,
+                    <IconText icon={MessageOutlined} text='2' key='list-vertical-message' />,
                   ]
                 : undefined
             }
@@ -55,8 +55,8 @@ const App: React.FC = () => {
               !loading && (
                 <img
                   width={272}
-                  alt="logo"
-                  src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+                  alt='logo'
+                  src='https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png'
                 />
               )
             }

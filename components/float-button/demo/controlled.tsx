@@ -1,6 +1,6 @@
 import { CommentOutlined, CustomerServiceOutlined } from '@ant-design/icons';
-import { FloatButton, Switch } from 'antd';
 import React, { useState } from 'react';
+import { FloatButton, Switch } from 'antd';
 
 const App: React.FC = () => {
   const [open, setOpen] = useState(true);
@@ -13,7 +13,7 @@ const App: React.FC = () => {
     <>
       <FloatButton.Group
         open={open}
-        trigger="click"
+        trigger='click'
         style={{ right: 24 }}
         icon={<CustomerServiceOutlined />}
       >

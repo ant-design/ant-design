@@ -1,6 +1,6 @@
 import React from 'react';
-import { Skeleton, Space, Spin } from 'antd';
 import { useLocation } from 'dumi';
+import { Skeleton, Space, Spin } from 'antd';
 
 const Loading: React.FC = () => {
   const { pathname } = useLocation();
@@ -11,7 +11,7 @@ const Loading: React.FC = () => {
     pathname.startsWith('/changelog')
   ) {
     return (
-      <Space direction="vertical" style={{ width: '100%', marginTop: 24 }} size={40}>
+      <Space direction='vertical' style={{ width: '100%', marginTop: 24 }} size={40}>
         <Skeleton title={false} active paragraph={{ rows: 3 }} />
         <Skeleton active paragraph={{ rows: 3 }} />
       </Space>
@@ -19,8 +19,8 @@ const Loading: React.FC = () => {
   }
 
   return (
-    <Space style={{ width: '100%', margin: '120px 0', justifyContent: 'center' }} align="center">
-      <Spin size="large" />
+    <Space style={{ width: '100%', margin: '120px 0', justifyContent: 'center' }} align='center'>
+      <Spin size='large' />
     </Space>
   );
 };

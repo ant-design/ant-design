@@ -1,5 +1,9 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { useContext } from 'react';
+import dayjs from 'dayjs';
+import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
+import { createStyles, css, useTheme } from 'antd-style';
+import classNames from 'classnames';
 import {
   Space,
   Typography,
@@ -12,13 +16,9 @@ import {
   Progress,
   Carousel,
 } from 'antd';
-import dayjs from 'dayjs';
-import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
-import { css } from '@emotion/react';
-import useSiteToken from '../../../hooks/useSiteToken';
 import useLocale from '../../../hooks/useLocale';
 import SiteContext from '../../../theme/slots/SiteContext';
-import { useCarouselStyle } from './util';
+import { getCarouselStyle } from './util';
 
 const SAMPLE_CONTENT_EN =
   'Ant Design 5.0 use CSS-in-JS technology to provide dynamic & mix theme ability. And which use component level CSS-in-JS solution get your application a better performance.';
@@ -55,9 +55,8 @@ const locales = {
   },
 };
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-  const { carousel } = useCarouselStyle();
+const useStyle = createStyles(({ token }) => {
+  const { carousel } = getCarouselStyle();
 
   return {
     card: css`
@@ -89,6 +88,48 @@ const useStyle = () => {
     `,
     carousel,
   };
+});
+
+const ComponentItem: React.FC<ComponentItemProps> = ({ title, node, type, index }) => {
+  const tagColor = type === 'new' ? 'processing' : 'warning';
+  const [locale] = useLocale(locales);
+  const tagText = type === 'new' ? locale.new : locale.update;
+  const { styles } = useStyle();
+  const { isMobile } = useContext(SiteContext);
+  const token = useTheme();
+
+  return (
+    <div className={classNames(styles.card, isMobile && styles.mobileCard)}>
+      {/* Decorator */}
+      <div
+        className={styles.cardCircle}
+        style={{
+          right: (index % 2) * -20 - 20,
+          bottom: (index % 3) * -40 - 20,
+        }}
+      />
+
+      {/* Title */}
+      <Space>
+        <Typography.Title level={4} style={{ fontWeight: 'normal', margin: 0 }}>
+          {title}
+        </Typography.Title>
+        <Tag color={tagColor}>{tagText}</Tag>
+      </Space>
+
+      <div
+        style={{
+          marginTop: token.paddingLG,
+          flex: 'auto',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        {node}
+      </div>
+    </div>
+  );
 };
 
 interface ComponentItemProps {
@@ -99,8 +140,8 @@ interface ComponentItemProps {
 }
 
 export default function ComponentsList() {
-  const { token } = useSiteToken();
-  const styles = useStyle();
+  const token = useTheme();
+  const { styles } = useStyle();
   const [locale] = useLocale(locales);
   const { isMobile } = useContext(SiteContext);
 
@@ -114,7 +155,7 @@ export default function ComponentsList() {
         title: 'Modal',
         type: 'update',
         node: (
-          <Modal._InternalPanelDoNotUseOrYouWillBeFired title="Ant Design 5.0" width={300}>
+          <Modal._InternalPanelDoNotUseOrYouWillBeFired title='Ant Design 5.0' width={300}>
             {locale.sampleContent}
           </Modal._InternalPanelDoNotUseOrYouWillBeFired>
         ),
@@ -145,17 +186,17 @@ export default function ComponentsList() {
         title: 'Progress',
         type: 'update',
         node: (
-          <Space direction="vertical">
+          <Space direction='vertical'>
             <Space>
-              <Progress type="circle" trailColor="#e6f4ff" percent={60} size={14} />
+              <Progress type='circle' trailColor='#e6f4ff' percent={60} size={14} />
               {locale.inProgress}
             </Space>
             <Space>
-              <Progress type="circle" percent={100} size={14} />
+              <Progress type='circle' percent={100} size={14} />
               {locale.success}
             </Space>
             <Space>
-              <Progress type="circle" status="exception" percent={88} size={14} />
+              <Progress type='circle' status='exception' percent={88} size={14} />
               {locale.taskFailed}
             </Space>
           </Space>
@@ -167,7 +208,7 @@ export default function ComponentsList() {
         type: 'new',
         node: (
           <Tour._InternalPanelDoNotUseOrYouWillBeFired
-            title="Ant Design 5.0"
+            title='Ant Design 5.0'
             description={locale.tour}
             style={{ width: isMobile ? 'auto' : 350 }}
             current={3}
@@ -179,9 +220,9 @@ export default function ComponentsList() {
         title: 'FloatButton',
         type: 'new',
         node: (
-          <Space size="large">
+          <Space size='large'>
             <FloatButton._InternalPanelDoNotUseOrYouWillBeFired
-              shape="square"
+              shape='square'
               items={[
                 {
                   icon: <QuestionCircleOutlined />,
@@ -224,7 +265,7 @@ export default function ComponentsList() {
         node: (
           <Alert
             style={{ width: 400 }}
-            message="Ant Design 5.0"
+            message='Ant Design 5.0'
             description={locale.sampleContent}
             closable
           />
@@ -234,47 +275,9 @@ export default function ComponentsList() {
     [isMobile],
   );
 
-  const ComponentItem = ({ title, node, type, index }: ComponentItemProps) => {
-    const tagColor = type === 'new' ? 'processing' : 'warning';
-    const tagText = type === 'new' ? locale.new : locale.update;
-
-    return (
-      <div key={index} css={[styles.card, isMobile && styles.mobileCard]}>
-        {/* Decorator */}
-        <div
-          css={styles.cardCircle}
-          style={{
-            right: (index % 2) * -20 - 20,
-            bottom: (index % 3) * -40 - 20,
-          }}
-        />
-
-        {/* Title */}
-        <Space>
-          <Typography.Title level={4} style={{ fontWeight: 'normal', margin: 0 }}>
-            {title}
-          </Typography.Title>
-          <Tag color={tagColor}>{tagText}</Tag>
-        </Space>
-
-        <div
-          style={{
-            marginTop: token.paddingLG,
-            flex: 'auto',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          {node}
-        </div>
-      </div>
-    );
-  };
-
   return isMobile ? (
     <div style={{ margin: '0 16px' }}>
-      <Carousel css={styles.carousel}>
+      <Carousel className={styles.carousel}>
         {COMPONENTS.map(({ title, node, type }, index) => (
           <ComponentItem title={title} node={node} type={type} index={index} key={index} />
         ))}

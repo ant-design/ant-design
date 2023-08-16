@@ -57,11 +57,16 @@ async function checkCommit({ files }: StatusResult) {
 async function checkRemote() {
   try {
     const { remote } = await git.fetch('origin', 'master');
+    console.log(chalk.blue('⛳ Checking origin master with `git fetch origin master`'));
     if (!remote?.includes('ant-design/ant-design')) {
-      console.log(
-        chalk.yellow('😓 Your remote origin is not ant-design/ant-design, did you fork it?'),
-      );
-      exitProcess();
+      console.log(chalk.blue('⛳ Checking locally with `git config --get remote.origin.url`'));
+      const { value } = await git.getConfig('remote.origin.url');
+      if (!value?.includes('ant-design/ant-design')) {
+        console.log(
+          chalk.yellow('🧐 Your remote origin is not ant-design/ant-design, did you fork it?'),
+        );
+        exitProcess();
+      }
     }
   } catch {
     console.log(chalk.red('🚨 Check remote failed. Skip...'));

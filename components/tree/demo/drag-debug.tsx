@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import React from 'react';
-import type { TreeProps } from 'antd';
-import { Tree, Switch } from 'antd';
 import { CarryOutOutlined } from '@ant-design/icons';
 import type { DataNode } from 'rc-tree/lib/interface';
+import React from 'react';
+import type { TreeProps } from 'antd';
+import { Switch, Tree } from 'antd';
 
 const x = 3;
 const y = 2;
@@ -139,7 +139,7 @@ const App: React.FC = () => {
       <Tree
         showLine={showLine}
         showIcon={showIcon}
-        className="draggable-tree"
+        className='draggable-tree'
         defaultExpandedKeys={expandedKeys}
         draggable
         blockNode

@@ -8,7 +8,6 @@ import type { PickerMode } from 'rc-picker/lib/interface';
 import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
 import type { PickerProps, PickerTimeProps } from '.';
-import { Components, getTimeProps } from '.';
 import type { InputStatus } from '../../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import warning from '../../_util/warning';
@@ -20,7 +19,13 @@ import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
-import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
+import {
+  getPlaceholder,
+  getTimeProps,
+  mergeAllowClear,
+  transPlacement2DropdownAlign,
+} from '../util';
+import Components from './Components';
 import type { CommonPickerMethods, DatePickRef, PickerComponentClass } from './interface';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
@@ -37,11 +42,13 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
     picker?: PickerMode,
     displayName?: string,
   ) {
+    const consumerName = displayName === 'TimePicker' ? 'timePicker' : 'datePicker';
     const Picker = forwardRef<DatePickRef<DateType> | CommonPickerMethods, InnerPickerProps>(
       (props, ref) => {
         const {
           prefixCls: customizePrefixCls,
           getPopupContainer: customizeGetPopupContainer,
+          style,
           className,
           rootClassName,
           size: customizeSize,
@@ -52,10 +59,19 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           dropdownClassName,
           disabled: customDisabled,
           status: customStatus,
+          clearIcon,
+          allowClear,
           ...restProps
         } = props;
 
-        const { getPrefixCls, direction, getPopupContainer } = useContext(ConfigContext);
+        const {
+          getPrefixCls,
+          direction,
+          getPopupContainer,
+          // Consume different styles according to different names
+          [consumerName]: consumerStyle,
+        } = useContext(ConfigContext);
+
         const prefixCls = getPrefixCls('picker', customizePrefixCls);
         const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
         const innerRef = React.useRef<RCPicker<DateType>>(null);
@@ -130,12 +146,10 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
             placeholder={getPlaceholder(locale, mergedPicker, placeholder)}
             suffixIcon={suffixNode}
             dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
-            clearIcon={<CloseCircleFilled />}
             prevIcon={<span className={`${prefixCls}-prev-icon`} />}
             nextIcon={<span className={`${prefixCls}-next-icon`} />}
             superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
             superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-            allowClear
             transitionName={`${rootPrefixCls}-slide-up`}
             {...additionalProps}
             {...restProps}
@@ -147,15 +161,17 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                 [`${prefixCls}-borderless`]: !bordered,
               },
               getStatusClassNames(
-                prefixCls as string,
+                prefixCls,
                 getMergedStatus(contextStatus, customStatus),
                 hasFeedback,
               ),
               hashId,
               compactItemClassnames,
+              consumerStyle?.className,
               className,
               rootClassName,
             )}
+            style={{ ...consumerStyle?.style, ...style }}
             prefixCls={prefixCls}
             getPopupContainer={customizeGetPopupContainer || getPopupContainer}
             generateConfig={generateConfig}
@@ -167,6 +183,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
               rootClassName,
               popupClassName || dropdownClassName,
             )}
+            allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
           />,
         );
       },

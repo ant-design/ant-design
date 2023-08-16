@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import type { SliderProps as RcSliderProps } from 'rc-slider';
 import RcSlider from 'rc-slider';
@@ -33,6 +35,7 @@ export interface SliderTooltipProps {
   placement?: TooltipPlacement;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   formatter?: null | Formatter;
+  autoAdjustOverflow?: boolean;
 }
 
 export interface SliderBaseProps {
@@ -104,6 +107,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     range,
     className,
     rootClassName,
+    style,
     disabled,
     // Deprecated Props
     tooltipPrefixCls: legacyTooltipPrefixCls,
@@ -111,11 +115,10 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     tooltipVisible: legacyTooltipVisible,
     getTooltipPopupContainer: legacyGetTooltipPopupContainer,
     tooltipPlacement: legacyTooltipPlacement,
-
     ...restProps
   } = props;
 
-  const { getPrefixCls, direction, getPopupContainer } = React.useContext(ConfigContext);
+  const { direction, slider, getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
   const contextDisabled = React.useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;
   const [opens, setOpens] = React.useState<Opens>({});
@@ -140,6 +143,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   const cls = classNames(
     className,
+    slider?.className,
     rootClassName,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -220,6 +224,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
     return (
       <SliderTooltip
+        {...tooltipProps}
         prefixCls={tooltipPrefixCls}
         title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
         open={open}
@@ -235,6 +240,8 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     );
   };
 
+  const mergedStyle: React.CSSProperties = { ...slider?.style, ...style };
+
   return wrapSSR(
     <RcSlider
       {...restProps}
@@ -242,6 +249,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
       range={mergedRange}
       draggableTrack={draggableTrack}
       className={cls}
+      style={mergedStyle}
       disabled={mergedDisabled}
       ref={ref}
       prefixCls={prefixCls}

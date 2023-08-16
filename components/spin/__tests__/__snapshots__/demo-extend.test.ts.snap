@@ -25,6 +25,8 @@ exports[`renders components/spin/demo/basic.tsx extend context correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/spin/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/spin/demo/custom-indicator.tsx extend context correctly 1`] = `
 <div
   aria-busy="true"
@@ -53,6 +55,8 @@ exports[`renders components/spin/demo/custom-indicator.tsx extend context correc
   </span>
 </div>
 `;
+
+exports[`renders components/spin/demo/custom-indicator.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/spin/demo/delayAndDebounce.tsx extend context correctly 1`] = `
 <div>
@@ -112,6 +116,8 @@ exports[`renders components/spin/demo/delayAndDebounce.tsx extend context correc
 </div>
 `;
 
+exports[`renders components/spin/demo/delayAndDebounce.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/spin/demo/inside.tsx extend context correctly 1`] = `
 <div
   class="example"
@@ -140,6 +146,8 @@ exports[`renders components/spin/demo/inside.tsx extend context correctly 1`] = 
   </div>
 </div>
 `;
+
+exports[`renders components/spin/demo/inside.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/spin/demo/nested.tsx extend context correctly 1`] = `
 <div>
@@ -198,6 +206,8 @@ exports[`renders components/spin/demo/nested.tsx extend context correctly 1`] = 
   </div>
 </div>
 `;
+
+exports[`renders components/spin/demo/nested.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
 <div
@@ -285,6 +295,8 @@ exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/spin/demo/size.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
 <div
@@ -497,3 +509,5 @@ exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/spin/demo/tip.tsx extend context correctly 2`] = `[]`;

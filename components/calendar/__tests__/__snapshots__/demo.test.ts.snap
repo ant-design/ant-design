@@ -17,11 +17,11 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -77,11 +77,11 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -964,11 +964,11 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -1024,11 +1024,11 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -1910,11 +1910,11 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -1970,11 +1970,11 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -2852,11 +2852,11 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -2912,11 +2912,11 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -3861,11 +3861,11 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
+                  aria-label="Search"
                   aria-owns="undefined_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
@@ -3926,11 +3926,11 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
+                  aria-label="Search"
                   aria-owns="undefined_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
@@ -4770,11 +4770,11 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -4830,11 +4830,11 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -6127,11 +6127,11 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -6187,11 +6187,11 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"

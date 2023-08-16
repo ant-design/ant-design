@@ -36,7 +36,7 @@ describe('FloatButtonGroup', () => {
   it('support onOpenChange for click', () => {
     const onOpenChange = jest.fn();
     const { container } = render(
-      <FloatButton.Group trigger="click" onOpenChange={onOpenChange}>
+      <FloatButton.Group trigger='click' onOpenChange={onOpenChange}>
         <FloatButton />
         <FloatButton />
         <FloatButton />
@@ -48,7 +48,7 @@ describe('FloatButtonGroup', () => {
   it('support onOpenChange for hover', () => {
     const onOpenChange = jest.fn();
     const { container } = render(
-      <FloatButton.Group trigger="hover" onOpenChange={onOpenChange}>
+      <FloatButton.Group trigger='hover' onOpenChange={onOpenChange}>
         <FloatButton />
         <FloatButton />
         <FloatButton />
@@ -61,7 +61,7 @@ describe('FloatButtonGroup', () => {
   it('support click floatButtonGroup not close', () => {
     const onOpenChange = jest.fn();
     const { container } = render(
-      <FloatButton.Group trigger="click" onOpenChange={onOpenChange}>
+      <FloatButton.Group trigger='click' onOpenChange={onOpenChange}>
         <FloatButton />
         <FloatButton />
         <FloatButton />
@@ -74,7 +74,7 @@ describe('FloatButtonGroup', () => {
   it('support click out auto close', () => {
     const onOpenChange = jest.fn();
     const { container } = render(
-      <FloatButton.Group trigger="click" onOpenChange={onOpenChange}>
+      <FloatButton.Group trigger='click' onOpenChange={onOpenChange}>
         <FloatButton />
         <FloatButton />
         <FloatButton />
@@ -89,7 +89,7 @@ describe('FloatButtonGroup', () => {
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     render(
-      <FloatButton.Group open trigger="click">
+      <FloatButton.Group open trigger='click'>
         <FloatButton />
         <FloatButton />
       </FloatButton.Group>,
@@ -107,5 +107,16 @@ describe('FloatButtonGroup', () => {
       'Warning: [antd: FloatButton.Group] `open` need to be used together with `trigger`',
     );
     warnSpy.mockRestore();
+  });
+
+  it('menu should support badge', () => {
+    const { container } = render(
+      <FloatButton.Group trigger='click' badge={{ dot: true }}>
+        <FloatButton />
+        <FloatButton />
+      </FloatButton.Group>,
+    );
+
+    expect(container.querySelector('.ant-badge')).toBeTruthy();
   });
 });

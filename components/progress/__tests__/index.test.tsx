@@ -1,5 +1,5 @@
-import { Tooltip } from 'antd';
 import React, { useState } from 'react';
+import { Tooltip } from 'antd';
 import type { ProgressProps } from '..';
 import Progress from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -31,7 +31,7 @@ describe('Progress', () => {
   });
 
   it('render strokeWidth of progress', () => {
-    const { container } = render(<Progress type="circle" percent={30} strokeWidth={50} />);
+    const { container } = render(<Progress type='circle' percent={30} strokeWidth={50} />);
     expect(container).toMatchSnapshot();
   });
 
@@ -63,7 +63,7 @@ describe('Progress', () => {
 
   it('render strokeColor', () => {
     const { container: wrapper, rerender } = render(
-      <Progress type="circle" percent={50} strokeColor="red" />,
+      <Progress type='circle' percent={50} strokeColor='red' />,
     );
     expect(wrapper.firstChild).toMatchSnapshot();
     rerender(
@@ -73,7 +73,7 @@ describe('Progress', () => {
           to: '#87d068',
         }}
         percent={50}
-        type="line"
+        type='line'
       />,
     );
     expect(wrapper.firstChild).toMatchSnapshot();
@@ -84,19 +84,19 @@ describe('Progress', () => {
           '100%': '#87d068',
         }}
         percent={50}
-        type="line"
+        type='line'
       />,
     );
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('render normal progress', () => {
-    const { container: wrapper } = render(<Progress status="normal" />);
+    const { container: wrapper } = render(<Progress status='normal' />);
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('render trailColor progress', () => {
-    const { container: wrapper } = render(<Progress status="normal" trailColor="#ffffff" />);
+    const { container: wrapper } = render(<Progress status='normal' trailColor='#ffffff' />);
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
@@ -109,30 +109,30 @@ describe('Progress', () => {
 
   it('render successColor progress type="circle"', () => {
     const { container: wrapper } = render(
-      <Progress percent={60} type="circle" success={{ percent: 30, strokeColor: '#ffffff' }} />,
+      <Progress percent={60} type='circle' success={{ percent: 30, strokeColor: '#ffffff' }} />,
     );
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('render successColor progress type="dashboard"', () => {
     const { container: wrapper } = render(
-      <Progress percent={60} type="dashboard" success={{ percent: 30, strokeColor: '#ffffff' }} />,
+      <Progress percent={60} type='dashboard' success={{ percent: 30, strokeColor: '#ffffff' }} />,
     );
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('render dashboard zero gapDegree', () => {
-    const { container: wrapper } = render(<Progress type="dashboard" gapDegree={0} />);
+    const { container: wrapper } = render(<Progress type='dashboard' gapDegree={0} />);
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('render dashboard 295 gapDegree', () => {
-    const { container: wrapper } = render(<Progress type="dashboard" gapDegree={295} />);
+    const { container: wrapper } = render(<Progress type='dashboard' gapDegree={295} />);
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('render dashboard 296 gapDegree', () => {
-    const { container: wrapper } = render(<Progress type="dashboard" gapDegree={296} />);
+    const { container: wrapper } = render(<Progress type='dashboard' gapDegree={296} />);
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
@@ -190,12 +190,12 @@ describe('Progress', () => {
 
   it('steps should be changeable when has strokeColor', () => {
     const { container: wrapper, rerender } = render(
-      <Progress steps={5} percent={60} strokeColor="#1677ff" />,
+      <Progress steps={5} percent={60} strokeColor='#1677ff' />,
     );
     expect(
       wrapper.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item')[0].style.backgroundColor,
     ).toBe('rgb(22, 119, 255)');
-    rerender(<Progress steps={5} percent={40} strokeColor="#1677ff" />);
+    rerender(<Progress steps={5} percent={40} strokeColor='#1677ff' />);
     expect(
       wrapper.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item')[2].style.backgroundColor,
     ).toBe('');
@@ -205,7 +205,7 @@ describe('Progress', () => {
   });
 
   it('steps should support trailColor', () => {
-    const { container: wrapper } = render(<Progress steps={5} percent={20} trailColor="#1890ee" />);
+    const { container: wrapper } = render(<Progress steps={5} percent={20} trailColor='#1890ee' />);
     expect(
       wrapper.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item')[1].style.backgroundColor,
     ).toBe('rgb(24, 144, 238)');
@@ -250,7 +250,7 @@ describe('Progress', () => {
 
   it('should warning if use `progress` in success in type Circle', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Progress percent={60} success={{ progress: 30 }} type="circle" />);
+    render(<Progress percent={60} success={{ progress: 30 }} type='circle' />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
     );
@@ -258,7 +258,7 @@ describe('Progress', () => {
 
   it('should warnning if pass number[] into `size` in type Circle', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Progress size={[60, 20]} type="circle" />);
+    render(<Progress size={[60, 20]} type='circle' />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] Type "circle" and "dashbord" do not accept array as `size`, please use number or preset size instead.',
     );
@@ -267,13 +267,13 @@ describe('Progress', () => {
   it('should not warning if not pass the `size` prop in type Circle', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     errorSpy.mockClear();
-    render(<Progress type="circle" />);
+    render(<Progress type='circle' />);
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
   it('should warnning if pass number[] into `size` in type dashboard', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Progress size={[60, 20]} type="dashboard" />);
+    render(<Progress size={[60, 20]} type='dashboard' />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] Type "circle" and "dashbord" do not accept array as `size`, please use number or preset size instead.',
     );
@@ -288,7 +288,7 @@ describe('Progress', () => {
           {ProgressTypes.map((type) => (
             <Progress key={type} type={type} percent={percent} success={{ percent: 30 }} />
           ))}
-          <button type="button" onClick={() => setPercent(10)}>
+          <button type='button' onClick={() => setPercent(10)}>
             Change Percent
           </button>
         </>
@@ -307,9 +307,9 @@ describe('Progress', () => {
     it('Rendered more hooks than during the previous render', () => {
       expect(() => {
         const { rerender } = render(
-          <Progress percent={60} success={{ percent: 0 }} type="circle" />,
+          <Progress percent={60} success={{ percent: 0 }} type='circle' />,
         );
-        rerender(<Progress percent={60} success={{ percent: 10 }} type="circle" />);
+        rerender(<Progress percent={60} success={{ percent: 10 }} type='circle' />);
       }).not.toThrow();
     });
 
@@ -326,8 +326,8 @@ describe('Progress', () => {
       <>
         <Progress size={props.size} />
         <Progress size={props.size} steps={3} />
-        <Progress type="circle" size={props.size} />
-        <Progress type="dashboard" size={props.size} />
+        <Progress type='circle' size={props.size} />
+        <Progress type='dashboard' size={props.size} />
       </>
     );
 
@@ -371,13 +371,13 @@ describe('Progress', () => {
   it('no strict warning', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { rerender } = render(
-      <Tooltip title="当前已使用60%">
-        <Progress percent={60} type="circle" />
+      <Tooltip title='当前已使用60%'>
+        <Progress percent={60} type='circle' />
       </Tooltip>,
     );
     rerender(
-      <Tooltip title="当前已使用60%">
-        <Progress percent={60} type="circle" />
+      <Tooltip title='当前已使用60%'>
+        <Progress percent={60} type='circle' />
       </Tooltip>,
     );
     expect(errSpy).not.toHaveBeenCalledWith(
@@ -388,7 +388,7 @@ describe('Progress', () => {
 
   it('should be accessible', () => {
     const { container: wrapper, rerender } = render(
-      <Progress percent={70} aria-label="My progress" />,
+      <Progress percent={70} aria-label='My progress' />,
     );
     let progress = wrapper.querySelector('[role="progressbar"]');
     expect(progress).toHaveAttribute('aria-label', 'My progress');
@@ -396,8 +396,8 @@ describe('Progress', () => {
 
     rerender(
       <>
-        <span id="progressLabel">My progress</span>
-        <Progress percent={90} aria-labelledby="progressLabel" />
+        <span id='progressLabel'>My progress</span>
+        <Progress percent={90} aria-labelledby='progressLabel' />
       </>,
     );
     progress = wrapper.querySelector('[role="progressbar"]');

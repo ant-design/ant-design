@@ -30,7 +30,7 @@ describe('Card', () => {
 
   it('title should be vertically aligned', () => {
     const { container } = render(
-      <Card title="Card title" extra={<Button>Button</Button>} style={{ width: 300 }}>
+      <Card title='Card title' extra={<Button>Button</Button>} style={{ width: 300 }}>
         <p>Card content</p>
       </Card>,
     );
@@ -62,7 +62,7 @@ describe('Card', () => {
     const numberStub = 11;
     render(
       // @ts-ignore ignore for the wrong action value
-      <Card title="Card title" actions={numberStub}>
+      <Card title='Card title' actions={numberStub}>
         <p>Card content</p>
       </Card>,
     );
@@ -72,7 +72,7 @@ describe('Card', () => {
   it('with tab props', () => {
     const { container } = render(
       <Card
-        title="Card title"
+        title='Card title'
         tabList={[
           {
             key: 'key',
@@ -90,7 +90,7 @@ describe('Card', () => {
   it('tab size extend card size', () => {
     const { container: largeContainer } = render(
       <Card
-        title="Card title"
+        title='Card title'
         tabList={[
           {
             key: 'key',
@@ -105,14 +105,14 @@ describe('Card', () => {
 
     const { container } = render(
       <Card
-        title="Card title"
+        title='Card title'
         tabList={[
           {
             key: 'key',
             tab: 'tab',
           },
         ]}
-        size="small"
+        size='small'
       >
         <p>Card content</p>
       </Card>,
@@ -124,12 +124,23 @@ describe('Card', () => {
     const cardRef = React.createRef<HTMLDivElement>();
 
     render(
-      <Card ref={cardRef} title="Card title">
+      <Card ref={cardRef} title='Card title'>
         <p>Card content</p>
       </Card>,
     );
 
     expect(cardRef.current).toHaveClass('ant-card');
+  });
+
+  it('should show tab when tabList is empty', () => {
+    const { container } = render(
+      <Card title='Card title' tabList={[]} tabProps={{ type: 'editable-card' }}>
+        <p>Card content</p>
+      </Card>,
+    );
+
+    expect(container.querySelector('.ant-tabs')).toBeTruthy();
+    expect(container.querySelector('.ant-tabs-nav-add')).toBeTruthy();
   });
 
   it('correct pass tabList props', () => {

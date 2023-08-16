@@ -41,16 +41,17 @@ demo:
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 ```jsx
 <Cascader options={options} onChange={onChange} />
 ```
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| allowClear | 是否支持清除 | boolean | true |  |
+| allowClear | 支持清除 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象形式 |
 | autoFocus | 自动获取焦点 | boolean | false |  |
 | bordered | 是否有边框 | boolean | true |  |
-| clearIcon | 自定义的选择框清空图标 | ReactNode | - |  |
 | changeOnSelect | （单选时生效）当此项为 true 时，点选每级菜单选项值都会发生变化，具体见上面的演示 | boolean | false |  |
 | className | 自定义类名 | string | - |  |
 | defaultValue | 默认的选中项 | string\[] \| number\[] | \[] |  |

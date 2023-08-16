@@ -177,7 +177,7 @@ describe('Table.filter', () => {
   });
 
   it('renders custom content correctly', async () => {
-    const filter = <div className="custom-filter-dropdown">custom filter</div>;
+    const filter = <div className='custom-filter-dropdown'>custom filter</div>;
     const { container } = render(
       createTable({
         columns: [
@@ -207,14 +207,14 @@ describe('Table.filter', () => {
       renderSelectedKeys = selectedKeys;
 
       return (
-        <div className={`${prefixCls}-view`} id="customFilter">
-          <span onClick={() => setSelectedKeys([42])} id="setSelectedKeys">
+        <div className={`${prefixCls}-view`} id='customFilter'>
+          <span onClick={() => setSelectedKeys([42])} id='setSelectedKeys'>
             setSelectedKeys
           </span>
-          <span onClick={() => confirm?.()} id="confirm">
+          <span onClick={() => confirm?.()} id='confirm'>
             Confirm
           </span>
-          <span onClick={() => clearFilters?.()} id="reset">
+          <span onClick={() => clearFilters?.()} id='reset'>
             Reset
           </span>
           <span
@@ -222,7 +222,7 @@ describe('Table.filter', () => {
               setSelectedKeys([43]);
               confirm();
             }}
-            id="simulateOnSelect"
+            id='simulateOnSelect'
           >
             SimulateOnSelect
           </span>
@@ -785,9 +785,9 @@ describe('Table.filter', () => {
       return (
         <Table dataSource={data} onChange={handleChange}>
           <Column
-            title="name"
-            dataIndex="name"
-            key="name"
+            title='name'
+            dataIndex='name'
+            key='name'
             onFilter={filterFn}
             filteredValue={filters.name}
             filters={[
@@ -883,7 +883,7 @@ describe('Table.filter', () => {
 
   it('renders custom filter icon correctly', () => {
     const filterIcon = (filtered: boolean): React.ReactNode => (
-      <span className="customize-icon">{filtered ? 'filtered' : 'unfiltered'}</span>
+      <span className='customize-icon'>{filtered ? 'filtered' : 'unfiltered'}</span>
     );
     const { container } = render(
       createTable({
@@ -918,7 +918,7 @@ describe('Table.filter', () => {
 
   it('renders custom filter icon with right Tooltip title', () => {
     const filterIcon = () => (
-      <Tooltip title="title" open>
+      <Tooltip title='title' open>
         Tooltip
       </Tooltip>
     );
@@ -936,7 +936,7 @@ describe('Table.filter', () => {
   });
 
   it('renders custom filter icon as ReactNode', () => {
-    const filterIcon = <span className="customize-icon" />;
+    const filterIcon = <span className='customize-icon' />;
     const { container, asFragment } = render(
       createTable({
         columns: [
@@ -1022,7 +1022,7 @@ describe('Table.filter', () => {
     const filterDropdown = ({ setSelectedKeys, confirm }: FilterDropdownProps) => (
       <div>
         <input onChange={(e) => setSelectedKeys([e.target.value])} />
-        <button className="confirm-btn" type="submit" onClick={() => confirm()}>
+        <button className='confirm-btn' type='submit' onClick={() => confirm()}>
           Confirm
         </button>
       </div>
@@ -1065,7 +1065,7 @@ describe('Table.filter', () => {
       return (
         <div>
           <Select
-            mode="multiple"
+            mode='multiple'
             allowClear
             labelInValue
             style={{ width: 200 }}
@@ -1086,7 +1086,7 @@ describe('Table.filter', () => {
               },
             ]}
           />
-          <button className="confirm-btn" type="submit" onClick={() => confirm()}>
+          <button className='confirm-btn' type='submit' onClick={() => confirm()}>
             Confirm
           </button>
         </div>
@@ -1145,7 +1145,7 @@ describe('Table.filter', () => {
     const Test: React.FC<{ filters?: ColumnFilterItem[] }> = ({ filters }) => (
       <Table
         onChange={onChange}
-        rowKey="name"
+        rowKey='name'
         columns={[
           {
             title: 'Name',
@@ -1240,7 +1240,7 @@ describe('Table.filter', () => {
 
     const Test = () => (
       <Table
-        rowKey="name"
+        rowKey='name'
         columns={[{ title: 'Name', dataIndex: 'name', filterDropdown }]}
         dataSource={[{ name: 'Jack' }]}
       />
@@ -1260,7 +1260,7 @@ describe('Table.filter', () => {
 
     const Test: React.FC = () => (
       <Table
-        rowKey="name"
+        rowKey='name'
         columns={[{ title: 'Name', dataIndex: 'name', filterDropdown }]}
         dataSource={[{ name: 'Jack' }]}
       />
@@ -1472,7 +1472,7 @@ describe('Table.filter', () => {
   });
 
   it('filtered should work after change', () => {
-    const App = () => {
+    const App: React.FC = () => {
       const [filtered, setFiltered] = React.useState(true);
       const columns = [
         {
@@ -1484,9 +1484,9 @@ describe('Table.filter', () => {
       ];
 
       return (
-        <div className="App">
+        <div className='App'>
           <Button
-            id="change-filtered-btn"
+            id='change-filtered-btn'
             onClick={() => {
               setFiltered(!filtered);
             }}
@@ -1543,8 +1543,8 @@ describe('Table.filter', () => {
     const { container } = render(
       <Table dataSource={data}>
         <Table.Column
-          title="Name"
-          dataIndex="name"
+          title='Name'
+          dataIndex='name'
           filters={[
             { text: 'Jack', value: 'Jack' },
             { text: 'Lucy', value: 'Lucy' },
@@ -1586,7 +1586,7 @@ describe('Table.filter', () => {
     const Test: React.FC<{ filters?: ColumnFilterItem[] }> = ({ filters }) => (
       <Table
         onChange={onChange}
-        rowKey="name"
+        rowKey='name'
         columns={[{ title: 'Name', dataIndex: 'name', filters }]}
         dataSource={[{ name: 'Jack' }]}
       />
@@ -1696,7 +1696,7 @@ describe('Table.filter', () => {
     ];
 
     const { container } = render(
-      <Table onChange={onChange} rowKey="name" columns={columns} dataSource={dataSource} />,
+      <Table onChange={onChange} rowKey='name' columns={columns} dataSource={dataSource} />,
     );
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
@@ -1723,12 +1723,12 @@ describe('Table.filter', () => {
             filteredValue: name as unknown as FilterValue,
             filterDropdown: ({ confirm }) => (
               <>
-                <button id="confirm-and-close" type="button" onClick={() => confirm()}>
+                <button id='confirm-and-close' type='button' onClick={() => confirm()}>
                   confirm
                 </button>
                 <button
-                  id="confirm-only"
-                  type="button"
+                  id='confirm-only'
+                  type='button'
                   onClick={() => confirm({ closeDropdown: false })}
                 >
                   confirm
@@ -1973,7 +1973,7 @@ describe('Table.filter', () => {
 
       return (
         <div>
-          <span className="rest-btn" onClick={handleClick}>
+          <span className='rest-btn' onClick={handleClick}>
             refresh
           </span>
           <Table columns={cs} dataSource={ddd} />
@@ -2437,7 +2437,7 @@ describe('Table.filter', () => {
       renderSelectedKeys = selectedKeys;
 
       return (
-        <div className={`${prefixCls}-view`} id="customFilter">
+        <div className={`${prefixCls}-view`} id='customFilter'>
           {filterConfig.map(([text, id, param]) => (
             <>
               <span
@@ -2543,7 +2543,7 @@ describe('Table.filter', () => {
           {
             ...column,
             filterDropdown: (
-              <div className="custom-filter-dropdown">
+              <div className='custom-filter-dropdown'>
                 <Menu
                   onSelect={onSelect}
                   items={[
@@ -2734,7 +2734,7 @@ describe('Table.filter', () => {
             key: 'name',
             filteredValue: name as unknown as FilterValue,
             filterDropdown: ({ close }) => (
-              <button id="close-only" type="button" onClick={() => close()}>
+              <button id='close-only' type='button' onClick={() => close()}>
                 close
               </button>
             ),

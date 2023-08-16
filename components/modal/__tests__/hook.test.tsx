@@ -5,6 +5,7 @@ import React from 'react';
 import { act } from 'react-dom/test-utils';
 
 import Modal from '..';
+import zhCN from '../../locale/zh_CN';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
@@ -30,13 +31,13 @@ describe('Modal.hook', () => {
     const Demo = () => {
       const [modal, contextHolder] = Modal.useModal();
       return (
-        <Context.Provider value="bamboo">
+        <Context.Provider value='bamboo'>
           <Button
             onClick={() => {
               instance = modal.confirm({
                 content: (
                   <Context.Consumer>
-                    {(name) => <div className="test-hook">{name}</div>}
+                    {(name) => <div className='test-hook'>{name}</div>}
                   </Context.Consumer>
                 ),
               });
@@ -57,7 +58,7 @@ describe('Modal.hook', () => {
     // Update instance
     act(() => {
       instance.update({
-        content: <div className="updated-content" />,
+        content: <div className='updated-content' />,
       });
     });
     expect(document.body.querySelectorAll('.updated-content')).toHaveLength(1);
@@ -88,9 +89,9 @@ describe('Modal.hook', () => {
       }
 
       return (
-        <div className="App">
+        <div className='App'>
           {contextHolder}
-          <div className="open-hook-modal-btn" onClick={showConfirm}>
+          <div className='open-hook-modal-btn' onClick={showConfirm}>
             confirm
           </div>
         </div>
@@ -128,7 +129,7 @@ describe('Modal.hook', () => {
     };
 
     const { container } = render(
-      <ConfigProvider direction="rtl">
+      <ConfigProvider direction='rtl'>
         <Demo />
       </ConfigProvider>,
     );
@@ -155,9 +156,9 @@ describe('Modal.hook', () => {
       }, [modal]);
 
       return (
-        <div className="App">
+        <div className='App'>
           {contextHolder}
-          <div className="open-hook-modal-btn" onClick={openBrokenModal}>
+          <div className='open-hook-modal-btn' onClick={openBrokenModal}>
             Test hook modal
           </div>
         </div>
@@ -190,9 +191,9 @@ describe('Modal.hook', () => {
       }, [modal]);
 
       return (
-        <div className="App">
+        <div className='App'>
           {contextHolder}
-          <div className="open-hook-modal-btn" onClick={openBrokenModal}>
+          <div className='open-hook-modal-btn' onClick={openBrokenModal}>
             Test hook modal
           </div>
         </div>
@@ -219,9 +220,9 @@ describe('Modal.hook', () => {
       }, [modal]);
 
       return (
-        <div className="App">
+        <div className='App'>
           {contextHolder}
-          <div className="open-hook-modal-btn" onClick={openBrokenModal}>
+          <div className='open-hook-modal-btn' onClick={openBrokenModal}>
             Test hook modal
           </div>
         </div>
@@ -251,9 +252,9 @@ describe('Modal.hook', () => {
       }, [modal]);
 
       return (
-        <div className="App">
+        <div className='App'>
           {contextHolder}
-          <div className="open-hook-modal-btn" onClick={openBrokenModal}>
+          <div className='open-hook-modal-btn' onClick={openBrokenModal}>
             Test hook modal
           </div>
         </div>
@@ -339,7 +340,7 @@ describe('Modal.hook', () => {
 
       React.useEffect(() => {
         modal.confirm({
-          content: <Button className="bamboo">好的</Button>,
+          content: <Button className='bamboo'>好的</Button>,
         });
       }, []);
 
@@ -366,5 +367,90 @@ describe('Modal.hook', () => {
     fireEvent.click(btns[btns.length - 1]);
 
     expect(afterClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('should be applied correctly locale', async () => {
+    jest.useFakeTimers();
+
+    const Demo: React.FC<{ count: number }> = ({ count }) => {
+      React.useEffect(() => {
+        const instance = Modal.confirm({});
+        return () => {
+          instance.destroy();
+        };
+      }, [count]);
+
+      let node = null;
+
+      for (let i = 0; i < count; i += 1) {
+        node = <ConfigProvider locale={zhCN}>{node}</ConfigProvider>;
+      }
+
+      return node;
+    };
+
+    const { rerender } = render(<div />);
+
+    for (let i = 10; i > 0; i -= 1) {
+      rerender(<Demo count={i} />);
+      // eslint-disable-next-line no-await-in-loop
+      await waitFakeTimer();
+
+      expect(document.body.querySelector('.ant-btn-primary')!.textContent).toEqual('确 定');
+      fireEvent.click(document.body.querySelector('.ant-btn-primary')!);
+
+      // eslint-disable-next-line no-await-in-loop
+      await waitFakeTimer();
+    }
+
+    rerender(<Demo count={0} />);
+    await waitFakeTimer();
+    expect(document.body.querySelector('.ant-btn-primary')!.textContent).toEqual('OK');
+
+    jest.useRealTimers();
+  });
+
+  it('support await', async () => {
+    jest.useFakeTimers();
+
+    let notReady = true;
+    let lastResult: boolean | null = null;
+
+    const Demo: React.FC = () => {
+      const [modal, contextHolder] = Modal.useModal();
+
+      React.useEffect(() => {
+        (async () => {
+          lastResult = await modal.confirm({
+            content: <Input />,
+            onOk: async () => {
+              if (notReady) {
+                notReady = false;
+                return Promise.reject();
+              }
+            },
+          });
+        })();
+      }, []);
+
+      return contextHolder;
+    };
+
+    render(<Demo />);
+
+    // Wait for modal show
+    await waitFakeTimer();
+
+    // First time click should not close
+    fireEvent.click(document.querySelector('.ant-btn-primary')!);
+    await waitFakeTimer();
+    expect(lastResult).toBeFalsy();
+
+    // Second time click to close
+    fireEvent.click(document.querySelector('.ant-btn-primary')!);
+    await waitFakeTimer();
+    expect(lastResult).toBeTruthy();
+
+    jest.useRealTimers();
   });
 });

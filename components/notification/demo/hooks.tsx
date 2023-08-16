@@ -4,9 +4,9 @@ import {
   RadiusUpleftOutlined,
   RadiusUprightOutlined,
 } from '@ant-design/icons';
+import React, { useMemo } from 'react';
 import { Button, Divider, Space, notification } from 'antd';
 import type { NotificationPlacement } from 'antd/es/notification/interface';
-import React, { useMemo } from 'react';
 
 const Context = React.createContext({ name: 'Default' });
 
@@ -28,14 +28,14 @@ const App: React.FC = () => {
       {contextHolder}
       <Space>
         <Button
-          type="primary"
+          type='primary'
           onClick={() => openNotification('topLeft')}
           icon={<RadiusUpleftOutlined />}
         >
           topLeft
         </Button>
         <Button
-          type="primary"
+          type='primary'
           onClick={() => openNotification('topRight')}
           icon={<RadiusUprightOutlined />}
         >
@@ -45,14 +45,14 @@ const App: React.FC = () => {
       <Divider />
       <Space>
         <Button
-          type="primary"
+          type='primary'
           onClick={() => openNotification('bottomLeft')}
           icon={<RadiusBottomleftOutlined />}
         >
           bottomLeft
         </Button>
         <Button
-          type="primary"
+          type='primary'
           onClick={() => openNotification('bottomRight')}
           icon={<RadiusBottomrightOutlined />}
         >

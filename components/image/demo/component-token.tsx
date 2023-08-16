@@ -1,5 +1,5 @@
-import { ConfigProvider, Image } from 'antd';
 import React from 'react';
+import { ConfigProvider, Image } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -18,11 +18,11 @@ const App: React.FC = () => (
     >
       <Image
         width={150}
-        src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
+        src='https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg'
       />
       <Image
         width={150}
-        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        src='https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
       />
     </Image.PreviewGroup>
   </ConfigProvider>

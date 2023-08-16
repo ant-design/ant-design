@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { DumiDemoGrid, FormattedMessage } from 'dumi';
-import { Tooltip } from 'antd';
 import { BugFilled, BugOutlined, CodeFilled, CodeOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
+import { Tooltip } from 'antd';
 import DemoContext from '../../slots/DemoContext';
 import useLayoutState from '../../../hooks/useLayoutState';
 
@@ -50,8 +50,8 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
   );
 
   return (
-    <div className="demo-wrapper">
-      <span className="all-code-box-controls">
+    <div className='demo-wrapper'>
+      <span className='all-code-box-controls'>
         <Tooltip
           title={
             <FormattedMessage id={`app.component.examples.${expandAll ? 'collapse' : 'expand'}`} />
@@ -75,8 +75,7 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
           )}
         </Tooltip>
       </span>
-      {/* FIXME: find a new way instead of `key` to trigger re-render */}
-      <DumiDemoGrid items={demos} key={`${expandAll}${showDebug}`} />
+      <DumiDemoGrid items={demos} />
     </div>
   );
 };

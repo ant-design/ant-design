@@ -12,7 +12,7 @@ export interface ItemProps {
   style?: React.CSSProperties;
 }
 
-export default function Item({
+const Item: React.FC<ItemProps> = ({
   className,
   direction,
   index,
@@ -21,7 +21,7 @@ export default function Item({
   split,
   wrap,
   style: customStyle,
-}: ItemProps) {
+}) => {
   const { horizontalSize, verticalSize, latestIndex, supportFlexGap } =
     React.useContext(SpaceContext);
 
@@ -56,4 +56,6 @@ export default function Item({
       )}
     </>
   );
-}
+};
+
+export default Item;

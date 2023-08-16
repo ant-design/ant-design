@@ -409,6 +409,13 @@ const genTypeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     [`${componentCls}-dashed`]: genDashedButtonStyle(token),
     [`${componentCls}-link`]: genLinkButtonStyle(token),
     [`${componentCls}-text`]: genTextButtonStyle(token),
+    [`${componentCls}-ghost`]: genGhostButtonStyle(
+      token.componentCls,
+      token.colorBgContainer,
+      token.colorBgContainer,
+      token.colorTextDisabled,
+      token.colorBorder,
+    ),
   };
 };
 

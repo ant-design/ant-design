@@ -1,3 +1,5 @@
+'use client';
+
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
@@ -16,7 +18,7 @@ import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import genPurePanel from '../_util/PurePanel';
 import type { SelectCommonPlacement } from '../_util/motion';
-import { getTransitionDirection, getTransitionName } from '../_util/motion';
+import { getTransitionName } from '../_util/motion';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';
@@ -117,6 +119,11 @@ export type CascaderProps<DataNodeType extends BaseOptionType = any> =
   UnionCascaderProps<DataNodeType> & {
     multiple?: boolean;
     size?: SizeType;
+    /**
+     * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
+     *   default behavior, you can hide it by setting `suffixIcon` to null.
+     */
+    showArrow?: boolean;
     disabled?: boolean;
     bordered?: boolean;
     placement?: SelectCommonPlacement;
@@ -135,7 +142,7 @@ export interface CascaderRef {
   blur: () => void;
 }
 
-const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<CascaderRef>) => {
+const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     size: customizeSize,
@@ -158,6 +165,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     status: customStatus,
     showArrow,
     builtinPlacements,
+    style,
     ...rest
   } = props;
 
@@ -169,6 +177,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     renderEmpty,
     direction: rootDirection,
     popupOverflow,
+    cascader,
   } = React.useContext(ConfigContext);
 
   const mergedDirection = direction || rootDirection;
@@ -190,11 +199,17 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
       'Cascader',
       '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
     );
+
+    warning(
+      !('showArrow' in props),
+      'Cascader',
+      '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+    );
   }
 
   // =================== No Found ====================
   const mergedNotFoundContent = notFoundContent || renderEmpty?.('Cascader') || (
-    <DefaultRenderEmpty componentName="Cascader" />
+    <DefaultRenderEmpty componentName='Cascader' />
   );
 
   // ==================== Prefix =====================
@@ -263,14 +278,15 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   );
 
   // ===================== Icons =====================
-  const mergedShowArrow = useShowArrow(showArrow);
+  const showSuffixIcon = useShowArrow(props.suffixIcon, showArrow);
   const { suffixIcon, removeIcon, clearIcon } = getIcons({
     ...props,
     hasFeedback,
     feedbackIcon,
-    showArrow: mergedShowArrow,
+    showSuffixIcon,
     multiple,
     prefixCls,
+    componentName: 'Cascader',
   });
 
   // ===================== Placement =====================
@@ -282,6 +298,8 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   }, [placement, isRtl]);
 
   const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements, popupOverflow);
+
+  const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
   // ==================== Render =====================
   const renderNode = (
@@ -298,35 +316,31 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
         },
         getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
         compactItemClassnames,
+        cascader?.className,
         className,
         rootClassName,
         hashId,
       )}
       disabled={mergedDisabled}
+      style={{ ...cascader?.style, ...style }}
       {...(restProps as any)}
       builtinPlacements={mergedBuiltinPlacements}
       direction={mergedDirection}
       placement={memoPlacement}
       notFoundContent={mergedNotFoundContent}
-      allowClear={allowClear}
+      allowClear={mergedAllowClear}
       showSearch={mergedShowSearch}
       expandIcon={mergedExpandIcon}
-      inputIcon={suffixIcon}
+      suffixIcon={suffixIcon}
       removeIcon={removeIcon}
-      clearIcon={clearIcon}
       loadingIcon={loadingIcon}
       checkable={checkable}
       dropdownClassName={mergedDropdownClassName}
       dropdownPrefixCls={customizePrefixCls || cascaderPrefixCls}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
-      transitionName={getTransitionName(
-        rootPrefixCls,
-        getTransitionDirection(placement),
-        transitionName,
-      )}
+      transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       ref={ref}
-      showArrow={hasFeedback || mergedShowArrow}
     />
   );
 

@@ -28,6 +28,15 @@ describe('Carousel', () => {
     expect(typeof innerSlider.slickNext).toBe('function');
   });
 
+  it('should support id property', () => {
+    const { container } = render(
+      <Carousel id='my-carousel'>
+        <div />
+      </Carousel>,
+    );
+    expect(container.querySelector('.ant-carousel')?.getAttribute('id')).toBe('my-carousel');
+  });
+
   it('should has prev, next and go function', async () => {
     const ref = React.createRef<CarouselRef>();
     render(
@@ -118,9 +127,9 @@ describe('Carousel', () => {
       const { rerender, container } = render(<Carousel initialSlide={1} />);
       rerender(
         <Carousel initialSlide={1}>
-          <div key="1" />
-          <div key="2" />
-          <div key="3" />
+          <div key='1' />
+          <div key='2' />
+          <div key='3' />
         </Carousel>,
       );
       expect(container.querySelectorAll('.slick-dots li')[1]).toHaveClass('slick-active');

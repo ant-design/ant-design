@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { DatePicker, Space } from 'antd';
 import type { Dayjs } from 'dayjs';
+import { DatePicker, Space } from 'antd';
 
 const App: React.FC = () => {
   const [startValue, setStartValue] = useState<Dayjs | null>(null);
@@ -36,18 +36,18 @@ const App: React.FC = () => {
       <DatePicker
         disabledDate={disabledStartDate}
         showTime
-        format="YYYY-MM-DD HH:mm:ss"
+        format='YYYY-MM-DD HH:mm:ss'
         value={startValue}
-        placeholder="Start"
+        placeholder='Start'
         onChange={setStartValue}
         onOpenChange={handleStartOpenChange}
       />
       <DatePicker
         disabledDate={disabledEndDate}
         showTime
-        format="YYYY-MM-DD HH:mm:ss"
+        format='YYYY-MM-DD HH:mm:ss'
         value={endValue}
-        placeholder="End"
+        placeholder='End'
         onChange={setEndValue}
         open={endOpen}
         onOpenChange={handleEndOpenChange}

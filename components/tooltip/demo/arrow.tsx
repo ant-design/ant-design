@@ -1,5 +1,5 @@
-import { Button, Divider, Segmented, Tooltip } from 'antd';
 import React, { useMemo, useState } from 'react';
+import { Button, Divider, Segmented, Tooltip } from 'antd';
 
 const text = <span>prompt text</span>;
 
@@ -31,7 +31,7 @@ const App: React.FC = () => {
   }, [arrow]);
 
   return (
-    <div className="demo">
+    <div className='demo'>
       <Segmented
         value={arrow}
         options={options}
@@ -39,15 +39,15 @@ const App: React.FC = () => {
           setArrow(val);
         }}
       />
-      <Divider orientation="center">Content</Divider>
+      <Divider orientation='center'>Content</Divider>
       <div style={{ marginLeft: buttonWidth, display: 'flex', flexWrap: 'nowrap', columnGap: gap }}>
-        <Tooltip placement="topLeft" title={text} arrow={mergedArrow}>
+        <Tooltip placement='topLeft' title={text} arrow={mergedArrow}>
           <Button {...btnProps}>TL</Button>
         </Tooltip>
-        <Tooltip placement="top" title={text} arrow={mergedArrow}>
+        <Tooltip placement='top' title={text} arrow={mergedArrow}>
           <Button {...btnProps}>Top</Button>
         </Tooltip>
-        <Tooltip placement="topRight" title={text} arrow={mergedArrow}>
+        <Tooltip placement='topRight' title={text} arrow={mergedArrow}>
           <Button {...btnProps}>TR</Button>
         </Tooltip>
       </div>
@@ -60,13 +60,13 @@ const App: React.FC = () => {
           rowGap: gap,
         }}
       >
-        <Tooltip placement="leftTop" title={text} arrow={mergedArrow}>
+        <Tooltip placement='leftTop' title={text} arrow={mergedArrow}>
           <Button>LT</Button>
         </Tooltip>
-        <Tooltip placement="left" title={text} arrow={mergedArrow}>
+        <Tooltip placement='left' title={text} arrow={mergedArrow}>
           <Button>Left</Button>
         </Tooltip>
-        <Tooltip placement="leftBottom" title={text} arrow={mergedArrow}>
+        <Tooltip placement='leftBottom' title={text} arrow={mergedArrow}>
           <Button>LB</Button>
         </Tooltip>
       </div>
@@ -79,13 +79,13 @@ const App: React.FC = () => {
           rowGap: gap,
         }}
       >
-        <Tooltip placement="rightTop" title={text} arrow={mergedArrow}>
+        <Tooltip placement='rightTop' title={text} arrow={mergedArrow}>
           <Button>RT</Button>
         </Tooltip>
-        <Tooltip placement="right" title={text} arrow={mergedArrow}>
+        <Tooltip placement='right' title={text} arrow={mergedArrow}>
           <Button>Right</Button>
         </Tooltip>
-        <Tooltip placement="rightBottom" title={text} arrow={mergedArrow}>
+        <Tooltip placement='rightBottom' title={text} arrow={mergedArrow}>
           <Button>RB</Button>
         </Tooltip>
       </div>
@@ -98,13 +98,13 @@ const App: React.FC = () => {
           columnGap: gap,
         }}
       >
-        <Tooltip placement="bottomLeft" title={text} arrow={mergedArrow}>
+        <Tooltip placement='bottomLeft' title={text} arrow={mergedArrow}>
           <Button {...btnProps}>BL</Button>
         </Tooltip>
-        <Tooltip placement="bottom" title={text} arrow={mergedArrow}>
+        <Tooltip placement='bottom' title={text} arrow={mergedArrow}>
           <Button {...btnProps}>Bottom</Button>
         </Tooltip>
-        <Tooltip placement="bottomRight" title={text} arrow={mergedArrow}>
+        <Tooltip placement='bottomRight' title={text} arrow={mergedArrow}>
           <Button {...btnProps}>BR</Button>
         </Tooltip>
       </div>

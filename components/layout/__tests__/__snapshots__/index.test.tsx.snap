@@ -14,7 +14,7 @@ exports[`Layout renders string width correctly 1`] = `
 `;
 
 exports[`Layout rtl render component should be rendered correctly in RTL direction 1`] = `
-<section
+<div
   class="ant-layout ant-layout-rtl"
 />
 `;

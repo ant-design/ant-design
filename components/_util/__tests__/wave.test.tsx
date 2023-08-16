@@ -1,7 +1,10 @@
 import React from 'react';
+import classNames from 'classnames';
 import mountTest from '../../../tests/shared/mountTest';
 import { act, fireEvent, getByText, render, waitFakeTimer } from '../../../tests/utils';
 import Wave from '../wave';
+import { TARGET_CLS } from '../wave/interface';
+import Checkbox from '../../checkbox';
 
 (global as any).isVisible = true;
 
@@ -29,7 +32,6 @@ describe('Wave component', () => {
     }
 
     (window as any).ResizeObserver = FakeResizeObserver;
-    jest.useFakeTimers();
   });
 
   afterAll(() => {
@@ -39,11 +41,14 @@ describe('Wave component', () => {
   });
 
   beforeEach(() => {
+    jest.useFakeTimers();
     (global as any).isVisible = true;
     document.body.innerHTML = '';
   });
 
-  afterEach(() => {
+  afterEach(async () => {
+    await waitFakeTimer();
+
     jest.clearAllTimers();
     const styles = document.getElementsByTagName('style');
     for (let i = 0; i < styles.length; i += 1) {
@@ -68,12 +73,15 @@ describe('Wave component', () => {
     act(() => {
       jest.advanceTimersByTime(100);
     });
+    act(() => {
+      jest.advanceTimersByTime(100);
+    });
   }
 
   it('work', async () => {
     const { container, unmount } = render(
       <Wave>
-        <button type="button">button</button>
+        <button type='button'>button</button>
       </Wave>,
     );
 
@@ -93,7 +101,7 @@ describe('Wave component', () => {
     (global as any).isVisible = false;
     const { container, unmount } = render(
       <Wave>
-        <button type="button">button</button>
+        <button type='button'>button</button>
       </Wave>,
     );
 
@@ -108,7 +116,7 @@ describe('Wave component', () => {
     const { container, unmount } = render(
       <Wave>
         <button
-          type="button"
+          type='button'
           style={{ borderColor: 'rgb(0, 0, 0)', backgroundColor: 'transparent' }}
         >
           button
@@ -129,7 +137,7 @@ describe('Wave component', () => {
   it('wave color is not grey', () => {
     const { container, unmount } = render(
       <Wave>
-        <button type="button" style={{ borderColor: 'red' }}>
+        <button type='button' style={{ borderColor: 'red' }}>
           button
         </button>
       </Wave>,
@@ -195,7 +203,7 @@ describe('Wave component', () => {
   it('hidden element with -leave className', () => {
     const { container, unmount } = render(
       <Wave>
-        <button type="button" className="xx-leave">
+        <button type='button' className='xx-leave'>
           button
         </button>
       </Wave>,
@@ -211,7 +219,7 @@ describe('Wave component', () => {
   it('not show when disabled', () => {
     const { container } = render(
       <Wave>
-        <button type="button" disabled>
+        <button type='button' disabled>
           button
         </button>
       </Wave>,
@@ -226,25 +234,13 @@ describe('Wave component', () => {
 
     const { container } = render(
       <Wave>
-        <button type="button" style={{ display: 'none' }}>
+        <button type='button' style={{ display: 'none' }}>
           button
         </button>
       </Wave>,
     );
 
     fireEvent.click(container.querySelector('button')!);
-    waitRaf();
-    expect(document.querySelector('.ant-wave')).toBeFalsy();
-  });
-
-  it('not show when is input', () => {
-    const { container } = render(
-      <Wave>
-        <input />
-      </Wave>,
-    );
-
-    fireEvent.click(container.querySelector('input')!);
     waitRaf();
     expect(document.querySelector('.ant-wave')).toBeFalsy();
   });
@@ -271,7 +267,7 @@ describe('Wave component', () => {
   it('wave color should inferred if border is transparent and background is not', () => {
     const { container, unmount } = render(
       <Wave>
-        <button type="button" style={{ borderColor: 'transparent', background: 'red' }}>
+        <button type='button' style={{ borderColor: 'transparent', background: 'red' }}>
           button
         </button>
       </Wave>,
@@ -288,7 +284,7 @@ describe('Wave component', () => {
   it('wave color should inferred if borderTopColor is transparent and borderColor is not', () => {
     const { container, unmount } = render(
       <Wave>
-        <button type="button" style={{ borderColor: 'red', borderTopColor: 'transparent' }}>
+        <button type='button' style={{ borderColor: 'red', borderTopColor: 'transparent' }}>
           button
         </button>
       </Wave>,
@@ -306,7 +302,7 @@ describe('Wave component', () => {
   it('Wave style should append to validate element', () => {
     const { container } = render(
       <Wave>
-        <div className="bamboo" style={{ borderColor: 'red' }} />
+        <div className='bamboo' style={{ borderColor: 'red' }} />
       </Wave>,
     );
 
@@ -324,5 +320,33 @@ describe('Wave component', () => {
     waitRaf();
 
     expect(container.querySelector('.ant-wave')).toBeTruthy();
+  });
+
+  it('Wave can match target', () => {
+    const { container } = render(
+      <Wave>
+        <div>
+          <div className={classNames('bamboo', TARGET_CLS)} style={{ borderColor: 'red' }} />
+        </div>
+      </Wave>,
+    );
+
+    // Click
+    fireEvent.click(container.querySelector('.bamboo')!);
+    waitRaf();
+
+    expect(container.querySelector('.ant-wave')).toBeTruthy();
+  });
+
+  it('Checkbox with uncheck should not trigger wave', () => {
+    const onChange = jest.fn();
+    const { container } = render(<Checkbox defaultChecked onChange={onChange} />);
+
+    // Click
+    fireEvent.click(container.querySelector('input')!);
+    waitRaf();
+
+    expect(onChange).toHaveBeenCalled();
+    expect(container.querySelector('.ant-wave')).toBeFalsy();
   });
 });

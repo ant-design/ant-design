@@ -1,5 +1,5 @@
-import { Card } from 'antd';
 import React, { useState } from 'react';
+import { Card } from 'antd';
 
 const tabList = [
   {
@@ -53,8 +53,8 @@ const App: React.FC = () => {
     <>
       <Card
         style={{ width: '100%' }}
-        title="Card title"
-        extra={<a href="#">More</a>}
+        title='Card title'
+        extra={<a href='#'>More</a>}
         tabList={tabList}
         activeTabKey={activeTabKey1}
         onTabChange={onTab1Change}
@@ -67,7 +67,7 @@ const App: React.FC = () => {
         style={{ width: '100%' }}
         tabList={tabListNoTitle}
         activeTabKey={activeTabKey2}
-        tabBarExtraContent={<a href="#">More</a>}
+        tabBarExtraContent={<a href='#'>More</a>}
         onTabChange={onTab2Change}
       >
         {contentListNoTitle[activeTabKey2]}

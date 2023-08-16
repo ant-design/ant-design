@@ -1,5 +1,5 @@
-import { Button, Modal } from 'antd';
 import React, { useState } from 'react';
+import { Button, Modal } from 'antd';
 
 const App: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,11 +18,11 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Button type="primary" onClick={showModal}>
+      <Button type='primary' onClick={showModal}>
         Open Modal
       </Button>
       <Modal
-        title="Basic Modal"
+        title='Basic Modal'
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}

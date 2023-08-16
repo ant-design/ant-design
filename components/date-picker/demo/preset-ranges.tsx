@@ -1,7 +1,8 @@
 import React from 'react';
-import { DatePicker, Space } from 'antd';
 import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
+import type { TimeRangePickerProps } from 'antd';
+import { DatePicker, Space } from 'antd';
 
 const { RangePicker } = DatePicker;
 
@@ -21,10 +22,7 @@ const onRangeChange = (dates: null | (Dayjs | null)[], dateStrings: string[]) =>
   }
 };
 
-const rangePresets: {
-  label: string;
-  value: [Dayjs, Dayjs];
-}[] = [
+const rangePresets: TimeRangePickerProps['presets'] = [
   { label: 'Last 7 Days', value: [dayjs().add(-7, 'd'), dayjs()] },
   { label: 'Last 14 Days', value: [dayjs().add(-14, 'd'), dayjs()] },
   { label: 'Last 30 Days', value: [dayjs().add(-30, 'd'), dayjs()] },
@@ -32,7 +30,7 @@ const rangePresets: {
 ];
 
 const App: React.FC = () => (
-  <Space direction="vertical" size={12}>
+  <Space direction='vertical' size={12}>
     <DatePicker
       presets={[
         { label: 'Yesterday', value: dayjs().add(-1, 'd') },
@@ -43,9 +41,15 @@ const App: React.FC = () => (
     />
     <RangePicker presets={rangePresets} onChange={onRangeChange} />
     <RangePicker
-      presets={rangePresets}
+      presets={[
+        {
+          label: <span aria-label='Current Time to End of Day'>Now ~ EOD</span>,
+          value: () => [dayjs(), dayjs().endOf('day')], // 5.8.0+ support function
+        },
+        ...rangePresets,
+      ]}
       showTime
-      format="YYYY/MM/DD HH:mm:ss"
+      format='YYYY/MM/DD HH:mm:ss'
       onChange={onRangeChange}
     />
   </Space>

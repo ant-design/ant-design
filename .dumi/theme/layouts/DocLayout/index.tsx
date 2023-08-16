@@ -1,10 +1,10 @@
-import ConfigProvider from 'antd/es/config-provider';
-import zhCN from 'antd/es/locale/zh_CN';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import { Helmet, useOutlet, useSiteData } from 'dumi';
 import React, { useContext, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
+import zhCN from 'antd/es/locale/zh_CN';
+import ConfigProvider from 'antd/es/config-provider';
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
 import GlobalStyles from '../../common/GlobalStyles';
@@ -32,7 +32,7 @@ const DocLayout: React.FC = () => {
   const location = useLocation();
   const { pathname, search, hash } = location;
   const [locale, lang] = useLocale(locales);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { direction } = useContext(SiteContext);
   const { loading } = useSiteData();
 
@@ -76,7 +76,7 @@ const DocLayout: React.FC = () => {
     ) {
       return (
         <>
-          {outlet}
+          <div style={{ minHeight: '100vh' }}>{outlet}</div>
           <Footer />
         </>
       );
@@ -94,22 +94,22 @@ const DocLayout: React.FC = () => {
     <>
       <Helmet encodeSpecialCharacters={false}>
         <html
-          lang={lang}
+          lang={lang === 'cn' ? 'zh-CN' : lang}
           data-direction={direction}
           className={classNames({ rtl: direction === 'rtl' })}
         />
         <title>{locale?.title}</title>
         <link
-          sizes="144x144"
-          href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
+          sizes='144x144'
+          href='https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png'
         />
-        <meta name="description" content={locale.description} />
-        <meta property="og:title" content={locale?.title} />
-        <meta property="og:description" content={locale.description} />
-        <meta property="og:type" content="website" />
+        <meta name='description' content={locale.description} />
+        <meta property='og:title' content={locale?.title} />
+        <meta property='og:description' content={locale.description} />
+        <meta property='og:type' content='website' />
         <meta
-          property="og:image"
-          content="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
+          property='og:image'
+          content='https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'
         />
       </Helmet>
       <ConfigProvider direction={direction} locale={lang === 'cn' ? zhCN : undefined}>
