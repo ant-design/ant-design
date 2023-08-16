@@ -216,7 +216,7 @@ exports[`ColorPicker Should panelRender work 1`] = `
                     <input
                       class="ant-input ant-input-sm"
                       type="text"
-                      value="1677FF"
+                      value="1677ff"
                     />
                   </span>
                 </div>
@@ -505,7 +505,7 @@ exports[`ColorPicker Should panelRender work 2`] = `
                     <input
                       class="ant-input ant-input-sm"
                       type="text"
-                      value="1677FF"
+                      value="1677ff"
                     />
                   </span>
                 </div>
