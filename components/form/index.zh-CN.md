@@ -68,7 +68,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 | component | 设置 Form 渲染元素，为 `false` 则不创建 DOM 节点 | ComponentType \| false | form |  |
 | fields | 通过状态管理（如 redux）控制表单字段，如非强需求不推荐使用。查看[示例](#components-form-demo-global-state) | [FieldData](#fielddata)\[] | - |  |
 | form | 经 `Form.useForm()` 创建的 form 控制实例，不提供时会自动创建 | [FormInstance](#forminstance) | - |  |
-| feedbackIcons | Can be passed custom icons while `Form.Item` element has `hasFeedback` | ({status:ValidateStatus, errors: ReactNode, warnings: ReactNode}) => Record<ValidateStatus,ReactNode> | - |  |
+| feedbackIcons | Can be passed custom icons while `Form.Item` element has `hasFeedback` | ({status:ValidateStatus, errors: ReactNode, warnings: ReactNode}) => Record<ValidateStatus,ReactNode> | - | 5.9.0 |
 | initialValues | 表单默认值，只有初始化以及重置时生效 | object | - |  |
 | labelAlign | label 标签的文本对齐方式 | `left` \| `right` | `right` |  |
 | labelWrap | label 标签的文本换行方式 | boolean | false | 4.18.0 |
