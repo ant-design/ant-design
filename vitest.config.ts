@@ -39,6 +39,7 @@ export const commonConfig: UserConfig = {
     ],
   },
   test: {
+    experimentalVmThreads: true,
     testTimeout: 5000,
   },
 };
@@ -50,7 +51,10 @@ export default defineConfig({
     include,
     exclude: ['**/{image,node}.test.*', ...defaultExclude],
     globals: true,
-    setupFiles: ['./tests/setup.ts'],
+    fakeTimers: {
+      toFake: ['setTimeout', 'clearTimeout', 'setInterval', 'clearInterval', 'Date'],
+    },
+    setupFiles: ['./tests/setup.ts', './tests/setupSnapshotSerializer.ts'],
     environment: 'jsdom',
     coverage: {
       include: ['components/**/*.{ts,tsx}'],
