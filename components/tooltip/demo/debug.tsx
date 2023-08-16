@@ -1,5 +1,5 @@
-import { Button, Tooltip } from 'antd';
 import React from 'react';
+import { Button, Tooltip } from 'antd';
 
 const App: React.FC = () => (
   <Tooltip

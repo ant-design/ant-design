@@ -41,7 +41,9 @@ demo:
 
 ## API
 
-属性如下
+通用属性参考：[通用属性](/docs/react/common-props)
+
+### Dropdown
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -81,3 +83,9 @@ demo:
 ## Design Token
 
 <ComponentTokenTable component="Dropdown"></ComponentTokenTable>
+
+## FAQ
+
+### Dropdown 在水平方向超出屏幕时会被挤压该怎么办？
+
+你可以通过 `width: max-content` 来解决这个问题，参考 [#43025](https://github.com/ant-design/ant-design/issues/43025#issuecomment-1594394135)。

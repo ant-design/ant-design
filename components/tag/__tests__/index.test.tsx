@@ -1,6 +1,7 @@
 import React from 'react';
 import { Simulate } from 'react-dom/test-utils';
 
+import { CheckCircleOutlined } from '@ant-design/icons';
 import Tag from '..';
 import { resetWarned } from '../../_util/warning';
 
@@ -133,6 +134,11 @@ describe('Tag', () => {
     fireEvent.click(container.querySelectorAll('.anticon-close')[0]);
     expect(onClose).toHaveBeenCalled();
     expect(onClick).not.toHaveBeenCalled();
+  });
+
+  it('should only render icon when no children', () => {
+    const { container } = render(<Tag icon={<CheckCircleOutlined />} />);
+    expect(container.querySelector('.ant-tag ')?.childElementCount).toBe(1);
   });
 
   it('deprecated warning', () => {

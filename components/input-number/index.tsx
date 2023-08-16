@@ -1,8 +1,9 @@
+'use client';
+
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
-import type { ValueType } from '@rc-component/mini-decimal';
 import classNames from 'classnames';
-import type { InputNumberProps as RcInputNumberProps } from 'rc-input-number';
+import type { InputNumberProps as RcInputNumberProps, ValueType } from 'rc-input-number';
 import RcInputNumber from 'rc-input-number';
 import * as React from 'react';
 import type { InputStatus } from '../_util/statusUtils';
@@ -85,7 +86,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
-  const mergedSize = useSize((ctx) => compactSize ?? customizeSize ?? ctx);
+  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
@@ -152,6 +153,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
         wrapper: classNames(
           {
             [`${wrapperClassName}-rtl`]: direction === 'rtl',
+            [`${prefixCls}-wrapper-disabled`]: mergedDisabled,
           },
           hashId,
         ),
@@ -181,16 +183,9 @@ const TypedInputNumber = InputNumber as unknown as (<T extends ValueType = Value
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PureInputNumber;
 };
 
-const PureInputNumber = (props: InputNumberProps<any>) => (
-  <ConfigProvider
-    theme={{
-      components: {
-        InputNumber: {
-          handleVisible: true,
-        },
-      },
-    }}
-  >
+/** @private Internal Component. Do not use in your production. */
+const PureInputNumber: React.FC<InputNumberProps> = (props) => (
+  <ConfigProvider theme={{ components: { InputNumber: { handleVisible: true } } }}>
     <InputNumber {...props} />
   </ConfigProvider>
 );

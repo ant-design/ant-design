@@ -70,8 +70,11 @@ const items: CollapseProps['items'] = [
 <code src="./demo/extra.tsx">额外节点</code>
 <code src="./demo/ghost.tsx">幽灵折叠面板</code>
 <code src="./demo/collapsible.tsx">可折叠触发区域</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Collapse
 

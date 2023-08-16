@@ -91,7 +91,7 @@ Ant Design 的色板还具备进一步拓展的能力。经过设计师和程序
 ### 中性色
 
 <ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/antfincdn/8yMmB1lcD%24/colors.jpg">
+  <TokenCompare tokenNames="colorTextHeading|colorText|colorTextSecondary|colorTextDisabled|colorBorder|colorSplit|colorBgLayout"></TokenCompare>
 </ImagePreview>
 
 Ant Design 的中性色主要被大量的应用在界面的文字部分，此外背景、边框、分割线等场景中也非常常见。产品中性色的定义需要考虑深色背景以及浅色背景的差异，同时结合 WCAG 2.0 标准。Ant Design 的中性色在落地的时候是按照透明度的方式实现的，具体色板如右图：

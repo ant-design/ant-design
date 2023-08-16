@@ -100,6 +100,8 @@ Array [
 ]
 `;
 
+exports[`renders components/popconfirm/demo/async.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/popconfirm/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -199,6 +201,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/popconfirm/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context correctly 1`] = `
 <div>
@@ -323,6 +327,8 @@ exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context c
 </div>
 `;
 
+exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/popconfirm/demo/icon.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -427,6 +433,8 @@ Array [
 ]
 `;
 
+exports[`renders components/popconfirm/demo/icon.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/popconfirm/demo/locale.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -526,6 +534,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/popconfirm/demo/locale.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/popconfirm/demo/placement.tsx extend context correctly 1`] = `
 Array [
@@ -1688,6 +1698,8 @@ Array [
 ]
 `;
 
+exports[`renders components/popconfirm/demo/placement.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/popconfirm/demo/promise.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -1787,6 +1799,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/popconfirm/demo/promise.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/popconfirm/demo/render-panel.tsx extend context correctly 1`] = `
 Array [
@@ -2084,6 +2098,8 @@ Array [
 ]
 `;
 
+exports[`renders components/popconfirm/demo/render-panel.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/popconfirm/demo/wireframe.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -2250,3 +2266,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/popconfirm/demo/wireframe.tsx extend context correctly 2`] = `[]`;

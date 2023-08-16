@@ -1,4 +1,3 @@
-import { Keyframes } from '@ant-design/cssinjs';
 import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -6,18 +5,62 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 // ============================== Tokens ==============================
 export interface ComponentToken {
   // Radio
+  /**
+   * @desc 单选框大小
+   * @descEN Radio size
+   */
   radioSize: number;
+  /**
+   * @desc 单选框圆点大小
+   * @descEN Size of Radio dot
+   */
   dotSize: number;
+  /**
+   * @desc 单选框圆点禁用颜色
+   * @descEN Color of disabled Radio dot
+   */
   dotColorDisabled: string;
 
   // Radio buttons
+  /**
+   * @desc 单选框按钮背景色
+   * @descEN Background color of Radio button
+   */
   buttonBg: string;
+  /**
+   * @desc 单选框按钮选中背景色
+   * @descEN Background color of checked Radio button
+   */
   buttonCheckedBg: string;
+  /**
+   * @desc 单选框按钮文本颜色
+   * @descEN Color of Radio button text
+   */
   buttonColor: string;
+  /**
+   * @desc 单选框按钮横向内间距
+   * @descEN Horizontal padding of Radio button
+   */
   buttonPaddingInline: number;
+  /**
+   * @desc 单选框按钮选中并禁用时的背景色
+   * @descEN Background color of checked and disabled Radio button
+   */
   buttonCheckedBgDisabled: string;
+  /**
+   * @desc 单选框按钮选中并禁用时的文本颜色
+   * @descEN Color of checked and disabled Radio button text
+   */
   buttonCheckedColorDisabled: string;
+  /**
+   * @desc 单选框实色按钮选中时的文本颜色
+   * @descEN Color of checked solid Radio button text
+   */
   buttonSolidCheckedColor: string;
+  /**
+   * @desc 单选框右间距
+   * @descEN Margin right of Radio button
+   */
   wrapperMarginInlineEnd: number;
 }
 
@@ -28,11 +71,6 @@ interface RadioToken extends FullToken<'Radio'> {
 }
 
 // ============================== Styles ==============================
-const antRadioEffect = new Keyframes('antRadioEffect', {
-  '0%': { transform: 'scale(1)', opacity: 0.5 },
-  '100%': { transform: 'scale(1.6)', opacity: 0 },
-});
-
 // styles from RadioGroup only
 const getGroupRadioStyle: GenerateStyle<RadioToken> = (token) => {
   const { componentCls, antCls } = token;
@@ -69,7 +107,6 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
     radioSize,
     motionDurationSlow,
     motionDurationMid,
-    motionEaseInOut,
     motionEaseInOutCirc,
     colorBgContainer,
     colorBorder,
@@ -89,7 +126,6 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
   return {
     [`${componentCls}-wrapper`]: {
       ...resetComponent(token),
-      position: 'relative',
       display: 'inline-flex',
       alignItems: 'baseline',
       marginInlineStart: 0,
@@ -123,10 +159,6 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         border: `${lineWidth}px ${lineType} ${colorPrimary}`,
         borderRadius: '50%',
         visibility: 'hidden',
-        animationName: antRadioEffect,
-        animationDuration: motionDurationSlow,
-        animationTimingFunction: motionEaseInOut,
-        animationFillMode: 'both',
         content: '""',
       },
 
@@ -137,6 +169,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         outline: 'none',
         cursor: 'pointer',
         alignSelf: 'center',
+        borderRadius: '50%',
       },
 
       [`${componentCls}-wrapper:hover &,
@@ -194,6 +227,10 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         insetInlineEnd: 0,
         insetBlockEnd: 0,
         insetInlineStart: 0,
+        width: 0,
+        height: 0,
+        padding: 0,
+        margin: 0,
         zIndex: 1,
         cursor: 'pointer',
         opacity: 0,
@@ -305,7 +342,6 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
       transition: [
         `color ${motionDurationMid}`,
         `background ${motionDurationMid}`,
-        `border-color ${motionDurationMid}`,
         `box-shadow ${motionDurationMid}`,
       ].join(','),
 

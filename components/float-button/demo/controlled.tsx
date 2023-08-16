@@ -1,6 +1,6 @@
 import { CommentOutlined, CustomerServiceOutlined } from '@ant-design/icons';
-import { FloatButton, Switch } from 'antd';
 import React, { useState } from 'react';
+import { FloatButton, Switch } from 'antd';
 
 const App: React.FC = () => {
   const [open, setOpen] = useState(true);
@@ -20,7 +20,7 @@ const App: React.FC = () => {
         <FloatButton />
         <FloatButton icon={<CommentOutlined />} />
       </FloatButton.Group>
-      <Switch onChange={onChange} checked={open} />
+      <Switch onChange={onChange} checked={open} style={{ margin: 16 }} />
     </>
   );
 };

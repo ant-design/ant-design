@@ -42,7 +42,8 @@ const Statistic: React.FC<StatisticProps> = (props) => {
     groupSeparator = ',',
   } = props;
 
-  const { getPrefixCls, direction } = React.useContext<ConfigConsumerProps>(ConfigContext);
+  const { getPrefixCls, direction, statistic } =
+    React.useContext<ConfigConsumerProps>(ConfigContext);
 
   const prefixCls = getPrefixCls('statistic', customizePrefixCls);
 
@@ -63,13 +64,19 @@ const Statistic: React.FC<StatisticProps> = (props) => {
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
+    statistic?.className,
     className,
     rootClassName,
     hashId,
   );
 
   return wrapSSR(
-    <div className={cls} style={style} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+    <div
+      className={cls}
+      style={{ ...statistic?.style, ...style }}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       {title && <div className={`${prefixCls}-title`}>{title}</div>}
       <Skeleton paragraph={false} loading={loading} className={`${prefixCls}-skeleton`}>
         <div style={valueStyle} className={`${prefixCls}-content`}>

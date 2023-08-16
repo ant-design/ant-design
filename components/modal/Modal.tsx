@@ -1,4 +1,4 @@
-import { CloseOutlined } from '@ant-design/icons';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import Dialog from 'rc-dialog';
 import * as React from 'react';
@@ -12,6 +12,7 @@ import { NoCompactStyle } from '../space/Compact';
 import type { ModalProps, MousePosition } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
+import { usePanelRef } from '../watermark/context';
 
 let mousePosition: MousePosition;
 
@@ -39,6 +40,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
+    modal,
   } = React.useContext(ConfigContext);
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -68,7 +70,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     closeIcon,
     closable,
     focusTriggerAfterClose = true,
-
+    style,
     // Deprecated
     visible,
 
@@ -102,6 +104,11 @@ const Modal: React.FC<ModalProps> = (props) => {
     true,
   );
 
+  // ============================ Refs ============================
+  // Select `ant-modal-content` by `panelRef`
+  const panelRef = usePanelRef(`.${prefixCls}-content`);
+
+  // =========================== Render ===========================
   return wrapSSR(
     <NoCompactStyle>
       <NoFormStyle status override>
@@ -121,7 +128,9 @@ const Modal: React.FC<ModalProps> = (props) => {
           focusTriggerAfterClose={focusTriggerAfterClose}
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
-          className={classNames(hashId, className)}
+          className={classNames(hashId, className, modal?.className)}
+          style={{ ...modal?.style, ...style }}
+          panelRef={panelRef}
         />
       </NoFormStyle>
     </NoCompactStyle>,

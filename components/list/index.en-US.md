@@ -29,6 +29,8 @@ A list can be used to display content related to a single subject. The content c
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### List
 
 | Property | Description | Type | Default | Version |

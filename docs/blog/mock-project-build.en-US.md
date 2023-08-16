@@ -30,7 +30,7 @@ When we find relevant updates, we will install the previous version for comparis
 
 ### Schedule build
 
-As you see, the above troubleshooting method has a certain lag. We hope to reduce additional human labor by building regularly, and at the same time allow us to find problems faster. So we reused the [create-next-app-antd](https://github.com/ant-design/create-next-app-antd) project as the base (in this way, if something goes wrong with the template project, we can also be detected in advance). Created a `mock-project-build.yml` CI that executes every half hour, which periodically pulls [create-next-app-antd](https://github.com/ant-design/create-next-app-antd) repo to build:
+As you see, the above troubleshooting method has a certain lag. We hope to reduce additional human labor by building regularly, and at the same time allow us to find problems faster. So we reused the [create-next-app-antd](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-inline-style) project as the base (in this way, if something goes wrong with the template project, we can also be detected in advance). Created a `mock-project-build.yml` CI that executes every half hour, which periodically pulls [create-next-app-antd](https://github.com/ant-design/create-next-app-antd) repo to build:
 
 ```yml
 on:

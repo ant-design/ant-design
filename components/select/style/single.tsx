@@ -182,7 +182,7 @@ export default function genSingleStyle(token: SelectToken): CSSInterpolation {
     // Shared
     genSizeStyle(
       mergeToken<any>(token, {
-        controlHeight: token.controlHeightLG,
+        controlHeight: token.singleItemHeightLG,
         fontSize: token.fontSizeLG,
         borderRadius: token.borderRadiusLG,
       }),

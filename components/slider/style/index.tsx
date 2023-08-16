@@ -12,12 +12,40 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 // horizontal: full (水平时，水平方向命名为 full)
 
 export interface ComponentToken {
+  /**
+   * @desc 滑动输入高度
+   * @descEN Height of slider
+   */
   controlSize: number;
+  /**
+   * @desc 轨道高度
+   * @descEN Height of rail
+   */
   railSize: number;
+  /**
+   * @desc 滑块尺寸
+   * @descEN Size of handle
+   */
   handleSize: number;
+  /**
+   * @desc 滑块尺寸（悬浮态）
+   * @descEN Size of handle when hover
+   */
   handleSizeHover: number;
+  /**
+   * @desc 滑块边框宽度
+   * @descEN Border width of handle
+   */
   handleLineWidth: number;
+  /**
+   * @desc 滑块边框宽度（悬浮态）
+   * @descEN Border width of handle when hover
+   */
   handleLineWidthHover: number;
+  /**
+   * @desc 滑块圆点尺寸
+   * @descEN Size of dot
+   */
   dotSize: number;
   railBg: string;
   railHoverBg: string;
@@ -38,8 +66,15 @@ interface SliderToken extends FullToken<'Slider'> {
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
-  const { componentCls, controlSize, dotSize, marginFull, marginPart, colorFillContentHover } =
-    token;
+  const {
+    componentCls,
+    antCls,
+    controlSize,
+    dotSize,
+    marginFull,
+    marginPart,
+    colorFillContentHover,
+  } = token;
 
   return {
     [componentCls]: {
@@ -237,6 +272,10 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
           cursor: `not-allowed !important`,
         },
       },
+
+      [`&-tooltip ${antCls}-tooltip-inner`]: {
+        minWidth: 'unset',
+      },
     },
   };
 };
@@ -272,7 +311,8 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
       // Reset all
       insetInlineStart: 0,
       top: 0,
-      [markInset]: handleSize,
+      // https://github.com/ant-design/ant-design/issues/43731
+      [markInset]: railSize * 3 + (horizontal ? 0 : token.marginFull),
       [full]: '100%',
     },
 

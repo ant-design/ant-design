@@ -1,3 +1,5 @@
+'use client';
+
 export type { Breakpoint } from './_util/responsiveObserver';
 export { default as Affix } from './affix';
 export type { AffixProps } from './affix';
@@ -93,8 +95,8 @@ export { default as Popover } from './popover';
 export type { PopoverProps } from './popover';
 export { default as Progress } from './progress';
 export type { ProgressProps } from './progress';
-export { default as QRCode } from './qrcode';
-export type { QRCodeProps, QRPropsCanvas, QRPropsSvg } from './qrcode/interface';
+export { default as QRCode } from './qr-code';
+export type { QRCodeProps, QRPropsCanvas, QRPropsSvg } from './qr-code/interface';
 export { default as Radio } from './radio';
 export type { RadioChangeEvent, RadioGroupProps, RadioProps } from './radio';
 export { default as Rate } from './rate';
@@ -135,7 +137,7 @@ export type { TabPaneProps, TabsProps } from './tabs';
 export { default as Tag } from './tag';
 export type { TagProps, TagType } from './tag';
 export { default as theme } from './theme';
-export type { GlobalToken } from './theme';
+export type { GlobalToken, MappingAlgorithm } from './theme';
 export { default as TimePicker } from './time-picker';
 export type { TimePickerProps, TimeRangePickerProps } from './time-picker';
 export { default as Timeline } from './timeline';

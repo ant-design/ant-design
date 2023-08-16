@@ -1,12 +1,13 @@
 ---
 category: Components
-group: 其他
+group: 通用
 subtitle: 悬浮按钮
 title: FloatButton
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HS-wTIIwu0kAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a0hwTY_rOSUAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
+tag: New
 ---
 
 悬浮按钮。自 `5.0.0` 版本开始提供该组件。
@@ -33,6 +34,8 @@ demo:
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 > 自 `antd@5.0.0` 版本开始提供该组件。
 

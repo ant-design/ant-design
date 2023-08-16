@@ -1,3 +1,5 @@
+'use client';
+
 import { createTheme } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
@@ -7,8 +9,9 @@ import type { ReactElement } from 'react';
 import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
 import warning from '../_util/warning';
-import { ValidateMessagesContext } from '../form/context';
 import type { RequiredMark } from '../form/Form';
+import ValidateMessagesContext from '../form/validateMessagesContext';
+import type { InputProps } from '../input';
 import type { Locale } from '../locale';
 import LocaleProvider, { ANT_MARK } from '../locale';
 import type { LocaleContextProps } from '../locale/context';
@@ -18,14 +21,16 @@ import type { SpaceProps } from '../space';
 import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
+  BadgeConfig,
   ButtonConfig,
-  componentStyleConfig,
+  ComponentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
   DirectionType,
   PopupOverflow,
   Theme,
   ThemeConfig,
+  WaveConfig,
 } from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
 import { registerTheme } from './cssVariables';
@@ -37,6 +42,7 @@ import MotionWrapper from './MotionWrapper';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
+import { defaultTheme } from '../theme/context';
 
 /**
  * Since too many feedback using static method like `Modal.confirm` not getting theme, we record the
@@ -101,21 +107,21 @@ export interface ConfigProviderProps {
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
-  form?: {
+  form?: ComponentStyleConfig & {
     validateMessages?: ValidateMessages;
     requiredMark?: RequiredMark;
     colon?: boolean;
     scrollToFirstError?: Options | boolean;
   };
-  input?: {
+  input?: ComponentStyleConfig & {
+    classNames?: InputProps['classNames'];
+    styles?: InputProps['styles'];
     autoComplete?: string;
   };
-  select?: {
+  select?: ComponentStyleConfig & {
     showSearch?: boolean;
   };
-  pagination?: {
-    showSizeChanger?: boolean;
-  };
+  pagination?: ComponentStyleConfig & { showSizeChanger?: boolean };
   locale?: Locale;
   pageHeader?: {
     ghost: boolean;
@@ -136,12 +142,57 @@ export interface ConfigProviderProps {
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
+  alert?: ComponentStyleConfig;
+  anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
-  divider?: componentStyleConfig;
-  typography?: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
+  calendar?: ComponentStyleConfig;
+  carousel?: ComponentStyleConfig;
+  cascader?: ComponentStyleConfig;
+  collapse?: ComponentStyleConfig;
+  divider?: ComponentStyleConfig;
+  drawer?: ComponentStyleConfig;
+  typography?: ComponentStyleConfig;
+  skeleton?: ComponentStyleConfig;
+  spin?: ComponentStyleConfig;
+  segmented?: ComponentStyleConfig;
+  statistic?: ComponentStyleConfig;
+  steps?: ComponentStyleConfig;
+  image?: ComponentStyleConfig;
+  layout?: ComponentStyleConfig;
+  list?: ComponentStyleConfig;
+  mentions?: ComponentStyleConfig;
+  modal?: ComponentStyleConfig;
+  progress?: ComponentStyleConfig;
+  result?: ComponentStyleConfig;
+  slider?: ComponentStyleConfig;
+  breadcrumb?: ComponentStyleConfig;
+  menu?: ComponentStyleConfig;
+  checkbox?: ComponentStyleConfig;
+  descriptions?: ComponentStyleConfig;
+  empty?: ComponentStyleConfig;
+  badge?: BadgeConfig;
+  radio?: ComponentStyleConfig;
+  rate?: ComponentStyleConfig;
+  switch?: ComponentStyleConfig;
+  transfer?: ComponentStyleConfig;
+  avatar?: ComponentStyleConfig;
+  message?: ComponentStyleConfig;
+  tag?: ComponentStyleConfig;
+  table?: ComponentStyleConfig;
+  card?: ComponentStyleConfig;
+  tabs?: ComponentStyleConfig;
+  timeline?: ComponentStyleConfig;
+  timePicker?: ComponentStyleConfig;
+  upload?: ComponentStyleConfig;
+  notification?: ComponentStyleConfig;
+  tree?: ComponentStyleConfig;
+  colorPicker?: ComponentStyleConfig;
+  datePicker?: ComponentStyleConfig;
+
+  /**
+   * Wave is special component which only patch on the effect of component interaction.
+   */
+  wave?: WaveConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -194,7 +245,9 @@ const setGlobalConfig = ({
 
 export const globalConfig = () => ({
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
-    if (customizePrefixCls) return customizePrefixCls;
+    if (customizePrefixCls) {
+      return customizePrefixCls;
+    }
     return suffixCls ? `${getGlobalPrefixCls()}-${suffixCls}` : getGlobalPrefixCls();
   },
   getIconPrefixCls: getGlobalIconPrefixCls,
@@ -215,6 +268,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     children,
     csp: customCsp,
     autoInsertSpaceInButton,
+    alert,
+    anchor,
     form,
     locale,
     componentSize,
@@ -229,8 +284,52 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     iconPrefixCls: customIconPrefixCls,
     theme,
     componentDisabled,
+    segmented,
+    statistic,
+    spin,
+    calendar,
+    carousel,
+    cascader,
+    collapse,
     typography,
+    checkbox,
+    descriptions,
     divider,
+    drawer,
+    skeleton,
+    steps,
+    image,
+    layout,
+    list,
+    mentions,
+    modal,
+    progress,
+    result,
+    slider,
+    breadcrumb,
+    menu,
+    pagination,
+    input,
+    empty,
+    badge,
+    radio,
+    rate,
+    switch: SWITCH,
+    transfer,
+    avatar,
+    message,
+    tag,
+    table,
+    card,
+    tabs,
+    timeline,
+    timePicker,
+    upload,
+    notification,
+    tree,
+    colorPicker,
+    datePicker,
+    wave,
   } = props;
 
   // =================================== Warning ===================================
@@ -273,6 +372,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   const baseConfig = {
     csp,
     autoInsertSpaceInButton,
+    alert,
+    anchor,
     locale: locale || legacyLocale,
     direction,
     space,
@@ -282,8 +383,52 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     getPrefixCls,
     iconPrefixCls,
     theme: mergedTheme,
+    segmented,
+    statistic,
+    spin,
+    calendar,
+    carousel,
+    cascader,
+    collapse,
     typography,
+    checkbox,
+    descriptions,
     divider,
+    drawer,
+    skeleton,
+    steps,
+    image,
+    input,
+    layout,
+    list,
+    mentions,
+    modal,
+    progress,
+    result,
+    slider,
+    breadcrumb,
+    menu,
+    pagination,
+    empty,
+    badge,
+    radio,
+    rate,
+    switch: SWITCH,
+    transfer,
+    avatar,
+    message,
+    tag,
+    table,
+    card,
+    tabs,
+    timeline,
+    timePicker,
+    upload,
+    notification,
+    tree,
+    colorPicker,
+    datePicker,
+    wave,
   };
 
   const config = {
@@ -331,6 +476,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
       merge(
         defaultLocale.Form?.defaultValidateMessages || {},
         memoedConfig.locale?.Form?.defaultValidateMessages || {},
+        memoedConfig.form?.validateMessages || {},
         form?.validateMessages || {},
       ),
     [memoedConfig, form?.validateMessages],
@@ -367,11 +513,30 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   // ================================ Dynamic theme ================================
   const memoTheme = React.useMemo(() => {
-    const { algorithm, token, ...rest } = mergedTheme || {};
+    const { algorithm, token, components, ...rest } = mergedTheme || {};
     const themeObj =
       algorithm && (!Array.isArray(algorithm) || algorithm.length > 0)
         ? createTheme(algorithm)
-        : undefined;
+        : defaultTheme;
+
+    const parsedComponents: any = {};
+    Object.entries(components || {}).forEach(([componentName, componentToken]) => {
+      const parsedToken: typeof componentToken & { theme?: typeof defaultTheme } = {
+        ...componentToken,
+      };
+      if ('algorithm' in parsedToken) {
+        if (parsedToken.algorithm === true) {
+          parsedToken.theme = themeObj;
+        } else if (
+          Array.isArray(parsedToken.algorithm) ||
+          typeof parsedToken.algorithm === 'function'
+        ) {
+          parsedToken.theme = createTheme(parsedToken.algorithm);
+        }
+        delete parsedToken.algorithm;
+      }
+      parsedComponents[componentName] = parsedToken;
+    });
 
     return {
       ...rest,
@@ -381,6 +546,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
         ...defaultSeedToken,
         ...token,
       },
+
+      components: parsedComponents,
     };
   }, [mergedTheme]);
 

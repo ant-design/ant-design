@@ -53,6 +53,10 @@ Please find below some of the design resources and tools about Ant Design that w
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
   - Free open source Figma library with complete accurate to code components
   - https://www.figma.com/community/file/831698976089873405
+- Ruyi Design Assistant
+  - https://github.com/ant-design/ant-design/assets/507615/45201521-37d0-4360-b81e-a1260dedad7a
+  - Figma Plugin,Design using Antd code component library and deliver component code that is friendly to developers
+  - https://www.figma.com/community/plugin/1192146318523533547
 - Ant Design Chart
   - https://gw.alipayobjects.com/zos/basement_prod/a9dc586a-fe0a-4c7d-ab4f-f5ed779b963d.svg
   - Sketch Symbols for Chart

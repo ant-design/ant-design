@@ -3,7 +3,7 @@
 exports[`renders components/upload/demo/avatar.tsx correctly 1`] = `
 Array [
   <span
-    class="ant-upload-wrapper ant-upload-picture-card-wrapper avatar-uploader"
+    class="ant-upload-wrapper avatar-uploader ant-upload-picture-card-wrapper"
   >
     <div
       class="ant-upload ant-upload-select"
@@ -54,7 +54,7 @@ Array [
     </div>
   </span>,
   <span
-    class="ant-upload-wrapper ant-upload-picture-circle-wrapper avatar-uploader"
+    class="ant-upload-wrapper avatar-uploader ant-upload-picture-circle-wrapper"
   >
     <div
       class="ant-upload ant-upload-select"

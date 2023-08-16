@@ -1,6 +1,6 @@
 import Icon from '@ant-design/icons';
-import type { DirectionType } from 'antd/es/config-provider';
 import React from 'react';
+import type { DirectionType } from 'antd/es/config-provider';
 
 const ltrD =
   'M448 64l512 0 0 128-128 0 0 768-128 0 0-768-128 0 0 768-128 0 0-448c-123.712 0-224-100.288-224-224s100.288-224 224-224zM64 448l256 224-256 224z';

@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';
@@ -10,7 +12,7 @@ import Item from './Item';
 import { SpaceContextProvider } from './context';
 import useStyle from './style';
 
-export type { SpaceContext } from './context';
+export { SpaceContext } from './context';
 
 export type SpaceSize = SizeType | number;
 

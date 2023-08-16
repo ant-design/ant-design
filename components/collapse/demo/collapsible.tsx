@@ -1,5 +1,5 @@
-import { Collapse, Space } from 'antd';
 import React from 'react';
+import { Collapse, Space } from 'antd';
 
 const text = `
   A dog is a type of domesticated animal.

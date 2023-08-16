@@ -1,3 +1,5 @@
+'use client';
+
 import { render } from 'rc-util/lib/React/render';
 import * as React from 'react';
 import ConfigProvider, { globalConfig, warnContext } from '../config-provider';

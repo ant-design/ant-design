@@ -1,10 +1,4 @@
-/**
- * TODO: 4.0
- *
- * - Remove `dataSource`
- * - `size` not work with customizeInput
- * - CustomizeInput not feedback `ENTER` key since accessibility enhancement
- */
+'use client';
 
 import classNames from 'classnames';
 import type { BaseSelectRef } from 'rc-select';
@@ -22,6 +16,7 @@ import type {
   DefaultOptionType,
   InternalSelectProps,
   RefSelectProps,
+  SelectProps,
 } from '../select';
 import Select from '../select';
 
@@ -38,7 +33,7 @@ export interface AutoCompleteProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
     InternalSelectProps<ValueType, OptionType>,
-    'inputIcon' | 'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'
+    'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'
   > {
   dataSource?: DataSourceItemType[];
   status?: InputStatus;
@@ -147,12 +142,12 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   return (
     <Select
       ref={ref}
-      showArrow={false}
+      suffixIcon={null}
       {...omit(props, ['dataSource', 'dropdownClassName'])}
       prefixCls={prefixCls}
       popupClassName={popupClassName || dropdownClassName}
       className={classNames(`${prefixCls}-auto-complete`, className)}
-      mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as any}
+      mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
       {...{
         // Internal api
         getInputElement,
@@ -173,6 +168,7 @@ const RefAutoComplete = React.forwardRef<RefSelectProps, AutoCompleteProps>(
     ref?: React.Ref<BaseSelectRef>;
   },
 ) => React.ReactElement) & {
+  displayName?: string;
   Option: typeof Option;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
@@ -185,7 +181,7 @@ RefAutoComplete.Option = Option;
 RefAutoComplete._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 if (process.env.NODE_ENV !== 'production') {
-  AutoComplete.displayName = 'AutoComplete';
+  RefAutoComplete.displayName = 'AutoComplete';
 }
 
 export default RefAutoComplete;
