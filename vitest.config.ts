@@ -51,9 +51,6 @@ export default defineConfig({
     include,
     exclude: ['**/{image,node}.test.*', ...defaultExclude],
     globals: true,
-    fakeTimers: {
-      toFake: ['setTimeout', 'clearTimeout', 'setInterval', 'clearInterval', 'Date'],
-    },
     setupFiles: ['./tests/setup.ts', './tests/setupSnapshotSerializer.ts'],
     environment: 'jsdom',
     coverage: {
