@@ -630,24 +630,24 @@ export default App;
 | `@steps-vertical-tail-width` | - | Deprecated |
 | `@steps-vertical-tail-width-sm` | - | Deprecated |
 
-<!-- ### Switch -->
+### Switch
 
 <!-- prettier-ignore -->
-| Less 变量 | Component Token | 备注 |
+| Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@switch-height` | `height` | - |
-| `@switch-sm-height` | `heightSM` | - |
-| `@switch-min-width` | `minWidth` | - |
-| `@switch-sm-min-width` | `minWidthSM` | - |
+| `@switch-height` | `trackHeight` | - |
+| `@switch-sm-height` | `trackHeightSM` | - |
+| `@switch-min-width` | `trackMinWidth` | - |
+| `@switch-sm-min-width` | `trackMinWidthSM` | - |
 | `@switch-disabled-opacity` | `opacityLoading` | Global Token |
 | `@switch-color` | `colorPrimary` | Global Token |
-| `@switch-bg` | - | Deprecated |
-| `@switch-shadow-color` | - | Deprecated |
-| `@switch-padding` | `padding` | - |
-| `@switch-inner-margin-min` | `innerMarginMin` | - |
-| `@switch-inner-margin-max` | `innerMarginMax` | - |
-| `@switch-sm-inner-margin-min` | `innerMarginMinSM` | - |
-| `@switch-sm-inner-margin-max` | `innerMarginMaxSM` | - |
+| `@switch-bg` | `handleBg` | - |
+| `@switch-shadow-color` | `handleShadow` | Control `box-shadow`, not only shadow color |
+| `@switch-padding` | `trackPadding` | - |
+| `@switch-inner-margin-min` | `innerMinMargin` | - |
+| `@switch-inner-margin-max` | `innerMaxMargin` | - |
+| `@switch-sm-inner-margin-min` | `innerMinMarginSM` | - |
+| `@switch-sm-inner-margin-max` | `innerMaxMarginSM` | - |
 
 ### Table
 
