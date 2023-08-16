@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale-provider';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
@@ -45,6 +46,7 @@ export interface ConfigConsumerProps {
   virtual?: boolean;
   dropdownMatchSelectWidth?: boolean;
   form?: {
+    validateMessages?: ValidateMessages;
     requiredMark?: RequiredMark;
     colon?: boolean;
   };

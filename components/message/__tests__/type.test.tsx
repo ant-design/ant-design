@@ -5,20 +5,20 @@ describe('message.typescript', () => {
     message.success('yes!!!', 0);
   });
 
-  it('promise with one augument', done => {
-    message.success('yes!!!').then(filled => {
+  it('promise with one augument', (done) => {
+    message.success('yes!!!').then((filled) => {
       expect(filled).toBe(true);
       done();
     });
   });
 
-  it('promise two auguments', done => {
+  it('promise two auguments', (done) => {
     message.success('yes!!!').then(
-      filled => {
+      (filled) => {
         expect(filled).toBe(true);
         done();
       },
-      rejected => {
+      (rejected) => {
         expect(rejected).toBe(false);
       },
     );
@@ -34,6 +34,6 @@ describe('message.typescript', () => {
     setTimeout(() => {
       expect(onClose2).toHaveBeenCalled();
       done();
-    }, 110);
+    }, 300);
   });
 });

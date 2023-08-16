@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 4.24.13
+
+`2023-08-03`
+
+- 🐞 Fix Anchor not trigger `getCurrentAnchor` when scroll. [#43917](https://github.com/ant-design/ant-design/pull/43917)
+- 🛠 Carousel remove `lodash` dependencies. [2b43f73](https://github.com/ant-design/ant-design/commit/2b43f73) [@taozhou-glean](https://github.com/taozhou-glean)
+- 🐞 Fix Select selector remove icon align. [#43667](https://github.com/ant-design/ant-design/pull/43667) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Allow users to handle promise rejections in Modal's `onOk` callback. [#43536](https://github.com/ant-design/ant-design/pull/43536) [@maroon1](https://github.com/maroon1)
+- 🐞 fix: ConfigProvider form `validateMessages` nesting error. [#43480](https://github.com/ant-design/ant-design/pull/43480) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Sync `@checkbox-border-radius` to variable.less. [#43356](https://github.com/ant-design/ant-design/pull/43356)
+
 ## 4.24.12
 
 `2023-06-30`

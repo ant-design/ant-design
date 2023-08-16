@@ -1,12 +1,14 @@
-const React = require('react');
 const util = require('util');
+const React = require('react');
 
 // eslint-disable-next-line no-console
 console.log('Current React Version:', React.version);
 
+// eslint-disable-next-line no-console
 const originConsoleErr = console.error;
 
 // Hack off React warning to avoid too large log in CI.
+// eslint-disable-next-line no-console
 console.error = (...args) => {
   const str = args.join('').replace(/\n/g, '');
 
