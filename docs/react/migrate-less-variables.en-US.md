@@ -42,7 +42,35 @@ export default App;
 
 ## Component Token
 
-<!-- ### Alert -->
+## Alert
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@alert-success-border-color` | `colorSuccessBorder` | Global token |
+| `@alert-success-bg-color` | `colorSuccessBg` | Global token |
+| `@alert-success-icon-color` | `colorSuccess` | Global token |
+| `@alert-info-border-color` | `colorInfoBorder` | Global token |
+| `@alert-info-bg-color` | `colorInfoBg` | Global token |
+| `@alert-info-icon-color` | `colorInfo` | Global token |
+| `@alert-warning-border-color` | `colorWarningBorder` | Global token |
+| `@alert-warning-bg-color` | `colorWarningBg` | Global token |
+| `@alert-warning-icon-color` | `colorWarning` | Global token |
+| `@alert-error-border-color` | `colorErrorBorder` | Global token |
+| `@alert-error-bg-color` | `colorErrorBg` | Global token |
+| `@alert-error-icon-color` | `colorError` | Global token |
+| `@alert-message-color` | `colorTextHeading` | Global token |
+| `@alert-text-color` | `colorText` | Global Token |
+| `@alert-close-color` | `colorIcon` | Global token |
+| `@alert-close-hover-color` | `colorIconHover` | Global token |
+| `@alert-padding-vertical` | `defaultPadding` | Control the whole padding |
+| `@alert-padding-horizontal` | `defaultPadding` | Control the whole padding |
+| `@alert-no-icon-padding-vertical` | - | Deprecated |
+| `@alert-with-description-no-icon-padding-vertical` | `withDescriptionPadding` | Control the whole padding |
+| `@alert-with-description-padding-vertical` | `withDescriptionPadding` | Control the whole padding |
+| `@alert-with-description-padding` | `withDescriptionPadding` | Control the whole padding |
+| `@alert-icon-top` | - | Deprecated |
+| `@alert-with-description-icon-size` | `withDescriptionIconSize` | - |
 
 ### Anchor
 
