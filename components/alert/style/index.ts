@@ -25,7 +25,6 @@ export interface ComponentToken {
 
 type AlertToken = FullToken<'Alert'> & {
   // Custom token here
-  paddingHorizontal: number;
 };
 
 const genAlertTypeStyle = (
@@ -247,12 +246,7 @@ export const genAlertStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSS
 
 export default genComponentStyleHook(
   'Alert',
-  (token) => [
-    genAlertStyle({
-      ...token,
-      paddingHorizontal: 12, // Fixed value here.
-    }),
-  ],
+  (token) => [genAlertStyle(token)],
   (token) => {
     const paddingHorizontal = 12; // Fixed value here.
 
