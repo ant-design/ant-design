@@ -2,11 +2,7 @@ import '@testing-library/jest-dom';
 import { toHaveNoViolations } from 'jest-axe';
 import jsdom from 'jsdom';
 import format, { plugins } from 'pretty-format';
-import { createSerializer, matchers } from '@emotion/jest';
 import { defaultConfig } from '../components/theme/internal';
-
-expect.extend(matchers);
-expect.addSnapshotSerializer(createSerializer());
 
 // Not use dynamic hashed for test env since version will change hash dynamically.
 defaultConfig.hashed = false;
