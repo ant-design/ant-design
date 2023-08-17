@@ -807,6 +807,8 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
           th: {
             width: pickerPanelCellWidth,
+            boxSizing: 'border-box',
+            padding: 0,
           },
         },
       },
