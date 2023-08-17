@@ -1,6 +1,10 @@
-import type { CSSInterpolation } from '@ant-design/cssinjs';
+import type { CSSInterpolation, DerivativeFunc } from '@ant-design/cssinjs';
 import type { AliasToken } from './alias';
 import type { ComponentTokenMap } from './components';
+import type { MapToken } from './maps';
+import type { SeedToken } from './seeds';
+
+export type MappingAlgorithm = DerivativeFunc<SeedToken, MapToken>;
 
 export type OverrideToken = {
   [key in keyof ComponentTokenMap]: Partial<ComponentTokenMap[key]> & Partial<AliasToken>;

@@ -1,15 +1,15 @@
 /* eslint-disable react/no-array-index-key */
 import * as React from 'react';
+import { Suspense } from 'react';
 import dayjs from 'dayjs';
-import { FormattedMessage, useIntl } from 'dumi';
-import { Tabs, Skeleton, Avatar, Divider, Empty } from 'antd';
-import { css } from '@emotion/react';
-import { useSiteData } from '../../../pages/index/components/util';
+import { FormattedMessage } from 'dumi';
+import { createStyles } from 'antd-style';
+import { Avatar, Divider, Empty, Skeleton, Tabs } from 'antd';
 import type { Article, Authors } from '../../../pages/index/components/util';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { useSiteData } from '../../../pages/index/components/util';
+import useLocale from '../../../hooks/useLocale';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
+const useStyle = createStyles(({ token, css }) => {
   const { antCls } = token;
 
   return {
@@ -51,14 +51,16 @@ const useStyle = () => {
         padding: 0;
         font-size: 14px;
         list-style: none;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
-
       ${antCls}-avatar > img {
         max-width: unset;
       }
     `,
   };
-};
+});
 
 interface ArticleListProps {
   name: React.ReactNode;
@@ -67,11 +69,11 @@ interface ArticleListProps {
 }
 
 const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = [] }) => {
-  const { articleList } = useStyle();
+  const { styles } = useStyle();
   return (
     <td>
       <h4>{name}</h4>
-      <ul css={articleList}>
+      <ul className={styles.articleList}>
         {data.length === 0 ? (
           <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
         ) : (
@@ -95,17 +97,15 @@ const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = []
   );
 };
 
-export default () => {
-  const { locale } = useIntl();
-  const isZhCN = locale === 'zh-CN';
-  const [{ articles = { cn: [], en: [] }, authors = [] }, loading] = useSiteData();
-
-  const styles = useStyle();
+const Articles: React.FC = () => {
+  const [, lang] = useLocale();
+  const isZhCN = lang === 'cn';
+  const { articles = { cn: [], en: [] }, authors = [] } = useSiteData();
 
   // ========================== Data ==========================
   const mergedData = React.useMemo(() => {
     const yearData: Record<number | string, Record<string, Article[]>> = {};
-    articles[isZhCN ? 'cn' : 'en']?.forEach((article) => {
+    articles[lang]?.forEach((article) => {
       const year = dayjs(article.date).year();
       yearData[year] = yearData[year] || {};
       yearData[year][article.type] = [...(yearData[year][article.type] || []), article];
@@ -113,42 +113,47 @@ export default () => {
     return yearData;
   }, [articles]);
 
-  // ========================= Render =========================
-  let content: React.ReactNode;
+  const yearList = Object.keys(mergedData).sort((a, b) => Number(b) - Number(a));
 
-  if (loading) {
-    content = <Skeleton active />;
-  } else {
-    const yearList = Object.keys(mergedData).sort((a, b) => Number(b) - Number(a));
-    content = yearList.length ? (
-      <Tabs>
-        {yearList.map((year) => (
-          <Tabs.TabPane tab={`${year}${isZhCN ? ' 年' : ''}`} key={year}>
-            <table>
-              <tbody>
-                <tr>
-                  <ArticleList
-                    name={<FormattedMessage id="app.docs.resource.design" />}
-                    data={mergedData[year].design}
-                    authors={authors}
-                  />
-                  <ArticleList
-                    name={<FormattedMessage id="app.docs.resource.develop" />}
-                    data={mergedData[year].develop}
-                    authors={authors}
-                  />
-                </tr>
-              </tbody>
-            </table>
-          </Tabs.TabPane>
-        ))}
-      </Tabs>
-    ) : null;
+  if (yearList.length === 0) {
+    return null;
   }
 
   return (
-    <div id="articles" css={styles.articles}>
-      {content}
+    <Tabs
+      items={yearList.map((year) => ({
+        key: year,
+        label: `${year}${isZhCN ? ' 年' : ''}`,
+        children: (
+          <table>
+            <tbody>
+              <tr>
+                <ArticleList
+                  name={<FormattedMessage id="app.docs.resource.design" />}
+                  data={mergedData[year].design}
+                  authors={authors}
+                />
+                <ArticleList
+                  name={<FormattedMessage id="app.docs.resource.develop" />}
+                  data={mergedData[year].develop}
+                  authors={authors}
+                />
+              </tr>
+            </tbody>
+          </table>
+        ),
+      }))}
+    />
+  );
+};
+
+export default () => {
+  const { styles } = useStyle();
+  return (
+    <div id="articles" className={styles.articles}>
+      <Suspense fallback={<Skeleton active />}>
+        <Articles />
+      </Suspense>
     </div>
   );
 };

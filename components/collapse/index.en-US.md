@@ -69,8 +69,11 @@ const items: CollapseProps['items'] = [
 <code src="./demo/extra.tsx">Extra node</code>
 <code src="./demo/ghost.tsx">Ghost Collapse</code>
 <code src="./demo/collapsible.tsx">Collapsible</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Collapse
 

@@ -23,16 +23,16 @@ demo:
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/async.tsx">异步关闭</code>
 <code src="./demo/footer.tsx">自定义页脚</code>
-<code src="./demo/confirm.tsx">确认对话框</code>
+<code src="./demo/hooks.tsx">使用 hooks 获得上下文</code>
 <code src="./demo/locale.tsx">国际化</code>
 <code src="./demo/manual.tsx">手动更新和移除</code>
 <code src="./demo/position.tsx">自定义位置</code>
 <code src="./demo/dark.tsx" debug>暗背景</code>
 <code src="./demo/button-props.tsx">自定义页脚按钮属性</code>
-<code src="./demo/hooks.tsx">使用 hooks 获得上下文</code>
 <code src="./demo/modal-render.tsx">自定义渲染对话框</code>
 <code src="./demo/width.tsx">自定义模态的宽度</code>
 <code src="./demo/static-info.tsx">静态方法</code>
+<code src="./demo/confirm.tsx">静态确认对话框</code>
 <code src="./demo/confirm-router.tsx">销毁确认对话框</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/custom-mouse-position.tsx" debug>控制弹框动画原点</code>
@@ -41,6 +41,8 @@ demo:
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | afterClose | Modal 完全关闭后的回调 | function | - |  |
@@ -48,8 +50,7 @@ demo:
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | cancelText | 取消按钮文字 | ReactNode | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
-| closable | 是否显示右上角的关闭按钮 | boolean | true |  |
-| closeIcon | 自定义关闭图标 | ReactNode | &lt;CloseOutlined /> |  |
+| closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | boolean \| ReactNode | &lt;CloseOutlined /> |  |
 | confirmLoading | 确定按钮 loading | boolean | false |  |
 | destroyOnClose | 关闭时销毁 Modal 里的子元素 | boolean | false |  |
 | focusTriggerAfterClose | 对话框关闭后是否需要聚焦触发元素 | boolean | true | 4.9.0 |
@@ -101,8 +102,7 @@ demo:
 | cancelText | 设置 Modal.confirm 取消按钮文字 | string | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
 | className | 容器类名 | string | - |  |
-| closable | 是否显示右上角的关闭按钮 | boolean | false | 4.9.0 |
-| closeIcon | 自定义关闭图标 | ReactNode | undefined | 4.9.0 |
+| closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | boolean \| ReactNode | &lt;CloseOutlined /> |  |
 | content | 内容 | ReactNode | - |  |
 | footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer: null` | ReactNode | - | 5.1.0 |
 | getContainer | 指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
@@ -168,6 +168,17 @@ React.useEffect(() => {
 }, []);
 
 return <div>{contextHolder}</div>;
+```
+
+`modal.confirm` 返回方法：
+
+- `destroy`：销毁当前窗口
+- `update`：更新当前窗口
+- `then`：Promise 链式调用，支持 `await` 操作。该方法为 Hooks 仅有
+
+```tsx
+//点击 `onOk` 时返回 `true`，点击 `onCancel` 时返回 `false`
+const confirmed = await modal.confirm({ ... });
 ```
 
 ## Design Token

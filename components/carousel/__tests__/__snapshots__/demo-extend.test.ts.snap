@@ -234,6 +234,8 @@ exports[`renders components/carousel/demo/autoplay.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/carousel/demo/autoplay.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/carousel/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-carousel"
@@ -467,6 +469,8 @@ exports[`renders components/carousel/demo/basic.tsx extend context correctly 1`]
   </div>
 </div>
 `;
+
+exports[`renders components/carousel/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/carousel/demo/component-token.tsx extend context correctly 1`] = `
 <div
@@ -702,6 +706,8 @@ exports[`renders components/carousel/demo/component-token.tsx extend context cor
 </div>
 `;
 
+exports[`renders components/carousel/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/carousel/demo/fade.tsx extend context correctly 1`] = `
 <div
   class="ant-carousel"
@@ -835,6 +841,8 @@ exports[`renders components/carousel/demo/fade.tsx extend context correctly 1`] 
   </div>
 </div>
 `;
+
+exports[`renders components/carousel/demo/fade.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/carousel/demo/position.tsx extend context correctly 1`] = `
 Array [
@@ -1153,3 +1161,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/carousel/demo/position.tsx extend context correctly 2`] = `[]`;

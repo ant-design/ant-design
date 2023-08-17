@@ -263,7 +263,6 @@ exports[`Pagination ConfigProvider should be rendered correctly when componentSi
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"

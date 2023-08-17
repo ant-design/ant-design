@@ -1,6 +1,6 @@
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
-import { Card, ConfigProvider } from 'antd';
 import React from 'react';
+import { Card, ConfigProvider } from 'antd';
 
 export default () => (
   <ConfigProvider

@@ -1,3 +1,5 @@
+'use client';
+
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import PlusOutlined from '@ant-design/icons/PlusOutlined';
@@ -31,23 +33,25 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
   children?: React.ReactNode;
 }
 
-function Tabs({
-  type,
-  className,
-  rootClassName,
-  size: customSize,
-  onEdit,
-  hideAdd,
-  centered,
-  addIcon,
-  popupClassName,
-  children,
-  items,
-  animated,
-  ...props
-}: TabsProps) {
-  const { prefixCls: customizePrefixCls, moreIcon = <EllipsisOutlined /> } = props;
-  const { direction, getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
+const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
+  const {
+    type,
+    className,
+    rootClassName,
+    size: customSize,
+    onEdit,
+    hideAdd,
+    centered,
+    addIcon,
+    popupClassName,
+    children,
+    items,
+    animated,
+    style,
+    ...otherProps
+  } = props;
+  const { prefixCls: customizePrefixCls, moreIcon = <EllipsisOutlined /> } = otherProps;
+  const { direction, tabs, getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
@@ -76,32 +80,36 @@ function Tabs({
 
   const size = useSize(customSize);
 
+  const mergedStyle: React.CSSProperties = { ...tabs?.style, ...style };
+
   return wrapSSR(
     <RcTabs
       direction={direction}
       getPopupContainer={getPopupContainer}
       moreTransitionName={`${rootPrefixCls}-slide-up`}
-      {...props}
+      {...otherProps}
       items={mergedItems}
       className={classNames(
         {
           [`${prefixCls}-${size}`]: size,
-          [`${prefixCls}-card`]: ['card', 'editable-card'].includes(type as string),
+          [`${prefixCls}-card`]: ['card', 'editable-card'].includes(type!),
           [`${prefixCls}-editable-card`]: type === 'editable-card',
           [`${prefixCls}-centered`]: centered,
         },
+        tabs?.className,
         className,
         rootClassName,
         hashId,
       )}
       popupClassName={classNames(popupClassName, hashId)}
+      style={mergedStyle}
       editable={editable}
       moreIcon={moreIcon}
       prefixCls={prefixCls}
       animated={mergedAnimated}
     />,
   );
-}
+};
 
 Tabs.TabPane = TabPane;
 

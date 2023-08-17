@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import type { FormInstance } from 'rc-field-form';
 import { Field, FieldContext, ListContext } from 'rc-field-form';
 import type { FieldProps } from 'rc-field-form/lib/Field';
 import type { Meta, NamePath } from 'rc-field-form/lib/interface';
@@ -17,9 +16,9 @@ import useFrameState from '../hooks/useFrameState';
 import useItemRef from '../hooks/useItemRef';
 import { getFieldId, toArray } from '../util';
 import ItemHolder from './ItemHolder';
-
 import useChildren from '../hooks/useChildren';
 import useStyle from '../style';
+import type { FormInstance } from '../Form';
 
 const NAME_SPLIT = '__SPLIT__';
 
@@ -258,7 +257,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
       validateTrigger={mergedValidateTrigger}
       onMetaChange={onMetaChange}
     >
-      {(control, renderMeta, context) => {
+      {(control, renderMeta, context: FormInstance<Values>) => {
         const mergedName = toArray(name).length && renderMeta ? renderMeta.name : [];
         const fieldId = getFieldId(mergedName, formName);
 

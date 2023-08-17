@@ -37,6 +37,8 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 Properties that shared by all types.
 
 | Property | Description | Type | Default | Version |
@@ -50,7 +52,7 @@ Properties that shared by all types.
 | success | Configs of successfully progress bar | { percent: number, strokeColor: string } | - | - |
 | trailColor | The color of unfilled part | string | - | - |
 | type | To set the type, options: `line` `circle` `dashboard` | string | `line` |
-| size | Progress size | number \| \[number, number] \| "small" \| "default" | "default" | v5.3.0 |
+| size | Progress size | number \| \[number \| string, number] \| "small" \| "default" | "default" | v5.3.0 |
 
 ### `type="line"`
 

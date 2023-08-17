@@ -29,6 +29,8 @@ Checkbox component.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 #### Checkbox
 
 | Property | Description | Type | Default | Version |

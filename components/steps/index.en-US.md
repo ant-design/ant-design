@@ -37,6 +37,8 @@ When a given task is complicated or has a certain sequence in the series of subt
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Steps
 
 The whole of the step bar.

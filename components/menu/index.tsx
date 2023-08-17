@@ -1,3 +1,5 @@
+'use client';
+
 import type { MenuRef as RcMenuRef } from 'rc-menu';
 import { ItemGroup } from 'rc-menu';
 import * as React from 'react';
@@ -13,7 +15,7 @@ import InternalMenu from './menu';
 
 export type { MenuItemGroupProps } from 'rc-menu';
 export type { MenuDividerProps } from './MenuDivider';
-export type { MenuTheme, SubMenuProps, MenuItemProps, MenuProps };
+export type { MenuItemProps, MenuProps, MenuTheme, SubMenuProps };
 
 export type MenuRef = {
   menu: RcMenuRef | null;

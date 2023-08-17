@@ -33,6 +33,8 @@ demo:
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 组件提供了一些静态方法，使用方式和参数如下：
 
 - `message.success(content, [duration], onClose)`

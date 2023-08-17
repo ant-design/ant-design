@@ -50,7 +50,7 @@ export interface ProgressProps extends ProgressAriaProps {
   style?: React.CSSProperties;
   gapDegree?: number;
   gapPosition?: 'top' | 'bottom' | 'left' | 'right';
-  size?: number | [number, number] | ProgressSize;
+  size?: number | [number | string, number] | ProgressSize;
   steps?: number;
   /** @deprecated Use `success` instead */
   successPercent?: number;
@@ -70,6 +70,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     type = 'line',
     status,
     format,
+    style,
     ...restProps
   } = props;
 
@@ -88,7 +89,11 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     return status || 'normal';
   }, [status, percentNumber]);
 
-  const { getPrefixCls, direction } = React.useContext<ConfigConsumerProps>(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    progress: progressStyle,
+  } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('progress', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
@@ -159,14 +164,15 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
 
   const classString = classNames(
     prefixCls,
+    `${prefixCls}-status-${progressStatus}`,
+    `${prefixCls}-${(type === 'dashboard' && 'circle') || (steps && 'steps') || type}`,
     {
       [`${prefixCls}-inline-circle`]: type === 'circle' && getSize(size, 'circle')[0] <= 20,
-      [`${prefixCls}-${(type === 'dashboard' && 'circle') || (steps && 'steps') || type}`]: true,
-      [`${prefixCls}-status-${progressStatus}`]: true,
       [`${prefixCls}-show-info`]: showInfo,
       [`${prefixCls}-${size}`]: typeof size === 'string',
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
+    progressStyle?.className,
     className,
     rootClassName,
     hashId,
@@ -175,6 +181,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   return wrapSSR(
     <div
       ref={ref}
+      style={{ ...progressStyle?.style, ...style }}
       className={classString}
       role="progressbar"
       aria-valuenow={percentNumber}

@@ -1,6 +1,8 @@
 ---
-order: 9
-title: Less 变量迁移 Design Token
+group:
+  title: 迁移
+order: 1
+title: 从 Less 变量到 Design Token
 ---
 
 本文档包含了所有 4.x 版本中组件相关的 less 变量与 5.x 版本的 Component Token 的对照关系。如果你是从 4.x 版本升级到 5.x 版本，可以通过这份对照表快速找到对应的 Component Token。
@@ -70,7 +72,7 @@ export default App;
 | `@alert-no-icon-padding-vertical` | - | 由于样式变化已废弃 |
 | `@alert-with-description-no-icon-padding-vertical` | - | 由于样式变化已废弃 |
 
-## Anchor 锚点
+### Anchor 锚点
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
@@ -99,7 +101,21 @@ export default App;
 | `@avatar-group-space` | `groupSpace` | - |
 | `@avatar-group-border-color` | `colorBorderBg` | 全局 Token |
 
-<!-- ### Badge 徽标数 -->
+### Badge 徽标数
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@zindex-badge` | `indicatorZIndex` | - |
+| `@badge-height` | `indicatorHeight` | - |
+| `@badge-height-sm` | `indicatorHeightSM` | - |
+| `@badge-dot-size` | `dotSize` | - |
+| `@badge-font-size` | `textFontSize` | - |
+| `@badge-font-size-sm` | `textFontSizeSM` | - |
+| `@badge-font-weight` | `textFontWeight` | - |
+| `@badge-status-size` | `statusSize` | - |
+| `@badge-text-color` | `colorBgContainer` | 全局 Token |
+| `@badge-color` | `colorError` | 全局 Token |
 
 ### BreadCrumb 面包屑
 
@@ -115,9 +131,56 @@ export default App;
 | `@breadcrumb-separator-color` | `separatorColor` | - |
 | `@breadcrumb-separator-margin` | `separatorMargin` | - |
 
-<!-- ### Button 按钮 -->
+### Button 按钮
 
-## Calendar 日历
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@btn-font-weight` | `fontWeight` | - |
+| `@btn-border-radius-base` | `borderRadius` | 全局 Token |
+| `@btn-border-radius-sm` | `borderRadisuSM` | 全局 Token |
+| `@btn-border-width` | `lineWidth` | 全局 Token |
+| `@btn-border-style` | `lineStyle` | 全局 Token |
+| `@btn-shadow` | `defaultShadow` | - |
+| `@btn-primary-shadow` | `primaryShadow` | - |
+| `@btn-text-shadow` | - | 已废弃，v5 中不再有 `text-shadow` |
+| `@btn-primary-color` | `primaryColor` | - |
+| `@btn-primary-bg` | `colorPrimary` | 全局 Token |
+| `@btn-default-color` | `defaultColor` | - |
+| `@btn-default-bg` | `defaultBg` | - |
+| `@btn-default-border` | `defaultBorderColor` | - |
+| `@btn-danger-color` | `dangerColor` | - |
+| `@btn-danger-bg` | `colorError` | 全局 Token |
+| `@btn-danger-border` | `colorError` | 全局 Token |
+| `@btn-disable-color` | `colorTextDisabled` | 全局 Token |
+| `@btn-disable-bg` | `colorBgContainerDisabled` | 全局 Token |
+| `@btn-disable-border` | `borderColorDisabled` | - |
+| `@btn-default-ghost-color` | `defaultGhostColor` | - |
+| `@btn-default-ghost-bg` | `ghostBg` | - |
+| `@btn-default-ghost-border` | `defaultGhostBorderColor` | - |
+| `@btn-font-size-lg` | `fontSizeLG` | 全局 Token |
+| `@btn-font-size-sm` | `fontSizeSM` | 全局 Token |
+| `@btn-padding-horizontal-base` | `paddingInline` | - |
+| `@btn-padding-horizontal-lg` | `paddingInlineLG` | - |
+| `@btn-padding-horizontal-sm` | `paddingInlineSM` | - |
+| `@btn-height-base` | `controlHeight` | 全局 Token |
+| `@btn-height-lg` | `controlHeightLG` | 全局 Token |
+| `@btn-height-sm` | `controlHeightSM` | 全局 Token |
+| `@btn-line-height` | `lineHeight` | 全局 Token |
+| `@btn-circle-size` | `controlHeight` | 全局 Token |
+| `@btn-circle-size-lg` | `controlHeightLG` | 全局 Token |
+| `@btn-circle-size-sm` | `controlHeightSM` | 全局 Token |
+| `@btn-square-size` | `controlHeight` | 全局 Token |
+| `@btn-square-size-lg` | `controlHeightLG` | 全局 Token |
+| `@btn-square-size-sm` | `controlHeightSM` | 全局 Token |
+| `@btn-square-only-icon-size` | `onlyIconSize` | - |
+| `@btn-square-only-icon-size-sm` | `onlyIconSizeSM` | - |
+| `@btn-square-only-icon-size-lg` | `onlyIconSizeLG` | - |
+| `@btn-group-border` | `groupBorderColor` | - |
+| `@btn-link-hover-bg` | `linkHoverBg` | - |
+| `@btn-text-hover-bg` | `textHoverBg` | - |
+
+### Calendar 日历
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
@@ -166,7 +229,7 @@ export default App;
 
 <!-- ### Cascader 级联选择 -->
 
-## Checkbox 多选框
+### Checkbox 多选框
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
@@ -179,7 +242,17 @@ export default App;
 | `@checkbox-border-radius` | `borderRadiusSM` | - |
 | `@checkbox-group-item-margin-right` | - | 由于样式变化已废弃 |
 
-<!-- ### Collapse 折叠面板 -->
+### Collapse 折叠面板
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@collapse-header-padding` | `headerPadding` | - |
+| `@collapse-header-padding-extra` | - | 已废弃 |
+| `@collapse-header-bg` | `headerBg` | - |
+| `@collapse-content-padding` | `contentPadding` | - |
+| `@collapse-content-bg` | `contentBg` | - |
+| `@collapse-header-arrow-left` | - | 已废弃 |
 
 ### Descriptions 描述列表
 
@@ -197,7 +270,15 @@ export default App;
 | `@descriptions-item-label-colon-margin-left` | `colonMarginLeft` | - |
 | `@descriptions-extra-color` | `extraColor` | - |
 
-<!-- ### Divider 分割线 -->
+### Divider 分割线
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@divider-text-padding` | `textPaddingInline` | - |
+| `@divider-orientation-margin` | `orientationMargin` | - |
+| `@divider-color` | `colorSplit` | 全局 Token |
+| `@divider-vertical-gutter` | `verticalMarginInline` | - |
 
 ### Drawer 抽屉
 
@@ -244,7 +325,29 @@ export default App;
 
 <!-- ### Input 输入框 -->
 
-<!-- ### Layout 布局 -->
+### Layout 布局
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@layout-body-background` | `bodyBg` | - |
+| `@layout-header-background` | `headerBg` | - |
+| `@layout-header-height` | `headerHeight` | - |
+| `@layout-header-padding` | `headerPadding` | - |
+| `@layout-header-color` | `headerColor` | - |
+| `@layout-footer-padding` | `footerPadding` | - |
+| `@layout-footer-background` | `footerBg` | - |
+| `@layout-sider-background` | `siderBg` | - |
+| `@layout-trigger-height` | `triggerHeight` | - |
+| `@layout-trigger-background` | `triggerBg` | - |
+| `@layout-trigger-color` | `triggerColor` | - |
+| `@layout-zero-trigger-width` | `zeroTriggerWidth` | - |
+| `@layout-zero-trigger-height` | `zeroTriggerHeight` | - |
+| `@layout-sider-background-light` | `lightSiderBg` | - |
+| `@layout-trigger-background-light` | `lightTriggerBg` | - |
+| `@layout-trigger-color-light` | `lightTriggerColor` | - |
+
+ssgit chekcout featuregit pucheckout featire'uregit pull
 
 ### List 列表
 
@@ -271,7 +374,45 @@ Mentions 提及
 | `@mentions-dropdown-bg` | `colorBgElevated` | - |
 | `@mentions-dropdown-menu-item-hover-bg` | - | 已废弃 |
 
-<!-- ### Menu 导航菜单 -->
+### Menu 导航菜单
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@menu-inline-toplevel-item-height` | `itemHeight` | 同 `@menu-item-height` |
+| `@menu-item-height` | `itemHeight` | - |
+| `@menu-item-group-height` | `groupTitleLineHeight` | - |
+| `@menu-collapsed-width` | `collapsedWidth` | - |
+| `@menu-bg` | `itemBg` | - |
+| `@menu-popup-bg` | `popupBg` | - |
+| `@menu-item-color` | `itemColor` | - |
+| `@menu-inline-submenu-bg` | `subMenuItemBg` | - |
+| `@menu-highlight-color` | `itemSelectedColor` | - |
+| `@menu-highlight-danger-color` | `dangerItemSelectedColor` | - |
+| `@menu-item-active-bg` | `itemActiveBg` | - |
+| `@menu-item-active-danger-bg` | `dangerItemActiveBg` | - |
+| `@menu-item-active-border-width` | `activeBarBorderWidth` | - |
+| `@menu-item-group-title-color` | `groupTitleColor` | - |
+| `@menu-item-vertical-margin` | `itemMarginBlock` | - |
+| `@menu-item-font-size` | `fontSize` | 全局 Token |
+| `@menu-item-boundary-margin` | - | 因样式调整已废弃，可使用 `itemMarginBlock` 替代 |
+| `@menu-item-padding-horizontal` | `itemPaddingInline` | - |
+| `@menu-item-padding` | - | 已废弃，使用 `itemPaddingInline` 和 `itemHeight` 替代 |
+| `@menu-horizontal-line-height` | `horizontalLineHeight` | - |
+| `@menu-icon-margin-right` | `iconMarginInlineEnd` | - |
+| `@menu-icon-size` | `iconSize` | - |
+| `@menu-icon-size-lg` | `horizontalLineHeight` | - |
+| `@menu-dark-color` | `darkItemColor` | - |
+| `@menu-dark-danger-color` | `darkDangerItemColor` | - |
+| `@menu-dark-bg` | `darkItemBg` | - |
+| `@menu-dark-arrow-color` | - | 已废弃，和文字颜色相同 |
+| `@menu-dark-inline-submenu-bg` | `darkSubMenuItemBg` | - |
+| `@menu-dark-highlight-color` | `darkItemSelectedColor` | - |
+| `@menu-dark-item-active-bg` | `darkItemSelectedBg` | - |
+| `@menu-dark-item-active-danger-bg` | `darkDangerItemSelectedBg` | - |
+| `@menu-dark-selected-item-icon-color` | - | 已废弃，同 `darkItemSelectedColor` |
+| `@menu-dark-selected-item-text-color` | - | 已废弃，同 `darkItemSelectedColor` |
+| `@menu-dark-item-hover-bg` | `darkItemHoverBg` | - |
 
 ### Message 全局提示
 
@@ -346,9 +487,21 @@ Mentions 提及
 | `@popover-distance` | `marginXXS` | 全局 Token |
 | `@popover-padding-horizontal` | - | 已废弃 |
 
-<!-- ### Progress 进度条 -->
+### Progress 进度条
 
-## Radio 单选框
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@progress-default-color` | `defaultColor` | - |
+| `@progress-remaining-color` | `remainingColor` | - |
+| `@progress-info-text-color` | `colorText` | 全局 Token |
+| `@progress-text-color` | `circleTextColor` | - |
+| `@progress-radius` | `lineBorderRadius` | - |
+| `@progress-steps-item-bg` | `remainingColor` | - |
+| `@progress-text-font-size` | `fontSizeSM` | 全局 Token |
+| `@progress-circle-text-font-size` | `circleTextFontSize` | - |
+
+### Radio 单选框
 
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
@@ -370,7 +523,7 @@ Mentions 提及
 | `@radio-disabled-button-checked-color` | `buttonCheckdColorDisabled` | - |
 | `@radio-wrapper-margin-right` | `wrapperMarginInlineEnd` | - |
 
-## Rate 评分
+### Rate 评分
 
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
@@ -401,7 +554,32 @@ Mentions 提及
 | `@segmented-label-hover-color` | `itemHoverColor` | - |
 | `@segmented-selected-bg` | `itemSelectedBg` | - |
 
-<!-- ### Select 选择器 -->
+### Select 选择器
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@select-border-color` | `colorBorder` | 全局 Token |
+| `@select-item-selected-color` | `optionSelectedColor` | - |
+| `@select-item-selected-font-weight` | `optionSelectedFontWeight` | - |
+| `@select-dropdown-bg` | `colorBgElevated` | 全局 Token |
+| `@select-item-selected-bg` | `optionSelectedBg` | - |
+| `@select-item-active-bg` | `optionActiveBg` | - |
+| `@select-dropdown-vertical-padding` | `optionPadding` | 控制整体内间距 |
+| `@select-dropdown-font-size` | `optionFontSize` | - |
+| `@select-dropdown-line-height` | `optionLineHeight` | - |
+| `@select-dropdown-height` | `optionHeight` | - |
+| `@select-background` | `selectorBg` | - |
+| `@select-clear-background` | `clearBg` | - |
+| `@select-selection-item-bg` | `multipleItemBg` | - |
+| `@select-selection-item-border-color` | `multipleItemBorderColor` | - |
+| `@select-single-item-height-lg` | `singleItemHeightLG` | - |
+| `@select-multiple-item-height` | `multipleItemHeight` | - |
+| `@select-multiple-item-height-lg` | `multipleItemHeightLG` | - |
+| `@select-multiple-item-spacing-half` | - | 已废弃 |
+| `@select-multiple-disabled-background` | `multipleSelectorBgDisabled` | - |
+| `@select-multiple-item-disabled-color` | `multipleItemColorDisabled` | - |
+| `@select-multiple-item-disabled-border-color` | `multipleItemBorderColorDisabled` | - |
 
 ### Skeleton 骨架屏
 
@@ -416,7 +594,31 @@ Mentions 提及
 | `@skeleton-paragraph-li-height` | `paragraphLiHeight` | - |
 | `@skeleton-paragraph-li-margin-top` | - | 由于样式变化已废弃 |
 
-<!-- ### Slider 滑动输入条 -->
+### Slider 滑动输入条
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@slider-margin` | - | 可由 `className` 或 `style` 直接修改 |
+| `@slider-rail-background-color` | `railBg` | - |
+| `@slider-rail-background-color-hover` | `railHoverBg` | - |
+| `@slider-track-background-color` | `trackBg` | - |
+| `@slider-track-background-color-hover` | `trackHoverBg` | - |
+| `@slider-handle-border-width` | `handleLineWidth` | - |
+| `@slider-handle-background-color` | - | 已废弃 |
+| `@slider-handle-color` | `handleColor` | - |
+| `@slider-handle-color-hover` | `handleActiveColor` | - |
+| `@slider-handle-color-focus` | `handleActiveColor` | - |
+| `@slider-handle-color-focus-shadow` | - | 已废弃 |
+| `@slider-handle-color-tooltip-open` | `handleActiveColor` | - |
+| `@slider-handle-size` | `handleSize` | - |
+| `@slider-handle-margin-top` | - | 已废弃 |
+| `@slider-handle-margin-left` | - | 已废弃 |
+| `@slider-handle-shadow` | - | 已废弃 |
+| `@slider-dot-border-color` | `dotBorderColor` | - |
+| `@slider-dot-border-color-active` | `dotActiveBorderColor` | - |
+| `@slider-disabled-color` | `trackBgDisabled` | - |
+| `@slider-disabled-background-color` | - | 已废弃 |
 
 ### Statistic 统计数值
 
@@ -454,9 +656,65 @@ Mentions 提及
 | `@steps-vertical-tail-width` | - | 已废弃 |
 | `@steps-vertical-tail-width-sm` | - | 已废弃 |
 
-<!-- ### Switch 开关 -->
+### Switch 开关
 
-<!-- ### Table 表格 -->
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@switch-height` | `trackHeight` | - |
+| `@switch-sm-height` | `trackHeightSM` | - |
+| `@switch-min-width` | `trackMinWidth` | - |
+| `@switch-sm-min-width` | `trackMinWidthSM` | - |
+| `@switch-disabled-opacity` | `opacityLoading` | 全局 Token |
+| `@switch-color` | `colorPrimary` | 全局 Token |
+| `@switch-bg` | `handleBg` | - |
+| `@switch-shadow-color` | `handleShadow` | 控制把手阴影，不仅是颜色 |
+| `@switch-padding` | `trackPadding` | - |
+| `@switch-inner-margin-min` | `innerMinMargin` | - |
+| `@switch-inner-margin-max` | `innerMaxMargin` | - |
+| `@switch-sm-inner-margin-min` | `innerMinMarginSM` | - |
+| `@switch-sm-inner-margin-max` | `innerMaxMarginSM` | - |
+
+### Table 表格
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@table-bg` | `colorBgContainer` | 全局 Token |
+| `@table-header-bg` | `headerBg` | - |
+| `@table-header-color` | `headerColor` | - |
+| `@table-header-sort-bg` | `headerSortActiveBg` | - |
+| `@table-body-sort-bg` | `bodySortActiveBg` | - |
+| `@table-row-hover-bg` | `rowHoverBg` | - |
+| `@table-selected-row-color` | `colorText` | 全局 Token |
+| `@table-selected-row-bg` | `rowSelectedBg` | - |
+| `@table-body-selected-sort-bg` | - | 已废弃，同 `rowSelectedBg` |
+| `@table-selected-row-hover-bg` | `rowSelectedHoverBg` | - |
+| `@table-expanded-row-bg` | `rowExpandedBg` | - |
+| `@table-padding-vertical` | `cellPaddingBlock` | - |
+| `@table-padding-horizontal` | `cellPaddingInline` | - |
+| `@table-padding-vertical-md` | `cellPaddingBlockMD` | - |
+| `@table-padding-horizontal-md` | `cellPaddingInlineMD` | - |
+| `@table-padding-vertical-sm` | `cellPaddingBlockSM` | - |
+| `@table-padding-horizontal-sm` | `cellPaddingInlineSM` | - |
+| `@table-border-color` | `borderColor` | - |
+| `@table-border-radius-base` | `headerBorderRadius` | - |
+| `@table-footer-bg` | `footerBg` | - |
+| `@table-footer-color` | `footerColor` | - |
+| `@table-header-bg-sm` | - | 已废弃，同 `headerBg` |
+| `@table-font-size` | `cellFontSize` | - |
+| `@table-font-size-md` | `cellFontSizeMD` | - |
+| `@table-font-size-sm` | `cellFontSizeSM` | - |
+| `@table-header-cell-split-color` | `headerSplitColor` | - |
+| `@table-header-sort-active-bg` | `headerSortHoverBg` | v4 中有误，实际上用于悬浮背景色 |
+| `@table-fixed-header-sort-active-bg` | `fixedHeaderSortActiveBg` | - |
+| `@table-header-filter-active-bg` | `headerFilterHoverBg` | - |
+| `@table-filter-btns-bg` | - | 已废弃，同 `filterDropdownBg` |
+| `@table-filter-dropdown-bg` | `filterDropdownBg` | - |
+| `@table-expand-icon-bg` | `expandIconBg` | - |
+| `@table-selection-column-width` | `selectionColumnWidth` | - |
+| `@table-sticky-scroll-bar-bg` | `stickyScrollBarBg` | - |
+| `@table-sticky-scroll-bar-radius` | `stickyScrollBarBorderRadius` | - |
 
 ### Tabs 标签页
 
@@ -489,7 +747,7 @@ Mentions 提及
 | `@tabs-card-gutter` | `cardGutter` | - |
 | `@tabs-card-tab-active-border-top` | - | 已废弃 |
 
-## Tag 标签
+### Tag 标签
 
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |

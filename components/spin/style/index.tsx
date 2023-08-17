@@ -5,6 +5,10 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
+  /**
+   * @desc 内容区域高度
+   * @descEN Height of content area
+   */
   contentHeight: number;
 }
 

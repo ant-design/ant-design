@@ -58,6 +58,10 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
     resetStyle?: boolean;
     // Deprecated token key map [["oldTokenKey", "newTokenKey"], ["oldTokenKey", "newTokenKey"]]
     deprecatedTokens?: [ComponentTokenKey<ComponentName>, ComponentTokenKey<ComponentName>][];
+    /**
+     * Only use component style in client side. Ignore in SSR.
+     */
+    clientOnly?: boolean;
   },
 ) {
   return (prefixCls: string): UseComponentStyleResult => {
@@ -71,15 +75,22 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
       token,
       hashId,
       nonce: () => csp?.nonce!,
+      clientOnly: options?.clientOnly,
+
+      // antd is always at top of styles
+      order: -999,
     };
 
     // Generate style for all a tags in antd component.
-    useStyleRegister({ ...sharedConfig, path: ['Shared', rootPrefixCls] }, () => [
-      {
-        // Link
-        '&': genLinkStyle(token),
-      },
-    ]);
+    useStyleRegister(
+      { ...sharedConfig, clientOnly: false, path: ['Shared', rootPrefixCls] },
+      () => [
+        {
+          // Link
+          '&': genLinkStyle(token),
+        },
+      ],
+    );
 
     return [
       useStyleRegister({ ...sharedConfig, path: [component, prefixCls, iconPrefixCls] }, () => {

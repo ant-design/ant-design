@@ -4,4 +4,4 @@
 
 ## en-US
 
-custom mask style.
+Custom mask style.

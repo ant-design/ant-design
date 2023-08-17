@@ -1,3 +1,5 @@
+'use client';
+
 import type { Dayjs } from 'dayjs';
 import * as React from 'react';
 import genPurePanel from '../_util/PurePanel';
@@ -25,6 +27,7 @@ export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> 
   addon?: () => React.ReactNode;
   status?: InputStatus;
   popupClassName?: string;
+  rootClassName?: string;
 }
 
 const TimePicker = React.forwardRef<any, TimePickerProps>(

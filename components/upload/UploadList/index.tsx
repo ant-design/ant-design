@@ -16,7 +16,12 @@ import type { InternalUploadFile, UploadFile, UploadListProps } from '../interfa
 import { isImageUrl, previewImage } from '../utils';
 import ListItem from './ListItem';
 
-const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProps> = (
+interface UploadListRef {
+  handlePreview: (file: UploadFile, e?: React.SyntheticEvent<HTMLElement>) => void;
+  handleDownload: (file: UploadFile) => void;
+}
+
+const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadListProps> = (
   props,
   ref,
 ) => {
@@ -160,18 +165,10 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
-  const listClassNames = classNames({
-    [`${prefixCls}-list`]: true,
-    [`${prefixCls}-list-${listType}`]: true,
-  });
+  const listClassNames = classNames(`${prefixCls}-list`, `${prefixCls}-list-${listType}`);
 
   // >>> Motion config
-  const motionKeyList = [
-    ...items.map((file) => ({
-      key: file.uid,
-      file,
-    })),
-  ];
+  const motionKeyList = [...items.map((file) => ({ key: file.uid, file }))];
 
   const animationDirection =
     listType === 'picture-card' || listType === 'picture-circle' ? 'animate-inline' : 'animate';
@@ -254,7 +251,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
   );
 };
 
-const UploadList = React.forwardRef<unknown, UploadListProps>(InternalUploadList);
+const UploadList = React.forwardRef<UploadListRef, UploadListProps>(InternalUploadList);
 
 if (process.env.NODE_ENV !== 'production') {
   UploadList.displayName = 'UploadList';

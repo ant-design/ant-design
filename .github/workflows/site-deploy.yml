@@ -69,11 +69,14 @@ jobs:
 
       - name: build site
         run: npm run predeploy
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
 
       - name: build dist and bundle analyzer report
         run: npm run dist
         env:
           ANALYZER: 1
+          NODE_OPTIONS: "--max_old_space_size=4096"
 
       - name: Get version
         id: publish-version
@@ -85,6 +88,15 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
           force_orphan: true
+
+      # Since force_orphan will not trigger Sync to Gitee, we need to force run it here
+      - name: Sync to Gitee
+        uses: wearerequired/git-mirror-action@v1
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
+        with:
+          source-repo: 'git@github.com:ant-design/ant-design.git'
+          destination-repo: 'git@gitee.com:ant-design/ant-design.git'
 
       - name: Deploy to Surge (with TAG)
         run: |

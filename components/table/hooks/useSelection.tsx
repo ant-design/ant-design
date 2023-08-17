@@ -9,12 +9,12 @@ import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import { useCallback, useMemo, useState } from 'react';
+import type { AnyObject } from '../../_util/type';
 import warning from '../../_util/warning';
 import type { CheckboxProps } from '../../checkbox';
 import Checkbox from '../../checkbox';
 import Dropdown from '../../dropdown';
 import Radio from '../../radio';
-import type { AnyObject } from '../Table';
 import type {
   ColumnType,
   ColumnsType,
@@ -38,7 +38,7 @@ export const SELECTION_NONE = 'SELECT_NONE' as const;
 
 const EMPTY_LIST: React.Key[] = [];
 
-interface UseSelectionConfig<RecordType extends AnyObject = any> {
+interface UseSelectionConfig<RecordType extends AnyObject = AnyObject> {
   prefixCls: string;
   pageData: RecordType[];
   data: RecordType[];
@@ -56,7 +56,7 @@ export type INTERNAL_SELECTION_ITEM =
   | typeof SELECTION_INVERT
   | typeof SELECTION_NONE;
 
-const flattenData = <RecordType extends AnyObject = any>(
+const flattenData = <RecordType extends AnyObject = AnyObject>(
   childrenColumnName: keyof RecordType,
   data?: RecordType[],
 ): RecordType[] => {
@@ -70,7 +70,7 @@ const flattenData = <RecordType extends AnyObject = any>(
   return list;
 };
 
-const useSelection = <RecordType extends AnyObject = any>(
+const useSelection = <RecordType extends AnyObject = AnyObject>(
   config: UseSelectionConfig<RecordType>,
   rowSelection?: TableRowSelection<RecordType>,
 ): readonly [TransformColumns<RecordType>, Set<Key>] => {
