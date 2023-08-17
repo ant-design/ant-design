@@ -139,6 +139,11 @@ const genSizeStyle = (token: ColorPickerToken): CSSObject => {
         height: controlHeight,
         borderRadius,
       },
+      [`${componentCls}-clear`]: {
+        width: controlHeight,
+        height: controlHeight,
+        borderRadius,
+      },
       [`${componentCls}-trigger-text`]: {
         fontSize: fontSizeLG,
       },
@@ -148,6 +153,11 @@ const genSizeStyle = (token: ColorPickerToken): CSSObject => {
       height: controlHeightSM,
       borderRadius: borderRadiusSM,
       [`${componentCls}-color-block`]: {
+        width: controlHeightXS,
+        height: controlHeightXS,
+        borderRadius: borderRadiusXS,
+      },
+      [`${componentCls}-clear`]: {
         width: controlHeightXS,
         height: controlHeightXS,
         borderRadius: borderRadiusXS,
