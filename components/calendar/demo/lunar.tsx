@@ -20,7 +20,7 @@ const useStyle = createStyles(({ token, css, cx }) => {
     wrapper: css`
           width: 400px;
           border: 1px solid ${token.colorBorderSecondary};
-          border-radius: ${token.borderRadiusLG};
+          border-radius: ${token.borderRadiusOuter};
           padding: 5px;
         `,
     dateCell: css`
@@ -37,12 +37,19 @@ const useStyle = createStyles(({ token, css, cx }) => {
             max-height: 40px;
             background: transparent;
             transition: background 300ms;
-            border-radius: ${token.borderRadiusXS}px;
+            border-radius: ${token.borderRadiusOuter}px;
+            border: 1px solid transparent;
+            box-sizing: border-box;
           }
           &:hover:before {
             background: rgba(0, 0, 0, 0.04);
           }
         `,
+    today: css`
+          &:before {
+            border: 1px solid ${token.colorPrimary};
+          }
+    `,
     text: css`
           position: relative;
           z-index: 1;
@@ -65,7 +72,7 @@ const useStyle = createStyles(({ token, css, cx }) => {
     monthCell: css`
           width: 120px;
           color: ${token.colorTextBase};
-          border-radius: ${token.borderRadiusXS}px;
+          border-radius: ${token.borderRadiusOuter}px;
           padding: 5px 0;
           &:hover {
             background: rgba(0, 0, 0, 0.04);
@@ -92,23 +99,42 @@ const App: React.FC = () => {
     setSelectDate(value);
   };
 
+  const onDateChange = (value: Dayjs) => {
+    setSelectDate(value);
+  };
+
   const cellRender = (date: Dayjs, info: CellRenderInfo<Dayjs>) => {
     const d = lunisolar(date.toDate());
     const lunar = d.lunar.getDayName();
     const solarTerm = d.solarTerm?.name;
     if (info.type === 'date') {
-      return (
-        <div
-          className={classNames(styles.dateCell, {
-            [styles.current]: date.isSame(dayjs(), 'date'),
-          })}
-        >
+      return React.cloneElement(info.originNode, {
+        ...info.originNode.props,
+        className: classNames(styles.dateCell, {
+          [styles.current]: selectDate.isSame(date, 'date'),
+          [styles.today]: date.isSame(dayjs(), 'date'),
+        }),
+        children: (
           <div className={styles.text}>
             {date.get('date')}
             {info.type === 'date' && <div className={styles.lunar}>{solarTerm || lunar}</div>}
           </div>
-        </div>
-      );
+        ),
+      });
+      // return (
+
+      //   <div
+      //     className={classNames(styles.dateCell, {
+      //       [styles.current]: date.isSame(dayjs(), 'date'),
+      //     })}
+      //   >
+      //     <div className={styles.text}>
+      //       <div>{info.originNode}</div>
+      //       {date.get('date')}
+      //       {info.type === 'date' && <div className={styles.lunar}>{solarTerm || lunar}</div>}
+      //     </div>
+      //   </div>
+      // );
     }
 
     if (info.type === 'month') {
@@ -145,6 +171,7 @@ const App: React.FC = () => {
         fullCellRender={cellRender}
         fullscreen={false}
         onPanelChange={onPanelChange}
+        onChange={onDateChange}
         headerRender={({ value, type, onChange, onTypeChange }) => {
           const start = 0;
           const end = 12;
