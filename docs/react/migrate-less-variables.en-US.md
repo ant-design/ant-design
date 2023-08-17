@@ -227,7 +227,19 @@ export default App;
 | `@carousel-dot-height` | `dotHeight` | - |
 | `@carousel-dot-active-width` | `dotActiveWidth` | - |
 
-<!-- ### Cascader -->
+### Cascader
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@cascader-bg` | - | Deprecated |
+| `@cascader-item-selected-bg` | `optionSelectedBg` | - |
+| `@cascader-menu-bg` | - | Deprecated |
+| `@cascader-menu-border-color-split` | `colorSplit` | Global Token |
+| `@cascader-dropdown-vertical-padding` | `optionPadding` | - |
+| `@cascader-dropdown-edge-child-vertical-padding` | `menuPadding` | - |
+| `@cascader-dropdown-font-size` | - | Deprecated |
+| `@cascader-dropdown-line-height` | `lineHeight` | Global Token |
 
 <!-- ### Checkbox -->
 

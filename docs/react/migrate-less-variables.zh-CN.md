@@ -227,7 +227,19 @@ export default App;
 | `@carousel-dot-height` | `dotHeight` | - |
 | `@carousel-dot-active-width` | `dotActiveWidth` | - |
 
-<!-- ### Cascader 级联选择 -->
+### Cascader 级联选择
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@cascader-bg` | - | 已废弃 |
+| `@cascader-item-selected-bg` | `optionSelectedBg` | - |
+| `@cascader-menu-bg` | - | 已废弃 |
+| `@cascader-menu-border-color-split` | `colorSplit` | 全局 Token |
+| `@cascader-dropdown-vertical-padding` | `optionPadding` | - |
+| `@cascader-dropdown-edge-child-vertical-padding` | `menuPadding` | - |
+| `@cascader-dropdown-font-size` | - | 已废弃 |
+| `@cascader-dropdown-line-height` | `lineHeight` | 全局 Token |
 
 ### Checkbox 多选框
 
