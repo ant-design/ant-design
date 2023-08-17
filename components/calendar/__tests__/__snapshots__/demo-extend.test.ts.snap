@@ -7981,7 +7981,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
 
 exports[`renders components/calendar/demo/lunar.tsx extend context correctly 1`] = `
 <div
-  class="acss-1bpo5lv"
+  class="acss-boc98h"
 >
   <div
     class="ant-picker-calendar ant-picker-calendar-mini"

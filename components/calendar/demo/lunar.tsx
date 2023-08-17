@@ -18,7 +18,7 @@ const useStyle = createStyles(({ token, css, cx }) => {
   `;
   return {
     wrapper: css`
-          width: 40vw;
+          width: 400px;
           border: 1px solid ${token.colorBorderSecondary};
           border-radius: ${token.borderRadiusLG};
           padding: 5px;
