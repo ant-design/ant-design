@@ -54,6 +54,8 @@ import type { ComponentToken as TimelineComponentToken } from '../../timeline/st
 import type { ComponentToken as TooltipComponentToken } from '../../tooltip/style';
 import type { ComponentToken as TourComponentToken } from '../../tour/style';
 import type { ComponentToken as TransferComponentToken } from '../../transfer/style';
+import type { ComponentToken as TreeComponentToken } from '../../tree/style';
+import type { ComponentToken as TreeSelectComponentToken } from '../../tree-select/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
 
@@ -102,8 +104,8 @@ export interface ComponentTokenMap {
   Statistic?: StatisticComponentToken;
   Switch?: SwitchComponentToken;
   Tag?: TagComponentToken;
-  Tree?: {};
-  TreeSelect?: {};
+  Tree?: TreeComponentToken;
+  TreeSelect?: TreeSelectComponentToken;
   Typography?: TypographyComponentToken;
   Timeline?: TimelineComponentToken;
   Transfer?: TransferComponentToken;

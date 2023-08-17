@@ -797,7 +797,7 @@ Mentions 提及
 | `@tooltip-arrow-color` | - | 同 `@tooltip-bg`，已废弃 |
 | `@tooltip-border-radius` | `borderRadius` | 全局 Token |
 
-Transfer 穿梭框
+### Transfer 穿梭框
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -811,7 +811,18 @@ Transfer 穿梭框
 | `@transfer-item-padding-vertical` | `itemPaddingBlock` | - |
 | `@transfer-list-search-icon-top` | - | 已废弃 |
 
-<!-- ### Tree 树形控件 -->
+### Tree 树形控件
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@tree-bg` | `colorBgContainer` | 全局 Token |
+| `@tree-title-height` | `titleHeight` | - |
+| `@tree-child-padding` | - | 已废弃 |
+| `@tree-directory-selected-color` | `directoryNodeSelectedColor` | - |
+| `@tree-directory-selected-bg` | `directoryNodeSelectedBg` | - |
+| `@tree-node-hover-bg` | `nodeHoverBg` | - |
+| `@tree-node-selected-bg` | `nodeSelectedBg` | - |
 
 ### Typography 排版
 
