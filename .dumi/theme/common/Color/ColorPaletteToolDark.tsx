@@ -57,7 +57,7 @@ const ColorPaletteTool: React.FC = () => {
   return (
     <div className="color-palette-horizontal color-palette-horizontal-dark">
       <div className="main-color">
-        {ColorPatterns({ color: primaryColor, dark: true, backgroundColor })}
+        <ColorPatterns color={primaryColor} backgroundColor={backgroundColor} dark />
       </div>
       <div className="color-palette-picker">
         <Row>

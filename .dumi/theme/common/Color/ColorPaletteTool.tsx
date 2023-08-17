@@ -50,7 +50,9 @@ const ColorPaletteTool: React.FC = () => {
       <div className="color-palette-pick">
         <FormattedMessage id="app.docs.color.pick-primary" />
       </div>
-      <div className="main-color">{ColorPatterns({ color: primaryColor })}</div>
+      <div className="main-color">
+        <ColorPatterns color={primaryColor} />
+      </div>
       <div className="color-palette-picker">
         <span style={{ display: 'inline-block', verticalAlign: 'middle' }}>
           <ColorPicker value={primaryColor} onChange={handleChangeColor} />
