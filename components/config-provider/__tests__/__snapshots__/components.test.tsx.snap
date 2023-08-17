@@ -17472,7 +17472,7 @@ exports[`ConfigProvider components List configProvider componentDisabled 1`] = `
 
 exports[`ConfigProvider components List configProvider componentSize large 1`] = `
 <div
-  class="config-list config-list-split"
+  class="config-list config-list-lg config-list-split"
 >
   <div
     class="config-spin-nested-loading"
@@ -17576,7 +17576,7 @@ exports[`ConfigProvider components List configProvider componentSize middle 1`] 
 
 exports[`ConfigProvider components List configProvider componentSize small 1`] = `
 <div
-  class="config-list config-list-split"
+  class="config-list config-list-sm config-list-split"
 >
   <div
     class="config-spin-nested-loading"
