@@ -2,11 +2,13 @@ import { FormattedMessage } from 'dumi';
 import React, { useMemo, useState } from 'react';
 import { Col, ColorPicker, Row } from 'antd';
 import ColorPatterns from './ColorPatterns';
+import useLocale from '../../../hooks/useLocale';
 
 const primaryMinSaturation = 70; // 主色推荐最小饱和度
 const primaryMinBrightness = 70; // 主色推荐最小亮度
 
 const ColorPaletteTool: React.FC = () => {
+  const [, lang] = useLocale();
   const [primaryColor, setPrimaryColor] = useState<string>('#1890ff');
   const [backgroundColor, setBackgroundColor] = useState<string>('#141414');
   const [primaryColorInstance, setPrimaryColorInstance] = useState(null);
@@ -25,10 +27,18 @@ const ColorPaletteTool: React.FC = () => {
     if (primaryColorInstance) {
       const { s, b } = primaryColorInstance.toHsb();
       if (s * 100 < primaryMinSaturation) {
-        text += ` 饱和度建议不低于${primaryMinSaturation}（现在 ${(s * 100).toFixed(2)}）`;
+        const curS = (s * 100).toFixed(2);
+        text +=
+          lang === 'cn'
+            ? `饱和度建议不低于${primaryMinSaturation}（现在${curS}）`
+            : `Saturation is recommended not to be lower than ${primaryMinSaturation}（currently${curS}）`;
       }
       if (b * 100 < primaryMinBrightness) {
-        text += ` 亮度建议不低于${primaryMinBrightness}（现在 ${(b * 100).toFixed(2)}）`;
+        const curB = (b * 100).toFixed(2);
+        text +=
+          lang === 'cn'
+            ? `亮度建议不低于${primaryMinBrightness}（现在${curB}）`
+            : `Brightness is recommended not to be lower than ${primaryMinBrightness}（currently${curB}）`;
       }
     }
     return (
