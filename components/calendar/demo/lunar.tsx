@@ -1,12 +1,11 @@
-import type { Dayjs } from 'dayjs';
-import dayjs from 'dayjs';
+import dayjs, { type Dayjs } from 'dayjs';
 import React from 'react';
-import type { CellRenderInfo } from 'rc-picker/lib/interface';
 import lunisolar from 'lunisolar';
 import zhCn from 'lunisolar/locale/zh-cn';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import { Calendar, Col, Radio, Row, Select } from 'antd';
+import type { CalendarProps } from 'antd';
 import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
 
 lunisolar.locale(zhCn);
@@ -90,7 +89,7 @@ const useStyle = createStyles(({ token, css, cx }) => {
 });
 
 const App: React.FC = () => {
-  const { styles } = useStyle();
+  const { styles } = useStyle({ test: true });
 
   const [selectDate, setSelectDate] = React.useState<Dayjs>(dayjs());
 
@@ -103,7 +102,7 @@ const App: React.FC = () => {
     setSelectDate(value);
   };
 
-  const cellRender = (date: Dayjs, info: CellRenderInfo<Dayjs>) => {
+  const cellRender: CalendarProps<Dayjs>['fullCellRender'] = (date, info) => {
     const d = lunisolar(date.toDate());
     const lunar = d.lunar.getDayName();
     const solarTerm = d.solarTerm?.name;
@@ -121,20 +120,6 @@ const App: React.FC = () => {
           </div>
         ),
       });
-      // return (
-
-      //   <div
-      //     className={classNames(styles.dateCell, {
-      //       [styles.current]: date.isSame(dayjs(), 'date'),
-      //     })}
-      //   >
-      //     <div className={styles.text}>
-      //       <div>{info.originNode}</div>
-      //       {date.get('date')}
-      //       {info.type === 'date' && <div className={styles.lunar}>{solarTerm || lunar}</div>}
-      //     </div>
-      //   </div>
-      // );
     }
 
     if (info.type === 'month') {
@@ -202,7 +187,7 @@ const App: React.FC = () => {
             });
           }
           return (
-            <Row justify="end" gutter={8} style={{ padding: '10px' }}>
+            <Row justify="end" gutter={8} style={{ padding: 8 }}>
               <Col>
                 <Select
                   size="small"
