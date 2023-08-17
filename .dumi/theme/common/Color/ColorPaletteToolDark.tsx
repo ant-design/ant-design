@@ -41,10 +41,10 @@ const ColorPaletteTool: React.FC = () => {
     if (primaryColorInstance) {
       const { s, b } = primaryColorInstance.toHsb() || {};
       if (s * 100 < primaryMinSaturation) {
-        text += locale.saturation(s);
+        text += locale.saturation((s * 100).toFixed(2));
       }
       if (b * 100 < primaryMinBrightness) {
-        text += locale.brightness(b);
+        text += locale.brightness((s * 100).toFixed(2));
       }
     }
     return (
