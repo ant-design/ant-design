@@ -119,10 +119,24 @@ export interface ComponentToken {
    * @descEN Background color of text button when hover
    */
   textHoverBg: string;
+  /**
+   * @desc 按钮内容字体大小
+   * @descEN Font size of button content
+   */
+  contentFontSize: number;
+  /**
+   * @desc 大号按钮内容字体大小
+   * @descEN Font size of large button content
+   */
+  contentFontSizeLG: number;
+  /**
+   * @desc 小号按钮内容字体大小
+   * @descEN Font size of small button content
+   */
+  contentFontSizeSM: number;
 }
 
 export interface ButtonToken extends FullToken<'Button'> {
-  colorOutlineDefault: string;
   buttonPaddingHorizontal: CSSProperties['paddingInline'];
   buttonIconOnlyFontSize: number;
 }
@@ -599,12 +613,17 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
   ];
 };
 
-const genSizeBaseButtonStyle: GenerateStyle<ButtonToken> = (token) => genSizeButtonStyle(token);
+const genSizeBaseButtonStyle: GenerateStyle<ButtonToken> = (token) =>
+  genSizeButtonStyle(
+    mergeToken<ButtonToken>(token, {
+      fontSize: token.contentFontSize,
+    }),
+  );
 
 const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const smallToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightSM,
-    fontSize: token.fontSizeSM,
+    fontSize: token.contentFontSizeSM,
     padding: token.paddingXS,
     buttonPaddingHorizontal: token.paddingInlineSM, // Fixed padding
     borderRadius: token.borderRadiusSM,
@@ -617,7 +636,7 @@ const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = (token) => {
 const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const largeToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightLG,
-    fontSize: token.fontSizeLG,
+    fontSize: token.contentFontSizeLG,
     buttonPaddingHorizontal: token.paddingInlineLG,
     borderRadius: token.borderRadiusLG,
     buttonIconOnlyFontSize: token.onlyIconSizeLG,
@@ -695,6 +714,8 @@ export default genComponentStyleHook(
     defaultBg: token.colorBgContainer,
     defaultBorderColor: token.colorBorder,
     defaultBorderColorDisabled: token.colorBorder,
-    fontSizeSM: token.fontSize,
+    contentFontSize: token.fontSize,
+    contentFontSizeSM: token.fontSize,
+    contentFontSizeLG: token.fontSizeLG,
   }),
 );
