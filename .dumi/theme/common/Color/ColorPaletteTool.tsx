@@ -10,7 +10,7 @@ const primaryMinBrightness = 70; // 主色推荐最小亮度
 
 const locales = (curS, curB) => ({
   cn: {
-    saturation: `饱和度建议不低于${primaryMinSaturation}（现在${curS}）`,
+    saturation: ({ primaryMinSaturation, curS }) => `饱和度建议不低于${primaryMinSaturation}（现在${curS}）`,
     brightness: `亮度建议不低于${primaryMinBrightness}（现在${curB}）`,
   },
   en: {
