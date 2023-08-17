@@ -8,37 +8,39 @@ import useLocale from '../../../hooks/useLocale';
 const primaryMinSaturation = 70; // 主色推荐最小饱和度
 const primaryMinBrightness = 70; // 主色推荐最小亮度
 
-const locales = (curS, curB) => ({
+const locales = {
   cn: {
-    saturation: ({ primaryMinSaturation, curS }) => `饱和度建议不低于${primaryMinSaturation}（现在${curS}）`,
-    brightness: `亮度建议不低于${primaryMinBrightness}（现在${curB}）`,
+    saturation: (s: string) => `饱和度建议不低于${primaryMinSaturation}（现在${s}）`,
+    brightness: (b: string) => `亮度建议不低于${primaryMinBrightness}（现在${b}）`,
   },
   en: {
-    saturation: `Saturation is recommended not to be lower than ${primaryMinSaturation}（currently${curS}）`,
-    brightness: `Brightness is recommended not to be lower than ${primaryMinBrightness}（currently${curB}）`,
+    saturation: (s: string) =>
+      `Saturation is recommended not to be lower than ${primaryMinSaturation}（currently${s}）`,
+    brightness: (b: string) =>
+      `Brightness is recommended not to be lower than ${primaryMinBrightness}（currently${b}）`,
   },
-});
+};
 
 const ColorPaletteTool: React.FC = () => {
   const [primaryColor, setPrimaryColor] = useState<string>('#1890ff');
   const [primaryColorInstance, setPrimaryColorInstance] = useState<Color>(null);
 
-  const { s, b } = (primaryColorInstance || {}).toHsb?.() || {};
-
-  const [locale] = useLocale(locales((s * 100).toFixed(2), (b * 100).toFixed(2)));
+  const [locale] = useLocale(locales);
 
   const handleChangeColor = (color: Color, hex: string) => {
     setPrimaryColor(hex);
     setPrimaryColorInstance(color);
   };
+
   const colorValidation = useMemo<React.ReactNode>(() => {
     let text = '';
     if (primaryColorInstance) {
+      const { s, b } = primaryColorInstance.toHsb() || {};
       if (s * 100 < primaryMinSaturation) {
-        text += locale.saturation;
+        text += locale.saturation(s);
       }
       if (b * 100 < primaryMinBrightness) {
-        text += locale.brightness;
+        text += locale.brightness(b);
       }
     }
     return <span className="color-palette-picker-validation">{text.trim()}</span>;
