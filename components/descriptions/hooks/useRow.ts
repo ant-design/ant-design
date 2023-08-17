@@ -27,7 +27,7 @@ function getFilledItem(
 
 // Convert children into items
 const transChildren2Items = (childNodes?: React.ReactNode) =>
-  toArray(childNodes).map((node) => node?.props);
+  toArray(childNodes).map((node) => ({ ...node?.props }));
 
 // Calculate the sum of span in a row
 function getCalcRows(rowItems: DescriptionsItemType[], mergedColumn: number) {
