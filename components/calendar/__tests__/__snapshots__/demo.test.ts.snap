@@ -4755,7 +4755,7 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
 
 exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
 <div
-  style="width:500px;border:1px solid #f0f0f0;border-radius:8px"
+  class="acss-1bpo5lv"
 >
   <div
     class="ant-picker-calendar ant-picker-calendar-mini"
@@ -4987,16 +4987,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell"
                   title="2016-10-30"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       30
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      三十
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        三十
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5004,16 +5006,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-end"
                   title="2016-10-31"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       31
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      初一
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        初一
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5021,16 +5025,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
                   title="2016-11-01"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       1
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      初二
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        初二
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5038,16 +5044,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-02"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       2
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      初三
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        初三
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5055,16 +5063,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-03"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       3
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      初四
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        初四
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5072,16 +5082,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-04"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       4
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      初五
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        初五
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5089,16 +5101,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-05"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       5
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      初六
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        初六
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5108,16 +5122,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-06"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       6
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      初七
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        初七
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5125,16 +5141,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-07"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       7
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      立冬
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        立冬
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5142,16 +5160,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-08"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       8
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      初九
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        初九
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5159,16 +5179,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-09"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       9
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      初十
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        初十
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5176,16 +5198,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-10"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       10
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      十一
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        十一
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5193,16 +5217,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-11"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       11
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      十二
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        十二
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5210,16 +5236,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-12"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       12
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      十三
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        十三
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5229,16 +5257,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-13"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       13
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      十四
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        十四
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5246,16 +5276,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-14"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       14
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      十五
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        十五
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5263,16 +5295,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-15"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       15
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      十六
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        十六
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5280,16 +5314,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-16"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       16
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      十七
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        十七
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5297,16 +5333,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-17"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       17
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      十八
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        十八
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5314,16 +5352,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-18"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       18
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      十九
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        十九
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5331,16 +5371,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-19"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       19
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      二十
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        二十
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5350,16 +5392,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-20"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       20
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      廿一
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        廿一
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5367,16 +5411,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-21"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       21
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      廿二
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        廿二
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5384,16 +5430,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today ant-picker-cell-selected"
                   title="2016-11-22"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu acss-1qmzyjk"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       22
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      小雪
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        小雪
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5401,16 +5449,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-23"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       23
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      廿四
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        廿四
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5418,16 +5468,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-24"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       24
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      廿五
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        廿五
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5435,16 +5487,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-25"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       25
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      廿六
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        廿六
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5452,16 +5506,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-26"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       26
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      廿七
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        廿七
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5471,16 +5527,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-27"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       27
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      廿八
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        廿八
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5488,16 +5546,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-28"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       28
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      廿九
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        廿九
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5505,16 +5565,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-29"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       29
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      初一
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        初一
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5522,16 +5584,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
                   title="2016-11-30"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       30
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      初二
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        初二
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5539,16 +5603,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell ant-picker-cell-start"
                   title="2016-12-01"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       1
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      初三
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        初三
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5556,16 +5622,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell"
                   title="2016-12-02"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       2
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      初四
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        初四
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5573,16 +5641,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell"
                   title="2016-12-03"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       3
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      初五
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        初五
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5592,16 +5662,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell"
                   title="2016-12-04"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       4
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      初六
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        初六
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5609,16 +5681,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell"
                   title="2016-12-05"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       5
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      初七
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        初七
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5626,16 +5700,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell"
                   title="2016-12-06"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       6
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      初八
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        初八
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5643,16 +5719,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell"
                   title="2016-12-07"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       7
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      大雪
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        大雪
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5660,16 +5738,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell"
                   title="2016-12-08"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       8
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      初十
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        初十
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5677,16 +5757,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell"
                   title="2016-12-09"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       9
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      十一
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        十一
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -5694,16 +5776,18 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
                   class="ant-picker-cell"
                   title="2016-12-10"
                 >
-                  <div>
+                  <div
+                    class="acss-12p5jsu"
+                  >
                     <div
-                      class="ant-picker-cell-inner"
+                      class="acss-bfhp28"
                     >
                       10
-                    </div>
-                    <div
-                      style="color:rgba(0, 0, 0, 0.45);font-size:12px"
-                    >
-                      十二
+                      <div
+                        class="acss-b5lf8w"
+                      >
+                        十二
+                      </div>
                     </div>
                   </div>
                 </td>

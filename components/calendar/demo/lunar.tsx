@@ -4,13 +4,86 @@ import React from 'react';
 import type { CellRenderInfo } from 'rc-picker/lib/interface';
 import lunisolar from 'lunisolar';
 import zhCn from 'lunisolar/locale/zh-cn';
-import { Calendar, Col, Radio, Row, Select, theme } from 'antd';
+import { createStyles } from 'antd-style';
+import classNames from 'classnames';
+import { Calendar, Col, Radio, Row, Select } from 'antd';
 import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
 
 lunisolar.locale(zhCn);
 
+const useStyle = createStyles(({ token, css, cx }) => {
+  const lunar = css`
+    color: ${token.colorTextTertiary};
+    font-size: ${token.fontSizeSM}px;
+  `;
+  return {
+    wrapper: css`
+          width: 40vw;
+          border: 1px solid ${token.colorBorderSecondary};
+          border-radius: ${token.borderRadiusLG};
+          padding: 5px;
+        `,
+    dateCell: css`
+          position: relative;
+          &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            max-width: 40px;
+            max-height: 40px;
+            background: transparent;
+            transition: background 300ms;
+            border-radius: ${token.borderRadiusXS}px;
+          }
+          &:hover:before {
+            background: rgba(0, 0, 0, 0.04);
+          }
+        `,
+    text: css`
+          position: relative;
+          z-index: 1;
+      `,
+    lunar,
+    current: css`
+            color: ${token.colorTextLightSolid};
+            &:before {
+              background: ${token.colorPrimary};
+            }
+            &:hover:before {
+              background: ${token.colorPrimary};
+              opacity: .8;
+            }
+            .${cx(lunar)} {
+              color: ${token.colorTextLightSolid};
+              opacity: .9;
+            }
+          `,
+    monthCell: css`
+          width: 120px;
+          color: ${token.colorTextBase};
+          border-radius: ${token.borderRadiusXS}px;
+          padding: 5px 0;
+          &:hover {
+            background: rgba(0, 0, 0, 0.04);
+          }
+        `,
+    monthCellCurrent: css`
+          color: ${token.colorTextLightSolid};
+          background: ${token.colorPrimary};
+          &:hover {
+            background: ${token.colorPrimary};
+            opacity: .8;
+          }
+        `,
+  };
+});
+
 const App: React.FC = () => {
-  const { token } = theme.useToken();
+  const { styles } = useStyle();
 
   const [selectDate, setSelectDate] = React.useState<Dayjs>(dayjs());
 
@@ -19,35 +92,21 @@ const App: React.FC = () => {
     setSelectDate(value);
   };
 
-  const wrapperStyle: React.CSSProperties = {
-    width: 500,
-    border: `1px solid ${token.colorBorderSecondary}`,
-    borderRadius: token.borderRadiusLG,
-  };
-
-  const lunarStyle: React.CSSProperties = {
-    color: token.colorTextTertiary,
-    fontSize: token.fontSizeSM,
-  };
-  const monthCurrentStyle: React.CSSProperties = {
-    color: token.colorTextLightSolid,
-  };
-  const monthStyle: React.CSSProperties = {
-    color: token.colorTextBase,
-  };
-  const monthCellStyle: React.CSSProperties = {
-    width: 120,
-  };
-
   const cellRender = (date: Dayjs, info: CellRenderInfo<Dayjs>) => {
     const d = lunisolar(date.toDate());
     const lunar = d.lunar.getDayName();
     const solarTerm = d.solarTerm?.name;
     if (info.type === 'date') {
       return (
-        <div>
-          {info.originNode}
-          {info.type === 'date' && <div style={lunarStyle}>{solarTerm || lunar}</div>}
+        <div
+          className={classNames(styles.dateCell, {
+            [styles.current]: date.isSame(dayjs(), 'date'),
+          })}
+        >
+          <div className={styles.text}>
+            {date.get('date')}
+            {info.type === 'date' && <div className={styles.lunar}>{solarTerm || lunar}</div>}
+          </div>
         </div>
       );
     }
@@ -57,15 +116,15 @@ const App: React.FC = () => {
       // when rendering a month, always take X as the lunar month of the month
       const d2 = lunisolar(new Date(date.get('year'), date.get('month')));
       const month = d2.lunar.getMonthName();
-      return React.cloneElement(info.originNode, {
-        style: monthCellStyle,
-        children: [
-          ...info.originNode.props.children,
-          <span key="m" style={selectDate?.isSame(date, 'month') ? monthCurrentStyle : monthStyle}>
-            （{month}）
-          </span>,
-        ],
-      });
+      return (
+        <div
+          className={classNames(styles.monthCell, {
+            [styles.monthCellCurrent]: selectDate.isSame(date, 'month'),
+          })}
+        >
+          {date.get('month') + 1}月（{month}）
+        </div>
+      );
     }
   };
 
@@ -81,7 +140,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div style={wrapperStyle}>
+    <div className={styles.wrapper}>
       <Calendar
         fullCellRender={cellRender}
         fullscreen={false}
