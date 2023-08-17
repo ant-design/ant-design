@@ -11,7 +11,7 @@ title: FAQ
 
 ## `undefined` 和 `null` 在 `antd` 的受控组件中有区别吗？
 
-**有。antd 约定：`undefined` 是非受控的标志，`null` 作为显式的受控空值。**
+**有区别。antd 约定：`undefined` 是非受控的标志，`null` 作为显式的受控空值。**
 
 在输入元素中，React 认为 `undefined` 和 `null` 都属于非受控的标志。当 `value` 由非空值转化为 `undefined` 或 `null` 时，组件不再受控，这通常是一些意外情况发生的原因。
 
