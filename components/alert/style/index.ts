@@ -1,11 +1,26 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import type { CSSProperties } from 'react';
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook } from '../../theme/internal';
 
 export interface ComponentToken {
   // Component token here
-  iconSizeLG: number;
+  /**
+   * @desc 默认内间距
+   * @descEN Default padding
+   */
+  defaultPadding: CSSProperties['padding'];
+  /**
+   * @desc 带有描述的内间距
+   * @descEN Padding with description
+   */
+  withDescriptionPadding: CSSProperties['padding'];
+  /**
+   * @desc 带有描述时的图标尺寸
+   * @descEN Icon size with description
+   */
+  withDescriptionIconSize: number;
 }
 
 type AlertToken = FullToken<'Alert'> & {
@@ -38,12 +53,11 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
     lineHeight,
     borderRadiusLG: borderRadius,
     motionEaseInOutCirc,
-    iconSizeLG,
+    withDescriptionIconSize,
     colorText,
-    paddingContentVerticalSM,
-    paddingHorizontal,
-    paddingMD,
-    paddingContentHorizontalLG,
+    colorTextHeading,
+    withDescriptionPadding,
+    defaultPadding,
   } = token;
 
   return {
@@ -52,7 +66,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       position: 'relative',
       display: 'flex',
       alignItems: 'center',
-      padding: `${paddingContentVerticalSM}px ${paddingHorizontal}px`, // Fixed horizontal padding here.
+      padding: defaultPadding,
       wordWrap: 'break-word',
       borderRadius,
 
@@ -77,7 +91,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       },
 
       '&-message': {
-        color: colorText,
+        color: colorTextHeading,
       },
 
       [`&${componentCls}-motion-leave`]: {
@@ -99,24 +113,24 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
 
     [`${componentCls}-with-description`]: {
       alignItems: 'flex-start',
-      paddingInline: paddingContentHorizontalLG,
-      paddingBlock: paddingMD,
+      padding: withDescriptionPadding,
 
       [`${componentCls}-icon`]: {
         marginInlineEnd: marginSM,
-        fontSize: iconSizeLG,
+        fontSize: withDescriptionIconSize,
         lineHeight: 0,
       },
 
       [`${componentCls}-message`]: {
         display: 'block',
         marginBottom: marginXS,
-        color: colorText,
+        color: colorTextHeading,
         fontSize: fontSizeLG,
       },
 
       [`${componentCls}-description`]: {
         display: 'block',
+        color: colorText,
       },
     },
 
@@ -239,7 +253,13 @@ export default genComponentStyleHook(
       paddingHorizontal: 12, // Fixed value here.
     }),
   ],
-  (token) => ({
-    iconSizeLG: token.fontSizeHeading3,
-  }),
+  (token) => {
+    const paddingHorizontal = 12; // Fixed value here.
+
+    return {
+      withDescriptionIconSize: token.fontSizeHeading3,
+      defaultPadding: `${token.paddingContentVerticalSM}px ${paddingHorizontal}px`,
+      withDescriptionPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
+    };
+  },
 );
