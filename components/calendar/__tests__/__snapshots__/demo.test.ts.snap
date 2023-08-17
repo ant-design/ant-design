@@ -4761,7 +4761,7 @@ exports[`renders components/calendar/demo/lunar.tsx correctly 1`] = `
     class="ant-picker-calendar ant-picker-calendar-mini"
   >
     <div
-      class="ant-row"
+      class="ant-row ant-row-end"
       style="margin-left:-4px;margin-right:-4px;padding:10px"
     >
       <div

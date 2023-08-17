@@ -159,51 +159,47 @@ const App: React.FC = () => {
           }
 
           for (let i = start; i < end; i++) {
-            monthOptions.push(
-              <Select.Option key={i} value={i} className="month-item">
-                {getMonthLabel(i, value)}
-              </Select.Option>,
-            );
+            monthOptions.push({
+              label: getMonthLabel(i, value),
+              value: i,
+            });
           }
 
           const year = value.year();
           const month = value.month();
           const options = [];
           for (let i = year - 10; i < year + 10; i += 1) {
-            options.push(
-              <Select.Option key={i} value={i} className="year-item">
-                {getYearLabel(i)}
-              </Select.Option>,
-            );
+            options.push({
+              label: getYearLabel(i),
+              value: i,
+            });
           }
           return (
-            <Row gutter={8} style={{ padding: '10px' }}>
+            <Row justify="end" gutter={8} style={{ padding: '10px' }}>
               <Col>
                 <Select
                   size="small"
                   dropdownMatchSelectWidth={false}
                   className="my-year-select"
                   value={year}
+                  options={options}
                   onChange={(newYear) => {
                     const now = value.clone().year(newYear);
                     onChange(now);
                   }}
-                >
-                  {options}
-                </Select>
+                />
               </Col>
               <Col>
                 <Select
                   size="small"
                   dropdownMatchSelectWidth={false}
                   value={month}
+                  options={monthOptions}
                   onChange={(newMonth) => {
                     const now = value.clone().month(newMonth);
                     onChange(now);
                   }}
-                >
-                  {monthOptions}
-                </Select>
+                />
               </Col>
               <Col>
                 <Radio.Group
