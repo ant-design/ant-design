@@ -7988,7 +7988,7 @@ exports[`renders components/calendar/demo/lunar.tsx extend context correctly 1`]
   >
     <div
       class="ant-row ant-row-end"
-      style="margin-left: -4px; margin-right: -4px; padding: 10px;"
+      style="margin-left: -4px; margin-right: -4px; padding: 8px;"
     >
       <div
         class="ant-col"
@@ -10998,7 +10998,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                           <span
                             class="ant-badge-status-text"
                           >
-                            This is very long usual event。。....
+                            This is very long usual event......
                           </span>
                         </span>
                       </li>
