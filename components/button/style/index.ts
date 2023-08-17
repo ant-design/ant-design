@@ -636,7 +636,7 @@ const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = (token) => {
 const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const largeToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightLG,
-    fontSize: token.contentFontSizeSM,
+    fontSize: token.contentFontSizeLG,
     buttonPaddingHorizontal: token.paddingInlineLG,
     borderRadius: token.borderRadiusLG,
     buttonIconOnlyFontSize: token.onlyIconSizeLG,
