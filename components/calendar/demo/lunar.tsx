@@ -6,7 +6,6 @@ import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import { Calendar, Col, Radio, Row, Select } from 'antd';
 import type { CalendarProps } from 'antd';
-import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
 
 lunisolar.locale(zhCn);
 
@@ -93,7 +92,7 @@ const App: React.FC = () => {
 
   const [selectDate, setSelectDate] = React.useState<Dayjs>(dayjs());
 
-  const onPanelChange = (value: Dayjs, mode: CalendarMode) => {
+  const onPanelChange = (value: Dayjs, mode: CalendarProps<Dayjs>['mode']) => {
     console.log(value.format('YYYY-MM-DD'), mode);
     setSelectDate(value);
   };
