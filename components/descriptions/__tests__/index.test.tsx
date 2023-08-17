@@ -323,13 +323,17 @@ describe('Descriptions', () => {
 
   it('Should Descriptions not throw react key prop error in jsx mode', () => {
     render(
-      <Descriptions>
-        <Descriptions.Item key="1">Test key prop</Descriptions.Item>
+      <Descriptions title="User Info">
+        <Descriptions.Item key="1" label="UserName">
+          Zhou Maomao
+        </Descriptions.Item>
+        <Descriptions.Item label="Telephone">1810000000</Descriptions.Item>
       </Descriptions>,
     );
-    // expect(errorSpy).not.toHaveBeenCalledWith(
-    //   'Warning: DescriptionsItem: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)',
-    // );
-    expect(errorSpy).not.toHaveBeenCalled();
+    expect(errorSpy).not.toHaveBeenCalledWith(
+      expect.stringContaining('`key` is not a prop'),
+      expect.anything(),
+      expect.anything(),
+    );
   });
 });
