@@ -1,7 +1,7 @@
+import React from 'react';
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
-import React from 'react';
 
 const { Header, Content, Sider } = Layout;
 

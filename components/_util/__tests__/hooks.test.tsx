@@ -122,9 +122,7 @@ describe('hooks test', () => {
   ];
 
   useClosableParams.forEach(({ params, res }) => {
-    it(`useClosable with closable=${
-      params[0]
-    },closeIcon=${
+    it(`useClosable with closable=${params[0]},closeIcon=${
       React.isValidElement(params[1]) ? 'element' : params[1]
     },defaultClosable=${params[2]}. the result should be ${res}`, () => {
       const App = () => {

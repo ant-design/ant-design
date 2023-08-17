@@ -53,7 +53,6 @@ export function renderHook<T>(func: () => T): { result: React.RefObject<T> } {
  */
 const pureRender = render;
 
-export * from '@testing-library/react';
 export { pureRender, customRender as render };
 
 export const triggerResize = (target: Element) => {
@@ -89,3 +88,5 @@ export async function waitFakeTimer(advanceTime = 1000, times = 20) {
     });
   }
 }
+
+export * from '@testing-library/react';
