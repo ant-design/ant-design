@@ -320,4 +320,16 @@ describe('Descriptions', () => {
     const view = nestDesc.querySelector('.ant-descriptions-view');
     expect(getComputedStyle(view!).border).toBeFalsy();
   });
+
+  it('Should Descriptions not throw react key prop error in jsx mode', () => {
+    render(
+      <Descriptions>
+        <Descriptions.Item key="1">Test key prop</Descriptions.Item>
+      </Descriptions>,
+    );
+    // expect(errorSpy).not.toHaveBeenCalledWith(
+    //   'Warning: DescriptionsItem: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)',
+    // );
+    expect(errorSpy).not.toHaveBeenCalled();
+  });
 });
