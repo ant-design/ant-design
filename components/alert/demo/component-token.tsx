@@ -1,6 +1,6 @@
 import { SmileOutlined } from '@ant-design/icons';
-import { Alert, ConfigProvider } from 'antd';
 import React from 'react';
+import { Alert, ConfigProvider } from 'antd';
 
 const icon = <SmileOutlined />;
 
