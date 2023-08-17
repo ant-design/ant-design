@@ -7,11 +7,25 @@ import useLocale from '../../../hooks/useLocale';
 const primaryMinSaturation = 70; // 主色推荐最小饱和度
 const primaryMinBrightness = 70; // 主色推荐最小亮度
 
+const locales = (curS, curB) => ({
+  cn: {
+    saturation: `饱和度建议不低于${primaryMinSaturation}（现在${curS}）`,
+    brightness: `亮度建议不低于${primaryMinBrightness}（现在${curB}）`,
+  },
+  en: {
+    saturation: `Saturation is recommended not to be lower than ${primaryMinSaturation}（currently${curS}）`,
+    brightness: `Brightness is recommended not to be lower than ${primaryMinBrightness}（currently${curB}）`,
+  },
+});
+
 const ColorPaletteTool: React.FC = () => {
-  const [, lang] = useLocale();
   const [primaryColor, setPrimaryColor] = useState<string>('#1890ff');
   const [backgroundColor, setBackgroundColor] = useState<string>('#141414');
-  const [primaryColorInstance, setPrimaryColorInstance] = useState(null);
+  const [primaryColorInstance, setPrimaryColorInstance] = useState<Color>(null);
+
+  const { s, b } = (primaryColorInstance || {}).toHsb?.() || {};
+
+  const [locale] = useLocale(locales((s * 100).toFixed(2), (b * 100).toFixed(2)));
 
   const handleChangeColor = (color: Color, hex: string) => {
     setPrimaryColor(hex);
@@ -25,20 +39,11 @@ const ColorPaletteTool: React.FC = () => {
   const colorValidation = useMemo<React.ReactNode>(() => {
     let text = '';
     if (primaryColorInstance) {
-      const { s, b } = primaryColorInstance.toHsb();
       if (s * 100 < primaryMinSaturation) {
-        const curS = (s * 100).toFixed(2);
-        text +=
-          lang === 'cn'
-            ? `饱和度建议不低于${primaryMinSaturation}（现在${curS}）`
-            : `Saturation is recommended not to be lower than ${primaryMinSaturation}（currently${curS}）`;
+        text += locale.saturation;
       }
       if (b * 100 < primaryMinBrightness) {
-        const curB = (b * 100).toFixed(2);
-        text +=
-          lang === 'cn'
-            ? `亮度建议不低于${primaryMinBrightness}（现在${curB}）`
-            : `Brightness is recommended not to be lower than ${primaryMinBrightness}（currently${curB}）`;
+        text += locale.brightness;
       }
     }
     return (
