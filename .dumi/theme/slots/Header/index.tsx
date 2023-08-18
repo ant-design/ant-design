@@ -182,7 +182,7 @@ const Header: React.FC = () => {
             closable: true,
             zIndex: 99999,
             onOk() {
-              window.open('https://ant-design.antgroup.com', '_self');
+              window.location.host = 'ant-design.antgroup.com';
               disableAntdMirrorModal();
             },
             onCancel() {
