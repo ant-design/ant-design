@@ -167,31 +167,6 @@ const Header: React.FC = () => {
   useEffect(() => {
     onWindowResize();
     window.addEventListener('resize', onWindowResize);
-    pingTimer.current = ping((status) => {
-      if (status !== 'timeout' && status !== 'error') {
-        if (
-          // process.env.NODE_ENV === 'production' &&
-          window.location.host !== 'ant-design.antgroup.com' &&
-          shouldOpenAntdMirrorModal()
-        ) {
-          Modal.confirm({
-            title: '提示',
-            content: '内网用户推荐访问国内镜像以获得极速体验～',
-            okText: '🚀 立刻前往',
-            cancelText: '不再弹出',
-            closable: true,
-            zIndex: 99999,
-            onOk() {
-              window.open('https://ant-design.antgroup.com', '_self');
-              disableAntdMirrorModal();
-            },
-            onCancel() {
-              disableAntdMirrorModal();
-            },
-          });
-        }
-      }
-    });
     return () => {
       window.removeEventListener('resize', onWindowResize);
       if (pingTimer.current) {
