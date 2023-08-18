@@ -166,8 +166,8 @@ export default defineConfig({
   if (window.location.pathname.endsWith('-cn') && !['ant-design.gitee.io', 'ant-design.antgroup.com'].includes(window.location.hostname)) {
     const ANTD_DOT_NOT_SHOW_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
 
-    const lastShowTime = new Date(window.localStorage.getItem(ANTD_DOT_NOT_SHOW_MIRROR_MODAL));
-    if (lastShowTime && new Date().getTime() - lastShowTime.getTime() < 7 * 24 * 60 * 60 * 1000) {
+    const lastShowTime = window.localStorage.getItem(ANTD_DOT_NOT_SHOW_MIRROR_MODAL);
+    if (lastShowTime && lastShowTime !== 'true' && new Date().getTime() - new Date(lastShowTime).getTime() < 7 * 24 * 60 * 60 * 1000) {
       return;
     }
 
