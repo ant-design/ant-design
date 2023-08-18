@@ -44,6 +44,7 @@ title: 社区精选组件
 | 数字/金额 | [react-number-format](https://github.com/s-yadav/react-number-format) [react-currency-input-fiel](https://github.com/cchanxzy/react-currency-input-field) |
 | 移动端探测 | [react-device-detect](https://github.com/duskload/react-device-detect) |
 | 应用程序框架 | [umi](https://github.com/umijs/umi/) [remix](https://github.com/remix-run/remix) [refine](https://github.com/pankod/refine) |
+| Flow 流 | [react-flow](https://github.com/wbkd/react-flow) [x6](https://github.com/antvis/x6) |
 
 ## 推荐产品 ✨
 
