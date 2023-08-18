@@ -181,6 +181,7 @@
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.2",
+    "@trivago/prettier-plugin-sort-imports": "^4.2.0",
     "@types/fs-extra": "^11.0.1",
     "@types/gtag.js": "^0.0.13",
     "@types/http-server": "^0.12.1",

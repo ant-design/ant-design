@@ -205,6 +205,7 @@ module.exports = {
     '@typescript-eslint/no-shadow': [2, { ignoreTypeValueShadow: true }],
     // https://github.com/typescript-eslint/typescript-eslint/issues/2528#issuecomment-689369395
     'no-undef': 0,
+    'import/order': 0,
   },
   globals: {
     gtag: true,
