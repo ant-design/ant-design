@@ -4,11 +4,11 @@ import classNames from 'classnames';
 import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { Col, Modal, Popover, Row, Select } from 'antd';
+import { Col, Popover, Row, Select } from 'antd';
 import useLocale from '../../../hooks/useLocale';
 import DirectionIcon from '../../common/DirectionIcon';
 import * as utils from '../../utils';
-import { getThemeConfig, ping } from '../../utils';
+import { getThemeConfig } from '../../utils';
 import type { SiteContextProps } from '../SiteContext';
 import SiteContext from '../SiteContext';
 import Logo from './Logo';
@@ -108,16 +108,6 @@ const useStyle = createStyles(({ token, css }) => {
     },
   };
 });
-
-const SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
-
-function disableAntdMirrorModal() {
-  window.localStorage.setItem(SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL, 'true');
-}
-
-function shouldOpenAntdMirrorModal() {
-  return !window.localStorage.getItem(SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL);
-}
 
 interface HeaderState {
   menuVisible: boolean;
