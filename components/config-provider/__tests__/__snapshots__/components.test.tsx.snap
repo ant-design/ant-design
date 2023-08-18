@@ -599,7 +599,7 @@ exports[`ConfigProvider components Avatar configProvider componentDisabled 1`] =
 
 exports[`ConfigProvider components Avatar configProvider componentSize large 1`] = `
 <span
-  class="config-avatar config-avatar-circle"
+  class="config-avatar config-avatar-lg config-avatar-circle"
 >
   <span
     class="config-avatar-string"
@@ -621,7 +621,7 @@ exports[`ConfigProvider components Avatar configProvider componentSize middle 1`
 
 exports[`ConfigProvider components Avatar configProvider componentSize small 1`] = `
 <span
-  class="config-avatar config-avatar-circle"
+  class="config-avatar config-avatar-sm config-avatar-circle"
 >
   <span
     class="config-avatar-string"
@@ -17493,7 +17493,7 @@ exports[`ConfigProvider components List configProvider componentSize large 1`] =
               class="config-list-item-meta-avatar"
             >
               <span
-                class="config-avatar config-avatar-circle config-avatar-image"
+                class="config-avatar config-avatar-lg config-avatar-circle config-avatar-image"
               >
                 <img
                   src="https://xsgames.co/randomusers/avatar.php?g=pixel"
@@ -17597,7 +17597,7 @@ exports[`ConfigProvider components List configProvider componentSize small 1`] =
               class="config-list-item-meta-avatar"
             >
               <span
-                class="config-avatar config-avatar-circle config-avatar-image"
+                class="config-avatar config-avatar-sm config-avatar-circle config-avatar-image"
               >
                 <img
                   src="https://xsgames.co/randomusers/avatar.php?g=pixel"
