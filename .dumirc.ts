@@ -163,7 +163,10 @@ export default defineConfig({
       async: true,
       content: `
 (function createMirrorModal() {
-  if (window.location.pathname.endsWith('-cn') && !['ant-design.gitee.io', 'ant-design.antgroup.com'].includes(window.location.hostname)) {
+  if (
+    /-cn\/?$/.test(window.location.pathname)
+    && !['ant-design.gitee.io', 'ant-design.antgroup.com'].includes(window.location.hostname)
+  ) {
     const ANTD_DOT_NOT_SHOW_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
 
     const lastShowTime = window.localStorage.getItem(ANTD_DOT_NOT_SHOW_MIRROR_MODAL);
