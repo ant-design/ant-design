@@ -22,6 +22,7 @@ import type { ComponentToken as DropdownComponentToken } from '../../dropdown/st
 import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
 import type { ComponentToken as FloatButtonComponentToken } from '../../float-button/style';
 import type { ComponentToken as ImageComponentToken } from '../../image/style';
+import type { ComponentToken as InputComponentToken } from '../../input/style';
 import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
 import type { ComponentToken as LayoutComponentToken } from '../../layout/style';
 import type { ComponentToken as ListComponentToken } from '../../list/style';
@@ -84,7 +85,7 @@ export interface ComponentTokenMap {
   Form?: {};
   Grid?: {};
   Image?: ImageComponentToken;
-  Input?: {};
+  Input?: InputComponentToken;
   InputNumber?: InputNumberComponentToken;
   Layout?: LayoutComponentToken;
   List?: ListComponentToken;
