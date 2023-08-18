@@ -16,6 +16,23 @@ tag: vVERSION
 
 ---
 
+## 5.8.4
+
+`2023-08-18`
+
+- ColorPicker
+  - 🐞 修复 ColorPicker 色值输入框输入小写英文字母时光标跳动的问题。[#44137](https://github.com/ant-design/ant-design/pull/44137) [@gouge666](https://github.com/gouge666)
+  - 🐞 修复 ColorPicker 在不同尺寸下样式变形的问题。[#44273](https://github.com/ant-design/ant-design/pull/44273) [@kouchao](https://github.com/kouchao)
+- 🐞 修复 Descriptions 抛出 `key is not a prop` 的错误提示。[#44278](https://github.com/ant-design/ant-design/pull/44278) [@RedJue](https://github.com/RedJue)
+- 🐞 修复 Pagination `itemRender` 自定义为 `null` 时，仍然渲染节点的问题。[#44226](https://github.com/ant-design/ant-design/pull/44226)
+- 🐞 修复 Modal 在 Dropdown `menu.items` 中，展开 Modal 时快速移动鼠标会使 Dropdown 重新打开的问题。[#44204](https://github.com/ant-design/ant-design/pull/44204)
+- DatePicker
+  - 💄 修复 DatePicker 内容不居中问题。[#44245](https://github.com/ant-design/ant-design/pull/44245) [@Zian502](https://github.com/Zian502)
+  - 💄 优化 DatePicker 中范围选择区域样式。[#44206](https://github.com/ant-design/ant-design/pull/44206) [@kiner-tang](https://github.com/kiner-tang)
+- 💄 修复移动端点击 Tabs 区域触发颜色改变的问题。[#44200](https://github.com/ant-design/ant-design/pull/44200) [@yilaikesi](https://github.com/yilaikesi)
+- RTL
+  - 💄 修复了当页面的文字方向为 RTL 时 Badge 里面的数字也是 RTL 的问题。[#43998](https://github.com/ant-design/ant-design/pull/43998) [@NotEvenANeko](https://github.com/NotEvenANeko)
+
 ## 5.8.3
 
 `2023-08-11`

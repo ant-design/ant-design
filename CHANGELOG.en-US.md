@@ -16,6 +16,23 @@ tag: vVERSION
 
 ---
 
+## 5.8.4
+
+`2023-08-18`
+
+- ColorPicker
+  - 🐞 Fix the cursor jumps when entering lowercase English letters in the ColorPicker color value input box. [#44137](https://github.com/ant-design/ant-design/pull/44137) [@gouge666](https://github.com/gouge666)
+  - 🐞 Fix the ColorPicker style is deformed under different sizes. [#44273](https://github.com/ant-design/ant-design/pull/44273) [@kouchao](https://github.com/kouchao)
+- 🐞 Fix Descriptions throwing `key is not a prop` error message. [#44278](https://github.com/ant-design/ant-design/pull/44278) [@RedJue](https://github.com/RedJue)
+- 🐞 Fix the node is still rendered when Pagination `itemRender` is customized to `null`. [#44226](https://github.com/ant-design/ant-design/pull/44226)
+- 🐞 Fix Modal in Dropdown `menu.items`, rapid mouse movement when expanding Modal will make Dropdown reopen. [#44204](https://github.com/ant-design/ant-design/pull/44204)
+- DatePicker
+  - 💄 Fix DatePicker content is not centered. [#44245](https://github.com/ant-design/ant-design/pull/44245) [@Zian502](https://github.com/Zian502)
+  - 💄 Optimize DatePicker selection range style. [#44206](https://github.com/ant-design/ant-design/pull/44206) [@kiner-tang](https://github.com/kiner-tang)
+- 💄 Fix clicking on the Tabs area on the mobile terminal triggers a color change. [#44200](https://github.com/ant-design/ant-design/pull/44200) [@yilaikesi](https://github.com/yilaikesi)
+- RTL
+  - 💄 Fix the numbers in the Badge are also RTL when the text direction of the page is RTL. [#43998](https://github.com/ant-design/ant-design/pull/43998) [@NotEvenANeko](https://github.com/NotEvenANeko)
+
 ## 5.8.3
 
 `2023-08-11`
