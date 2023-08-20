@@ -320,4 +320,20 @@ describe('Descriptions', () => {
     const view = nestDesc.querySelector('.ant-descriptions-view');
     expect(getComputedStyle(view!).border).toBeFalsy();
   });
+
+  it('Should Descriptions not throw react key prop error in jsx mode', () => {
+    render(
+      <Descriptions title="User Info">
+        <Descriptions.Item key="1" label="UserName">
+          Zhou Maomao
+        </Descriptions.Item>
+        <Descriptions.Item label="Telephone">1810000000</Descriptions.Item>
+      </Descriptions>,
+    );
+    expect(errorSpy).not.toHaveBeenCalledWith(
+      expect.stringContaining('`key` is not a prop'),
+      expect.anything(),
+      expect.anything(),
+    );
+  });
 });

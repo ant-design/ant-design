@@ -98,7 +98,7 @@ Extends File with additional props.
 
 When uploading state change, it returns:
 
-```js
+```jsx
 {
   file: { /* ... */ },
   fileList: [ /* ... */ ],
@@ -108,11 +108,11 @@ When uploading state change, it returns:
 
 1. `file` File object for the current operation.
 
-   ```js
+   ```jsx
    {
       uid: 'uid',      // unique identifier, negative is recommended, to prevent interference with internally generated id
       name: 'xx.png',   // file name
-      status: 'done', // options： uploading, done, error, removed. Intercepted file by beforeUpload doesn't have a status field.
+      status: 'done' | 'uploading' | 'error' | 'removed', // Intercepted file by beforeUpload doesn't have a status field.
       response: '{"status": "success"}', // response from server
       linkProps: '{"download": "image"}', // additional HTML props of file link
       xhr: 'XMLHttpRequest{ ... }', // XMLHttpRequest Header
@@ -152,7 +152,9 @@ For compatible case, we return File object when `beforeUpload` return `false`. I
 
 ### Why sometimes Chrome can not upload?
 
-Chrome update will also break native upload. Please restart Chrome to finish the upload work. Ref:
+Chrome update will also break native upload. Please restart Chrome to finish the upload work.
+
+Ref:
 
 - [#32672](https://github.com/ant-design/ant-design/issues/32672)
 - [#32913](https://github.com/ant-design/ant-design/issues/32913)
