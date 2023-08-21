@@ -67,25 +67,9 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
   const [placeholderStyle, setPlaceholderStyle] = useState<React.CSSProperties>();
   const placeholderNodeRef = useRef<HTMLDivElement>(null);
   const fixedNodeRef = useRef<HTMLDivElement>(null);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const { getTargetContainer, getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
-
-  const affixPrefixCls = getPrefixCls('affix', customizePrefixCls);
-        
-  private fixedNodeRef = createRef<HTMLDivElement>();
-
-  private timer: ReturnType<typeof setTimeout> | null;
-
-  context: ConfigConsumerProps;
-
-  private getTargetFunc() {
-    const { getTargetContainer } = this.context;
-    const { target } = this.props;
-
-    if (target !== undefined) {
-      return target;
-    }
 
   const target = useMemo<ReturnType<NonNullable<AffixProps['target']>>>(
     () => (customizeTarget ?? getTargetContainer ?? getDefaultTarget)(),
@@ -201,12 +185,13 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
     };
   }, [offsetTop, offsetBottom, customizeTarget, getTargetContainer]);
 
+  const affixPrefixCls = getPrefixCls('affix', customizePrefixCls);
+
   const [wrapSSR, hashId] = useStyle(affixPrefixCls);
+
   const rootClassName = classNames(customizeRootClassName, hashId);
 
-  const className = classNames(affixStyle && rootClassName, {
-    [affixPrefixCls]: !!affixStyle,
-  });
+  const className = classNames(affixStyle && rootClassName, { [affixPrefixCls]: !!affixStyle });
 
   const divProps = omit(props, [
     'prefixCls',
