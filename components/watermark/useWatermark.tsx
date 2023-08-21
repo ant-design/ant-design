@@ -17,7 +17,6 @@ export type AppendWatermark = (
 
 export default function useWatermark(
   markStyle: React.CSSProperties,
-  gapX: number,
 ): [
   appendWatermark: AppendWatermark,
   removeWatermark: (container: HTMLElement) => void,
