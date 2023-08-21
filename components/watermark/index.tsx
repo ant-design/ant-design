@@ -111,7 +111,6 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
       watermarkRef.current = undefined;
     }
   };
-  console.log('>>>>', getPixelRatio());
 
   const appendWatermark = (base64Url: string, markWidth: number) => {
     if (containerRef.current && watermarkRef.current) {
@@ -143,18 +142,24 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     if (!image && ctx.measureText) {
       ctx.font = `${Number(fontSize)}px ${fontFamily}`;
       const contents = Array.isArray(content) ? content : [content];
-      const widths = contents.map((item) => ctx.measureText(item!).width);
-      defaultWidth = Math.ceil(Math.max(...widths));
-      defaultHeight = Number(fontSize) * contents.length + (contents.length - 1) * FontGap;
+      const sizes = contents.map((item) => {
+        const metrics = ctx.measureText(item!);
+
+        return [metrics.width, metrics.fontBoundingBoxAscent + metrics.fontBoundingBoxDescent];
+      });
+      defaultWidth = Math.ceil(Math.max(...sizes.map((size) => size[0])));
+      defaultHeight =
+        Math.ceil(Math.max(...sizes.map((size) => size[1]))) * contents.length +
+        (contents.length - 1) * FontGap;
     }
     return [width ?? defaultWidth, height ?? defaultHeight] as const;
   };
 
   const getClips = useClips();
 
-  const drawClips = (dataURL: string, width: number) => {
-    appendWatermark(dataURL, width);
-  };
+  // const drawClips = (dataURL: string, width: number) => {
+  //   appendWatermark(dataURL, width);
+  // };
 
   // const fillTexts = (
   //   ctx: CanvasRenderingContext2D,
@@ -288,7 +293,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
           gapY,
         );
 
-        drawClips(textClips, clipWidth);
+        appendWatermark(textClips, clipWidth);
       }
     }
   };

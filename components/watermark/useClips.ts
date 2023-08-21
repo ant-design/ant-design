@@ -46,7 +46,7 @@ export default function useClips() {
     const { color, fontSize, fontStyle, fontWeight, fontFamily } = font;
     const mergedFontSize = Number(fontSize) * ratio;
 
-    ctx.font = `${fontStyle} normal ${fontWeight} ${mergedFontSize}px/${textHeight}px ${fontFamily}`;
+    ctx.font = `${fontStyle} normal ${fontWeight} ${mergedFontSize}px/${height}px ${fontFamily}`;
     ctx.fillStyle = color;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'top';
@@ -98,10 +98,10 @@ export default function useClips() {
     const cutWidth = right - left;
     const cutHeight = bottom - top;
 
-    rCtx.restore();
-    rCtx.translate(realMaxSize / 2, realMaxSize / 2);
-    rCtx.fillStyle = 'rgba(255, 0,0,0.1)';
-    rCtx.fillRect(left, top, cutWidth, cutHeight);
+    // rCtx.restore();
+    // rCtx.translate(realMaxSize / 2, realMaxSize / 2);
+    // rCtx.fillStyle = 'rgba(255, 0,0,0.1)';
+    // rCtx.fillRect(left, top, cutWidth, cutHeight);
 
     // ================ Fill Alternate ================
     const realGapX = gapX * ratio;
@@ -110,6 +110,7 @@ export default function useClips() {
     const filledHeight = cutHeight + realGapY;
 
     const [fCtx, fCanvas] = prepareCanvas(filledWidth, filledHeight);
+    // document.body.appendChild(canvas);
     // document.body.appendChild(rCanvas);
     // document.body.appendChild(fCanvas);
 
