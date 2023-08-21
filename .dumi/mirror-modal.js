@@ -162,7 +162,7 @@
 
     const confirmBtn = document.createElement('a');
     confirmBtn.className = 'mirror-modal-confirm-btn mirror-modal-btn';
-    confirmBtn.href = 'https://ant-design.antgroup.com/';
+    confirmBtn.href = window.location.href.replace(window.location.host, 'ant-design.antgroup.com');
     confirmBtn.innerText = '🚀 立刻前往';
     btnWrapper.append(confirmBtn);
 
