@@ -10,7 +10,7 @@
     if (
       lastShowTime &&
       lastShowTime !== 'true' &&
-      new Date().getTime() - new Date(lastShowTime).getTime() < 7 * 24 * 60 * 60 * 1000
+      Date.now() - new Date(lastShowTime).getTime() < 7 * 24 * 60 * 60 * 1000
     ) {
       return;
     }
