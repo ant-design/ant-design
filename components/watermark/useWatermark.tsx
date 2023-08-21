@@ -39,7 +39,7 @@ export default function useWatermark(
         getStyleStr({
           ...markStyle,
           backgroundImage: `url('${base64Url}')`,
-          backgroundSize: `${markWidth}px`,
+          backgroundSize: `${Math.floor(markWidth)}px`,
         }),
       );
       container.append(watermarkEle);
