@@ -17,9 +17,16 @@ interface TourPanelProps {
   current: number;
   type: TourStepProps['type'];
   indicatorsRender?: TourStepProps['indicatorsRender'];
+  closeIcon?: ReactNode;
 }
 
-const TourPanel: React.FC<TourPanelProps> = ({ stepProps, current, type, indicatorsRender }) => {
+const TourPanel: React.FC<TourPanelProps> = ({
+  stepProps,
+  current,
+  type,
+  indicatorsRender,
+  closeIcon,
+}) => {
   const {
     prefixCls,
     total = 1,
@@ -34,9 +41,19 @@ const TourPanel: React.FC<TourPanelProps> = ({ stepProps, current, type, indicat
     prevButtonProps,
     type: stepType,
     className,
+    closeIcon: stepCloseIcon,
   } = stepProps;
 
   const mergedType = stepType ?? type;
+  const mergedCloseIcon = stepCloseIcon ?? closeIcon;
+
+  const mergedClosable = mergedCloseIcon !== false && mergedCloseIcon !== null;
+  const mergedDisplayCloseIcon =
+    mergedCloseIcon !== undefined && mergedCloseIcon !== true ? (
+      mergedCloseIcon
+    ) : (
+      <CloseOutlined className={`${prefixCls}-close-icon`} />
+    );
 
   const isLastStep = current === total - 1;
 
@@ -96,7 +113,11 @@ const TourPanel: React.FC<TourPanelProps> = ({ stepProps, current, type, indicat
   return (
     <div className={classNames(className, `${prefixCls}-content`)}>
       <div className={`${prefixCls}-inner`}>
-        <CloseOutlined className={`${prefixCls}-close`} onClick={onClose} />
+        {mergedClosable && (
+          <span onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
+            {mergedDisplayCloseIcon}
+          </span>
+        )}
         {coverNode}
         {headerNode}
         {descriptionNode}
