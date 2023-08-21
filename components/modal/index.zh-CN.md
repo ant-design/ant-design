@@ -55,7 +55,7 @@ demo:
 | confirmLoading | 确定按钮 loading | boolean | false |  |
 | destroyOnClose | 关闭时销毁 Modal 里的子元素 | boolean | false |  |
 | focusTriggerAfterClose | 对话框关闭后是否需要聚焦触发元素 | boolean | true | 4.9.0 |
-| footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | (originNode: React.ReactNode, extra: { ConfirmBtn: FC; CancelBtn: FC }) => React.ReactNode \| React.ReactNode | (确定取消按钮) | 5.9.0 |
+| footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | (params:[footerRenderParams](/components/modal-cn#footerrenderparams))=> React.ReactNode \| React.ReactNode | (确定取消按钮) | 5.9.0 |
 | forceRender | 强制渲染 Modal | boolean | false |  |
 | getContainer | 指定 Modal 挂载的节点，但依旧为全屏展示，`false` 为挂载在当前位置 | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
@@ -105,7 +105,7 @@ demo:
 | className | 容器类名 | string | - |  |
 | closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | boolean \| ReactNode | &lt;CloseOutlined /> |  |
 | content | 内容 | ReactNode | - |  |
-| footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer: null` | (originNode: React.ReactNode, extra: { ConfirmBtn: FC; CancelBtn: FC }) => React.ReactNode \| React.ReactNode | - | 5.9.0 |
+| footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer: null` | (params:[footerRenderParams](/components/modal-cn#footerrenderparams))=> React.ReactNode \| React.ReactNode | - | 5.9.0 |
 | getContainer | 指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | 自定义图标 | ReactNode | &lt;ExclamationCircleFilled /> |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
@@ -181,6 +181,14 @@ return <div>{contextHolder}</div>;
 //点击 `onOk` 时返回 `true`，点击 `onCancel` 时返回 `false`
 const confirmed = await modal.confirm({ ... });
 ```
+
+## footerRenderParams
+
+<!-- prettier-ignore -->
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| originNode | 默认节点 | React.ReactNode                   | -      |
+| extra      | 扩展选项 | { ConfirmBtn: FC; CancelBtn: FC } | -      |
 
 ## Design Token
 
