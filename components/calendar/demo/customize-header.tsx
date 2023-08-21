@@ -4,14 +4,14 @@ import 'dayjs/locale/zh-cn';
 import type { Dayjs } from 'dayjs';
 import dayLocaleData from 'dayjs/plugin/localeData';
 import { Calendar, Col, Radio, Row, Select, Typography, theme } from 'antd';
-import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
+import type { CalendarProps } from 'antd';
 
 dayjs.extend(dayLocaleData);
 
 const App: React.FC = () => {
   const { token } = theme.useToken();
 
-  const onPanelChange = (value: Dayjs, mode: CalendarMode) => {
+  const onPanelChange = (value: Dayjs, mode: CalendarProps<Dayjs>['mode']) => {
     console.log(value.format('YYYY-MM-DD'), mode);
   };
 

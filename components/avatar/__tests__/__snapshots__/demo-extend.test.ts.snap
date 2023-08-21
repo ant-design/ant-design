@@ -39,16 +39,18 @@ exports[`renders components/avatar/demo/badge.tsx extend context correctly 1`] =
         data-show="true"
         title="1"
       >
-        <span
-          class="ant-scroll-number-only"
-          style="transition: none;"
-        >
+        <bdi>
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition: none;"
           >
-            1
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              1
+            </span>
           </span>
-        </span>
+        </bdi>
       </sup>
     </span>
   </div>
@@ -531,16 +533,18 @@ Array [
           data-show="true"
           title="1"
         >
-          <span
-            class="ant-scroll-number-only"
-            style="transition: none;"
-          >
+          <bdi>
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition: none;"
             >
-              1
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                1
+              </span>
             </span>
-          </span>
+          </bdi>
         </sup>
       </span>
     </div>

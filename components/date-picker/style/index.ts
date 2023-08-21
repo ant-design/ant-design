@@ -130,6 +130,12 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       borderRadius: borderRadiusSM,
       transition: `background ${motionDurationMid}, border ${motionDurationMid}`,
     },
+    [`&-range-hover-start, &-range-hover-end`]: {
+      [pickerCellInnerCls]: {
+        borderStartEndRadius: 0,
+        borderEndEndRadius: 0,
+      },
+    },
 
     // >>> Hover
     [`&:hover:not(${pickerCellCls}-in-view),
@@ -263,8 +269,8 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       &-in-view${pickerCellCls}-range-hover-start::after`]: {
       insetInlineStart: (pickerPanelCellWidth - pickerPanelCellHeight) / 2,
       borderInlineStart: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
-      borderStartStartRadius: lineWidth,
-      borderEndStartRadius: lineWidth,
+      borderStartStartRadius: borderRadiusSM,
+      borderEndStartRadius: borderRadiusSM,
     },
 
     // Edge end
@@ -275,8 +281,8 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       &-in-view${pickerCellCls}-range-hover-end::after`]: {
       insetInlineEnd: (pickerPanelCellWidth - pickerPanelCellHeight) / 2,
       borderInlineEnd: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
-      borderStartEndRadius: lineWidth,
-      borderEndEndRadius: lineWidth,
+      borderStartEndRadius: borderRadiusSM,
+      borderEndEndRadius: borderRadiusSM,
     },
 
     // >>> Disabled
@@ -801,6 +807,8 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
           th: {
             width: pickerPanelCellWidth,
+            boxSizing: 'border-box',
+            padding: 0,
           },
         },
       },

@@ -127,7 +127,6 @@ interface HeaderState {
 
 // ================================= Header =================================
 const Header: React.FC = () => {
-  const [isClient, setIsClient] = React.useState(false);
   const [, lang] = useLocale();
 
   const { pkg } = useSiteData();
@@ -166,7 +165,6 @@ const Header: React.FC = () => {
   }, [location]);
 
   useEffect(() => {
-    setIsClient(typeof window !== 'undefined');
     onWindowResize();
     window.addEventListener('resize', onWindowResize);
     pingTimer.current = ping((status) => {
@@ -184,7 +182,7 @@ const Header: React.FC = () => {
             closable: true,
             zIndex: 99999,
             onOk() {
-              window.open('https://ant-design.antgroup.com', '_self');
+              window.location.host = 'ant-design.antgroup.com';
               disableAntdMirrorModal();
             },
             onCancel() {
@@ -273,7 +271,6 @@ const Header: React.FC = () => {
   const sharedProps: SharedProps = {
     isZhCN,
     isRTL,
-    isClient,
   };
 
   const navigationNode = (
