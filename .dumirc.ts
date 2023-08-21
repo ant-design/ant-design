@@ -3,6 +3,7 @@ import path from 'path';
 import rehypeAntd from './.dumi/rehypeAntd';
 import remarkAntd from './.dumi/remarkAntd';
 import { version } from './package.json';
+import * as fs from 'fs-extra';
 
 export default defineConfig({
   conventionRoutes: {
@@ -157,5 +158,11 @@ export default defineConfig({
       document.documentElement.className += isZhCN(pathname) ? 'zh-cn' : 'en-us';
     })();
     `,
+  ],
+  scripts: [
+    {
+      async: true,
+      content: fs.readFileSync(path.join(__dirname, '.dumi', 'mirror-modal.js')).toString(),
+    },
   ],
 });
