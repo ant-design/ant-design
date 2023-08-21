@@ -200,7 +200,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
   // ============================= Effect =============================
   // Append watermark to the container
-  const [appendWatermark, removeWatermark, isWatermarkEle] = useWatermark(markStyle, gapX);
+  const [appendWatermark, removeWatermark, isWatermarkEle] = useWatermark(markStyle);
 
   useEffect(() => {
     if (watermarkInfo) {
