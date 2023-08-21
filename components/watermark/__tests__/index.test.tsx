@@ -55,7 +55,7 @@ describe('Watermark', () => {
       />,
     );
     const target = container.querySelector<HTMLDivElement>('.watermark div');
-    expect(target?.style.backgroundSize).toBe('600px');
+    expect(target?.style.backgroundSize).toBe('720px');
     expect(container).toMatchSnapshot();
   });
 
