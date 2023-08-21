@@ -164,7 +164,8 @@ export default defineConfig({
       content: `
 (function createMirrorModal() {
   if (
-    /-cn\\/?$/.test(window.location.pathname)
+    navigator.languages.includes('zh')
+    && /-cn\\/?$/.test(window.location.pathname)
     && !['ant-design.gitee.io', 'ant-design.antgroup.com'].includes(window.location.hostname)
   ) {
     const ANTD_DOT_NOT_SHOW_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
