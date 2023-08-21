@@ -6,7 +6,6 @@ import {
 } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
-import { Alert, Badge, Space, Tooltip } from 'antd';
 import classNames from 'classnames';
 import { FormattedMessage, useSiteData } from 'dumi';
 import toReactElement from 'jsonml-to-react-element';
@@ -15,6 +14,7 @@ import LZString from 'lz-string';
 import Prism from 'prismjs';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import { Alert, Badge, Space, Tooltip } from 'antd';
 import type { AntdPreviewerProps } from '.';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
@@ -204,7 +204,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
       <html lang="en">
         <head>
           <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <meta name="viewport" content="width=device-width">
           <meta name="theme-color" content="#000000">
         </head>
         <body>
@@ -412,7 +412,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 rel="noreferrer"
                 href={docsOnlineUrl}
               >
-                <LinkOutlined className="code-box-online" />
+                <LinkOutlined aria-label="open in new tab" className="code-box-online" />
               </a>
             </Tooltip>
           )}
@@ -497,11 +497,16 @@ createRoot(document.getElementById('container')).render(<Demo />);
             </Tooltip>
           </CopyToClipboard>
           <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
-            <a className="code-box-code-action" target="_blank" rel="noreferrer" href={demoUrl}>
+            <a
+              className="code-box-code-action"
+              aria-label="open in new tab"
+              target="_blank"
+              rel="noreferrer"
+              href={demoUrl}
+            >
               <ExternalLinkIcon className="code-box-separate" />
             </a>
           </Tooltip>
-
           <Tooltip
             title={<FormattedMessage id={`app.demo.code.${codeExpand ? 'hide' : 'show'}`} />}
           >
@@ -530,20 +535,22 @@ createRoot(document.getElementById('container')).render(<Demo />);
           </Tooltip>
         </Space>
       </section>
-      <section className={highlightClass} key="code">
-        <CodePreview
-          codes={highlightedCodes}
-          toReactComponent={toReactComponent}
-          onCodeTypeChange={(type) => setCodeType(type)}
-        />
-        {highlightedStyle ? (
-          <div key="style" className="highlight">
-            <pre>
-              <code className="css" dangerouslySetInnerHTML={{ __html: highlightedStyle }} />
-            </pre>
-          </div>
-        ) : null}
-      </section>
+      {codeExpand && (
+        <section className={highlightClass} key="code">
+          <CodePreview
+            codes={highlightedCodes}
+            toReactComponent={toReactComponent}
+            onCodeTypeChange={(type) => setCodeType(type)}
+          />
+          {highlightedStyle ? (
+            <div key="style" className="highlight">
+              <pre>
+                <code className="css" dangerouslySetInnerHTML={{ __html: highlightedStyle }} />
+              </pre>
+            </div>
+          ) : null}
+        </section>
+      )}
     </section>
   );
 

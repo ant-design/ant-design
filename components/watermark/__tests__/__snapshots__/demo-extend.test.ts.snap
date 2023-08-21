@@ -14,6 +14,8 @@ exports[`renders components/watermark/demo/basic.tsx extend context correctly 1`
 </div>
 `;
 
+exports[`renders components/watermark/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/watermark/demo/custom.tsx extend context correctly 1`] = `
 <div
   style="display: flex;"
@@ -247,11 +249,11 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                 class="ant-select-selection-search"
                               >
                                 <input
-                                  aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                   aria-autocomplete="list"
                                   aria-controls="rc_select_TEST_OR_SSR_list"
                                   aria-expanded="false"
                                   aria-haspopup="listbox"
+                                  aria-label="Search"
                                   aria-owns="rc_select_TEST_OR_SSR_list"
                                   autocomplete="off"
                                   class="ant-select-selection-search-input"
@@ -1202,6 +1204,8 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
 </div>
 `;
 
+exports[`renders components/watermark/demo/custom.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/watermark/demo/image.tsx extend context correctly 1`] = `
 <div
   class=""
@@ -1212,6 +1216,8 @@ exports[`renders components/watermark/demo/image.tsx extend context correctly 1`
   />
 </div>
 `;
+
+exports[`renders components/watermark/demo/image.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/watermark/demo/multi-line.tsx extend context correctly 1`] = `
 <div
@@ -1226,3 +1232,49 @@ exports[`renders components/watermark/demo/multi-line.tsx extend context correct
   />
 </div>
 `;
+
+exports[`renders components/watermark/demo/multi-line.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/watermark/demo/portal.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-right: 8px;"
+    >
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          Show Modal
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          Show Drawer
+        </span>
+      </button>
+    </div>
+  </div>,
+  <div
+    class=""
+    style="position: relative;"
+  >
+    <div
+      style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 220px;"
+    />
+  </div>,
+]
+`;
+
+exports[`renders components/watermark/demo/portal.tsx extend context correctly 2`] = `[]`;

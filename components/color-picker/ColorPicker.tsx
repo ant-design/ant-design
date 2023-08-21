@@ -168,9 +168,12 @@ const ColorPicker: CompoundedComponent = (props) => {
     if (disabledAlpha && isAlphaColor) {
       color = genAlphaColor(color);
     }
+
     // Only for drag-and-drop color picking
     if (pickColor) {
       popupAllowCloseRef.current = false;
+    } else {
+      onChangeComplete?.(color);
     }
 
     setColorValue(color);

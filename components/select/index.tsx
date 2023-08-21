@@ -10,7 +10,7 @@ import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import genPurePanel from '../_util/PurePanel';
 import type { SelectCommonPlacement } from '../_util/motion';
-import { getTransitionDirection, getTransitionName } from '../_util/motion';
+import { getTransitionName } from '../_util/motion';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';
@@ -42,11 +42,17 @@ export interface InternalSelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<RcSelectProps<ValueType, OptionType>, 'mode'> {
+  rootClassName?: string;
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;
   mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE' | 'combobox';
   bordered?: boolean;
+  /**
+   * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
+   *   default behavior, you can hide it by setting `suffixIcon` to null.
+   */
+  showArrow?: boolean;
 }
 
 export interface SelectProps<
@@ -54,7 +60,7 @@ export interface SelectProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
     InternalSelectProps<ValueType, OptionType>,
-    'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill' | 'placement'
+    'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill' | 'placement'
   > {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
@@ -62,7 +68,6 @@ export interface SelectProps<
   popupClassName?: string;
   /** @deprecated Please use `popupClassName` instead */
   dropdownClassName?: string;
-  rootClassName?: string;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
@@ -89,12 +94,12 @@ const InternalSelect = <
     disabled: customDisabled,
     notFoundContent,
     status: customStatus,
-    showArrow,
     builtinPlacements,
     dropdownMatchSelectWidth,
     popupMatchSelectWidth,
     direction: propDirection,
     style,
+    allowClear,
     ...props
   }: SelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -133,7 +138,7 @@ const InternalSelect = <
   }, [props.mode]);
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
-  const mergedShowArrow = useShowArrow(showArrow);
+  const showSuffixIcon = useShowArrow(props.suffixIcon, props.showArrow);
 
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
@@ -163,9 +168,13 @@ const InternalSelect = <
     multiple: isMultiple,
     hasFeedback,
     feedbackIcon,
-    showArrow: mergedShowArrow,
+    showSuffixIcon,
     prefixCls,
+    showArrow: props.showArrow,
+    componentName: 'Select',
   });
+
+  const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
   const selectProps = omit(props as typeof props & { itemIcon: React.ReactNode }, [
     'suffixIcon',
@@ -226,6 +235,12 @@ const InternalSelect = <
       'Select',
       '`dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
     );
+
+    warning(
+      !('showArrow' in props),
+      'Select',
+      '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+    );
   }
 
   // ====================== Render =======================
@@ -238,26 +253,21 @@ const InternalSelect = <
       style={{ ...select?.style, ...style }}
       dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
       builtinPlacements={mergedBuiltinPlacements}
-      transitionName={getTransitionName(
-        rootPrefixCls,
-        getTransitionDirection(placement),
-        props.transitionName,
-      )}
+      transitionName={getTransitionName(rootPrefixCls, 'slide-up', props.transitionName)}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       mode={mode}
       prefixCls={prefixCls}
       placement={memoPlacement}
       direction={direction}
-      inputIcon={suffixIcon}
+      suffixIcon={suffixIcon}
       menuItemSelectedIcon={itemIcon}
       removeIcon={removeIcon}
-      clearIcon={clearIcon}
+      allowClear={mergedAllowClear}
       notFoundContent={mergedNotFound}
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={rcSelectRtlDropdownClassName}
-      showArrow={hasFeedback || mergedShowArrow}
       disabled={mergedDisabled}
     />,
   );
@@ -275,6 +285,7 @@ const Select = React.forwardRef(InternalSelect) as unknown as (<
     ref?: React.Ref<BaseSelectRef>;
   },
 ) => React.ReactElement) & {
+  displayName?: string;
   SECRET_COMBOBOX_MODE_DO_NOT_USE: string;
   Option: typeof Option;
   OptGroup: typeof OptGroup;
@@ -289,5 +300,9 @@ Select.SECRET_COMBOBOX_MODE_DO_NOT_USE = SECRET_COMBOBOX_MODE_DO_NOT_USE;
 Select.Option = Option;
 Select.OptGroup = OptGroup;
 Select._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+
+if (process.env.NODE_ENV !== 'production') {
+  Select.displayName = 'Select';
+}
 
 export default Select;

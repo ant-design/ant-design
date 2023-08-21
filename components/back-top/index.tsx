@@ -121,4 +121,4 @@ if (process.env.NODE_ENV !== 'production') {
   BackTop.displayName = 'BackTop';
 }
 
-export default React.memo(BackTop);
+export default BackTop;

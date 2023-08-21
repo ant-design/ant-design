@@ -33,8 +33,11 @@ group: 数据展示
 <code src="./demo/mix.tsx" debug>各种混用的情况</code>
 <code src="./demo/title.tsx" debug>自定义标题</code>
 <code src="./demo/colorful-with-count-debug.tsx" debug>多彩徽标支持 count 显示 Debug</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Badge
 

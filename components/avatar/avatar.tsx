@@ -7,9 +7,10 @@ import { responsiveArray } from '../_util/responsiveObserver';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
-import type { AvatarSize } from './SizeContext';
-import SizeContext from './SizeContext';
+import type { AvatarContextType, AvatarSize } from './AvatarContext';
+import AvatarContext from './AvatarContext';
 import useStyle from './style';
+import useSize from '../config-provider/hooks/useSize';
 
 export interface AvatarProps {
   /** Shape of avatar, options: `circle`, `square` */
@@ -44,8 +45,6 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   props,
   ref,
 ) => {
-  const contextSize = React.useContext<AvatarSize>(SizeContext);
-
   const [scale, setScale] = React.useState(1);
   const [mounted, setMounted] = React.useState(false);
   const [isImgExist, setIsImgExist] = React.useState(true);
@@ -55,6 +54,8 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   const avatarNodeMergeRef = composeRef<HTMLSpanElement>(ref, avatarNodeRef);
 
   const { getPrefixCls, avatar } = React.useContext(ConfigContext);
+
+  const avatarCtx = React.useContext<AvatarContextType>(AvatarContext);
 
   const setScaleParam = () => {
     if (!avatarChildrenRef.current || !avatarNodeRef.current) {
@@ -92,8 +93,8 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
 
   const {
     prefixCls: customizePrefixCls,
-    shape = 'circle',
-    size: customSize = 'default',
+    shape,
+    size: customSize,
     src,
     srcSet,
     icon,
@@ -106,7 +107,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     ...others
   } = props;
 
-  const size = customSize === 'default' ? contextSize : customSize;
+  const size = useSize((ctxSize) => customSize ?? avatarCtx?.size ?? ctxSize ?? 'default');
 
   const needResponsive = Object.keys(typeof size === 'object' ? size || {} : {}).some((key) =>
     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),
@@ -118,6 +119,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     }
 
     const currentBreakpoint: Breakpoint = responsiveArray.find((screen) => screens[screen])!;
+
     const currentSize = size[currentBreakpoint];
 
     return currentSize
@@ -146,12 +148,14 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
 
   const hasImageElement = React.isValidElement(src);
 
+  const mergedShape = shape || avatarCtx?.shape || 'circle';
+
   const classString = classNames(
     prefixCls,
     sizeCls,
     avatar?.className,
+    `${prefixCls}-${mergedShape}`,
     {
-      [`${prefixCls}-${shape}`]: !!shape,
       [`${prefixCls}-image`]: hasImageElement || (src && isImgExist),
       [`${prefixCls}-icon`]: !!icon,
     },

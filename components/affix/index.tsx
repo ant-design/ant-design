@@ -72,6 +72,20 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
   const { getTargetContainer, getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
 
   const affixPrefixCls = getPrefixCls('affix', customizePrefixCls);
+        
+  private fixedNodeRef = createRef<HTMLDivElement>();
+
+  private timer: ReturnType<typeof setTimeout> | null;
+
+  context: ConfigConsumerProps;
+
+  private getTargetFunc() {
+    const { getTargetContainer } = this.context;
+    const { target } = this.props;
+
+    if (target !== undefined) {
+      return target;
+    }
 
   const target = useMemo<ReturnType<NonNullable<AffixProps['target']>>>(
     () => (customizeTarget ?? getTargetContainer ?? getDefaultTarget)(),

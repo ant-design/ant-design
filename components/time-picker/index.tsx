@@ -27,6 +27,7 @@ export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> 
   addon?: () => React.ReactNode;
   status?: InputStatus;
   popupClassName?: string;
+  rootClassName?: string;
 }
 
 const TimePicker = React.forwardRef<any, TimePickerProps>(

@@ -14,9 +14,15 @@ export const defaultConfig = {
   hashed: true,
 };
 
-export const DesignTokenContext = React.createContext<{
+export interface DesignTokenProviderProps {
   token: Partial<AliasToken>;
   theme?: Theme<SeedToken, MapToken>;
-  components?: OverrideToken;
+  components?: {
+    [key in keyof OverrideToken]?: OverrideToken[key] & {
+      theme?: Theme<SeedToken, MapToken>;
+    };
+  };
   hashed?: string | boolean;
-}>(defaultConfig);
+}
+
+export const DesignTokenContext = React.createContext<DesignTokenProviderProps>(defaultConfig);

@@ -10,7 +10,7 @@ import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import genPurePanel from '../_util/PurePanel';
 import type { SelectCommonPlacement } from '../_util/motion';
-import { getTransitionDirection, getTransitionName } from '../_util/motion';
+import { getTransitionName } from '../_util/motion';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';
@@ -47,7 +47,6 @@ export interface TreeSelectProps<
     RcTreeSelectProps<ValueType, OptionType>,
     | 'showTreeIcon'
     | 'treeMotion'
-    | 'inputIcon'
     | 'mode'
     | 'getInputElement'
     | 'backfill'
@@ -70,6 +69,11 @@ export interface TreeSelectProps<
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
+  /**
+   * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
+   *   default behavior, you can hide it by setting `suffixIcon` to null.
+   */
+  showArrow?: boolean;
 }
 
 const InternalTreeSelect = <
@@ -98,11 +102,11 @@ const InternalTreeSelect = <
     transitionName,
     choiceTransitionName = '',
     status: customStatus,
-    showArrow,
     treeExpandAction,
     builtinPlacements,
     dropdownMatchSelectWidth,
     popupMatchSelectWidth,
+    allowClear,
     ...props
   }: TreeSelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -135,6 +139,12 @@ const InternalTreeSelect = <
       'Select',
       '`dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
     );
+
+    warning(
+      !('showArrow' in props),
+      'TreeSelect',
+      '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+    );
   }
 
   const rootPrefixCls = getPrefixCls();
@@ -157,7 +167,7 @@ const InternalTreeSelect = <
   );
 
   const isMultiple = !!(treeCheckable || multiple);
-  const mergedShowArrow = useShowArrow(showArrow);
+  const showSuffixIcon = useShowArrow(props.suffixIcon, props.showArrow);
 
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
@@ -175,11 +185,14 @@ const InternalTreeSelect = <
   const { suffixIcon, removeIcon, clearIcon } = getIcons({
     ...props,
     multiple: isMultiple,
-    showArrow: mergedShowArrow,
+    showSuffixIcon,
     hasFeedback,
     feedbackIcon,
     prefixCls,
+    componentName: 'TreeSelect',
   });
+
+  const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
   // ===================== Empty =====================
   let mergedNotFound: React.ReactNode;
@@ -255,11 +268,11 @@ const InternalTreeSelect = <
         treeCheckable ? <span className={`${prefixCls}-tree-checkbox-inner`} /> : treeCheckable
       }
       treeLine={!!treeLine}
-      inputIcon={suffixIcon}
+      suffixIcon={suffixIcon}
       multiple={isMultiple}
       placement={memoizedPlacement}
       removeIcon={removeIcon}
-      clearIcon={clearIcon}
+      allowClear={mergedAllowClear}
       switcherIcon={renderSwitcherIcon}
       showTreeIcon={treeIcon as any}
       notFoundContent={mergedNotFound}
@@ -267,12 +280,7 @@ const InternalTreeSelect = <
       treeMotion={null}
       dropdownClassName={mergedDropdownClassName}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
-      transitionName={getTransitionName(
-        rootPrefixCls,
-        getTransitionDirection(placement),
-        transitionName,
-      )}
-      showArrow={hasFeedback || mergedShowArrow}
+      transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       treeExpandAction={treeExpandAction}
     />
   );
@@ -292,6 +300,7 @@ const TreeSelectRef = React.forwardRef(InternalTreeSelect) as <
 type InternalTreeSelectType = typeof TreeSelectRef;
 
 type CompoundedComponent = InternalTreeSelectType & {
+  displayName?: string;
   TreeNode: typeof TreeNode;
   SHOW_ALL: typeof SHOW_ALL;
   SHOW_PARENT: typeof SHOW_PARENT;
@@ -310,6 +319,10 @@ TreeSelect.SHOW_ALL = SHOW_ALL;
 TreeSelect.SHOW_PARENT = SHOW_PARENT;
 TreeSelect.SHOW_CHILD = SHOW_CHILD;
 TreeSelect._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+
+if (process.env.NODE_ENV !== 'production') {
+  TreeSelect.displayName = 'TreeSelect';
+}
 
 export { TreeNode };
 

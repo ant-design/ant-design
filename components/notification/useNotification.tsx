@@ -1,22 +1,23 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import { useNotification as useRcNotification } from 'rc-notification';
 import type { NotificationAPI } from 'rc-notification/lib';
-import * as React from 'react';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { ComponentStyleConfig } from '../config-provider/context';
-import { PureContent, getCloseIcon } from './PurePanel';
 import type {
   ArgsProps,
   NotificationConfig,
   NotificationInstance,
   NotificationPlacement,
 } from './interface';
+import { getCloseIcon, PureContent } from './PurePanel';
 import useStyle from './style';
 import { getMotion, getPlacementStyle } from './util';
 
 const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;
+const DEFAULT_PLACEMENT: NotificationPlacement = 'topRight';
 
 // ==============================================================================
 // ==                                  Holder                                  ==
@@ -125,7 +126,8 @@ export function useInternalNotification(
       const realCloseIcon = getCloseIcon(noticePrefixCls, closeIcon);
 
       return originOpen({
-        placement: 'topRight',
+        // use placement from props instead of hard-coding "topRight"
+        placement: notificationConfig?.placement ?? DEFAULT_PLACEMENT,
         ...restConfig,
         content: (
           <PureContent

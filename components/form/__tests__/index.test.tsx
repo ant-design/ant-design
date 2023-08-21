@@ -1,8 +1,8 @@
-import type { ColProps } from 'antd/es/grid';
 import classNames from 'classnames';
 import type { ChangeEventHandler } from 'react';
 import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
+import type { ColProps } from 'antd/es/grid';
 import type { FormInstance } from '..';
 import Form from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -1199,7 +1199,9 @@ describe('Form', () => {
   it('Form Item element id will auto add form_item prefix if form name is empty and item name is in the black list', async () => {
     const mockFn = jest.spyOn(Util, 'getFieldId');
     const itemName = 'parentNode';
-    // mock getFieldId old logic,if form name is empty ,and item name is parentNode,will get parentNode
+    // mock getFieldId old logic
+    // if form name is empty and item name is parentNode
+    // will get parentNode
     mockFn.mockImplementation(() => itemName);
     const { Option } = Select;
     const Demo: React.FC = () => {
@@ -1237,7 +1239,8 @@ describe('Form', () => {
     expect((Util.getFieldId as () => string)()).toBe(itemName);
 
     // make sure input id is parentNode
-    expect(screen.getByLabelText(itemName)).toHaveAccessibleName(itemName);
+    expect(screen.getByLabelText(itemName)).toHaveAttribute('id', itemName);
+    expect(screen.getByLabelText(itemName)).toHaveAccessibleName('Search');
 
     fireEvent.click(container.querySelector('button')!);
     await waitFakeTimer();
@@ -1583,7 +1586,7 @@ describe('Form', () => {
   it('item customize margin', async () => {
     const computeSpy = jest
       .spyOn(window, 'getComputedStyle')
-      .mockImplementation(() => ({ marginBottom: 24 } as unknown as CSSStyleDeclaration));
+      .mockImplementation(() => ({ marginBottom: 24 }) as unknown as CSSStyleDeclaration);
 
     const { container } = render(
       <Form>
@@ -1840,29 +1843,56 @@ describe('Form', () => {
     expect(onChange).toHaveBeenNthCalledWith(idx++, 'success');
   });
 
-  // https://user-images.githubusercontent.com/32004925/230819163-464fe90d-422d-4a6d-9e35-44a25d4c64f1.png
-  it('should not render `requiredMark` when Form.Item has no required prop', () => {
-    // Escaping TypeScript error
-    const genProps = (value: any) => ({ ...value });
+  describe('requiredMark', () => {
+    // https://user-images.githubusercontent.com/32004925/230819163-464fe90d-422d-4a6d-9e35-44a25d4c64f1.png
+    it('should not render `requiredMark` when Form.Item has no required prop', () => {
+      // Escaping TypeScript error
+      const genProps = (value: any) => ({ ...value });
 
-    const { container } = render(
-      <Form name="basic" requiredMark="optional">
-        <Form.Item
-          label="First Name"
-          name="firstName"
-          required
-          {...genProps({ requiredMark: false })}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item label="Last Name" name="lastName" required {...genProps({ requiredMark: true })}>
-          <Input />
-        </Form.Item>
-      </Form>,
-    );
+      const { container } = render(
+        <Form name="basic" requiredMark="optional">
+          <Form.Item
+            label="First Name"
+            name="firstName"
+            required
+            {...genProps({ requiredMark: false })}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label="Last Name"
+            name="lastName"
+            required
+            {...genProps({ requiredMark: true })}
+          >
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
 
-    expect(container.querySelectorAll('.ant-form-item-required')).toHaveLength(2);
-    expect(container.querySelectorAll('.ant-form-item-required-mark-optional')).toHaveLength(2);
+      expect(container.querySelectorAll('.ant-form-item-required')).toHaveLength(2);
+      expect(container.querySelectorAll('.ant-form-item-required-mark-optional')).toHaveLength(2);
+    });
+
+    it('customize logic', () => {
+      const { container } = render(
+        <Form name="basic" requiredMark={(label, info) => `${label}: ${info.required}`}>
+          <Form.Item label="Required" required>
+            <Input />
+          </Form.Item>
+          <Form.Item label="Optional">
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(container.querySelectorAll('.ant-form-item-label')[0].textContent).toEqual(
+        'Required: true',
+      );
+      expect(container.querySelectorAll('.ant-form-item-label')[1].textContent).toEqual(
+        'Optional: false',
+      );
+    });
   });
 
   it('children support comment', () => {
@@ -1896,5 +1926,24 @@ describe('Form', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Form] There exist multiple Form with same `name`.',
     );
+  });
+
+  // https://github.com/ant-design/ant-design/issues/43044
+  it('should not pass disabled to modal footer button', () => {
+    render(
+      // <FormDemo formProps={{ disabled: true }} modalProps={{ open: true }} />,
+      <Form disabled>
+        <Form.Item label="label">
+          <Modal open />
+        </Form.Item>
+      </Form>,
+    );
+
+    const footerBts = document.querySelectorAll('.ant-modal-footer > button');
+    expect(footerBts).toBeTruthy();
+
+    footerBts.forEach((bt) => {
+      expect(bt).not.toHaveAttribute('disabled');
+    });
   });
 });

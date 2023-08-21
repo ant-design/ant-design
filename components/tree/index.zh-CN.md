@@ -31,8 +31,11 @@ demo:
 <code src="./demo/drag-debug.tsx" debug>Drag Debug</code>
 <code src="./demo/big-data.tsx" debug>大数据</code>
 <code src="./demo/block-node.tsx">占据整行</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Tree props
 
@@ -60,7 +63,6 @@ demo:
 | loadData | 异步加载数据 | function(node) | - |  |
 | loadedKeys | （受控）已经加载的节点，需要配合 `loadData` 使用 | string\[] | \[] |  |
 | multiple | 支持点选多个节点（节点本身） | boolean | false |  |
-| rootClassName | 添加在 Tree 最外层的 className | string | - | 4.20.0 |
 | rootStyle | 添加在 Tree 最外层的 style | CSSProperties | - | 4.20.0 |
 | selectable | 是否可选中 | boolean | true |  |
 | selectedKeys | （受控）设置选中的树节点，多选需设置 `multiple` 为 true | string\[] | - |  |
@@ -127,7 +129,7 @@ demo:
 
 ## Design Token
 
-<ComponentTokenTable component="Transfer"></ComponentTokenTable>
+<ComponentTokenTable component="Tree"></ComponentTokenTable>
 
 ## FAQ
 

@@ -36,6 +36,8 @@ By clicking the input box, you can select a time from a popup panel.
 
 ---
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ```jsx
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat'
@@ -47,7 +49,7 @@ dayjs.extend(customParseFormat)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| allowClear | Whether allow clearing text | boolean | true |  |
+| allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type |
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | bordered | Whether has border style | boolean | true |  |
 | cellRender | Custom rendering function for picker cells | (current: number, info: { originNode: React.ReactElement, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |

@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "@emotion/react",
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "baseUrl": "../",

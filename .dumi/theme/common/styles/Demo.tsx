@@ -1,9 +1,9 @@
 import { css, Global } from '@emotion/react';
 import React from 'react';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { useTheme } from 'antd-style';
 
 const GlobalDemoStyles: React.FC = () => {
-  const { token } = useSiteToken();
+  const token = useTheme();
 
   const { antCls, iconCls } = token;
 
@@ -323,6 +323,9 @@ const GlobalDemoStyles: React.FC = () => {
               background: ${token.colorBgContainer};
               border: none;
               box-shadow: unset;
+              padding: 12px 16px;
+              margin-top: -16px;
+              font-size: 13px;
             }
           }
 

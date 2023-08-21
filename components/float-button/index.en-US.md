@@ -1,11 +1,12 @@
 ---
 category: Components
-group: Other
+group: General
 title: FloatButton
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HS-wTIIwu0kAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a0hwTY_rOSUAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
+tag: New
 ---
 
 FloatButton. Available since `5.0.0`.
@@ -32,6 +33,8 @@ FloatButton. Available since `5.0.0`.
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 > This component is available since `antd@5.0.0`.
 

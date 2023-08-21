@@ -1,5 +1,7 @@
 ---
-order: 3
+group:
+  title: Basic Usage
+order: 2
 title: Usage with Umi
 ---
 
@@ -129,8 +131,8 @@ As your application grows, you'll need to share UI elements across multiple page
 Create a new `src/components/ProductList.tsx` file with the following code.
 
 ```tsx
-import { Button, Popconfirm, Table } from 'antd';
 import React from 'react';
+import { Button, Popconfirm, Table } from 'antd';
 
 const ProductList: React.FC<{ products: { name: string }[]; onDelete: (id: string) => void }> = ({
   onDelete,
@@ -219,10 +221,10 @@ export default defineConfig({
 Edit `src/pages/products.tsx` with the following code.
 
 ```tsx
-import ProductList from '@/components/ProductList';
 import axios from 'axios';
 import React from 'react';
 import { useMutation, useQuery, useQueryClient } from 'umi';
+import ProductList from '@/components/ProductList';
 import styles from './products.less';
 
 export default function Page() {

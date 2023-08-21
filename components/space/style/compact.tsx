@@ -13,7 +13,6 @@ const genSpaceCompactStyle: GenerateStyle<SpaceToken> = (token) => {
 
   return {
     [componentCls]: {
-      display: 'inline-flex',
       '&-block': {
         display: 'flex',
         width: '100%',

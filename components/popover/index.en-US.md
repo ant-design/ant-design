@@ -31,6 +31,8 @@ Comparing with `Tooltip`, besides information `Popover` card can also provide ac
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 | Param   | Description         | Type                         | Default value | Version |
 | ------- | ------------------- | ---------------------------- | ------------- | ------- |
 | content | Content of the card | ReactNode \| () => ReactNode | -             |         |
@@ -45,3 +47,7 @@ Please ensure that the child node of `Popover` accepts `onMouseEnter`, `onMouseL
 ## Design Token
 
 <ComponentTokenTable component="Popover"></ComponentTokenTable>
+
+## FAQ
+
+Please ref [Tooltip FAQ](/components/tooltip#faq).

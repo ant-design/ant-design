@@ -40,6 +40,27 @@ export interface ComponentToken {
 
 type InputNumberToken = InputToken<FullToken<'InputNumber'>>;
 
+export const genRadiusStyle = (
+  { componentCls, borderRadiusSM, borderRadiusLG }: InputNumberToken,
+  size: 'lg' | 'sm',
+) => {
+  const borderRadius = size === 'lg' ? borderRadiusLG : borderRadiusSM;
+  return {
+    [`&-${size}`]: {
+      [`${componentCls}-handler-wrap`]: {
+        borderStartEndRadius: borderRadius,
+        borderEndEndRadius: borderRadius,
+      },
+      [`${componentCls}-handler-up`]: {
+        borderStartEndRadius: borderRadius,
+      },
+      [`${componentCls}-handler-down`]: {
+        borderEndEndRadius: borderRadius,
+      },
+    },
+  };
+};
+
 const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
   const {
     componentCls,
@@ -55,8 +76,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     colorTextDescription,
     motionDurationMid,
     colorPrimary,
-    controlHeight,
     inputPaddingHorizontal,
+    inputPaddingVertical,
     colorBgContainer,
     colorTextDisabled,
     borderRadiusSM,
@@ -142,6 +163,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             '&-lg': {
               [`${componentCls}-group-addon`]: {
                 borderRadius: borderRadiusLG,
+                fontSize: token.fontSizeLG,
               },
             },
             '&-sm': {
@@ -164,8 +186,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           '&-input': {
             ...resetComponent(token),
             width: '100%',
-            height: controlHeight - 2 * lineWidth,
-            padding: `0 ${inputPaddingHorizontal}px`,
+            padding: `${inputPaddingVertical}px ${inputPaddingHorizontal}px`,
             textAlign: 'start',
             backgroundColor: 'transparent',
             border: 0,
@@ -276,6 +297,9 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           borderEndEndRadius: borderRadius,
         },
 
+        ...genRadiusStyle(token, 'lg'),
+        ...genRadiusStyle(token, 'sm'),
+
         // Disabled
         '&-disabled, &-readonly': {
           [`${componentCls}-handler-wrap`]: {
@@ -320,6 +344,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
   const {
     componentCls,
+    inputPaddingVertical,
     inputPaddingHorizontal,
     inputAffixPadding,
     controlWidth,
@@ -370,7 +395,7 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
       },
 
       [`input${componentCls}-input`]: {
-        padding: 0,
+        padding: `${inputPaddingVertical}px 0`,
       },
 
       '&::before': {

@@ -4,6 +4,7 @@ import type { ComponentToken as AnchorComponentToken } from '../../anchor/style'
 import type { ComponentToken as AppComponentToken } from '../../app/style';
 import type { ComponentToken as AvatarComponentToken } from '../../avatar/style';
 import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
+import type { ComponentToken as BadgeComponentToken } from '../../badge/style';
 import type { ComponentToken as BreadcrumbComponentToken } from '../../breadcrumb/style';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 import type { ComponentToken as CalendarComponentToken } from '../../calendar/style';
@@ -33,7 +34,7 @@ import type { ComponentToken as PaginationComponentToken } from '../../paginatio
 import type { ComponentToken as PopconfirmComponentToken } from '../../popconfirm/style';
 import type { ComponentToken as PopoverComponentToken } from '../../popover/style';
 import type { ComponentToken as ProgressComponentToken } from '../../progress/style';
-import type { ComponentToken as QRCodeComponentToken } from '../../qrcode/style';
+import type { ComponentToken as QRCodeComponentToken } from '../../qr-code/style';
 import type { ComponentToken as RadioComponentToken } from '../../radio/style';
 import type { ComponentToken as RateComponentToken } from '../../rate/style';
 import type { ComponentToken as ResultComponentToken } from '../../result/style';
@@ -45,6 +46,7 @@ import type { ComponentToken as SpaceComponentToken } from '../../space/style';
 import type { ComponentToken as SpinComponentToken } from '../../spin/style';
 import type { ComponentToken as StatisticComponentToken } from '../../statistic/style';
 import type { ComponentToken as StepsComponentToken } from '../../steps/style';
+import type { ComponentToken as SwitchComponentToken } from '../../switch/style';
 import type { ComponentToken as TableComponentToken } from '../../table/style';
 import type { ComponentToken as TabsComponentToken } from '../../tabs/style';
 import type { ComponentToken as TagComponentToken } from '../../tag/style';
@@ -52,6 +54,8 @@ import type { ComponentToken as TimelineComponentToken } from '../../timeline/st
 import type { ComponentToken as TooltipComponentToken } from '../../tooltip/style';
 import type { ComponentToken as TourComponentToken } from '../../tour/style';
 import type { ComponentToken as TransferComponentToken } from '../../transfer/style';
+import type { ComponentToken as TreeComponentToken } from '../../tree/style';
+import type { ComponentToken as TreeSelectComponentToken } from '../../tree-select/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
 
@@ -61,7 +65,7 @@ export interface ComponentTokenMap {
   Anchor?: AnchorComponentToken;
   Avatar?: AvatarComponentToken;
   BackTop?: BackTopComponentToken;
-  Badge?: {};
+  Badge?: BadgeComponentToken;
   Button?: ButtonComponentToken;
   Breadcrumb?: BreadcrumbComponentToken;
   Card?: CardComponentToken;
@@ -98,10 +102,10 @@ export interface ComponentTokenMap {
   Slider?: SliderComponentToken;
   Spin?: SpinComponentToken;
   Statistic?: StatisticComponentToken;
-  Switch?: {};
+  Switch?: SwitchComponentToken;
   Tag?: TagComponentToken;
-  Tree?: {};
-  TreeSelect?: {};
+  Tree?: TreeComponentToken;
+  TreeSelect?: TreeSelectComponentToken;
   Typography?: TypographyComponentToken;
   Timeline?: TimelineComponentToken;
   Transfer?: TransferComponentToken;

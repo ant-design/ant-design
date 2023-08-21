@@ -31,8 +31,11 @@ Alert component for feedback.
 <code src="./demo/error-boundary.tsx">ErrorBoundary</code>
 <code src="./demo/custom-icon.tsx" debug>Custom Icon</code>
 <code src="./demo/action.tsx">Custom action</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |

@@ -19,6 +19,7 @@ import Item from './Item';
 // CSSINJS
 import { ListContext } from './context';
 import useStyle from './style';
+import useSize from '../config-provider/hooks/useSize';
 
 export type { ListItemMetaProps, ListItemProps } from './Item';
 export type { ListConsumerProps } from './context';
@@ -71,7 +72,7 @@ export interface ListLocale {
 }
 
 function List<T>({
-  pagination = false as ListProps<any>['pagination'],
+  pagination = false as ListProps<T>['pagination'],
   prefixCls: customizePrefixCls,
   bordered = false,
   split = true,
@@ -83,7 +84,7 @@ function List<T>({
   loadMore,
   grid,
   dataSource = [],
-  size,
+  size: customizeSize,
   header,
   footer,
   loading = false,
@@ -106,13 +107,14 @@ function List<T>({
     total: 0,
   };
 
-  const triggerPaginationEvent = (eventName: string) => (page: number, pageSize: number) => {
-    setPaginationCurrent(page);
-    setPaginationSize(pageSize);
-    if (pagination && (pagination as any)[eventName]) {
-      (pagination as any)[eventName](page, pageSize);
-    }
-  };
+  const triggerPaginationEvent =
+    (eventName: 'onChange' | 'onShowSizeChange') => (page: number, pageSize: number) => {
+      setPaginationCurrent(page);
+      setPaginationSize(pageSize);
+      if (pagination && pagination[eventName]) {
+        pagination?.[eventName]?.(page, pageSize);
+      }
+    };
 
   const onPaginationChange = triggerPaginationEvent('onChange');
 
@@ -153,10 +155,12 @@ function List<T>({
   }
   const isLoading = loadingProp && loadingProp.spinning;
 
+  const mergedSize = useSize(customizeSize);
+
   // large => lg
   // small => sm
   let sizeCls = '';
-  switch (size) {
+  switch (mergedSize) {
     case 'large':
       sizeCls = 'lg';
       break;

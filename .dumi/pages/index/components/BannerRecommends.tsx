@@ -1,15 +1,16 @@
 import * as React from 'react';
+import { createStyles, css, useTheme } from 'antd-style';
+import classNames from 'classnames';
+import type { FC } from 'react';
+import { useContext } from 'react';
 import { Typography, Skeleton, Carousel } from 'antd';
-import type { SerializedStyles } from '@emotion/react';
-import { css } from '@emotion/react';
 import type { Extra, Icon } from './util';
-import useSiteToken from '../../../hooks/useSiteToken';
 import SiteContext from '../../../theme/slots/SiteContext';
-import { useCarouselStyle } from './util';
+import { getCarouselStyle, useSiteData } from './util';
+import useLocale from '../../../hooks/useLocale';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-  const { carousel } = useCarouselStyle();
+const useStyle = createStyles(({ token }) => {
+  const { carousel } = getCarouselStyle();
 
   return {
     itemBase: css`
@@ -47,17 +48,17 @@ const useStyle = () => {
     `,
     carousel,
   };
-};
+});
 
 interface RecommendItemProps {
   extra: Extra;
   index: number;
   icons: Icon[];
-  itemCss: SerializedStyles;
+  className?: string;
 }
-const RecommendItem = ({ extra, index, icons, itemCss }: RecommendItemProps) => {
-  const style = useStyle();
-  const { token } = useSiteToken();
+const RecommendItem = ({ extra, index, icons, className }: RecommendItemProps) => {
+  const token = useTheme();
+  const { styles } = useStyle();
 
   if (!extra) {
     return <Skeleton key={index} />;
@@ -69,7 +70,7 @@ const RecommendItem = ({ extra, index, icons, itemCss }: RecommendItemProps) => 
       key={extra?.title}
       href={extra.href}
       target="_blank"
-      css={[style.itemBase, itemCss]}
+      className={classNames(styles.itemBase, className)}
       rel="noreferrer"
     >
       <Typography.Title level={5}>{extra?.title}</Typography.Title>
@@ -84,39 +85,61 @@ const RecommendItem = ({ extra, index, icons, itemCss }: RecommendItemProps) => 
   );
 };
 
-export interface BannerRecommendsProps {
-  extras?: Extra[];
-  icons?: Icon[];
-}
+export const BannerRecommendsFallback: FC = () => {
+  const { isMobile } = useContext(SiteContext);
+  const { styles } = useStyle();
 
-export default function BannerRecommends({ extras = [], icons = [] }: BannerRecommendsProps) {
-  const styles = useStyle();
+  const list = Array(3).fill(1);
+
+  return isMobile ? (
+    <Carousel className={styles.carousel}>
+      {list.map((extra, index) => (
+        <div key={index}>
+          <Skeleton active style={{ padding: '0 24px' }} />
+        </div>
+      ))}
+    </Carousel>
+  ) : (
+    <div className={styles.container}>
+      {list.map((_, index) => (
+        <Skeleton key={index} active />
+      ))}
+    </div>
+  );
+};
+
+export default function BannerRecommends() {
+  const { styles } = useStyle();
+  const [, lang] = useLocale();
   const { isMobile } = React.useContext(SiteContext);
+  const data = useSiteData();
+  const extras = data?.extras?.[lang];
+  const icons = data?.icons;
   const first3 = extras.length === 0 ? Array(3).fill(null) : extras.slice(0, 3);
 
   return (
     <div>
       {isMobile ? (
-        <Carousel css={styles.carousel}>
+        <Carousel className={styles.carousel}>
           {first3.map((extra, index) => (
             <div key={index}>
               <RecommendItem
                 extra={extra}
                 index={index}
                 icons={icons}
-                itemCss={styles.sliderItem}
+                className={styles.sliderItem}
               />
             </div>
           ))}
         </Carousel>
       ) : (
-        <div css={styles.container}>
+        <div className={styles.container}>
           {first3.map((extra, index) => (
             <RecommendItem
               extra={extra}
               index={index}
               icons={icons}
-              itemCss={styles.cardItem}
+              className={styles.cardItem}
               key={index}
             />
           ))}

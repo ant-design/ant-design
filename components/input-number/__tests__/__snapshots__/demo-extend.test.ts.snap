@@ -125,11 +125,11 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                   aria-autocomplete="list"
                   aria-controls="rc_select_TEST_OR_SSR_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
+                  aria-label="Search"
                   aria-owns="rc_select_TEST_OR_SSR_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
@@ -345,11 +345,11 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                   aria-autocomplete="list"
                   aria-controls="rc_select_TEST_OR_SSR_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
+                  aria-label="Search"
                   aria-owns="rc_select_TEST_OR_SSR_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
@@ -652,6 +652,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                   aria-controls="rc_select_TEST_OR_SSR_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
+                  aria-label="Search"
                   aria-owns="rc_select_TEST_OR_SSR_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
@@ -1090,6 +1091,8 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/input-number/demo/addon.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/input-number/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-input-number"
@@ -1169,6 +1172,8 @@ exports[`renders components/input-number/demo/basic.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/input-number/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/input-number/demo/borderless.tsx extend context correctly 1`] = `
 <div
   class="ant-input-number ant-input-number-borderless"
@@ -1247,6 +1252,8 @@ exports[`renders components/input-number/demo/borderless.tsx extend context corr
   </div>
 </div>
 `;
+
+exports[`renders components/input-number/demo/borderless.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/input-number/demo/controls.tsx extend context correctly 1`] = `
 <div
@@ -1331,6 +1338,8 @@ exports[`renders components/input-number/demo/controls.tsx extend context correc
   </div>
 </div>
 `;
+
+exports[`renders components/input-number/demo/controls.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/input-number/demo/debug-token.tsx extend context correctly 1`] = `
 <div
@@ -1494,6 +1503,8 @@ exports[`renders components/input-number/demo/debug-token.tsx extend context cor
 </div>
 `;
 
+exports[`renders components/input-number/demo/debug-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/input-number/demo/digit.tsx extend context correctly 1`] = `
 <div
   class="ant-input-number"
@@ -1573,6 +1584,8 @@ exports[`renders components/input-number/demo/digit.tsx extend context correctly
   </div>
 </div>
 `;
+
+exports[`renders components/input-number/demo/digit.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/input-number/demo/disabled.tsx extend context correctly 1`] = `
 Array [
@@ -1667,6 +1680,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/input-number/demo/disabled.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/input-number/demo/formatter.tsx extend context correctly 1`] = `
 <div
@@ -1834,6 +1849,8 @@ exports[`renders components/input-number/demo/formatter.tsx extend context corre
 </div>
 `;
 
+exports[`renders components/input-number/demo/formatter.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/input-number/demo/keyboard.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -1926,7 +1943,7 @@ exports[`renders components/input-number/demo/keyboard.tsx extend context correc
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
     >
       <span
-        class="ant-checkbox ant-checkbox-checked"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
@@ -1944,6 +1961,8 @@ exports[`renders components/input-number/demo/keyboard.tsx extend context correc
   </div>
 </div>
 `;
+
+exports[`renders components/input-number/demo/keyboard.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/input-number/demo/out-of-range.tsx extend context correctly 1`] = `
 <div
@@ -2044,6 +2063,8 @@ exports[`renders components/input-number/demo/out-of-range.tsx extend context co
   </div>
 </div>
 `;
+
+exports[`renders components/input-number/demo/out-of-range.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/input-number/demo/prefix.tsx extend context correctly 1`] = `
 Array [
@@ -2335,6 +2356,8 @@ Array [
 ]
 `;
 
+exports[`renders components/input-number/demo/prefix.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/input-number/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   style="display: flex; flex-direction: column; row-gap: 16px;"
@@ -2416,13 +2439,16 @@ exports[`renders components/input-number/demo/render-panel.tsx extend context co
 </div>
 `;
 
+exports[`renders components/input-number/demo/render-panel.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/input-number/demo/size.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
+  style="flex-wrap: wrap; margin-bottom: -8px;"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-input-number ant-input-number-lg"
@@ -2503,7 +2529,7 @@ exports[`renders components/input-number/demo/size.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-input-number"
@@ -2584,6 +2610,7 @@ exports[`renders components/input-number/demo/size.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
+    style="padding-bottom: 8px;"
   >
     <div
       class="ant-input-number ant-input-number-sm"
@@ -2664,6 +2691,8 @@ exports[`renders components/input-number/demo/size.tsx extend context correctly 
   </div>
 </div>
 `;
+
+exports[`renders components/input-number/demo/size.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/input-number/demo/status.tsx extend context correctly 1`] = `
 <div
@@ -3047,3 +3076,5 @@ exports[`renders components/input-number/demo/status.tsx extend context correctl
   </div>
 </div>
 `;
+
+exports[`renders components/input-number/demo/status.tsx extend context correctly 2`] = `[]`;

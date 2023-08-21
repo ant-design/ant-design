@@ -1,9 +1,8 @@
 import React from 'react';
-import { Tabs, theme } from 'antd';
-import { css } from '@emotion/css';
+import { createStyles } from 'antd-style';
+import { Tabs } from 'antd';
 
-const useStyle = () => {
-  const { token } = theme.useToken();
+const useStyle = createStyles(({ token, css }) => {
   const antdTabsCls = '.ant-tabs';
 
   return css`
@@ -32,7 +31,7 @@ const useStyle = () => {
       }
     }
   `;
-};
+});
 
 const items = new Array(3).fill(null).map((_, i) => {
   const id = String(i + 1);
@@ -50,10 +49,10 @@ const items = new Array(3).fill(null).map((_, i) => {
 });
 
 const App = () => {
-  const style = useStyle();
+  const { styles } = useStyle();
 
   return (
-    <div className={style}>
+    <div className={styles}>
       <Tabs type="card" items={items} />
     </div>
   );

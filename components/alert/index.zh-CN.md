@@ -32,8 +32,11 @@ group:
 <code src="./demo/error-boundary.tsx">React 错误处理</code>
 <code src="./demo/custom-icon.tsx" debug>自定义图标</code>
 <code src="./demo/action.tsx">操作</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |

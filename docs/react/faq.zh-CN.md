@@ -1,5 +1,7 @@
 ---
-order: 11
+group:
+  title: 其他
+order: 2
 title: FAQ
 ---
 
@@ -9,7 +11,7 @@ title: FAQ
 
 ## `undefined` 和 `null` 在 `antd` 的受控组件中有区别吗？
 
-**有。antd 约定：`undefined` 是非受控的标志，`null` 作为显式的受控空值。**
+**有区别。antd 约定：`undefined` 是非受控的标志，`null` 作为显式的受控空值。**
 
 在输入元素中，React 认为 `undefined` 和 `null` 都属于非受控的标志。当 `value` 由非空值转化为 `undefined` 或 `null` 时，组件不再受控，这通常是一些意外情况发生的原因。
 
@@ -105,12 +107,19 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 有的，你可以访问 https://ant-design.antgroup.com/index-cn 或 https://ant-design.gitee.io/index-cn 。
 
-历史版本:
-
-- 4.x: https://4x-ant-design.antgroup.com
-- 3.x: https://ant-design-3x.gitee.io/
-- 2.x: https://ant-design-2x.gitee.io/
-- 1.x: https://ant-design-1x.gitee.io/
+| 产品/版本 | 地址 |
+| --- | --- |
+| Ant Design 5.x | https://ant-design.antgroup.com <br /> https://ant-design.gitee.io |
+| Ant Design 4.x | https://4x-ant-design.antgroup.com |
+| Ant Design 3.x | https://ant-design-3x.gitee.io |
+| Ant Design 2.x | https://ant-design-2x.gitee.io |
+| Ant Design 1.x | https://ant-design-1x.gitee.io |
+| Ant Design Pro | https://ant-design-pro.gitee.io/ |
+| Ant Design Mobile | https://ant-design-mobile.antgroup.com/zh <br /> https://antd-mobile.gitee.io/ |
+| Ant Design Mini | https://ant-design-mini.antgroup.com/zh <br /> https://antd-mobile.gitee.io/ |
+| Ant Design Charts | https://ant-design-charts.antgroup.com<br /> https://antd-mobile.gitee.io/ |
+| AntV | https://antv.antgroup.com |
+| Ant Motion | https://ant-motion.gitee.io |
 
 ## `antd` 可以像 `React` 那样使用单文件引入吗？
 
@@ -131,7 +140,7 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 antd 会透出组件定义，但是随着重构可能导致内部一些定义命名或者属性变化。因而更推荐直接使用 Typescript 原生能力获取：
 
 ```tsx
-import { Table } from 'antd';
+import type { Table } from 'antd';
 
 type Props<T extends (...args: any) => any> = Parameters<T>[0];
 
@@ -190,13 +199,7 @@ message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲�
 
 1. 使用官方提供的 [message.useMessage](/components/message-cn/#components-message-demo-hooks)、[notification.useNotification](/components/notification-cn#%E4%B8%BA%E4%BB%80%E4%B9%88-notification-%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux-%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-%E7%9A%84-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 和 [Modal.useModal](/components/modal-cn/#%E4%B8%BA%E4%BB%80%E4%B9%88-Modal-%E6%96%B9%E6%B3%95%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux%E3%80%81%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 来调用这些方法。
 
-2. 使用 `ConfigProvider.config` 方法全局设置 `prefixCls`。
-
-```js
-ConfigProvider.config({
-  prefixCls: 'ant',
-});
-```
+2. 使用 [App.useApp](/components/app-cn#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95) 直接调用 message、notification、modal 实例方法。
 
 ## 为什么我不应该通过 ref 访问组件内部的 props 和 state？
 
@@ -287,3 +290,28 @@ export default () => {
 ```
 
 如果 `strictNullChecks` 的值被设置为 `true` 就会出现上述问题，如果你确定项目中可以不需要这个检测配置（查看[strictNullChecks](https://www.typescriptlang.org/zh/tsconfig#strictNullChecks)判断是否需要该配置），可以尝试改为 `false` 关闭控制严格检查功能。但如果你确实需要开启这个功能，那么，你可以在设计类型时，使用其他类型替代 `null` 以避免出现这种情况。
+
+## 使用 Next.js 的 App Router 时 antd 组件报错
+
+如果你在使用 Next.js 的 App Router，当你使用 antd 中某些组件提供的子组件，如：`Select.Option`、`Form.Item` 等，可能会出现如下报错：
+
+```bash
+Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.
+```
+
+目前这个问题等待 Next.js 给出官方的解决方案，在此之前，如果在你的页面中有使用子组件的话，可以尝试在页面顶部增加如下客户端标签解决这个问题：
+
+```tsx
+'use client';
+
+// This is not real world code, just for explain
+export default () => (
+  <div className="App">
+    <Form>
+      <Form.Item>
+        <Button type="primary">Button</Button>
+      </Form.Item>
+    </Form>
+  </div>
+);
+```

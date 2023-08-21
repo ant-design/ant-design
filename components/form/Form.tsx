@@ -19,7 +19,10 @@ import type { FormLabelAlign } from './interface';
 import useStyle from './style';
 import ValidateMessagesContext from './validateMessagesContext';
 
-export type RequiredMark = boolean | 'optional';
+export type RequiredMark =
+  | boolean
+  | 'optional'
+  | ((labelNode: React.ReactNode, info: { required: boolean }) => React.ReactNode);
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
 
 export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form'> {
@@ -186,9 +189,13 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
   );
 };
 
-const Form = React.forwardRef<FormInstance, FormProps>(InternalForm) as <Values = any>(
+const Form = React.forwardRef<FormInstance, FormProps>(InternalForm) as (<Values = any>(
   props: React.PropsWithChildren<FormProps<Values>> & { ref?: React.Ref<FormInstance<Values>> },
-) => React.ReactElement;
+) => React.ReactElement) & { displayName?: string };
+
+if (process.env.NODE_ENV !== 'production') {
+  Form.displayName = 'Form';
+}
 
 export { List, useForm, useWatch, type FormInstance };
 

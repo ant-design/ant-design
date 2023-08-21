@@ -44,7 +44,7 @@ export interface ListItemProps {
   progress?: UploadListProgressProps;
 }
 
-const ListItem = React.forwardRef(
+const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
   (
     {
       prefixCls,
@@ -68,8 +68,8 @@ const ListItem = React.forwardRef(
       onPreview,
       onDownload,
       onClose,
-    }: ListItemProps,
-    ref: React.Ref<HTMLDivElement>,
+    },
+    ref,
   ) => {
     // Status: which will ignore `removed` status
     const { status } = file;
@@ -95,8 +95,7 @@ const ListItem = React.forwardRef(
     let icon = <div className={`${prefixCls}-icon`}>{iconNode}</div>;
     if (listType === 'picture' || listType === 'picture-card' || listType === 'picture-circle') {
       if (mergedStatus === 'uploading' || (!file.thumbUrl && !file.url)) {
-        const uploadingClassName = classNames({
-          [`${prefixCls}-list-item-thumbnail`]: true,
+        const uploadingClassName = classNames(`${prefixCls}-list-item-thumbnail`, {
           [`${prefixCls}-list-item-file`]: mergedStatus !== 'uploading',
         });
         icon = <div className={uploadingClassName}>{iconNode}</div>;
@@ -111,8 +110,7 @@ const ListItem = React.forwardRef(
         ) : (
           iconNode
         );
-        const aClassName = classNames({
-          [`${prefixCls}-list-item-thumbnail`]: true,
+        const aClassName = classNames(`${prefixCls}-list-item-thumbnail`, {
           [`${prefixCls}-list-item-file`]: isImgUrl && !isImgUrl(file),
         });
         icon = (

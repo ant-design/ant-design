@@ -120,7 +120,8 @@ title: 文案
 <img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/zos/rmsportal/HBCyJcXZYmtLECZUtjzE.png" alt="错误示范" description="时间信息的描述词不是具体的「日」、「月」，容易让用户产生困扰。">
 </ImagePreview>
 
-<table style="font-size:12px;float:right;width:496px;margin-left:60px;margin-bottom:100px;clear:both;">
+<ImagePreview className="markdown" pure="true">
+<table style="font-size:12px;">
   <tr>
     <th style="border-bottom: 2px solid #108ee9;width:20%;">使用</th>
     <th style="border-bottom: 2px solid #f04134;width:25%;">不使用</th>
@@ -157,6 +158,7 @@ title: 文案
     <td>当要表达当前事物时，「此」更加明确。</td>
   </tr>
 </table>
+</ImagePreview>
 
 通用基本用词要规范，不要写错字，词语表达要完整。
 
@@ -286,7 +288,8 @@ title: 文案
 
 ### 基本标点规范
 
-<table style="font-size:12px;float:right;width:496px;margin-left:60px;margin-bottom:100px;">
+<ImagePreview className="markdown" pure="true">
+<table style="font-size:12px;">
   <tr>
     <th>标点名称</th>
     <th>字符</th>
@@ -324,6 +327,7 @@ title: 文案
     <td>多用于替换显示隐私信息。</td>
   </tr>
 </table>
+</ImagePreview>
 
 正确地使用标点符号会让句子看起来更清晰和具有可读性。
 

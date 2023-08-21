@@ -16,6 +16,7 @@ export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass'> {
   style?: React.CSSProperties;
   prefixCls?: string;
   rootClassName?: string;
+  id?: string;
   slickGoTo?: number;
   dotPosition?: DotPosition;
   children?: React.ReactNode;
@@ -42,6 +43,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     rootClassName,
     className: customClassName,
     style,
+    id,
     ...otherProps
   } = props;
   const { getPrefixCls, direction, carousel } = React.useContext(ConfigContext);
@@ -106,7 +108,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   );
 
   return wrapSSR(
-    <div className={className}>
+    <div className={className} id={id}>
       <SlickCarousel
         ref={slickRef}
         {...newProps}

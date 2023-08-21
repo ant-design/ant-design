@@ -1,8 +1,8 @@
 import * as React from 'react';
+import type { DescriptionsItemType } from '.';
 import Cell from './Cell';
 import type { DescriptionsContextProps } from './DescriptionsContext';
 import DescriptionsContext from './DescriptionsContext';
-import type { DescriptionsItemProps } from './Item';
 
 interface CellConfig {
   component: string | [string, string];
@@ -12,7 +12,7 @@ interface CellConfig {
 }
 
 function renderCells(
-  items: React.ReactElement<DescriptionsItemProps>[],
+  items: DescriptionsItemType[],
   { colon, prefixCls, bordered }: RowProps,
   {
     component,
@@ -26,16 +26,14 @@ function renderCells(
   return items.map(
     (
       {
-        props: {
-          label,
-          children,
-          prefixCls: itemPrefixCls = prefixCls,
-          className,
-          style,
-          labelStyle,
-          contentStyle,
-          span = 1,
-        },
+        label,
+        children,
+        prefixCls: itemPrefixCls = prefixCls,
+        className,
+        style,
+        labelStyle,
+        contentStyle,
+        span = 1,
         key,
       },
       index,
@@ -89,7 +87,7 @@ function renderCells(
 export interface RowProps {
   prefixCls: string;
   vertical: boolean;
-  row: React.ReactElement<DescriptionsItemProps>[];
+  row: DescriptionsItemType[];
   bordered?: boolean;
   colon: boolean;
   index: number;

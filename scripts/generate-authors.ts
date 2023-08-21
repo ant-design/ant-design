@@ -1,6 +1,6 @@
 import fs from 'fs';
-import _ from 'lodash';
 import path from 'path';
+import _ from 'lodash';
 import simpleGit from 'simple-git';
 
 const cwd = process.cwd();
@@ -30,7 +30,7 @@ async function execute() {
   logs = _.sortBy(_.unionBy(logs, 'author_email'), 'author_name');
   fs.writeFileSync(
     path.join(cwd, 'AUTHORS.txt'),
-    logs.map((item) => `${item.author_name} <${item.author_email}>`).join('\n'),
+    Array.from(new Set(logs.map((item) => item.author_name))).join('\n'),
   );
 }
 

@@ -65,6 +65,7 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
 
       [`${componentCls}-buttons`]: {
         textAlign: 'end',
+        whiteSpace: 'nowrap',
 
         button: {
           marginInlineStart: marginXS,

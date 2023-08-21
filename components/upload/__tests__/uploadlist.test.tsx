@@ -35,6 +35,8 @@ describe('Upload List', () => {
   // jsdom not support `createObjectURL` yet. Let's handle this.
   const originCreateObjectURL = window.URL.createObjectURL;
   window.URL.createObjectURL = jest.fn(() => '');
+  const originRevokeObjectURL = window.URL.revokeObjectURL;
+  window.URL.revokeObjectURL = jest.fn(() => '');
 
   // Mock dom
   let size = { width: 0, height: 0 };
@@ -88,6 +90,7 @@ describe('Upload List', () => {
 
   afterAll(() => {
     window.URL.createObjectURL = originCreateObjectURL;
+    window.URL.revokeObjectURL = originRevokeObjectURL;
     mockWidthGet.mockRestore();
     mockHeightGet.mockRestore();
     mockSrcSet.mockRestore();
@@ -917,6 +920,31 @@ describe('Upload List', () => {
     });
     await previewFunc(mockFile).then((dataUrl) => {
       expect(dataUrl).toEqual('data:image/png;base64,');
+    });
+    unmount();
+  });
+
+  it('upload gif file should be converted to the image/gif base64', async () => {
+    const mockFile = new File([''], 'foo.gif', {
+      type: 'image/gif',
+    });
+
+    const previewFunc = jest.fn(previewImage);
+
+    const { unmount } = render(
+      <Upload
+        fileList={[{ originFileObj: mockFile }] as UploadProps['fileList']}
+        previewFile={previewFunc}
+        locale={{ uploading: 'uploading' }}
+        listType="picture-card"
+      />,
+    );
+
+    await waitFor(() => {
+      expect(previewFunc).toHaveBeenCalled();
+    });
+    await previewFunc(mockFile).then((dataUrl) => {
+      expect(dataUrl).toEqual('data:image/gif;base64,');
     });
     unmount();
   });

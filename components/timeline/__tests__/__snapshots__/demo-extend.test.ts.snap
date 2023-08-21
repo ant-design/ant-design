@@ -145,6 +145,8 @@ exports[`renders components/timeline/demo/alternate.tsx extend context correctly
 </ul>
 `;
 
+exports[`renders components/timeline/demo/alternate.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/timeline/demo/basic.tsx extend context correctly 1`] = `
 <ul
   class="ant-timeline"
@@ -211,6 +213,8 @@ exports[`renders components/timeline/demo/basic.tsx extend context correctly 1`]
   </li>
 </ul>
 `;
+
+exports[`renders components/timeline/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/timeline/demo/color.tsx extend context correctly 1`] = `
 <ul
@@ -379,6 +383,8 @@ exports[`renders components/timeline/demo/color.tsx extend context correctly 1`]
 </ul>
 `;
 
+exports[`renders components/timeline/demo/color.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/timeline/demo/component-token.tsx extend context correctly 1`] = `
 <ul
   class="ant-timeline"
@@ -445,6 +451,8 @@ exports[`renders components/timeline/demo/component-token.tsx extend context cor
   </li>
 </ul>
 `;
+
+exports[`renders components/timeline/demo/component-token.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/timeline/demo/custom.tsx extend context correctly 1`] = `
 <ul
@@ -536,6 +544,8 @@ exports[`renders components/timeline/demo/custom.tsx extend context correctly 1`
 </ul>
 `;
 
+exports[`renders components/timeline/demo/custom.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/timeline/demo/label.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -546,7 +556,7 @@ Array [
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
@@ -566,7 +576,7 @@ Array [
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -585,7 +595,7 @@ Array [
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -682,6 +692,8 @@ Array [
   </ul>,
 ]
 `;
+
+exports[`renders components/timeline/demo/label.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/timeline/demo/pending.tsx extend context correctly 1`] = `
 <div>
@@ -781,6 +793,8 @@ exports[`renders components/timeline/demo/pending.tsx extend context correctly 1
 </div>
 `;
 
+exports[`renders components/timeline/demo/pending.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/timeline/demo/right.tsx extend context correctly 1`] = `
 <ul
   class="ant-timeline ant-timeline-right"
@@ -872,6 +886,8 @@ exports[`renders components/timeline/demo/right.tsx extend context correctly 1`]
 </ul>
 `;
 
+exports[`renders components/timeline/demo/right.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/timeline/demo/wireframe.tsx extend context correctly 1`] = `
 <ul
   class="ant-timeline"
@@ -938,3 +954,5 @@ exports[`renders components/timeline/demo/wireframe.tsx extend context correctly
   </li>
 </ul>
 `;
+
+exports[`renders components/timeline/demo/wireframe.tsx extend context correctly 2`] = `[]`;
