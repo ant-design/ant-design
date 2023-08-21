@@ -20,6 +20,8 @@ interface TourPanelProps {
   closeIcon?: ReactNode;
 }
 
+// Due to the independent design of Panel, it will be too coupled to put in rc-tour,
+// so a set of Panel logic is implemented separately in antd.
 const TourPanel: React.FC<TourPanelProps> = ({
   stepProps,
   current,
@@ -45,8 +47,8 @@ const TourPanel: React.FC<TourPanelProps> = ({
   } = stepProps;
 
   const mergedType = stepType ?? type;
-  const mergedCloseIcon = stepCloseIcon ?? closeIcon;
 
+  const mergedCloseIcon = stepCloseIcon ?? closeIcon;
   const mergedClosable = mergedCloseIcon !== false && mergedCloseIcon !== null;
   const mergedDisplayCloseIcon =
     mergedCloseIcon !== undefined && mergedCloseIcon !== true ? (
