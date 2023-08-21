@@ -4,7 +4,6 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
 import * as React from 'react';
-import ActionButton from '../_util/ActionButton';
 import { getTransitionName } from '../_util/motion';
 import warning from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
@@ -12,8 +11,13 @@ import ConfigProvider from '../config-provider';
 import { useLocale } from '../locale';
 import Dialog from './Modal';
 import type { ModalFuncProps, ModalLocale } from './interface';
+import type { ConfirmCancelBtnProps } from './components/ConfirmCancelBtn';
+import CancelBtn from './components/ConfirmCancelBtn';
+import type { ConfirmOkBtnProps } from './components/ConfirmOkBtn';
+import ConfirmBtn from './components/ConfirmOkBtn';
+import { ConfirmCancelBtnContextProvider, ConfirmOkBtnProvider } from './context';
 
-interface ConfirmDialogProps extends ModalFuncProps {
+export interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
   close?: (...args: any[]) => void;
   /**
@@ -100,20 +104,50 @@ export function ConfirmContent(
 
   const mergedLocale = staticLocale || locale;
 
-  const cancelButton = mergedOkCancel && (
-    <ActionButton
-      isSilent={isSilent}
-      actionFn={onCancel}
-      close={(...args: any[]) => {
-        close?.(...args);
-        onConfirm?.(false);
-      }}
-      autoFocus={autoFocusButton === 'cancel'}
-      buttonProps={cancelButtonProps}
-      prefixCls={`${rootPrefixCls}-btn`}
-    >
-      {cancelText || mergedLocale?.cancelText}
-    </ActionButton>
+  // ================== Locale Text ==================
+  const okTextLocale = okText || (mergedOkCancel ? mergedLocale?.okText : mergedLocale?.justOkText);
+  const cancelTextLocale = cancelText || mergedLocale?.cancelText;
+
+  // ================= Context Value =================
+  const confirmBtnCtxValue: ConfirmOkBtnProps = {
+    autoFocusButton,
+    close,
+    isSilent,
+    okButtonProps,
+    rootPrefixCls,
+    okTextLocale,
+    okType,
+    onConfirm,
+    onOk,
+  };
+
+  const cancelBtnCtxValue: ConfirmCancelBtnProps = {
+    autoFocusButton,
+    cancelButtonProps,
+    cancelTextLocale,
+    isSilent,
+    mergedOkCancel,
+    rootPrefixCls,
+    close,
+    onCancel,
+    onConfirm,
+  };
+
+  const confirmBtnCtxValueMemo = React.useMemo(
+    () => confirmBtnCtxValue,
+    [...Object.values(confirmBtnCtxValue)],
+  );
+  const cancelBtnCtxValueMemo = React.useMemo(
+    () => cancelBtnCtxValue,
+    [...Object.values(cancelBtnCtxValue)],
+  );
+
+  // ====================== Footer Origin Node ======================
+  const footerOriginNode = (
+    <>
+      <CancelBtn />
+      <ConfirmBtn />
+    </>
   );
 
   return (
@@ -125,24 +159,20 @@ export function ConfirmContent(
         )}
         <div className={`${confirmPrefixCls}-content`}>{props.content}</div>
       </div>
-      {footer === undefined ? (
-        <div className={`${confirmPrefixCls}-btns`}>
-          {cancelButton}
-          <ActionButton
-            isSilent={isSilent}
-            type={okType}
-            actionFn={onOk}
-            close={(...args: any[]) => {
-              close?.(...args);
-              onConfirm?.(true);
-            }}
-            autoFocus={autoFocusButton === 'ok'}
-            buttonProps={okButtonProps}
-            prefixCls={`${rootPrefixCls}-btn`}
-          >
-            {okText || (mergedOkCancel ? mergedLocale?.okText : mergedLocale?.justOkText)}
-          </ActionButton>
-        </div>
+
+      {footer === undefined || typeof footer === 'function' ? (
+        <ConfirmOkBtnProvider value={confirmBtnCtxValueMemo}>
+          <ConfirmCancelBtnContextProvider value={cancelBtnCtxValueMemo}>
+            <div className={`${confirmPrefixCls}-btns`}>
+              {footer === undefined
+                ? footerOriginNode
+                : footer?.(footerOriginNode, {
+                    ConfirmBtn,
+                    CancelBtn,
+                  })}
+            </div>
+          </ConfirmCancelBtnContextProvider>
+        </ConfirmOkBtnProvider>
       ) : (
         footer
       )}

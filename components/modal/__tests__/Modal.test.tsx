@@ -133,4 +133,20 @@ describe('Modal', () => {
     render(<Modal open footer={<div className="custom-footer">footer</div>} />);
     expect(document.querySelector('.custom-footer')).toBeTruthy();
   });
+
+  it('Should custom footer function work', () => {
+    render(
+      <Modal
+        open
+        footer={(_, { ConfirmBtn, CancelBtn }) => (
+          <>
+            <ConfirmBtn />
+            <CancelBtn />
+            <div className="custom-footer-ele">footer-ele</div>
+          </>
+        )}
+      />,
+    );
+    expect(document.querySelector('.custom-footer-ele')).toBeTruthy();
+  });
 });

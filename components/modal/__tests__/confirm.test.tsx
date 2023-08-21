@@ -845,4 +845,21 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
     warnSpy.mockRestore();
   });
+
+  it('Should custom footer function work width confirm', async () => {
+    Modal.confirm({
+      content: 'hai',
+      footer: (_, { ConfirmBtn, CancelBtn }) => (
+        <>
+          <ConfirmBtn />
+          <CancelBtn />
+          <div className="custom-footer-ele">footer-ele</div>
+        </>
+      ),
+    });
+
+    await waitFakeTimer();
+
+    expect(document.querySelector('.custom-footer-ele')).toBeTruthy();
+  });
 });

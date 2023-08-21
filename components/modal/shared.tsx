@@ -1,11 +1,14 @@
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import React from 'react';
-import Button from '../button';
-import { convertLegacyProps } from '../button/button';
 import { DisabledContextProvider } from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
 import type { ModalProps } from './interface';
 import { getConfirmLocale } from './locale';
+import type { NormalCancelBtnProps } from './components/NormalCancelBtn';
+import type { NormalOkBtnProps } from './components/NormalOkBtn';
+import { NormalCancelBtnContextProvider, NormalOkBtnContextProvider } from './context';
+import NormalOkBtn from './components/NormalOkBtn';
+import NormalCancelBtn from './components/NormalCancelBtn';
 
 export function renderCloseIcon(prefixCls: string, closeIcon?: React.ReactNode) {
   return (
@@ -42,23 +45,58 @@ export const Footer: React.FC<
     onCancel,
     okButtonProps,
     cancelButtonProps,
+    footer,
   } = props;
 
   const [locale] = useLocale('Modal', getConfirmLocale());
 
+  // ================== Locale Text ==================
+  const okTextLocale = okText || locale?.okText;
+  const cancelTextLocale = cancelText || locale?.cancelText;
+
+  // ================= Context Value =================
+  const confirmBtnCtxValue: NormalOkBtnProps = {
+    confirmLoading,
+    okButtonProps,
+    okTextLocale,
+    okType,
+    onOk,
+  };
+
+  const cancelBtnCtxValue: NormalCancelBtnProps = {
+    cancelButtonProps,
+    cancelTextLocale,
+    onCancel,
+  };
+
+  const confirmBtnCtxValueMemo = React.useMemo(
+    () => confirmBtnCtxValue,
+    [...Object.values(confirmBtnCtxValue)],
+  );
+  const cancelBtnCtxValueMemo = React.useMemo(
+    () => cancelBtnCtxValue,
+    [...Object.values(cancelBtnCtxValue)],
+  );
+
+  const footerOriginNode = (
+    <>
+      <NormalCancelBtn />
+      <NormalOkBtn />
+    </>
+  );
+
   return (
     <DisabledContextProvider disabled={false}>
-      <Button onClick={onCancel} {...cancelButtonProps}>
-        {cancelText || locale?.cancelText}
-      </Button>
-      <Button
-        {...convertLegacyProps(okType)}
-        loading={confirmLoading}
-        onClick={onOk}
-        {...okButtonProps}
-      >
-        {okText || locale?.okText}
-      </Button>
+      <NormalOkBtnContextProvider value={confirmBtnCtxValueMemo}>
+        <NormalCancelBtnContextProvider value={cancelBtnCtxValueMemo}>
+          {typeof footer === 'function'
+            ? footer?.(footerOriginNode, {
+                ConfirmBtn: NormalOkBtn,
+                CancelBtn: NormalCancelBtn,
+              })
+            : footerOriginNode}
+        </NormalCancelBtnContextProvider>
+      </NormalOkBtnContextProvider>
     </DisabledContextProvider>
   );
 };

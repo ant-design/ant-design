@@ -94,7 +94,11 @@ const Modal: React.FC<ModalProps> = (props) => {
   }
 
   const dialogFooter =
-    footer === undefined ? <Footer {...props} onOk={handleOk} onCancel={handleCancel} /> : footer;
+    footer === undefined || typeof footer === 'function' ? (
+      <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
+    ) : (
+      footer
+    );
 
   const [mergedClosable, mergedCloseIcon] = useClosable(
     closable,

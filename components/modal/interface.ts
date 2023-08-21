@@ -1,3 +1,4 @@
+import type { FC } from 'react';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
 
@@ -22,7 +23,9 @@ export interface ModalProps {
   /** Width of the modal dialog */
   width?: string | number;
   /** Footer content */
-  footer?: React.ReactNode;
+  footer?:
+    | ((originNode: React.ReactNode, extra: { ConfirmBtn: FC; CancelBtn: FC }) => React.ReactNode)
+    | React.ReactNode;
   /** Text of the OK button */
   okText?: React.ReactNode;
   /** Button `type` of the OK button */
@@ -101,7 +104,7 @@ export interface ModalFuncProps {
   direction?: DirectionType;
   bodyStyle?: React.CSSProperties;
   closeIcon?: React.ReactNode;
-  footer?: React.ReactNode;
+  footer?: ModalProps['footer'];
   modalRender?: (node: React.ReactNode) => React.ReactNode;
   focusTriggerAfterClose?: boolean;
 }
