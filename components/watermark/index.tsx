@@ -4,15 +4,8 @@ import MutateObserver from '@rc-component/mutate-observer';
 import classNames from 'classnames';
 
 import theme from '../theme';
-import useClips, { prepareCanvas } from './useClips';
-import { getPixelRatio, getStyleStr, reRendering, rotateWatermark } from './utils';
-
-/**
- * Base size of the canvas, 1 for parallel layout and 2 for alternate layout
- * Only alternate layout is currently supported
- */
-const BaseSize = 2;
-const FontGap = 3;
+import useClips, { FontGap } from './useClips';
+import { getPixelRatio, getStyleStr, reRendering } from './utils';
 
 export interface WatermarkProps {
   zIndex?: number;
@@ -120,8 +113,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         getStyleStr({
           ...getMarkStyle(),
           backgroundImage: `url('${base64Url}')`,
-          // backgroundSize: `${(gapX + markWidth) * BaseSize}px`,
-          backgroundSize: `${markWidth}px`,
+          backgroundSize: `${Math.floor(markWidth)}px`,
         }),
       );
       containerRef.current?.append(watermarkRef.current);
@@ -157,51 +149,6 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
   const getClips = useClips();
 
-  // const drawClips = (dataURL: string, width: number) => {
-  //   appendWatermark(dataURL, width);
-  // };
-
-  // const fillTexts = (
-  //   ctx: CanvasRenderingContext2D,
-  //   drawX: number,
-  //   drawY: number,
-  //   drawWidth: number,
-  //   drawHeight: number,
-  // ) => {
-  //   const ratio = getPixelRatio();
-  //   const mergedFontSize = Number(fontSize) * ratio;
-  //   ctx.font = `normal ${fontWeight} ${mergedFontSize}px/${drawHeight}px ${fontFamily}`;
-  //   ctx.fillStyle = color;
-  //   ctx.textAlign = 'center';
-  //   ctx.textBaseline = 'top';
-  //   ctx.translate(drawWidth / 2, 0);
-  //   const contents = Array.isArray(content) ? content : [content];
-  //   contents?.forEach((item, index) => {
-  //     ctx.fillText(item ?? '', drawX, drawY + index * (mergedFontSize + FontGap * ratio));
-  //   });
-  // };
-
-  // const drawText1 = (
-  //   canvas: HTMLCanvasElement,
-  //   ctx: CanvasRenderingContext2D,
-  //   drawX: number,
-  //   drawY: number,
-  //   drawWidth: number,
-  //   drawHeight: number,
-  //   alternateRotateX: number,
-  //   alternateRotateY: number,
-  //   alternateDrawX: number,
-  //   alternateDrawY: number,
-  //   markWidth: number,
-  // ) => {
-  //   fillTexts(ctx, drawX, drawY, drawWidth, drawHeight);
-  //   /** Fill the interleaved text after rotation */
-  //   ctx.restore();
-  //   rotateWatermark(ctx, alternateRotateX, alternateRotateY, rotate);
-  //   fillTexts(ctx, alternateDrawX, alternateDrawY, drawWidth, drawHeight);
-  //   appendWatermark(canvas.toDataURL(), markWidth);
-  // };
-
   const renderWatermark = () => {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
@@ -213,71 +160,12 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
       const ratio = getPixelRatio();
       const [markWidth, markHeight] = getMarkSize(ctx);
-      const canvasWidth = (gapX + markWidth) * ratio;
-      const canvasHeight = (gapY + markHeight) * ratio;
-      canvas.setAttribute('width', `${canvasWidth * BaseSize}px`);
-      canvas.setAttribute('height', `${canvasHeight * BaseSize}px`);
 
-      const drawX = (gapX * ratio) / 2;
-      const drawY = (gapY * ratio) / 2;
-      const drawWidth = markWidth * ratio;
-      const drawHeight = markHeight * ratio;
-      const rotateX = (drawWidth + gapX * ratio) / 2;
-      const rotateY = (drawHeight + gapY * ratio) / 2;
-      /** Alternate drawing parameters */
-      const alternateDrawX = drawX + canvasWidth;
-      const alternateDrawY = drawY + canvasHeight;
-      const alternateRotateX = rotateX + canvasWidth;
-      const alternateRotateY = rotateY + canvasHeight;
-
-      ctx.save();
-      rotateWatermark(ctx, rotateX, rotateY, rotate);
-
-      if (image) {
-        const img = new Image();
-        img.onload = () => {
-          ctx.drawImage(img, drawX, drawY, drawWidth, drawHeight);
-          /** Draw interleaved pictures after rotation */
-          ctx.restore();
-          rotateWatermark(ctx, alternateRotateX, alternateRotateY, rotate);
-          ctx.drawImage(img, alternateDrawX, alternateDrawY, drawWidth, drawHeight);
-          appendWatermark(canvas.toDataURL(), markWidth);
-        };
-        img.onerror = () => {
-          // drawText(
-          //   canvas,
-          //   ctx,
-          //   drawX,
-          //   drawY,
-          //   drawWidth,
-          //   drawHeight,
-          //   alternateRotateX,
-          //   alternateRotateY,
-          //   alternateDrawX,
-          //   alternateDrawY,
-          //   markWidth,
-          // );
-        };
-        img.crossOrigin = 'anonymous';
-        img.referrerPolicy = 'no-referrer';
-        img.src = image;
-      } else {
-        // drawText(
-        //   canvas,
-        //   ctx,
-        //   drawX,
-        //   drawY,
-        //   drawWidth,
-        //   drawHeight,
-        //   alternateRotateX,
-        //   alternateRotateY,
-        //   alternateDrawX,
-        //   alternateDrawY,
-        //   markWidth,
-        // );
-
+      const drawCanvas = (
+        drawContent?: NonNullable<WatermarkProps['content']> | HTMLImageElement,
+      ) => {
         const [textClips, clipWidth] = getClips(
-          content || '',
+          drawContent || '',
           rotate,
           ratio,
           markWidth,
@@ -294,6 +182,21 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         );
 
         appendWatermark(textClips, clipWidth);
+      };
+
+      if (image) {
+        const img = new Image();
+        img.onload = () => {
+          drawCanvas(img);
+        };
+        img.onerror = () => {
+          drawCanvas(content);
+        };
+        img.crossOrigin = 'anonymous';
+        img.referrerPolicy = 'no-referrer';
+        img.src = image;
+      } else {
+        drawCanvas(content);
       }
     }
   };

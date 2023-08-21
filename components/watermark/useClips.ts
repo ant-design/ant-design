@@ -1,6 +1,6 @@
 import type { WatermarkProps } from '.';
 
-const FontGap = 3;
+export const FontGap = 3;
 
 function prepareCanvas(
   width: number,
@@ -31,7 +31,7 @@ function prepareCanvas(
 export default function useClips() {
   // Get single clips
   function getClips(
-    content: NonNullable<WatermarkProps['content']>,
+    content: NonNullable<WatermarkProps['content']> | HTMLImageElement,
     rotate: number,
     ratio: number,
     width: number,
@@ -40,20 +40,26 @@ export default function useClips() {
     gapX: number,
     gapY: number,
   ): [dataURL: string, finalWidth: number, finalHeight: number] {
-    // ===================== Text =====================
-    const [ctx, canvas, textWidth, textHeight] = prepareCanvas(width, height, ratio);
+    // ================= Text / Image =================
+    const [ctx, canvas, contentWidth, contentHeight] = prepareCanvas(width, height, ratio);
 
-    const { color, fontSize, fontStyle, fontWeight, fontFamily } = font;
-    const mergedFontSize = Number(fontSize) * ratio;
+    if (content instanceof HTMLImageElement) {
+      // Image
+      ctx.drawImage(content, 0, 0, contentWidth, contentHeight);
+    } else {
+      // Text
+      const { color, fontSize, fontStyle, fontWeight, fontFamily } = font;
+      const mergedFontSize = Number(fontSize) * ratio;
 
-    ctx.font = `${fontStyle} normal ${fontWeight} ${mergedFontSize}px/${height}px ${fontFamily}`;
-    ctx.fillStyle = color;
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'top';
-    const contents = Array.isArray(content) ? content : [content];
-    contents?.forEach((item, index) => {
-      ctx.fillText(item ?? '', textWidth / 2, index * (mergedFontSize + FontGap * ratio));
-    });
+      ctx.font = `${fontStyle} normal ${fontWeight} ${mergedFontSize}px/${height}px ${fontFamily}`;
+      ctx.fillStyle = color;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+      const contents = Array.isArray(content) ? content : [content];
+      contents?.forEach((item, index) => {
+        ctx.fillText(item ?? '', contentWidth / 2, index * (mergedFontSize + FontGap * ratio));
+      });
+    }
 
     // ==================== Rotate ====================
     const angle = (Math.PI / 180) * Number(rotate);
@@ -63,7 +69,7 @@ export default function useClips() {
     // Copy from `ctx` and rotate
     rCtx.translate(realMaxSize / 2, realMaxSize / 2);
     rCtx.rotate(angle);
-    rCtx.drawImage(canvas, -textWidth / 2, -textHeight / 2);
+    rCtx.drawImage(canvas, -contentWidth / 2, -contentHeight / 2);
 
     // Get boundary of rotated text
     function getRotatePos(x: number, y: number) {
@@ -77,8 +83,8 @@ export default function useClips() {
     let top = 0;
     let bottom = 0;
 
-    const halfWidth = textWidth / 2;
-    const halfHeight = textHeight / 2;
+    const halfWidth = contentWidth / 2;
+    const halfHeight = contentHeight / 2;
     const points = [
       [0 - halfWidth, 0 - halfHeight],
       [0 + halfWidth, 0 - halfHeight],
@@ -98,11 +104,6 @@ export default function useClips() {
     const cutWidth = right - left;
     const cutHeight = bottom - top;
 
-    // rCtx.restore();
-    // rCtx.translate(realMaxSize / 2, realMaxSize / 2);
-    // rCtx.fillStyle = 'rgba(255, 0,0,0.1)';
-    // rCtx.fillRect(left, top, cutWidth, cutHeight);
-
     // ================ Fill Alternate ================
     const realGapX = gapX * ratio;
     const realGapY = gapY * ratio;
@@ -110,9 +111,6 @@ export default function useClips() {
     const filledHeight = cutHeight + realGapY;
 
     const [fCtx, fCanvas] = prepareCanvas(filledWidth, filledHeight);
-    // document.body.appendChild(canvas);
-    // document.body.appendChild(rCanvas);
-    // document.body.appendChild(fCanvas);
 
     function drawImg(targetX = 0, targetY = 0) {
       fCtx.drawImage(
