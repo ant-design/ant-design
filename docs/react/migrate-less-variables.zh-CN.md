@@ -367,6 +367,10 @@ export default App;
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
+| `@input-number-hover-border-color` | `hoverBorderColor` | - |
+| `@input-number-handler-active-bg` | `handleActiveBg` | - |
+| `@input-number-handler-hover-bg` | `handleHoverBg` | - |
+| `@input-number-handler-border-color` | `handleBorderColor` | - |
 
 ### Layout 布局
 
