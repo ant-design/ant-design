@@ -1,10 +1,11 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import type { InputToken } from '../../input/style';
+import type { SharedComponentToken, SharedInputToken } from '../../input/style';
 import {
   genActiveStyle,
   genBasicInputStyle,
   genHoverStyle,
+  initComponentToken,
   initInputToken,
 } from '../../input/style';
 import { resetComponent, roundedArrow, textEllipsis } from '../../style';
@@ -22,7 +23,7 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
 
-export interface ComponentToken {
+export interface ComponentToken extends Exclude<SharedComponentToken, 'addonBg'> {
   /**
    * @desc 预设区域宽度
    * @descEN Width of preset area
@@ -61,9 +62,9 @@ export type PickerPanelToken = {
   pickerControlIconBorderWidth: number;
 };
 
-type PickerToken = InputToken<FullToken<'DatePicker'>> & PickerPanelToken;
+type PickerToken = FullToken<'DatePicker'> & PickerPanelToken & SharedInputToken;
 
-type SharedPickerToken = Omit<PickerToken, 'zIndexPopup' | 'presetsWidth' | 'presetsMaxWidth'>;
+type SharedPickerToken = TokenWithCommonCls<GlobalToken> & PickerPanelToken;
 
 const genPikerPadding = (
   token: PickerToken,
@@ -951,8 +952,8 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = (token) => {
         [`&${componentCls}-focused, &:focus`]: {
           ...genActiveStyle(
             mergeToken<PickerToken>(token, {
-              inputBorderActiveColor: colorError,
-              inputBorderHoverColor: colorError,
+              activeBorderColor: colorError,
+              hoverBorderColor: colorError,
               controlOutline: colorErrorOutline,
             }),
           ),
@@ -972,8 +973,8 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = (token) => {
         [`&${componentCls}-focused, &:focus`]: {
           ...genActiveStyle(
             mergeToken<PickerToken>(token, {
-              inputBorderActiveColor: colorWarning,
-              inputBorderHoverColor: colorWarning,
+              activeBorderColor: colorWarning,
+              hoverBorderColor: colorWarning,
               controlOutline: colorWarningOutline,
             }),
           ),
@@ -993,7 +994,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     antCls,
     controlHeight,
     fontSize,
-    inputPaddingHorizontal,
+    paddingInline,
     colorBgContainer,
     lineWidth,
     lineType,
@@ -1006,7 +1007,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     controlHeightLG,
     fontSizeLG,
     controlHeightSM,
-    inputPaddingHorizontalSM,
+    paddingInlineSM,
     paddingXS,
     marginXS,
     colorTextDescription,
@@ -1039,7 +1040,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     {
       [componentCls]: {
         ...resetComponent(token),
-        ...genPikerPadding(token, controlHeight, fontSize, inputPaddingHorizontal),
+        ...genPikerPadding(token, controlHeight, fontSize, paddingInline),
         position: 'relative',
         display: 'inline-flex',
         alignItems: 'center',
@@ -1117,7 +1118,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
 
         // Size
         '&-large': {
-          ...genPikerPadding(token, controlHeightLG, fontSizeLG, inputPaddingHorizontal),
+          ...genPikerPadding(token, controlHeightLG, fontSizeLG, paddingInline),
 
           [`${componentCls}-input > input`]: {
             fontSize: fontSizeLG,
@@ -1125,7 +1126,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         },
 
         '&-small': {
-          ...genPikerPadding(token, controlHeightSM, fontSize, inputPaddingHorizontalSM),
+          ...genPikerPadding(token, controlHeightSM, fontSize, paddingInlineSM),
         },
 
         [`${componentCls}-suffix`]: {
@@ -1195,7 +1196,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
 
           // Clear
           [`${componentCls}-clear`]: {
-            insetInlineEnd: inputPaddingHorizontal,
+            insetInlineEnd: paddingInline,
           },
 
           '&:hover': {
@@ -1208,7 +1209,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           [`${componentCls}-active-bar`]: {
             bottom: -lineWidth,
             height: lineWidthBold,
-            marginInlineStart: inputPaddingHorizontal,
+            marginInlineStart: paddingInline,
             background: colorPrimary,
             opacity: 0,
             transition: `all ${motionDurationSlow} ease-out`,
@@ -1229,11 +1230,11 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
 
           [`&${componentCls}-small`]: {
             [`${componentCls}-clear`]: {
-              insetInlineEnd: inputPaddingHorizontalSM,
+              insetInlineEnd: paddingInlineSM,
             },
 
             [`${componentCls}-active-bar`]: {
-              marginInlineStart: inputPaddingHorizontalSM,
+              marginInlineStart: paddingInlineSM,
             },
           },
         },
@@ -1342,7 +1343,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             position: 'absolute',
             zIndex: 1,
             display: 'none',
-            marginInlineStart: inputPaddingHorizontal * 1.5,
+            marginInlineStart: paddingInline * 1.5,
             transition: `left ${motionDurationSlow} ease-out`,
             ...roundedArrow(
               sizePopupArrow,
@@ -1501,10 +1502,7 @@ export const initPickerPanelToken = (token: TokenWithCommonCls<GlobalToken>): Pi
 export default genComponentStyleHook(
   'DatePicker',
   (token) => {
-    const pickerToken = mergeToken<PickerToken>(
-      initInputToken<FullToken<'DatePicker'>>(token),
-      initPickerPanelToken(token),
-    );
+    const pickerToken = mergeToken<PickerToken>(initInputToken(token), initPickerPanelToken(token));
     return [
       genPickerStyle(pickerToken),
       genPickerStatusStyle(pickerToken),
@@ -1517,6 +1515,7 @@ export default genComponentStyleHook(
     ];
   },
   (token) => ({
+    ...initComponentToken(token),
     presetsWidth: 120,
     presetsMaxWidth: 200,
     zIndexPopup: token.zIndexPopupBase + 50,
