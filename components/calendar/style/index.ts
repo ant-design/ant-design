@@ -213,7 +213,7 @@ export default genComponentStyleHook(
   'Calendar',
   (token) => {
     const calendarCls = `${token.componentCls}-calendar`;
-    const calendarToken = mergeToken<CalendarToken>(initPickerPanelToken(token), {
+    const calendarToken = mergeToken<CalendarToken>(token, initPickerPanelToken(token), {
       calendarCls,
       pickerCellInnerCls: `${token.componentCls}-cell-inner`,
       dateValueHeight: token.controlHeightSM,
