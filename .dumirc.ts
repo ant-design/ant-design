@@ -164,7 +164,7 @@ export default defineConfig({
       content: `
 (function createMirrorModal() {
   if (
-    navigator.languages.includes('zh')
+    (navigator.languages.includes('zh') || navigator.languages.includes('zh-CN'))
     && /-cn\\/?$/.test(window.location.pathname)
     && !['ant-design.gitee.io', 'ant-design.antgroup.com'].includes(window.location.hostname)
   ) {
