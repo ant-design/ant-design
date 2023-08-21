@@ -4,10 +4,12 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { SkeletonElementProps } from './Element';
 import useStyle from './style';
+import type { CSSProperties } from 'react';
 
 export interface SkeletonNodeProps extends Omit<SkeletonElementProps, 'size' | 'shape'> {
   fullSize?: boolean;
   children?: React.ReactNode;
+  rootStyle?: CSSProperties;
 }
 
 const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
@@ -18,6 +20,7 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
     style,
     active,
     children,
+    rootStyle,
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
@@ -37,7 +40,7 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
   const content = children ?? <DotChartOutlined />;
 
   return wrapSSR(
-    <div className={cls}>
+    <div className={cls} style={rootStyle}>
       <div className={classNames(`${prefixCls}-image`, className)} style={style}>
         {content}
       </div>
