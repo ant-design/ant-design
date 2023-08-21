@@ -48,7 +48,9 @@
   .mirror-modal-dialog {
     position: fixed;
     inset: 0;
-    margin: auto;
+    top: 120px;
+    margin-left: auto;
+    margin-right: auto;
     width: 400px;
     height: 120px;
     display: flex;
@@ -58,6 +60,7 @@
     border: 1px solid #eee;
     background: #fff;
     padding: 20px 24px;
+    box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
     animation: mirror-zoom-in 0.3s forwards;
   }
 
@@ -91,6 +94,7 @@
     display: inline-flex;
     align-items: center;
     text-decoration: none;
+    transition: all 0.2s;
   }
 
   .mirror-modal-confirm-btn {
