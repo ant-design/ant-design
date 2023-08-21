@@ -1006,7 +1006,7 @@ export const initComponentToken = (token: GlobalToken): SharedComponentToken => 
     fontSizeLG,
     lineHeightLG,
     paddingSM,
-    paddingXS,
+    controlPaddingHorizontalSM,
     controlPaddingHorizontal,
     colorFillAlter,
     colorPrimaryHover,
@@ -1024,7 +1024,7 @@ export const initComponentToken = (token: GlobalToken): SharedComponentToken => 
     paddingBlockLG:
       Math.ceil(((controlHeightLG - fontSizeLG * lineHeightLG) / 2) * 10) / 10 - lineWidth,
     paddingInline: paddingSM - lineWidth,
-    paddingInlineSM: paddingXS - lineWidth,
+    paddingInlineSM: controlPaddingHorizontalSM - lineWidth,
     paddingInlineLG: controlPaddingHorizontal - lineWidth,
     addonBg: colorFillAlter,
     activeBorderColor: colorPrimaryHover,
