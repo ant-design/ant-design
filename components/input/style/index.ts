@@ -6,14 +6,50 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface SharedComponentToken {
+  /**
+   * @desc 输入框横向内边距
+   * @descEN Horizontal padding of input
+   */
   paddingInline: number;
+  /**
+   * @desc 小号输入框横向内边距
+   * @descEN Horizontal padding of small input
+   */
   paddingInlineSM: number;
+  /**
+   * @desc 大号输入框横向内边距
+   * @descEN Horizontal padding of large input
+   */
   paddingInlineLG: number;
+  /**
+   * @desc 输入框纵向内边距
+   * @descEN Vertical padding of input
+   */
   paddingBlock: number;
+  /**
+   * @desc 小号输入框纵向内边距
+   * @descEN Vertical padding of small input
+   */
   paddingBlockSM: number;
+  /**
+   * @desc 大号输入框纵向内边距
+   * @descEN Vertical padding of large input
+   */
   paddingBlockLG: number;
+  /**
+   * @desc 前/后置标签背景色
+   * @descEN Background color of addon
+   */
   addonBg: string;
+  /**
+   * @desc 悬浮态边框色
+   * @descEN Hover border color
+   */
   hoverBorderColor: string;
+  /**
+   * @desc 激活态边框色
+   * @descEN Active border color
+   */
   activeBorderColor: string;
 }
 
@@ -1014,5 +1050,5 @@ export default genComponentStyleHook(
       genCompactItemStyle(inputToken),
     ];
   },
-  initSharedToken,
+  initComponentToken,
 );

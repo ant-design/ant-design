@@ -369,7 +369,8 @@ export default App;
 | --- | --- | --- |
 | `@input-number-hover-border-color` | `hoverBorderColor` | - |
 | `@input-number-handler-active-bg` | `handleActiveBg` | - |
-| `@input-number-handler-hover-bg` | `handleHoverBg` | - |
+| `@input-number-handler-hover-bg` | `handleHoverColor` | 4.x 中命名有误，实际上是 color |
+| `@input-number-handler-bg` | `handleBg` | - |
 | `@input-number-handler-border-color` | `handleBorderColor` | - |
 
 ### Layout 布局

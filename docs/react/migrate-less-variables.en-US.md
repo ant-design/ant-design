@@ -338,7 +338,43 @@ export default App;
 | `@image-preview-operation-color` | `previewOperationColor` | - |
 | `@image-preview-operation-disabled-color` | `previewOperationColorDisabled` | - |
 
-<!-- ### Input -->
+### Input
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@input-height-base` | `controlHeight` | Global Token |
+| `@input-height-lg` | `controlHeightLG` | Global Token |
+| `@input-height-sm` | `controlHeightSM` | Global Token |
+| `@input-padding-horizontal` | `paddingInline` | - |
+| `@input-padding-horizontal-base` | `paddingInline` | - |
+| `@input-padding-horizontal-sm` | `paddingInlineSM` | - |
+| `@input-padding-horizontal-lg` | `paddingInlineLG` | - |
+| `@input-padding-vertical-base` | `paddinBlock` | - |
+| `@input-padding-vertical-sm` | `paddingBlockSM` | - |
+| `@input-padding-vertical-lg` | `paddingBlockLG` | - |
+| `@input-placeholder-color` | `colorTextPlaceholder` | Global Token |
+| `@input-color` | `colorText` | Global Token |
+| `@input-icon-color` | - | 已废弃 |
+| `@input-border-color` | `colorBorder` | Global Token |
+| `@input-bg` | `colorBgContainer` | Global Token |
+| `@input-addon-bg` | `addonBg` | - |
+| `@input-hover-border-color` | `hoverBorderColor` | - |
+| `@input-disabled-bg` | `colorBgContainerDisabled` | Global Token |
+| `@input-outline-offset` | `activeShadow` | Control box-shadow when active |
+| `@input-icon-hover-color` | `colorIconHover` | Global Token |
+| `@input-disabled-color` | `colorTextDisabled` | Global Token |
+
+### InputNumber
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@input-number-hover-border-color` | `hoverBorderColor` | - |
+| `@input-number-handler-active-bg` | `handleActiveBg` | - |
+| `@input-number-handler-hover-bg` | `handleHoverColor` | Wrong usage in 4.x, which is actually text color |
+| `@input-number-handler-bg` | `handleBg` | - |
+| `@input-number-handler-border-color` | `handleBorderColor` | - |
 
 ### Layout
 
