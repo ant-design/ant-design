@@ -7,6 +7,7 @@ import Button from '../button';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 import type { TourStepProps } from './interface';
+import useClosable from '../_util/hooks/useClosable';
 
 function isValidNode(node: ReactNode): boolean {
   return node !== undefined && node !== null;
@@ -50,12 +51,18 @@ const TourPanel: React.FC<TourPanelProps> = ({
 
   const mergedCloseIcon = stepCloseIcon ?? closeIcon;
   const mergedClosable = mergedCloseIcon !== false && mergedCloseIcon !== null;
-  const mergedDisplayCloseIcon =
-    mergedCloseIcon !== undefined && mergedCloseIcon !== true ? (
-      mergedCloseIcon
-    ) : (
-      <CloseOutlined className={`${prefixCls}-close-icon`} />
-    );
+
+  const [closable, mergedDisplayCloseIcon] = useClosable(
+    mergedClosable,
+    mergedCloseIcon,
+    (icon) => (
+      <span onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
+        {icon}
+      </span>
+    ),
+    <CloseOutlined className={`${prefixCls}-close-icon`} />,
+    true,
+  );
 
   const isLastStep = current === total - 1;
 
@@ -115,11 +122,7 @@ const TourPanel: React.FC<TourPanelProps> = ({
   return (
     <div className={classNames(className, `${prefixCls}-content`)}>
       <div className={`${prefixCls}-inner`}>
-        {mergedClosable && (
-          <span onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
-            {mergedDisplayCloseIcon}
-          </span>
-        )}
+        {closable && mergedDisplayCloseIcon}
         {coverNode}
         {headerNode}
         {descriptionNode}
