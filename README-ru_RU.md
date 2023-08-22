@@ -8,7 +8,7 @@
 
 <div align="center">
 
-Мова інтерфейсу корпоративного класу та React UI бібліотека.
+Язык проектирования пользовательского интерфейса корпоративного уровня и библиотека компонентов React.
 
 [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
@@ -45,28 +45,28 @@
 
 [![](https://user-images.githubusercontent.com/507615/209472919-6f7e8561-be8c-4b0b-9976-eb3c692aa20a.png)](https://ant.design)
 
-[English](./README.md) | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md) | Українською | [Spanish](./README-sp_MX.md) | [日本語](./README-ja_JP.md) | [العربية](./README-ar_EG.md) | [Русский](./README-ru_RU.md)
+[English](./README.md) | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md) | [Українською](./README-uk_UA.md) | [Spanish](./README-sp_MX.md) | [日本語](./README-ja_JP.md) | [العربية](./README-ar_EG.md) | Русский
 
-## ✨ Особливості
+## ✨ Особенности
 
-- 🌈 UI корпоративного класу, призначений для веб-додатків.
-- 📦 Набір високоякісних компонентів React з коробки.
-- 🛡 Написано на TypeScript із вбудованими статичними типами.
-- ⚙️ Весь пакет дизайнерських ресурсів та засобів розробки.
-- 🌍 Підтримка інтернаціоналізації для десятків мов.
-- 🎨 Потужне налаштування теми в кожній деталі.
+- 🌈 UI корпоративного класса, предназначенный для веб-приложений.
+- 📦 Набор высококачественных компонентов React «из коробки».
+- 🛡 Написан на TypeScript с предсказуемыми статическими типами.
+- ⚙️ Полный пакет ресурсов для проектирования и инструментов разработки.
+- 🌍 Поддержка интернационализации десятка языков.
+- 🎨 Хорошая настройка темы на основе CSS-in-JS.
 
-## 🖥 Підтримка навколишнього середовища
+## 🖥 Поддержка окружающей среды
 
-- Сучасні браузери
-- Рендеринг на стороні сервера (SSR)
+- Основные браузеры
+- Рендеринг на стороне сервера (SSR)
 - [Electron](https://www.electronjs.org/)
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Electron |
 | --- | --- | --- | --- | --- |
-| Edge | 2 останні версії | 2 останні версії | 2 останні версії | 2 останні версії |
+| Edge | 2 последние версии | 2 последние версии | 2 последние версии | 2 последние версии |
 
-## 📦 Встановлення
+## 📦 Установка
 
 ```bash
 npm install antd
@@ -76,7 +76,7 @@ npm install antd
 yarn add antd
 ```
 
-## 🔨 Використання
+## 🔨 Использование
 
 ```jsx
 import React from 'react';
@@ -92,16 +92,16 @@ const App = () => (
 
 ### TypeScript
 
-`antd` написано на TypeScript із повною типізацією, вибери [Використання у TypeScript](https://ant.design/docs/react/use-in-typescript) щоб розпочати.
+`antd` написан на TypeScript с полной типизацией, выбери [Использование вместе с TypeScript](https://ant.design/docs/react/use-in-typescript) чтобы начать.
 
-## 🌍 Інтернаціоналізація
+## 🌍 Интернационализация
 
-Десятки мов підтримуються в `antd`, дивись [i18n](https://ant.design/docs/react/i18n).
+Десятки языков поддерживаются в `antd`, посмотреть [i18n](https://ant.design/docs/react/i18n).
 
-## 🔗 Посилання
+## 🔗 Ссылки
 
-- [Домашня сторінка](https://ant.design/)
-- [Компоненти](https://ant.design/components/overview)
+- [Домашняя страница](https://ant.design/)
+- [Компоненты](https://ant.design/components/overview)
 - [Ant Design Pro](http://pro.ant.design/)
 - [Change Log](CHANGELOG.en-US.md)
 - [rc-components](http://react-component.github.io/)
@@ -111,23 +111,23 @@ const App = () => (
 - [Ant Design Charts](https://charts.ant.design)
 - [Ant Design Icons](https://github.com/ant-design/ant-design-icons)
 - [Ant Design Colors](https://github.com/ant-design/ant-design-colors)
-- [Лендінги](https://landing.ant.design)
+- [Лендинг](https://landing.ant.design)
 - [Motion](https://motion.ant.design)
 - [Scaffold Market](http://scaffold.ant.design)
-- [Інструкція розробника](https://github.com/ant-design/ant-design/wiki/Development)
-- [Примітка до випуску версій](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
+- [Инструкция для разработчика](https://github.com/ant-design/ant-design/wiki/Development)
+- [Примечание к выпуску версий](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [FAQ](https://ant.design/docs/react/faq)
-- [CodeSandbox темплейт](https://u.ant.design/codesandbox-repro) для звітів про помилки
-- [Кастомізація теми](https://ant.design/docs/react/customize-theme)
-- [Як подати заявку на участь у програмі Співавторства](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
+- [CodeSandbox шаблон](https://u.ant.design/codesandbox-repro) для отчетов об ошибках
+- [Настроить тему](https://ant.design/docs/react/customize-theme)
+- [Как подать заявку на участие в программе Cотрудничества](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
-## ⌨️ Розробка
+## ⌨️ Разработка
 
-Використовуй Gitpod, безкоштовне середовище розробки для GitHub.
+Используйте Gitpod, бесплатную онлайн среду для разработки для GitHub.
 
-[![Відкрити у Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ant-design/ant-design)
+[![Открыть в Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ant-design/ant-design)
 
-Або клонуй локально:
+Или склонируйте локально:
 
 ```bash
 $ git clone git@github.com:ant-design/ant-design.git
@@ -136,19 +136,19 @@ $ npm install
 $ npm start
 ```
 
-Відкрий у браузері http://127.0.0.1:8001, докладніше дивись [Розробка](https://github.com/ant-design/ant-design/wiki/Development).
+Откройте браузер и зайдите на http://127.0.0.1:8001, подробнее смотреть [Разработка](https://github.com/ant-design/ant-design/wiki/Development).
 
 ## 🤝 Контрибьютинг [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-Прочитай наш [посібник контриб'ютора](https://ant.design/docs/react/contributing) і давай будувати кращий antd разом.
+Прочитайте [руководство для контрибьютера](https://ant.design/docs/react/contributing) и давайте вместе построим лучший antd.
 
-Ми вітаємо всі внески. Будь ласка, прочитай наш [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) спочатку. Ти можеш пропонувати будь-які ідеї як [Pull Request](https://github.com/ant-design/ant-design/pulls) або як [GitHub issues](https://github.com/ant-design/ant-design/issues). Якщо ти хочеш вдосконалити код, переглянь [Інструкції з розробки](https://github.com/ant-design/ant-design/wiki/Development) та добре проведи час! :)
+Мы приветствуем любой вклад. Пожалуйста, ознакомьтесь с нашим [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) вначале. Вы можете отправить изменения как [Pull Request](https://github.com/ant-design/ant-design/pulls) или как [GitHub issues](https://github.com/ant-design/ant-design/issues). Если вы хотите улучшить код, ознакомьтесь с [Инструкцией для разработки](https://github.com/ant-design/ant-design/wiki/Development) и хорошо проводите время! :)
 
-Якщо ти співавтор, дотримуйся нашого [Pull Request принципу](https://github.com/ant-design/ant-design/wiki/PR-principle) щоб створити Pull Request за [темплейтом співавтора](https://github.com/ant-design/ant-design/compare?expand=1&template=collaborator.md).
+Если вы являетесь соавтором, пожалуйста, следуйте за нашими [Pull Request правилами](https://github.com/ant-design/ant-design/wiki/PR-principle), чтобы создать Pull Request с [шаблон для соавтора](https://github.com/ant-design/ant-design/compare?expand=1&template=collaborator.md).
 
 [![Let's fund issues in this repository](https://issuehunt.io/static/embed/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
 
-## ❤️ Спонсори та Меценати [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design#support) [![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design#support)
+## ❤️ Спонсоры и сторонники [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design#support) [![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design#support)
 
 [![](https://opencollective.com/ant-design/tiers/sponsors.svg?avatarHeight=36)](https://opencollective.com/ant-design#support)
 
