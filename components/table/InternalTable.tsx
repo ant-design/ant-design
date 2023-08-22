@@ -20,6 +20,7 @@ import Spin from '../spin';
 import type { TooltipProps } from '../tooltip';
 import renderExpandIcon from './ExpandIcon';
 import RcTable from './RcTable';
+import RcVirtualTable from './RcTable/VirtualTable';
 import type { FilterState } from './hooks/useFilter';
 import useFilter, { getFilterData } from './hooks/useFilter';
 import useLazyKVMap from './hooks/useLazyKVMap';
@@ -107,6 +108,7 @@ export interface TableProps<RecordType>
   };
   sortDirections?: SortOrder[];
   showSorterTooltip?: boolean | TooltipProps;
+  virtual?: boolean;
 }
 
 const InternalTable = <RecordType extends AnyObject = AnyObject>(
@@ -141,6 +143,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     sortDirections,
     locale,
     showSorterTooltip = true,
+    virtual,
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
@@ -532,11 +535,13 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     <DefaultRenderEmpty componentName="Table" />
   );
 
+  const TableComponent = virtual ? RcVirtualTable : RcTable;
+
   return wrapSSR(
     <div ref={ref} className={wrapperClassNames} style={mergedStyle}>
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
-        <RcTable<RecordType>
+        <TableComponent
           {...tableProps}
           columns={mergedColumns as RcTableProps<RecordType>['columns']}
           direction={direction}

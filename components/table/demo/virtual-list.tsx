@@ -1,140 +1,94 @@
-import classNames from 'classnames';
-import ResizeObserver from 'rc-resize-observer';
-import React, { useEffect, useRef, useState } from 'react';
-import { VariableSizeGrid as Grid } from 'react-window';
-import { Table, theme } from 'antd';
+import React from 'react';
+import { Space, Table, Typography } from 'antd';
 import type { TableProps } from 'antd';
 
-const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) => {
-  const { columns, scroll } = props;
-  const [tableWidth, setTableWidth] = useState(0);
-  const { token } = theme.useToken();
+interface RecordType {
+  id: number;
+  firstName: string;
+  lastName: string;
+  age: number;
+  address1: string;
+  address2: string;
+  address3: string;
+}
 
-  const widthColumnCount = columns!.filter(({ width }) => !width).length;
-  const mergedColumns = columns!.map((column) => {
-    if (column.width) {
-      return column;
-    }
-
-    return {
-      ...column,
-      width: Math.floor(tableWidth / widthColumnCount),
-    };
-  });
-
-  const gridRef = useRef<any>();
-  const [connectObject] = useState<any>(() => {
-    const obj = {};
-    Object.defineProperty(obj, 'scrollLeft', {
-      get: () => {
-        if (gridRef.current) {
-          return gridRef.current?.state?.scrollLeft;
-        }
-        return null;
-      },
-      set: (scrollLeft: number) => {
-        if (gridRef.current) {
-          gridRef.current.scrollTo({ scrollLeft });
-        }
-      },
-    });
-
-    return obj;
-  });
-
-  const resetVirtualGrid = () => {
-    gridRef.current?.resetAfterIndices({
-      columnIndex: 0,
-      shouldForceUpdate: true,
-    });
-  };
-
-  useEffect(() => resetVirtualGrid, [tableWidth]);
-
-  const renderVirtualList = (rawData: readonly object[], { scrollbarSize, ref, onScroll }: any) => {
-    ref.current = connectObject;
-    const totalHeight = rawData.length * 54;
-
-    return (
-      <Grid
-        ref={gridRef}
-        className="virtual-grid"
-        columnCount={mergedColumns.length}
-        columnWidth={(index: number) => {
-          const { width } = mergedColumns[index];
-          return totalHeight > (scroll?.y as number) && index === mergedColumns.length - 1
-            ? (width as number) - scrollbarSize - 1
-            : (width as number);
-        }}
-        height={scroll!.y as number}
-        rowCount={rawData.length}
-        rowHeight={() => 54}
-        width={tableWidth}
-        onScroll={({ scrollLeft }: { scrollLeft: number }) => {
-          onScroll({ scrollLeft });
-        }}
-      >
-        {({
-          columnIndex,
-          rowIndex,
-          style,
-        }: {
-          columnIndex: number;
-          rowIndex: number;
-          style: React.CSSProperties;
-        }) => (
-          <div
-            className={classNames('virtual-table-cell', {
-              'virtual-table-cell-last': columnIndex === mergedColumns.length - 1,
-            })}
-            style={{
-              ...style,
-              boxSizing: 'border-box',
-              padding: token.padding,
-              borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
-              background: token.colorBgContainer,
-            }}
-          >
-            {(rawData[rowIndex] as any)[(mergedColumns as any)[columnIndex].dataIndex]}
-          </div>
-        )}
-      </Grid>
-    );
-  };
-
-  return (
-    <ResizeObserver
-      onResize={({ width }) => {
-        setTableWidth(width);
-      }}
-    >
-      <Table
-        {...props}
-        className="virtual-table"
-        columns={mergedColumns}
-        pagination={false}
-        components={{
-          body: renderVirtualList,
-        }}
-      />
-    </ResizeObserver>
-  );
-};
-
-// Usage
-const columns = [
-  { title: 'A', dataIndex: 'key', width: 150 },
-  { title: 'B', dataIndex: 'key' },
-  { title: 'C', dataIndex: 'key' },
-  { title: 'D', dataIndex: 'key' },
-  { title: 'E', dataIndex: 'key', width: 200 },
-  { title: 'F', dataIndex: 'key', width: 100 },
+const columns: TableProps<RecordType>['columns'] = [
+  {
+    title: 'ID',
+    dataIndex: 'id',
+    width: 100,
+    fixed: 'left',
+  },
+  {
+    title: 'FistName',
+    dataIndex: 'firstName',
+    width: 120,
+    fixed: 'left',
+  },
+  {
+    title: 'LastName',
+    dataIndex: 'lastName',
+    width: 120,
+    fixed: 'left',
+  },
+  {
+    title: 'Group',
+    width: 120,
+    render: (_, record) => `Group ${Math.floor(record.id / 4)}`,
+    onCell: (record) => ({
+      rowSpan: record.id % 4 === 0 ? 4 : 0,
+    }),
+  },
+  {
+    title: 'Age',
+    dataIndex: 'age',
+    width: 100,
+  },
+  {
+    title: 'Address 1',
+    dataIndex: 'address1',
+  },
+  {
+    title: 'Address 2',
+    dataIndex: 'address2',
+  },
+  {
+    title: 'Address 3',
+    dataIndex: 'address3',
+  },
+  {
+    title: 'Action',
+    width: 150,
+    fixed: 'right',
+    render: () => (
+      <Space>
+        <Typography.Link>Action1</Typography.Link>
+        <Typography.Link>Action2</Typography.Link>
+      </Space>
+    ),
+  },
 ];
 
-const data = Array.from({ length: 100000 }, (_, key) => ({ key }));
+const data: RecordType[] = new Array(10000).fill(null).map((_, index) => ({
+  id: index,
+  firstName: `First_${index.toString(16)}`,
+  lastName: `Last_${index.toString(16)}`,
+  age: 25 + (index % 10),
+  address1: `New York No. ${index} Lake Park`,
+  address2: `London No. ${index} Lake Park`,
+  address3: `Sydney No. ${index} Lake Park`,
+}));
 
-const App: React.FC = () => (
-  <VirtualTable columns={columns} dataSource={data} scroll={{ y: 300, x: '100vw' }} />
+const App = () => (
+  <Table
+    bordered
+    virtual
+    columns={columns}
+    scroll={{ x: 2500, y: 400 }}
+    rowKey="id"
+    dataSource={data}
+    pagination={false}
+  />
 );
 
 export default App;

@@ -5,10 +5,3 @@
 ## en-US
 
 Integrate virtual scroll with `react-window` to achieve a high performance table of 100,000 data.
-
-<style>
-  .virtual-table .ant-table-container:before,
-  .virtual-table .ant-table-container:after {
-    display: none;
-  }
-</style>
