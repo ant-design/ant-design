@@ -2,11 +2,11 @@ import classNames from 'classnames';
 
 import type { FlexProps } from './interface';
 
-const directionValues = ['row', 'row-reverse', 'column', 'column-reverse'] as const;
+export const flexDirectionValues = ['row', 'row-reverse', 'column', 'column-reverse'] as const;
 
-const wrapValues = ['wrap', 'nowrap', 'wrap-reverse'] as const;
+export const flexWrapValues = ['wrap', 'nowrap', 'wrap-reverse'] as const;
 
-const justifyValues = [
+export const justifyContentValues = [
   'flex-start',
   'flex-end',
   'start',
@@ -21,7 +21,7 @@ const justifyValues = [
   'right',
 ] as const;
 
-const alignValues = [
+export const alignItemsValues = [
   'center',
   'start',
   'end',
@@ -36,7 +36,7 @@ const alignValues = [
 
 const genClsWrap = (prefixCls: string, wrap: React.CSSProperties['flexWrap']) => {
   const wrapCls: Record<PropertyKey, boolean> = {};
-  wrapValues.forEach((cssKey) => {
+  flexWrapValues.forEach((cssKey) => {
     wrapCls[`${prefixCls}-${cssKey}`] = wrap === cssKey;
   });
   return wrapCls;
@@ -44,7 +44,7 @@ const genClsWrap = (prefixCls: string, wrap: React.CSSProperties['flexWrap']) =>
 
 const genClsAlign = (prefixCls: string, align: React.CSSProperties['alignItems']) => {
   const alignCls: Record<PropertyKey, boolean> = {};
-  alignValues.forEach((cssKey) => {
+  alignItemsValues.forEach((cssKey) => {
     alignCls[`${prefixCls}-align-${cssKey}`] = align === cssKey;
   });
   return alignCls;
@@ -52,7 +52,7 @@ const genClsAlign = (prefixCls: string, align: React.CSSProperties['alignItems']
 
 const genClsJustify = (prefixCls: string, justify: React.CSSProperties['justifyContent']) => {
   const justifyCls: Record<PropertyKey, boolean> = {};
-  justifyValues.forEach((cssKey) => {
+  justifyContentValues.forEach((cssKey) => {
     justifyCls[`${prefixCls}-justify-${cssKey}`] = justify === cssKey;
   });
   return justifyCls;
@@ -60,7 +60,7 @@ const genClsJustify = (prefixCls: string, justify: React.CSSProperties['justifyC
 
 const genClsDirection = (prefixCls: string, direction: React.CSSProperties['flexDirection']) => {
   const directionCls: Record<PropertyKey, boolean> = {};
-  directionValues.forEach((cssKey) => {
+  flexDirectionValues.forEach((cssKey) => {
     directionCls[`${prefixCls}-direction-${cssKey}`] = direction === cssKey;
   });
   return directionCls;
