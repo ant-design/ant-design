@@ -362,10 +362,6 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
           flexWrap: 'nowrap',
         },
 
-        '&-with-help': {
-          marginBottom: token.marginLG,
-        },
-
         [`> ${formItemCls}-label,
         > ${formItemCls}-control`]: {
           display: 'inline-block',
