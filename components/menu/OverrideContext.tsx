@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { NoCompactStyle } from '../space/Compact';
 import type { MenuProps } from './menu';
+import { supportRef } from 'rc-util/lib/ref';
 
 // Used for Dropdown only
 export interface OverrideContextProps {
@@ -34,9 +35,17 @@ export const OverrideProvider = React.forwardRef<
     ],
   );
 
+  const shouldRef =
+    typeof children !== 'string' &&
+    typeof children !== 'number' &&
+    typeof children !== 'boolean' &&
+    supportRef(children);
+
   return (
     <OverrideContext.Provider value={context}>
-      <NoCompactStyle>{React.cloneElement(children as React.ReactElement, { ref })}</NoCompactStyle>
+      <NoCompactStyle>
+        {shouldRef ? React.cloneElement(children as React.ReactElement, { ref }) : children}
+      </NoCompactStyle>
     </OverrideContext.Provider>
   );
 });
