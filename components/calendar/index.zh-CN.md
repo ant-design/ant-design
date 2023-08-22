@@ -20,10 +20,13 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 <code src="./demo/notice-calendar.tsx" clientOnly>通知事项日历</code>
 <code src="./demo/card.tsx" clientOnly>卡片模式</code>
 <code src="./demo/select.tsx" clientOnly>选择功能</code>
+<code src="./demo/lunar.tsx" clientOnly>农历日历</code>
 <code src="./demo/customize-header.tsx" clientOnly>自定义头部</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 **注意**：Calendar 部分 locale 是从 value 中读取，所以请先正确设置 dayjs 的 locale。
 

@@ -1,5 +1,5 @@
-import React from 'react';
 import { SettingOutlined } from '@ant-design/icons';
+import React from 'react';
 import { Cascader, InputNumber, Select, Space } from 'antd';
 
 const { Option } = Select;
@@ -27,6 +27,21 @@ const App: React.FC = () => (
     <InputNumber
       addonBefore={<Cascader placeholder="cascader" style={{ width: 150 }} />}
       defaultValue={100}
+    />
+    <InputNumber
+      addonBefore="+"
+      addonAfter={<SettingOutlined />}
+      defaultValue={100}
+      disabled
+      controls
+    />
+    <InputNumber
+      prefix="¥"
+      addonBefore="+"
+      addonAfter={<SettingOutlined />}
+      defaultValue={100}
+      disabled
+      controls
     />
   </Space>
 );

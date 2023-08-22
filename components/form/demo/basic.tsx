@@ -9,6 +9,12 @@ const onFinishFailed = (errorInfo: any) => {
   console.log('Failed:', errorInfo);
 };
 
+type FieldType = {
+  username?: string;
+  password?: string;
+  remember?: string;
+};
+
 const App: React.FC = () => (
   <Form
     name="basic"
@@ -20,7 +26,7 @@ const App: React.FC = () => (
     onFinishFailed={onFinishFailed}
     autoComplete="off"
   >
-    <Form.Item
+    <Form.Item<FieldType>
       label="Username"
       name="username"
       rules={[{ required: true, message: 'Please input your username!' }]}
@@ -28,7 +34,7 @@ const App: React.FC = () => (
       <Input />
     </Form.Item>
 
-    <Form.Item
+    <Form.Item<FieldType>
       label="Password"
       name="password"
       rules={[{ required: true, message: 'Please input your password!' }]}
@@ -36,7 +42,11 @@ const App: React.FC = () => (
       <Input.Password />
     </Form.Item>
 
-    <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
+    <Form.Item<FieldType>
+      name="remember"
+      valuePropName="checked"
+      wrapperCol={{ offset: 8, span: 16 }}
+    >
       <Checkbox>Remember me</Checkbox>
     </Form.Item>
 

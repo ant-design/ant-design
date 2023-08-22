@@ -1,5 +1,5 @@
-import { ConfigProvider, Skeleton } from 'antd';
 import React from 'react';
+import { ConfigProvider, Skeleton } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider

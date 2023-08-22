@@ -32,6 +32,8 @@ Display global messages as feedback in response to user operations.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 This component provides some static methods, with usage and arguments as following:
 
 - `message.success(content, [duration], onClose)`
@@ -103,7 +105,7 @@ message.config({
 | Argument | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | duration | Time before auto-dismiss, in seconds | number | 3 |  |
-| getContainer | Return the mount node for Message | () => HTMLElement | () => document.body |  |
+| getContainer | Return the mount node for Message, but still display at fullScreen | () => HTMLElement | () => document.body |  |
 | maxCount | Max message show, drop oldest if exceed limit | number | - |  |
 | prefixCls | The prefix className of message node | string | `ant-message` | 4.5.0 |
 | rtl | Whether to enable RTL mode | boolean | false |  |

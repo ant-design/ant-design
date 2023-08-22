@@ -1,3 +1,5 @@
+'use client';
+
 import type { ModalStaticFunctions } from './confirm';
 import confirm, {
   modalGlobalConfig,
@@ -8,12 +10,12 @@ import confirm, {
   withWarn,
 } from './confirm';
 import destroyFns from './destroyFns';
-import type { ModalFuncProps } from './Modal';
+import type { ModalFuncProps } from './interface';
 import OriginModal from './Modal';
 import PurePanel from './PurePanel';
 import useModal from './useModal';
 
-export type { ModalFuncProps, ModalProps } from './Modal';
+export type { ModalFuncProps, ModalLocale, ModalProps } from './interface';
 
 function modalWarn(props: ModalFuncProps) {
   return confirm(withWarn(props));

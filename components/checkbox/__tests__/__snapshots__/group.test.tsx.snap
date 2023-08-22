@@ -8,7 +8,7 @@ exports[`CheckboxGroup passes prefixCls down to checkbox 1`] = `
     class="my-checkbox-wrapper my-checkbox-group-item"
   >
     <span
-      class="my-checkbox"
+      class="my-checkbox ant-wave-target"
     >
       <input
         class="my-checkbox-input"
@@ -28,7 +28,7 @@ exports[`CheckboxGroup passes prefixCls down to checkbox 1`] = `
     style="font-size: 12px;"
   >
     <span
-      class="my-checkbox"
+      class="my-checkbox ant-wave-target"
     >
       <input
         class="my-checkbox-input"

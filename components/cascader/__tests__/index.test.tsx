@@ -1,14 +1,14 @@
-import React from 'react';
 import type { SingleValueType } from 'rc-cascader/lib/Cascader';
+import React from 'react';
 import type { BaseOptionType, DefaultOptionType } from '..';
 import Cascader from '..';
 import excludeAllWarning from '../../../tests/shared/excludeWarning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import ConfigProvider from '../../config-provider';
 import { fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import ConfigProvider from '../../config-provider';
 
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
 
@@ -714,5 +714,18 @@ describe('Cascader', () => {
     expect(container.querySelectorAll('.ant-cascader-checkbox')).toHaveLength(4);
     fireEvent.click(container.querySelector('.ant-cascader-checkbox')!);
     expect(container.querySelectorAll('.ant-cascader-checkbox-checked')).toHaveLength(3);
+  });
+
+  it('deprecate showArrow', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<Cascader showArrow />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Cascader] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+    );
+    expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
+
+    errSpy.mockRestore();
   });
 });

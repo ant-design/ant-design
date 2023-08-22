@@ -17,11 +17,11 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -464,11 +464,11 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -1582,6 +1582,8 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
 </div>
 `;
 
+exports[`renders components/calendar/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] = `
 <div
   style="width: 300px; border: 1px solid #f0f0f0; border-radius: 8px;"
@@ -1602,11 +1604,11 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -2049,11 +2051,11 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -3168,6 +3170,8 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
 </div>
 `;
 
+exports[`renders components/calendar/demo/card.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/calendar/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -3186,11 +3190,11 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -3633,11 +3637,11 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -4766,11 +4770,11 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -5213,11 +5217,11 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -6332,6 +6336,8 @@ Array [
 ]
 `;
 
+exports[`renders components/calendar/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/calendar/demo/customize-header.tsx extend context correctly 1`] = `
 <div
   style="width: 300px; border: 1px solid #f0f0f0; border-radius: 8px;"
@@ -6413,11 +6419,11 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                   aria-autocomplete="list"
                   aria-controls="rc_select_TEST_OR_SSR_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
+                  aria-label="Search"
                   aria-owns="rc_select_TEST_OR_SSR_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
@@ -6885,11 +6891,11 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                   aria-autocomplete="list"
                   aria-controls="rc_select_TEST_OR_SSR_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
+                  aria-label="Search"
                   aria-owns="rc_select_TEST_OR_SSR_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
@@ -7967,6 +7973,12 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
 </div>
 `;
 
+exports[`renders components/calendar/demo/customize-header.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Select] \`dropdownMatchSelectWidth\` is deprecated. Please use \`popupMatchSelectWidth\` instead.",
+]
+`;
+
 exports[`renders components/calendar/demo/notice-calendar.tsx extend context correctly 1`] = `
 <div
   class="ant-picker-calendar ant-picker-calendar-full"
@@ -7984,11 +7996,11 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -8431,11 +8443,11 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -9270,7 +9282,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                           <span
                             class="ant-badge-status-text"
                           >
-                            This is very long usual event。。....
+                            This is very long usual event......
                           </span>
                         </span>
                       </li>
@@ -9946,6 +9958,8 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
 </div>
 `;
 
+exports[`renders components/calendar/demo/notice-calendar.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/calendar/demo/select.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -9979,11 +9993,11 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -10426,11 +10440,11 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -11544,3 +11558,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/calendar/demo/select.tsx extend context correctly 2`] = `[]`;

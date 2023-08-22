@@ -27,8 +27,11 @@ A simple text popup tip.
 <code src="./demo/colorful.tsx">Colorful Tooltip</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug.tsx" debug>Debug</code>
+<code src="./demo/disabled.tsx" debug>Disabled</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description                   | Type                         | Default |
 | -------- | ----------------------------- | ---------------------------- | ------- |
@@ -62,6 +65,16 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 
 <ComponentTokenTable component="Tooltip"></ComponentTokenTable>
 
-## Note
+## FAQ
 
-Please ensure that the child node of `Tooltip` accepts `onMouseEnter`, `onMouseLeave`, `onFocus`, `onClick` events.
+### Why sometime not work on HOC?
+
+Please ensure that the child node of `Tooltip` accepts `onMouseEnter`, `onMouseLeave`, `onPointerEnter`, `onPointerLeave`, `onFocus`, `onClick` events.
+
+### What's the placement logic?
+
+It will follow `placement` config when screen has enough space. And flip when space is not enough (Such as `top` to `bottom` or `topLeft` to `bottomLeft`). Single direction such as `top` `bottom` `left` `right` will auto shift on the view:
+
+<img alt="shift" height="200" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sxaTTJjLtIMAAAAAAAAAAAAADrJ8AQ/original" />
+
+When `placement` is set to edge align such as `topLeft` `bottomRight`, it will only do flip but not do shift.

@@ -33,6 +33,8 @@ Segmented Controls. This component is available since `antd@4.20.0`.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 > This component is available since `antd@4.20.0`
 
 | Property | Description | Type | Default | Version |

@@ -1,22 +1,44 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { PickerPanelToken } from '../../date-picker/style';
 import { genPanelStyle, initPickerPanelToken } from '../../date-picker/style';
-import type { InputToken } from '../../input/style';
-import { initInputToken } from '../../input/style';
 import { resetComponent } from '../../style';
 import type { FullToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
+  /**
+   * @desc 年选择器宽度
+   * @descEN Width of year select
+   */
   yearControlWidth: number;
+  /**
+   * @desc 月选择器宽度
+   * @descEN Width of month select
+   */
   monthControlWidth: number;
+  /**
+   * @desc 迷你日历内容高度
+   * @descEN Height of mini calendar content
+   */
   miniContentHeight: number;
+  /**
+   * @desc 完整日历背景色
+   * @descEN Background color of full calendar
+   */
   fullBg: string;
+  /**
+   * @desc 完整日历面板背景色
+   * @descEN Background color of full calendar panel
+   */
   fullPanelBg: string;
+  /**
+   * @desc 日期项选中背景色
+   * @descEN Background color of selected date item
+   */
   itemActiveBg: string;
 }
 
-interface CalendarToken extends InputToken<FullToken<'Calendar'>>, PickerPanelToken {
+interface CalendarToken extends FullToken<'Calendar'>, PickerPanelToken {
   calendarCls: string;
   dateValueHeight: number;
   weekHeight: number;
@@ -191,18 +213,14 @@ export default genComponentStyleHook(
   'Calendar',
   (token) => {
     const calendarCls = `${token.componentCls}-calendar`;
-    const calendarToken = mergeToken<CalendarToken>(
-      initInputToken<FullToken<'Calendar'>>(token),
-      initPickerPanelToken(token),
-      {
-        calendarCls,
-        pickerCellInnerCls: `${token.componentCls}-cell-inner`,
-        dateValueHeight: token.controlHeightSM,
-        weekHeight: token.controlHeightSM * 0.75,
-        dateContentHeight:
-          (token.fontSizeSM * token.lineHeightSM + token.marginXS) * 3 + token.lineWidth * 2,
-      },
-    );
+    const calendarToken = mergeToken<CalendarToken>(token, initPickerPanelToken(token), {
+      calendarCls,
+      pickerCellInnerCls: `${token.componentCls}-cell-inner`,
+      dateValueHeight: token.controlHeightSM,
+      weekHeight: token.controlHeightSM * 0.75,
+      dateContentHeight:
+        (token.fontSizeSM * token.lineHeightSM + token.marginXS) * 3 + token.lineWidth * 2,
+    });
 
     return [genCalendarStyles(calendarToken)];
   },

@@ -1,15 +1,15 @@
+import type { ValidateMessages } from 'rc-field-form/es/interface';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import scrollIntoView from 'scroll-into-view-if-needed';
-import type { ValidateMessages } from 'rc-field-form/es/interface';
-import Button from '../../button';
 import ConfigProvider from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import Button from '../../button';
 import type { FormInstance } from '../../form';
 import Form from '../../form';
 import Input from '../../input';
-import zhCN from '../../locale/zh_CN';
 import InputNumber from '../../input-number';
+import zhCN from '../../locale/zh_CN';
 
 jest.mock('scroll-into-view-if-needed');
 
@@ -147,6 +147,42 @@ describe('ConfigProvider.Form', () => {
       expect(container.querySelectorAll('.ant-form-item-explain')[1]).toHaveTextContent(
         'age must be between 18-99',
       );
+    });
+
+    // https://github.com/ant-design/ant-design/issues/43210
+    it('should merge parent ConfigProvider validateMessages', async () => {
+      const MyForm = () => (
+        <Form>
+          <Form.Item name="name" label="Name" rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form>
+      );
+
+      const { container, getAllByRole, getAllByText } = render(
+        <ConfigProvider>
+          <MyForm />
+          <ConfigProvider form={{ validateMessages: { required: 'Required' } }}>
+            <MyForm />
+            <ConfigProvider>
+              <MyForm />
+            </ConfigProvider>
+          </ConfigProvider>
+        </ConfigProvider>,
+      );
+
+      const submitButtons = getAllByRole('button');
+      expect(submitButtons).toHaveLength(3);
+      submitButtons.forEach(fireEvent.click);
+
+      await waitFakeTimer();
+
+      expect(container.querySelectorAll('.ant-form-item-explain-error')).toHaveLength(3);
+      expect(getAllByText('Please enter Name')).toHaveLength(1);
+      expect(getAllByText('Required')).toHaveLength(2);
     });
   });
 

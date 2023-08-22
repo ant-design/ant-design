@@ -29,9 +29,12 @@ Radio.
 <code src="./demo/radiobutton-solid.tsx">Solid radio button</code>
 <code src="./demo/badge.tsx" debug>Badge style</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 <!-- prettier-ignore-end -->
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Radio/Radio.Button
 

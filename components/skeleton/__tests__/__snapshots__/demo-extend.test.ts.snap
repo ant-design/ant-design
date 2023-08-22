@@ -24,6 +24,8 @@ exports[`renders components/skeleton/demo/active.tsx extend context correctly 1`
 </div>
 `;
 
+exports[`renders components/skeleton/demo/active.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/skeleton/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-skeleton"
@@ -47,6 +49,8 @@ exports[`renders components/skeleton/demo/basic.tsx extend context correctly 1`]
   </div>
 </div>
 `;
+
+exports[`renders components/skeleton/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/skeleton/demo/children.tsx extend context correctly 1`] = `
 <div
@@ -81,6 +85,8 @@ exports[`renders components/skeleton/demo/children.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/skeleton/demo/children.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/skeleton/demo/complex.tsx extend context correctly 1`] = `
 <div
   class="ant-skeleton ant-skeleton-with-avatar"
@@ -111,6 +117,8 @@ exports[`renders components/skeleton/demo/complex.tsx extend context correctly 1
 </div>
 `;
 
+exports[`renders components/skeleton/demo/complex.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/skeleton/demo/componentToken.tsx extend context correctly 1`] = `
 <div
   class="ant-skeleton ant-skeleton-active"
@@ -134,6 +142,8 @@ exports[`renders components/skeleton/demo/componentToken.tsx extend context corr
   </div>
 </div>
 `;
+
+exports[`renders components/skeleton/demo/componentToken.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/skeleton/demo/element.tsx extend context correctly 1`] = `
 Array [
@@ -673,6 +683,8 @@ Array [
 ]
 `;
 
+exports[`renders components/skeleton/demo/element.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/skeleton/demo/list.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -801,3 +813,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/skeleton/demo/list.tsx extend context correctly 2`] = `[]`;

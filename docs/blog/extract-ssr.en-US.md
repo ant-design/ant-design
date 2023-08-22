@@ -53,7 +53,7 @@ It worked well at the beginning, and the official website of antd directly suppo
 And when most components are converted to CSS-in-JS, inline styles can become huge. So we removed the automatic inlining function in the later stage, and converted it to a form that needs to be collected manually:
 
 ```tsx
-import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
 import { renderToString } from 'react-dom/server';
 
 const cache = createCache();
@@ -139,7 +139,7 @@ if (!fs.existsSync(cssFileName)) {
 Then add the corresponding CSS file on the HTML template side:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <link rel="stylesheet" href="${hashCssFileUrl}" />
@@ -150,7 +150,7 @@ Then add the corresponding CSS file on the HTML template side:
 </html>
 ```
 
-Click [here](https://github.com/ant-design/create-next-app-antd/tree/generate-css-on-demand) for complete implementation.
+Click [here](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-generate-css-on-demand) for complete implementation.
 
 Corresponding CSS will be generated when visiting different pages, and each CSS will have its corresponding Hash value. When the Hash hits, it means that the CSS file has been placed on the disk and can be used directly. Then, for the client, it is a normal CSS file access and also enjoys the caching capability.
 

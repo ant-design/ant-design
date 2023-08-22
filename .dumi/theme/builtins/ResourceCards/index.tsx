@@ -1,12 +1,10 @@
 import React from 'react';
-import { Col, Row, Tooltip } from 'antd';
-import { css } from '@emotion/react';
+import { createStyles } from 'antd-style';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { Col, Row, Tooltip } from 'antd';
 import useLocale from '../../../hooks/useLocale';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
+const useStyle = createStyles(({ token, css }) => {
   const { boxShadowSecondary } = token;
 
   return {
@@ -60,7 +58,7 @@ const useStyle = () => {
       line-height: 22px;
     `,
   };
-};
+});
 
 export type Resource = {
   title: string;
@@ -88,7 +86,7 @@ export type ResourceCardProps = {
 };
 
 const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
-  const styles = useStyle();
+  const { styles } = useStyle();
   const [locale] = useLocale(locales);
 
   const { title: titleStr, description, cover, src, official } = resource;
@@ -104,25 +102,25 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
 
   return (
     <Col xs={24} sm={12} md={8} lg={6} style={{ padding: 12 }}>
-      <a css={styles.card} target="_blank" href={src} rel="noreferrer">
+      <a className={styles.card} target="_blank" href={src} rel="noreferrer">
         <img
-          css={styles.image}
+          className={styles.image}
           src={cover}
           alt={title}
           style={coverColor ? { backgroundColor: coverColor } : {}}
         />
         {official ? (
-          <div css={styles.badge}>{locale.official}</div>
+          <div className={styles.badge}>{locale.official}</div>
         ) : (
           <Tooltip title={locale.thirdPartDesc}>
-            <div css={styles.badge}>
+            <div className={styles.badge}>
               <ExclamationCircleOutlined />
               {locale.thirdPart}
             </div>
           </Tooltip>
         )}
-        <p css={styles?.title}>{title}</p>
-        <p css={styles.description}>{description}</p>
+        <p className={styles?.title}>{title}</p>
+        <p className={styles.description}>{description}</p>
       </a>
     </Col>
   );

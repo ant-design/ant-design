@@ -1,10 +1,10 @@
 import React from 'react';
-import { Calendar } from 'antd';
 import type { Dayjs } from 'dayjs';
-import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
+import { Calendar } from 'antd';
+import type { CalendarProps } from 'antd';
 
 const App: React.FC = () => {
-  const onPanelChange = (value: Dayjs, mode: CalendarMode) => {
+  const onPanelChange = (value: Dayjs, mode: CalendarProps<Dayjs>['mode']) => {
     console.log(value.format('YYYY-MM-DD'), mode);
   };
 

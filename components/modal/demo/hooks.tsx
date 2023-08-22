@@ -22,8 +22,9 @@ const App: React.FC = () => {
     <ReachableContext.Provider value="Light">
       <Space>
         <Button
-          onClick={() => {
-            modal.confirm(config);
+          onClick={async () => {
+            const confirmed = await modal.confirm(config);
+            console.log('Confirmed: ', confirmed);
           }}
         >
           Confirm
@@ -36,14 +37,14 @@ const App: React.FC = () => {
           Warning
         </Button>
         <Button
-          onClick={() => {
+          onClick={async () => {
             modal.info(config);
           }}
         >
           Info
         </Button>
         <Button
-          onClick={() => {
+          onClick={async () => {
             modal.error(config);
           }}
         >
