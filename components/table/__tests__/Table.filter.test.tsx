@@ -2835,7 +2835,7 @@ describe('Table.filter', () => {
     );
   });
 
-  it.only('should not crash when filterDropdown is boolean', () => {
+  it('should not crash when filterDropdown is boolean', () => {
     const tableProps = {
       key: 'stabletable',
       rowKey: 'name',
