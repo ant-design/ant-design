@@ -9,7 +9,7 @@ import type { FlexProps } from './interface';
 import useStyle from './style';
 import createContainer from './utils';
 
-const FlexContainer = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
+const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     rootClassName,
@@ -50,4 +50,4 @@ const FlexContainer = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
   );
 });
 
-export default FlexContainer;
+export default FlexBox;
