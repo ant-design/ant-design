@@ -23,7 +23,24 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
 
-export interface ComponentToken extends Exclude<SharedComponentToken, 'addonBg'> {
+export interface PanelComponentToken {
+  cellHoverColor: string;
+  cellActiveWithRangeColor: string;
+  cellHoverWithRangeColor: string;
+  cellBgDisabled: string;
+  dateHoverRangeBorderColor: string;
+  timeColumnWidth: number;
+  timeColumnHeight: number;
+  timeCellHeight: number;
+  cellHeight: number;
+  cellWidth: number;
+  textHeight: number;
+  withoutTimeCellHeight: number;
+}
+
+export interface ComponentToken
+  extends Exclude<SharedComponentToken, 'addonBg'>,
+    PanelComponentToken {
   /**
    * @desc 预设区域宽度
    * @descEN Width of preset area
@@ -39,17 +56,6 @@ export interface ComponentToken extends Exclude<SharedComponentToken, 'addonBg'>
    * @descEN z-index of popup
    */
   zIndexPopup: number;
-  basicCellHoverColor: string;
-  basicCellActiveWithRangeColor: string;
-  basicCellHoverWithRangeColor: string;
-  dateHoverRangeBorderColor: string;
-  timePanelColumnWidth: number;
-  timePanelColumnHeight: number;
-  timePanelCellHeight: number;
-  panelCellWidth: number;
-  panelCellHeight: number;
-  textHeight: number;
-  panelWithoutTimeCellHeight: number;
 }
 
 export type PickerPanelToken = {
@@ -66,7 +72,7 @@ export type PickerPanelToken = {
 
 type PickerToken = FullToken<'DatePicker'> & PickerPanelToken & SharedInputToken;
 
-type SharedPickerToken = TokenWithCommonCls<GlobalToken> & PickerPanelToken;
+type SharedPickerToken = TokenWithCommonCls<GlobalToken> & PickerPanelToken & PanelComponentToken;
 
 const genPikerPadding = (
   token: PickerToken,
@@ -90,23 +96,23 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
     componentCls,
     pickerCellCls,
     pickerCellInnerCls,
-    panelCellHeight,
+    cellHeight,
     motionDurationSlow,
     borderRadiusSM,
     motionDurationMid,
-    basicCellHoverColor,
+    cellHoverColor,
     lineWidth,
     lineType,
     colorPrimary,
-    basicCellActiveWithRangeColor,
+    cellActiveWithRangeColor,
     colorTextLightSolid,
     controlHeightSM,
     dateHoverRangeBorderColor,
     pickerCellBorderGap,
-    basicCellHoverWithRangeColor,
-    panelCellWidth,
+    cellHoverWithRangeColor,
+    cellWidth,
     colorTextDisabled,
-    colorBgContainerDisabled,
+    cellBgDisabled,
   } = token;
 
   return {
@@ -116,7 +122,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       insetInlineStart: 0,
       insetInlineEnd: 0,
       zIndex: 1,
-      height: panelCellHeight,
+      height: cellHeight,
       transform: 'translateY(-50%)',
       transition: `all ${motionDurationSlow}`,
       content: '""',
@@ -127,9 +133,9 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       position: 'relative',
       zIndex: 2,
       display: 'inline-block',
-      minWidth: panelCellHeight,
-      height: panelCellHeight,
-      lineHeight: `${panelCellHeight}px`,
+      minWidth: cellHeight,
+      height: cellHeight,
+      lineHeight: `${cellHeight}px`,
       borderRadius: borderRadiusSM,
       transition: `background ${motionDurationMid}, border ${motionDurationMid}`,
     },
@@ -145,7 +151,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
     &:hover:not(${pickerCellCls}-selected):not(${pickerCellCls}-range-start):not(${pickerCellCls}-range-end):not(${pickerCellCls}-range-hover-start):not(${pickerCellCls}-range-hover-end)`]:
       {
         [pickerCellInnerCls]: {
-          background: basicCellHoverColor,
+          background: cellHoverColor,
         },
       },
 
@@ -169,7 +175,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       position: 'relative',
 
       '&::before': {
-        background: basicCellActiveWithRangeColor,
+        background: cellActiveWithRangeColor,
       },
     },
 
@@ -184,7 +190,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
     [`&-in-view${pickerCellCls}-range-start:not(${pickerCellCls}-range-start-single),
       &-in-view${pickerCellCls}-range-end:not(${pickerCellCls}-range-end-single)`]: {
       '&::before': {
-        background: basicCellActiveWithRangeColor,
+        background: cellActiveWithRangeColor,
       },
     },
 
@@ -239,7 +245,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       ${componentCls}-panel
       > :not(${componentCls}-date-panel)
       &-in-view${pickerCellCls}-in-range${pickerCellCls}-range-hover-end::before`]: {
-      background: basicCellHoverWithRangeColor,
+      background: cellHoverWithRangeColor,
     },
 
     // range start border-radius
@@ -270,7 +276,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       &-in-view${pickerCellCls}-start${pickerCellCls}-range-hover-edge-start${pickerCellCls}-range-hover-edge-start-near-range::after,
       &-in-view${pickerCellCls}-range-hover-edge-start:not(${pickerCellCls}-range-hover-edge-start-near-range)::after,
       &-in-view${pickerCellCls}-range-hover-start::after`]: {
-      insetInlineStart: (panelCellWidth - panelCellHeight) / 2,
+      insetInlineStart: (cellWidth - cellHeight) / 2,
       borderInlineStart: `${lineWidth}px dashed ${dateHoverRangeBorderColor}`,
       borderStartStartRadius: borderRadiusSM,
       borderEndStartRadius: borderRadiusSM,
@@ -282,7 +288,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       &-in-view${pickerCellCls}-end${pickerCellCls}-range-hover-edge-end${pickerCellCls}-range-hover-edge-end-near-range::after,
       &-in-view${pickerCellCls}-range-hover-edge-end:not(${pickerCellCls}-range-hover-edge-end-near-range)::after,
       &-in-view${pickerCellCls}-range-hover-end::after`]: {
-      insetInlineEnd: (panelCellWidth - panelCellHeight) / 2,
+      insetInlineEnd: (cellWidth - cellHeight) / 2,
       borderInlineEnd: `${lineWidth}px dashed ${dateHoverRangeBorderColor}`,
       borderStartEndRadius: borderRadiusSM,
       borderEndEndRadius: borderRadiusSM,
@@ -298,7 +304,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       },
 
       '&::before': {
-        background: colorBgContainerDisabled,
+        background: cellBgDisabled,
       },
     },
     [`&-disabled${pickerCellCls}-today ${pickerCellInnerCls}::before`]: {
@@ -314,7 +320,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
     pickerCellInnerCls,
     pickerYearMonthCellWidth,
     pickerControlIconSize,
-    panelCellWidth,
+    cellWidth,
     paddingSM,
     paddingXS,
     paddingXXS,
@@ -331,14 +337,14 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
     motionDurationMid,
     colorIconHover,
     fontWeightStrong,
-    panelCellHeight,
+    cellHeight,
     pickerCellPaddingVertical,
     colorTextDisabled,
     colorText,
     fontSize,
-    basicCellHoverWithRangeColor,
+    cellHoverWithRangeColor,
     motionDurationSlow,
-    panelWithoutTimeCellHeight,
+    withoutTimeCellHeight,
     pickerQuarterPanelContentHeight,
     colorLink,
     colorLinkActive,
@@ -346,16 +352,16 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
     dateHoverRangeBorderColor,
     borderRadiusSM,
     colorTextLightSolid,
-    basicCellHoverColor,
-    timePanelColumnHeight,
-    timePanelColumnWidth,
-    timePanelCellHeight,
+    cellHoverColor,
+    timeColumnHeight,
+    timeColumnWidth,
+    timeCellHeight,
     controlItemBgActive,
     marginXXS,
     pickerDatePanelPaddingHorizontal,
   } = token;
 
-  const pickerPanelWidth = panelCellWidth * 7 + pickerDatePanelPaddingHorizontal * 2;
+  const pickerPanelWidth = cellWidth * 7 + pickerDatePanelPaddingHorizontal * 2;
   const commonHoverCellFixedDistance =
     (pickerPanelWidth - paddingXS * 2) / 3 - pickerYearMonthCellWidth - paddingSM;
 
@@ -520,12 +526,12 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
         'th, td': {
           position: 'relative',
-          minWidth: panelCellHeight,
+          minWidth: cellHeight,
           fontWeight: 'normal',
         },
 
         th: {
-          height: panelCellHeight + pickerCellPaddingVertical * 2,
+          height: cellHeight + pickerCellPaddingVertical * 2,
           color: colorText,
           verticalAlign: 'middle',
         },
@@ -553,7 +559,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             top: 0,
             bottom: 0,
             zIndex: -1,
-            background: basicCellHoverWithRangeColor,
+            background: cellHoverWithRangeColor,
             transition: `all ${motionDurationSlow}`,
             content: '""',
           },
@@ -562,14 +568,14 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
       [`&-date-panel
         ${componentCls}-cell-in-view${componentCls}-cell-in-range${componentCls}-cell-range-hover-start
         ${pickerCellInnerCls}::after`]: {
-        insetInlineEnd: -(panelCellWidth - panelCellHeight) / 2,
+        insetInlineEnd: -(cellWidth - cellHeight) / 2,
         insetInlineStart: 0,
       },
 
       [`&-date-panel ${componentCls}-cell-in-view${componentCls}-cell-in-range${componentCls}-cell-range-hover-end ${pickerCellInnerCls}::after`]:
         {
           insetInlineEnd: 0,
-          insetInlineStart: -(panelCellWidth - panelCellHeight) / 2,
+          insetInlineStart: -(cellWidth - cellHeight) / 2,
         },
 
       // Hover with range start & end
@@ -582,7 +588,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         &-quarter-panel,
         &-month-panel`]: {
         [`${componentCls}-content`]: {
-          height: panelWithoutTimeCellHeight * 4,
+          height: withoutTimeCellHeight * 4,
         },
 
         [pickerCellInnerCls]: {
@@ -770,7 +776,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
           [`&:hover td`]: {
             '&:before': {
-              background: basicCellHoverColor,
+              background: cellHoverColor,
             },
           },
 
@@ -806,10 +812,10 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         },
 
         [`${componentCls}-content`]: {
-          width: panelCellWidth * 7,
+          width: cellWidth * 7,
 
           th: {
-            width: panelCellWidth,
+            width: cellWidth,
             boxSizing: 'border-box',
             padding: 0,
           },
@@ -851,12 +857,12 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         [`${componentCls}-content`]: {
           display: 'flex',
           flex: 'auto',
-          height: timePanelColumnHeight,
+          height: timeColumnHeight,
         },
 
         '&-column': {
           flex: '1 0 auto',
-          width: timePanelColumnWidth,
+          width: timeColumnWidth,
           margin: `${paddingXXS}px 0`,
           padding: 0,
           overflowY: 'hidden',
@@ -867,7 +873,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
           '&::after': {
             display: 'block',
-            height: timePanelColumnHeight - timePanelCellHeight,
+            height: timeColumnHeight - timeCellHeight,
             content: '""',
           },
 
@@ -891,20 +897,20 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
               marginInline: marginXXS,
               [`${componentCls}-time-panel-cell-inner`]: {
                 display: 'block',
-                width: timePanelColumnWidth - 2 * marginXXS,
-                height: timePanelCellHeight,
+                width: timeColumnWidth - 2 * marginXXS,
+                height: timeCellHeight,
                 margin: 0,
                 paddingBlock: 0,
                 paddingInlineEnd: 0,
-                paddingInlineStart: (timePanelColumnWidth - timePanelCellHeight) / 2,
+                paddingInlineStart: (timeColumnWidth - timeCellHeight) / 2,
                 color: colorText,
-                lineHeight: `${timePanelCellHeight}px`,
+                lineHeight: `${timeCellHeight}px`,
                 borderRadius: borderRadiusSM,
                 cursor: 'pointer',
                 transition: `background ${motionDurationMid}`,
 
                 '&:hover': {
-                  background: basicCellHoverColor,
+                  background: cellHoverColor,
                 },
               },
 
@@ -927,7 +933,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
       },
       // https://github.com/ant-design/ant-design/issues/39227
       [`&-datetime-panel ${componentCls}-time-panel-column:after`]: {
-        height: timePanelColumnHeight - timePanelCellHeight + paddingXXS * 2,
+        height: timeColumnHeight - timeCellHeight + paddingXXS * 2,
       },
     },
   };
@@ -1021,7 +1027,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     paddingXXS,
     paddingSM,
     textHeight,
-    basicCellActiveWithRangeColor,
+    cellActiveWithRangeColor,
     colorPrimaryBorder,
     sizePopupArrow,
     borderRadiusXS,
@@ -1031,7 +1037,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     boxShadowSecondary,
     borderRadiusSM,
     colorSplit,
-    basicCellHoverColor,
+    cellHoverColor,
     presetsWidth,
     presetsMaxWidth,
     boxShadowPopoverArrow,
@@ -1326,7 +1332,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             // https://github.com/ant-design/ant-design/issues/23687
             [`${componentCls}-preset > ${antCls}-tag-blue`]: {
               color: colorPrimary,
-              background: basicCellActiveWithRangeColor,
+              background: cellActiveWithRangeColor,
               borderColor: colorPrimaryBorder,
               cursor: 'pointer',
             },
@@ -1400,7 +1406,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
                   },
 
                   '&:hover': {
-                    background: basicCellHoverColor,
+                    background: cellHoverColor,
                   },
                 },
               },
@@ -1489,6 +1495,21 @@ export const initPickerPanelToken = (token: TokenWithCommonCls<GlobalToken>): Pi
   };
 };
 
+export const initPanelComponentToken = (token: GlobalToken): PanelComponentToken => ({
+  cellHoverColor: token.controlItemBgHover,
+  cellActiveWithRangeColor: token.controlItemBgActive,
+  cellHoverWithRangeColor: new TinyColor(token.colorPrimary).lighten(35).toHexString(),
+  dateHoverRangeBorderColor: new TinyColor(token.colorPrimary).lighten(20).toHexString(),
+  cellBgDisabled: token.colorBgContainerDisabled,
+  timeColumnWidth: token.controlHeightLG * 1.4,
+  timeColumnHeight: 28 * 8,
+  timeCellHeight: 28,
+  cellWidth: token.controlHeightSM * 1.5,
+  cellHeight: token.controlHeightSM,
+  textHeight: token.controlHeightLG,
+  withoutTimeCellHeight: token.controlHeightLG * 1.65,
+});
+
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'DatePicker',
@@ -1507,19 +1528,9 @@ export default genComponentStyleHook(
   },
   (token) => ({
     ...initComponentToken(token),
+    ...initPanelComponentToken(token),
     presetsWidth: 120,
     presetsMaxWidth: 200,
     zIndexPopup: token.zIndexPopupBase + 50,
-    basicCellHoverColor: token.controlItemBgHover,
-    basicCellActiveWithRangeColor: token.controlItemBgActive,
-    basicCellHoverWithRangeColor: new TinyColor(token.colorPrimary).lighten(35).toHexString(),
-    dateHoverRangeBorderColor: new TinyColor(token.colorPrimary).lighten(20).toHexString(),
-    timePanelColumnWidth: token.controlHeightLG * 1.4,
-    timePanelColumnHeight: 28 * 8,
-    timePanelCellHeight: 28,
-    panelCellWidth: token.controlHeightSM * 1.5,
-    panelCellHeight: token.controlHeightSM,
-    textHeight: token.controlHeightLG,
-    panelWithoutTimeCellHeight: token.controlHeightLG * 1.65,
   }),
 );

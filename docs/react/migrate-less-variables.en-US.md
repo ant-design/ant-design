@@ -269,6 +269,27 @@ export default App;
 | `@collapse-content-bg` | `contentBg` | - |
 | `@collapse-header-arrow-left` | - | Deprecated |
 
+### DatePicker
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@picker-bg` | `colorBgContainer` | Global Token |
+| `@picker-basic-cell-hover-color` | `cellHoverColor` | - |
+| `@picker-basic-cell-active-with-range-color` | `cellActiveWithRangeColor` | - |
+| `@picker-basic-cell-hover-with-range-color` | `cellHoverWithRangeColor` | - |
+| `@picker-basic-cell-disabled-bg` | `cellBgDisabled` | - |
+| `@picker-border-color` | `colorSplit` | Global Token |
+| `@picker-date-hover-range-border-color` | `dateHoverRangeBorderColor` | - |
+| `@picker-date-hover-range-color` | `cellHoverWithRangeColor` | - |
+| `@picker-time-panel-column-width` | `timeColumnWidth` | - |
+| `@picker-time-panel-column-height` | `timeColumnHeight` | - |
+| `@picker-time-panel-cell-height` | `timeCellHeight` | - |
+| `@picker-panel-cell-height` | `cellHeight` | - |
+| `@picker-panel-cell-width` | `cellWidth` | - |
+| `@picker-text-height` | `textHeight` | - |
+| `@picker-panel-without-time-cell-height` | `withoutTimeCellHeight` | - |
+
 ### Descriptions
 
 <!-- prettier-ignore -->
@@ -820,26 +841,6 @@ export default App;
 | `@timeline-dot-color` | - | Deprecated |
 | `@timeline-dot-bg` | `dotBg` | - |
 | `@timeline-item-padding-bottom` | `itemPaddingBottom` | - |
-
-### TimePicker
-
-| Less variables                               | Component Token                 | Note         |
-| -------------------------------------------- | ------------------------------- | ------------ |
-| `@picker-bg`                                 | `colorBgContainer`              | Global Token |
-| `@picker-basic-cell-hover-color`             | `basicCellHoverColor`           | -            |
-| `@picker-basic-cell-active-with-range-color` | `basicCellActiveWithRangeColor` | -            |
-| `@picker-basic-cell-hover-with-range-color`  | `basicCellHoverWithRangeColor`  | -            |
-| `@picker-basic-cell-disabled-bg`             | `colorBgContainerDisabled`      | Global Token |
-| `@picker-border-color`                       | `colorSplit`                    | Global Token |
-| `@picker-date-hover-range-border-color`      | `dateHoverRangeBorderColor`     | -            |
-| `@picker-date-hover-range-color`             | `basicCellHoverWithRangeColor`  | -            |
-| `@picker-time-panel-column-width`            | `timePanelColumnWidth`          | -            |
-| `@picker-time-panel-column-height`           | `timePanelColumnHeight`         | -            |
-| `@picker-time-panel-cell-height`             | `timePanelCellHeight`           | -            |
-| `@picker-panel-cell-height`                  | `panelCellHeight`               | -            |
-| `@picker-panel-cell-width`                   | `panelCellWidth`                | -            |
-| `@picker-text-height`                        | `textHeight`                    | -            |
-| `@picker-panel-without-time-cell-height`     | `panelWithoutTimeCellHeight`    | -            |
 
 ### Tooltip
 

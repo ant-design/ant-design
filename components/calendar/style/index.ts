@@ -1,11 +1,15 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { PickerPanelToken } from '../../date-picker/style';
-import { genPanelStyle, initPickerPanelToken } from '../../date-picker/style';
+import type { PanelComponentToken, PickerPanelToken } from '../../date-picker/style';
+import {
+  genPanelStyle,
+  initPanelComponentToken,
+  initPickerPanelToken,
+} from '../../date-picker/style';
 import { resetComponent } from '../../style';
 import type { FullToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
-export interface ComponentToken {
+export interface ComponentToken extends PanelComponentToken {
   /**
    * @desc 年选择器宽度
    * @descEN Width of year select
@@ -225,6 +229,7 @@ export default genComponentStyleHook(
     return [genCalendarStyles(calendarToken)];
   },
   (token) => ({
+    ...initPanelComponentToken(token),
     fullBg: token.colorBgContainer,
     fullPanelBg: token.colorBgContainer,
     itemActiveBg: token.controlItemBgActive,

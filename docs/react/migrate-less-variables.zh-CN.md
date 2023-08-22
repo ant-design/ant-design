@@ -267,6 +267,27 @@ export default App;
 | `@collapse-content-bg` | `contentBg` | - |
 | `@collapse-header-arrow-left` | - | 已废弃 |
 
+### DatePicker 日期选择框
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@picker-bg` | `colorBgContainer` | 全局 Token |
+| `@picker-basic-cell-hover-color` | `cellHoverColor` | - |
+| `@picker-basic-cell-active-with-range-color` | `cellActiveWithRangeColor` | - |
+| `@picker-basic-cell-hover-with-range-color` | `cellHoverWithRangeColor` | - |
+| `@picker-basic-cell-disabled-bg` | `cellBgDisabled` | - |
+| `@picker-border-color` | `colorSplit` | 全局 Token |
+| `@picker-date-hover-range-border-color` | `dateHoverRangeBorderColor` | - |
+| `@picker-date-hover-range-color` | `cellHoverWithRangeColor` | - |
+| `@picker-time-panel-column-width` | `timeColumnWidth` | - |
+| `@picker-time-panel-column-height` | `timeColumnHeight` | - |
+| `@picker-time-panel-cell-height` | `timeCellHeight` | - |
+| `@picker-panel-cell-height` | `cellHeight` | - |
+| `@picker-panel-cell-width` | `cellWidth` | - |
+| `@picker-text-height` | `textHeight` | - |
+| `@picker-panel-without-time-cell-height` | `withoutTimeCellHeight` | - |
+
 ### Descriptions 描述列表
 
 <!-- prettier-ignore -->
@@ -818,26 +839,6 @@ Mentions 提及
 | `@timeline-dot-color` | - | 已废弃 |
 | `@timeline-dot-bg` | `dotBg` | - |
 | `@timeline-item-padding-bottom` | `itemPaddingBottom` | - |
-
-### TimePicker 时间选择
-
-| Less 变量                                    | Component Token                 | 备注       |
-| -------------------------------------------- | ------------------------------- | ---------- |
-| `@picker-bg`                                 | `colorBgContainer`              | 全局 Token |
-| `@picker-basic-cell-hover-color`             | `basicCellHoverColor`           | -          |
-| `@picker-basic-cell-active-with-range-color` | `basicCellActiveWithRangeColor` | -          |
-| `@picker-basic-cell-hover-with-range-color`  | `basicCellHoverWithRangeColor`  | -          |
-| `@picker-basic-cell-disabled-bg`             | `colorBgContainerDisabled`      | 全局 Token |
-| `@picker-border-color`                       | `colorSplit`                    | 全局 Token |
-| `@picker-date-hover-range-border-color`      | `dateHoverRangeBorderColor`     | -          |
-| `@picker-date-hover-range-color`             | `basicCellHoverWithRangeColor`  | -          |
-| `@picker-time-panel-column-width`            | `timePanelColumnWidth`          | -          |
-| `@picker-time-panel-column-height`           | `timePanelColumnHeight`         | -          |
-| `@picker-time-panel-cell-height`             | `timePanelCellHeight`           | -          |
-| `@picker-panel-cell-height`                  | `panelCellHeight`               | -          |
-| `@picker-panel-cell-width`                   | `panelCellWidth`                | -          |
-| `@picker-text-height`                        | `textHeight`                    | -          |
-| `@picker-panel-without-time-cell-height`     | `panelWithoutTimeCellHeight`    | -          |
 
 ### Tooltip 文字提示
 

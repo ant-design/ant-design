@@ -1,7 +1,7 @@
+import React from 'react';
 import type { DatePickerProps } from 'antd';
 import { ConfigProvider, DatePicker, Space, TimePicker } from 'antd';
 import dayjs from 'dayjs';
-import React from 'react';
 
 /** Test usage. Do not use in your production. */
 
@@ -18,16 +18,16 @@ const App: React.FC = () => (
         DatePicker: {
           presetsWidth: 160,
           zIndexPopup: 888,
-          basicCellHoverWithRangeColor: 'red',
-          basicCellActiveWithRangeColor: 'blue',
+          cellHoverWithRangeColor: 'red',
+          cellActiveWithRangeColor: 'blue',
           dateHoverRangeBorderColor: 'green',
-          timePanelColumnWidth: 80,
-          timePanelColumnHeight: 250,
-          timePanelCellHeight: 30,
-          panelCellWidth: 28,
-          panelCellHeight: 40,
+          timeColumnWidth: 80,
+          timeColumnHeight: 250,
+          timeCellHeight: 30,
+          cellWidth: 28,
+          cellHeight: 40,
           textHeight: 45,
-          panelWithoutTimeCellHeight: 70,
+          withoutTimeCellHeight: 70,
         },
       },
     }}
