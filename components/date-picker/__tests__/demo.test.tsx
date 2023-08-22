@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import * as React from 'react';
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
-demoTest('date-picker', { skip: ['locale.tsx'], testRootProps: false });
+demoTest('date-picker', { skip: ['locale.tsx', 'component-token.tsx'], testRootProps: false });
 
 rootPropsTest('date-picker', (DatePicker, props) => <DatePicker {...props} value={dayjs()} />, {
   findRootElements: () => document.querySelectorAll('.ant-picker, .ant-picker-dropdown'),

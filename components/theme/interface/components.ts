@@ -60,6 +60,7 @@ import type { ComponentToken as TreeSelectComponentToken } from '../../tree-sele
 import type { ComponentToken as TreeComponentToken } from '../../tree/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
+import type { ComponentToken as FormComponentToken } from '../../form/style';
 
 export interface ComponentTokenMap {
   Affix?: {};
@@ -84,7 +85,7 @@ export interface ComponentTokenMap {
   Empty?: EmptyComponentToken;
   Flex?: FlexComponentToken;
   FloatButton?: FloatButtonComponentToken;
-  Form?: {};
+  Form?: FormComponentToken;
   Grid?: {};
   Image?: ImageComponentToken;
   Input?: InputComponentToken;

@@ -1,6 +1,10 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { PickerPanelToken } from '../../date-picker/style';
-import { genPanelStyle, initPickerPanelToken } from '../../date-picker/style';
+import type { PanelComponentToken, PickerPanelToken } from '../../date-picker/style';
+import {
+  genPanelStyle,
+  initPanelComponentToken,
+  initPickerPanelToken,
+} from '../../date-picker/style';
 import { resetComponent } from '../../style';
 import type { FullToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -38,7 +42,7 @@ export interface ComponentToken {
   itemActiveBg: string;
 }
 
-interface CalendarToken extends FullToken<'Calendar'>, PickerPanelToken {
+interface CalendarToken extends FullToken<'Calendar'>, PickerPanelToken, PanelComponentToken {
   calendarCls: string;
   dateValueHeight: number;
   weekHeight: number;
@@ -213,14 +217,19 @@ export default genComponentStyleHook(
   'Calendar',
   (token) => {
     const calendarCls = `${token.componentCls}-calendar`;
-    const calendarToken = mergeToken<CalendarToken>(token, initPickerPanelToken(token), {
-      calendarCls,
-      pickerCellInnerCls: `${token.componentCls}-cell-inner`,
-      dateValueHeight: token.controlHeightSM,
-      weekHeight: token.controlHeightSM * 0.75,
-      dateContentHeight:
-        (token.fontSizeSM * token.lineHeightSM + token.marginXS) * 3 + token.lineWidth * 2,
-    });
+    const calendarToken = mergeToken<CalendarToken>(
+      token,
+      initPickerPanelToken(token),
+      initPanelComponentToken(token),
+      {
+        calendarCls,
+        pickerCellInnerCls: `${token.componentCls}-cell-inner`,
+        dateValueHeight: token.controlHeightSM,
+        weekHeight: token.controlHeightSM * 0.75,
+        dateContentHeight:
+          (token.fontSizeSM * token.lineHeightSM + token.marginXS) * 3 + token.lineWidth * 2,
+      },
+    );
 
     return [genCalendarStyles(calendarToken)];
   },
