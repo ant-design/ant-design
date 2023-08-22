@@ -1,5 +1,5 @@
 import React from 'react';
-import { Space, Table, Typography } from 'antd';
+import { Space, Table, Typography, Switch } from 'antd';
 import type { TableProps } from 'antd';
 
 interface RecordType {
@@ -79,16 +79,59 @@ const data: RecordType[] = new Array(10000).fill(null).map((_, index) => ({
   address3: `Sydney No. ${index} Lake Park`,
 }));
 
-const App = () => (
-  <Table
-    bordered
-    virtual
-    columns={columns}
-    scroll={{ x: 2500, y: 400 }}
-    rowKey="id"
-    dataSource={data}
-    pagination={false}
-  />
-);
+const App = () => {
+  const [expanded, setExpanded] = React.useState(false);
+  const mergedColumns = React.useMemo<typeof columns>(() => {
+    if (!expanded) {
+      return columns;
+    }
+
+    return columns.map((col) => ({ ...col, onCell: undefined }));
+  }, [expanded]);
+
+  const expandableProps = React.useMemo<TableProps<RecordType>['expandable']>(() => {
+    if (!expanded) {
+      return undefined;
+    }
+
+    return {
+      columnWidth: 48,
+      expandedRowRender: (record) => <p style={{ margin: 0 }}>{record.address1}</p>,
+      rowExpandable: (record) => record.id % 2 === 0,
+    };
+  }, [expanded]);
+
+  return (
+    <Space direction="vertical" style={{ width: '100%' }}>
+      <div>
+        <Switch
+          checked={expanded}
+          onChange={() => setExpanded(!expanded)}
+          checkedChildren="Expandable"
+          unCheckedChildren="Expandable"
+        />
+      </div>
+
+      <Table
+        bordered
+        virtual
+        columns={mergedColumns}
+        scroll={{ x: 2500, y: 400 }}
+        rowKey="id"
+        dataSource={data}
+        pagination={false}
+        rowSelection={
+          expanded
+            ? undefined
+            : {
+                type: 'radio',
+                columnWidth: 48,
+              }
+        }
+        expandable={expandableProps}
+      />
+    </Space>
+  );
+};
 
 export default App;

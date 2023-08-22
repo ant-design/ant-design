@@ -16,6 +16,8 @@ const genVirtualStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           boxSizing: 'border-box',
           width: '100%',
         },
+
+        [`${componentCls}-expanded-row`]: {},
       },
 
       // ======================== Border =========================
