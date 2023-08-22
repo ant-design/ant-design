@@ -17,6 +17,8 @@ We could configure global token and component token for each component through t
 import React from 'react';
 import { Checkbox, ConfigProvider, Radio } from 'antd';
 
+import { Checkbox, ConfigProvider, Radio } from 'antd';
+
 const App: React.FC = () => (
   <ConfigProvider
     theme={{
@@ -267,6 +269,27 @@ export default App;
 | `@collapse-content-padding` | `contentPadding` | - |
 | `@collapse-content-bg` | `contentBg` | - |
 | `@collapse-header-arrow-left` | - | Deprecated |
+
+### DatePicker
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@picker-bg` | `colorBgContainer` | Global Token |
+| `@picker-basic-cell-hover-color` | `cellHoverBg` | - |
+| `@picker-basic-cell-active-with-range-color` | `cellActiveWithRangeBg` | - |
+| `@picker-basic-cell-hover-with-range-color` | `cellHoverWithRangeBg` | - |
+| `@picker-basic-cell-disabled-bg` | `cellBgDisabled` | - |
+| `@picker-border-color` | `colorSplit` | Global Token |
+| `@picker-date-hover-range-border-color` | `cellRangeBorderColor` | - |
+| `@picker-date-hover-range-color` | `cellHoverWithRangeColor` | - |
+| `@picker-time-panel-column-width` | `timeColumnWidth` | - |
+| `@picker-time-panel-column-height` | `timeColumnHeight` | - |
+| `@picker-time-panel-cell-height` | `timeCellHeight` | - |
+| `@picker-panel-cell-height` | `cellHeight` | - |
+| `@picker-panel-cell-width` | `cellWidth` | - |
+| `@picker-text-height` | `textHeight` | - |
+| `@picker-panel-without-time-cell-height` | `withoutTimeCellHeight` | - |
 
 ### Descriptions
 
@@ -828,8 +851,6 @@ export default App;
 | `@timeline-dot-color` | - | Deprecated |
 | `@timeline-dot-bg` | `dotBg` | - |
 | `@timeline-item-padding-bottom` | `itemPaddingBottom` | - |
-
-<!-- ### TimePicker -->
 
 ### Tooltip
 

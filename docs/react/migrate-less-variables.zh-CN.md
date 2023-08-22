@@ -17,6 +17,8 @@ title: 从 Less 变量到 Design Token
 import React from 'react';
 import { Checkbox, ConfigProvider, Radio } from 'antd';
 
+import { Checkbox, ConfigProvider, Radio } from 'antd';
+
 const App: React.FC = () => (
   <ConfigProvider
     theme={{
@@ -265,6 +267,27 @@ export default App;
 | `@collapse-content-padding` | `contentPadding` | - |
 | `@collapse-content-bg` | `contentBg` | - |
 | `@collapse-header-arrow-left` | - | 已废弃 |
+
+### DatePicker 日期选择框
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@picker-bg` | `colorBgContainer` | 全局 Token |
+| `@picker-basic-cell-hover-color` | `cellHoverBg` | - |
+| `@picker-basic-cell-active-with-range-color` | `cellActiveWithRangeBg` | - |
+| `@picker-basic-cell-hover-with-range-color` | `cellHoverWithRangeBg` | - |
+| `@picker-basic-cell-disabled-bg` | `cellBgDisabled` | - |
+| `@picker-border-color` | `colorSplit` | 全局 Token |
+| `@picker-date-hover-range-border-color` | `cellRangeBorderColor` | - |
+| `@picker-date-hover-range-color` | `cellHoverWithRangeColor` | - |
+| `@picker-time-panel-column-width` | `timeColumnWidth` | - |
+| `@picker-time-panel-column-height` | `timeColumnHeight` | - |
+| `@picker-time-panel-cell-height` | `timeCellHeight` | - |
+| `@picker-panel-cell-height` | `cellHeight` | - |
+| `@picker-panel-cell-width` | `cellWidth` | - |
+| `@picker-text-height` | `textHeight` | - |
+| `@picker-panel-without-time-cell-height` | `withoutTimeCellHeight` | - |
 
 ### Descriptions 描述列表
 
@@ -826,8 +849,6 @@ Mentions 提及
 | `@timeline-dot-color` | - | 已废弃 |
 | `@timeline-dot-bg` | `dotBg` | - |
 | `@timeline-item-padding-bottom` | `itemPaddingBottom` | - |
-
-<!-- ### TimePicker 时间选择 -->
 
 ### Tooltip 文字提示
 
