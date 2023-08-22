@@ -335,7 +335,43 @@ export default App;
 | `@image-preview-operation-color` | `previewOperationColor` | - |
 | `@image-preview-operation-disabled-color` | `previewOperationColorDisabled` | - |
 
-<!-- ### Input 输入框 -->
+### Input 输入框
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@input-height-base` | `controlHeight` | 全局 Token |
+| `@input-height-lg` | `controlHeightLG` | 全局 Token |
+| `@input-height-sm` | `controlHeightSM` | 全局 Token |
+| `@input-padding-horizontal` | `paddingInline` | - |
+| `@input-padding-horizontal-base` | `paddingInline` | - |
+| `@input-padding-horizontal-sm` | `paddingInlineSM` | - |
+| `@input-padding-horizontal-lg` | `paddingInlineLG` | - |
+| `@input-padding-vertical-base` | `paddinBlock` | - |
+| `@input-padding-vertical-sm` | `paddingBlockSM` | - |
+| `@input-padding-vertical-lg` | `paddingBlockLG` | - |
+| `@input-placeholder-color` | `colorTextPlaceholder` | 全局 Token |
+| `@input-color` | `colorText` | 全局 Token |
+| `@input-icon-color` | - | 已废弃 |
+| `@input-border-color` | `colorBorder` | 全局 Token |
+| `@input-bg` | `colorBgContainer` | 全局 Token |
+| `@input-addon-bg` | `addonBg` | - |
+| `@input-hover-border-color` | `hoverBorderColor` | - |
+| `@input-disabled-bg` | `colorBgContainerDisabled` | 全局 Token |
+| `@input-outline-offset` | `activeShadow` | 控制激活态阴影 |
+| `@input-icon-hover-color` | `colorIconHover` | 全局 Token |
+| `@input-disabled-color` | `colorTextDisabled` | 全局 Token |
+
+### InputNumber 数字输入框
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@input-number-hover-border-color` | `hoverBorderColor` | - |
+| `@input-number-handler-active-bg` | `handleActiveBg` | - |
+| `@input-number-handler-hover-bg` | `handleHoverColor` | 4.x 中命名有误，实际上是 color |
+| `@input-number-handler-bg` | `handleBg` | - |
+| `@input-number-handler-border-color` | `handleBorderColor` | - |
 
 ### Layout 布局
 
