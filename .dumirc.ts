@@ -87,14 +87,14 @@ export default defineConfig({
       crossorigin: true,
     },
     {
-      rel: 'prefetch',
+      rel: 'preload',
       as: 'font',
       href: '//at.alicdn.com/wf/webfont/exMpJIukiCms/Gsw2PSKrftc1yNWMNlXgw.woff2',
       type: 'font/woff2',
       crossorigin: true,
     },
     {
-      rel: 'prefetch',
+      rel: 'preload',
       as: 'font',
       href: '//at.alicdn.com/wf/webfont/exMpJIukiCms/vtu73by4O2gEBcvBuLgeu.woff',
       type: 'font/woff2',
