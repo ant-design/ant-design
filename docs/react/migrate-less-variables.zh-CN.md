@@ -323,20 +323,20 @@ export default App;
 
 ### Form 表单
 
-| less 变量 | Component Token | 备注 |
-| --- | --- | --- |
-| `@label-required-color` | `labelRequiredColor` | - |
-| `@label-color` | `labelColor` | - |
-| `@form-warning-input-bg` | - | 由于样式变化已废弃 |
-| `@form-item-margin-bottom` | `itemMarginBottom` | - |
-| `@form-item-trailing-colon` | - | 由于样式变化已废弃 |
-| `@form-vertical-label-padding` | `paddingXS` | 全局 Token，对应值为 `0 0 ${token.paddingXS}px`, |
-| `@form-vertical-label-margin` | - | 值为 0 |
-| `@form-item-label-font-size` | `labelFontSize` | - |
-| `@form-item-label-height` | `labelHeight` | - |
-| `@form-item-label-colon-margin-right` | `labelColonMarginInlineEnd` | - |
-| `@form-item-label-colon-margin-left` | `labelColonMarginInlineStart` | - |
-| `@form-error-input-bg` | - | 由于样式变化已废弃 |
+| less 变量                             | Component Token               | 备注               |
+| ------------------------------------- | ----------------------------- | ------------------ |
+| `@label-required-color`               | `labelRequiredMarkColor`      | -                  |
+| `@label-color`                        | `labelColor`                  | -                  |
+| `@form-warning-input-bg`              | -                             | 由于样式变化已废弃 |
+| `@form-item-margin-bottom`            | `itemMarginBottom`            | -                  |
+| `@form-item-trailing-colon`           | -                             | 由于样式变化已废弃 |
+| `@form-vertical-label-padding`        | `verticalLabelPadding`        | -                  |
+| `@form-vertical-label-margin`         | `verticalLabelMargin`         | -                  |
+| `@form-item-label-font-size`          | `labelFontSize`               | -                  |
+| `@form-item-label-height`             | `labelHeight`                 | -                  |
+| `@form-item-label-colon-margin-right` | `labelColonMarginInlineEnd`   | -                  |
+| `@form-item-label-colon-margin-left`  | `labelColonMarginInlineStart` | -                  |
+| `@form-error-input-bg`                | -                             | 由于样式变化已废弃 |
 
 ### Image 图片
 

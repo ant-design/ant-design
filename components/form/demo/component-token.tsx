@@ -6,7 +6,7 @@ const App: React.FC = () => (
     theme={{
       components: {
         Form: {
-          labelRequiredColor: 'pink',
+          labelRequiredMarkColor: 'pink',
           labelColor: 'green',
           labelFontSize: 16,
           labelHeight: 34,

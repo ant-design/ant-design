@@ -4,15 +4,54 @@ import { genCollapseMotion, zoomIn } from '../../style/motion';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genFormValidateMotionStyle from './explain';
+import type { CSSProperties } from 'react';
 
 export interface ComponentToken {
-  labelRequiredColor: string;
+  /**
+   * @desc 必填项标记颜色
+   * @descEN Required mark color
+   */
+  labelRequiredMarkColor: string;
+  /**
+   * @desc 标签颜色
+   * @descEN Label color
+   */
   labelColor: string;
+  /**
+   * @desc 标签字体大小
+   * @descEN Label font size
+   */
   labelFontSize: number;
+  /**
+   * @desc 标签高度
+   * @descEN Label height
+   */
   labelHeight: number;
+  /**
+   * @desc 标签冒号前间距
+   * @descEN Label colon margin-inline-start
+   */
   labelColonMarginInlineStart: number;
+  /**
+   * @desc 标签冒号后间距
+   * @descEN Label colon margin-inline-end
+   */
   labelColonMarginInlineEnd: number;
+  /**
+   * @desc 表单项间距
+   * @descEN Form item margin bottom
+   */
   itemMarginBottom: number;
+  /**
+   * @desc 垂直布局标签内边距
+   * @descEN Vertical layout label padding
+   */
+  verticalLabelPadding: CSSProperties['padding'];
+  /**
+   * @desc 垂直布局标签外边距
+   * @descEN Vertical layout label margin
+   */
+  verticalLabelMargin: CSSProperties['margin'];
 }
 
 export interface FormToken extends FullToken<'Form'> {
@@ -128,7 +167,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
     iconCls,
     componentCls,
     rootPrefixCls,
-    labelRequiredColor,
+    labelRequiredMarkColor,
     labelColor,
     labelFontSize,
     labelHeight,
@@ -205,7 +244,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
           [`&${formItemCls}-required:not(${formItemCls}-required-mark-optional)::before`]: {
             display: 'inline-block',
             marginInlineEnd: token.marginXXS,
-            color: labelRequiredColor,
+            color: labelRequiredMarkColor,
             fontSize: token.fontSize,
             fontFamily: 'SimSun, sans-serif',
             lineHeight: 1,
@@ -411,7 +450,8 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
 };
 
 const makeVerticalLayoutLabel = (token: FormToken): CSSObject => ({
-  padding: `0 0 ${token.paddingXS}px`,
+  padding: token.verticalLabelPadding,
+  margin: token.verticalLabelMargin,
   whiteSpace: 'initial',
   textAlign: 'start',
 
@@ -518,12 +558,14 @@ export default genComponentStyleHook(
     ];
   },
   (token) => ({
-    labelRequiredColor: token.colorError,
+    labelRequiredMarkColor: token.colorError,
     labelColor: token.colorTextHeading,
     labelFontSize: token.fontSize,
     labelHeight: token.controlHeight,
     labelColonMarginInlineStart: token.marginXXS / 2,
     labelColonMarginInlineEnd: token.marginXS,
     itemMarginBottom: token.marginLG,
+    verticalLabelPadding: `0 0 ${token.paddingXS}px`,
+    verticalLabelMargin: 0,
   }),
 );
