@@ -108,9 +108,8 @@ We added a `createFromIconfontCN` function to help developer use their own icons
 
 ```jsx
 import React from 'react';
-
-import { createFromIconfontCN } from '@ant-design/icons';
 import ReactDOM from 'react-dom/client';
+import { createFromIconfontCN } from '@ant-design/icons';
 
 const MyIcon = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', // generate in iconfont.cn
@@ -158,12 +157,9 @@ module.exports = {
 
 ```jsx
 import React from 'react';
-
-import Icon from '@ant-design/icons';
-import MessageSvg from 'path/to/message.svg';
 import ReactDOM from 'react-dom/client';
-
-// path to your '*.svg' file.
+import Icon from '@ant-design/icons';
+import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
 // in create-react-app:
 // import { ReactComponent as MessageSvg } from 'path/to/message.svg';
 

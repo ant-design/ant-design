@@ -16,7 +16,7 @@ There are two options for server-side rendering styles, each with advantages and
 Use `@ant-design/cssinjs` to extract style:
 
 ```tsx
-import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { renderToString } from 'react-dom/server';
 
 export default () => {
@@ -75,8 +75,8 @@ npm install ts-node tslib cross-env --save-dev
 
 ```tsx
 // scripts/genAntdCss.tsx
-import { extractStyle } from '@ant-design/static-style-extract';
 import fs from 'fs';
+import { extractStyle } from '@ant-design/static-style-extract';
 
 const outputPath = './public/antd.min.css';
 
@@ -88,11 +88,10 @@ fs.writeFileSync(outputPath, css);
 If you want to use mixed themes or custom themes, you can use the following script:
 
 ```tsx
-import React from 'react';
-
-import { extractStyle } from '@ant-design/static-style-extract';
-import { ConfigProvider } from 'antd';
 import fs from 'fs';
+import { extractStyle } from '@ant-design/static-style-extract';
+import React from 'react';
+import { ConfigProvider } from 'antd';
 
 const outputPath = './public/antd.min.css';
 
@@ -156,9 +155,7 @@ Then, you just need to import this file into the `pages/_app.tsx` file:
 ```tsx
 import { StyleProvider } from '@ant-design/cssinjs';
 import type { AppProps } from 'next/app';
-
-import '../public/antd.min.css';
-// add this line
+import '../public/antd.min.css'; // add this line
 import '../styles/globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -237,11 +234,11 @@ More about static-style-extract, see [static-style-extract](https://github.com/a
 
 ```tsx
 // scripts/genAntdCss.tsx
-import { extractStyle } from '@ant-design/cssinjs';
-import type Entity from '@ant-design/cssinjs/lib/Cache';
 import { createHash } from 'crypto';
 import fs from 'fs';
 import path from 'path';
+import type Entity from '@ant-design/cssinjs/lib/Cache';
+import { extractStyle } from '@ant-design/cssinjs';
 
 export type DoExtraStyleOptions = {
   cache: Entity;
@@ -286,7 +283,6 @@ Export on demand using the above tools in `_document.tsx`
 import { StyleProvider, createCache } from '@ant-design/cssinjs';
 import type { DocumentContext } from 'next/document';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
-
 import { doExtraStyle } from '../scripts/genAntdCss';
 
 export default class MyDocument extends Document {

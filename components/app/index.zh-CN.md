@@ -30,9 +30,8 @@ tag: New
 App 组件通过 `Context` 提供上下文方法调用，因而 useApp 需要作为子组件才能使用，我们推荐在应用中顶层包裹 App。
 
 ```tsx
-import React from 'react';
-
 import { App } from 'antd';
+import React from 'react';
 
 const MyPage: React.FC = () => {
   const { message, notification, modal } = App.useApp();
@@ -104,10 +103,8 @@ export { message, notification, modal };
 
 ```tsx
 // sub page
-import React from 'react';
-
 import { Button, Space } from 'antd';
-
+import React from 'react';
 import { message } from './store';
 
 export default () => {

@@ -38,11 +38,10 @@ Create `src/components/TimePicker.tsx`.
 For example:
 
 ```tsx
-import * as React from 'react';
-
 import { DatePicker } from 'antd';
 import type { PickerTimeProps } from 'antd/es/date-picker/generatePicker';
 import type { Moment } from 'moment';
+import * as React from 'react';
 
 export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'> {}
 

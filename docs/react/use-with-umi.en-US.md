@@ -132,7 +132,6 @@ Create a new `src/components/ProductList.tsx` file with the following code.
 
 ```tsx
 import React from 'react';
-
 import { Button, Popconfirm, Table } from 'antd';
 
 const ProductList: React.FC<{ products: { name: string }[]; onDelete: (id: string) => void }> = ({
@@ -222,13 +221,11 @@ export default defineConfig({
 Edit `src/pages/products.tsx` with the following code.
 
 ```tsx
-import React from 'react';
-
 import axios from 'axios';
+import React from 'react';
 import { useMutation, useQuery, useQueryClient } from 'umi';
-
-import styles from './products.less';
 import ProductList from '@/components/ProductList';
+import styles from './products.less';
 
 export default function Page() {
   const queryClient = useQueryClient();

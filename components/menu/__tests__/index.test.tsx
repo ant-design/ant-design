@@ -825,7 +825,7 @@ describe('Menu', () => {
     const onOpen = jest.fn();
     const onClose = jest.fn();
     const Demo: React.FC = () => {
-      const menuProps = useMemo<MenuProps>(() => ({ onOpen, onClose }) as MenuProps, []);
+      const menuProps = useMemo<MenuProps>(() => ({ onOpen, onClose } as MenuProps), []);
       return (
         <Menu
           {...menuProps}
@@ -860,7 +860,7 @@ describe('Menu', () => {
   it('should keep selectedKeys in state when collapsed to 0px', () => {
     jest.useFakeTimers();
     const Demo: React.FC<MenuProps> = (props) => {
-      const menuProps = useMemo<MenuProps>(() => ({ collapsedWidth: 0 }) as MenuProps, []);
+      const menuProps = useMemo<MenuProps>(() => ({ collapsedWidth: 0 } as MenuProps), []);
       return (
         <Menu
           mode="inline"

@@ -53,7 +53,7 @@ author: zombieJ
 而当大部分组件都转成 CSS-in-JS 后，内联样式会变得十分巨大。所以我们在后期移除了自动内联的功能，转成了需要手工收取的形式：
 
 ```tsx
-import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { renderToString } from 'react-dom/server';
 
 const cache = createCache();

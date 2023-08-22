@@ -53,9 +53,8 @@ Now we install `antd` from yarn or npm or pnpm.
 Modify `src/App.js`, import Button component from `antd`.
 
 ```tsx
-import React from 'react';
-
 import { Button } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <div className="App">
@@ -73,9 +72,8 @@ OK, you should now see a blue primary button displayed on the page. Next you can
 Ref to the [Customize Theme documentation](/docs/react/customize-theme). Modify theme with ConfigProvider:
 
 ```tsx
-import React from 'react';
-
 import { ConfigProvider } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <ConfigProvider theme={{ token: { colorPrimary: '#00b96b' } }}>

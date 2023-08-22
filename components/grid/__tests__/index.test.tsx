@@ -83,7 +83,7 @@ describe('Grid', () => {
           },
           removeListener: jest.fn(),
           matches: query === '(min-width: 1200px)',
-        }) as any,
+        } as any),
     );
 
     const { container, asFragment } = render(
@@ -150,7 +150,7 @@ describe('Grid', () => {
           },
           removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
-        }) as any,
+        } as any),
     );
 
     let screensVar;
@@ -181,7 +181,7 @@ describe('Grid', () => {
           },
           removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
-        }) as any,
+        } as any),
     );
     const { container } = render(<Row align="middle" />);
     expect(container.innerHTML).toContain('ant-row-middle');
@@ -201,7 +201,7 @@ describe('Grid', () => {
           },
           removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
-        }) as any,
+        } as any),
     );
     const { container } = render(<Row justify="center" />);
     expect(container.innerHTML).toContain('ant-row-center');

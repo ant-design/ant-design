@@ -131,9 +131,8 @@ export default defineConfig({
 新建 `src/components/ProductList.tsx` 文件，内容如下。
 
 ```tsx
-import React from 'react';
-
 import { Button, Popconfirm, Table } from 'antd';
+import React from 'react';
 
 const ProductList: React.FC<{ products: { name: string }[]; onDelete: (id: string) => void }> = ({
   onDelete,
@@ -222,13 +221,11 @@ export default defineConfig({
 再编辑 `src/pages/products.tsx`，内容如下。
 
 ```tsx
-import React from 'react';
-
-import axios from 'axios';
-import { useMutation, useQuery, useQueryClient } from 'umi';
-
-import styles from './products.less';
 import ProductList from '@/components/ProductList';
+import axios from 'axios';
+import React from 'react';
+import { useMutation, useQuery, useQueryClient } from 'umi';
+import styles from './products.less';
 
 export default function Page() {
   const queryClient = useQueryClient();

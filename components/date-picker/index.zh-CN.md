@@ -57,17 +57,17 @@ demo:
 如有特殊需求（仅修改单一组件的语言），请使用 locale 参数，参考：[默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)。
 
 ```jsx
-import locale from 'antd/es/date-picker/locale/zh_CN';
 import 'dayjs/locale/zh-cn';
+import locale from 'antd/es/date-picker/locale/zh_CN';
 
 <DatePicker locale={locale} />;
 ```
 
 ```jsx
 // 默认语言为 en-US，如果你需要设置其他语言，推荐在入口文件全局设置 locale
-import locale from 'antd/locale/zh_CN';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
+import locale from 'antd/locale/zh_CN';
 
 <ConfigProvider locale={locale}>
   <DatePicker defaultValue={dayjs('2015-01-01', 'YYYY-MM-DD')} />
@@ -245,6 +245,7 @@ export type FormatType = Generic | GenericFn | Array<Generic | GenericFn>;
 ```js
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
+
 import updateLocale from 'dayjs/plugin/updateLocale';
 
 dayjs.extend(updateLocale);

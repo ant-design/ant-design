@@ -66,7 +66,6 @@ We provide `antd.js` and `antd.min.js` `reset.css` under [dist](https://unpkg.co
 
 ```jsx
 import React from 'react';
-
 import { DatePicker } from 'antd';
 
 const App = () => {

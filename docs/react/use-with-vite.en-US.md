@@ -53,7 +53,6 @@ Modify `src/App.js`, import Button component from `antd`.
 
 ```jsx
 import React from 'react';
-
 import { Button } from 'antd';
 
 const App = () => (
