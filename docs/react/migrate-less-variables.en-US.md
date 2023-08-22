@@ -19,6 +19,8 @@ import { Checkbox, ConfigProvider, Radio } from 'antd';
 
 import { Checkbox, ConfigProvider, Radio } from 'antd';
 
+import { Checkbox, ConfigProvider, Radio } from 'antd';
+
 const App: React.FC = () => (
   <ConfigProvider
     theme={{
@@ -243,8 +245,6 @@ export default App;
 | `@cascader-dropdown-font-size` | - | Deprecated |
 | `@cascader-dropdown-line-height` | `lineHeight` | Global Token |
 
-<!-- ### Checkbox -->
-
 ### Checkbox
 
 <!-- prettier-ignore -->
@@ -346,7 +346,23 @@ export default App;
 | --- | --- | --- |
 | `@empty-font-size` | `fontSize` | GlobalToken |
 
-<!-- ### Form -->
+### Form
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@label-required-color` | `labelRequiredMarkColor` | - |
+| `@label-color` | `labelColor` | - |
+| `@form-warning-input-bg` | - | Deprecated |
+| `@form-item-margin-bottom` | `itemMarginBottom` | - |
+| `@form-item-trailing-colon` | - | Deprecated |
+| `@form-vertical-label-padding` | `verticalLabelPadding` | - |
+| `@form-vertical-label-margin` | `verticalLabelMargin` | - |
+| `@form-item-label-font-size` | `labelFontSize` | - |
+| `@form-item-label-height` | `labelHeight` | - |
+| `@form-item-label-colon-margin-right` | `labelColonMarginInlineEnd` | - |
+| `@form-item-label-colon-margin-left` | `labelColonMarginInlineStart` | - |
+| `@form-error-input-bg` | - | Deprecated |
 
 ### Image
 
@@ -879,7 +895,18 @@ export default App;
 | `@transfer-item-padding-vertical` | `itemPaddingBlock` | - |
 | `@transfer-list-search-icon-top` | - | Deprecated |
 
-<!-- ### Tree -->
+### Tree 树形控件
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@tree-bg` | `colorBgContainer` | Global Token |
+| `@tree-title-height` | `titleHeight` | - |
+| `@tree-child-padding` | - | Deprecated |
+| `@tree-directory-selected-color` | `directoryNodeSelectedColor` | - |
+| `@tree-directory-selected-bg` | `directoryNodeSelectedBg` | - |
+| `@tree-node-hover-bg` | `nodeHoverBg` | - |
+| `@tree-node-selected-bg` | `nodeSelectedBg` | - |
 
 ### Typography
 

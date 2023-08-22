@@ -19,6 +19,8 @@ import { Checkbox, ConfigProvider, Radio } from 'antd';
 
 import { Checkbox, ConfigProvider, Radio } from 'antd';
 
+import { Checkbox, ConfigProvider, Radio } from 'antd';
+
 const App: React.FC = () => (
   <ConfigProvider
     theme={{
@@ -343,7 +345,23 @@ export default App;
 | --- | --- | --- |
 | `@empty-font-size` | `fontSize` | 全局 Token |
 
-<!-- ### Form 表单 -->
+### Form 表单
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@label-required-color` | `labelRequiredMarkColor` | - |
+| `@label-color` | `labelColor` | - |
+| `@form-warning-input-bg` | - | 由于样式变化已废弃 |
+| `@form-item-margin-bottom` | `itemMarginBottom` | - |
+| `@form-item-trailing-colon` | - | 由于样式变化已废弃 |
+| `@form-vertical-label-padding` | `verticalLabelPadding` | - |
+| `@form-vertical-label-margin` | `verticalLabelMargin` | - |
+| `@form-item-label-font-size` | `labelFontSize` | - |
+| `@form-item-label-height` | `labelHeight` | - |
+| `@form-item-label-colon-margin-right` | `labelColonMarginInlineEnd` | - |
+| `@form-item-label-colon-margin-left` | `labelColonMarginInlineStart` | - |
+| `@form-error-input-bg` | - | 由于样式变化已废弃 |
 
 ### Image 图片
 
