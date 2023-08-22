@@ -27,8 +27,11 @@ Comparing with `Tooltip`, besides information `Popover` card can also provide ac
 <code src="./demo/hover-with-click.tsx">Hover with click popover</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 | Param   | Description         | Type                         | Default value | Version |
 | ------- | ------------------- | ---------------------------- | ------------- | ------- |
@@ -40,3 +43,11 @@ Consult [Tooltip's documentation](/components/tooltip/#api) to find more APIs.
 ## Note
 
 Please ensure that the child node of `Popover` accepts `onMouseEnter`, `onMouseLeave`, `onFocus`, `onClick` events.
+
+## Design Token
+
+<ComponentTokenTable component="Popover"></ComponentTokenTable>
+
+## FAQ
+
+Please ref [Tooltip FAQ](/components/tooltip#faq).

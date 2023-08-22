@@ -1,10 +1,11 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
+import { resetComponent } from '../../style';
+import { initFadeMotion } from '../../style/motion/fade';
+import { initMotion } from '../../style/motion/motion';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { initFadeMotion } from '../../style/motion/fade';
-import { resetComponent } from '../../style';
-import { initMotion } from '../../style/motion/motion';
+import getOffset from '../util';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -18,6 +19,11 @@ type FloatButtonToken = FullToken<'FloatButton'> & {
   floatButtonFontSize: number;
   floatButtonSize: number;
   floatButtonIconSize: number;
+  floatButtonBodySize: number;
+  floatButtonBodyPadding: number;
+  badgeOffset: number;
+  dotOffsetInCircle: number;
+  dotOffsetInSquare: number;
 
   // Position
   floatButtonInsetBlockEnd: number;
@@ -33,20 +39,19 @@ const initFloatButtonGroupMotion = (token: FloatButtonToken) => {
       transformOrigin: '0 0',
       opacity: 0,
     },
-
     '100%': {
       transform: 'translate3d(0, 0, 0)',
       transformOrigin: '0 0',
       opacity: 1,
     },
   });
+
   const moveDownOut = new Keyframes('antFloatButtonMoveDownOut', {
     '0%': {
       transform: 'translate3d(0, 0, 0)',
       transformOrigin: '0 0',
       opacity: 1,
     },
-
     '100%': {
       transform: `translate3d(0, ${floatButtonSize}px, 0)`,
       transformOrigin: '0 0',
@@ -69,7 +74,6 @@ const initFloatButtonGroupMotion = (token: FloatButtonToken) => {
           opacity: 0,
           animationTimingFunction: motionEaseInOutCirc,
         },
-
         [`&${groupPrefixCls}-wrap-leave`]: {
           animationTimingFunction: motionEaseInOutCirc,
         },
@@ -80,7 +84,16 @@ const initFloatButtonGroupMotion = (token: FloatButtonToken) => {
 
 // ============================== Group ==============================
 const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
-  const { componentCls, floatButtonSize, margin, borderRadiusLG } = token;
+  const {
+    antCls,
+    componentCls,
+    floatButtonSize,
+    margin,
+    borderRadiusLG,
+    borderRadiusSM,
+    badgeOffset,
+    floatButtonBodyPadding,
+  } = token;
   const groupPrefixCls = `${componentCls}-group`;
   return {
     [groupPrefixCls]: {
@@ -116,6 +129,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         [`${componentCls}-body`]: {
           width: floatButtonSize,
           height: floatButtonSize,
+          borderRadius: '50%',
         },
       },
     },
@@ -134,17 +148,22 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         '&:not(:last-child)': {
           borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
         },
+        [`${antCls}-badge`]: {
+          [`${antCls}-badge-count`]: {
+            top: -(floatButtonBodyPadding + badgeOffset),
+            insetInlineEnd: -(floatButtonBodyPadding + badgeOffset),
+          },
+        },
       },
       [`${groupPrefixCls}-wrap`]: {
         display: 'block',
         borderRadius: borderRadiusLG,
         boxShadow: token.boxShadowSecondary,
-        overflow: 'hidden',
         [`${componentCls}-square`]: {
           boxShadow: 'none',
           marginTop: 0,
           borderRadius: 0,
-          padding: token.paddingXXS,
+          padding: floatButtonBodyPadding,
           '&:first-child': {
             borderStartStartRadius: borderRadiusLG,
             borderStartEndRadius: borderRadiusLG,
@@ -157,13 +176,12 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
             borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
           },
           [`${componentCls}-body`]: {
-            width: floatButtonSize - token.paddingXXS * 2,
-            height: floatButtonSize - token.paddingXXS * 2,
+            width: token.floatButtonBodySize,
+            height: token.floatButtonBodySize,
           },
         },
       },
     },
-
     [`${groupPrefixCls}-circle-shadow`]: {
       boxShadow: 'none',
     },
@@ -171,10 +189,11 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
       boxShadow: token.boxShadowSecondary,
       [`${componentCls}-square`]: {
         boxShadow: 'none',
-        padding: token.paddingXXS,
+        padding: floatButtonBodyPadding,
         [`${componentCls}-body`]: {
-          width: floatButtonSize - token.paddingXXS * 2,
-          height: floatButtonSize - token.paddingXXS * 2,
+          width: token.floatButtonBodySize,
+          height: token.floatButtonBodySize,
+          borderRadius: borderRadiusSM,
         },
       },
     },
@@ -183,14 +202,23 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
 
 // ============================== Shared ==============================
 const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
-  const { componentCls, floatButtonIconSize, floatButtonSize, borderRadiusLG } = token;
+  const {
+    antCls,
+    componentCls,
+    floatButtonBodyPadding,
+    floatButtonIconSize,
+    floatButtonSize,
+    borderRadiusLG,
+    badgeOffset,
+    dotOffsetInSquare,
+    dotOffsetInCircle,
+  } = token;
   return {
     [componentCls]: {
       ...resetComponent(token),
       border: 'none',
       position: 'fixed',
       cursor: 'pointer',
-      overflow: 'hidden',
       zIndex: 99,
       display: 'block',
       justifyContent: 'center',
@@ -200,17 +228,24 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       insetInlineEnd: token.floatButtonInsetInlineEnd,
       insetBlockEnd: token.floatButtonInsetBlockEnd,
       boxShadow: token.boxShadowSecondary,
-
       // Pure Panel
       '&-pure': {
         position: 'relative',
         inset: 'auto',
       },
-
       '&:empty': {
         display: 'none',
       },
-
+      [`${antCls}-badge`]: {
+        width: '100%',
+        height: '100%',
+        [`${antCls}-badge-count`]: {
+          transform: 'translate(0, 0)',
+          transformOrigin: 'center',
+          top: -badgeOffset,
+          insetInlineEnd: -badgeOffset,
+        },
+      },
       [`${componentCls}-body`]: {
         width: '100%',
         height: '100%',
@@ -226,7 +261,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          padding: `2px 4px`,
+          padding: `${floatButtonBodyPadding / 2}px ${floatButtonBodyPadding}px`,
           [`${componentCls}-icon`]: {
             textAlign: 'center',
             margin: 'auto',
@@ -237,12 +272,19 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
         },
       },
     },
+
     [`${componentCls}-rtl`]: {
       direction: 'rtl',
     },
     [`${componentCls}-circle`]: {
       height: floatButtonSize,
       borderRadius: '50%',
+      [`${antCls}-badge`]: {
+        [`${antCls}-badge-dot`]: {
+          top: dotOffsetInCircle,
+          insetInlineEnd: dotOffsetInCircle,
+        },
+      },
       [`${componentCls}-body`]: {
         borderRadius: '50%',
       },
@@ -251,9 +293,15 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       height: 'auto',
       minHeight: floatButtonSize,
       borderRadius: borderRadiusLG,
+      [`${antCls}-badge`]: {
+        [`${antCls}-badge-dot`]: {
+          top: dotOffsetInSquare,
+          insetInlineEnd: dotOffsetInSquare,
+        },
+      },
       [`${componentCls}-body`]: {
         height: 'auto',
-        borderRadius: token.borderRadiusSM,
+        borderRadius: borderRadiusLG,
       },
     },
     [`${componentCls}-default`]: {
@@ -315,7 +363,10 @@ export default genComponentStyleHook<'FloatButton'>('FloatButton', (token) => {
     fontSize,
     fontSizeIcon,
     controlItemBgHover,
+    paddingXXS,
+    borderRadiusLG,
   } = token;
+
   const floatButtonToken = mergeToken<FloatButtonToken>(token, {
     floatButtonBackgroundColor: colorBgElevated,
     floatButtonColor: colorTextLightSolid,
@@ -323,10 +374,16 @@ export default genComponentStyleHook<'FloatButton'>('FloatButton', (token) => {
     floatButtonFontSize: fontSize,
     floatButtonIconSize: fontSizeIcon * 1.5,
     floatButtonSize: controlHeightLG,
-
     floatButtonInsetBlockEnd: marginXXL,
     floatButtonInsetInlineEnd: marginLG,
+    floatButtonBodySize: controlHeightLG - paddingXXS * 2,
+    // 这里的 paddingXXS 是简写，完整逻辑是 (controlHeightLG - (controlHeightLG - paddingXXS * 2)) / 2,
+    floatButtonBodyPadding: paddingXXS,
+    badgeOffset: paddingXXS * 1.5,
+    dotOffsetInCircle: getOffset(controlHeightLG / 2),
+    dotOffsetInSquare: getOffset(borderRadiusLG),
   });
+
   return [
     floatButtonGroupStyle(floatButtonToken),
     sharedFloatButtonStyle(floatButtonToken),

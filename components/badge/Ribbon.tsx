@@ -1,10 +1,10 @@
 import classNames from 'classnames';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
 import type { PresetColorType } from '../_util/colors';
-import type { LiteralUnion } from '../_util/type';
-import useStyle from './style';
 import { isPresetColor } from '../_util/colors';
+import type { LiteralUnion } from '../_util/type';
+import { ConfigContext } from '../config-provider';
+import useStyle from './style';
 
 type RibbonPlacement = 'start' | 'end';
 
@@ -18,15 +18,16 @@ export interface RibbonProps {
   placement?: RibbonPlacement;
 }
 
-const Ribbon: React.FC<RibbonProps> = ({
-  className,
-  prefixCls: customizePrefixCls,
-  style,
-  color,
-  children,
-  text,
-  placement = 'end',
-}) => {
+const Ribbon: React.FC<RibbonProps> = (props) => {
+  const {
+    className,
+    prefixCls: customizePrefixCls,
+    style,
+    color,
+    children,
+    text,
+    placement = 'end',
+  } = props;
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('ribbon', customizePrefixCls);
   const colorInPreset = isPresetColor(color, false);

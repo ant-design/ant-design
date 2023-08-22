@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useMemo } from 'react';
 import { useToken } from '../theme/internal';
 
-const Simple = () => {
+const Simple: React.FC = () => {
   const [, token] = useToken();
 
   const { colorFill, colorFillTertiary, colorFillQuaternary, colorBgContainer } = token;
@@ -36,5 +36,9 @@ const Simple = () => {
     </svg>
   );
 };
+
+if (process.env.NODE_ENV !== 'production') {
+  Simple.displayName = 'SimpleImage';
+}
 
 export default Simple;

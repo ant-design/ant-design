@@ -1,8 +1,8 @@
-import React from 'react';
 import type { RefAttributes } from 'react';
+import React from 'react';
 import type { RadioGroupProps } from '..';
-import { render, fireEvent } from '../../../tests/utils';
 import Radio from '..';
+import { fireEvent, render } from '../../../tests/utils';
 
 describe('Radio Group', () => {
   function createRadioGroup(props?: RadioGroupProps & RefAttributes<HTMLDivElement>) {

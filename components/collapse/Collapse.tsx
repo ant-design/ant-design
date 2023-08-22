@@ -1,27 +1,26 @@
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
+import type { CollapseProps as RcCollapseProps } from 'rc-collapse';
 import RcCollapse from 'rc-collapse';
 import type { CSSMotionProps } from 'rc-motion';
-import * as React from 'react';
-
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
-import { ConfigContext } from '../config-provider';
+import * as React from 'react';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import warning from '../_util/warning';
-import type { CollapsibleType } from './CollapsePanel';
+import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
+import useSize from '../config-provider/hooks/useSize';
+import type { CollapsibleType } from './CollapsePanel';
 import CollapsePanel from './CollapsePanel';
-
 import useStyle from './style';
 
 /** @deprecated Please use `start` | `end` instead */
 type ExpandIconPositionLegacy = 'left' | 'right';
 export type ExpandIconPosition = 'start' | 'end' | ExpandIconPositionLegacy | undefined;
 
-export interface CollapseProps {
+export interface CollapseProps extends Pick<RcCollapseProps, 'items'> {
   activeKey?: Array<string | number> | string | number;
   defaultActiveKey?: Array<string | number> | string | number;
   /** 手风琴效果 */
@@ -38,6 +37,9 @@ export interface CollapseProps {
   ghost?: boolean;
   size?: SizeType;
   collapsible?: CollapsibleType;
+  /**
+   * @deprecated use `items` instead
+   */
   children?: React.ReactNode;
 }
 
@@ -55,20 +57,22 @@ interface PanelProps {
 }
 
 const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const size = React.useContext(SizeContext);
+  const { getPrefixCls, direction, collapse } = React.useContext(ConfigContext);
 
   const {
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
+    style,
     bordered = true,
     ghost,
     size: customizeSize,
     expandIconPosition = 'start',
+    children,
+    expandIcon,
   } = props;
 
-  const mergedSize = customizeSize || size || 'middle';
+  const mergedSize = useSize((ctx) => customizeSize ?? ctx ?? 'middle');
   const prefixCls = getPrefixCls('collapse', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
   const [wrapSSR, hashId] = useStyle(prefixCls);
@@ -89,7 +93,6 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
   }, [expandIconPosition]);
 
   const renderExpandIcon = (panelProps: PanelProps = {}) => {
-    const { expandIcon } = props;
     const icon = (
       expandIcon ? (
         expandIcon(panelProps)
@@ -99,7 +102,10 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     ) as React.ReactNode;
 
     return cloneElement(icon, () => ({
-      className: classNames((icon as any).props.className, `${prefixCls}-arrow`),
+      className: classNames(
+        (icon as React.ReactElement<any>).props.className,
+        `${prefixCls}-arrow`,
+      ),
     }));
   };
 
@@ -111,6 +117,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       [`${prefixCls}-ghost`]: !!ghost,
       [`${prefixCls}-${mergedSize}`]: mergedSize !== 'middle',
     },
+    collapse?.className,
     className,
     rootClassName,
     hashId,
@@ -121,22 +128,25 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     leavedClassName: `${prefixCls}-content-hidden`,
   };
 
-  const getItems = () => {
-    const { children } = props;
-    return toArray(children).map((child: React.ReactElement, index: number) => {
-      if (child.props?.disabled) {
-        const key = child.key || String(index);
-        const { disabled, collapsible } = child.props;
-        const childProps: CollapseProps & { key: React.Key } = {
-          ...omit(child.props, ['disabled']),
-          key,
-          collapsible: collapsible ?? (disabled ? 'disabled' : undefined),
-        };
-        return cloneElement(child, childProps);
-      }
-      return child;
-    });
-  };
+  const items = React.useMemo<React.ReactNode[] | null>(
+    () =>
+      children
+        ? toArray(children).map<React.ReactNode>((child, index) => {
+            if (child.props?.disabled) {
+              const key = child.key ?? String(index);
+              const { disabled, collapsible } = child.props;
+              const childProps: Omit<CollapseProps, 'items'> & { key: React.Key } = {
+                ...omit(child.props, ['disabled']),
+                key,
+                collapsible: collapsible ?? (disabled ? 'disabled' : undefined),
+              };
+              return cloneElement(child, childProps);
+            }
+            return child;
+          })
+        : null,
+    [children],
+  );
 
   return wrapSSR(
     <RcCollapse
@@ -146,8 +156,9 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       expandIcon={renderExpandIcon}
       prefixCls={prefixCls}
       className={collapseClassName}
+      style={{ ...collapse?.style, ...style }}
     >
-      {getItems()}
+      {items}
     </RcCollapse>,
   );
 });

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import { Button, Tooltip, ConfigProvider, Radio, Divider, Space } from 'antd';
+import React, { useState } from 'react';
+import { Button, ConfigProvider, Divider, Radio, Space, Tooltip } from 'antd';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
 
 const App: React.FC = () => {
@@ -45,6 +45,10 @@ const App: React.FC = () => {
               Search
             </Button>
             <Button icon={<SearchOutlined />} href="https://www.google.com" />
+            <Button>
+              <SearchOutlined />
+              Search
+            </Button>
           </Space>
         </Space>
       </ConfigProvider>

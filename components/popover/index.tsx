@@ -1,11 +1,13 @@
+'use client';
+
 import classNames from 'classnames';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import type { AbstractTooltipProps } from '../tooltip';
-import Tooltip from '../tooltip';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { getTransitionName } from '../_util/motion';
+import { ConfigContext } from '../config-provider';
+import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
+import Tooltip from '../tooltip';
 import PurePanel from './PurePanel';
 // CSSINJS
 import useStyle from './style';
@@ -21,19 +23,14 @@ interface OverlayProps {
   content?: PopoverProps['content'];
 }
 
-const Overlay: React.FC<OverlayProps> = ({ title, content, prefixCls }) => {
-  if (!title && !content) {
-    return null;
-  }
-  return (
-    <>
-      {title && <div className={`${prefixCls}-title`}>{getRenderPropValue(title)}</div>}
-      <div className={`${prefixCls}-inner-content`}>{getRenderPropValue(content)}</div>
-    </>
-  );
-};
+const Overlay: React.FC<OverlayProps> = ({ title, content, prefixCls }) => (
+  <>
+    {title && <div className={`${prefixCls}-title`}>{getRenderPropValue(title)}</div>}
+    <div className={`${prefixCls}-inner-content`}>{getRenderPropValue(content)}</div>
+  </>
+);
 
-const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
+const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     title,
@@ -44,8 +41,6 @@ const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
     mouseEnterDelay = 0.1,
     mouseLeaveDelay = 0.1,
     overlayStyle = {},
-    arrowPointAtCenter,
-    arrow,
     ...otherProps
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -56,14 +51,9 @@ const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
 
   const overlayCls = classNames(overlayClassName, hashId);
 
-  const mergedArrowPointAtCenter =
-    (typeof arrow !== 'boolean' && arrow?.arrowPointAtCenter) ?? arrowPointAtCenter ?? false;
-  const mergedArrow = arrow ?? { arrowPointAtCenter: mergedArrowPointAtCenter };
-
   return wrapSSR(
     <Tooltip
       placement={placement}
-      arrow={mergedArrow}
       trigger={trigger}
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
@@ -72,7 +62,9 @@ const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
       prefixCls={prefixCls}
       overlayClassName={overlayCls}
       ref={ref}
-      overlay={<Overlay prefixCls={prefixCls} title={title} content={content} />}
+      overlay={
+        title || content ? <Overlay prefixCls={prefixCls} title={title} content={content} /> : null
+      }
       transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
       data-popover-inject
     />,

@@ -7,24 +7,36 @@ import {
   genHoverStyle,
   initInputToken,
 } from '../../input/style';
+import { resetComponent, roundedArrow, textEllipsis } from '../../style';
+import { genCompactItemStyle } from '../../style/compact-item';
 import {
-  initSlideMotion,
   initMoveMotion,
+  initSlideMotion,
   slideDownIn,
   slideDownOut,
   slideUpIn,
   slideUpOut,
 } from '../../style/motion';
+import type { GlobalToken } from '../../theme/interface';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import type { GlobalToken } from '../../theme/interface';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
-import { resetComponent, roundedArrow, textEllipsis } from '../../style';
-import { genCompactItemStyle } from '../../style/compact-item';
 
 export interface ComponentToken {
+  /**
+   * @desc 预设区域宽度
+   * @descEN Width of preset area
+   */
   presetsWidth: number;
+  /**
+   * @desc 预设区域最大宽度
+   * @descEN Max width of preset area
+   */
   presetsMaxWidth: number;
+  /**
+   * @desc 弹窗 z-index
+   * @descEN z-index of popup
+   */
   zIndexPopup: number;
 }
 
@@ -117,6 +129,12 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       lineHeight: `${pickerPanelCellHeight}px`,
       borderRadius: borderRadiusSM,
       transition: `background ${motionDurationMid}, border ${motionDurationMid}`,
+    },
+    [`&-range-hover-start, &-range-hover-end`]: {
+      [pickerCellInnerCls]: {
+        borderStartEndRadius: 0,
+        borderEndEndRadius: 0,
+      },
     },
 
     // >>> Hover
@@ -251,8 +269,8 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       &-in-view${pickerCellCls}-range-hover-start::after`]: {
       insetInlineStart: (pickerPanelCellWidth - pickerPanelCellHeight) / 2,
       borderInlineStart: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
-      borderStartStartRadius: lineWidth,
-      borderEndStartRadius: lineWidth,
+      borderStartStartRadius: borderRadiusSM,
+      borderEndStartRadius: borderRadiusSM,
     },
 
     // Edge end
@@ -263,8 +281,8 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       &-in-view${pickerCellCls}-range-hover-end::after`]: {
       insetInlineEnd: (pickerPanelCellWidth - pickerPanelCellHeight) / 2,
       borderInlineEnd: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
-      borderStartEndRadius: lineWidth,
-      borderEndEndRadius: lineWidth,
+      borderStartEndRadius: borderRadiusSM,
+      borderEndEndRadius: borderRadiusSM,
     },
 
     // >>> Disabled
@@ -289,6 +307,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
 export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
   const {
     componentCls,
+    pickerCellCls,
     pickerCellInnerCls,
     pickerYearMonthCellWidth,
     pickerControlIconSize,
@@ -731,38 +750,48 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
         '&-row': {
           td: {
-            transition: `background ${motionDurationMid}`,
+            '&:before': {
+              transition: `background ${motionDurationMid}`,
+            },
 
-            '&:first-child': {
+            '&:first-child:before': {
               borderStartStartRadius: borderRadiusSM,
               borderEndStartRadius: borderRadiusSM,
             },
 
-            '&:last-child': {
+            '&:last-child:before': {
               borderStartEndRadius: borderRadiusSM,
               borderEndEndRadius: borderRadiusSM,
             },
           },
 
-          '&:hover td': {
-            background: controlItemBgHover,
+          [`&:hover td`]: {
+            '&:before': {
+              background: controlItemBgHover,
+            },
           },
 
-          [`&-selected td,
-            &-selected:hover td`]: {
-            background: colorPrimary,
+          [`&-range-start td,
+            &-range-end td,
+            &-selected td`]: {
+            // Rise priority to override hover style
+            [`&${pickerCellCls}`]: {
+              '&:before': {
+                background: colorPrimary,
+              },
 
-            [`&${componentCls}-cell-week`]: {
-              color: new TinyColor(colorTextLightSolid).setAlpha(0.5).toHexString(),
-            },
+              [`&${componentCls}-cell-week`]: {
+                color: new TinyColor(colorTextLightSolid).setAlpha(0.5).toHexString(),
+              },
 
-            [`&${componentCls}-cell-today ${pickerCellInnerCls}::before`]: {
-              borderColor: colorTextLightSolid,
+              [pickerCellInnerCls]: {
+                color: colorTextLightSolid,
+              },
             },
+          },
 
-            [pickerCellInnerCls]: {
-              color: colorTextLightSolid,
-            },
+          [`&-range-hover td:before`]: {
+            background: controlItemBgActive,
           },
         },
       },
@@ -778,6 +807,8 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
           th: {
             width: pickerPanelCellWidth,
+            boxSizing: 'border-box',
+            padding: 0,
           },
         },
       },
@@ -1001,6 +1032,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     presetsWidth,
     presetsMaxWidth,
     boxShadowPopoverArrow,
+    colorTextQuaternary,
   } = token;
 
   return [
@@ -1031,7 +1063,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           cursor: 'not-allowed',
 
           [`${componentCls}-suffix`]: {
-            color: colorTextDisabled,
+            color: colorTextQuaternary,
           },
         },
 

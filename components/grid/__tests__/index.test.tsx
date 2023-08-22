@@ -3,8 +3,8 @@ import { act } from 'react-dom/test-utils';
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render } from '../../../tests/utils';
 import useBreakpoint from '../hooks/useBreakpoint';
-import { render, fireEvent } from '../../../tests/utils';
 
 // Mock for `responsiveObserve` to test `unsubscribe` call
 jest.mock('../../_util/responsiveObserver', () => {
@@ -83,7 +83,7 @@ describe('Grid', () => {
           },
           removeListener: jest.fn(),
           matches: query === '(min-width: 1200px)',
-        }) as any,
+        } as any),
     );
 
     const { container, asFragment } = render(
@@ -150,7 +150,7 @@ describe('Grid', () => {
           },
           removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
-        }) as any,
+        } as any),
     );
 
     let screensVar;
@@ -181,7 +181,7 @@ describe('Grid', () => {
           },
           removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
-        }) as any,
+        } as any),
     );
     const { container } = render(<Row align="middle" />);
     expect(container.innerHTML).toContain('ant-row-middle');
@@ -201,7 +201,7 @@ describe('Grid', () => {
           },
           removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
-        }) as any,
+        } as any),
     );
     const { container } = render(<Row justify="center" />);
     expect(container.innerHTML).toContain('ant-row-center');
@@ -231,5 +231,18 @@ describe('Grid', () => {
       fireEvent.click(container.querySelector('span')!);
     });
     expect(container.innerHTML).toContain('ant-row-end');
+  });
+
+  it('The column spacing should be evenly spaced', () => {
+    const { container } = render(
+      <Row justify="space-evenly">
+        <Col span={4}>col-1</Col>
+        <Col span={4}>col-2</Col>
+      </Row>,
+    );
+
+    const row = container.querySelector('.ant-row-space-evenly');
+    expect(row).toBeTruthy();
+    expect(row && getComputedStyle(row).justifyContent).toEqual('space-evenly');
   });
 });

@@ -1,13 +1,14 @@
-import type { ReactNode } from 'react';
+import { useFullSidebarData, useSidebarData } from 'dumi';
 import React, { useMemo } from 'react';
 import type { MenuProps } from 'antd';
-import { Link, useFullSidebarData, useSidebarData } from 'dumi';
+import { Tag, version } from 'antd';
+import Link from '../theme/common/Link';
 import useLocation from './useLocation';
 
-export type UseMenuOptions = {
-  before?: ReactNode;
-  after?: ReactNode;
-};
+export interface UseMenuOptions {
+  before?: React.ReactNode;
+  after?: React.ReactNode;
+}
 
 const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => {
   const fullData = useFullSidebarData();
@@ -30,7 +31,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
         key.startsWith('/changelog'),
       )?.[1];
       if (changelogData) {
-        sidebarItems.push(...changelogData);
+        sidebarItems.splice(1, 0, changelogData[0]);
       }
     }
     if (pathname.startsWith('/changelog')) {
@@ -38,9 +39,22 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
         key.startsWith('/docs/react'),
       )?.[1];
       if (reactDocData) {
-        sidebarItems.unshift(...reactDocData);
+        sidebarItems.unshift(reactDocData[0]);
+        sidebarItems.push(...reactDocData.slice(1));
       }
     }
+
+    const getItemTag = (tag: string, show = true) =>
+      tag &&
+      show && (
+        <Tag
+          color={tag === 'New' ? 'success' : 'processing'}
+          bordered={false}
+          style={{ marginInlineStart: 'auto', marginInlineEnd: 0, marginTop: -2 }}
+        >
+          {tag.replace('VERSION', version)}
+        </Tag>
+      );
 
     return (
       sidebarItems?.reduce<Exclude<MenuProps['items'], undefined>>((result, group) => {
@@ -50,7 +64,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
             const childrenGroup = group.children.reduce<
               Record<string, ReturnType<typeof useSidebarData>[number]['children']>
             >((childrenResult, child) => {
-              const type = (child.frontmatter as any).type ?? 'default';
+              const type = child.frontmatter?.type ?? 'default';
               if (!childrenResult[type]) {
                 childrenResult[type] = [];
               }
@@ -101,12 +115,16 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
               key: group?.title,
               children: group.children?.map((item) => ({
                 label: (
-                  <Link to={`${item.link}${search}`}>
+                  <Link
+                    to={`${item.link}${search}`}
+                    style={{ display: 'flex', alignItems: 'center' }}
+                  >
                     {before}
                     <span key="english">{item?.title}</span>
                     <span className="chinese" key="chinese">
-                      {(item.frontmatter as any).subtitle}
+                      {item.frontmatter?.subtitle}
                     </span>
+                    {getItemTag(item.frontmatter?.tag, !before && !after)}
                     {after}
                   </Link>
                 ),
@@ -124,9 +142,13 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
           result.push(
             ...list.map((item) => ({
               label: (
-                <Link to={`${item.link}${search}`}>
+                <Link
+                  to={`${item.link}${search}`}
+                  style={{ display: 'flex', alignItems: 'center' }}
+                >
                   {before}
                   {item?.title}
+                  {getItemTag((item.frontmatter as any).tag, !before && !after)}
                   {after}
                 </Link>
               ),
@@ -137,7 +159,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
         return result;
       }, []) ?? []
     );
-  }, [sidebarData, fullData, pathname, search]);
+  }, [sidebarData, fullData, pathname, search, options]);
 
   return [menuItems, pathname];
 };

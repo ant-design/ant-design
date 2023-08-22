@@ -1,18 +1,14 @@
-import { Input, Space, Popover } from 'antd';
+import { createStyles } from 'antd-style';
 import type { FC } from 'react';
 import React, { useEffect, useState } from 'react';
-import { css } from '@emotion/react';
-import { TinyColor } from '@ctrl/tinycolor';
-import type { ColorPanelProps } from 'antd-token-previewer/es/ColorPanel';
-import ColorPanel from 'antd-token-previewer/es/ColorPanel';
+import classNames from 'classnames';
+import { ColorPicker, Input, Space } from 'antd';
+import type { Color, ColorPickerProps } from 'antd/es/color-picker';
+import { generateColor } from 'antd/es/color-picker/util';
 import { PRESET_COLORS } from './colorUtil';
-import useSiteToken from '../../../../hooks/useSiteToken';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-
-  return {
-    color: css`
+const useStyle = createStyles(({ token, css }) => ({
+  color: css`
       width: ${token.controlHeightLG / 2}px;
       height: ${token.controlHeightLG / 2}px;
       border-radius: 100%;
@@ -20,7 +16,7 @@ const useStyle = () => {
       transition: all ${token.motionDurationFast};
       display: inline-block;
 
-      & > input[type="radio"] {
+      & > input[type='radio'] {
         width: 0;
         height: 0;
         opacity: 0;
@@ -31,14 +27,13 @@ const useStyle = () => {
       }
     `,
 
-    colorActive: css`
+  colorActive: css`
       box-shadow: 0 0 0 1px ${token.colorBgContainer},
         0 0 0 ${token.controlOutlineWidth * 2 + 1}px ${token.colorPrimary};
     `,
-  };
-};
+}));
 
-const DebouncedColorPanel: FC<ColorPanelProps> = ({ color, onChange }) => {
+const DebouncedColorPicker: FC<ColorPickerProps> = ({ value: color, onChange, children }) => {
   const [value, setValue] = useState(color);
 
   useEffect(() => {
@@ -52,23 +47,36 @@ const DebouncedColorPanel: FC<ColorPanelProps> = ({ color, onChange }) => {
     setValue(color);
   }, [color]);
 
-  return <ColorPanel color={value} onChange={setValue} />;
+  return (
+    <ColorPicker
+      value={value}
+      onChange={setValue}
+      presets={[
+        {
+          label: 'PresetColors',
+          colors: PRESET_COLORS,
+        },
+      ]}
+    >
+      {children}
+    </ColorPicker>
+  );
 };
 
 export interface RadiusPickerProps {
-  value?: string;
+  value?: string | Color;
   onChange?: (value: string) => void;
 }
 
-export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
-  const style = useStyle();
+export default function ThemeColorPicker({ value, onChange }: RadiusPickerProps) {
+  const { styles } = useStyle();
 
   const matchColors = React.useMemo(() => {
-    const valueStr = new TinyColor(value).toRgbString();
+    const valueStr = generateColor(value).toRgbString();
     let existActive = false;
 
     const colors = PRESET_COLORS.map((color) => {
-      const colorStr = new TinyColor(color).toRgbString();
+      const colorStr = generateColor(color).toRgbString();
       const active = colorStr === valueStr;
       existActive = existActive || active;
 
@@ -92,7 +100,7 @@ export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
   return (
     <Space size="large">
       <Input
-        value={value}
+        value={typeof value === 'string' ? value : value.toHexString()}
         onChange={(event) => {
           onChange?.(event.target.value);
         }}
@@ -105,7 +113,7 @@ export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
             // eslint-disable-next-line jsx-a11y/label-has-associated-control
             <label
               key={color}
-              css={[style.color, active && style.colorActive]}
+              className={classNames(styles.color, active && styles.colorActive)}
               style={{
                 background: color,
               }}
@@ -115,23 +123,24 @@ export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
                 }
               }}
             >
-              <input type="radio" name={picker ? 'picker' : 'color'} tabIndex={picker ? -1 : 0} />
+              <input
+                type="radio"
+                name={picker ? 'picker' : 'color'}
+                tabIndex={picker ? -1 : 0}
+                onClick={(e) => e.stopPropagation()}
+              />
             </label>
           );
 
           if (picker) {
             colorNode = (
-              <Popover
-                key={color}
-                overlayInnerStyle={{ padding: 0 }}
-                content={
-                  <DebouncedColorPanel color={value || ''} onChange={(c) => onChange?.(c)} />
-                }
-                trigger="click"
-                showArrow={false}
+              <DebouncedColorPicker
+                key={`colorpicker-${value}`}
+                value={value || ''}
+                onChange={onChange}
               >
                 {colorNode}
-              </Popover>
+              </DebouncedColorPicker>
             );
           }
 

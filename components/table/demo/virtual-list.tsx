@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Table, theme } from 'antd';
-import type { TableProps } from 'antd';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
+import React, { useEffect, useRef, useState } from 'react';
 import { VariableSizeGrid as Grid } from 'react-window';
+import { Table, theme } from 'antd';
+import type { TableProps } from 'antd';
 
 const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) => {
   const { columns, scroll } = props;
@@ -51,7 +51,7 @@ const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) 
 
   useEffect(() => resetVirtualGrid, [tableWidth]);
 
-  const renderVirtualList = (rawData: object[], { scrollbarSize, ref, onScroll }: any) => {
+  const renderVirtualList = (rawData: readonly object[], { scrollbarSize, ref, onScroll }: any) => {
     ref.current = connectObject;
     const totalHeight = rawData.length * 54;
 
@@ -62,7 +62,7 @@ const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) 
         columnCount={mergedColumns.length}
         columnWidth={(index: number) => {
           const { width } = mergedColumns[index];
-          return totalHeight > scroll!.y! && index === mergedColumns.length - 1
+          return totalHeight > (scroll?.y as number) && index === mergedColumns.length - 1
             ? (width as number) - scrollbarSize - 1
             : (width as number);
         }}

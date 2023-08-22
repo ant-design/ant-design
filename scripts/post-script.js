@@ -1,13 +1,13 @@
 /* eslint-disable no-console */
+const { spawnSync } = require('child_process');
 const fetch = require('isomorphic-fetch');
 const semver = require('semver');
 const dayjs = require('dayjs');
 const chalk = require('chalk');
-const { spawnSync } = require('child_process');
 const relativeTime = require('dayjs/plugin/relativeTime');
-// const packageJson = require('../package.json');
 
 dayjs.extend(relativeTime);
+
 const CONCH_TAG = 'conch-v5';
 
 const DEPRECIATED_VERSION = {
@@ -29,6 +29,22 @@ const DEPRECIATED_VERSION = {
   '5.1.2': ['https://github.com/ant-design/ant-design/issues/39949'],
   '5.1.3': ['https://github.com/ant-design/ant-design/issues/40113'],
   '5.1.4': ['https://github.com/ant-design/ant-design/issues/40186'],
+  '>= 5.2.3 <= 5.3.0': [
+    'https://github.com/ant-design/ant-design/pull/40719#issuecomment-1453418135',
+  ],
+  '5.4.1': ['https://github.com/ant-design/ant-design/issues/41751'],
+  '>= 5.4.3 <= 5.4.5': [
+    'https://github.com/ant-design/cssinjs/pull/108',
+    'https://github.com/ant-design/ant-design/pull/41993',
+  ],
+  '5.6.2': ['https://github.com/ant-design/ant-design/issues/43113'],
+  '5.6.3': ['https://github.com/ant-design/ant-design/issues/43190'],
+  '5.7.0': ['https://github.com/ant-design/ant-design/issues/43684'],
+  '5.7.1': [
+    'https://github.com/ant-design/ant-design/issues/43654',
+    'https://github.com/ant-design/ant-design/issues/43684',
+  ],
+  '5.8.0': ['https://github.com/ant-design/ant-design/issues/43943'],
 };
 
 function matchDeprecated(version) {

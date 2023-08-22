@@ -29,6 +29,8 @@ Checkbox component.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 #### Checkbox
 
 | Property | Description | Type | Default | Version |
@@ -48,7 +50,7 @@ Checkbox component.
 | disabled | If disable all checkboxes | boolean | false |  |
 | name | The `name` property of all `input[type="checkbox"]` children | string | - |  |
 | options | Specifies options | string\[] \| number\[] \| Option\[] | \[] |  |
-| value | Used for setting the currently selected value | (string \| number)\[] | \[] |  |
+| value | Used for setting the currently selected value | (string \| number \| boolean)\[] | \[] |  |
 | onChange | The callback function that is triggered when the state changes | (checkedValue: CheckboxValueType[]) => void | - |  |
 
 ##### Option
@@ -69,3 +71,7 @@ interface Option {
 | ------- | ------------ | ------- |
 | blur()  | Remove focus |         |
 | focus() | Get focus    |         |
+
+## Design Token
+
+<ComponentTokenTable component="Checkbox"></ComponentTokenTable>

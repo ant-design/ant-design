@@ -1,6 +1,6 @@
+import ImgCrop from 'antd-img-crop';
 import React, { useState } from 'react';
 import { Upload } from 'antd';
-import ImgCrop from 'antd-img-crop';
 import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
 
 const App: React.FC = () => {
@@ -33,7 +33,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <ImgCrop rotate>
+    <ImgCrop rotationSlider>
       <Upload
         action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
         listType="picture-card"

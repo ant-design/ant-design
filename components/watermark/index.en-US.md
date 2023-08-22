@@ -1,6 +1,6 @@
 ---
 category: Components
-group: Other
+group: Feedback
 title: Watermark
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wr1ISY50SyYAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*duAQQbjHlHQAAAAAAAAAAAAADrJ8AQ/original
@@ -24,6 +24,8 @@ Add specific text or patterns to the page.
 <code src="./demo/custom.tsx">Custom configuration</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Watermark
 
@@ -49,6 +51,10 @@ Add specific text or patterns to the page.
 | fontWeight | font weight | `normal` \| `light` \| `weight` \| number | normal |  |
 | fontFamily | font family | string | sans-serif |  |
 | fontStyle | font style  | `none` \| `normal` \| `italic` \| `oblique` | normal |  |
+
+## Design Token
+
+<ComponentTokenTable component="Watermark"></ComponentTokenTable>
 
 ## FAQ
 

@@ -1,13 +1,17 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { resetComponent, resetIcon, textEllipsis } from '../../style';
+import { genCompactItemStyle } from '../../style/compact-item';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genDropdownStyle from './dropdown';
 import genMultipleStyle from './multiple';
 import genSingleStyle from './single';
-import { resetComponent, resetIcon, textEllipsis } from '../../style';
-import { genCompactItemStyle } from '../../style/compact-item';
 
 export interface ComponentToken {
+  /**
+   * @desc 下拉菜单 z-index
+   * @descEN z-index of dropdown
+   */
   zIndexPopup: number;
 }
 
@@ -235,7 +239,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
     // ========================= Feedback ==========================
     [`${componentCls}-has-feedback`]: {
       [`${componentCls}-clear`]: {
-        insetInlineEnd: inputPaddingHorizontalBase + token.fontSize + token.paddingXXS,
+        insetInlineEnd: inputPaddingHorizontalBase + token.fontSize + token.paddingXS,
       },
     },
   };

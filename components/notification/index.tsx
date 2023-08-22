@@ -1,8 +1,10 @@
+'use client';
+
 import { render } from 'rc-util/lib/React/render';
 import * as React from 'react';
-import ConfigProvider, { globalConfig } from '../config-provider';
-import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
+import ConfigProvider, { globalConfig, warnContext } from '../config-provider';
 import PurePanel from './PurePanel';
+import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
 import useNotification, { useInternalNotification } from './useNotification';
 
 let notification: GlobalNotification | null = null;
@@ -58,7 +60,7 @@ interface GlobalHolderRef {
 
 const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   const [prefixCls, setPrefixCls] = React.useState<string>();
-  const [container, setContainer] = React.useState<HTMLElement>();
+  const [container, setContainer] = React.useState<HTMLElement | ShadowRoot>();
   const [maxCount, setMaxCount] = React.useState<number>();
   const [rtl, setRTL] = React.useState<boolean>();
   const [top, setTop] = React.useState<number>();
@@ -76,6 +78,7 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   const global = globalConfig();
   const rootPrefixCls = global.getRootPrefixCls();
   const rootIconPrefixCls = global.getIconPrefixCls();
+  const theme = global.getTheme();
 
   const sync = () => {
     const {
@@ -114,7 +117,7 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   });
 
   return (
-    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls}>
+    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls} theme={theme}>
       {holder}
     </ConfigProvider>
   );
@@ -201,6 +204,11 @@ function setNotificationGlobalConfig(config: GlobalConfigProps) {
 }
 
 function open(config: ArgsProps) {
+  // Warning if exist theme
+  if (process.env.NODE_ENV !== 'production') {
+    warnContext('notification');
+  }
+
   taskQueue.push({
     type: 'open',
     config,
@@ -255,7 +263,7 @@ methods.forEach((type: keyof NoticeMethods) => {
 // ==============================================================================
 const noop = () => {};
 
-/** @private Only Work in test env */
+/** @internal Only Work in test env */
 // eslint-disable-next-line import/no-mutable-exports
 export let actWrapper: (wrapper: any) => void = noop;
 

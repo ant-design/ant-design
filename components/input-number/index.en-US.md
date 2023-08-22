@@ -34,6 +34,8 @@ When a numeric value needs to be provided.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | addonAfter | The label text displayed after (on the right side of) the input field | ReactNode | - |  |
@@ -68,6 +70,10 @@ When a numeric value needs to be provided.
 | blur()  | Remove focus |
 | focus() | Get focus    |
 
+## Design Token
+
+<ComponentTokenTable component="InputNumber"></ComponentTokenTable>
+
 ## Notes
 
 Per issues [#21158](https://github.com/ant-design/ant-design/issues/21158), [#17344](https://github.com/ant-design/ant-design/issues/17344), [#9421](https://github.com/ant-design/ant-design/issues/9421), and [documentation about inputs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number#Using_number_inputs), it appears this community does not support native inclusion of the `type="number"` in the `<Input />` attributes, so please feel free to include it as needed, and be aware that it is heavily suggested that server side validation be utilized, as client side validation can be edited by power users.
@@ -81,3 +87,7 @@ Developer handle data by their own in control. It will make data out of sync if 
 ### Why dynamic change `min` or `max` which makes `value` out of range will not trigger `onChange`?
 
 `onChange` is user trigger event. Auto trigger will makes form lib can not detect data modify source.
+
+### Why `onBlur` or other event can not get correct value?
+
+InputNumber's value is wrapped by internal logic. The `event.target.value` you get from `onBlur` or other event is the DOM element's `value` instead of the actual value of InputNumber. For example, if you change the display format through `formatter` or `decimalSeparator`, you will get the formatted string in the DOM. You should always get the current value through `onChange`.

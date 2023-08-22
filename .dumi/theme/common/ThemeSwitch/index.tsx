@@ -1,25 +1,36 @@
-import React from 'react';
-import { FloatButton } from 'antd';
+import { BgColorsOutlined, SmileOutlined } from '@ant-design/icons';
+import { CompactTheme, DarkTheme } from 'antd-token-previewer/es/icons';
+// import { Motion } from 'antd-token-previewer/es/icons';
 import { FormattedMessage, Link, useLocation } from 'dumi';
-import { DarkTheme, CompactTheme } from 'antd-token-previewer/es/icons';
-import { BgColorsOutlined } from '@ant-design/icons';
-import useSiteToken from '../../../hooks/useSiteToken';
+import React from 'react';
+import { useTheme } from 'antd-style';
+import { FloatButton } from 'antd';
 import { getLocalizedPathname, isZhCN } from '../../utils';
 import ThemeIcon from './ThemeIcon';
 
-export type ThemeName = 'light' | 'dark' | 'compact';
+export type ThemeName = 'light' | 'dark' | 'compact' | 'motion-off' | 'happy-work';
 
 export type ThemeSwitchProps = {
   value?: ThemeName[];
   onChange: (value: ThemeName[]) => void;
 };
 
-const ThemeSwitch: React.FC<ThemeSwitchProps> = (props: ThemeSwitchProps) => {
+const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
   const { value = ['light'], onChange } = props;
-  const { token } = useSiteToken();
+  const token = useTheme();
   const { pathname, search } = useLocation();
+
+  // const isMotionOff = value.includes('motion-off');
+  const isHappyWork = value.includes('happy-work');
+
   return (
-    <FloatButton.Group trigger="click" icon={<ThemeIcon />}>
+    <FloatButton.Group
+      trigger="click"
+      icon={<ThemeIcon />}
+      aria-label="Theme Switcher"
+      badge={{ dot: true }}
+      style={{ zIndex: 1010 }}
+    >
       <Link
         to={getLocalizedPathname('/theme-editor', isZhCN(pathname), search)}
         style={{ display: 'block', marginBottom: token.margin }}
@@ -52,6 +63,40 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props: ThemeSwitchProps) => {
           }
         }}
         tooltip={<FormattedMessage id="app.theme.switch.compact" />}
+      />
+      {/* Too many float button. Hide motion one */}
+      {/* <FloatButton
+        icon={<Motion />}
+        type={!isMotionOff ? 'primary' : 'default'}
+        onClick={() => {
+          if (isMotionOff) {
+            onChange(value.filter((theme) => theme !== 'motion-off'));
+          } else {
+            onChange([...value, 'motion-off']);
+          }
+        }}
+        tooltip={
+          <FormattedMessage
+            id={isMotionOff ? 'app.theme.switch.motion.off' : 'app.theme.switch.motion.on'}
+          />
+        }
+      /> */}
+      <FloatButton
+        badge={{ dot: true }}
+        icon={<SmileOutlined />}
+        type={isHappyWork ? 'primary' : 'default'}
+        onClick={() => {
+          if (isHappyWork) {
+            onChange(value.filter((theme) => theme !== 'happy-work'));
+          } else {
+            onChange([...value, 'happy-work']);
+          }
+        }}
+        tooltip={
+          <FormattedMessage
+            id={isHappyWork ? 'app.theme.switch.happy-work.off' : 'app.theme.switch.happy-work.on'}
+          />
+        }
       />
     </FloatButton.Group>
   );

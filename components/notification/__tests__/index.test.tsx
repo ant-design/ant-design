@@ -1,8 +1,8 @@
-import React from 'react';
 import { UserOutlined } from '@ant-design/icons';
+import React from 'react';
 import notification, { actWrapper } from '..';
-import ConfigProvider from '../../config-provider';
 import { act, fireEvent } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
 
 describe('notification', () => {
@@ -300,5 +300,52 @@ describe('notification', () => {
     });
 
     expect(document.querySelectorAll("[data-testid='test-notification']").length).toBe(1);
+  });
+
+  it('support role', async () => {
+    act(() => {
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        role: 'status',
+      });
+    });
+
+    expect(document.querySelectorAll('[role="status"]').length).toBe(1);
+  });
+  it('should hide close btn when closeIcon setting to null or false', async () => {
+    notification.config({
+      closeIcon: undefined,
+    });
+    act(() => {
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        className: 'normal',
+      });
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        className: 'custom',
+        closeIcon: <span className="custom-close-icon">Close</span>,
+      });
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        closeIcon: null,
+        className: 'with-null',
+      });
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        closeIcon: false,
+        className: 'with-false',
+      });
+    });
+    await awaitPromise();
+    expect(document.querySelectorAll('.normal .ant-notification-notice-close').length).toBe(1);
+    expect(document.querySelectorAll('.custom .custom-close-icon').length).toBe(1);
+    expect(document.querySelectorAll('.with-null .ant-notification-notice-close').length).toBe(0);
+    expect(document.querySelectorAll('.with-false .ant-notification-notice-close').length).toBe(0);
   });
 });

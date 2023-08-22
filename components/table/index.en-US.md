@@ -104,8 +104,11 @@ const columns = [
 <code src="./demo/row-selection-custom-debug.tsx" debug>Custom selection group</code>
 <code src="./demo/sticky.tsx">Fixed header and scroll bar with the page</code>
 <code src="./demo/dynamic-settings.tsx">Dynamic Settings</code>
+<code src="./demo/selections-debug.tsx" debug>selections with icon</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Table
 
@@ -191,8 +194,9 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | shouldCellUpdate | Control cell render logic | (record, prevRecord) => boolean | - | 4.3.0 |
 | showSorterTooltip | If header show next sorter direction tooltip, override `showSorterTooltip` in table | boolean \| [Tooltip props](/components/tooltip/) | true |  |
 | sortDirections | Supported sort way, override `sortDirections` in `Table`, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] |  |
-| sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If you need sort buttons only, set to `true` | function \| boolean | - |  |
+| sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If you need sort buttons only, set to `true` | function \| boolean \| { compare: function, multiple: number } | - |  |
 | sortOrder | Order of sorted values: `ascend` `descend` `null` | `ascend` \| `descend` \| null | - |  |
+| sortIcon | Customized sort icon | (props: { sortOrder }) => ReactNode | - | 5.6.0 |
 | title | Title of this column | ReactNode \| ({ sortOrder, sortColumn, filters }) => ReactNode | - |  |
 | width | Width of this column ([width not working?](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)) | string \| number | - |  |
 | onCell | Set props on per cell | function(record, rowIndex) | - |  |
@@ -236,7 +240,7 @@ Properties for expandable.
 | indentSize | Indent size in pixels of tree data | number | 15 |  |
 | rowExpandable | Enable row can be expandable | (record) => boolean | - |  |
 | showExpandColumn | Show expand column | boolean | true | 4.18.0 |
-| onExpand | Callback executed when the row expand icon is clicked | function(expanded, record) | - |  |
+| onExpand | Callback executed when the row expand icon is clicked | function(record, event) | - |  |
 | onExpandedRowsChange | Callback executed when the expanded rows change | function(expandedRows) | - |  |
 
 ### rowSelection
@@ -256,6 +260,7 @@ Properties for row selection.
 | selectedRowKeys | Controlled selected row keys | string\[] \| number\[] | \[] |  |
 | selections | Custom selection [config](#selection), only displays default selections when set to `true` | object\[] \| boolean | - |  |
 | type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` |  |
+| onCell | Set props on per cell. Same as `onCell` in column | function(record, rowIndex) | - | 5.5.0 |
 | onChange | Callback executed when selected rows change | function(selectedRowKeys, selectedRows, info: { type }) | - | `info.type`: 4.21.0 |
 | onSelect | Callback executed when select/deselect one row | function(record, selected, selectedRows, nativeEvent) | - |  |
 | onSelectAll | Callback executed when select/deselect all rows | function(selected, selectedRows, changeRows) | - |  |
@@ -320,6 +325,10 @@ export default Demo;
 ```
 
 Here is the [CodeSandbox for TypeScript](https://codesandbox.io/s/serene-platform-0jo5t).
+
+## Design Token
+
+<ComponentTokenTable component="Table"></ComponentTokenTable>
 
 ## Note
 

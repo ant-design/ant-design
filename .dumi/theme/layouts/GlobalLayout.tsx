@@ -4,11 +4,16 @@ import {
   logicalPropertiesLinter,
   parentSelectorLinter,
   StyleProvider,
+  extractStyle,
 } from '@ant-design/cssinjs';
-import { ConfigProvider, theme as antdTheme, App } from 'antd';
+import { HappyProvider } from '@ant-design/happy-work-theme';
+import React, { useCallback, useEffect, useMemo } from 'react';
+import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
+import { getSandpackCssText } from '@codesandbox/sandpack-react';
+import { App, theme as antdTheme } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
-import { createSearchParams, useOutlet, useSearchParams } from 'dumi';
-import React, { startTransition, useCallback, useEffect, useMemo } from 'react';
+import useLayoutState from '../../hooks/useLayoutState';
+import SiteThemeProvider from '../SiteThemeProvider';
 import useLocation from '../../hooks/useLocation';
 import type { ThemeName } from '../common/ThemeSwitch';
 import ThemeSwitch from '../common/ThemeSwitch';
@@ -20,10 +25,10 @@ type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
 
 const RESPONSIVE_MOBILE = 768;
 
-const styleCache = createCache();
-if (typeof global !== 'undefined') {
-  (global as any).styleCache = styleCache;
-}
+// const styleCache = createCache();
+// if (typeof global !== 'undefined') {
+//   (global as any).styleCache = styleCache;
+// }
 
 const getAlgorithm = (themes: ThemeName[] = []) =>
   themes.map((theme) => {
@@ -40,10 +45,10 @@ const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
   const { pathname } = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [{ theme, direction, isMobile }, setSiteState] = React.useState<SiteState>({
+  const [{ theme = [], direction, isMobile }, setSiteState] = useLayoutState<SiteState>({
     isMobile: false,
     direction: 'ltr',
-    theme: ['light'],
+    theme: [],
   });
 
   const updateSiteConfig = useCallback(
@@ -85,11 +90,9 @@ const GlobalLayout: React.FC = () => {
     const _theme = searchParams.getAll('theme') as ThemeName[];
     const _direction = searchParams.get('direction') as DirectionType;
 
-    startTransition(() => {
-      setSiteState({ theme: _theme, direction: _direction === 'rtl' ? 'rtl' : 'ltr' });
-      // Handle isMobile
-      updateMobileMode();
-    });
+    setSiteState({ theme: _theme, direction: _direction === 'rtl' ? 'rtl' : 'ltr' });
+    // Handle isMobile
+    updateMobileMode();
 
     window.addEventListener('resize', updateMobileMode);
     return () => {
@@ -107,27 +110,55 @@ const GlobalLayout: React.FC = () => {
     [isMobile, direction, updateSiteConfig, theme],
   );
 
+  const [styleCache] = React.useState(() => createCache());
+
+  useServerInsertedHTML(() => {
+    const styleText = extractStyle(styleCache, true);
+    return <style data-type="antd-cssinjs" dangerouslySetInnerHTML={{ __html: styleText }} />;
+  });
+
+  useServerInsertedHTML(() => (
+    <style
+      data-sandpack="true"
+      id="sandpack"
+      dangerouslySetInnerHTML={{ __html: getSandpackCssText() }}
+    />
+  ));
+
+  const demoPage = pathname.startsWith('/~demos');
+
+  // ============================ Render ============================
+  let content: React.ReactNode = outlet;
+
+  // Demo page should not contain App component
+  if (!demoPage) {
+    content = (
+      <App>
+        {outlet}
+        <ThemeSwitch
+          value={theme}
+          onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
+        />
+      </App>
+    );
+  }
+
   return (
     <StyleProvider
       cache={styleCache}
       linters={[logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter]}
     >
       <SiteContext.Provider value={siteContextValue}>
-        <ConfigProvider
+        <SiteThemeProvider
           theme={{
             algorithm: getAlgorithm(theme),
+            token: {
+              motion: !theme.includes('motion-off'),
+            },
           }}
         >
-          <App>
-            {outlet}
-            {!pathname.startsWith('/~demos') && (
-              <ThemeSwitch
-                value={theme}
-                onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
-              />
-            )}
-          </App>
-        </ConfigProvider>
+          <HappyProvider disabled={!theme.includes('happy-work')}>{content}</HappyProvider>
+        </SiteThemeProvider>
       </SiteContext.Provider>
     </StyleProvider>
   );

@@ -1,22 +1,22 @@
+import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+import classNames from 'classnames';
 import type { MenuProps as RcMenuProps, MenuRef as RcMenuRef } from 'rc-menu';
 import RcMenu from 'rc-menu';
+import useEvent from 'rc-util/lib/hooks/useEvent';
+import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import { forwardRef } from 'react';
-import omit from 'rc-util/lib/omit';
-import useEvent from 'rc-util/lib/hooks/useEvent';
-import classNames from 'classnames';
-import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
-import warning from '../_util/warning';
 import initCollapseMotion from '../_util/motion';
-import { cloneElement } from '../_util/reactNode';
-import type { SiderContextProps } from '../layout/Sider';
+import { cloneElement, isValidElement } from '../_util/reactNode';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import useStyle from './style';
-import OverrideContext from './OverrideContext';
-import useItems from './hooks/useItems';
-import type { ItemType } from './hooks/useItems';
+import type { SiderContextProps } from '../layout/Sider';
+import type { MenuContextProps, MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';
-import type { MenuTheme, MenuContextProps } from './MenuContext';
+import OverrideContext from './OverrideContext';
+import type { ItemType } from './hooks/useItems';
+import useItems from './hooks/useItems';
+import useStyle from './style';
 
 export interface MenuProps extends Omit<RcMenuProps, 'items'> {
   theme?: MenuTheme;
@@ -41,13 +41,14 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   const override = React.useContext(OverrideContext);
   const overrideObj = override || {};
 
-  const { getPrefixCls, getPopupContainer, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, getPopupContainer, direction, menu } = React.useContext(ConfigContext);
 
   const rootPrefixCls = getPrefixCls();
 
   const {
     prefixCls: customizePrefixCls,
     className,
+    style,
     theme = 'light',
     expandIcon,
     _internalDisableMenuItemTitleTooltip,
@@ -59,6 +60,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     mode,
     selectable,
     onClick,
+    overflowedIndicatorPopupClassName,
     ...restProps
   } = props;
 
@@ -118,16 +120,19 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('menu', customizePrefixCls || overrideObj.prefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls, !override);
-  const menuClassName = classNames(`${prefixCls}-${theme}`, className);
+  const menuClassName = classNames(`${prefixCls}-${theme}`, menu?.className, className);
 
   // ====================== Expand Icon ========================
-  let mergedExpandIcon: MenuProps[`expandIcon`];
+  let mergedExpandIcon: MenuProps['expandIcon'];
   if (typeof expandIcon === 'function') {
     mergedExpandIcon = expandIcon;
   } else {
-    const beClone: any = expandIcon || overrideObj.expandIcon;
+    const beClone: React.ReactNode = expandIcon || overrideObj.expandIcon;
     mergedExpandIcon = cloneElement(beClone, {
-      className: classNames(`${prefixCls}-submenu-expand-icon`, beClone?.props?.className),
+      className: classNames(
+        `${prefixCls}-submenu-expand-icon`,
+        isValidElement(beClone) ? beClone.props?.className : '',
+      ),
     });
   }
 
@@ -152,12 +157,17 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
         <RcMenu
           getPopupContainer={getPopupContainer}
           overflowedIndicator={<EllipsisOutlined />}
-          overflowedIndicatorPopupClassName={`${prefixCls}-${theme}`}
+          overflowedIndicatorPopupClassName={classNames(
+            prefixCls,
+            `${prefixCls}-${theme}`,
+            overflowedIndicatorPopupClassName,
+          )}
           mode={mergedMode}
           selectable={mergedSelectable}
           onClick={onItemClick}
           {...passedProps}
           inlineCollapsed={mergedInlineCollapsed}
+          style={{ ...menu?.style, ...style }}
           className={menuClassName}
           prefixCls={prefixCls}
           direction={direction}

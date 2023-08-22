@@ -1,11 +1,11 @@
-import React from 'react';
 import { CloseOutlined } from '@ant-design/icons';
+import React from 'react';
 import type { SelectProps } from '..';
 import Select from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, act } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
 const { Option } = Select;
@@ -144,6 +144,31 @@ describe('Select', () => {
         'Warning: [antd: Select] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
       );
       expect(container.querySelector('.legacy')).toBeTruthy();
+
+      errSpy.mockRestore();
+    });
+
+    it('warning for legacy dropdownMatchSelectWidth', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      render(<Select dropdownMatchSelectWidth open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
+      );
+
+      errSpy.mockRestore();
+    });
+
+    it('deprecate showArrow', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Select showArrow />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+      );
+      expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
 
       errSpy.mockRestore();
     });

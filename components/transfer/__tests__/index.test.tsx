@@ -1,11 +1,11 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import React, { useState } from 'react';
+import type { DefaultRecordType } from 'rc-table/lib/interface';
+import React, { useCallback, useEffect, useState } from 'react';
 import type { SelectAllLabel, TransferProps } from '..';
 import Transfer from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-
-const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+import Button from '../../button';
 
 const listCommonProps: {
   dataSource: { key: string; title: string; disabled?: boolean }[];
@@ -71,6 +71,19 @@ const searchTransferProps = {
   ],
   selectedKeys: [],
   targetKeys: ['3', '4'],
+};
+
+const generateData = (n = 20) => {
+  const data = [];
+  for (let i = 0; i < n; i++) {
+    data.push({
+      key: `${i}`,
+      title: `content${i}`,
+      description: `description of content${i}`,
+      chosen: false,
+    });
+  }
+  return data;
 };
 
 describe('Transfer', () => {
@@ -264,6 +277,8 @@ describe('Transfer', () => {
   });
 
   it('should display the correct locale and ignore old API', () => {
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
     const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
     const locale = { notFoundContent: 'old1', searchPlaceholder: 'old2' };
     const newLocalProp = { notFoundContent: 'new1', searchPlaceholder: 'new2' };
@@ -438,16 +453,16 @@ describe('Transfer', () => {
   });
 
   it('should add custom styles when their props are provided', () => {
-    const style = {
+    const style: React.CSSProperties = {
       backgroundColor: 'red',
     };
-    const leftStyle = {
+    const leftStyle: React.CSSProperties = {
       backgroundColor: 'blue',
     };
-    const rightStyle = {
+    const rightStyle: React.CSSProperties = {
       backgroundColor: 'red',
     };
-    const operationStyle = {
+    const operationStyle: React.CSSProperties = {
       backgroundColor: 'yellow',
     };
 
@@ -494,10 +509,32 @@ describe('Transfer', () => {
     expect(onScroll).toHaveBeenLastCalledWith('right', expect.anything());
   });
 
-  it('should support rowKey is function', () => {
-    expect(() => {
-      render(<Transfer {...listCommonProps} rowKey={(record) => record.key} />);
-    }).not.toThrow();
+  it('support rowKey', () => {
+    const onSelectChange = jest.fn();
+
+    const Demo = () => {
+      const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
+
+      return (
+        <Transfer
+          {...listCommonProps}
+          selectedKeys={selectedKeys}
+          rowKey={(record) => `key_${record.key}`}
+          onSelectChange={(keys) => {
+            onSelectChange(keys);
+            setSelectedKeys(keys);
+          }}
+        />
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    fireEvent.click(container.querySelector('.ant-transfer-list-content input')!);
+    expect(onSelectChange).toHaveBeenCalledWith(['key_a']);
+    expect(
+      container.querySelector<HTMLInputElement>('.ant-transfer-list-content input')!.checked,
+    ).toBeTruthy();
   });
 
   it('should support render value and label in item', () => {
@@ -571,6 +608,32 @@ describe('Transfer', () => {
       );
       await waitFor(() => expect(getAllByTitle('1/1')).toHaveLength(2));
     });
+
+    it('should support change pageSize', () => {
+      const dataSource = generateData();
+      const { container } = render(
+        <Transfer dataSource={dataSource} pagination={{ showSizeChanger: true, simple: false }} />,
+      );
+
+      fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+      fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
+      expect(container.querySelectorAll('.ant-transfer-list-content-item').length).toBe(20);
+    });
+
+    it('should be used first when pagination has pagesize', () => {
+      const dataSource = generateData(30);
+
+      const { container } = render(
+        <Transfer
+          dataSource={dataSource}
+          pagination={{ showSizeChanger: true, simple: false, pageSize: 20 }}
+        />,
+      );
+
+      fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+      fireEvent.click(container.querySelectorAll('.ant-select-item-option')[2]);
+      expect(container.querySelectorAll('.ant-transfer-list-content-item').length).toBe(20);
+    });
   });
 
   it('remove by click icon', () => {
@@ -578,6 +641,39 @@ describe('Transfer', () => {
     const { container } = render(<Transfer {...listCommonProps} onChange={onChange} oneWay />);
     fireEvent.click(container.querySelectorAll('.ant-transfer-list-content-item-remove')[0]);
     expect(onChange).toHaveBeenCalledWith([], 'left', ['b']);
+  });
+
+  it('control mode select all should not throw warning', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const App: React.FC = () => {
+      const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
+
+      const onSelectChange = (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => {
+        setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys]);
+      };
+
+      return (
+        <Transfer
+          dataSource={[
+            {
+              key: 'a',
+              title: 'a',
+            },
+          ]}
+          selectedKeys={selectedKeys}
+          onSelectChange={onSelectChange}
+        />
+      );
+    };
+
+    const { container } = render(<App />);
+
+    fireEvent.click(container.querySelector('.ant-transfer-list-header input[type="checkbox"]')!);
+
+    expect(errSpy).not.toHaveBeenCalled();
+
+    errSpy.mockRestore();
   });
 });
 
@@ -587,5 +683,76 @@ describe('immutable data', () => {
     const mockData = [Object.freeze({ id: '0', title: `title`, description: `description` })];
     const { container } = render(<Transfer rowKey={(item) => item.id} dataSource={mockData} />);
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('prevent error when reset data in some cases', () => {
+    const App: React.FC = () => {
+      const [mockData, setMockData] = useState<DefaultRecordType[]>([]);
+      const [targetKeys, setTargetKeys] = useState<string[]>([]);
+
+      const getMock = () => {
+        const tempTargetKeys = [];
+        const tempMockData = [];
+        for (let i = 0; i < 2; i++) {
+          const data = {
+            key: i.toString(),
+            title: `content${i + 1}`,
+            description: `description of content${i + 1}`,
+            chosen: i % 2 === 0,
+          };
+          if (data.chosen) {
+            tempTargetKeys.push(data.key);
+          }
+          tempMockData.push(data);
+        }
+        setMockData(tempMockData);
+        setTargetKeys(tempTargetKeys);
+      };
+
+      useEffect(() => {
+        getMock();
+      }, []);
+
+      const handleChange = (newTargetKeys: string[]) => {
+        setTargetKeys(newTargetKeys);
+      };
+
+      const ButtonRender = useCallback(
+        () => <Button onClick={getMock}>Right button reload</Button>,
+        [getMock],
+      );
+
+      return (
+        <Transfer
+          dataSource={mockData}
+          operations={['to right', 'to left']}
+          targetKeys={targetKeys}
+          onChange={handleChange}
+          render={(item) => `test-${item}`}
+          footer={ButtonRender}
+        />
+      );
+    };
+
+    const { container } = render(<App />);
+    fireEvent.click(container.querySelector('.ant-transfer-list-header input[type="checkbox"]')!);
+    fireEvent.click(container.querySelector('.ant-transfer-operation .ant-btn')!);
+    expect(container.querySelectorAll('.ant-transfer-list')[1]).toBeTruthy();
+    expect(
+      container
+        .querySelectorAll('.ant-transfer-list')[1]
+        .querySelectorAll('.ant-transfer-list-content-item').length,
+    ).toBe(2);
+
+    fireEvent.click(
+      container.querySelectorAll('.ant-transfer-list-header input[type="checkbox"]')![1],
+    );
+    expect(container.querySelectorAll('.ant-transfer-list-header-selected')[1]).toContainHTML(
+      '2/2',
+    );
+    fireEvent.click(container.querySelector('.ant-transfer-list-footer .ant-btn')!);
+    expect(container.querySelectorAll('.ant-transfer-list-header-selected')[1]).toContainHTML(
+      '1/1',
+    );
   });
 });

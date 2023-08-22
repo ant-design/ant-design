@@ -1,7 +1,7 @@
+import type { TriggerProps } from '@rc-component/trigger';
 import React from 'react';
-import type { TriggerProps } from 'rc-trigger';
-import Dropdown from '..';
 import type { DropDownProps } from '..';
+import Dropdown from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -9,13 +9,13 @@ import { resetWarned } from '../../_util/warning';
 
 let triggerProps: TriggerProps;
 
-jest.mock('rc-trigger', () => {
-  let Trigger = jest.requireActual('rc-trigger/lib/mock');
+jest.mock('@rc-component/trigger', () => {
+  let Trigger = jest.requireActual('@rc-component/trigger/lib/mock');
   Trigger = Trigger.default || Trigger;
   const h: typeof React = jest.requireActual('react');
 
   return {
-    default: h.forwardRef<unknown, TriggerProps>((props, ref) => {
+    default: h.forwardRef<HTMLElement, TriggerProps>((props, ref) => {
       triggerProps = props;
       return h.createElement(Trigger, { ref, ...props });
     }),
@@ -148,8 +148,8 @@ describe('Dropdown', () => {
       expect.objectContaining({
         bottomLeft: expect.objectContaining({
           overflow: {
-            adjustX: 1,
-            adjustY: 1,
+            adjustX: true,
+            adjustY: true,
           },
         }),
       }),

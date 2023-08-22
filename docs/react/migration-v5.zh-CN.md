@@ -1,6 +1,10 @@
 ---
-order: 8
+group:
+  title: 迁移
+  order: 2
+order: 0
 title: 从 v4 到 v5
+tag: Updated
 ---
 
 本文档将帮助你从 antd `4.x` 版本升级到 antd `5.x` 版本，如果你是 `3.x` 或者更老的版本，请先参考之前的[升级文档](https://4x.ant.design/docs/react/migration-v4-cn)升级到 4.x。
@@ -114,6 +118,7 @@ title: 从 v4 到 v5
 
 #### 组件重构与移除
 
+- 移除 `locale-provider` 目录。`LocaleProvider` 在 v4 中已移除，请使用 `ConfigProvider` 替代。
 - 移除 Comment 组件，移至 `@ant-design/compatible` 中维护。
 - 移除 PageHeader 组件，移至 `@ant-design/pro-components` 中维护。
 
@@ -266,6 +271,38 @@ module.exports = {
   // ...
   plugins: [new AntdMomentWebpackPlugin()],
 };
+```
+
+### 使用 V4 主题包 <Badge>Updated</Badge>
+
+如果你不希望样式在升级后发生变化，我们在兼容包中提供了完整的 V4 主题，可以还原到 V4 的样式。
+
+```sandpack
+const sandpackConfig = {
+  dependencies: {
+    '@ant-design/compatible': 'v5-compatible-v4',
+  },
+};
+
+import {
+  defaultTheme,   // 默认主题
+  darkTheme,      // 暗色主题
+} from '@ant-design/compatible';
+import { ConfigProvider, Button, Radio, Space } from 'antd';
+
+export default () => (
+  <ConfigProvider theme={defaultTheme}>
+    <Space direction="vertical">
+      <Button type="primary">Button</Button>
+      <Radio.Group>
+        <Radio value={1}>A</Radio>
+        <Radio value={2}>B</Radio>
+        <Radio value={3}>C</Radio>
+        <Radio value={4}>D</Radio>
+      </Radio.Group>
+    </Space>
+  </ConfigProvider>
+);
 ```
 
 ### 旧版浏览器兼容

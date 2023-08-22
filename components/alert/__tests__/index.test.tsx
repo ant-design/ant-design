@@ -1,9 +1,10 @@
-import React from 'react';
 import userEvent from '@testing-library/user-event';
+import { resetWarned } from 'rc-util/lib/warning';
+import React from 'react';
 import Alert from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, act, screen } from '../../../tests/utils';
+import { act, render, screen } from '../../../tests/utils';
 import Button from '../../button';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
@@ -105,6 +106,10 @@ describe('Alert', () => {
 
     await userEvent.hover(screen.getByRole('alert'));
 
+    act(() => {
+      jest.runAllTimers();
+    });
+
     expect(screen.getByRole('tooltip')).toBeInTheDocument();
   });
 
@@ -119,6 +124,10 @@ describe('Alert', () => {
     );
     await userEvent.click(screen.getByRole('alert'));
 
+    act(() => {
+      jest.runAllTimers();
+    });
+
     expect(screen.getByRole('tooltip')).toBeInTheDocument();
   });
 
@@ -132,5 +141,31 @@ describe('Alert', () => {
   it('should not render message div when no message', () => {
     const { container } = render(<Alert description="description" />);
     expect(!!container.querySelector('.ant-alert-message')).toBe(false);
+  });
+
+  it('close button should be hidden when closeIcon setting to null or false', () => {
+    const { container, rerender } = render(<Alert closeIcon={null} />);
+    expect(container.querySelector('.ant-alert-close-icon')).toBeFalsy();
+    rerender(<Alert closeIcon={false} />);
+    expect(container.querySelector('.ant-alert-close-icon')).toBeFalsy();
+    rerender(<Alert closeIcon />);
+    expect(container.querySelector('.ant-alert-close-icon')).toBeTruthy();
+    rerender(<Alert />);
+    expect(container.querySelector('.ant-alert-close-icon')).toBeFalsy();
+  });
+
+  it('should warning when using closeText', () => {
+    resetWarned();
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const { container } = render(<Alert closeText="close" />);
+
+    expect(warnSpy).toHaveBeenCalledWith(
+      `Warning: [antd: Alert] \`closeText\` is deprecated. Please use \`closeIcon\` instead.`,
+    );
+
+    expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('close');
+
+    warnSpy.mockRestore();
   });
 });

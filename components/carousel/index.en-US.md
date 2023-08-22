@@ -23,18 +23,22 @@ A carousel component. Scales with its container.
 <code src="./demo/position.tsx">Position</code>
 <code src="./demo/autoplay.tsx">Scroll automatically</code>
 <code src="./demo/fade.tsx">Fade in</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | autoplay | Whether to scroll automatically | boolean | false |  |
 | dotPosition | The position of the dots, which can be one of `top` `bottom` `left` `right` | string | `bottom` |  |
 | dots | Whether to show the dots at the bottom of the gallery, `object` for `dotsClass` and any others | boolean \| { className?: string } | true |  |
+| waitForAnimate | Whether to wait for the animation when switching | boolean | false |  |
 | easing | Transition interpolation function name | string | `linear` |  |
 | effect | Transition effect | `scrollx` \| `fade` | `scrollx` |  |
-| afterChange | Callback function called after the current index changes | function(current) | - |  |
-| beforeChange | Callback function called before the current index changes | function(from, to) | - |  |
+| afterChange | Callback function called after the current index changes | (current: number) => void | - |  |
+| beforeChange | Callback function called before the current index changes | (current: number, next: number) => void | - |  |
 
 ## Methods
 
@@ -45,6 +49,10 @@ A carousel component. Scales with its container.
 | prev() | Change current slide to previous slide |
 
 Find more APIs in react-slick [documentation](https://react-slick.neostack.com/docs/api).
+
+## Design Token
+
+<ComponentTokenTable component="Carousel"></ComponentTokenTable>
 
 ## FAQ
 

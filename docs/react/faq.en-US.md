@@ -1,5 +1,7 @@
 ---
-order: 11
+group:
+  title: Other
+order: 2
 title: FAQ
 ---
 
@@ -43,7 +45,7 @@ Related issue: [#3487](https://github.com/ant-design/ant-design/issues/3487) [#3
 
 ## How do I modify the default theme of Ant Design?
 
-See: https://ant.design/docs/react/customize-theme .
+See: [customize-theme](/docs/react/customize-theme).
 
 ## How do I modify `Menu`/`Button`(etc.)'s style?
 
@@ -113,7 +115,7 @@ If you need some features which should not be included in antd, try to extend an
 
 ## How to get the definition which is not export?
 
-antd 会透出组件定义，但是随着重构可能导致内部一些定义命名或者属性变化。因而更推荐直接使用 Typescript 原生能力获取： antd will export mainly definitions, but not export internal definitions which may be rename or changed. So we recommend you to use Typescript's native ability to get the definition if needed:
+antd will export mainly definitions, but not export internal definitions which may be rename or changed. So we recommend you to use Typescript's native ability to get the definition if needed:
 
 ```tsx
 import { Table } from 'antd';
@@ -169,13 +171,7 @@ Static methods like message/notification/Modal.confirm are not using the same re
 
 1. Replace original usages with [message.useMessage](/components/message/#components-message-demo-hooks), [notification.useNotification](/components/notification/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-notification) and [Modal.useModal](/components/modal/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-modalxxx).
 
-2. Use `ConfigProvider.config` to config `prefixCls` globally.
-
-```js
-ConfigProvider.config({
-  prefixCls: 'ant',
-});
-```
+2. Use [App.useApp](/components/app-cn#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95) to get message/notification/modal instance.
 
 ## Why shouldn't I use component internal props or state with ref?
 
@@ -189,7 +185,19 @@ For historical reasons, the display names of the pop components are not uniform,
 
 ## Dynamic style using `:where` selector which not support old browser.
 
-Please ref dynamic theme document [Compatible Adjustment](/docs/react/customize-theme#compatible-adjustment) part.
+Please ref dynamic theme document [Legacy Browser Compatible](/docs/react/customize-theme#legacy-browser-compatible) part.
+
+## How to disable motion?
+
+Config with SeedToken:
+
+```jsx
+import { ConfigProvider } from 'antd';
+
+<ConfigProvider theme={{ token: { motion: false } }}>
+  <App />
+</ConfigProvider>;
+```
 
 ## CSS-in-JS css priority conflict with tailwindcss?
 
@@ -222,3 +230,61 @@ Here are some typical wrong examples:
 ## Do you guys have any channel or website for submitting monetary donations, like through PayPal or Alipay?
 
 [https://opencollective.com/ant-design](https://opencollective.com/ant-design)
+
+## Use Form's `setFieldsValue` method to report an error if the object type contains `null`
+
+When we try to set the form value using the `setFieldsValue` method in the form instance of the form component, if the passed object contains the type null, such as:
+
+```tsx
+// This is not real world code, just for explain
+import { Form } from 'antd';
+
+type Test = {
+  value: string[] | null;
+};
+
+export default () => {
+  const [form] = Form.useForm<Test>();
+
+  form.setFieldsValue({
+    value: null, // Error: Type "null" cannot be assigned to type "string[] | undefined".
+  });
+};
+```
+
+If you encounter the above error, please check the current project `tsconfig.json` contains the following configuration:
+
+```json
+{
+  "strictNullChecks": true
+}
+```
+
+The above problem occurs if `strictNullChecks` is set to `true`, If you can determine the project don't need this configuration (see [strictNullChecks](https://www.typescriptlang.org/zh/tsconfig#strictNullChecks) to judge whether need the configuration). You can try changing to `false` to turn off the control strict check. However, if you do need to enable this feature, you can avoid this situation by using other types instead of `null` when designing types
+
+## The antd component reported an error when using the App Router of Next.js
+
+If you are using the App Router of Next.js, when you use the sub-components provided by some antd components, such as `Select.Option `, `Form.Item`, etc., you may get the following error:
+
+```bash
+Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.
+```
+
+At present, this problem is waiting for Next.js to give an official solution, before this, if you use sub-components in your page, you can try to add the following client tag at the top of the page to solve this problem:
+
+```tsx
+'use client';
+
+// This is not real world code, just for explain
+export default () => {
+  return (
+    <div className="App">
+      <Form>
+        <Form.Item>
+          <Button type="primary">Button</Button>
+        </Form.Item>
+      </Form>
+    </div>
+  );
+};
+```

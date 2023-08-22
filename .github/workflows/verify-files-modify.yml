@@ -26,16 +26,3 @@ jobs:
             Hi @${{ github.event.pull_request.user.login }}. Thanks for your contribution. The path `.github/` or `scripts/` and `CHANGELOG` is only maintained by team members. This current PR will be closed and team members will help on this.
           close: true
           set-failed: false
-
-      - name: verify-less
-        uses: actions-cool/verify-files-modify@v1
-        with:
-          forbid-files: 'components/style/themes/default.less'
-          skip-verify-authority: 'admin'
-          comment-mark: 'less'
-          comment: |
-            🚨 Hi @${{ github.event.pull_request.user.login }}. Thanks for your contribution, as the `default.less` file is currently being upgraded, changes are not recommended.
-
-            🚨 你好，@${{ github.event.pull_request.user.login }}。感谢你的贡献，由于 `default.less` 文件近期处于升级状态，不建议进行更改。
-          close: false
-          set-failed: false

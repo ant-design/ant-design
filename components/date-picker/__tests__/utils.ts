@@ -1,5 +1,5 @@
-import { fireEvent } from '../../../tests/utils';
 import type { render } from '../../../tests/utils';
+import { fireEvent, screen } from '../../../tests/utils';
 
 export function openPicker(wrapper: ReturnType<typeof render>, index = 0) {
   fireEvent.mouseDown(wrapper.container?.querySelectorAll('input')?.[index]!);
@@ -24,4 +24,12 @@ export function selectCell(wrapper: ReturnType<typeof render>, text: string | nu
     throw new Error('Cell not match in picker panel.');
   }
   return matchCell;
+}
+
+export const closeCircleByRole = { role: 'img', options: { name: 'close-circle' } } as const;
+
+export function expectCloseCircle(shouldExist: boolean) {
+  const { role, options } = closeCircleByRole;
+  const count = shouldExist ? 1 : 0;
+  return expect(screen.queryAllByRole(role, options).length).toStrictEqual(count);
 }

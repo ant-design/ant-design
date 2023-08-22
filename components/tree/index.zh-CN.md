@@ -34,6 +34,8 @@ demo:
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 ### Tree props
 
 <!-- prettier-ignore -->
@@ -60,12 +62,11 @@ demo:
 | loadData | 异步加载数据 | function(node) | - |  |
 | loadedKeys | （受控）已经加载的节点，需要配合 `loadData` 使用 | string\[] | \[] |  |
 | multiple | 支持点选多个节点（节点本身） | boolean | false |  |
-| rootClassName | 添加在 Tree 最外层的 className | string | - | 4.20.0 |
 | rootStyle | 添加在 Tree 最外层的 style | CSSProperties | - | 4.20.0 |
 | selectable | 是否可选中 | boolean | true |  |
-| selectedKeys | （受控）设置选中的树节点 | string\[] | - |  |
+| selectedKeys | （受控）设置选中的树节点，多选需设置 `multiple` 为 true | string\[] | - |  |
 | showIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式 | boolean | false |  |
-| showLine | 是否展示连接线 | boolean \| {showLeafIcon: boolean \| ReactNode | ((props: AntTreeNodeProps) => ReactNode)} | false |  |
+| showLine | 是否展示连接线 | boolean \| {showLeafIcon: boolean \| ReactNode \| ((props: AntTreeNodeProps) => ReactNode)} | false |  |
 | switcherIcon | 自定义树节点的展开/折叠图标 | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
 | titleRender | 自定义渲染节点 | (nodeData) => ReactNode | - | 4.5.0 |
 | treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一） | array&lt;{key, title, children, \[disabled, selectable]}> | - |  |
@@ -124,6 +125,10 @@ demo:
 | 名称 | 说明 |
 | --- | --- |
 | scrollTo({ key: string \| number; align?: 'top' \| 'bottom' \| 'auto'; offset?: number }) | 虚拟滚动下，滚动到指定 key 条目 |
+
+## Design Token
+
+<ComponentTokenTable component="Transfer"></ComponentTokenTable>
 
 ## FAQ
 

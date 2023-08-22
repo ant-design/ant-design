@@ -7,13 +7,25 @@ import {
   genStatusStyle,
   initInputToken,
 } from '../../input/style';
+import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook } from '../../theme/internal';
-import { resetComponent, textEllipsis } from '../../style';
 
 export interface ComponentToken {
+  /**
+   * @desc 弹层 z-index
+   * @descEN z-index of popup
+   */
   zIndexPopup: number;
+  /**
+   * @desc 弹层高度
+   * @descEN Height of popup
+   */
   dropdownHeight: number;
+  /**
+   * @desc 菜单项高度
+   * @descEN Height of menu item
+   */
   controlItemWidth: number;
 }
 
@@ -33,6 +45,8 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
     inputPaddingVertical,
     fontSize,
     colorBgElevated,
+    paddingXXS,
+    borderRadius,
     borderRadiusLG,
     boxShadowSecondary,
   } = token;
@@ -143,6 +157,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
         boxSizing: 'border-box',
         fontSize,
         fontVariant: 'initial',
+        padding: paddingXXS,
         backgroundColor: colorBgElevated,
         borderRadius: borderRadiusLG,
         outline: 'none',
@@ -154,7 +169,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
 
         [`${componentCls}-dropdown-menu`]: {
           maxHeight: token.dropdownHeight,
-          marginBottom: 0,
+          margin: 0,
           paddingInlineStart: 0, // Override default ul/ol
           overflow: 'auto',
           listStyle: 'none',
@@ -167,6 +182,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
             minWidth: token.controlItemWidth,
             padding: `${itemPaddingVertical}px ${controlPaddingHorizontal}px`,
             color: colorText,
+            borderRadius,
             fontWeight: 'normal',
             lineHeight,
             cursor: 'pointer',
@@ -174,20 +190,6 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
 
             '&:hover': {
               backgroundColor: controlItemBgHover,
-            },
-
-            '&:first-child': {
-              borderStartStartRadius: borderRadiusLG,
-              borderStartEndRadius: borderRadiusLG,
-              borderEndStartRadius: 0,
-              borderEndEndRadius: 0,
-            },
-
-            '&:last-child': {
-              borderStartStartRadius: 0,
-              borderStartEndRadius: 0,
-              borderEndStartRadius: borderRadiusLG,
-              borderEndEndRadius: borderRadiusLG,
             },
 
             '&-disabled': {

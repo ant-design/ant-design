@@ -1,21 +1,22 @@
-import * as React from 'react';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import classNames from 'classnames';
 import { useNotification as useRcNotification } from 'rc-notification';
 import type { NotificationAPI } from 'rc-notification/lib';
-import classNames from 'classnames';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import * as React from 'react';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import useStyle from './style';
+import type { ComponentStyleConfig } from '../config-provider/context';
+import { PureContent } from './PurePanel';
 import type {
-  MessageInstance,
   ArgsProps,
-  MessageType,
   ConfigOptions,
+  MessageInstance,
+  MessageType,
   NoticeType,
   TypeOpen,
 } from './interface';
+import useStyle from './style';
 import { getMotion, wrapPromiseFn } from './util';
-import warning from '../_util/warning';
-import { PureContent } from './PurePanel';
 
 const DEFAULT_OFFSET = 8;
 const DEFAULT_DURATION = 3;
@@ -30,6 +31,7 @@ type HolderProps = ConfigOptions & {
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
   hashId: string;
+  message?: ComponentStyleConfig;
 }
 
 const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
@@ -43,20 +45,20 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     transitionName,
     onAllRemoved,
   } = props;
-  const { getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
+  const { getPrefixCls, getPopupContainer, message } = React.useContext(ConfigContext);
 
   const prefixCls = staticPrefixCls || getPrefixCls('message');
 
   const [, hashId] = useStyle(prefixCls);
 
   // =============================== Style ===============================
-  const getStyle = () => ({
+  const getStyle = (): React.CSSProperties => ({
     left: '50%',
     transform: 'translateX(-50%)',
     top: top ?? DEFAULT_OFFSET,
   });
 
-  const getClassName = () => classNames(hashId, rtl ? `${prefixCls}-rtl` : '');
+  const getClassName = () => classNames(hashId, { [`${prefixCls}-rtl`]: rtl });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls, transitionName);
@@ -87,6 +89,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     ...api,
     prefixCls,
     hashId,
+    message,
   }));
 
   return holder;
@@ -125,10 +128,10 @@ export function useInternalMessage(
         return fakeResult;
       }
 
-      const { open: originOpen, prefixCls, hashId } = holderRef.current;
+      const { open: originOpen, prefixCls, hashId, message } = holderRef.current;
       const noticePrefixCls = `${prefixCls}-notice`;
 
-      const { content, icon, type, key, className, onClose, ...restConfig } = config;
+      const { content, icon, type, key, className, style, onClose, ...restConfig } = config;
 
       let mergedKey: React.Key = key!;
       if (mergedKey === undefined || mergedKey === null) {
@@ -146,7 +149,13 @@ export function useInternalMessage(
             </PureContent>
           ),
           placement: 'top',
-          className: classNames(type && `${noticePrefixCls}-${type}`, hashId, className),
+          className: classNames(
+            type && `${noticePrefixCls}-${type}`,
+            hashId,
+            className,
+            message?.className,
+          ),
+          style: { ...message?.style, ...style },
           onClose: () => {
             onClose?.();
             resolve();

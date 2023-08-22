@@ -1,8 +1,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { resetComponent } from '../../style';
 import { genCollapseMotion, zoomIn } from '../../style/motion';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent } from '../../style';
 import genFormValidateMotionStyle from './explain';
 
 export interface FormToken extends FullToken<'Form'> {
@@ -222,7 +222,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
           },
 
           [`&${formItemCls}-no-colon::after`]: {
-            content: '" "',
+            content: '"\\a0"',
           },
         },
       },
@@ -355,9 +355,12 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
 
       [formItemCls]: {
         flex: 'none',
-        flexWrap: 'nowrap',
         marginInlineEnd: token.margin,
         marginBottom: 0,
+
+        '&-row': {
+          flexWrap: 'nowrap',
+        },
 
         '&-with-help': {
           marginBottom: token.marginLG,
@@ -386,7 +389,6 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
 };
 
 const makeVerticalLayoutLabel = (token: FormToken): CSSObject => ({
-  margin: 0,
   padding: `0 0 ${token.paddingXS}px`,
   whiteSpace: 'initial',
   textAlign: 'start',
@@ -395,7 +397,8 @@ const makeVerticalLayoutLabel = (token: FormToken): CSSObject => ({
     margin: 0,
 
     '&::after': {
-      display: 'none',
+      // https://github.com/ant-design/ant-design/issues/43538
+      visibility: 'hidden',
     },
   },
 });

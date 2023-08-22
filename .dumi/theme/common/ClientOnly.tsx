@@ -1,5 +1,5 @@
 import type { FC, ReactElement, ReactNode } from 'react';
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 
 export type ClientOnlyProps = {
   children: ReactNode;
@@ -8,7 +8,7 @@ export type ClientOnlyProps = {
 const ClientOnly: FC<ClientOnlyProps> = ({ children }) => {
   const [clientReady, setClientReady] = useState<boolean>(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setClientReady(true);
   }, []);
 

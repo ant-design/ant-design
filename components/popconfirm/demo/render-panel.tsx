@@ -12,6 +12,8 @@ const App: React.FC = () => (
       placement="bottomRight"
       style={{ width: 250 }}
     />
+    <InternalPopconfirm icon={null} title="Are you OK?" />
+    <InternalPopconfirm icon={null} title="Are you OK?" description="Does this look good?" />
   </>
 );
 

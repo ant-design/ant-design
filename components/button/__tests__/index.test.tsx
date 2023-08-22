@@ -161,6 +161,21 @@ describe('Button', () => {
     expect(wrapper.container.firstChild).not.toHaveClass('ant-btn-loading');
   });
 
+  it('should support custom icon className', () => {
+    const { container } = render(
+      <Button type="primary" icon={<SearchOutlined />} classNames={{ icon: 'custom-icon' }} />,
+    );
+    expect(container.querySelectorAll('.custom-icon').length).toBe(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should support custom icon styles', () => {
+    const { container } = render(
+      <Button type="primary" icon={<SearchOutlined />} styles={{ icon: { color: 'red' } }} />,
+    );
+    expect(container).toMatchSnapshot();
+  });
+
   it('reset when loading back of delay', () => {
     jest.useFakeTimers();
     const { rerender, container } = render(<Button loading={{ delay: 1000 }} />);
@@ -318,5 +333,59 @@ describe('Button', () => {
       </Button>,
     );
     expect(wrapper.container.firstChild).toMatchSnapshot();
+  });
+
+  it("should prevent children's event when button is disabled", () => {
+    const { container } = render(
+      <Button disabled>
+        <a id="link">test</a>
+      </Button>,
+    );
+    expect(window.getComputedStyle(container.querySelector('#link')!).pointerEvents).toBe('none');
+  });
+
+  it('Correct type', () => {
+    const onBtnClick: React.MouseEventHandler<HTMLButtonElement> = () => {};
+    const onAnchorClick: React.MouseEventHandler<HTMLAnchorElement> = () => {};
+
+    const button = <Button onClick={onBtnClick} />;
+    const anchor = <Button href="https://ant.design" onClick={onAnchorClick} />;
+
+    const defaultBtn = (
+      <Button
+        onClick={(e) => {
+          expect(e).toBeTruthy();
+        }}
+      />
+    );
+
+    const defaultABtn = (
+      <Button
+        href="https://ant.design"
+        onClick={(e) => {
+          expect(e).toBeTruthy();
+        }}
+      />
+    );
+
+    const btnRef = React.createRef<HTMLButtonElement>();
+    const refBtn = <Button ref={btnRef} />;
+
+    const anchorRef = React.createRef<HTMLAnchorElement>();
+    const refAnchor = <Button ref={anchorRef} />;
+
+    const htmlRef = React.createRef<HTMLElement>();
+    const refHtml = <Button ref={htmlRef} />;
+
+    const btnAttr = <Button name="hello" />;
+
+    expect(button).toBeTruthy();
+    expect(anchor).toBeTruthy();
+    expect(defaultBtn).toBeTruthy();
+    expect(defaultABtn).toBeTruthy();
+    expect(refBtn).toBeTruthy();
+    expect(refAnchor).toBeTruthy();
+    expect(refHtml).toBeTruthy();
+    expect(btnAttr).toBeTruthy();
   });
 });

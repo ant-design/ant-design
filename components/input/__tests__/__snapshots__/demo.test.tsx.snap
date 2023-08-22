@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/input/demo/addon.tsx correctly 1`] = `
+exports[`renders components/input/demo/addon.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -55,10 +55,11 @@ exports[`renders ./components/input/demo/addon.tsx correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
+                  aria-expanded="false"
                   aria-haspopup="listbox"
+                  aria-label="Search"
                   aria-owns="undefined_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
@@ -123,10 +124,11 @@ exports[`renders ./components/input/demo/addon.tsx correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
+                  aria-expanded="false"
                   aria-haspopup="listbox"
+                  aria-label="Search"
                   aria-owns="undefined_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
@@ -274,7 +276,9 @@ exports[`renders ./components/input/demo/addon.tsx correctly 1`] = `
                 <input
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
+                  aria-expanded="false"
                   aria-haspopup="listbox"
+                  aria-label="Search"
                   aria-owns="undefined_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
@@ -331,7 +335,7 @@ exports[`renders ./components/input/demo/addon.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input/demo/align.tsx correctly 1`] = `
+exports[`renders components/input/demo/align.tsx correctly 1`] = `
 Array [
   <div
     class="ant-mentions"
@@ -605,10 +609,11 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
+          aria-label="Search"
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -667,7 +672,9 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="undefined_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
+          aria-label="Search"
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -722,7 +729,9 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="undefined_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
+          aria-label="Search"
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -782,13 +791,14 @@ Array [
           aria-hidden="true"
           data-icon="close-circle"
           fill="currentColor"
+          fill-rule="evenodd"
           focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
         >
           <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
           />
         </svg>
       </span>
@@ -968,10 +978,11 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
+          aria-label="Search"
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -1059,7 +1070,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/allowClear.tsx correctly 1`] = `
+exports[`renders components/input/demo/allowClear.tsx correctly 1`] = `
 Array [
   <span
     class="ant-input-affix-wrapper"
@@ -1087,13 +1098,14 @@ Array [
             aria-hidden="true"
             data-icon="close-circle"
             fill="currentColor"
+            fill-rule="evenodd"
             focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
             />
           </svg>
         </span>
@@ -1103,7 +1115,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
   >
     <textarea
       class="ant-input"
@@ -1126,13 +1138,14 @@ Array [
             aria-hidden="true"
             data-icon="close-circle"
             fill="currentColor"
+            fill-rule="evenodd"
             focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
             />
           </svg>
         </span>
@@ -1142,7 +1155,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/autosize-textarea.tsx correctly 1`] = `
+exports[`renders components/input/demo/autosize-textarea.tsx correctly 1`] = `
 Array [
   <textarea
     class="ant-input"
@@ -1165,7 +1178,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/basic.tsx correctly 1`] = `
+exports[`renders components/input/demo/basic.tsx correctly 1`] = `
 <input
   class="ant-input"
   placeholder="Basic usage"
@@ -1174,7 +1187,7 @@ exports[`renders ./components/input/demo/basic.tsx correctly 1`] = `
 />
 `;
 
-exports[`renders ./components/input/demo/borderless.tsx correctly 1`] = `
+exports[`renders components/input/demo/borderless.tsx correctly 1`] = `
 <input
   class="ant-input ant-input-borderless"
   placeholder="Borderless"
@@ -1183,7 +1196,7 @@ exports[`renders ./components/input/demo/borderless.tsx correctly 1`] = `
 />
 `;
 
-exports[`renders ./components/input/demo/borderless-debug.tsx correctly 1`] = `
+exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
 <div
   style="background-color:rgba(0, 0, 128, .2)"
 >
@@ -1204,7 +1217,7 @@ exports[`renders ./components/input/demo/borderless-debug.tsx correctly 1`] = `
     placeholder="Unbordered"
   />
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-affix-wrapper-borderless"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-affix-wrapper-borderless ant-input-textarea-allow-clear"
   >
     <textarea
       class="ant-input ant-input-borderless"
@@ -1227,13 +1240,14 @@ exports[`renders ./components/input/demo/borderless-debug.tsx correctly 1`] = `
             aria-hidden="true"
             data-icon="close-circle"
             fill="currentColor"
+            fill-rule="evenodd"
             focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
             />
           </svg>
         </span>
@@ -1266,13 +1280,14 @@ exports[`renders ./components/input/demo/borderless-debug.tsx correctly 1`] = `
             aria-hidden="true"
             data-icon="close-circle"
             fill="currentColor"
+            fill-rule="evenodd"
             focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
             />
           </svg>
         </span>
@@ -1319,7 +1334,7 @@ exports[`renders ./components/input/demo/borderless-debug.tsx correctly 1`] = `
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
     style="border:2px solid #000"
   >
     <textarea
@@ -1342,13 +1357,14 @@ exports[`renders ./components/input/demo/borderless-debug.tsx correctly 1`] = `
             aria-hidden="true"
             data-icon="close-circle"
             fill="currentColor"
+            fill-rule="evenodd"
             focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
             />
           </svg>
         </span>
@@ -1358,7 +1374,291 @@ exports[`renders ./components/input/demo/borderless-debug.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input/demo/debug-addon.tsx correctly 1`] = `
+exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:16px"
+  >
+    <div
+      class="ant-space-compact"
+    >
+      <input
+        class="ant-input ant-input-compact-item ant-input-compact-first-item ant-input-compact-last-item"
+        type="text"
+        value="26888888"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:16px"
+  >
+    <div
+      class="ant-space-compact"
+    >
+      <input
+        class="ant-input ant-input-compact-item ant-input-compact-first-item"
+        style="width:20%"
+        type="text"
+        value="0571"
+      />
+      <input
+        class="ant-input ant-input-compact-item ant-input-compact-last-item"
+        style="width:80%"
+        type="text"
+        value="26888888"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:16px"
+  >
+    <div
+      class="ant-space-compact"
+    >
+      <span
+        class="ant-input-group-wrapper ant-input-search ant-input-compact-item ant-input-compact-first-item ant-input-compact-last-item"
+      >
+        <span
+          class="ant-input-wrapper ant-input-group"
+        >
+          <span
+            class="ant-input-group-addon"
+          >
+            https://
+          </span>
+          <span
+            class="ant-input-affix-wrapper"
+          >
+            <input
+              class="ant-input"
+              placeholder="input search text"
+              type="text"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <span
+                class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                role="button"
+                tabindex="-1"
+              >
+                <span
+                  aria-label="close-circle"
+                  class="anticon anticon-close-circle"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close-circle"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </span>
+          </span>
+          <span
+            class="ant-input-group-addon"
+          >
+            <button
+              class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="search"
+                  class="anticon anticon-search"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="search"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </button>
+          </span>
+        </span>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:16px"
+  >
+    <div
+      class="ant-space-compact"
+      style="width:100%"
+    >
+      <input
+        class="ant-input ant-input-compact-item ant-input-compact-first-item"
+        type="text"
+        value="Combine input and button"
+      />
+      <button
+        class="ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-last-item"
+        type="button"
+      >
+        <span>
+          Submit
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:16px"
+  >
+    <div
+      class="ant-space-compact"
+    >
+      <div
+        class="ant-select ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-show-arrow"
+      >
+        <div
+          class="ant-select-selector"
+        >
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-label="Search"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              readonly=""
+              role="combobox"
+              style="opacity:0"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="Zhejiang"
+          >
+            Zhejiang
+          </span>
+        </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down ant-select-suffix"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <input
+        class="ant-input ant-input-compact-item ant-input-compact-last-item"
+        type="text"
+        value="Xihu District, Hangzhou"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact"
+    >
+      <span
+        class="ant-input-group-wrapper ant-input-compact-item ant-input-compact-first-item ant-input-group-wrapper-lg"
+      >
+        <span
+          class="ant-input-wrapper ant-input-group"
+        >
+          <span
+            class="ant-input-group-addon"
+          >
+            <span
+              aria-label="search"
+              class="anticon anticon-search"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="search"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                />
+              </svg>
+            </span>
+          </span>
+          <input
+            class="ant-input ant-input-lg"
+            placeholder="large size"
+            type="text"
+            value=""
+          />
+        </span>
+      </span>
+      <input
+        class="ant-input ant-input-lg ant-input-compact-item ant-input-compact-last-item"
+        placeholder="another input"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/input/demo/debug-addon.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -1494,7 +1794,7 @@ exports[`renders ./components/input/demo/debug-addon.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input/demo/focus.tsx correctly 1`] = `
+exports[`renders components/input/demo/focus.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -1609,7 +1909,7 @@ exports[`renders ./components/input/demo/focus.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input/demo/group.tsx correctly 1`] = `
+exports[`renders components/input/demo/group.tsx correctly 1`] = `
 <div
   class="site-input-group-wrapper"
 >
@@ -1693,23 +1993,27 @@ exports[`renders ./components/input/demo/group.tsx correctly 1`] = `
       type="button"
     >
       <span
-        aria-label="copy"
-        class="anticon anticon-copy"
-        role="img"
+        class="ant-btn-icon"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="copy"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="copy"
+          class="anticon anticon-copy"
+          role="img"
         >
-          <path
-            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="copy"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+            />
+          </svg>
+        </span>
       </span>
     </button>
   </span>
@@ -1727,10 +2031,11 @@ exports[`renders ./components/input/demo/group.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -1819,13 +2124,14 @@ exports[`renders ./components/input/demo/group.tsx correctly 1`] = `
                   aria-hidden="true"
                   data-icon="close-circle"
                   fill="currentColor"
+                  fill-rule="evenodd"
                   focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                    d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                   />
                 </svg>
               </span>
@@ -1840,23 +2146,27 @@ exports[`renders ./components/input/demo/group.tsx correctly 1`] = `
             type="button"
           >
             <span
-              aria-label="search"
-              class="anticon anticon-search"
-              role="img"
+              class="ant-btn-icon"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="search"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="search"
+                class="anticon anticon-search"
+                role="img"
               >
-                <path
-                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="search"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                  />
+                </svg>
+              </span>
             </span>
           </button>
         </span>
@@ -1894,13 +2204,14 @@ exports[`renders ./components/input/demo/group.tsx correctly 1`] = `
                   aria-hidden="true"
                   data-icon="close-circle"
                   fill="currentColor"
+                  fill-rule="evenodd"
                   focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                    d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                   />
                 </svg>
               </span>
@@ -1915,23 +2226,27 @@ exports[`renders ./components/input/demo/group.tsx correctly 1`] = `
             type="button"
           >
             <span
-              aria-label="search"
-              class="anticon anticon-search"
-              role="img"
+              class="ant-btn-icon"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="search"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="search"
+                class="anticon anticon-search"
+                role="img"
               >
-                <path
-                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="search"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                  />
+                </svg>
+              </span>
             </span>
           </button>
         </span>
@@ -1952,10 +2267,11 @@ exports[`renders ./components/input/demo/group.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -2008,76 +2324,85 @@ exports[`renders ./components/input/demo/group.tsx correctly 1`] = `
       value="input content"
     />
     <div
-      class="ant-input-number"
+      class="ant-input-number-affix-wrapper"
     >
-      <div
-        class="ant-input-number-handler-wrap"
+      <span
+        class="ant-input-number-prefix"
       >
-        <span
-          aria-disabled="false"
-          aria-label="Increase Value"
-          class="ant-input-number-handler ant-input-number-handler-up"
-          role="button"
-          unselectable="on"
+        @
+      </span>
+      <div
+        class="ant-input-number"
+      >
+        <div
+          class="ant-input-number-handler-wrap"
         >
           <span
-            aria-label="up"
-            class="anticon anticon-up ant-input-number-handler-up-inner"
-            role="img"
+            aria-disabled="false"
+            aria-label="Increase Value"
+            class="ant-input-number-handler ant-input-number-handler-up"
+            role="button"
+            unselectable="on"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="up"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              aria-label="up"
+              class="anticon anticon-up ant-input-number-handler-up-inner"
+              role="img"
             >
-              <path
-                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-              />
-            </svg>
+              <svg
+                aria-hidden="true"
+                data-icon="up"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                />
+              </svg>
+            </span>
           </span>
-        </span>
-        <span
-          aria-disabled="false"
-          aria-label="Decrease Value"
-          class="ant-input-number-handler ant-input-number-handler-down"
-          role="button"
-          unselectable="on"
-        >
           <span
-            aria-label="down"
-            class="anticon anticon-down ant-input-number-handler-down-inner"
-            role="img"
+            aria-disabled="false"
+            aria-label="Decrease Value"
+            class="ant-input-number-handler ant-input-number-handler-down"
+            role="button"
+            unselectable="on"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              aria-label="down"
+              class="anticon anticon-down ant-input-number-handler-down-inner"
+              role="img"
             >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
+              <svg
+                aria-hidden="true"
+                data-icon="down"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                />
+              </svg>
+            </span>
           </span>
-        </span>
-      </div>
-      <div
-        class="ant-input-number-input-wrap"
-      >
-        <input
-          autocomplete="off"
-          class="ant-input-number-input"
-          role="spinbutton"
-          step="1"
-          value=""
-        />
+        </div>
+        <div
+          class="ant-input-number-input-wrap"
+        >
+          <input
+            autocomplete="off"
+            class="ant-input-number-input"
+            role="spinbutton"
+            step="1"
+            value=""
+          />
+        </div>
       </div>
     </div>
   </span>
@@ -2239,10 +2564,11 @@ exports[`renders ./components/input/demo/group.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -2298,10 +2624,11 @@ exports[`renders ./components/input/demo/group.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -2362,10 +2689,11 @@ exports[`renders ./components/input/demo/group.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -2449,10 +2777,11 @@ exports[`renders ./components/input/demo/group.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -2509,10 +2838,11 @@ exports[`renders ./components/input/demo/group.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -2544,10 +2874,11 @@ exports[`renders ./components/input/demo/group.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -2606,7 +2937,9 @@ exports[`renders ./components/input/demo/group.tsx correctly 1`] = `
           <input
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -2655,7 +2988,7 @@ exports[`renders ./components/input/demo/group.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input/demo/password-input.tsx correctly 1`] = `
+exports[`renders components/input/demo/password-input.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -2809,7 +3142,7 @@ exports[`renders ./components/input/demo/password-input.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input/demo/presuffix.tsx correctly 1`] = `
+exports[`renders components/input/demo/presuffix.tsx correctly 1`] = `
 Array [
   <span
     class="ant-input-affix-wrapper"
@@ -2917,7 +3250,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/search-input.tsx correctly 1`] = `
+exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -2946,23 +3279,27 @@ exports[`renders ./components/input/demo/search-input.tsx correctly 1`] = `
             type="button"
           >
             <span
-              aria-label="search"
-              class="anticon anticon-search"
-              role="img"
+              class="ant-btn-icon"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="search"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="search"
+                class="anticon anticon-search"
+                role="img"
               >
-                <path
-                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="search"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                  />
+                </svg>
+              </span>
             </span>
           </button>
         </span>
@@ -3006,13 +3343,14 @@ exports[`renders ./components/input/demo/search-input.tsx correctly 1`] = `
                   aria-hidden="true"
                   data-icon="close-circle"
                   fill="currentColor"
+                  fill-rule="evenodd"
                   focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                    d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                   />
                 </svg>
               </span>
@@ -3027,23 +3365,27 @@ exports[`renders ./components/input/demo/search-input.tsx correctly 1`] = `
             type="button"
           >
             <span
-              aria-label="search"
-              class="anticon anticon-search"
-              role="img"
+              class="ant-btn-icon"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="search"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="search"
+                class="anticon anticon-search"
+                role="img"
               >
-                <path
-                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="search"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                  />
+                </svg>
+              </span>
             </span>
           </button>
         </span>
@@ -3092,13 +3434,14 @@ exports[`renders ./components/input/demo/search-input.tsx correctly 1`] = `
                   aria-hidden="true"
                   data-icon="close-circle"
                   fill="currentColor"
+                  fill-rule="evenodd"
                   focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                    d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                   />
                 </svg>
               </span>
@@ -3113,23 +3456,27 @@ exports[`renders ./components/input/demo/search-input.tsx correctly 1`] = `
             type="button"
           >
             <span
-              aria-label="search"
-              class="anticon anticon-search"
-              role="img"
+              class="ant-btn-icon"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="search"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="search"
+                class="anticon anticon-search"
+                role="img"
               >
-                <path
-                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="search"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                  />
+                </svg>
+              </span>
             </span>
           </button>
         </span>
@@ -3160,23 +3507,27 @@ exports[`renders ./components/input/demo/search-input.tsx correctly 1`] = `
             type="button"
           >
             <span
-              aria-label="search"
-              class="anticon anticon-search"
-              role="img"
+              class="ant-btn-icon"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="search"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="search"
+                class="anticon anticon-search"
+                role="img"
               >
-                <path
-                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="search"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                  />
+                </svg>
+              </span>
             </span>
           </button>
         </span>
@@ -3219,13 +3570,14 @@ exports[`renders ./components/input/demo/search-input.tsx correctly 1`] = `
                   aria-hidden="true"
                   data-icon="close-circle"
                   fill="currentColor"
+                  fill-rule="evenodd"
                   focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                    d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                   />
                 </svg>
               </span>
@@ -3272,7 +3624,7 @@ exports[`renders ./components/input/demo/search-input.tsx correctly 1`] = `
               aria-label="audio"
               class="anticon anticon-audio"
               role="img"
-              style="font-size:16px;color:#1890ff"
+              style="font-size:16px;color:#1677ff"
             >
               <svg
                 aria-hidden="true"
@@ -3308,7 +3660,7 @@ exports[`renders ./components/input/demo/search-input.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input/demo/search-input-loading.tsx correctly 1`] = `
+exports[`renders components/input/demo/search-input-loading.tsx correctly 1`] = `
 Array [
   <span
     class="ant-input-group-wrapper ant-input-search"
@@ -3330,7 +3682,7 @@ Array [
           type="button"
         >
           <span
-            class="ant-btn-loading-icon"
+            class="ant-btn-icon ant-btn-loading-icon"
           >
             <span
               aria-label="loading"
@@ -3378,7 +3730,7 @@ Array [
           type="button"
         >
           <span
-            class="ant-btn-loading-icon"
+            class="ant-btn-icon ant-btn-loading-icon"
           >
             <span
               aria-label="loading"
@@ -3426,7 +3778,7 @@ Array [
           type="button"
         >
           <span
-            class="ant-btn-loading-icon"
+            class="ant-btn-icon ant-btn-loading-icon"
           >
             <span
               aria-label="loading"
@@ -3458,7 +3810,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/show-count.tsx correctly 1`] = `
+exports[`renders components/input/demo/show-count.tsx correctly 1`] = `
 Array [
   <span
     class="ant-input-affix-wrapper"
@@ -3481,23 +3833,27 @@ Array [
   </span>,
   <br />,
   <br />,
-  <div
-    class="ant-input-show-count ant-input-textarea ant-input-textarea-show-count"
+  <span
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count"
     data-count="0 / 100"
   >
     <textarea
       class="ant-input"
     />
     <span
-      class="ant-input-data-count"
+      class="ant-input-suffix"
     >
-      0 / 100
+      <span
+        class="ant-input-data-count"
+      >
+        0 / 100
+      </span>
     </span>
-  </div>,
+  </span>,
 ]
 `;
 
-exports[`renders ./components/input/demo/size.tsx correctly 1`] = `
+exports[`renders components/input/demo/size.tsx correctly 1`] = `
 Array [
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"
@@ -3605,7 +3961,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/status.tsx correctly 1`] = `
+exports[`renders components/input/demo/status.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -3716,7 +4072,7 @@ exports[`renders ./components/input/demo/status.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input/demo/textarea.tsx correctly 1`] = `
+exports[`renders components/input/demo/textarea.tsx correctly 1`] = `
 Array [
   <textarea
     class="ant-input"
@@ -3732,7 +4088,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/textarea-resize.tsx correctly 1`] = `
+exports[`renders components/input/demo/textarea-resize.tsx correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-default"
@@ -3750,7 +4106,7 @@ Array [
     The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows. The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows.
   </textarea>,
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
     style="width:93px"
   >
     <textarea
@@ -3773,13 +4129,14 @@ Array [
             aria-hidden="true"
             data-icon="close-circle"
             fill="currentColor"
+            fill-rule="evenodd"
             focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
             />
           </svg>
         </span>
@@ -3789,10 +4146,10 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/textarea-show-count.tsx correctly 1`] = `
+exports[`renders components/input/demo/textarea-show-count.tsx correctly 1`] = `
 Array [
-  <div
-    class="ant-input-show-count ant-input-textarea ant-input-textarea-show-count"
+  <span
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count"
     data-count="0 / 100"
     style="height:120px;margin-bottom:24px"
   >
@@ -3801,13 +4158,17 @@ Array [
       placeholder="can resize"
     />
     <span
-      class="ant-input-data-count"
+      class="ant-input-suffix"
     >
-      0 / 100
+      <span
+        class="ant-input-data-count"
+      >
+        0 / 100
+      </span>
     </span>
-  </div>,
-  <div
-    class="ant-input-show-count ant-input-textarea ant-input-textarea-show-count"
+  </span>,
+  <span
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count"
     data-count="0 / 100"
     style="height:120px;resize:none"
   >
@@ -3817,15 +4178,19 @@ Array [
       style="resize:none"
     />
     <span
-      class="ant-input-data-count"
+      class="ant-input-suffix"
     >
-      0 / 100
+      <span
+        class="ant-input-data-count"
+      >
+        0 / 100
+      </span>
     </span>
-  </div>,
+  </span>,
 ]
 `;
 
-exports[`renders ./components/input/demo/tooltip.tsx correctly 1`] = `
+exports[`renders components/input/demo/tooltip.tsx correctly 1`] = `
 <input
   class="ant-input"
   maxlength="16"

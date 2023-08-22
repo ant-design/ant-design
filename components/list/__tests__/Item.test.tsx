@@ -9,7 +9,7 @@ describe('List Item Layout', () => {
       key: 1,
       href: 'https://ant.design',
       title: 'ant design',
-      avatar: 'https://joesch.moe/api/v1/random',
+      avatar: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
       description:
         'Ant Design, a design language for background applications, is refined by Ant UED Team.',
       content:
@@ -229,5 +229,21 @@ describe('List Item Layout', () => {
     rerender(getDom(3));
     rerender(getDom(5));
     expect(loadId).toEqual([1, 3, 5]);
+  });
+
+  it('List.Item.Meta title should have no default margin', () => {
+    const { container } = render(
+      <List
+        dataSource={[{ id: 1, title: `ant design` }]}
+        renderItem={(item) => (
+          <List.Item>
+            <List.Item.Meta title={item.title} />
+          </List.Item>
+        )}
+      />,
+    );
+
+    const title = container.querySelector('.ant-list-item-meta-title');
+    expect(title && getComputedStyle(title).margin).toEqual('0px 0px 4px 0px');
   });
 });

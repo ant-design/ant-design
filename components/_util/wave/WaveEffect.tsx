@@ -1,9 +1,10 @@
-import * as React from 'react';
-import CSSMotion from 'rc-motion';
-import raf from 'rc-util/lib/raf';
-import { render, unmount } from 'rc-util/lib/React/render';
 import classNames from 'classnames';
+import CSSMotion from 'rc-motion';
+import { render, unmount } from 'rc-util/lib/React/render';
+import raf from 'rc-util/lib/raf';
+import * as React from 'react';
 import { getTargetWaveColor } from './util';
+import { type ShowWaveEffect, TARGET_CLS } from './interface';
 
 function validateNum(value: number) {
   return Number.isNaN(value) ? 0 : value;
@@ -12,10 +13,11 @@ function validateNum(value: number) {
 export interface WaveEffectProps {
   className: string;
   target: HTMLElement;
+  component?: string;
 }
 
 const WaveEffect: React.FC<WaveEffectProps> = (props) => {
-  const { className, target } = props;
+  const { className, target, component } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
 
   const [color, setWaveColor] = React.useState<string | null>(null);
@@ -102,6 +104,9 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
     return null;
   }
 
+  const isSmallComponent =
+    (component === 'Checkbox' || component === 'Radio') && target?.classList.contains(TARGET_CLS);
+
   return (
     <CSSMotion
       visible
@@ -112,26 +117,45 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
         if (event.deadline || (event as TransitionEvent).propertyName === 'opacity') {
           const holder = divRef.current?.parentElement!;
           unmount(holder).then(() => {
-            holder.parentElement?.removeChild(holder);
+            holder?.remove();
           });
         }
         return false;
       }}
     >
       {({ className: motionClassName }) => (
-        <div ref={divRef} className={classNames(className, motionClassName)} style={waveStyle} />
+        <div
+          ref={divRef}
+          className={classNames(
+            className,
+            {
+              'wave-quick': isSmallComponent,
+            },
+            motionClassName,
+          )}
+          style={waveStyle}
+        />
       )}
     </CSSMotion>
   );
 };
 
-export default function showWaveEffect(node: HTMLElement, className: string) {
+const showWaveEffect: ShowWaveEffect = (target, info) => {
+  const { component } = info;
+
+  // Skip for unchecked checkbox
+  if (component === 'Checkbox' && !target.querySelector('input')?.checked) {
+    return;
+  }
+
   // Create holder
   const holder = document.createElement('div');
   holder.style.position = 'absolute';
-  holder.style.left = `0px`;
-  holder.style.top = `0px`;
-  node?.insertBefore(holder, node?.firstChild);
+  holder.style.left = '0px';
+  holder.style.top = '0px';
+  target?.insertBefore(holder, target?.firstChild);
 
-  render(<WaveEffect target={node} className={className} />, holder);
-}
+  render(<WaveEffect {...info} target={target} />, holder);
+};
+
+export default showWaveEffect;

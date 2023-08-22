@@ -11,10 +11,13 @@ import {
 import getArrowStyle, { getArrowOffset } from '../../style/placementArrow';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import genButtonStyle from './button';
 import genStatusStyle from './status';
 
 export interface ComponentToken {
+  /**
+   * @desc 下拉菜单 z-index
+   * @descEN z-index of dropdown
+   */
   zIndexPopup: number;
 }
 
@@ -69,6 +72,12 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
           zIndex: -9999,
           opacity: 0.0001,
           content: '""',
+        },
+
+        [`&-trigger${antCls}-btn`]: {
+          [`& > ${iconCls}-down, & > ${antCls}-btn-icon > ${iconCls}-down`]: {
+            fontSize: fontSizeIcon,
+          },
         },
 
         [`${componentCls}-wrap`]: {
@@ -350,11 +359,7 @@ export default genComponentStyleHook(
       dropdownPaddingVertical,
       dropdownEdgeChildPadding: paddingXXS,
     });
-    return [
-      genBaseStyle(dropdownToken),
-      genButtonStyle(dropdownToken),
-      genStatusStyle(dropdownToken),
-    ];
+    return [genBaseStyle(dropdownToken), genStatusStyle(dropdownToken)];
   },
   (token) => ({
     zIndexPopup: token.zIndexPopupBase + 50,

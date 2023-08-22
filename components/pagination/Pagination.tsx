@@ -8,8 +8,9 @@ import RcPagination from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
-import useLocale from '../locale/useLocale';
+import { useLocale } from '../locale';
 import { MiddleSelect, MiniSelect } from './Select';
 import useStyle from './style';
 
@@ -33,18 +34,20 @@ export interface PaginationConfig extends Omit<PaginationProps, 'rootClassName'>
 
 export type { PaginationLocale };
 
-const Pagination: React.FC<PaginationProps> = ({
-  prefixCls: customizePrefixCls,
-  selectPrefixCls: customizeSelectPrefixCls,
-  className,
-  rootClassName,
-  size,
-  locale: customLocale,
-  selectComponentClass,
-  responsive,
-  showSizeChanger,
-  ...restProps
-}) => {
+const Pagination: React.FC<PaginationProps> = (props) => {
+  const {
+    prefixCls: customizePrefixCls,
+    selectPrefixCls: customizeSelectPrefixCls,
+    className,
+    rootClassName,
+    style,
+    size: customizeSize,
+    locale: customLocale,
+    selectComponentClass,
+    responsive,
+    showSizeChanger,
+    ...restProps
+  } = props;
   const { xs } = useBreakpoint(responsive);
 
   const { getPrefixCls, direction, pagination = {} } = React.useContext(ConfigContext);
@@ -55,64 +58,73 @@ const Pagination: React.FC<PaginationProps> = ({
 
   const mergedShowSizeChanger = showSizeChanger ?? pagination.showSizeChanger;
 
-  const getIconsProps = () => {
+  const iconsProps = React.useMemo<Record<PropertyKey, React.ReactNode>>(() => {
     const ellipsis = <span className={`${prefixCls}-item-ellipsis`}>•••</span>;
-    let prevIcon = (
+    const prevIcon = (
       <button className={`${prefixCls}-item-link`} type="button" tabIndex={-1}>
-        <LeftOutlined />
+        {direction === 'rtl' ? <RightOutlined /> : <LeftOutlined />}
       </button>
     );
-    let nextIcon = (
+    const nextIcon = (
       <button className={`${prefixCls}-item-link`} type="button" tabIndex={-1}>
-        <RightOutlined />
+        {direction === 'rtl' ? <LeftOutlined /> : <RightOutlined />}
       </button>
     );
-    let jumpPrevIcon = (
+    const jumpPrevIcon = (
       <a className={`${prefixCls}-item-link`}>
-        {/* You can use transition effects in the container :) */}
         <div className={`${prefixCls}-item-container`}>
-          <DoubleLeftOutlined className={`${prefixCls}-item-link-icon`} />
+          {direction === 'rtl' ? (
+            <DoubleRightOutlined className={`${prefixCls}-item-link-icon`} />
+          ) : (
+            <DoubleLeftOutlined className={`${prefixCls}-item-link-icon`} />
+          )}
           {ellipsis}
         </div>
       </a>
     );
-    let jumpNextIcon = (
+    const jumpNextIcon = (
       <a className={`${prefixCls}-item-link`}>
-        {/* You can use transition effects in the container :) */}
         <div className={`${prefixCls}-item-container`}>
-          <DoubleRightOutlined className={`${prefixCls}-item-link-icon`} />
+          {direction === 'rtl' ? (
+            <DoubleLeftOutlined className={`${prefixCls}-item-link-icon`} />
+          ) : (
+            <DoubleRightOutlined className={`${prefixCls}-item-link-icon`} />
+          )}
           {ellipsis}
         </div>
       </a>
     );
-    // change arrows direction in right-to-left direction
-    if (direction === 'rtl') {
-      [prevIcon, nextIcon] = [nextIcon, prevIcon];
-      [jumpPrevIcon, jumpNextIcon] = [jumpNextIcon, jumpPrevIcon];
-    }
     return { prevIcon, nextIcon, jumpPrevIcon, jumpNextIcon };
-  };
+  }, [direction, prefixCls]);
 
   const [contextLocale] = useLocale('Pagination', enUS);
 
   const locale = { ...contextLocale, ...customLocale };
 
-  const isSmall = size === 'small' || !!(xs && !size && responsive);
+  const mergedSize = useSize(customizeSize);
+
+  const isSmall = mergedSize === 'small' || !!(xs && !mergedSize && responsive);
+
   const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
+
   const extendedClassName = classNames(
     {
       [`${prefixCls}-mini`]: isSmall,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
+    pagination?.className,
     className,
     rootClassName,
     hashId,
   );
 
+  const mergedStyle: React.CSSProperties = { ...pagination?.style, ...style };
+
   return wrapSSR(
     <RcPagination
-      {...getIconsProps()}
+      {...iconsProps}
       {...restProps}
+      style={mergedStyle}
       prefixCls={prefixCls}
       selectPrefixCls={selectPrefixCls}
       className={extendedClassName}

@@ -7,6 +7,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HJz8SZos2wgAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*oC92TK44Ex8AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
+tag: New
 ---
 
 新的包裹组件，提供重置样式和提供消费上下文的默认环境。
@@ -20,6 +21,7 @@ demo:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本用法</code>
+<code src="./demo/config.tsx">Hooks 配置</code>
 
 ## 如何使用
 
@@ -119,3 +121,18 @@ export default () => {
   );
 };
 ```
+
+## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
+
+### App
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| message | App 内 Message 的全局配置 | [MessageConfig](/components/message-cn/#messageconfig) | - | 5.3.0 |
+| notification | App 内 Notification 的全局配置 | [NotificationConfig](/components/notification-cn/#notificationconfig) | - | 5.3.0 |
+
+## Design Token
+
+<ComponentTokenTable component="App"></ComponentTokenTable>

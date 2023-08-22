@@ -45,16 +45,16 @@
 
 [![](https://user-images.githubusercontent.com/507615/209472919-6f7e8561-be8c-4b0b-9976-eb3c692aa20a.png)](https://ant.design)
 
-[English](./README.md) | [Português](./README-pt_BR.md) | 简体中文 | [Українською](./README-uk_UA.md) | [Spanish](./README-sp_MX.md) | [日本語](./README-ja_JP.md)
+[English](./README.md) | [Português](./README-pt_BR.md) | 简体中文 | [Українською](./README-uk_UA.md) | [Spanish](./README-sp_MX.md) | [日本語](./README-ja_JP.md) | [العربية](./README-ar_EG.md)
 
 ## ✨ 特性
 
 - 🌈 提炼自企业级中后台产品的交互语言和视觉风格。
 - 📦 开箱即用的高质量 React 组件。
 - 🛡 使用 TypeScript 开发，提供完整的类型定义文件。
-- ⚙️ 全链路开发和设计工具体系。
+- ⚙️ 应用开发框架和设计工具配套。
 - 🌍 数十个国际化语言支持。
-- 🎨 深入每个细节的主题定制能力。
+- 🎨 基于 CSS-in-JS 的主题定制能力。
 
 ## 🖥 兼容环境
 

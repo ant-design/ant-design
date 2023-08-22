@@ -96,9 +96,6 @@ jobs:
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
-      - name: check demo
-        run: node ./scripts/check-demo.js
     needs: setup
 
   ################################ Dist ################################

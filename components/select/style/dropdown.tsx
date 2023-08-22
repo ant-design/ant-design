@@ -1,5 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { SelectToken } from '.';
+import { resetComponent, textEllipsis } from '../../style';
 import {
   initMoveMotion,
   initSlideMotion,
@@ -9,22 +10,19 @@ import {
   slideUpOut,
 } from '../../style/motion';
 import type { GenerateStyle } from '../../theme/internal';
-import { resetComponent, textEllipsis } from '../../style';
 
 const genItemStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
-  const { controlPaddingHorizontal } = token;
+  const { controlPaddingHorizontal, controlHeight, fontSize, lineHeight } = token;
 
   return {
     position: 'relative',
     display: 'block',
-    minHeight: token.controlHeight,
-    padding: `${
-      (token.controlHeight - token.fontSize * token.lineHeight) / 2
-    }px ${controlPaddingHorizontal}px`,
+    minHeight: controlHeight,
+    padding: `${(controlHeight - fontSize * lineHeight) / 2}px ${controlPaddingHorizontal}px`,
     color: token.colorText,
     fontWeight: 'normal',
-    fontSize: token.fontSize,
-    lineHeight: token.lineHeight,
+    fontSize,
+    lineHeight,
     boxSizing: 'border-box',
   };
 };
@@ -33,6 +31,12 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
   const { antCls, componentCls } = token;
 
   const selectItemCls = `${componentCls}-item`;
+
+  const slideUpEnterActive = `&${antCls}-slide-up-enter${antCls}-slide-up-enter-active`;
+  const slideUpAppearActive = `&${antCls}-slide-up-appear${antCls}-slide-up-appear-active`;
+  const slideUpLeaveActive = `&${antCls}-slide-up-leave${antCls}-slide-up-leave-active`;
+
+  const dropdownPlacementCls = `${componentCls}-dropdown-placement-`;
 
   return [
     {
@@ -57,41 +61,34 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
         boxShadow: token.boxShadowSecondary,
 
         [`
-            &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-bottomLeft,
-            &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-bottomLeft
-          `]: {
+          ${slideUpEnterActive}${dropdownPlacementCls}bottomLeft,
+          ${slideUpAppearActive}${dropdownPlacementCls}bottomLeft
+        `]: {
           animationName: slideUpIn,
         },
 
         [`
-            &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-topLeft,
-            &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-topLeft
-          `]: {
+          ${slideUpEnterActive}${dropdownPlacementCls}topLeft,
+          ${slideUpAppearActive}${dropdownPlacementCls}topLeft,
+          ${slideUpEnterActive}${dropdownPlacementCls}topRight,
+          ${slideUpAppearActive}${dropdownPlacementCls}topRight
+        `]: {
           animationName: slideDownIn,
         },
 
-        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-bottomLeft`]:
-          {
-            animationName: slideUpOut,
-          },
+        [`${slideUpLeaveActive}${dropdownPlacementCls}bottomLeft`]: {
+          animationName: slideUpOut,
+        },
 
-        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-topLeft`]:
-          {
-            animationName: slideDownOut,
-          },
+        [`
+          ${slideUpLeaveActive}${dropdownPlacementCls}topLeft,
+          ${slideUpLeaveActive}${dropdownPlacementCls}topRight
+        `]: {
+          animationName: slideDownOut,
+        },
 
         '&-hidden': {
           display: 'none',
-        },
-
-        '&-empty': {
-          color: token.colorTextDisabled,
-        },
-
-        // ========================= Options =========================
-        [`${selectItemCls}-empty`]: {
-          ...genItemStyle(token),
-          color: token.colorTextDisabled,
         },
 
         [`${selectItemCls}`]: {
@@ -118,6 +115,8 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
 
             '&-state': {
               flex: 'none',
+              display: 'flex',
+              alignItems: 'center',
             },
 
             [`&-active:not(${selectItemCls}-option-disabled)`]: {

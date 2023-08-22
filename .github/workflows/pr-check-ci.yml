@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   pr-check-ci:
+    if: github.repository == 'ant-design/ant-design'
     permissions:
       checks: read  # for actions-cool/check-pr-ci to get check reference
       contents: write  # for actions-cool/check-pr-ci to merge PRs

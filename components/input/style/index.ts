@@ -412,11 +412,11 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         borderRadius: 0,
       },
 
-      [`& > ${componentCls}-affix-wrapper`]: {
-        display: 'inline-flex',
-      },
-
-      [`& > ${antCls}-picker-range`]: {
+      [`
+        & > ${componentCls}-affix-wrapper,
+        & > ${componentCls}-number-affix-wrapper,
+        & > ${antCls}-picker-range
+      `]: {
         display: 'inline-flex',
       },
 
@@ -610,12 +610,17 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         borderRadius: 0,
         outline: 'none',
 
+        '&::-ms-reveal': {
+          display: 'none',
+        },
+
         '&:focus': {
           boxShadow: 'none !important',
         },
       },
 
       '&::before': {
+        display: 'inline-block',
         width: 0,
         visibility: 'hidden',
         content: '"\\a0"',
@@ -695,6 +700,7 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         '&-lg': {
           [`${componentCls}-group-addon`]: {
             borderRadius: borderRadiusLG,
+            fontSize: token.fontSizeLG,
           },
         },
         '&-sm': {
@@ -720,6 +726,29 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         '&-disabled': {
           [`${componentCls}-group-addon`]: {
             ...genDisabledStyle(token),
+          },
+        },
+
+        // Fix the issue of using icons in Space Compact mode
+        // https://github.com/ant-design/ant-design/issues/42122
+        [`&:not(${componentCls}-compact-first-item):not(${componentCls}-compact-last-item)${componentCls}-compact-item`]:
+          {
+            [`${componentCls}, ${componentCls}-group-addon`]: {
+              borderRadius: 0,
+            },
+          },
+
+        [`&:not(${componentCls}-compact-last-item)${componentCls}-compact-first-item`]: {
+          [`${componentCls}, ${componentCls}-group-addon`]: {
+            borderStartEndRadius: 0,
+            borderEndEndRadius: 0,
+          },
+        },
+
+        [`&:not(${componentCls}-compact-first-item)${componentCls}-compact-last-item`]: {
+          [`${componentCls}, ${componentCls}-group-addon`]: {
+            borderStartStartRadius: 0,
+            borderEndStartRadius: 0,
           },
         },
       },
@@ -881,17 +910,18 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
         },
 
         [`${componentCls}-data-count`]: {
+          position: 'absolute',
+          bottom: -token.fontSize * token.lineHeight,
+          insetInlineEnd: 0,
           color: token.colorTextDescription,
           whiteSpace: 'nowrap',
           pointerEvents: 'none',
-          float: 'right',
-          marginBottom: -token.fontSize * token.lineHeight,
         },
+      },
 
-        '&-rtl': {
-          [`${componentCls}-data-count`]: {
-            float: 'left',
-          },
+      '&-allow-clear': {
+        [`> ${componentCls}`]: {
+          paddingInlineEnd: paddingLG,
         },
       },
 

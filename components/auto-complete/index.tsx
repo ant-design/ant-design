@@ -1,16 +1,14 @@
-/**
- * TODO: 4.0
- *
- * - Remove `dataSource`
- * - `size` not work with customizeInput
- * - CustomizeInput not feedback `ENTER` key since accessibility enhancement
- */
+'use client';
 
 import classNames from 'classnames';
 import type { BaseSelectRef } from 'rc-select';
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
+import genPurePanel from '../_util/PurePanel';
+import { isValidElement } from '../_util/reactNode';
+import type { InputStatus } from '../_util/statusUtils';
+import warning from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import type {
@@ -18,12 +16,9 @@ import type {
   DefaultOptionType,
   InternalSelectProps,
   RefSelectProps,
+  SelectProps,
 } from '../select';
 import Select from '../select';
-import genPurePanel from '../_util/PurePanel';
-import { isValidElement } from '../_util/reactNode';
-import type { InputStatus } from '../_util/statusUtils';
-import warning from '../_util/warning';
 
 const { Option } = Select;
 
@@ -38,13 +33,16 @@ export interface AutoCompleteProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
     InternalSelectProps<ValueType, OptionType>,
-    'inputIcon' | 'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'
+    'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'
   > {
   dataSource?: DataSourceItemType[];
   status?: InputStatus;
   popupClassName?: string;
   /** @deprecated Please use `popupClassName` instead */
   dropdownClassName?: string;
+  /** @deprecated Please use `popupMatchSelectWidth` instead */
+  dropdownMatchSelectWidth?: boolean | number;
+  popupMatchSelectWidth?: boolean | number;
 }
 
 function isSelectOptionOrSelectOptGroup(child: any): Boolean {
@@ -144,11 +142,12 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   return (
     <Select
       ref={ref}
+      suffixIcon={null}
       {...omit(props, ['dataSource', 'dropdownClassName'])}
       prefixCls={prefixCls}
       popupClassName={popupClassName || dropdownClassName}
       className={classNames(`${prefixCls}-auto-complete`, className)}
-      mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as any}
+      mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
       {...{
         // Internal api
         getInputElement,
@@ -169,6 +168,7 @@ const RefAutoComplete = React.forwardRef<RefSelectProps, AutoCompleteProps>(
     ref?: React.Ref<BaseSelectRef>;
   },
 ) => React.ReactElement) & {
+  displayName?: string;
   Option: typeof Option;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
@@ -181,7 +181,7 @@ RefAutoComplete.Option = Option;
 RefAutoComplete._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 if (process.env.NODE_ENV !== 'production') {
-  AutoComplete.displayName = 'AutoComplete';
+  RefAutoComplete.displayName = 'AutoComplete';
 }
 
 export default RefAutoComplete;

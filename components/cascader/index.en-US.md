@@ -40,21 +40,23 @@ Cascade selection box.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ```jsx
 <Cascader options={options} onChange={onChange} />
 ```
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| allowClear | Whether allow clear | boolean | true |  |
+| allowClear | Show clear button | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type |
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | bordered | Whether has border style | boolean | true |  |
-| clearIcon | The custom clear icon | ReactNode | - |  |
 | changeOnSelect | (Work on single select) Change value on each selection if set to true, see above demo for details | boolean | false |  |
 | className | The additional css class | string | - |  |
 | defaultValue | Initial selected value | string\[] \| number\[] | \[] |  |
 | disabled | Whether disabled select | boolean | false |  |
 | displayRender | The render function of displaying selected options | (label, selectedOptions) => ReactNode | label => label.join(`/`) | `multiple`: 4.18.0 |
+| tagRender | Custom render function for tags in `multiple` mode | (label: string, onClose: function, value: string) => ReactNode | - |  |
 | popupClassName | The additional className of popup overlay | string | - | 4.23.0 |
 | dropdownRender | Customize dropdown content | (menus: ReactNode) => ReactNode | - | 4.4.0 |
 | expandIcon | Customize the current item expand icon | ReactNode | - | 4.4.0 |
@@ -117,3 +119,7 @@ interface Option {
 | ------- | ------------ | ------- |
 | blur()  | Remove focus |         |
 | focus() | Get focus    |         |
+
+## Design Token
+
+<ComponentTokenTable component="Cascader"></ComponentTokenTable>

@@ -27,6 +27,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/layout-can-wrap.tsx">表单标签可换行</code>
 <code src="./demo/warning-only.tsx">非阻塞校验</code>
 <code src="./demo/useWatch.tsx">字段监听 Hooks</code>
+<code src="./demo/validate-only.tsx">仅校验</code>
 <code src="./demo/form-item-path.tsx">字段路径前缀</code>
 <code src="./demo/dynamic-form-item.tsx">动态增减表单项</code>
 <code src="./demo/dynamic-form-items.tsx">动态增减嵌套字段</code>
@@ -54,6 +55,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/ref-item.tsx" debug>引用字段</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Form
 
@@ -195,10 +198,18 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 ```jsx
 <Form>
-  <Form.Item messageVariables={{ another: 'good' }} label="user">
+  <Form.Item
+    messageVariables={{ another: 'good' }}
+    label="user"
+    rules={[{ required: true, message: '${another} is required' }]}
+  >
     <Input />
   </Form.Item>
-  <Form.Item messageVariables={{ label: 'good' }} label={<span>user</span>}>
+  <Form.Item
+    messageVariables={{ label: 'good' }}
+    label={<span>user</span>}
+    rules={[{ required: true, message: '${label} is required' }]}
+  >
     <Input />
   </Form.Item>
 </Form>
@@ -212,7 +223,7 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 | --- | --- | --- | --- | --- |
 | children | 渲染函数 | (fields: Field\[], operation: { add, remove, move }, meta: { errors }) => React.ReactNode | - |  |
 | initialValue | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准 | any\[] | - | 4.9.0 |
-| name | 字段名，支持数组 | [NamePath](#namepath) | - |  |
+| name | 字段名，支持数组。List 本身也是字段，因而 `getFieldsValue()` 默认会返回 List 下所有值，你可以通过[参数](#getfieldsvalue)改变这一行为 | [NamePath](#namepath) | - |  |
 | rules | 校验规则，仅支持自定义规则。需要配合 [ErrorList](#formerrorlist) 一同使用。 | { validator, message }\[] | - | 4.7.0 |
 
 ```tsx
@@ -276,7 +287,7 @@ Form.List 渲染表单相关操作函数。
 | getFieldError | 获取对应字段名的错误信息 | (name: [NamePath](#namepath)) => string\[] |  |
 | getFieldInstance | 获取对应字段实例 | (name: [NamePath](#namepath)) => any | 4.4.0 |
 | getFieldsError | 获取一组字段名对应的错误信息，返回为数组形式 | (nameList?: [NamePath](#namepath)\[]) => FieldError\[] |  |
-| getFieldsValue | 获取一组字段名对应的值，会按照对应结构返回。默认返回现存字段值，当调用 `getFieldsValue(true)` 时返回所有值 | (nameList?: [NamePath](#namepath)\[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |  |
+| getFieldsValue | 获取一组字段名对应的值，会按照对应结构返回。默认返回现存字段值，当调用 `getFieldsValue(true)` 时返回所有值 | [GetFieldsValue](#getfieldsvalue) |  |
 | getFieldValue | 获取对应字段名的值 | (name: [NamePath](#namepath)) => any |  |
 | isFieldsTouched | 检查一组字段是否被用户操作过，`allTouched` 为 `true` 时检查是否所有字段都被操作过 | (nameList?: [NamePath](#namepath)\[], allTouched?: boolean) => boolean |  |
 | isFieldTouched | 检查对应字段是否被用户操作过 | (name: [NamePath](#namepath)) => boolean |  |
@@ -284,10 +295,10 @@ Form.List 渲染表单相关操作函数。
 | resetFields | 重置一组字段到 `initialValues` | (fields?: [NamePath](#namepath)\[]) => void |  |
 | scrollToField | 滚动到对应字段位置 | (name: [NamePath](#namepath), options: [ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)) => void |  |
 | setFields | 设置一组字段状态 | (fields: [FieldData](#fielddata)\[]) => void |  |
-| setFieldValue | 设置表单的值（该值将直接传入 form store 中。如果你不希望传入对象被修改，请克隆后传入） | (name: [NamePath](#namepath), value: any) => void | 4.22.0 |
-| setFieldsValue | 设置表单的值（该值将直接传入 form store 中。如果你不希望传入对象被修改，请克隆后传入）。如果你只想修改 Form.List 中单项值，请通过 `setFieldValue` 进行指定 | (values) => void |  |
+| setFieldValue | 设置表单的值（该值将直接传入 form store 中并且**重置错误信息**。如果你不希望传入对象被修改，请克隆后传入） | (name: [NamePath](#namepath), value: any) => void | 4.22.0 |
+| setFieldsValue | 设置表单的值（该值将直接传入 form store 中并且**重置错误信息**。如果你不希望传入对象被修改，请克隆后传入）。如果你只想修改 Form.List 中单项值，请通过 `setFieldValue` 进行指定 | (values) => void |  |
 | submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |  |
-| validateFields | 触发表单验证 | (nameList?: [NamePath](#namepath)\[]) => Promise |  |
+| validateFields | 触发表单验证 | (nameList?: [NamePath](#namepath)\[], { validateOnly?: boolean }) => Promise | `validateOnly`: 5.5.0 |
 
 #### validateFields 返回示例
 
@@ -353,9 +364,9 @@ export default () => {
 
 ### Form.useWatch
 
-`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance): Value`
+`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance | WatchOptions): Value`
 
-`4.20.0` 新增，用于直接获取 form 中字段对应的值。通过该 Hooks 可以与诸如 `useSWR` 进行联动从而降低维护成本：
+用于直接获取 form 中字段对应的值。通过该 Hooks 可以与诸如 `useSWR` 进行联动从而降低维护成本：
 
 ```tsx
 const Demo = () => {
@@ -374,16 +385,47 @@ const Demo = () => {
 };
 ```
 
+如果你的组件被包裹在 `Form.Item` 内部，你可以省略第二个参数，`Form.useWatch` 会自动找到上层最近的 `FormInstance`。
+
+`useWatch` 默认只监听在 Form 中注册的字段，如果需要监听非注册字段，可以通过配置 `preserve` 进行监听：
+
+```tsx
+const Demo = () => {
+  const [form] = Form.useForm();
+
+  const age = Form.useWatch('age', { form, preserve: true });
+  console.log(age);
+
+  return (
+    <div>
+      <Button onClick={() => form.setFieldValue('age', 2)}>Update</Button>
+      <Form form={form}>
+        <Form.Item name="name">
+          <Input />
+        </Form.Item>
+      </Form>
+    </div>
+  );
+};
+```
+
 ### Form.Item.useStatus
 
-`type Form.Item.useStatus = (): { status: ValidateStatus | undefined }`
+`type Form.Item.useStatus = (): { status: ValidateStatus | undefined, errors: ReactNode[], warnings: ReactNode[] }`
 
-`4.22.0` 新增，可用于获取当前 Form.Item 的校验状态，如果上层没有 Form.Item，`status` 将会返回 `undefined`：
+`4.22.0` 新增，可用于获取当前 Form.Item 的校验状态，如果上层没有 Form.Item，`status` 将会返回 `undefined`。`5.4.0` 新增 `errors` 和 `warnings`，可用于获取当前 Form.Item 的错误信息和警告信息：
 
 ```tsx
 const CustomInput = ({ value, onChange }) => {
-  const { status } = Form.Item.useStatus();
-  return <input value={value} onChange={onChange} className={`custom-input-${status}`} />;
+  const { status, errors } = Form.Item.useStatus();
+  return (
+    <input
+      value={value}
+      onChange={onChange}
+      className={`custom-input-${status}`}
+      placeholder={(errors.length && errors[0]) || ''}
+    />
+  );
 };
 
 export default () => (
@@ -405,11 +447,47 @@ Form 仅会对变更的 Field 进行刷新，从而避免完整的组件刷新�
 
 `string | number | (string | number)[]`
 
+#### GetFieldsValue
+
+`getFieldsValue` 提供了多种重载方法：
+
+##### getFieldsValue(nameList?: true | [NamePath](#namepath)\[], filterFunc?: FilterFunc)
+
+当不提供 `nameList` 时，返回所有注册字段，这也包含 List 下所有的值（即便 List 下没有绑定 Item）。
+
+当 `nameList` 为 `true` 时，返回 store 中所有的值，包含未注册字段。例如通过 `setFieldsValue` 设置了不存在的 Item 的值，也可以通过 `true` 全部获取。
+
+当 `nameList` 为数组时，返回规定路径的值。需要注意的是，`nameList` 为嵌套数组。例如你需要某路径值应该如下：
+
+```tsx
+// 单个路径
+form.getFieldsValue([['user', 'age']]);
+
+// 多个路径
+form.getFieldsValue([
+  ['user', 'age'],
+  ['preset', 'account'],
+]);
+```
+
+##### getFieldsValue({ strict?: boolean, filter?: FilterFunc })
+
+`5.8.0` 新增接受配置参数。当 `strict` 为 `true` 时会仅匹配 Item 的值。例如 `{ list: [{ bamboo: 1, little: 2 }] }` 中，如果 List 仅绑定了 `bamboo` 字段，那么 `getFieldsValue({ strict: true })` 会只获得 `{ list: [{ bamboo: 1 }] }`。
+
+#### FilterFunc
+
+用于过滤一些字段值，`meta` 会返回字段相关信息。例如可以用来获取仅被用户修改过的值等等。
+
+```tsx
+type FilterFunc = (meta: { touched: boolean; validating: boolean }) => boolean;
+```
+
 #### FieldData
 
 | 名称       | 说明             | 类型                     |
 | ---------- | ---------------- | ------------------------ |
 | errors     | 错误信息         | string\[]                |
+| warnings   | 警告信息         | string\[]                |
 | name       | 字段名称         | [NamePath](#namepath)\[] |
 | touched    | 是否被用户操作过 | boolean                  |
 | validating | 是否正在校验     | boolean                  |
@@ -440,6 +518,17 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | validator | 自定义校验，接收 Promise 作为返回值。[示例](#components-form-demo-register)参考 | ([rule](#rule), value) => Promise |  |
 | warningOnly | 仅警告，不阻塞表单提交 | boolean | 4.17.0 |
 | whitespace | 如果字段仅包含空格则校验不通过，只在 `type: 'string'` 时生效 | boolean |  |
+
+#### WatchOptions
+
+| 名称     | 说明                                  | 类型         | 默认值                 | 版本  |
+| -------- | ------------------------------------- | ------------ | ---------------------- | ----- |
+| form     | 指定 Form 实例                        | FormInstance | 当前 context 中的 Form | 5.4.0 |
+| preserve | 是否监视没有对应的 `Form.Item` 的字段 | boolean      | false                  | 5.4.0 |
+
+## Design Token
+
+<ComponentTokenTable component="Form"></ComponentTokenTable>
 
 ## FAQ
 
@@ -492,6 +581,10 @@ validator(rule, value, callback) => {
 1. Form 的 `initialValues` 拥有最高优先级
 2. Field 的 `initialValue` 次之 \*. 多个同 `name` Item 都设置 `initialValue` 时，则 Item 的 `initialValue` 不生效
 
+### 为什么 `getFieldsValue` 在初次渲染的时候拿不到值？
+
+`getFieldsValue` 默认返回收集的字段数据，而在初次渲染时 Form.Item 节点尚未渲染，因而无法收集到数据。你可以通过 `getFieldsValue(true)` 来获取所有字段数据。
+
 ### 为什么字段设置 `rules` 后更改值 `onFieldsChange` 会触发三次？
 
 字段除了本身的值变化外，校验也是其状态之一。因而在触发字段变化会经历以下几个阶段：
@@ -535,15 +628,53 @@ React 中异步更新会导致受控组件交互行为异常。当用户交互�
 }
 </style>
 
-### 自定义表单控件 `scrollToFirstError` 和 `scrollToField` 失效？
+### `scrollToFirstError` 和 `scrollToField` 失效？
+
+1. 使用了自定义表单控件
 
 类似问题：[#28370](https://github.com/ant-design/ant-design/issues/28370) [#27994](https://github.com/ant-design/ant-design/issues/27994)
 
 滚动依赖于表单控件元素上绑定的 `id` 字段，如果自定义控件没有将 `id` 赋到正确的元素上，这个功能将失效。你可以参考这个 [codesandbox](https://codesandbox.io/s/antd-reproduction-template-forked-25nul?file=/index.js)。
 
+2. 页面内有多个表单
+
+页面内如果有多个表单，且存在表单项 `name` 重复，表单滚动定位可能会查找到另一个表单的同名表单项上。需要给表单 `Form` 组件设置不同的 `name` 以区分。
+
+### 继上，为何不通过 `ref` 绑定元素？
+
+当自定义组件不支持 `ref` 时，Form 无法获取子元素真实 DOM 节点，而通过包裹 Class Component 调用 `findDOMNode` 会在 React Strict Mode 下触发警告。因而我们使用 id 来进行元素定位。
+
 ### `setFieldsValue` 不会触发 `onFieldsChange` 和 `onValuesChange`？
 
 是的，change 事件仅当用户交互才会触发。该设计是为了防止在 change 事件中调用 `setFieldsValue` 导致的循环问题。如果仅仅需要组件内消费，可以通过 `useWatch` 或者 `Field.renderProps` 来实现。
+
+### 为什么 Form.Item 嵌套子组件后，不更新表单值？
+
+Form.Item 在渲染时会注入 `value` 与 `onChange` 事件给子元素，当你的字段组件被包裹时属性将无法传递。所以以下代码是不会生效的：
+
+```jsx
+<Form.Item name="input">
+  <div>
+    <h3>I am a wrapped Input</h3>
+    <Input />
+  </div>
+</Form.Item>
+```
+
+你可以通过 HOC 自定义组件形式来解决这个问题：
+
+```jsx
+const MyInput = (props) => (
+  <div>
+    <h3>I am a wrapped Input</h3>
+    <Input {...props} />
+  </div>
+);
+
+<Form.Item name="input">
+  <MyInput />
+</Form.Item>;
+```
 
 ### 有更多参考文档吗？
 

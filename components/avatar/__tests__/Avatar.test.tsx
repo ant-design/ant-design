@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import { act } from 'react-dom/test-utils';
 import Avatar from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -53,7 +51,7 @@ describe('Avatar Render', () => {
 
   it('should handle onError correctly', () => {
     const LOAD_FAILURE_SRC = 'http://error.url/';
-    const LOAD_SUCCESS_SRC = 'https://joesch.moe/api/v1/random';
+    const LOAD_SUCCESS_SRC = 'https://xsgames.co/randomusers/avatar.php?g=pixel';
     const Foo: React.FC = () => {
       const [avatarSrc, setAvatarSrc] = useState<typeof LOAD_FAILURE_SRC | typeof LOAD_SUCCESS_SRC>(
         LOAD_FAILURE_SRC,
@@ -75,7 +73,7 @@ describe('Avatar Render', () => {
 
   it('should show image on success after a failure state', () => {
     const LOAD_FAILURE_SRC = 'http://error.url';
-    const LOAD_SUCCESS_SRC = 'https://joesch.moe/api/v1/random';
+    const LOAD_SUCCESS_SRC = 'https://xsgames.co/randomusers/avatar.php?g=pixel';
 
     const div = global.document.createElement('div');
     global.document.body.appendChild(div);
@@ -140,14 +138,9 @@ describe('Avatar Render', () => {
 
   Object.entries(sizes).forEach(([key, value]) => {
     it(`adjusts component size to ${value} when window size is ${key}`, () => {
-      const wrapper = global.document.createElement('div');
-
       (useBreakpoint as any).mockReturnValue({ [key]: true });
-      act(() => {
-        ReactDOM.render(<Avatar size={sizes} />, wrapper);
-      });
-
-      expect(wrapper).toMatchSnapshot();
+      const { container } = render(<Avatar size={sizes} />);
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -172,7 +165,7 @@ describe('Avatar Render', () => {
   });
 
   it('should exist crossorigin attribute', () => {
-    const LOAD_SUCCESS_SRC = 'https://joesch.moe/api/v1/random';
+    const LOAD_SUCCESS_SRC = 'https://xsgames.co/randomusers/avatar.php?g=pixel';
     const crossOrigin = 'anonymous';
     const { container } = render(
       <Avatar src={LOAD_SUCCESS_SRC} crossOrigin={crossOrigin}>
@@ -184,7 +177,7 @@ describe('Avatar Render', () => {
   });
 
   it('should not exist crossorigin attribute', () => {
-    const LOAD_SUCCESS_SRC = 'https://joesch.moe/api/v1/random';
+    const LOAD_SUCCESS_SRC = 'https://xsgames.co/randomusers/avatar.php?g=pixel';
     const { container } = render(<Avatar src={LOAD_SUCCESS_SRC}>crossorigin</Avatar>);
     expect(container.querySelector('img')?.crossOrigin).toBeFalsy();
     expect(container.querySelector('img')?.crossOrigin).toEqual('');
@@ -195,5 +188,21 @@ describe('Avatar Render', () => {
     const { container } = render(<Avatar onClick={onClick}>TestString</Avatar>);
     fireEvent.click(container.querySelector('.ant-avatar-string')!);
     expect(onClick).toHaveBeenCalled();
+  });
+
+  it('Avatar.Group support shape props', () => {
+    const { container } = render(
+      <Avatar.Group shape="square">
+        <Avatar>A</Avatar>
+        <Avatar shape="circle">B</Avatar>
+        <Avatar>C</Avatar>
+        <Avatar shape="circle">D</Avatar>
+      </Avatar.Group>,
+    );
+    const avatars = container?.querySelectorAll<HTMLSpanElement>('.ant-avatar-group .ant-avatar');
+    expect(avatars?.[0]).toHaveClass('ant-avatar-square');
+    expect(avatars?.[1]).toHaveClass('ant-avatar-circle');
+    expect(avatars?.[2]).toHaveClass('ant-avatar-square');
+    expect(avatars?.[3]).toHaveClass('ant-avatar-circle');
   });
 });

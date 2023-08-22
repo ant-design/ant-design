@@ -7,7 +7,7 @@ const info = () => {
 
 const App: React.FC = () => (
   <Button type="primary" onClick={info}>
-    Display normal message
+    Static Method
   </Button>
 );
 

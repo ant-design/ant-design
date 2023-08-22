@@ -1,12 +1,13 @@
 ---
 category: Components
 subtitle: 水印
-group: 其他
+group: 反馈
 title: Watermark
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wr1ISY50SyYAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*duAQQbjHlHQAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 1
+tag: New
 ---
 
 给页面的某个区域加上水印。
@@ -25,6 +26,8 @@ demo:
 <code src="./demo/custom.tsx">自定义配置</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Watermark
 
@@ -50,6 +53,10 @@ demo:
 | fontWeight | 字体粗细 | `normal` \| `light` \| `weight` \| number | normal |  |
 | fontFamily | 字体类型 | string | sans-serif |  |
 | fontStyle | 字体样式 | `none` \| `normal` \| `italic` \| `oblique` | normal |  |
+
+## Design Token
+
+<ComponentTokenTable component="Watermark"></ComponentTokenTable>
 
 ## FAQ
 

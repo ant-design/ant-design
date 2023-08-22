@@ -15,7 +15,7 @@ toc: false
 - Sketch 组件包
   - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
   - 桌面组件 Sketch 模板包
-  - https://gw.alipayobjects.com/os/hitu-asset/5217de80-7a3e-413f-809e-20ecede4f3f3/hitu-1669000735416-5000001.sketch
+  - https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.5.0.Beta.sketch
   - 官方
 - Mobile Components
   - https://gw.alipayobjects.com/zos/basement_prod/c0c3852c-d245-4330-886b-cb02ef49eb6d.svg
@@ -49,6 +49,10 @@ toc: false
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
   - 代码级精确度的免费开源 Figma 完全组件库
   - https://www.figma.com/community/file/831698976089873405
+- 如意设计助手
+  - https://github.com/ant-design/ant-design/assets/507615/45201521-37d0-4360-b81e-a1260dedad7a
+  - Figma 插件，使用 antd 代码组件库进行设计，交付对开发者友好的组件代码
+  - https://www.figma.com/community/plugin/1192146318523533547
 - 全新 Chart 组件包
   - https://gw.alipayobjects.com/zos/basement_prod/a9dc586a-fe0a-4c7d-ab4f-f5ed779b963d.svg
   - 桌面组件 Chart 模板包
@@ -117,7 +121,7 @@ toc: false
 
 ## 加入我们
 
-我们（蚂蚁金服体验技术部）是一支兼具设计视角和工程视角的团队，服务蚂蚁金服上百个中后台系统，主打产品 Ant Design 服务全球 100 万设计师和工程师，是西湖区学院路西侧最具影响力的设计语言。欢迎来这里和我们一起打造优雅高效的人机设计/研发体系。
+蚂蚁集团 Ant Design 团队是一支兼具设计视角和工程视角的横向组织，服务蚂蚁集团上百个中后台系统，主打产品 Ant Design 服务全球 100 万设计师和工程师，是西湖区学院路西侧最具影响力的设计语言。欢迎来这里和我们一起打造优雅高效的人机设计/研发体系。
 
 ### UI/UE 设计师
 

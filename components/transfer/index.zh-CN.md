@@ -33,8 +33,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*yv12S4sSRAEAAA
 <code src="./demo/tree-transfer.tsx">树穿梭框</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/custom-select-all-labels.tsx" debug>自定义全选文字</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Transfer
 
@@ -42,6 +45,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*yv12S4sSRAEAAA
 | --- | --- | --- | --- | --- |
 | dataSource | 数据源，其中的数据将会被渲染到左边一栏中，`targetKeys` 中指定的除外 | [RecordType extends TransferItem = TransferItem](https://github.com/ant-design/ant-design/blob/1bf0bab2a7bc0a774119f501806e3e0e3a6ba283/components/transfer/index.tsx#L12)\[] | \[] |  |
 | disabled | 是否禁用 | boolean | false |  |
+| selectionsIcon | 自定义下拉菜单图标 | React.ReactNode |  | 5.8.0 |
 | filterOption | 根据搜索内容进行筛选，接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false | (inputValue, option): boolean | - |  |
 | footer | 底部渲染函数 | (props, { direction }) => ReactNode | - | direction: 4.17.0 |
 | listStyle | 两个穿梭框的自定义样式 | object\|({direction: `left` \| `right`}) => object | - |  |
@@ -92,6 +96,10 @@ Transfer 支持接收 `children` 自定义渲染列表，并返回以下参数�
 // 比如你的数据主键是 uid
 return <Transfer rowKey={(record) => record.uid} />;
 ```
+
+## Design Token
+
+<ComponentTokenTable component="Transfer"></ComponentTokenTable>
 
 ## FAQ
 

@@ -1,12 +1,11 @@
 /* eslint-disable no-await-in-loop, no-console */
-const chalk = require('chalk');
 const { spawn } = require('child_process');
+const path = require('path');
+const chalk = require('chalk');
 const jsdom = require('jsdom');
 const jQuery = require('jquery');
 const fetch = require('isomorphic-fetch');
-const open = require('open');
 const fs = require('fs-extra');
-const path = require('path');
 const simpleGit = require('simple-git');
 
 const { JSDOM } = jsdom;
@@ -37,6 +36,8 @@ const MAINTAINERS = [
   'madccc',
   'MadCcc',
   'li-jia-nan',
+  'kiner-tang',
+  'Wxh16144',
 ].map((author) => author.toLowerCase());
 
 const cwd = process.cwd();
@@ -277,6 +278,8 @@ async function printLog() {
   });
 
   console.log(chalk.green('Start changelog preview editor...'));
+  const { default: open } = await import('open');
+
   setTimeout(() => {
     open('http://localhost:2893/');
   }, 1000);

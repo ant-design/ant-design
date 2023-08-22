@@ -26,8 +26,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAA
 <code src="./demo/responsive.tsx">响应式的栅格列表</code>
 <code src="./demo/infinite-load.tsx">滚动加载</code>
 <code src="./demo/virtual-list.tsx">滚动加载无限长列表</code>
+<code src="./demo/component-token.tsx" debug>自定义组件 token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 另外我们封装了 [ProList](https://procomponents.ant.design/components/list)，在 `antd` List 之上扩展了更多便捷易用的功能，比如多选，展开等功能，使用体验贴近 Table，欢迎尝试使用。
 
@@ -88,3 +91,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAA
 | avatar      | 列表元素的图标     | ReactNode | -      |      |
 | description | 列表元素的描述内容 | ReactNode | -      |      |
 | title       | 列表元素的标题     | ReactNode | -      |      |
+
+## Design Token
+
+<ComponentTokenTable component="List"></ComponentTokenTable>

@@ -1,9 +1,10 @@
-import React from 'react';
 import { InboxOutlined, UploadOutlined } from '@ant-design/icons';
+import React from 'react';
 import {
   Button,
   Checkbox,
   Col,
+  ColorPicker,
   Form,
   InputNumber,
   Radio,
@@ -11,6 +12,7 @@ import {
   Row,
   Select,
   Slider,
+  Space,
   Switch,
   Upload,
 } from 'antd';
@@ -39,7 +41,12 @@ const App: React.FC = () => (
     name="validate_other"
     {...formItemLayout}
     onFinish={onFinish}
-    initialValues={{ 'input-number': 3, 'checkbox-group': ['A', 'B'], rate: 3.5 }}
+    initialValues={{
+      'input-number': 3,
+      'checkbox-group': ['A', 'B'],
+      rate: 3.5,
+      'color-picker': null,
+    }}
     style={{ maxWidth: 600 }}
   >
     <Form.Item label="Plain Text">
@@ -167,7 +174,6 @@ const App: React.FC = () => (
         <Button icon={<UploadOutlined />}>Click to upload</Button>
       </Upload>
     </Form.Item>
-
     <Form.Item label="Dragger">
       <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
         <Upload.Dragger name="files" action="/upload.do">
@@ -179,11 +185,21 @@ const App: React.FC = () => (
         </Upload.Dragger>
       </Form.Item>
     </Form.Item>
+    <Form.Item
+      name="color-picker"
+      label="ColorPicker"
+      rules={[{ required: true, message: 'color is required!' }]}
+    >
+      <ColorPicker />
+    </Form.Item>
 
     <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
-      <Button type="primary" htmlType="submit">
-        Submit
-      </Button>
+      <Space>
+        <Button type="primary" htmlType="submit">
+          Submit
+        </Button>
+        <Button htmlType="reset">reset</Button>
+      </Space>
     </Form.Item>
   </Form>
 );

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/layout/demo/basic.tsx correctly 1`] = `
+exports[`renders components/layout/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -9,7 +9,7 @@ exports[`renders ./components/layout/demo/basic.tsx correctly 1`] = `
     class="ant-space-item"
     style="margin-bottom:0"
   >
-    <section
+    <div
       class="ant-layout"
     >
       <header
@@ -30,13 +30,13 @@ exports[`renders ./components/layout/demo/basic.tsx correctly 1`] = `
       >
         Footer
       </footer>
-    </section>
+    </div>
   </div>
   <div
     class="ant-space-item"
     style="margin-bottom:0"
   >
-    <section
+    <div
       class="ant-layout"
     >
       <header
@@ -45,8 +45,8 @@ exports[`renders ./components/layout/demo/basic.tsx correctly 1`] = `
       >
         Header
       </header>
-      <section
-        class="ant-layout"
+      <div
+        class="ant-layout ant-layout-has-sider"
       >
         <aside
           class="ant-layout-sider ant-layout-sider-dark"
@@ -64,20 +64,20 @@ exports[`renders ./components/layout/demo/basic.tsx correctly 1`] = `
         >
           Content
         </main>
-      </section>
+      </div>
       <footer
         class="ant-layout-footer"
         style="text-align:center;color:#fff;background-color:#7dbcea"
       >
         Footer
       </footer>
-    </section>
+    </div>
   </div>
   <div
     class="ant-space-item"
     style="margin-bottom:0"
   >
-    <section
+    <div
       class="ant-layout"
     >
       <header
@@ -86,8 +86,8 @@ exports[`renders ./components/layout/demo/basic.tsx correctly 1`] = `
       >
         Header
       </header>
-      <section
-        class="ant-layout"
+      <div
+        class="ant-layout ant-layout-has-sider"
       >
         <main
           class="ant-layout-content"
@@ -105,19 +105,19 @@ exports[`renders ./components/layout/demo/basic.tsx correctly 1`] = `
             Sider
           </div>
         </aside>
-      </section>
+      </div>
       <footer
         class="ant-layout-footer"
         style="text-align:center;color:#fff;background-color:#7dbcea"
       >
         Footer
       </footer>
-    </section>
+    </div>
   </div>
   <div
     class="ant-space-item"
   >
-    <section
+    <div
       class="ant-layout"
     >
       <aside
@@ -130,7 +130,7 @@ exports[`renders ./components/layout/demo/basic.tsx correctly 1`] = `
           Sider
         </div>
       </aside>
-      <section
+      <div
         class="ant-layout"
       >
         <header
@@ -151,14 +151,14 @@ exports[`renders ./components/layout/demo/basic.tsx correctly 1`] = `
         >
           Footer
         </footer>
-      </section>
-    </section>
+      </div>
+    </div>
   </div>
 </div>
 `;
 
-exports[`renders ./components/layout/demo/custom-trigger.tsx correctly 1`] = `
-<section
+exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
+<div
   class="ant-layout"
 >
   <aside
@@ -169,7 +169,7 @@ exports[`renders ./components/layout/demo/custom-trigger.tsx correctly 1`] = `
       class="ant-layout-sider-children"
     >
       <div
-        class="logo"
+        class="demo-logo-vertical"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
@@ -277,33 +277,42 @@ exports[`renders ./components/layout/demo/custom-trigger.tsx correctly 1`] = `
       />
     </div>
   </aside>
-  <section
-    class="ant-layout site-layout"
+  <div
+    class="ant-layout"
   >
     <header
       class="ant-layout-header"
       style="padding:0;background:#ffffff"
     >
-      <span
-        aria-label="menu-fold"
-        class="anticon anticon-menu-fold trigger"
-        role="img"
-        tabindex="-1"
+      <button
+        class="ant-btn ant-btn-text ant-btn-icon-only"
+        style="font-size:16px;width:64px;height:64px"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="menu-fold"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          class="ant-btn-icon"
         >
-          <path
-            d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
-          />
-        </svg>
-      </span>
+          <span
+            aria-label="menu-fold"
+            class="anticon anticon-menu-fold"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="menu-fold"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
     </header>
     <main
       class="ant-layout-content"
@@ -311,20 +320,20 @@ exports[`renders ./components/layout/demo/custom-trigger.tsx correctly 1`] = `
     >
       Content
     </main>
-  </section>
-</section>
+  </div>
+</div>
 `;
 
-exports[`renders ./components/layout/demo/fixed.tsx correctly 1`] = `
-<section
+exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
+<div
   class="ant-layout"
 >
   <header
     class="ant-layout-header"
-    style="position:sticky;top:0;z-index:1;width:100%"
+    style="position:sticky;top:0;z-index:1;width:100%;display:flex;align-items:center"
   >
     <div
-      style="float:left;width:120px;height:31px;margin:16px 24px 16px 0;background:rgba(255, 255, 255, 0.2)"
+      class="demo-logo"
     />
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
@@ -426,11 +435,12 @@ exports[`renders ./components/layout/demo/fixed.tsx correctly 1`] = `
           >
             Home
           </span>
-          <span
-            class="ant-breadcrumb-separator"
-          >
-            /
-          </span>
+        </li>
+        <li
+          aria-hidden="true"
+          class="ant-breadcrumb-separator"
+        >
+          /
         </li>
         <li>
           <span
@@ -438,22 +448,18 @@ exports[`renders ./components/layout/demo/fixed.tsx correctly 1`] = `
           >
             List
           </span>
-          <span
-            class="ant-breadcrumb-separator"
-          >
-            /
-          </span>
+        </li>
+        <li
+          aria-hidden="true"
+          class="ant-breadcrumb-separator"
+        >
+          /
         </li>
         <li>
           <span
             class="ant-breadcrumb-link"
           >
             App
-          </span>
-          <span
-            class="ant-breadcrumb-separator"
-          >
-            /
           </span>
         </li>
       </ol>
@@ -470,11 +476,11 @@ exports[`renders ./components/layout/demo/fixed.tsx correctly 1`] = `
   >
     Ant Design ©2023 Created by Ant UED
   </footer>
-</section>
+</div>
 `;
 
-exports[`renders ./components/layout/demo/fixed-sider.tsx correctly 1`] = `
-<section
+exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
+<div
   class="ant-layout ant-layout-has-sider"
 >
   <aside
@@ -485,7 +491,7 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx correctly 1`] = `
       class="ant-layout-sider-children"
     >
       <div
-        style="height:32px;margin:16px;background:rgba(255, 255, 255, 0.2)"
+        class="demo-logo-vertical"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
@@ -748,7 +754,7 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx correctly 1`] = `
       />
     </div>
   </aside>
-  <section
+  <div
     class="ant-layout site-layout"
     style="margin-left:200px"
   >
@@ -974,12 +980,12 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx correctly 1`] = `
     >
       Ant Design ©2023 Created by Ant UED
     </footer>
-  </section>
-</section>
+  </div>
+</div>
 `;
 
-exports[`renders ./components/layout/demo/responsive.tsx correctly 1`] = `
-<section
+exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
+<div
   class="ant-layout"
 >
   <aside
@@ -990,7 +996,7 @@ exports[`renders ./components/layout/demo/responsive.tsx correctly 1`] = `
       class="ant-layout-sider-children"
     >
       <div
-        class="logo"
+        class="demo-logo-vertical"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
@@ -1129,7 +1135,7 @@ exports[`renders ./components/layout/demo/responsive.tsx correctly 1`] = `
       />
     </div>
   </aside>
-  <section
+  <div
     class="ant-layout"
   >
     <header
@@ -1152,12 +1158,12 @@ exports[`renders ./components/layout/demo/responsive.tsx correctly 1`] = `
     >
       Ant Design ©2023 Created by Ant UED
     </footer>
-  </section>
-</section>
+  </div>
+</div>
 `;
 
-exports[`renders ./components/layout/demo/side.tsx correctly 1`] = `
-<section
+exports[`renders components/layout/demo/side.tsx correctly 1`] = `
+<div
   class="ant-layout"
   style="min-height:100vh"
 >
@@ -1169,7 +1175,7 @@ exports[`renders ./components/layout/demo/side.tsx correctly 1`] = `
       class="ant-layout-sider-children"
     >
       <div
-        style="height:32px;margin:16px;background:rgba(255, 255, 255, 0.2)"
+        class="demo-logo-vertical"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
@@ -1383,8 +1389,8 @@ exports[`renders ./components/layout/demo/side.tsx correctly 1`] = `
       </span>
     </div>
   </aside>
-  <section
-    class="ant-layout site-layout"
+  <div
+    class="ant-layout"
   >
     <header
       class="ant-layout-header"
@@ -1405,22 +1411,18 @@ exports[`renders ./components/layout/demo/side.tsx correctly 1`] = `
             >
               User
             </span>
-            <span
-              class="ant-breadcrumb-separator"
-            >
-              /
-            </span>
+          </li>
+          <li
+            aria-hidden="true"
+            class="ant-breadcrumb-separator"
+          >
+            /
           </li>
           <li>
             <span
               class="ant-breadcrumb-link"
             >
               Bill
-            </span>
-            <span
-              class="ant-breadcrumb-separator"
-            >
-              /
             </span>
           </li>
         </ol>
@@ -1437,19 +1439,20 @@ exports[`renders ./components/layout/demo/side.tsx correctly 1`] = `
     >
       Ant Design ©2023 Created by Ant UED
     </footer>
-  </section>
-</section>
+  </div>
+</div>
 `;
 
-exports[`renders ./components/layout/demo/top.tsx correctly 1`] = `
-<section
+exports[`renders components/layout/demo/top.tsx correctly 1`] = `
+<div
   class="ant-layout layout"
 >
   <header
     class="ant-layout-header"
+    style="display:flex;align-items:center"
   >
     <div
-      class="logo"
+      class="demo-logo"
     />
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
@@ -1695,11 +1698,12 @@ exports[`renders ./components/layout/demo/top.tsx correctly 1`] = `
           >
             Home
           </span>
-          <span
-            class="ant-breadcrumb-separator"
-          >
-            /
-          </span>
+        </li>
+        <li
+          aria-hidden="true"
+          class="ant-breadcrumb-separator"
+        >
+          /
         </li>
         <li>
           <span
@@ -1707,22 +1711,18 @@ exports[`renders ./components/layout/demo/top.tsx correctly 1`] = `
           >
             List
           </span>
-          <span
-            class="ant-breadcrumb-separator"
-          >
-            /
-          </span>
+        </li>
+        <li
+          aria-hidden="true"
+          class="ant-breadcrumb-separator"
+        >
+          /
         </li>
         <li>
           <span
             class="ant-breadcrumb-link"
           >
             App
-          </span>
-          <span
-            class="ant-breadcrumb-separator"
-          >
-            /
           </span>
         </li>
       </ol>
@@ -1740,18 +1740,19 @@ exports[`renders ./components/layout/demo/top.tsx correctly 1`] = `
   >
     Ant Design ©2023 Created by Ant UED
   </footer>
-</section>
+</div>
 `;
 
-exports[`renders ./components/layout/demo/top-side.tsx correctly 1`] = `
-<section
+exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
+<div
   class="ant-layout"
 >
   <header
-    class="ant-layout-header header"
+    class="ant-layout-header"
+    style="display:flex;align-items:center"
   >
     <div
-      class="logo"
+      class="demo-logo"
     />
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
@@ -1853,11 +1854,12 @@ exports[`renders ./components/layout/demo/top-side.tsx correctly 1`] = `
           >
             Home
           </span>
-          <span
-            class="ant-breadcrumb-separator"
-          >
-            /
-          </span>
+        </li>
+        <li
+          aria-hidden="true"
+          class="ant-breadcrumb-separator"
+        >
+          /
         </li>
         <li>
           <span
@@ -1865,11 +1867,12 @@ exports[`renders ./components/layout/demo/top-side.tsx correctly 1`] = `
           >
             List
           </span>
-          <span
-            class="ant-breadcrumb-separator"
-          >
-            /
-          </span>
+        </li>
+        <li
+          aria-hidden="true"
+          class="ant-breadcrumb-separator"
+        >
+          /
         </li>
         <li>
           <span
@@ -1877,15 +1880,10 @@ exports[`renders ./components/layout/demo/top-side.tsx correctly 1`] = `
           >
             App
           </span>
-          <span
-            class="ant-breadcrumb-separator"
-          >
-            /
-          </span>
         </li>
       </ol>
     </nav>
-    <section
+    <div
       class="ant-layout"
       style="padding:24px 0;background:#ffffff"
     >
@@ -2093,7 +2091,7 @@ exports[`renders ./components/layout/demo/top-side.tsx correctly 1`] = `
       >
         Content
       </main>
-    </section>
+    </div>
   </main>
   <footer
     class="ant-layout-footer"
@@ -2101,18 +2099,19 @@ exports[`renders ./components/layout/demo/top-side.tsx correctly 1`] = `
   >
     Ant Design ©2023 Created by Ant UED
   </footer>
-</section>
+</div>
 `;
 
-exports[`renders ./components/layout/demo/top-side-2.tsx correctly 1`] = `
-<section
+exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
+<div
   class="ant-layout"
 >
   <header
-    class="ant-layout-header header"
+    class="ant-layout-header"
+    style="display:flex;align-items:center"
   >
     <div
-      class="logo"
+      class="demo-logo"
     />
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
@@ -2199,7 +2198,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx correctly 1`] = `
       style="display:none"
     />
   </header>
-  <section
+  <div
     class="ant-layout"
   >
     <aside
@@ -2400,7 +2399,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx correctly 1`] = `
         />
       </div>
     </aside>
-    <section
+    <div
       class="ant-layout"
       style="padding:0 24px 24px"
     >
@@ -2415,11 +2414,12 @@ exports[`renders ./components/layout/demo/top-side-2.tsx correctly 1`] = `
             >
               Home
             </span>
-            <span
-              class="ant-breadcrumb-separator"
-            >
-              /
-            </span>
+          </li>
+          <li
+            aria-hidden="true"
+            class="ant-breadcrumb-separator"
+          >
+            /
           </li>
           <li>
             <span
@@ -2427,22 +2427,18 @@ exports[`renders ./components/layout/demo/top-side-2.tsx correctly 1`] = `
             >
               List
             </span>
-            <span
-              class="ant-breadcrumb-separator"
-            >
-              /
-            </span>
+          </li>
+          <li
+            aria-hidden="true"
+            class="ant-breadcrumb-separator"
+          >
+            /
           </li>
           <li>
             <span
               class="ant-breadcrumb-link"
             >
               App
-            </span>
-            <span
-              class="ant-breadcrumb-separator"
-            >
-              /
             </span>
           </li>
         </ol>
@@ -2453,7 +2449,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx correctly 1`] = `
       >
         Content
       </main>
-    </section>
-  </section>
-</section>
+    </div>
+  </div>
+</div>
 `;

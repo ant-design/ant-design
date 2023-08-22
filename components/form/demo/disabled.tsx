@@ -1,22 +1,30 @@
-import React, { useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
+import React, { useState } from 'react';
 import {
+  Button,
+  Cascader,
+  Checkbox,
+  DatePicker,
   Form,
   Input,
-  Button,
+  InputNumber,
   Radio,
   Select,
-  Cascader,
-  DatePicker,
-  InputNumber,
-  TreeSelect,
+  Slider,
   Switch,
-  Checkbox,
+  TreeSelect,
   Upload,
 } from 'antd';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
+
+const normFile = (e: any) => {
+  if (Array.isArray(e)) {
+    return e;
+  }
+  return e?.fileList;
+};
 
 const FormDisabledDemo: React.FC = () => {
   const [componentDisabled, setComponentDisabled] = useState<boolean>(true);
@@ -91,7 +99,7 @@ const FormDisabledDemo: React.FC = () => {
         <Form.Item label="Switch" valuePropName="checked">
           <Switch />
         </Form.Item>
-        <Form.Item label="Upload" valuePropName="fileList">
+        <Form.Item label="Upload" valuePropName="fileList" getValueFromEvent={normFile}>
           <Upload action="/upload.do" listType="picture-card">
             <div>
               <PlusOutlined />
@@ -101,6 +109,9 @@ const FormDisabledDemo: React.FC = () => {
         </Form.Item>
         <Form.Item label="Button">
           <Button>Button</Button>
+        </Form.Item>
+        <Form.Item label="Slider">
+          <Slider />
         </Form.Item>
       </Form>
     </>

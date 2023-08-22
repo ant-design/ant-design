@@ -1,6 +1,9 @@
+'use client';
+
 import { render } from 'rc-util/lib/React/render';
 import * as React from 'react';
-import ConfigProvider, { globalConfig } from '../config-provider';
+import ConfigProvider, { globalConfig, warnContext } from '../config-provider';
+import PurePanel from './PurePanel';
 import type {
   ArgsProps,
   ConfigOptions,
@@ -9,7 +12,6 @@ import type {
   NoticeType,
   TypeOpen,
 } from './interface';
-import PurePanel from './PurePanel';
 import useMessage, { useInternalMessage } from './useMessage';
 import { wrapPromiseFn } from './util';
 
@@ -102,6 +104,7 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   const global = globalConfig();
   const rootPrefixCls = global.getRootPrefixCls();
   const rootIconPrefixCls = global.getIconPrefixCls();
+  const theme = global.getTheme();
 
   const sync = () => {
     setMessageConfig(initializeMessageConfig);
@@ -126,7 +129,7 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   });
 
   return (
-    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls}>
+    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls} theme={theme}>
       {holder}
     </ConfigProvider>
   );
@@ -262,6 +265,11 @@ function open(config: ArgsProps): MessageType {
 }
 
 function typeOpen(type: NoticeType, args: Parameters<TypeOpen>): MessageType {
+  // Warning if exist theme
+  if (process.env.NODE_ENV !== 'production') {
+    warnContext('message');
+  }
+
   const result = wrapPromiseFn((resolve) => {
     let closeFn: VoidFunction;
 
@@ -338,7 +346,7 @@ methods.forEach((type: keyof MessageMethods) => {
 // ==============================================================================
 const noop = () => {};
 
-/** @private Only Work in test env */
+/** @internal Only Work in test env */
 // eslint-disable-next-line import/no-mutable-exports
 export let actWrapper: (wrapper: any) => void = noop;
 
@@ -348,7 +356,7 @@ if (process.env.NODE_ENV === 'test') {
   };
 }
 
-/** @private Only Work in test env */
+/** @internal Only Work in test env */
 // eslint-disable-next-line import/no-mutable-exports
 export let actDestroy = noop;
 

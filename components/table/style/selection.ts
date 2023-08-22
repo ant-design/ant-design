@@ -8,19 +8,28 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     antCls,
     iconCls,
     fontSizeIcon,
+    padding,
     paddingXS,
     tableHeaderIconColor,
     tableHeaderIconColorHover,
+    tableSelectionColumnWidth,
   } = token;
+
   return {
     [`${componentCls}-wrapper`]: {
       // ========================== Selections ==========================
       [`${componentCls}-selection-col`]: {
-        width: token.tableSelectionColumnWidth,
+        width: tableSelectionColumnWidth,
+        [`&${componentCls}-selection-col-with-dropdown`]: {
+          width: tableSelectionColumnWidth + fontSizeIcon + padding / 4,
+        },
       },
 
       [`${componentCls}-bordered ${componentCls}-selection-col`]: {
-        width: token.tableSelectionColumnWidth + paddingXS * 2,
+        width: tableSelectionColumnWidth + paddingXS * 2,
+        [`&${componentCls}-selection-col-with-dropdown`]: {
+          width: tableSelectionColumnWidth + fontSizeIcon + padding / 4 + paddingXS * 2,
+        },
       },
 
       [`

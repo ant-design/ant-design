@@ -1,5 +1,8 @@
 ---
-order: 8
+group:
+  title: Migration
+  order: 2
+order: 0
 title: V4 to V5
 ---
 
@@ -122,6 +125,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
 
 #### Component refactoring and removal
 
+- Remove `locale-provider` Directory. `LocaleProvider` was removed in v4, please use `ConfigProvider` instead.
 - Move Comment component into `@ant-design/compatible`.
 - Move PageHeader component into `@ant-design/pro-components`.
 
@@ -195,8 +199,8 @@ pnpm --package=@ant-design/codemod-v5 dlx antd5-codemod src
 If you using antd less variables, you can use compatible package to covert it into v4 less variables and use less-loader to inject them:
 
 ```js
-const { theme } = require('antd/lib');
 const { convertLegacyToken } = require('@ant-design/compatible/lib');
+const { theme } = require('antd/lib');
 
 const { defaultAlgorithm, defaultSeed } = theme;
 
@@ -215,7 +219,7 @@ module.exports = {
 };
 ```
 
-Ant then remove antd less reference in your less file:
+And then remove antd less reference in your less file:
 
 ```diff
 // Your less file
@@ -275,6 +279,40 @@ module.exports = {
   plugins: [new AntdMomentWebpackPlugin()],
 };
 ```
+
+### Switch to theme of v4 <Badge>Updated</Badge>
+
+If you don't want the style to change after upgrade, we have provided a v4 theme in `@ant-design/compatible` that can restore v4 style.
+
+````diff
+
+```sandpack
+const sandpackConfig = {
+  dependencies: {
+    '@ant-design/compatible': 'v5-compatible-v4',
+  },
+};
+
+import {
+  defaultTheme,   // Default theme
+  darkTheme,      // Dark theme
+} from '@ant-design/compatible';
+import { ConfigProvider, Button, Radio, Space } from 'antd';
+
+export default () => (
+  <ConfigProvider theme={defaultTheme}>
+    <Space direction="vertical">
+      <Button type="primary">Button</Button>
+      <Radio.Group>
+        <Radio value={1}>A</Radio>
+        <Radio value={2}>B</Radio>
+        <Radio value={3}>C</Radio>
+        <Radio value={4}>D</Radio>
+      </Radio.Group>
+    </Space>
+  </ConfigProvider>
+);
+````
 
 ### Legacy browser support
 

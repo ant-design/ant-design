@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import RcCollapse from 'rc-collapse';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
 import warning from '../_util/warning';
+import { ConfigContext } from '../config-provider';
 
 export type CollapsibleType = 'header' | 'icon' | 'disabled';
 
@@ -21,6 +21,7 @@ export interface CollapsePanelProps {
   collapsible?: CollapsibleType;
   children?: React.ReactNode;
 }
+
 const CollapsePanel = React.forwardRef<HTMLDivElement, CollapsePanelProps>((props, ref) => {
   warning(
     !('disabled' in props),
@@ -29,7 +30,7 @@ const CollapsePanel = React.forwardRef<HTMLDivElement, CollapsePanelProps>((prop
   );
 
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const { prefixCls: customizePrefixCls, className = '', showArrow = true } = props;
+  const { prefixCls: customizePrefixCls, className, showArrow = true } = props;
   const prefixCls = getPrefixCls('collapse', customizePrefixCls);
   const collapsePanelClassName = classNames(
     {

@@ -2,7 +2,7 @@ import React from 'react';
 import Watermark from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, waitFor, waitFakeTimer } from '../../../tests/utils';
+import { render, waitFakeTimer, waitFor } from '../../../tests/utils';
 
 describe('Watermark', () => {
   mountTest(Watermark);
@@ -53,7 +53,7 @@ describe('Watermark', () => {
       />,
     );
     const target = container.querySelector<HTMLDivElement>('.watermark div');
-    expect(target?.style.backgroundSize).toBe('600px');
+    expect(target?.style.backgroundSize).toBe('720px');
     expect(container).toMatchSnapshot();
   });
 

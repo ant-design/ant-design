@@ -6,18 +6,21 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HJz8SZos2wgAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*oC92TK44Ex8AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
+tag: New
 ---
 
-New App Component which provide global style & static function replacement.
+Application wrapper for some global usages.
 
 ## When To Use
 
-Static function in React 18 concurrent mode will not well support. In v5, we recommend to use hooks for the static replacement. But it will make user manual work on define this.
+- Provide reset styles based on `.ant-app` element.
+- You could use static methods of `message/notification/Modal` form `useApp` without writing `contextHolder` manually.
 
 ## Examples
 
 <!-- prettier-ignore -->
-<code src="./demo/basic.tsx">basic</code>
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/config.tsx">Hooks config</code>
 
 ## How to use
 
@@ -26,8 +29,8 @@ Static function in React 18 concurrent mode will not well support. In v5, we rec
 App provides upstream and downstream method calls through `Context`, because useApp needs to be used as a subcomponent, we recommend encapsulating App at the top level in the application.
 
 ```tsx
-import React from 'react';
 import { App } from 'antd';
+import React from 'react';
 
 const MyPage: React.FC = () => {
   const { message, notification, modal } = App.useApp();
@@ -77,11 +80,10 @@ The App component can only use the token in the `ConfigProvider`, if you need to
 
 ```tsx
 // Entry component
-import React, { useEffect } from 'react';
 import { App } from 'antd';
 import type { MessageInstance } from 'antd/es/message/interface';
-import type { NotificationInstance } from 'antd/es/notification/interface';
 import type { ModalStaticFunctions } from 'antd/es/modal/confirm';
+import type { NotificationInstance } from 'antd/es/notification/interface';
 
 let message: MessageInstance;
 let notification: NotificationInstance;
@@ -95,14 +97,14 @@ export default () => {
   return null;
 };
 
-export { message, notification, modal };
+export { message, modal, notification };
 ```
 
 ```tsx
 // sub page
-import React from 'react';
 import { Button, Space } from 'antd';
-import { message, modal, notification } from './store';
+import React from 'react';
+import { message } from './store';
 
 export default () => {
   const showMessage = () => {
@@ -118,3 +120,18 @@ export default () => {
   );
 };
 ```
+
+## API
+
+Common props ref：[Common props](/docs/react/common-props)
+
+### App
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| message | Global config for Message | [MessageConfig](/components/message/#messageconfig) | - | 5.3.0 |
+| notification | Global config for Notification | [NotificationConfig](/components/notification/#notificationconfig) | - | 5.3.0 |
+
+## Design Token
+
+<ComponentTokenTable component="App"></ComponentTokenTable>

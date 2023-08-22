@@ -1,10 +1,14 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
+import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent } from '../../style';
 
 export interface ComponentToken {
+  /**
+   * @desc 内容区域高度
+   * @descEN Height of content area
+   */
   contentHeight: number;
 }
 
@@ -29,6 +33,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
     position: 'absolute',
     display: 'none',
     color: token.colorPrimary,
+    fontSize: 0,
     textAlign: 'center',
     verticalAlign: 'middle',
     opacity: 0,
@@ -65,6 +70,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
           width: '100%',
           paddingTop: (token.spinDotSize - token.fontSize) / 2 + 2,
           textShadow: `0 1px 2px ${token.colorBgContainer}`, // FIXME: shadow
+          fontSize: token.fontSize,
         },
 
         [`&${token.componentCls}-show-text ${token.componentCls}-dot`]: {

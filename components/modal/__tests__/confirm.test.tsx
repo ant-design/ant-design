@@ -803,4 +803,46 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     await waitFakeTimer();
     expect($$('.custom-modal-footer')).toHaveLength(1);
   });
+
+  // https://github.com/ant-design/ant-design/issues/41170
+  describe('footer', () => {
+    (['confirm', 'info', 'success', 'warning', 'error'] as const).forEach((type) => {
+      it(`${type} should not render the footer in the default`, async () => {
+        Modal[type]({
+          content: 'hai',
+        });
+
+        await waitFakeTimer();
+
+        expect(document.querySelector(`.ant-modal-footer`)).toBeFalsy();
+      });
+    });
+
+    it('confirm should render the footer when footer is set', async () => {
+      Modal.confirm({
+        content: 'hai',
+        footer: 'hai',
+      });
+
+      await waitFakeTimer();
+
+      expect(document.querySelector(`.ant-modal-content`)).toMatchSnapshot();
+    });
+  });
+
+  it('warning getContainer be false', async () => {
+    resetWarned();
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    Modal.confirm({
+      getContainer: false,
+    });
+
+    await waitFakeTimer();
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Modal] Static method not support `getContainer` to be `false` since it do not have context env.',
+    );
+
+    warnSpy.mockRestore();
+  });
 });

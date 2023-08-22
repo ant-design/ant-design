@@ -1,11 +1,11 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import { Popup } from 'rc-tooltip';
+import * as React from 'react';
 import type { PopoverProps } from '.';
 import { ConfigContext } from '../config-provider';
 
-import useStyle from './style';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
+import useStyle from './style';
 
 export const getOverlay = (
   prefixCls: string,
@@ -25,7 +25,11 @@ export interface PurePanelProps extends Omit<PopoverProps, 'children'> {
   children?: React.ReactNode;
 }
 
-export function RawPurePanel(props: any) {
+interface RawPurePanelProps extends PopoverProps {
+  hashId: string;
+}
+
+export const RawPurePanel: React.FC<RawPurePanelProps> = (props) => {
   const {
     hashId,
     prefixCls,
@@ -48,14 +52,15 @@ export function RawPurePanel(props: any) {
       )}
       style={style}
     >
+      <div className={`${prefixCls}-arrow`} />
       <Popup {...props} className={hashId} prefixCls={prefixCls}>
-        {children || getOverlay(prefixCls, title, content)}
+        {children || getOverlay(prefixCls!, title, content)}
       </Popup>
     </div>
   );
-}
+};
 
-export default function PurePanel(props: any) {
+const PurePanel: React.FC<PurePanelProps> = (props) => {
   const { prefixCls: customizePrefixCls, ...restProps } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 
@@ -63,4 +68,6 @@ export default function PurePanel(props: any) {
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   return wrapSSR(<RawPurePanel {...restProps} prefixCls={prefixCls} hashId={hashId} />);
-}
+};
+
+export default PurePanel;

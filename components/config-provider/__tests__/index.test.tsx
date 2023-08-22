@@ -6,8 +6,8 @@ import mountTest from '../../../tests/shared/mountTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
 import Input from '../../input';
-import Table from '../../table';
 import Select from '../../select';
+import Table from '../../table';
 
 describe('ConfigProvider', () => {
   mountTest(() => (

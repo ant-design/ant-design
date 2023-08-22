@@ -34,6 +34,7 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
         },
 
         svg: {
+          maxWidth: '100%',
           height: '100%',
           margin: 'auto',
         },
