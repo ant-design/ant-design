@@ -29,6 +29,7 @@ import useSelection from './hooks/useSelection';
 import type { SortState } from './hooks/useSorter';
 import useSorter, { getSortData } from './hooks/useSorter';
 import useTitleColumns from './hooks/useTitleColumns';
+import { useToken } from '../theme/internal';
 import type {
   ColumnTitleProps,
   ColumnType,
@@ -517,6 +518,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, token] = useToken();
 
   const wrapperClassNames = classNames(
     `${prefixCls}-wrapper`,
@@ -535,13 +537,38 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     <DefaultRenderEmpty componentName="Table" />
   );
 
+  // ========================== Render ==========================
   const TableComponent = virtual ? RcVirtualTable : RcTable;
+
+  // >>> Virtual Table props. We set height here since it will affect height collection
+  const virtualProps: { listItemHeight?: number } = {};
+
+  const listItemHeight = React.useMemo(() => {
+    const { fontSize, lineHeight, padding, paddingXS, paddingSM } = token;
+    const fontHeight = Math.floor(fontSize * lineHeight);
+
+    switch (mergedSize) {
+      case 'large':
+        return padding * 2 + fontHeight;
+
+      case 'small':
+        return paddingXS * 2 + fontHeight;
+
+      default:
+        return paddingSM * 2 + fontHeight;
+    }
+  }, [token, mergedSize]);
+
+  if (virtual) {
+    virtualProps.listItemHeight = listItemHeight;
+  }
 
   return wrapSSR(
     <div ref={ref} className={wrapperClassNames} style={mergedStyle}>
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
         <TableComponent
+          {...virtualProps}
           {...tableProps}
           columns={mergedColumns as RcTableProps<RecordType>['columns']}
           direction={direction}
