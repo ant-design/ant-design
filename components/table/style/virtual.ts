@@ -30,8 +30,16 @@ const genVirtualStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           },
 
           [`${componentCls}-cell`]: {
-            borderRight: tableBorder,
+            borderInlineEnd: tableBorder,
             borderBottom: tableBorder,
+
+            [`&${componentCls}-cell-fix-right-first:before`]: {
+              content: '""',
+              position: 'absolute',
+              insetBlock: 0,
+              insetInlineStart: -token.lineWidth,
+              borderInlineStart: tableBorder,
+            },
           },
         },
       },
