@@ -15,7 +15,6 @@ We could configure global token and component token for each component through t
 
 ```tsx
 import React from 'react';
-
 import { Checkbox, ConfigProvider, Radio } from 'antd';
 
 const App: React.FC = () => (
