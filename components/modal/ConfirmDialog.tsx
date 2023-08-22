@@ -110,6 +110,7 @@ export function ConfirmContent(
   const cancelBtnCtxValue: ConfirmCancelBtnProps = {
     autoFocusButton,
     cancelTextLocale,
+    mergedOkCancel,
     ...resetProps,
   };
 
