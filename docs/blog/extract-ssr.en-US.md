@@ -53,7 +53,7 @@ It worked well at the beginning, and the official website of antd directly suppo
 And when most components are converted to CSS-in-JS, inline styles can become huge. So we removed the automatic inlining function in the later stage, and converted it to a form that needs to be collected manually:
 
 ```tsx
-import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { renderToString } from 'react-dom/server';
 
 const cache = createCache();

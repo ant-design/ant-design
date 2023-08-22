@@ -103,9 +103,8 @@ getTwoToneColor(); // #eb2f96
 
 ```jsx
 import React from 'react';
-
-import { createFromIconfontCN } from '@ant-design/icons';
 import ReactDOM from 'react-dom/client';
+import { createFromIconfontCN } from '@ant-design/icons';
 
 const MyIcon = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', // 在 iconfont.cn 上生成
@@ -153,12 +152,9 @@ module.exports = {
 
 ```jsx
 import React from 'react';
-
-import Icon from '@ant-design/icons';
-import MessageSvg from 'path/to/message.svg';
 import ReactDOM from 'react-dom/client';
-
-// 你的 '*.svg' 文件路径
+import Icon from '@ant-design/icons';
+import MessageSvg from 'path/to/message.svg'; // 你的 '*.svg' 文件路径
 // in create-react-app:
 // import { ReactComponent as MessageSvg } from 'path/to/message.svg';
 

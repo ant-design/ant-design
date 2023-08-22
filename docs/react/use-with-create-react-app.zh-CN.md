@@ -54,7 +54,6 @@ $ npm run start
 
 ```tsx
 import React from 'react';
-
 import { Button } from 'antd';
 
 const App: React.FC = () => (
@@ -74,7 +73,6 @@ export default App;
 
 ```tsx
 import React from 'react';
-
 import { ConfigProvider } from 'antd';
 
 const App: React.FC = () => (

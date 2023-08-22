@@ -291,10 +291,9 @@ const columns = [
 ## 在 TypeScript 中使用
 
 ```tsx
-import React from 'react';
-
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+import React from 'react';
 
 interface User {
   key: number;

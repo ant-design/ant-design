@@ -58,7 +58,7 @@ export { pureRender, customRender as render };
 export const triggerResize = (target: Element) => {
   const originGetBoundingClientRect = target.getBoundingClientRect;
 
-  target.getBoundingClientRect = () => ({ width: 510, height: 903 }) as DOMRect;
+  target.getBoundingClientRect = () => ({ width: 510, height: 903 } as DOMRect);
 
   act(() => {
     onLibResize([{ target } as ResizeObserverEntry]);

@@ -29,9 +29,8 @@ Application wrapper for some global usages.
 App provides upstream and downstream method calls through `Context`, because useApp needs to be used as a subcomponent, we recommend encapsulating App at the top level in the application.
 
 ```tsx
-import React from 'react';
-
 import { App } from 'antd';
+import React from 'react';
 
 const MyPage: React.FC = () => {
   const { message, notification, modal } = App.useApp();
@@ -103,10 +102,8 @@ export { message, modal, notification };
 
 ```tsx
 // sub page
-import React from 'react';
-
 import { Button, Space } from 'antd';
-
+import React from 'react';
 import { message } from './store';
 
 export default () => {

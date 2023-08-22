@@ -95,7 +95,6 @@ Form also consumes the proxy Context:
 ```tsx
 // Sample only. Not real world code.
 import Form, { FormProvider } from 'rc-field-form';
-
 import { ValidateMessageContext } from './context';
 
 export default (props) => {

@@ -33,11 +33,9 @@ $ npm run dev
 修改 `src/app/page.tsx`，引入 antd 的按钮组件。
 
 ```jsx
-'use client';
+'use client'; // 如果是在 Pages Router 中使用，则不需要加这行
 
-// 如果是在 Pages Router 中使用，则不需要加这行
 import React from 'react';
-
 import { Button } from 'antd';
 
 const Home = () => (
@@ -65,7 +63,6 @@ export default Home;
 
 ```tsx
 import React from 'react';
-
 import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import type { DocumentContext } from 'next/document';
@@ -128,10 +125,8 @@ export default theme;
 
 ```tsx
 import React from 'react';
-
 import { ConfigProvider } from 'antd';
 import type { AppProps } from 'next/app';
-
 import theme from './themeConfig';
 
 const App = ({ Component, pageProps }: AppProps) => (
@@ -147,7 +142,6 @@ export default App;
 
 ```tsx
 import React from 'react';
-
 import { Button } from 'antd';
 
 const Home = () => (
@@ -175,7 +169,6 @@ export default Home;
 'use client';
 
 import React from 'react';
-
 import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
 import { useServerInsertedHTML } from 'next/navigation';
 
@@ -194,9 +187,7 @@ export default StyledComponentsRegistry;
 
 ```tsx
 import React from 'react';
-
 import { Inter } from 'next/font/google';
-
 import StyledComponentsRegistry from '../lib/AntdRegistry';
 import '@/globals.css';
 
@@ -238,9 +229,7 @@ export default theme;
 
 ```tsx
 import React from 'react';
-
 import { Button, ConfigProvider } from 'antd';
-
 import theme from './themeConfig';
 
 const HomePage = () => (

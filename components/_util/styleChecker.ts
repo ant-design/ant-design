@@ -31,6 +31,7 @@ export const detectFlexGapSupported = () => {
   container.style.zIndex = '-9999';
   container.appendChild(flex);
 
+
   // append to the DOM (needed to obtain scrollHeight)
   document.body.appendChild(container);
   flexGapSupported = flex.scrollHeight === 1; // flex container should be 1px high from the row-gap

@@ -15,8 +15,8 @@ const RadioButton: React.ForwardRefRenderFunction<CheckboxRef, RadioButtonProps>
   const prefixCls = getPrefixCls('radio', customizePrefixCls);
 
   return (
-    <RadioOptionTypeContextProvider value="button">
-      <Radio prefixCls={prefixCls} {...radioProps} type="radio" ref={ref} />
+    <RadioOptionTypeContextProvider value='button'>
+      <Radio prefixCls={prefixCls} {...radioProps} type='radio' ref={ref} />
     </RadioOptionTypeContextProvider>
   );
 };
