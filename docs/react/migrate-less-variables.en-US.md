@@ -275,12 +275,12 @@ export default App;
 | Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@picker-bg` | `colorBgContainer` | Global Token |
-| `@picker-basic-cell-hover-color` | `cellHoverColor` | - |
-| `@picker-basic-cell-active-with-range-color` | `cellActiveWithRangeColor` | - |
-| `@picker-basic-cell-hover-with-range-color` | `cellHoverWithRangeColor` | - |
+| `@picker-basic-cell-hover-color` | `cellHoverBg` | - |
+| `@picker-basic-cell-active-with-range-color` | `cellActiveWithRangeBg` | - |
+| `@picker-basic-cell-hover-with-range-color` | `cellHoverWithRangeBg` | - |
 | `@picker-basic-cell-disabled-bg` | `cellBgDisabled` | - |
 | `@picker-border-color` | `colorSplit` | Global Token |
-| `@picker-date-hover-range-border-color` | `dateHoverRangeBorderColor` | - |
+| `@picker-date-hover-range-border-color` | `cellRangeBorderColor` | - |
 | `@picker-date-hover-range-color` | `cellHoverWithRangeColor` | - |
 | `@picker-time-panel-column-width` | `timeColumnWidth` | - |
 | `@picker-time-panel-column-height` | `timeColumnHeight` | - |

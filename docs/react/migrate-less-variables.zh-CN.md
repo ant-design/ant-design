@@ -273,12 +273,12 @@ export default App;
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
 | `@picker-bg` | `colorBgContainer` | 全局 Token |
-| `@picker-basic-cell-hover-color` | `cellHoverColor` | - |
-| `@picker-basic-cell-active-with-range-color` | `cellActiveWithRangeColor` | - |
-| `@picker-basic-cell-hover-with-range-color` | `cellHoverWithRangeColor` | - |
+| `@picker-basic-cell-hover-color` | `cellHoverBg` | - |
+| `@picker-basic-cell-active-with-range-color` | `cellActiveWithRangeBg` | - |
+| `@picker-basic-cell-hover-with-range-color` | `cellHoverWithRangeBg` | - |
 | `@picker-basic-cell-disabled-bg` | `cellBgDisabled` | - |
 | `@picker-border-color` | `colorSplit` | 全局 Token |
-| `@picker-date-hover-range-border-color` | `dateHoverRangeBorderColor` | - |
+| `@picker-date-hover-range-border-color` | `cellRangeBorderColor` | - |
 | `@picker-date-hover-range-color` | `cellHoverWithRangeColor` | - |
 | `@picker-time-panel-column-width` | `timeColumnWidth` | - |
 | `@picker-time-panel-column-height` | `timeColumnHeight` | - |
