@@ -1,10 +1,12 @@
+'use client';
+
 import type { Dayjs } from 'dayjs';
 import * as React from 'react';
-import DatePicker from '../date-picker';
-import type { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import warning from '../_util/warning';
+import DatePicker from '../date-picker';
+import type { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
 
 const { TimePicker: InternalTimePicker, RangePicker: InternalRangePicker } = DatePicker;
 
@@ -25,6 +27,7 @@ export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> 
   addon?: () => React.ReactNode;
   status?: InputStatus;
   popupClassName?: string;
+  rootClassName?: string;
 }
 
 const TimePicker = React.forwardRef<any, TimePickerProps>(

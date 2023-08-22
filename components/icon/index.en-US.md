@@ -12,11 +12,9 @@ demo:
 
 ## How to use
 
-Before use icons, you need to install `@ant-design/icons` package:
+Before use icons, you need to install [@ant-design/icons](https://github.com/ant-design/ant-design-icons) package:
 
-```bash
-npm install --save @ant-design/icons
-```
+<InstallDependencies npm='npm install @ant-design/icons --save' yarn='yarn add @ant-design/icons' pnpm='pnpm install @ant-design/icons --save'></InstallDependencies>
 
 ## List of icons
 
@@ -110,8 +108,9 @@ We added a `createFromIconfontCN` function to help developer use their own icons
 
 ```jsx
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+
 import { createFromIconfontCN } from '@ant-design/icons';
+import ReactDOM from 'react-dom/client';
 
 const MyIcon = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', // generate in iconfont.cn
@@ -159,9 +158,12 @@ module.exports = {
 
 ```jsx
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+
 import Icon from '@ant-design/icons';
-import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
+import MessageSvg from 'path/to/message.svg';
+import ReactDOM from 'react-dom/client';
+
+// path to your '*.svg' file.
 // in create-react-app:
 // import { ReactComponent as MessageSvg } from 'path/to/message.svg';
 

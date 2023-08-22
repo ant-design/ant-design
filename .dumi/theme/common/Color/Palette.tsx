@@ -1,7 +1,7 @@
 import { presetDarkPalettes } from '@ant-design/colors';
-import { message } from 'antd';
 import React, { useEffect } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import { message } from 'antd';
 
 const rgbToHex = (rgbString: string): string => {
   const rgb = rgbString.match(/\d+/g);

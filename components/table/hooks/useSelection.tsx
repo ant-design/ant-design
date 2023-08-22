@@ -9,14 +9,15 @@ import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import { useCallback, useMemo, useState } from 'react';
+import type { AnyObject } from '../../_util/type';
 import warning from '../../_util/warning';
 import type { CheckboxProps } from '../../checkbox';
 import Checkbox from '../../checkbox';
 import Dropdown from '../../dropdown';
 import Radio from '../../radio';
 import type {
-  ColumnsType,
   ColumnType,
+  ColumnsType,
   ExpandType,
   GetPopupContainer,
   GetRowKey,
@@ -27,7 +28,6 @@ import type {
   TableRowSelection,
   TransformColumns,
 } from '../interface';
-import type { AnyObject } from '../Table';
 
 // TODO: warning if use ajax!!!
 
@@ -38,7 +38,7 @@ export const SELECTION_NONE = 'SELECT_NONE' as const;
 
 const EMPTY_LIST: React.Key[] = [];
 
-interface UseSelectionConfig<RecordType extends AnyObject = any> {
+interface UseSelectionConfig<RecordType extends AnyObject = AnyObject> {
   prefixCls: string;
   pageData: RecordType[];
   data: RecordType[];
@@ -56,7 +56,7 @@ export type INTERNAL_SELECTION_ITEM =
   | typeof SELECTION_INVERT
   | typeof SELECTION_NONE;
 
-const flattenData = <RecordType extends AnyObject = any>(
+const flattenData = <RecordType extends AnyObject = AnyObject>(
   childrenColumnName: keyof RecordType,
   data?: RecordType[],
 ): RecordType[] => {
@@ -70,7 +70,7 @@ const flattenData = <RecordType extends AnyObject = any>(
   return list;
 };
 
-const useSelection = <RecordType extends AnyObject = any>(
+const useSelection = <RecordType extends AnyObject = AnyObject>(
   config: UseSelectionConfig<RecordType>,
   rowSelection?: TableRowSelection<RecordType>,
 ): readonly [TransformColumns<RecordType>, Set<Key>] => {
@@ -143,16 +143,25 @@ const useSelection = <RecordType extends AnyObject = any>(
     updatePreserveRecordsCache(mergedSelectedKeys);
   }, [mergedSelectedKeys]);
 
-  const { keyEntities } = useMemo(
-    () =>
-      checkStrictly
-        ? { keyEntities: null }
-        : convertDataToEntities(data as unknown as DataNode[], {
-            externalGetKey: getRowKey as any,
-            childrenPropName: childrenColumnName,
-          }),
-    [data, getRowKey, checkStrictly, childrenColumnName],
-  );
+  const { keyEntities } = useMemo(() => {
+    if (checkStrictly) {
+      return { keyEntities: null };
+    }
+    let convertData = data;
+    if (preserveSelectedRowKeys) {
+      const keysSet = new Set(data.map((record, index) => getRowKey(record, index)));
+      // remove preserveRecords that duplicate data
+      const preserveRecords = Array.from(preserveRecordsRef.current).reduce(
+        (total: RecordType[], [key, value]) => (keysSet.has(key) ? total : total.concat(value)),
+        [],
+      );
+      convertData = [...convertData, ...preserveRecords];
+    }
+    return convertDataToEntities(convertData as unknown as DataNode[], {
+      externalGetKey: getRowKey as any,
+      childrenPropName: childrenColumnName,
+    });
+  }, [data, getRowKey, checkStrictly, childrenColumnName, preserveSelectedRowKeys]);
 
   // Get flatten data
   const flattedData = useMemo(

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import type { ColumnGroupType, ColumnType, TableProps } from '..';
 import Table from '..';
 import { act, fireEvent, render, waitFor } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Input from '../../input';
@@ -11,7 +12,6 @@ import Menu from '../../menu';
 import type { SelectProps } from '../../select';
 import Select from '../../select';
 import Tooltip from '../../tooltip';
-import { resetWarned } from '../../_util/warning';
 import type { TreeColumnFilterItem } from '../hooks/useFilter/FilterDropdown';
 import type {
   ColumnFilterItem,
@@ -134,6 +134,8 @@ describe('Table.filter', () => {
   });
 
   it('renders empty menu correctly', () => {
+    resetWarned();
+
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       createTable({
@@ -1470,7 +1472,7 @@ describe('Table.filter', () => {
   });
 
   it('filtered should work after change', () => {
-    const App = () => {
+    const App: React.FC = () => {
       const [filtered, setFiltered] = React.useState(true);
       const columns = [
         {

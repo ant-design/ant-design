@@ -1,5 +1,5 @@
-import { ConfigProvider, Mentions } from 'antd';
 import React from 'react';
+import { ConfigProvider, Mentions } from 'antd';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalMentions } = Mentions;
 

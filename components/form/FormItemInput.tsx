@@ -63,13 +63,13 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   delete subFormContext.labelCol;
   delete subFormContext.wrapperCol;
 
-  const inputDom = (
+  const inputDom: React.ReactNode = (
     <div className={`${baseClassName}-control-input`}>
       <div className={`${baseClassName}-control-input-content`}>{children}</div>
     </div>
   );
   const formItemContext = React.useMemo(() => ({ prefixCls, status }), [prefixCls, status]);
-  const errorListDom =
+  const errorListDom: React.ReactNode =
     marginBottom !== null || errors.length || warnings.length ? (
       <div style={{ display: 'flex', flexWrap: 'nowrap' }}>
         <FormItemPrefixContext.Provider value={formItemContext}>
@@ -95,13 +95,13 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
 
   // If extra = 0, && will goes wrong
   // 0&&error -> 0
-  const extraDom = extra ? (
+  const extraDom: React.ReactNode = extra ? (
     <div {...extraProps} className={`${baseClassName}-extra`}>
       {extra}
     </div>
   ) : null;
 
-  const dom =
+  const dom: React.ReactNode =
     formItemRender && formItemRender.mark === 'pro_table_render' && formItemRender.render ? (
       formItemRender.render(props, { input: inputDom, errorList: errorListDom, extra: extraDom })
     ) : (

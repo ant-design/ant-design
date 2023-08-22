@@ -106,8 +106,11 @@ const columns = [
 <code src="./demo/sticky.tsx">随页面滚动的固定表头和滚动条</code>
 <code src="./demo/dynamic-settings.tsx">动态控制表格属性</code>
 <code src="./demo/selections-debug.tsx" debug>带下拉箭头的表头</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Table
 
@@ -194,7 +197,7 @@ const columns = [
 | shouldCellUpdate | 自定义单元格渲染时机 | (record, prevRecord) => boolean | - | 4.3.0 |
 | showSorterTooltip | 表头显示下一次排序的 tooltip 提示, 覆盖 table 中 `showSorterTooltip` | boolean \| [Tooltip props](/components/tooltip-cn/#api) | true |  |
 | sortDirections | 支持的排序方式，覆盖 `Table` 中 `sortDirections`， 取值为 `ascend` `descend` | Array | \[`ascend`, `descend`] |  |
-| sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | function \| boolean | - |  |
+| sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | function \| boolean \| { compare: function, multiple: number } | - |  |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `ascend` `descend` `null` | `ascend` \| `descend` \| null | - |  |
 | sortIcon | 自定义 sort 图标 | (props: { sortOrder }) => ReactNode | - | 5.6.0 |
 | title | 列头显示文字（函数用法 `3.10.0` 后支持） | ReactNode \| ({ sortOrder, sortColumn, filters }) => ReactNode | - |  |
@@ -240,7 +243,7 @@ const columns = [
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |  |
 | rowExpandable | 设置是否允许行展开 | (record) => boolean | - |  |
 | showExpandColumn | 设置是否展示行展开列 | boolean | true | 4.18.0 |
-| onExpand | 点击展开图标时触发 | function(expanded, record) | - |  |
+| onExpand | 点击展开图标时触发 | function(record, event) | - |  |
 | onExpandedRowsChange | 展开的行变化时触发 | function(expandedRows) | - |  |
 
 ### rowSelection
@@ -288,9 +291,10 @@ const columns = [
 ## 在 TypeScript 中使用
 
 ```tsx
+import React from 'react';
+
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import React from 'react';
 
 interface User {
   key: number;

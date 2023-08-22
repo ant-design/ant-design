@@ -27,11 +27,15 @@ To input a value in a range.
 <code src="./demo/show-tooltip.tsx">Control visible of ToolTip</code>
 <code src="./demo/reverse.tsx">Reverse</code>
 <code src="./demo/draggableTrack.tsx">Draggable track</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| autoAdjustOverflow | Whether to automatically adjust the popup position | boolean | true | 5.8.0 |
 | autoFocus | Whether get focus when component mounted | boolean | false |  |
 | defaultValue | The default value of slider. When `range` is false, use number, otherwise, use \[number, number] | number \| \[number, number] | 0 \| \[0, 0] |  |
 | disabled | If true, the slider will not be intractable | boolean | false |  |

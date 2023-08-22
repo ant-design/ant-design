@@ -38,6 +38,8 @@ demo:
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 各类型共用的属性。
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
@@ -51,7 +53,7 @@ demo:
 | success | 成功进度条相关配置 | { percent: number, strokeColor: string } | - | - |
 | trailColor | 未完成的分段的颜色 | string | - | - |
 | type | 类型，可选 `line` `circle` `dashboard` | string | `line` | - |
-| size | 进度条的尺寸 | number \| \[number, number] \| "small" \| "default" | "default" | v5.3.0 |
+| size | 进度条的尺寸 | number \| \[number \| string, number] \| "small" \| "default" | "default" | v5.3.0 |
 
 ### `type="line"`
 

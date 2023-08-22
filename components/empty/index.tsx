@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
@@ -39,9 +41,10 @@ const Empty: CompoundedComponent = ({
   description,
   children,
   imageStyle,
+  style,
   ...restProps
 }) => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, empty } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
@@ -64,6 +67,7 @@ const Empty: CompoundedComponent = ({
       className={classNames(
         hashId,
         prefixCls,
+        empty?.className,
         {
           [`${prefixCls}-normal`]: image === simpleEmptyImg,
           [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -71,6 +75,7 @@ const Empty: CompoundedComponent = ({
         className,
         rootClassName,
       )}
+      style={{ ...empty?.style, ...style }}
       {...restProps}
     >
       <div className={`${prefixCls}-image`} style={imageStyle}>

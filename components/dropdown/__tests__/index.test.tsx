@@ -1,7 +1,7 @@
-import React from 'react';
 import type { TriggerProps } from '@rc-component/trigger';
-import Dropdown from '..';
+import React from 'react';
 import type { DropDownProps } from '..';
+import Dropdown from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -15,7 +15,7 @@ jest.mock('@rc-component/trigger', () => {
   const h: typeof React = jest.requireActual('react');
 
   return {
-    default: h.forwardRef<unknown, TriggerProps>((props, ref) => {
+    default: h.forwardRef<HTMLElement, TriggerProps>((props, ref) => {
       triggerProps = props;
       return h.createElement(Trigger, { ref, ...props });
     }),

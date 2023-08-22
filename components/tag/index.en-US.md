@@ -35,16 +35,17 @@ Tag for categorizing or markup.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Tag
 
-| Property  | Description                          | Type        | Default | Version |
-| --------- | ------------------------------------ | ----------- | ------- | ------- |
-| closable  | Whether the Tag can be closed        | boolean     | false   |         |
-| closeIcon | Custom close icon                    | ReactNode   | -       | 4.4.0   |
-| color     | Color of the Tag                     | string      | -       |         |
-| icon      | Set the icon of tag                  | ReactNode   | -       |         |
-| bordered  | Whether has border style             | boolean     | true    | 5.4.0   |
-| onClose   | Callback executed when tag is closed | (e) => void | -       |         |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | false | 4.4.0 |
+| color | Color of the Tag | string | - |  |
+| icon | Set the icon of tag | ReactNode | - |  |
+| bordered | Whether has border style | boolean | true | 5.4.0 |
+| onClose | Callback executed when tag is closed | (e) => void | - |  |
 
 ### Tag.CheckableTag
 

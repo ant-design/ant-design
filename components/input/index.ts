@@ -1,3 +1,5 @@
+'use client';
+
 import type * as React from 'react';
 import Group from './Group';
 import type { InputProps, InputRef } from './Input';

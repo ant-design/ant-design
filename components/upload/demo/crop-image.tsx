@@ -1,7 +1,7 @@
-import { Upload } from 'antd';
 import ImgCrop from 'antd-img-crop';
-import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
 import React, { useState } from 'react';
+import { Upload } from 'antd';
+import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
 
 const App: React.FC = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([

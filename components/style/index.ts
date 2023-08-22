@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable import/prefer-default-export */
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { AliasToken, DerivativeToken } from '../theme/internal';

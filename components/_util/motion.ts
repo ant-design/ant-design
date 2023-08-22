@@ -29,13 +29,6 @@ const SelectPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as
 
 export type SelectCommonPlacement = typeof SelectPlacements[number];
 
-const getTransitionDirection = (placement?: SelectCommonPlacement) => {
-  if (placement !== undefined && (placement === 'topLeft' || placement === 'topRight')) {
-    return `slide-down`;
-  }
-  return `slide-up`;
-};
-
 const getTransitionName = (rootPrefixCls: string, motion: string, transitionName?: string) => {
   if (transitionName !== undefined) {
     return transitionName;
@@ -43,5 +36,5 @@ const getTransitionName = (rootPrefixCls: string, motion: string, transitionName
   return `${rootPrefixCls}-${motion}`;
 };
 
-export { getTransitionName, getTransitionDirection };
+export { getTransitionName };
 export default initCollapseMotion;

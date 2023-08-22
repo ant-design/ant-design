@@ -1,5 +1,5 @@
-import { act } from '../../../tests/utils';
 import message, { actWrapper } from '..';
+import { act } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
 

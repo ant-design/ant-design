@@ -1,5 +1,5 @@
-import { ColorPicker } from 'antd';
 import React from 'react';
+import { ColorPicker } from 'antd';
 
 const Demo = () => <ColorPicker />;
 
