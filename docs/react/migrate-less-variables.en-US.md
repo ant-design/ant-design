@@ -326,20 +326,21 @@ export default App;
 
 ### Form
 
+<!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@label-required-color` | `labelRequiredColor` | - |
+| `@label-required-color` | `labelRequiredMarkColor` | - |
 | `@label-color` | `labelColor` | - |
-| `@form-warning-input-bg` | - | Deprecated for style change |
+| `@form-warning-input-bg` | - | Deprecated |
 | `@form-item-margin-bottom` | `itemMarginBottom` | - |
-| `@form-item-trailing-colon` | - | Deprecated for style change |
-| `@form-vertical-label-padding` | `paddingXS` | GlobalToken，used as `0 0 ${token.paddingXS}px`, |
-| `@form-vertical-label-margin` | - | used as 0 |
+| `@form-item-trailing-colon` | - | Deprecated |
+| `@form-vertical-label-padding` | `verticalLabelPadding` | - |
+| `@form-vertical-label-margin` | `verticalLabelMargin` | - |
 | `@form-item-label-font-size` | `labelFontSize` | - |
 | `@form-item-label-height` | `labelHeight` | - |
 | `@form-item-label-colon-margin-right` | `labelColonMarginInlineEnd` | - |
 | `@form-item-label-colon-margin-left` | `labelColonMarginInlineStart` | - |
-| `@form-error-input-bg` | - | Deprecated for style change |
+| `@form-error-input-bg` | - | Deprecated |
 
 ### Image
 
