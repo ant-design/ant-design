@@ -47,22 +47,15 @@ export function ConfirmContent(
 ) {
   const {
     icon,
-    onCancel,
-    onOk,
-    close,
-    onConfirm,
-    isSilent,
     okText,
-    okButtonProps,
     cancelText,
-    cancelButtonProps,
     confirmPrefixCls,
-    rootPrefixCls,
     type,
     okCancel,
     footer,
     // Legacy for static function usage
     locale: staticLocale,
+    ...resetProps
   } = props;
 
   warning(
@@ -94,7 +87,6 @@ export function ConfirmContent(
     }
   }
 
-  const okType = props.okType || 'primary';
   // 默认为 true，保持向下兼容
   const mergedOkCancel = okCancel ?? type === 'confirm';
 
@@ -111,26 +103,14 @@ export function ConfirmContent(
   // ================= Context Value =================
   const confirmBtnCtxValue: ConfirmOkBtnProps = {
     autoFocusButton,
-    close,
-    isSilent,
-    okButtonProps,
-    rootPrefixCls,
     okTextLocale,
-    okType,
-    onConfirm,
-    onOk,
+    ...resetProps,
   };
 
   const cancelBtnCtxValue: ConfirmCancelBtnProps = {
     autoFocusButton,
-    cancelButtonProps,
     cancelTextLocale,
-    isSilent,
-    mergedOkCancel,
-    rootPrefixCls,
-    close,
-    onCancel,
-    onConfirm,
+    ...resetProps,
   };
 
   const confirmBtnCtxValueMemo = React.useMemo(

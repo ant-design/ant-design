@@ -9,7 +9,7 @@ export interface ConfirmCancelBtnProps
     ConfirmDialogProps,
     'cancelButtonProps' | 'isSilent' | 'rootPrefixCls' | 'close' | 'onConfirm' | 'onCancel'
   > {
-  autoFocusButton?: false | 'ok' | 'cancel';
+  autoFocusButton?: false | 'ok' | 'cancel' | null;
   cancelTextLocale?:
     | string
     | number

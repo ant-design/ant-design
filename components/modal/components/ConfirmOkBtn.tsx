@@ -9,7 +9,7 @@ export interface ConfirmOkBtnProps
     ConfirmDialogProps,
     'close' | 'isSilent' | 'okType' | 'okButtonProps' | 'rootPrefixCls' | 'onConfirm' | 'onOk'
   > {
-  autoFocusButton?: false | 'ok' | 'cancel';
+  autoFocusButton?: false | 'ok' | 'cancel' | null;
   okTextLocale?:
     | string
     | number
@@ -33,7 +33,7 @@ const ConfirmOkBtn: FC = () => {
   return (
     <ActionButton
       isSilent={isSilent}
-      type={okType}
+      type={okType || 'primary'}
       actionFn={onOk}
       close={(...args: any[]) => {
         close?.(...args);
