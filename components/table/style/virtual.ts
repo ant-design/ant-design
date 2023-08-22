@@ -7,6 +7,8 @@ const genVirtualStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
   const tableBorder = `${token.lineWidth}px ${token.lineType} ${token.tableBorderColor}`;
 
+  const rowCellCls = `${componentCls}-expanded-row-cell`;
+
   return {
     [`${componentCls}-wrapper`]: {
       // ========================== Row ==========================
@@ -17,7 +19,19 @@ const genVirtualStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           width: '100%',
         },
 
-        [`${componentCls}-expanded-row`]: {},
+        [`${componentCls}-cell`]: {
+          borderBottom: tableBorder,
+        },
+
+        [`${componentCls}-expanded-row`]: {
+          [`${rowCellCls}${rowCellCls}-fixed`]: {
+            position: 'sticky',
+            insetInlineStart: 0,
+            overflow: 'hidden',
+            width: `calc(var(--virtual-width) - ${token.lineWidth}px)`,
+            borderInlineEnd: 'none',
+          },
+        },
       },
 
       // ======================== Border =========================
@@ -33,7 +47,6 @@ const genVirtualStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
           [`${componentCls}-cell`]: {
             borderInlineEnd: tableBorder,
-            borderBottom: tableBorder,
 
             [`&${componentCls}-cell-fix-right-first:before`]: {
               content: '""',

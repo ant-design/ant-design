@@ -80,7 +80,10 @@ const data: RecordType[] = new Array(10000).fill(null).map((_, index) => ({
 }));
 
 const App = () => {
+  const [bordered, setBordered] = React.useState(true);
   const [expanded, setExpanded] = React.useState(false);
+  const [empty, setEmpty] = React.useState(false);
+
   const mergedColumns = React.useMemo<typeof columns>(() => {
     if (!expanded) {
       return columns;
@@ -103,22 +106,34 @@ const App = () => {
 
   return (
     <Space direction="vertical" style={{ width: '100%' }}>
-      <div>
+      <Space>
+        <Switch
+          checked={bordered}
+          onChange={() => setBordered(!bordered)}
+          checkedChildren="Bordered"
+          unCheckedChildren="Bordered"
+        />
         <Switch
           checked={expanded}
           onChange={() => setExpanded(!expanded)}
           checkedChildren="Expandable"
           unCheckedChildren="Expandable"
         />
-      </div>
+        <Switch
+          checked={empty}
+          onChange={() => setEmpty(!empty)}
+          checkedChildren="Empty"
+          unCheckedChildren="Empty"
+        />
+      </Space>
 
       <Table
-        bordered
+        bordered={bordered}
         virtual
         columns={mergedColumns}
         scroll={{ x: 2500, y: 400 }}
         rowKey="id"
-        dataSource={data}
+        dataSource={empty ? [] : data}
         pagination={false}
         rowSelection={
           expanded
