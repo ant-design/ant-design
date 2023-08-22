@@ -14,8 +14,8 @@ This document contains the correspondence between all the less variables related
 We could configure global token and component token for each component through the `theme` property of ConfigProvider.
 
 ```tsx
-import { Checkbox, ConfigProvider, Radio } from 'antd';
 import React from 'react';
+import { Checkbox, ConfigProvider, Radio } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -669,6 +669,15 @@ export default App;
 | `@slider-dot-border-color-active` | `dotActiveBorderColor` | - |
 | `@slider-disabled-color` | `trackBgDisabled` | - |
 | `@slider-disabled-background-color` | - | Deprecated |
+
+### Spin
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@spin-dot-size-sm` | `dotSizeSM` | - |
+| `@spin-dot-size` | `dotSize` | - |
+| `@spin-dot-size-lg` | `dotSizeLG` | - |
 
 ### Statistic
 

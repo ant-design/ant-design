@@ -14,8 +14,8 @@ title: 从 Less 变量到 Design Token
 通过 ConfigProvider 的 `theme` 属性，我们可以对每一个组件单独配置全局 Token 和组件 Token
 
 ```tsx
-import { Checkbox, ConfigProvider, Radio } from 'antd';
 import React from 'react';
+import { Checkbox, ConfigProvider, Radio } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -667,6 +667,15 @@ Mentions 提及
 | `@slider-dot-border-color-active` | `dotActiveBorderColor` | - |
 | `@slider-disabled-color` | `trackBgDisabled` | - |
 | `@slider-disabled-background-color` | - | 已废弃 |
+
+### Spin 加载中
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@spin-dot-size-sm` | `dotSizeSM` | - |
+| `@spin-dot-size` | `dotSize` | - |
+| `@spin-dot-size-lg` | `dotSizeLG` | - |
 
 ### Statistic 统计数值
 
