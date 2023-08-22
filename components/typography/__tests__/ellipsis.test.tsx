@@ -45,7 +45,7 @@ describe('Typography.Ellipsis', () => {
 
     computeSpy = jest
       .spyOn(window, 'getComputedStyle')
-      .mockImplementation(() => ({ fontSize: 12 }) as unknown as CSSStyleDeclaration);
+      .mockImplementation(() => ({ fontSize: 12 } as unknown as CSSStyleDeclaration));
   });
 
   afterEach(() => {
