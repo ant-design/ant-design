@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/flex/demo/basic.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex"
+  style="flex: 0 1 auto; gap: 8px;"
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`renders components/flex/demo/basic.tsx extend context correctly 2`] = `[]`;

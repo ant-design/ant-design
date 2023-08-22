@@ -50,4 +50,8 @@ const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
   );
 });
 
+if (process.env.NODE_ENV !== 'production') {
+  FlexBox.displayName = 'Flex';
+}
+
 export default FlexBox;

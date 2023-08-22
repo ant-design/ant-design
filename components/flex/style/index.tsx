@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook } from '../../theme/internal';
