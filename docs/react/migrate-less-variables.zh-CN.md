@@ -835,8 +835,6 @@ Mentions 提及
 | `@timeline-dot-bg` | `dotBg` | - |
 | `@timeline-item-padding-bottom` | `itemPaddingBottom` | - |
 
-<!-- ### TimePicker 时间选择 -->
-
 ### Tooltip 文字提示
 
 <!-- prettier-ignore -->

@@ -242,8 +242,6 @@ export default App;
 | `@cascader-dropdown-font-size` | - | Deprecated |
 | `@cascader-dropdown-line-height` | `lineHeight` | Global Token |
 
-<!-- ### Checkbox -->
-
 ### Checkbox
 
 <!-- prettier-ignore -->
@@ -837,8 +835,6 @@ export default App;
 | `@timeline-dot-bg` | `dotBg` | - |
 | `@timeline-item-padding-bottom` | `itemPaddingBottom` | - |
 
-<!-- ### TimePicker -->
-
 ### Tooltip
 
 <!-- prettier-ignore -->
@@ -866,7 +862,18 @@ export default App;
 | `@transfer-item-padding-vertical` | `itemPaddingBlock` | - |
 | `@transfer-list-search-icon-top` | - | Deprecated |
 
-<!-- ### Tree -->
+### Tree 树形控件
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@tree-bg` | `colorBgContainer` | Global Token |
+| `@tree-title-height` | `titleHeight` | - |
+| `@tree-child-padding` | - | Deprecated |
+| `@tree-directory-selected-color` | `directoryNodeSelectedColor` | - |
+| `@tree-directory-selected-bg` | `directoryNodeSelectedBg` | - |
+| `@tree-node-hover-bg` | `nodeHoverBg` | - |
+| `@tree-node-selected-bg` | `nodeSelectedBg` | - |
 
 ### Typography
 
