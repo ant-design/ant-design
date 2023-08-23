@@ -126,6 +126,11 @@ export function getTimeProps<DateType, DisabledTime>(
   const firstFormat = toArray(format)[0];
   const showTimeObj = { ...props };
 
+  // https://github.com/ant-design/ant-design/issues/44275
+  if (format && Array.isArray(format)) {
+    showTimeObj.format = firstFormat;
+  }
+
   if (firstFormat && typeof firstFormat === 'string') {
     if (!firstFormat.includes('s') && showSecond === undefined) {
       showTimeObj.showSecond = false;
