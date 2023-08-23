@@ -2,7 +2,7 @@
 
 exports[`renders components/flex/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-flex"
+  class="ant-flex ant-flex-align-center ant-flex-justify-center"
   style="flex:0 1 auto;gap:8px"
 >
   <div>

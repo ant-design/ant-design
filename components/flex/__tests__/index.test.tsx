@@ -10,6 +10,6 @@ describe('Flex', () => {
   rtlTest(() => <Flex>test</Flex>);
   it('Flex', () => {
     const { container } = render(<Flex justify="center">test</Flex>);
-    expect(container.querySelector('.ant-flex')).toHaveStyle('justify-content: center;');
+    expect(container.querySelector('.ant-flex')).toHaveStyle({ justifyContent: 'center' });
   });
 });

@@ -1,16 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Flex Flex 1`] = `
-<div>
-  <div
-    class="ant-flex"
-    style="flex: 0 1 auto; gap: 8px;"
-  >
-    test
-  </div>
-</div>
-`;
-
 exports[`Flex rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-flex ant-flex-rtl"

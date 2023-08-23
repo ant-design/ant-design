@@ -1,6 +1,7 @@
 import React from 'react';
 
 import classNames from 'classnames';
+import omit from 'rc-util/lib/omit';
 
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -44,7 +45,12 @@ const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
   const mergedStyle: React.CSSProperties = { flex, gap, ...style };
 
   return wrapSSR(
-    <Container className={mergedCls} style={mergedStyle} ref={ref} {...otherProps}>
+    <Container
+      ref={ref}
+      className={mergedCls}
+      style={mergedStyle}
+      {...omit(otherProps, ['direction', 'justify', 'wrap', 'align'])}
+    >
       {children}
     </Container>,
   );
