@@ -62,10 +62,7 @@ export interface ModalToken extends FullToken<'Modal'> {
 function box(position: React.CSSProperties['position']): React.CSSProperties {
   return {
     position,
-    top: 0,
-    insetInlineEnd: 0,
-    bottom: 0,
-    insetInlineStart: 0,
+    inset: 0,
   };
 }
 
@@ -95,6 +92,7 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
           zIndex: token.zIndexPopupBase,
           height: '100%',
           backgroundColor: token.colorBgMask,
+          pointerEvents: 'none',
 
           [`${componentCls}-hidden`]: {
             display: 'none',
@@ -103,9 +101,16 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
 
         [`${componentCls}-wrap`]: {
           ...box('fixed'),
+          zIndex: token.zIndexPopupBase,
           overflow: 'auto',
           outline: 0,
           WebkitOverflowScrolling: 'touch',
+
+          // Note: Firefox not support `:has` yet
+          [`&:has(${componentCls}${antCls}-zoom-enter), &:has(${componentCls}${antCls}-zoom-appear)`]:
+            {
+              pointerEvents: 'none',
+            },
         },
       },
     },
@@ -120,14 +125,6 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
     // ======================== Root =========================
     {
       [`${componentCls}-root`]: {
-        [`${componentCls}-wrap`]: {
-          zIndex: token.zIndexPopupBase,
-          position: 'fixed',
-          inset: 0,
-          overflow: 'auto',
-          outline: 0,
-          WebkitOverflowScrolling: 'touch',
-        },
         [`${componentCls}-wrap-rtl`]: {
           direction: 'rtl',
         },

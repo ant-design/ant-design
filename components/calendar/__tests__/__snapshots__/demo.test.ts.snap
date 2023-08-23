@@ -5418,7 +5418,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
                           <span
                             class="ant-badge-status-text"
                           >
-                            This is very long usual event。。....
+                            This is very long usual event......
                           </span>
                         </span>
                       </li>

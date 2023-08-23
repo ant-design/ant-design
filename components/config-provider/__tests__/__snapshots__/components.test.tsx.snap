@@ -599,7 +599,7 @@ exports[`ConfigProvider components Avatar configProvider componentDisabled 1`] =
 
 exports[`ConfigProvider components Avatar configProvider componentSize large 1`] = `
 <span
-  class="config-avatar config-avatar-circle"
+  class="config-avatar config-avatar-lg config-avatar-circle"
 >
   <span
     class="config-avatar-string"
@@ -621,7 +621,7 @@ exports[`ConfigProvider components Avatar configProvider componentSize middle 1`
 
 exports[`ConfigProvider components Avatar configProvider componentSize small 1`] = `
 <span
-  class="config-avatar config-avatar-circle"
+  class="config-avatar config-avatar-sm config-avatar-circle"
 >
   <span
     class="config-avatar-string"
@@ -901,16 +901,18 @@ exports[`ConfigProvider components Badge configProvider 1`] = `
       data-show="true"
       title="5"
     >
-      <span
-        class="config-scroll-number-only"
-        style="transition: none;"
-      >
+      <bdi>
         <span
-          class="config-scroll-number-only-unit current"
+          class="config-scroll-number-only"
+          style="transition: none;"
         >
-          5
+          <span
+            class="config-scroll-number-only-unit current"
+          >
+            5
+          </span>
         </span>
-      </span>
+      </bdi>
     </sup>
   </span>
   <span
@@ -936,16 +938,18 @@ exports[`ConfigProvider components Badge configProvider componentDisabled 1`] = 
       data-show="true"
       title="5"
     >
-      <span
-        class="config-scroll-number-only"
-        style="transition: none;"
-      >
+      <bdi>
         <span
-          class="config-scroll-number-only-unit current"
+          class="config-scroll-number-only"
+          style="transition: none;"
         >
-          5
+          <span
+            class="config-scroll-number-only-unit current"
+          >
+            5
+          </span>
         </span>
-      </span>
+      </bdi>
     </sup>
   </span>
   <span
@@ -971,16 +975,18 @@ exports[`ConfigProvider components Badge configProvider componentSize large 1`] 
       data-show="true"
       title="5"
     >
-      <span
-        class="config-scroll-number-only"
-        style="transition: none;"
-      >
+      <bdi>
         <span
-          class="config-scroll-number-only-unit current"
+          class="config-scroll-number-only"
+          style="transition: none;"
         >
-          5
+          <span
+            class="config-scroll-number-only-unit current"
+          >
+            5
+          </span>
         </span>
-      </span>
+      </bdi>
     </sup>
   </span>
   <span
@@ -1006,16 +1012,18 @@ exports[`ConfigProvider components Badge configProvider componentSize middle 1`]
       data-show="true"
       title="5"
     >
-      <span
-        class="config-scroll-number-only"
-        style="transition: none;"
-      >
+      <bdi>
         <span
-          class="config-scroll-number-only-unit current"
+          class="config-scroll-number-only"
+          style="transition: none;"
         >
-          5
+          <span
+            class="config-scroll-number-only-unit current"
+          >
+            5
+          </span>
         </span>
-      </span>
+      </bdi>
     </sup>
   </span>
   <span
@@ -1041,16 +1049,18 @@ exports[`ConfigProvider components Badge configProvider componentSize small 1`] 
       data-show="true"
       title="5"
     >
-      <span
-        class="config-scroll-number-only"
-        style="transition: none;"
-      >
+      <bdi>
         <span
-          class="config-scroll-number-only-unit current"
+          class="config-scroll-number-only"
+          style="transition: none;"
         >
-          5
+          <span
+            class="config-scroll-number-only-unit current"
+          >
+            5
+          </span>
         </span>
-      </span>
+      </bdi>
     </sup>
   </span>
   <span
@@ -1076,16 +1086,18 @@ exports[`ConfigProvider components Badge normal 1`] = `
       data-show="true"
       title="5"
     >
-      <span
-        class="ant-scroll-number-only"
-        style="transition: none;"
-      >
+      <bdi>
         <span
-          class="ant-scroll-number-only-unit current"
+          class="ant-scroll-number-only"
+          style="transition: none;"
         >
-          5
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            5
+          </span>
         </span>
-      </span>
+      </bdi>
     </sup>
   </span>
   <span
@@ -1111,16 +1123,18 @@ exports[`ConfigProvider components Badge prefixCls 1`] = `
       data-show="true"
       title="5"
     >
-      <span
-        class="prefix-scroll-number-only"
-        style="transition: none;"
-      >
+      <bdi>
         <span
-          class="prefix-scroll-number-only-unit current"
+          class="prefix-scroll-number-only"
+          style="transition: none;"
         >
-          5
+          <span
+            class="prefix-scroll-number-only-unit current"
+          >
+            5
+          </span>
         </span>
-      </span>
+      </bdi>
     </sup>
   </span>
   <span
@@ -17472,7 +17486,7 @@ exports[`ConfigProvider components List configProvider componentDisabled 1`] = `
 
 exports[`ConfigProvider components List configProvider componentSize large 1`] = `
 <div
-  class="config-list config-list-split"
+  class="config-list config-list-lg config-list-split"
 >
   <div
     class="config-spin-nested-loading"
@@ -17493,7 +17507,7 @@ exports[`ConfigProvider components List configProvider componentSize large 1`] =
               class="config-list-item-meta-avatar"
             >
               <span
-                class="config-avatar config-avatar-circle config-avatar-image"
+                class="config-avatar config-avatar-lg config-avatar-circle config-avatar-image"
               >
                 <img
                   src="https://xsgames.co/randomusers/avatar.php?g=pixel"
@@ -17576,7 +17590,7 @@ exports[`ConfigProvider components List configProvider componentSize middle 1`] 
 
 exports[`ConfigProvider components List configProvider componentSize small 1`] = `
 <div
-  class="config-list config-list-split"
+  class="config-list config-list-sm config-list-split"
 >
   <div
     class="config-spin-nested-loading"
@@ -17597,7 +17611,7 @@ exports[`ConfigProvider components List configProvider componentSize small 1`] =
               class="config-list-item-meta-avatar"
             >
               <span
-                class="config-avatar config-avatar-circle config-avatar-image"
+                class="config-avatar config-avatar-sm config-avatar-circle config-avatar-image"
               >
                 <img
                   src="https://xsgames.co/randomusers/avatar.php?g=pixel"
