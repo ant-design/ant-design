@@ -59,21 +59,24 @@ interface GlobalHolderRef {
 }
 
 const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
-  const [prefixCls, setPrefixCls] = React.useState<string>();
-  const [container, setContainer] = React.useState<HTMLElement | ShadowRoot>();
-  const [maxCount, setMaxCount] = React.useState<number>();
-  const [rtl, setRTL] = React.useState<boolean>();
-  const [top, setTop] = React.useState<number>();
-  const [bottom, setBottom] = React.useState<number>();
+  const initializeNotificationConfig: () => GlobalConfigProps = () => {
+    const { prefixCls, container, maxCount, rtl, top, bottom } = getGlobalContext();
 
-  const [api, holder] = useInternalNotification({
-    prefixCls,
-    getContainer: () => container!,
-    maxCount,
-    rtl,
-    top,
-    bottom,
-  });
+    return {
+      prefixCls,
+      getContainer: () => container!,
+      maxCount,
+      rtl,
+      top,
+      bottom,
+    };
+  };
+
+  const [notificationConfig, setNotificationConfig] = React.useState<GlobalConfigProps>(
+    initializeNotificationConfig,
+  );
+
+  const [api, holder] = useInternalNotification(notificationConfig);
 
   const global = globalConfig();
   const rootPrefixCls = global.getRootPrefixCls();
@@ -81,21 +84,7 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   const theme = global.getTheme();
 
   const sync = () => {
-    const {
-      prefixCls: nextGlobalPrefixCls,
-      container: nextGlobalContainer,
-      maxCount: nextGlobalMaxCount,
-      rtl: nextGlobalRTL,
-      top: nextTop,
-      bottom: nextBottom,
-    } = getGlobalContext();
-
-    setPrefixCls(nextGlobalPrefixCls);
-    setContainer(nextGlobalContainer);
-    setMaxCount(nextGlobalMaxCount);
-    setRTL(nextGlobalRTL);
-    setTop(nextTop);
-    setBottom(nextBottom);
+    setNotificationConfig(initializeNotificationConfig);
   };
 
   React.useEffect(sync, []);
