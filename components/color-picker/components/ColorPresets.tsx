@@ -61,6 +61,7 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
         {Array.isArray(preset?.colors) && preset.colors?.length > 0 ? (
           preset.colors.map((presetColor: Color, index: number) => (
             <ColorBlock
+              // eslint-disable-next-line react/no-array-index-key
               key={`preset-${index}-${presetColor.toHexString()}`}
               color={generateColor(presetColor).toRgbString()}
               prefixCls={prefixCls}
