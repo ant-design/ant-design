@@ -90,7 +90,7 @@ export const Footer: React.FC<
       <NormalOkBtnContextProvider value={confirmBtnCtxValueMemo}>
         <NormalCancelBtnContextProvider value={cancelBtnCtxValueMemo}>
           {typeof footer === 'function'
-            ? footer?.(footerOriginNode, {
+            ? footer(footerOriginNode, {
                 ConfirmBtn: NormalOkBtn,
                 CancelBtn: NormalCancelBtn,
               })
