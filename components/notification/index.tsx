@@ -1,10 +1,11 @@
 'use client';
 
-import { render } from 'rc-util/lib/React/render';
 import * as React from 'react';
+import { render } from 'rc-util/lib/React/render';
+
 import ConfigProvider, { globalConfig, warnContext } from '../config-provider';
-import PurePanel from './PurePanel';
 import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
+import PurePanel from './PurePanel';
 import useNotification, { useInternalNotification } from './useNotification';
 
 let notification: GlobalNotification | null = null;
@@ -59,7 +60,7 @@ interface GlobalHolderRef {
 }
 
 const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
-  const initializeNotificationConfig: () => GlobalConfigProps = () => {
+  const initializeNotificationConfig = (): GlobalConfigProps => {
     const { prefixCls, container, maxCount, rtl, top, bottom } = getGlobalContext();
 
     return {
