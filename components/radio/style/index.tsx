@@ -224,10 +224,6 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
       [`${componentCls}-input`]: {
         position: 'absolute',
         inset: 0,
-        // width: 0,
-        // height: 0,
-        // padding: 0,
-        // margin: 0,
         zIndex: 1,
         cursor: 'pointer',
         opacity: 0,
