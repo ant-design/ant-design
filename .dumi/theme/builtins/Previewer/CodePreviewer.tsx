@@ -8,10 +8,7 @@ import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
 import classNames from 'classnames';
 import { FormattedMessage, useSiteData } from 'dumi';
-import toReactElement from 'jsonml-to-react-element';
-import JsonML from 'jsonml.js/lib/utils';
 import LZString from 'lz-string';
-import Prism from 'prismjs';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { Alert, Badge, Space, Tooltip } from 'antd';
@@ -30,28 +27,6 @@ import SiteContext from '../../slots/SiteContext';
 import { ping } from '../../utils';
 
 const { ErrorBoundary } = Alert;
-
-function toReactComponent(jsonML: any) {
-  return toReactElement(jsonML, [
-    [
-      (node: any) => JsonML.isElement(node) && JsonML.getTagName(node) === 'pre',
-      (node: any, index: any) => {
-        // ref: https://github.com/benjycui/bisheng/blob/master/packages/bisheng/src/bisheng-plugin-highlight/lib/browser.js#L7
-        const attr = JsonML.getAttributes(node);
-        return React.createElement(
-          'pre',
-          {
-            key: index,
-            className: `language-${attr.lang}`,
-          },
-          React.createElement('code', {
-            dangerouslySetInnerHTML: { __html: attr.highlighted },
-          }),
-        );
-      },
-    ],
-  ]);
-}
 
 function compress(string: string): string {
   return LZString.compressToBase64(string)
@@ -129,13 +104,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const docsOnlineUrl = `https://ant.design${pathname}${search}#${asset.id}`;
 
   const [showOnlineUrl, setShowOnlineUrl] = useState<boolean>(false);
-
-  const highlightedCodes = {
-    jsx: Prism.highlight(jsx, Prism.languages.javascript, 'jsx'),
-    tsx: Prism.highlight(entryCode, Prism.languages.javascript, 'jsx'),
-  };
-
-  const highlightedStyle = style ? Prism.highlight(style, Prism.languages.css, 'css') : '';
 
   useEffect(() => {
     const regexp = /preview-(\d+)-ant-design/; // matching PR preview addresses
@@ -538,17 +506,11 @@ createRoot(document.getElementById('container')).render(<Demo />);
       {codeExpand && (
         <section className={highlightClass} key="code">
           <CodePreview
-            codes={highlightedCodes}
-            toReactComponent={toReactComponent}
+            sourceCode={entryCode}
+            jsxCode={jsx}
+            styleCode={style}
             onCodeTypeChange={(type) => setCodeType(type)}
           />
-          {highlightedStyle ? (
-            <div key="style" className="highlight">
-              <pre>
-                <code className="css" dangerouslySetInnerHTML={{ __html: highlightedStyle }} />
-              </pre>
-            </div>
-          ) : null}
         </section>
       )}
     </section>
@@ -560,7 +522,9 @@ createRoot(document.getElementById('container')).render(<Demo />);
     // resulting in some response delays like following issue:
     // https://github.com/ant-design/ant-design/issues/39995
     // So we insert style tag into head tag.
-    if (!style) return;
+    if (!style) {
+      return;
+    }
     const styleTag = document.createElement('style');
     styleTag.type = 'text/css';
     styleTag.innerHTML = style;
