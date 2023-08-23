@@ -16,6 +16,46 @@ tag: vVERSION
 
 ---
 
+## 5.8.4
+
+`2023-08-18`
+
+- ColorPicker
+  - 🐞 Fix the cursor jumps when entering lowercase English letters in the ColorPicker color value input box. [#44137](https://github.com/ant-design/ant-design/pull/44137) [@gouge666](https://github.com/gouge666)
+  - 🐞 Fix the ColorPicker style is deformed under different sizes. [#44273](https://github.com/ant-design/ant-design/pull/44273) [@kouchao](https://github.com/kouchao)
+- 🐞 Fix Descriptions throwing `key is not a prop` error message. [#44278](https://github.com/ant-design/ant-design/pull/44278) [@RedJue](https://github.com/RedJue)
+- 🐞 Fix the node is still rendered when Pagination `itemRender` is customized to `null`. [#44226](https://github.com/ant-design/ant-design/pull/44226)
+- 🐞 Fix Modal in Dropdown `menu.items`, rapid mouse movement when expanding Modal will make Dropdown reopen. [#44204](https://github.com/ant-design/ant-design/pull/44204)
+- DatePicker
+  - 💄 Fix DatePicker content is not centered. [#44245](https://github.com/ant-design/ant-design/pull/44245) [@Zian502](https://github.com/Zian502)
+  - 💄 Optimize DatePicker selection range style. [#44206](https://github.com/ant-design/ant-design/pull/44206) [@kiner-tang](https://github.com/kiner-tang)
+- 💄 Fix clicking on the Tabs area on the mobile terminal triggers a color change. [#44200](https://github.com/ant-design/ant-design/pull/44200) [@yilaikesi](https://github.com/yilaikesi)
+- RTL
+  - 💄 Fix the numbers in the Badge are also RTL when the text direction of the page is RTL. [#43998](https://github.com/ant-design/ant-design/pull/43998) [@NotEvenANeko](https://github.com/NotEvenANeko)
+
+## 5.8.3
+
+`2023-08-11`
+
+- DatePicker
+  - 🐞 Fix DatePicker panel cannot toggle when selecting time with truthy `open` and truthy `defaultOpen`. [#44105](https://github.com/ant-design/ant-design/pull/44105) [@Yuiai01](https://github.com/Yuiai01)
+  - 🐞 Fix DatePicker and RangePicker still show the clear button when disable `allowClear`. [#44015](https://github.com/ant-design/ant-design/pull/44015) [@bartpio](https://github.com/bartpio)
+- Carousel
+  - 🐞 Fix Carousel do not support `id` prop. [#44079](https://github.com/ant-design/ant-design/pull/44079)
+  - 💄 Fix Carousel `dots` extra margin style. [#44076](https://github.com/ant-design/ant-design/pull/44076)
+- 🐞 Fix Modal footer disabled state that affect by Form. [#43055](https://github.com/ant-design/ant-design/pull/43055) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix Upload thumbnail that gif will not play. [#44083](https://github.com/ant-design/ant-design/pull/44083) [@linxianxi](https://github.com/linxianxi)
+- 🐞 Fix FloatButton that menu mode didn't support `badge` prop. [#44109](https://github.com/ant-design/ant-design/pull/44109) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix Grid & List responsive config take effect after first render which cause screen flick. [#44075](https://github.com/ant-design/ant-design/pull/44075)
+- 🐞 Fix that Design Token partially missing when `@ant-design/cssinjs` version `1.15.0`. [#44091](https://github.com/ant-design/ant-design/pull/44091) [@MadCcc](https://github.com/MadCcc)
+- 💄 Fix Badge `status="processing"` with `dot` wave style issue. [#44153](https://github.com/ant-design/ant-design/pull/44153)
+- 💄 Fix Descriptions border styles when it nests itself. [#43454](https://github.com/ant-design/ant-design/pull/43454) [@Yuiai01](https://github.com/Yuiai01)
+- 💄 Fix Pagination transition style in prev/next buttons. [#44030](https://github.com/ant-design/ant-design/pull/44030)
+- 💄 Fix Popconfirm button group wraps unexpectedly. [#44022](https://github.com/ant-design/ant-design/pull/44022) [@MuxinFeng](https://github.com/MuxinFeng)
+- 💄 Optimize style of Image preview operation icons. [#44141](https://github.com/ant-design/ant-design/pull/44141) [@MadCcc](https://github.com/MadCcc)
+- 💄 Optimize Input and InputNumber font size in large mode. [#44000](https://github.com/ant-design/ant-design/pull/44000) [@MuxinFeng](https://github.com/MuxinFeng)
+- 💄 Remove Space part useless style. [#44098](https://github.com/ant-design/ant-design/pull/44098)
+
 ## 5.8.2
 
 `2023-08-04`

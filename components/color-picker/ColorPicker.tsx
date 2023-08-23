@@ -1,11 +1,13 @@
+import type { CSSProperties, FC } from 'react';
+import React, { useContext, useMemo, useRef, useState } from 'react';
+
 import type {
   HsbaColorType,
   ColorPickerProps as RcColorPickerProps,
 } from '@rc-component/color-picker';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import type { CSSProperties, FC } from 'react';
-import React, { useContext, useMemo, useRef, useState } from 'react';
+
 import genPurePanel from '../_util/PurePanel';
 import { getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';

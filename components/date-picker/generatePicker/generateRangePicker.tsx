@@ -70,9 +70,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
 
     const [wrapSSR, hashId] = useStyle(prefixCls);
 
-    let additionalOverrideProps: any = {};
-    additionalOverrideProps = {
-      ...additionalOverrideProps,
+    const additionalOverrideProps: any = {
       ...(showTime ? getTimeProps({ format, picker, ...showTime }) : {}),
       ...(picker === 'time' ? getTimeProps({ format, ...props, picker }) : {}),
     };

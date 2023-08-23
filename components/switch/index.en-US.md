@@ -23,6 +23,7 @@ Switching Selector.
 <code src="./demo/text.tsx">Text & icon</code>
 <code src="./demo/size.tsx">Two sizes</code>
 <code src="./demo/loading.tsx">Loading</code>
+<code src="./demo/component-token.tsx" debug>Custom component token</code>
 
 ## API
 

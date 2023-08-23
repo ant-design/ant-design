@@ -99,7 +99,7 @@ demo:
 
 文件状态改变的回调，返回为：
 
-```js
+```jsx
 {
   file: { /* ... */ },
   fileList: [ /* ... */ ],
@@ -109,11 +109,11 @@ demo:
 
 1. `file` 当前操作的文件对象。
 
-   ```js
+   ```jsx
    {
       uid: 'uid',      // 文件唯一标识，建议设置为负数，防止和内部产生的 id 冲突
       name: 'xx.png',   // 文件名
-      status: 'done', // 状态有：uploading done error removed，被 beforeUpload 拦截的文件没有 status 属性
+      status: 'done' | 'uploading' | 'error' | 'removed' , //  beforeUpload 拦截的文件没有 status 状态属性
       response: '{"status": "success"}', // 服务端响应内容
       linkProps: '{"download": "image"}', // 下载链接额外的 HTML 属性
    }
@@ -136,7 +136,7 @@ demo:
 
 ### 如何显示下载链接？
 
-请使用 fileList 属性设置数组项的 url 属性进行展示控制。
+请使用 `fileList` 属性设置数组项的 `url` 属性进行展示控制。
 
 ### `customRequest` 怎么使用？
 
@@ -148,11 +148,13 @@ demo:
 
 ### `onChange` 为什么有时候返回 File 有时候返回 { originFileObj: File }？
 
-历史原因，在 `beforeUpload` 返回 `false` 时，会返回 File 对象。在下个大版本我们会统一返回 `{ originFileObj: File }` 对象。当前版本已经兼容所有场景下 `info.file.originFileObj` 获取原 File 写法。你可以提前切换。
+历史原因，在 `beforeUpload` 返回 `false` 时，会返回 `File` 对象。在下个大版本我们会统一返回 `{ originFileObj: File }` 对象。当前版本已经兼容所有场景下 `info.file.originFileObj` 获取原 `File` 写法。你可以提前切换。
 
 ### 为何有时 Chrome 点击 Upload 无法弹出文件选择框？
 
-与 antd 无关，原生上传也会失败。请重启 Chrome 浏览器，让其完成升级工作。相关 issue：
+与 `antd` 无关，原生上传也会失败。请重启 `Chrome` 浏览器，让其完成升级工作。
+
+相关 `issue`：
 
 - [#32672](https://github.com/ant-design/ant-design/issues/32672)
 - [#32913](https://github.com/ant-design/ant-design/issues/32913)

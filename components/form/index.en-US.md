@@ -53,6 +53,7 @@ High performance Form component with data scope management. Including data colle
 <code src="./demo/col-24-debug.tsx" debug>Test col 24 usage</code>
 <code src="./demo/ref-item.tsx" debug>Ref item</code>
 <code src="./demo/custom-feedback-icons.tsx" debug>Custom feedback icons</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
@@ -302,8 +303,8 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 | resetFields | Reset fields to `initialValues` | (fields?: [NamePath](#namepath)\[]) => void |  |
 | scrollToField | Scroll to field position | (name: [NamePath](#namepath), options: \[[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |  |
 | setFields | Set fields status | (fields: [FieldData](#fielddata)\[]) => void |  |
-| setFieldValue | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first) | (name: [NamePath](#namepath), value: any) => void | 4.22.0 |
-| setFieldsValue | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first). Use `setFieldValue` instead if you want to only config single value in Form.List | (values) => void |  |
+| setFieldValue | Set fields value(Will directly pass to form store and **reset validation message**. If you do not want to modify passed object, please clone first) | (name: [NamePath](#namepath), value: any) => void | 4.22.0 |
+| setFieldsValue | Set fields value(Will directly pass to form store and **reset validation message**. If you do not want to modify passed object, please clone first). Use `setFieldValue` instead if you want to only config single value in Form.List | (values) => void |  |
 | submit | Submit the form. It's same as click `submit` button | () => void |  |
 | validateFields | Validate fields. Use `recursive` to validate all the field in the path | (nameList?: [NamePath](#namepath)\[], { validateOnly?: boolean }) => Promise | `validateOnly`: 5.5.0, `recursive`: 5.9.0 |
 

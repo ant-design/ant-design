@@ -19,6 +19,7 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 <code src="./demo/notice-calendar.tsx" clientOnly>Notice Calendar</code>
 <code src="./demo/card.tsx" clientOnly>Card</code>
 <code src="./demo/select.tsx" clientOnly>Selectable Calendar</code>
+<code src="./demo/lunar.tsx" clientOnly>Lunar Calendar</code>
 <code src="./demo/customize-header.tsx" clientOnly>Customize Header</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 

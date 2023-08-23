@@ -124,16 +124,18 @@ Array [
           data-show="true"
           title="5"
         >
-          <span
-            class="ant-scroll-number-only"
-            style="transition: none;"
-          >
+          <bdi>
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition: none;"
             >
-              5
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                5
+              </span>
             </span>
-          </span>
+          </bdi>
         </sup>
       </span>
       <div
@@ -201,16 +203,18 @@ Array [
           data-show="true"
           title="5"
         >
-          <span
-            class="ant-scroll-number-only"
-            style="transition: none;"
-          >
+          <bdi>
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition: none;"
             >
-              5
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                5
+              </span>
             </span>
-          </span>
+          </bdi>
         </sup>
       </span>
     </button>
@@ -264,26 +268,28 @@ Array [
           data-show="true"
           title="12"
         >
-          <span
-            class="ant-scroll-number-only"
-            style="transition: none;"
-          >
+          <bdi>
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition: none;"
             >
-              1
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                1
+              </span>
             </span>
-          </span>
-          <span
-            class="ant-scroll-number-only"
-            style="transition: none;"
-          >
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition: none;"
             >
-              2
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                2
+              </span>
             </span>
-          </span>
+          </bdi>
         </sup>
       </span>
     </button>
@@ -330,36 +336,38 @@ Array [
           data-show="true"
           title="123"
         >
-          <span
-            class="ant-scroll-number-only"
-            style="transition: none;"
-          >
+          <bdi>
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition: none;"
             >
-              1
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                1
+              </span>
             </span>
-          </span>
-          <span
-            class="ant-scroll-number-only"
-            style="transition: none;"
-          >
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition: none;"
             >
-              2
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                2
+              </span>
             </span>
-          </span>
-          <span
-            class="ant-scroll-number-only"
-            style="transition: none;"
-          >
             <span
-              class="ant-scroll-number-only-unit current"
+              class="ant-scroll-number-only"
+              style="transition: none;"
             >
-              3
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                3
+              </span>
             </span>
-          </span>
+          </bdi>
         </sup>
       </span>
     </button>
