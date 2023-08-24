@@ -1,6 +1,5 @@
 import type { SharedComponentToken, SharedInputToken } from '../../input/style';
 import {
-  genActiveStyle,
   genBasicInputStyle,
   genDisabledStyle,
   genPlaceholderStyle,
@@ -76,10 +75,6 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
         '> textarea': {
           ...genDisabledStyle(token),
         },
-      },
-
-      '&-focused': {
-        ...genActiveStyle(token),
       },
 
       [`&-affix-wrapper ${componentCls}-suffix`]: {
