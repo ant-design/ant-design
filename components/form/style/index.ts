@@ -407,7 +407,7 @@ const genHorizontalStyle: GenerateStyle<FormToken> = (token) => {
 };
 
 const genInlineStyle: GenerateStyle<FormToken> = (token) => {
-  const { componentCls, formItemCls, itemMarginBottom } = token;
+  const { componentCls, formItemCls } = token;
 
   return {
     [`${componentCls}-inline`]: {
@@ -421,10 +421,6 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
 
         '&-row': {
           flexWrap: 'nowrap',
-        },
-
-        '&-with-help': {
-          marginBottom: itemMarginBottom,
         },
 
         [`> ${formItemCls}-label,
