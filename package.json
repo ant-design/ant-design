@@ -117,7 +117,7 @@
     "@ctrl/tinycolor": "^3.6.0",
     "@rc-component/color-picker": "~1.4.0",
     "@rc-component/mutate-observer": "^1.1.0",
-    "@rc-component/tour": "~1.9.0",
+    "@rc-component/tour": "~1.10.0",
     "@rc-component/trigger": "^1.15.0",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
@@ -318,11 +318,11 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "390 KiB"
+      "limit": "395 KiB"
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "449 KiB"
+      "limit": "454 KiB"
     }
   ],
   "tnpm": {
