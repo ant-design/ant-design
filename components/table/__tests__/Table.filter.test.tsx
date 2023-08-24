@@ -2834,4 +2834,24 @@ describe('Table.filter', () => {
       true,
     );
   });
+
+  it('should not crash when filterDropdown is boolean', () => {
+    const tableProps = {
+      key: 'stabletable',
+      rowKey: 'name',
+      dataSource: [],
+      columns: [
+        {
+          title: 'Name',
+          dataIndex: 'name',
+          filterDropdown: true,
+        },
+      ],
+    };
+
+    const { container } = render(createTable(tableProps));
+
+    // User opens filter Dropdown.
+    fireEvent.click(container.querySelector('.ant-dropdown-trigger.ant-table-filter-trigger')!);
+  });
 });
