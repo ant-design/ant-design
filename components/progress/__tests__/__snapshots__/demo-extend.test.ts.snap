@@ -1696,53 +1696,54 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             role="presentation"
             viewBox="0 0 100 100"
           >
-            <defs>
-              <lineargradient
-                id="rc_progress_TEST_OR_SSR-gradient"
-                x1="100%"
-                x2="0%"
-                y1="0%"
-                y2="0%"
-              >
-                <stop
-                  offset="0%"
-                  stop-color="#108ee9"
-                />
-                <stop
-                  offset="100%"
-                  stop-color="#87d068"
-                />
-              </lineargradient>
-            </defs>
             <circle
               class="ant-progress-circle-trail"
               cx="50"
               cy="50"
               r="47"
-              stroke-linecap="round"
+              stroke-linecap="butt"
               stroke-width="6"
               style="stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
             />
-            <circle
-              class="ant-progress-circle-path"
-              cx="50"
-              cy="50"
-              opacity="1"
-              r="47"
-              stroke="url(#rc_progress_TEST_OR_SSR-gradient)"
-              stroke-linecap="round"
-              stroke-width="6"
-              style="stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 32.53097094374406; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
-            />
+            <mask
+              id="rc_progress_TEST_OR_SSR-gradient-conic"
+            >
+              <circle
+                class="ant-progress-circle-path"
+                cx="50"
+                cy="50"
+                opacity="1"
+                r="47"
+                stroke="#FFF"
+                stroke-linecap="butt"
+                stroke-width="6"
+                style="stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 29.53097094374406; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+              />
+            </mask>
+            <foreignobject
+              height="100"
+              mask="url(#rc_progress_TEST_OR_SSR-gradient-conic)"
+              width="100"
+              x="0"
+              y="0"
+            >
+              <div
+                style="width: 100%; height: 100%;"
+              >
+                <div
+                  style="width: 100%; height: 100%;"
+                />
+              </div>
+            </foreignobject>
             <circle
               class="ant-progress-circle-path"
               cx="50"
               cy="50"
               opacity="0"
               r="47"
-              stroke-linecap="round"
+              stroke-linecap="butt"
               stroke-width="6"
-              style="stroke: #52C41A; stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 295.2997094374406; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+              style="stroke: #52C41A; stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 295.3097094374406; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
             />
           </svg>
           <span
@@ -1772,53 +1773,54 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             role="presentation"
             viewBox="0 0 100 100"
           >
-            <defs>
-              <lineargradient
-                id="rc_progress_TEST_OR_SSR-gradient"
-                x1="100%"
-                x2="0%"
-                y1="0%"
-                y2="0%"
-              >
-                <stop
-                  offset="0%"
-                  stop-color="#108ee9"
-                />
-                <stop
-                  offset="100%"
-                  stop-color="#87d068"
-                />
-              </lineargradient>
-            </defs>
             <circle
               class="ant-progress-circle-trail"
               cx="50"
               cy="50"
               r="47"
-              stroke-linecap="round"
+              stroke-linecap="butt"
               stroke-width="6"
               style="stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
             />
-            <circle
-              class="ant-progress-circle-path"
-              cx="50"
-              cy="50"
-              opacity="1"
-              r="47"
-              stroke="url(#rc_progress_TEST_OR_SSR-gradient)"
-              stroke-linecap="round"
-              stroke-width="6"
-              style="stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
-            />
+            <mask
+              id="rc_progress_TEST_OR_SSR-gradient-conic"
+            >
+              <circle
+                class="ant-progress-circle-path"
+                cx="50"
+                cy="50"
+                opacity="1"
+                r="47"
+                stroke="#FFF"
+                stroke-linecap="butt"
+                stroke-width="6"
+                style="stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+              />
+            </mask>
+            <foreignobject
+              height="100"
+              mask="url(#rc_progress_TEST_OR_SSR-gradient-conic)"
+              width="100"
+              x="0"
+              y="0"
+            >
+              <div
+                style="width: 100%; height: 100%;"
+              >
+                <div
+                  style="width: 100%; height: 100%;"
+                />
+              </div>
+            </foreignobject>
             <circle
               class="ant-progress-circle-path"
               cx="50"
               cy="50"
               opacity="0"
               r="47"
-              stroke-linecap="round"
+              stroke-linecap="butt"
               stroke-width="6"
-              style="stroke: #52C41A; stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 295.2997094374406; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+              style="stroke: #52C41A; stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 295.3097094374406; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
             />
           </svg>
           <span
@@ -1898,34 +1900,22 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             >
               <div
                 style="width: 100%; height: 100%;"
-              />
+              >
+                <div
+                  style="width: 100%; height: 100%;"
+                />
+              </div>
             </foreignobject>
-            <mask
-              id="rc_progress_TEST_OR_SSR-gradient-conic"
-            >
-              <circle
-                class="ant-progress-circle-path"
-                cx="50"
-                cy="50"
-                opacity="0"
-                r="47"
-                stroke="#FFF"
-                stroke-linecap="butt"
-                stroke-width="6"
-                style="stroke: #52C41A; stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 295.3097094374406; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
-              />
-            </mask>
-            <foreignobject
-              height="100"
-              mask="url(#rc_progress_TEST_OR_SSR-gradient-conic)"
-              width="100"
-              x="0"
-              y="0"
-            >
-              <div
-                style="width: 100%; height: 100%;"
-              />
-            </foreignobject>
+            <circle
+              class="ant-progress-circle-path"
+              cx="50"
+              cy="50"
+              opacity="0"
+              r="47"
+              stroke-linecap="butt"
+              stroke-width="6"
+              style="stroke: #52C41A; stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 295.3097094374406; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+            />
           </svg>
           <span
             class="ant-progress-text"
@@ -1959,53 +1949,54 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             role="presentation"
             viewBox="0 0 100 100"
           >
-            <defs>
-              <lineargradient
-                id="rc_progress_TEST_OR_SSR-gradient"
-                x1="100%"
-                x2="0%"
-                y1="0%"
-                y2="0%"
-              >
-                <stop
-                  offset="0%"
-                  stop-color="#108ee9"
-                />
-                <stop
-                  offset="100%"
-                  stop-color="#87d068"
-                />
-              </lineargradient>
-            </defs>
             <circle
               class="ant-progress-circle-trail"
               cx="50"
               cy="50"
               r="47"
-              stroke-linecap="round"
+              stroke-linecap="butt"
               stroke-width="6"
               style="stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(127.5deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
             />
-            <circle
-              class="ant-progress-circle-path"
-              cx="50"
-              cy="50"
-              opacity="1"
-              r="47"
-              stroke="url(#rc_progress_TEST_OR_SSR-gradient)"
-              stroke-linecap="round"
-              stroke-width="6"
-              style="stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 26.378685330464045; transform: rotate(127.5deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
-            />
+            <mask
+              id="rc_progress_TEST_OR_SSR-gradient-conic"
+            >
+              <circle
+                class="ant-progress-circle-path"
+                cx="50"
+                cy="50"
+                opacity="1"
+                r="47"
+                stroke="#FFF"
+                stroke-linecap="butt"
+                stroke-width="6"
+                style="stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 23.378685330464045; transform: rotate(127.5deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+              />
+            </mask>
+            <foreignobject
+              height="100"
+              mask="url(#rc_progress_TEST_OR_SSR-gradient-conic)"
+              width="100"
+              x="0"
+              y="0"
+            >
+              <div
+                style="width: 100%; height: 100%;"
+              >
+                <div
+                  style="width: 100%; height: 100%;"
+                />
+              </div>
+            </foreignobject>
             <circle
               class="ant-progress-circle-path"
               cx="50"
               cy="50"
               opacity="0"
               r="47"
-              stroke-linecap="round"
+              stroke-linecap="butt"
               stroke-width="6"
-              style="stroke: #52C41A; stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 233.77685330464044; transform: rotate(127.5deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+              style="stroke: #52C41A; stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 233.78685330464043; transform: rotate(127.5deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
             />
           </svg>
           <span
@@ -2035,53 +2026,54 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             role="presentation"
             viewBox="0 0 100 100"
           >
-            <defs>
-              <lineargradient
-                id="rc_progress_TEST_OR_SSR-gradient"
-                x1="100%"
-                x2="0%"
-                y1="0%"
-                y2="0%"
-              >
-                <stop
-                  offset="0%"
-                  stop-color="#108ee9"
-                />
-                <stop
-                  offset="100%"
-                  stop-color="#87d068"
-                />
-              </lineargradient>
-            </defs>
             <circle
               class="ant-progress-circle-trail"
               cx="50"
               cy="50"
               r="47"
-              stroke-linecap="round"
+              stroke-linecap="butt"
               stroke-width="6"
               style="stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(127.5deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
             />
-            <circle
-              class="ant-progress-circle-path"
-              cx="50"
-              cy="50"
-              opacity="1"
-              r="47"
-              stroke="url(#rc_progress_TEST_OR_SSR-gradient)"
-              stroke-linecap="round"
-              stroke-width="6"
-              style="stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(127.5deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
-            />
+            <mask
+              id="rc_progress_TEST_OR_SSR-gradient-conic"
+            >
+              <circle
+                class="ant-progress-circle-path"
+                cx="50"
+                cy="50"
+                opacity="1"
+                r="47"
+                stroke="#FFF"
+                stroke-linecap="butt"
+                stroke-width="6"
+                style="stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(127.5deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+              />
+            </mask>
+            <foreignobject
+              height="100"
+              mask="url(#rc_progress_TEST_OR_SSR-gradient-conic)"
+              width="100"
+              x="0"
+              y="0"
+            >
+              <div
+                style="width: 100%; height: 100%;"
+              >
+                <div
+                  style="width: 100%; height: 100%;"
+                />
+              </div>
+            </foreignobject>
             <circle
               class="ant-progress-circle-path"
               cx="50"
               cy="50"
               opacity="0"
               r="47"
-              stroke-linecap="round"
+              stroke-linecap="butt"
               stroke-width="6"
-              style="stroke: #52C41A; stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 233.77685330464044; transform: rotate(127.5deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+              style="stroke: #52C41A; stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 233.78685330464043; transform: rotate(127.5deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
             />
           </svg>
           <span
@@ -2161,34 +2153,22 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             >
               <div
                 style="width: 100%; height: 100%;"
-              />
+              >
+                <div
+                  style="width: 100%; height: 100%;"
+                />
+              </div>
             </foreignobject>
-            <mask
-              id="rc_progress_TEST_OR_SSR-gradient-conic"
-            >
-              <circle
-                class="ant-progress-circle-path"
-                cx="50"
-                cy="50"
-                opacity="0"
-                r="47"
-                stroke="#FFF"
-                stroke-linecap="butt"
-                stroke-width="6"
-                style="stroke: #52C41A; stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 233.78685330464043; transform: rotate(127.5deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
-              />
-            </mask>
-            <foreignobject
-              height="100"
-              mask="url(#rc_progress_TEST_OR_SSR-gradient-conic)"
-              width="100"
-              x="0"
-              y="0"
-            >
-              <div
-                style="width: 100%; height: 100%;"
-              />
-            </foreignobject>
+            <circle
+              class="ant-progress-circle-path"
+              cx="50"
+              cy="50"
+              opacity="0"
+              r="47"
+              stroke-linecap="butt"
+              stroke-width="6"
+              style="stroke: #52C41A; stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 233.78685330464043; transform: rotate(127.5deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+            />
           </svg>
           <span
             class="ant-progress-text"
