@@ -48,7 +48,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   prefixCls: string;
   titleText: React.ReactNode;
   dataSource: RecordType[];
-  filterOption?: (filterText: string, item: RecordType) => boolean;
+  filterOption?: (filterText: string, item: RecordType, direction: TransferDirection) => boolean;
   style?: React.CSSProperties;
   checkedKeys: string[];
   handleFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -128,7 +128,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   const matchFilter = (text: string, item: RecordType) => {
     if (filterOption) {
-      return filterOption(filterValue, item);
+      return filterOption(filterValue, item, direction);
     }
     return text.includes(filterValue);
   };
