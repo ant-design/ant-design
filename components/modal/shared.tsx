@@ -75,7 +75,7 @@ export const Footer: React.FC<
     </>
   );
 
-  return (
+  return footer === undefined || typeof footer === 'function' ? (
     <DisabledContextProvider disabled={false}>
       <ModalContextProvider value={btnCtxValueMemo}>
         {typeof footer === 'function'
@@ -86,5 +86,7 @@ export const Footer: React.FC<
           : footerOriginNode}
       </ModalContextProvider>
     </DisabledContextProvider>
+  ) : (
+    footer
   );
 };

@@ -131,12 +131,12 @@ export function ConfirmContent(
       {footer === undefined || typeof footer === 'function' ? (
         <ModalContextProvider value={btnCtxValueMemo}>
           <div className={`${confirmPrefixCls}-btns`}>
-            {footer === undefined
-              ? footerOriginNode
-              : footer?.(footerOriginNode, {
+            {typeof footer === 'function'
+              ? footer(footerOriginNode, {
                   ConfirmBtn,
                   CancelBtn,
-                })}
+                })
+              : footerOriginNode}
           </div>
         </ModalContextProvider>
       ) : (
