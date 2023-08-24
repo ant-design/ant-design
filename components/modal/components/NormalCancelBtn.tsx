@@ -1,7 +1,8 @@
 import type { FC } from 'react';
 import React, { useContext } from 'react';
+
 import Button from '../../button';
-import { NormalCancelBtnContext } from '../context';
+import { ModalContext } from '../context';
 import type { ModalProps } from '../interface';
 
 export interface NormalCancelBtnProps extends Pick<ModalProps, 'cancelButtonProps' | 'onCancel'> {
@@ -14,7 +15,7 @@ export interface NormalCancelBtnProps extends Pick<ModalProps, 'cancelButtonProp
 }
 
 const NormalCancelBtn: FC = () => {
-  const { cancelButtonProps, cancelTextLocale, onCancel } = useContext(NormalCancelBtnContext);
+  const { cancelButtonProps, cancelTextLocale, onCancel } = useContext(ModalContext);
   return (
     <Button onClick={onCancel} {...cancelButtonProps}>
       {cancelTextLocale}

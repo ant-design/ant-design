@@ -1,21 +1,21 @@
+import * as React from 'react';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
-import * as React from 'react';
+
 import { getTransitionName } from '../_util/motion';
 import warning from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
 import ConfigProvider from '../config-provider';
 import { useLocale } from '../locale';
-import Dialog from './Modal';
-import type { ModalFuncProps, ModalLocale } from './interface';
-import type { ConfirmCancelBtnProps } from './components/ConfirmCancelBtn';
 import CancelBtn from './components/ConfirmCancelBtn';
-import type { ConfirmOkBtnProps } from './components/ConfirmOkBtn';
 import ConfirmBtn from './components/ConfirmOkBtn';
-import { ConfirmCancelBtnContextProvider, ConfirmOkBtnProvider } from './context';
+import type { ModalContextProps } from './context';
+import { ModalContextProvider } from './context';
+import type { ModalFuncProps, ModalLocale } from './interface';
+import Dialog from './Modal';
 
 export interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
@@ -27,7 +27,7 @@ export interface ConfirmDialogProps extends ModalFuncProps {
    */
   onConfirm?: (confirmed: boolean) => void;
   autoFocusButton?: null | 'ok' | 'cancel';
-  rootPrefixCls: string;
+  rootPrefixCls?: string;
   iconPrefixCls?: string;
   theme?: ThemeConfig;
 
@@ -101,27 +101,14 @@ export function ConfirmContent(
   const cancelTextLocale = cancelText || mergedLocale?.cancelText;
 
   // ================= Context Value =================
-  const confirmBtnCtxValue: ConfirmOkBtnProps = {
-    autoFocusButton,
-    okTextLocale,
-    ...resetProps,
-  };
-
-  const cancelBtnCtxValue: ConfirmCancelBtnProps = {
+  const btnCtxValue: ModalContextProps = {
     autoFocusButton,
     cancelTextLocale,
+    okTextLocale,
     mergedOkCancel,
     ...resetProps,
   };
-
-  const confirmBtnCtxValueMemo = React.useMemo(
-    () => confirmBtnCtxValue,
-    [...Object.values(confirmBtnCtxValue)],
-  );
-  const cancelBtnCtxValueMemo = React.useMemo(
-    () => cancelBtnCtxValue,
-    [...Object.values(cancelBtnCtxValue)],
-  );
+  const btnCtxValueMemo = React.useMemo(() => btnCtxValue, [...Object.values(btnCtxValue)]);
 
   // ====================== Footer Origin Node ======================
   const footerOriginNode = (
@@ -142,18 +129,16 @@ export function ConfirmContent(
       </div>
 
       {footer === undefined || typeof footer === 'function' ? (
-        <ConfirmOkBtnProvider value={confirmBtnCtxValueMemo}>
-          <ConfirmCancelBtnContextProvider value={cancelBtnCtxValueMemo}>
-            <div className={`${confirmPrefixCls}-btns`}>
-              {footer === undefined
-                ? footerOriginNode
-                : footer?.(footerOriginNode, {
-                    ConfirmBtn,
-                    CancelBtn,
-                  })}
-            </div>
-          </ConfirmCancelBtnContextProvider>
-        </ConfirmOkBtnProvider>
+        <ModalContextProvider value={btnCtxValueMemo}>
+          <div className={`${confirmPrefixCls}-btns`}>
+            {footer === undefined
+              ? footerOriginNode
+              : footer?.(footerOriginNode, {
+                  ConfirmBtn,
+                  CancelBtn,
+                })}
+          </div>
+        </ModalContextProvider>
       ) : (
         footer
       )}
@@ -175,7 +160,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     direction,
     prefixCls,
     wrapClassName,
-    rootPrefixCls,
+    rootPrefixCls = '',
     iconPrefixCls,
     theme,
     bodyStyle,

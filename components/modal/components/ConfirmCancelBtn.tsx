@@ -1,8 +1,9 @@
 import type { FC } from 'react';
 import React, { useContext } from 'react';
+
 import ActionButton from '../../_util/ActionButton';
-import { ConfirmCancelBtnContext } from '../context';
 import type { ConfirmDialogProps } from '../ConfirmDialog';
+import { ModalContext } from '../context';
 
 export interface ConfirmCancelBtnProps
   extends Pick<
@@ -30,7 +31,7 @@ const ConfirmCancelBtn: FC = () => {
     close,
     onCancel,
     onConfirm,
-  } = useContext(ConfirmCancelBtnContext);
+  } = useContext(ModalContext);
   return (
     mergedOkCancel && (
       <ActionButton

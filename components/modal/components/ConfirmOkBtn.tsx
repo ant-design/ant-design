@@ -1,8 +1,9 @@
 import type { FC } from 'react';
 import React, { useContext } from 'react';
+
 import ActionButton from '../../_util/ActionButton';
-import { ConfirmOkBtnContext } from '../context';
 import type { ConfirmDialogProps } from '../ConfirmDialog';
+import { ModalContext } from '../context';
 
 export interface ConfirmOkBtnProps
   extends Pick<
@@ -29,7 +30,7 @@ const ConfirmOkBtn: FC = () => {
     okType,
     onConfirm,
     onOk,
-  } = useContext(ConfirmOkBtnContext);
+  } = useContext(ModalContext);
   return (
     <ActionButton
       isSilent={isSilent}

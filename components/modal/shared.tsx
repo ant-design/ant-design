@@ -1,14 +1,14 @@
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import React from 'react';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
+
 import { DisabledContextProvider } from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
+import NormalCancelBtn from './components/NormalCancelBtn';
+import NormalOkBtn from './components/NormalOkBtn';
+import type { ModalContextProps } from './context';
+import { ModalContextProvider } from './context';
 import type { ModalProps } from './interface';
 import { getConfirmLocale } from './locale';
-import type { NormalCancelBtnProps } from './components/NormalCancelBtn';
-import type { NormalOkBtnProps } from './components/NormalOkBtn';
-import { NormalCancelBtnContextProvider, NormalOkBtnContextProvider } from './context';
-import NormalOkBtn from './components/NormalOkBtn';
-import NormalCancelBtn from './components/NormalCancelBtn';
 
 export function renderCloseIcon(prefixCls: string, closeIcon?: React.ReactNode) {
   return (
@@ -55,28 +55,18 @@ export const Footer: React.FC<
   const cancelTextLocale = cancelText || locale?.cancelText;
 
   // ================= Context Value =================
-  const confirmBtnCtxValue: NormalOkBtnProps = {
+  const btnCtxValue: ModalContextProps = {
     confirmLoading,
     okButtonProps,
+    cancelButtonProps,
     okTextLocale,
+    cancelTextLocale,
     okType,
     onOk,
-  };
-
-  const cancelBtnCtxValue: NormalCancelBtnProps = {
-    cancelButtonProps,
-    cancelTextLocale,
     onCancel,
   };
 
-  const confirmBtnCtxValueMemo = React.useMemo(
-    () => confirmBtnCtxValue,
-    [...Object.values(confirmBtnCtxValue)],
-  );
-  const cancelBtnCtxValueMemo = React.useMemo(
-    () => cancelBtnCtxValue,
-    [...Object.values(cancelBtnCtxValue)],
-  );
+  const btnCtxValueMemo = React.useMemo(() => btnCtxValue, [...Object.values(btnCtxValue)]);
 
   const footerOriginNode = (
     <>
@@ -87,16 +77,14 @@ export const Footer: React.FC<
 
   return (
     <DisabledContextProvider disabled={false}>
-      <NormalOkBtnContextProvider value={confirmBtnCtxValueMemo}>
-        <NormalCancelBtnContextProvider value={cancelBtnCtxValueMemo}>
-          {typeof footer === 'function'
-            ? footer(footerOriginNode, {
-                ConfirmBtn: NormalOkBtn,
-                CancelBtn: NormalCancelBtn,
-              })
-            : footerOriginNode}
-        </NormalCancelBtnContextProvider>
-      </NormalOkBtnContextProvider>
+      <ModalContextProvider value={btnCtxValueMemo}>
+        {typeof footer === 'function'
+          ? footer(footerOriginNode, {
+              ConfirmBtn: NormalOkBtn,
+              CancelBtn: NormalCancelBtn,
+            })
+          : footerOriginNode}
+      </ModalContextProvider>
     </DisabledContextProvider>
   );
 };

@@ -1,9 +1,10 @@
 import type { FC } from 'react';
 import React, { useContext } from 'react';
+
 import Button from '../../button';
-import { NormalOkBtnContext } from '../context';
-import type { ModalProps } from '../interface';
 import { convertLegacyProps } from '../../button/button';
+import { ModalContext } from '../context';
+import type { ModalProps } from '../interface';
 
 export interface NormalOkBtnProps
   extends Pick<ModalProps, 'confirmLoading' | 'okType' | 'okButtonProps' | 'onOk'> {
@@ -16,8 +17,7 @@ export interface NormalOkBtnProps
 }
 
 const NormalOkBtn: FC = () => {
-  const { confirmLoading, okButtonProps, okType, okTextLocale, onOk } =
-    useContext(NormalOkBtnContext);
+  const { confirmLoading, okButtonProps, okType, okTextLocale, onOk } = useContext(ModalContext);
   return (
     <Button
       {...convertLegacyProps(okType)}
