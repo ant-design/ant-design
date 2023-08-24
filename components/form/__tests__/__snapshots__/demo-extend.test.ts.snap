@@ -6834,6 +6834,25 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
     </div>
   </div>
   <div
+    class="ant-form-item ant-form-item-hidden"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-16 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
     class="ant-form-item"
   >
     <div
@@ -6928,7 +6947,11 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
 </form>
 `;
 
-exports[`renders components/form/demo/form-context.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/form/demo/form-context.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Form.Item] \`name\` is only used for validate React element. If you are using Form.Item as layout display, please remove \`name\` instead.",
+]
+`;
 
 exports[`renders components/form/demo/form-in-modal.tsx extend context correctly 1`] = `
 <div>
