@@ -3,7 +3,6 @@
 exports[`Flex rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-flex ant-flex-rtl"
-  style="flex: 0 1 auto; gap: 8px;"
 >
   test
 </div>
