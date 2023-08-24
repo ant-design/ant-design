@@ -59,9 +59,10 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
     children: (
       <div className={`${colorPresetsPrefixCls}-items`}>
         {Array.isArray(preset?.colors) && preset.colors?.length > 0 ? (
-          preset.colors.map((presetColor: Color) => (
+          preset.colors.map((presetColor: Color, index: number) => (
             <ColorBlock
-              key={`preset-${presetColor.toHexString()}`}
+              // eslint-disable-next-line react/no-array-index-key
+              key={`preset-${index}-${presetColor.toHexString()}`}
               color={generateColor(presetColor).toRgbString()}
               prefixCls={prefixCls}
               className={classNames(`${colorPresetsPrefixCls}-color`, {
