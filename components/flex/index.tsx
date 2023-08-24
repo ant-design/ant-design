@@ -10,14 +10,30 @@ import type { FlexProps } from './interface';
 import useStyle from './style';
 import createContainer from './utils';
 
+const flexSize = {
+  small: 8,
+  middle: 16,
+  large: 24,
+} as const;
+
+const getGapSize = (gap: FlexProps['gap']) => {
+  if (!gap) {
+    return 0;
+  }
+  if (typeof gap === 'number') {
+    return gap;
+  }
+  return ['small', 'middle', 'large'].includes(gap) ? flexSize[gap as keyof typeof flexSize] : gap;
+};
+
 const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     rootClassName,
     className,
     style,
-    flex = '0 1 auto',
-    gap = 8,
+    flex,
+    gap,
     children,
     component = 'div',
     ...otherProps
@@ -42,7 +58,15 @@ const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     },
   );
 
-  const mergedStyle: React.CSSProperties = { flex, gap, ...style };
+  const mergedStyle: React.CSSProperties = { ...style };
+
+  if (flex) {
+    mergedStyle.flex = flex;
+  }
+
+  if (gap) {
+    mergedStyle.gap = getGapSize(gap);
+  }
 
   return wrapSSR(
     <Container
