@@ -46,7 +46,7 @@ function getGlobalContext() {
 
   return {
     prefixCls: mergedPrefixCls,
-    container: mergedContainer,
+    getContainer: () => mergedContainer!,
     rtl,
     maxCount,
     top,
@@ -60,22 +60,8 @@ interface GlobalHolderRef {
 }
 
 const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
-  const initializeNotificationConfig = (): GlobalConfigProps => {
-    const { prefixCls, container, maxCount, rtl, top, bottom } = getGlobalContext();
-
-    return {
-      prefixCls,
-      getContainer: () => container!,
-      maxCount,
-      rtl,
-      top,
-      bottom,
-    };
-  };
-
-  const [notificationConfig, setNotificationConfig] = React.useState<GlobalConfigProps>(
-    initializeNotificationConfig,
-  );
+  const [notificationConfig, setNotificationConfig] =
+    React.useState<GlobalConfigProps>(getGlobalContext);
 
   const [api, holder] = useInternalNotification(notificationConfig);
 
@@ -85,7 +71,7 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   const theme = global.getTheme();
 
   const sync = () => {
-    setNotificationConfig(initializeNotificationConfig);
+    setNotificationConfig(getGlobalContext);
   };
 
   React.useEffect(sync, []);

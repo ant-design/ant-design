@@ -71,7 +71,7 @@ function getGlobalContext() {
 
   return {
     prefixCls: mergedPrefixCls,
-    container: mergedContainer,
+    getContainer: () => mergedContainer!,
     duration,
     rtl,
     maxCount,
@@ -85,20 +85,7 @@ interface GlobalHolderRef {
 }
 
 const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
-  const initializeMessageConfig = (): ConfigOptions => {
-    const { prefixCls, container, maxCount, duration, rtl, top } = getGlobalContext();
-
-    return {
-      prefixCls,
-      getContainer: () => container!,
-      maxCount,
-      duration,
-      rtl,
-      top,
-    };
-  };
-
-  const [messageConfig, setMessageConfig] = React.useState<ConfigOptions>(initializeMessageConfig);
+  const [messageConfig, setMessageConfig] = React.useState<ConfigOptions>(getGlobalContext);
 
   const [api, holder] = useInternalMessage(messageConfig);
 
@@ -108,7 +95,7 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   const theme = global.getTheme();
 
   const sync = () => {
-    setMessageConfig(initializeMessageConfig);
+    setMessageConfig(getGlobalContext);
   };
 
   React.useEffect(sync, []);
