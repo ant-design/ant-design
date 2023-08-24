@@ -65,7 +65,7 @@ Properties that shared by all types.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| strokeColor | The color of circular progress, render `linear-gradient` when passing an object | string \| object | - | - |
+| strokeColor | The color of circular progress, render gradient when passing an object | string \| { number%: string } | - | - |
 | strokeWidth | To set the width of the circular progress, unit: percentage of the canvas width | number | 6 | - |
 
 ### `type="dashboard"`
