@@ -160,7 +160,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     direction,
     prefixCls,
     wrapClassName,
-    rootPrefixCls = '',
+    rootPrefixCls,
     iconPrefixCls,
     theme,
     bodyStyle,
@@ -211,8 +211,12 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
         open={open}
         title=""
         footer={null}
-        transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
-        maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
+        transitionName={getTransitionName(rootPrefixCls || '', 'zoom', props.transitionName)}
+        maskTransitionName={getTransitionName(
+          rootPrefixCls || '',
+          'fade',
+          props.maskTransitionName,
+        )}
         mask={mask}
         maskClosable={maskClosable}
         maskStyle={maskStyle}
