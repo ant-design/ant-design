@@ -19,9 +19,8 @@ export const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
 export type ProgressType = typeof ProgressTypes[number];
 const ProgressStatuses = ['normal', 'exception', 'active', 'success'] as const;
 export type ProgressSize = 'default' | 'small';
-export type StringGradients = Partial<Record<`${number}%`, string>> & {
-  conic?: boolean;
-};
+export type StringGradients = Record<string, string>;
+
 type FromToGradients = { from: string; to: string };
 export type ProgressGradient = { direction?: string } & (StringGradients | FromToGradients);
 
