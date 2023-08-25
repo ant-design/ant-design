@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex } from 'antd';
 
 const App: React.FC = () => (
-  <Flex justify="center" align="center">
+  <Flex gap="small" flex="0 1 auto">
     <div>1</div>
     <div>2</div>
     <div>3</div>

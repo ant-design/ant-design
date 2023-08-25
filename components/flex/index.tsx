@@ -3,13 +3,12 @@
 import React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-
+import createFlexClassNames from './classNames';
+import { createContainer, getGapSize } from './utils';
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
-import createFlexClassNames from './classNames';
 import type { FlexProps } from './interface';
 import useStyle from './style';
-import { createContainer, getGapSize } from './utils';
 
 const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
   const {

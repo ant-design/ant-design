@@ -9,7 +9,7 @@ const flexSize = {
   large: 24,
 } as const;
 
-export const getGapSize = (gap: FlexProps['gap']) => {
+export const getGapSize = (gap?: FlexProps['gap']) => {
   if (!gap) {
     return 0;
   }
@@ -20,5 +20,7 @@ export const getGapSize = (gap: FlexProps['gap']) => {
 };
 
 export function createContainer<T, P extends PropsWithChildren>(component: ElementType<P>) {
-  return React.forwardRef<T, P>((props, ref) => React.createElement(component, { ...props, ref }));
+  return React.forwardRef<T, P>((props, ref) =>
+    React.createElement<P>(component, { ...props, ref }),
+  );
 }
