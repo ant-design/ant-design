@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
@@ -10,23 +9,7 @@ import type { ConfigConsumerProps } from '../config-provider';
 import createFlexClassNames from './classNames';
 import type { FlexProps } from './interface';
 import useStyle from './style';
-import createContainer from './utils';
-
-const flexSize = {
-  small: 8,
-  middle: 16,
-  large: 24,
-} as const;
-
-const getGapSize = (gap: FlexProps['gap']) => {
-  if (!gap) {
-    return 0;
-  }
-  if (typeof gap === 'number') {
-    return gap;
-  }
-  return ['small', 'middle', 'large'].includes(gap) ? flexSize[gap as keyof typeof flexSize] : gap;
-};
+import { createContainer, getGapSize } from './utils';
 
 const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
   const {
