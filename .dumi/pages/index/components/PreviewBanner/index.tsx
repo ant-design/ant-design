@@ -43,6 +43,7 @@ const useStyle = createStyles(({ token, css }) => {
       text-align: center;
       position: relative;
       z-index: 1;
+      padding-inline: ${token.paddingXL}px;
       text-shadow: ${new Array(5)
         .fill(null)
         .map(() => textShadow)
@@ -106,7 +107,8 @@ export default function PreviewBanner(props: PreviewBannerProps) {
       />
 
       <div className={styles.holder}>
-        <ComponentsBlock className={styles.block} />
+        {/* Mobile not show the component preview */}
+        {!isMobile && <ComponentsBlock className={styles.block} />}
 
         <Typography className={styles.typography}>
           <h1>Ant Design 5.0</h1>
