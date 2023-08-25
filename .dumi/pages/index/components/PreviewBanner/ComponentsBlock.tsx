@@ -29,10 +29,44 @@ const locales = {
   cn: {
     range: '设置范围',
     text: 'Ant Design 5.0 使用 CSS-in-JS 技术以提供动态与混合主题的能力。与此同时，我们使用组件级别的 CSS-in-JS 解决方案，让你的应用获得更好的性能。',
+    infoText: '信息内容展示',
+    dropdown: '下拉菜单',
+    finished: '已完成',
+    inProgress: '进行中',
+    waiting: '等待中',
+    option: '选项',
+    apple: '苹果',
+    banana: '香蕉',
+    orange: '橘子',
+    watermelon: '西瓜',
+    primary: '主要按钮',
+    danger: '危险按钮',
+    default: '默认按钮',
+    dashed: '虚线按钮',
+    icon: '图标按钮',
+    hello: '你好，Ant Design!',
+    release: 'Ant Design 5.0 正式发布！',
   },
   en: {
     range: 'Set Range',
     text: 'Ant Design 5.0 use CSS-in-JS technology to provide dynamic & mix theme ability. And which use component level CSS-in-JS solution get your application a better performance.',
+    infoText: 'Info Text',
+    dropdown: 'Dropdown',
+    finished: 'Finished',
+    inProgress: 'In Progress',
+    waiting: 'Waiting',
+    option: 'Option',
+    apple: 'Apple',
+    banana: 'Banana',
+    orange: 'Orange',
+    watermelon: 'Watermelon',
+    primary: 'Primary',
+    danger: 'Danger',
+    default: 'Default',
+    dashed: 'Dashed',
+    icon: 'Icon',
+    hello: 'Hello, Ant Design!',
+    release: 'Ant Design 5.0 is released!',
   },
 };
 
@@ -87,7 +121,7 @@ export default function ComponentsBlock(props: ComponentsBlockProps) {
         {locale.text}
       </ModalPanel>
 
-      <Alert message="Info Text" type="info" />
+      <Alert message={locale.infoText} type="info" />
 
       {/* Line */}
       <div className={styles.flex}>
@@ -97,11 +131,11 @@ export default function ComponentsBlock(props: ComponentsBlockProps) {
             menu={{
               items: new Array(5).fill(null).map((_, index) => ({
                 key: `opt${index}`,
-                label: `Option ${index}`,
+                label: `${locale.option} ${index}`,
               })),
             }}
           >
-            Dropdown
+            {locale.dropdown}
           </Dropdown.Button>
         </div>
 
@@ -113,19 +147,19 @@ export default function ComponentsBlock(props: ComponentsBlockProps) {
           options={[
             {
               value: 'apple',
-              label: 'Apple',
+              label: locale.apple,
             },
             {
               value: 'banana',
-              label: 'Banana',
+              label: locale.banana,
             },
             {
               value: 'orange',
-              label: 'Orange',
+              label: locale.orange,
             },
             {
               value: 'watermelon',
-              label: 'Watermelon',
+              label: locale.watermelon,
             },
           ]}
         />
@@ -144,13 +178,13 @@ export default function ComponentsBlock(props: ComponentsBlockProps) {
         current={1}
         items={[
           {
-            title: 'Finished',
+            title: locale.finished,
           },
           {
-            title: 'In Progress',
+            title: locale.inProgress,
           },
           {
-            title: 'Waiting',
+            title: locale.waiting,
           },
         ]}
       />
@@ -178,17 +212,17 @@ export default function ComponentsBlock(props: ComponentsBlockProps) {
       {/* Line */}
       <div className={styles.flex}>
         <Button className={styles.ptg_20} type="primary">
-          Primary
+          {locale.primary}
         </Button>
         <Button className={styles.ptg_20} type="primary" danger>
-          Danger
+          {locale.danger}
         </Button>
-        <Button className={styles.ptg_20}>Default</Button>
+        <Button className={styles.ptg_20}>{locale.default}</Button>
         <Button className={styles.ptg_20} type="dashed">
-          Dashed
+          {locale.dashed}
         </Button>
         <Button className={styles.ptg_20} icon={<AntDesignOutlined />}>
-          Icon
+          {locale.icon}
         </Button>
       </div>
 
@@ -204,23 +238,19 @@ export default function ComponentsBlock(props: ComponentsBlockProps) {
 
           <Checkbox.Group
             className={styles.ptg_none}
-            options={['Apple', 'Pear', 'Orange']}
-            defaultValue={['Apple']}
+            options={[locale.apple, locale.banana, locale.orange]}
+            defaultValue={[locale.apple]}
           />
         </div>
       </div>
 
       <div>
-        <InternalMessage content="Ant Design 5.0 is here!" type="success" />
+        <InternalMessage content={locale.release} type="success" />
       </div>
 
-      <InternalTooltip
-        title="Hello, Ant Design 5.0 is here!"
-        placement="topLeft"
-        className={styles.noMargin}
-      />
+      <InternalTooltip title={locale.hello} placement="topLeft" className={styles.noMargin} />
 
-      <Alert message="Success Text" type="success" />
+      <Alert message="Ant Design love you!" type="success" />
     </div>
   );
 }
