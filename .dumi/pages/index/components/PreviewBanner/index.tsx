@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Space, Typography } from 'antd';
+import { Button, ConfigProvider, Space, Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { Link, useLocation } from 'dumi';
 
@@ -25,6 +25,8 @@ const locales = {
 
 const useStyle = createStyles(({ token, css }) => {
   const textShadow = `0 0 3px ${token.colorBgContainer}`;
+  const { direction } = React.useContext(ConfigProvider.ConfigContext);
+  const isRTL = direction === 'rtl';
 
   return {
     holder: css`
@@ -67,7 +69,7 @@ const useStyle = createStyles(({ token, css }) => {
       position: absolute;
       inset-inline-end: 0;
       top: -38px;
-      transform: rotate3d(24, -83, 45, 57deg);
+      transform: ${isRTL ? 'rotate3d(24, 83, -45, 57deg)' : 'rotate3d(24, -83, 45, 57deg)'};
     `,
 
     child: css`
