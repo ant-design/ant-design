@@ -5269,6 +5269,7 @@ Array [
       </div>
       <li
         class="ant-dropdown-menu-item-divider"
+        role="separator"
       />
       <li
         aria-disabled="true"
@@ -9261,6 +9262,7 @@ Array [
       </div>
       <li
         class="ant-dropdown-menu-item-divider"
+        role="separator"
       />
       <li
         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
