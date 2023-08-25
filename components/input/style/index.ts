@@ -51,6 +51,21 @@ export interface SharedComponentToken {
    * @descEN Active border color
    */
   activeBorderColor: string;
+  /**
+   * @desc 激活态阴影
+   * @descEN Box-shadow when active
+   */
+  activeShadow: string;
+  /**
+   * @desc 错误状态时激活态阴影
+   * @descEN Box-shadow when active in error status
+   */
+  errorActiveShadow: string;
+  /**
+   * @desc 警告状态时激活态阴影
+   * @descEN Box-shadow when active in warning status
+   */
+  warningActiveShadow: string;
 }
 
 export interface ComponentToken extends SharedComponentToken {}
@@ -77,13 +92,11 @@ export const genPlaceholderStyle = (color: string): CSSObject => ({
 
 export const genHoverStyle = (token: InputToken): CSSObject => ({
   borderColor: token.hoverBorderColor,
-  borderInlineEndWidth: token.lineWidth,
 });
 
 export const genActiveStyle = (token: InputToken) => ({
   borderColor: token.activeBorderColor,
-  boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.controlOutline}`,
-  borderInlineEndWidth: token.lineWidth,
+  boxShadow: token.activeShadow,
   outline: 0,
 });
 
@@ -121,8 +134,8 @@ export const genStatusStyle = (token: InputToken, parentCls: string): CSSObject 
     componentCls,
     colorError,
     colorWarning,
-    colorErrorOutline,
-    colorWarningOutline,
+    errorActiveShadow,
+    warningActiveShadow,
     colorErrorBorderHover,
     colorWarningBorderHover,
   } = token;
@@ -139,8 +152,7 @@ export const genStatusStyle = (token: InputToken, parentCls: string): CSSObject 
         ...genActiveStyle(
           mergeToken<InputToken>(token, {
             activeBorderColor: colorError,
-            hoverBorderColor: colorError,
-            controlOutline: colorErrorOutline,
+            activeShadow: errorActiveShadow,
           }),
         ),
       },
@@ -160,8 +172,7 @@ export const genStatusStyle = (token: InputToken, parentCls: string): CSSObject 
         ...genActiveStyle(
           mergeToken<InputToken>(token, {
             activeBorderColor: colorWarning,
-            hoverBorderColor: colorWarning,
-            controlOutline: colorWarningOutline,
+            activeShadow: warningActiveShadow,
           }),
         ),
       },
@@ -1010,6 +1021,10 @@ export const initComponentToken = (token: GlobalToken): SharedComponentToken => 
     controlPaddingHorizontal,
     colorFillAlter,
     colorPrimaryHover,
+    controlOutlineWidth,
+    controlOutline,
+    colorErrorOutline,
+    colorWarningOutline,
   } = token;
 
   return {
@@ -1029,6 +1044,9 @@ export const initComponentToken = (token: GlobalToken): SharedComponentToken => 
     addonBg: colorFillAlter,
     activeBorderColor: colorPrimaryHover,
     hoverBorderColor: colorPrimaryHover,
+    activeShadow: `0 0 0 ${controlOutlineWidth}px ${controlOutline}`,
+    errorActiveShadow: `0 0 0 ${controlOutlineWidth}px ${colorErrorOutline}`,
+    warningActiveShadow: `0 0 0 ${controlOutlineWidth}px ${colorWarningOutline}`,
   };
 };
 
