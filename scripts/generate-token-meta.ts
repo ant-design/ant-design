@@ -66,11 +66,11 @@ const main = () => {
     };
 
     // eslint-disable-next-line no-restricted-syntax
-    project?.children?.forEach((file) => {
+    project?.children?.forEach((file: any) => {
       // Global Token
       if (file.name === 'theme/interface') {
         let presetColors: string[] = [];
-        file.children?.forEach((type) => {
+        file.children?.forEach((type: any) => {
           if (type.name === 'SeedToken') {
             tokenMeta.seed = getTokenList(type.children, 'seed');
           } else if (type.name === 'MapToken') {
@@ -102,8 +102,8 @@ const main = () => {
       } else {
         const component = file.name
           .slice(0, file.name.indexOf('/'))
-          .replace(/(^(.)|-(.))/g, (match) => match.replace('-', '').toUpperCase());
-        const componentToken = file.children?.find((item) => item.name === `ComponentToken`);
+          .replace(/(^(.)|-(.))/g, (match: any) => match.replace('-', '').toUpperCase());
+        const componentToken = file.children?.find((item: any) => item.name === `ComponentToken`);
         if (componentToken) {
           tokenMeta.components[component] = getTokenList(componentToken.children, component);
         }
