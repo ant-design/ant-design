@@ -2,17 +2,18 @@
 
 exports[`renders components/flex/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-center ant-flex-justify-center"
+  class="ant-flex ant-flex-align-center ant-flex-justify-space-around"
+  style="width:100%;background-color:#eee;padding:10px"
 >
-  <div>
-    1
-  </div>
-  <div>
-    2
-  </div>
-  <div>
-    3
-  </div>
+  <div
+    style="width:40px;height:40px;background-color:#777"
+  />
+  <div
+    style="width:40px;height:40px;background-color:#777"
+  />
+  <div
+    style="width:40px;height:40px;background-color:#777"
+  />
 </div>
 `;
 
@@ -20,31 +21,59 @@ exports[`renders components/flex/demo/with-gap.tsx correctly 1`] = `
 Array [
   <div
     class="ant-flex ant-flex-gap-small"
-    style="flex:0 1 auto"
+    style="width:100%;background-color:#eee;padding:10px"
   >
-    <div>
-      1
-    </div>
-    <div>
-      2
-    </div>
-    <div>
-      3
-    </div>
+    <div
+      style="width:40px;height:40px;background-color:#777"
+    />
+    <div
+      style="width:40px;height:40px;background-color:#777"
+    />
+    <div
+      style="width:40px;height:40px;background-color:#777"
+    />
+  </div>,
+  <div
+    class="ant-flex ant-flex-gap-middle"
+    style="width:100%;background-color:#eee;padding:10px"
+  >
+    <div
+      style="width:40px;height:40px;background-color:#777"
+    />
+    <div
+      style="width:40px;height:40px;background-color:#777"
+    />
+    <div
+      style="width:40px;height:40px;background-color:#777"
+    />
+  </div>,
+  <div
+    class="ant-flex ant-flex-gap-large"
+    style="width:100%;background-color:#eee;padding:10px"
+  >
+    <div
+      style="width:40px;height:40px;background-color:#777"
+    />
+    <div
+      style="width:40px;height:40px;background-color:#777"
+    />
+    <div
+      style="width:40px;height:40px;background-color:#777"
+    />
   </div>,
   <div
     class="ant-flex"
-    style="flex:0 1 auto;gap:30px"
+    style="width:100%;background-color:#eee;padding:10px;gap:32px"
   >
-    <div>
-      1
-    </div>
-    <div>
-      2
-    </div>
-    <div>
-      3
-    </div>
+    <div
+      style="width:40px;height:40px;background-color:#777"
+    />
+    <div
+      style="width:40px;height:40px;background-color:#777"
+    />
+    <div
+      style="width:40px;height:40px;background-color:#777"
+    />
   </div>,
 ]
 `;

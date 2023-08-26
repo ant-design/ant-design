@@ -37,7 +37,7 @@ export const alignItemsValues = [
 const genClsWrap = (prefixCls: string, wrap: React.CSSProperties['flexWrap']) => {
   const wrapCls: Record<PropertyKey, boolean> = {};
   flexWrapValues.forEach((cssKey) => {
-    wrapCls[`${prefixCls}-${cssKey}`] = wrap === cssKey;
+    wrapCls[`${prefixCls}-wrap-${cssKey}`] = wrap === cssKey;
   });
   return wrapCls;
 };
