@@ -39,9 +39,3 @@ const App: React.FC = () => (
 );
 
 export default App;
-
-// 如果用 cjs 的方式，那么导出一个模块，就要写成这样：
-// module.exports = xxxxx
-
-//
-// const xxxxx = require('xxxxx')
