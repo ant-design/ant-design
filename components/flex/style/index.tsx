@@ -1,13 +1,15 @@
 import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   // Component token here
 }
 
-interface FlexToken extends FullToken<'Flex'> {
-  // Custom token here
+export interface FlexToken extends FullToken<'Flex'> {
+  flexGapSmallSize: number;
+  flexGapMiddleSize: number;
+  flexGapLargeSize: number;
 }
 
 const genFlexStyle: GenerateStyle<FlexToken> = (token) => {
@@ -20,6 +22,23 @@ const genFlexStyle: GenerateStyle<FlexToken> = (token) => {
       },
       '&:empty': {
         display: 'none',
+      },
+    },
+  };
+};
+
+const genFlexGapStyle: GenerateStyle<FlexToken> = (token) => {
+  const { componentCls } = token;
+  return {
+    [componentCls]: {
+      '&-gap-small': {
+        gap: token.flexGapSmallSize,
+      },
+      '&-gap-middle': {
+        gap: token.flexGapMiddleSize,
+      },
+      '&-gap-large': {
+        gap: token.flexGapLargeSize,
       },
     },
   };
@@ -144,10 +163,19 @@ const genJustifyContentStyle: GenerateStyle<FlexToken> = (token) => {
   };
 };
 
-export default genComponentStyleHook<'Flex'>('Flex', (token) => [
-  genFlexStyle(token),
-  genFlexWrapStyle(token),
-  genAlignItemsStyle(token),
-  genFlexDirectionStyle(token),
-  genJustifyContentStyle(token),
-]);
+export default genComponentStyleHook<'Flex'>('Flex', (token) => {
+  const flexToken = mergeToken<FlexToken>(token, {
+    // 这里不确定是否使用 token，在 Space 组件中是写死的
+    flexGapSmallSize: 8,
+    flexGapMiddleSize: 16,
+    flexGapLargeSize: 24,
+  });
+  return [
+    genFlexStyle(flexToken),
+    genFlexGapStyle(flexToken),
+    genFlexWrapStyle(flexToken),
+    genAlignItemsStyle(flexToken),
+    genFlexDirectionStyle(flexToken),
+    genJustifyContentStyle(flexToken),
+  ];
+});

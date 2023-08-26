@@ -4,7 +4,7 @@ import React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import createFlexClassNames from './classNames';
-import { createContainer, getGapSize } from './utils';
+import createContainer from './utils';
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
 import type { FlexProps } from './interface';
@@ -31,6 +31,8 @@ const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
 
   const Container = createContainer(component);
 
+  const customGap = ['small', 'middle', 'large'].includes(gap as string);
+
   const mergedCls = classNames(
     className,
     rootClassName,
@@ -39,6 +41,7 @@ const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     createFlexClassNames(prefixCls, props),
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-gap-${gap}`]: gap && customGap,
     },
   );
 
@@ -48,8 +51,8 @@ const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     mergedStyle.flex = flex;
   }
 
-  if (gap) {
-    mergedStyle.gap = getGapSize(gap);
+  if (gap && !customGap) {
+    mergedStyle.gap = gap;
   }
 
   return wrapSSR(

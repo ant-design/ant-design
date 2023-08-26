@@ -20,8 +20,8 @@ exports[`renders components/flex/demo/basic.tsx extend context correctly 2`] = `
 
 exports[`renders components/flex/demo/with-gap.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex"
-  style="flex: 0 1 auto; gap: 8px;"
+  class="ant-flex ant-flex-gap-small"
+  style="flex: 0 1 auto;"
 >
   <div>
     1
