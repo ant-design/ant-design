@@ -139,10 +139,7 @@ const GlobalDemoStyles: React.FC = () => {
               position: relative;
               width: 100%;
               font-size: ${token.fontSize}px;
-              border-start-start-radius: 0;
-              border-start-end-radius: 0;
-              border-end-start-radius: ${token.borderRadius}px;
-              border-end-end-radius: ${token.borderRadius}px;
+              border-radius: 0 0 ${token.borderRadius}px ${token.borderRadius}px;
               transition: background-color 0.4s;
             }
 
@@ -215,10 +212,8 @@ const GlobalDemoStyles: React.FC = () => {
           .highlight-wrapper {
             display: none;
             overflow: auto;
-            border-start-start-radius: 0;
-            border-start-end-radius: 0;
-            border-end-start-radius: ${token.borderRadius}px;
-            border-end-end-radius: ${token.borderRadius}px;
+            border-radius: 0 0 ${token.borderRadius}px ${token.borderRadius}px;
+
             &-expand {
               display: block;
             }
@@ -228,8 +223,6 @@ const GlobalDemoStyles: React.FC = () => {
               align-items: center;
               border-start-start-radius: 0;
               border-start-end-radius: 0;
-              border-end-start-radius: ${token.borderRadius}px;
-              border-end-end-radius: ${token.borderRadius}px;
               .ant-btn-icon {
                 font-size: ${token.fontSizeLG}px;
                 margin-right: ${token.marginXS}px;
