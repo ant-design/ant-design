@@ -1,5 +1,5 @@
-import { css, Global } from '@emotion/react';
 import React from 'react';
+import { css, Global } from '@emotion/react';
 import { useTheme } from 'antd-style';
 
 const GlobalDemoStyles: React.FC = () => {
@@ -216,6 +216,16 @@ const GlobalDemoStyles: React.FC = () => {
 
             &-expand {
               display: block;
+            }
+            .code-hide-btn {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border-radius: 0 0 ${token.borderRadius}px ${token.borderRadius}px;
+              .ant-btn-icon {
+                font-size: ${token.fontSizeLG}px;
+                margin-right: ${token.marginXS}px;
+              }
             }
           }
 

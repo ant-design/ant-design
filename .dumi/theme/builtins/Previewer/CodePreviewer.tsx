@@ -515,14 +515,9 @@ createRoot(document.getElementById('container')).render(<Demo />);
           />
           <Button
             block
-            icon={<VerticalAlignMiddleOutlined style={{ fontSize: 16, marginRight: 6 }} />}
+            className="code-hide-btn"
+            icon={<VerticalAlignMiddleOutlined />}
             onClick={() => setCodeExpand(false)}
-            style={{
-              borderRadius: '0 0 6px 6px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
           >
             <FormattedMessage id="app.demo.code.hide" />
           </Button>
