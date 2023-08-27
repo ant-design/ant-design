@@ -41,7 +41,7 @@ function getTokenList(list?: DeclarationReflection[], source?: string) {
 }
 
 const main = async () => {
-  const app = await Application.bootstrap(
+  const app = await Application.bootstrapWithPlugins(
     {
       // typedoc options here
       entryPoints: ['components/theme/interface/index.ts', 'components/*/style/index.{ts,tsx}'],
