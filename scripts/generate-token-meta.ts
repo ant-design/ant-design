@@ -1,6 +1,6 @@
 import fs from 'fs-extra';
 import type { DeclarationReflection } from 'typedoc';
-import TypeDoc, { TSConfigReader, TypeDocReader } from 'typedoc';
+import { Application, TSConfigReader, TypeDocReader } from 'typedoc';
 
 interface TokenMeta {
   seed: ReturnType<typeof getTokenList>;
@@ -41,7 +41,7 @@ function getTokenList(list?: DeclarationReflection[], source?: string) {
 }
 
 const main = async () => {
-  const app = await TypeDoc.Application.bootstrap(
+  const app = await Application.bootstrap(
     {
       // typedoc options here
       entryPoints: ['components/theme/interface/index.ts', 'components/*/style/index.{ts,tsx}'],
