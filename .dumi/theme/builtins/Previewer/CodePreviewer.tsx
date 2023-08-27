@@ -1,17 +1,19 @@
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import {
   CheckOutlined,
   LinkOutlined,
   SnippetsOutlined,
   ThunderboltOutlined,
+  VerticalAlignMiddleOutlined,
 } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
+import { Alert, Badge, Button, Space, Tooltip } from 'antd';
 import classNames from 'classnames';
 import { FormattedMessage, useSiteData } from 'dumi';
 import LZString from 'lz-string';
-import React, { useContext, useEffect, useRef, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import { Alert, Badge, Space, Tooltip } from 'antd';
+
 import type { AntdPreviewerProps } from '.';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
@@ -509,8 +511,22 @@ createRoot(document.getElementById('container')).render(<Demo />);
             sourceCode={entryCode}
             jsxCode={jsx}
             styleCode={style}
-            onCodeTypeChange={(type) => setCodeType(type)}
+            onCodeTypeChange={setCodeType}
           />
+          <Button
+            block
+            type="primary"
+            icon={<VerticalAlignMiddleOutlined style={{ fontSize: 16, marginRight: 6 }} />}
+            onClick={() => setCodeExpand(false)}
+            style={{
+              borderRadius: '0 0 6px 6px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <FormattedMessage id="app.demo.code.hide" />
+          </Button>
         </section>
       )}
     </section>
