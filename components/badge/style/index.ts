@@ -1,10 +1,12 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
+
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/internal';
+import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 
-interface BadgeToken extends FullToken<'Badge'> {
+export interface BadgeToken extends FullToken<'Badge'> {
   badgeFontHeight: number;
   badgeZIndex: number | string;
   badgeHeight: number;
@@ -61,17 +63,13 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
     componentCls,
     iconCls,
     antCls,
-    badgeFontHeight,
     badgeShadowSize,
     badgeHeightSm,
     motionDurationSlow,
     badgeStatusSize,
     marginXS,
-    badgeRibbonOffset,
   } = token;
   const numberPrefixCls = `${antCls}-scroll-number`;
-  const ribbonPrefixCls = `${antCls}-ribbon`;
-  const ribbonWrapperPrefixCls = `${antCls}-ribbon-wrapper`;
 
   const colorPreset = genPresetColor(token, (colorKey, { darkColor }) => ({
     [`&${componentCls} ${componentCls}-color-${colorKey}`]: {
@@ -79,13 +77,6 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       [`&:not(${componentCls}-count)`]: {
         color: darkColor,
       },
-    },
-  }));
-
-  const statusRibbonPreset = genPresetColor(token, (colorKey, { darkColor }) => ({
-    [`&${ribbonPrefixCls}-color-${colorKey}`]: {
-      background: darkColor,
-      color: darkColor,
     },
   }));
 
@@ -286,59 +277,11 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         },
       },
     },
-    [`${ribbonWrapperPrefixCls}`]: { position: 'relative' },
-    [`${ribbonPrefixCls}`]: {
-      ...resetComponent(token),
-      position: 'absolute',
-      top: marginXS,
-      padding: `0 ${token.paddingXS}px`,
-      color: token.colorPrimary,
-      lineHeight: `${badgeFontHeight}px`,
-      whiteSpace: 'nowrap',
-      backgroundColor: token.colorPrimary,
-      borderRadius: token.borderRadiusSM,
-      [`${ribbonPrefixCls}-text`]: { color: token.colorTextLightSolid },
-      [`${ribbonPrefixCls}-corner`]: {
-        position: 'absolute',
-        top: '100%',
-        width: badgeRibbonOffset,
-        height: badgeRibbonOffset,
-        color: 'currentcolor',
-        border: `${badgeRibbonOffset / 2}px solid`,
-        transform: token.badgeRibbonCornerTransform,
-        transformOrigin: 'top',
-        filter: token.badgeRibbonCornerFilter,
-      },
-      ...statusRibbonPreset,
-      [`&${ribbonPrefixCls}-placement-end`]: {
-        insetInlineEnd: -badgeRibbonOffset,
-        borderEndEndRadius: 0,
-        [`${ribbonPrefixCls}-corner`]: {
-          insetInlineEnd: 0,
-          borderInlineEndColor: 'transparent',
-          borderBlockEndColor: 'transparent',
-        },
-      },
-      [`&${ribbonPrefixCls}-placement-start`]: {
-        insetInlineStart: -badgeRibbonOffset,
-        borderEndStartRadius: 0,
-        [`${ribbonPrefixCls}-corner`]: {
-          insetInlineStart: 0,
-          borderBlockEndColor: 'transparent',
-          borderInlineStartColor: 'transparent',
-        },
-      },
-
-      // ====================== RTL =======================
-      '&-rtl': {
-        direction: 'rtl',
-      },
-    },
   };
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Badge', (token) => {
+export const prepareToken: (token: Parameters<GenStyleFn<'Badge'>>[0]) => BadgeToken = (token) => {
   const { fontSize, lineHeight, fontSizeSM, lineWidth, marginXS, colorBorderBg } = token;
 
   const badgeFontHeight = Math.round(fontSize * lineHeight);
@@ -377,6 +320,12 @@ export default genComponentStyleHook('Badge', (token) => {
     badgeRibbonCornerTransform: 'scaleY(0.75)',
     badgeRibbonCornerFilter: `brightness(75%)`,
   });
+
+  return badgeToken;
+};
+
+export default genComponentStyleHook('Badge', (token) => {
+  const badgeToken = prepareToken(token);
 
   return [genSharedBadgeStyle(badgeToken)];
 });
