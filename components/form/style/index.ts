@@ -1,4 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import { resetComponent } from '../../style';
 import { genCollapseMotion, zoomIn } from '../../style/motion';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
@@ -462,7 +463,7 @@ const makeVerticalLayoutLabel = (token: FormToken): CSSObject => ({
 });
 
 const makeVerticalLayout = (token: FormToken): CSSObject => {
-  const { componentCls, formItemCls } = token;
+  const { componentCls, formItemCls, rootPrefixCls } = token;
 
   return {
     [`${formItemCls} ${formItemCls}-label`]: makeVerticalLayoutLabel(token),
@@ -470,10 +471,14 @@ const makeVerticalLayout = (token: FormToken): CSSObject => {
       [formItemCls]: {
         flexWrap: 'wrap',
 
-        [`${formItemCls}-label,
-          ${formItemCls}-control`]: {
-          flex: '0 0 100%',
-          maxWidth: '100%',
+        [`${formItemCls}-label, ${formItemCls}-control`]: {
+          // When developer pass `xs: { span }`,
+          // It should follow the `xs` screen config
+          // ref: https://github.com/ant-design/ant-design/issues/44386
+          [`&:not([class*=" ${rootPrefixCls}-col-xs"])`]: {
+            flex: '0 0 100%',
+            maxWidth: '100%',
+          },
         },
       },
     },
