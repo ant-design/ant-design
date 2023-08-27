@@ -515,7 +515,6 @@ createRoot(document.getElementById('container')).render(<Demo />);
           />
           <Button
             block
-            type="primary"
             icon={<VerticalAlignMiddleOutlined style={{ fontSize: 16, marginRight: 6 }} />}
             onClick={() => setCodeExpand(false)}
             style={{
