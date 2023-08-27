@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, Flex, Radio } from 'antd';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
 
 const App: React.FC = () => {
-  const [gap, setGap] = useState<SizeType>('small');
+  const [gap, setGap] = React.useState<SizeType>('small');
   return (
     <>
       <Radio.Group value={gap} onChange={(e) => setGap(e.target.value)}>
-        <Radio value="small">small</Radio>
-        <Radio value="middle">middle</Radio>
-        <Radio value="large">large</Radio>
+        {['small', 'middle', 'large'].map((item) => (
+          <Radio key={item} value={item}>
+            {item}
+          </Radio>
+        ))}
       </Radio.Group>
       <br />
       <br />
