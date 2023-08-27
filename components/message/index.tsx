@@ -16,7 +16,7 @@ import PurePanel from './PurePanel';
 import useMessage, { useInternalMessage } from './useMessage';
 import { wrapPromiseFn } from './util';
 
-export { ArgsProps };
+export type { ArgsProps };
 
 let message: GlobalMessage | null = null;
 
