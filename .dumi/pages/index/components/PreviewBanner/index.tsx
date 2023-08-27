@@ -23,62 +23,64 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token, css }) => {
-  const textShadow = `0 0 3px ${token.colorBgContainer}`;
+const useStyle = () => {
   const { direction } = React.useContext(ConfigProvider.ConfigContext);
   const isRTL = direction === 'rtl';
 
-  return {
-    holder: css`
-      height: 520px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      perspective: 800px;
-      row-gap: ${token.marginXL}px;
-    `,
+  return createStyles(({ token, css }) => {
+    const textShadow = `0 0 3px ${token.colorBgContainer}`;
 
-    typography: css`
-      text-align: center;
-      position: relative;
-      z-index: 1;
-      padding-inline: ${token.paddingXL}px;
-      text-shadow: ${new Array(5)
-        .fill(null)
-        .map(() => textShadow)
-        .join(', ')};
+    return {
+      holder: css`
+        height: 520px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        perspective: 800px;
+        row-gap: ${token.marginXL}px;
+      `,
 
-      h1 {
-        font-family: AliPuHui, ${token.fontFamily} !important;
-        font-weight: 900 !important;
-        font-size: ${token.fontSizeHeading2 * 2}px !important;
-        line-height: ${token.lineHeightHeading2} !important;
-      }
+      typography: css`
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        padding-inline: ${token.paddingXL}px;
+        text-shadow: ${new Array(5)
+          .fill(null)
+          .map(() => textShadow)
+          .join(', ')};
 
-      p {
-        font-size: ${token.fontSizeLG}px !important;
-        font-weight: normal !important;
-        margin-bottom: 0;
-      }
-    `,
+        h1 {
+          font-family: AliPuHui, ${token.fontFamily} !important;
+          font-weight: 900 !important;
+          font-size: ${token.fontSizeHeading2 * 2}px !important;
+          line-height: ${token.lineHeightHeading2} !important;
+        }
 
-    block: css`
-      position: absolute;
-      inset-inline-end: 0;
-      top: -38px;
-      transform: ${isRTL ? 'rotate3d(24, 83, -45, 57deg)' : 'rotate3d(24, -83, 45, 57deg)'};
-    `,
+        p {
+          font-size: ${token.fontSizeLG}px !important;
+          font-weight: normal !important;
+          margin-bottom: 0;
+        }
+      `,
 
-    child: css`
-      position: relative;
-      z-index: 1;
-    `,
-  };
-});
+      block: css`
+        position: absolute;
+        inset-inline-end: 0;
+        top: -38px;
+        transform: ${isRTL ? 'rotate3d(24, 83, -45, 57deg)' : 'rotate3d(24, -83, 45, 57deg)'};
+      `,
 
+      child: css`
+        position: relative;
+        z-index: 1;
+      `,
+    };
+  })();
+};
 export interface PreviewBannerProps {
   children?: React.ReactNode;
 }
