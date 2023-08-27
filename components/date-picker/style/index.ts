@@ -992,9 +992,9 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = (token) => {
     componentCls,
     colorBgContainer,
     colorError,
-    colorErrorOutline,
+    errorActiveShadow,
     colorWarning,
-    colorWarningOutline,
+    warningActiveShadow,
   } = token;
 
   return {
@@ -1009,8 +1009,7 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = (token) => {
           ...genActiveStyle(
             mergeToken<PickerToken>(token, {
               activeBorderColor: colorError,
-              hoverBorderColor: colorError,
-              controlOutline: colorErrorOutline,
+              activeShadow: errorActiveShadow,
             }),
           ),
         },
@@ -1030,8 +1029,7 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = (token) => {
           ...genActiveStyle(
             mergeToken<PickerToken>(token, {
               activeBorderColor: colorWarning,
-              hoverBorderColor: colorWarning,
-              controlOutline: colorWarningOutline,
+              activeShadow: warningActiveShadow,
             }),
           ),
         },
