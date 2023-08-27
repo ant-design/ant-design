@@ -2,10 +2,8 @@
 category: Components
 group: Layout
 title: Flex
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*oyOcTrB12_YAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*M7_ER7GJr6wAAAAAAAAAAAAADrJ8AQ/original
-demo:
-  cols: 2
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZiJ3SbOH9SUAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAAAAAAAAAAAADrJ8AQ/original
 tag: New
 ---
 
@@ -20,7 +18,9 @@ Flex. Available since `5.9.0`.
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/with-gap.tsx">with-gap</code>
+<code src="./demo/vertical.tsx">vertical</code>
+<code src="./demo/gap.tsx">gap</code>
+<code src="./demo/gap-customize.tsx">customize gap</code>
 
 ## API
 

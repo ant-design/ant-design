@@ -3,10 +3,8 @@ category: Components
 subtitle: 弹性布局组件
 group: 布局
 title: Flex
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*oyOcTrB12_YAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*M7_ER7GJr6wAAAAAAAAAAAAADrJ8AQ/original
-demo:
-  cols: 2
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZiJ3SbOH9SUAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAAAAAAAAAAAADrJ8AQ/original
 tag: New
 ---
 
@@ -21,7 +19,9 @@ tag: New
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
-<code src="./demo/with-gap.tsx">设置间距</code>
+<code src="./demo/vertical.tsx">垂直</code>
+<code src="./demo/gap.tsx">间隙大小</code>
+<code src="./demo/gap-customize.tsx">自定义间隙大小</code>
 
 ## API
 

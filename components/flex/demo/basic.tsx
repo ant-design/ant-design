@@ -1,23 +1,17 @@
 import React from 'react';
-import { Flex } from 'antd';
-
-const boxStyle: React.CSSProperties = {
-  width: '100%',
-  backgroundColor: '#eee',
-  padding: 10,
-};
-
-const itemStyle: React.CSSProperties = {
-  width: 40,
-  height: 40,
-  backgroundColor: '#777',
-};
+import { UploadOutlined } from '@ant-design/icons';
+import { Button, Flex, Popconfirm, Upload } from 'antd';
 
 const App: React.FC = () => (
-  <Flex style={boxStyle} justify="space-around" align="center">
-    <div style={itemStyle} />
-    <div style={itemStyle} />
-    <div style={itemStyle} />
+  <Flex justify="space-around" align="center">
+    <Button>Flex</Button>
+    <Button type="primary">Button</Button>
+    <Upload>
+      <Button icon={<UploadOutlined />}>Click to Upload</Button>
+    </Upload>
+    <Popconfirm title="Are you sure delete this task?" okText="Yes" cancelText="No">
+      <Button>Confirm</Button>
+    </Popconfirm>
   </Flex>
 );
 
