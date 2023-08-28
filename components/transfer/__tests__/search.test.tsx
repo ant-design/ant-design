@@ -93,7 +93,13 @@ describe('Transfer.Search', () => {
       <Transfer filterOption={filterOption} dataSource={dataSource} showSearch />,
     );
 
-    fireEvent.change(container.querySelectorAll('.ant-input').item(0), { target: { value: 'a' } });
+    fireEvent.change(
+      container
+        ?.querySelectorAll('.ant-transfer-list')
+        ?.item(0)
+        ?.querySelector('input[type="text"]')!, 
+      { target: { value: 'a' } },
+    );
     expect(filterOption).toHaveBeenNthCalledWith(
       1,
       'a',
@@ -106,7 +112,13 @@ describe('Transfer.Search', () => {
       'left',
     );
     filterOption.mockReset();
-    fireEvent.change(container.querySelectorAll('.ant-input').item(1), { target: { value: 'b' } });
+    fireEvent.change(
+      container
+        ?.querySelectorAll('.ant-transfer-list')
+        ?.item(1)
+        ?.querySelector('input[type="text"]')!, 
+      { target: { value: 'b' } },
+    );
     expect(filterOption).toHaveBeenNthCalledWith(
       1,
       'b',
