@@ -22,6 +22,7 @@ tag: vVERSION
 
 - 🛠 重构 Badge 样式逻辑将 Ribbon 样式抽离以降低 SSR 内联样式尺寸。[#44451](https://github.com/ant-design/ant-design/pull/44451)
 - 🆕 App 组件添加 icon 样式重置能力。[#41208](https://github.com/ant-design/ant-design/pull/41208) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 Carousel 组件垂直方向拖动失效的问题。[#44460](https://github.com/ant-design/ant-design/pull/44460) [@RedJue](https://github.com/RedJue)
 - 🐞 修复 Tour 面板使用的 design token 错误的问题。[#44428](https://github.com/ant-design/ant-design/pull/44428)
 - 🐞 修复 Form `wrapperCol` 配置响应式 `xs` 属性无效的问题。[#44388](https://github.com/ant-design/ant-design/pull/44388)
 - 🐞 修复 ColorPicker 中重复 key 的问题。[#44370](https://github.com/ant-design/ant-design/pull/44370) [@xr0master](https://github.com/xr0master)

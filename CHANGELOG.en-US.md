@@ -22,6 +22,7 @@ tag: vVERSION
 
 - 🛠 Refactor Badge style logic and take Ribbon style out to reduce SSR inline style size. [#44451](https://github.com/ant-design/ant-design/pull/44451)
 - 🆕 App supports icon reset style feature. [#41208](https://github.com/ant-design/ant-design/pull/41208) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix the issue of vertical dragging malfunction in Carousel. [#44460](https://github.com/ant-design/ant-design/pull/44460) [@RedJue](https://github.com/RedJue)
 - 🐞 Fix Tour panel use wrong design token. [#44428](https://github.com/ant-design/ant-design/pull/44428)
 - 🐞 Fix Form `wrapperCol` with responsive `xs` config not working. [#44388](https://github.com/ant-design/ant-design/pull/44388)
 - 🐞 Fix ColorPicker duplicate keys issue. [#44370](https://github.com/ant-design/ant-design/pull/44370) [@xr0master](https://github.com/xr0master)
