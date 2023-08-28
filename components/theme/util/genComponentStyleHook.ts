@@ -1,5 +1,5 @@
 /* eslint-disable no-redeclare */
-import { useContext } from 'react';
+import { useContext, type ComponentType } from 'react';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { warning } from 'rc-util';
@@ -172,5 +172,20 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
       ),
       hashId,
     ];
+  };
+}
+
+export interface SubStyleComponentProps {
+  prefixCls: string;
+}
+
+export function genSubStyleComponent<ComponentName extends OverrideComponent>(
+  ...args: Parameters<typeof genComponentStyleHook<ComponentName>>
+): ComponentType<SubStyleComponentProps> {
+  const useStyle = genComponentStyleHook(...args);
+
+  return ({ prefixCls }: SubStyleComponentProps) => {
+    useStyle(prefixCls);
+    return null;
   };
 }
