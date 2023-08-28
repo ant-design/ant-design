@@ -76,10 +76,7 @@ const useStyle = createStyles(({ token }) => {
       display: flex;
       justify-content: center;
       align-items: center;
-      border-start-start-radius: 0;
-      border-start-end-radius: 0;
-      border-end-start-radius: ${borderRadius}px;
-      border-end-end-radius: ${borderRadius}px;
+      border-radius: 0 0 ${borderRadius}px ${borderRadius}px;
       border-top: 1px solid ${token.colorSplit};
       color: ${token.colorTextSecondary};
       transition: all 0.2s ease-in-out;
