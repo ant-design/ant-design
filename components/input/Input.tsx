@@ -85,7 +85,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     rootClassName,
     onChange,
     classNames: classes,
-    onReset,
     ...rest
   } = props;
   const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
@@ -170,7 +169,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       styles={{ ...input?.styles, ...styles }}
       suffix={suffixNode}
       allowClear={mergedAllowClear}
-      onReset={onReset}
       className={classNames(className, rootClassName, compactItemClassnames, input?.className)}
       onChange={handleChange}
       addonAfter={
