@@ -87,18 +87,13 @@ const genGridColStyle: GenerateStyle<GridColToken> = (token): CSSObject => {
   };
 };
 
-const genLoopGridColumnsStyle = (
-  token: GridColToken,
-  sizeCls: string,
-  rootPrefixCls: string,
-): CSSObject => {
+const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObject => {
   const { componentCls, gridColumns } = token;
 
   const gridColumnsStyle: CSSObject = {};
-  const _prefixCls = `${componentCls}${componentCls}`;
   for (let i = gridColumns; i >= 0; i--) {
     if (i === 0) {
-      gridColumnsStyle[`${_prefixCls}${sizeCls}-${i}`] = {
+      gridColumnsStyle[`${componentCls}${componentCls}${componentCls}${sizeCls}-${i}`] = {
         display: 'none',
       };
       gridColumnsStyle[`${componentCls}-push-${i}`] = {
@@ -139,27 +134,27 @@ const genLoopGridColumnsStyle = (
       };
     }
   }
-  return { [`.${rootPrefixCls}-row`]: gridColumnsStyle };
+
+  return gridColumnsStyle;
 };
 
-const genGridStyle = (token: GridColToken, sizeCls: string, rootPrefixCls: string): CSSObject =>
-  genLoopGridColumnsStyle(token, sizeCls, rootPrefixCls);
+const genGridStyle = (token: GridColToken, sizeCls: string): CSSObject =>
+  genLoopGridColumnsStyle(token, sizeCls);
 
 const genGridMediaStyle = (
   token: GridColToken,
   screenSize: number,
   sizeCls: string,
-  rootPrefixCls: string,
 ): CSSObject => ({
   [`@media (min-width: ${screenSize}px)`]: {
-    ...genGridStyle(token, sizeCls, rootPrefixCls),
+    ...genGridStyle(token, sizeCls),
   },
 });
 
 // ============================== Export ==============================
 export const useRowStyle = genComponentStyleHook('Grid', (token) => [genGridRowStyle(token)]);
 
-export const useColStyle = genComponentStyleHook('Grid', (token, { rootPrefixCls }) => {
+export const useColStyle = genComponentStyleHook('Grid', (token) => {
   const gridToken: GridColToken = mergeToken<GridColToken>(token, {
     gridColumns: 24, // Row is divided into 24 parts in Grid
   });
@@ -174,11 +169,11 @@ export const useColStyle = genComponentStyleHook('Grid', (token, { rootPrefixCls
 
   return [
     genGridColStyle(gridToken),
-    genGridStyle(gridToken, '', rootPrefixCls),
-    genGridStyle(gridToken, '-xs', rootPrefixCls),
+    genGridStyle(gridToken, ''),
+    genGridStyle(gridToken, '-xs'),
     Object.keys(gridMediaSizesMap)
       .map((key: keyof typeof gridMediaSizesMap) =>
-        genGridMediaStyle(gridToken, gridMediaSizesMap[key], key, rootPrefixCls),
+        genGridMediaStyle(gridToken, gridMediaSizesMap[key], key),
       )
       .reduce((pre, cur) => ({ ...pre, ...cur }), {}),
   ];
