@@ -14,7 +14,7 @@ const suffix = (
   />
 );
 
-const onSearch: SearchProps['onSearch'] = (value, e, source) => console.log(source, value);
+const onSearch: SearchProps['onSearch'] = (value, _e, source) => console.log(source, value);
 
 const App: React.FC = () => (
   <Space direction="vertical">
