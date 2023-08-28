@@ -31,6 +31,7 @@
   "app.demo.copied": "复制成功",
   "app.demo.code.show": "显示代码",
   "app.demo.code.hide": "收起代码",
+  "app.demo.code.hide.simplify": "收起",
   "app.demo.codepen": "在 CodePen 中打开",
   "app.demo.codesandbox": "在 CodeSandbox 中打开",
   "app.demo.stackblitz": "在 Stackblitz 中打开",

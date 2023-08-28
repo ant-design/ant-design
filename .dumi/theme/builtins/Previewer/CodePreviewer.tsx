@@ -1,17 +1,21 @@
+/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import {
   CheckOutlined,
   LinkOutlined,
   SnippetsOutlined,
   ThunderboltOutlined,
+  UpOutlined,
 } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
+import { Alert, Badge, Space, Tooltip } from 'antd';
+import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
 import { FormattedMessage, useSiteData } from 'dumi';
 import LZString from 'lz-string';
-import React, { useContext, useEffect, useRef, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import { Alert, Badge, Space, Tooltip } from 'antd';
+
 import type { AntdPreviewerProps } from '.';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
@@ -63,6 +67,31 @@ function useShowRiddleButton() {
   return showRiddleButton;
 }
 
+const useStyle = createStyles(({ token }) => {
+  const { borderRadius } = token;
+  return {
+    codeHideBtn: css`
+      width: 100%;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0 0 ${borderRadius}px ${borderRadius}px;
+      border-top: 1px solid ${token.colorSplit};
+      color: ${token.colorTextSecondary};
+      transition: all 0.2s ease-in-out;
+      background-color: ${token.colorBgElevated};
+      cursor: pointer;
+      &:hover {
+        color: ${token.colorPrimary};
+      }
+      span {
+        margin-right: ${token.marginXXS}px;
+      }
+    `,
+  };
+});
+
 const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const {
     asset,
@@ -85,6 +114,8 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
 
   const { pkg } = useSiteData();
   const location = useLocation();
+
+  const { styles } = useStyle();
 
   const entryCode = asset.dependencies['index.tsx'].value;
   const showRiddleButton = useShowRiddleButton();
@@ -509,8 +540,12 @@ createRoot(document.getElementById('container')).render(<Demo />);
             sourceCode={entryCode}
             jsxCode={jsx}
             styleCode={style}
-            onCodeTypeChange={(type) => setCodeType(type)}
+            onCodeTypeChange={setCodeType}
           />
+          <div tabIndex={0} className={styles.codeHideBtn} onClick={() => setCodeExpand(false)}>
+            <UpOutlined />
+            <FormattedMessage id="app.demo.code.hide.simplify" />
+          </div>
         </section>
       )}
     </section>
