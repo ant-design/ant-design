@@ -26,11 +26,11 @@ const App: React.FC = () => {
             Modal.confirm({
               title: 'Confirm',
               content: 'Bla bla ...',
-              footer: (_, { ConfirmBtn, CancelBtn }) => (
+              footer: (_, { OkBtn, CancelBtn }) => (
                 <>
                   <Button>Custom Button</Button>
                   <CancelBtn />
-                  <ConfirmBtn />
+                  <OkBtn />
                 </>
               ),
             });
@@ -44,11 +44,11 @@ const App: React.FC = () => {
         title="Title"
         onOk={handleOk}
         onCancel={handleCancel}
-        footer={(_, { ConfirmBtn, CancelBtn }) => (
+        footer={(_, { OkBtn, CancelBtn }) => (
           <>
             <Button>Custom Button</Button>
             <CancelBtn />
-            <ConfirmBtn />
+            <OkBtn />
           </>
         )}
       >

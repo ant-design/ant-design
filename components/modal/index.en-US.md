@@ -187,7 +187,7 @@ const confirmed = await modal.confirm({ ... });
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | originNode | default node | React.ReactNode                   | -      |
-| extra      | extended options | { ConfirmBtn: FC; CancelBtn: FC } | -      |
+| extra      | extended options | { OkBtn: FC; CancelBtn: FC } | -      |
 
 ## Design Token
 

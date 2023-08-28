@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
+
 import type { ModalProps } from '..';
 import Modal from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
 
 jest.mock('rc-util/lib/Portal');
 
@@ -138,9 +139,9 @@ describe('Modal', () => {
     render(
       <Modal
         open
-        footer={(_, { ConfirmBtn, CancelBtn }) => (
+        footer={(_, { OkBtn, CancelBtn }) => (
           <>
-            <ConfirmBtn />
+            <OkBtn />
             <CancelBtn />
             <div className="custom-footer-ele">footer-ele</div>
           </>

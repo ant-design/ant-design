@@ -1,10 +1,11 @@
+import * as React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import CSSMotion from 'rc-motion';
 import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
-import * as React from 'react';
 import TestUtils from 'react-dom/test-utils';
+
 import type { ModalFuncProps } from '..';
 import Modal from '..';
 import { act, waitFakeTimer } from '../../../tests/utils';
@@ -849,9 +850,9 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   it('Should custom footer function work width confirm', async () => {
     Modal.confirm({
       content: 'hai',
-      footer: (_, { ConfirmBtn, CancelBtn }) => (
+      footer: (_, { OkBtn, CancelBtn }) => (
         <>
-          <ConfirmBtn />
+          <OkBtn />
           <CancelBtn />
           <div className="custom-footer-ele">footer-ele</div>
         </>

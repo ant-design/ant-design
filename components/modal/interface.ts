@@ -1,10 +1,11 @@
 import type { FC } from 'react';
+
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
 
 export type ModalFooterRender = (
   originNode: React.ReactNode,
-  extra: { ConfirmBtn: FC; CancelBtn: FC },
+  extra: { OkBtn: FC; CancelBtn: FC },
 ) => React.ReactNode;
 export interface ModalProps {
   /** Whether the modal dialog is visible or not */

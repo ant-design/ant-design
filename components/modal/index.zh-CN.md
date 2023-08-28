@@ -188,7 +188,7 @@ const confirmed = await modal.confirm({ ... });
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | originNode | 默认节点 | React.ReactNode                   | -      |
-| extra      | 扩展选项 | { ConfirmBtn: FC; CancelBtn: FC } | -      |
+| extra      | 扩展选项 | { OkBtn: FC; CancelBtn: FC } | -      |
 
 ## Design Token
 

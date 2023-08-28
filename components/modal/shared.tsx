@@ -80,7 +80,7 @@ export const Footer: React.FC<
       <ModalContextProvider value={btnCtxValueMemo}>
         {typeof footer === 'function'
           ? footer(footerOriginNode, {
-              ConfirmBtn: NormalOkBtn,
+              OkBtn: NormalOkBtn,
               CancelBtn: NormalCancelBtn,
             })
           : footerOriginNode}

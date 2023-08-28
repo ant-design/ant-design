@@ -11,7 +11,7 @@ import type { ThemeConfig } from '../config-provider';
 import ConfigProvider from '../config-provider';
 import { useLocale } from '../locale';
 import CancelBtn from './components/ConfirmCancelBtn';
-import ConfirmBtn from './components/ConfirmOkBtn';
+import OkBtn from './components/ConfirmOkBtn';
 import type { ModalContextProps } from './context';
 import { ModalContextProvider } from './context';
 import type { ModalFuncProps, ModalLocale } from './interface';
@@ -114,7 +114,7 @@ export function ConfirmContent(
   const footerOriginNode = (
     <>
       <CancelBtn />
-      <ConfirmBtn />
+      <OkBtn />
     </>
   );
 
@@ -133,7 +133,7 @@ export function ConfirmContent(
           <div className={`${confirmPrefixCls}-btns`}>
             {typeof footer === 'function'
               ? footer(footerOriginNode, {
-                  ConfirmBtn,
+                  OkBtn,
                   CancelBtn,
                 })
               : footerOriginNode}
