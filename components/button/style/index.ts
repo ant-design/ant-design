@@ -1,8 +1,6 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 
 import { genFocusStyle } from '../../style';
-import { genCompactItemStyle } from '../../style/compact-item';
-import { genCompactItemVerticalStyle } from '../../style/compact-item-vertical';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
