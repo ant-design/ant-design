@@ -2,12 +2,12 @@ import fs from 'fs-extra';
 import type { DeclarationReflection } from 'typedoc';
 import { Application, TSConfigReader, TypeDocReader } from 'typedoc';
 
-type TokenMeta = {
+interface TokenMeta {
   seed: ReturnType<typeof getTokenList>;
   map: ReturnType<typeof getTokenList>;
   alias: ReturnType<typeof getTokenList>;
   components: Record<string, ReturnType<typeof getTokenList>>;
-};
+}
 
 function getTokenList(list?: DeclarationReflection[], source?: string) {
   return (list || [])
@@ -40,20 +40,17 @@ function getTokenList(list?: DeclarationReflection[], source?: string) {
     }));
 }
 
-const main = () => {
-  const app = new Application();
+const main = async () => {
+  const app = await (Application as any).bootstrap(
+    {
+      // typedoc options here
+      entryPoints: ['components/theme/interface/index.ts', 'components/*/style/index.{ts,tsx}'],
+      skipErrorChecking: true,
+    },
+    [new TSConfigReader(), new TypeDocReader()],
+  );
 
-  // If you want TypeDoc to load tsconfig.json / typedoc.json files
-  app.options.addReader(new TSConfigReader());
-  app.options.addReader(new TypeDocReader());
-
-  app.bootstrap({
-    // typedoc options here
-    entryPoints: ['components/theme/interface/index.ts', 'components/*/style/index.{ts,tsx}'],
-    skipErrorChecking: true,
-  });
-
-  const project = app.convert();
+  const project = await app.convert();
 
   if (project) {
     // Project may not have converted correctly
@@ -66,11 +63,11 @@ const main = () => {
     };
 
     // eslint-disable-next-line no-restricted-syntax
-    project?.children?.forEach((file) => {
+    project?.children?.forEach((file: any) => {
       // Global Token
       if (file.name === 'theme/interface') {
         let presetColors: string[] = [];
-        file.children?.forEach((type) => {
+        file.children?.forEach((type: any) => {
           if (type.name === 'SeedToken') {
             tokenMeta.seed = getTokenList(type.children, 'seed');
           } else if (type.name === 'MapToken') {
@@ -102,8 +99,8 @@ const main = () => {
       } else {
         const component = file.name
           .slice(0, file.name.indexOf('/'))
-          .replace(/(^(.)|-(.))/g, (match) => match.replace('-', '').toUpperCase());
-        const componentToken = file.children?.find((item) => item.name === `ComponentToken`);
+          .replace(/(^(.)|-(.))/g, (match: string) => match.replace('-', '').toUpperCase());
+        const componentToken = file.children?.find((item: any) => item?.name === 'ComponentToken');
         if (componentToken) {
           tokenMeta.components[component] = getTokenList(componentToken.children, component);
         }

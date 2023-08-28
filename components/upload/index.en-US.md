@@ -87,7 +87,7 @@ Extends File with additional props.
 | crossOrigin | CORS settings attributes | `'anonymous'` \| `'use-credentials'` \| `''` | - | 4.20.0 |
 | name | File name | string | - | - |
 | percent | Upload progress percent | number | - | - |
-| status | Upload status. Show different style when configured | `error` \| `success` \| `done` \| `uploading` \| `removed` | - | - |
+| status | Upload status. Show different style when configured | `error` \| `done` \| `uploading` \| `removed` | - | - |
 | thumbUrl | Thumb image url | string | - | - |
 | uid | unique id. Will auto-generate when not provided | string | - | - |
 | url | Download url | string | - | - |
