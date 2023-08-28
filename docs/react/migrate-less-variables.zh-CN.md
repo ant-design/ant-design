@@ -251,9 +251,9 @@ export default App;
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
 | `@checkbox-size` | `controlInteractiveSize` | 全局 Token |
-| `@checkbox-color` | `colorPrimary` | - |
+| `@checkbox-color` | `colorPrimary` | 全局 Token |
 | `@checkbox-check-color` | `colorWhite` | - |
-| `@checkbox-check-bg` | - | `colorPrimary` |
+| `@checkbox-check-bg` | `colorPrimary` | 全局 Token |
 | `@checkbox-border-width` | `lineWidth` | - |
 | `@checkbox-border-radius` | `borderRadiusSM` | - |
 | `@checkbox-group-item-margin-right` | - | 由于样式变化已废弃 |
@@ -334,7 +334,7 @@ export default App;
 
 | Less 变量                            | Component Token       | 备注       |
 | ------------------------------------ | --------------------- | ---------- |
-| `@dropdown-selected-color`           | `colorPrimary`        | -          |
+| `@dropdown-selected-color`           | `colorPrimary`        | 全局 Token |
 | `@dropdown-menu-submenu-disabled-bg` | `colorBgElevated`     | 全局 Token |
 | `@dropdown-selected-bg`              | `controlItemBgActive` | 全局 Token |
 
@@ -460,7 +460,7 @@ Mentions 提及
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@mentions-dropdown-bg` | `colorBgElevated` | - |
+| `@mentions-dropdown-bg` | `colorBgElevated` | 全局 Token |
 | `@mentions-dropdown-menu-item-hover-bg` | - | 已废弃 |
 
 ### Menu 导航菜单
@@ -566,7 +566,7 @@ Mentions 提及
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@popover-bg` | `colorBgElevated` | - |
+| `@popover-bg` | `colorBgElevated` | 全局 Token |
 | `@popover-color` | `colorText` | 全局 Token |
 | `@popover-min-width` | `minWidth` | - |
 | `@popover-min-height` | - | 已废弃 |
