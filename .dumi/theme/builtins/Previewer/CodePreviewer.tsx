@@ -4,11 +4,11 @@ import {
   LinkOutlined,
   SnippetsOutlined,
   ThunderboltOutlined,
-  VerticalAlignTopOutlined,
+  UpOutlined,
 } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
-import { Alert, Badge, Button, Space, Tooltip } from 'antd';
+import { Alert, Badge, Space, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
 import { FormattedMessage, useSiteData } from 'dumi';
@@ -67,17 +67,27 @@ function useShowRiddleButton() {
 }
 
 const useStyle = createStyles(({ token }) => {
-  const { fontSizeLG, marginXS } = token;
+  const { borderRadius } = token;
   return {
     codeHideBtn: css`
+      width: 100%;
+      height: 40px;
       display: flex;
       justify-content: center;
       align-items: center;
       border-start-start-radius: 0;
       border-start-end-radius: 0;
-      .ant-btn-icon {
-        font-size: ${fontSizeLG}px;
-        margin-right: ${marginXS}px;
+      border-end-start-radius: ${borderRadius}px;
+      border-end-end-radius: ${borderRadius}px;
+      border-top: 1px solid ${token.colorSplit};
+      color: ${token.colorTextSecondary};
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+      &:hover {
+        color: ${token.colorPrimary};
+      }
+      span {
+        margin-right: ${token.marginXXS}px;
       }
     `,
   };
@@ -533,14 +543,10 @@ createRoot(document.getElementById('container')).render(<Demo />);
             styleCode={style}
             onCodeTypeChange={setCodeType}
           />
-          <Button
-            block
-            className={styles.codeHideBtn}
-            icon={<VerticalAlignTopOutlined />}
-            onClick={() => setCodeExpand(false)}
-          >
-            <FormattedMessage id="app.demo.code.hide" />
-          </Button>
+          <div className={styles.codeHideBtn} onClick={() => setCodeExpand(false)}>
+            <UpOutlined />
+            <FormattedMessage id="app.demo.code.hide.simplify" />
+          </div>
         </section>
       )}
     </section>
