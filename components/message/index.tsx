@@ -1,9 +1,9 @@
 'use client';
 
-import { render } from 'rc-util/lib/React/render';
 import * as React from 'react';
+import { render } from 'rc-util/lib/React/render';
+
 import ConfigProvider, { globalConfig, warnContext } from '../config-provider';
-import PurePanel from './PurePanel';
 import type {
   ArgsProps,
   ConfigOptions,
@@ -12,6 +12,7 @@ import type {
   NoticeType,
   TypeOpen,
 } from './interface';
+import PurePanel from './PurePanel';
 import useMessage, { useInternalMessage } from './useMessage';
 import { wrapPromiseFn } from './util';
 
@@ -70,7 +71,7 @@ function getGlobalContext() {
 
   return {
     prefixCls: mergedPrefixCls,
-    container: mergedContainer,
+    getContainer: () => mergedContainer!,
     duration,
     rtl,
     maxCount,
@@ -84,20 +85,7 @@ interface GlobalHolderRef {
 }
 
 const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
-  const initializeMessageConfig: () => ConfigOptions = () => {
-    const { prefixCls, container, maxCount, duration, rtl, top } = getGlobalContext();
-
-    return {
-      prefixCls,
-      getContainer: () => container!,
-      maxCount,
-      duration,
-      rtl,
-      top,
-    };
-  };
-
-  const [messageConfig, setMessageConfig] = React.useState<ConfigOptions>(initializeMessageConfig);
+  const [messageConfig, setMessageConfig] = React.useState<ConfigOptions>(getGlobalContext);
 
   const [api, holder] = useInternalMessage(messageConfig);
 
@@ -107,7 +95,7 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   const theme = global.getTheme();
 
   const sync = () => {
-    setMessageConfig(initializeMessageConfig);
+    setMessageConfig(getGlobalContext);
   };
 
   React.useEffect(sync, []);

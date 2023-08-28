@@ -22,6 +22,7 @@ import type { ComponentToken as DropdownComponentToken } from '../../dropdown/st
 import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
 import type { ComponentToken as FloatButtonComponentToken } from '../../float-button/style';
 import type { ComponentToken as ImageComponentToken } from '../../image/style';
+import type { ComponentToken as InputComponentToken } from '../../input/style';
 import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
 import type { ComponentToken as LayoutComponentToken } from '../../layout/style';
 import type { ComponentToken as ListComponentToken } from '../../list/style';
@@ -58,6 +59,7 @@ import type { ComponentToken as TreeComponentToken } from '../../tree/style';
 import type { ComponentToken as TreeSelectComponentToken } from '../../tree-select/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
+import type { ComponentToken as FormComponentToken } from '../../form/style';
 
 export interface ComponentTokenMap {
   Affix?: {};
@@ -81,10 +83,10 @@ export interface ComponentTokenMap {
   Dropdown?: DropdownComponentToken;
   Empty?: EmptyComponentToken;
   FloatButton?: FloatButtonComponentToken;
-  Form?: {};
+  Form?: FormComponentToken;
   Grid?: {};
   Image?: ImageComponentToken;
-  Input?: {};
+  Input?: InputComponentToken;
   InputNumber?: InputNumberComponentToken;
   Layout?: LayoutComponentToken;
   List?: ListComponentToken;

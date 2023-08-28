@@ -5177,14 +5177,11 @@ Array [
                             viewBox="64 64 896 896"
                             width="1em"
                           >
-                            <defs>
-                              <style />
-                            </defs>
                             <path
                               d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
                             />
                             <path
-                              d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                              d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
                             />
                           </svg>
                         </span>
@@ -6051,14 +6048,11 @@ exports[`renders components/form/demo/dynamic-form-item.tsx extend context corre
                     viewBox="64 64 896 896"
                     width="1em"
                   >
-                    <defs>
-                      <style />
-                    </defs>
                     <path
                       d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
                     />
                     <path
-                      d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                      d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
                     />
                   </svg>
                 </span>
@@ -6089,14 +6083,11 @@ exports[`renders components/form/demo/dynamic-form-item.tsx extend context corre
                     viewBox="64 64 896 896"
                     width="1em"
                   >
-                    <defs>
-                      <style />
-                    </defs>
                     <path
                       d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
                     />
                     <path
-                      d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                      d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
                     />
                   </svg>
                 </span>
@@ -6186,14 +6177,11 @@ exports[`renders components/form/demo/dynamic-form-items.tsx extend context corr
                     viewBox="64 64 896 896"
                     width="1em"
                   >
-                    <defs>
-                      <style />
-                    </defs>
                     <path
                       d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
                     />
                     <path
-                      d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                      d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
                     />
                   </svg>
                 </span>
@@ -6454,14 +6442,11 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend cont
                     viewBox="64 64 896 896"
                     width="1em"
                   >
-                    <defs>
-                      <style />
-                    </defs>
                     <path
                       d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
                     />
                     <path
-                      d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                      d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
                     />
                   </svg>
                 </span>
@@ -6576,14 +6561,11 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx extend con
                               viewBox="64 64 896 896"
                               width="1em"
                             >
-                              <defs>
-                                <style />
-                              </defs>
                               <path
                                 d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
                               />
                               <path
-                                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                                d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
                               />
                             </svg>
                           </span>
@@ -6834,6 +6816,25 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
     </div>
   </div>
   <div
+    class="ant-form-item ant-form-item-hidden"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-16 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
     class="ant-form-item"
   >
     <div
@@ -6928,7 +6929,11 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
 </form>
 `;
 
-exports[`renders components/form/demo/form-context.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/form/demo/form-context.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Form.Item] \`name\` is only used for validate React element. If you are using Form.Item as layout display, please remove \`name\` instead.",
+]
+`;
 
 exports[`renders components/form/demo/form-in-modal.tsx extend context correctly 1`] = `
 <div>
