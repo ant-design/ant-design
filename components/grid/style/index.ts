@@ -1,4 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
@@ -92,7 +93,8 @@ const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObjec
   const gridColumnsStyle: CSSObject = {};
   for (let i = gridColumns; i >= 0; i--) {
     if (i === 0) {
-      gridColumnsStyle[`${componentCls}${sizeCls}-${i}`] = {
+      // ref: https://github.com/ant-design/ant-design/issues/44456
+      gridColumnsStyle[`${componentCls}${componentCls}${componentCls}${sizeCls}-${i}`] = {
         display: 'none',
       };
       gridColumnsStyle[`${componentCls}-push-${i}`] = {
