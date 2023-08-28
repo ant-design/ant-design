@@ -4,11 +4,12 @@ import {
   LinkOutlined,
   SnippetsOutlined,
   ThunderboltOutlined,
-  VerticalAlignMiddleOutlined,
+  VerticalAlignTopOutlined,
 } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
 import { Alert, Badge, Button, Space, Tooltip } from 'antd';
+import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
 import { FormattedMessage, useSiteData } from 'dumi';
 import LZString from 'lz-string';
@@ -65,6 +66,23 @@ function useShowRiddleButton() {
   return showRiddleButton;
 }
 
+const useStyle = createStyles(({ token }) => {
+  const { fontSizeLG, marginXS } = token;
+  return {
+    codeHideBtn: css`
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-start-start-radius: 0;
+      border-start-end-radius: 0;
+      .ant-btn-icon {
+        font-size: ${fontSizeLG}px;
+        margin-right: ${marginXS}px;
+      }
+    `,
+  };
+});
+
 const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const {
     asset,
@@ -87,6 +105,8 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
 
   const { pkg } = useSiteData();
   const location = useLocation();
+
+  const { styles } = useStyle();
 
   const entryCode = asset.dependencies['index.tsx'].value;
   const showRiddleButton = useShowRiddleButton();
@@ -515,8 +535,8 @@ createRoot(document.getElementById('container')).render(<Demo />);
           />
           <Button
             block
-            className="code-hide-btn"
-            icon={<VerticalAlignMiddleOutlined />}
+            className={styles.codeHideBtn}
+            icon={<VerticalAlignTopOutlined />}
             onClick={() => setCodeExpand(false)}
           >
             <FormattedMessage id="app.demo.code.hide" />

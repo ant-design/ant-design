@@ -217,17 +217,6 @@ const GlobalDemoStyles: React.FC = () => {
             &-expand {
               display: block;
             }
-            .code-hide-btn {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              border-start-start-radius: 0;
-              border-start-end-radius: 0;
-              .ant-btn-icon {
-                font-size: ${token.fontSizeLG}px;
-                margin-right: ${token.marginXS}px;
-              }
-            }
           }
 
           .highlight {
