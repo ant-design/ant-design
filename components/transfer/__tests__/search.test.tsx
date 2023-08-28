@@ -94,7 +94,6 @@ describe('Transfer.Search', () => {
     );
 
     fireEvent.change(container.querySelectorAll('.ant-input').item(0), { target: { value: 'a' } });
-
     expect(filterOption).toHaveBeenNthCalledWith(
       1,
       'a',
@@ -105,6 +104,19 @@ describe('Transfer.Search', () => {
       'a',
       { key: 'c', title: 'c', description: 'c' },
       'left',
+    );
+    filterOption.mockReset();
+    fireEvent.change(container.querySelectorAll('.ant-input').item(1), { target: { value: 'b' } });
+    expect(filterOption).toHaveBeenNthCalledWith(
+      1,
+      'b',
+      { key: 'a', title: 'a', description: 'a' },
+      'right',
+    );
+    expect(filterOption).toHaveBeenLastCalledWith(
+      'b',
+      { key: 'c', title: 'c', description: 'c' },
+      'right',
     );
   });
 });
