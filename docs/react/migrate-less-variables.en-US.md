@@ -253,7 +253,7 @@ export default App;
 | `@checkbox-size` | `controlInteractiveSize` | GlobalToken |
 | `@checkbox-color` | `colorPrimary` | - |
 | `@checkbox-check-color` | `colorWhite` | - |
-| `@checkbox-check-bg` | - | `colorPrimary` |
+| `@checkbox-check-bg` | `colorPrimary` | GlobalToken |
 | `@checkbox-border-width` | `lineWidth` | - |
 | `@checkbox-border-radius` | `borderRadiusSM` | - |
 | `@checkbox-group-item-margin-right` | - | Deprecated for style change |
@@ -335,7 +335,7 @@ export default App;
 
 | Less variables                       | Component Token       | Note        |
 | ------------------------------------ | --------------------- | ----------- |
-| `@dropdown-selected-color`           | `colorPrimary`        | -           |
+| `@dropdown-selected-color`           | `colorPrimary`        | GlobalToken |
 | `@dropdown-menu-submenu-disabled-bg` | `colorBgElevated`     | GlobalToken |
 | `@dropdown-selected-bg`              | `controlItemBgActive` | GlobalToken |
 
@@ -565,7 +565,7 @@ export default App;
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@popover-bg` | `colorBgContainer` | - |
+| `@popover-bg` | `colorBgElevated` | GlobalToken |
 | `@popover-color` | `colorText` | GlobalToken |
 | `@popover-min-width` | `minWidth` | - |
 | `@popover-min-height` | - | Deprecated  for style change |
