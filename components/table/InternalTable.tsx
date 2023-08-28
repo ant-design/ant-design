@@ -1,26 +1,26 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import { INTERNAL_HOOKS, type TableProps as RcTableProps } from 'rc-table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';
 import warning from '../_util/warning';
-import type { SizeType } from '../config-provider/SizeContext';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import defaultLocale from '../locale/en_US';
 import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
+import { useToken } from '../theme/internal';
 import type { TooltipProps } from '../tooltip';
 import renderExpandIcon from './ExpandIcon';
-import RcTable from './RcTable';
-import RcVirtualTable from './RcTable/VirtualTable';
 import type { FilterState } from './hooks/useFilter';
 import useFilter, { getFilterData } from './hooks/useFilter';
 import useLazyKVMap from './hooks/useLazyKVMap';
@@ -29,25 +29,26 @@ import useSelection from './hooks/useSelection';
 import type { SortState } from './hooks/useSorter';
 import useSorter, { getSortData } from './hooks/useSorter';
 import useTitleColumns from './hooks/useTitleColumns';
-import { useToken } from '../theme/internal';
 import type {
+  ColumnsType,
   ColumnTitleProps,
   ColumnType,
-  ColumnsType,
-  ExpandType,
   ExpandableConfig,
+  ExpandType,
   FilterValue,
   GetPopupContainer,
   GetRowKey,
   RefInternalTable,
-  SortOrder,
   SorterResult,
+  SortOrder,
   TableAction,
   TableCurrentDataSource,
   TableLocale,
   TablePaginationConfig,
   TableRowSelection,
 } from './interface';
+import RcTable from './RcTable';
+import RcVirtualTable from './RcTable/VirtualTable';
 import useStyle from './style';
 
 export type { ColumnsType, TablePaginationConfig };
