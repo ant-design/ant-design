@@ -39,7 +39,6 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     onChange: customOnChange,
     onCompositionStart,
     onCompositionEnd,
-    onReset,
     ...restProps
   } = props;
 
@@ -150,12 +149,6 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   const handleOnCompositionEnd: React.CompositionEventHandler<HTMLInputElement> = (e) => {
     composedRef.current = false;
     onCompositionEnd?.(e);
-  };
-
-  const handleReset: InputProps['onReset'] = (e) => {
-    clearFlag.current = true;
-    console.log('===>重置');
-    onReset?.(e);
   };
 
   return (
