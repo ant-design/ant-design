@@ -1,9 +1,13 @@
 import { css, Global } from '@emotion/react';
 import React from 'react';
+import { useTheme } from 'antd-style';
 
-export default () => (
-  <Global
-    styles={css`
+export default () => {
+  const { headerHeight, margin } = useTheme();
+
+  return (
+    <Global
+      styles={css`
       body,
       div,
       dl,
@@ -55,6 +59,11 @@ export default () => (
         vertical-align: middle;
         border-style: none;
       }
+
+      html {
+        scroll-padding-top: ${headerHeight + margin}px;
+      }
     `}
-  />
-);
+    />
+  );
+};

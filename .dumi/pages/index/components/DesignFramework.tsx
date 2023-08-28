@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
+import { Col, Row, Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { Link, useLocation } from 'dumi';
-import { Col, Row, Typography } from 'antd';
+
+import useDark from '../../../hooks/useDark';
 import useLocale from '../../../hooks/useLocale';
-import * as utils from '../../../theme/utils';
 import SiteContext from '../../../theme/slots/SiteContext';
+import * as utils from '../../../theme/utils';
 
 const SECONDARY_LIST = [
   {
@@ -60,12 +62,17 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token, css }) => ({
-  card: css`
+const useStyle = () => {
+  const isRootDark = useDark();
+
+  return createStyles(({ token, css }) => ({
+    card: css`
       padding: ${token.paddingSM}px;
       border-radius: ${token.borderRadius * 2}px;
-      background: #fff;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02),
+      background: ${isRootDark ? 'rgba(0,0,0,0.45)' : token.colorBgElevated};
+      box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.03),
+        0 1px 6px -1px rgba(0, 0, 0, 0.02),
         0 2px 4px rgba(0, 0, 0, 0.02);
 
       img {
@@ -75,18 +82,19 @@ const useStyle = createStyles(({ token, css }) => ({
       }
     `,
 
-  cardMini: css`
+    cardMini: css`
       display: block;
       border-radius: ${token.borderRadius * 2}px;
       padding: ${token.paddingMD}px ${token.paddingLG}px;
-      background: rgba(0, 0, 0, 0.02);
-      border: 1px solid rgba(0, 0, 0, 0.06);
+      background: ${isRootDark ? 'rgba(0,0,0,0.25)' : 'rgba(0, 0, 0, 0.02)'};
+      border: 1px solid ${isRootDark ? 'rgba(255,255,255, 0.45)' : 'rgba(0, 0, 0, 0.06)'};
 
       img {
         height: 48px;
       }
     `,
-}));
+  }))();
+};
 
 export default function DesignFramework() {
   const [locale] = useLocale(locales);

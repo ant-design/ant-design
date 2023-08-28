@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { getStyleStr } from './utils';
 
 /**
@@ -16,7 +17,6 @@ export type AppendWatermark = (
 
 export default function useWatermark(
   markStyle: React.CSSProperties,
-  gapX: number,
 ): [
   appendWatermark: AppendWatermark,
   removeWatermark: (container: HTMLElement) => void,
@@ -38,7 +38,7 @@ export default function useWatermark(
         getStyleStr({
           ...markStyle,
           backgroundImage: `url('${base64Url}')`,
-          backgroundSize: `${(gapX + markWidth) * BaseSize}px`,
+          backgroundSize: `${Math.floor(markWidth)}px`,
         }),
       );
       container.append(watermarkEle);

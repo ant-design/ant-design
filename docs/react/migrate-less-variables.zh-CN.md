@@ -14,8 +14,12 @@ title: 从 Less 变量到 Design Token
 通过 ConfigProvider 的 `theme` 属性，我们可以对每一个组件单独配置全局 Token 和组件 Token
 
 ```tsx
-import { Checkbox, ConfigProvider, Radio } from 'antd';
 import React from 'react';
+import { Checkbox, ConfigProvider, Radio } from 'antd';
+
+import { Checkbox, ConfigProvider, Radio } from 'antd';
+
+import { Checkbox, ConfigProvider, Radio } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -247,9 +251,9 @@ export default App;
 | Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
 | `@checkbox-size` | `controlInteractiveSize` | 全局 Token |
-| `@checkbox-color` | `colorPrimary` | - |
+| `@checkbox-color` | `colorPrimary` | 全局 Token |
 | `@checkbox-check-color` | `colorWhite` | - |
-| `@checkbox-check-bg` | - | `colorPrimary` |
+| `@checkbox-check-bg` | `colorPrimary` | 全局 Token |
 | `@checkbox-border-width` | `lineWidth` | - |
 | `@checkbox-border-radius` | `borderRadiusSM` | - |
 | `@checkbox-group-item-margin-right` | - | 由于样式变化已废弃 |
@@ -265,6 +269,27 @@ export default App;
 | `@collapse-content-padding` | `contentPadding` | - |
 | `@collapse-content-bg` | `contentBg` | - |
 | `@collapse-header-arrow-left` | - | 已废弃 |
+
+### DatePicker 日期选择框
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@picker-bg` | `colorBgContainer` | 全局 Token |
+| `@picker-basic-cell-hover-color` | `cellHoverBg` | - |
+| `@picker-basic-cell-active-with-range-color` | `cellActiveWithRangeBg` | - |
+| `@picker-basic-cell-hover-with-range-color` | `cellHoverWithRangeBg` | - |
+| `@picker-basic-cell-disabled-bg` | `cellBgDisabled` | - |
+| `@picker-border-color` | `colorSplit` | 全局 Token |
+| `@picker-date-hover-range-border-color` | `cellRangeBorderColor` | - |
+| `@picker-date-hover-range-color` | `cellHoverWithRangeColor` | - |
+| `@picker-time-panel-column-width` | `timeColumnWidth` | - |
+| `@picker-time-panel-column-height` | `timeColumnHeight` | - |
+| `@picker-time-panel-cell-height` | `timeCellHeight` | - |
+| `@picker-panel-cell-height` | `cellHeight` | - |
+| `@picker-panel-cell-width` | `cellWidth` | - |
+| `@picker-text-height` | `textHeight` | - |
+| `@picker-panel-without-time-cell-height` | `withoutTimeCellHeight` | - |
 
 ### Descriptions 描述列表
 
@@ -309,7 +334,7 @@ export default App;
 
 | Less 变量                            | Component Token       | 备注       |
 | ------------------------------------ | --------------------- | ---------- |
-| `@dropdown-selected-color`           | `colorPrimary`        | -          |
+| `@dropdown-selected-color`           | `colorPrimary`        | 全局 Token |
 | `@dropdown-menu-submenu-disabled-bg` | `colorBgElevated`     | 全局 Token |
 | `@dropdown-selected-bg`              | `controlItemBgActive` | 全局 Token |
 
@@ -320,7 +345,23 @@ export default App;
 | --- | --- | --- |
 | `@empty-font-size` | `fontSize` | 全局 Token |
 
-<!-- ### Form 表单 -->
+### Form 表单
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@label-required-color` | `labelRequiredMarkColor` | - |
+| `@label-color` | `labelColor` | - |
+| `@form-warning-input-bg` | - | 由于样式变化已废弃 |
+| `@form-item-margin-bottom` | `itemMarginBottom` | - |
+| `@form-item-trailing-colon` | - | 由于样式变化已废弃 |
+| `@form-vertical-label-padding` | `verticalLabelPadding` | - |
+| `@form-vertical-label-margin` | `verticalLabelMargin` | - |
+| `@form-item-label-font-size` | `labelFontSize` | - |
+| `@form-item-label-height` | `labelHeight` | - |
+| `@form-item-label-colon-margin-right` | `labelColonMarginInlineEnd` | - |
+| `@form-item-label-colon-margin-left` | `labelColonMarginInlineStart` | - |
+| `@form-error-input-bg` | - | 由于样式变化已废弃 |
 
 ### Image 图片
 
@@ -335,7 +376,43 @@ export default App;
 | `@image-preview-operation-color` | `previewOperationColor` | - |
 | `@image-preview-operation-disabled-color` | `previewOperationColorDisabled` | - |
 
-<!-- ### Input 输入框 -->
+### Input 输入框
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@input-height-base` | `controlHeight` | 全局 Token |
+| `@input-height-lg` | `controlHeightLG` | 全局 Token |
+| `@input-height-sm` | `controlHeightSM` | 全局 Token |
+| `@input-padding-horizontal` | `paddingInline` | - |
+| `@input-padding-horizontal-base` | `paddingInline` | - |
+| `@input-padding-horizontal-sm` | `paddingInlineSM` | - |
+| `@input-padding-horizontal-lg` | `paddingInlineLG` | - |
+| `@input-padding-vertical-base` | `paddinBlock` | - |
+| `@input-padding-vertical-sm` | `paddingBlockSM` | - |
+| `@input-padding-vertical-lg` | `paddingBlockLG` | - |
+| `@input-placeholder-color` | `colorTextPlaceholder` | 全局 Token |
+| `@input-color` | `colorText` | 全局 Token |
+| `@input-icon-color` | - | 已废弃 |
+| `@input-border-color` | `colorBorder` | 全局 Token |
+| `@input-bg` | `colorBgContainer` | 全局 Token |
+| `@input-addon-bg` | `addonBg` | - |
+| `@input-hover-border-color` | `hoverBorderColor` | - |
+| `@input-disabled-bg` | `colorBgContainerDisabled` | 全局 Token |
+| `@input-outline-offset` | `activeShadow` | 控制激活态阴影 |
+| `@input-icon-hover-color` | `colorIconHover` | 全局 Token |
+| `@input-disabled-color` | `colorTextDisabled` | 全局 Token |
+
+### InputNumber 数字输入框
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@input-number-hover-border-color` | `hoverBorderColor` | - |
+| `@input-number-handler-active-bg` | `handleActiveBg` | - |
+| `@input-number-handler-hover-bg` | `handleHoverColor` | 4.x 中命名有误，实际上是 color |
+| `@input-number-handler-bg` | `handleBg` | - |
+| `@input-number-handler-border-color` | `handleBorderColor` | - |
 
 ### Layout 布局
 
@@ -383,7 +460,7 @@ Mentions 提及
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@mentions-dropdown-bg` | `colorBgElevated` | - |
+| `@mentions-dropdown-bg` | `colorBgElevated` | 全局 Token |
 | `@mentions-dropdown-menu-item-hover-bg` | - | 已废弃 |
 
 ### Menu 导航菜单
@@ -489,7 +566,7 @@ Mentions 提及
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@popover-bg` | `colorBgElevated` | - |
+| `@popover-bg` | `colorBgElevated` | 全局 Token |
 | `@popover-color` | `colorText` | 全局 Token |
 | `@popover-min-width` | `minWidth` | - |
 | `@popover-min-height` | - | 已废弃 |
@@ -631,6 +708,15 @@ Mentions 提及
 | `@slider-dot-border-color-active` | `dotActiveBorderColor` | - |
 | `@slider-disabled-color` | `trackBgDisabled` | - |
 | `@slider-disabled-background-color` | - | 已废弃 |
+
+### Spin 加载中
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@spin-dot-size-sm` | `dotSizeSM` | - |
+| `@spin-dot-size` | `dotSize` | - |
+| `@spin-dot-size-lg` | `dotSizeLG` | - |
 
 ### Statistic 统计数值
 
@@ -781,8 +867,6 @@ Mentions 提及
 | `@timeline-dot-color` | - | 已废弃 |
 | `@timeline-dot-bg` | `dotBg` | - |
 | `@timeline-item-padding-bottom` | `itemPaddingBottom` | - |
-
-<!-- ### TimePicker 时间选择 -->
 
 ### Tooltip 文字提示
 

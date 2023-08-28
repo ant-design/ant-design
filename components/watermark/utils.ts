@@ -14,18 +14,6 @@ export function getPixelRatio() {
   return window.devicePixelRatio || 1;
 }
 
-/** Rotate with the watermark as the center point */
-export function rotateWatermark(
-  ctx: CanvasRenderingContext2D,
-  rotateX: number,
-  rotateY: number,
-  rotate: number,
-) {
-  ctx.translate(rotateX, rotateY);
-  ctx.rotate((Math.PI / 180) * Number(rotate));
-  ctx.translate(-rotateX, -rotateY);
-}
-
 /** Whether to re-render the watermark */
 export const reRendering = (mutation: MutationRecord, isWatermarkEle: (ele: any) => boolean) => {
   let flag = false;
