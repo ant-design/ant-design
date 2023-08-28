@@ -14,6 +14,7 @@ import type {
 } from '../interface';
 import useToken from '../useToken';
 import statisticToken, { merge as mergeToken } from './statistic';
+import useResetIconStyle from './useResetIconStyle';
 
 export type OverrideTokenWithoutDerivative = ComponentTokenMap;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
@@ -105,6 +106,9 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
         },
       ],
     );
+
+    // Generate style for icons
+    useResetIconStyle(iconPrefixCls);
 
     return [
       useStyleRegister(
