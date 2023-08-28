@@ -18,6 +18,7 @@ export interface SearchProps extends InputProps {
       | React.ChangeEvent<HTMLInputElement>
       | React.MouseEvent<HTMLElement>
       | React.KeyboardEvent<HTMLInputElement>,
+    source?: 'clear' | 'input',
   ) => void;
   enterButton?: React.ReactNode;
   loading?: boolean;
@@ -38,6 +39,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     onChange: customOnChange,
     onCompositionStart,
     onCompositionEnd,
+    onReset,
     ...restProps
   } = props;
 
@@ -55,7 +57,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e && e.target && e.type === 'click' && customOnSearch) {
-      customOnSearch((e as React.ChangeEvent<HTMLInputElement>).target.value, e);
+      customOnSearch((e as React.ChangeEvent<HTMLInputElement>).target.value, e, 'clear');
     }
     if (customOnChange) {
       customOnChange(e);
@@ -70,7 +72,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
 
   const onSearch = (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>) => {
     if (customOnSearch) {
-      customOnSearch(inputRef.current?.input?.value!, e);
+      customOnSearch(inputRef.current?.input?.value!, e, 'input');
     }
   };
 
@@ -148,6 +150,12 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   const handleOnCompositionEnd: React.CompositionEventHandler<HTMLInputElement> = (e) => {
     composedRef.current = false;
     onCompositionEnd?.(e);
+  };
+
+  const handleReset: InputProps['onReset'] = (e) => {
+    clearFlag.current = true;
+    console.log('===>重置');
+    onReset?.(e);
   };
 
   return (
