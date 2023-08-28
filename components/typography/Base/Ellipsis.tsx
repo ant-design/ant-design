@@ -101,7 +101,7 @@ const Ellipsis: React.FC<EllipsisProps> = ({
   const mergedChildren = React.useMemo(() => {
     if (!enabledMeasure || walkingState !== DONE_WITH_ELLIPSIS) {
       // if has lastLen, use it as temporary width to avoid lots of text to squeeze space.
-      if (lastLen && walkingState !== DONE_WITHOUT_ELLIPSIS)
+      if (lastLen && walkingState !== DONE_WITHOUT_ELLIPSIS && enabledMeasure)
         return children(sliceNodes(nodeList, lastLen), lastLen < totalLen);
 
       return children(nodeList, false);
