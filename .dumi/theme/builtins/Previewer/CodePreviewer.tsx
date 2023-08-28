@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import {
   CheckOutlined,
@@ -82,6 +83,7 @@ const useStyle = createStyles(({ token }) => {
       border-top: 1px solid ${token.colorSplit};
       color: ${token.colorTextSecondary};
       transition: all 0.2s ease-in-out;
+      background-color: ${token.colorBgElevated};
       cursor: pointer;
       &:hover {
         color: ${token.colorPrimary};
@@ -543,7 +545,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
             styleCode={style}
             onCodeTypeChange={setCodeType}
           />
-          <div className={styles.codeHideBtn} onClick={() => setCodeExpand(false)}>
+          <div tabIndex={0} className={styles.codeHideBtn} onClick={() => setCodeExpand(false)}>
             <UpOutlined />
             <FormattedMessage id="app.demo.code.hide.simplify" />
           </div>
