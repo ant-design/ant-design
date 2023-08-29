@@ -1,7 +1,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { useNotification as useRcNotification } from 'rc-notification';
-import type { NotificationAPI } from 'rc-notification/lib';
+import { NotificationProvider, useNotification as useRcNotification } from 'rc-notification';
+import type {
+  NotificationAPI,
+  NotificationConfig as RcNotificationConfig,
+} from 'rc-notification/lib';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { ComponentStyleConfig } from '../config-provider/context';
@@ -14,6 +17,8 @@ import type {
 import { getCloseIcon, PureContent } from './PurePanel';
 import useNotificationStyle from './style';
 import { getMotion, getPlacementStyle } from './util';
+import type { FC, PropsWithChildren } from 'react';
+import { useEffect } from 'react';
 
 const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;
@@ -31,13 +36,18 @@ interface HolderRef extends NotificationAPI {
   notification?: ComponentStyleConfig;
 }
 
-const useStyle = (prefixCls: string) => {
+const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {
   const [, hashId] = useNotificationStyle(prefixCls);
-  return {
-    notice: hashId,
-    list: hashId,
-  };
+  return (
+    <NotificationProvider classNames={{ list: hashId, notice: hashId }}>
+      {children}
+    </NotificationProvider>
+  );
 };
+
+const renderNotifications: RcNotificationConfig['renderNotifications'] = (node, { prefixCls }) => (
+  <Wrapper prefixCls={prefixCls}>{node}</Wrapper>
+);
 
 const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const {
@@ -74,7 +84,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
     onAllRemoved,
-    useStyle,
+    renderNotifications,
   });
 
   // ================================ Ref ================================
