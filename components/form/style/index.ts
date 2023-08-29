@@ -1,11 +1,12 @@
+import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import { genCollapseMotion, zoomIn } from '../../style/motion';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 import genFormValidateMotionStyle from './explain';
-import type { CSSProperties } from 'react';
 
 export interface ComponentToken {
   /**
@@ -210,7 +211,6 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
       // =                            Label                           =
       // ==============================================================
       [`${formItemCls}-label`]: {
-        display: 'inline-block',
         flexGrow: 0,
         overflow: 'hidden',
         whiteSpace: 'nowrap',
@@ -293,7 +293,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
       // =                            Input                           =
       // ==============================================================
       [`${formItemCls}-control`]: {
-        display: 'flex',
+        ['--ant-display' as any]: 'flex',
         flexDirection: 'column',
         flexGrow: 1,
 
@@ -539,13 +539,22 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
 };
 
 // ============================== Export ==============================
+export const prepareToken: (
+  token: Parameters<GenStyleFn<'Form'>>[0],
+  rootPrefixCls: string,
+) => FormToken = (token, rootPrefixCls) => {
+  const formToken = mergeToken<FormToken>(token, {
+    formItemCls: `${token.componentCls}-item`,
+    rootPrefixCls,
+  });
+
+  return formToken;
+};
+
 export default genComponentStyleHook(
   'Form',
   (token, { rootPrefixCls }) => {
-    const formToken = mergeToken<FormToken>(token, {
-      formItemCls: `${token.componentCls}-item`,
-      rootPrefixCls,
-    });
+    const formToken = prepareToken(token, rootPrefixCls);
 
     return [
       genFormStyle(formToken),
@@ -569,4 +578,9 @@ export default genComponentStyleHook(
     verticalLabelPadding: `0 0 ${token.paddingXS}px`,
     verticalLabelMargin: 0,
   }),
+  {
+    // Let From style before the Grid
+    // ref https://github.com/ant-design/ant-design/issues/44386
+    order: -1000,
+  },
 );

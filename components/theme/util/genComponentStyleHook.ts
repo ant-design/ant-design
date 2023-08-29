@@ -59,9 +59,10 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
   componentName: ComponentName | [ComponentName, string],
   styleFn: GenStyleFn<ComponentName>,
   getDefaultToken?:
+    | null
     | OverrideTokenWithoutDerivative[ComponentName]
     | ((token: GlobalToken) => OverrideTokenWithoutDerivative[ComponentName]),
-  options?: {
+  options: {
     resetStyle?: boolean;
     // Deprecated token key map [["oldTokenKey", "newTokenKey"], ["oldTokenKey", "newTokenKey"]]
     deprecatedTokens?: [ComponentTokenKey<ComponentName>, ComponentTokenKey<ComponentName>][];
@@ -69,7 +70,11 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
      * Only use component style in client side. Ignore in SSR.
      */
     clientOnly?: boolean;
-  },
+    /**
+     * Set order of component style. Default is -999.
+     */
+    order?: number;
+  } = {},
 ) {
   const cells = (Array.isArray(componentName) ? componentName : [componentName, componentName]) as [
     ComponentName,
@@ -90,10 +95,10 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
       token,
       hashId,
       nonce: () => csp?.nonce!,
-      clientOnly: options?.clientOnly,
+      clientOnly: options.clientOnly,
 
       // antd is always at top of styles
-      order: -999,
+      order: options.order || -999,
     };
 
     // Generate style for all a tags in antd component.
@@ -117,7 +122,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
           const { token: proxyToken, flush } = statisticToken(token);
 
           const customComponentToken = { ...(token[component] as ComponentToken<ComponentName>) };
-          if (options?.deprecatedTokens) {
+          if (options.deprecatedTokens) {
             const { deprecatedTokens } = options;
             deprecatedTokens.forEach(([oldTokenKey, newTokenKey]) => {
               if (process.env.NODE_ENV !== 'production') {
@@ -165,7 +170,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
           });
           flush(component, mergedComponentToken);
           return [
-            options?.resetStyle === false ? null : genCommonStyle(token, prefixCls),
+            options.resetStyle === false ? null : genCommonStyle(token, prefixCls),
             styleInterpolation,
           ];
         },
