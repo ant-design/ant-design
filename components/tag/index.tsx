@@ -1,8 +1,9 @@
 'use client';
 
+import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
-import * as React from 'react';
+
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { isPresetColor, isPresetStatusColor } from '../_util/colors';
 import useClosable from '../_util/hooks/useClosable';
@@ -12,6 +13,7 @@ import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import CheckableTag from './CheckableTag';
 import useStyle from './style';
+import StatusCmp from './style/statusCmp';
 
 export type { CheckableTagProps } from './CheckableTag';
 
@@ -69,7 +71,8 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     }
   }, [props.visible]);
 
-  const isInternalColor = isPresetColor(color) || isPresetStatusColor(color);
+  const isStatusColor = isPresetStatusColor(color);
+  const isInternalColor = isPresetColor(color) || isStatusColor;
 
   const tagStyle: React.CSSProperties = {
     backgroundColor: color && !isInternalColor ? color : undefined,
@@ -140,6 +143,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     <span {...props} ref={ref} className={tagClassName} style={tagStyle}>
       {kids}
       {mergedCloseIcon}
+      {isStatusColor && <StatusCmp prefixCls={prefixCls} />}
     </span>
   );
 
