@@ -25,6 +25,7 @@ const genFlexStyle: GenerateStyle<FlexToken> = (token) => {
   return {
     [componentCls]: {
       display: 'flex',
+      position: 'relative',
       '&-rtl': {
         direction: 'rtl',
       },
@@ -54,61 +55,53 @@ const genFlexGapStyle: GenerateStyle<FlexToken> = (token) => {
 
 const genFlexWrapStyle: GenerateStyle<FlexToken> = (token) => {
   const { componentCls } = token;
-  const style: CSSInterpolation = {};
+  const wrapStyle: CSSInterpolation = {};
   flexWrapValues.forEach((flexWrapValue) => {
-    style[`&-wrap-${flexWrapValue}`] = {
+    wrapStyle[`&-wrap-${flexWrapValue}`] = {
       flexWrap: flexWrapValue,
     };
   });
   return {
-    [componentCls]: {
-      ...style,
-    },
+    [componentCls]: wrapStyle,
   };
 };
 
 const genAlignItemsStyle: GenerateStyle<FlexToken> = (token) => {
   const { componentCls } = token;
-  const style: CSSInterpolation = {};
+  const alignStyle: CSSInterpolation = {};
   alignItemsValues.forEach((alignItemsValue) => {
-    style[`&-align-${alignItemsValue}`] = {
+    alignStyle[`&-align-${alignItemsValue}`] = {
       alignItems: alignItemsValue,
     };
   });
   return {
-    [componentCls]: {
-      ...style,
-    },
+    [componentCls]: alignStyle,
   };
 };
 
 const genFlexDirectionStyle: GenerateStyle<FlexToken> = (token) => {
   const { componentCls } = token;
-  const style: CSSInterpolation = {};
+  const directionStyle: CSSInterpolation = {};
   flexDirectionValues.forEach((flexDirectionValue) => {
-    style[`&-direction-${flexDirectionValue}`] = {
+    directionStyle[`&-direction-${flexDirectionValue}`] = {
       flexDirection: flexDirectionValue,
     };
   });
   return {
-    [componentCls]: {
-      ...style,
-    },
+    [componentCls]: directionStyle,
   };
 };
 
 const genJustifyContentStyle: GenerateStyle<FlexToken> = (token) => {
   const { componentCls } = token;
-  const style: CSSInterpolation = {};
+  const justifyStyle: CSSInterpolation = {};
   justifyContentValues.forEach((justifyContentValue) => {
-    style[`&-justify-${justifyContentValue}`] = {
+    justifyStyle[`&-justify-${justifyContentValue}`] = {
       justifyContent: justifyContentValue,
     };
   });
   return {
-    [componentCls]: {
-      ...style,
-    },
+    [componentCls]: justifyStyle,
   };
 };
 
