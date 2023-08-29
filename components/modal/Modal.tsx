@@ -1,7 +1,8 @@
+import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import Dialog from 'rc-dialog';
-import * as React from 'react';
+
 import useClosable from '../_util/hooks/useClosable';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
@@ -9,10 +10,10 @@ import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
 import { NoCompactStyle } from '../space/Compact';
+import { usePanelRef } from '../watermark/context';
 import type { ModalProps, MousePosition } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
-import { usePanelRef } from '../watermark/context';
 
 let mousePosition: MousePosition;
 
@@ -93,9 +94,9 @@ const Modal: React.FC<ModalProps> = (props) => {
     warning(!('visible' in props), 'Modal', '`visible` is deprecated, please use `open` instead.');
   }
 
-  const dialogFooter =
-    footer === undefined ? <Footer {...props} onOk={handleOk} onCancel={handleCancel} /> : footer;
-
+  const dialogFooter = footer !== null && (
+    <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
+  );
   const [mergedClosable, mergedCloseIcon] = useClosable(
     closable,
     closeIcon,

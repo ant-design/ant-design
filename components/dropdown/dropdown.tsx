@@ -4,6 +4,7 @@ import RcDropdown from 'rc-dropdown';
 import { useEvent } from 'rc-util';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
+import type { AlignType } from '@rc-component/trigger';
 import * as React from 'react';
 import genPurePanel from '../_util/PurePanel';
 import type { AdjustOverflow } from '../_util/placements';
@@ -33,19 +34,6 @@ type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
 type OverlayFunc = () => React.ReactElement;
 
-type Align = {
-  points?: [string, string];
-  offset?: [number, number];
-  targetOffset?: [number, number];
-  overflow?: {
-    adjustX?: boolean;
-    adjustY?: boolean;
-  };
-  useCssRight?: boolean;
-  useCssBottom?: boolean;
-  useCssTransform?: boolean;
-};
-
 export type DropdownArrowOptions = {
   pointAtCenter?: boolean;
 };
@@ -60,7 +48,7 @@ export interface DropdownProps {
   open?: boolean;
   disabled?: boolean;
   destroyPopupOnHide?: boolean;
-  align?: Align;
+  align?: AlignType;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
   className?: string;
