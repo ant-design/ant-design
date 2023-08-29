@@ -46,9 +46,9 @@ High performance Form component with data scope management. Including data colle
 <code src="./demo/without-form-create.tsx">Handle Form Data Manually</code>
 <code src="./demo/validate-static.tsx">Customized Validation</code>
 <code src="./demo/dynamic-rule.tsx">Dynamic Rules</code>
+<code src="./demo/dependencies.tsx">Dependencies</code>
 <code src="./demo/validate-other.tsx">Other Form Controls</code>
 <code src="./demo/disabled-input-debug.tsx" debug>Disabled Input Debug</code>
-<code src="./demo/dep-debug.tsx" debug>Dep Debug</code>
 <code src="./demo/label-debug.tsx" debug>label ellipsis</code>
 <code src="./demo/col-24-debug.tsx" debug>Test col 24 usage</code>
 <code src="./demo/ref-item.tsx" debug>Ref item</code>
@@ -153,11 +153,9 @@ After wrapped by `Form.Item` with `name` property, `value`(or other property def
 
 ### dependencies
 
-Used when there are dependencies between fields. If a field has the `dependencies` prop, this field will automatically trigger updates and validations when upstream is updated. A common scenario is a user registration form with "password" and "confirm password" fields. The "Confirm Password" validation depends on the "Password" field. After setting `dependencies`, the "Password" field update will re-trigger the validation of "Check Password". You can refer [examples](#components-form-demo-register).
+Used when there are dependencies between fields. If a field has the `dependencies` prop, this field will automatically trigger updates and validations when upstream is updated. A common scenario is a user registration form with "password" and "confirm password" fields. The "Confirm Password" validation depends on the "Password" field. After setting `dependencies`, the "Password" field update will re-trigger the validation of "Check Password". You can refer [examples](#components-form-demo-dependencies).
 
 `dependencies` shouldn't be used together with `shouldUpdate`, since it may result in conflicting update logic.
-
-`dependencies` supports `Form.Item` with render props children since `4.5.0`.
 
 ### shouldUpdate
 

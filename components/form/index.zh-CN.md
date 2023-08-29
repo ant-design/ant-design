@@ -47,9 +47,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/without-form-create.tsx">自行处理表单数据</code>
 <code src="./demo/validate-static.tsx">自定义校验</code>
 <code src="./demo/dynamic-rule.tsx">动态校验规则</code>
+<code src="./demo/dependencies.tsx">校验与更新依赖</code>
 <code src="./demo/validate-other.tsx">校验其他组件</code>
 <code src="./demo/disabled-input-debug.tsx" debug>Disabled Input Debug</code>
-<code src="./demo/dep-debug.tsx" debug>Dep Debug</code>
 <code src="./demo/label-debug.tsx" debug>测试 label 省略</code>
 <code src="./demo/col-24-debug.tsx" debug>测试特殊 col 24 用法</code>
 <code src="./demo/ref-item.tsx" debug>引用字段</code>
@@ -154,11 +154,9 @@ const validateMessages = {
 
 ### dependencies
 
-当字段间存在依赖关系时使用。如果一个字段设置了 `dependencies` 属性。那么它所依赖的字段更新时，该字段将自动触发更新与校验。一种常见的场景，就是注册用户表单的“密码”与“确认密码”字段。“确认密码”校验依赖于“密码”字段，设置 `dependencies` 后，“密码”字段更新会重新触发“校验密码”的校验逻辑。你可以参考[具体例子](#components-form-demo-register)。
+当字段间存在依赖关系时使用。如果一个字段设置了 `dependencies` 属性。那么它所依赖的字段更新时，该字段将自动触发更新与校验。一种常见的场景，就是注册用户表单的“密码”与“确认密码”字段。“确认密码”校验依赖于“密码”字段，设置 `dependencies` 后，“密码”字段更新会重新触发“校验密码”的校验逻辑。你可以参考[具体例子](#components-form-demo-dependencies)。
 
 `dependencies` 不应和 `shouldUpdate` 一起使用，因为这可能带来更新逻辑的混乱。
-
-从 `4.5.0` 版本开始，`dependencies` 支持使用 render props 类型 children 的 `Form.Item`。
 
 ### shouldUpdate
 
