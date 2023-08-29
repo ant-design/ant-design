@@ -91,7 +91,7 @@ describe('Watermark', () => {
     const target = container.querySelector<HTMLDivElement>('.watermark div');
     await waitFakeTimer();
     target?.remove();
-    await waitFor(() => expect(target).toBeTruthy());
+    await waitFakeTimer();
     expect(container).toMatchSnapshot();
   });
 
@@ -102,7 +102,7 @@ describe('Watermark', () => {
     const target = container.querySelector<HTMLDivElement>('.watermark div');
     await waitFakeTimer();
     target?.setAttribute('style', '');
-    await waitFor(() => expect(target).toBeTruthy());
+    await waitFakeTimer();
     expect(container).toMatchSnapshot();
   });
 
