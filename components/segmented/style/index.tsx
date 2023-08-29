@@ -109,7 +109,6 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
         '&-selected': {
           ...getItemSelectedStyle(token),
-          color: token.itemHoverColor,
         },
 
         '&::after': {
