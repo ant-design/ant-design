@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import {
   CheckOutlined,
