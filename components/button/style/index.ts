@@ -1,9 +1,9 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+
 import { genFocusStyle } from '../../style';
-import { genCompactItemStyle } from '../../style/compact-item';
-import { genCompactItemVerticalStyle } from '../../style/compact-item-vertical';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 import genGroupStyle from './group';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -517,7 +517,7 @@ const genBlockButtonStyle: GenerateStyle<ButtonToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Button', (token) => {
+export const prepareToken: (token: Parameters<GenStyleFn<'Badge'>>[0]) => ButtonToken = (token) => {
   const { controlTmpOutline, paddingContentHorizontal } = token;
 
   const buttonToken = mergeToken<ButtonToken>(token, {
@@ -526,6 +526,12 @@ export default genComponentStyleHook('Button', (token) => {
     buttonIconOnlyFontSize: token.fontSizeLG,
     buttonFontWeight: 400,
   });
+
+  return buttonToken;
+};
+
+export default genComponentStyleHook('Button', (token) => {
+  const buttonToken = prepareToken(token);
 
   return [
     // Shared
@@ -544,9 +550,5 @@ export default genComponentStyleHook('Button', (token) => {
 
     // Button Group
     genGroupStyle(buttonToken),
-
-    // Space Compact
-    genCompactItemStyle(token),
-    genCompactItemVerticalStyle(token),
   ];
 });
