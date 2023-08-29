@@ -16,6 +16,24 @@ tag: vVERSION
 
 ---
 
+## 5.8.5
+
+`2023-08-28`
+
+- 🛠 重构 Badge 样式逻辑将 Ribbon 样式抽离以降低 SSR 内联样式尺寸。[#44451](https://github.com/ant-design/ant-design/pull/44451)
+- 🐞 修复 App 组件下使用 `@ant-design/icons` 的图标样式异常的问题。[#41208](https://github.com/ant-design/ant-design/pull/41208) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 Carousel 组件垂直方向拖动失效的问题。[#44460](https://github.com/ant-design/ant-design/pull/44460) [@RedJue](https://github.com/RedJue)
+- 🐞 修复 Tour 面板使用的 design token 错误的问题。[#44428](https://github.com/ant-design/ant-design/pull/44428)
+- 🐞 修复 Form `wrapperCol` 配置响应式 `xs` 属性无效的问题。[#44388](https://github.com/ant-design/ant-design/pull/44388)
+- 🐞 修复 ColorPicker 中重复 `key` 的问题。[#44370](https://github.com/ant-design/ant-design/pull/44370) [@xr0master](https://github.com/xr0master)
+- 🐞 修复 Radio 组件组合 Tree 组件后失效的问题。[#44380](https://github.com/ant-design/ant-design/pull/44380) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Table 组件 `filterDropdown` 不支持 `ref` 时报错的问题。[#44357](https://github.com/ant-design/ant-design/pull/44357) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Form `inline` 布局在校验失败时出现额外空行的问题。[#44360](https://github.com/ant-design/ant-design/pull/44360)
+- 🐞 修复 DatePicker 中 `showTime` 为 true 且 `format` 为数组时，组件报错。[#44306](https://github.com/ant-design/ant-design/pull/44306) [@Zian502](https://github.com/Zian502)
+- 🐞 修复 Watermark 中 `content` 内容过长时无法完整显示的问题。[#44321](https://github.com/ant-design/ant-design/pull/44321)
+- TypeScript
+  - 🤖 修复 Dropdown 组件中 `align` 属性的类型错误。[#44423](https://github.com/ant-design/ant-design/pull/44423) [@LeTuongKhanh](https://github.com/LeTuongKhanh)
+
 ## 5.8.4
 
 `2023-08-18`
