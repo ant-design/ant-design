@@ -90,7 +90,12 @@ describe('Transfer.Search', () => {
     const filterOption = jest.fn();
 
     const { container } = testLibRender(
-      <Transfer filterOption={filterOption} dataSource={dataSource} showSearch />,
+      <Transfer 
+        filterOption={filterOption} 
+        dataSource={dataSource} 
+        targetKeys={['b']}
+        showSearch 
+      />,
     );
 
     fireEvent.change(
