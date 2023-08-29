@@ -13,6 +13,7 @@ import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import CheckableTag from './CheckableTag';
 import useStyle from './style';
+import PresetCmp from './style/presetCmp';
 import StatusCmp from './style/statusCmp';
 
 export type { CheckableTagProps } from './CheckableTag';
@@ -71,8 +72,9 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     }
   }, [props.visible]);
 
-  const isStatusColor = isPresetStatusColor(color);
-  const isInternalColor = isPresetColor(color) || isStatusColor;
+  const isPreset = isPresetColor(color);
+  const isStatus = isPresetStatusColor(color);
+  const isInternalColor = isPreset || isStatus;
 
   const tagStyle: React.CSSProperties = {
     backgroundColor: color && !isInternalColor ? color : undefined,
@@ -143,7 +145,8 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     <span {...props} ref={ref} className={tagClassName} style={tagStyle}>
       {kids}
       {mergedCloseIcon}
-      {isStatusColor && <StatusCmp key="status" prefixCls={prefixCls} />}
+      {isPreset && <PresetCmp key="preset" prefixCls={prefixCls} />}
+      {isStatus && <StatusCmp key="status" prefixCls={prefixCls} />}
     </span>
   );
 

@@ -1,4 +1,4 @@
-// Style as inline component
+// Style as status component
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 
 import { prepareCommonToken, prepareToken, type TagToken } from '.';

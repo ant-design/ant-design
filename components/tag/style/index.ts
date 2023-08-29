@@ -4,7 +4,7 @@ import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { resetComponent } from '../../style';
 import type { GlobalToken } from '../../theme';
 import type { FullToken } from '../../theme/internal';
-import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 
 export interface ComponentToken {
@@ -29,23 +29,6 @@ export interface TagToken extends FullToken<'Tag'> {
 }
 
 // ============================== Styles ==============================
-const genPresetStyle = (token: TagToken) =>
-  genPresetColor(token, (colorKey, { textColor, lightBorderColor, lightColor, darkColor }) => ({
-    [`${token.componentCls}-${colorKey}`]: {
-      color: textColor,
-      background: lightColor,
-      borderColor: lightBorderColor,
-      // Inverse color
-      '&-inverse': {
-        color: token.colorTextLightSolid,
-        background: darkColor,
-        borderColor: darkColor,
-      },
-      [`&${token.componentCls}-borderless`]: {
-        borderColor: 'transparent',
-      },
-    },
-  }));
 
 const genBaseStyle = (token: TagToken): CSSInterpolation => {
   const { paddingXXS, lineWidth, tagPaddingHorizontal, componentCls } = token;
@@ -169,7 +152,7 @@ export default genComponentStyleHook(
   (token) => {
     const tagToken = prepareToken(token);
 
-    return [genBaseStyle(tagToken), genPresetStyle(tagToken)];
+    return genBaseStyle(tagToken);
   },
   prepareCommonToken,
 );
