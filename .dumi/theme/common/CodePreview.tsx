@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo } from 'react';
-import Prism from 'prismjs';
+import { Tabs } from 'antd';
 import toReactElement from 'jsonml-to-react-element';
 import JsonML from 'jsonml.js/lib/utils';
-import { Tabs } from 'antd';
+import Prism from 'prismjs';
 
 const LANGS = {
   tsx: 'TypeScript',
@@ -17,22 +17,16 @@ interface CodePreviewProps {
   onCodeTypeChange?: (activeKey: string) => void;
 }
 
-function toReactComponent(jsonML: any) {
+function toReactComponent(jsonML: any[]) {
   return toReactElement(jsonML, [
     [
       (node: any) => JsonML.isElement(node) && JsonML.getTagName(node) === 'pre',
-      (node: any, index: any) => {
-        // ref: https://github.com/benjycui/bisheng/blob/master/packages/bisheng/src/bisheng-plugin-highlight/lib/browser.js#L7
+      (node: any, index: number) => {
         const attr = JsonML.getAttributes(node);
-        return React.createElement(
-          'pre',
-          {
-            key: index,
-            className: `language-${attr.lang}`,
-          },
-          React.createElement('code', {
-            dangerouslySetInnerHTML: { __html: attr.highlighted },
-          }),
+        return (
+          <pre key={index} className={`language-${attr.lang}`}>
+            <code dangerouslySetInnerHTML={{ __html: attr.highlighted }} />
+          </pre>
         );
       },
     ],
