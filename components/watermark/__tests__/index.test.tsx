@@ -1,10 +1,11 @@
 import React from 'react';
+
 import Watermark from '..';
-import Modal from '../../modal';
-import Drawer from '../../drawer';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, waitFakeTimer, waitFor } from '../../../tests/utils';
+import Drawer from '../../drawer';
+import Modal from '../../modal';
 
 describe('Watermark', () => {
   mountTest(Watermark);
@@ -18,8 +19,16 @@ describe('Watermark', () => {
     });
   });
 
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
   afterAll(() => {
     mockSrcSet.mockRestore();
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
   });
 
   it('The watermark should render successfully', () => {
@@ -125,5 +134,16 @@ describe('Watermark', () => {
       <Drawer open />,
       () => document.body.querySelector('.ant-drawer-content')!.lastChild!,
     );
+  });
+
+  it('should not crash if content is empty string', async () => {
+    const spy = jest.spyOn(CanvasRenderingContext2D.prototype, 'drawImage');
+    render(<Watermark content="" className="watermark" />);
+    await waitFakeTimer();
+    expect(spy).not.toHaveBeenCalledWith(expect.anything(), 0, 0);
+    expect(spy).not.toHaveBeenCalledWith(expect.anything(), -0, 0);
+    expect(spy).not.toHaveBeenCalledWith(expect.anything(), -0, -0);
+    expect(spy).not.toHaveBeenCalledWith(expect.anything(), 0, -0);
+    spy.mockRestore();
   });
 });
