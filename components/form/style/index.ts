@@ -118,11 +118,6 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
   const { formItemCls, iconCls, componentCls, rootPrefixCls } = token;
 
   return {
-    // Fallback for IE, safe to remove we not support it anymore
-    [`${formItemCls}-control`]: {
-      display: 'flex',
-    },
-
     [formItemCls]: {
       ...resetComponent(token),
 
