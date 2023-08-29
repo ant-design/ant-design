@@ -46,7 +46,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*yv12S4sSRAEAAA
 | dataSource | 数据源，其中的数据将会被渲染到左边一栏中，`targetKeys` 中指定的除外 | [RecordType extends TransferItem = TransferItem](https://github.com/ant-design/ant-design/blob/1bf0bab2a7bc0a774119f501806e3e0e3a6ba283/components/transfer/index.tsx#L12)\[] | \[] |  |
 | disabled | 是否禁用 | boolean | false |  |
 | selectionsIcon | 自定义下拉菜单图标 | React.ReactNode |  | 5.8.0 |
-| filterOption | 根据搜索内容进行筛选，接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false | (inputValue, option): boolean | - |  |
+| filterOption | 根据搜索内容进行筛选，接收 `inputValue` `option` `direction` 三个参数，(`direction` 自5.9.0+支持)，当 `option` 符合筛选条件时，应返回 true，反之则返回 false | (inputValue, option, direction: `left` \| `right`): boolean | - |  |
 | footer | 底部渲染函数 | (props, { direction }) => ReactNode | - | direction: 4.17.0 |
 | listStyle | 两个穿梭框的自定义样式 | object\|({direction: `left` \| `right`}) => object | - |  |
 | locale | 各种语言 | { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode \| ReactNode[]; } | { itemUnit: `项`, itemsUnit: `项`, searchPlaceholder: `请输入搜索内容` } |  |
