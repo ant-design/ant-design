@@ -1,16 +1,17 @@
+import type * as React from 'react';
 import type {
   RcFile as OriRcFile,
   UploadRequestOption as RcCustomRequestOptions,
   UploadProps as RcUploadProps,
 } from 'rc-upload/lib/interface';
-import type * as React from 'react';
+
 import type { ProgressAriaProps, ProgressProps } from '../progress';
 
 export interface RcFile extends OriRcFile {
   readonly lastModifiedDate: Date;
 }
 
-export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
+export type UploadFileStatus = 'error' | 'done' | 'uploading' | 'removed';
 
 export interface HttpRequestHeader {
   [key: string]: string;

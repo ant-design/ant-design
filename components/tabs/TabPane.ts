@@ -7,6 +7,6 @@ if (process.env.NODE_ENV !== 'production') {
   TabPane.displayName = 'DeprecatedTabPane';
 }
 
-export { TabPaneProps };
+export type { TabPaneProps };
 
 export default TabPane;

@@ -955,6 +955,7 @@ Array [
     </li>
     <li
       class="ant-menu-item-divider"
+      role="separator"
     />
     <li
       class="ant-menu-submenu ant-menu-submenu-inline"
