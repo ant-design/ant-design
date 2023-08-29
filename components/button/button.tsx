@@ -25,7 +25,7 @@ import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelp
 import IconWrapper from './IconWrapper';
 import LoadingIcon from './LoadingIcon';
 import useStyle from './style';
-import CompactStyle from './style/compactCmp';
+import CompactCmp from './style/compactCmp';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -289,7 +289,7 @@ const InternalButton: React.ForwardRefRenderFunction<
       {kids}
 
       {/* Styles: compact */}
-      {compactItemClassnames && <CompactStyle prefixCls={prefixCls} />}
+      {compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />}
     </button>
   );
 
