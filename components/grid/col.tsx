@@ -99,6 +99,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const classes = classNames(
     prefixCls,
     {
+      // Only 0
       [`${prefixCls}-hidden`]:
         list.includes(0) && list.filter((num) => num !== undefined && Number(num) > 0).length === 0,
       [`${prefixCls}-${span}`]: span !== undefined,
