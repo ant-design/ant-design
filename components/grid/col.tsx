@@ -1,9 +1,10 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
+
+import type { LiteralUnion } from '../_util/type';
 import { ConfigContext } from '../config-provider';
 import RowContext from './RowContext';
 import { useColStyle } from './style';
-import type { LiteralUnion } from '../_util/type';
 
 // https://github.com/ant-design/ant-design/issues/14324
 type ColSpanType = number | string;
@@ -69,6 +70,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const [wrapSSR, hashId] = useColStyle(prefixCls);
 
   let sizeClassObj = {};
+  const list: (number | string | undefined)[] = [span];
   sizes.forEach((size) => {
     let sizeProps: ColSize = {};
     const propSize = props[size];
@@ -79,6 +81,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     }
 
     delete others[size];
+    list.push(sizeProps.span);
 
     sizeClassObj = {
       ...sizeClassObj,
@@ -96,6 +99,8 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const classes = classNames(
     prefixCls,
     {
+      [`${prefixCls}-hidden`]:
+        list.includes(0) && list.filter((num) => num !== undefined && Number(num) > 0).length === 0,
       [`${prefixCls}-${span}`]: span !== undefined,
       [`${prefixCls}-order-${order}`]: order,
       [`${prefixCls}-offset-${offset}`]: offset,

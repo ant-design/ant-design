@@ -94,7 +94,7 @@ const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObjec
   for (let i = gridColumns; i >= 0; i--) {
     if (i === 0) {
       // ref: https://github.com/ant-design/ant-design/issues/44456
-      gridColumnsStyle[`${componentCls}${componentCls}${componentCls}${sizeCls}-${i}`] = {
+      gridColumnsStyle[`${componentCls}${sizeCls}-${i}`] = {
         display: 'none',
       };
       gridColumnsStyle[`${componentCls}-push-${i}`] = {
@@ -169,6 +169,11 @@ export const useColStyle = genComponentStyleHook('Grid', (token) => {
   };
 
   return [
+    {
+      [`${token.componentCls}${token.componentCls}${token.componentCls}-hidden`]: {
+        display: 'none',
+      },
+    },
     genGridColStyle(gridToken),
     genGridStyle(gridToken, ''),
     genGridStyle(gridToken, '-xs'),
