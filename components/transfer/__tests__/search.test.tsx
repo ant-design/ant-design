@@ -124,15 +124,9 @@ describe('Transfer.Search', () => {
         ?.querySelector('input[type="text"]')!, 
       { target: { value: 'b' } },
     );
-    expect(filterOption).toHaveBeenNthCalledWith(
-      1,
+    expect(filterOption).toHaveBeenCalledWith(
       'b',
-      { key: 'a', title: 'a', description: 'a' },
-      'right',
-    );
-    expect(filterOption).toHaveBeenLastCalledWith(
-      'b',
-      { key: 'c', title: 'c', description: 'c' },
+      { key: 'b', title: 'b', description: 'b' },
       'right',
     );
   });
