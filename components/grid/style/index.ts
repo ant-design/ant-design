@@ -169,6 +169,7 @@ export const useColStyle = genComponentStyleHook('Grid', (token) => {
 
   return [
     {
+      // ref: https://github.com/ant-design/ant-design/issues/44456
       [`${token.componentCls}${token.componentCls}${token.componentCls}-hidden`]: {
         display: 'none',
       },
