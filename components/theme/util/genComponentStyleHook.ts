@@ -184,13 +184,19 @@ export interface SubStyleComponentProps {
   prefixCls: string;
 }
 
-export function genSubStyleComponent<ComponentName extends OverrideComponent>(
+export const genSubStyleComponent: <ComponentName extends OverrideComponent>(
   ...args: Parameters<typeof genComponentStyleHook<ComponentName>>
-): ComponentType<SubStyleComponentProps> {
-  const useStyle = genComponentStyleHook(...args);
+) => ComponentType<SubStyleComponentProps> = (componentName, styleFn, getDefaultToken, options) => {
+  const useStyle = genComponentStyleHook(componentName, styleFn, getDefaultToken, {
+    resetStyle: false,
+
+    // Sub Style should default after root one
+    order: -998,
+    ...options,
+  });
 
   return ({ prefixCls }: SubStyleComponentProps) => {
     useStyle(prefixCls);
     return null;
   };
-}
+};
