@@ -93,7 +93,6 @@ const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObjec
   const gridColumnsStyle: CSSObject = {};
   for (let i = gridColumns; i >= 0; i--) {
     if (i === 0) {
-      // ref: https://github.com/ant-design/ant-design/issues/44456
       gridColumnsStyle[`${componentCls}${sizeCls}-${i}`] = {
         display: 'none',
       };
