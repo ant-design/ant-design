@@ -12,7 +12,6 @@ import type { SizeType } from './SizeContext';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { TabsProps } from '../tabs';
-import type { CardProps } from 'antd';
 
 export const defaultIconPrefixCls = 'anticon';
 
@@ -144,7 +143,7 @@ export interface ConfigConsumerProps {
   message?: ComponentStyleConfig;
   tag?: ComponentStyleConfig;
   table?: ComponentStyleConfig;
-  card?: ComponentStyleConfig & Pick<CardProps, 'tabProps'>;
+  card?: ComponentStyleConfig;
   tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicatorLength'>;
   timeline?: ComponentStyleConfig;
   timePicker?: ComponentStyleConfig;

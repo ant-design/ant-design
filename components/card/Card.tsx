@@ -108,7 +108,6 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 
   const hasActiveTabKey = activeTabKey !== undefined;
   const extraProps = {
-    ...card?.tabProps,
     ...tabProps,
     [hasActiveTabKey ? 'activeKey' : 'defaultActiveKey']: hasActiveTabKey
       ? activeTabKey
