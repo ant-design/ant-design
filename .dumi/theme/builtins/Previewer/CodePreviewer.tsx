@@ -542,7 +542,12 @@ createRoot(document.getElementById('container')).render(<Demo />);
             styleCode={style}
             onCodeTypeChange={setCodeType}
           />
-          <div tabIndex={0} className={styles.codeHideBtn} onClick={() => setCodeExpand(false)}>
+          <div
+            tabIndex={0}
+            role="button"
+            className={styles.codeHideBtn}
+            onClick={() => setCodeExpand(false)}
+          >
             <UpOutlined />
             <FormattedMessage id="app.demo.code.hide.simplify" />
           </div>
