@@ -15,7 +15,7 @@ import type {
   NoticeType,
   TypeOpen,
 } from './interface';
-import useStyle from './style';
+import useMessageStyle from './style';
 import { getMotion, wrapPromiseFn } from './util';
 
 const DEFAULT_OFFSET = 8;
@@ -30,9 +30,16 @@ type HolderProps = ConfigOptions & {
 
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
-  hashId: string;
   message?: ComponentStyleConfig;
 }
+
+const useStyle = (prefixCls: string) => {
+  const [, hashId] = useMessageStyle(prefixCls);
+  return {
+    notice: hashId,
+    list: hashId,
+  };
+};
 
 const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const {
@@ -49,8 +56,6 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
 
   const prefixCls = staticPrefixCls || getPrefixCls('message');
 
-  const [, hashId] = useStyle(prefixCls);
-
   // =============================== Style ===============================
   const getStyle = (): React.CSSProperties => ({
     left: '50%',
@@ -58,7 +63,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     top: top ?? DEFAULT_OFFSET,
   });
 
-  const getClassName = () => classNames(hashId, { [`${prefixCls}-rtl`]: rtl });
+  const getClassName = () => classNames({ [`${prefixCls}-rtl`]: rtl });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls, transitionName);
@@ -82,13 +87,13 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
     onAllRemoved,
+    useStyle,
   });
 
   // ================================ Ref ================================
   React.useImperativeHandle(ref, () => ({
     ...api,
     prefixCls,
-    hashId,
     message,
   }));
 
@@ -128,7 +133,7 @@ export function useInternalMessage(
         return fakeResult;
       }
 
-      const { open: originOpen, prefixCls, hashId, message } = holderRef.current;
+      const { open: originOpen, prefixCls, message } = holderRef.current;
       const noticePrefixCls = `${prefixCls}-notice`;
 
       const { content, icon, type, key, className, style, onClose, ...restConfig } = config;
@@ -151,7 +156,6 @@ export function useInternalMessage(
           placement: 'top',
           className: classNames(
             type && `${noticePrefixCls}-${type}`,
-            hashId,
             className,
             message?.className,
           ),

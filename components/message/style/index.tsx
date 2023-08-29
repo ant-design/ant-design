@@ -201,7 +201,4 @@ export default genComponentStyleHook(
       token.paddingSM
     }px`,
   }),
-  {
-    clientOnly: true,
-  },
 );

@@ -12,7 +12,7 @@ import type {
   NotificationPlacement,
 } from './interface';
 import { getCloseIcon, PureContent } from './PurePanel';
-import useStyle from './style';
+import useNotificationStyle from './style';
 import { getMotion, getPlacementStyle } from './util';
 
 const DEFAULT_OFFSET = 24;
@@ -28,9 +28,16 @@ type HolderProps = NotificationConfig & {
 
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
-  hashId: string;
   notification?: ComponentStyleConfig;
 }
+
+const useStyle = (prefixCls: string) => {
+  const [, hashId] = useNotificationStyle(prefixCls);
+  return {
+    notice: hashId,
+    list: hashId,
+  };
+};
 
 const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const {
@@ -50,10 +57,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const getStyle = (placement: NotificationPlacement): React.CSSProperties =>
     getPlacementStyle(placement, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET);
 
-  // Style
-  const [, hashId] = useStyle(prefixCls);
-
-  const getClassName = () => classNames(hashId, { [`${prefixCls}-rtl`]: rtl });
+  const getClassName = () => classNames({ [`${prefixCls}-rtl`]: rtl });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls);
@@ -70,13 +74,13 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
     onAllRemoved,
+    useStyle,
   });
 
   // ================================ Ref ================================
   React.useImperativeHandle(ref, () => ({
     ...api,
     prefixCls,
-    hashId,
     notification,
   }));
 
@@ -106,7 +110,7 @@ export function useInternalNotification(
         return;
       }
 
-      const { open: originOpen, prefixCls, hashId, notification } = holderRef.current;
+      const { open: originOpen, prefixCls, notification } = holderRef.current;
 
       const noticePrefixCls = `${prefixCls}-notice`;
 
@@ -142,7 +146,6 @@ export function useInternalNotification(
         ),
         className: classNames(
           type && `${noticePrefixCls}-${type}`,
-          hashId,
           className,
           notification?.className,
         ),
