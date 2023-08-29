@@ -434,7 +434,7 @@ describe('Typography.Ellipsis', () => {
     mockRectSpy.mockRestore();
   });
 
-  it('should not resize many times', async () => {
+  it('should not throw default dom nodes', async () => {
     let currentWidth = 100;
     // string conut is different with different width
     const getLineStrCount = (width: number) => {
