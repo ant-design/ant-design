@@ -16,8 +16,16 @@ describe('Watermark', () => {
     });
   });
 
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
   afterAll(() => {
     mockSrcSet.mockRestore();
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
   });
 
   it('The watermark should render successfully', () => {
@@ -93,5 +101,16 @@ describe('Watermark', () => {
     target?.setAttribute('style', '');
     await waitFor(() => expect(target).toBeTruthy());
     expect(container).toMatchSnapshot();
+  });
+
+  it('should not crash if content is empty string', async () => {
+    const spy = jest.spyOn(CanvasRenderingContext2D.prototype, 'drawImage');
+    render(<Watermark content="" className="watermark" />);
+    await waitFakeTimer();
+    expect(spy).not.toHaveBeenCalledWith(expect.anything(), 0, 0);
+    expect(spy).not.toHaveBeenCalledWith(expect.anything(), -0, 0);
+    expect(spy).not.toHaveBeenCalledWith(expect.anything(), -0, -0);
+    expect(spy).not.toHaveBeenCalledWith(expect.anything(), 0, -0);
+    spy.mockRestore();
   });
 });
