@@ -4,6 +4,7 @@ import { resetComponent } from '../../style';
 import { genCollapseMotion, zoomIn } from '../../style/motion';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 import genFormValidateMotionStyle from './explain';
 
 export interface FormToken extends FullToken<'Form'> {
@@ -154,7 +155,6 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
       // =                            Label                           =
       // ==============================================================
       [`${formItemCls}-label`]: {
-        display: 'inline-block',
         flexGrow: 0,
         overflow: 'hidden',
         whiteSpace: 'nowrap',
@@ -482,13 +482,22 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
 };
 
 // ============================== Export ==============================
+export const prepareToken: (
+  token: Parameters<GenStyleFn<'Form'>>[0],
+  rootPrefixCls: string,
+) => FormToken = (token, rootPrefixCls) => {
+  const formToken = mergeToken<FormToken>(token, {
+    formItemCls: `${token.componentCls}-item`,
+    rootPrefixCls,
+  });
+
+  return formToken;
+};
+
 export default genComponentStyleHook(
   'Form',
   (token, { rootPrefixCls }) => {
-    const formToken = mergeToken<FormToken>(token, {
-      formItemCls: `${token.componentCls}-item`,
-      rootPrefixCls,
-    });
+    const formToken = prepareToken(token, rootPrefixCls);
 
     return [
       genFormStyle(formToken),
