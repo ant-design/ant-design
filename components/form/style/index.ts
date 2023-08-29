@@ -232,7 +232,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
       // =                            Input                           =
       // ==============================================================
       [`${formItemCls}-control`]: {
-        display: 'flex',
+        ['--ant-display' as any]: 'flex',
         flexDirection: 'column',
         flexGrow: 1,
 
