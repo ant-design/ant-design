@@ -117,6 +117,11 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
   const { formItemCls, iconCls, componentCls, rootPrefixCls } = token;
 
   return {
+    // Fallback for IE, safe to remove we not support it anymore
+    [`${formItemCls}-control`]: {
+      display: 'flex',
+    },
+
     [formItemCls]: {
       ...resetComponent(token),
 
@@ -477,20 +482,29 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Form', (token, { rootPrefixCls }) => {
-  const formToken = mergeToken<FormToken>(token, {
-    formItemCls: `${token.componentCls}-item`,
-    rootPrefixCls,
-  });
+export default genComponentStyleHook(
+  'Form',
+  (token, { rootPrefixCls }) => {
+    const formToken = mergeToken<FormToken>(token, {
+      formItemCls: `${token.componentCls}-item`,
+      rootPrefixCls,
+    });
 
-  return [
-    genFormStyle(formToken),
-    genFormItemStyle(formToken),
-    genFormValidateMotionStyle(formToken),
-    genHorizontalStyle(formToken),
-    genInlineStyle(formToken),
-    genVerticalStyle(formToken),
-    genCollapseMotion(formToken),
-    zoomIn,
-  ];
-});
+    return [
+      genFormStyle(formToken),
+      genFormItemStyle(formToken),
+      genFormValidateMotionStyle(formToken),
+      genHorizontalStyle(formToken),
+      genInlineStyle(formToken),
+      genVerticalStyle(formToken),
+      genCollapseMotion(formToken),
+      zoomIn,
+    ];
+  },
+  null,
+  {
+    // Let From style before the Grid
+    // ref https://github.com/ant-design/ant-design/issues/44386
+    order: -1000,
+  },
+);
