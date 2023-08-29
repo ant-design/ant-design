@@ -1,6 +1,6 @@
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
-import { useNotification as useRcNotification } from 'rc-notification';
+import { NotificationProvider, useNotification as useRcNotification } from 'rc-notification';
 import type { NotificationAPI } from 'rc-notification/lib';
 import * as React from 'react';
 import warning from '../_util/warning';
@@ -15,8 +15,10 @@ import type {
   NoticeType,
   TypeOpen,
 } from './interface';
-import useMessageStyle from './style';
+import useStyle from './style';
 import { getMotion, wrapPromiseFn } from './util';
+import type { FC, PropsWithChildren } from 'react';
+import type { NotificationConfig as RcNotificationConfig } from 'rc-notification/lib/useNotification';
 
 const DEFAULT_OFFSET = 8;
 const DEFAULT_DURATION = 3;
@@ -33,13 +35,23 @@ interface HolderRef extends NotificationAPI {
   message?: ComponentStyleConfig;
 }
 
-const useStyle = (prefixCls: string) => {
-  const [, hashId] = useMessageStyle(prefixCls);
-  return {
-    notice: hashId,
-    list: hashId,
-  };
+const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {
+  const [, hashId] = useStyle(prefixCls);
+  return (
+    <NotificationProvider classNames={{ list: hashId, notice: hashId }}>
+      {children}
+    </NotificationProvider>
+  );
 };
+
+const renderNotifications: RcNotificationConfig['renderNotifications'] = (
+  node,
+  { prefixCls, key },
+) => (
+  <Wrapper prefixCls={prefixCls} key={key}>
+    {node}
+  </Wrapper>
+);
 
 const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const {
@@ -87,7 +99,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
     onAllRemoved,
-    useStyle,
+    renderNotifications,
   });
 
   // ================================ Ref ================================
