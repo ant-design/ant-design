@@ -143,7 +143,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     <span {...props} ref={ref} className={tagClassName} style={tagStyle}>
       {kids}
       {mergedCloseIcon}
-      {isStatusColor && <StatusCmp prefixCls={prefixCls} />}
+      {isStatusColor && <StatusCmp key="status" prefixCls={prefixCls} />}
     </span>
   );
 
