@@ -73,8 +73,8 @@ const createFlexClassNames = (prefixCls: string, props: FlexProps) => {
     ...genClsAlign(prefixCls, align),
     ...genClsJustify(prefixCls, justify),
     ...genClsDirection(prefixCls, direction),
-    // column 类垂直的样式中，align-item 需要撑满，水平则是垂直居中
-    [`${prefixCls}-align-stretch`]: ['column', 'column-reverse'].includes(direction!),
+    // column 类垂直的样式中，如果用户没指定 align-item 的时候，align-item 默认需要撑满，水平则是垂直居中
+    [`${prefixCls}-align-stretch`]: !align && ['column', 'column-reverse'].includes(direction!),
   });
 };
 
