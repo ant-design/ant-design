@@ -1,9 +1,10 @@
-import MockDate from 'mockdate';
 import React from 'react';
+import MockDate from 'mockdate';
+
 import Descriptions from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
 import ConfigProvider from '../../config-provider';
 
 describe('Descriptions', () => {
@@ -20,7 +21,7 @@ describe('Descriptions', () => {
     errorSpy.mockRestore();
   });
 
-  it('when max-width: 575px，column=1', () => {
+  it('when max-width: 575px, column=1', () => {
     const wrapper = render(
       <Descriptions>
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
@@ -35,7 +36,7 @@ describe('Descriptions', () => {
     wrapper.unmount();
   });
 
-  it('when max-width: 575px，column=2', () => {
+  it('when max-width: 575px, column=2', () => {
     // eslint-disable-next-line global-require
     const wrapper = render(
       <Descriptions column={{ xs: 2 }}>
@@ -47,6 +48,36 @@ describe('Descriptions', () => {
     );
     expect(wrapper.container.querySelectorAll('tr')).toHaveLength(2);
     wrapper.unmount();
+  });
+
+  it('when max-width: 575px, column=2, span=2', () => {
+    // eslint-disable-next-line global-require
+    const { container } = render(
+      <Descriptions
+        column={{ xs: 2 }}
+        items={[
+          {
+            label: 'Product',
+            children: 'Cloud Database',
+            span: { xs: 2 },
+          },
+          {
+            label: 'Billing',
+            children: 'Prepaid',
+            span: { xs: 1 },
+          },
+          {
+            label: 'Time',
+            children: '18:00:00',
+            span: { xs: 1 },
+          },
+        ]}
+      />,
+    );
+
+    expect(container.querySelectorAll('.ant-descriptions-item')[0]).toHaveAttribute('colSpan', '2');
+    expect(container.querySelectorAll('.ant-descriptions-item')[1]).toHaveAttribute('colSpan', '1');
+    expect(container.querySelectorAll('.ant-descriptions-item')[2]).toHaveAttribute('colSpan', '1');
   });
 
   it('column is number', () => {
