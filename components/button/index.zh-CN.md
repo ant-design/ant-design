@@ -86,7 +86,7 @@ group:
 | ---- | ------------ | ----- |
 | icon | 设置图标元素 | 5.5.0 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Button"></ComponentTokenTable>
 

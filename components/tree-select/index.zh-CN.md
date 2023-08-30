@@ -111,7 +111,7 @@ demo:
 | title           | 树节点显示的内容                                   | ReactNode | `---`  |      |
 | value           | 默认根据此属性值进行筛选（其值在整个树范围内唯一） | string    | -      |      |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="TreeSelect"></ComponentTokenTable>
 

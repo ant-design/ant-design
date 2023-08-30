@@ -1,5 +1,6 @@
 import { RightOutlined } from '@ant-design/icons';
 import { createStyles, css, useTheme } from 'antd-style';
+import Link from '../../common/Link';
 import { getDesignToken } from 'antd-token-previewer';
 import React, { useMemo, useState } from 'react';
 import tokenMeta from 'antd/es/version/token-meta.json';
@@ -18,6 +19,9 @@ const locales = {
     value: '默认值',
     componentToken: '组件 Token',
     globalToken: '全局 Token',
+    help: '如何定制？',
+    customizeTokenLink: '/docs/react/customize-theme-cn#修改主题变量',
+    customizeComponentTokenLink: '/docs/react/customize-theme-cn#修改主题变量',
   },
   en: {
     token: 'Token Name',
@@ -26,6 +30,9 @@ const locales = {
     value: 'Default Value',
     componentToken: 'Component Token',
     globalToken: 'Global Token',
+    help: 'How to customize?',
+    customizeTokenLink: '/docs/react/customize-theme#customize-design-token',
+    customizeComponentTokenLink: 'docs/react/customize-theme#customize-component-token',
   },
 };
 
@@ -45,16 +52,32 @@ const useStyle = createStyles(() => ({
       transition: all 0.3s;
     }
   `,
+  help: css`
+    margin-left: 6px;
+    font-size: 13px;
+    font-weight: normal;
+    color: #999;
+    a {
+      color: #999;
+    }
+  `,
 }));
 
 interface SubTokenTableProps {
   defaultOpen?: boolean;
   title: string;
+  help: React.ReactNode;
   tokens: string[];
   component?: string;
 }
 
-const SubTokenTable: React.FC<SubTokenTableProps> = ({ defaultOpen, tokens, title, component }) => {
+const SubTokenTable: React.FC<SubTokenTableProps> = ({
+  defaultOpen,
+  help,
+  tokens,
+  title,
+  component,
+}) => {
   const [, lang] = useLocale(locales);
   const token = useTheme();
   const columns = useColumns();
@@ -105,10 +128,13 @@ const SubTokenTable: React.FC<SubTokenTableProps> = ({ defaultOpen, tokens, titl
     .filter(Boolean);
 
   return (
-    <div>
+    <>
       <div className={styles.tableTitle} onClick={() => setOpen(!open)}>
         <RightOutlined className={styles.arrowIcon} rotate={open ? 90 : 0} />
-        <h3>{title}</h3>
+        <h3>
+          {title}
+          <span className={styles.help}>({help})</span>
+        </h3>
       </div>
       {open && (
         <ConfigProvider theme={{ token: { borderRadius: 0 } }}>
@@ -123,7 +149,7 @@ const SubTokenTable: React.FC<SubTokenTableProps> = ({ defaultOpen, tokens, titl
           />
         </ConfigProvider>
       )}
-    </div>
+    </>
   );
 };
 
@@ -152,11 +178,17 @@ const ComponentTokenTable: React.FC<ComponentTokenTableProps> = ({ component }) 
       {tokenMeta.components[component] && (
         <SubTokenTable
           title={locale.componentToken}
+          help={<Link to={locale.customizeTokenLink}>{locale.help}</Link>}
           tokens={tokenMeta.components[component].map((item) => item.token)}
           component={component}
+          defaultOpen
         />
       )}
-      <SubTokenTable title={locale.globalToken} tokens={mergedGlobalTokens} />
+      <SubTokenTable
+        title={locale.globalToken}
+        help={<Link to={locale.customizeComponentTokenLink}>{locale.help}</Link>}
+        tokens={mergedGlobalTokens}
+      />
     </>
   );
 };
