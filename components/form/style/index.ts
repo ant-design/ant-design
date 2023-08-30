@@ -338,8 +338,10 @@ const genHorizontalStyle: GenerateStyle<FormToken> = (token) => {
         minWidth: 0,
       },
 
+      // Do not change this to `ant-col-24`! `-24` match all the responsive rules
       // https://github.com/ant-design/ant-design/issues/32980
       // https://github.com/ant-design/ant-design/issues/34903
+      // https://github.com/ant-design/ant-design/issues/44538
       [`${formItemCls}-label[class$='-24'], ${formItemCls}-label[class*='-24 ']`]: {
         [`& + ${formItemCls}-control`]: {
           minWidth: 'unset',
