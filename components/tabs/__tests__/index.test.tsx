@@ -129,10 +129,10 @@ describe('Tabs', () => {
 
   it('indicator in ConfigProvider should work', () => {
     const { container } = render(
-      <ConfigProvider tabs={{ indicatorLength: 12 }}>
+      <ConfigProvider tabs={{ indicatorSize: 12 }}>
         <Tabs items={[{ key: '1', label: 'foo' }]} className="Tabs_1" />
         <Tabs items={[{ key: '2', label: 'bar' }]} className="Tabs_2" />
-        <Tabs items={[{ key: '3', label: 'too' }]} indicatorLength={4} className="Tabs_3" />
+        <Tabs items={[{ key: '3', label: 'too' }]} indicatorSize={4} className="Tabs_3" />
       </ConfigProvider>,
     );
 

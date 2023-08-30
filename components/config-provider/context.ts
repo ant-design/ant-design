@@ -144,7 +144,7 @@ export interface ConfigConsumerProps {
   tag?: ComponentStyleConfig;
   table?: ComponentStyleConfig;
   card?: ComponentStyleConfig;
-  tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicatorLength'>;
+  tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicatorSize'>;
   timeline?: ComponentStyleConfig;
   timePicker?: ComponentStyleConfig;
   upload?: ComponentStyleConfig;
