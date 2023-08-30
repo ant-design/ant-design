@@ -29,7 +29,7 @@ const locales = {
     value: 'Default Value',
     componentToken: 'Component Token',
     globalToken: 'Global Token',
-    help: 'How to customize?',
+    help: 'How to use?',
     customizeTokenLink: '/docs/react/customize-theme#customize-design-token',
     customizeComponentTokenLink: 'docs/react/customize-theme#customize-component-token',
   },
