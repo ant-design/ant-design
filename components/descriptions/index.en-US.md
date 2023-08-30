@@ -93,12 +93,12 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### DescriptionItem
 
-| Property     | Description                    | Type          | Default | Version |
-| ------------ | ------------------------------ | ------------- | ------- | ------- |
-| contentStyle | Customize content style        | CSSProperties | -       | 4.9.0   |
-| label        | The description of the content | ReactNode     | -       |         |
-| labelStyle   | Customize label style          | CSSProperties | -       | 4.9.0   |
-| span         | The number of columns included | number        | 1       |         |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| contentStyle | Customize content style | CSSProperties | - | 4.9.0 |
+| label | The description of the content | ReactNode | - |  |
+| labelStyle | Customize label style | CSSProperties | - | 4.9.0 |
+| span | The number of columns included | number \| [Screens](/components/grid#col) | 1 | `screens: 5.9.0` |
 
 > The number of span Description.Item. Span={2} takes up the width of two DescriptionItems. When both `style` and `labelStyle`(or `contentStyle`) configured, both of them will work. And next one will overwrite first when conflict.
 

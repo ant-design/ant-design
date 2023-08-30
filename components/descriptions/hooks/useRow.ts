@@ -1,8 +1,6 @@
-import type React from 'react';
 import { useMemo } from 'react';
-import toArray from 'rc-util/lib/Children/toArray';
 
-import type { DescriptionsItemType } from '..';
+import type { DescriptionsItemType, InternalDescriptionsItemType } from '..';
 import warning from '../../_util/warning';
 
 function getFilledItem(
@@ -27,7 +25,7 @@ function getFilledItem(
 }
 
 // Calculate the sum of span in a row
-function getCalcRows(rowItems: DescriptionsItemType[], mergedColumn: number) {
+function getCalcRows(rowItems: InternalDescriptionsItemType[], mergedColumn: number) {
   const rows: DescriptionsItemType[][] = [];
   let tmpRow: DescriptionsItemType[] = [];
   let rowRestCol = mergedColumn;
@@ -59,7 +57,7 @@ function getCalcRows(rowItems: DescriptionsItemType[], mergedColumn: number) {
   return rows;
 }
 
-const useRow = (mergedColumn: number, items: DescriptionsItemType[]) => {
+const useRow = (mergedColumn: number, items: InternalDescriptionsItemType[]) => {
   const rows = useMemo(() => getCalcRows(items, mergedColumn), [items, mergedColumn]);
 
   return rows;

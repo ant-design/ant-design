@@ -22,8 +22,11 @@ interface CompoundedComponent {
   Item: typeof DescriptionsItem;
 }
 
-export interface DescriptionsItemType extends Omit<DescriptionsItemProps, 'span'> {
+export interface InternalDescriptionsItemType extends DescriptionsItemProps {
   key?: React.Key;
+}
+
+export interface DescriptionsItemType extends Omit<InternalDescriptionsItemType, 'span'> {
   span?: number | { [key in Breakpoint]?: number };
 }
 
