@@ -43,6 +43,7 @@ import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
 import { defaultTheme } from '../theme/context';
+import type { TabsProps } from '../tabs';
 
 /**
  * Since too many feedback using static method like `Modal.confirm` not getting theme, we record the
@@ -180,7 +181,7 @@ export interface ConfigProviderProps {
   tag?: ComponentStyleConfig;
   table?: ComponentStyleConfig;
   card?: ComponentStyleConfig;
-  tabs?: ComponentStyleConfig;
+  tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicatorSize'>;
   timeline?: ComponentStyleConfig;
   timePicker?: ComponentStyleConfig;
   upload?: ComponentStyleConfig;
