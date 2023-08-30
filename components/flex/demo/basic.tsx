@@ -1,33 +1,24 @@
-import React, { useState } from 'react';
-import { UploadOutlined } from '@ant-design/icons';
-import { Button, Flex, Popconfirm, Radio, Upload } from 'antd';
-import { justifyContentValues } from 'antd/es/flex/classNames';
+import React from 'react';
+import { Card, Flex } from 'antd';
 
-const App: React.FC = () => {
-  const [justify, setJustify] = useState<React.CSSProperties['justifyContent']>('space-around');
-  return (
-    <>
-      <Radio.Group value={justify} onChange={(e) => setJustify(e.target.value)}>
-        {justifyContentValues.map((item) => (
-          <Radio key={item} value={item}>
-            {item}
-          </Radio>
-        ))}
-      </Radio.Group>
-      <br />
-      <br />
-      <Flex justify={justify} align="center">
-        <Button>Flex</Button>
-        <Button type="primary">Button</Button>
-        <Upload>
-          <Button icon={<UploadOutlined />}>Click to Upload</Button>
-        </Upload>
-        <Popconfirm title="Are you sure delete this task?" okText="Yes" cancelText="No">
-          <Button>Confirm</Button>
-        </Popconfirm>
-      </Flex>
-    </>
-  );
-};
+const App: React.FC = () => (
+  <Flex>
+    <Card size="small" hoverable style={{ margin: 10 }}>
+      <p>Card content</p>
+      <p>Card content</p>
+      <p>Card content</p>
+    </Card>
+    <Card size="small" hoverable style={{ margin: 10 }}>
+      <p>Card content</p>
+      <p>Card content</p>
+      <p>Card content</p>
+    </Card>
+    <Card size="small" hoverable style={{ margin: 10 }}>
+      <p>Card content</p>
+      <p>Card content</p>
+      <p>Card content</p>
+    </Card>
+  </Flex>
+);
 
 export default App;

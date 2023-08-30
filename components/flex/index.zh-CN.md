@@ -18,8 +18,9 @@ tag: New
 ## 代码演示
 
 <!-- prettier-ignore -->
-<code src="./demo/basic.tsx">基本</code>
-<code src="./demo/vertical.tsx">垂直</code>
+<code src="./demo/basic.tsx">基本布局</code>
+<code src="./demo/vertical.tsx">垂直布局</code>
+<code src="./demo/align.tsx">对齐方式</code>
 <code src="./demo/gap.tsx">间隙大小</code>
 <code src="./demo/gap-customize.tsx">自定义间隙大小</code>
 

@@ -5,7 +5,7 @@ const App: React.FC = () => {
   const [gap, setGap] = React.useState<number>(8);
   return (
     <>
-      <Slider min={0} max={200} value={gap} onChange={setGap} />
+      <Slider value={gap} onChange={setGap} />
       <br />
       <br />
       <Flex gap={gap}>

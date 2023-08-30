@@ -1,251 +1,347 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders components/flex/demo/basic.tsx correctly 1`] = `
+exports[`renders components/flex/demo/align.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-segmented"
   >
-    <label
-      class="ant-radio-wrapper"
+    <div
+      class="ant-segmented-group"
     >
-      <span
-        class="ant-radio ant-wave-target"
+      <label
+        class="ant-segmented-item"
       >
         <input
-          class="ant-radio-input"
+          class="ant-segmented-item-input"
           type="radio"
-          value="flex-start"
         />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        flex-start
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio ant-wave-target"
+        <div
+          class="ant-segmented-item-label"
+          title="flex-start"
+        >
+          flex-start
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
         <input
-          class="ant-radio-input"
+          class="ant-segmented-item-input"
           type="radio"
-          value="flex-end"
         />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        flex-end
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio ant-wave-target"
+        <div
+          class="ant-segmented-item-label"
+          title="flex-end"
+        >
+          flex-end
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
         <input
-          class="ant-radio-input"
+          class="ant-segmented-item-input"
           type="radio"
-          value="start"
         />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        start
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio ant-wave-target"
+        <div
+          class="ant-segmented-item-label"
+          title="start"
+        >
+          start
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
         <input
-          class="ant-radio-input"
+          class="ant-segmented-item-input"
           type="radio"
-          value="end"
         />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        end
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio ant-wave-target"
+        <div
+          class="ant-segmented-item-label"
+          title="end"
+        >
+          end
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
         <input
-          class="ant-radio-input"
+          class="ant-segmented-item-input"
           type="radio"
-          value="center"
         />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        center
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio ant-wave-target"
+        <div
+          class="ant-segmented-item-label"
+          title="center"
+        >
+          center
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
         <input
-          class="ant-radio-input"
+          class="ant-segmented-item-input"
           type="radio"
-          value="space-between"
         />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        space-between
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
-    >
-      <span
-        class="ant-radio ant-wave-target ant-radio-checked"
+        <div
+          class="ant-segmented-item-label"
+          title="space-between"
+        >
+          space-between
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
       >
         <input
           checked=""
-          class="ant-radio-input"
+          class="ant-segmented-item-input"
           type="radio"
-          value="space-around"
         />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        space-around
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio ant-wave-target"
+        <div
+          class="ant-segmented-item-label"
+          title="space-around"
+        >
+          space-around
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
         <input
-          class="ant-radio-input"
+          class="ant-segmented-item-input"
           type="radio"
-          value="space-evenly"
         />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        space-evenly
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio ant-wave-target"
+        <div
+          class="ant-segmented-item-label"
+          title="space-evenly"
+        >
+          space-evenly
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
         <input
-          class="ant-radio-input"
+          class="ant-segmented-item-input"
           type="radio"
-          value="stretch"
         />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        stretch
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio ant-wave-target"
+        <div
+          class="ant-segmented-item-label"
+          title="stretch"
+        >
+          stretch
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
         <input
-          class="ant-radio-input"
+          class="ant-segmented-item-input"
           type="radio"
-          value="normal"
         />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        normal
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio ant-wave-target"
+        <div
+          class="ant-segmented-item-label"
+          title="normal"
+        >
+          normal
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
         <input
-          class="ant-radio-input"
+          class="ant-segmented-item-input"
           type="radio"
-          value="left"
         />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        left
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio ant-wave-target"
+        <div
+          class="ant-segmented-item-label"
+          title="left"
+        >
+          left
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
         <input
-          class="ant-radio-input"
+          class="ant-segmented-item-input"
           type="radio"
-          value="right"
         />
-        <span
-          class="ant-radio-inner"
+        <div
+          class="ant-segmented-item-label"
+          title="right"
+        >
+          right
+        </div>
+      </label>
+    </div>
+  </div>,
+  <br />,
+  <br />,
+  <div
+    class="ant-segmented"
+  >
+    <div
+      class="ant-segmented-group"
+    >
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
+      >
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          type="radio"
         />
-      </span>
-      <span>
-        right
-      </span>
-    </label>
+        <div
+          class="ant-segmented-item-label"
+          title="center"
+        >
+          center
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="start"
+        >
+          start
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="end"
+        >
+          end
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="flex-start"
+        >
+          flex-start
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="flex-end"
+        >
+          flex-end
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="self-start"
+        >
+          self-start
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="self-end"
+        >
+          self-end
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="baseline"
+        >
+          baseline
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="normal"
+        >
+          normal
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="stretch"
+        >
+          stretch
+        </div>
+      </label>
+    </div>
   </div>,
   <br />,
   <br />,
   <div
     class="ant-flex ant-flex-justify-space-around ant-flex-align-center"
+    style="width:100%;height:100px;border:1px solid #40a9ff"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-primary"
       type="button"
     >
       <span>
-        Flex
+        Primary
       </span>
     </button>
     <button
@@ -253,137 +349,142 @@ Array [
       type="button"
     >
       <span>
-        Button
+        Primary
       </span>
     </button>
-    <span
-      class="ant-upload-wrapper"
-    >
-      <div
-        class="ant-upload ant-upload-select"
-      >
-        <span
-          class="ant-upload"
-          role="button"
-          tabindex="0"
-        >
-          <input
-            accept=""
-            style="display:none"
-            type="file"
-          />
-          <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span
-              class="ant-btn-icon"
-            >
-              <span
-                aria-label="upload"
-                class="anticon anticon-upload"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="upload"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                  />
-                </svg>
-              </span>
-            </span>
-            <span>
-              Click to Upload
-            </span>
-          </button>
-        </span>
-      </div>
-      <div
-        class="ant-upload-list ant-upload-list-text"
-      />
-    </span>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-primary"
       type="button"
     >
       <span>
-        Confirm
+        Primary
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Primary
       </span>
     </button>
   </div>,
 ]
 `;
 
+exports[`renders components/flex/demo/basic.tsx correctly 1`] = `
+<div
+  class="ant-flex"
+>
+  <div
+    class="ant-card ant-card-bordered ant-card-hoverable ant-card-small"
+    style="margin:10px"
+  >
+    <div
+      class="ant-card-body"
+    >
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+    </div>
+  </div>
+  <div
+    class="ant-card ant-card-bordered ant-card-hoverable ant-card-small"
+    style="margin:10px"
+  >
+    <div
+      class="ant-card-body"
+    >
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+    </div>
+  </div>
+  <div
+    class="ant-card ant-card-bordered ant-card-hoverable ant-card-small"
+    style="margin:10px"
+  >
+    <div
+      class="ant-card-body"
+    >
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/flex/demo/gap.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-segmented"
   >
-    <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+    <div
+      class="ant-segmented-group"
     >
-      <span
-        class="ant-radio ant-wave-target ant-radio-checked"
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
       >
         <input
           checked=""
-          class="ant-radio-input"
+          class="ant-segmented-item-input"
           type="radio"
-          value="small"
         />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        small
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio ant-wave-target"
+        <div
+          class="ant-segmented-item-label"
+          title="small"
+        >
+          small
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
         <input
-          class="ant-radio-input"
+          class="ant-segmented-item-input"
           type="radio"
-          value="middle"
         />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        middle
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio ant-wave-target"
+        <div
+          class="ant-segmented-item-label"
+          title="middle"
+        >
+          middle
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
         <input
-          class="ant-radio-input"
+          class="ant-segmented-item-input"
           type="radio"
-          value="large"
         />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        large
-      </span>
-    </label>
+        <div
+          class="ant-segmented-item-label"
+          title="large"
+        >
+          large
+        </div>
+      </label>
+    </div>
   </div>,
   <br />,
   <br />,
@@ -436,19 +537,19 @@ Array [
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:4%"
+      style="left:0%;width:8%"
     />
     <div
       class="ant-slider-step"
     />
     <div
       aria-disabled="false"
-      aria-valuemax="200"
+      aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="8"
       class="ant-slider-handle"
       role="slider"
-      style="left:4%;transform:translateX(-50%)"
+      style="left:8%;transform:translateX(-50%)"
       tabindex="0"
     />
   </div>,
