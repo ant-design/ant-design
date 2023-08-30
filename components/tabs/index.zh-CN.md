@@ -26,6 +26,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 <code src="./demo/disabled.tsx">禁用</code>
 <code src="./demo/centered.tsx">居中</code>
 <code src="./demo/icon.tsx">图标</code>
+<code src="./demo/custom-indicator.tsx">指示条</code>
 <code src="./demo/slide.tsx">滑动</code>
 <code src="./demo/extra.tsx">附加内容</code>
 <code src="./demo/size.tsx">大小</code>

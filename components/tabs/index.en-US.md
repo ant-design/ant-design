@@ -23,6 +23,7 @@ Ant Design has 3 types of Tabs for different situations.
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/centered.tsx">Centered</code>
 <code src="./demo/icon.tsx">Icon</code>
+<code src="./demo/custom-indicator.tsx">Indicator</code>
 <code src="./demo/slide.tsx">Slide</code>
 <code src="./demo/extra.tsx">Extra content</code>
 <code src="./demo/size.tsx">Size</code>
