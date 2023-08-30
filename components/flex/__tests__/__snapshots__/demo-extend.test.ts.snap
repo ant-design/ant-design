@@ -238,7 +238,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-flex ant-flex-align-center ant-flex-justify-space-around"
+    class="ant-flex ant-flex-justify-space-around ant-flex-align-center"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -603,7 +603,7 @@ exports[`renders components/flex/demo/gap-customize.tsx extend context correctly
 
 exports[`renders components/flex/demo/vertical.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-direction-column"
+  class="ant-flex ant-flex-direction-column ant-flex-align-stretch"
 >
   <div
     class="ant-card ant-card-bordered ant-card-hoverable ant-card-small"
