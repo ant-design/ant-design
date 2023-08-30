@@ -12,7 +12,7 @@ So we proposed [[RFC] StaticTable for fast perf & virtual scroll support](https:
 
 ## TL;DR
 
-Table supports virtual scrolling by setting the `virtual` prop. At the same time, the original Table's interactive functions can be used normally:
+Table supports virtual scrolling by setting the `virtual` prop. At the same time, the original Table's functions except `components.body` can be used normally:
 
 ```tsx
 <Table virtual scroll={{ x: 2000, y: 500 }} {...otherProps} />

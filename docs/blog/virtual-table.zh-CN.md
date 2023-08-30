@@ -12,7 +12,7 @@ author: zombieJ
 
 ## 太长不看
 
-Table 通过 `virtual` 属性即可开启虚拟滚动能力。同时，原 Table 的交互功能都能正常使用：
+Table 通过 `virtual` 属性即可开启虚拟滚动能力。同时，原 Table 的功能（除自定义 `components.body` 外）都能正常使用：
 
 ```tsx
 <Table virtual scroll={{ x: 2000, y: 500 }} {...otherProps} />
