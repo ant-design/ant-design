@@ -66,15 +66,27 @@ const genClsDirection = (prefixCls: string, direction: React.CSSProperties['flex
   return directionCls;
 };
 
+const genMergedAlignCls = (
+  prefixCls: string,
+  align: React.CSSProperties['alignItems'],
+  direction: React.CSSProperties['flexDirection'],
+) => {
+  if (align) {
+    return genClsAlign(prefixCls, align);
+  }
+  return {
+    ...genClsAlign(prefixCls, align),
+    [`${prefixCls}-align-stretch`]: direction === 'column' || direction === 'column-reverse',
+  };
+};
+
 const createFlexClassNames = (prefixCls: string, props: FlexProps) => {
   const { direction, wrap, justify, align } = props;
   return classNames({
     ...genClsWrap(prefixCls, wrap),
-    ...genClsAlign(prefixCls, align),
     ...genClsJustify(prefixCls, justify),
     ...genClsDirection(prefixCls, direction),
-    // column 类垂直的样式中，如果用户没指定 align-item 的时候，align-item 默认需要撑满，水平则是垂直居中
-    [`${prefixCls}-align-stretch`]: !align && ['column', 'column-reverse'].includes(direction!),
+    ...genMergedAlignCls(prefixCls, align, direction),
   });
 };
 
