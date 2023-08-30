@@ -4,10 +4,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
-import useResponsiveObserver, { matchScreen } from '../_util/responsiveObserver';
+import type { Breakpoint } from '../_util/responsiveObserver';
+import { matchScreen } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
+import useBreakpoint from '../grid/hooks/useBreakpoint';
 import DEFAULT_COLUMN_MAP from './constant';
 import DescriptionsContext from './DescriptionsContext';
 import useItems from './hooks/useItems';
@@ -68,7 +69,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
   } = props;
   const { getPrefixCls, direction, descriptions } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
-  const [screens, setScreens] = React.useState<ScreenMap>({});
+  const screens = useBreakpoint();
 
   // Column count
   const mergedColumn = React.useMemo(() => {
@@ -91,21 +92,6 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
   const rows = useRow(mergedColumn, mergedItems);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
-  const responsiveObserver = useResponsiveObserver();
-
-  // Responsive
-  React.useEffect(() => {
-    const token = responsiveObserver.subscribe((newScreens) => {
-      if (typeof column !== 'object') {
-        return;
-      }
-      setScreens(newScreens);
-    });
-
-    return () => {
-      responsiveObserver.unsubscribe(token);
-    };
-  }, []);
 
   // ======================== Render ========================
   const contextValue = React.useMemo(
