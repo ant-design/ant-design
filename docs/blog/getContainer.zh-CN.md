@@ -6,11 +6,11 @@ author: zombieJ
 
 在网页开发中，我们时常会遇到弹出元素的需求，比如 Select 的下拉框、或者是 Modal 组件。直接将其渲染到当前节点下时，可能会被父节点的 `overflow: hidden` 裁剪掉：
 
-![Overflow](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Noh-TYJ0BdcAAAAAAAAAAAAADrJ8AQ/original)
+<img alt="Overflow" height="200" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Noh-TYJ0BdcAAAAAAAAAAAAADrJ8AQ/original" />
 
 因而在 Ant Design 中，我们默认将其渲染到 `body` 下，但是这又会带来新的问题。由于不在同一个容器下，当用户滚动屏幕时会发现弹出层并未跟随滚动：
 
-![Scroll](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*d44KQqkTX90AAAAAAAAAAAAADrJ8AQ/original)
+<img alt="Scroll" height="370" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*d44KQqkTX90AAAAAAAAAAAAADrJ8AQ/original" />
 
 为了解决这个问题，我们提供了 `getContainer` 属性，让用户可以自定义渲染的容器。`getContainer` 方法会在组件挂载时调用，返回一个容器节点，组件会通过 `createPortal` 渲染到这个节点下。
 
