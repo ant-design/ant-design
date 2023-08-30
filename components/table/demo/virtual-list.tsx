@@ -1,5 +1,5 @@
 import React from 'react';
-import { Space, Table, Typography, Switch } from 'antd';
+import { Space, Switch, Table, Typography } from 'antd';
 import type { TableProps } from 'antd';
 
 interface RecordType {
@@ -43,10 +43,16 @@ const columns: TableProps<RecordType>['columns'] = [
     title: 'Age',
     dataIndex: 'age',
     width: 100,
+    onCell: (record) => ({
+      colSpan: record.id % 4 === 0 ? 2 : 1,
+    }),
   },
   {
     title: 'Address 1',
     dataIndex: 'address1',
+    onCell: (record) => ({
+      colSpan: record.id % 4 === 0 ? 0 : 1,
+    }),
   },
   {
     title: 'Address 2',
@@ -99,53 +105,55 @@ const App = () => {
 
     return {
       columnWidth: 48,
-      expandedRowRender: (record) => <p style={{ margin: 0 }}>{record.address1}</p>,
+      expandedRowRender: (record) => <p style={{ margin: 0 }}>🎉 Expanded {record.address1}</p>,
       rowExpandable: (record) => record.id % 2 === 0,
     };
   }, [expanded]);
 
   return (
-    <Space direction="vertical" style={{ width: '100%' }}>
-      <Space>
-        <Switch
-          checked={bordered}
-          onChange={() => setBordered(!bordered)}
-          checkedChildren="Bordered"
-          unCheckedChildren="Bordered"
-        />
-        <Switch
-          checked={expanded}
-          onChange={() => setExpanded(!expanded)}
-          checkedChildren="Expandable"
-          unCheckedChildren="Expandable"
-        />
-        <Switch
-          checked={empty}
-          onChange={() => setEmpty(!empty)}
-          checkedChildren="Empty"
-          unCheckedChildren="Empty"
+    <div style={{ padding: 64 }}>
+      <Space direction="vertical" style={{ width: '100%' }}>
+        <Space>
+          <Switch
+            checked={bordered}
+            onChange={() => setBordered(!bordered)}
+            checkedChildren="Bordered"
+            unCheckedChildren="Bordered"
+          />
+          <Switch
+            checked={expanded}
+            onChange={() => setExpanded(!expanded)}
+            checkedChildren="Expandable"
+            unCheckedChildren="Expandable"
+          />
+          <Switch
+            checked={empty}
+            onChange={() => setEmpty(!empty)}
+            checkedChildren="Empty"
+            unCheckedChildren="Empty"
+          />
+        </Space>
+
+        <Table
+          bordered={bordered}
+          virtual
+          columns={mergedColumns}
+          scroll={{ x: 2000, y: 400 }}
+          rowKey="id"
+          dataSource={empty ? [] : data}
+          pagination={false}
+          rowSelection={
+            expanded
+              ? undefined
+              : {
+                  type: 'radio',
+                  columnWidth: 48,
+                }
+          }
+          expandable={expandableProps}
         />
       </Space>
-
-      <Table
-        bordered={bordered}
-        virtual
-        columns={mergedColumns}
-        scroll={{ x: 2500, y: 400 }}
-        rowKey="id"
-        dataSource={empty ? [] : data}
-        pagination={false}
-        rowSelection={
-          expanded
-            ? undefined
-            : {
-                type: 'radio',
-                columnWidth: 48,
-              }
-        }
-        expandable={expandableProps}
-      />
-    </Space>
+    </div>
   );
 };
 
