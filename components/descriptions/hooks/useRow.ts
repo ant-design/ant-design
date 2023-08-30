@@ -1,13 +1,13 @@
 import { useMemo } from 'react';
 
-import type { DescriptionsItemType, InternalDescriptionsItemType } from '..';
+import type { InternalDescriptionsItemType } from '..';
 import warning from '../../_util/warning';
 
 function getFilledItem(
-  rowItem: DescriptionsItemType,
+  rowItem: InternalDescriptionsItemType,
   rowRestCol: number,
   span?: number,
-): DescriptionsItemType {
+): InternalDescriptionsItemType {
   let clone = rowItem;
 
   if (span === undefined || span > rowRestCol) {
@@ -26,8 +26,8 @@ function getFilledItem(
 
 // Calculate the sum of span in a row
 function getCalcRows(rowItems: InternalDescriptionsItemType[], mergedColumn: number) {
-  const rows: DescriptionsItemType[][] = [];
-  let tmpRow: DescriptionsItemType[] = [];
+  const rows: InternalDescriptionsItemType[][] = [];
+  let tmpRow: InternalDescriptionsItemType[] = [];
   let rowRestCol = mergedColumn;
 
   rowItems
