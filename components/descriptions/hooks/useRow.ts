@@ -1,6 +1,7 @@
-import toArray from 'rc-util/lib/Children/toArray';
 import type React from 'react';
 import { useMemo } from 'react';
+import toArray from 'rc-util/lib/Children/toArray';
+
 import type { DescriptionsItemType } from '..';
 import warning from '../../_util/warning';
 
@@ -24,10 +25,6 @@ function getFilledItem(
   }
   return clone;
 }
-
-// Convert children into items
-const transChildren2Items = (childNodes?: React.ReactNode) =>
-  toArray(childNodes).map((node) => ({ ...node?.props }));
 
 // Calculate the sum of span in a row
 function getCalcRows(rowItems: DescriptionsItemType[], mergedColumn: number) {
@@ -62,17 +59,8 @@ function getCalcRows(rowItems: DescriptionsItemType[], mergedColumn: number) {
   return rows;
 }
 
-const useRow = (
-  mergedColumn: number,
-  items?: DescriptionsItemType[],
-  children?: React.ReactNode,
-) => {
-  const rows = useMemo(() => {
-    if (Array.isArray(items)) {
-      return getCalcRows(items, mergedColumn);
-    }
-    return getCalcRows(transChildren2Items(children), mergedColumn);
-  }, [items, children, mergedColumn]);
+const useRow = (mergedColumn: number, items: DescriptionsItemType[]) => {
+  const rows = useMemo(() => getCalcRows(items, mergedColumn), [items, mergedColumn]);
 
   return rows;
 };
