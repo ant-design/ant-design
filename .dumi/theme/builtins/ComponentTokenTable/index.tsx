@@ -1,6 +1,5 @@
 import { RightOutlined, LinkOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 import { createStyles, css, useTheme } from 'antd-style';
-import Link from '../../common/Link';
 import { getDesignToken } from 'antd-token-previewer';
 import React, { useMemo, useState } from 'react';
 import tokenMeta from 'antd/es/version/token-meta.json';
@@ -54,11 +53,7 @@ const useStyle = createStyles(() => ({
   `,
   help: css`
     margin-left: 6px;
-<<<<<<< HEAD
-    font-size: 13px;
-=======
     font-size: 12px;
->>>>>>> bcbc52141 (docs: add help text for token customization)
     font-weight: normal;
     color: #999;
     a {
@@ -223,7 +218,7 @@ const ComponentTokenTable: React.FC<ComponentTokenTableProps> = ({ component }) 
       {tokenMeta.components[component] && (
         <SubTokenTable
           title={locale.componentToken}
-          helpText={<Link to={locale.customizeTokenLink}>{locale.help}</Link>}
+          helpText={locale.help}
           helpLink={locale.customizeTokenLink}
           tokens={tokenMeta.components[component].map((item) => item.token)}
           component={component}
