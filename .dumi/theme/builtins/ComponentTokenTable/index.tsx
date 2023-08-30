@@ -52,7 +52,7 @@ const useStyle = createStyles(() => ({
     }
   `,
   help: css`
-    margin-left: 6px;
+    margin-left: 8px;
     font-size: 12px;
     font-weight: normal;
     color: #999;
@@ -170,7 +170,7 @@ const SubTokenTable: React.FC<SubTokenTableProps> = ({
             }
           >
             <span className={styles.help}>
-              <QuestionCircleOutlined style={{ marginRight: 2 }} />
+              <QuestionCircleOutlined style={{ marginRight: 3 }} />
               {helpText}
             </span>
           </Popover>
