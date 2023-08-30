@@ -436,7 +436,7 @@ describe('Typography.Ellipsis', () => {
 
   it('should not throw default dom nodes', async () => {
     let currentWidth = 100;
-    // string conut is different with different width
+    // string count is different with different width
     const getLineStrCount = (width: number) => {
       const res = width === 100 ? 20 : 17;
       return res;
