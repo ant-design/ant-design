@@ -9,6 +9,7 @@ export default () => (
           itemColor: '#222',
           itemHoverColor: '#333',
           itemHoverBg: 'rgba(0, 0, 0, 0.06)',
+          itemSelectedColor: '#444',
           itemSelectedBg: '#aaa',
           itemActiveBg: '#ccc',
         },
