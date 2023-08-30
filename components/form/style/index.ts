@@ -323,7 +323,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
 };
 
 const genHorizontalStyle: GenerateStyle<FormToken> = (token) => {
-  const { componentCls, formItemCls, rootPrefixCls } = token;
+  const { componentCls, formItemCls } = token;
 
   return {
     [`${componentCls}-horizontal`]: {
@@ -339,8 +339,11 @@ const genHorizontalStyle: GenerateStyle<FormToken> = (token) => {
       },
 
       // https://github.com/ant-design/ant-design/issues/32980
-      [`${formItemCls}-label.${rootPrefixCls}-col-24 + ${formItemCls}-control`]: {
-        minWidth: 'unset',
+      // https://github.com/ant-design/ant-design/issues/34903
+      [`${formItemCls}-label[class$='-24'], ${formItemCls}-label[class*='-24 ']`]: {
+        [`& + ${formItemCls}-control`]: {
+          minWidth: 'unset',
+        },
       },
     },
   };
