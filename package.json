@@ -82,7 +82,7 @@
     "pre-publish": "npm run test-all -- --skip-build && node ./scripts/pre-publish-notice.js",
     "prettier": "prettier -c --write **/* --cache",
     "pub": "npm run version && npm run collect-token-statistic && npm run token-meta && antd-tools run pub",
-    "rome:format": "rome format --write .",
+    "biome:format": "biome format --write .",
     "prepublishOnly": "antd-tools run guard",
     "postpublish": "node ./scripts/post-script.js",
     "site": "dumi build && cp .surgeignore _site",
@@ -291,7 +291,7 @@
     "remark-cli": "^11.0.0",
     "remark-lint": "^9.0.0",
     "remark-preset-lint-recommended": "^6.0.0",
-    "rome": "12.1.3-nightly.f65b0d9",
+    "@biomejs/biome": "^1.0.0",
     "semver": "^7.3.5",
     "simple-git": "^3.0.0",
     "size-limit": "^8.1.0",
@@ -329,7 +329,7 @@
     "mode": "npm"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx}": "rome format --write",
+    "*.{ts,tsx,js,jsx}": "biome format --write",
     "*.{json,less,md}": "prettier --ignore-unknown --write"
   }
 }
