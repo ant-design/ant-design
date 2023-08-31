@@ -190,7 +190,7 @@ const confirmed = await modal.confirm({ ... });
 | originNode | 默认节点 | React.ReactNode                   | -      |
 | extra      | 扩展选项 | { OkBtn: FC; CancelBtn: FC } | -      |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Modal"></ComponentTokenTable>
 

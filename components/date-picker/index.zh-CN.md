@@ -59,6 +59,7 @@ demo:
 
 ```jsx
 import locale from 'antd/es/date-picker/locale/zh_CN';
+
 import 'dayjs/locale/zh-cn';
 
 <DatePicker locale={locale} />;
@@ -68,6 +69,7 @@ import 'dayjs/locale/zh-cn';
 // 默认语言为 en-US，如果你需要设置其他语言，推荐在入口文件全局设置 locale
 import locale from 'antd/locale/zh_CN';
 import dayjs from 'dayjs';
+
 import 'dayjs/locale/zh-cn';
 
 <ConfigProvider locale={locale}>
@@ -217,7 +219,7 @@ type GenericFn = (value: Dayjs) => string;
 export type FormatType = Generic | GenericFn | Array<Generic | GenericFn>;
 ```
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="DatePicker"></ComponentTokenTable>
 
@@ -245,7 +247,9 @@ export type FormatType = Generic | GenericFn | Array<Generic | GenericFn>;
 
 ```js
 import dayjs from 'dayjs';
+
 import 'dayjs/locale/zh-cn';
+
 import updateLocale from 'dayjs/plugin/updateLocale';
 
 dayjs.extend(updateLocale);
