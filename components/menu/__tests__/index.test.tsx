@@ -5,7 +5,7 @@ import {
   PieChartOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import React, { ReactNode, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import type { MenuProps, MenuRef } from '..';
 import Menu from '..';
 import { TriggerMockContext } from '../../../tests/shared/demoTestContext';
@@ -1125,7 +1125,7 @@ describe('Menu', () => {
   });
 
   it('hide expand icon when pass null or false into expandIcon', () => {
-    const App = ({ expand }: { expand?: ReactNode }) => (
+    const App = ({ expand }: { expand?: React.ReactNode }) => (
       <Menu
         expandIcon={expand}
         items={[
