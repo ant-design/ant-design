@@ -23,6 +23,7 @@ tag: New
 <code src="./demo/align.tsx">对齐方式</code>
 <code src="./demo/gap.tsx">间隙大小</code>
 <code src="./demo/gap-customize.tsx">自定义间隙大小</code>
+<code src="./demo/wrap.tsx">自动换行</code>
 
 ## API
 

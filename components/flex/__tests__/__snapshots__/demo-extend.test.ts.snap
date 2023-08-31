@@ -684,3 +684,204 @@ exports[`renders components/flex/demo/vertical.tsx extend context correctly 1`] 
 `;
 
 exports[`renders components/flex/demo/vertical.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders components/flex/demo/wrap.tsx extend context correctly 2`] = `[]`;
