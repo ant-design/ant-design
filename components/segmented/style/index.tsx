@@ -69,7 +69,6 @@ const segmentedTextEllipsisCss: CSSObject = {
 // ============================== Styles ==============================
 const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken) => {
   const { componentCls } = token;
-  console.log(token, 'tolen');
   return {
     [componentCls]: {
       ...resetComponent(token),
