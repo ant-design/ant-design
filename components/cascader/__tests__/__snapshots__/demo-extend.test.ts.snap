@@ -665,9 +665,7 @@ exports[`renders components/cascader/demo/custom-render.tsx extend context corre
 exports[`renders components/cascader/demo/custom-trigger.tsx extend context correctly 1`] = `
 <span>
   Unselect
-  <a
-    href="#"
-  >
+  <a>
     Change city
   </a>
   <div
