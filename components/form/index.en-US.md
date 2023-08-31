@@ -163,6 +163,8 @@ Form updates only the modified field-related components for performance optimiza
 
 When `shouldUpdate` is `true`, any Form update will cause the Form.Item to be re-rendered. This is very helpful for custom rendering some areas:
 
+related issue: [#34500](https://github.com/ant-design/ant-design/issues/34500)
+
 ```jsx
 <Form.Item shouldUpdate>
   {() => {
