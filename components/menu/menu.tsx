@@ -127,13 +127,17 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   if (typeof expandIcon === 'function') {
     mergedExpandIcon = expandIcon;
   } else {
-    const beClone: React.ReactNode = expandIcon || overrideObj.expandIcon;
-    mergedExpandIcon = cloneElement(beClone, {
-      className: classNames(
-        `${prefixCls}-submenu-expand-icon`,
-        isValidElement(beClone) ? beClone.props?.className : '',
-      ),
-    });
+    const beClone = expandIcon ?? overrideObj.expandIcon;
+    if (beClone === null || beClone === false) {
+      mergedExpandIcon = null;
+    } else {
+      mergedExpandIcon = cloneElement(beClone, {
+        className: classNames(
+          `${prefixCls}-submenu-expand-icon`,
+          isValidElement(beClone) ? beClone.props?.className : '',
+        ),
+      });
+    }
   }
 
   // ======================== Context ==========================
