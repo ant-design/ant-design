@@ -296,9 +296,7 @@ exports[`renders components/cascader/demo/custom-trigger.tsx correctly 1`] = `
 <span>
   Unselect
   <!-- -->
-  <a
-    href="#"
-  >
+  <a>
     Change city
   </a>
 </span>
