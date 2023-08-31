@@ -1,11 +1,10 @@
-import { RightOutlined } from '@ant-design/icons';
+import { RightOutlined, LinkOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 import { createStyles, css, useTheme } from 'antd-style';
-import Link from '../../common/Link';
 import { getDesignToken } from 'antd-token-previewer';
 import React, { useMemo, useState } from 'react';
 import tokenMeta from 'antd/es/version/token-meta.json';
 import tokenData from 'antd/es/version/token.json';
-import { ConfigProvider, Table } from 'antd';
+import { ConfigProvider, Table, Popover, Typography } from 'antd';
 import useLocale from '../../../hooks/useLocale';
 import { useColumns } from '../TokenTable';
 
@@ -21,7 +20,7 @@ const locales = {
     globalToken: '全局 Token',
     help: '如何定制？',
     customizeTokenLink: '/docs/react/customize-theme-cn#修改主题变量',
-    customizeComponentTokenLink: '/docs/react/customize-theme-cn#修改主题变量',
+    customizeComponentTokenLink: '/docs/react/customize-theme-cn#修改组件变量',
   },
   en: {
     token: 'Token Name',
@@ -30,7 +29,7 @@ const locales = {
     value: 'Default Value',
     componentToken: 'Component Token',
     globalToken: 'Global Token',
-    help: 'How to customize?',
+    help: 'How to use?',
     customizeTokenLink: '/docs/react/customize-theme#customize-design-token',
     customizeComponentTokenLink: 'docs/react/customize-theme#customize-component-token',
   },
@@ -53,8 +52,8 @@ const useStyle = createStyles(() => ({
     }
   `,
   help: css`
-    margin-left: 6px;
-    font-size: 13px;
+    margin-left: 8px;
+    font-size: 12px;
     font-weight: normal;
     color: #999;
     a {
@@ -66,16 +65,18 @@ const useStyle = createStyles(() => ({
 interface SubTokenTableProps {
   defaultOpen?: boolean;
   title: string;
-  help: React.ReactNode;
+  helpText: React.ReactNode;
+  helpLink: string;
   tokens: string[];
   component?: string;
 }
 
 const SubTokenTable: React.FC<SubTokenTableProps> = ({
   defaultOpen,
-  help,
   tokens,
   title,
+  helpText,
+  helpLink,
   component,
 }) => {
   const [, lang] = useLocale(locales);
@@ -127,13 +128,52 @@ const SubTokenTable: React.FC<SubTokenTableProps> = ({
     })
     .filter(Boolean);
 
+  const code = component
+    ? `<ConfigProvider
+  theme={{
+    components: {
+      ${component}: {
+        /* here is your component tokens */
+      },
+    },
+  }}
+>
+  ...
+</ConfigProvider>`
+    : `<ConfigProvider
+  theme={{
+    token: {
+      /* here is your global tokens */
+    },
+  }}
+>
+  ...
+</ConfigProvider>`;
+
   return (
     <>
       <div className={styles.tableTitle} onClick={() => setOpen(!open)}>
         <RightOutlined className={styles.arrowIcon} rotate={open ? 90 : 0} />
         <h3>
           {title}
-          <span className={styles.help}>({help})</span>
+          <Popover
+            title={null}
+            popupStyle={{ width: 400 }}
+            content={
+              <Typography>
+                <pre style={{ fontSize: 12 }}>{code}</pre>
+                <a href={helpLink} target="_blank" rel="noreferrer">
+                  <LinkOutlined style={{ marginRight: 4 }} />
+                  {helpText}
+                </a>
+              </Typography>
+            }
+          >
+            <span className={styles.help}>
+              <QuestionCircleOutlined style={{ marginRight: 3 }} />
+              {helpText}
+            </span>
+          </Popover>
         </h3>
       </div>
       {open && (
@@ -178,7 +218,8 @@ const ComponentTokenTable: React.FC<ComponentTokenTableProps> = ({ component }) 
       {tokenMeta.components[component] && (
         <SubTokenTable
           title={locale.componentToken}
-          help={<Link to={locale.customizeTokenLink}>{locale.help}</Link>}
+          helpText={locale.help}
+          helpLink={locale.customizeTokenLink}
           tokens={tokenMeta.components[component].map((item) => item.token)}
           component={component}
           defaultOpen
@@ -186,7 +227,8 @@ const ComponentTokenTable: React.FC<ComponentTokenTableProps> = ({ component }) 
       )}
       <SubTokenTable
         title={locale.globalToken}
-        help={<Link to={locale.customizeComponentTokenLink}>{locale.help}</Link>}
+        helpText={locale.help}
+        helpLink={locale.customizeComponentTokenLink}
         tokens={mergedGlobalTokens}
       />
     </>
