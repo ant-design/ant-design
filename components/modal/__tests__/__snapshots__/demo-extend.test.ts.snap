@@ -256,9 +256,13 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
               </svg>
             </span>
             <div
-              class="ant-modal-confirm-content"
+              class="ant-modal-confirm-paragraph"
             >
-              A good news!
+              <div
+                class="ant-modal-confirm-content"
+              >
+                A good news!
+              </div>
             </div>
           </div>
           <div
@@ -303,7 +307,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
           class="ant-modal-confirm-body-wrapper"
         >
           <div
-            class="ant-modal-confirm-body"
+            class="ant-modal-confirm-body ant-modal-confirm-body-has-title"
           >
             <span
               aria-label="exclamation-circle"
@@ -324,15 +328,19 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
                 />
               </svg>
             </span>
-            <span
-              class="ant-modal-confirm-title"
-            >
-              Confirm This?
-            </span>
             <div
-              class="ant-modal-confirm-content"
+              class="ant-modal-confirm-paragraph"
             >
-              Some descriptions.
+              <span
+                class="ant-modal-confirm-title"
+              >
+                Confirm This?
+              </span>
+              <div
+                class="ant-modal-confirm-content"
+              >
+                Some descriptions.
+              </div>
             </div>
           </div>
           <div
@@ -794,9 +802,13 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
               </svg>
             </span>
             <div
-              class="ant-modal-confirm-content"
+              class="ant-modal-confirm-paragraph"
             >
-              A good news!
+              <div
+                class="ant-modal-confirm-content"
+              >
+                A good news!
+              </div>
             </div>
           </div>
           <div
@@ -841,7 +853,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
           class="ant-modal-confirm-body-wrapper"
         >
           <div
-            class="ant-modal-confirm-body"
+            class="ant-modal-confirm-body ant-modal-confirm-body-has-title"
           >
             <span
               aria-label="exclamation-circle"
@@ -862,15 +874,19 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
                 />
               </svg>
             </span>
-            <span
-              class="ant-modal-confirm-title"
-            >
-              Confirm This?
-            </span>
             <div
-              class="ant-modal-confirm-content"
+              class="ant-modal-confirm-paragraph"
             >
-              Some descriptions.
+              <span
+                class="ant-modal-confirm-title"
+              >
+                Confirm This?
+              </span>
+              <div
+                class="ant-modal-confirm-content"
+              >
+                Some descriptions.
+              </div>
             </div>
           </div>
           <div
@@ -1114,9 +1130,13 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
               </svg>
             </span>
             <div
-              class="ant-modal-confirm-content"
+              class="ant-modal-confirm-paragraph"
             >
-              A good news!
+              <div
+                class="ant-modal-confirm-content"
+              >
+                A good news!
+              </div>
             </div>
           </div>
           <div
@@ -1161,7 +1181,7 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
           class="ant-modal-confirm-body-wrapper"
         >
           <div
-            class="ant-modal-confirm-body"
+            class="ant-modal-confirm-body ant-modal-confirm-body-has-title"
           >
             <span
               aria-label="exclamation-circle"
@@ -1182,15 +1202,19 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
                 />
               </svg>
             </span>
-            <span
-              class="ant-modal-confirm-title"
-            >
-              Confirm This?
-            </span>
             <div
-              class="ant-modal-confirm-content"
+              class="ant-modal-confirm-paragraph"
             >
-              Some descriptions.
+              <span
+                class="ant-modal-confirm-title"
+              >
+                Confirm This?
+              </span>
+              <div
+                class="ant-modal-confirm-content"
+              >
+                Some descriptions.
+              </div>
             </div>
           </div>
           <div
