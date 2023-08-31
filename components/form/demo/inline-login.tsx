@@ -4,11 +4,11 @@ import { Button, Form, Input } from 'antd';
 
 const App: React.FC = () => {
   const [form] = Form.useForm();
-  const [, forceUpdate] = useState({});
+  const [btnDisabled, setBtnDisabled] = useState<boolean>(true);
 
   // To disable submit button at the beginning.
   useEffect(() => {
-    forceUpdate({});
+    setBtnDisabled(false);
   }, []);
 
   const onFinish = (values: any) => {
@@ -39,6 +39,7 @@ const App: React.FC = () => {
             type="primary"
             htmlType="submit"
             disabled={
+              btnDisabled ||
               !form.isFieldsTouched(true) ||
               !!form.getFieldsError().filter(({ errors }) => errors.length).length
             }
