@@ -173,7 +173,7 @@ When `shouldUpdate` is `true`, any Form update will cause the Form.Item to be re
 
 You can ref [example](#components-form-demo-horizontal-login) to see detail.
 
-When `shouldUpdate` is a function, it will be called by form values update. Providing original values and current value to compare. This is very helpful for rendering additional fields based on values:
+When `shouldUpdate` is a function, it will be called by form values update. Providing original values and current value to compare. This is very helpful for rendering additional fields based on values. It should be noted that the child component should be returned in a function, otherwise `shouldUpdate` won't behave correctly:
 
 ```jsx
 <Form.Item shouldUpdate={(prevValues, curValues) => prevValues.additional !== curValues.additional}>
