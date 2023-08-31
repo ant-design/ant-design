@@ -55,7 +55,7 @@ tag: New
 | fontFamily | 字体类型 | string | sans-serif |  |
 | fontStyle | 字体样式 | `none` \| `normal` \| `italic` \| `oblique` | normal |  |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Watermark"></ComponentTokenTable>
 

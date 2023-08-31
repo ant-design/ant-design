@@ -76,6 +76,6 @@ group:
 | target | 该属性指定在何处显示链接的资源 | string    | -      |      |
 | title  | 文字内容                       | ReactNode | -      |      |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Anchor"></ComponentTokenTable>
