@@ -181,7 +181,7 @@ return <div>{contextHolder}</div>;
 const confirmed = await modal.confirm({ ... });
 ```
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Modal"></ComponentTokenTable>
 
