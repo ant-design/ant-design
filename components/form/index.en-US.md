@@ -175,10 +175,10 @@ related issue: [#34500](https://github.com/ant-design/ant-design/issues/34500)
 
 You can ref [example](#components-form-demo-horizontal-login) to see detail.
 
-When `shouldUpdate` is a function, it will be called by form values update. Providing original values and current value to compare. This is very helpful for rendering additional fields based on values. 
+When `shouldUpdate` is a function, it will be called by form values update. Providing original values and current value to compare. This is very helpful for rendering additional fields based on values:
 
 ```jsx
-<Form.Item ={(prevValues, curValues) => prevValues.additional !== curValues.additional}>
+<Form.Item shouldUpdate={(prevValues, curValues) => prevValues.additional !== curValues.additional}>
   {() => {
     return (
       <Form.Item name="other">
