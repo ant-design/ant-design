@@ -1,15 +1,12 @@
-import { TinyColor } from '@ctrl/tinycolor';
+import * as React from 'react';
+import { defaultAlgorithm, defaultTheme } from '@ant-design/compatible';
 import {
   BellOutlined,
   FolderOutlined,
   HomeOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
-import { createStyles, css, useTheme } from 'antd-style';
-import * as React from 'react';
-import classNames from 'classnames';
-import { defaultTheme, defaultAlgorithm } from '@ant-design/compatible';
-import { useLocation } from 'dumi';
+import { TinyColor } from '@ctrl/tinycolor';
 import type { MenuProps } from 'antd';
 import {
   Breadcrumb,
@@ -21,24 +18,29 @@ import {
   Menu,
   Radio,
   Space,
-  Typography,
   theme,
+  Typography,
 } from 'antd';
+import { createStyles, css, useTheme } from 'antd-style';
 import type { Color } from 'antd/es/color-picker';
 import { generateColor } from 'antd/es/color-picker/util';
-import * as utils from '../../../../theme/utils';
+import classNames from 'classnames';
+import { useLocation } from 'dumi';
+
+import useDark from '../../../../hooks/useDark';
 import useLocale from '../../../../hooks/useLocale';
+import Link from '../../../../theme/common/Link';
 import SiteContext from '../../../../theme/slots/SiteContext';
+import * as utils from '../../../../theme/utils';
 import Group from '../Group';
 import { getCarouselStyle } from '../util';
 import BackgroundImage from './BackgroundImage';
 import ColorPicker from './ColorPicker';
+import { DEFAULT_COLOR, getAvatarURL, getClosetColor, PINK_COLOR } from './colorUtil';
 import MobileCarousel from './MobileCarousel';
 import RadiusPicker from './RadiusPicker';
 import type { THEME } from './ThemePicker';
 import ThemePicker from './ThemePicker';
-import { DEFAULT_COLOR, PINK_COLOR, getAvatarURL, getClosetColor } from './colorUtil';
-import Link from '../../../../theme/common/Link';
 
 const { Header, Content, Sider } = Layout;
 
@@ -354,6 +356,15 @@ export default function Theme() {
     setThemeData(mergedData);
     form.setFieldsValue(mergedData);
   }, [themeType]);
+
+  const isRootDark = useDark();
+
+  React.useEffect(() => {
+    onThemeChange(null, {
+      ...themeData,
+      themeType: isRootDark ? 'dark' : 'default',
+    });
+  }, [isRootDark]);
 
   // ================================ Tokens ================================
   const closestColor = getClosetColor(colorPrimaryValue);

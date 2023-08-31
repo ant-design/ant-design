@@ -1,10 +1,12 @@
+import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import { resetComponent } from '../../style';
 import { genCollapseMotion, zoomIn } from '../../style/motion';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 import genFormValidateMotionStyle from './explain';
-import type { CSSProperties } from 'react';
 
 export interface ComponentToken {
   /**
@@ -209,7 +211,6 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
       // =                            Label                           =
       // ==============================================================
       [`${formItemCls}-label`]: {
-        display: 'inline-block',
         flexGrow: 0,
         overflow: 'hidden',
         whiteSpace: 'nowrap',
@@ -292,7 +293,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
       // =                            Input                           =
       // ==============================================================
       [`${formItemCls}-control`]: {
-        display: 'flex',
+        ['--ant-display' as any]: 'flex',
         flexDirection: 'column',
         flexGrow: 1,
 
@@ -407,7 +408,7 @@ const genHorizontalStyle: GenerateStyle<FormToken> = (token) => {
 };
 
 const genInlineStyle: GenerateStyle<FormToken> = (token) => {
-  const { componentCls, formItemCls, itemMarginBottom } = token;
+  const { componentCls, formItemCls } = token;
 
   return {
     [`${componentCls}-inline`]: {
@@ -421,10 +422,6 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
 
         '&-row': {
           flexWrap: 'nowrap',
-        },
-
-        '&-with-help': {
-          marginBottom: itemMarginBottom,
         },
 
         [`> ${formItemCls}-label,
@@ -466,7 +463,7 @@ const makeVerticalLayoutLabel = (token: FormToken): CSSObject => ({
 });
 
 const makeVerticalLayout = (token: FormToken): CSSObject => {
-  const { componentCls, formItemCls } = token;
+  const { componentCls, formItemCls, rootPrefixCls } = token;
 
   return {
     [`${formItemCls} ${formItemCls}-label`]: makeVerticalLayoutLabel(token),
@@ -474,10 +471,14 @@ const makeVerticalLayout = (token: FormToken): CSSObject => {
       [formItemCls]: {
         flexWrap: 'wrap',
 
-        [`${formItemCls}-label,
-          ${formItemCls}-control`]: {
-          flex: '0 0 100%',
-          maxWidth: '100%',
+        [`${formItemCls}-label, ${formItemCls}-control`]: {
+          // When developer pass `xs: { span }`,
+          // It should follow the `xs` screen config
+          // ref: https://github.com/ant-design/ant-design/issues/44386
+          [`&:not([class*=" ${rootPrefixCls}-col-xs"])`]: {
+            flex: '0 0 100%',
+            maxWidth: '100%',
+          },
         },
       },
     },
@@ -538,13 +539,22 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
 };
 
 // ============================== Export ==============================
+export const prepareToken: (
+  token: Parameters<GenStyleFn<'Form'>>[0],
+  rootPrefixCls: string,
+) => FormToken = (token, rootPrefixCls) => {
+  const formToken = mergeToken<FormToken>(token, {
+    formItemCls: `${token.componentCls}-item`,
+    rootPrefixCls,
+  });
+
+  return formToken;
+};
+
 export default genComponentStyleHook(
   'Form',
   (token, { rootPrefixCls }) => {
-    const formToken = mergeToken<FormToken>(token, {
-      formItemCls: `${token.componentCls}-item`,
-      rootPrefixCls,
-    });
+    const formToken = prepareToken(token, rootPrefixCls);
 
     return [
       genFormStyle(formToken),
@@ -568,4 +578,9 @@ export default genComponentStyleHook(
     verticalLabelPadding: `0 0 ${token.paddingXS}px`,
     verticalLabelMargin: 0,
   }),
+  {
+    // Let From style before the Grid
+    // ref https://github.com/ant-design/ant-design/issues/44386
+    order: -1000,
+  },
 );

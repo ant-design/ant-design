@@ -11,6 +11,7 @@ import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/inter
 import type { SizeType } from './SizeContext';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { ShowWaveEffect } from '../_util/wave/interface';
+import type { TabsProps } from '../tabs';
 
 export const defaultIconPrefixCls = 'anticon';
 
@@ -143,7 +144,7 @@ export interface ConfigConsumerProps {
   tag?: ComponentStyleConfig;
   table?: ComponentStyleConfig;
   card?: ComponentStyleConfig;
-  tabs?: ComponentStyleConfig;
+  tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicatorSize'>;
   timeline?: ComponentStyleConfig;
   timePicker?: ComponentStyleConfig;
   upload?: ComponentStyleConfig;

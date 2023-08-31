@@ -1,9 +1,12 @@
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import React from 'react';
-import Button from '../button';
-import { convertLegacyProps } from '../button/button';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
+
 import { DisabledContextProvider } from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
+import NormalCancelBtn from './components/NormalCancelBtn';
+import NormalOkBtn from './components/NormalOkBtn';
+import type { ModalContextProps } from './context';
+import { ModalContextProvider } from './context';
 import type { ModalProps } from './interface';
 import { getConfirmLocale } from './locale';
 
@@ -42,23 +45,48 @@ export const Footer: React.FC<
     onCancel,
     okButtonProps,
     cancelButtonProps,
+    footer,
   } = props;
 
   const [locale] = useLocale('Modal', getConfirmLocale());
 
-  return (
+  // ================== Locale Text ==================
+  const okTextLocale = okText || locale?.okText;
+  const cancelTextLocale = cancelText || locale?.cancelText;
+
+  // ================= Context Value =================
+  const btnCtxValue: ModalContextProps = {
+    confirmLoading,
+    okButtonProps,
+    cancelButtonProps,
+    okTextLocale,
+    cancelTextLocale,
+    okType,
+    onOk,
+    onCancel,
+  };
+
+  const btnCtxValueMemo = React.useMemo(() => btnCtxValue, [...Object.values(btnCtxValue)]);
+
+  const footerOriginNode = (
+    <>
+      <NormalCancelBtn />
+      <NormalOkBtn />
+    </>
+  );
+
+  return footer === undefined || typeof footer === 'function' ? (
     <DisabledContextProvider disabled={false}>
-      <Button onClick={onCancel} {...cancelButtonProps}>
-        {cancelText || locale?.cancelText}
-      </Button>
-      <Button
-        {...convertLegacyProps(okType)}
-        loading={confirmLoading}
-        onClick={onOk}
-        {...okButtonProps}
-      >
-        {okText || locale?.okText}
-      </Button>
+      <ModalContextProvider value={btnCtxValueMemo}>
+        {typeof footer === 'function'
+          ? footer(footerOriginNode, {
+              OkBtn: NormalOkBtn,
+              CancelBtn: NormalCancelBtn,
+            })
+          : footerOriginNode}
+      </ModalContextProvider>
     </DisabledContextProvider>
+  ) : (
+    footer
   );
 };
