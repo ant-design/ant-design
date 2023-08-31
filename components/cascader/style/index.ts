@@ -102,7 +102,6 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
               },
 
               '&-item': {
-                ...textEllipsis,
                 display: 'flex',
                 flexWrap: 'nowrap',
                 alignItems: 'center',
@@ -115,6 +114,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
                 '&:hover': {
                   background: token.controlItemBgHover,
                 },
+
                 '&-disabled': {
                   color: token.colorTextDisabled,
                   cursor: 'not-allowed',
@@ -137,6 +137,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
 
                 '&-content': {
                   flex: 'auto',
+                  ...textEllipsis,
                 },
 
                 [iconCls]: {
