@@ -17,6 +17,7 @@ import genSizeStyle from './size';
 import genSorterStyle from './sorter';
 import genStickyStyle from './sticky';
 import genSummaryStyle from './summary';
+import genVirtualStyle from './virtual';
 
 export interface ComponentToken {
   /**
@@ -272,6 +273,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
       // ============================= Cell =============================
       [`
+          ${componentCls}-cell,
           ${componentCls}-thead > tr > th,
           ${componentCls}-tbody > tr > th,
           ${componentCls}-tbody > tr > td,
@@ -513,6 +515,7 @@ export default genComponentStyleHook(
       genEllipsisStyle(tableToken),
       genSizeStyle(tableToken),
       genRtlStyle(tableToken),
+      genVirtualStyle(tableToken),
     ];
   },
   (token) => {

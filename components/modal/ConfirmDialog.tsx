@@ -1,19 +1,23 @@
+import * as React from 'react';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
-import * as React from 'react';
-import ActionButton from '../_util/ActionButton';
+
 import { getTransitionName } from '../_util/motion';
 import warning from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
 import ConfigProvider from '../config-provider';
 import { useLocale } from '../locale';
-import Dialog from './Modal';
+import CancelBtn from './components/ConfirmCancelBtn';
+import OkBtn from './components/ConfirmOkBtn';
+import type { ModalContextProps } from './context';
+import { ModalContextProvider } from './context';
 import type { ModalFuncProps, ModalLocale } from './interface';
+import Dialog from './Modal';
 
-interface ConfirmDialogProps extends ModalFuncProps {
+export interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
   close?: (...args: any[]) => void;
   /**
@@ -23,7 +27,7 @@ interface ConfirmDialogProps extends ModalFuncProps {
    */
   onConfirm?: (confirmed: boolean) => void;
   autoFocusButton?: null | 'ok' | 'cancel';
-  rootPrefixCls: string;
+  rootPrefixCls?: string;
   iconPrefixCls?: string;
   theme?: ThemeConfig;
 
@@ -43,22 +47,15 @@ export function ConfirmContent(
 ) {
   const {
     icon,
-    onCancel,
-    onOk,
-    close,
-    onConfirm,
-    isSilent,
     okText,
-    okButtonProps,
     cancelText,
-    cancelButtonProps,
     confirmPrefixCls,
-    rootPrefixCls,
     type,
     okCancel,
     footer,
     // Legacy for static function usage
     locale: staticLocale,
+    ...resetProps
   } = props;
 
   warning(
@@ -90,7 +87,6 @@ export function ConfirmContent(
     }
   }
 
-  const okType = props.okType || 'primary';
   // 默认为 true，保持向下兼容
   const mergedOkCancel = okCancel ?? type === 'confirm';
 
@@ -100,20 +96,26 @@ export function ConfirmContent(
 
   const mergedLocale = staticLocale || locale;
 
-  const cancelButton = mergedOkCancel && (
-    <ActionButton
-      isSilent={isSilent}
-      actionFn={onCancel}
-      close={(...args: any[]) => {
-        close?.(...args);
-        onConfirm?.(false);
-      }}
-      autoFocus={autoFocusButton === 'cancel'}
-      buttonProps={cancelButtonProps}
-      prefixCls={`${rootPrefixCls}-btn`}
-    >
-      {cancelText || mergedLocale?.cancelText}
-    </ActionButton>
+  // ================== Locale Text ==================
+  const okTextLocale = okText || (mergedOkCancel ? mergedLocale?.okText : mergedLocale?.justOkText);
+  const cancelTextLocale = cancelText || mergedLocale?.cancelText;
+
+  // ================= Context Value =================
+  const btnCtxValue: ModalContextProps = {
+    autoFocusButton,
+    cancelTextLocale,
+    okTextLocale,
+    mergedOkCancel,
+    ...resetProps,
+  };
+  const btnCtxValueMemo = React.useMemo(() => btnCtxValue, [...Object.values(btnCtxValue)]);
+
+  // ====================== Footer Origin Node ======================
+  const footerOriginNode = (
+    <>
+      <CancelBtn />
+      <OkBtn />
+    </>
   );
 
   return (
@@ -125,24 +127,18 @@ export function ConfirmContent(
         )}
         <div className={`${confirmPrefixCls}-content`}>{props.content}</div>
       </div>
-      {footer === undefined ? (
-        <div className={`${confirmPrefixCls}-btns`}>
-          {cancelButton}
-          <ActionButton
-            isSilent={isSilent}
-            type={okType}
-            actionFn={onOk}
-            close={(...args: any[]) => {
-              close?.(...args);
-              onConfirm?.(true);
-            }}
-            autoFocus={autoFocusButton === 'ok'}
-            buttonProps={okButtonProps}
-            prefixCls={`${rootPrefixCls}-btn`}
-          >
-            {okText || (mergedOkCancel ? mergedLocale?.okText : mergedLocale?.justOkText)}
-          </ActionButton>
-        </div>
+
+      {footer === undefined || typeof footer === 'function' ? (
+        <ModalContextProvider value={btnCtxValueMemo}>
+          <div className={`${confirmPrefixCls}-btns`}>
+            {typeof footer === 'function'
+              ? footer(footerOriginNode, {
+                  OkBtn,
+                  CancelBtn,
+                })
+              : footerOriginNode}
+          </div>
+        </ModalContextProvider>
       ) : (
         footer
       )}
@@ -215,8 +211,12 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
         open={open}
         title=""
         footer={null}
-        transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
-        maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
+        transitionName={getTransitionName(rootPrefixCls || '', 'zoom', props.transitionName)}
+        maskTransitionName={getTransitionName(
+          rootPrefixCls || '',
+          'fade',
+          props.maskTransitionName,
+        )}
         mask={mask}
         maskClosable={maskClosable}
         maskStyle={maskStyle}

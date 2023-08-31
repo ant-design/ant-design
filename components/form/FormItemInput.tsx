@@ -1,10 +1,12 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
+
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
 import { FormContext, FormItemPrefixContext } from './context';
 import ErrorList from './ErrorList';
 import type { ValidateStatus } from './FormItem';
+import FallbackCmp from './style/fallbackCmp';
 
 interface FormItemInputMiscProps {
   prefixCls: string;
@@ -116,6 +118,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
       <Col {...mergedWrapperCol} className={className}>
         {dom}
       </Col>
+      <FallbackCmp prefixCls={prefixCls} />
     </FormContext.Provider>
   );
 };

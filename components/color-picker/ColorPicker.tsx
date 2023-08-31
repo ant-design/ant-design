@@ -1,6 +1,5 @@
 import type { CSSProperties, FC } from 'react';
 import React, { useContext, useMemo, useRef, useState } from 'react';
-
 import type {
   HsbaColorType,
   ColorPickerProps as RcColorPickerProps,
@@ -11,16 +10,16 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import genPurePanel from '../_util/PurePanel';
 import { getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';
-import type { SizeType } from '../config-provider/SizeContext';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import theme from '../theme';
-import ColorPickerPanel from './ColorPickerPanel';
 import type { Color } from './color';
+import ColorPickerPanel from './ColorPickerPanel';
 import ColorTrigger from './components/ColorTrigger';
 import useColorState from './hooks/useColorState';
 import type {
@@ -229,7 +228,7 @@ const ColorPicker: CompoundedComponent = (props) => {
       style={styles?.popup}
       overlayInnerStyle={styles?.popupOverlayInner}
       onOpenChange={(visible) => {
-        if (popupAllowCloseRef.current) {
+        if (popupAllowCloseRef.current && !disabled) {
           setPopupOpen(visible);
         }
       }}

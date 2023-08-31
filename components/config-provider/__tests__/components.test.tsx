@@ -39,7 +39,6 @@ import Select from '../../select';
 import Skeleton from '../../skeleton';
 import type { SliderTooltipProps } from '../../slider';
 import Slider from '../../slider';
-// eslint-disable-next-line import/no-named-as-default
 import { render } from '../../../tests/utils';
 import Spin from '../../spin';
 import Statistic from '../../statistic';
