@@ -14,6 +14,7 @@ import { usePanelRef } from '../watermark/context';
 import type { ModalProps, MousePosition } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
+import WireframeCmp from './style/wireframeCmp';
 
 let mousePosition: MousePosition;
 
@@ -133,6 +134,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           style={{ ...modal?.style, ...style }}
           panelRef={panelRef}
         />
+        <WireframeCmp prefixCls={prefixCls} />
       </NoFormStyle>
     </NoCompactStyle>,
   );

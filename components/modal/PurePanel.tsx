@@ -1,15 +1,17 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 
+import * as React from 'react';
 import classNames from 'classnames';
 import { Panel } from 'rc-dialog';
 import type { PanelProps } from 'rc-dialog/lib/Dialog/Content/Panel';
-import * as React from 'react';
+
+import { withPureRenderTheme } from '../_util/PurePanel';
 import { ConfigContext } from '../config-provider';
 import { ConfirmContent } from './ConfirmDialog';
 import type { ModalFuncProps } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
-import { withPureRenderTheme } from '../_util/PurePanel';
+import WireframeCmp from './style/wireframeCmp';
 
 export interface PurePanelProps
   extends Omit<PanelProps, 'prefixCls'>,
@@ -48,6 +50,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
       children: (
         <ConfirmContent
           {...props}
+          prefixCls={prefixCls}
           confirmPrefixCls={confirmPrefixCls}
           rootPrefixCls={rootPrefixCls}
           content={children}
@@ -64,20 +67,23 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   }
 
   return (
-    <Panel
-      prefixCls={prefixCls}
-      className={classNames(
-        hashId,
-        `${prefixCls}-pure-panel`,
-        type && confirmPrefixCls,
-        type && `${confirmPrefixCls}-${type}`,
-        className,
-      )}
-      {...restProps}
-      closeIcon={renderCloseIcon(prefixCls, closeIcon)}
-      closable={closable}
-      {...additionalProps}
-    />
+    <>
+      <Panel
+        prefixCls={prefixCls}
+        className={classNames(
+          hashId,
+          `${prefixCls}-pure-panel`,
+          type && confirmPrefixCls,
+          type && `${confirmPrefixCls}-${type}`,
+          className,
+        )}
+        {...restProps}
+        closeIcon={renderCloseIcon(prefixCls, closeIcon)}
+        closable={closable}
+        {...additionalProps}
+      />
+      <WireframeCmp prefixCls={prefixCls} />
+    </>
   );
 };
 
