@@ -56,53 +56,37 @@ const genFlexGapStyle: GenerateStyle<FlexToken> = (token) => {
 const genFlexWrapStyle: GenerateStyle<FlexToken> = (token) => {
   const { componentCls } = token;
   const wrapStyle: CSSInterpolation = {};
-  flexWrapValues.forEach((flexWrapValue) => {
-    wrapStyle[`&-wrap-${flexWrapValue}`] = {
-      flexWrap: flexWrapValue,
-    };
+  flexWrapValues.forEach((value) => {
+    wrapStyle[`${componentCls}-wrap-${value}`] = { flexWrap: value };
   });
-  return {
-    [componentCls]: wrapStyle,
-  };
+  return wrapStyle;
 };
 
 const genAlignItemsStyle: GenerateStyle<FlexToken> = (token) => {
   const { componentCls } = token;
   const alignStyle: CSSInterpolation = {};
-  alignItemsValues.forEach((alignItemsValue) => {
-    alignStyle[`&-align-${alignItemsValue}`] = {
-      alignItems: alignItemsValue,
-    };
+  alignItemsValues.forEach((value) => {
+    alignStyle[`${componentCls}-align-${value}`] = { alignItems: value };
   });
-  return {
-    [componentCls]: alignStyle,
-  };
+  return alignStyle;
 };
 
 const genFlexDirectionStyle: GenerateStyle<FlexToken> = (token) => {
   const { componentCls } = token;
   const directionStyle: CSSInterpolation = {};
-  flexDirectionValues.forEach((flexDirectionValue) => {
-    directionStyle[`&-direction-${flexDirectionValue}`] = {
-      flexDirection: flexDirectionValue,
-    };
+  flexDirectionValues.forEach((value) => {
+    directionStyle[`${componentCls}-direction-${value}`] = { flexDirection: value };
   });
-  return {
-    [componentCls]: directionStyle,
-  };
+  return directionStyle;
 };
 
 const genJustifyContentStyle: GenerateStyle<FlexToken> = (token) => {
   const { componentCls } = token;
   const justifyStyle: CSSInterpolation = {};
-  justifyContentValues.forEach((justifyContentValue) => {
-    justifyStyle[`&-justify-${justifyContentValue}`] = {
-      justifyContent: justifyContentValue,
-    };
+  justifyContentValues.forEach((value) => {
+    justifyStyle[`${componentCls}-justify-${value}`] = { justifyContent: value };
   });
-  return {
-    [componentCls]: justifyStyle,
-  };
+  return justifyStyle;
 };
 
 export default genComponentStyleHook<'Flex'>('Flex', (token) => {
