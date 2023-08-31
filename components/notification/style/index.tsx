@@ -300,7 +300,4 @@ export default genComponentStyleHook(
     zIndexPopup: token.zIndexPopupBase + 50,
     width: 384,
   }),
-  {
-    clientOnly: true,
-  },
 );

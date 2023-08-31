@@ -73,7 +73,7 @@ demo:
 | progress | 自定义进度条样式 | [ProgressProps](/components/progress-cn#api)（仅支持 `type="line"`） | { strokeWidth: 2, showInfo: false } | 4.3.0 |
 | showUploadList | 是否展示文件列表, 可设为一个对象，用于单独设定 `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` 和 `downloadIcon` | boolean \| { showPreviewIcon?: boolean, showRemoveIcon?: boolean, showDownloadIcon?: boolean, previewIcon?: ReactNode \| (file: UploadFile) => ReactNode, removeIcon?: ReactNode \| (file: UploadFile) => ReactNode, downloadIcon?: ReactNode \| (file: UploadFile) => ReactNode } | true | function: 4.7.0 |
 | withCredentials | 上传请求时是否携带 cookie | boolean | false |  |
-| onChange | 上传文件改变时的回调，详见 [onChange](#onchange) | function | - |  |
+| onChange | 上传文件改变时的回调，上传每个阶段都会触发该事件。详见 [onChange](#onchange) | function | - |  |
 | onDrop | 当文件被拖入上传区域时执行的回调功能 | (event: React.DragEvent) => void | - | 4.16.0 |
 | onDownload | 点击下载文件时的回调，如果没有指定，则默认跳转到文件 url 对应的标签页 | function(file): void | (跳转新标签页) |  |
 | onPreview | 点击文件链接或预览图标时的回调 | function(file) | - |  |
@@ -88,14 +88,14 @@ demo:
 | crossOrigin | CORS 属性设置 | `'anonymous'` \| `'use-credentials'` \| `''` | - | 4.20.0 |
 | name | 文件名 | string | - | - |
 | percent | 上传进度 | number | - | - |
-| status | 上传状态，不同状态展示颜色也会有所不同 | `error` \| `success` \| `done` \| `uploading` \| `removed` | - | - |
+| status | 上传状态，不同状态展示颜色也会有所不同 | `error` \| `done` \| `uploading` \| `removed` | - | - |
 | thumbUrl | 缩略图地址 | string | - | - |
 | uid | 唯一标识符，不设置时会自动生成 | string | - | - |
 | url | 下载地址 | string | - | - |
 
 ### onChange
 
-> 上传中、完成、失败都会调用这个函数。
+> 💡 上传中、完成、失败都会调用这个函数。
 
 文件状态改变的回调，返回为：
 
@@ -123,7 +123,7 @@ demo:
 
 3. `event` 上传中的服务端响应内容，包含了上传进度等信息，高级浏览器支持。
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Upload"></ComponentTokenTable>
 

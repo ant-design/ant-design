@@ -16,6 +16,24 @@ tag: vVERSION
 
 ---
 
+## 5.8.5
+
+`2023-08-28`
+
+- 🛠 Refactor Badge style logic and take Ribbon style out to reduce SSR inline style size. [#44451](https://github.com/ant-design/ant-design/pull/44451)
+- 🐞 Fix the issue of abnormal icon styling when using `@ant-design/icons`` within App. [#41208](https://github.com/ant-design/ant-design/pull/41208) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix the issue of vertical dragging malfunction in Carousel. [#44460](https://github.com/ant-design/ant-design/pull/44460) [@RedJue](https://github.com/RedJue)
+- 🐞 Fix Tour panel use wrong design token. [#44428](https://github.com/ant-design/ant-design/pull/44428)
+- 🐞 Fix Form `wrapperCol` with responsive `xs` config not working. [#44388](https://github.com/ant-design/ant-design/pull/44388)
+- 🐞 Fix ColorPicker duplicate `key` issue. [#44370](https://github.com/ant-design/ant-design/pull/44370) [@xr0master](https://github.com/xr0master)
+- 🐞 Fix Radio that not work in Tree title. [#44380](https://github.com/ant-design/ant-design/pull/44380) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix Table that would crash when `filterDropdown` does not support `ref`. [#44357](https://github.com/ant-design/ant-design/pull/44357) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix Form `inline` layout show extra bottom margin when validation failed. [#44360](https://github.com/ant-design/ant-design/pull/44360)
+- 🐞 Fix DatePicker `showTime` working error when `format` is Array. [#44306](https://github.com/ant-design/ant-design/pull/44306) [@Zian502](https://github.com/Zian502)
+- 🐞 Fix Watermark can not be fully shown when `content` is too long. [#44321](https://github.com/ant-design/ant-design/pull/44321)
+- TypeScript
+  - 🤖 Fix the type error with align property in Dropdown component. [#44423](https://github.com/ant-design/ant-design/pull/44423) [@LeTuongKhanh](https://github.com/LeTuongKhanh)
+
 ## 5.8.4
 
 `2023-08-18`

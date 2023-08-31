@@ -110,7 +110,7 @@ notification.config({
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素 | number | 24 |  |
 | maxCount | 最大显示数, 超过限制时，最早的消息会被自动关闭 | number | - | 4.17.0 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Notification"></ComponentTokenTable>
 

@@ -66,6 +66,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAA
   }
 </style>
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Empty"></ComponentTokenTable>

@@ -1,22 +1,24 @@
+import React, { useCallback, useEffect, useMemo } from 'react';
 import {
   createCache,
+  extractStyle,
   legacyNotSelectorLinter,
   logicalPropertiesLinter,
   parentSelectorLinter,
   StyleProvider,
-  extractStyle,
 } from '@ant-design/cssinjs';
 import { HappyProvider } from '@ant-design/happy-work-theme';
-import React, { useCallback, useEffect, useMemo } from 'react';
-import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
-import { App, theme as antdTheme } from 'antd';
+import { theme as antdTheme, App } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
+import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
+
+import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';
-import SiteThemeProvider from '../SiteThemeProvider';
 import useLocation from '../../hooks/useLocation';
 import type { ThemeName } from '../common/ThemeSwitch';
 import ThemeSwitch from '../common/ThemeSwitch';
+import SiteThemeProvider from '../SiteThemeProvider';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
 
@@ -144,23 +146,25 @@ const GlobalLayout: React.FC = () => {
   }
 
   return (
-    <StyleProvider
-      cache={styleCache}
-      linters={[logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter]}
-    >
-      <SiteContext.Provider value={siteContextValue}>
-        <SiteThemeProvider
-          theme={{
-            algorithm: getAlgorithm(theme),
-            token: {
-              motion: !theme.includes('motion-off'),
-            },
-          }}
-        >
-          <HappyProvider disabled={!theme.includes('happy-work')}>{content}</HappyProvider>
-        </SiteThemeProvider>
-      </SiteContext.Provider>
-    </StyleProvider>
+    <DarkContext.Provider value={theme.includes('dark')}>
+      <StyleProvider
+        cache={styleCache}
+        linters={[logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter]}
+      >
+        <SiteContext.Provider value={siteContextValue}>
+          <SiteThemeProvider
+            theme={{
+              algorithm: getAlgorithm(theme),
+              token: {
+                motion: !theme.includes('motion-off'),
+              },
+            }}
+          >
+            <HappyProvider disabled={!theme.includes('happy-work')}>{content}</HappyProvider>
+          </SiteThemeProvider>
+        </SiteContext.Provider>
+      </StyleProvider>
+    </DarkContext.Provider>
   );
 };
 

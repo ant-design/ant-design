@@ -290,9 +290,9 @@ const columns = [
 ## 在 TypeScript 中使用
 
 ```tsx
+import React from 'react';
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import React from 'react';
 
 interface User {
   key: number;
@@ -329,7 +329,7 @@ export default Demo;
 
 TypeScript 里使用 Table 的 [CodeSandbox 实例](https://codesandbox.io/s/serene-platform-0jo5t)。
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Table"></ComponentTokenTable>
 

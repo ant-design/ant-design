@@ -126,6 +126,12 @@ module.exports = {
         'comma-dangle': 0,
       },
     },
+    {
+      files: ['**/*.test.ts', '**/*.test.tsx', '**/*.spec.ts', '**/*.spec.tsx'],
+      rules: {
+        'compat/compat': 0,
+      },
+    },
   ],
   rules: {
     'react/jsx-one-expression-per-line': 0,
@@ -205,6 +211,7 @@ module.exports = {
     '@typescript-eslint/no-shadow': [2, { ignoreTypeValueShadow: true }],
     // https://github.com/typescript-eslint/typescript-eslint/issues/2528#issuecomment-689369395
     'no-undef': 0,
+    'import/order': 0,
   },
   globals: {
     gtag: true,
