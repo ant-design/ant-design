@@ -141,7 +141,7 @@ Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-el
 | textarea | `textarea` 元素 | 5.4.0 |
 | count    | 文字计数元素    | 5.4.0 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Input"></ComponentTokenTable>
 

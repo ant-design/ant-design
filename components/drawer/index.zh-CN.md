@@ -72,6 +72,6 @@ demo:
 | zIndex | 设置 Drawer 的 `z-index` | number | 1000 |  |
 | onClose | 点击遮罩层或左上角叉或取消按钮的回调 | function(e) | - |  |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Drawer"></ComponentTokenTable>

@@ -137,7 +137,7 @@ demo:
 | key   | Key  | string                  | -      |      |
 | label | 组名 | string \| React.Element | -      |      |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Select"></ComponentTokenTable>
 
