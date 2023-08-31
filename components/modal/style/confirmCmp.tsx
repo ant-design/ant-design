@@ -108,4 +108,8 @@ export default genSubStyleComponent(
     return [genModalConfirmStyle(modalToken)];
   },
   prepareComponentToken,
+  {
+    // confirm is weak than modal since no conflict here
+    order: -1000,
+  },
 );
