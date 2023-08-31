@@ -5,7 +5,7 @@ import {
   PieChartOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import React, { useMemo, useState } from 'react';
+import React, { ReactNode, useMemo, useState } from 'react';
 import type { MenuProps, MenuRef } from '..';
 import Menu from '..';
 import { TriggerMockContext } from '../../../tests/shared/demoTestContext';
@@ -825,7 +825,7 @@ describe('Menu', () => {
     const onOpen = jest.fn();
     const onClose = jest.fn();
     const Demo: React.FC = () => {
-      const menuProps = useMemo<MenuProps>(() => ({ onOpen, onClose } as MenuProps), []);
+      const menuProps = useMemo<MenuProps>(() => ({ onOpen, onClose }) as MenuProps, []);
       return (
         <Menu
           {...menuProps}
@@ -860,7 +860,7 @@ describe('Menu', () => {
   it('should keep selectedKeys in state when collapsed to 0px', () => {
     jest.useFakeTimers();
     const Demo: React.FC<MenuProps> = (props) => {
-      const menuProps = useMemo<MenuProps>(() => ({ collapsedWidth: 0 } as MenuProps), []);
+      const menuProps = useMemo<MenuProps>(() => ({ collapsedWidth: 0 }) as MenuProps, []);
       return (
         <Menu
           mode="inline"
@@ -1122,5 +1122,36 @@ describe('Menu', () => {
       </TriggerMockContext.Provider>,
     );
     expect(container.querySelector('.ant-menu.ant-menu-light.custom-popover')).toBeTruthy();
+  });
+
+  it('hide expand icon when pass null or false into expandIcon', () => {
+    const App = ({ expand }: { expand?: ReactNode }) => (
+      <Menu
+        expandIcon={expand}
+        items={[
+          {
+            label: 'Option 1',
+            key: '1',
+            icon: '112',
+            children: [
+              {
+                label: 'Option 1-1',
+                key: '1-1',
+              },
+            ],
+          },
+        ]}
+      />
+    );
+    const { container, rerender } = render(<App />);
+    expect(container.querySelector('.ant-menu-submenu-arrow')).toBeTruthy();
+
+    rerender(<App expand={null} />);
+
+    expect(container.querySelector('.ant-menu-submenu-arrow')).toBeFalsy();
+
+    rerender(<App expand={false} />);
+
+    expect(container.querySelector('.ant-menu-submenu-arrow')).toBeFalsy();
   });
 });

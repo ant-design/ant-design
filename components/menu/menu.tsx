@@ -17,6 +17,7 @@ import OverrideContext from './OverrideContext';
 import type { ItemType } from './hooks/useItems';
 import useItems from './hooks/useItems';
 import useStyle from './style';
+import { merge } from 'lodash';
 
 export interface MenuProps extends Omit<RcMenuProps, 'items'> {
   theme?: MenuTheme;
@@ -126,18 +127,17 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   let mergedExpandIcon: MenuProps['expandIcon'];
   if (typeof expandIcon === 'function') {
     mergedExpandIcon = expandIcon;
+  } else if (expandIcon === null || expandIcon === false) {
+    mergedExpandIcon = null;
+  } else if (overrideObj.expandIcon === null || overrideObj.expandIcon === false) {
+    mergedExpandIcon = null;
   } else {
-    const beClone = expandIcon ?? overrideObj.expandIcon;
-    if (beClone === null || beClone === false) {
-      mergedExpandIcon = null;
-    } else {
-      mergedExpandIcon = cloneElement(beClone, {
-        className: classNames(
-          `${prefixCls}-submenu-expand-icon`,
-          isValidElement(beClone) ? beClone.props?.className : '',
-        ),
-      });
-    }
+    mergedExpandIcon = cloneElement(expandIcon, {
+      className: classNames(
+        `${prefixCls}-submenu-expand-icon`,
+        isValidElement(expandIcon) ? expandIcon.props?.className : '',
+      ),
+    });
   }
 
   // ======================== Context ==========================
