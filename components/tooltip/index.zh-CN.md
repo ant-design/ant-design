@@ -63,7 +63,7 @@ demo:
 | zIndex | 设置 Tooltip 的 `z-index` | number | - |  |
 | onOpenChange | 显示隐藏的回调 | (open: boolean) => void | - | 4.23.0 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Tooltip"></ComponentTokenTable>
 

@@ -16,8 +16,10 @@ import type { ModalContextProps } from './context';
 import { ModalContextProvider } from './context';
 import type { ModalFuncProps, ModalLocale } from './interface';
 import Dialog from './Modal';
+import ConfirmCmp from './style/confirmCmp';
 
 export interface ConfirmDialogProps extends ModalFuncProps {
+  prefixCls: string;
   afterClose?: () => void;
   close?: (...args: any[]) => void;
   /**
@@ -46,6 +48,7 @@ export function ConfirmContent(
   },
 ) {
   const {
+    prefixCls,
     icon,
     okText,
     cancelText,
@@ -118,14 +121,22 @@ export function ConfirmContent(
     </>
   );
 
+  const hasTitle = props.title !== undefined && props.title !== null;
+
+  const bodyCls = `${confirmPrefixCls}-body`;
+
   return (
     <div className={`${confirmPrefixCls}-body-wrapper`}>
-      <div className={`${confirmPrefixCls}-body`}>
+      <div
+        className={classNames(bodyCls, {
+          [`${bodyCls}-has-title`]: hasTitle,
+        })}
+      >
         {mergedIcon}
-        {props.title === undefined ? null : (
-          <span className={`${confirmPrefixCls}-title`}>{props.title}</span>
-        )}
-        <div className={`${confirmPrefixCls}-content`}>{props.content}</div>
+        <div className={`${confirmPrefixCls}-paragraph`}>
+          {hasTitle && <span className={`${confirmPrefixCls}-title`}>{props.title}</span>}
+          <div className={`${confirmPrefixCls}-content`}>{props.content}</div>
+        </div>
       </div>
 
       {footer === undefined || typeof footer === 'function' ? (
@@ -142,6 +153,8 @@ export function ConfirmContent(
       ) : (
         footer
       )}
+
+      <ConfirmCmp prefixCls={prefixCls} />
     </div>
   );
 }

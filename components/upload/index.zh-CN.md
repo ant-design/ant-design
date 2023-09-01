@@ -123,7 +123,7 @@ demo:
 
 3. `event` 上传中的服务端响应内容，包含了上传进度等信息，高级浏览器支持。
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Upload"></ComponentTokenTable>
 

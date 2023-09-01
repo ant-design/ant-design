@@ -81,6 +81,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 | ---- | --------------------- | ----- |
 | item | 设置 `Space` 包裹的子组件 | 5.6.0 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Space"></ComponentTokenTable>
