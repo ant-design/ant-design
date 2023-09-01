@@ -164,7 +164,6 @@ export default function ItemHolder(props: ItemHolderProps) {
               errors={meta.errors}
               warnings={meta.warnings}
               hasFeedback={hasFeedback}
-              isFormItemInput
               // Already calculated
               validateStatus={mergedValidateStatus}
             >

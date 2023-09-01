@@ -25,7 +25,7 @@ export interface StatusProviderProps {
   errors: React.ReactNode[];
   warnings: React.ReactNode[];
   hasFeedback?: boolean;
-  isFormItemInput?: boolean;
+  noStyle?: boolean;
 }
 
 export default function StatusProvider({
@@ -36,11 +36,14 @@ export default function StatusProvider({
   validateStatus,
   prefixCls,
   meta,
-  isFormItemInput,
+  noStyle,
 }: StatusProviderProps) {
   const itemPrefixCls = `${prefixCls}-item`;
 
   const mergedValidateStatus = getStatus(errors, warnings, meta, hasFeedback, validateStatus);
+
+  const { isFormItemInput: parentIsFormItemInput, status: parentStatus } =
+    React.useContext(FormItemInputContext);
 
   // ====================== Context =======================
   const formItemStatusContext = React.useMemo<FormItemStatusContextProps>(() => {
@@ -59,15 +62,24 @@ export default function StatusProvider({
       ) : null;
     }
 
+    let isFormItemInput: boolean | undefined = true;
+    let status: ValidateStatus = mergedValidateStatus;
+
+    // No style will follow parent context
+    if (noStyle) {
+      isFormItemInput = parentIsFormItemInput;
+      status = mergedValidateStatus || parentStatus || '';
+    }
+
     return {
-      status: mergedValidateStatus,
+      status,
       errors,
       warnings,
       hasFeedback,
       feedbackIcon,
       isFormItemInput,
     };
-  }, [mergedValidateStatus, hasFeedback, isFormItemInput]);
+  }, [mergedValidateStatus, hasFeedback, noStyle, parentIsFormItemInput, parentStatus]);
 
   // ======================= Render =======================
   return (

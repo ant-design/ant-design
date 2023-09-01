@@ -223,6 +223,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           meta={meta}
           errors={mergedErrors}
           warnings={mergedWarnings}
+          noStyle
         >
           {baseChildren}
         </StatusProvider>

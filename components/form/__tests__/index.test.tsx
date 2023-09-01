@@ -1,14 +1,15 @@
-import classNames from 'classnames';
 import type { ChangeEventHandler } from 'react';
 import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
-import scrollIntoView from 'scroll-into-view-if-needed';
 import type { ColProps } from 'antd/es/grid';
+import classNames from 'classnames';
+import scrollIntoView from 'scroll-into-view-if-needed';
+
 import type { FormInstance } from '..';
 import Form from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, pureRender, render, screen, waitFakeTimer } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
 import Button from '../../button';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
@@ -1410,19 +1411,26 @@ describe('Form', () => {
   it('noStyle should not affect status', () => {
     const Demo: React.FC = () => (
       <Form>
+        {/* should change status */}
         <Form.Item validateStatus="error" noStyle>
           <Select className="custom-select" />
         </Form.Item>
+
+        {/* should follow parent status */}
         <Form.Item validateStatus="error">
           <Form.Item noStyle>
             <Select className="custom-select-b" />
           </Form.Item>
         </Form.Item>
+
+        {/* should follow child status */}
         <Form.Item validateStatus="error">
           <Form.Item noStyle validateStatus="warning">
             <Select className="custom-select-c" />
           </Form.Item>
         </Form.Item>
+
+        {/* should follow child status */}
         <Form.Item noStyle>
           <Form.Item validateStatus="warning">
             <Select className="custom-select-d" />
@@ -1431,14 +1439,18 @@ describe('Form', () => {
       </Form>
     );
     const { container } = render(<Demo />);
-    expect(container.querySelector('.custom-select')?.className).not.toContain('status-error');
-    expect(container.querySelector('.custom-select')?.className).not.toContain('in-form-item');
-    expect(container.querySelector('.custom-select-b')?.className).toContain('status-error');
-    expect(container.querySelector('.custom-select-b')?.className).toContain('in-form-item');
-    expect(container.querySelector('.custom-select-c')?.className).toContain('status-error');
-    expect(container.querySelector('.custom-select-c')?.className).toContain('in-form-item');
-    expect(container.querySelector('.custom-select-d')?.className).toContain('status-warning');
-    expect(container.querySelector('.custom-select-d')?.className).toContain('in-form-item');
+
+    expect(container.querySelector('.custom-select')).toHaveClass('ant-select-status-error');
+    expect(container.querySelector('.custom-select')).not.toHaveClass('ant-select-in-form-item');
+
+    expect(container.querySelector('.custom-select-b')).toHaveClass('ant-select-status-error');
+    expect(container.querySelector('.custom-select-b')).toHaveClass('ant-select-in-form-item');
+
+    expect(container.querySelector('.custom-select-c')).toHaveClass('ant-select-status-warning');
+    expect(container.querySelector('.custom-select-c')).toHaveClass('ant-select-in-form-item');
+
+    expect(container.querySelector('.custom-select-d')).toHaveClass('ant-select-status-warning');
+    expect(container.querySelector('.custom-select-d')).toHaveClass('ant-select-in-form-item');
   });
 
   it('should not affect Popup children style', () => {
