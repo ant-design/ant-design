@@ -1408,49 +1408,77 @@ describe('Form', () => {
     expect(subFormInstance).toBe(formInstance);
   });
 
-  it('noStyle should not affect status', () => {
-    const Demo: React.FC = () => (
-      <Form>
-        {/* should change status */}
-        <Form.Item validateStatus="error" noStyle>
-          <Select className="custom-select" />
-        </Form.Item>
+  describe('noStyle with status', () => {
+    it('noStyle should not affect status', () => {
+      const Demo: React.FC = () => (
+        <Form>
+          {/* should change status */}
+          <Form.Item validateStatus="error" noStyle>
+            <Select className="custom-select" />
+          </Form.Item>
 
-        {/* should follow parent status */}
-        <Form.Item validateStatus="error">
+          {/* should follow parent status */}
+          <Form.Item validateStatus="error">
+            <Form.Item noStyle>
+              <Select className="custom-select-b" />
+            </Form.Item>
+          </Form.Item>
+
+          {/* should follow child status */}
+          <Form.Item validateStatus="error">
+            <Form.Item noStyle validateStatus="warning">
+              <Select className="custom-select-c" />
+            </Form.Item>
+          </Form.Item>
+
+          {/* should follow child status */}
           <Form.Item noStyle>
-            <Select className="custom-select-b" />
+            <Form.Item validateStatus="warning">
+              <Select className="custom-select-d" />
+            </Form.Item>
           </Form.Item>
-        </Form.Item>
+        </Form>
+      );
+      const { container } = render(<Demo />);
 
-        {/* should follow child status */}
-        <Form.Item validateStatus="error">
-          <Form.Item noStyle validateStatus="warning">
-            <Select className="custom-select-c" />
+      expect(container.querySelector('.custom-select')).toHaveClass('ant-select-status-error');
+      expect(container.querySelector('.custom-select')).not.toHaveClass('ant-select-in-form-item');
+
+      expect(container.querySelector('.custom-select-b')).toHaveClass('ant-select-status-error');
+      expect(container.querySelector('.custom-select-b')).toHaveClass('ant-select-in-form-item');
+
+      expect(container.querySelector('.custom-select-c')).toHaveClass('ant-select-status-warning');
+      expect(container.querySelector('.custom-select-c')).toHaveClass('ant-select-in-form-item');
+
+      expect(container.querySelector('.custom-select-d')).toHaveClass('ant-select-status-warning');
+      expect(container.querySelector('.custom-select-d')).toHaveClass('ant-select-in-form-item');
+    });
+
+    it('parent pass status', async () => {
+      const { container } = render(
+        <Form>
+          <Form.Item label="name">
+            <Form.Item name="first" noStyle rules={[{ required: true }]}>
+              <Input />
+            </Form.Item>
+            <Form.Item name="last" noStyle>
+              <Input />
+            </Form.Item>
           </Form.Item>
-        </Form.Item>
+        </Form>,
+      );
 
-        {/* should follow child status */}
-        <Form.Item noStyle>
-          <Form.Item validateStatus="warning">
-            <Select className="custom-select-d" />
-          </Form.Item>
-        </Form.Item>
-      </Form>
-    );
-    const { container } = render(<Demo />);
+      // Input and set back to empty
+      await changeValue(0, 'Once');
+      await changeValue(0, '');
 
-    expect(container.querySelector('.custom-select')).toHaveClass('ant-select-status-error');
-    expect(container.querySelector('.custom-select')).not.toHaveClass('ant-select-in-form-item');
+      expect(container.querySelector('.ant-form-item-explain-error')?.textContent).toEqual(
+        "'first' is required",
+      );
 
-    expect(container.querySelector('.custom-select-b')).toHaveClass('ant-select-status-error');
-    expect(container.querySelector('.custom-select-b')).toHaveClass('ant-select-in-form-item');
-
-    expect(container.querySelector('.custom-select-c')).toHaveClass('ant-select-status-warning');
-    expect(container.querySelector('.custom-select-c')).toHaveClass('ant-select-in-form-item');
-
-    expect(container.querySelector('.custom-select-d')).toHaveClass('ant-select-status-warning');
-    expect(container.querySelector('.custom-select-d')).toHaveClass('ant-select-in-form-item');
+      expect(container.querySelectorAll('input')[0]).toHaveClass('ant-input-status-error');
+      expect(container.querySelectorAll('input')[1]).not.toHaveClass('ant-input-status-error');
+    });
   });
 
   it('should not affect Popup children style', () => {
