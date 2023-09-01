@@ -25,6 +25,7 @@ export interface StatusProviderProps {
   errors: React.ReactNode[];
   warnings: React.ReactNode[];
   hasFeedback?: boolean;
+  isFormItemInput?: boolean;
 }
 
 export default function StatusProvider({
@@ -35,6 +36,7 @@ export default function StatusProvider({
   validateStatus,
   prefixCls,
   meta,
+  isFormItemInput,
 }: StatusProviderProps) {
   const itemPrefixCls = `${prefixCls}-item`;
 
@@ -63,9 +65,9 @@ export default function StatusProvider({
       warnings,
       hasFeedback,
       feedbackIcon,
-      isFormItemInput: true,
+      isFormItemInput,
     };
-  }, [mergedValidateStatus, hasFeedback]);
+  }, [mergedValidateStatus, hasFeedback, isFormItemInput]);
 
   // ======================= Render =======================
   return (
