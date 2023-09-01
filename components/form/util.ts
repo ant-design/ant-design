@@ -35,14 +35,16 @@ export function getFieldId(namePath: InternalNamePath, formName?: string): strin
 /**
  * Get merged status by meta or passed `validateStatus`.
  */
-export function getStatus(
+export function getStatus<DefaultValue>(
   errors: React.ReactNode[],
   warnings: React.ReactNode[],
   meta: Meta,
   hasFeedback?: boolean,
   validateStatus?: ValidateStatus,
-): ValidateStatus {
-  let status: ValidateStatus = '';
+  defaultValidateStatus: ValidateStatus | DefaultValue = '',
+): ValidateStatus | DefaultValue {
+  let status = defaultValidateStatus;
+
   if (validateStatus !== undefined) {
     status = validateStatus;
   } else if (meta.validating) {

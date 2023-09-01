@@ -83,7 +83,7 @@ export default function ItemHolder(props: ItemHolderProps) {
     const _errors = isDebounce ? debounceErrors : meta.errors;
     const _warnings = isDebounce ? debounceWarnings : meta.warnings;
 
-    return getStatus(_errors, _warnings, meta, hasFeedback, validateStatus);
+    return getStatus(_errors, _warnings, meta, hasFeedback, validateStatus, '');
   };
 
   const mergedValidateStatus = getValidateState();

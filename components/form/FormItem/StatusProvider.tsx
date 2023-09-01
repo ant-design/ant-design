@@ -40,7 +40,7 @@ export default function StatusProvider({
 }: StatusProviderProps) {
   const itemPrefixCls = `${prefixCls}-item`;
 
-  const mergedValidateStatus = getStatus(errors, warnings, meta, hasFeedback, validateStatus);
+  const mergedValidateStatus = getStatus(errors, warnings, meta, hasFeedback, validateStatus, null);
 
   const { isFormItemInput: parentIsFormItemInput, status: parentStatus } =
     React.useContext(FormItemInputContext);
@@ -63,12 +63,12 @@ export default function StatusProvider({
     }
 
     let isFormItemInput: boolean | undefined = true;
-    let status: ValidateStatus = mergedValidateStatus;
+    let status: ValidateStatus = mergedValidateStatus || '';
 
     // No style will follow parent context
     if (noStyle) {
       isFormItemInput = parentIsFormItemInput;
-      status = mergedValidateStatus || parentStatus || '';
+      status = (mergedValidateStatus ?? parentStatus) || '';
     }
 
     return {

@@ -1409,7 +1409,7 @@ describe('Form', () => {
   });
 
   describe('noStyle with status', () => {
-    it('noStyle should not affect status', () => {
+    it('noStyle should not affect status', async () => {
       const Demo: React.FC = () => (
         <Form>
           {/* should change status */}
@@ -1437,9 +1437,18 @@ describe('Form', () => {
               <Select className="custom-select-d" />
             </Form.Item>
           </Form.Item>
+
+          {/* should follow child status */}
+          <Form.Item validateStatus="error">
+            <Form.Item noStyle validateStatus="">
+              <Select className="custom-select-e" />
+            </Form.Item>
+          </Form.Item>
         </Form>
       );
       const { container } = render(<Demo />);
+
+      await waitFakeTimer();
 
       expect(container.querySelector('.custom-select')).toHaveClass('ant-select-status-error');
       expect(container.querySelector('.custom-select')).not.toHaveClass('ant-select-in-form-item');
@@ -1452,6 +1461,11 @@ describe('Form', () => {
 
       expect(container.querySelector('.custom-select-d')).toHaveClass('ant-select-status-warning');
       expect(container.querySelector('.custom-select-d')).toHaveClass('ant-select-in-form-item');
+
+      expect(container.querySelector('.custom-select-e')).not.toHaveClass(
+        'ant-select-status-error',
+      );
+      expect(container.querySelector('.custom-select-e')).toHaveClass('ant-select-in-form-item');
     });
 
     it('parent pass status', async () => {
