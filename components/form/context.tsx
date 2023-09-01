@@ -1,10 +1,11 @@
+import type { PropsWithChildren, ReactNode } from 'react';
+import * as React from 'react';
+import { useContext, useMemo } from 'react';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import type { FormProviderProps as RcFormProviderProps } from 'rc-field-form/lib/FormContext';
 import type { Meta } from 'rc-field-form/lib/interface';
 import omit from 'rc-util/lib/omit';
-import type { PropsWithChildren, ReactNode } from 'react';
-import * as React from 'react';
-import { useContext, useMemo } from 'react';
+
 import type { ColProps } from '../grid/col';
 import type { FormInstance, RequiredMark } from './Form';
 import type { ValidateStatus } from './FormItem';
@@ -64,6 +65,10 @@ export interface FormItemStatusContextProps {
 }
 
 export const FormItemInputContext = React.createContext<FormItemStatusContextProps>({});
+
+if (process.env.NODE_ENV !== 'production') {
+  FormItemInputContext.displayName = 'FormItemInputContext';
+}
 
 export type NoFormStyleProps = PropsWithChildren<{
   status?: boolean;
