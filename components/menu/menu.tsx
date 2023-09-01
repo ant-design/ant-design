@@ -132,7 +132,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     mergedExpandIcon = null;
   } else {
     const beClone: React.ReactNode = (expandIcon ?? overrideObj.expandIcon) as React.ReactNode;
-    mergedExpandIcon = cloneElement(expandIcon, {
+    mergedExpandIcon = cloneElement(beClone, {
       className: classNames(
         `${prefixCls}-submenu-expand-icon`,
         isValidElement(beClone) ? beClone.props?.className : '',
