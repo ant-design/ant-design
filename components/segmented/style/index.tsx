@@ -246,7 +246,7 @@ export default genComponentStyleHook(
       itemHoverBg: colorFillSecondary,
       itemSelectedBg: colorBgElevated,
       itemActiveBg: colorFill,
-      itemSelectedFontColor: colorTextLabel
+      itemSelectedFontColor: colorTextLabel,
     };
   },
 );

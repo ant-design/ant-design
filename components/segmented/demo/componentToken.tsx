@@ -11,7 +11,7 @@ export default () => (
           itemHoverBg: 'rgba(0, 0, 0, 0.06)',
           itemSelectedBg: '#aaa',
           itemActiveBg: '#ccc',
-          itemSelectedFontColor: '#fff'
+          itemSelectedFontColor: '#fff',
         },
       },
     }}
