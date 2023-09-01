@@ -618,6 +618,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="10"
       aria-valuemin="1"
       aria-valuenow="1"
@@ -2424,6 +2425,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="10"
       aria-valuemin="1"
       aria-valuenow="1"
