@@ -15,6 +15,7 @@ import { act, fireEvent, render } from '../../../tests/utils';
 import initCollapseMotion from '../../_util/motion';
 import { noop } from '../../_util/warning';
 import Layout from '../../layout';
+import OverrideContext from '../OverrideContext';
 
 Object.defineProperty(globalThis, 'IS_REACT_ACT_ENVIRONMENT', {
   writable: true,
@@ -1152,6 +1153,20 @@ describe('Menu', () => {
 
     rerender(<App expand={false} />);
 
+    expect(container.querySelector('.ant-menu-submenu-arrow')).toBeFalsy();
+
+    rerender(
+      <OverrideContext.Provider value={{ expandIcon: null }}>
+        <App />
+      </OverrideContext.Provider>,
+    );
+    expect(container.querySelector('.ant-menu-submenu-arrow')).toBeFalsy();
+
+    rerender(
+      <OverrideContext.Provider value={{ expandIcon: false }}>
+        <App />
+      </OverrideContext.Provider>,
+    );
     expect(container.querySelector('.ant-menu-submenu-arrow')).toBeFalsy();
   });
 });
