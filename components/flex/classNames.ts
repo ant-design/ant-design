@@ -34,7 +34,7 @@ export const alignItemsValues = [
   'stretch',
 ] as const;
 
-const genClsWrap = (prefixCls: string, wrap: React.CSSProperties['flexWrap']) => {
+const genClsWrap = (prefixCls: string, wrap: FlexProps['wrap']) => {
   const wrapCls: Record<PropertyKey, boolean> = {};
   flexWrapValues.forEach((cssKey) => {
     wrapCls[`${prefixCls}-wrap-${cssKey}`] = wrap === cssKey;
@@ -42,7 +42,7 @@ const genClsWrap = (prefixCls: string, wrap: React.CSSProperties['flexWrap']) =>
   return wrapCls;
 };
 
-const genClsAlign = (prefixCls: string, align: React.CSSProperties['alignItems']) => {
+const genClsAlign = (prefixCls: string, align: FlexProps['align']) => {
   const alignCls: Record<PropertyKey, boolean> = {};
   alignItemsValues.forEach((cssKey) => {
     alignCls[`${prefixCls}-align-${cssKey}`] = align === cssKey;
@@ -50,7 +50,7 @@ const genClsAlign = (prefixCls: string, align: React.CSSProperties['alignItems']
   return alignCls;
 };
 
-const genClsJustify = (prefixCls: string, justify: React.CSSProperties['justifyContent']) => {
+const genClsJustify = (prefixCls: string, justify: FlexProps['justify']) => {
   const justifyCls: Record<PropertyKey, boolean> = {};
   justifyContentValues.forEach((cssKey) => {
     justifyCls[`${prefixCls}-justify-${cssKey}`] = justify === cssKey;
@@ -58,7 +58,7 @@ const genClsJustify = (prefixCls: string, justify: React.CSSProperties['justifyC
   return justifyCls;
 };
 
-const genClsDirection = (prefixCls: string, direction: React.CSSProperties['flexDirection']) => {
+const genClsDirection = (prefixCls: string, direction: FlexProps['direction']) => {
   const directionCls: Record<PropertyKey, boolean> = {};
   flexDirectionValues.forEach((cssKey) => {
     directionCls[`${prefixCls}-direction-${cssKey}`] = direction === cssKey;
@@ -68,8 +68,8 @@ const genClsDirection = (prefixCls: string, direction: React.CSSProperties['flex
 
 const genMergedAlignCls = (
   prefixCls: string,
-  align: React.CSSProperties['alignItems'],
-  direction: React.CSSProperties['flexDirection'],
+  align: FlexProps['align'],
+  direction: FlexProps['direction'],
 ) => {
   if (align) {
     return genClsAlign(prefixCls, align);

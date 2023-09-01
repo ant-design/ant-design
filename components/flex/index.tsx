@@ -3,12 +3,13 @@
 import React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import createFlexClassNames from './classNames';
-import createContainer from './utils';
+
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
+import createFlexClassNames from './classNames';
 import type { FlexProps } from './interface';
 import useStyle from './style';
+import createContainer from './utils';
 
 const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
   const {
@@ -23,7 +24,11 @@ const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     ...otherProps
   } = props;
 
-  const { direction, getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
+  const {
+    flex: ctxFlex,
+    direction,
+    getPrefixCls,
+  } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
   const prefixCls = getPrefixCls('flex', customizePrefixCls);
 
@@ -36,6 +41,7 @@ const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
   const mergedCls = classNames(
     className,
     rootClassName,
+    ctxFlex?.className,
     prefixCls,
     hashId,
     createFlexClassNames(prefixCls, props),
@@ -45,7 +51,7 @@ const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     },
   );
 
-  const mergedStyle: React.CSSProperties = { ...style };
+  const mergedStyle: React.CSSProperties = { ...ctxFlex?.style, ...style };
 
   if (flex) {
     mergedStyle.flex = flex;

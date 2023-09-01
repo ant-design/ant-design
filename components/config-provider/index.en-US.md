@@ -13,8 +13,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YC4ERpGAddoAAA
 This component provides a configuration to all React components underneath itself via the [context API](https://facebook.github.io/react/docs/context.html). In the render tree all components will have access to the provided config.
 
 ```tsx
-import { ConfigProvider } from 'antd';
 import React from 'react';
+import { ConfigProvider } from 'antd';
 
 // ...
 const Demo: React.FC = () => (
@@ -120,6 +120,7 @@ const {
 | divider | Set Divider common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | drawer | Set Drawer common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | empty | Set Empty common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| flex | Set Flex common props | { className?: string, style?: React.CSSProperties } | - | 5.9.0 |
 | form | Set Form common props | { className?: string, style?: React.CSSProperties, validateMessages?: [ValidateMessages](/components/form/#validatemessages), requiredMark?: boolean \| `optional`, scrollToFirstError?: boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) } | - | requiredMark: 4.8.0; colon: 4.18.0; scrollToFirstError: 5.2.0; className: 5.7.0; style: 5.7.0 |
 | image | Set Image common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | input | Set Input common props | { autoComplete?: string, className?: string, style?: React.CSSProperties } | - | 4.2.0 |

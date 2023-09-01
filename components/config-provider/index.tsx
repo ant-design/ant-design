@@ -1,13 +1,14 @@
 'use client';
 
+import type { ReactElement } from 'react';
+import * as React from 'react';
 import { createTheme } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import { merge } from 'rc-util/lib/utils/set';
-import type { ReactElement } from 'react';
-import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
+
 import warning from '../_util/warning';
 import type { RequiredMark } from '../form/Form';
 import ValidateMessagesContext from '../form/validateMessagesContext';
@@ -18,6 +19,8 @@ import type { LocaleContextProps } from '../locale/context';
 import LocaleContext from '../locale/context';
 import defaultLocale from '../locale/en_US';
 import type { SpaceProps } from '../space';
+import type { TabsProps } from '../tabs';
+import { defaultTheme } from '../theme/context';
 import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
@@ -42,8 +45,6 @@ import MotionWrapper from './MotionWrapper';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
-import { defaultTheme } from '../theme/context';
-import type { TabsProps } from '../tabs';
 
 /**
  * Since too many feedback using static method like `Modal.confirm` not getting theme, we record the
@@ -189,7 +190,7 @@ export interface ConfigProviderProps {
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
   datePicker?: ComponentStyleConfig;
-
+  flex?: ComponentStyleConfig;
   /**
    * Wave is special component which only patch on the effect of component interaction.
    */
@@ -330,6 +331,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tree,
     colorPicker,
     datePicker,
+    flex,
     wave,
   } = props;
 
@@ -429,6 +431,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tree,
     colorPicker,
     datePicker,
+    flex,
     wave,
   };
 
