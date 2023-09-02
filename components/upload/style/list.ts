@@ -51,10 +51,7 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
               },
             },
 
-            [`
-              ${actionCls}:focus,
-              &.picture ${actionCls}
-            `]: {
+            [`&.picture ${actionCls}`]: {
               opacity: 1,
             },
 
