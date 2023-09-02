@@ -24,6 +24,7 @@ tag: vVERSION
   - 🛠 Notification 和 Message 组件只有在展示时才会插入对应样式。[#44488](https://github.com/ant-design/ant-design/pull/44488)
   - 🛠 剥离 Tag 状态与预设颜色样式，现在只有当使用的使用才会生成它们。[#44512](https://github.com/ant-design/ant-design/pull/44512)
   - 🛠 剥离 Button 紧凑模式样式，现在只有当使用了 Space.Compact 才会生成对应样式。[#44475](https://github.com/ant-design/ant-design/pull/44475)
+- 📦 移除 `@ant-design/icons` 依赖 `lodash/camelCase` 以优化 bundle size。[ant-design-icons#595](https://github.com/ant-design/ant-design-icons/pull/595)
 - Form
   - 🐞 修复 Form.Item 设置 `wrapperCol.span` 为 `0` 时，子元素不隐藏的问题。[#44485](https://github.com/ant-design/ant-design/pull/44485) [#44472](https://github.com/ant-design/ant-design/pull/44472) [@crazyair](https://github.com/crazyair)
   - 🐞 修复 Form `labelCol` 设置为 24 时，会使 `wrapperCol` 设置 24 失效的问题。[#44541](https://github.com/ant-design/ant-design/pull/44541)

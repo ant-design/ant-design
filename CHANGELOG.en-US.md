@@ -24,6 +24,7 @@ tag: vVERSION
   - 🛠 Notification and Message only generate styles when displayed. [#44488](https://github.com/ant-design/ant-design/pull/44488)
   - 🛠 Extract Tag status & preset color style which will only generate by needed. [#44512](https://github.com/ant-design/ant-design/pull/44512)
   - 🛠 Extract Button compact style, now only the corresponding style will be generated when Space.Compact is used. [#44475](https://github.com/ant-design/ant-design/pull/44475)
+- 📦 Remove `lodash/camelCase` from `@ant-design/icons` dependencies to reduce bundle size. [ant-design-icons#595](https://github.com/ant-design/ant-design-icons/pull/595)
 - Form
   - 🐞 Fix Form.Item children not hidden when `wrapperCol.span` is `0`. [#44485](https://github.com/ant-design/ant-design/pull/44485) [#44472](https://github.com/ant-design/ant-design/pull/44472) [@crazyair](https://github.com/crazyair)
   - 🐞 Fix Form `wrapperCol` to be 24 not working when `labelCol` is set to 24. [#44541](https://github.com/ant-design/ant-design/pull/44541)
