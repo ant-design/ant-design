@@ -220,7 +220,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       position: 'fixed',
       cursor: 'pointer',
       zIndex: 99,
-      display: 'block',
+      display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       width: floatButtonSize,
