@@ -47,7 +47,7 @@
 
 [![](https://user-images.githubusercontent.com/507615/209472919-6f7e8561-be8c-4b0b-9976-eb3c692aa20a.png)](https://ant.design)
 
-[English](./README.md) | [Português](./README-pt_BR.md) | 简体中文 | [Українською](./README-uk_UA.md) | [Spanish](./README-sp_MX.md) | [日本語](./README-ja_JP.md) | [العربية](./README-ar_EG.md)
+[English](./README.md) | 中文
 
 ## ✨ 特性
 
