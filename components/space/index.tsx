@@ -137,8 +137,12 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
   }
 
   if (supportFlexGap) {
-    if (isValidVertical) gapStyle.rowGap = verticalSize;
-    if (isValidHorizontal) gapStyle.columnGap = horizontalSize;
+    if (isValidVertical) {
+      gapStyle.rowGap = verticalSize;
+    }
+    if (isValidHorizontal) {
+      gapStyle.columnGap = horizontalSize;
+    }
   }
 
   return wrapSSR(

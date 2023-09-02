@@ -188,10 +188,9 @@ describe('Space', () => {
         <Null />
       </Space>,
     );
-    const item = container.querySelector('div.ant-space-item') as HTMLElement;
-
-    expect(item).toBeEmptyDOMElement();
-    expect(getComputedStyle(item).display).toBe('none');
+    const element = container.querySelector<HTMLDivElement>('div.ant-space-item')!;
+    expect(element).toBeEmptyDOMElement();
+    expect(getComputedStyle(element).display).toBe('none');
   });
 
   it('should ref work', () => {

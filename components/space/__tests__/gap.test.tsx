@@ -24,4 +24,13 @@ describe('flex gap', () => {
       'ant-space-gap-col-small',
     );
   });
+  it('should size work', () => {
+    const { container } = render(
+      <Space size={10}>
+        <span>test</span>
+      </Space>,
+    );
+    const element = container.querySelector<HTMLDivElement>('div.ant-space');
+    expect(element).toHaveStyle('gap: 10px');
+  });
 });
