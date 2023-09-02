@@ -77,11 +77,12 @@ const GlobalLayout: React.FC = () => {
           }
         }
         if (key === 'theme') {
+          const _theme = value.filter((t) => t !== 'light');
           nextSearchParams = createSearchParams({
             ...nextSearchParams,
-            theme: value.filter((t) => t !== 'light'),
+            theme: _theme,
           });
-          setPrefersColor(theme.indexOf('dark') > -1 ? 'dark' : 'light');
+          setPrefersColor(_theme.includes('dark') ? 'dark' : 'light');
         }
       });
 
@@ -104,7 +105,7 @@ const GlobalLayout: React.FC = () => {
     // Handle isMobile
     updateMobileMode();
     // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
-    setPrefersColor(_theme.indexOf('dark') > -1 ? 'dark' : 'light');
+    setPrefersColor(_theme.includes('dark') ? 'dark' : 'light');
 
     window.addEventListener('resize', updateMobileMode);
     return () => {
