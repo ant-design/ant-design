@@ -1,5 +1,5 @@
 import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genSpaceCompactStyle from './compact';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -8,7 +8,9 @@ export interface ComponentToken {
 }
 
 interface SpaceToken extends FullToken<'Space'> {
-  // Custom token here
+  spaceGapSmallSize: number;
+  spaceGapMiddleSize: number;
+  spaceGapLargeSize: number;
 }
 
 const genSpaceStyle: GenerateStyle<SpaceToken> = (token) => {
@@ -45,10 +47,47 @@ const genSpaceStyle: GenerateStyle<SpaceToken> = (token) => {
   };
 };
 
+const genSpaceGapStyle: GenerateStyle<SpaceToken> = (token) => {
+  const { componentCls } = token;
+  return {
+    [componentCls]: {
+      '&-rowGap-small': {
+        rowGap: token.spaceGapSmallSize,
+      },
+      '&-rowGap-middle': {
+        rowGap: token.spaceGapMiddleSize,
+      },
+      '&-rowGap-large': {
+        rowGap: token.spaceGapLargeSize,
+      },
+      '&-columnGap-small': {
+        columnGap: token.spaceGapSmallSize,
+      },
+      '&-columnGap-middle': {
+        columnGap: token.spaceGapMiddleSize,
+      },
+      '&-columnGap-large': {
+        columnGap: token.spaceGapLargeSize,
+      },
+    },
+  };
+};
+
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Space',
-  (token) => [genSpaceStyle(token), genSpaceCompactStyle(token)],
+  (token) => {
+    const spaceToken = mergeToken<SpaceToken>(token, {
+      spaceGapSmallSize: token.paddingXS,
+      spaceGapMiddleSize: token.padding,
+      spaceGapLargeSize: token.paddingLG,
+    });
+    return [
+      genSpaceStyle(spaceToken),
+      genSpaceGapStyle(spaceToken),
+      genSpaceCompactStyle(spaceToken),
+    ];
+  },
   () => ({}),
   {
     // Space component don't apply extra font style
