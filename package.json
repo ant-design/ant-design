@@ -45,7 +45,7 @@
   "unpkg": "dist/antd.min.js",
   "typings": "es/index.d.ts",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "is-ci || husky install",
     "api-collection": "antd-tools run api-collection",
     "authors": "ts-node --esm --project tsconfig.node.json scripts/generate-authors.ts",
     "build": "npm run compile && NODE_OPTIONS='--max-old-space-size=4096' npm run dist",
@@ -246,6 +246,7 @@
     "identity-obj-proxy": "^3.0.0",
     "immer": "^10.0.1",
     "inquirer": "^9.1.2",
+    "is-ci": "^3.0.1",
     "isomorphic-fetch": "^3.0.0",
     "jest": "^29.4.1",
     "jest-axe": "^8.0.0",
