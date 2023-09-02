@@ -101,7 +101,7 @@ skip: true
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/ugeAGDXQQYkZIbCAGlIP.png">
 </ImagePreview>
 
-步骤多于 2 步时使用, 但建议不超过 5 步，每阶段文字长度保持在 12 个字符以内。
+步骤多于 2 步时使用，但建议不超过 5 步，每阶段文字长度保持在 12 个字符以内。
 
 ### 竖向流程步骤条
 
