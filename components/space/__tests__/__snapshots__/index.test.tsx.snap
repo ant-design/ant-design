@@ -8,13 +8,11 @@ exports[`Space should render correct with children 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-inline-start: 0;"
   >
     text1
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-start: 0;"
   >
     <span>
       text1
@@ -35,7 +33,6 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-start: 0;"
     >
       <span>
         1
@@ -54,7 +51,6 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-start: 0;"
     >
       <span>
         1
@@ -73,7 +69,6 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-start: 0;"
     >
       <span>
         1
@@ -97,7 +92,6 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-start: 0;"
     >
       <span>
         1
@@ -116,7 +110,6 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-start: 0;"
     >
       <span>
         1
@@ -135,7 +128,6 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-start: 0;"
     >
       <span>
         1
@@ -158,19 +150,16 @@ exports[`Space split 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-inline-start: 0;"
   >
     text1
   </div>
   <span
     class="ant-space-item-split"
-    style="margin-inline-start: 0;"
   >
     -
   </span>
   <div
     class="ant-space-item"
-    style="margin-inline-start: 0;"
   >
     <span>
       text1
@@ -178,7 +167,6 @@ exports[`Space split 1`] = `
   </div>
   <span
     class="ant-space-item-split"
-    style="margin-inline-start: 0;"
   >
     -
   </span>

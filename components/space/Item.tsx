@@ -29,14 +29,16 @@ const Item: React.FC<ItemProps> = ({
 
   if (!supportFlexGap) {
     if (direction === 'vertical') {
-      if (index < latestIndex) {
+      if (index < latestIndex && horizontalSize) {
         style = { marginBottom: horizontalSize / (split ? 2 : 1) };
       }
     } else {
-      style = {
-        ...(index < latestIndex && { marginInlineStart: horizontalSize / (split ? 2 : 1) }),
-        ...(wrap && { paddingBottom: verticalSize }),
-      };
+      if (index < latestIndex && horizontalSize) {
+        style = { marginInlineStart: horizontalSize / (split ? 2 : 1) };
+      }
+      if (wrap && verticalSize) {
+        style = { paddingBottom: verticalSize };
+      }
     }
   }
 

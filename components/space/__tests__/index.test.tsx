@@ -72,19 +72,6 @@ describe('Space', () => {
     expect(items[1]?.style.marginInlineStart).toBe('');
   });
 
-  it('should render width size 0', () => {
-    const { container } = render(
-      <Space size={NaN}>
-        <span>1</span>
-        <span>2</span>
-      </Space>,
-    );
-
-    expect(
-      container.querySelector<HTMLDivElement>('div.ant-space-item')?.style.marginInlineStart,
-    ).toBe('0');
-  });
-
   it('should render vertical space width customize size', () => {
     const { container } = render(
       <Space size={10} direction="vertical">
@@ -237,7 +224,7 @@ describe('Space', () => {
       </Space>,
     );
     expect(container.querySelector('.ant-space-item')?.getAttribute('style')).toEqual(
-      'margin-inline-start: 0; color: red;',
+      'color: red;',
     );
   });
 });
