@@ -9,7 +9,7 @@ import type { ConfigConsumerProps } from '../config-provider';
 import createFlexClassNames from './classNames';
 import type { FlexProps } from './interface';
 import useStyle from './style';
-import createContainer from './utils';
+import { createContainer, isPresetSize } from './utils';
 
 const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
   const {
@@ -36,8 +36,6 @@ const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
 
   const Container = createContainer(component);
 
-  const customGap = ['small', 'middle', 'large'].includes(gap as string);
-
   const mergedCls = classNames(
     className,
     rootClassName,
@@ -47,7 +45,7 @@ const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     createFlexClassNames(prefixCls, props),
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-gap-${gap}`]: gap && customGap,
+      [`${prefixCls}-gap-${gap}`]: gap && isPresetSize(gap),
     },
   );
 
@@ -57,7 +55,7 @@ const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     mergedStyle.flex = flex;
   }
 
-  if (gap && !customGap) {
+  if (gap && !isPresetSize(gap)) {
     mergedStyle.gap = gap;
   }
 
