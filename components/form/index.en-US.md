@@ -477,7 +477,7 @@ New in `5.8.0`. Accept configuration parameters. When `strict` is `true`, only t
 
 #### FilterFunc
 
-用于过滤一些字段值，`meta` 会返回字段相关信息。例如可以用来获取仅被用户修改过的值等等。
+To filter certain field values, `meta` will provide information related to the fields. For example, it can be used to retrieve values that have only been modified by the user, and so on.
 
 ```tsx
 type FilterFunc = (meta: { touched: boolean; validating: boolean }) => boolean;

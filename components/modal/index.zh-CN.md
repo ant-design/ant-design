@@ -77,7 +77,7 @@ demo:
 
 #### 注意
 
-- `<Modal />` 默认关闭后状态不会自动清空, 如果希望每次打开都是新内容，请设置 `destroyOnClose`。
+- `<Modal />` 默认关闭后状态不会自动清空，如果希望每次打开都是新内容，请设置 `destroyOnClose`。
 - `<Modal />` 和 Form 一起配合使用时，设置 `destroyOnClose` 也不会在 Modal 关闭时销毁表单字段数据，需要设置 `<Form preserve={false} />`。
 - `Modal.method()` RTL 模式仅支持 hooks 用法。
 
@@ -105,7 +105,7 @@ demo:
 | closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | boolean \| ReactNode | &lt;CloseOutlined /> |  |
 | content | 内容 | ReactNode | - |  |
 | footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer: null` | ReactNode | - | 5.1.0 |
-| getContainer | 指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
+| getContainer | 指定 Modal 挂载的 HTML 节点，false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | 自定义图标 | ReactNode | &lt;ExclamationCircleFilled /> |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
 | mask | 是否展示遮罩 | boolean | true |  |
