@@ -51,22 +51,22 @@ const genSpaceGapStyle: GenerateStyle<SpaceToken> = (token) => {
   const { componentCls } = token;
   return {
     [componentCls]: {
-      '&-rowGap-small': {
+      '&-gap-row-small': {
         rowGap: token.spaceGapSmallSize,
       },
-      '&-rowGap-middle': {
+      '&-gap-row-middle': {
         rowGap: token.spaceGapMiddleSize,
       },
-      '&-rowGap-large': {
+      '&-gap-row-large': {
         rowGap: token.spaceGapLargeSize,
       },
-      '&-columnGap-small': {
+      '&-gap-col-small': {
         columnGap: token.spaceGapSmallSize,
       },
-      '&-columnGap-middle': {
+      '&-gap-col-middle': {
         columnGap: token.spaceGapMiddleSize,
       },
-      '&-columnGap-large': {
+      '&-gap-col-large': {
         columnGap: token.spaceGapLargeSize,
       },
     },

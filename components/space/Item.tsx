@@ -1,12 +1,13 @@
 import * as React from 'react';
+
 import { SpaceContext } from './context';
+import type { SpaceContextType } from './context';
 
 export interface ItemProps {
   className: string;
   children: React.ReactNode;
   index: number;
   direction?: 'horizontal' | 'vertical';
-  marginDirection: 'marginLeft' | 'marginRight';
   split?: React.ReactNode;
   wrap?: boolean;
   style?: React.CSSProperties;
@@ -16,27 +17,26 @@ const Item: React.FC<ItemProps> = ({
   className,
   direction,
   index,
-  marginDirection,
   children,
   split,
   wrap,
   style: customStyle,
 }) => {
   const { horizontalSize, verticalSize, latestIndex, supportFlexGap } =
-    React.useContext(SpaceContext);
+    React.useContext<SpaceContextType>(SpaceContext);
 
-  let style: React.CSSProperties = {};
+  const style: React.CSSProperties = {};
 
   if (!supportFlexGap) {
     if (direction === 'vertical') {
-      if (index < latestIndex) {
-        style = { marginBottom: horizontalSize / (split ? 2 : 1) };
-      }
+      style.marginBottom = horizontalSize / (split ? 2 : 1);
     } else {
-      style = {
-        ...(index < latestIndex && { [marginDirection]: horizontalSize / (split ? 2 : 1) }),
-        ...(wrap && { paddingBottom: verticalSize }),
-      };
+      if (index < latestIndex) {
+        style.marginInlineStart = horizontalSize / (split ? 2 : 1);
+      }
+      if (wrap) {
+        style.paddingBottom = verticalSize;
+      }
     }
   }
 

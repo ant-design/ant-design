@@ -73,8 +73,8 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
       [`${prefixCls}-align-${mergedAlign}`]: mergedAlign,
-      [`${prefixCls}-rowGap-${verticalSize}`]: supportFlexGap && isPresetSize(verticalSize),
-      [`${prefixCls}-columnGap-${horizontalSize}`]: supportFlexGap && isPresetSize(horizontalSize),
+      [`${prefixCls}-gap-row-${verticalSize}`]: supportFlexGap && isPresetSize(verticalSize),
+      [`${prefixCls}-gap-col-${horizontalSize}`]: supportFlexGap && isPresetSize(horizontalSize),
     },
     className,
     rootClassName,
@@ -84,8 +84,6 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     `${prefixCls}-item`,
     customClassNames?.item ?? space?.classNames?.item,
   );
-
-  const marginDirection = directionConfig === 'rtl' ? 'marginLeft' : 'marginRight';
 
   // Calculate latest one
   let latestIndex = 0;
@@ -102,7 +100,6 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
         key={key}
         direction={direction}
         index={i}
-        marginDirection={marginDirection}
         split={split}
         wrap={wrap}
         style={styles?.item ?? space?.styles?.item}

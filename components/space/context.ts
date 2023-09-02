@@ -1,10 +1,10 @@
 import React from 'react';
 
 export interface SpaceContextType {
-  latestIndex?: number;
-  horizontalSize?: number;
-  verticalSize?: number;
-  supportFlexGap?: boolean;
+  latestIndex: number;
+  horizontalSize: number;
+  verticalSize: number;
+  supportFlexGap: boolean;
 }
 
 export const SpaceContext = React.createContext<SpaceContextType>({
