@@ -219,7 +219,7 @@ tag: vVERSION
 - 🐞 MISC: Fixed an issue where some browsers had scroll bars that were not redrawn when style feature support was detected. [#43358](https://github.com/ant-design/ant-design/pull/43358) [@LeeeeeeM](https://github.com/LeeeeeeM)
 - 🐞 Fixed an issue where the Tab component of Card would not be displayed at all when tabList is empty. [#43416](https://github.com/ant-design/ant-design/pull/43416) [@linxianxi](https://github.com/linxianxi)
 - 🐞 Fixed an issue where the `form.validateMessages` configuration would be lost when using ConfigProvider nestedly. [#43239](https://github.com/ant-design/ant-design/pull/43239) [@Wxh16144](https://github.com/Wxh16144)
-- 🐞 Fixed an issue where the ripple effect of Tag click would sometimes be offset from the Tag element . [#43402](https://github.com/ant-design/ant-design/pull/43402)
+- 🐞 Fixed an issue where the ripple effect of Tag click would sometimes be offset from the Tag element. [#43402](https://github.com/ant-design/ant-design/pull/43402)
 - 🐞 Fixed an issue where clicking "now" in DatePicker when switching to the year-month panel would not work. [#43367](https://github.com/ant-design/ant-design/pull/43367) [@Yuiai01](https://github.com/Yuiai01)
 - 🐞 Fixed an issue where the height set for the Input.TextArea component would become invalid when the screen size changed. [#43169](https://github.com/ant-design/ant-design/pull/43169) [@MadCcc](https://github.com/MadCcc)
 - 💄 In Slider, the `tooltip` should be centered when there is little content. [#43430](https://github.com/ant-design/ant-design/pull/43430) [@Jomorx](https://github.com/Jomorx)
