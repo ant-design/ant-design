@@ -136,7 +136,6 @@ exports[`renders components/message/demo/other.tsx correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -149,7 +148,6 @@ exports[`renders components/message/demo/other.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <button
       class="ant-btn ant-btn-default"

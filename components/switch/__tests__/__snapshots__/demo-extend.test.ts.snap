@@ -31,7 +31,6 @@ exports[`renders components/switch/demo/disabled.tsx extend context correctly 1`
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <button
       aria-checked="true"
@@ -216,7 +215,6 @@ exports[`renders components/switch/demo/text.tsx extend context correctly 1`] = 
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <button
       aria-checked="true"
@@ -245,7 +243,6 @@ exports[`renders components/switch/demo/text.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <button
       aria-checked="false"

@@ -6,7 +6,6 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-group-wrapper"
@@ -34,7 +33,6 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-group-wrapper"
@@ -376,7 +374,6 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-group-wrapper"
@@ -417,7 +414,6 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-group-wrapper"
@@ -5176,7 +5172,6 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 16px;"
   >
     <div
       class="ant-space-compact"
@@ -5190,7 +5185,6 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 16px;"
   >
     <div
       class="ant-space-compact"
@@ -5211,7 +5205,6 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 16px;"
   >
     <div
       class="ant-space-compact"
@@ -5305,7 +5298,6 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 16px;"
   >
     <div
       class="ant-space-compact"
@@ -5328,7 +5320,6 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 16px;"
   >
     <div
       class="ant-space-compact"
@@ -5543,13 +5534,11 @@ exports[`renders components/input/demo/debug-addon.tsx extend context correctly 
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     Input addon Button:
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-group-wrapper"
@@ -5579,7 +5568,6 @@ exports[`renders components/input/demo/debug-addon.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-group-wrapper"
@@ -5609,19 +5597,16 @@ exports[`renders components/input/demo/debug-addon.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <br />
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <br />
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     Input addon Button icon:
   </div>
@@ -5682,15 +5667,13 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = 
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="flex-wrap: wrap;"
     >
       <div
         class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default"
@@ -5703,7 +5686,6 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = 
       </div>
       <div
         class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default"
@@ -5716,7 +5698,6 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = 
       </div>
       <div
         class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default"
@@ -5729,7 +5710,6 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = 
       </div>
       <div
         class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default"
@@ -5742,7 +5722,6 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = 
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom: 8px;"
       >
         <button
           aria-checked="true"
@@ -5773,7 +5752,6 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <br />
   </div>
@@ -9287,7 +9265,6 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-affix-wrapper ant-input-password"
@@ -9329,7 +9306,6 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-affix-wrapper ant-input-password"
@@ -9377,7 +9353,6 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
     >
       <div
         class="ant-space-item"
-        style="margin-right: 8px;"
       >
         <span
           class="ant-input-affix-wrapper ant-input-password"
@@ -9572,7 +9547,6 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-group-wrapper ant-input-search"
@@ -9624,7 +9598,6 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-group-wrapper ant-input-search"
@@ -9710,7 +9683,6 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-group-wrapper ant-input-search"
@@ -9801,7 +9773,6 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
@@ -9852,7 +9823,6 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-input-search-with-button ant-input-group-wrapper-lg"
@@ -10293,7 +10263,6 @@ exports[`renders components/input/demo/status.tsx extend context correctly 1`] =
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <input
       class="ant-input ant-input-status-error"
@@ -10304,7 +10273,6 @@ exports[`renders components/input/demo/status.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <input
       class="ant-input ant-input-status-warning"
@@ -10315,7 +10283,6 @@ exports[`renders components/input/demo/status.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-affix-wrapper ant-input-affix-wrapper-status-error"

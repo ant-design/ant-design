@@ -2072,7 +2072,6 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <button
       aria-checked="false"
@@ -2256,7 +2255,6 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-select ant-select-status-error ant-select-auto-complete ant-select-single ant-select-show-search"

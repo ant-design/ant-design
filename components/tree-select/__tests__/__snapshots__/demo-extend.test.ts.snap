@@ -1845,7 +1845,6 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-select ant-tree-select ant-select-status-error ant-select-single ant-select-show-arrow"
@@ -2698,7 +2697,6 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <button
       aria-checked="false"
@@ -2727,7 +2725,6 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <button
       aria-checked="true"
@@ -2756,7 +2753,6 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <button
       aria-checked="false"

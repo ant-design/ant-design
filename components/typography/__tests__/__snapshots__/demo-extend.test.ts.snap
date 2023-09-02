@@ -2493,7 +2493,6 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography"
@@ -2503,7 +2502,6 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography ant-typography-secondary"
@@ -2513,7 +2511,6 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography ant-typography-success"
@@ -2523,7 +2520,6 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography ant-typography-warning"
@@ -2533,7 +2529,6 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography ant-typography-danger"
@@ -2543,7 +2538,6 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography ant-typography-disabled"
@@ -2553,7 +2547,6 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography"
@@ -2565,7 +2558,6 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography"
@@ -2577,7 +2569,6 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography"
@@ -2589,7 +2580,6 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography"
@@ -2601,7 +2591,6 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography"
@@ -2613,7 +2602,6 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography"
@@ -2625,7 +2613,6 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography"

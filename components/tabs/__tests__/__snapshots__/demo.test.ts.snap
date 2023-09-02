@@ -7,7 +7,6 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <button
         aria-checked="true"
@@ -3507,7 +3506,6 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       Tab position:
     </div>

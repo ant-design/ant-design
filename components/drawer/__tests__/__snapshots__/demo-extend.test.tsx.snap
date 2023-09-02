@@ -281,7 +281,6 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <div
         class="ant-radio-group ant-radio-group-outline"
@@ -449,7 +448,6 @@ Array [
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right: 8px;"
                 >
                   <button
                     class="ant-btn ant-btn-default"
@@ -610,7 +608,6 @@ Array [
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right: 8px;"
                 >
                   <button
                     class="ant-btn ant-btn-default"
@@ -2819,7 +2816,6 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <div
         class="ant-radio-group ant-radio-group-outline"
@@ -3135,7 +3131,6 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <button
         aria-checked="false"
@@ -3164,7 +3159,6 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
     </div>
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <button
         aria-checked="false"
@@ -3193,7 +3187,6 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
     </div>
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <button
         aria-checked="false"
@@ -3498,7 +3491,6 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -3593,7 +3585,6 @@ Array [
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right: 8px;"
                 >
                   <button
                     class="ant-btn ant-btn-default"

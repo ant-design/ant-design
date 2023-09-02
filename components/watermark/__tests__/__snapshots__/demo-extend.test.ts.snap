@@ -756,7 +756,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right: 8px;"
                 >
                   <div
                     class="ant-form-item"
@@ -995,7 +994,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right: 8px;"
                 >
                   <div
                     class="ant-form-item"
@@ -1242,7 +1240,6 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
