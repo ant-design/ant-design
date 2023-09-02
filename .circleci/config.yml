@@ -8,6 +8,8 @@ jobs:
   test-argos-ci:
     docker:
       - image: cimg/node:18.17-browsers
+    environment:
+      NODE_OPTIONS: --openssl-legacy-provider
     steps:
       - checkout
       - run:
@@ -15,7 +17,7 @@ jobs:
           command: yarn
       - run:
           name: Build dist file
-          command: npm --openssl-legacy-provider run dist:esbuild
+          command: npm run dist:esbuild
       - run:
           name: Run image screenshot tests
           command: npm run test-image
