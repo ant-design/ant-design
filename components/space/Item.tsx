@@ -25,18 +25,18 @@ const Item: React.FC<ItemProps> = ({
   const { horizontalSize, verticalSize, latestIndex, supportFlexGap } =
     React.useContext<SpaceContextType>(SpaceContext);
 
-  const style: React.CSSProperties = {};
+  let style: React.CSSProperties = {};
 
   if (!supportFlexGap) {
     if (direction === 'vertical') {
-      style.marginBottom = horizontalSize / (split ? 2 : 1);
-    } else {
       if (index < latestIndex) {
-        style.marginInlineStart = horizontalSize / (split ? 2 : 1);
+        style = { marginBottom: horizontalSize / (split ? 2 : 1) };
       }
-      if (wrap) {
-        style.paddingBottom = verticalSize;
-      }
+    } else {
+      style = {
+        ...(index < latestIndex && { marginInlineStart: horizontalSize / (split ? 2 : 1) }),
+        ...(wrap && { paddingBottom: verticalSize }),
+      };
     }
   }
 

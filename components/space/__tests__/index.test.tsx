@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import React, { useState } from 'react';
+
 import Space from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -66,12 +67,9 @@ describe('Space', () => {
       </Space>,
     );
 
-    expect(container.querySelector<HTMLDivElement>('div.ant-space-item')?.style.marginRight).toBe(
-      '10px',
-    );
-    expect(
-      container.querySelectorAll<HTMLDivElement>('div.ant-space-item')[1]?.style.marginRight,
-    ).toBe('');
+    const items = container.querySelectorAll<HTMLDivElement>('div.ant-space-item');
+    expect(items[0]?.style.marginInlineStart).toBe('10px');
+    expect(items[1]?.style.marginInlineStart).toBe('');
   });
 
   it('should render width size 0', () => {
@@ -82,9 +80,9 @@ describe('Space', () => {
       </Space>,
     );
 
-    expect(container.querySelector<HTMLDivElement>('div.ant-space-item')?.style.marginRight).toBe(
-      '0px',
-    );
+    expect(
+      container.querySelector<HTMLDivElement>('div.ant-space-item')?.style.marginInlineStart,
+    ).toBe('0');
   });
 
   it('should render vertical space width customize size', () => {
@@ -95,12 +93,9 @@ describe('Space', () => {
       </Space>,
     );
 
-    expect(container.querySelector<HTMLDivElement>('div.ant-space-item')?.style.marginBottom).toBe(
-      '10px',
-    );
-    expect(
-      container.querySelectorAll<HTMLDivElement>('div.ant-space-item')[1]?.style.marginBottom,
-    ).toBe('');
+    const items = container.querySelectorAll<HTMLDivElement>('div.ant-space-item');
+    expect(items[0]?.style.marginBottom).toBe('10px');
+    expect(items[1]?.style.marginBottom).toBe('');
   });
 
   it('should render correct with children', () => {
@@ -236,20 +231,13 @@ describe('Space', () => {
 
   it('should styles work', () => {
     const { container } = render(
-      <Space
-        styles={{
-          item: {
-            color: 'red',
-          },
-        }}
-      >
+      <Space styles={{ item: { color: 'red' } }}>
         <span>Text1</span>
         <span>Text2</span>
       </Space>,
     );
-
     expect(container.querySelector('.ant-space-item')?.getAttribute('style')).toEqual(
-      'margin-right: 8px; color: red;',
+      'margin-inline-start: 0; color: red;',
     );
   });
 });

@@ -32,8 +32,12 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   styles?: { item: React.CSSProperties };
 }
 
-function isPresetSize(size: SpaceSize) {
-  return typeof size === 'string';
+function isPresetSize(size: SpaceSize): size is SizeType {
+  return typeof size === 'string' && ['small', 'middle', 'large'].includes(size);
+}
+
+function isNumberSize(size: SpaceSize): size is number {
+  return typeof size === 'number' && !Number.isNaN(size);
 }
 
 const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
@@ -111,8 +115,8 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
   const spaceContext = React.useMemo<SpaceContextType>(
     () => ({
-      horizontalSize: horizontalSize as number,
-      verticalSize: verticalSize as number,
+      horizontalSize: isNumberSize(horizontalSize) ? horizontalSize : 0,
+      verticalSize: isNumberSize(verticalSize) ? verticalSize : 0,
       latestIndex,
       supportFlexGap,
     }),
@@ -130,16 +134,16 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     gapStyle.flexWrap = 'wrap';
 
     // Patch for gap not support
-    if (!supportFlexGap && verticalSize && !isPresetSize(verticalSize)) {
+    if (!supportFlexGap && isNumberSize(verticalSize)) {
       gapStyle.marginBottom = -verticalSize;
     }
   }
 
   if (supportFlexGap) {
-    if (verticalSize && !isPresetSize(verticalSize)) {
+    if (verticalSize && isNumberSize(verticalSize)) {
       gapStyle.rowGap = verticalSize;
     }
-    if (horizontalSize && !isPresetSize(horizontalSize)) {
+    if (horizontalSize && isNumberSize(horizontalSize)) {
       gapStyle.columnGap = horizontalSize;
     }
   }
