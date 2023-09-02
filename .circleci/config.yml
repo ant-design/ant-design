@@ -15,7 +15,7 @@ jobs:
           command: yarn
       - run:
           name: Build dist file
-          command: npm run dist:esbuild
+          command: npm --openssl-legacy-provider run dist:esbuild
       - run:
           name: Run image screenshot tests
           command: npm run test-image
