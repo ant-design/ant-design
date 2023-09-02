@@ -12,7 +12,7 @@
 
 [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
-[![][bundlephobia-image]][bundlephobia-url] [![][bundlesize-js-image]][unpkg-js-url] [![FOSSA Status][fossa-image]][fossa-url]
+[![][bundlephobia-image]][bundlephobia-url] [![][bundlesize-js-image]][unpkg-js-url] [![FOSSA Status][fossa-image]][fossa-url] [![Covered by Argos Visual Testing][argos-ci-image]][argos-ci-url]
 
 [![Follow Twitter][twitter-image]][twitter-url] [![Renovate status][renovate-image]][renovate-dashboard-url] [![][issues-helper-image]][issues-helper-url] [![dumi][dumi-image]][dumi-url] [![Issues need help][help-wanted-image]][help-wanted-url]
 
@@ -40,6 +40,8 @@
 [renovate-dashboard-url]: https://github.com/ant-design/ant-design/issues/32498
 [dumi-image]: https://img.shields.io/badge/docs%20by-dumi-blue?style=flat-square
 [dumi-url]: https://github.com/umijs/dumi
+[argos-ci-image]: https://argos-ci.com/badge.svg
+[argos-ci-url]: https://app.argos-ci.com/ant-design/ant-design/reference
 
 </div>
 
@@ -146,7 +148,7 @@ $ npm start
 
 Якщо ти співавтор, дотримуйся нашого [Pull Request принципу](https://github.com/ant-design/ant-design/wiki/PR-principle) щоб створити Pull Request за [темплейтом співавтора](https://github.com/ant-design/ant-design/compare?expand=1&template=collaborator.md).
 
-[![Let's fund issues in this repository](https://issuehunt.io/static/embed/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
+[![Let's fund issues in this repository](https://raw.githubusercontent.com/BoostIO/issuehunt-materials/master/v1/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
 
 ## ❤️ Спонсори та Меценати [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design#support) [![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design#support)
 
