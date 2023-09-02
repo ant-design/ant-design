@@ -182,7 +182,7 @@ describe('Space', () => {
   });
 
   it('should render the hidden empty item wrapper', () => {
-    const Null = () => null;
+    const Null: React.FC = () => null;
     const { container } = render(
       <Space>
         <Null />
@@ -213,7 +213,7 @@ describe('Space', () => {
       </Space>,
     );
 
-    expect(container.querySelector('.ant-space-item.test-classNames')).toBeTruthy();
+    expect(container.querySelector<HTMLDivElement>('.ant-space-item.test-classNames')).toBeTruthy();
   });
 
   it('should styles work', () => {
@@ -223,9 +223,9 @@ describe('Space', () => {
         <span>Text2</span>
       </Space>,
     );
-    expect(container.querySelector('.ant-space-item')?.getAttribute('style')).toEqual(
-      'color: red;',
-    );
+    expect(
+      container.querySelector<HTMLDivElement>('.ant-space-item')?.getAttribute('style'),
+    ).toEqual('color: red;');
   });
 
   it('should isPresetSize & isValidNumber work', () => {

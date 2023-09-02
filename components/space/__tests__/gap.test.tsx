@@ -24,6 +24,7 @@ describe('flex gap', () => {
       'ant-space-gap-col-small',
     );
   });
+
   it('should size work', () => {
     const { container } = render(
       <Space size={10}>
@@ -31,6 +32,6 @@ describe('flex gap', () => {
       </Space>,
     );
     const element = container.querySelector<HTMLDivElement>('div.ant-space');
-    expect(element).toHaveStyle('gap: 10px');
+    expect(element).toHaveStyle({ rowGap: '10px', columnGap: '10px' });
   });
 });
