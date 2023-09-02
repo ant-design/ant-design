@@ -40,7 +40,7 @@ export default function StatusProvider({
 }: StatusProviderProps) {
   const itemPrefixCls = `${prefixCls}-item`;
 
-  const mergedValidateStatus = getStatus(errors, warnings, meta, hasFeedback, validateStatus, null);
+  const mergedValidateStatus = getStatus(errors, warnings, meta, null, hasFeedback, validateStatus);
 
   const { isFormItemInput: parentIsFormItemInput, status: parentStatus } =
     React.useContext(FormItemInputContext);

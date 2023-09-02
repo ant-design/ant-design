@@ -39,9 +39,9 @@ export function getStatus<DefaultValue>(
   errors: React.ReactNode[],
   warnings: React.ReactNode[],
   meta: Meta,
+  defaultValidateStatus: ValidateStatus | DefaultValue,
   hasFeedback?: boolean,
   validateStatus?: ValidateStatus,
-  defaultValidateStatus: ValidateStatus | DefaultValue = '',
 ): ValidateStatus | DefaultValue {
   let status = defaultValidateStatus;
 
