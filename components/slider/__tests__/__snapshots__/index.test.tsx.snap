@@ -16,6 +16,7 @@ exports[`Slider rtl render component should be rendered correctly in RTL directi
   />
   <div
     aria-disabled="false"
+    aria-orientation="horizontal"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="0"
@@ -44,6 +45,7 @@ exports[`Slider should render in RTL direction 1`] = `
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="30"
