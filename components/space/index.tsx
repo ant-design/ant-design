@@ -12,6 +12,7 @@ import { SpaceContextProvider } from './context';
 import type { SpaceContextType } from './context';
 import Item from './Item';
 import useStyle from './style';
+import { isPresetSize, isValidNumber } from './utils';
 
 export { SpaceContext } from './context';
 
@@ -31,20 +32,6 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   classNames?: { item: string };
   styles?: { item: React.CSSProperties };
 }
-
-const isPresetSize = (size: SpaceSize): size is SizeType => {
-  if (!size) {
-    return false;
-  }
-  return typeof size === 'string' && ['small', 'middle', 'large'].includes(size);
-};
-
-const isValidNumber = (size: SpaceSize): size is number => {
-  if (!size) {
-    return false;
-  }
-  return typeof size === 'number' && !Number.isNaN(size);
-};
 
 const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
   const { getPrefixCls, space, direction: directionConfig } = React.useContext(ConfigContext);
@@ -69,13 +56,17 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
   const [horizontalSize, verticalSize] = Array.isArray(size) ? size : ([size, size] as const);
 
+  const isValidVertical = isValidNumber(verticalSize);
+
+  const isValidHorizontal = isValidNumber(horizontalSize);
+
   const childNodes = toArray(children, { keepEmpty: true });
 
   const mergedAlign = align === undefined && direction === 'horizontal' ? 'center' : align;
   const prefixCls = getPrefixCls('space', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const cn = classNames(
+  const cls = classNames(
     prefixCls,
     space?.className,
     hashId,
@@ -121,8 +112,8 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
   const spaceContext = React.useMemo<SpaceContextType>(
     () => ({
-      horizontalSize: isValidNumber(horizontalSize) ? horizontalSize : 0,
-      verticalSize: isValidNumber(verticalSize) ? verticalSize : 0,
+      horizontalSize: isValidHorizontal ? horizontalSize : 0,
+      verticalSize: isValidVertical ? verticalSize : 0,
       latestIndex,
       supportFlexGap,
     }),
@@ -140,16 +131,16 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     gapStyle.flexWrap = 'wrap';
 
     // Patch for gap not support
-    if (!supportFlexGap && isValidNumber(verticalSize)) {
+    if (!supportFlexGap && isValidVertical) {
       gapStyle.marginBottom = -verticalSize;
     }
   }
 
   if (supportFlexGap) {
-    if (isValidNumber(verticalSize)) {
+    if (isValidVertical) {
       gapStyle.rowGap = verticalSize;
     }
-    if (isValidNumber(horizontalSize)) {
+    if (isValidHorizontal) {
       gapStyle.columnGap = horizontalSize;
     }
   }
@@ -157,7 +148,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
   return wrapSSR(
     <div
       ref={ref}
-      className={cn}
+      className={cls}
       style={{ ...gapStyle, ...space?.style, ...style }}
       {...otherProps}
     >
