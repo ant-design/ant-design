@@ -1268,7 +1268,7 @@ describe('ConfigProvider support style and className props', () => {
 
   it('Should Flex className & style works', () => {
     const { container } = render(
-      <ConfigProvider tabs={{ className: 'cp-flex', style: { backgroundColor: 'blue' } }}>
+      <ConfigProvider flex={{ className: 'cp-flex', style: { backgroundColor: 'blue' } }}>
         <Flex>test</Flex>
       </ConfigProvider>,
     );
