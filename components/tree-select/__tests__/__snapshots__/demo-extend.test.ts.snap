@@ -1687,7 +1687,7 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
       <div>
         <div>
           <div
-            class="ant-select-tree"
+            class="ant-select-tree ant-select-tree-active-focused"
             role="tree"
           >
             <div>
