@@ -91,10 +91,9 @@ const genJustifyContentStyle: GenerateStyle<FlexToken> = (token) => {
 
 export default genComponentStyleHook<'Flex'>('Flex', (token) => {
   const flexToken = mergeToken<FlexToken>(token, {
-    // 这里不确定是否使用 token，在 Space 组件中是写死的
-    flexGapSmallSize: 8,
-    flexGapMiddleSize: 16,
-    flexGapLargeSize: 24,
+    flexGapSmallSize: token.paddingXS,
+    flexGapMiddleSize: token.padding,
+    flexGapLargeSize: token.paddingLG,
   });
   return [
     genFlexStyle(flexToken),
