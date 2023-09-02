@@ -32,13 +32,19 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   styles?: { item: React.CSSProperties };
 }
 
-function isPresetSize(size: SpaceSize): size is SizeType {
+const isPresetSize = (size: SpaceSize): size is SizeType => {
+  if (!size) {
+    return false;
+  }
   return typeof size === 'string' && ['small', 'middle', 'large'].includes(size);
-}
+};
 
-function isNumberSize(size: SpaceSize): size is number {
+const isValidNumber = (size: SpaceSize): size is number => {
+  if (!size) {
+    return false;
+  }
   return typeof size === 'number' && !Number.isNaN(size);
-}
+};
 
 const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
   const { getPrefixCls, space, direction: directionConfig } = React.useContext(ConfigContext);
@@ -91,7 +97,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
   // Calculate latest one
   let latestIndex = 0;
-  const nodes = childNodes.map((child, i) => {
+  const nodes = childNodes.map<React.ReactNode>((child, i) => {
     if (child !== null && child !== undefined) {
       latestIndex = i;
     }
@@ -115,8 +121,8 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
   const spaceContext = React.useMemo<SpaceContextType>(
     () => ({
-      horizontalSize: isNumberSize(horizontalSize) ? horizontalSize : 0,
-      verticalSize: isNumberSize(verticalSize) ? verticalSize : 0,
+      horizontalSize: isValidNumber(horizontalSize) ? horizontalSize : 0,
+      verticalSize: isValidNumber(verticalSize) ? verticalSize : 0,
       latestIndex,
       supportFlexGap,
     }),
@@ -134,16 +140,16 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     gapStyle.flexWrap = 'wrap';
 
     // Patch for gap not support
-    if (!supportFlexGap && isNumberSize(verticalSize)) {
+    if (!supportFlexGap && isValidNumber(verticalSize)) {
       gapStyle.marginBottom = -verticalSize;
     }
   }
 
   if (supportFlexGap) {
-    if (verticalSize && isNumberSize(verticalSize)) {
+    if (isValidNumber(verticalSize)) {
       gapStyle.rowGap = verticalSize;
     }
-    if (horizontalSize && isNumberSize(horizontalSize)) {
+    if (isValidNumber(horizontalSize)) {
       gapStyle.columnGap = horizontalSize;
     }
   }
