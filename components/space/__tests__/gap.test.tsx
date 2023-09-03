@@ -34,4 +34,14 @@ describe('flex gap', () => {
     const element = container.querySelector<HTMLDivElement>('div.ant-space');
     expect(element).toHaveStyle({ rowGap: '10px', columnGap: '10px' });
   });
+
+  it('should NaN work', () => {
+    expect(() => {
+      render(
+        <Space size={[NaN, NaN]}>
+          <span>test</span>
+        </Space>,
+      );
+    }).not.toThrow();
+  });
 });
