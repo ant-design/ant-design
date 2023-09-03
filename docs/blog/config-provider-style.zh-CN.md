@@ -8,11 +8,13 @@ Ant Design v5 提供了 Design Token 模型，支持自定义算法实现主题�
 
 而今天，我们现在放下算法部分。讲讲如何通过 ConfigProvider 来拓展主题。
 
-## 太长不看
+## 一个例子
 
-本文介绍了通过 ConfigProvider 来拓展主题的能力，你可以直接在[这里](https://github.com/zombieJ/antd-geek-theme-sample)查看完整的代码示例（[在线演示](aizhuzi.com/antd-geek-theme-sample/demos/theme)）：
+这是我通过 ConfigProvider 来拓展主题的示例，你可以直接在[这里](https://github.com/zombieJ/antd-geek-theme-sample)查看完整的代码（[在线演示](https://zombiej.github.io/antd-geek-theme-sample/demos/theme)）：
 
 ![Geek Theme](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*i3kvR6-tozgAAAAAAAAAAAAADrJ8AQ/original)
+
+以下会聊聊在 Ant Design 中如何使用 ConfigProvider 拓展主题。当然这篇文章并不是 CSS 的教程，所以不会去介绍上面的样式实现。如果有兴趣可以直接看看上面的代码地址。
 
 ## Token 之痛
 
@@ -65,13 +67,12 @@ import { createStyles } from 'antd-style';
 
 const useButtonStyle = () => {
   const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
-
   const btnPrefixCls = getPrefixCls('btn');
 
+  // Customize styles
   return createStyles(({ css }) => ({
     btn: css`
       background: red;
-
       .${btnPrefixCls}-icon {
         color: green;
       }
@@ -79,9 +80,30 @@ const useButtonStyle = () => {
   }))();
 };
 
-export default function GeekProvider(props: { children?: React.ReactNode }) {
+function GeekProvider(props: { children?: React.ReactNode }) {
   const { styles } = useButtonStyle();
 
   return <ConfigProvider button={{ className: styles.btn }}>{props.children}</ConfigProvider>;
 }
 ```
+
+<img alt="Red Button" height="40" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PvYITqIk2_8AAAAAAAAAAAAADrJ8AQ/original" />
+
+对需要继承 `className` 的场景，拓展也很容易：
+
+```tsx
+function GeekProvider(props: { children?: React.ReactNode }) {
+  const { button } = React.useContext(ConfigProvider.ConfigContext);
+  const { styles } = useButtonStyle();
+
+  return (
+    <ConfigProvider button={{ className: classNames(button?.className, styles.btn) }}>
+      {props.children}
+    </ConfigProvider>
+  );
+}
+```
+
+## 总结
+
+通过 ConfigProvider 可以进一步拓展主题，它可以很好的隔离样式，避免样式冲突。赶快动手试试吧！
