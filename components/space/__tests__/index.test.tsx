@@ -228,7 +228,7 @@ describe('Space', () => {
     ).toEqual('color: red;');
   });
 
-  it('should isPresetSize & isValidNumber work', () => {
+  it('should isPresetSize & isValidGapNumber work', () => {
     const r1 = isPresetSize(0);
     const r2 = isValidGapNumber(0);
     const r3 = isPresetSize('small');
