@@ -138,7 +138,7 @@ exports[`renders components/tag/demo/basic.tsx extend context correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="margin-inline-end: 0; padding-bottom: 8px;"
   >
     <span
       class="ant-tag"
@@ -148,7 +148,7 @@ exports[`renders components/tag/demo/basic.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="margin-inline-end: 0; padding-bottom: 8px;"
   >
     <span
       class="ant-tag"
@@ -162,7 +162,7 @@ exports[`renders components/tag/demo/basic.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="margin-inline-end: 0; padding-bottom: 8px;"
   >
     <span
       class="ant-tag"
@@ -238,6 +238,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-borderless"
@@ -247,6 +248,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-borderless"
@@ -256,6 +258,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-borderless"
@@ -286,6 +289,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-borderless"
@@ -325,6 +329,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-processing ant-tag-borderless"
@@ -334,6 +339,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-success ant-tag-borderless"
@@ -343,6 +349,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-error ant-tag-borderless"
@@ -352,6 +359,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-warning ant-tag-borderless"
@@ -361,6 +369,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-magenta ant-tag-borderless"
@@ -370,6 +379,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-red ant-tag-borderless"
@@ -379,6 +389,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-volcano ant-tag-borderless"
@@ -388,6 +399,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-orange ant-tag-borderless"
@@ -397,6 +409,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-gold ant-tag-borderless"
@@ -406,6 +419,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-lime ant-tag-borderless"
@@ -415,6 +429,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-green ant-tag-borderless"
@@ -424,6 +439,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-cyan ant-tag-borderless"
@@ -433,6 +449,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-blue ant-tag-borderless"
@@ -442,6 +459,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-geekblue ant-tag-borderless"
@@ -451,6 +469,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-purple ant-tag-borderless"
@@ -474,6 +493,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-borderless"
@@ -483,6 +503,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-borderless"
@@ -492,6 +513,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-borderless"
@@ -522,6 +544,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
     </div>
     <div
       class="ant-space-item"
+      style="padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-borderless"
@@ -561,6 +584,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-magenta ant-tag-borderless"
@@ -570,6 +594,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-red ant-tag-borderless"
@@ -579,6 +604,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-volcano ant-tag-borderless"
@@ -588,6 +614,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-orange ant-tag-borderless"
@@ -597,6 +624,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-gold ant-tag-borderless"
@@ -606,6 +634,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-lime ant-tag-borderless"
@@ -615,6 +644,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-green ant-tag-borderless"
@@ -624,6 +654,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-cyan ant-tag-borderless"
@@ -633,6 +664,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-blue ant-tag-borderless"
@@ -642,6 +674,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-geekblue ant-tag-borderless"
@@ -651,6 +684,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
     </div>
     <div
       class="ant-space-item"
+      style="padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-purple ant-tag-borderless"
@@ -677,7 +711,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-checkable"
@@ -687,7 +721,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
@@ -697,7 +731,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-checkable"
@@ -739,7 +773,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-magenta"
@@ -749,7 +783,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-red"
@@ -759,7 +793,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-volcano"
@@ -769,7 +803,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-orange"
@@ -779,7 +813,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-gold"
@@ -789,7 +823,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-lime"
@@ -799,7 +833,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-green"
@@ -809,7 +843,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-cyan"
@@ -819,7 +853,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-blue"
@@ -829,7 +863,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-geekblue"
@@ -864,7 +898,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-has-color"
@@ -875,7 +909,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-has-color"
@@ -886,7 +920,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-has-color"
@@ -919,7 +953,7 @@ exports[`renders components/tag/demo/colorful-inverse.tsx extend context correct
 >
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="margin-inline-end: 0; padding-bottom: 8px;"
   >
     <span
       class="ant-tag ant-tag-magenta-inverse"
@@ -929,7 +963,7 @@ exports[`renders components/tag/demo/colorful-inverse.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="margin-inline-end: 0; padding-bottom: 8px;"
   >
     <span
       class="ant-tag ant-tag-red-inverse"
@@ -939,7 +973,7 @@ exports[`renders components/tag/demo/colorful-inverse.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="margin-inline-end: 0; padding-bottom: 8px;"
   >
     <span
       class="ant-tag ant-tag-volcano-inverse"
@@ -949,7 +983,7 @@ exports[`renders components/tag/demo/colorful-inverse.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="margin-inline-end: 0; padding-bottom: 8px;"
   >
     <span
       class="ant-tag ant-tag-orange-inverse"
@@ -959,7 +993,7 @@ exports[`renders components/tag/demo/colorful-inverse.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="margin-inline-end: 0; padding-bottom: 8px;"
   >
     <span
       class="ant-tag ant-tag-gold-inverse"
@@ -969,7 +1003,7 @@ exports[`renders components/tag/demo/colorful-inverse.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="margin-inline-end: 0; padding-bottom: 8px;"
   >
     <span
       class="ant-tag ant-tag-lime-inverse"
@@ -979,7 +1013,7 @@ exports[`renders components/tag/demo/colorful-inverse.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="margin-inline-end: 0; padding-bottom: 8px;"
   >
     <span
       class="ant-tag ant-tag-green-inverse"
@@ -989,7 +1023,7 @@ exports[`renders components/tag/demo/colorful-inverse.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="margin-inline-end: 0; padding-bottom: 8px;"
   >
     <span
       class="ant-tag ant-tag-cyan-inverse"
@@ -999,7 +1033,7 @@ exports[`renders components/tag/demo/colorful-inverse.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="margin-inline-end: 0; padding-bottom: 8px;"
   >
     <span
       class="ant-tag ant-tag-blue-inverse"
@@ -1009,7 +1043,7 @@ exports[`renders components/tag/demo/colorful-inverse.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="margin-inline-end: 0; padding-bottom: 8px;"
   >
     <span
       class="ant-tag ant-tag-geekblue-inverse"
@@ -1039,7 +1073,7 @@ exports[`renders components/tag/demo/component-token.tsx extend context correctl
 >
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="margin-inline-end: 0; padding-bottom: 8px;"
   >
     <span
       class="ant-tag"
@@ -1053,7 +1087,7 @@ exports[`renders components/tag/demo/component-token.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="margin-inline-end: 0; padding-bottom: 8px;"
   >
     <span
       class="ant-tag ant-tag-magenta"
@@ -1084,7 +1118,7 @@ exports[`renders components/tag/demo/component-token.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="margin-inline-end: 0; padding-bottom: 8px;"
   >
     <span
       class="ant-tag ant-tag-error"
@@ -1116,7 +1150,7 @@ exports[`renders components/tag/demo/component-token.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="margin-inline-end: 0; padding-bottom: 8px;"
   >
     <span
       class="ant-tag ant-tag-red-inverse"
@@ -1126,7 +1160,7 @@ exports[`renders components/tag/demo/component-token.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="margin-inline-end: 0; padding-bottom: 8px;"
   >
     <span
       class="ant-tag ant-tag-magenta ant-tag-borderless"
@@ -1185,7 +1219,7 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
     >
       <div
         class="ant-space-item"
-        style="padding-bottom: 8px;"
+        style="margin-inline-end: 0; padding-bottom: 8px;"
       >
         <span
           class="ant-tag"
@@ -1198,7 +1232,7 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom: 8px;"
+        style="margin-inline-end: 0; padding-bottom: 8px;"
       >
         <span
           class="ant-tag"
@@ -1232,7 +1266,7 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom: 8px;"
+        style="margin-inline-end: 0; padding-bottom: 8px;"
       >
         <span
           class="ant-tag"
@@ -1397,7 +1431,7 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="margin-inline-end: 0; padding-bottom: 8px;"
   >
     <span
       class="ant-tag ant-tag-has-color"
@@ -1429,7 +1463,7 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="margin-inline-end: 0; padding-bottom: 8px;"
   >
     <span
       class="ant-tag ant-tag-has-color"
@@ -1461,7 +1495,7 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="margin-inline-end: 0; padding-bottom: 8px;"
   >
     <span
       class="ant-tag ant-tag-has-color"
@@ -1546,7 +1580,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-success"
@@ -1556,7 +1590,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-processing"
@@ -1566,7 +1600,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-error"
@@ -1576,7 +1610,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-warning"
@@ -1611,7 +1645,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-success"
@@ -1645,7 +1679,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-processing"
@@ -1676,7 +1710,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-error"
@@ -1708,7 +1742,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-warning"
@@ -1742,7 +1776,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
+      style="margin-inline-end: 0; padding-bottom: 8px;"
     >
       <span
         class="ant-tag ant-tag-default"

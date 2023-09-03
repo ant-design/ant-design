@@ -384,6 +384,7 @@ exports[`renders components/modal/demo/confirm.tsx extend context correctly 1`] 
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -396,6 +397,7 @@ exports[`renders components/modal/demo/confirm.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -408,6 +410,7 @@ exports[`renders components/modal/demo/confirm.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-dashed"
@@ -420,6 +423,7 @@ exports[`renders components/modal/demo/confirm.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
+    style="padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-dashed"
@@ -493,6 +497,7 @@ exports[`renders components/modal/demo/footer-render.tsx extend context correctl
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px;"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -526,6 +531,7 @@ exports[`renders components/modal/demo/hooks.tsx extend context correctly 1`] = 
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -538,6 +544,7 @@ exports[`renders components/modal/demo/hooks.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -550,6 +557,7 @@ exports[`renders components/modal/demo/hooks.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -583,6 +591,7 @@ exports[`renders components/modal/demo/locale.tsx extend context correctly 1`] =
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px;"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -921,6 +930,7 @@ exports[`renders components/modal/demo/static-info.tsx extend context correctly 
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -933,6 +943,7 @@ exports[`renders components/modal/demo/static-info.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -945,6 +956,7 @@ exports[`renders components/modal/demo/static-info.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -957,6 +969,7 @@ exports[`renders components/modal/demo/static-info.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
+    style="padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"

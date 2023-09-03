@@ -6,6 +6,7 @@ exports[`renders components/date-picker/demo/basic.tsx correctly 1`] = `
 >
   <div
     class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-picker"
@@ -49,6 +50,7 @@ exports[`renders components/date-picker/demo/basic.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-picker"
@@ -92,6 +94,7 @@ exports[`renders components/date-picker/demo/basic.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-picker"
@@ -135,6 +138,7 @@ exports[`renders components/date-picker/demo/basic.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-picker"
@@ -3736,6 +3740,7 @@ exports[`renders components/date-picker/demo/start-end.tsx correctly 1`] = `
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end:8px"
   >
     <div
       class="ant-picker"
@@ -3830,6 +3835,7 @@ exports[`renders components/date-picker/demo/status.tsx correctly 1`] = `
 >
   <div
     class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-picker ant-picker-status-error"
@@ -3874,6 +3880,7 @@ exports[`renders components/date-picker/demo/status.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-picker ant-picker-status-warning"
@@ -3918,6 +3925,7 @@ exports[`renders components/date-picker/demo/status.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-picker ant-picker-range ant-picker-status-error"
@@ -4467,6 +4475,7 @@ exports[`renders components/date-picker/demo/switchable.tsx correctly 1`] = `
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end:8px"
   >
     <div
       class="ant-select ant-select-single ant-select-show-arrow"

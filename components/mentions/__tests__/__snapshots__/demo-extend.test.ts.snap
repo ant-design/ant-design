@@ -219,6 +219,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
             >
               <div
                 class="ant-space-item"
+                style="margin-inline-end: 8px; padding-bottom: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-primary"
@@ -231,6 +232,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
               </div>
               <div
                 class="ant-space-item"
+                style="padding-bottom: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-default"
@@ -388,6 +390,7 @@ exports[`renders components/mentions/demo/status.tsx extend context correctly 1`
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-mentions ant-mentions-status-error"

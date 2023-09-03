@@ -7,6 +7,7 @@ exports[`renders components/alert/demo/action.tsx extend context correctly 1`] =
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-success"
@@ -83,6 +84,7 @@ exports[`renders components/alert/demo/action.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-error ant-alert-with-description"
@@ -139,6 +141,7 @@ exports[`renders components/alert/demo/action.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-warning ant-alert-no-icon"
@@ -232,6 +235,7 @@ exports[`renders components/alert/demo/action.tsx extend context correctly 1`] =
         >
           <div
             class="ant-space-item"
+            style="margin-bottom: 8px;"
           >
             <button
               class="ant-btn ant-btn-primary ant-btn-sm"
@@ -300,6 +304,7 @@ exports[`renders components/alert/demo/banner.tsx extend context correctly 1`] =
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-warning ant-alert-banner"
@@ -338,6 +343,7 @@ exports[`renders components/alert/demo/banner.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-warning ant-alert-banner"
@@ -402,6 +408,7 @@ exports[`renders components/alert/demo/banner.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-warning ant-alert-no-icon ant-alert-banner"
@@ -490,6 +497,7 @@ exports[`renders components/alert/demo/closable.tsx extend context correctly 1`]
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-warning ant-alert-no-icon"
@@ -595,6 +603,7 @@ exports[`renders components/alert/demo/custom-icon.tsx extend context correctly 
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-success ant-alert-no-icon"
@@ -614,6 +623,7 @@ exports[`renders components/alert/demo/custom-icon.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-success"
@@ -652,6 +662,7 @@ exports[`renders components/alert/demo/custom-icon.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-info"
@@ -690,6 +701,7 @@ exports[`renders components/alert/demo/custom-icon.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-warning"
@@ -728,6 +740,7 @@ exports[`renders components/alert/demo/custom-icon.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-error"
@@ -766,6 +779,7 @@ exports[`renders components/alert/demo/custom-icon.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-success ant-alert-with-description"
@@ -809,6 +823,7 @@ exports[`renders components/alert/demo/custom-icon.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-info ant-alert-with-description"
@@ -852,6 +867,7 @@ exports[`renders components/alert/demo/custom-icon.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-warning ant-alert-with-description"
@@ -948,6 +964,7 @@ exports[`renders components/alert/demo/description.tsx extend context correctly 
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-success ant-alert-with-description ant-alert-no-icon"
@@ -972,6 +989,7 @@ exports[`renders components/alert/demo/description.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
@@ -996,6 +1014,7 @@ exports[`renders components/alert/demo/description.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-warning ant-alert-with-description ant-alert-no-icon"
@@ -1067,6 +1086,7 @@ exports[`renders components/alert/demo/icon.tsx extend context correctly 1`] = `
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-success"
@@ -1105,6 +1125,7 @@ exports[`renders components/alert/demo/icon.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-info"
@@ -1143,6 +1164,7 @@ exports[`renders components/alert/demo/icon.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-warning"
@@ -1207,6 +1229,7 @@ exports[`renders components/alert/demo/icon.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-error"
@@ -1246,6 +1269,7 @@ exports[`renders components/alert/demo/icon.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-success ant-alert-with-description"
@@ -1289,6 +1313,7 @@ exports[`renders components/alert/demo/icon.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-info ant-alert-with-description"
@@ -1332,6 +1357,7 @@ exports[`renders components/alert/demo/icon.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-warning ant-alert-with-description"
@@ -1455,6 +1481,7 @@ exports[`renders components/alert/demo/smooth-closed.tsx extend context correctl
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-success ant-alert-no-icon"
@@ -1500,6 +1527,7 @@ exports[`renders components/alert/demo/smooth-closed.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <p>
       click the close button to see the effect
@@ -1542,6 +1570,7 @@ exports[`renders components/alert/demo/style.tsx extend context correctly 1`] = 
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-success ant-alert-no-icon"
@@ -1561,6 +1590,7 @@ exports[`renders components/alert/demo/style.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-info ant-alert-no-icon"
@@ -1580,6 +1610,7 @@ exports[`renders components/alert/demo/style.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-alert ant-alert-warning ant-alert-no-icon"

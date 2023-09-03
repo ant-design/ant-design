@@ -2224,6 +2224,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 16px;"
   >
     <div
       class="ant-row ant-row-middle"
@@ -2233,6 +2234,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
       >
         <div
           class="ant-space-item"
+          style="margin-inline-end: 8px;"
         >
           <div
             class="ant-col"
@@ -2633,6 +2635,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 16px;"
   >
     <div
       class="ant-row ant-row-middle"
@@ -2642,6 +2645,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
       >
         <div
           class="ant-space-item"
+          style="margin-inline-end: 8px;"
         >
           <div
             class="ant-col"
@@ -3269,6 +3273,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
       >
         <div
           class="ant-space-item"
+          style="margin-inline-end: 8px;"
         >
           <div
             class="ant-col"
@@ -3896,6 +3901,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-row ant-row-middle"
@@ -3905,6 +3911,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
       >
         <div
           class="ant-space-item"
+          style="margin-inline-end: 8px;"
         >
           <span>
             Add title:
@@ -4318,6 +4325,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
       >
         <div
           class="ant-space-item"
+          style="margin-inline-end: 8px;"
         >
           <span>
             Horizontal layout:
@@ -6297,12 +6305,14 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px;"
   >
     <div
       class="ant-space ant-space-vertical"
     >
       <div
         class="ant-space-item"
+        style="margin-bottom: 8px;"
       >
         <div
           class="ant-color-picker-trigger ant-color-picker-sm"
@@ -6684,6 +6694,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
       </div>
       <div
         class="ant-space-item"
+        style="margin-bottom: 8px;"
       >
         <div
           class="ant-color-picker-trigger"
@@ -7454,6 +7465,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
     >
       <div
         class="ant-space-item"
+        style="margin-bottom: 8px;"
       >
         <div
           class="ant-color-picker-trigger ant-color-picker-sm"
@@ -7840,6 +7852,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
       </div>
       <div
         class="ant-space-item"
+        style="margin-bottom: 8px;"
       >
         <div
           class="ant-color-picker-trigger"
@@ -8623,6 +8636,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-color-picker-trigger"
@@ -9009,6 +9023,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-color-picker-trigger"

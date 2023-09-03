@@ -113,6 +113,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <h4>
         Select
@@ -120,6 +121,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <div
         class="ant-select ant-select-single ant-select-show-arrow"
@@ -223,6 +225,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <h4>
         TreeSelect
@@ -230,6 +233,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <div
         class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
@@ -332,6 +336,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <h4>
         Cascader
@@ -339,6 +344,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <div
         class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
@@ -453,6 +459,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <h4>
         Transfer
@@ -460,6 +467,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <div
         class="ant-transfer"
@@ -920,6 +928,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <h4>
         Table
@@ -927,6 +936,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <div
         class="ant-table-wrapper"
@@ -1019,6 +1029,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <h4>
         List

@@ -823,6 +823,7 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-row"

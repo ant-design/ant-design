@@ -396,6 +396,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-segmented"
@@ -618,6 +619,7 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-segmented ant-segmented-disabled"
@@ -770,6 +772,7 @@ exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-segmented"
@@ -930,6 +933,7 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-segmented ant-segmented-lg"
@@ -1013,6 +1017,7 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-segmented"
@@ -1188,6 +1193,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div>
       <div
@@ -1254,6 +1260,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div>
       <div

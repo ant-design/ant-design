@@ -7,6 +7,7 @@ exports[`renders components/progress/demo/circle.tsx extend context correctly 1`
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px; padding-bottom: 8px;"
   >
     <div
       aria-valuenow="75"
@@ -63,6 +64,7 @@ exports[`renders components/progress/demo/circle.tsx extend context correctly 1`
   </div>
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px; padding-bottom: 8px;"
   >
     <div
       aria-valuenow="70"
@@ -137,6 +139,7 @@ exports[`renders components/progress/demo/circle.tsx extend context correctly 1`
   </div>
   <div
     class="ant-space-item"
+    style="padding-bottom: 8px;"
   >
     <div
       aria-valuenow="100"
@@ -428,6 +431,7 @@ exports[`renders components/progress/demo/circle-mini.tsx extend context correct
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px; padding-bottom: 8px;"
   >
     <div
       aria-valuenow="30"
@@ -484,6 +488,7 @@ exports[`renders components/progress/demo/circle-mini.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px; padding-bottom: 8px;"
   >
     <div
       aria-valuenow="70"
@@ -558,6 +563,7 @@ exports[`renders components/progress/demo/circle-mini.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
+    style="padding-bottom: 8px;"
   >
     <div
       aria-valuenow="100"
@@ -641,6 +647,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <div
         aria-valuenow="50"
@@ -670,6 +677,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <div
         aria-valuenow="50"
@@ -734,7 +742,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-start: 30px;"
+      style="margin-inline-end: 30px;"
     >
       <div
         aria-valuenow="50"
@@ -791,7 +799,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-inline-start: 30px;"
+      style="margin-inline-end: 30px;"
     >
       <div
         aria-valuenow="50"
@@ -930,7 +938,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-start: 30px;"
+      style="margin-inline-end: 30px;"
     >
       <div
         aria-valuenow="50"
@@ -987,7 +995,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-inline-start: 30px;"
+      style="margin-inline-end: 30px;"
     >
       <div
         aria-valuenow="50"
@@ -1127,7 +1135,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="padding-bottom: 30px;"
+      style="margin-inline-end: 30px; padding-bottom: 30px;"
     >
       <div
         aria-valuenow="50"
@@ -1160,7 +1168,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 30px;"
+      style="margin-inline-end: 30px; padding-bottom: 30px;"
     >
       <div
         aria-valuenow="50"
@@ -1193,7 +1201,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 30px;"
+      style="margin-inline-end: 30px; padding-bottom: 30px;"
     >
       <div
         aria-valuenow="50"
@@ -1270,6 +1278,7 @@ exports[`renders components/progress/demo/dashboard.tsx extend context correctly
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px; padding-bottom: 8px;"
   >
     <div
       aria-valuenow="75"
@@ -1326,6 +1335,7 @@ exports[`renders components/progress/demo/dashboard.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
+    style="padding-bottom: 8px;"
   >
     <div
       aria-valuenow="75"
@@ -1487,6 +1497,7 @@ exports[`renders components/progress/demo/format.tsx extend context correctly 1`
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px; padding-bottom: 8px;"
   >
     <div
       aria-valuenow="75"
@@ -1543,6 +1554,7 @@ exports[`renders components/progress/demo/format.tsx extend context correctly 1`
   </div>
   <div
     class="ant-space-item"
+    style="padding-bottom: 8px;"
   >
     <div
       aria-valuenow="100"
@@ -1662,6 +1674,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px; padding-bottom: 8px;"
     >
       <div
         aria-valuenow="90"
@@ -1738,6 +1751,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px; padding-bottom: 8px;"
     >
       <div
         aria-valuenow="100"
@@ -1831,6 +1845,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
     </div>
     <div
       class="ant-space-item"
+      style="padding-bottom: 8px;"
     >
       <div
         aria-valuenow="93"
@@ -1912,6 +1927,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px; padding-bottom: 8px;"
     >
       <div
         aria-valuenow="90"
@@ -1988,6 +2004,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px; padding-bottom: 8px;"
     >
       <div
         aria-valuenow="100"
@@ -2081,6 +2098,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
     </div>
     <div
       class="ant-space-item"
+      style="padding-bottom: 8px;"
     >
       <div
         aria-valuenow="93"
@@ -2500,6 +2518,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px; padding-bottom: 8px;"
     >
       <div
         aria-valuenow="75"
@@ -2556,6 +2575,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="padding-bottom: 8px;"
     >
       <div
         aria-valuenow="75"
@@ -2672,6 +2692,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px; padding-bottom: 8px;"
     >
       <div
         aria-valuenow="30"
@@ -2747,6 +2768,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="padding-bottom: 8px;"
     >
       <div
         aria-valuenow="30"
@@ -2833,6 +2855,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <div
         aria-valuenow="50"
@@ -2862,6 +2885,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <div
         aria-valuenow="50"
@@ -2926,7 +2950,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-start: 30px;"
+      style="margin-inline-end: 30px;"
     >
       <div
         aria-valuenow="50"
@@ -2983,7 +3007,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-inline-start: 30px;"
+      style="margin-inline-end: 30px;"
     >
       <div
         aria-valuenow="50"
@@ -3122,7 +3146,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-start: 30px;"
+      style="margin-inline-end: 30px;"
     >
       <div
         aria-valuenow="50"
@@ -3179,7 +3203,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-inline-start: 30px;"
+      style="margin-inline-end: 30px;"
     >
       <div
         aria-valuenow="50"
@@ -3319,7 +3343,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="padding-bottom: 30px;"
+      style="margin-inline-end: 30px; padding-bottom: 30px;"
     >
       <div
         aria-valuenow="50"
@@ -3352,7 +3376,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 30px;"
+      style="margin-inline-end: 30px; padding-bottom: 30px;"
     >
       <div
         aria-valuenow="50"
@@ -3385,7 +3409,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 30px;"
+      style="margin-inline-end: 30px; padding-bottom: 30px;"
     >
       <div
         aria-valuenow="50"

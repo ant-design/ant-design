@@ -6,6 +6,7 @@ exports[`renders components/badge/demo/basic.tsx extend context correctly 1`] = 
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end: 16px;"
   >
     <span
       class="ant-badge"
@@ -40,6 +41,7 @@ exports[`renders components/badge/demo/basic.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
+    style="margin-inline-end: 16px;"
   >
     <span
       class="ant-badge"
@@ -111,12 +113,14 @@ exports[`renders components/badge/demo/change.tsx extend context correctly 1`] =
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
     >
       <div
         class="ant-space-item"
+        style="margin-inline-end: 24px;"
       >
         <span
           class="ant-badge"
@@ -254,6 +258,7 @@ exports[`renders components/badge/demo/change.tsx extend context correctly 1`] =
     >
       <div
         class="ant-space-item"
+        style="margin-inline-end: 24px;"
       >
         <span
           class="ant-badge"
@@ -320,6 +325,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -336,6 +342,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -352,6 +359,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -368,6 +376,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -384,6 +393,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -400,6 +410,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -416,6 +427,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -432,6 +444,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -448,6 +461,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -464,6 +478,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -480,6 +495,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -496,6 +512,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -542,6 +559,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -559,6 +577,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -576,6 +595,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -621,6 +641,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge"
@@ -662,6 +683,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge"
@@ -703,6 +725,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge"
@@ -744,6 +767,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge"
@@ -785,6 +809,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge"
@@ -826,6 +851,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge"
@@ -867,6 +893,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge"
@@ -908,6 +935,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge"
@@ -949,6 +977,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge"
@@ -990,6 +1019,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge"
@@ -1031,6 +1061,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge"
@@ -1072,6 +1103,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge"
@@ -1113,6 +1145,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="padding-bottom: 16px;"
     >
       <span
         class="ant-badge"
@@ -1159,6 +1192,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1175,6 +1209,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1191,6 +1226,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1207,6 +1243,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1223,6 +1260,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1239,6 +1277,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1255,6 +1294,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1271,6 +1311,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1287,6 +1328,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1303,6 +1345,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1319,6 +1362,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1335,6 +1379,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 24px; padding-bottom: 16px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1351,6 +1396,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="padding-bottom: 16px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1377,6 +1423,7 @@ exports[`renders components/badge/demo/component-token.tsx extend context correc
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-badge"
@@ -1411,6 +1458,7 @@ exports[`renders components/badge/demo/component-token.tsx extend context correc
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-badge ant-badge-not-a-wrapper"
@@ -1447,6 +1495,7 @@ exports[`renders components/badge/demo/component-token.tsx extend context correc
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-badge"
@@ -1478,6 +1527,7 @@ exports[`renders components/badge/demo/component-token.tsx extend context correc
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1518,6 +1568,7 @@ exports[`renders components/badge/demo/dot.tsx extend context correctly 1`] = `
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px;"
   >
     <span
       class="ant-badge"
@@ -1616,6 +1667,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end: 16px; padding-bottom: 16px;"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
@@ -1623,6 +1675,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
     >
       <div
         class="ant-space-item"
+        style="margin-inline-end: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-badge"
@@ -1657,6 +1710,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
+        style="margin-inline-end: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-badge"
@@ -1691,6 +1745,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
+        style="margin-inline-end: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-badge"
@@ -1725,6 +1780,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
+        style="margin-inline-end: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-badge"
@@ -1760,6 +1816,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
+        style="margin-inline-end: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-badge ant-badge-status"
@@ -1780,6 +1837,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
+        style="margin-inline-end: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-badge ant-badge-status"
@@ -1800,6 +1858,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
+        style="margin-inline-end: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-badge ant-badge-status"
@@ -1820,6 +1879,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
+        style="margin-inline-end: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-badge ant-badge-status"
@@ -1840,6 +1900,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
+        style="padding-bottom: 16px;"
       >
         <span
           class="ant-badge ant-badge-status"
@@ -1863,6 +1924,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
+    style="padding-bottom: 16px;"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
@@ -1870,6 +1932,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
     >
       <div
         class="ant-space-item"
+        style="margin-inline-end: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-badge ant-badge-not-a-wrapper"
@@ -1885,6 +1948,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
+        style="margin-inline-end: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-badge ant-badge-not-a-wrapper"
@@ -1900,6 +1964,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
+        style="margin-inline-end: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-badge ant-badge-not-a-wrapper"
@@ -1916,6 +1981,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
+        style="margin-inline-end: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-badge"
@@ -1939,6 +2005,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
+        style="padding-bottom: 16px;"
       >
         <span
           class="ant-badge"
@@ -1973,6 +2040,7 @@ exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 1
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px;"
   >
     <button
       aria-checked="true"
@@ -1997,6 +2065,7 @@ exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 1
   </div>
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px;"
   >
     <span
       class="ant-badge ant-badge-not-a-wrapper"
@@ -2034,6 +2103,7 @@ exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 1
   </div>
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px;"
   >
     <span
       class="ant-badge ant-badge-not-a-wrapper"
@@ -2070,6 +2140,7 @@ exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 1
   </div>
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px;"
   >
     <span
       class="ant-badge ant-badge-not-a-wrapper"
@@ -2162,6 +2233,7 @@ exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`]
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end: 24px;"
   >
     <span
       class="ant-badge"
@@ -2206,6 +2278,7 @@ exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
+    style="margin-inline-end: 24px;"
   >
     <span
       class="ant-badge"
@@ -2229,6 +2302,7 @@ exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
+    style="margin-inline-end: 24px;"
   >
     <span
       class="ant-badge"
@@ -2285,6 +2359,7 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 16px;"
   >
     <div
       class="ant-ribbon-wrapper"
@@ -2327,6 +2402,7 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 16px;"
   >
     <div
       class="ant-ribbon-wrapper"
@@ -2369,6 +2445,7 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 16px;"
   >
     <div
       class="ant-ribbon-wrapper"
@@ -2411,6 +2488,7 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 16px;"
   >
     <div
       class="ant-ribbon-wrapper"
@@ -2453,6 +2531,7 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 16px;"
   >
     <div
       class="ant-ribbon-wrapper"
@@ -2495,6 +2574,7 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 16px;"
   >
     <div
       class="ant-ribbon-wrapper"
@@ -2537,6 +2617,7 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 16px;"
   >
     <div
       class="ant-ribbon-wrapper"
@@ -2631,6 +2712,7 @@ exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-ribbon-wrapper"
@@ -2660,6 +2742,7 @@ exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-ribbon-wrapper"
@@ -2689,6 +2772,7 @@ exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-ribbon-wrapper"
@@ -2720,6 +2804,7 @@ exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-ribbon-wrapper"
@@ -2791,6 +2876,7 @@ exports[`renders components/badge/demo/size.tsx extend context correctly 1`] = `
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end: 16px;"
   >
     <span
       class="ant-badge"
@@ -2869,6 +2955,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -2880,6 +2967,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -2891,6 +2979,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -2902,6 +2991,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -2929,6 +3019,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -2945,6 +3036,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -2961,6 +3053,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -2977,6 +3070,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -3019,6 +3113,7 @@ exports[`renders components/badge/demo/title.tsx extend context correctly 1`] = 
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end: 24px;"
   >
     <span
       class="ant-badge"

@@ -554,6 +554,7 @@ Array [
       >
         <div
           class="ant-space-item"
+          style="margin-inline-end: 8px;"
         >
           <button
             class="ant-btn ant-btn-primary"
@@ -566,6 +567,7 @@ Array [
         </div>
         <div
           class="ant-space-item"
+          style="margin-inline-end: 8px;"
         >
           <button
             class="ant-btn ant-btn-default"
@@ -19340,6 +19342,7 @@ exports[`renders components/form/demo/validate-only.tsx extend context correctly
             >
               <div
                 class="ant-space-item"
+                style="margin-inline-end: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-primary"
@@ -21392,6 +21395,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             >
               <div
                 class="ant-space-item"
+                style="margin-inline-end: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-primary"
@@ -27792,6 +27796,7 @@ exports[`renders components/form/demo/warning-only.tsx extend context correctly 
             >
               <div
                 class="ant-space-item"
+                style="margin-inline-end: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-primary"

@@ -355,7 +355,7 @@ exports[`renders components/image/demo/placeholder.tsx extend context correctly 
 >
   <div
     class="ant-space-item"
-    style="margin-inline-start: 12px;"
+    style="margin-inline-end: 12px;"
   >
     <div
       class="ant-image"
@@ -693,6 +693,7 @@ exports[`renders components/image/demo/preview-mask.tsx extend context correctly
     >
       <div
         class="ant-space-item"
+        style="margin-bottom: 8px;"
       >
         <span
           aria-label="zoom-in"

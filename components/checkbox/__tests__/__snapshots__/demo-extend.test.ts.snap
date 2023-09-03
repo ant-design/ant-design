@@ -222,6 +222,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px;"
     >
       <label
         class="ant-checkbox-wrapper"
@@ -242,6 +243,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px;"
     >
       <div>
         Bamboo
@@ -277,6 +279,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px;"
     >
       <label
         class="ant-radio-wrapper"
@@ -297,6 +300,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px;"
     >
       <div>
         Bamboo

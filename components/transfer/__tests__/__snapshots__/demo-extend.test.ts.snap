@@ -5442,6 +5442,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px;"
     >
       <button
         aria-checked="false"
@@ -10274,6 +10275,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-transfer ant-transfer-status-error"
@@ -12748,6 +12750,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px;"
     >
       <button
         aria-checked="false"

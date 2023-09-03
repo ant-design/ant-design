@@ -148,6 +148,7 @@ exports[`renders components/message/demo/other.tsx extend context correctly 1`] 
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -160,6 +161,7 @@ exports[`renders components/message/demo/other.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"

@@ -446,6 +446,7 @@ exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend contex
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -705,6 +706,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -736,6 +738,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -767,6 +770,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -798,6 +802,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -829,6 +834,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -860,6 +866,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -891,6 +898,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -922,6 +930,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -953,6 +962,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -984,6 +994,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -1015,6 +1026,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -1046,6 +1058,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -1077,6 +1090,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -1123,6 +1137,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -1155,6 +1170,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -1187,6 +1203,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="margin-inline-end: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -1219,6 +1236,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
+      style="padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -1290,6 +1308,7 @@ exports[`renders components/tooltip/demo/disabled.tsx extend context correctly 1
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px;"
   >
     <span
       class="ant-tooltip-disabled-compatible-wrapper"
@@ -1328,6 +1347,7 @@ exports[`renders components/tooltip/demo/disabled.tsx extend context correctly 1
   </div>
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px;"
   >
     <input
       class="ant-input ant-input-disabled"
@@ -1358,6 +1378,7 @@ exports[`renders components/tooltip/demo/disabled.tsx extend context correctly 1
   </div>
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px;"
   >
     <div
       class="ant-input-number ant-input-number-disabled"
@@ -1455,6 +1476,7 @@ exports[`renders components/tooltip/demo/disabled.tsx extend context correctly 1
   </div>
   <div
     class="ant-space-item"
+    style="margin-inline-end: 8px;"
   >
     <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"

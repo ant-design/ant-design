@@ -6,6 +6,7 @@ exports[`renders components/menu/demo/component-token.tsx extend context correct
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light"

@@ -2277,6 +2277,7 @@ exports[`renders components/upload/demo/max-count.tsx extend context correctly 1
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 24px;"
   >
     <span
       class="ant-upload-wrapper"

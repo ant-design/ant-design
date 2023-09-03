@@ -120,6 +120,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
 >
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked"
@@ -143,6 +144,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-disabled"
@@ -167,6 +169,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-radio-group ant-radio-group-outline"
@@ -252,6 +255,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-radio-group ant-radio-group-outline"
@@ -1008,6 +1012,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
   >
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <label
         class="ant-radio-wrapper ant-radio-wrapper-checked"
@@ -1032,6 +1037,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <label
         class="ant-radio-wrapper"
@@ -1055,6 +1061,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
     </div>
     <div
       class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
       <label
         class="ant-radio-wrapper"

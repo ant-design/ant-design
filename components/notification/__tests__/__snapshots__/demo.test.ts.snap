@@ -51,6 +51,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end:8px"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -129,6 +130,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end:8px"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -208,6 +210,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end:8px"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -286,6 +289,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end:8px"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -364,6 +368,7 @@ Array [
   >
     <div
       class="ant-space-item"
+      style="margin-inline-end:8px"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -550,6 +555,7 @@ exports[`renders components/notification/demo/with-icon.tsx correctly 1`] = `
 >
   <div
     class="ant-space-item"
+    style="margin-inline-end:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -562,6 +568,7 @@ exports[`renders components/notification/demo/with-icon.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
+    style="margin-inline-end:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -574,6 +581,7 @@ exports[`renders components/notification/demo/with-icon.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
+    style="margin-inline-end:8px"
   >
     <button
       class="ant-btn ant-btn-default"
