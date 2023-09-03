@@ -6,7 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import { isPresetSize, isValidNumber } from '../utils';
+import { isPresetSize, isValidGapNumber } from '../utils';
 
 describe('Space', () => {
   mountTest(Space);
@@ -230,9 +230,9 @@ describe('Space', () => {
 
   it('should isPresetSize & isValidNumber work', () => {
     const r1 = isPresetSize(0);
-    const r2 = isValidNumber(0);
+    const r2 = isValidGapNumber(0);
     const r3 = isPresetSize('small');
-    const r4 = isValidNumber(10);
+    const r4 = isValidGapNumber(10);
     expect(r1).toBeFalsy();
     expect(r2).toBeFalsy();
     expect(r3).toBeTruthy();
