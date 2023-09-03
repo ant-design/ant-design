@@ -54,13 +54,13 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
   const [horizontalSize, verticalSize] = Array.isArray(size) ? size : ([size, size] as const);
 
-  const isValidVertical = isValidGapNumber(verticalSize);
+  const isValidGapVerticalSize = isValidGapNumber(verticalSize);
 
-  const isValidHorizontal = isValidGapNumber(horizontalSize);
-
-  const supportFlexGap = useFlexGapSupport();
+  const isValidGapHorizontalSize = isValidGapNumber(horizontalSize);
 
   const childNodes = toArray(children, { keepEmpty: true });
+
+  const supportFlexGap = useFlexGapSupport();
 
   const mergedAlign = align === undefined && direction === 'horizontal' ? 'center' : align;
   const prefixCls = getPrefixCls('space', customizePrefixCls);
@@ -112,8 +112,8 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
   const spaceContext = React.useMemo<SpaceContextType>(
     () => ({
-      horizontalSize: isValidHorizontal ? horizontalSize : 0,
-      verticalSize: isValidVertical ? verticalSize : 0,
+      horizontalSize: isValidGapHorizontalSize ? horizontalSize : 0,
+      verticalSize: isValidGapVerticalSize ? verticalSize : 0,
       latestIndex,
       supportFlexGap,
     }),
@@ -131,16 +131,16 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     gapStyle.flexWrap = 'wrap';
 
     // Patch for gap not support
-    if (!supportFlexGap && isValidVertical) {
+    if (!supportFlexGap && isValidGapVerticalSize) {
       gapStyle.marginBottom = -verticalSize;
     }
   }
 
   if (supportFlexGap) {
-    if (isValidVertical) {
+    if (isValidGapVerticalSize) {
       gapStyle.rowGap = verticalSize;
     }
-    if (isValidHorizontal) {
+    if (isValidGapHorizontalSize) {
       gapStyle.columnGap = horizontalSize;
     }
   }
