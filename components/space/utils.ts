@@ -2,7 +2,7 @@ import type { SpaceSize } from '.';
 import type { SizeType } from '../config-provider/SizeContext';
 
 export function isPresetSize(size: SpaceSize): size is SizeType {
-  return typeof size === 'string' && ['small', 'middle', 'large'].includes(size);
+  return ['small', 'middle', 'large'].includes(size as string);
 }
 
 export function isValidGapNumber(size: SpaceSize): size is number {
