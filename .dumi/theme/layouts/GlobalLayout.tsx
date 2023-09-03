@@ -11,7 +11,13 @@ import { HappyProvider } from '@ant-design/happy-work-theme';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
 import { theme as antdTheme, App } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
-import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
+import {
+  createSearchParams,
+  useOutlet,
+  useSearchParams,
+  useServerInsertedHTML,
+  usePrefersColor,
+} from 'dumi';
 
 import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';
@@ -47,6 +53,7 @@ const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
   const { pathname } = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
+  const [, , setPrefersColor] = usePrefersColor();
   const [{ theme = [], direction, isMobile }, setSiteState] = useLayoutState<SiteState>({
     isMobile: false,
     direction: 'ltr',
@@ -70,10 +77,12 @@ const GlobalLayout: React.FC = () => {
           }
         }
         if (key === 'theme') {
+          const _theme = value.filter((t) => t !== 'light');
           nextSearchParams = createSearchParams({
             ...nextSearchParams,
-            theme: value.filter((t) => t !== 'light'),
+            theme: _theme,
           });
+          setPrefersColor(_theme.includes('dark') ? 'dark' : 'light');
         }
       });
 
@@ -95,6 +104,8 @@ const GlobalLayout: React.FC = () => {
     setSiteState({ theme: _theme, direction: _direction === 'rtl' ? 'rtl' : 'ltr' });
     // Handle isMobile
     updateMobileMode();
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
+    setPrefersColor(_theme.includes('dark') ? 'dark' : 'light');
 
     window.addEventListener('resize', updateMobileMode);
     return () => {

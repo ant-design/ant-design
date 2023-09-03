@@ -878,7 +878,7 @@ export default App;
 | `@tooltip-bg` | `colorBgSpotlight` | Global Token |
 | `@tooltip-arrow-width` | `sizePopupArrow` | Global Token |
 | `@tooltip-distance` | `marginXXS` | Global Token |
-| `@tooltip-arrow-color` | - | same as `@tooltip-bg`，Deprecated |
+| `@tooltip-arrow-color` | - | same as `@tooltip-bg`, Deprecated |
 | `@tooltip-border-radius` | `borderRadius` | Global Token |
 
 ### Transfer

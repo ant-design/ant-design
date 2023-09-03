@@ -17,6 +17,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="30"
@@ -41,6 +42,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="20"
@@ -51,6 +53,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="50"
@@ -101,6 +104,7 @@ Array [
     />
     <div
       aria-disabled="true"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="30"
@@ -116,7 +120,7 @@ Array [
       class="ant-slider-rail"
     />
     <div
-      class="ant-slider-track ant-slider-track-1"
+      class="ant-slider-track ant-slider-track-1 ant-slider-track-draggable"
       style="left:20%;width:30%"
     />
     <div
@@ -124,6 +128,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="20"
@@ -134,6 +139,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="50"
@@ -161,6 +167,7 @@ Array [
       />
       <div
         aria-disabled="false"
+        aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="30"
@@ -189,6 +196,7 @@ Array [
       />
       <div
         aria-disabled="false"
+        aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="20"
@@ -199,6 +207,7 @@ Array [
       />
       <div
         aria-disabled="false"
+        aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="50"
@@ -244,6 +253,7 @@ Array [
       </div>
       <div
         aria-disabled="false"
+        aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="26"
@@ -254,6 +264,7 @@ Array [
       />
       <div
         aria-disabled="false"
+        aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="37"
@@ -305,7 +316,7 @@ exports[`renders components/slider/demo/draggableTrack.tsx correctly 1`] = `
     class="ant-slider-rail"
   />
   <div
-    class="ant-slider-track ant-slider-track-1"
+    class="ant-slider-track ant-slider-track-1 ant-slider-track-draggable"
     style="left:20%;width:30%"
   />
   <div
@@ -313,6 +324,7 @@ exports[`renders components/slider/demo/draggableTrack.tsx correctly 1`] = `
   />
   <div
     aria-disabled="false"
+    aria-orientation="horizontal"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="20"
@@ -323,6 +335,7 @@ exports[`renders components/slider/demo/draggableTrack.tsx correctly 1`] = `
   />
   <div
     aria-disabled="false"
+    aria-orientation="horizontal"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="50"
@@ -351,6 +364,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="30"
@@ -375,6 +389,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="20"
@@ -385,6 +400,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="50"
@@ -435,6 +451,7 @@ exports[`renders components/slider/demo/icon-slider.tsx correctly 1`] = `
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="20"
       aria-valuemin="0"
       aria-valuenow="0"
@@ -496,6 +513,7 @@ exports[`renders components/slider/demo/input-number.tsx correctly 1`] = `
           />
           <div
             aria-disabled="false"
+            aria-orientation="horizontal"
             aria-valuemax="20"
             aria-valuemin="1"
             aria-valuenow="1"
@@ -613,6 +631,7 @@ exports[`renders components/slider/demo/input-number.tsx correctly 1`] = `
           />
           <div
             aria-disabled="false"
+            aria-orientation="horizontal"
             aria-valuemax="1"
             aria-valuemin="0"
             aria-valuenow="0"
@@ -746,6 +765,7 @@ Array [
     </div>
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="37"
@@ -817,6 +837,7 @@ Array [
     </div>
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="26"
@@ -827,6 +848,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="37"
@@ -897,6 +919,7 @@ Array [
     </div>
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="37"
@@ -971,6 +994,7 @@ Array [
     </div>
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="37"
@@ -1045,6 +1069,7 @@ Array [
     </div>
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="37"
@@ -1104,6 +1129,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="30"
@@ -1128,6 +1154,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="20"
@@ -1138,6 +1165,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="50"
@@ -1188,6 +1216,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="0"
@@ -1212,6 +1241,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="0"
@@ -1244,6 +1274,7 @@ Array [
       />
       <div
         aria-disabled="false"
+        aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="30"
@@ -1272,6 +1303,7 @@ Array [
       />
       <div
         aria-disabled="false"
+        aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="20"
@@ -1282,6 +1314,7 @@ Array [
       />
       <div
         aria-disabled="false"
+        aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="50"
@@ -1327,6 +1360,7 @@ Array [
       </div>
       <div
         aria-disabled="false"
+        aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="26"
@@ -1337,6 +1371,7 @@ Array [
       />
       <div
         aria-disabled="false"
+        aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="37"

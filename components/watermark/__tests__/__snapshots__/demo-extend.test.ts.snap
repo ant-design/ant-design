@@ -543,6 +543,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 />
                 <div
                   aria-disabled="false"
+                  aria-orientation="horizontal"
                   aria-valuemax="100"
                   aria-valuemin="1"
                   aria-valuenow="16"
@@ -617,6 +618,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 />
                 <div
                   aria-disabled="false"
+                  aria-orientation="horizontal"
                   aria-valuemax="100"
                   aria-valuemin="0"
                   aria-valuenow="11"
@@ -691,6 +693,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 />
                 <div
                   aria-disabled="false"
+                  aria-orientation="horizontal"
                   aria-valuemax="180"
                   aria-valuemin="-180"
                   aria-valuenow="-22"
