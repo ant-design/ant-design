@@ -941,11 +941,16 @@ describe('ConfigProvider support style and className props', () => {
     const { container } = render(
       <ConfigProvider tag={{ className: 'cp-tag', style: { backgroundColor: 'blue' } }}>
         <Tag>Test</Tag>
+        <Tag.CheckableTag checked>CheckableTag</Tag.CheckableTag>
       </ConfigProvider>,
     );
     const element = container.querySelector<HTMLSpanElement>('.ant-tag');
     expect(element).toHaveClass('cp-tag');
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
+
+    const checkableElement = container.querySelector<HTMLSpanElement>('.ant-tag-checkable');
+    expect(checkableElement).toHaveClass('cp-tag');
+    expect(checkableElement).toHaveStyle({ backgroundColor: 'blue' });
   });
 
   it('Should Table className & style works', () => {
