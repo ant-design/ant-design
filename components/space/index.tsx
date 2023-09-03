@@ -12,7 +12,7 @@ import { SpaceContextProvider } from './context';
 import type { SpaceContextType } from './context';
 import Item from './Item';
 import useStyle from './style';
-import { isPresetSize, isValidNumber } from './utils';
+import { isPresetSize, isValidGapNumber } from './utils';
 
 export { SpaceContext } from './context';
 
@@ -52,13 +52,13 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     ...otherProps
   } = props;
 
-  const supportFlexGap = useFlexGapSupport();
-
   const [horizontalSize, verticalSize] = Array.isArray(size) ? size : ([size, size] as const);
 
-  const isValidVertical = isValidNumber(verticalSize);
+  const isValidVertical = isValidGapNumber(verticalSize);
 
-  const isValidHorizontal = isValidNumber(horizontalSize);
+  const isValidHorizontal = isValidGapNumber(horizontalSize);
+
+  const supportFlexGap = useFlexGapSupport();
 
   const childNodes = toArray(children, { keepEmpty: true });
 
